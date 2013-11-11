@@ -1,0 +1,1137 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"arr",
+				"array"
+			],
+			[
+				"b",
+				"bold"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"bl",
+				"inline-block"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"arra",
+				"array"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"if",
+				"if	if …"
+			],
+			[
+				"n",
+				"nowrap"
+			],
+			[
+				"w",
+				"wob	word-break"
+			],
+			[
+				"detail",
+				"detail-author"
+			],
+			[
+				"remove",
+				"removeClass	.removeClass"
+			],
+			[
+				"add",
+				"addClass	addClass"
+			],
+			[
+				"cta",
+				"cta-int"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"bra",
+				"border-radius"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"tac",
+				"table-cell"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"fetc",
+				"fetch_videos"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"tex",
+				"textcolour"
+			],
+			[
+				"IN",
+				"inline-block"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"on",
+				"on"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"text",
+				"textcolour"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"rgb",
+				"rgba()"
+			],
+			[
+				"contact_a",
+				"contact_area_usa"
+			],
+			[
+				"conta",
+				"contact_sales"
+			],
+			[
+				"cred",
+				"credit_cast"
+			],
+			[
+				"cedi",
+				"credit_ex_prod"
+			],
+			[
+				"bdrr",
+				"border-right"
+			],
+			[
+				"li",
+				"line-height"
+			],
+			[
+				"t",
+				"text-bottom"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"te",
+				"textcolour"
+			],
+			[
+				"tal",
+				"text-align"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"load",
+				"load_library	CI - Load Library"
+			],
+			[
+				"dar",
+				"dark-grey"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"sma",
+				"small-play-button"
+			],
+			[
+				"video",
+				"videos"
+			],
+			[
+				"vide",
+				"videotags"
+			],
+			[
+				"c",
+				"center"
+			],
+			[
+				"re",
+				"rem"
+			],
+			[
+				"scr",
+				"scroll"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"bordr",
+				"border"
+			],
+			[
+				"help-d",
+				"help-desert-source"
+			],
+			[
+				"help-de",
+				"help-desert-quote"
+			],
+			[
+				"help-des",
+				"help-desert-cta"
+			],
+			[
+				"help",
+				"help-h1"
+			],
+			[
+				"hel",
+				"help-subnav3"
+			],
+			[
+				"bts",
+				"bts-invisibles"
+			],
+			[
+				"bt",
+				"bts-warning"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"da",
+				"dark-grey"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"r",
+				"right	(r)"
+			],
+			[
+				"ligh",
+				"orange-light"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"str",
+				"strong"
+			],
+			[
+				"slideshow",
+				"slideshow_north"
+			],
+			[
+				"doc",
+				"doc_f	Function"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"ima",
+				"image-url"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"rep",
+				"repeat-x"
+			],
+			[
+				"mrg",
+				"margin-right"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"image",
+				"image_width"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
+				"font-st",
+				"font-style"
+			],
+			[
+				"jquery",
+				"jquery	<script> (jQuery google ajax api)"
+			],
+			[
+				"ci_",
+				"cairo_pattern_get_matrix"
+			],
+			[
+				"toggle",
+				".toggle	toggle (show/hide)"
+			],
+			[
+				"addP",
+				"addPhoto"
+			],
+			[
+				"jq",
+				"jQuery	jQuery (Select or Create DOM Element)"
+			],
+			[
+				"ja",
+				"jQuery.ajaxSetup	jQuery.ajaxSetup"
+			],
+			[
+				"f",
+				"fixed	(f)"
+			],
+			[
+				"left",
+				"left"
+			],
+			[
+				"bott",
+				"bottombar"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"paddin",
+				"padding	padding-top: length"
+			],
+			[
+				"api",
+				"apikey"
+			],
+			[
+				"list",
+				"listid"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Java/Ant.sublime-build",
+	"command_palette":
+	{
+		"height": 49.0,
+		"selected_items":
+		[
+			[
+				"synmus",
+				"Set Syntax: HTML with mustaches"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pre",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"eta",
+				"Emmet: Rename Tag"
+			],
+			[
+				"emm",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"u",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"fet",
+				"Fetch"
+			],
+			[
+				"up",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"doc",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Function"
+			],
+			[
+				"se",
+				"Set Syntax: SCSS"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Remove Package"
+			],
+			[
+				"ci",
+				"Package Control: Install Package"
+			],
+			[
+				"jq",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"set",
+				"Set Syntax: HTML"
+			],
+			[
+				"",
+				"Fetch"
+			],
+			[
+				"php",
+				"Snippet: Add the MIT license to a plain text file"
+			],
+			[
+				"paca",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tim/Work/Active/Europeana/Style Guide/patternlab-php-master/source/_patterns/00-atoms/05-buttons/00-buttons.mustache",
+		"/Users/tim/Work/Active/Europeana/Style Guide/patternlab-php-master/source/_patterns/00-atoms/00-global/01-fonts.mustache",
+		"/Users/tim/Work/Active/Europeana/Style Guide/patternlab-php-master/source/_patterns/00-atoms/00-global/03-visibility.mustache",
+		"/Users/tim/Work/Active/Europeana/Style Guide/patternlab-php-master/source/_patterns/04-pages/01-blog.mustache",
+		"/Users/tim/Work/Active/Europeana/Style Guide/patternlab-php-master/source/css/scss/generic/_variables.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_explore.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore/take_action.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/common.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore/explore_home.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_icons.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore/explore_detail.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_home.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/home.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/fancybox/jquery.fancybox.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/explore.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_navigation.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore/understand.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_buttons.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/head.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/Explore_take_action.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/touche.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/gallery/Explore_gallery_list.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/config.rb",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/stylesheets/screen.css",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/link_list.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_fancybox.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/Explore_detail_cta.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/libraries/Vimeo.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/research.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/behindthescenes.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/vimeo.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/.htaccess",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/cache/vimeo/d862280f5fbfc76c2cf6cce6732dc0d0.cache",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/.htaccess",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/core/MY_Controller.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/navigation/explore_nav.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/Explore-detail-author.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/Explore-detail.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/gallery/gallery_list.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/addons/apps/perch_gallery/templates/gallery/image.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/print.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/screen.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/contact.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/language/spanish/widc_lang.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/language/english/widc_lang.php",
+		"/Users/tim/Downloads/entypo91283/index.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/take_action.html",
+		"/Users/tim/Downloads/straightnochaser.co.uk-logs/straightnochaser.co.uk-error_log",
+		"/Users/tim/Downloads/entypo91283/lte-ie7.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/topnav_explore.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/pages/explore_section.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/footer.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/config/routes.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/globalnav.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/globalnav_explore.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore_home.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore_detail.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/explore.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/stylesheets/.gitignore",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/.gitignore",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/prelaunch.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_css_animation.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_global.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/navigation/explore_sequential.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/link.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/explore_section.html",
+		"/Users/tim/Work/Active/Marc Silver/Websites/Ver4/admin/templates/content/bg_image.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/pages/projects.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/perchtrigger/explore.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/home.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/twitterize.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/explore.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/_base.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_prelaunch.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/topnav.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_sponsors.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/help.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/screenings.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/events/listing/custom-listing-day.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_screenings.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/EPK.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/config/buckets.php",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/User/GitGutter.sublime-settings",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/GitGutter/GitGutter.sublime-settings",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/buzz.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_about.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/about.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_buzz.scss",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/WordCount/WordCount.sublime-settings",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_contact.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_carousel.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/subnav.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/tweet.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/perchtrigger/reviews.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/hp_press.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/press.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/perchtrigger/home.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/config/production/database.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/pages.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/reviews/index.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/twitter.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/review-rating.html",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/carousel/responsive-carousel.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/partials/secondary-nav.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_forms.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/events/event.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/libs/modernizr.js",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/views/custom404.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/js/tipTip/jquery.tipTip.js",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_tipTip.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/content/review.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/config/config.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/index.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/config/staging/database.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/screenings.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/controllers/about.php",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/gallery/gallery-list.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/events/listing/event-day.html",
+		"/Users/tim/Downloads/perch_events_v1.7/events/events.css",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/templates/events/listing/calendar.html",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_you_can_help.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/-/sass/partials/_events.scss",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/public_html/admin/config/apps.php",
+		"/Users/tim/Downloads/bootstrap/css/bootstrap.css",
+		"/Users/tim/Library/Application Support/Sublime Text 2/Packages/Camaleon/Camaleon.sublime-settings",
+		"/Users/tim/Work/Active/Who is Dayani Cristal/Websites/WIDC/application/config/config.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<project>",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"detail",
+			"text-shadow",
+			"@extend %cta_button;",
+			"nav-action",
+			"lighten",
+			"site_url",
+			"action",
+			"minion",
+			"explore_btn_style",
+			"-webkit-font-smoothing",
+			"-webkit-font-smoothing ",
+			".nav-icon",
+			"action",
+			"cta_button",
+			"cta",
+			"box-",
+			"$videos",
+			"videos",
+			"journey_sl",
+			"1em",
+			"cl-effect-5",
+			"cl-effect-11",
+			"cl-effect-4",
+			"imagelisting",
+			"detail-contents",
+			"explore_cta",
+			"$explore_section",
+			"explore_section",
+			"$explore_main",
+			"open_section",
+			"explore_section",
+			"explore_main",
+			"$explore ",
+			"$explore",
+			"explore",
+			"detail_actions",
+			"act",
+			"#explore",
+			"cta_button",
+			"icon",
+			"explore_main",
+			"explore_bigtext",
+			"explore_cta",
+			"cta_button",
+			"cta",
+			"extend",
+			"$cta",
+			"trasp_light",
+			"trasp",
+			"rgba(#f7f7f3, 0.85)",
+			"span",
+			"action",
+			"home",
+			"topnav",
+			"inner_nav",
+			"cta",
+			"inner_nav",
+			"explore_bigtext",
+			"inner_nav",
+			"explorenav",
+			"info",
+			"detail_photos",
+			"inner_nav",
+			"detail_photos",
+			"interact",
+			"li",
+			"ul",
+			"interact",
+			"big-play-button",
+			"lau",
+			"inner_nav",
+			"innernav",
+			"cta",
+			"invert",
+			"$('#explore_main')",
+			"$target",
+			"content",
+			"btn-launch",
+			"brand",
+			"FadeIn",
+			"hpcon",
+			"transpa",
+			"transition",
+			"transi",
+			"bylin",
+			"log",
+			"$this->prelaunch",
+			"font-weight",
+			"mysite",
+			"images",
+			"cine",
+			"inline-blo",
+			"inclu",
+			"controls",
+			"url(images/controls.png)",
+			"div",
+			"box",
+			"$self",
+			"quote",
+			"scrollTop",
+			".error",
+			".btn {",
+			"input",
+			".subtitle",
+			"+a",
+			"div",
+			"h2",
+			".box",
+			"div",
+			".subgrid",
+			".nav-about",
+			"slow",
+			"wordpress_8",
+			"embecosm.uc48.net",
+			"nextprev",
+			"bp1",
+			"FadeInLeft",
+			"social",
+			"prelau",
+			"450",
+			"retweet",
+			"retweeted",
+			"retweeted_status",
+			"default",
+			"$_GET['expiry']",
+			"globa",
+			"globalnav",
+			"a.help-cta"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"embecosm.site",
+			"./",
+			"bts",
+			"TWITTERIZE",
+			"JQTWEET",
+			".",
+			"http://responsive.is/img"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 110.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"button",
+				"public_html/-/sass/partials/_buttons.scss"
+			],
+			[
+				"explsc",
+				"public_html/-/sass/partials/_explore.scss"
+			],
+			[
+				"engl",
+				"application/language/english/widc_lang.php"
+			],
+			[
+				"explore",
+				"application/controllers/explore.php"
+			],
+			[
+				"home",
+				"public_html/-/sass/partials/_home.scss"
+			],
+			[
+				"hea",
+				"application/views/partials/head.php"
+			],
+			[
+				"icon",
+				"public_html/-/sass/partials/_icons.scss"
+			],
+			[
+				"link",
+				"public_html/admin/templates/content/link_list.html"
+			],
+			[
+				"htacc",
+				"public_html/.htaccess"
+			],
+			[
+				"my",
+				"application/core/MY_Controller.php"
+			],
+			[
+				"comm",
+				"public_html/-/js/common.js"
+			],
+			[
+				"screesc",
+				"public_html/-/sass/screen.scss"
+			],
+			[
+				"expls",
+				"public_html/-/sass/partials/_explore.scss"
+			],
+			[
+				"footer",
+				"application/views/partials/footer.php"
+			],
+			[
+				"route",
+				"application/config/routes.php"
+			],
+			[
+				"topn",
+				"application/views/partials/topnav.php"
+			],
+			[
+				"foot",
+				"application/views/partials/footer.php"
+			],
+			[
+				"scree",
+				"public_html/-/sass/partials/_screenings.scss"
+			],
+			[
+				"custom-listing-day",
+				"public_html/admin/templates/events/listing/custom-listing-day.html"
+			],
+			[
+				"com",
+				"public_html/-/js/common.js"
+			],
+			[
+				"top",
+				"application/views/partials/topnav.php"
+			],
+			[
+				"about",
+				"application/views/about.php"
+			],
+			[
+				"navi",
+				"public_html/-/sass/partials/_navigation.scss"
+			],
+			[
+				"buzz",
+				"public_html/-/sass/partials/_buzz.scss"
+			],
+			[
+				"wi",
+				"application/language/english/widc_lang.php"
+			],
+			[
+				"widc",
+				"application/language/spanish/widc_lang.php"
+			],
+			[
+				"abou",
+				"public_html/-/sass/partials/_about.scss"
+			],
+			[
+				"common",
+				"public_html/-/js/common.js"
+			],
+			[
+				"foo",
+				"application/views/partials/footer.php"
+			],
+			[
+				"sub",
+				"application/views/partials/subnav.php"
+			],
+			[
+				"page",
+				"application/controllers/pages.php"
+			],
+			[
+				"wid",
+				"application/language/spanish/widc_lang.php"
+			],
+			[
+				"navig",
+				"public_html/-/sass/partials/_navigation.scss"
+			],
+			[
+				"head",
+				"application/views/partials/head.php"
+			],
+			[
+				"scre",
+				"public_html/-/sass/partials/_screenings.scss"
+			],
+			[
+				"spo",
+				"public_html/-/sass/partials/_sponsors.scss"
+			],
+			[
+				"lang",
+				"application/language/spanish/widc_lang.php"
+			],
+			[
+				"abo",
+				"application/controllers/about.php"
+			],
+			[
+				"rev",
+				"public_html/admin/templates/content/review-rating.html"
+			],
+			[
+				"glob",
+				"public_html/-/sass/partials/_global.scss"
+			],
+			[
+				"ho",
+				"public_html/-/sass/partials/_home.scss"
+			],
+			[
+				"pre",
+				"public_html/-/sass/partials/_prelaunch.scss"
+			],
+			[
+				"prel",
+				"application/views/prelaunch.php"
+			],
+			[
+				"rout",
+				"application/config/routes.php"
+			],
+			[
+				"vime",
+				"application/libraries/Vimeo.php"
+			],
+			[
+				"js",
+				"public_html/-/js/common.js"
+			],
+			[
+				"help",
+				"application/views/help.php"
+			],
+			[
+				"sc",
+				"public_html/-/sass/screen.scss"
+			],
+			[
+				"media",
+				"public_html/-/js/fancybox/helpers/jquery.fancybox-media.js"
+			],
+			[
+				"base",
+				"public_html/-/sass/_base.scss"
+			],
+			[
+				"u",
+				"untitled"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/tim/Work/Active/Chevin/chevin.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true
+}
