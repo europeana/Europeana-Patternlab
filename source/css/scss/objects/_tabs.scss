@@ -9,7 +9,7 @@
 	li {
 		display: table-cell;
 		text-align: center;
-		border-right: 1px solid $gray-light-3;
+		border-right: 1px solid $gray-light;
 
 		&:last-child {
 			border-right: 0;
@@ -22,7 +22,7 @@
 		background: $gray;
 
 		&:hover, &:focus {
-			background: $gray-light-3;
+			background: $gray-light;
 		}
 
 		&.active {

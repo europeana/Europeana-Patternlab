@@ -7,12 +7,7 @@ $white : #fff;
 $black : #212121;
 $deepred: #B13030;
 $gray : #727272;
-$gray-light : #E2E2E2;
-$gray-light-2 : #D2D2D2;
-
-$gray-light-3 : #ddd;
-$gray-light-4 : #bbb;
-$gray-med : #666;
+$gray-light : #D2D2D2;
 $gray-dark : #333;
 $gray-dark-2 : #131313;
 
@@ -20,6 +15,8 @@ $textcolour_head: $black;
 $textcolour_body: $gray;
 $textcolour_highlight: $deepred;
 $textcolour_link: $deepred;
+
+$text_secondary: $gray-light;
 
 
 $dim : rgba(0,0,0,0.5);

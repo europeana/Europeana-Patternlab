@@ -1,18 +1,73 @@
 /*------------------------------------*\
     $Table
 \*------------------------------------*/
+
+$tborder-color: $text_secondary;
+$thead-color: lighten($text_secondary, 10%);
+
 table {
 	border-collapse: collapse; 
 	border-spacing: 0; 
-	border: 1px solid $gray;
+	border: 1px solid $tborder-color;
 	width: 100%;
+	empty-cells: show;
+	margin-bottom: 1rem;
+	color: $textcolour_body;
 }
+
+td, 
 th {
-	text-align: left;
-	border: 1px solid $gray;
-	padding: 0.2em;
+    border-left: 1px solid $tborder-color;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 6px 12px; /* cell padding */
 }
+
+td:first-child,
+th:first-child {
+    border-left-width: 0;
+}
+
+thead {
+    background: $thead-color;
+    color: $textcolour_head;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
 td {
-	border: 1px solid $gray;
-	padding: 0.2em;
+    background-color: transparent;
+}
+
+/* nth-child selector for modern browsers */
+.table-striped tr:nth-child(2n-1) td {
+    background-color: lighten($text_secondary, 15%);
+}
+
+/* BORDERED TABLES */
+.table-bordered td {
+    border-bottom: 1px solid $tborder-color;
+}
+.table-bordered tbody > tr:last-child td,
+.table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+
+/* HORIZONTAL BORDERED TABLES */
+
+.table-horizontal td,
+.table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid $tborder-color;
+}
+.table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
 }

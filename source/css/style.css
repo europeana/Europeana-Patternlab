@@ -138,11 +138,11 @@ body {
 
 /* Links */
 a {
-  color: #333333;
+  color: inherit;
   text-decoration: none;
   outline: 0; }
   a:hover, a:focus {
-    color: #727272; }
+    color: #b13030; }
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
@@ -162,16 +162,17 @@ h3, .gamma {
   line-height: 1.48;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
+  font-weight: normal;
   font-size: 25px;
   font-size: 1.5625rem; }
 
 h4, .delta {
-  font-weight: bold; }
+  font-weight: bold;
+  text-transform: uppercase; }
 
 h5, .epsilon {
   font-weight: bold;
-  font-size: 1em;
-  text-transform: uppercase; }
+  font-size: 1em; }
 
 /* Subheadings */
 .subheading {
@@ -346,17 +347,62 @@ input[type="search"]::-webkit-search-decoration {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #727272;
-  width: 100%; }
+  border: 1px solid #d2d2d2;
+  width: 100%;
+  empty-cells: show;
+  margin-bottom: 1rem;
+  color: #727272; }
 
+td,
 th {
-  text-align: left;
-  border: 1px solid #727272;
-  padding: 0.2em; }
+  border-left: 1px solid #d2d2d2;
+  /*  inner column border */
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  /*to make ths where the title is really long work*/
+  padding: 6px 12px;
+  /* cell padding */ }
 
+td:first-child,
+th:first-child {
+  border-left-width: 0; }
+
+thead {
+  background: #ebebeb;
+  color: #212121;
+  text-align: left;
+  vertical-align: bottom; }
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
 td {
-  border: 1px solid #727272;
-  padding: 0.2em; }
+  background-color: transparent; }
+
+/* nth-child selector for modern browsers */
+.table-striped tr:nth-child(2n-1) td {
+  background-color: #f8f8f8; }
+
+/* BORDERED TABLES */
+.table-bordered td {
+  border-bottom: 1px solid #d2d2d2; }
+
+.table-bordered tbody > tr:last-child td,
+.table-horizontal tbody > tr:last-child td {
+  border-bottom-width: 0; }
+
+/* HORIZONTAL BORDERED TABLES */
+.table-horizontal td,
+.table-horizontal th {
+  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #d2d2d2; }
+
+.table-horizontal tbody > tr:last-child td {
+  border-bottom-width: 0; }
 
 .animate-fade {
   -webkit-transition: opacity 0.3s ease-out;
@@ -632,7 +678,7 @@ td {
   .footer .lc, .footer .header, .footer [role=main] {
     padding: 1rem 1rem 0; }
   .footer a {
-    color: #e2e2e2; }
+    color: #d2d2d2; }
 
 .nav-footer {
   margin: -1rem -1rem 1rem; }
@@ -666,7 +712,9 @@ td {
   font-size: 1.4375em; }
 
 .text a {
-  text-decoration: underline; }
+  color: #b13030; }
+  .text a:hover {
+    border-bottom: 1px dotted #b13030; }
 .text ul {
   list-style: disc;
   margin: 0 0 1rem 1.2em; }
@@ -829,18 +877,19 @@ td {
 \*------------------------------------*/
 .btn {
   display: inline-block;
-  background: #333333;
-  color: white;
+  background: transparent;
+  color: #9f9f9f;
+  border: solid 5px #d2d2d2;
   line-height: 1;
   font-weight: bold;
   padding: 1rem;
-  border: 0;
   text-align: center; }
   .btn:hover, .btn:focus {
-    color: white; }
+    color: #b13030;
+    border-color: #b13030; }
   .btn.disabled {
     background: #d2d2d2;
-    color: #bbbbbb; }
+    color: #d2d2d2; }
 
 .btn-small {
   padding: 0.5rem; }
@@ -848,7 +897,7 @@ td {
 .btn-large {
   padding: 0.5rem;
   text-transform: uppercase;
-  background: #727272;
+  background: #d2d2d2;
   font-size: 1.4rem;
   font-weight: normal; }
 
@@ -969,7 +1018,7 @@ td {
     font-weight: normal; }
   .headline-list li {
     padding: 0.25rem 0;
-    border-top: 1px solid #dddddd; }
+    border-top: 1px solid #d2d2d2; }
 
 /* Post List */
 .post-list li {
@@ -997,7 +1046,7 @@ td {
     display: block; }
 
 .tooltip-link {
-  background: #e2e2e2; }
+  background: #d2d2d2; }
 
 .tooltip {
   display: none;
@@ -1032,7 +1081,7 @@ td {
   display: block;
   position: relative;
   padding: 0.5rem;
-  border-bottom: 1px solid #dddddd; }
+  border-bottom: 1px solid #d2d2d2; }
   .acc-handle:after {
     content: "+";
     float: right; }
@@ -1052,7 +1101,7 @@ td {
   .tabs li {
     display: table-cell;
     text-align: center;
-    border-right: 1px solid #dddddd; }
+    border-right: 1px solid #d2d2d2; }
     .tabs li:last-child {
       border-right: 0; }
   .tabs a {
@@ -1060,7 +1109,7 @@ td {
     padding: 0.5rem;
     background: #727272; }
     .tabs a:hover, .tabs a:focus {
-      background: #dddddd; }
+      background: #d2d2d2; }
     .tabs a.active {
       background: #333333;
       color: white; }

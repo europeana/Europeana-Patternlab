@@ -3,21 +3,22 @@
 \*------------------------------------*/
 .btn {
 	display: inline-block;
-	background: $gray-dark;
-	color: $white;
+	background: transparent;
+	color: darken($text_secondary, 20%);
+	border: solid 5px $text_secondary;
 	line-height: 1;
 	font-weight: bold;
 	padding: $pad;
-	border: 0;
 	text-align: center;
 	
 	&:hover, &:focus {
-		color: $white;
+		color: $textcolour_highlight;
+		border-color: $textcolour_highlight;
 	}
 
 	&.disabled {
-		background: $gray-light-2;
-		color: $gray-light-4;
+		background: $text_secondary;
+		color: $text_secondary;
 	}
 }
 
@@ -28,7 +29,7 @@
 .btn-large {
 	padding: $pad-half;
 	text-transform: uppercase;
-	background: $gray;
+	background: $text_secondary;
 	font-size: 1.4rem;
 	font-weight: normal;
 }

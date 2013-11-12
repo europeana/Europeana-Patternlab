@@ -16,17 +16,18 @@ h3, .gamma   {
 	line-height: 1.48;
 	font-family: $font-secondary;
 	font-style: italic;
+	font-weight: normal;
 	@include font-size(1.5625);
 }
 
 h4, .delta   {
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 h5, .epsilon { 
 	font-weight: bold;
 	font-size: 1em;
-	text-transform: uppercase;
 }
 
 h6, .zeta    { 

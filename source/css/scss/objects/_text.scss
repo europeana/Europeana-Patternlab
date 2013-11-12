@@ -18,7 +18,11 @@
 //Text Passages
 .text {
 	a {
-		text-decoration: underline;
+		color: $textcolour_link;
+		
+		&:hover{
+			border-bottom: 1px dotted $textcolour_link;
+		}
 	}
 
 	ul {
