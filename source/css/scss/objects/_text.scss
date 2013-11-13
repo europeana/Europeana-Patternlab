@@ -11,15 +11,54 @@
 
 //Pullquote
 .pullquote {
-	font-family: $font-secondary;
-	font-size: $font-size-large;
+	color: $textcolour_head;
+	@include font-size(2.625);
+	border-left: none;
+	padding: 0;
+	position:relative;
+
+	&:before, &:after{
+		@include font-size(4);
+		color: $textcolour_link;
+		position:absolute;
+	}
+
+	&:before{
+		content: "\201C";
+		left:-0.5em;
+		top: 0.4em;
+		line-height: 0.1em;
+	}
+
+	&:after{
+		content: "\201D";
+		right:-0.5em;
+		bottom: 0.6em;
+		line-height: 0.1em;
+	}
+}
+
+
+
+//caption
+.caption{
+	border-top: 1px solid $gray-light;
+	padding-top: 0.4em;
+	color: $textcolour_body;
+}
+.caption-text{
+	display: block;
+	max-width: 12em;
 }
 
 //Text Passages
 .text {
+
+	color: $textcolour_body;
+
 	a {
 		color: $textcolour_link;
-		
+
 		&:hover{
 			border-bottom: 1px dotted $textcolour_link;
 		}
@@ -41,41 +80,5 @@
 		ol {
 			margin-bottom: 0;
 		}
-	}
-}
-
-/* Review Grade Tile */
-.grade {
-	display: block;
-	font-weight: bold;
-	background: $gray;
-	color: $white;
-	min-height: 4.5rem;
-	padding-top: 1.5rem;
-	text-align: center;
-}
-
-/* Eyebrow */
-.eyebrow {
-	background: $gray-dark;
-	color: $white;
-	padding: 0.2em;
-	display: inline-block;
-	margin-bottom: $space-half;
-}
-
-.eyebrow-image {
-	position: relative;
-	
-	img {
-		position: relative;
-		z-index: 0;
-	}
-
-	.eyebrow {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 1;
 	}
 }

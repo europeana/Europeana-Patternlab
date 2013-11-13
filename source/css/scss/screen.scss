@@ -1,5 +1,7 @@
 /*
+ EUROPEANA STYLE GUIDE
 
+ Requires: Sass, Compass, Singularity grids
 */
 
 
@@ -7,6 +9,8 @@
     $TABLE OF CONTENTS
 \*------------------------------------*/
 /**
+ * GRID......include singularity grid powers
+ * 
  * VARIABLES..............................Declarations of Sass variables 
  * .....Colors
  * .....Typography
@@ -29,11 +33,11 @@
  * TOC To Be Continued
  */
 
+@import "singularitygs";
 
-
-@import "scss/generic/variables";
-@import "scss/generic/mixins";
-@import "scss/generic/reset";
+@import "generic/variables";
+@import "generic/mixins";
+@import "generic/reset";
 
 
 
@@ -42,17 +46,16 @@
 /*------------------------------------*\
     $GLOBAL ELEMENTS
 \*------------------------------------*/
-@import "scss/base/global-classes";
-@import "scss/base/main";
-@import "scss/base/links";
-@import "scss/base/headings";
-@import "scss/base/text";
-@import "scss/base/lists";
-@import "scss/base/media";
-@import "scss/base/forms";
-@import "scss/base/tables";
-@import "scss/base/animation";
-
+@import "base/global-classes";
+@import "base/main";
+@import "base/links";
+@import "base/headings";
+@import "base/text";
+@import "base/lists";
+@import "base/media";
+@import "base/forms";
+@import "base/tables";
+@import "base/animation";
 
 
 
@@ -60,37 +63,38 @@
 /*------------------------------------*\
     $LAYOUT
 \*------------------------------------*/
-@import "scss/objects/layout";
+@import "objects/layout";
 
 
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
-@import "scss/objects/header";
-@import "scss/objects/nav";
-@import "scss/objects/main";
-@import "scss/objects/footer";
+@import "objects/header";
+@import "objects/nav";
+@import "objects/main";
+@import "objects/footer";
 
 
 
 /*------------------------------------*\
     $TEXT Styles
 \*------------------------------------*/
-@import "scss/objects/text";
+@import "objects/text";
 
 
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-@import "scss/objects/icons";
-@import "scss/objects/buttons";
-@import "scss/objects/blocks";
-@import "scss/objects/lists";
-@import "scss/objects/tooltip";
-@import "scss/objects/accordion";
-@import "scss/objects/tabs";
-@import "scss/objects/sections";
-@import "scss/objects/article";
-@import "scss/objects/comments";
+@import "objects/icons";
+@import "objects/buttons";
+@import "objects/blocks";
+@import "objects/lists";
+@import "objects/tooltip";
+@import "objects/accordion";
+@import "objects/tabs";
+@import "objects/sections";
+@import "objects/article";
+@import "objects/comments";
+@import "objects/loading";
 
 

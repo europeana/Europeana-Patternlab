@@ -35,10 +35,10 @@
 
 		.b-text {
 			position: absolute;
-			bottom: 0;
+			bottom: 10%;
 			left: 0;
-			width: 100%;
-			background: $dim;
+			width: 60%;
+			border-top: solid 5px $white;
 			color: $white;
 			padding: $pad-and-half;
 		}

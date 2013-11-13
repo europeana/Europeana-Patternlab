@@ -19,6 +19,7 @@
 	&.disabled {
 		background: $text_secondary;
 		color: $text_secondary;
+		cursor: not-allowed;
 	}
 }
 
