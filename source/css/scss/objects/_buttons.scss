@@ -17,9 +17,18 @@
 	}
 
 	&.disabled {
-		background: $text_secondary;
-		color: $text_secondary;
+		background: lighten($text_secondary, 10%);
+		color: darken($text_secondary, 20%);
 		cursor: not-allowed;
+
+		&:hover{
+			border-color: $text_secondary;
+		}
+	}
+
+	&.alt{
+		color: $textcolour_highlight;
+		border-color: $textcolour_highlight;
 	}
 }
 

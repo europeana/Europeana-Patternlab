@@ -20,20 +20,14 @@
 	&:before, &:after{
 		@include font-size(4);
 		color: $textcolour_link;
-		position:absolute;
+		
 	}
 
 	&:before{
 		content: "\201C";
+		position:absolute;
 		left:-0.5em;
 		top: 0.4em;
-		line-height: 0.1em;
-	}
-
-	&:after{
-		content: "\201D";
-		right:-0.5em;
-		bottom: 0.6em;
 		line-height: 0.1em;
 	}
 }

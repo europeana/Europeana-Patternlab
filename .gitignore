@@ -12,3 +12,4 @@ latest-change.txt
 
 source/.sass-cache/*
 extras/*
+*.sublime-workspace

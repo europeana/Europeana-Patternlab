@@ -735,6 +735,37 @@ td {
     text-align: right; }
 
 /*------------------------------------*\
+    Media grid - flowing grid of items, eg. image thumbnails
+\*------------------------------------*/
+/* line 298, scss/objects/_layout.scss */
+.l-grid-media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: justify;
+  font-size: 0; }
+  /* line 308, scss/objects/_layout.scss */
+  .l-grid-media:after {
+    content: '';
+    display: inline-block;
+    width: 100%; }
+  /* line 314, scss/objects/_layout.scss */
+  .l-grid-media > li {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    position: relative;
+    /* IE7 hack to mimic inline-block on block elements */
+    *display: inline;
+    *zoom: 1; }
+  /* line 325, scss/objects/_layout.scss */
+  .l-grid-media .l-placeholder {
+    padding: 0; }
+  /* line 329, scss/objects/_layout.scss */
+  .l-grid-media a {
+    display: block; }
+
+/*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
 /* line 1, scss/objects/_header.scss */
@@ -890,53 +921,47 @@ td {
   .pullquote:before, .pullquote:after {
     font-size: 64px;
     font-size: 4rem;
-    color: #b13030;
-    position: absolute; }
+    color: #b13030; }
   /* line 26, scss/objects/_text.scss */
   .pullquote:before {
     content: "\201C";
+    position: absolute;
     left: -0.5em;
     top: 0.4em;
     line-height: 0.1em; }
-  /* line 33, scss/objects/_text.scss */
-  .pullquote:after {
-    content: "\201D";
-    right: -0.5em;
-    bottom: 0.6em;
-    line-height: 0.1em; }
 
-/* line 44, scss/objects/_text.scss */
+/* line 38, scss/objects/_text.scss */
 .caption {
   border-top: 1px solid #d2d2d2;
   padding-top: 0.4em;
   color: #727272; }
 
-/* line 49, scss/objects/_text.scss */
+/* line 43, scss/objects/_text.scss */
 .caption-text {
   display: block;
   max-width: 12em; }
 
-/* line 55, scss/objects/_text.scss */
+/* line 49, scss/objects/_text.scss */
 .text {
   color: #727272; }
-  /* line 59, scss/objects/_text.scss */
+  /* line 53, scss/objects/_text.scss */
   .text a {
     color: #b13030; }
-    /* line 62, scss/objects/_text.scss */
+    /* line 56, scss/objects/_text.scss */
     .text a:hover {
       border-bottom: 1px dotted #b13030; }
-  /* line 67, scss/objects/_text.scss */
+  /* line 61, scss/objects/_text.scss */
   .text ul {
     list-style: disc;
     margin: 0 0 1.56rem 1.2em; }
-    /* line 71, scss/objects/_text.scss */
+    /* line 65, scss/objects/_text.scss */
     .text ul ul {
       margin-bottom: 0; }
-  /* line 76, scss/objects/_text.scss */
+  /* line 70, scss/objects/_text.scss */
   .text ol {
     list-style: decimal;
     margin: 0 0 1.56rem 1.2em; }
-    /* line 80, scss/objects/_text.scss */
+    /* line 74, scss/objects/_text.scss */
     .text ol ol {
       margin-bottom: 0; }
 
@@ -1103,15 +1128,22 @@ td {
     border-color: #b13030; }
   /* line 19, scss/objects/_buttons.scss */
   .btn.disabled {
-    background: #d2d2d2;
-    color: #d2d2d2;
+    background: #ebebeb;
+    color: #9f9f9f;
     cursor: not-allowed; }
+    /* line 24, scss/objects/_buttons.scss */
+    .btn.disabled:hover {
+      border-color: #d2d2d2; }
+  /* line 29, scss/objects/_buttons.scss */
+  .btn.alt {
+    color: #b13030;
+    border-color: #b13030; }
 
-/* line 26, scss/objects/_buttons.scss */
+/* line 35, scss/objects/_buttons.scss */
 .btn-small {
   padding: 0.5rem; }
 
-/* line 30, scss/objects/_buttons.scss */
+/* line 39, scss/objects/_buttons.scss */
 .btn-large {
   padding: 0.5rem;
   text-transform: uppercase;
@@ -1119,7 +1151,7 @@ td {
   font-size: 1.4rem;
   font-weight: normal; }
 
-/* line 39, scss/objects/_buttons.scss */
+/* line 48, scss/objects/_buttons.scss */
 .text-btn {
   font-style: italic; }
 

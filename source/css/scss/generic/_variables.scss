@@ -77,4 +77,8 @@ $bp-xl : 73em;
 $bp-xxl : 89em;
 $bp-xxxl : 93em;
 
-//
+// Grids
+$grids: 3;
+$grids: add-grid(6 at 500px);
+$grids: add-grid(12 at 700px);
+
