@@ -5,28 +5,15 @@
 	}
 }
 
+
+
 .byline {
 	font-size: $font-size-slightly-smaller;
 	font-style: italic;
 	margin-bottom: $space-half;
 }
-
-/* Wordpress Caption */
-.wp-caption-text {
-	font-style: italic;
-}
-
-// Review Summary
-.review-summary {
-	.grade {
-		width: 4.5em;
-		float: left;
-		margin: 0 $space-half 0 0;
-	}
-
-	.summary-text {
-		margin-left: 5em;
-	}
+.byline-author, .byline-time{
+	font-weight: bold;
 }
 
 //Social Share

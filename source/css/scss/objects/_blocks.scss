@@ -36,11 +36,20 @@
 		.b-text {
 			position: absolute;
 			bottom: 10%;
-			left: 0;
-			width: 60%;
-			border-top: solid 5px $white;
+			left: 10%;
+			top: 10%;
+			right: 10%;
 			color: $white;
 			padding: $pad-and-half;
+			text-align: center;
+
+			&:before{
+				content: '';
+				width: 30%;
+				margin: 0 auto 5%;
+				display: block;
+				border-top: solid 5px $white;
+			}
 		}
 	}
 }

@@ -5,8 +5,7 @@
 
 //Intro text
 .intro {
-	font-size: $font-size-slightly-larger;
-	font-weight: bold;
+	font-size: 1.5625em;
 }
 
 //Pullquote
@@ -58,21 +57,31 @@
 		}
 	}
 
+	li{
+		margin-bottom: $space-half;
+	}
+
 	ul {
 		list-style: disc;
-		margin: 0 0 $space 1.2em;
+		margin: 0 0 $space $space;
 
 		ul {
 			margin-bottom: 0;
+
+			>li{
+				margin-bottom: 0;
+			}
 		}
 	}
 
 	ol {
 		list-style: decimal;
-		margin: 0 0 $space 1.2em;
+		margin: 0 0 $space $space;
 
 		ol {
 			margin-bottom: 0;
 		}
 	}
+
+
 }

@@ -34,11 +34,14 @@ $font : "dejarip", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 $font-secondary : "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
 
 $font-size-norm : 1em;
-$font-size-slightly-larger : 1.0625em;
 $font-size-slightly-smaller : 0.875em;
 $font-size-sm : 0.75em;
-$font-size-large : 1.4375em;
+$font-size-large : 1.6em;
 $base-font-multiplier: 1;
+
+
+
+
 
 //Layout
 $max-width: 72rem;
@@ -47,7 +50,7 @@ $offset-left-1: 4.5rem;
 $l-sidebar-width: 19.75rem;
 
 //Defaults
-$space : 1.56rem;
+$space : 1.6rem;
 $space-and-half : $space*1.5;
 $space-double : $space*2;
 $space-triple : $space*3;

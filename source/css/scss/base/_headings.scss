@@ -3,7 +3,12 @@
 h1, .alpha   { 
 	line-height: 1.1;
 	font-family: $font-secondary;
-	@include font-size(4.25);
+	font-weight: normal;
+	@include font-size(2.625);
+
+	@media all and (min-width: $bp-large) {
+		@include font-size(4.25);
+	}
 }
 
 h2, .beta    { 
@@ -17,7 +22,7 @@ h3, .gamma   {
 	font-family: $font-secondary;
 	font-style: italic;
 	font-weight: normal;
-	@include font-size(1.5625);
+	@include font-size(1.6);
 }
 
 h4, .delta   {
@@ -39,3 +44,6 @@ h6, .zeta    {
 	font-family: $font-secondary;
 	font-weight: normal;
 }
+
+
+

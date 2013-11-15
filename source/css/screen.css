@@ -156,7 +156,7 @@ header, footer, nav, section, article, hgroup, figure {
 /* line 1, scss/base/_main.scss */
 body {
   background: white;
-  font: 100%/1.56 "dejarip", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: 100%/1.6 "dejarip", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #212121; }
 
@@ -176,37 +176,43 @@ a {
 h1, .alpha {
   line-height: 1.1;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
-  font-size: 68px;
-  font-size: 4.25rem; }
+  font-weight: normal;
+  font-size: 42px;
+  font-size: 2.625rem; }
+  @media all and (min-width: 50em) {
+    /* line 3, scss/base/_headings.scss */
+    h1, .alpha {
+      font-size: 68px;
+      font-size: 4.25rem; } }
 
-/* line 9, scss/base/_headings.scss */
+/* line 14, scss/base/_headings.scss */
 h2, .beta {
   line-height: 1.19;
   font-weight: bold;
   font-size: 42px;
   font-size: 2.625rem; }
 
-/* line 15, scss/base/_headings.scss */
+/* line 20, scss/base/_headings.scss */
 h3, .gamma {
   line-height: 1.48;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
   font-weight: normal;
-  font-size: 25px;
-  font-size: 1.5625rem; }
+  font-size: 25.6px;
+  font-size: 1.6rem; }
 
-/* line 23, scss/base/_headings.scss */
+/* line 28, scss/base/_headings.scss */
 h4, .delta {
   font-weight: bold;
   text-transform: uppercase; }
 
-/* line 28, scss/base/_headings.scss */
+/* line 33, scss/base/_headings.scss */
 h5, .epsilon {
   font-weight: bold;
   font-size: 1em; }
 
 /* Subheadings */
-/* line 38, scss/base/_headings.scss */
+/* line 43, scss/base/_headings.scss */
 .subheading {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-weight: normal; }
@@ -214,7 +220,7 @@ h5, .epsilon {
 /* Text-Related Elements */
 /* line 2, scss/base/_text.scss */
 p {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* Blockquote */
 /* line 7, scss/base/_text.scss */
@@ -223,7 +229,7 @@ blockquote {
   border-left: 1px solid #727272;
   color: #727272;
   padding-left: 1rem;
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* Horizontal Rule */
 /* line 16, scss/base/_text.scss */
@@ -231,7 +237,7 @@ hr {
   border: 0;
   height: 2px;
   background: #d2d2d2;
-  margin: 3.12rem 0; }
+  margin: 3.2rem 0; }
 
 /* line 23, scss/base/_text.scss */
 abbr {
@@ -248,7 +254,7 @@ ol, ul {
 /* line 8, scss/base/_lists.scss */
 dl {
   overflow: hidden;
-  margin: 0 0 1.56rem; }
+  margin: 0 0 1.6rem; }
 
 /* line 13, scss/base/_lists.scss */
 dt {
@@ -269,14 +275,14 @@ img, video, object {
 
 /* line 11, scss/base/_media.scss */
 iframe {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 15, scss/base/_media.scss */
 figure {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
   /* line 17, scss/base/_media.scss */
   figure img {
-    margin-bottom: 0.39rem; }
+    margin-bottom: 0.4rem; }
 
 /* line 21, scss/base/_media.scss */
 figcaption {
@@ -287,7 +293,7 @@ figcaption {
 \*------------------------------------*/
 /* line 5, scss/base/_forms.scss */
 form > div {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 9, scss/base/_forms.scss */
 form ol, form ul {
@@ -303,7 +309,7 @@ fieldset {
 /* line 20, scss/base/_forms.scss */
 label {
   display: block;
-  padding-bottom: 0.39rem; }
+  padding-bottom: 0.4rem; }
 
 /* line 25, scss/base/_forms.scss */
 button, input, select, textarea {
@@ -366,7 +372,7 @@ input[type="search"]::-webkit-search-decoration {
 
 /* line 85, scss/base/_forms.scss */
 .field-container {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 91, scss/base/_forms.scss */
 .inline-form fieldset, .inline-form .inline-container {
@@ -526,8 +532,7 @@ td {
 /* line 6, scss/objects/_layout.scss */
 .lc, .header, [role=main] {
   max-width: 72rem;
-  margin: 0 auto;
-  padding: 0.5rem; }
+  margin: 0 auto; }
 
 /*------------------------------------*\
     $TEMPLATES
@@ -770,21 +775,20 @@ td {
 \*------------------------------------*/
 /* line 1, scss/objects/_header.scss */
 .header {
-  background: white;
-  padding: 0;
-  border-bottom: 1px solid #dbdbdb; }
+  background: #212121;
+  padding: 0; }
 
-/* line 8, scss/objects/_header.scss */
+/* line 7, scss/objects/_header.scss */
 .logo {
   float: left;
   max-width: 8rem;
   margin: 0.4rem; }
   @media all and (min-width: 46.8em) {
-    /* line 8, scss/objects/_header.scss */
+    /* line 7, scss/objects/_header.scss */
     .logo {
       max-width: 9rem; } }
 
-/* line 18, scss/objects/_header.scss */
+/* line 17, scss/objects/_header.scss */
 .nav-toggle {
   float: right;
   display: block;
@@ -793,16 +797,16 @@ td {
   line-height: 1;
   border-left: 1px solid #dbdbdb; }
   @media all and (min-width: 46.8em) {
-    /* line 18, scss/objects/_header.scss */
+    /* line 17, scss/objects/_header.scss */
     .nav-toggle {
       display: none; } }
 
-/* line 31, scss/objects/_header.scss */
+/* line 30, scss/objects/_header.scss */
 .search-form {
   overflow: hidden;
   max-height: 0; }
   @media all and (min-width: 46.8em) {
-    /* line 31, scss/objects/_header.scss */
+    /* line 30, scss/objects/_header.scss */
     .search-form {
       float: right;
       max-height: none;
@@ -850,14 +854,15 @@ td {
   /* line 49, scss/objects/_nav.scss */
   .pagination a {
     padding: 1rem; }
+  /* line 53, scss/objects/_nav.scss */
+  .pagination .current {
+    color: white;
+    font-weight: bold;
+    background-color: #b13030; }
 
 /*------------------------------------*\
     $MAIN CONTENT AREA
 \*------------------------------------*/
-/* line 4, scss/objects/_main.scss */
-[role=main] {
-  padding: 0.5rem 0.5rem 2rem; }
-
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
@@ -877,7 +882,7 @@ td {
 
 /* line 24, scss/objects/_footer.scss */
 .nav-footer {
-  margin: -1rem -1rem 1.56rem; }
+  margin: -1rem -1rem 1.6rem; }
   /* line 27, scss/objects/_footer.scss */
   .nav-footer li {
     border-bottom: 1px solid #333333; }
@@ -906,10 +911,9 @@ td {
 
 /* line 7, scss/objects/_text.scss */
 .intro {
-  font-size: 1.0625em;
-  font-weight: bold; }
+  font-size: 1.5625em; }
 
-/* line 13, scss/objects/_text.scss */
+/* line 12, scss/objects/_text.scss */
 .pullquote {
   color: #212121;
   font-size: 42px;
@@ -917,12 +921,12 @@ td {
   border-left: none;
   padding: 0;
   position: relative; }
-  /* line 20, scss/objects/_text.scss */
+  /* line 19, scss/objects/_text.scss */
   .pullquote:before, .pullquote:after {
     font-size: 64px;
     font-size: 4rem;
     color: #b13030; }
-  /* line 26, scss/objects/_text.scss */
+  /* line 25, scss/objects/_text.scss */
   .pullquote:before {
     content: "\201C";
     position: absolute;
@@ -930,184 +934,1087 @@ td {
     top: 0.4em;
     line-height: 0.1em; }
 
-/* line 38, scss/objects/_text.scss */
+/* line 37, scss/objects/_text.scss */
 .caption {
   border-top: 1px solid #d2d2d2;
   padding-top: 0.4em;
   color: #727272; }
 
-/* line 43, scss/objects/_text.scss */
+/* line 42, scss/objects/_text.scss */
 .caption-text {
   display: block;
   max-width: 12em; }
 
-/* line 49, scss/objects/_text.scss */
+/* line 48, scss/objects/_text.scss */
 .text {
   color: #727272; }
-  /* line 53, scss/objects/_text.scss */
+  /* line 52, scss/objects/_text.scss */
   .text a {
     color: #b13030; }
-    /* line 56, scss/objects/_text.scss */
+    /* line 55, scss/objects/_text.scss */
     .text a:hover {
       border-bottom: 1px dotted #b13030; }
-  /* line 61, scss/objects/_text.scss */
+  /* line 60, scss/objects/_text.scss */
+  .text li {
+    margin-bottom: 0.8rem; }
+  /* line 64, scss/objects/_text.scss */
   .text ul {
     list-style: disc;
-    margin: 0 0 1.56rem 1.2em; }
-    /* line 65, scss/objects/_text.scss */
+    margin: 0 0 1.6rem 1.6rem; }
+    /* line 68, scss/objects/_text.scss */
     .text ul ul {
       margin-bottom: 0; }
-  /* line 70, scss/objects/_text.scss */
+      /* line 71, scss/objects/_text.scss */
+      .text ul ul > li {
+        margin-bottom: 0; }
+  /* line 77, scss/objects/_text.scss */
   .text ol {
     list-style: decimal;
-    margin: 0 0 1.56rem 1.2em; }
-    /* line 74, scss/objects/_text.scss */
+    margin: 0 0 1.6rem 1.6rem; }
+    /* line 81, scss/objects/_text.scss */
     .text ol ol {
       margin-bottom: 0; }
 
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-/* Icon Font */
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2012 Oak Studios LLC
+*/
+/* line 7, scss/objects/_icons.scss */
+.sg-icons {
+  font-size: 2.5em;
+  margin-bottom: 1rem; }
+
+/* line 12, scss/objects/_icons.scss */
+.icon-block, .icon-round {
+  display: inline-block;
+  background-color: #b13030;
+  color: white;
+  padding: 0.4em 0.594em 0.17em; }
+
+/* line 19, scss/objects/_icons.scss */
+.icon-round {
+  border-radius: 10em; }
+
 @font-face {
-  font-family: 'icons';
-  src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
+  font-family: "SSSocialCircle";
+  src: url("../fonts/ss-social-circle/ss-social-circle.eot");
+  src: url("../fonts/ss-social-circle/ss-social-circle.eot?#iefix") format("embedded-opentype"), url("../fonts/ss-social-circle/ss-social-circle.woff") format("woff"), url("../fonts/ss-social-circle/ss-social-circle.ttf") format("truetype"), url("../fonts/ss-social-circle/ss-social-circle.svg#SSSocialCircle") format("svg");
   font-weight: normal;
   font-style: normal; }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-/* line 15, scss/objects/_icons.scss */
-[data-icon]:before {
-  font-family: 'icons';
-  content: attr(data-icon);
-  speak: none;
+@font-face {
+  font-family: "SSStandard";
+  src: url("../fonts/symbolset/ss-standard.eot");
+  src: url("../fonts/symbolset/ss-standard.eot?#iefix") format("embedded-opentype"), url("../fonts/symbolset/ss-standard.woff") format("woff"), url("../fonts/symbolset/ss-standard.ttf") format("truetype"), url("../fonts/symbolset/ss-standard.svg#SSStandard") format("svg");
   font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased; }
+  font-style: normal; }
 
-/* line 24, scss/objects/_icons.scss */
-.icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
-  font-family: 'icons';
-  speak: none;
+@font-face {
+  font-family: 'cc-licenses';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype"), url(data:application/font-woff;charset=utf-8;base64,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) format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+/* line 59, scss/objects/_icons.scss */
+html:hover [class^="icon-"] {
+  -ms-zoom: 1; }
+
+/* line 65, scss/objects/_icons.scss */
+.icon, .icon-standard, .icon-social, .icon-license,
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"].right:after, [class*=" icon-"].right:after {
+  font-family: "SSStandard";
   font-style: normal;
   font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased; }
 
-/* line 34, scss/objects/_icons.scss */
-.icon-twitter:before {
-  content: "\74"; }
-
-/* line 37, scss/objects/_icons.scss */
-.icon-stumbleupon:before {
-  content: "\75"; }
-
-/* line 40, scss/objects/_icons.scss */
-.icon-pinterest:before {
-  content: "\70"; }
-
-/* line 43, scss/objects/_icons.scss */
-.icon-linkedin:before {
-  content: "\69"; }
-
-/* line 46, scss/objects/_icons.scss */
-.icon-google-plus:before {
-  content: "\67"; }
-
-/* line 49, scss/objects/_icons.scss */
-.icon-search:before {
-  content: "\73"; }
-
-/* line 52, scss/objects/_icons.scss */
-.icon-play:before {
-  content: "\61"; }
-
-/* line 55, scss/objects/_icons.scss */
-.icon-menu:before {
-  content: "\21"; }
-
-/* line 58, scss/objects/_icons.scss */
-.icon-arrow-left:before {
-  content: "\23"; }
-
-/* line 61, scss/objects/_icons.scss */
-.icon-arrow-right:before {
-  content: "\24"; }
-
-/* line 64, scss/objects/_icons.scss */
-.icon-bubble:before {
-  content: "\25"; }
-
-/* line 67, scss/objects/_icons.scss */
-.icon-facebook:before {
-  content: "\66"; }
-
-/* line 70, scss/objects/_icons.scss */
-.icon-feed:before {
-  content: "\27"; }
-
-/* line 73, scss/objects/_icons.scss */
-.icon-youtube:before {
-  content: "\79"; }
-
-/* line 76, scss/objects/_icons.scss */
-.icon-tag:before {
-  content: "\28"; }
-
-/* line 79, scss/objects/_icons.scss */
-.icon-tumblr:before {
-  content: "\6d"; }
-
-/* line 82, scss/objects/_icons.scss */
-.icon-instagram:before {
-  content: "\22"; }
-
-/* line 85, scss/objects/_icons.scss */
-.icon-podcast:before {
-  content: "\26"; }
-
 /* line 88, scss/objects/_icons.scss */
-.icon-android:before {
-  content: "\29"; }
+.icon, .icon-standard,
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"].icon-standard:before, [class*=" icon-"].icon-standard:before,
+[class^="icon-"].right:after, [class*=" icon-"].right:after,
+[class^="icon-"].icon-standard.right:after, [class*=" icon-"].icon-standard.right:after {
+  font-family: "SSStandard"; }
 
-/* line 91, scss/objects/_icons.scss */
-.icon-apple:before {
-  content: "\2a"; }
+/* line 95, scss/objects/_icons.scss */
+.icon-social,
+[class^="icon-social-"]:before, [class*=" icon-social-"]:before,
+[class^="icon-social-"].right:before, [class*=" icon-social-"].right:before {
+  font-family: "SSSocialCircle"; }
 
-/* line 94, scss/objects/_icons.scss */
-.icon-envelope:before {
-  content: "\2b"; }
+/* line 100, scss/objects/_icons.scss */
+.icon-license,
+[class^="icon-license-"]:before, [class*=" icon-license-"]:before {
+  font-family: 'cc-licenses';
+  speak: none; }
 
-/* line 99, scss/objects/_icons.scss */
-.icon-arrow:after {
-  content: "\61";
-  display: inline-block;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg); }
+/* line 107, scss/objects/_icons.scss */
+[class^="icon-"].right:before,
+[class*=" icon-"].right:before {
+  display: none;
+  content: ''; }
 
-/* line 109, scss/objects/_icons.scss */
-.icon-play:before {
-  font-size: 0.7rem;
-  padding-left: 0.2em; }
+/* line 110, scss/objects/_icons.scss */
+.icon-cursor:before, .icon-cursor.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-crosshair:before, .icon-crosshair.right:after {
+  content: '⌖'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-search:before, .icon-search.right:after {
+  content: '🔎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-zoomin:before, .icon-zoomin.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-zoomout:before, .icon-zoomout.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-view:before, .icon-view.right:after {
+  content: '👀'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-attach:before, .icon-attach.right:after {
+  content: '📎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-link:before, .icon-link.right:after {
+  content: '🔗'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-move:before, .icon-move.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-write:before, .icon-write.right:after {
+  content: '✎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-writingdisabled:before, .icon-writingdisabled.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-erase:before, .icon-erase.right:after {
+  content: '✐'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-compose:before, .icon-compose.right:after {
+  content: '📝'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-lock:before, .icon-lock.right:after {
+  content: '🔒'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-unlock:before, .icon-unlock.right:after {
+  content: '🔓'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-key:before, .icon-key.right:after {
+  content: '🔑'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-backspace:before, .icon-backspace.right:after {
+  content: '⌫'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-ban:before, .icon-ban.right:after {
+  content: '🚫'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-trash:before, .icon-trash.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-target:before, .icon-target.right:after {
+  content: '◎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-tag:before, .icon-tag.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-bookmark:before, .icon-bookmark.right:after {
+  content: '🔖'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-flag:before, .icon-flag.right:after {
+  content: '⚑'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-like:before, .icon-like.right:after {
+  content: '👍'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-dislike:before, .icon-dislike.right:after {
+  content: '👎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-heart:before, .icon-heart.right:after {
+  content: '♥'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-halfheart:before, .icon-halfheart.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-star:before, .icon-star.right:after {
+  content: '⋆'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-halfstar:before, .icon-halfstar.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-sample:before, .icon-sample.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-crop:before, .icon-crop.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-layers:before, .icon-layers.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-fill:before, .icon-fill.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-stroke:before, .icon-stroke.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-phone:before, .icon-phone.right:after {
+  content: '📞'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-phonedisabled:before, .icon-phonedisabled.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-rss:before, .icon-rss.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-facetime:before, .icon-facetime.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-reply:before, .icon-reply.right:after {
+  content: '↩'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-send:before, .icon-send.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-mail:before, .icon-mail.right:after {
+  content: '✉'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-inbox:before, .icon-inbox.right:after {
+  content: '📥'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-chat:before, .icon-chat.right:after {
+  content: '💬'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-ellipsischat:before, .icon-ellipsischat.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-ellipsis:before, .icon-ellipsis.right:after {
+  content: '…'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-user:before, .icon-user.right:after {
+  content: '👤'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-femaleuser:before, .icon-femaleuser.right:after {
+  content: '👧'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-users:before, .icon-users.right:after {
+  content: '👥'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-cart:before, .icon-cart.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-creditcard:before, .icon-creditcard.right:after {
+  content: '💳'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-dollarsign:before, .icon-dollarsign.right:after {
+  content: '💲'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-barchart:before, .icon-barchart.right:after {
+  content: '📊'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-piechart:before, .icon-piechart.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-box:before, .icon-box.right:after {
+  content: '📦'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-home:before, .icon-home.right:after {
+  content: '⌂'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-buildings:before, .icon-buildings.right:after {
+  content: '🏢'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-warehouse:before, .icon-warehouse.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-globe:before, .icon-globe.right:after {
+  content: '🌎'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-navigate:before, .icon-navigate.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-compass:before, .icon-compass.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-signpost:before, .icon-signpost.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-map:before, .icon-map.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-location:before, .icon-location.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-pin:before, .icon-pin.right:after {
+  content: '📍'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-database:before, .icon-database.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-hdd:before, .icon-hdd.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-music:before, .icon-music.right:after {
+  content: '♫'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-mic:before, .icon-mic.right:after {
+  content: '🎤'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-volume:before, .icon-volume.right:after {
+  content: '🔈'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-lowvolume:before, .icon-lowvolume.right:after {
+  content: '🔉'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-highvolume:before, .icon-highvolume.right:after {
+  content: '🔊'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-airplay:before, .icon-airplay.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-camera:before, .icon-camera.right:after {
+  content: '📷'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-picture:before, .icon-picture.right:after {
+  content: '🌄'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-video:before, .icon-video.right:after {
+  content: '📹'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-play:before, .icon-play.right:after {
+  content: '▶'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-pause:before, .icon-pause.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-stop:before, .icon-stop.right:after {
+  content: '■'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-record:before, .icon-record.right:after {
+  content: '●'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-rewind:before, .icon-rewind.right:after {
+  content: '⏪'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-fastforward:before, .icon-fastforward.right:after {
+  content: '⏩'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-skipback:before, .icon-skipback.right:after {
+  content: '⏮'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-skipforward:before, .icon-skipforward.right:after {
+  content: '⏭'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-eject:before, .icon-eject.right:after {
+  content: '⏏'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-repeat:before, .icon-repeat.right:after {
+  content: '🔁'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-replay:before, .icon-replay.right:after {
+  content: '↺'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-shuffle:before, .icon-shuffle.right:after {
+  content: '🔀'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-book:before, .icon-book.right:after {
+  content: '📕'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-openbook:before, .icon-openbook.right:after {
+  content: '📖'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-notebook:before, .icon-notebook.right:after {
+  content: '📓'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-newspaper:before, .icon-newspaper.right:after {
+  content: '📰'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-grid:before, .icon-grid.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-rows:before, .icon-rows.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-columns:before, .icon-columns.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-thumbnails:before, .icon-thumbnails.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-filter:before, .icon-filter.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-desktop:before, .icon-desktop.right:after {
+  content: '💻'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-laptop:before, .icon-laptop.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-tablet:before, .icon-tablet.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-cell:before, .icon-cell.right:after {
+  content: '📱'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-battery:before, .icon-battery.right:after {
+  content: '🔋'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-highbattery:before, .icon-highbattery.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-mediumbattery:before, .icon-mediumbattery.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-lowbattery:before, .icon-lowbattery.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-emptybattery:before, .icon-emptybattery.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-lightbulb:before, .icon-lightbulb.right:after {
+  content: '💡'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-downloadcloud:before, .icon-downloadcloud.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-download:before, .icon-download.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-uploadcloud:before, .icon-uploadcloud.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-upload:before, .icon-upload.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-fork:before, .icon-fork.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-merge:before, .icon-merge.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-transfer:before, .icon-transfer.right:after {
+  content: '⇆'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-refresh:before, .icon-refresh.right:after {
+  content: '↻'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-sync:before, .icon-sync.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-loading:before, .icon-loading.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-wifi:before, .icon-wifi.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-connection:before, .icon-connection.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-file:before, .icon-file.right:after {
+  content: '📄'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-folder:before, .icon-folder.right:after {
+  content: '📁'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-quote:before, .icon-quote.right:after {
+  content: '“'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-text:before, .icon-text.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-font:before, .icon-font.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-print:before, .icon-print.right:after {
+  content: '⎙'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-fax:before, .icon-fax.right:after {
+  content: '📠'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-list:before, .icon-list.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-layout:before, .icon-layout.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-action:before, .icon-action.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-redirect:before, .icon-redirect.right:after {
+  content: '↪'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-expand:before, .icon-expand.right:after {
+  content: '⤢'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-contract:before, .icon-contract.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-help:before, .icon-help.right:after {
+  content: '❓'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-info:before, .icon-info.right:after {
+  content: 'ℹ'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-alert:before, .icon-alert.right:after {
+  content: '⚠'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-caution:before, .icon-caution.right:after {
+  content: '⛔'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-logout:before, .icon-logout.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-plus:before, .icon-plus.right:after {
+  content: '+'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-hyphen:before, .icon-hyphen.right:after {
+  content: '-'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-check:before, .icon-check.right:after {
+  content: '✓'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-delete:before, .icon-delete.right:after {
+  content: '␡'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-settings:before, .icon-settings.right:after {
+  content: '⚙'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-dashboard:before, .icon-dashboard.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-notifications:before, .icon-notifications.right:after {
+  content: '🔔'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-notificationsdisabled:before, .icon-notificationsdisabled.right:after {
+  content: '🔕'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-clock:before, .icon-clock.right:after {
+  content: '⏲'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-stopwatch:before, .icon-stopwatch.right:after {
+  content: '⏱'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-calendar:before, .icon-calendar.right:after {
+  content: '📅'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-addcalendar:before, .icon-addcalendar.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-removecalendar:before, .icon-removecalendar.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-checkcalendar:before, .icon-checkcalendar.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-deletecalendar:before, .icon-deletecalendar.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-briefcase:before, .icon-briefcase.right:after {
+  content: '💼'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-cloud:before, .icon-cloud.right:after {
+  content: '☁'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-droplet:before, .icon-droplet.right:after {
+  content: '💧'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-flask:before, .icon-flask.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-up:before, .icon-up.right:after {
+  content: '⬆'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-upright:before, .icon-upright.right:after {
+  content: '⬈'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-right:before, .icon-right.right:after {
+  content: '➡'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-downright:before, .icon-downright.right:after {
+  content: '⬊'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-down:before, .icon-down.right:after {
+  content: '⬇'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-downleft:before, .icon-downleft.right:after {
+  content: '⬋'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-left:before, .icon-left.right:after {
+  content: '⬅'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-upleft:before, .icon-upleft.right:after {
+  content: '⬉'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-navigateup:before, .icon-navigateup.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-navigateright:before, .icon-navigateright.right:after {
+  content: '▻'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-navigatedown:before, .icon-navigatedown.right:after {
+  content: ''; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-navigateleft:before, .icon-navigateleft.right:after {
+  content: '◅'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-directup:before, .icon-directup.right:after {
+  content: '▴'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-directright:before, .icon-directright.right:after {
+  content: '▹'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-dropdown:before, .icon-dropdown.right:after {
+  content: '▾'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-directleft:before, .icon-directleft.right:after {
+  content: '◃'; }
+
+/* line 110, scss/objects/_icons.scss */
+.icon-retweet:before, .icon-retweet.right:after {
+  content: ''; }
+
+/* line 113, scss/objects/_icons.scss */
+.icon-social-facebook:before, .icon-social-facebook.right:after {
+  content: ''; }
 
 /* line 114, scss/objects/_icons.scss */
-.icon-play-box {
-  display: block;
-  margin-left: 2rem; }
+.icon-social-twitter:before, .icon-social-twitter.right:after {
+  content: ''; }
+
+/* line 115, scss/objects/_icons.scss */
+.icon-social-linkedin:before, .icon-social-linkedin.right:after {
+  content: ''; }
+
+/* line 116, scss/objects/_icons.scss */
+.icon-social-googleplus:before, .icon-social-googleplus.right:after {
+  content: ''; }
+
+/* line 117, scss/objects/_icons.scss */
+.icon-social-appdotnet:before, .icon-social-appdotnet.right:after {
+  content: ''; }
+
+/* line 118, scss/objects/_icons.scss */
+.icon-social-zerply:before, .icon-social-zerply.right:after {
+  content: ''; }
 
 /* line 119, scss/objects/_icons.scss */
-.icon-play-box:before {
-  padding: 0.25rem;
-  background: #727272;
-  color: white;
-  margin-left: -1.7rem;
-  margin-right: 0.5rem; }
+.icon-social-reddit:before, .icon-social-reddit.right:after {
+  content: ''; }
+
+/* line 120, scss/objects/_icons.scss */
+.icon-social-steam:before, .icon-social-steam.right:after {
+  content: ''; }
+
+/* line 121, scss/objects/_icons.scss */
+.icon-social-tumblr:before, .icon-social-tumblr.right:after {
+  content: ''; }
+
+/* line 122, scss/objects/_icons.scss */
+.icon-social-wordpress:before, .icon-social-wordpress.right:after {
+  content: ''; }
+
+/* line 123, scss/objects/_icons.scss */
+.icon-social-blogger:before, .icon-social-blogger.right:after {
+  content: ''; }
+
+/* line 124, scss/objects/_icons.scss */
+.icon-social-posterous:before, .icon-social-posterous.right:after {
+  content: ''; }
+
+/* line 125, scss/objects/_icons.scss */
+.icon-social-quora:before, .icon-social-quora.right:after {
+  content: ''; }
+
+/* line 126, scss/objects/_icons.scss */
+.icon-social-youtube:before, .icon-social-youtube.right:after {
+  content: ''; }
+
+/* line 127, scss/objects/_icons.scss */
+.icon-social-vimeo:before, .icon-social-vimeo.right:after {
+  content: ''; }
+
+/* line 128, scss/objects/_icons.scss */
+.icon-social-vine:before, .icon-social-vine.right:after {
+  content: ''; }
+
+/* line 129, scss/objects/_icons.scss */
+.icon-social-letterboxd:before, .icon-social-letterboxd.right:after {
+  content: ''; }
+
+/* line 130, scss/objects/_icons.scss */
+.icon-social-flickr:before, .icon-social-flickr.right:after {
+  content: ''; }
+
+/* line 131, scss/objects/_icons.scss */
+.icon-social-instagram:before, .icon-social-instagram.right:after {
+  content: ''; }
+
+/* line 132, scss/objects/_icons.scss */
+.icon-social-500px:before, .icon-social-500px.right:after {
+  content: ''; }
+
+/* line 133, scss/objects/_icons.scss */
+.icon-social-etsy:before, .icon-social-etsy.right:after {
+  content: ''; }
+
+/* line 134, scss/objects/_icons.scss */
+.icon-social-pinterest:before, .icon-social-pinterest.right:after {
+  content: ''; }
+
+/* line 135, scss/objects/_icons.scss */
+.icon-social-svpply:before, .icon-social-svpply.right:after {
+  content: ''; }
+
+/* line 136, scss/objects/_icons.scss */
+.icon-social-readmill:before, .icon-social-readmill.right:after {
+  content: ''; }
+
+/* line 137, scss/objects/_icons.scss */
+.icon-social-dropbox:before, .icon-social-dropbox.right:after {
+  content: ''; }
+
+/* line 138, scss/objects/_icons.scss */
+.icon-social-pinboard:before, .icon-social-pinboard.right:after {
+  content: ''; }
+
+/* line 139, scss/objects/_icons.scss */
+.icon-social-delicious:before, .icon-social-delicious.right:after {
+  content: ''; }
+
+/* line 140, scss/objects/_icons.scss */
+.icon-social-dribbble:before, .icon-social-dribbble.right:after {
+  content: ''; }
+
+/* line 141, scss/objects/_icons.scss */
+.icon-social-behance:before, .icon-social-behance.right:after {
+  content: ''; }
+
+/* line 142, scss/objects/_icons.scss */
+.icon-social-github:before, .icon-social-github.right:after {
+  content: ''; }
+
+/* line 143, scss/objects/_icons.scss */
+.icon-social-octocat:before, .icon-social-octocat.right:after {
+  content: ''; }
+
+/* line 144, scss/objects/_icons.scss */
+.icon-social-stackoverflow:before, .icon-social-stackoverflow.right:after {
+  content: ''; }
+
+/* line 145, scss/objects/_icons.scss */
+.icon-social-paypal:before, .icon-social-paypal.right:after {
+  content: ''; }
+
+/* line 146, scss/objects/_icons.scss */
+.icon-social-kickstarter:before, .icon-social-kickstarter.right:after {
+  content: ''; }
+
+/* line 147, scss/objects/_icons.scss */
+.icon-social-foursquare:before, .icon-social-foursquare.right:after {
+  content: ''; }
+
+/* line 148, scss/objects/_icons.scss */
+.icon-social-yelp:before, .icon-social-yelp.right:after {
+  content: ''; }
+
+/* line 149, scss/objects/_icons.scss */
+.icon-social-skype:before, .icon-social-skype.right:after {
+  content: ''; }
+
+/* line 150, scss/objects/_icons.scss */
+.icon-social-rdio:before, .icon-social-rdio.right:after {
+  content: ''; }
+
+/* line 151, scss/objects/_icons.scss */
+.icon-social-spotify:before, .icon-social-spotify.right:after {
+  content: ''; }
+
+/* line 152, scss/objects/_icons.scss */
+.icon-social-lastfm:before, .icon-social-lastfm.right:after {
+  content: ''; }
+
+/* line 153, scss/objects/_icons.scss */
+.icon-social-soundcloud:before, .icon-social-soundcloud.right:after {
+  content: ''; }
+
+/* line 154, scss/objects/_icons.scss */
+.icon-social-link:before, .icon-social-link.right:after {
+  content: '🔗'; }
+
+/* line 155, scss/objects/_icons.scss */
+.icon-social-phone:before, .icon-social-phone.right:after {
+  content: '📞'; }
+
+/* line 156, scss/objects/_icons.scss */
+.icon-social-mail:before, .icon-social-mail.right:after {
+  content: '✉'; }
+
+/* line 157, scss/objects/_icons.scss */
+.icon-social-like:before, .icon-social-like.right:after {
+  content: '👍'; }
+
+/* line 158, scss/objects/_icons.scss */
+.icon-social-rss:before, .icon-social-rss.right:after {
+  content: ''; }
+
+/* line 159, scss/objects/_icons.scss */
+.icon-social-share:before, .icon-social-share.right:after {
+  content: ''; }
+
+/* line 160, scss/objects/_icons.scss */
+.icon-social-apple:before, .icon-social-apple.right:after {
+  content: ''; }
+
+/* line 161, scss/objects/_icons.scss */
+.icon-social-microsoft:before, .icon-social-microsoft.right:after {
+  content: ''; }
+
+/* line 162, scss/objects/_icons.scss */
+.icon-social-windows:before, .icon-social-windows.right:after {
+  content: ''; }
+
+/* line 163, scss/objects/_icons.scss */
+.icon-social-android:before, .icon-social-android.right:after {
+  content: ''; }
+
+/* line 164, scss/objects/_icons.scss */
+.icon-social-blackberry:before, .icon-social-blackberry.right:after {
+  content: ''; }
+
+/* line 168, scss/objects/_icons.scss */
+.icon-license-nc:before {
+  content: "\e600"; }
+
+/* line 171, scss/objects/_icons.scss */
+.icon-license-nc-jp:before {
+  content: "\e601"; }
+
+/* line 174, scss/objects/_icons.scss */
+.icon-license-nc-eu:before {
+  content: "\e602"; }
+
+/* line 177, scss/objects/_icons.scss */
+.icon-license-cc:before {
+  content: "\e603"; }
+
+/* line 180, scss/objects/_icons.scss */
+.icon-license-sa:before {
+  content: "\e604"; }
+
+/* line 183, scss/objects/_icons.scss */
+.icon-license-remix:before {
+  content: "\e605"; }
+
+/* line 186, scss/objects/_icons.scss */
+.icon-license-pd:before {
+  content: "\e606"; }
+
+/* line 189, scss/objects/_icons.scss */
+.icon-license-nd:before {
+  content: "\e607"; }
+
+/* line 192, scss/objects/_icons.scss */
+.icon-license-sampling:before {
+  content: "\e608"; }
+
+/* line 195, scss/objects/_icons.scss */
+.icon-license-sampling-plus:before {
+  content: "\e609"; }
+
+/* line 198, scss/objects/_icons.scss */
+.icon-license-share:before {
+  content: "\e60a"; }
+
+/* line 201, scss/objects/_icons.scss */
+.icon-license-zero:before {
+  content: "\e60b"; }
+
+/* line 204, scss/objects/_icons.scss */
+.icon-license-by:before {
+  content: "\e60c"; }
 
 /*------------------------------------*\
     $BUTTONS
@@ -1179,7 +2086,7 @@ td {
 /* Hero Block */
 /* line 24, scss/objects/_blocks.scss */
 .block-hero {
-  margin-bottom: 0.78rem; }
+  margin-bottom: 0.8rem; }
   /* line 28, scss/objects/_blocks.scss */
   .block-hero .b-thumb img {
     display: block; }
@@ -1191,69 +2098,77 @@ td {
       .block-hero .b-text {
         position: absolute;
         bottom: 10%;
-        left: 0;
-        width: 60%;
-        border-top: solid 5px white;
+        left: 10%;
+        top: 10%;
+        right: 10%;
         color: white;
-        padding: 1.5rem; } }
+        padding: 1.5rem;
+        text-align: center; }
+        /* line 46, scss/objects/_blocks.scss */
+        .block-hero .b-text:before {
+          content: '';
+          width: 30%;
+          margin: 0 auto 5%;
+          display: block;
+          border-top: solid 5px white; } }
 
 /* Block Thumbnail with Headline */
-/* line 49, scss/objects/_blocks.scss */
+/* line 58, scss/objects/_blocks.scss */
 .block-thumb {
   display: table;
   width: 100%;
   border-collapse: collapse; }
-  /* line 54, scss/objects/_blocks.scss */
+  /* line 63, scss/objects/_blocks.scss */
   .block-thumb .b-inner {
     display: table-row;
     vertical-align: top;
     overflow: hidden; }
   @media all and (min-width: 29.75em) {
-    /* line 60, scss/objects/_blocks.scss */
+    /* line 69, scss/objects/_blocks.scss */
     .block-thumb .b-thumb {
       display: table-cell;
       vertical-align: top;
       width: 30%;
       max-width: 10em; }
-      /* line 67, scss/objects/_blocks.scss */
+      /* line 76, scss/objects/_blocks.scss */
       .block-thumb .b-thumb img {
         display: block;
         width: 100%;
         height: auto; } }
   @media all and (min-width: 29.75em) {
-    /* line 75, scss/objects/_blocks.scss */
+    /* line 84, scss/objects/_blocks.scss */
     .block-thumb .b-text {
       display: table-cell;
       width: 70%;
       padding: 0 1rem; } }
 
 /* Block Headline Summary */
-/* line 87, scss/objects/_blocks.scss */
+/* line 96, scss/objects/_blocks.scss */
 .block-headline-summary a {
   display: block;
   padding: 0.5rem; }
 
 /* Block Inset */
-/* line 94, scss/objects/_blocks.scss */
+/* line 103, scss/objects/_blocks.scss */
 .block-inset {
   position: relative; }
-  /* line 97, scss/objects/_blocks.scss */
+  /* line 106, scss/objects/_blocks.scss */
   .block-inset .b-thumb {
     position: relative;
     z-index: 0; }
-    /* line 101, scss/objects/_blocks.scss */
+    /* line 110, scss/objects/_blocks.scss */
     .block-inset .b-thumb img {
       display: block; }
 
 /* Hero Block */
-/* line 108, scss/objects/_blocks.scss */
+/* line 117, scss/objects/_blocks.scss */
 .block-inset {
-  margin-bottom: 0.78rem;
+  margin-bottom: 0.8rem;
   position: relative; }
-  /* line 112, scss/objects/_blocks.scss */
+  /* line 121, scss/objects/_blocks.scss */
   .block-inset .headline {
     font-size: 1.1em; }
-  /* line 116, scss/objects/_blocks.scss */
+  /* line 125, scss/objects/_blocks.scss */
   .block-inset .b-text {
     position: absolute;
     bottom: 0;
@@ -1264,11 +2179,11 @@ td {
     padding: 0.5rem; }
 
 /* Block Thumb with Summary */
-/* line 129, scss/objects/_blocks.scss */
+/* line 138, scss/objects/_blocks.scss */
 .block-thumb-summary .b-thumb {
   float: left;
   width: 50%; }
-/* line 134, scss/objects/_blocks.scss */
+/* line 143, scss/objects/_blocks.scss */
 .block-thumb-summary .b-text {
   margin-left: 50%;
   padding: 0.5rem; }
@@ -1280,7 +2195,7 @@ td {
 /* Social List */
 /* line 9, scss/objects/_lists.scss */
 .social-list li {
-  margin: 0 0.4rem 1.56rem 0; }
+  margin: 0 0.4rem 1.6rem 0; }
 /* line 13, scss/objects/_lists.scss */
 .social-list a {
   font-size: 1.6em; }
@@ -1288,7 +2203,7 @@ td {
 /* Headline List */
 /* line 20, scss/objects/_lists.scss */
 .headline-list {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
   /* line 23, scss/objects/_lists.scss */
   .headline-list.flush {
     margin: 0; }
@@ -1303,7 +2218,7 @@ td {
 /* Post List */
 /* line 39, scss/objects/_lists.scss */
 .post-list li {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* Bullet List */
 /* line 45, scss/objects/_lists.scss */
@@ -1313,7 +2228,7 @@ td {
   line-height: 1.3; }
   /* line 50, scss/objects/_lists.scss */
   .bullet-list li {
-    margin-bottom: 1.56rem; }
+    margin-bottom: 1.6rem; }
 
 /* Text List */
 /* line 56, scss/objects/_lists.scss */
@@ -1322,7 +2237,7 @@ td {
   line-height: 1.3; }
   /* line 60, scss/objects/_lists.scss */
   .text-list li {
-    margin-bottom: 1.56rem; }
+    margin-bottom: 1.6rem; }
 
 /* line 1, scss/objects/_tooltip.scss */
 .tooltip-container {
@@ -1365,7 +2280,7 @@ td {
 
 /* line 1, scss/objects/_accordion.scss */
 .accordion {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 5, scss/objects/_accordion.scss */
 .acc-handle {
@@ -1422,62 +2337,52 @@ td {
 
 /* line 1, scss/objects/_sections.scss */
 .section {
-  margin: 0 0 1.56rem; }
+  margin: 0 0 1.6rem; }
 
 /* line 5, scss/objects/_sections.scss */
 .section-title {
-  margin-bottom: 0.78rem; }
+  margin-bottom: 0.8rem; }
 
 /* line 3, scss/objects/_article.scss */
 .article-header h1 {
   font-size: 2.5em; }
 
-/* line 8, scss/objects/_article.scss */
+/* line 10, scss/objects/_article.scss */
 .byline {
   font-size: 0.875em;
   font-style: italic;
-  margin-bottom: 0.78rem; }
+  margin-bottom: 0.8rem; }
 
-/* Wordpress Caption */
 /* line 15, scss/objects/_article.scss */
-.wp-caption-text {
-  font-style: italic; }
+.byline-author, .byline-time {
+  font-weight: bold; }
 
-/* line 21, scss/objects/_article.scss */
-.review-summary .grade {
-  width: 4.5em;
-  float: left;
-  margin: 0 0.78rem 0 0; }
-/* line 27, scss/objects/_article.scss */
-.review-summary .summary-text {
-  margin-left: 5em; }
-
-/* line 33, scss/objects/_article.scss */
+/* line 20, scss/objects/_article.scss */
 .social-share {
   overflow: hidden;
-  margin-bottom: 1.56rem; }
-  /* line 37, scss/objects/_article.scss */
+  margin-bottom: 1.6rem; }
+  /* line 24, scss/objects/_article.scss */
   .social-share li {
     float: left;
-    margin-right: 0.39rem; }
-  /* line 42, scss/objects/_article.scss */
+    margin-right: 0.4rem; }
+  /* line 29, scss/objects/_article.scss */
   .social-share a {
     background: #333333;
     color: white;
     display: block;
     padding: 0.5rem; }
-    /* line 48, scss/objects/_article.scss */
+    /* line 35, scss/objects/_article.scss */
     .social-share a:hover {
       background: #727272; }
 
 /* line 2, scss/objects/_comments.scss */
 .comments li {
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 7, scss/objects/_comments.scss */
 .comment-container {
   overflow: hidden;
-  margin-bottom: 1.56rem; }
+  margin-bottom: 1.6rem; }
 
 /* line 12, scss/objects/_comments.scss */
 .comment-meta {
@@ -1487,7 +2392,7 @@ td {
   .comment-meta img {
     display: block;
     border: 1px solid #d2d2d2;
-    margin-bottom: 0.78rem; }
+    margin-bottom: 0.8rem; }
 
 /* line 23, scss/objects/_comments.scss */
 .comment-name {
