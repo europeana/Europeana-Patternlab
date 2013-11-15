@@ -46,7 +46,7 @@
 /* Grid Container */
 .g {
 	overflow: hidden;
-	margin: 0 (-$pad-half);
+	//margin: 0 (-$pad-half);
 }
 
 /* Grid Item */
@@ -311,10 +311,10 @@
 		width: 100%;
 	}
 
-	> li{
+	> li, >.gi{
 		display: inline-block;
 		vertical-align: top;
-		width: 33%;
+		width: 33.333%;
 		position: relative;
 
 		/* IE7 hack to mimic inline-block on block elements */

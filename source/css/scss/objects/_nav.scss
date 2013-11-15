@@ -6,6 +6,7 @@
 	clear: both;
 	overflow: hidden;
 	max-height: 0;
+	font-family: $font-secondary;
 	
 	a {
 		display: block;
@@ -36,9 +37,10 @@
 //Pagination
 .pagination {
 	overflow: hidden;
+	font-family: $font-secondary;
 
 	li {
-		float: left;
+		display: inline-block;
 		border-right: 1px solid $gray-light;
 
 		&:last-child {
@@ -47,12 +49,69 @@
 	}
 
 	a {
-		padding: $pad;
+		padding: $pad-half $pad;
+		display: block;
+
+		&:hover{
+			background-color: $gray-light;
+			color: $white;
+		}
 	}
 
 	.current{
 		color: $white;
 		font-weight: bold;
 		background-color: $textcolour_link;
+
+		&:hover{
+			background-color: $textcolour_link;
+		}
 	}
+}
+
+
+.breadcrumbs { 
+	list-style: none;
+	line-height: 1;
+	font-family: $font-secondary;
+
+	a {
+		display: inline-block;
+
+		padding: 1em 2em;
+		position: relative;
+		margin-right: 5px;
+		text-decoration: none;
+
+		&:after {
+			content: "";  
+			border-top: 0.5em solid transparent;
+				border-bottom: 0.5em solid transparent;
+				border-left: 0.5em solid $gray-light;
+			position: absolute; right: -0.5em; top: 50%;
+			margin-top: -0.5em;
+			z-index: 1;
+		}
+
+		&:hover {
+
+		}
+		&:hover:after {
+			border-left-color: $textcolour_link;
+		}
+		
+	}
+
+	>li{
+		display: inline;
+
+		&:first-child a:before {
+			display: none; 
+		}
+
+		&:last-child a:after {
+			display: none; 
+		}
+	}
+
 }

@@ -244,6 +244,36 @@ abbr {
   border-bottom: 1px dotted #727272;
   cursor: help; }
 
+/* line 30, scss/base/_text.scss */
+.upper {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem; }
+
+/* line 36, scss/base/_text.scss */
+.small-caps {
+  -moz-font-feature-settings: 'smcp=1, kern=1';
+  -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -o-font-feature-settings: 'smcp' 1, 'kern' 1;
+  font-feature-settings: 'smcp' 1, 'kern' 1;
+  letter-spacing: 0.1rem; }
+
+/* line 46, scss/base/_text.scss */
+.lining-numerals {
+  -moz-font-feature-settings: 'lnum=1, kern=1';
+  -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -o-font-feature-settings: 'lnum' 1, 'kern' 1;
+  font-feature-settings: 'lnum' 1, 'kern' 1; }
+
+/* line 55, scss/base/_text.scss */
+.oldstyle-numerals {
+  -moz-font-feature-settings: 'onum=1, kern=1';
+  -ms-font-feature-settings: 'onum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
+  -o-font-feature-settings: 'onum' 1, 'kern' 1;
+  font-feature-settings: 'onum' 1, 'kern' 1; }
+
 /* line 1, scss/base/_lists.scss */
 ol, ul {
   margin: 0;
@@ -561,8 +591,7 @@ td {
 /* Grid Container */
 /* line 47, scss/objects/_layout.scss */
 .g {
-  overflow: hidden;
-  margin: 0 -0.5rem; }
+  overflow: hidden; }
 
 /* Grid Item */
 /* line 53, scss/objects/_layout.scss */
@@ -755,10 +784,10 @@ td {
     display: inline-block;
     width: 100%; }
   /* line 314, scss/objects/_layout.scss */
-  .l-grid-media > li {
+  .l-grid-media > li, .l-grid-media > .gi {
     display: inline-block;
     vertical-align: top;
-    width: 33%;
+    width: 33.333%;
     position: relative;
     /* IE7 hack to mimic inline-block on block elements */
     *display: inline;
@@ -819,13 +848,14 @@ td {
 .nav {
   clear: both;
   overflow: hidden;
-  max-height: 0; }
-  /* line 10, scss/objects/_nav.scss */
+  max-height: 0;
+  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
+  /* line 11, scss/objects/_nav.scss */
   .nav a {
     display: block;
     padding: 1rem;
     border-top: 1px solid #d2d2d2; }
-  /* line 16, scss/objects/_nav.scss */
+  /* line 17, scss/objects/_nav.scss */
   .nav.active {
     max-height: 40em; }
   @media all and (min-width: 46.8em) {
@@ -834,31 +864,76 @@ td {
       max-height: none;
       float: right;
       clear: none; }
-      /* line 25, scss/objects/_nav.scss */
+      /* line 26, scss/objects/_nav.scss */
       .nav li {
         float: left; }
-      /* line 29, scss/objects/_nav.scss */
+      /* line 30, scss/objects/_nav.scss */
       .nav a {
         border: 0; } }
 
-/* line 37, scss/objects/_nav.scss */
+/* line 38, scss/objects/_nav.scss */
 .pagination {
-  overflow: hidden; }
-  /* line 40, scss/objects/_nav.scss */
+  overflow: hidden;
+  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
+  /* line 42, scss/objects/_nav.scss */
   .pagination li {
-    float: left;
+    display: inline-block;
     border-right: 1px solid #d2d2d2; }
-    /* line 44, scss/objects/_nav.scss */
+    /* line 46, scss/objects/_nav.scss */
     .pagination li:last-child {
       border: 0; }
-  /* line 49, scss/objects/_nav.scss */
+  /* line 51, scss/objects/_nav.scss */
   .pagination a {
-    padding: 1rem; }
-  /* line 53, scss/objects/_nav.scss */
+    padding: 0.5rem 1rem;
+    display: block; }
+    /* line 55, scss/objects/_nav.scss */
+    .pagination a:hover {
+      background-color: #d2d2d2;
+      color: white; }
+  /* line 61, scss/objects/_nav.scss */
   .pagination .current {
     color: white;
     font-weight: bold;
     background-color: #b13030; }
+    /* line 66, scss/objects/_nav.scss */
+    .pagination .current:hover {
+      background-color: #b13030; }
+
+/* line 73, scss/objects/_nav.scss */
+.breadcrumbs {
+  list-style: none;
+  line-height: 1;
+  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
+  /* line 78, scss/objects/_nav.scss */
+  .breadcrumbs a {
+    display: inline-block;
+    padding: 1em 2em;
+    position: relative;
+    margin-right: 5px;
+    text-decoration: none; }
+    /* line 86, scss/objects/_nav.scss */
+    .breadcrumbs a:after {
+      content: "";
+      border-top: 0.5em solid transparent;
+      border-bottom: 0.5em solid transparent;
+      border-left: 0.5em solid #d2d2d2;
+      position: absolute;
+      right: -0.5em;
+      top: 50%;
+      margin-top: -0.5em;
+      z-index: 1; }
+    /* line 99, scss/objects/_nav.scss */
+    .breadcrumbs a:hover:after {
+      border-left-color: #b13030; }
+  /* line 105, scss/objects/_nav.scss */
+  .breadcrumbs > li {
+    display: inline; }
+    /* line 108, scss/objects/_nav.scss */
+    .breadcrumbs > li:first-child a:before {
+      display: none; }
+    /* line 112, scss/objects/_nav.scss */
+    .breadcrumbs > li:last-child a:after {
+      display: none; }
 
 /*------------------------------------*\
     $MAIN CONTENT AREA
@@ -2074,7 +2149,7 @@ html:hover [class^="icon-"] {
 /* Block */
 /* line 11, scss/objects/_blocks.scss */
 .block {
-  overflow: hidden; }
+  overflow: visible; }
   /* line 14, scss/objects/_blocks.scss */
   .block p:last-child {
     margin-bottom: 0; }
@@ -2309,28 +2384,32 @@ html:hover [class^="icon-"] {
 
 /* line 1, scss/objects/_tabs.scss */
 .tabs {
-  overflow: hidden; }
-  /* line 4, scss/objects/_tabs.scss */
+  overflow: hidden;
+  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
+  /* line 5, scss/objects/_tabs.scss */
   .tabs ul {
     display: table;
-    width: 100%; }
-  /* line 9, scss/objects/_tabs.scss */
+    width: 100%;
+    border-bottom: 5px solid #333333; }
+  /* line 11, scss/objects/_tabs.scss */
   .tabs li {
     display: table-cell;
-    text-align: center;
-    border-right: 1px solid #d2d2d2; }
-    /* line 14, scss/objects/_tabs.scss */
+    border-right: 5px solid white; }
+    /* line 15, scss/objects/_tabs.scss */
     .tabs li:last-child {
       border-right: 0; }
-  /* line 19, scss/objects/_tabs.scss */
+  /* line 20, scss/objects/_tabs.scss */
   .tabs a {
     display: block;
-    padding: 0.5rem;
-    background: #727272; }
-    /* line 24, scss/objects/_tabs.scss */
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+    background: #d2d2d2; }
+    /* line 27, scss/objects/_tabs.scss */
     .tabs a:hover, .tabs a:focus {
-      background: #d2d2d2; }
-    /* line 28, scss/objects/_tabs.scss */
+      background: #333333;
+      color: white; }
+    /* line 32, scss/objects/_tabs.scss */
     .tabs a.active {
       background: #333333;
       color: white; }

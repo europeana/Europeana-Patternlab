@@ -24,3 +24,38 @@ abbr {
     border-bottom: 1px dotted $gray;
     cursor: help;
 }
+
+
+// Letter space those capitals people, Jan Tschichold would be proud.
+.upper {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+// Real small caps.
+.small-caps {
+  -moz-font-feature-settings: 'smcp=1, kern=1';
+  -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -o-font-feature-settings: 'smcp' 1, 'kern' 1;
+  font-feature-settings: 'smcp' 1, 'kern' 1;
+  letter-spacing: 0.1rem;
+}
+
+// Consistent height numbers with OpenType.
+.lining-numerals {
+  -moz-font-feature-settings: 'lnum=1, kern=1';
+  -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -o-font-feature-settings: 'lnum' 1, 'kern' 1;
+  font-feature-settings: 'lnum' 1, 'kern' 1;
+}
+
+// Ascending and descending numbers with OpenType.
+.oldstyle-numerals {
+  -moz-font-feature-settings: 'onum=1, kern=1';
+  -ms-font-feature-settings: 'onum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
+  -o-font-feature-settings: 'onum' 1, 'kern' 1;
+  font-feature-settings: 'onum' 1, 'kern' 1;
+}

@@ -1,15 +1,16 @@
 .tabs {
 	overflow: hidden;
+	font-family: $font-secondary;
 
 	ul {
 		display: table;
 		width: 100%;
+		border-bottom: 5px solid $gray-dark;
 	}
 	
 	li {
 		display: table-cell;
-		text-align: center;
-		border-right: 1px solid $gray-light;
+		border-right: 5px solid $white;
 
 		&:last-child {
 			border-right: 0;
@@ -18,11 +19,14 @@
 
 	a {
 		display: block;
-		padding: $pad-half;
-		background: $gray;
+		text-align: center;
+		padding: $pad;
+		padding-bottom: $pad-half;
+		background: $gray-light;
 
 		&:hover, &:focus {
-			background: $gray-light;
+			background: $gray-dark;
+			color: $white;
 		}
 
 		&.active {

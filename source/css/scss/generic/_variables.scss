@@ -82,6 +82,6 @@ $bp-xxxl : 93em;
 
 // Grids
 $grids: 3;
-$grids: add-grid(6 at 500px);
+$grids: add-grid(6 at $bp-med);
 $grids: add-grid(12 at 700px);
 
