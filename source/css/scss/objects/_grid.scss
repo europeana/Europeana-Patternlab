@@ -1,0 +1,278 @@
+/* CSS for responsive grid, based on Foundation v2.2 */
+
+.container {
+  padding: 0 20px;
+}
+
+[class*="column"] + [class*="column"]:last-child {
+  float: right;
+}
+
+img, object, embed {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+.row {
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  zoom: 1;
+}
+
+/* Mobile first */
+
+.container {
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row {
+  width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0;
+
+  .row .column, .columns {
+      padding: 0;
+    }
+}
+
+.column, .columns {
+  width: auto;
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.column:last-child, .columns:last-child {
+  margin-right: 0;
+  float: none;
+}
+
+[class*="column"] {
+  + [class*="column"]:last-child {
+    float: none;
+  }
+  &:before {
+    content: "";
+    display: table;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .centered {
+  margin-left: 0;
+}
+
+.push-one, .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten, .push-eleven {
+  left: auto;
+}
+
+.pull-one, .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten, .pull-eleven {
+  right: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-show {
+  visibility: hidden;
+}
+
+
+/* grid styling */
+@media only screen and (min-width: 48em) {
+  .row {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    .row {
+      min-width: 0;
+    }
+  }
+  .column, .columns {
+    margin: 0;
+    float: left !important;
+    min-height: 1px;
+    position: relative;
+  }
+  .row {
+    .one {
+      width: 8.33334%		!important;
+    }
+    .two {
+      width: 16.66667%	!important;
+    }
+    .three {
+      width: 25%			!important;
+    }
+    .four {
+      width: 33.33334%	!important;
+    }
+    .five {
+      width: 41.66667%	!important;
+    }
+    .six {
+      width: 50%			!important;
+    }
+    .seven {
+      width: 58.33334%	!important;
+    }
+    .eight {
+      width: 66.66667%	!important;
+    }
+    .nine {
+      width: 75%			!important;
+    }
+    .ten {
+      width: 83.33334%	!important;
+    }
+    .eleven {
+      width: 91.66667%	!important;
+    }
+    .twelve {
+      width: 100%			!important;
+    }
+    .offset-by-one {
+      margin-left: 8.33334%	!important;
+    }
+    .offset-by-two {
+      margin-left: 16.66667%	!important;
+    }
+    .offset-by-three {
+      margin-left: 25%		!important;
+    }
+    .offset-by-four {
+      margin-left: 33.33334%	!important;
+    }
+    .offset-by-five {
+      margin-left: 41.66667%	!important;
+    }
+    .offset-by-six {
+      margin-left: 50%		!important;
+    }
+    .offset-by-seven {
+      margin-left: 58.33334%	!important;
+    }
+    .offset-by-eight {
+      margin-left: 66.66667%	!important;
+    }
+    .offset-by-nine {
+      margin-left: 75%		!important;
+    }
+    .offset-by-ten {
+      margin-left: 83.33334%	!important;
+    }
+    .offset-by-eleven {
+      margin-left: 91.66667%	!important;
+    }
+    .centered {
+      float: none !important;
+      margin: 0 auto;
+    }
+  }
+  .push-one {
+    left: 8.33334%;
+  }
+  .push-two {
+    left: 16.66667%;
+  }
+  .push-three {
+    left: 25%;
+  }
+  .push-four {
+    left: 33.33334%;
+  }
+  .push-five {
+    left: 41.66667%;
+  }
+  .push-six {
+    left: 50%;
+  }
+  .push-seven {
+    left: 58.33334%;
+  }
+  .push-eight {
+    left: 66.66667%;
+  }
+  .push-nine {
+    left: 75%;
+  }
+  .push-ten {
+    left: 83.33334%;
+  }
+  .push-eleven {
+    left: 91.66667%;
+  }
+  .pull-one {
+    right: 8.33334%;
+  }
+  .pull-two {
+    right: 16.66667%;
+  }
+  .pull-three {
+    right: 25%;
+  }
+  .pull-four {
+    right: 33.33334%;
+  }
+  .pull-five {
+    right: 41.66667%;
+  }
+  .pull-six {
+    right: 50%;
+  }
+  .pull-seven {
+    right: 58.33334%;
+  }
+  .pull-eight {
+    right: 66.66667%;
+  }
+  .pull-nine {
+    right: 75%;
+  }
+  .pull-ten {
+    right: 83.33334%;
+  }
+  .pull-eleven {
+    right: 91.66667%;
+  }
+  .container {
+    > .row {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding-left: 1em;
+      padding-right: 1em;
+      &:not(.footer) {
+        background-color: white;
+      }
+    }
+    background-color: #DADADA;
+  }
+}

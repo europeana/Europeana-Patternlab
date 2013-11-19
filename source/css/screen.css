@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  EUROPEANA STYLE GUIDE
 
@@ -176,23 +177,29 @@ a {
 h1, .alpha {
   line-height: 1.1;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 42px;
-  font-size: 2.625rem; }
+  font-size: 2.625rem;
+  margin-bottom: 0.2em; }
   @media all and (min-width: 50em) {
     /* line 3, scss/base/_headings.scss */
     h1, .alpha {
       font-size: 68px;
       font-size: 4.25rem; } }
 
-/* line 14, scss/base/_headings.scss */
+/* line 15, scss/base/_headings.scss */
 h2, .beta {
   line-height: 1.19;
   font-weight: bold;
-  font-size: 42px;
-  font-size: 2.625rem; }
+  font-size: 28.8px;
+  font-size: 1.8rem; }
+  @media all and (min-width: 50em) {
+    /* line 15, scss/base/_headings.scss */
+    h2, .beta {
+      font-size: 42px;
+      font-size: 2.625rem; } }
 
-/* line 20, scss/base/_headings.scss */
+/* line 25, scss/base/_headings.scss */
 h3, .gamma {
   line-height: 1.48;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
@@ -201,18 +208,18 @@ h3, .gamma {
   font-size: 25.6px;
   font-size: 1.6rem; }
 
-/* line 28, scss/base/_headings.scss */
+/* line 33, scss/base/_headings.scss */
 h4, .delta {
   font-weight: bold;
   text-transform: uppercase; }
 
-/* line 33, scss/base/_headings.scss */
+/* line 38, scss/base/_headings.scss */
 h5, .epsilon {
   font-weight: bold;
   font-size: 1em; }
 
 /* Subheadings */
-/* line 43, scss/base/_headings.scss */
+/* line 48, scss/base/_headings.scss */
 .subheading {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-weight: normal; }
@@ -799,6 +806,300 @@ td {
   .l-grid-media a {
     display: block; }
 
+/* CSS for responsive grid, based on Foundation v2.2 */
+/* line 3, scss/objects/_grid.scss */
+.container {
+  padding: 0 20px; }
+
+/* line 7, scss/objects/_grid.scss */
+[class*="column"] + [class*="column"]:last-child {
+  float: right; }
+
+/* line 11, scss/objects/_grid.scss */
+img, object, embed {
+  max-width: 100%;
+  height: auto; }
+
+/* line 16, scss/objects/_grid.scss */
+img {
+  -ms-interpolation-mode: bicubic; }
+
+/* line 20, scss/objects/_grid.scss */
+.row {
+  zoom: 1; }
+  /* line 21, scss/objects/_grid.scss */
+  .row:before {
+    content: "";
+    display: table; }
+  /* line 25, scss/objects/_grid.scss */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* Mobile first */
+/* line 35, scss/objects/_grid.scss */
+.container {
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0; }
+
+/* line 41, scss/objects/_grid.scss */
+.row {
+  width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0; }
+  /* line 47, scss/objects/_grid.scss */
+  .row .row .column, .row .columns {
+    padding: 0; }
+
+/* line 52, scss/objects/_grid.scss */
+.column, .columns {
+  width: auto;
+  float: none;
+  margin-left: 0;
+  margin-right: 0; }
+
+/* line 59, scss/objects/_grid.scss */
+.column:last-child, .columns:last-child {
+  margin-right: 0;
+  float: none; }
+
+/* line 65, scss/objects/_grid.scss */
+[class*="column"] + [class*="column"]:last-child {
+  float: none; }
+/* line 68, scss/objects/_grid.scss */
+[class*="column"]:before {
+  content: "";
+  display: table; }
+/* line 72, scss/objects/_grid.scss */
+[class*="column"]:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* line 79, scss/objects/_grid.scss */
+.offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .centered {
+  margin-left: 0; }
+
+/* line 83, scss/objects/_grid.scss */
+.push-one, .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten, .push-eleven {
+  left: auto; }
+
+/* line 87, scss/objects/_grid.scss */
+.pull-one, .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten, .pull-eleven {
+  right: auto; }
+
+/* line 91, scss/objects/_grid.scss */
+.left {
+  float: left; }
+
+/* line 95, scss/objects/_grid.scss */
+.right {
+  float: right; }
+
+/* line 99, scss/objects/_grid.scss */
+.hidden {
+  display: none; }
+
+/* line 103, scss/objects/_grid.scss */
+.no-show {
+  visibility: hidden; }
+
+/* grid styling */
+@media only screen and (min-width: 48em) {
+  /* line 110, scss/objects/_grid.scss */
+  .row {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto; }
+    /* line 114, scss/objects/_grid.scss */
+    .row .row {
+      min-width: 0; }
+
+  /* line 118, scss/objects/_grid.scss */
+  .column, .columns {
+    margin: 0;
+    float: left !important;
+    min-height: 1px;
+    position: relative; }
+
+  /* line 125, scss/objects/_grid.scss */
+  .row .one {
+    width: 8.33334%		!important; }
+  /* line 128, scss/objects/_grid.scss */
+  .row .two {
+    width: 16.66667%	!important; }
+  /* line 131, scss/objects/_grid.scss */
+  .row .three {
+    width: 25%			!important; }
+  /* line 134, scss/objects/_grid.scss */
+  .row .four {
+    width: 33.33334%	!important; }
+  /* line 137, scss/objects/_grid.scss */
+  .row .five {
+    width: 41.66667%	!important; }
+  /* line 140, scss/objects/_grid.scss */
+  .row .six {
+    width: 50%			!important; }
+  /* line 143, scss/objects/_grid.scss */
+  .row .seven {
+    width: 58.33334%	!important; }
+  /* line 146, scss/objects/_grid.scss */
+  .row .eight {
+    width: 66.66667%	!important; }
+  /* line 149, scss/objects/_grid.scss */
+  .row .nine {
+    width: 75%			!important; }
+  /* line 152, scss/objects/_grid.scss */
+  .row .ten {
+    width: 83.33334%	!important; }
+  /* line 155, scss/objects/_grid.scss */
+  .row .eleven {
+    width: 91.66667%	!important; }
+  /* line 158, scss/objects/_grid.scss */
+  .row .twelve {
+    width: 100%			!important; }
+  /* line 161, scss/objects/_grid.scss */
+  .row .offset-by-one {
+    margin-left: 8.33334%	!important; }
+  /* line 164, scss/objects/_grid.scss */
+  .row .offset-by-two {
+    margin-left: 16.66667%	!important; }
+  /* line 167, scss/objects/_grid.scss */
+  .row .offset-by-three {
+    margin-left: 25%		!important; }
+  /* line 170, scss/objects/_grid.scss */
+  .row .offset-by-four {
+    margin-left: 33.33334%	!important; }
+  /* line 173, scss/objects/_grid.scss */
+  .row .offset-by-five {
+    margin-left: 41.66667%	!important; }
+  /* line 176, scss/objects/_grid.scss */
+  .row .offset-by-six {
+    margin-left: 50%		!important; }
+  /* line 179, scss/objects/_grid.scss */
+  .row .offset-by-seven {
+    margin-left: 58.33334%	!important; }
+  /* line 182, scss/objects/_grid.scss */
+  .row .offset-by-eight {
+    margin-left: 66.66667%	!important; }
+  /* line 185, scss/objects/_grid.scss */
+  .row .offset-by-nine {
+    margin-left: 75%		!important; }
+  /* line 188, scss/objects/_grid.scss */
+  .row .offset-by-ten {
+    margin-left: 83.33334%	!important; }
+  /* line 191, scss/objects/_grid.scss */
+  .row .offset-by-eleven {
+    margin-left: 91.66667%	!important; }
+  /* line 194, scss/objects/_grid.scss */
+  .row .centered {
+    float: none !important;
+    margin: 0 auto; }
+
+  /* line 199, scss/objects/_grid.scss */
+  .push-one {
+    left: 8.33334%; }
+
+  /* line 202, scss/objects/_grid.scss */
+  .push-two {
+    left: 16.66667%; }
+
+  /* line 205, scss/objects/_grid.scss */
+  .push-three {
+    left: 25%; }
+
+  /* line 208, scss/objects/_grid.scss */
+  .push-four {
+    left: 33.33334%; }
+
+  /* line 211, scss/objects/_grid.scss */
+  .push-five {
+    left: 41.66667%; }
+
+  /* line 214, scss/objects/_grid.scss */
+  .push-six {
+    left: 50%; }
+
+  /* line 217, scss/objects/_grid.scss */
+  .push-seven {
+    left: 58.33334%; }
+
+  /* line 220, scss/objects/_grid.scss */
+  .push-eight {
+    left: 66.66667%; }
+
+  /* line 223, scss/objects/_grid.scss */
+  .push-nine {
+    left: 75%; }
+
+  /* line 226, scss/objects/_grid.scss */
+  .push-ten {
+    left: 83.33334%; }
+
+  /* line 229, scss/objects/_grid.scss */
+  .push-eleven {
+    left: 91.66667%; }
+
+  /* line 232, scss/objects/_grid.scss */
+  .pull-one {
+    right: 8.33334%; }
+
+  /* line 235, scss/objects/_grid.scss */
+  .pull-two {
+    right: 16.66667%; }
+
+  /* line 238, scss/objects/_grid.scss */
+  .pull-three {
+    right: 25%; }
+
+  /* line 241, scss/objects/_grid.scss */
+  .pull-four {
+    right: 33.33334%; }
+
+  /* line 244, scss/objects/_grid.scss */
+  .pull-five {
+    right: 41.66667%; }
+
+  /* line 247, scss/objects/_grid.scss */
+  .pull-six {
+    right: 50%; }
+
+  /* line 250, scss/objects/_grid.scss */
+  .pull-seven {
+    right: 58.33334%; }
+
+  /* line 253, scss/objects/_grid.scss */
+  .pull-eight {
+    right: 66.66667%; }
+
+  /* line 256, scss/objects/_grid.scss */
+  .pull-nine {
+    right: 75%; }
+
+  /* line 259, scss/objects/_grid.scss */
+  .pull-ten {
+    right: 83.33334%; }
+
+  /* line 262, scss/objects/_grid.scss */
+  .pull-eleven {
+    right: 91.66667%; }
+
+  /* line 265, scss/objects/_grid.scss */
+  .container {
+    background-color: #DADADA; }
+    /* line 266, scss/objects/_grid.scss */
+    .container > .row {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding-left: 1em;
+      padding-right: 1em; }
+      /* line 272, scss/objects/_grid.scss */
+      .container > .row:not(.footer) {
+        background-color: white; } }
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
@@ -2362,23 +2663,22 @@ html:hover [class^="icon-"] {
   background: #131313;
   color: white;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
-  font-weight: bold;
   display: block;
   position: relative;
   padding: 0.5rem;
   border-bottom: 1px solid #d2d2d2; }
-  /* line 15, scss/objects/_accordion.scss */
+  /* line 14, scss/objects/_accordion.scss */
   .acc-handle:after {
     content: "+";
     float: right; }
-  /* line 20, scss/objects/_accordion.scss */
+  /* line 19, scss/objects/_accordion.scss */
   .acc-handle:hover {
     color: white;
     background: #333333; }
-  /* line 26, scss/objects/_accordion.scss */
+  /* line 25, scss/objects/_accordion.scss */
   .acc-handle.active {
     background: #333333; }
-    /* line 29, scss/objects/_accordion.scss */
+    /* line 28, scss/objects/_accordion.scss */
     .acc-handle.active:after {
       content: "-"; }
 

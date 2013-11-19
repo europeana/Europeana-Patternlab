@@ -1,6 +1,6 @@
 # Require any additional compass plugins here.
-require 'sass-globbing'
-require 'singularitygs'
+#require 'sass-globbing'
+#require 'singularitygs'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
