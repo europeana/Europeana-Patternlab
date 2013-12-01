@@ -177,7 +177,7 @@ a {
 h1, .alpha {
   line-height: 1.1;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 42px;
   font-size: 2.625rem;
   margin-bottom: 0.2em; }
@@ -806,306 +806,900 @@ td {
   .l-grid-media a {
     display: block; }
 
-/* CSS for responsive grid, based on Foundation v2.2 */
-/* line 3, scss/objects/_grid.scss */
-.container {
-  padding: 0 20px; }
+/*------------------------------------*\
+    $CSSWIZARDRY-GRIDS
+\*------------------------------------*/
+/**
+ * CONTENTS
+ * INTRODUCTION.........How the grid system works.
+ * VARIABLES............Your settings.
+ * MIXINS...............Library mixins.
+ * GRID SETUP...........Build the grid structure.
+ * WIDTHS...............Build our responsive widths around our breakpoints.
+ * PUSH.................Push classes.
+ * PULL.................Pull classes.
+ */
+/*------------------------------------*\
+    $INTRODUCTION
+\*------------------------------------*/
+/**
+ * csswizardry grids provides you with widths to suit a number of breakpoints
+ * designed around devices of a size you specify. Out of the box, csswizardry
+ * grids caters to the following types of device:
+ *
+ * palm     --  palm-based devices, like phones and small tablets
+ * lap      --  lap-based devices, like iPads or laptops
+ * portable --  all of the above
+ * desk     --  stationary devices, like desktop computers
+ * regular  --  any/all types of device
+ *
+ * These namespaces are then used in the library to give you the ability to
+ * manipulate your layouts based around them, for example:
+ *
+   <div class="grid__item  one-whole  lap--one-half  desk--one-third">
+ *
+ * This would give you a grid item which is 100% width unless it is on a lap
+ * device, at which point it become 50% wide, or it is on a desktop device, at
+ * which point it becomes 33.333% width.
+ *
+ * csswizardry grids also has push and pull classes which allow you to nudge
+ * grid items left and right by a defined amount. These follow the same naming
+ * convention as above, but are prepended by either `push--` or `pull--`, for
+ * example:
+ *
+   `class="grid__item  one-half  push--one-half"`
+ *
+ * This would give you a grid item which is 50% width and pushed over to the
+ * right by 50%.
+ *
+ * All classes in csswizardry grids follow this pattern, so you should fairly
+ * quickly be able to piece together any combinations you can imagine, for
+ * example:
+ *
+   `class="grid__item  one-whole  lap--one-half  desk--one-third  push--desk--one-third"`
+ *
+   `class="grid__item  one-quarter  palm--one-half  push--palm--one-half"`
+ *
+   `class="grid__item  palm--one-third  desk--five-twelfths"`
+ */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/**
+ * If you are building a non-responsive site but would still like to use
+ * csswizardry-grids, set this to ‘false’:
+ */
+/**
+ * Is this build mobile first? Setting to ‘true’ means that all grids will be
+ * 100% width if you do not apply a more specific class to them.
+ */
+/**
+ * Set the spacing between your grid items.
+ */
+/**
+ * Would you like Sass’ silent classes, or regular CSS classes?
+ */
+/**
+ * Would you like push and pull classes enabled?
+ */
+/**
+ * Using `inline-block` means that the grid items need their whitespace removing
+ * in order for them to work correctly. Set the following to true if you are
+ * going to achieve this by manually removing/commenting out any whitespace in
+ * your HTML yourself.
+ *
+ * Setting this to false invokes a hack which cannot always be guaranteed,
+ * please see the following for more detail:
+ *
+ * github.com/csswizardry/csswizardry-grids/commit/744d4b23c9d2b77d605b5991e54a397df72e0688
+ * github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+ */
+/**
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * that the breakpoint fires at.
+ */
+/**
+ * Define which namespaced breakpoints you would like to generate for each of
+ * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * you only need a new width breakpoint at mobile sizes. It allows you to only
+ * compile as much CSS as you need. All are turned on by default, but you can
+ * add and remove breakpoints at will.
+ *
+ * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
+ * have been set to ‘true’.
+ */
+/* line 146, scss/objects/_csswizardry-grids.scss */
+.demo-block {
+  background-color: #66e60f;
+  padding: 20px; }
 
-/* line 7, scss/objects/_grid.scss */
-[class*="column"] + [class*="column"]:last-child {
-  float: right; }
+/**
+ * You do not need to edit anything from this line onward; csswizardry-grids is
+ * good to go. Happy griddin’!
+ */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * These mixins are for the library to use only, you should not need to modify
+ * them at all.
+ *
+ * Enclose a block of code with a media query as named in `$breakpoints`.
+ */
+/**
+ * Drop relative positioning into silent classes which can’t take advantage of
+ * the `[class*="push--"]` and `[class*="pull--"]` selectors.
+ */
+/*------------------------------------*\
+    $GRID SETUP
+\*------------------------------------*/
+/**
+ * 1. Allow the grid system to be used on lists.
+ * 2. Remove any margins and paddings that might affect the grid system.
+ * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ */
+/* line 218, scss/objects/_csswizardry-grids.scss */
+.grid {
+  list-style: none;
+  /* [1] */
+  margin: 0;
+  /* [2] */
+  padding: 0;
+  /* [2] */
+  margin-left: -24px;
+  /* [3] */ }
 
-/* line 11, scss/objects/_grid.scss */
-img, object, embed {
-  max-width: 100%;
-  height: auto; }
-
-/* line 16, scss/objects/_grid.scss */
-img {
-  -ms-interpolation-mode: bicubic; }
-
-/* line 20, scss/objects/_grid.scss */
-.row {
-  zoom: 1; }
-  /* line 21, scss/objects/_grid.scss */
-  .row:before {
-    content: "";
-    display: table; }
-  /* line 25, scss/objects/_grid.scss */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* Mobile first */
-/* line 35, scss/objects/_grid.scss */
-.container {
-  min-width: 0;
-  margin-left: 0;
-  margin-right: 0; }
-
-/* line 41, scss/objects/_grid.scss */
-.row {
+/**
+ * 1. Cause columns to stack side-by-side.
+ * 1a. Mini hack for IE8 and below to display inline-block correctly
+ * 2. Space columns apart.
+ * 3. Align columns to the tops of each other.
+ * 4. Full-width unless told to behave otherwise.
+ * 5. Required to combine fluid widths and fixed gutters.
+ */
+/* line 245, scss/objects/_csswizardry-grids.scss */
+.grid__item {
+  display: inline-block;
+  /* [1] */
+  zoom: 1;
+  /* [1a] */
+  *display: inline;
+  padding-left: 24px;
+  /* [2] */
+  vertical-align: top;
+  /* [3] */
   width: 100%;
-  min-width: 0;
-  margin-left: 0;
-  margin-right: 0; }
-  /* line 47, scss/objects/_grid.scss */
-  .row .row .column, .row .columns {
-    padding: 0; }
+  /* [4] */
+  -webkit-box-sizing: border-box;
+  /* [5] */
+  -moz-box-sizing: border-box;
+  /* [5] */
+  box-sizing: border-box;
+  /* [5] */ }
 
-/* line 52, scss/objects/_grid.scss */
-.column, .columns {
-  width: auto;
-  float: none;
-  margin-left: 0;
-  margin-right: 0; }
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.grid`.
+ */
+/* line 269, scss/objects/_csswizardry-grids.scss */
+.grid--rev {
+  direction: rtl;
+  text-align: left; }
+  /* line 273, scss/objects/_csswizardry-grids.scss */
+  .grid--rev > .grid__item {
+    direction: ltr;
+    text-align: left; }
 
-/* line 59, scss/objects/_grid.scss */
-.column:last-child, .columns:last-child {
-  margin-right: 0;
-  float: none; }
-
-/* line 65, scss/objects/_grid.scss */
-[class*="column"] + [class*="column"]:last-child {
-  float: none; }
-/* line 68, scss/objects/_grid.scss */
-[class*="column"]:before {
-  content: "";
-  display: table; }
-/* line 72, scss/objects/_grid.scss */
-[class*="column"]:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/* line 79, scss/objects/_grid.scss */
-.offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .centered {
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ * Extends `.grid`.
+ */
+/* line 284, scss/objects/_csswizardry-grids.scss */
+.grid--full {
   margin-left: 0; }
+  /* line 287, scss/objects/_csswizardry-grids.scss */
+  .grid--full > .grid__item {
+    padding-left: 0; }
 
-/* line 83, scss/objects/_grid.scss */
-.push-one, .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten, .push-eleven {
-  left: auto; }
+/**
+ * Align the entire grid to the right. Extends `.grid`.
+ */
+/* line 296, scss/objects/_csswizardry-grids.scss */
+.grid--right {
+  text-align: right; }
+  /* line 299, scss/objects/_csswizardry-grids.scss */
+  .grid--right > .grid__item {
+    text-align: left; }
 
-/* line 87, scss/objects/_grid.scss */
-.pull-one, .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten, .pull-eleven {
-  right: auto; }
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes. Extends `.grid`.
+ */
+/* line 309, scss/objects/_csswizardry-grids.scss */
+.grid--center {
+  text-align: center; }
+  /* line 312, scss/objects/_csswizardry-grids.scss */
+  .grid--center > .grid__item {
+    text-align: left; }
 
-/* line 91, scss/objects/_grid.scss */
-.left {
-  float: left; }
+/**
+ * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
+ * `.grid`.
+ */
+/* line 324, scss/objects/_csswizardry-grids.scss */
+.grid--middle > .grid__item {
+  vertical-align: middle; }
 
-/* line 95, scss/objects/_grid.scss */
-.right {
-  float: right; }
+/* line 331, scss/objects/_csswizardry-grids.scss */
+.grid--bottom > .grid__item {
+  vertical-align: bottom; }
 
-/* line 99, scss/objects/_grid.scss */
-.hidden {
-  display: none; }
+/**
+ * Create grids with narrower gutters. Extends `.grid`.
+ */
+/* line 340, scss/objects/_csswizardry-grids.scss */
+.grid--narrow {
+  margin-left: -12px; }
+  /* line 343, scss/objects/_csswizardry-grids.scss */
+  .grid--narrow > .grid__item {
+    padding-left: 12px; }
 
-/* line 103, scss/objects/_grid.scss */
-.no-show {
-  visibility: hidden; }
+/**
+ * Create grids with wider gutters. Extends `.grid`.
+ */
+/* line 352, scss/objects/_csswizardry-grids.scss */
+.grid--wide {
+  margin-left: -48px; }
+  /* line 355, scss/objects/_csswizardry-grids.scss */
+  .grid--wide > .grid__item {
+    padding-left: 48px; }
 
-/* grid styling */
-@media only screen and (min-width: 48em) {
-  /* line 110, scss/objects/_grid.scss */
-  .row {
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto; }
-    /* line 114, scss/objects/_grid.scss */
-    .row .row {
-      min-width: 0; }
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Create our width classes, prefixed by the specified namespace.
+ */
+/**
+ * Our regular, non-responsive width classes.
+ */
+/**
+ * Whole
+ */
+/* line 376, scss/objects/_csswizardry-grids.scss */
+.one-whole {
+  width: 100%; }
 
-  /* line 118, scss/objects/_grid.scss */
-  .column, .columns {
-    margin: 0;
-    float: left !important;
-    min-height: 1px;
-    position: relative; }
+/**
+ * Halves
+ */
+/* line 382, scss/objects/_csswizardry-grids.scss */
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+  width: 50%; }
 
-  /* line 125, scss/objects/_grid.scss */
-  .row .one {
-    width: 8.33334%		!important; }
-  /* line 128, scss/objects/_grid.scss */
-  .row .two {
-    width: 16.66667%	!important; }
-  /* line 131, scss/objects/_grid.scss */
-  .row .three {
-    width: 25%			!important; }
-  /* line 134, scss/objects/_grid.scss */
-  .row .four {
-    width: 33.33334%	!important; }
-  /* line 137, scss/objects/_grid.scss */
-  .row .five {
-    width: 41.66667%	!important; }
-  /* line 140, scss/objects/_grid.scss */
-  .row .six {
-    width: 50%			!important; }
-  /* line 143, scss/objects/_grid.scss */
-  .row .seven {
-    width: 58.33334%	!important; }
-  /* line 146, scss/objects/_grid.scss */
-  .row .eight {
-    width: 66.66667%	!important; }
-  /* line 149, scss/objects/_grid.scss */
-  .row .nine {
-    width: 75%			!important; }
-  /* line 152, scss/objects/_grid.scss */
-  .row .ten {
-    width: 83.33334%	!important; }
-  /* line 155, scss/objects/_grid.scss */
-  .row .eleven {
-    width: 91.66667%	!important; }
-  /* line 158, scss/objects/_grid.scss */
-  .row .twelve {
-    width: 100%			!important; }
-  /* line 161, scss/objects/_grid.scss */
-  .row .offset-by-one {
-    margin-left: 8.33334%	!important; }
-  /* line 164, scss/objects/_grid.scss */
-  .row .offset-by-two {
-    margin-left: 16.66667%	!important; }
-  /* line 167, scss/objects/_grid.scss */
-  .row .offset-by-three {
-    margin-left: 25%		!important; }
-  /* line 170, scss/objects/_grid.scss */
-  .row .offset-by-four {
-    margin-left: 33.33334%	!important; }
-  /* line 173, scss/objects/_grid.scss */
-  .row .offset-by-five {
-    margin-left: 41.66667%	!important; }
-  /* line 176, scss/objects/_grid.scss */
-  .row .offset-by-six {
-    margin-left: 50%		!important; }
-  /* line 179, scss/objects/_grid.scss */
-  .row .offset-by-seven {
-    margin-left: 58.33334%	!important; }
-  /* line 182, scss/objects/_grid.scss */
-  .row .offset-by-eight {
-    margin-left: 66.66667%	!important; }
-  /* line 185, scss/objects/_grid.scss */
-  .row .offset-by-nine {
-    margin-left: 75%		!important; }
-  /* line 188, scss/objects/_grid.scss */
-  .row .offset-by-ten {
-    margin-left: 83.33334%	!important; }
-  /* line 191, scss/objects/_grid.scss */
-  .row .offset-by-eleven {
-    margin-left: 91.66667%	!important; }
-  /* line 194, scss/objects/_grid.scss */
-  .row .centered {
-    float: none !important;
-    margin: 0 auto; }
+/**
+ * Thirds
+ */
+/* line 388, scss/objects/_csswizardry-grids.scss */
+.one-third, .two-sixths, .four-twelfths {
+  width: 33.333%; }
 
-  /* line 199, scss/objects/_grid.scss */
-  .push-one {
-    left: 8.33334%; }
+/* line 389, scss/objects/_csswizardry-grids.scss */
+.two-thirds, .four-sixths, .eight-twelfths {
+  width: 66.666%; }
 
-  /* line 202, scss/objects/_grid.scss */
-  .push-two {
-    left: 16.66667%; }
+/**
+ * Quarters
+ */
+/* line 395, scss/objects/_csswizardry-grids.scss */
+.one-quarter, .two-eighths, .three-twelfths {
+  width: 25%; }
 
-  /* line 205, scss/objects/_grid.scss */
-  .push-three {
-    left: 25%; }
+/* line 397, scss/objects/_csswizardry-grids.scss */
+.three-quarters, .six-eighths, .nine-twelfths {
+  width: 75%; }
 
-  /* line 208, scss/objects/_grid.scss */
-  .push-four {
-    left: 33.33334%; }
+/**
+ * Fifths
+ */
+/* line 403, scss/objects/_csswizardry-grids.scss */
+.one-fifth, .two-tenths {
+  width: 20%; }
 
-  /* line 211, scss/objects/_grid.scss */
-  .push-five {
-    left: 41.66667%; }
+/* line 404, scss/objects/_csswizardry-grids.scss */
+.two-fifths, .four-tenths {
+  width: 40%; }
 
-  /* line 214, scss/objects/_grid.scss */
-  .push-six {
-    left: 50%; }
+/* line 405, scss/objects/_csswizardry-grids.scss */
+.three-fifths, .six-tenths {
+  width: 60%; }
 
-  /* line 217, scss/objects/_grid.scss */
-  .push-seven {
-    left: 58.33334%; }
+/* line 406, scss/objects/_csswizardry-grids.scss */
+.four-fifths, .eight-tenths {
+  width: 80%; }
 
-  /* line 220, scss/objects/_grid.scss */
-  .push-eight {
-    left: 66.66667%; }
+/**
+ * Sixths
+ */
+/* line 412, scss/objects/_csswizardry-grids.scss */
+.one-sixth, .two-twelfths {
+  width: 16.666%; }
 
-  /* line 223, scss/objects/_grid.scss */
-  .push-nine {
-    left: 75%; }
+/* line 416, scss/objects/_csswizardry-grids.scss */
+.five-sixths, .ten-twelfths {
+  width: 83.333%; }
 
-  /* line 226, scss/objects/_grid.scss */
-  .push-ten {
-    left: 83.33334%; }
+/**
+ * Eighths
+ */
+/* line 422, scss/objects/_csswizardry-grids.scss */
+.one-eighth {
+  width: 12.5%; }
 
-  /* line 229, scss/objects/_grid.scss */
-  .push-eleven {
-    left: 91.66667%; }
+/* line 424, scss/objects/_csswizardry-grids.scss */
+.three-eighths {
+  width: 37.5%; }
 
-  /* line 232, scss/objects/_grid.scss */
-  .pull-one {
-    right: 8.33334%; }
+/* line 426, scss/objects/_csswizardry-grids.scss */
+.five-eighths {
+  width: 62.5%; }
 
-  /* line 235, scss/objects/_grid.scss */
-  .pull-two {
-    right: 16.66667%; }
+/* line 428, scss/objects/_csswizardry-grids.scss */
+.seven-eighths {
+  width: 87.5%; }
 
-  /* line 238, scss/objects/_grid.scss */
-  .pull-three {
-    right: 25%; }
+/**
+ * Tenths
+ */
+/* line 434, scss/objects/_csswizardry-grids.scss */
+.one-tenth {
+  width: 10%; }
 
-  /* line 241, scss/objects/_grid.scss */
-  .pull-four {
-    right: 33.33334%; }
+/* line 436, scss/objects/_csswizardry-grids.scss */
+.three-tenths {
+  width: 30%; }
 
-  /* line 244, scss/objects/_grid.scss */
-  .pull-five {
-    right: 41.66667%; }
+/* line 440, scss/objects/_csswizardry-grids.scss */
+.seven-tenths {
+  width: 70%; }
 
-  /* line 247, scss/objects/_grid.scss */
-  .pull-six {
-    right: 50%; }
+/* line 442, scss/objects/_csswizardry-grids.scss */
+.nine-tenths {
+  width: 90%; }
 
-  /* line 250, scss/objects/_grid.scss */
-  .pull-seven {
-    right: 58.33334%; }
+/**
+ * Twelfths
+ */
+/* line 448, scss/objects/_csswizardry-grids.scss */
+.one-twelfth {
+  width: 8.333%; }
 
-  /* line 253, scss/objects/_grid.scss */
-  .pull-eight {
-    right: 66.66667%; }
+/* line 452, scss/objects/_csswizardry-grids.scss */
+.five-twelfths {
+  width: 41.666%; }
 
-  /* line 256, scss/objects/_grid.scss */
-  .pull-nine {
-    right: 75%; }
+/* line 454, scss/objects/_csswizardry-grids.scss */
+.seven-twelfths {
+  width: 58.333%; }
 
-  /* line 259, scss/objects/_grid.scss */
-  .pull-ten {
-    right: 83.33334%; }
+/* line 458, scss/objects/_csswizardry-grids.scss */
+.eleven-twelfths {
+  width: 91.666%; }
 
-  /* line 262, scss/objects/_grid.scss */
-  .pull-eleven {
-    right: 91.66667%; }
+/**
+ * Our responsive classes, if we have enabled them.
+ */
+@media only screen and (max-width: 480px) {
+  /**
+   * Whole
+   */
+  /* line 376, scss/objects/_csswizardry-grids.scss */
+  .palm--one-whole {
+    width: 100%; }
 
-  /* line 265, scss/objects/_grid.scss */
-  .container {
-    background-color: #DADADA; }
-    /* line 266, scss/objects/_grid.scss */
-    .container > .row {
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      padding-left: 1em;
-      padding-right: 1em; }
-      /* line 272, scss/objects/_grid.scss */
-      .container > .row:not(.footer) {
-        background-color: white; } }
+  /**
+   * Halves
+   */
+  /* line 382, scss/objects/_csswizardry-grids.scss */
+  .palm--one-half, .palm--two-quarters, .palm--three-sixths, .palm--four-eighths, .palm--five-tenths, .palm--six-twelfths {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  /* line 388, scss/objects/_csswizardry-grids.scss */
+  .palm--one-third, .palm--two-sixths, .palm--four-twelfths {
+    width: 33.333%; }
+
+  /* line 389, scss/objects/_csswizardry-grids.scss */
+  .palm--two-thirds, .palm--four-sixths, .palm--eight-twelfths {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  /* line 395, scss/objects/_csswizardry-grids.scss */
+  .palm--one-quarter, .palm--two-eighths, .palm--three-twelfths {
+    width: 25%; }
+
+  /* line 397, scss/objects/_csswizardry-grids.scss */
+  .palm--three-quarters, .palm--six-eighths, .palm--nine-twelfths {
+    width: 75%; }
+
+  /**
+   * Fifths
+   */
+  /* line 403, scss/objects/_csswizardry-grids.scss */
+  .palm--one-fifth, .palm--two-tenths {
+    width: 20%; }
+
+  /* line 404, scss/objects/_csswizardry-grids.scss */
+  .palm--two-fifths, .palm--four-tenths {
+    width: 40%; }
+
+  /* line 405, scss/objects/_csswizardry-grids.scss */
+  .palm--three-fifths, .palm--six-tenths {
+    width: 60%; }
+
+  /* line 406, scss/objects/_csswizardry-grids.scss */
+  .palm--four-fifths, .palm--eight-tenths {
+    width: 80%; }
+
+  /**
+   * Sixths
+   */
+  /* line 412, scss/objects/_csswizardry-grids.scss */
+  .palm--one-sixth, .palm--two-twelfths {
+    width: 16.666%; }
+
+  /* line 416, scss/objects/_csswizardry-grids.scss */
+  .palm--five-sixths, .palm--ten-twelfths {
+    width: 83.333%; }
+
+  /**
+   * Eighths
+   */
+  /* line 422, scss/objects/_csswizardry-grids.scss */
+  .palm--one-eighth {
+    width: 12.5%; }
+
+  /* line 424, scss/objects/_csswizardry-grids.scss */
+  .palm--three-eighths {
+    width: 37.5%; }
+
+  /* line 426, scss/objects/_csswizardry-grids.scss */
+  .palm--five-eighths {
+    width: 62.5%; }
+
+  /* line 428, scss/objects/_csswizardry-grids.scss */
+  .palm--seven-eighths {
+    width: 87.5%; }
+
+  /**
+   * Tenths
+   */
+  /* line 434, scss/objects/_csswizardry-grids.scss */
+  .palm--one-tenth {
+    width: 10%; }
+
+  /* line 436, scss/objects/_csswizardry-grids.scss */
+  .palm--three-tenths {
+    width: 30%; }
+
+  /* line 440, scss/objects/_csswizardry-grids.scss */
+  .palm--seven-tenths {
+    width: 70%; }
+
+  /* line 442, scss/objects/_csswizardry-grids.scss */
+  .palm--nine-tenths {
+    width: 90%; }
+
+  /**
+   * Twelfths
+   */
+  /* line 448, scss/objects/_csswizardry-grids.scss */
+  .palm--one-twelfth {
+    width: 8.333%; }
+
+  /* line 452, scss/objects/_csswizardry-grids.scss */
+  .palm--five-twelfths {
+    width: 41.666%; }
+
+  /* line 454, scss/objects/_csswizardry-grids.scss */
+  .palm--seven-twelfths {
+    width: 58.333%; }
+
+  /* line 458, scss/objects/_csswizardry-grids.scss */
+  .palm--eleven-twelfths {
+    width: 91.666%; } }
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /**
+   * Whole
+   */
+  /* line 376, scss/objects/_csswizardry-grids.scss */
+  .lap--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  /* line 382, scss/objects/_csswizardry-grids.scss */
+  .lap--one-half, .lap--two-quarters, .lap--three-sixths, .lap--four-eighths, .lap--five-tenths, .lap--six-twelfths {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  /* line 388, scss/objects/_csswizardry-grids.scss */
+  .lap--one-third, .lap--two-sixths, .lap--four-twelfths {
+    width: 33.333%; }
+
+  /* line 389, scss/objects/_csswizardry-grids.scss */
+  .lap--two-thirds, .lap--four-sixths, .lap--eight-twelfths {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  /* line 395, scss/objects/_csswizardry-grids.scss */
+  .lap--one-quarter, .lap--two-eighths, .lap--three-twelfths {
+    width: 25%; }
+
+  /* line 397, scss/objects/_csswizardry-grids.scss */
+  .lap--three-quarters, .lap--six-eighths, .lap--nine-twelfths {
+    width: 75%; }
+
+  /**
+   * Fifths
+   */
+  /* line 403, scss/objects/_csswizardry-grids.scss */
+  .lap--one-fifth, .lap--two-tenths {
+    width: 20%; }
+
+  /* line 404, scss/objects/_csswizardry-grids.scss */
+  .lap--two-fifths, .lap--four-tenths {
+    width: 40%; }
+
+  /* line 405, scss/objects/_csswizardry-grids.scss */
+  .lap--three-fifths, .lap--six-tenths {
+    width: 60%; }
+
+  /* line 406, scss/objects/_csswizardry-grids.scss */
+  .lap--four-fifths, .lap--eight-tenths {
+    width: 80%; }
+
+  /**
+   * Sixths
+   */
+  /* line 412, scss/objects/_csswizardry-grids.scss */
+  .lap--one-sixth, .lap--two-twelfths {
+    width: 16.666%; }
+
+  /* line 416, scss/objects/_csswizardry-grids.scss */
+  .lap--five-sixths, .lap--ten-twelfths {
+    width: 83.333%; }
+
+  /**
+   * Eighths
+   */
+  /* line 422, scss/objects/_csswizardry-grids.scss */
+  .lap--one-eighth {
+    width: 12.5%; }
+
+  /* line 424, scss/objects/_csswizardry-grids.scss */
+  .lap--three-eighths {
+    width: 37.5%; }
+
+  /* line 426, scss/objects/_csswizardry-grids.scss */
+  .lap--five-eighths {
+    width: 62.5%; }
+
+  /* line 428, scss/objects/_csswizardry-grids.scss */
+  .lap--seven-eighths {
+    width: 87.5%; }
+
+  /**
+   * Tenths
+   */
+  /* line 434, scss/objects/_csswizardry-grids.scss */
+  .lap--one-tenth {
+    width: 10%; }
+
+  /* line 436, scss/objects/_csswizardry-grids.scss */
+  .lap--three-tenths {
+    width: 30%; }
+
+  /* line 440, scss/objects/_csswizardry-grids.scss */
+  .lap--seven-tenths {
+    width: 70%; }
+
+  /* line 442, scss/objects/_csswizardry-grids.scss */
+  .lap--nine-tenths {
+    width: 90%; }
+
+  /**
+   * Twelfths
+   */
+  /* line 448, scss/objects/_csswizardry-grids.scss */
+  .lap--one-twelfth {
+    width: 8.333%; }
+
+  /* line 452, scss/objects/_csswizardry-grids.scss */
+  .lap--five-twelfths {
+    width: 41.666%; }
+
+  /* line 454, scss/objects/_csswizardry-grids.scss */
+  .lap--seven-twelfths {
+    width: 58.333%; }
+
+  /* line 458, scss/objects/_csswizardry-grids.scss */
+  .lap--eleven-twelfths {
+    width: 91.666%; } }
+@media only screen and (max-width: 1023px) {
+  /**
+   * Whole
+   */
+  /* line 376, scss/objects/_csswizardry-grids.scss */
+  .portable--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  /* line 382, scss/objects/_csswizardry-grids.scss */
+  .portable--one-half, .portable--two-quarters, .portable--three-sixths, .portable--four-eighths, .portable--five-tenths, .portable--six-twelfths {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  /* line 388, scss/objects/_csswizardry-grids.scss */
+  .portable--one-third, .portable--two-sixths, .portable--four-twelfths {
+    width: 33.333%; }
+
+  /* line 389, scss/objects/_csswizardry-grids.scss */
+  .portable--two-thirds, .portable--four-sixths, .portable--eight-twelfths {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  /* line 395, scss/objects/_csswizardry-grids.scss */
+  .portable--one-quarter, .portable--two-eighths, .portable--three-twelfths {
+    width: 25%; }
+
+  /* line 397, scss/objects/_csswizardry-grids.scss */
+  .portable--three-quarters, .portable--six-eighths, .portable--nine-twelfths {
+    width: 75%; }
+
+  /**
+   * Fifths
+   */
+  /* line 403, scss/objects/_csswizardry-grids.scss */
+  .portable--one-fifth, .portable--two-tenths {
+    width: 20%; }
+
+  /* line 404, scss/objects/_csswizardry-grids.scss */
+  .portable--two-fifths, .portable--four-tenths {
+    width: 40%; }
+
+  /* line 405, scss/objects/_csswizardry-grids.scss */
+  .portable--three-fifths, .portable--six-tenths {
+    width: 60%; }
+
+  /* line 406, scss/objects/_csswizardry-grids.scss */
+  .portable--four-fifths, .portable--eight-tenths {
+    width: 80%; }
+
+  /**
+   * Sixths
+   */
+  /* line 412, scss/objects/_csswizardry-grids.scss */
+  .portable--one-sixth, .portable--two-twelfths {
+    width: 16.666%; }
+
+  /* line 416, scss/objects/_csswizardry-grids.scss */
+  .portable--five-sixths, .portable--ten-twelfths {
+    width: 83.333%; }
+
+  /**
+   * Eighths
+   */
+  /* line 422, scss/objects/_csswizardry-grids.scss */
+  .portable--one-eighth {
+    width: 12.5%; }
+
+  /* line 424, scss/objects/_csswizardry-grids.scss */
+  .portable--three-eighths {
+    width: 37.5%; }
+
+  /* line 426, scss/objects/_csswizardry-grids.scss */
+  .portable--five-eighths {
+    width: 62.5%; }
+
+  /* line 428, scss/objects/_csswizardry-grids.scss */
+  .portable--seven-eighths {
+    width: 87.5%; }
+
+  /**
+   * Tenths
+   */
+  /* line 434, scss/objects/_csswizardry-grids.scss */
+  .portable--one-tenth {
+    width: 10%; }
+
+  /* line 436, scss/objects/_csswizardry-grids.scss */
+  .portable--three-tenths {
+    width: 30%; }
+
+  /* line 440, scss/objects/_csswizardry-grids.scss */
+  .portable--seven-tenths {
+    width: 70%; }
+
+  /* line 442, scss/objects/_csswizardry-grids.scss */
+  .portable--nine-tenths {
+    width: 90%; }
+
+  /**
+   * Twelfths
+   */
+  /* line 448, scss/objects/_csswizardry-grids.scss */
+  .portable--one-twelfth {
+    width: 8.333%; }
+
+  /* line 452, scss/objects/_csswizardry-grids.scss */
+  .portable--five-twelfths {
+    width: 41.666%; }
+
+  /* line 454, scss/objects/_csswizardry-grids.scss */
+  .portable--seven-twelfths {
+    width: 58.333%; }
+
+  /* line 458, scss/objects/_csswizardry-grids.scss */
+  .portable--eleven-twelfths {
+    width: 91.666%; } }
+@media only screen and (min-width: 1024px) {
+  /**
+   * Whole
+   */
+  /* line 376, scss/objects/_csswizardry-grids.scss */
+  .desk--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  /* line 382, scss/objects/_csswizardry-grids.scss */
+  .desk--one-half, .desk--two-quarters, .desk--three-sixths, .desk--four-eighths, .desk--five-tenths, .desk--six-twelfths {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  /* line 388, scss/objects/_csswizardry-grids.scss */
+  .desk--one-third, .desk--two-sixths, .desk--four-twelfths {
+    width: 33.333%; }
+
+  /* line 389, scss/objects/_csswizardry-grids.scss */
+  .desk--two-thirds, .desk--four-sixths, .desk--eight-twelfths {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  /* line 395, scss/objects/_csswizardry-grids.scss */
+  .desk--one-quarter, .desk--two-eighths, .desk--three-twelfths {
+    width: 25%; }
+
+  /* line 397, scss/objects/_csswizardry-grids.scss */
+  .desk--three-quarters, .desk--six-eighths, .desk--nine-twelfths {
+    width: 75%; }
+
+  /**
+   * Fifths
+   */
+  /* line 403, scss/objects/_csswizardry-grids.scss */
+  .desk--one-fifth, .desk--two-tenths {
+    width: 20%; }
+
+  /* line 404, scss/objects/_csswizardry-grids.scss */
+  .desk--two-fifths, .desk--four-tenths {
+    width: 40%; }
+
+  /* line 405, scss/objects/_csswizardry-grids.scss */
+  .desk--three-fifths, .desk--six-tenths {
+    width: 60%; }
+
+  /* line 406, scss/objects/_csswizardry-grids.scss */
+  .desk--four-fifths, .desk--eight-tenths {
+    width: 80%; }
+
+  /**
+   * Sixths
+   */
+  /* line 412, scss/objects/_csswizardry-grids.scss */
+  .desk--one-sixth, .desk--two-twelfths {
+    width: 16.666%; }
+
+  /* line 416, scss/objects/_csswizardry-grids.scss */
+  .desk--five-sixths, .desk--ten-twelfths {
+    width: 83.333%; }
+
+  /**
+   * Eighths
+   */
+  /* line 422, scss/objects/_csswizardry-grids.scss */
+  .desk--one-eighth {
+    width: 12.5%; }
+
+  /* line 424, scss/objects/_csswizardry-grids.scss */
+  .desk--three-eighths {
+    width: 37.5%; }
+
+  /* line 426, scss/objects/_csswizardry-grids.scss */
+  .desk--five-eighths {
+    width: 62.5%; }
+
+  /* line 428, scss/objects/_csswizardry-grids.scss */
+  .desk--seven-eighths {
+    width: 87.5%; }
+
+  /**
+   * Tenths
+   */
+  /* line 434, scss/objects/_csswizardry-grids.scss */
+  .desk--one-tenth {
+    width: 10%; }
+
+  /* line 436, scss/objects/_csswizardry-grids.scss */
+  .desk--three-tenths {
+    width: 30%; }
+
+  /* line 440, scss/objects/_csswizardry-grids.scss */
+  .desk--seven-tenths {
+    width: 70%; }
+
+  /* line 442, scss/objects/_csswizardry-grids.scss */
+  .desk--nine-tenths {
+    width: 90%; }
+
+  /**
+   * Twelfths
+   */
+  /* line 448, scss/objects/_csswizardry-grids.scss */
+  .desk--one-twelfth {
+    width: 8.333%; }
+
+  /* line 452, scss/objects/_csswizardry-grids.scss */
+  .desk--five-twelfths {
+    width: 41.666%; }
+
+  /* line 454, scss/objects/_csswizardry-grids.scss */
+  .desk--seven-twelfths {
+    width: 58.333%; }
+
+  /* line 458, scss/objects/_csswizardry-grids.scss */
+  .desk--eleven-twelfths {
+    width: 91.666%; } }
+/*------------------------------------*\
+    $PUSH
+\*------------------------------------*/
+/**
+ * Push classes, to move grid items over to the right by certain amounts.
+ */
+/*------------------------------------*\
+    $PULL
+\*------------------------------------*/
+/**
+ * Pull classes, to move grid items back to the left by certain amounts.
+ */
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
 /* line 1, scss/objects/_header.scss */
 .header {
-  background: #212121;
+  background: white;
   padding: 0; }
 
 /* line 7, scss/objects/_header.scss */
@@ -1322,33 +1916,33 @@ img {
   max-width: 12em; }
 
 /* line 48, scss/objects/_text.scss */
-.text {
+.prose {
   color: #727272; }
   /* line 52, scss/objects/_text.scss */
-  .text a {
+  .prose a {
     color: #b13030; }
     /* line 55, scss/objects/_text.scss */
-    .text a:hover {
+    .prose a:hover {
       border-bottom: 1px dotted #b13030; }
   /* line 60, scss/objects/_text.scss */
-  .text li {
+  .prose li {
     margin-bottom: 0.8rem; }
   /* line 64, scss/objects/_text.scss */
-  .text ul {
+  .prose ul {
     list-style: disc;
     margin: 0 0 1.6rem 1.6rem; }
     /* line 68, scss/objects/_text.scss */
-    .text ul ul {
+    .prose ul ul {
       margin-bottom: 0; }
       /* line 71, scss/objects/_text.scss */
-      .text ul ul > li {
+      .prose ul ul > li {
         margin-bottom: 0; }
   /* line 77, scss/objects/_text.scss */
-  .text ol {
+  .prose ol {
     list-style: decimal;
     margin: 0 0 1.6rem 1.6rem; }
     /* line 81, scss/objects/_text.scss */
-    .text ol ol {
+    .prose ol ol {
       margin-bottom: 0; }
 
 /*------------------------------------*\
@@ -2685,34 +3279,38 @@ html:hover [class^="icon-"] {
 /* line 1, scss/objects/_tabs.scss */
 .tabs {
   overflow: hidden;
-  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
-  /* line 5, scss/objects/_tabs.scss */
-  .tabs ul {
-    display: table;
-    width: 100%;
-    border-bottom: 5px solid #333333; }
-  /* line 11, scss/objects/_tabs.scss */
-  .tabs li {
-    display: table-cell;
-    border-right: 5px solid white; }
-    /* line 15, scss/objects/_tabs.scss */
-    .tabs li:last-child {
-      border-right: 0; }
-  /* line 20, scss/objects/_tabs.scss */
+  font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
+  margin-bottom: 1.6rem; }
+  /* line 7, scss/objects/_tabs.scss */
   .tabs a {
     display: block;
-    text-align: center;
     padding: 1rem;
     padding-bottom: 0.5rem;
     background: #d2d2d2; }
-    /* line 27, scss/objects/_tabs.scss */
+    /* line 13, scss/objects/_tabs.scss */
     .tabs a:hover, .tabs a:focus {
       background: #333333;
       color: white; }
-    /* line 32, scss/objects/_tabs.scss */
+    /* line 18, scss/objects/_tabs.scss */
     .tabs a.active {
       background: #333333;
       color: white; }
+
+/* line 27, scss/objects/_tabs.scss */
+.tabs-h ul {
+  display: table;
+  width: 100%;
+  border-bottom: 5px solid #333333; }
+/* line 33, scss/objects/_tabs.scss */
+.tabs-h li {
+  display: table-cell;
+  border-right: 5px solid white; }
+  /* line 37, scss/objects/_tabs.scss */
+  .tabs-h li:last-child {
+    border-right: 0; }
+/* line 42, scss/objects/_tabs.scss */
+.tabs-h a {
+  text-align: center; }
 
 /* line 1, scss/objects/_sections.scss */
 .section {

@@ -2,24 +2,10 @@
 	overflow: hidden;
 	font-family: $font-secondary;
 
-	ul {
-		display: table;
-		width: 100%;
-		border-bottom: 5px solid $gray-dark;
-	}
-	
-	li {
-		display: table-cell;
-		border-right: 5px solid $white;
-
-		&:last-child {
-			border-right: 0;
-		}
-	}
+	margin-bottom: $space;
 
 	a {
 		display: block;
-		text-align: center;
 		padding: $pad;
 		padding-bottom: $pad-half;
 		background: $gray-light;
@@ -34,4 +20,31 @@
 			color: $white;
 		}
 	}
+}
+
+// Horizontal tabs
+.tabs-h{
+	ul{
+		display: table;
+		width: 100%;
+		border-bottom: 5px solid $gray-dark;
+	}
+	
+	li {
+		display: table-cell;
+		border-right: 5px solid $white;
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	a{
+		text-align: center;
+	}
+}
+
+// Vertical tabs
+.tabs-v{
+
 }
