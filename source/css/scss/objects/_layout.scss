@@ -230,22 +230,8 @@
 			}
 		}
 	}
-	
-	@media all and (min-width: $bp-med) {
-		>.gi {
-			width: 25%;
-			
-			&:nth-of-type(3n+1) {
-				clear: none;
-			}
-			
-			&:nth-of-type(4n+1) {
-				clear: left;
-			}
-		}
-	}
 
-	@media all and (min-width: $bp-med-2) {
+	@media all and (min-width: $bp-med) {
 		>.gi {
 			width: 20%;
 			

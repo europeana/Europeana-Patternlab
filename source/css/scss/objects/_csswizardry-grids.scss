@@ -96,8 +96,8 @@ $use-silent-classes:    false!default;
 /**
  * Would you like push and pull classes enabled?
  */
-$push:                  false!default;
-$pull:                  false!default;
+$push:                  true!default;
+$pull:                  true!default;
 
 
 /**
@@ -121,7 +121,7 @@ $use-markup-fix:        true!default;
  * that the breakpoint fires at.
  */
 $breakpoints: (
-    'palm' '(max-width: 480px)',
+    'palm' '(max-width: 24em)',
     'lap' '(min-width: 481px) and (max-width: 1023px)',
     'portable' '(max-width: 1023px)',
     'desk' '(min-width: 1024px)'
@@ -492,6 +492,11 @@ $class-type:            unquote(".");
  * Push classes, to move grid items over to the right by certain amounts.
  */
 @mixin push-setup($namespace: ""){
+    
+    /**
+     * None
+     */
+    #{$class-type}push--#{$namespace}none                { left:0; @include silent-relative(); }
 
     /**
      * Whole

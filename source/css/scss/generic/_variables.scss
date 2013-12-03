@@ -2,21 +2,39 @@
     $VARIABLES
 \*------------------------------------*/
 
-//Colors
+//Base Colors
 $white : #fff;
+$offwhite : #f3f3f3;
 $black : #212121;
-$deepred: #B13030;
 $gray : #727272;
 $gray-light : #D2D2D2;
-$gray-dark : #333;
-$gray-dark-2 : #131313;
 
+$gray-dark : #333;
+
+
+//highlight colours
+$deepred: #B13030;
+$blue: #1A8AC7;
+$beige: #1A8AC7;
+
+
+// Assign colours to functions
+
+// global page
+$page_bg: $offwhite;
+
+// text
 $textcolour_head: $black;
 $textcolour_body: $gray;
 $textcolour_highlight: $deepred;
 $textcolour_link: $deepred;
 
 $text_secondary: $gray-light;
+
+// buttons
+$tag_primary: $blue;
+$tag_primary_text: $blue;
+$tag_highlight: $gray;
 
 
 $dim : rgba(0,0,0,0.5);
@@ -70,13 +88,9 @@ $border-thick: 7px;
 
 //Breakpoints
 $bp-small : 24em;
-$bp-small-2 : 29.75em;
-$bp-small-3 : 39.8em;
-$bp-med : 46.8em;
-$bp-med-2 : 48em;
+$bp-small-2 : 30em;
+$bp-small-3 : 40em;
+$bp-med : 47em;
 $bp-large : 50em;
-$bp-large-2 : 66em;
-$bp-xl : 73em;
-$bp-xxl : 89em;
-$bp-xxxl : 93em;
+$bp-xxl : 90em;
 

@@ -1,6 +1,16 @@
+
 body {
-	background: $white;
-	font: 100%/1.6 $font;
+
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
+	
+	word-wrap: break-word;
+
+	background: $page_bg;
+	font: 100%/1.4 $font; //18px default font
 	-webkit-text-size-adjust: 100%;
 	color: $textcolour_head;
 }

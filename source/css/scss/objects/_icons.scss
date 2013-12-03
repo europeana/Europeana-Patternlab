@@ -4,24 +4,26 @@
 * Copyright © 2012 Oak Studios LLC
 */
 
+// just for within the styleguide - remove for production
 .sg-icons{
-	font-size: 2.5em;
+	font-size: 2em;
   margin-bottom: 1rem;
 }
+
+
+
 
 .icon-block, .icon-round{
   display: inline-block;
   background-color: $textcolour_link;
   color: $white;
-  padding: 0.4em 0.594em 0.17em;
+  //padding: 0.4em 0.594em 0.17em;
+  padding: 0.2em 0.4em 0;
 }
 
 .icon-round{
   border-radius: 10em;
 }
-
-
-
 
 
 

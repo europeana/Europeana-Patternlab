@@ -7,6 +7,8 @@
 	overflow: hidden;
 	max-height: 0;
 	font-family: $font-secondary;
+
+	background-color: #ccc;
 	
 	a {
 		display: block;
@@ -20,7 +22,7 @@
 
 	@media all and (min-width: $bp-med) {
 		max-height: none;
-		float: right;
+		float: left;
 		clear: none;
 
 		li {

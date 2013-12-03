@@ -32,6 +32,14 @@
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+// Image replacement
+.ir{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 /* Floats */
 .right {
 	float: right;
