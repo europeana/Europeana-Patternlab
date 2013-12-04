@@ -10,8 +10,6 @@
     $TABLE OF CONTENTS
 \*------------------------------------*/
 /**
- * GRID......include singularity grid powers
- * 
  * VARIABLES..............................Declarations of Sass variables 
  * .....Colors
  * .....Typography
@@ -33,6 +31,7 @@
  * NAVIGATION------------------------------
  * TOC To Be Continued
  */
+ @import "compass/css3";
 
 @import "generic/variables";
 @import "generic/mixins";

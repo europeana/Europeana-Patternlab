@@ -1,6 +1,5 @@
 {{> organisms-header-labs }}
 
-<div class="lc">
 	
 
 	<div class="grid">
@@ -10,24 +9,18 @@
 		</div>
 
 		<div class="grid__item one-quarter palm--one-whole">
-			<ul class="tabs tabs-vertical">
-				<li><a href="#">API</a></li>
-				<li><a href="#">Linked Open data</a></li>
-				<li><a href="#">Case Study</a></li>
-				<li><a href="#">Prototype</a></li>
-				<li><a href="#">Hackathon</a></li>
-			</ul>
+			{{> molecules-labs-subnav }}
 		</div><!--
 
 	 --><div class="grid__item three-quarters palm--one-whole">
 
-			<ul class="post-list" >
-				<li class="labs__highlighted">{{> molecules-labs-item }}</li>
-				<li class="labs__highlighted">{{> molecules-labs-item }}</li>
-				<li>{{> molecules-labs-item }}</li>
-				<li>{{> molecules-labs-item }}</li>
-				<li>{{> molecules-labs-item }}</li>
-				<li>{{> molecules-labs-item }}</li>
+			<ul class="post-list grid" >
+				<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!--
+			 --><li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!--
+			 --><li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!--
+			 --><li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!--
+			 --><li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!--
+			 --><li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li>
 			</ul>
 
 
@@ -35,6 +28,5 @@
 
 	 	</div>
 	 </div>
-</div>
 
 {{> organisms-footer }}

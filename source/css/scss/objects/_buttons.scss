@@ -4,11 +4,14 @@
 .btn {
 	display: inline-block;
 	background: transparent;
-	color: darken($text_secondary, 20%);
-	border: solid 5px $text_secondary;
+	color: $black;
+	border: solid 5px $black;
+	@include font-size(0.8);
 	line-height: 1;
 	font-weight: bold;
-	padding: $pad;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	padding: 1em 1.6em;
 	text-align: center;
 	
 	&:hover, &:focus {
@@ -20,6 +23,7 @@
 		background: lighten($text_secondary, 10%);
 		color: darken($text_secondary, 20%);
 		cursor: not-allowed;
+		border-color: $text_secondary;
 
 		&:hover{
 			border-color: $text_secondary;
@@ -27,8 +31,14 @@
 	}
 
 	&.alt{
-		color: $textcolour_highlight;
-		border-color: $textcolour_highlight;
+		color: $offwhite;
+		background-color: $black;
+		border-color: $black;
+
+		&:hover{
+			background-color: $textcolour_highlight;
+			border-color: $textcolour_highlight;
+		}
 	}
 }
 
@@ -50,28 +60,42 @@
 }
 
 .tag{
-	@include font-size(0.8);
-	padding: 0.5em 1em;
+	@include font-size(0.7);
+	padding: 0.4em 0.7em;
 	background-color: $text_secondary;
-	border-radius: 4px;
 	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
 	display: inline-block;
-	margin-right: 1em;
+	margin: 0 0.2em 0.5em 0;
 	position: relative;
+
+	@include border-right-radius(10em);
 
 	&:hover{
 		color: $offwhite;
 		background-color: $textcolour_highlight;
+
+		.icon{
+			color: $textcolour_highlight;
+		}
 	}
 
 	.icon{
-		@include font-size(0.5);
+		font-size: 9px;
+		text-align: center;
 		background-color: $white;
-		color: $textcolour_body;
+		border-radius: 5em;
+		color: $text_secondary;
 		display: block;
-		position: absolute;
-		right: -0.5em;
-		top: -0.5em;
+		width: 14px;
+		height: 13px;
+		padding-top: 2px;
+		padding-left: 2px;
+		margin-left: 0.5em;
+
+		float: right;
+		
 	}
 }
 
@@ -80,4 +104,9 @@
 }
 .tag_beta{
 	background-color: $blue;
+	color: $offwhite;
+
+	.icon{
+		color: $blue;
+	}
 }

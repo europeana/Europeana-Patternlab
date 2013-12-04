@@ -74,6 +74,7 @@ $type-scale-unit-value: rem !default;
 	text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
 	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
 	margin-top: 0;
+	color: $textcolour_head;
 }
 
 // Multi-dimensional array, where:
