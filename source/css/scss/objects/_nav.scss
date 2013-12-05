@@ -7,8 +7,7 @@
 	overflow: hidden;
 	max-height: 0;
 	font-family: $font-secondary;
-
-	background-color: #ccc;
+	@include font-size(1.1);
 	
 	a {
 		display: block;
@@ -18,6 +17,12 @@
 
 	&.active {
 		max-height: 40em;
+	}
+
+	.current:after{
+		content: '';
+		display: block;
+		border-bottom: 5px solid $textcolour_link;
 	}
 
 	@media all and (min-width: $bp-med) {
