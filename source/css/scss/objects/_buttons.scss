@@ -59,7 +59,8 @@
 	font-style: italic;
 }
 
-.tag{
+
+%tag{
 	@include font-size(0.7);
 	padding: 0.4em 0.7em;
 	background-color: $text_secondary;
@@ -69,8 +70,6 @@
 	display: inline-block;
 	margin: 0 0.2em 0.5em 0;
 	position: relative;
-
-	@include border-right-radius(10em);
 
 	&:hover{
 		color: $offwhite;
@@ -93,17 +92,27 @@
 		padding-top: 2px;
 		padding-left: 2px;
 		margin-left: 0.5em;
-
 		float: right;
-		
 	}
+}
+
+.tag{
+	@extend %tag;
+	@include border-right-radius(10em);
+}
+
+.tag_alt{
+	@extend %tag;
+	border-left: 1px solid $black;
+	padding-left: 1em;
+	background-color: transparent;
 }
 
 .tag_alpha{
 	//background-color: $blue;
 }
 .tag_beta{
-	background-color: $blue;
+	background-color: $beige;
 	color: $offwhite;
 
 	.icon{

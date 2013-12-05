@@ -2,6 +2,7 @@
 	background: $white;
 	padding: 0;
 	margin-bottom: 2em;
+	@include box-shadow(rgba($gray-dark, 0.2) 0 0 3px);
 }
 
 .logo {

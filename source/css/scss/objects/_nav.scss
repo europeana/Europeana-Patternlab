@@ -43,6 +43,8 @@
 	overflow: hidden;
 	font-family: $font-secondary;
 
+	margin-bottom: $space;
+
 	li {
 		display: inline-block;
 		border-right: 1px solid $gray-light;
@@ -59,6 +61,17 @@
 		&:hover{
 			background-color: $gray-light;
 			color: $white;
+		}
+	}
+
+
+	.is-disabled a{
+
+		cursor: default;
+		
+		&:hover{
+			background-color: inherit;
+			color: inherit;
 		}
 	}
 

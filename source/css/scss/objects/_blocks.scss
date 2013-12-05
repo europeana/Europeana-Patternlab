@@ -18,6 +18,7 @@
 
 .headline {
 	line-height: 1.2;
+	margin-bottom: $space;
 }
 
 /* Hero Block */
@@ -58,7 +59,10 @@
 .block-thumb {
 	display: table;
 	width: 100%;
-	border-collapse: collapse;
+	//border-collapse: collapse;
+
+	border-top: solid 5px $gray-dark;
+	padding-top: $pad;
 
 	.b-inner {
 		display: table-row;
@@ -70,7 +74,7 @@
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			vertical-align: top;	
-	  		width: 30%;
+	  		width: 25%;
 	  		max-width: 10em;
 
 	 		img {
@@ -84,9 +88,13 @@
 	.b-text {
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
-			width: 70%;
+			width: 75%;
 			padding: 0 $pad;
 		}
+	}
+
+	.description{
+		margin-bottom: $space;
 	}
 }
 
