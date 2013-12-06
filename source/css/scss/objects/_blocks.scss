@@ -59,10 +59,11 @@
 .block-thumb {
 	display: table;
 	width: 100%;
-	//border-collapse: collapse;
 
 	border-top: solid 5px $gray-dark;
-	padding-top: $pad-double;
+	padding-top: $pad;
+
+	margin-bottom: $space;
 
 	.b-inner {
 		display: table-row;
@@ -93,8 +94,24 @@
 		}
 	}
 
+	.headline{
+		//color: $blue;
+	}
+
 	.description{
 		margin-bottom: $space;
+	}
+
+	.tags{
+		border-top: solid 1px $gray-light;
+		padding-top: $pad-half;
+	}
+
+	.icon{
+		color: $gray-light;
+		margin-right: $pad;
+		margin-top: 0.3em;
+		float: left;
 	}
 }
 
@@ -156,20 +173,31 @@
 
 /* Block Thumb with Less content */
 .block-thumb-small {
-	.b-thumb {
-		width: 20%;
-	}
 
-	.b-text {
-		width: 80%;
-		padding: $pad-half;
+	@media all and (min-width: $bp-small-2) {
+		.b-thumb {
+			width: 20%;
+		}
+
+		.b-text {
+			width: 80%;
+		}
 	}
+	
+
 }
 
 
 .block-content-header{
 	background-color: $beige;
-	color: $page_bg;
-	padding: $pad-double;
+	padding: $pad;
 	margin-bottom: $space;
+
+	@media all and (min-width: $bp-small-2) {
+		padding: $space-double 0;
+	}
+}
+
+.subnav{
+	padding: 0 $pad;
 }

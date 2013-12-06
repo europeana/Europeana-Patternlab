@@ -236,7 +236,7 @@ $class-type:            unquote(".");
 
     /**
      * 1. Cause columns to stack side-by-side.
-     * 1a. Mini hack for IE8 and below to display inline-block correctly
+     * 1a. Mini hack for IE8 and below to display inline-block correctly *TH
      * 2. Space columns apart.
      * 3. Align columns to the tops of each other.
      * 4. Full-width unless told to behave otherwise.
@@ -494,7 +494,7 @@ $class-type:            unquote(".");
 @mixin push-setup($namespace: ""){
     
     /**
-     * None
+     * None  *TH
      */
     #{$class-type}push--#{$namespace}none                { left:0; @include silent-relative(); }
 

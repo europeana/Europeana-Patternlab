@@ -59,24 +59,36 @@
 	font-style: italic;
 }
 
-
-%tag{
-	@include font-size(0.7);
-	padding: 0.4em 0.7em;
-	background-color: $text_secondary;
-	font-weight: bold;
+.tags a{
+	@include font-size(0.6);
+	font-weight: 900;
 	text-transform: uppercase;
 	letter-spacing: 0.2em;
+	margin-right: 0.2em;
+}
+
+%tag{
+	padding: 0.5em 1em 0.35em 0.7em;
 	display: inline-block;
 	margin: 0 0.2em 0.5em 0;
 	position: relative;
+	@include border-right-radius(10em);
+}
+
+.tag{
+	@extend %tag;
+	background-color: $textcolour_highlight;
+	color: $offwhite;
+	
 
 	&:hover{
+		$i: darken($textcolour_highlight, 20);
+
 		color: $offwhite;
-		background-color: $textcolour_highlight;
+		background-color: $i;
 
 		.icon{
-			color: $textcolour_highlight;
+			color: $i;
 		}
 	}
 
@@ -85,7 +97,7 @@
 		text-align: center;
 		background-color: $white;
 		border-radius: 5em;
-		color: $text_secondary;
+		color: $textcolour_highlight;
 		display: block;
 		width: 14px;
 		height: 13px;
@@ -96,16 +108,22 @@
 	}
 }
 
-.tag{
-	@extend %tag;
-	@include border-right-radius(10em);
-}
-
 .tag_alt{
 	@extend %tag;
-	border-left: 1px solid $black;
-	padding-left: 1em;
-	background-color: transparent;
+	color: $textcolour_body;
+	border-left: 1px solid $gray;
+	padding-left: 0.7em;
+
+	&:hover{
+		//color: $offwhite;
+		background-color: $gray-light2;
+		color: $textcolour_highlight;
+		border-left-color: $textcolour_highlight;
+	}
+}
+
+.tags-large .tag, .tag-large{
+	@include font-size(0.8);
 }
 
 .tag_alpha{
