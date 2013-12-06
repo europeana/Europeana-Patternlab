@@ -166,7 +166,7 @@ body {
   -o-hyphens: auto;
   hyphens: auto;
   word-wrap: break-word;
-  background: #efeee6;
+  background: #fcfcfc;
   font: 100%/1.4 "dejarip", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #464646; }
@@ -179,7 +179,7 @@ a {
   outline: 0; }
   /* line 7, scss/base/_links.scss */
   a:hover, a:focus {
-    color: #b13030; }
+    color: #db5450; }
 
 /* Headings */
 /*Further Reading: http://typeplate.com/ */
@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
-  color: #212121; }
+  color: #0f0f0f; }
 
 /* line 89, scss/base/_headings.scss */
 .tera {
@@ -260,37 +260,10 @@ h6 {
   text-transform: uppercase; }
 
 /* Subheadings */
-/* line 182, scss/base/_headings.scss */
+/* line 136, scss/base/_headings.scss */
 .subheading {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-weight: normal; }
-
-/**
- *
- * =======================================================================
- * Drop Capitals:
- * Extend this object into your markup.
-
-	 <p class="drop-cap">What a wonderful day it is out there wouldn't you'd say?</p>
-
-	* =======================================================================
- */
-/* line 199, scss/base/_headings.scss */
-.drop-cap:first-letter {
-  float: left;
-  margin: auto .25em auto auto;
-  padding: inherit;
-  font-size: 4em;
-  font-family: inherit;
-  line-height: 1;
-  text-indent: 0;
-  background: transparent;
-  color: inherit; }
-
-/* line 211, scss/base/_headings.scss */
-p + .drop-cap {
-  text-indent: 0;
-  margin-top: 0; }
 
 /* Text-Related Elements */
 /* line 2, scss/base/_text.scss */
@@ -306,25 +279,52 @@ blockquote {
   padding-left: 1rem;
   margin-bottom: 1.6rem; }
 
+/**
+ *
+ * =======================================================================
+ * Drop Capitals:
+ * Extend this object into your markup.
+
+   <p class="drop-cap">What a wonderful day it is out there wouldn't you'd say?</p>
+
+  * =======================================================================
+ */
+/* line 27, scss/base/_text.scss */
+.drop-cap:first-letter {
+  float: left;
+  margin: auto .25em auto auto;
+  padding: inherit;
+  font-size: 4em;
+  font-family: inherit;
+  line-height: 1;
+  text-indent: 0;
+  background: transparent;
+  color: inherit; }
+
+/* line 39, scss/base/_text.scss */
+p + .drop-cap {
+  text-indent: 0;
+  margin-top: 0; }
+
 /* Horizontal Rule */
-/* line 16, scss/base/_text.scss */
+/* line 45, scss/base/_text.scss */
 hr {
   border: 0;
   height: 2px;
   background: #d2d2d2;
   margin: 3.2rem 0; }
 
-/* line 23, scss/base/_text.scss */
+/* line 52, scss/base/_text.scss */
 abbr {
   border-bottom: 1px dotted #464646;
   cursor: help; }
 
-/* line 30, scss/base/_text.scss */
+/* line 59, scss/base/_text.scss */
 .upper {
   text-transform: uppercase;
   letter-spacing: 0.1rem; }
 
-/* line 36, scss/base/_text.scss */
+/* line 65, scss/base/_text.scss */
 .small-caps {
   -moz-font-feature-settings: 'smcp=1, kern=1';
   -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
@@ -333,7 +333,7 @@ abbr {
   font-feature-settings: 'smcp' 1, 'kern' 1;
   letter-spacing: 0.1rem; }
 
-/* line 46, scss/base/_text.scss */
+/* line 75, scss/base/_text.scss */
 .lining-numerals {
   -moz-font-feature-settings: 'lnum=1, kern=1';
   -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
@@ -341,13 +341,21 @@ abbr {
   -o-font-feature-settings: 'lnum' 1, 'kern' 1;
   font-feature-settings: 'lnum' 1, 'kern' 1; }
 
-/* line 55, scss/base/_text.scss */
+/* line 84, scss/base/_text.scss */
 .oldstyle-numerals {
   -moz-font-feature-settings: 'onum=1, kern=1';
   -ms-font-feature-settings: 'onum' 1, 'kern' 1;
   -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
   -o-font-feature-settings: 'onum' 1, 'kern' 1;
   font-feature-settings: 'onum' 1, 'kern' 1; }
+
+/* line 1, scss/base/_code.scss */
+pre {
+  overflow-x: scroll;
+  padding: 1rem;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #d2d2d2; }
 
 /* line 1, scss/base/_lists.scss */
 ol, ul {
@@ -574,7 +582,7 @@ th:first-child {
 /* line 33, scss/base/_tables.scss */
 thead {
   background: #ebebeb;
-  color: #212121;
+  color: #0f0f0f;
   text-align: left;
   vertical-align: bottom; }
 
@@ -3104,7 +3112,7 @@ td {
   .nav .current:after {
     content: '';
     display: block;
-    border-bottom: 5px solid #b13030; }
+    border-bottom: 5px solid #db5450; }
   @media all and (min-width: 47em) {
     /* line 5, scss/objects/_nav.scss */
     .nav {
@@ -3150,10 +3158,10 @@ td {
   .pagination .current {
     color: white;
     font-weight: bold;
-    background-color: #b13030; }
+    background-color: #db5450; }
     /* line 88, scss/objects/_nav.scss */
     .pagination .current:hover {
-      background-color: #b13030; }
+      background-color: #db5450; }
 
 /* line 95, scss/objects/_nav.scss */
 .breadcrumbs {
@@ -3180,7 +3188,7 @@ td {
       z-index: 1; }
     /* line 121, scss/objects/_nav.scss */
     .breadcrumbs a:hover:after {
-      border-left-color: #b13030; }
+      border-left-color: #db5450; }
   /* line 127, scss/objects/_nav.scss */
   .breadcrumbs > li {
     display: inline; }
@@ -3201,7 +3209,7 @@ td {
 .footer {
   clear: both;
   overflow: hidden;
-  background: #212121;
+  background: #0f0f0f;
   color: white;
   line-height: 1.2; }
   /* line 11, scss/objects/_footer.scss */
@@ -3246,7 +3254,7 @@ td {
 
 /* line 12, scss/objects/_text.scss */
 .pullquote {
-  color: #212121;
+  color: #0f0f0f;
   font-size: 42px;
   font-size: 2.625rem;
   border-left: none;
@@ -3256,7 +3264,7 @@ td {
   .pullquote:before, .pullquote:after {
     font-size: 64px;
     font-size: 4rem;
-    color: #b13030; }
+    color: #db5450; }
   /* line 25, scss/objects/_text.scss */
   .pullquote:before {
     content: "\201C";
@@ -3281,10 +3289,10 @@ td {
   color: #464646; }
   /* line 52, scss/objects/_text.scss */
   .prose a {
-    color: #b13030; }
+    color: #db5450; }
     /* line 55, scss/objects/_text.scss */
     .prose a:hover {
-      border-bottom: 1px dotted #b13030; }
+      border-bottom: 1px dotted #db5450; }
   /* line 60, scss/objects/_text.scss */
   .prose li {
     margin-bottom: 0.8rem; }
@@ -3322,7 +3330,7 @@ td {
 /* line 16, scss/objects/_icons.scss */
 .icon-block, .icon-round {
   display: inline-block;
-  background-color: #b13030;
+  background-color: #db5450;
   color: white;
   padding: 0.2em 0.4em 0; }
 
@@ -4354,8 +4362,8 @@ html:hover [class^="icon-"] {
 .btn {
   display: inline-block;
   background: transparent;
-  color: #212121;
-  border: solid 5px #212121;
+  color: #0f0f0f;
+  border: solid 5px #0f0f0f;
   font-size: 12.8px;
   font-size: 0.8rem;
   line-height: 1;
@@ -4366,8 +4374,8 @@ html:hover [class^="icon-"] {
   text-align: center; }
   /* line 17, scss/objects/_buttons.scss */
   .btn:hover, .btn:focus {
-    color: #b13030;
-    border-color: #b13030; }
+    color: #db5450;
+    border-color: #db5450; }
   /* line 22, scss/objects/_buttons.scss */
   .btn.disabled {
     background: #ebebeb;
@@ -4379,13 +4387,13 @@ html:hover [class^="icon-"] {
       border-color: #d2d2d2; }
   /* line 33, scss/objects/_buttons.scss */
   .btn.alt {
-    color: #efeee6;
-    background-color: #212121;
-    border-color: #212121; }
+    color: #fcfcfc;
+    background-color: #0f0f0f;
+    border-color: #0f0f0f; }
     /* line 38, scss/objects/_buttons.scss */
     .btn.alt:hover {
-      background-color: #b13030;
-      border-color: #b13030; }
+      background-color: #db5450;
+      border-color: #db5450; }
 
 /* line 45, scss/objects/_buttons.scss */
 .btn-small {
@@ -4417,11 +4425,11 @@ html:hover [class^="icon-"] {
   position: relative; }
   /* line 74, scss/objects/_buttons.scss */
   .tag:hover, .tag_alt:hover {
-    color: #efeee6;
-    background-color: #b13030; }
+    color: #fcfcfc;
+    background-color: #db5450; }
     /* line 78, scss/objects/_buttons.scss */
     .tag:hover .icon, .tag_alt:hover .icon {
-      color: #b13030; }
+      color: #db5450; }
   /* line 83, scss/objects/_buttons.scss */
   .tag .icon, .tag_alt .icon {
     font-size: 9px;
@@ -4448,14 +4456,14 @@ html:hover [class^="icon-"] {
 
 /* line 104, scss/objects/_buttons.scss */
 .tag_alt {
-  border-left: 1px solid #212121;
+  border-left: 1px solid #0f0f0f;
   padding-left: 1em;
   background-color: transparent; }
 
 /* line 114, scss/objects/_buttons.scss */
 .tag_beta {
   background-color: #d8d0c0;
-  color: #efeee6; }
+  color: #fcfcfc; }
   /* line 118, scss/objects/_buttons.scss */
   .tag_beta .icon {
     color: #1a8ac7; }
@@ -4517,7 +4525,7 @@ html:hover [class^="icon-"] {
   display: table;
   width: 100%;
   border-top: solid 5px #333333;
-  padding-top: 1rem; }
+  padding-top: 2rem; }
   /* line 67, scss/objects/_blocks.scss */
   .block-thumb .b-inner {
     display: table-row;
@@ -4528,7 +4536,7 @@ html:hover [class^="icon-"] {
     .block-thumb .b-thumb {
       display: table-cell;
       vertical-align: top;
-      width: 25%;
+      width: 33.333%;
       max-width: 10em; }
       /* line 80, scss/objects/_blocks.scss */
       .block-thumb .b-thumb img {
@@ -4539,7 +4547,7 @@ html:hover [class^="icon-"] {
     /* line 88, scss/objects/_blocks.scss */
     .block-thumb .b-text {
       display: table-cell;
-      width: 75%;
+      width: 66.666%;
       padding: 0 1rem; } }
   /* line 96, scss/objects/_blocks.scss */
   .block-thumb .description {
@@ -4589,6 +4597,15 @@ html:hover [class^="icon-"] {
 /* line 151, scss/objects/_blocks.scss */
 .block-thumb-summary .b-text {
   margin-left: 50%;
+  padding: 0.5rem; }
+
+/* Block Thumb with Less content */
+/* line 159, scss/objects/_blocks.scss */
+.block-thumb-small .b-thumb {
+  width: 20%; }
+/* line 163, scss/objects/_blocks.scss */
+.block-thumb-small .b-text {
+  width: 80%;
   padding: 0.5rem; }
 
 /* line 2, scss/objects/_lists.scss */
@@ -4690,7 +4707,7 @@ html:hover [class^="icon-"] {
 
 /* line 5, scss/objects/_accordion.scss */
 .acc-handle {
-  background: #212121;
+  background: #0f0f0f;
   color: white;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   display: block;

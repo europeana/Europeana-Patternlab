@@ -4,8 +4,8 @@
 
 //Base Colors
 $white : #fff;
-$offwhite : #EFEEE6;
-$black : #212121;
+$offwhite : #fcfcfc;
+$black : #0f0f0f;
 $gray : #464646;
 $gray-light : #D2D2D2;
 
@@ -29,8 +29,8 @@ $page_bg: $offwhite;
 // text
 $textcolour_head: $black;
 $textcolour_body: $gray;
-$textcolour_highlight: $deepred;
-$textcolour_link: $deepred;
+$textcolour_highlight: $red2;
+$textcolour_link: $textcolour_highlight;
 
 $text_secondary: $gray-light;
 

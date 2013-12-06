@@ -1,0 +1,37 @@
+{{> organisms-header-labs }}
+
+	
+
+	<div class="grid">
+
+		<div class="grid__item palm--one-whole push--palm--none three-quarters push--one-quarter">
+			<h6 class="headline" >Examples</h6>
+			<p class="subhead">{{ excerpt.short }}</p>
+		</div>
+
+		<div class="grid__item one-quarter palm--one-whole">
+			{{> molecules-labs-subnav }}
+		</div><!--
+
+	 --><div class="grid__item three-quarters palm--one-whole">
+
+			<ul class="post-list grid" >
+
+			{{# listItems.two }}<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!-- 
+			-->{{/ listItems.two }}
+
+			{{# listItems.six }}<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!-- 
+			-->{{/ listItems.six }}
+
+			<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item-small }}</li><!-- 
+						 -->
+
+			</ul>
+
+
+	 		{{> molecules-pagination }}
+
+	 	</div>
+	 </div>
+
+{{> organisms-footer-labs }}

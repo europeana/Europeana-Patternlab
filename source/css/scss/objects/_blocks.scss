@@ -62,7 +62,7 @@
 	//border-collapse: collapse;
 
 	border-top: solid 5px $gray-dark;
-	padding-top: $pad;
+	padding-top: $pad-double;
 
 	.b-inner {
 		display: table-row;
@@ -74,7 +74,7 @@
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			vertical-align: top;	
-	  		width: 25%;
+	  		width: 33.333%;
 	  		max-width: 10em;
 
 	 		img {
@@ -88,7 +88,7 @@
 	.b-text {
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
-			width: 75%;
+			width: 66.666%;
 			padding: 0 $pad;
 		}
 	}
@@ -150,6 +150,18 @@
 
 	.b-text {
 		margin-left: 50%;
+		padding: $pad-half;
+	}
+}
+
+/* Block Thumb with Less content */
+.block-thumb-small {
+	.b-thumb {
+		width: 20%;
+	}
+
+	.b-text {
+		width: 80%;
 		padding: $pad-half;
 	}
 }
