@@ -643,7 +643,7 @@ td {
 \*------------------------------------*/
 /* Layout Container */
 /* line 6, scss/objects/_layout.scss */
-.lc, [role=main] {
+.lc {
   max-width: 72rem;
   margin: 0 auto; }
 
@@ -3046,7 +3046,7 @@ td {
 .header {
   background: white;
   padding: 0;
-  margin-bottom: 2em;
+  position: relative;
   -webkit-box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px;
   -moz-box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px;
   box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px; }
@@ -3213,7 +3213,7 @@ td {
   color: white;
   line-height: 1.2; }
   /* line 11, scss/objects/_footer.scss */
-  .footer .lc, .footer [role=main] {
+  .footer .lc {
     padding: 1rem 1rem 0; }
   /* line 16, scss/objects/_footer.scss */
   .footer a {
@@ -4607,6 +4607,13 @@ html:hover [class^="icon-"] {
 .block-thumb-small .b-text {
   width: 80%;
   padding: 0.5rem; }
+
+/* line 170, scss/objects/_blocks.scss */
+.block-content-header {
+  background-color: #d8d0c0;
+  color: #fcfcfc;
+  padding: 2rem;
+  margin-bottom: 1.6rem; }
 
 /* line 2, scss/objects/_lists.scss */
 .inline-list li {
