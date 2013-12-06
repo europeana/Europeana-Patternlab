@@ -136,8 +136,12 @@ h6 {
 .subheading {
 	font-family: $font-secondary;
 	font-weight: normal;
-	color: $gray;
+	
 }
 
+.label{
+	font-family: inherit;
+	color: $textcolour_body;
+}
 
 

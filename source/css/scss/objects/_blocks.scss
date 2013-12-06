@@ -174,6 +174,8 @@
 /* Block Thumb with Less content */
 .block-thumb-small {
 
+	border-top: 5px solid $gray;
+
 	@media all and (min-width: $bp-small-2) {
 		.b-thumb {
 			width: 20%;
@@ -189,15 +191,29 @@
 
 
 .block-content-header{
-	background-color: $beige;
+	background-color: $red2;
 	padding: $pad;
 	margin-bottom: $space;
 
+	color: $offwhite;
+
 	@media all and (min-width: $bp-small-2) {
-		padding: $space-double 0;
+		padding: $space-triple 0;
 	}
+
+	.title{
+		color: $white;
+	}
+}
+
+.subhead{
+	font-weight: bold;
 }
 
 .subnav{
 	padding: 0 $pad;
+
+	.tags{
+		margin-bottom: $space;
+	}
 }

@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    $TAGS
+\*------------------------------------*/
+
+
+.tags a{
+	@include font-size(0.6);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	margin-right: 0.2em;
+}
+
+%tag{
+	padding: 0.5em 1em 0.35em 0.7em;
+	display: inline-block;
+	margin: 0 0.2em 0.5em 0;
+	position: relative;
+	@include border-right-radius(10em);
+}
+
+.tag{
+	@extend %tag;
+	background-color: $textcolour_highlight;
+	color: $offwhite;
+	
+
+	&:hover{
+		$i: darken($textcolour_highlight, 20);
+
+		color: $offwhite;
+		background-color: $i;
+
+		.icon{
+			color: $i;
+		}
+	}
+
+	.icon{
+		font-size: 9px;
+		text-align: center;
+		background-color: $white;
+		border-radius: 5em;
+		color: $textcolour_highlight;
+		display: block;
+		width: 14px;
+		height: 13px;
+		padding-top: 2px;
+		padding-left: 2px;
+		margin-left: 0.5em;
+		float: right;
+	}
+}
+
+.tag_alt{
+	@extend %tag;
+	color: $textcolour_body;
+	border-left: 1px solid $gray;
+	padding-left: 0.7em;
+
+	&:hover{
+		//color: $offwhite;
+		background-color: $gray-light2;
+		color: $textcolour_highlight;
+		border-left-color: $textcolour_highlight;
+	}
+}
+
+.tags-large .tag, .tag-large{
+	@include font-size(0.8);
+}
+
+.tag_alpha{
+	//background-color: $blue;
+}
+.tag_beta{
+	background-color: $beige;
+	color: $offwhite;
+
+	.icon{
+		color: $blue;
+	}
+}
+
+
