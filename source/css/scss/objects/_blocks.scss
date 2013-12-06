@@ -191,23 +191,27 @@
 
 
 .block-content-header{
-	background-color: $red2;
+	background-color: $block_bg;
 	padding: $pad;
-	margin-bottom: $space;
+	margin-bottom: $space-double;
 
-	color: $offwhite;
+	@include background-image(linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%));
+
 
 	@media all and (min-width: $bp-small-2) {
 		padding: $space-triple 0;
 	}
 
-	.title{
-		color: $white;
-	}
+
+	//color: $offwhite;
+	// .title{
+	// 	color: $offwhite;
+	// }
 }
 
 .subhead{
 	font-weight: bold;
+	@include font-size(1.2);
 }
 
 .subnav{

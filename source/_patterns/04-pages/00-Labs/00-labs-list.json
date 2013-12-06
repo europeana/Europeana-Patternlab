@@ -1,0 +1,156 @@
+{
+	"hero" : [
+		{
+			"headline" : {
+				"short" : "Some Examples for you-hoo"
+			},
+			"excerpt" : {
+				"short" : "This content is the subhead explanatory paragraph. [You can edit this example content by editing the json data file in the pages folder.]"
+			}
+		}
+	],
+	"mainprojects" : [
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?2",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "Example project title one here"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?3",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "This is project two"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		}
+	],
+	"projects" : [
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?4",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project title"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?5",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?6",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?7",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?8",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?9",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?10",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		},
+		{
+			"img": {
+				"square": {
+					"src": "http://placeimg.com/300/300/tech?11",
+					"alt": "Post Thumbnail"	
+				}
+			},
+			"headline" : {
+				"short" : "An Example of a project"
+			},
+			"excerpt" : {
+				"short" : "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+			}
+		}
+	]
+}

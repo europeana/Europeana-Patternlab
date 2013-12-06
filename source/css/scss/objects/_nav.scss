@@ -8,6 +8,7 @@
 	max-height: 0;
 	font-family: $font-secondary;
 	@include font-size(1);
+	font-weight: 500;
 	
 	a {
 		display: block;

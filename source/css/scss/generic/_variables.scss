@@ -17,7 +17,7 @@ $gray-dark : #333;
 $deepred: #B13030;
 
 //$red2: #ca2b2f;
-$red2: #FF3838;
+$red2: #eb4c59;
 $blue: #1A8AC7;
 $beige: #e5e0d4;
 $green: #76C999;
@@ -31,8 +31,9 @@ $page_bg: $offwhite;
 // text
 $textcolour_head: $black;
 $textcolour_body: $gray;
-$textcolour_highlight: $red2;
+$textcolour_highlight: $deepred;
 $textcolour_link: $textcolour_highlight;
+$block_bg:  $beige;
 
 $text_secondary: $gray-light;
 

@@ -75,6 +75,16 @@ $type-scale-unit-value: rem !default;
 	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
 	margin-top: 0;
 	color: $textcolour_head;
+	
+	-ms-word-break: break-all;
+	     word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	        hyphens: auto;
 }
 
 // Multi-dimensional array, where:
@@ -136,7 +146,6 @@ h6 {
 .subheading {
 	font-family: $font-secondary;
 	font-weight: normal;
-	
 }
 
 .label{

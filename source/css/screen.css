@@ -179,7 +179,7 @@ a {
   outline: 0; }
   /* line 7, scss/base/_links.scss */
   a:hover, a:focus {
-    color: #ff3838; }
+    color: #b13030; }
 
 /* Headings */
 /*Further Reading: http://typeplate.com/ */
@@ -188,84 +188,91 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
-  color: #212121; }
+  color: #212121;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .tera {
   font-size: 104px;
   font-size: 6.5rem;
   margin-bottom: 0.24615rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .giga {
   font-size: 80px;
   font-size: 5rem;
   margin-bottom: 0.32rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .mega {
   font-size: 64px;
   font-size: 4rem;
   margin-bottom: 0.4rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .alpha, h1 {
   font-size: 53px;
   font-size: 3.3125rem;
   margin-bottom: 0.48302rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .beta, h2 {
   font-size: 43px;
   font-size: 2.6875rem;
   margin-bottom: 0.59535rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .gamma, h3 {
   font-size: 32px;
   font-size: 2rem;
   margin-bottom: 0.8rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .delta, h4 {
   font-size: 21px;
   font-size: 1.3125rem;
   margin-bottom: 1.21905rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .epsilon, h5 {
   font-size: 19px;
   font-size: 1.1875rem;
   margin-bottom: 1.34737rem; }
 
-/* line 89, scss/base/_headings.scss */
+/* line 99, scss/base/_headings.scss */
 .zeta, h6 {
   font-size: 16px;
   font-size: 1rem;
   margin-bottom: 1.6rem; }
 
-/* line 95, scss/base/_headings.scss */
+/* line 105, scss/base/_headings.scss */
 h1 {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-weight: normal; }
 
-/* line 108, scss/base/_headings.scss */
+/* line 118, scss/base/_headings.scss */
 h3 {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
   font-weight: normal; }
 
-/* line 127, scss/base/_headings.scss */
+/* line 137, scss/base/_headings.scss */
 h6 {
   text-transform: uppercase; }
 
 /* Subheadings */
-/* line 136, scss/base/_headings.scss */
+/* line 146, scss/base/_headings.scss */
 .subheading {
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-weight: normal; }
 
-/* line 142, scss/base/_headings.scss */
+/* line 151, scss/base/_headings.scss */
 .label {
   font-family: inherit;
   color: #232323; }
@@ -3104,20 +3111,21 @@ td {
   max-height: 0;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   font-size: 16px;
-  font-size: 1rem; }
-  /* line 12, scss/objects/_nav.scss */
+  font-size: 1rem;
+  font-weight: 500; }
+  /* line 13, scss/objects/_nav.scss */
   .nav a {
     display: block;
     padding: 1rem;
     border-top: 1px solid #d2d2d2; }
-  /* line 18, scss/objects/_nav.scss */
+  /* line 19, scss/objects/_nav.scss */
   .nav.active {
     max-height: 40em; }
-  /* line 22, scss/objects/_nav.scss */
+  /* line 23, scss/objects/_nav.scss */
   .nav .current:after {
     content: '';
     display: block;
-    border-bottom: 5px solid #ff3838; }
+    border-bottom: 5px solid #b13030; }
   @media all and (min-width: 47em) {
     /* line 5, scss/objects/_nav.scss */
     .nav {
@@ -3125,62 +3133,62 @@ td {
       float: left;
       clear: none;
       margin-top: 0.6em; }
-      /* line 35, scss/objects/_nav.scss */
+      /* line 36, scss/objects/_nav.scss */
       .nav li {
         float: left; }
-      /* line 39, scss/objects/_nav.scss */
+      /* line 40, scss/objects/_nav.scss */
       .nav a {
         border: 0; } }
 
-/* line 47, scss/objects/_nav.scss */
+/* line 48, scss/objects/_nav.scss */
 .pagination {
   overflow: hidden;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
   margin-bottom: 1.6rem; }
-  /* line 53, scss/objects/_nav.scss */
+  /* line 54, scss/objects/_nav.scss */
   .pagination li {
     display: inline-block;
     border-right: 1px solid #d2d2d2; }
-    /* line 57, scss/objects/_nav.scss */
+    /* line 58, scss/objects/_nav.scss */
     .pagination li:last-child {
       border: 0; }
-  /* line 62, scss/objects/_nav.scss */
+  /* line 63, scss/objects/_nav.scss */
   .pagination a {
     padding: 0.5rem 1rem;
     display: block; }
-    /* line 66, scss/objects/_nav.scss */
+    /* line 67, scss/objects/_nav.scss */
     .pagination a:hover {
       background-color: #d2d2d2;
       color: white; }
-  /* line 73, scss/objects/_nav.scss */
+  /* line 74, scss/objects/_nav.scss */
   .pagination .is-disabled a {
     cursor: default; }
-    /* line 77, scss/objects/_nav.scss */
+    /* line 78, scss/objects/_nav.scss */
     .pagination .is-disabled a:hover {
       background-color: inherit;
       color: inherit; }
-  /* line 83, scss/objects/_nav.scss */
+  /* line 84, scss/objects/_nav.scss */
   .pagination .current {
     color: white;
     font-weight: bold;
-    background-color: #ff3838; }
-    /* line 88, scss/objects/_nav.scss */
+    background-color: #b13030; }
+    /* line 89, scss/objects/_nav.scss */
     .pagination .current:hover {
-      background-color: #ff3838; }
+      background-color: #b13030; }
 
-/* line 95, scss/objects/_nav.scss */
+/* line 96, scss/objects/_nav.scss */
 .breadcrumbs {
   list-style: none;
   line-height: 1;
   font-family: "ff-more-web-pro", Georgia, Times, "Times New Roman", serif; }
-  /* line 100, scss/objects/_nav.scss */
+  /* line 101, scss/objects/_nav.scss */
   .breadcrumbs a {
     display: inline-block;
     padding: 1em 2em;
     position: relative;
     margin-right: 5px;
     text-decoration: none; }
-    /* line 108, scss/objects/_nav.scss */
+    /* line 109, scss/objects/_nav.scss */
     .breadcrumbs a:after {
       content: "";
       border-top: 0.5em solid transparent;
@@ -3191,16 +3199,16 @@ td {
       top: 50%;
       margin-top: -0.5em;
       z-index: 1; }
-    /* line 121, scss/objects/_nav.scss */
+    /* line 122, scss/objects/_nav.scss */
     .breadcrumbs a:hover:after {
-      border-left-color: #ff3838; }
-  /* line 127, scss/objects/_nav.scss */
+      border-left-color: #b13030; }
+  /* line 128, scss/objects/_nav.scss */
   .breadcrumbs > li {
     display: inline; }
-    /* line 130, scss/objects/_nav.scss */
+    /* line 131, scss/objects/_nav.scss */
     .breadcrumbs > li:first-child a:before {
       display: none; }
-    /* line 134, scss/objects/_nav.scss */
+    /* line 135, scss/objects/_nav.scss */
     .breadcrumbs > li:last-child a:after {
       display: none; }
 
@@ -3269,7 +3277,7 @@ td {
   .pullquote:before, .pullquote:after {
     font-size: 64px;
     font-size: 4rem;
-    color: #ff3838; }
+    color: #b13030; }
   /* line 25, scss/objects/_text.scss */
   .pullquote:before {
     content: "\201C";
@@ -3294,10 +3302,10 @@ td {
   color: #232323; }
   /* line 52, scss/objects/_text.scss */
   .prose a {
-    color: #ff3838; }
+    color: #b13030; }
     /* line 55, scss/objects/_text.scss */
     .prose a:hover {
-      border-bottom: 1px dotted #ff3838; }
+      border-bottom: 1px dotted #b13030; }
   /* line 60, scss/objects/_text.scss */
   .prose li {
     margin-bottom: 0.8rem; }
@@ -3335,7 +3343,7 @@ td {
 /* line 16, scss/objects/_icons.scss */
 .icon-block, .icon-round {
   display: inline-block;
-  background-color: #ff3838;
+  background-color: #b13030;
   color: white;
   padding: 0.2em 0.4em 0; }
 
@@ -4379,8 +4387,8 @@ html:hover [class^="icon-"] {
   text-align: center; }
   /* line 17, scss/objects/_buttons.scss */
   .btn:hover, .btn:focus {
-    color: #ff3838;
-    border-color: #ff3838; }
+    color: #b13030;
+    border-color: #b13030; }
   /* line 22, scss/objects/_buttons.scss */
   .btn.disabled {
     background: #ebebeb;
@@ -4397,8 +4405,8 @@ html:hover [class^="icon-"] {
     border-color: #212121; }
     /* line 38, scss/objects/_buttons.scss */
     .btn.alt:hover {
-      background-color: #ff3838;
-      border-color: #ff3838; }
+      background-color: #b13030;
+      border-color: #b13030; }
 
 /* line 45, scss/objects/_buttons.scss */
 .btn-small {
@@ -4443,22 +4451,22 @@ html:hover [class^="icon-"] {
 
 /* line 22, scss/objects/_tags.scss */
 .tag {
-  background-color: #ff3838;
+  background-color: #b13030;
   color: #fcfcfc; }
   /* line 28, scss/objects/_tags.scss */
   .tag:hover {
     color: #fcfcfc;
-    background-color: #d10000; }
+    background-color: #611a1a; }
     /* line 34, scss/objects/_tags.scss */
     .tag:hover .icon {
-      color: #d10000; }
+      color: #611a1a; }
   /* line 39, scss/objects/_tags.scss */
   .tag .icon {
     font-size: 9px;
     text-align: center;
     background-color: white;
     border-radius: 5em;
-    color: #ff3838;
+    color: #b13030;
     display: block;
     width: 14px;
     height: 13px;
@@ -4475,8 +4483,8 @@ html:hover [class^="icon-"] {
   /* line 61, scss/objects/_tags.scss */
   .tag_alt:hover {
     background-color: #e5e5e5;
-    color: #ff3838;
-    border-left-color: #ff3838; }
+    color: #b13030;
+    border-left-color: #b13030; }
 
 /* line 69, scss/objects/_tags.scss */
 .tags-large .tag, .tag-large {
@@ -4647,26 +4655,29 @@ html:hover [class^="icon-"] {
 
 /* line 193, scss/objects/_blocks.scss */
 .block-content-header {
-  background-color: #ff3838;
+  background-color: #e5e0d4;
   padding: 1rem;
-  margin-bottom: 1.6rem;
-  color: #fcfcfc; }
+  margin-bottom: 3.2rem;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.2)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%); }
   @media all and (min-width: 30em) {
     /* line 193, scss/objects/_blocks.scss */
     .block-content-header {
       padding: 4.8rem 0; } }
-  /* line 204, scss/objects/_blocks.scss */
-  .block-content-header .title {
-    color: white; }
 
-/* line 209, scss/objects/_blocks.scss */
+/* line 212, scss/objects/_blocks.scss */
 .subhead {
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 19.2px;
+  font-size: 1.2rem; }
 
-/* line 213, scss/objects/_blocks.scss */
+/* line 217, scss/objects/_blocks.scss */
 .subnav {
   padding: 0 1rem; }
-  /* line 216, scss/objects/_blocks.scss */
+  /* line 220, scss/objects/_blocks.scss */
   .subnav .tags {
     margin-bottom: 1.6rem; }
 
