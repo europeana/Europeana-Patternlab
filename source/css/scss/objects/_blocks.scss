@@ -94,6 +94,13 @@
 		}
 	}
 
+	a.labs {
+		color: $deepred;
+		&:hover, &:focus {
+			border-bottom: 1px dotted #b13030;
+		}
+	}
+
 	.headline{
 		//color: $blue;
 	}

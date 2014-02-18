@@ -4581,14 +4581,20 @@ html:hover [class^="icon-"] {
       display: table-cell;
       width: 66.666%;
       padding: 0 1rem; } }
-  /* line 101, scss/objects/_blocks.scss */
+  /* line 97, scss/objects/_blocks.scss */
+  .block-thumb a.labs {
+    color: #b13030; }
+    /* line 99, scss/objects/_blocks.scss */
+    .block-thumb a.labs:hover, .block-thumb a.labs:focus {
+      border-bottom: 1px dotted #b13030; }
+  /* line 108, scss/objects/_blocks.scss */
   .block-thumb .description {
     margin-bottom: 1.6rem; }
-  /* line 105, scss/objects/_blocks.scss */
+  /* line 112, scss/objects/_blocks.scss */
   .block-thumb .tags {
     border-top: solid 1px #d2d2d2;
     padding-top: 0.5rem; }
-  /* line 110, scss/objects/_blocks.scss */
+  /* line 117, scss/objects/_blocks.scss */
   .block-thumb .icon {
     color: #d2d2d2;
     margin-right: 1rem;
@@ -4596,32 +4602,32 @@ html:hover [class^="icon-"] {
     float: left; }
 
 /* Block Headline Summary */
-/* line 121, scss/objects/_blocks.scss */
+/* line 128, scss/objects/_blocks.scss */
 .block-headline-summary a {
   display: block;
   padding: 0.5rem; }
 
 /* Block Inset */
-/* line 128, scss/objects/_blocks.scss */
+/* line 135, scss/objects/_blocks.scss */
 .block-inset {
   position: relative; }
-  /* line 131, scss/objects/_blocks.scss */
+  /* line 138, scss/objects/_blocks.scss */
   .block-inset .b-thumb {
     position: relative;
     z-index: 0; }
-    /* line 135, scss/objects/_blocks.scss */
+    /* line 142, scss/objects/_blocks.scss */
     .block-inset .b-thumb img {
       display: block; }
 
 /* Hero Block */
-/* line 142, scss/objects/_blocks.scss */
+/* line 149, scss/objects/_blocks.scss */
 .block-inset {
   margin-bottom: 0.8rem;
   position: relative; }
-  /* line 146, scss/objects/_blocks.scss */
+  /* line 153, scss/objects/_blocks.scss */
   .block-inset .headline {
     font-size: 1.1em; }
-  /* line 150, scss/objects/_blocks.scss */
+  /* line 157, scss/objects/_blocks.scss */
   .block-inset .b-text {
     position: absolute;
     bottom: 0;
@@ -4632,28 +4638,28 @@ html:hover [class^="icon-"] {
     padding: 0.5rem; }
 
 /* Block Thumb with Summary */
-/* line 163, scss/objects/_blocks.scss */
+/* line 170, scss/objects/_blocks.scss */
 .block-thumb-summary .b-thumb {
   float: left;
   width: 50%; }
-/* line 168, scss/objects/_blocks.scss */
+/* line 175, scss/objects/_blocks.scss */
 .block-thumb-summary .b-text {
   margin-left: 50%;
   padding: 0.5rem; }
 
 /* Block Thumb with Less content */
-/* line 175, scss/objects/_blocks.scss */
+/* line 182, scss/objects/_blocks.scss */
 .block-thumb-small {
   border-top: 5px solid #232323; }
   @media all and (min-width: 30em) {
-    /* line 180, scss/objects/_blocks.scss */
+    /* line 187, scss/objects/_blocks.scss */
     .block-thumb-small .b-thumb {
       width: 20%; }
-    /* line 184, scss/objects/_blocks.scss */
+    /* line 191, scss/objects/_blocks.scss */
     .block-thumb-small .b-text {
       width: 80%; } }
 
-/* line 193, scss/objects/_blocks.scss */
+/* line 200, scss/objects/_blocks.scss */
 .block-content-header {
   background-color: #e5e0d4;
   padding: 1rem;
@@ -4664,20 +4670,20 @@ html:hover [class^="icon-"] {
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
   background-image: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%); }
   @media all and (min-width: 30em) {
-    /* line 193, scss/objects/_blocks.scss */
+    /* line 200, scss/objects/_blocks.scss */
     .block-content-header {
       padding: 4.8rem 0; } }
 
-/* line 212, scss/objects/_blocks.scss */
+/* line 219, scss/objects/_blocks.scss */
 .subhead {
   font-weight: bold;
   font-size: 19.2px;
   font-size: 1.2rem; }
 
-/* line 217, scss/objects/_blocks.scss */
+/* line 224, scss/objects/_blocks.scss */
 .subnav {
   padding: 0 1rem; }
-  /* line 220, scss/objects/_blocks.scss */
+  /* line 227, scss/objects/_blocks.scss */
   .subnav .tags {
     margin-bottom: 1.6rem; }
 
