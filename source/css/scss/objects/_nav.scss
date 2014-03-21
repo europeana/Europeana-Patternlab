@@ -6,9 +6,7 @@
 	clear: both;
 	overflow: hidden;
 	max-height: 0;
-	font-family: $font-secondary;
 	@include font-size(1);
-	font-weight: 500;
 	
 	a {
 		display: block;
@@ -23,7 +21,8 @@
 	.current:after{
 		content: '';
 		display: block;
-		border-bottom: 5px solid $textcolour_link;
+		border-bottom: 5px solid $textcolour_highlight;
+		margin-top: 0.2em;
 	}
 
 	@media all and (min-width: $bp-med) {
@@ -63,10 +62,11 @@
 	a {
 		padding: $pad-half $pad;
 		display: block;
+		font-weight: bold;
 
 		&:hover{
 			background-color: $gray-light;
-			color: $white;
+			color: $textcolour_body;
 		}
 	}
 
@@ -84,10 +84,10 @@
 	.current{
 		color: $white;
 		font-weight: bold;
-		background-color: $textcolour_link;
+		background-color: $textcolour_highlight;
 
 		&:hover{
-			background-color: $textcolour_link;
+			background-color: $textcolour_highlight;
 		}
 	}
 }
@@ -120,7 +120,7 @@
 
 		}
 		&:hover:after {
-			border-left-color: $textcolour_link;
+			border-left-color: $textcolour_highlight;
 		}
 		
 	}

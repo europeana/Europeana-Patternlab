@@ -15,7 +15,7 @@
 
 .icon-block, .icon-round{
   display: inline-block;
-  background-color: $textcolour_link;
+  background-color: $textcolour_highlight;
   color: $white;
   //padding: 0.4em 0.594em 0.17em;
   padding: 0.2em 0.4em 0;
@@ -23,6 +23,10 @@
 
 .icon-round{
   border-radius: 10em;
+}
+
+.icon-coloured{
+  color: $textcolour_highlight;
 }
 
 

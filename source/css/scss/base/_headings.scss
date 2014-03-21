@@ -85,6 +85,8 @@ $type-scale-unit-value: rem !default;
 	-webkit-hyphens: auto;
 	   -moz-hyphens: auto;
 	        hyphens: auto;
+
+	letter-spacing: -0.02em;
 }
 
 // Multi-dimensional array, where:
@@ -107,7 +109,7 @@ h1 {
 	@extend %hN;
 
 	font-family: $font-secondary;
-	font-weight: normal;
+	//font-weight: normal;
 }
 
 h2 {

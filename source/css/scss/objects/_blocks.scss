@@ -95,9 +95,9 @@
 	}
 
 	a.labs {
-		color: $deepred;
+		color: $textcolour_highlight;
 		&:hover, &:focus {
-			border-bottom: 1px dotted #b13030;
+			border-bottom: 1px dotted $textcolour_highlight;
 		}
 	}
 
@@ -208,17 +208,6 @@
 	@media all and (min-width: $bp-small-2) {
 		padding: $space-triple 0;
 	}
-
-
-	//color: $offwhite;
-	// .title{
-	// 	color: $offwhite;
-	// }
-}
-
-.subhead{
-	font-weight: bold;
-	@include font-size(1.2);
 }
 
 .subnav{

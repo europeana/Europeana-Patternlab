@@ -10,7 +10,7 @@ body {
 	word-wrap: break-word;
 
 	background: $page_bg;
-	font: 100%/1.4 $font; //18px default font
+	font: 100%/1.4 $font-primary; //18px default font
 	-webkit-text-size-adjust: 100%;
 	color: $textcolour_body;
 }

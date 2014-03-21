@@ -7,12 +7,11 @@
 	@include font-size(0.6);
 	font-weight: 900;
 	text-transform: uppercase;
-	letter-spacing: 0.2em;
 	margin-right: 0.2em;
 }
 
 %tag{
-	padding: 0.5em 1em 0.35em 0.7em;
+	padding: 0.35em 1em 0.35em 0.5em;
 	display: inline-block;
 	margin: 0 0.2em 0.5em 0;
 	position: relative;

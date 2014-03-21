@@ -14,7 +14,9 @@ $gray-dark : #333;
 
 
 //highlight colours
-$deepred: #B13030;
+$labsgreen: #37B985;
+
+$linkblue: #188AC7;
 
 //$red2: #ca2b2f;
 $red2: #eb4c59;
@@ -31,8 +33,8 @@ $page_bg: $offwhite;
 // text
 $textcolour_head: $black;
 $textcolour_body: $gray;
-$textcolour_highlight: $deepred;
-$textcolour_link: $textcolour_highlight;
+$textcolour_highlight: $labsgreen;
+$textcolour_link: $linkblue;
 $block_bg:  $beige;
 
 $text_secondary: $gray-light;
@@ -54,8 +56,8 @@ $brand-twitter: #35ccff;
 $brand-linkedin: #217bc1;
 
 //Typography
-$font : "proxima-nova", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-$font-secondary : "ff-more-web-pro", Georgia, Times, "Times New Roman", serif;
+$font-primary : "Open Sans", "Arial", sans-serif;
+$font-secondary : "Ubuntu", "Arial", sans-serif;
 
 $font-size-norm : 1em;
 $font-size-slightly-smaller : 0.875em;
