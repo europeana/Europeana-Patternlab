@@ -166,7 +166,7 @@ body {
   -o-hyphens: auto;
   hyphens: auto;
   word-wrap: break-word;
-  background: #fcfcfc;
+  background: white;
   font: 100%/1.4 "Open Sans", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #232323; }
@@ -254,7 +254,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 107, scss/base/_headings.scss */
 h1 {
-  font-family: "Ubuntu", "Arial", sans-serif; }
+  font-family: "Ubuntu", "Arial", sans-serif;
+  font-weight: 300; }
 
 /* line 120, scss/base/_headings.scss */
 h3 {
