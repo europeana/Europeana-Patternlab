@@ -3,26 +3,26 @@
 \*------------------------------------*/
 
 //Base Colors
-$white : #fff;
-$offwhite : #fcfcfc;
-$black : #212121;
+
 $gray : #232323;
-$gray-light : #D2D2D2;
 $gray-light2 : #e5e5e5;
 
-$gray-dark : #333;
-
+// Neutrals
+$white : #fff;
+$offwhite : #F1F1EE;
+$paper: #D9D4CA;
+$gray-light : #A6A6A6;
+$gray-dark : #4D4D4D;
+$black : #1A1A1A;
 
 //highlight colours
-$labsgreen: #37B985;
+$eu-blue: #1A8AC7;
+$eu-jade: #37B98B;
+$eu-raspberry: #E11D53;
 
-$linkblue: #188AC7;
 
-//$red2: #ca2b2f;
-$red2: #eb4c59;
-$blue: #1A8AC7;
-$beige: #e5e0d4;
-$green: #76C999;
+$linkblue: $eu-blue;
+
 
 
 // Assign colours to functions
@@ -32,16 +32,16 @@ $page_bg: $white;
 
 // text
 $textcolour_head: $black;
-$textcolour_body: $gray;
-$textcolour_highlight: $labsgreen;
-$textcolour_link: $linkblue;
-$block_bg:  $beige;
+$textcolour_body: $gray-dark;
+$textcolour_highlight: $eu-jade;
+$textcolour_link: $eu-blue;
+$block_bg: $offwhite;
 
 $text_secondary: $gray-light;
 
 // buttons
-$tag_primary: $blue;
-$tag_primary_text: $blue;
+$tag_primary: $eu-blue;
+$tag_primary_text: $eu-blue;
 $tag_highlight: $gray;
 
 

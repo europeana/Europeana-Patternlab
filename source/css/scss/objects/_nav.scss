@@ -43,6 +43,30 @@
 	}
 }
 
+.nav_tertiary{
+
+	overflow: hidden;
+	font-family: $font-secondary;
+
+	margin-bottom: $space;
+
+	a {
+		display: block;
+		padding: $pad;
+		border-bottom: solid 1px $gray-light;
+
+		&:hover, &:focus, &:active {
+			//color: $textcolour_highlight;
+			text-decoration: underline;
+		}
+
+		&.active {
+			background: $textcolour_highlight;
+			color: $white;
+		}
+	}
+}
+
 //Pagination
 .pagination {
 	overflow: hidden;

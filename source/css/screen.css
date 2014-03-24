@@ -169,7 +169,11 @@ body {
   background: white;
   font: 100%/1.4 "Open Sans", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
-  color: #232323; }
+  color: #4d4d4d; }
+
+/* line 18, scss/base/_main.scss */
+.site_wrapper {
+  border-top: 6px solid #37b98b; }
 
 /* Links */
 /* line 2, scss/base/_links.scss */
@@ -179,7 +183,7 @@ a {
   outline: 0; }
   /* line 7, scss/base/_links.scss */
   a:hover, a:focus {
-    color: #188ac7; }
+    color: #1a8ac7; }
 
 /* Headings */
 /*Further Reading: http://typeplate.com/ */
@@ -188,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
-  color: #212121;
+  color: #1a1a1a;
   -ms-word-break: break-all;
   word-break: break-all;
   /* Non standard for webkit */
@@ -276,7 +280,7 @@ h6 {
 /* line 153, scss/base/_headings.scss */
 .label {
   font-family: inherit;
-  color: #232323; }
+  color: #4d4d4d; }
 
 /* Text-Related Elements */
 /* line 2, scss/base/_text.scss */
@@ -324,7 +328,7 @@ p + .drop-cap {
 hr {
   border: 0;
   height: 2px;
-  background: #d2d2d2;
+  background: #a6a6a6;
   margin: 3.2rem 0; }
 
 /* line 52, scss/base/_text.scss */
@@ -368,7 +372,7 @@ pre {
   padding: 1rem;
   background: white;
   border-radius: 4px;
-  border: 1px solid #d2d2d2; }
+  border: 1px solid #a6a6a6; }
 
 /* line 1, scss/base/_lists.scss */
 ol, ul {
@@ -446,7 +450,7 @@ button, input, select, textarea {
 /* line 31, scss/base/_forms.scss */
 input, textarea {
   width: 100%;
-  border: 1px solid #d2d2d2;
+  border: 1px solid #a6a6a6;
   padding: 0.5rem 0.65rem;
   box-shadow: inset 0 1px 3px #ddd;
   border-radius: 4px;
@@ -466,7 +470,7 @@ input, textarea {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted #333333;
+  outline: thin dotted #4d4d4d;
   outline: 1px auto #1a8ac7; }
 
 /* line 57, scss/base/_forms.scss */
@@ -476,7 +480,7 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 /* line 61, scss/base/_forms.scss */
 button, input[type="submit"] {
   padding: 0.5rem;
-  background: #333333;
+  background: #4d4d4d;
   border: 1px solid #232323;
   cursor: pointer; }
 
@@ -507,7 +511,7 @@ input[type="search"]::-webkit-search-decoration {
 .inline-form input[type=submit], .inline-form button, .inline-form .btn {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
-  background: #333333;
+  background: #4d4d4d;
   position: absolute;
   top: 0;
   right: 0;
@@ -568,16 +572,16 @@ input[type="search"]::-webkit-search-decoration {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #d2d2d2;
+  border: 1px solid #a6a6a6;
   width: 100%;
   empty-cells: show;
   margin-bottom: 1rem;
-  color: #232323; }
+  color: #4d4d4d; }
 
 /* line 19, scss/base/_tables.scss */
 td,
 th {
-  border-left: 1px solid #d2d2d2;
+  border-left: 1px solid #a6a6a6;
   /*  inner column border */
   border-width: 0 0 0 1px;
   font-size: inherit;
@@ -594,8 +598,8 @@ th:first-child {
 
 /* line 33, scss/base/_tables.scss */
 thead {
-  background: #ebebeb;
-  color: #212121;
+  background: silver;
+  color: #1a1a1a;
   text-align: left;
   vertical-align: bottom; }
 
@@ -606,12 +610,12 @@ td {
 /* nth-child selector for modern browsers */
 /* line 45, scss/base/_tables.scss */
 .table-striped tr:nth-child(2n-1) td {
-  background-color: #f8f8f8; }
+  background-color: #cccccc; }
 
 /* BORDERED TABLES */
 /* line 50, scss/base/_tables.scss */
 .table-bordered td {
-  border-bottom: 1px solid #d2d2d2; }
+  border-bottom: 1px solid #a6a6a6; }
 
 /* line 54, scss/base/_tables.scss */
 .table-bordered tbody > tr:last-child td,
@@ -623,7 +627,7 @@ td {
 .table-horizontal td,
 .table-horizontal th {
   border-width: 0 0 1px 0;
-  border-bottom: 1px solid #d2d2d2; }
+  border-bottom: 1px solid #a6a6a6; }
 
 /* line 66, scss/base/_tables.scss */
 .table-horizontal tbody > tr:last-child td {
@@ -3060,9 +3064,9 @@ td {
   background: white;
   padding: 0;
   position: relative;
-  -webkit-box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px;
-  -moz-box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px;
-  box-shadow: rgba(51, 51, 51, 0.2) 0 0 3px; }
+  -webkit-box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px;
+  -moz-box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px;
+  box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px; }
 
 /* line 8, scss/objects/_header.scss */
 .logo {
@@ -3116,7 +3120,7 @@ td {
   .nav a {
     display: block;
     padding: 1rem;
-    border-top: 1px solid #d2d2d2; }
+    border-top: 1px solid #a6a6a6; }
   /* line 17, scss/objects/_nav.scss */
   .nav.active {
     max-height: 40em; }
@@ -3124,7 +3128,7 @@ td {
   .nav .current:after {
     content: '';
     display: block;
-    border-bottom: 5px solid #37b985;
+    border-bottom: 5px solid #37b98b;
     margin-top: 0.2em; }
   @media all and (min-width: 47em) {
     /* line 5, scss/objects/_nav.scss */
@@ -3140,76 +3144,94 @@ td {
       .nav a {
         border: 0; } }
 
-/* line 47, scss/objects/_nav.scss */
-.pagination {
+/* line 46, scss/objects/_nav.scss */
+.nav_tertiary {
   overflow: hidden;
   font-family: "Ubuntu", "Arial", sans-serif;
   margin-bottom: 1.6rem; }
   /* line 53, scss/objects/_nav.scss */
+  .nav_tertiary a {
+    display: block;
+    padding: 1rem;
+    border-bottom: solid 1px #a6a6a6; }
+    /* line 58, scss/objects/_nav.scss */
+    .nav_tertiary a:hover, .nav_tertiary a:focus, .nav_tertiary a:active {
+      text-decoration: underline; }
+    /* line 63, scss/objects/_nav.scss */
+    .nav_tertiary a.active {
+      background: #37b98b;
+      color: white; }
+
+/* line 71, scss/objects/_nav.scss */
+.pagination {
+  overflow: hidden;
+  font-family: "Ubuntu", "Arial", sans-serif;
+  margin-bottom: 1.6rem; }
+  /* line 77, scss/objects/_nav.scss */
   .pagination li {
     display: inline-block;
-    border-right: 1px solid #d2d2d2; }
-    /* line 57, scss/objects/_nav.scss */
+    border-right: 1px solid #a6a6a6; }
+    /* line 81, scss/objects/_nav.scss */
     .pagination li:last-child {
       border: 0; }
-  /* line 62, scss/objects/_nav.scss */
+  /* line 86, scss/objects/_nav.scss */
   .pagination a {
     padding: 0.5rem 1rem;
     display: block;
     font-weight: bold; }
-    /* line 67, scss/objects/_nav.scss */
+    /* line 91, scss/objects/_nav.scss */
     .pagination a:hover {
-      background-color: #d2d2d2;
-      color: #232323; }
-  /* line 74, scss/objects/_nav.scss */
+      background-color: #a6a6a6;
+      color: #4d4d4d; }
+  /* line 98, scss/objects/_nav.scss */
   .pagination .is-disabled a {
     cursor: default; }
-    /* line 78, scss/objects/_nav.scss */
+    /* line 102, scss/objects/_nav.scss */
     .pagination .is-disabled a:hover {
       background-color: inherit;
       color: inherit; }
-  /* line 84, scss/objects/_nav.scss */
+  /* line 108, scss/objects/_nav.scss */
   .pagination .current {
     color: white;
     font-weight: bold;
-    background-color: #37b985; }
-    /* line 89, scss/objects/_nav.scss */
+    background-color: #37b98b; }
+    /* line 113, scss/objects/_nav.scss */
     .pagination .current:hover {
-      background-color: #37b985; }
+      background-color: #37b98b; }
 
-/* line 96, scss/objects/_nav.scss */
+/* line 120, scss/objects/_nav.scss */
 .breadcrumbs {
   list-style: none;
   line-height: 1;
   font-family: "Ubuntu", "Arial", sans-serif; }
-  /* line 101, scss/objects/_nav.scss */
+  /* line 125, scss/objects/_nav.scss */
   .breadcrumbs a {
     display: inline-block;
     padding: 1em 2em;
     position: relative;
     margin-right: 5px;
     text-decoration: none; }
-    /* line 109, scss/objects/_nav.scss */
+    /* line 133, scss/objects/_nav.scss */
     .breadcrumbs a:after {
       content: "";
       border-top: 0.5em solid transparent;
       border-bottom: 0.5em solid transparent;
-      border-left: 0.5em solid #d2d2d2;
+      border-left: 0.5em solid #a6a6a6;
       position: absolute;
       right: -0.5em;
       top: 50%;
       margin-top: -0.5em;
       z-index: 1; }
-    /* line 122, scss/objects/_nav.scss */
+    /* line 146, scss/objects/_nav.scss */
     .breadcrumbs a:hover:after {
-      border-left-color: #37b985; }
-  /* line 128, scss/objects/_nav.scss */
+      border-left-color: #37b98b; }
+  /* line 152, scss/objects/_nav.scss */
   .breadcrumbs > li {
     display: inline; }
-    /* line 131, scss/objects/_nav.scss */
+    /* line 155, scss/objects/_nav.scss */
     .breadcrumbs > li:first-child a:before {
       display: none; }
-    /* line 135, scss/objects/_nav.scss */
+    /* line 159, scss/objects/_nav.scss */
     .breadcrumbs > li:last-child a:after {
       display: none; }
 
@@ -3223,7 +3245,7 @@ td {
 .footer {
   clear: both;
   overflow: hidden;
-  background: #212121;
+  background: #1a1a1a;
   color: white;
   line-height: 1.2; }
   /* line 11, scss/objects/_footer.scss */
@@ -3231,14 +3253,14 @@ td {
     padding: 1rem 1rem 0; }
   /* line 16, scss/objects/_footer.scss */
   .footer a {
-    color: #d2d2d2; }
+    color: #a6a6a6; }
 
 /* line 24, scss/objects/_footer.scss */
 .nav-footer {
   margin: -1rem -1rem 1.6rem; }
   /* line 27, scss/objects/_footer.scss */
   .nav-footer li {
-    border-bottom: 1px solid #333333; }
+    border-bottom: 1px solid #4d4d4d; }
     @media all and (min-width: 47em) {
       /* line 27, scss/objects/_footer.scss */
       .nav-footer li {
@@ -3268,7 +3290,7 @@ td {
 
 /* line 12, scss/objects/_text.scss */
 .pullquote {
-  color: #212121;
+  color: #1a1a1a;
   font-size: 42px;
   font-size: 2.625rem;
   border-left: none;
@@ -3278,7 +3300,7 @@ td {
   .pullquote:before, .pullquote:after {
     font-size: 64px;
     font-size: 4rem;
-    color: #188ac7; }
+    color: #1a8ac7; }
   /* line 25, scss/objects/_text.scss */
   .pullquote:before {
     content: "\201C";
@@ -3289,9 +3311,9 @@ td {
 
 /* line 37, scss/objects/_text.scss */
 .caption {
-  border-top: 1px solid #d2d2d2;
+  border-top: 1px solid #a6a6a6;
   padding-top: 0.4em;
-  color: #232323; }
+  color: #4d4d4d; }
 
 /* line 42, scss/objects/_text.scss */
 .caption-text {
@@ -3300,13 +3322,13 @@ td {
 
 /* line 48, scss/objects/_text.scss */
 .prose {
-  color: #232323; }
+  color: #4d4d4d; }
   /* line 52, scss/objects/_text.scss */
   .prose a {
-    color: #188ac7; }
+    color: #1a8ac7; }
     /* line 55, scss/objects/_text.scss */
     .prose a:hover {
-      border-bottom: 1px dotted #188ac7; }
+      border-bottom: 1px dotted #1a8ac7; }
   /* line 60, scss/objects/_text.scss */
   .prose li {
     margin-bottom: 0.8rem; }
@@ -3344,7 +3366,7 @@ td {
 /* line 16, scss/objects/_icons.scss */
 .icon-block, .icon-round {
   display: inline-block;
-  background-color: #37b985;
+  background-color: #37b98b;
   color: white;
   padding: 0.2em 0.4em 0; }
 
@@ -3354,7 +3376,7 @@ td {
 
 /* line 28, scss/objects/_icons.scss */
 .icon-coloured {
-  color: #37b985; }
+  color: #37b98b; }
 
 @font-face {
   font-family: "SSSocialCircle";
@@ -4380,8 +4402,8 @@ html:hover [class^="icon-"] {
 .btn {
   display: inline-block;
   background: transparent;
-  color: #212121;
-  border: solid 5px #212121;
+  color: #1a1a1a;
+  border: solid 5px #1a1a1a;
   font-size: 12.8px;
   font-size: 0.8rem;
   line-height: 1;
@@ -4392,26 +4414,26 @@ html:hover [class^="icon-"] {
   text-align: center; }
   /* line 17, scss/objects/_buttons.scss */
   .btn:hover, .btn:focus {
-    color: #37b985;
-    border-color: #37b985; }
+    color: #37b98b;
+    border-color: #37b98b; }
   /* line 22, scss/objects/_buttons.scss */
   .btn.disabled {
-    background: #ebebeb;
-    color: #9f9f9f;
+    background: silver;
+    color: #737373;
     cursor: not-allowed;
-    border-color: #d2d2d2; }
+    border-color: #a6a6a6; }
     /* line 28, scss/objects/_buttons.scss */
     .btn.disabled:hover {
-      border-color: #d2d2d2; }
+      border-color: #a6a6a6; }
   /* line 33, scss/objects/_buttons.scss */
   .btn.alt {
-    color: #fcfcfc;
-    background-color: #212121;
-    border-color: #212121; }
+    color: #f1f1ee;
+    background-color: #1a1a1a;
+    border-color: #1a1a1a; }
     /* line 38, scss/objects/_buttons.scss */
     .btn.alt:hover {
-      background-color: #37b985;
-      border-color: #37b985; }
+      background-color: #37b98b;
+      border-color: #37b98b; }
 
 /* line 45, scss/objects/_buttons.scss */
 .btn-small {
@@ -4421,7 +4443,7 @@ html:hover [class^="icon-"] {
 .btn-large {
   padding: 0.5rem;
   text-transform: uppercase;
-  background: #d2d2d2;
+  background: #a6a6a6;
   font-size: 1.4rem;
   font-weight: normal; }
 
@@ -4455,22 +4477,22 @@ html:hover [class^="icon-"] {
 
 /* line 21, scss/objects/_tags.scss */
 .tag {
-  background-color: #37b985;
-  color: #fcfcfc; }
+  background-color: #37b98b;
+  color: #f1f1ee; }
   /* line 27, scss/objects/_tags.scss */
   .tag:hover {
-    color: #fcfcfc;
-    background-color: #206a4c; }
+    color: #f1f1ee;
+    background-color: #206a50; }
     /* line 33, scss/objects/_tags.scss */
     .tag:hover .icon {
-      color: #206a4c; }
+      color: #206a50; }
   /* line 38, scss/objects/_tags.scss */
   .tag .icon {
     font-size: 9px;
     text-align: center;
     background-color: white;
     border-radius: 5em;
-    color: #37b985;
+    color: #37b98b;
     display: block;
     width: 14px;
     height: 13px;
@@ -4481,14 +4503,14 @@ html:hover [class^="icon-"] {
 
 /* line 54, scss/objects/_tags.scss */
 .tag_alt {
-  color: #232323;
+  color: #4d4d4d;
   border-left: 1px solid #232323;
   padding-left: 0.7em; }
   /* line 60, scss/objects/_tags.scss */
   .tag_alt:hover {
     background-color: #e5e5e5;
-    color: #37b985;
-    border-left-color: #37b985; }
+    color: #37b98b;
+    border-left-color: #37b98b; }
 
 /* line 68, scss/objects/_tags.scss */
 .tags-large .tag, .tag-large {
@@ -4497,8 +4519,8 @@ html:hover [class^="icon-"] {
 
 /* line 75, scss/objects/_tags.scss */
 .tag_beta {
-  background-color: #e5e0d4;
-  color: #fcfcfc; }
+  background-color: #d9d4ca;
+  color: #f1f1ee; }
   /* line 79, scss/objects/_tags.scss */
   .tag_beta .icon {
     color: #1a8ac7; }
@@ -4510,7 +4532,7 @@ html:hover [class^="icon-"] {
   padding: 2rem;
   text-align: center;
   font-weight: bold;
-  border-bottom: 1px solid #d2d2d2; }
+  border-bottom: 1px solid #a6a6a6; }
 
 /* Block */
 /* line 11, scss/objects/_blocks.scss */
@@ -4559,7 +4581,7 @@ html:hover [class^="icon-"] {
 .block-thumb {
   display: table;
   width: 100%;
-  border-top: solid 5px #333333;
+  border-top: solid 5px #1a1a1a;
   padding-top: 1rem;
   margin-bottom: 1.6rem; }
   /* line 68, scss/objects/_blocks.scss */
@@ -4587,20 +4609,20 @@ html:hover [class^="icon-"] {
       padding: 0 1rem; } }
   /* line 97, scss/objects/_blocks.scss */
   .block-thumb a.labs {
-    color: #37b985; }
+    color: #37b98b; }
     /* line 99, scss/objects/_blocks.scss */
     .block-thumb a.labs:hover, .block-thumb a.labs:focus {
-      border-bottom: 1px dotted #37b985; }
+      border-bottom: 1px dotted #37b98b; }
   /* line 108, scss/objects/_blocks.scss */
   .block-thumb .description {
     margin-bottom: 1.6rem; }
   /* line 112, scss/objects/_blocks.scss */
   .block-thumb .tags {
-    border-top: solid 1px #d2d2d2;
+    border-top: solid 1px #a6a6a6;
     padding-top: 0.5rem; }
   /* line 117, scss/objects/_blocks.scss */
   .block-thumb .icon {
-    color: #d2d2d2;
+    color: #a6a6a6;
     margin-right: 1rem;
     margin-top: 0.3em;
     float: left; }
@@ -4665,7 +4687,7 @@ html:hover [class^="icon-"] {
 
 /* line 200, scss/objects/_blocks.scss */
 .block-content-header {
-  background-color: #e5e0d4;
+  background-color: #f1f1ee;
   padding: 1rem;
   margin-bottom: 3.2rem;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.2)));
@@ -4710,7 +4732,7 @@ html:hover [class^="icon-"] {
   /* line 31, scss/objects/_lists.scss */
   .headline-list li {
     padding: 0.25rem 0;
-    border-top: 1px solid #d2d2d2; }
+    border-top: 1px solid #a6a6a6; }
 
 /* Post List */
 /* line 38, scss/objects/_lists.scss */
@@ -4749,7 +4771,7 @@ html:hover [class^="icon-"] {
 
 /* line 12, scss/objects/_tooltip.scss */
 .tooltip-link {
-  background: #d2d2d2; }
+  background: #a6a6a6; }
 
 /* line 16, scss/objects/_tooltip.scss */
 .tooltip {
@@ -4784,13 +4806,13 @@ html:hover [class^="icon-"] {
 
 /* line 5, scss/objects/_accordion.scss */
 .acc-handle {
-  background: #212121;
+  background: #1a1a1a;
   color: white;
   font-family: "Ubuntu", "Arial", sans-serif;
   display: block;
   position: relative;
   padding: 0.5rem;
-  border-bottom: 1px solid #d2d2d2; }
+  border-bottom: 1px solid #a6a6a6; }
   /* line 14, scss/objects/_accordion.scss */
   .acc-handle:after {
     content: "+";
@@ -4798,10 +4820,10 @@ html:hover [class^="icon-"] {
   /* line 19, scss/objects/_accordion.scss */
   .acc-handle:hover {
     color: white;
-    background: #333333; }
+    background: #4d4d4d; }
   /* line 25, scss/objects/_accordion.scss */
   .acc-handle.active {
-    background: #333333; }
+    background: #4d4d4d; }
     /* line 28, scss/objects/_accordion.scss */
     .acc-handle.active:after {
       content: "-"; }
@@ -4815,21 +4837,21 @@ html:hover [class^="icon-"] {
   .tabs a {
     display: block;
     padding: 1rem;
-    background: #d2d2d2; }
+    background: #a6a6a6; }
     /* line 13, scss/objects/_tabs.scss */
     .tabs a:hover, .tabs a:focus, .tabs a:active {
-      background: #333333;
+      background: #1a1a1a;
       color: white; }
     /* line 18, scss/objects/_tabs.scss */
     .tabs a.active {
-      background: #333333;
+      background: #1a1a1a;
       color: white; }
 
 /* line 27, scss/objects/_tabs.scss */
 .tabs-h ul {
   display: table;
   width: 100%;
-  border-bottom: 5px solid #333333; }
+  border-bottom: 5px solid #1a1a1a; }
 /* line 33, scss/objects/_tabs.scss */
 .tabs-h li {
   display: table-cell;
@@ -4845,7 +4867,7 @@ html:hover [class^="icon-"] {
 /* line 50, scss/objects/_tabs.scss */
 .tabs-v a {
   background-color: transparent;
-  border-bottom: solid 1px #d2d2d2; }
+  border-bottom: solid 1px #a6a6a6; }
 
 /* line 1, scss/objects/_sections.scss */
 .section {
@@ -4879,7 +4901,7 @@ html:hover [class^="icon-"] {
     margin-right: 0.4rem; }
   /* line 29, scss/objects/_article.scss */
   .social-share a {
-    background: #333333;
+    background: #4d4d4d;
     color: white;
     display: block;
     padding: 0.5rem; }
@@ -4903,7 +4925,7 @@ html:hover [class^="icon-"] {
   /* line 16, scss/objects/_comments.scss */
   .comment-meta img {
     display: block;
-    border: 1px solid #d2d2d2;
+    border: 1px solid #a6a6a6;
     margin-bottom: 0.8rem; }
 
 /* line 23, scss/objects/_comments.scss */

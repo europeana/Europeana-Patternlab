@@ -43,7 +43,7 @@ input, textarea {
 	&:focus{
 		outline: 0;
 		outline: thin dotted \9; /* IE6-9 */
-		border-color: $blue;
+		border-color: $linkblue;
 	}
 }
 
@@ -51,7 +51,7 @@ input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
     outline: thin dotted $gray-dark;
-    outline: 1px auto $blue;
+    outline: 1px auto $linkblue;
 }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {

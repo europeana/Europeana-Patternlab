@@ -11,12 +11,12 @@
 		background: $gray-light;
 
 		&:hover, &:focus, &:active {
-			background: $gray-dark;
+			background: $black;
 			color: $white;
 		}
 
 		&.active {
-			background: $gray-dark;
+			background: $black;
 			color: $white;
 		}
 	}
@@ -27,7 +27,7 @@
 	ul{
 		display: table;
 		width: 100%;
-		border-bottom: 5px solid $gray-dark;
+		border-bottom: 5px solid $black;
 	}
 	
 	li {
