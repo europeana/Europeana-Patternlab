@@ -2,15 +2,23 @@
 
 {{> organisms-header-labs }}
 
-<div role="main" class="grid">
+<section class="block-content-header">
+	<div class="grid_wrapper">
 
-	<div class="block block-content-header">
+	<div class="block grid">
 		<div class="grid__item palm--one-whole push--palm--none three-quarters push--one-quarter">
 			<h1 class="title" >Examples</h1>
 			<p class="subhead grid grid__item desk--one-half">{{ excerpt.short }}</p>
 		</div>
 	</div>
 
+	</div>
+</section>
+
+<section role="main" class="grid_wrapper">
+
+
+	<div class="grid">
 	<div class="grid__item one-quarter palm--one-whole">
 		<div class="subnav">
 
@@ -47,6 +55,6 @@
  	</div>
  </div>
 
-{{> organisms-footer-labs }}
+</section>
 
-</div>
+{{> organisms-footer-labs }}

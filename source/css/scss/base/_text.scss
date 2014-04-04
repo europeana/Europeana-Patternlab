@@ -6,8 +6,8 @@ p {
 /* Blockquote */
 blockquote {
     font-style:italic;
-    border-left: 1px solid $gray;
-    color: $gray;
+    border-left: 1px solid $textcolour_heavy;
+    color: $textcolour_heavy;
     padding-left: $pad;
     margin-bottom: $space;
 }
@@ -50,7 +50,7 @@ hr {
 }
 
 abbr {
-    border-bottom: 1px dotted $gray;
+    border-bottom: 1px dotted $textcolour_heavy;
     cursor: help;
 }
 

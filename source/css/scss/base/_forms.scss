@@ -43,15 +43,15 @@ input, textarea {
 	&:focus{
 		outline: 0;
 		outline: thin dotted \9; /* IE6-9 */
-		border-color: $linkblue;
+		border-color: $textcolour_link;
 	}
 }
 
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-    outline: thin dotted $gray-dark;
-    outline: 1px auto $linkblue;
+    outline: thin dotted $gray-med;
+    outline: 1px auto $textcolour_link;
 }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
@@ -60,8 +60,8 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 
 button, input[type="submit"] {
 	padding: $pad-half;
-	background: $gray-dark;
-	border: 1px solid $gray;
+	background: $gray-med;
+	border: 1px solid $gray-dark;
 	cursor: pointer;
 }
 
@@ -95,7 +95,7 @@ input[type="search"]::-webkit-search-decoration {
 	input[type=submit], button, .btn {
 		font-size: $font-size-slightly-smaller;
 		padding: 0.65rem 1.3rem;
-		background: $gray-dark;
+		background: $gray-med;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -103,7 +103,7 @@ input[type="search"]::-webkit-search-decoration {
 		width: auto;
 
 		&:hover, &:focus {
-			background: $gray;
+			background: $gray-dark;
 			color: $white;
 		}
 	}
@@ -152,7 +152,7 @@ input[type="search"]::-webkit-search-decoration {
 	background: none;
 	padding: 0.78em 1em;
 	border: 0;
-	border-left: 1px solid $gray;
-	color: $gray;
+	border-left: 1px solid $gray-dark;
+	color: $gray-dark;
 }
 

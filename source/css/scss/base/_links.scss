@@ -1,10 +1,10 @@
 /* Links */ 
 a {
-	color: inherit;
+	color: $textcolour_link;
 	text-decoration: none;
 	outline: 0;
 	
 	&:hover, &:focus {
-		color: $textcolour_link;
+		text-decoration: underline;
 	}
 }

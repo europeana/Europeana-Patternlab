@@ -181,7 +181,7 @@
 /* Block Thumb with Less content */
 .block-thumb-small {
 
-	border-top: 5px solid $gray;
+	border-top: 5px solid $gray-dark;
 
 	@media all and (min-width: $bp-small-2) {
 		.b-thumb {

@@ -3,81 +3,60 @@
 \*------------------------------------*/
 
 
-.tags a{
+%tag{
+	padding: 0.35em 1em 0.35em 0.5em;
+	display: inline-block;
+	margin: 0 0.2em 0.5em 0;
+	position: relative;
+	text-transform: uppercase;
+	color: $textcolour_body;
+	@include border-right-radius(10em);
 	@include font-size(0.6);
 	font-weight: 900;
 	text-transform: uppercase;
 	margin-right: 0.2em;
 }
 
-%tag{
-	padding: 0.35em 1em 0.35em 0.5em;
-	display: inline-block;
-	margin: 0 0.2em 0.5em 0;
-	position: relative;
-	@include border-right-radius(10em);
+.tags a{
+	@extend %tag;
 }
 
-.tag{
+.tag, a.tag{
 	@extend %tag;
 	background-color: $textcolour_highlight;
-	color: $offwhite;
 	
-
 	&:hover{
 		$i: darken($textcolour_highlight, 20);
-
-		color: $offwhite;
+		text-decoration: none;
+		color: $white;
 		background-color: $i;
-
-		.icon{
-			color: $i;
-		}
-	}
-
-	.icon{
-		font-size: 9px;
-		text-align: center;
-		background-color: $white;
-		border-radius: 5em;
-		color: $textcolour_highlight;
-		display: block;
-		width: 14px;
-		height: 13px;
-		padding-top: 2px;
-		padding-left: 2px;
-		margin-left: 0.5em;
-		float: right;
 	}
 }
 
-.tag_alt{
+.tag_alt, a.tag_alt{
 	@extend %tag;
-	color: $textcolour_body;
-	border-left: 1px solid $gray;
+	border-left: 1px solid $gray-dark;
 	padding-left: 0.7em;
 
 	&:hover{
 		//color: $offwhite;
-		background-color: $gray-light2;
+		background-color: $offwhite;
 		color: $textcolour_highlight;
 		border-left-color: $textcolour_highlight;
+		text-decoration: none;
 	}
 }
 
 .tags-large .tag, .tag-large{
-	@include font-size(0.8);
+	@include font-size(0.8); 
 }
 
-.tag_alpha{
-	
-}
 .tag_beta{
 	background-color: $paper;
 	color: $offwhite;
 
 	.icon{
-		color: $linkblue;
+		color: $textcolour_link;
 	}
 }
 

@@ -18,12 +18,12 @@
 		
 	&:hover {
 		color: $white;
-		background: $gray-dark;
+		background: $gray-med;
 
 	}
 	
 	&.active {
-		background: $gray-dark;
+		background: $gray-med;
 
 		&:after {
 			content:"-";

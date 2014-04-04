@@ -6,23 +6,26 @@ $tborder-color: $text_secondary;
 $thead-color: lighten($text_secondary, 10%);
 
 table {
-	border-collapse: collapse; 
-	border-spacing: 0; 
-	border: 1px solid $tborder-color;
-	width: 100%;
-	empty-cells: show;
-	margin-bottom: 1rem;
-	color: $textcolour_body;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid $tborder-color;
+    width: 100%;
+    empty-cells: show;
+    margin-bottom: 1rem;
+    color: $textcolour_body;
 }
 
-td, 
+td,
 th {
-    border-left: 1px solid $tborder-color;/*  inner column border */
+    border-left: 1px solid $tborder-color;
+    /*  inner column border */
     border-width: 0 0 0 1px;
     font-size: inherit;
     margin: 0;
-    overflow: visible; /*to make ths where the title is really long work*/
-    padding: 6px 12px; /* cell padding */
+    overflow: visible;
+    /*to make ths where the title is really long work*/
+    padding: 6px 12px;
+    /* cell padding */
 }
 
 td:first-child,
@@ -50,11 +53,11 @@ td {
 .table-bordered td {
     border-bottom: 1px solid $tborder-color;
 }
+
 .table-bordered tbody > tr:last-child td,
 .table-horizontal tbody > tr:last-child td {
     border-bottom-width: 0;
 }
-
 
 /* HORIZONTAL BORDERED TABLES */
 
@@ -63,6 +66,66 @@ td {
     border-width: 0 0 1px 0;
     border-bottom: 1px solid $tborder-color;
 }
+
 .table-horizontal tbody > tr:last-child td {
     border-bottom-width: 0;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table td, table th {
+    padding: 9px 10px;
+    text-align: left;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    table.responsive {
+        margin-bottom: 0;
+    }
+    .pinned {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #fff;
+        width: 35%;
+        overflow: hidden;
+        overflow-x: scroll;
+        border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+    }
+    .pinned table {
+        border-right: none;
+        border-left: none;
+        width: 100%;
+    }
+    .pinned table th, .pinned table td {
+        white-space: nowrap;
+    }
+    .pinned td:last-child {
+        border-bottom: 0;
+    }
+    div.table-wrapper {
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border-right: 1px solid #ccc;
+    }
+    div.table-wrapper div.scrollable {
+        margin-left: 35%;
+    }
+    div.table-wrapper div.scrollable {
+        overflow: scroll;
+        overflow-y: hidden;
+    }
+    table.responsive td, table.responsive th {
+        position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td {
+        display: none;
+    }
 }

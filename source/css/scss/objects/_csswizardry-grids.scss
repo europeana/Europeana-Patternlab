@@ -148,6 +148,12 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
     padding: 20px;
 }
 
+.grid_wrapper{
+    max-width: $max-width;
+    padding: 0 $gutter;
+    margin: 0 auto;
+}
+
 /**
  * You do not need to edit anything from this line onward; csswizardry-grids is
  * good to go. Happy griddin’!
