@@ -4,43 +4,57 @@
 .footer {
 	clear: both;
 	overflow: hidden;
-	background: $black;
-	color: $white;
-	line-height: 1.2;
-
-	.lc {
-		padding: $pad $pad 0;
-	}
-
+	background: $darkbg;
+	padding-bottom: 50px;
+	padding-top: 20px;
+	color: $textcolour_dark_body;
+	border-top: 3px solid $gray-lighter;
 
 	a {
-		color: $gray-light;
+		color: $textcolour_dark_body;
 	}
 
-	
+	.lc{
+		
+	}
 }
 
 //Footer Nav
 .nav-footer {
-	margin: (-$pad) (-$pad) $space;
 
 	li {
-		border-bottom: 1px solid $gray-dark;
+		border-bottom: 1px solid $gray-med;
 
 		@media all and (min-width: $bp-med) {
 			border: 0;
-			float: left;
+			margin-right:1em;
+			display: inline-block;
 		}
 	}
 
 	a {
 		display: block;
-		padding: $pad;
+		font-weight: bold;
+		text-decoration: underline;
+		font-size: $font-size-slightly-smaller;
+		color: $textcolour_dark_head;
 	}
 }
 
-.copyright {
+.social-links{ 
+
+	text-align: center;
+	font-size: 2em;
+
 	@media all and (min-width: $bp-med) {
-			float: right;
-		}
+		text-align: right;
+	}
+} 
+
+.copyright {
+
+	font-size: $font-size-sm;
+
+
 }
+

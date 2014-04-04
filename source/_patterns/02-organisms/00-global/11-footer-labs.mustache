@@ -1,10 +1,25 @@
 <!-- Begin Footer -->
 <footer class="footer" role="contentinfo">
-	<div class="lc">
 
-		{{> molecules-footer-nav }} 
+    <div class="grid_wrapper">
+        <div class="grid">
+            <div class="grid__item lap--two-thirds">
 
-		<p class="copyright">Co-funded by the European Union.</p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-	</div>
+                {{> molecules-footer-nav }}
+
+                <p class="copyright">Co-funded by the European Union.</p>
+                
+                <a class="licensehr" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    <img alt="Creative Commons License" src="/img/cc.png">
+                </a>
+
+            </div><!--
+
+        --><div class="grid__item lap--one-third">
+                {{> molecules-social-links }}
+            </div
+        </div>
+    </div>
+
 </footer>
 <!-- End Footer -->
