@@ -2,16 +2,41 @@
     $NAVIGATION
 \*------------------------------------*/
 
-.nav {
+//common styles for navigation
+
+
+.nav_primary{
+
 	clear: both;
 	overflow: hidden;
 	max-height: 0;
 	@include font-size(1);
-	
+
 	a {
 		display: block;
-		padding: $pad;
+		color: $textcolour_body;
+		padding: 0.6em;
 		border-top: 1px solid $gray-light;
+		font-weight: bold;
+
+		&:after{
+			content: '';
+			display: block;
+			border-bottom: 5px solid transparent;
+			margin-top: 0.15em;
+		}
+
+		&:hover{
+			text-decoration: none;
+			background-color: $offwhite;
+		}
+		&:hover:after{
+			border-color: $textcolour_body;
+		}
+
+		.current:after{
+			border-color: $textcolour_highlight;
+		}
 	}
 
 	&.active {
@@ -30,7 +55,7 @@
 		float: left;
 		clear: none;
 
-		margin-top: 0.6em;
+		margin-top: 0.9em;
 
 		li {
 			float: left;
@@ -42,6 +67,7 @@
 		
 	}
 }
+
 
 .nav_tertiary{
 
@@ -56,7 +82,7 @@
 		border-bottom: solid 1px $gray-light;
 
 		&:hover, &:focus, &:active {
-			//color: $textcolour_highlight;
+			color: $textcolour_link;
 			text-decoration: underline;
 		}
 
@@ -87,9 +113,10 @@
 		padding: $pad-half $pad;
 		display: block;
 		font-weight: bold;
+		color: $textcolour_body;
 
 		&:hover{
-			background-color: $gray-light;
+			background-color: $offwhite;
 			color: $textcolour_body;
 		}
 	}
