@@ -11,8 +11,8 @@
 	text-transform: uppercase;
 	color: $textcolour_body;
 	@include border-right-radius(10em);
-	@include font-size(0.6);
-	font-weight: 900;
+	@include fontSize(13px);
+	font-weight: bold;
 	text-transform: uppercase;
 	margin-right: 0.2em;
 }
