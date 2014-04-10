@@ -49,6 +49,25 @@
 
 	color: $textcolour_body;
 
+	h1{
+		@extend .gamma;
+		text-transform: uppercase;
+		color: $textcolour_highlight;
+	}
+
+	h2{
+		@extend .delta;
+	}
+
+	h3{
+		@extend .epsilon;
+	}
+
+	section{
+		margin-bottom: 3.2em;
+		padding: 0 $pad;
+	}
+
 	a {
 		color: $textcolour_link;
 

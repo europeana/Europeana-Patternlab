@@ -107,7 +107,9 @@ $sizes: tera $tera, giga $giga, mega $mega, alpha $alpha, beta $beta, gamma $gam
 h1 {
 	@extend .alpha;
 	@extend %hN;
+}
 
+h1.title{
 	font-family: $font-secondary;
 	font-weight: 300;
 }
