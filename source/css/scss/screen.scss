@@ -31,7 +31,7 @@
  * NAVIGATION------------------------------
  * TOC To Be Continued
  */
- @import "compass/css3";
+@import "compass/css3";
 
 @import "generic/variables";
 @import "generic/mixins";
@@ -99,3 +99,10 @@
 @import "objects/loading";
 
 
+
+/*------------------------------------*\
+    Site specific styles
+    Labs, Pro etc.
+\*------------------------------------*/
+
+@import "sites/labs";
