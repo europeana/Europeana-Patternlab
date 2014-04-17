@@ -1,6 +1,6 @@
 {{> organisms-header-labs }}
 
-<div class="lc">
+<div class="lc" style="background-color:red;">
 	
 
 	<div class="grid">
@@ -15,10 +15,12 @@
 
 	 --><div class="grid__item three-quarters palm--one-whole">
 
-			detail here
+		    {{# blogPosts}}
+		        <div>  {{title}} </div>
+		        <img src="{{img}}"/>
+		        <div>  {{description}} </div>
+		    {{/ blogPosts}}
 
-
-	 		
 
 	 	</div>
 	 </div>
