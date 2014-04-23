@@ -5,3 +5,6 @@ latest-change.txt
 *-ck.js
 *.sass-cache/
 *.sublime-workspace
+*.project
+*.komodoproject
+
