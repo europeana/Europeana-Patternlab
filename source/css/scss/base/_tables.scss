@@ -22,9 +22,10 @@ th {
     border-width: 0 0 0 1px;
     font-size: inherit;
     margin: 0;
+    vertical-align: top;
     overflow: visible;
     /*to make ths where the title is really long work*/
-    padding: 6px 12px;
+    padding: 0.5em;
     /* cell padding */
 }
 
@@ -71,61 +72,58 @@ td {
     border-bottom-width: 0;
 }
 
+.table-code td{
+    font-family: $font-code;
+}
+
 @media only screen and (max-width: $bp-large) {
-    th,
-    td {
-        vertical-align: top;
-    }
-    th {
-        text-align: left;
-    }
-    table {
+    .table-responsive{
+
         display: block;
         position: relative;
         width: 100%;
-    }
-    thead {
-        display: block;
-        float: left;
-    }
-    tbody {
-        display: block;
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    thead tr {
-        display: block;
-    }
-    th {
-        display: block;
-        text-align: right;
-    }
-    tbody tr {
-        display: inline-block;
-        vertical-align: top;
-    }
-    td {
-        display: block;
-        min-height: 1.25em;
-        text-align: left;
-    }
-    /* sort out borders */
-    th {
-        border-bottom: 0;
-        border-left: 0;
-    }
-    td {
-        border-left: 0;
-        border-right: 0;
-        border-bottom: 0;
-    }
-    tbody tr {
-        border-left: 1px solid $tborder-color;
-    }
-    th:last-child,
-    td:last-child {
-        border-bottom: 1px solid $tborder-color;
+        empty-cells: show;
+
+        thead {
+            display: block;
+            float: left;
+        }
+
+        tbody {
+            display: block;
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        th {
+            display: block;
+            text-align: right;
+            
+            border-bottom: 0;
+            border-left: 0;
+        }
+
+        td {
+            display: block;
+            min-height: 1.25em;
+            text-align: left;
+
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;        
+        }
+
+        thead tr {
+            display: block;
+        }
+        tbody tr {
+            display: inline-block;
+            vertical-align: top;
+            border-left: 1px solid $tborder-color;
+        }
+
+
     }
 }

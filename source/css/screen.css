@@ -189,9 +189,6 @@ a {
   color: #1a8ac7;
   text-decoration: none;
   outline: 0; }
-  /* line 7, scss/base/_links.scss */
-  a:hover, a:focus {
-    text-decoration: underline; }
 
 /* Headings */
 /*Further Reading: http://typeplate.com/ */
@@ -310,9 +307,9 @@ blockquote {
  * Drop Capitals:
  * Extend this object into your markup.
 
-   <p class="drop-cap">What a wonderful day it is out there wouldn't you'd say?</p>
+     <p class="drop-cap">What a wonderful day it is out there wouldn't you'd say?</p>
 
-  * =======================================================================
+    * =======================================================================
  */
 /* line 27, scss/base/_text.scss */
 .drop-cap:first-letter {
@@ -345,11 +342,49 @@ abbr {
   cursor: help; }
 
 /* line 59, scss/base/_text.scss */
+.prose {
+  color: #4d4d4d; }
+  /* line 63, scss/base/_text.scss */
+  .prose h1 {
+    text-transform: uppercase;
+    color: #37b98b; }
+  /* line 77, scss/base/_text.scss */
+  .prose section, .prose .section {
+    margin-bottom: 3.2em;
+    padding: 0 1rem; }
+  /* line 82, scss/base/_text.scss */
+  .prose a {
+    color: #1a8ac7; }
+    /* line 85, scss/base/_text.scss */
+    .prose a:hover {
+      border-bottom: 1px dotted #1a8ac7; }
+  /* line 90, scss/base/_text.scss */
+  .prose li {
+    margin-bottom: 0.8rem; }
+  /* line 94, scss/base/_text.scss */
+  .prose ul {
+    list-style: disc;
+    margin: 0 0 1.6rem 1.6rem; }
+    /* line 98, scss/base/_text.scss */
+    .prose ul ul {
+      margin-bottom: 0; }
+      /* line 101, scss/base/_text.scss */
+      .prose ul ul > li {
+        margin-bottom: 0; }
+  /* line 107, scss/base/_text.scss */
+  .prose ol {
+    list-style: decimal;
+    margin: 0 0 1.6rem 1.6rem; }
+    /* line 111, scss/base/_text.scss */
+    .prose ol ol {
+      margin-bottom: 0; }
+
+/* line 119, scss/base/_text.scss */
 .upper {
   text-transform: uppercase;
   letter-spacing: 0.1rem; }
 
-/* line 65, scss/base/_text.scss */
+/* line 125, scss/base/_text.scss */
 .small-caps {
   -moz-font-feature-settings: 'smcp=1, kern=1';
   -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
@@ -358,7 +393,7 @@ abbr {
   font-feature-settings: 'smcp' 1, 'kern' 1;
   letter-spacing: 0.1rem; }
 
-/* line 75, scss/base/_text.scss */
+/* line 135, scss/base/_text.scss */
 .lining-numerals {
   -moz-font-feature-settings: 'lnum=1, kern=1';
   -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
@@ -366,7 +401,7 @@ abbr {
   -o-font-feature-settings: 'lnum' 1, 'kern' 1;
   font-feature-settings: 'lnum' 1, 'kern' 1; }
 
-/* line 84, scss/base/_text.scss */
+/* line 144, scss/base/_text.scss */
 .oldstyle-numerals {
   -moz-font-feature-settings: 'onum=1, kern=1';
   -ms-font-feature-settings: 'onum' 1, 'kern' 1;
@@ -593,122 +628,98 @@ th {
   border-width: 0 0 0 1px;
   font-size: inherit;
   margin: 0;
+  vertical-align: top;
   overflow: visible;
   /*to make ths where the title is really long work*/
-  padding: 6px 12px;
+  padding: 0.5em;
   /* cell padding */ }
 
-/* line 32, scss/base/_tables.scss */
+/* line 33, scss/base/_tables.scss */
 td:first-child,
 th:first-child {
   border-left-width: 0; }
 
-/* line 36, scss/base/_tables.scss */
+/* line 37, scss/base/_tables.scss */
 thead {
   background: #f1f1ee;
   color: #1a1a1a;
   text-align: left;
   vertical-align: bottom; }
 
-/* line 43, scss/base/_tables.scss */
+/* line 44, scss/base/_tables.scss */
 td {
   background-color: transparent; }
 
 /* nth-child selector for modern browsers */
-/* line 48, scss/base/_tables.scss */
+/* line 49, scss/base/_tables.scss */
 .table-striped tr:nth-child(2n-1) td {
   background-color: #cccccc; }
 
 /* BORDERED TABLES */
-/* line 53, scss/base/_tables.scss */
+/* line 54, scss/base/_tables.scss */
 .table-bordered td {
   border-bottom: 1px solid #cccccc; }
 
-/* line 58, scss/base/_tables.scss */
+/* line 59, scss/base/_tables.scss */
 .table-bordered tbody > tr:last-child td,
 .table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
 
 /* HORIZONTAL BORDERED TABLES */
-/* line 65, scss/base/_tables.scss */
+/* line 66, scss/base/_tables.scss */
 .table-horizontal td,
 .table-horizontal th {
   border-width: 0 0 1px 0;
   border-bottom: 1px solid #cccccc; }
 
-/* line 70, scss/base/_tables.scss */
+/* line 71, scss/base/_tables.scss */
 .table-horizontal tbody > tr:last-child td {
   border-bottom-width: 0; }
 
+/* line 75, scss/base/_tables.scss */
+.table-code td {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; }
+
 @media only screen and (max-width: 50em) {
-  /* line 76, scss/base/_tables.scss */
-  th,
-  td {
-    vertical-align: top; }
-
-  /* line 79, scss/base/_tables.scss */
-  th {
-    text-align: left; }
-
-  /* line 82, scss/base/_tables.scss */
-  table {
+  /* line 80, scss/base/_tables.scss */
+  .table-responsive {
     display: block;
     position: relative;
-    width: 100%; }
-
-  /* line 87, scss/base/_tables.scss */
-  thead {
-    display: block;
-    float: left; }
-
-  /* line 91, scss/base/_tables.scss */
-  tbody {
-    display: block;
-    width: auto;
-    position: relative;
-    overflow-x: auto;
-    white-space: nowrap; }
-
-  /* line 98, scss/base/_tables.scss */
-  thead tr {
-    display: block; }
-
-  /* line 101, scss/base/_tables.scss */
-  th {
-    display: block;
-    text-align: right; }
-
-  /* line 105, scss/base/_tables.scss */
-  tbody tr {
-    display: inline-block;
-    vertical-align: top; }
-
-  /* line 109, scss/base/_tables.scss */
-  td {
-    display: block;
-    min-height: 1.25em;
-    text-align: left; }
-
-  /* sort out borders */
-  /* line 115, scss/base/_tables.scss */
-  th {
-    border-bottom: 0;
-    border-left: 0; }
-
-  /* line 119, scss/base/_tables.scss */
-  td {
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0; }
-
-  /* line 124, scss/base/_tables.scss */
-  tbody tr {
-    border-left: 1px solid #cccccc; }
-
-  /* line 128, scss/base/_tables.scss */
-  th:last-child,
-  td:last-child {
-    border-bottom: 1px solid #cccccc; } }
+    width: 100%;
+    empty-cells: show; }
+    /* line 87, scss/base/_tables.scss */
+    .table-responsive thead {
+      display: block;
+      float: left; }
+    /* line 92, scss/base/_tables.scss */
+    .table-responsive tbody {
+      display: block;
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap; }
+    /* line 100, scss/base/_tables.scss */
+    .table-responsive th {
+      display: block;
+      text-align: right;
+      border-bottom: 0;
+      border-left: 0; }
+    /* line 108, scss/base/_tables.scss */
+    .table-responsive td {
+      display: block;
+      min-height: 1.25em;
+      text-align: left;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0; }
+    /* line 118, scss/base/_tables.scss */
+    .table-responsive thead tr {
+      display: block; }
+    /* line 121, scss/base/_tables.scss */
+    .table-responsive tbody tr {
+      display: inline-block;
+      vertical-align: top;
+      border-left: 1px solid #cccccc; } }
 /* line 1, scss/base/_animation.scss */
 .animate-fade {
   -webkit-transition: opacity 0.3s ease-out;
@@ -3477,44 +3488,6 @@ td {
 .caption-text {
   display: block;
   max-width: 12em; }
-
-/* line 48, scss/objects/_text.scss */
-.prose {
-  color: #4d4d4d; }
-  /* line 52, scss/objects/_text.scss */
-  .prose h1 {
-    text-transform: uppercase;
-    color: #37b98b; }
-  /* line 66, scss/objects/_text.scss */
-  .prose section {
-    margin-bottom: 3.2em;
-    padding: 0 1rem; }
-  /* line 71, scss/objects/_text.scss */
-  .prose a {
-    color: #1a8ac7; }
-    /* line 74, scss/objects/_text.scss */
-    .prose a:hover {
-      border-bottom: 1px dotted #1a8ac7; }
-  /* line 79, scss/objects/_text.scss */
-  .prose li {
-    margin-bottom: 0.8rem; }
-  /* line 83, scss/objects/_text.scss */
-  .prose ul {
-    list-style: disc;
-    margin: 0 0 1.6rem 1.6rem; }
-    /* line 87, scss/objects/_text.scss */
-    .prose ul ul {
-      margin-bottom: 0; }
-      /* line 90, scss/objects/_text.scss */
-      .prose ul ul > li {
-        margin-bottom: 0; }
-  /* line 96, scss/objects/_text.scss */
-  .prose ol {
-    list-style: decimal;
-    margin: 0 0 1.6rem 1.6rem; }
-    /* line 100, scss/objects/_text.scss */
-    .prose ol ol {
-      margin-bottom: 0; }
 
 /*------------------------------------*\
     $COMPONENTS
