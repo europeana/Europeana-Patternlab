@@ -341,50 +341,54 @@ abbr {
   border-bottom: 1px dotted #232323;
   cursor: help; }
 
-/* line 59, scss/base/_text.scss */
+/* line 57, scss/base/_text.scss */
+small {
+  font-size: 0.75em; }
+
+/* line 63, scss/base/_text.scss */
 .prose {
   color: #4d4d4d; }
-  /* line 63, scss/base/_text.scss */
+  /* line 67, scss/base/_text.scss */
   .prose h1 {
     text-transform: uppercase;
     color: #37b98b; }
-  /* line 77, scss/base/_text.scss */
+  /* line 81, scss/base/_text.scss */
   .prose section, .prose .section {
     margin-bottom: 3.2em;
     padding: 0 1rem; }
-  /* line 82, scss/base/_text.scss */
+  /* line 86, scss/base/_text.scss */
   .prose a {
     color: #1a8ac7; }
-    /* line 85, scss/base/_text.scss */
+    /* line 89, scss/base/_text.scss */
     .prose a:hover {
       border-bottom: 1px dotted #1a8ac7; }
-  /* line 90, scss/base/_text.scss */
+  /* line 94, scss/base/_text.scss */
   .prose li {
     margin-bottom: 0.8rem; }
-  /* line 94, scss/base/_text.scss */
+  /* line 98, scss/base/_text.scss */
   .prose ul {
     list-style: disc;
     margin: 0 0 1.6rem 1.6rem; }
-    /* line 98, scss/base/_text.scss */
+    /* line 102, scss/base/_text.scss */
     .prose ul ul {
       margin-bottom: 0; }
-      /* line 101, scss/base/_text.scss */
+      /* line 105, scss/base/_text.scss */
       .prose ul ul > li {
         margin-bottom: 0; }
-  /* line 107, scss/base/_text.scss */
+  /* line 111, scss/base/_text.scss */
   .prose ol {
     list-style: decimal;
     margin: 0 0 1.6rem 1.6rem; }
-    /* line 111, scss/base/_text.scss */
+    /* line 115, scss/base/_text.scss */
     .prose ol ol {
       margin-bottom: 0; }
 
-/* line 119, scss/base/_text.scss */
+/* line 123, scss/base/_text.scss */
 .upper {
   text-transform: uppercase;
   letter-spacing: 0.1rem; }
 
-/* line 125, scss/base/_text.scss */
+/* line 129, scss/base/_text.scss */
 .small-caps {
   -moz-font-feature-settings: 'smcp=1, kern=1';
   -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
@@ -393,7 +397,7 @@ abbr {
   font-feature-settings: 'smcp' 1, 'kern' 1;
   letter-spacing: 0.1rem; }
 
-/* line 135, scss/base/_text.scss */
+/* line 139, scss/base/_text.scss */
 .lining-numerals {
   -moz-font-feature-settings: 'lnum=1, kern=1';
   -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
@@ -401,7 +405,7 @@ abbr {
   -o-font-feature-settings: 'lnum' 1, 'kern' 1;
   font-feature-settings: 'lnum' 1, 'kern' 1; }
 
-/* line 144, scss/base/_text.scss */
+/* line 148, scss/base/_text.scss */
 .oldstyle-numerals {
   -moz-font-feature-settings: 'onum=1, kern=1';
   -ms-font-feature-settings: 'onum' 1, 'kern' 1;
@@ -416,6 +420,10 @@ pre {
   background: white;
   border-radius: 4px;
   border: 1px solid #a6a6a6; }
+
+/* line 9, scss/base/_code.scss */
+code {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; }
 
 /* line 1, scss/base/_lists.scss */
 ol, ul {
