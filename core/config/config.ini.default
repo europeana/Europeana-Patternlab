@@ -6,7 +6,7 @@
 v  = "0.7.12"
 
 // file extensions to ignore when building or watching the source dir, separate with a comma
-ie = "scss,DS_Store,less"
+ie = "sass,scss,DS_Store,less"
 
 // directories and files to ignore when building or watching the source dir, separate with a comma
 id = "sass,scss,.svn,.sass-cache"
