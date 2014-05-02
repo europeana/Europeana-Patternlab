@@ -1,11 +1,11 @@
 .DS_Store
-public/*
 config.ini
 latest-change.txt
-logs
-project-info
-*.komodoproject
+public
+source/css
 *-ck.js
+*.komodoproject
+*.project
 *.sass-cache/
 *.sublime-workspace
 *.sublime-project
