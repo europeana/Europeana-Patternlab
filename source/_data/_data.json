@@ -1,4 +1,10 @@
 {
+	"css_files": [
+		{
+			"path": "../../css/screen.css",
+			"media": "all"
+		}
+	],
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",
