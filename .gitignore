@@ -3,9 +3,12 @@ public/*
 config.ini
 latest-change.txt
 logs
+source/css/*
 project-info
 *.komodoproject
 *-ck.js
 *.sass-cache/
 *.sublime-workspace
 *.sublime-project
+*.project
+
