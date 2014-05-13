@@ -4,10 +4,6 @@
 
 	"css_files": [
 		{
-			"path": "../../css/common/screen.css",
-			"media": "all"
-		},
-		{
 			"path": "../../css/blog/screen.css",
 			"media": "all"
 		}

@@ -128,17 +128,21 @@
 }
 
 .block-stacked{
-		.b-thumb {
-			@media all and (min-width: $bp-small-2) {	
-		  		width: 100%;
-	 		}
+	.b-thumb {
+		@media all and (min-width: $bp-small-2) {	
+			width: 100%;
 		}
 
-		.b-text {
-			@media all and (min-width: $bp-small-2) {
-				width: 100%;
-			}
+		margin-bottom: $space-half;
+	}
+
+	.b-text {
+		@media all and (min-width: $bp-small-2) {
+			width: 100%;
 		}
+
+		margin-bottom: $space;
+	}
 }
 
 
