@@ -1210,7 +1210,7 @@ class Builder {
 		$publicDirs = glob($this->pd."/*",GLOB_ONLYDIR);
 		
 		// make sure some directories aren't deleted
-		$ignoreDirs = array("styleguide");
+		$ignoreDirs = array("styleguide", "system");
 		foreach ($ignoreDirs as $ignoreDir) {
 			$key = array_search($this->pd."/".$ignoreDir,$publicDirs);
 			if ($key !== false){
