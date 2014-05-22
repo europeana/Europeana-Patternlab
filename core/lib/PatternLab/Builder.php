@@ -1246,7 +1246,7 @@ class Builder {
 				}
 				
 			}
-			
+			echo 'will remove dir: '.$dir.PHP_EOL;
 			rmdir($dir);
 			
 		}
