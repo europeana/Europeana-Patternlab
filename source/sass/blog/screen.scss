@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/*
+ EUROPEANA STYLE GUIDE
+ COMMON styles
+
+ Requires: Sass, Compass
+*/
+// Sass stuff
+@import "compass/css3";
+@import "scss/generic/variables";
+@import "scss/generic/mixins";
+
+// Reset
+@import "scss/generic/reset";
+
+/*------------------------------------*\
+    $GLOBAL ELEMENTS
+\*------------------------------------*/
+@import "scss/base/global-classes";
+@import "scss/base/main";
+@import "scss/base/links";
+@import "scss/base/headings";
+@import "scss/base/text";
+@import "scss/base/code";
+@import "scss/base/lists";
+@import "scss/base/media";
+@import "scss/base/forms";
+@import "scss/base/tables";
+
+
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+@import "scss/objects/csswizardry-grids";
+
+
+/*------------------------------------*\
+    $PAGE STRUCTURE
+\*------------------------------------*/
+@import "scss/objects/header";
+@import "scss/objects/nav";
+@import "scss/objects/footer";
+
+@import "scss/objects/blocks";
+
+
+.is-error{
+	font-size: 2em;
+	color: green;
+	font: Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+.site_wrapper{
+	border-top-color: $eu-user;
+}

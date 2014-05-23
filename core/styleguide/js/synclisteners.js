@@ -89,7 +89,7 @@ if (pageFollowNav) {
 			$(this).removeClass("active");
 			$(this).html('Nav Sync Off');
 		} else {
-			connectPageFollow();
+			connectPageFollowSync();
 			$(this).attr("data-state","on");
 			$(this).addClass("connected");
 			$(this).addClass("active");
