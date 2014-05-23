@@ -1,0 +1,50 @@
+&lt;div class=&quot;site_wrapper&quot;&gt;
+
+{{&gt; organisms-header-labs }}
+
+&lt;div role=&quot;main&quot; class=&quot;grid&quot;&gt;
+
+	&lt;div class=&quot;block block-content-header&quot;&gt;
+		&lt;div class=&quot;grid__item palm--one-whole push--palm--none three-quarters push--one-quarter&quot;&gt;
+			{{# hero }}
+				&lt;h1 class=&quot;title&quot;&gt;{{ headline.short }}&lt;/h1&gt;
+				&lt;p class=&quot;subhead grid grid__item desk--one-half&quot;&gt;{{ excerpt.short }}&lt;/p&gt;
+			{{/ hero}}
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;grid__item one-quarter palm--one-whole&quot;&gt;
+		&lt;div class=&quot;subnav&quot;&gt;
+
+			&lt;h4 class=&quot;label epsilon&quot;&gt; Filter by:&lt;/h4&gt;
+
+			{{&gt; molecules-labs-subnav }}
+
+		&lt;/div&gt;
+
+		&lt;ul class=&quot;nav_tertiary&quot;&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;Contribute to the Gallery&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;&quot;&gt;Help Improve this content&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;&lt;!--
+
+ --&gt;&lt;div class=&quot;grid__item three-quarters palm--one-whole&quot;&gt;
+
+		&lt;ul class=&quot;post-list grid&quot; &gt;
+			
+			{{# mainprojects }}&lt;li class=&quot;grid__item one-whole desk--one-half&quot;&gt;{{&gt; molecules-labs-item-main }}&lt;/li&gt;&lt;!-- 
+			--&gt;{{/ mainprojects }}
+
+			{{# projects }}&lt;li class=&quot;grid__item one-whole desk--one-half&quot;&gt;{{&gt; molecules-labs-item }}&lt;/li&gt;&lt;!-- 
+			--&gt;{{/ projects }}
+		&lt;/ul&gt;
+
+
+ 		{{&gt; molecules-pagination }}
+
+ 	&lt;/div&gt;
+ &lt;/div&gt;
+
+{{&gt; organisms-footer }}
+
+&lt;/div&gt;

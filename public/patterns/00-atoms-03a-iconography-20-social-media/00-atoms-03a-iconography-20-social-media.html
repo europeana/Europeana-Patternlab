@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+
+		<!-- 
+		Pattern specific CSS files. 
+
+		The Global pattern lab stylesheet "INCLUDE ALL THE STYLES" is the default.
+		(if no data file exists to override the css, then the default "Everything" css file will be included)
+
+		Specify what pattern specific css files you want in a json file in the templates directory with the same name as the mustache template you want to override. see here: http://patternlab.io/docs/data-pattern-specific.html
+
+		You can also specify a media attribute to target screen, print etc.
+
+		Example:
+		"css_files": [
+			{
+				"path": "../../css/common/screen.css",
+				"media": "all"
+			},
+			{
+				"path": "../../css/blog/screen.css",
+				"media": "all"
+			},
+			{
+				"path": "../../css/blog/whatever_you_want.css",
+				"media": "screen"
+			},
+			{
+				"path": "as_many/files/as/you_could_ever_want.css",
+				"media": "print"
+			}
+		]
+		-->
+
+		<link rel="stylesheet" href="../../css/screen.css?1400835364" media="all" />
+		
+		
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+
+		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+				<!-- never cache patterns -->
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1400835364" media="all">
+		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1400835364" media="all" />
+		
+
+		<!-- End Pattern Lab -->
+	
+	</head>
+	<body class="">	
+		
+<ul class="sg-icons inline-list">
+	<li class="icon-social-twitter"></li>
+	<li class="icon-social-facebook"></li>
+	<li class="icon-social-tumblr"></li>
+	<li class="icon-social-linkedin"></li>
+	<li class="icon-social-pinterest"></li>
+	<li class="icon-social-googleplus"></li>
+	<li class="icon-social-youtube"></li>
+	<li class="icon-social-delicious"></li>
+	<li class="icon-social-like"></li>
+	<li class="icon-social-rss"></li>
+	<li class="icon-social-share"></li>
+	<li class="icon-social-android"></li>
+	<li class="icon-social-apple"></li>
+
+</ul>
+
+
+	<!--DO NOT REMOVE-->
+		
+	<script>
+		// handle injection of items from PHP
+		var patternPartial = "atoms-social-media";
+		var lineage        = [];
+		var lineageR       = [];
+		var patternState   = "";
+		var cssEnabled     = false;
+	</script>
+		<script>
+		/*!
+		 * scriptLoader - v0.1
+		 *
+		 * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+		 * Licensed under the MIT license
+		 *
+		 */
+		
+		var scriptLoader = {
+			
+			run: function(js,cb,target) {
+				var s  = document.getElementById(target+'-'+cb); 
+				for (var i = 0; i < js.length; i++) {
+					var src = (typeof js[i] != "string") ? js[i].src : js[i];
+					var c   = document.createElement('script');
+					c.src   = '../../'+src+'?'+cb;
+					if (typeof js[i] != "string") {
+						if (js[i].dep !== undefined) {
+							c.onload = function(dep,cb,target) {
+								return function() {
+									scriptLoader.run(dep,cb,target);
+								}
+							}(js[i].dep,cb,target);
+						}
+					}
+					s.parentNode.insertBefore(c,s);
+				}
+			}
+			
+		}
+	</script>
+	<script id="pl-js-polyfill-insert-1400835364">
+		(function() {
+			if (self != top) {
+				var cb = '1400835364';
+				var js = [];
+				if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
+					js.push("styleguide/js/vendor/classlist-polyfill.js");
+				}
+				scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+			}
+		})();
+	</script>
+	<script id="pl-js-insert-1400835364">
+		(function() {
+			if (self != top) {
+				var cb = '1400835364';
+				var js = [ { "src": "styleguide/js/vendor/jwerty.js", "dep": [ "styleguide/js/postmessage.js", { "src": "data/annotations.js", "dep": [ "styleguide/js/annotations-pattern.js" ] }, "styleguide/js/code-pattern.js" ] } ];
+				scriptLoader.run(js,cb,'pl-js-insert');
+			}
+		})();
+	</script>
+	
+
+
+	</body>
+</html>

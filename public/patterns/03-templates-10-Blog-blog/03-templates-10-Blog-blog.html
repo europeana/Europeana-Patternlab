@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+
+		<!-- 
+		Pattern specific CSS files. 
+
+		The Global pattern lab stylesheet "INCLUDE ALL THE STYLES" is the default.
+		(if no data file exists to override the css, then the default "Everything" css file will be included)
+
+		Specify what pattern specific css files you want in a json file in the templates directory with the same name as the mustache template you want to override. see here: http://patternlab.io/docs/data-pattern-specific.html
+
+		You can also specify a media attribute to target screen, print etc.
+
+		Example:
+		"css_files": [
+			{
+				"path": "../../css/common/screen.css",
+				"media": "all"
+			},
+			{
+				"path": "../../css/blog/screen.css",
+				"media": "all"
+			},
+			{
+				"path": "../../css/blog/whatever_you_want.css",
+				"media": "screen"
+			},
+			{
+				"path": "as_many/files/as/you_could_ever_want.css",
+				"media": "print"
+			}
+		]
+		-->
+
+		<link rel="stylesheet" href="../../css/screen.css?1400835364" media="all" />
+		
+		
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+
+		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+				<!-- never cache patterns -->
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1400835364" media="all">
+		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1400835364" media="all" />
+		
+
+		<!-- End Pattern Lab -->
+	
+	</head>
+	<body class="">	
+		<!-- Begin .header -->
+<header class="header cf">
+	<div class="lc">
+		
+	<a href="/" class="logo ir">Europeana</a>
+	<a href="#" class="nav-toggle nav-toggle-search icon-search"><span class="is-vishidden">Search</span></a>
+	<a href="#" class="nav-toggle nav-toggle-menu icon-rows"><span class="is-vishidden">Menu</span></a>
+	
+	<form action="#" method="post" class="inline-form search-form">           
+	    <fieldset>
+		    <legend class="is-vishidden">Search</legend>
+		    <label for="search-field" class="is-vishidden">Search</label>
+		    <input type="search" placeholder="Search" id="search-field" class="search-field" />
+		    <button class="search-submit">
+		    	<span class="icon-search" aria-hidden="true"></span>
+		    	<span class="is-vishidden">Search</span>
+		    </button>
+	    </fieldset>
+	</form>	<nav id="nav" class="nav_primary nav">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">APIs</a></li>
+			<li><a href="#">Data</a></li>
+			<li><a href="#" class="current">Apps</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Events</a></li>
+			<li><a href="#">Locations</a></li>
+			<li><a href="#">Support</a></li>
+		</ul>
+	</nav><!--end .nav-->
+	</div>
+</header>
+<!-- End .header -->
+<div class="lc">
+	
+
+	<div class="grid">
+
+		<div class="grid__item three-quarters push--one-quarter  push--palm--none">
+			<h2>Examples</h2>
+		</div>
+
+		<div class="grid__item one-quarter palm--one-whole">
+			<ul class="tags tags-large">
+				<li><a href="../../patterns/03-templates-00-Labs-00-labs-list/03-templates-00-Labs-00-labs-list.html" class="tag" >API</a></li>
+				<li><a href="../../patterns/03-templates-00-Labs-00-labs-list/03-templates-00-Labs-00-labs-list.html" class="tag" >Linked Open data</a></li>
+				<li><a href="../../patterns/03-templates-00-Labs-00-labs-list/03-templates-00-Labs-00-labs-list.html" class="tag" >Case Study</a></li>
+				<li><a href="../../patterns/03-templates-00-Labs-00-labs-list/03-templates-00-Labs-00-labs-list.html" class="tag" >Prototype</a></li>
+				<li><a href="../../patterns/03-templates-00-Labs-00-labs-list/03-templates-00-Labs-00-labs-list.html" class="tag" >Hackathon</a></li>
+			</ul>		</div><!--
+
+	 --><div class="grid__item three-quarters palm--one-whole">
+
+		        <div>  Stories and testimonies of Italian soldiers who fought and perished in the Great War </div>
+		        <img src="http://blog.europeana.eu/wp-content/uploads/2014/04/ICCU-blog-post-Featured-Image.jpg"/>
+		        <div>  Following the ‘Documenting the Great War‘ blogpost, Istituto Centrale per il Catalogo Unico delle Biblioteche Italiane e per le Informazioni Bibliografiche (ICCU) – Central Institute for the Union Catalogue (ICCU) highlights some of the memories contributed by citizens at the ‘Seminario formativo e raccolta di fotografie, lettere, ricordi della Grande guerra’ community collection day held in Rome at the National Central Library on 5 May 2013 </div>
+		        <div>  The Past But Not As You Know It </div>
+		        <img src="http://blog.europeana.eu/wp-content/uploads/2014/04/the-past_featured.jpg"/>
+		        <div>  A child riding a hog, doctors trying to locate a bullet using a telephone probe, David Bowie performing with a pirate eye patch, and before and after pictures of nose jobs from the early 20th century. Not strange enough? What about professional rat-catchers from Liverpool at work or people painting the Eiffel Tower by hand?Our photo exhibition takes you on a journey to the past; the past like you’ve never seen it before. Explore the exhibition. </div>
+
+
+	 	</div>
+	 </div>
+</div>
+
+<!-- Begin Footer -->
+<footer class="footer" role="contentinfo">
+
+    <div class="grid_wrapper">
+        <div class="grid">
+            <div class="grid__item lap--two-thirds">
+
+                <ul class="nav-footer">
+                	<li><a href="/">Home</a></li>
+                	<li><a href="/about">About us</a></li>
+                	<li><a href="http://europeana.eu/portal/rights/terms-and-policies.html">Terms &amp; policies</a></li>
+                	<br class="clear">
+                </ul>
+
+                <p class="copyright">Co-funded by the European Union.</p>
+                
+                <a class="licensehr" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                    <img alt="Creative Commons License" src="/images/cc.png">
+                </a>
+
+            </div><!--
+
+        --><div class="grid__item lap--one-third">
+                <div class="social-links">
+                    <a class="icon-social" href="https://twitter.com/EuropeanaTech">Twitter</a>
+                    <a class="icon-social" href="https://www.facebook.com/Europeana">Facebook</a>
+                    <a class="icon-social" href="https://plus.google.com/+europeana/posts">Googleplus</a>
+                    <a class="icon-social" href="https://www.linkedin.com/groups/Europeana-134927/about">Linkedin</a>
+                    <a class="icon-social" href="https://github.com/europeana">Github</a>           
+                </div>            </div
+        </div>
+    </div>
+
+</footer>
+<!-- End Footer -->
+	<!--DO NOT REMOVE-->
+		
+	<script>
+		// handle injection of items from PHP
+		var patternPartial = "templates-blog";
+		var lineage        = [{"lineagePattern":"organisms-header-labs","lineagePath":"..\/..\/patterns\/02-organisms-00-global-10-header-labs\/02-organisms-00-global-10-header-labs.html"},{"lineagePattern":"molecules-labs-subnav","lineagePath":"..\/..\/patterns\/01-molecules-05-navigation-20-labs-subnav\/01-molecules-05-navigation-20-labs-subnav.html"},{"lineagePattern":"organisms-footer","lineagePath":"..\/..\/patterns\/02-organisms-00-global-01-footer\/02-organisms-00-global-01-footer.html"}];
+		var lineageR       = [];
+		var patternState   = "";
+		var cssEnabled     = false;
+	</script>
+		<script>
+		/*!
+		 * scriptLoader - v0.1
+		 *
+		 * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+		 * Licensed under the MIT license
+		 *
+		 */
+		
+		var scriptLoader = {
+			
+			run: function(js,cb,target) {
+				var s  = document.getElementById(target+'-'+cb); 
+				for (var i = 0; i < js.length; i++) {
+					var src = (typeof js[i] != "string") ? js[i].src : js[i];
+					var c   = document.createElement('script');
+					c.src   = '../../'+src+'?'+cb;
+					if (typeof js[i] != "string") {
+						if (js[i].dep !== undefined) {
+							c.onload = function(dep,cb,target) {
+								return function() {
+									scriptLoader.run(dep,cb,target);
+								}
+							}(js[i].dep,cb,target);
+						}
+					}
+					s.parentNode.insertBefore(c,s);
+				}
+			}
+			
+		}
+	</script>
+	<script id="pl-js-polyfill-insert-1400835364">
+		(function() {
+			if (self != top) {
+				var cb = '1400835364';
+				var js = [];
+				if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
+					js.push("styleguide/js/vendor/classlist-polyfill.js");
+				}
+				scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+			}
+		})();
+	</script>
+	<script id="pl-js-insert-1400835364">
+		(function() {
+			if (self != top) {
+				var cb = '1400835364';
+				var js = [ { "src": "styleguide/js/vendor/jwerty.js", "dep": [ "styleguide/js/postmessage.js", { "src": "data/annotations.js", "dep": [ "styleguide/js/annotations-pattern.js" ] }, "styleguide/js/code-pattern.js" ] } ];
+				scriptLoader.run(js,cb,'pl-js-insert');
+			}
+		})();
+	</script>
+	
+
+
+	</body>
+</html>
