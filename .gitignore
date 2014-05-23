@@ -6,6 +6,5 @@ source/css
 *.komodoproject
 *.project
 *.sass-cache/
-*.sublime-workspace
 *.sublime-project
-*.project
+*.sublime-workspace
