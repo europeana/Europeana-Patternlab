@@ -5,13 +5,18 @@
 
  Requires: Sass, Compass
 */
-// Sass stuff
+// Compass
 @import "compass/css3";
+
+//Variables and Helpers
 @import "scss/generic/variables";
 @import "scss/generic/mixins";
-
-// Reset
 @import "scss/generic/reset";
+
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+@import "scss/grid/csswizardry-grids";
 
 /*------------------------------------*\
     $GLOBAL ELEMENTS
@@ -27,11 +32,11 @@
 @import "scss/base/forms";
 @import "scss/base/tables";
 
+// Global icons (svg)
+@import "scss/objects/icons/svgicons";
 
-/*------------------------------------*\
-    $GRIDS
-\*------------------------------------*/
-@import "scss/objects/csswizardry-grids";
+
+
 
 
 /*------------------------------------*\
@@ -42,7 +47,7 @@
 @import "scss/objects/footer";
 
 @import "scss/objects/blocks";
-
+@import "scss/objects/lists";
 
 .is-error{
 	font-size: 2em;
