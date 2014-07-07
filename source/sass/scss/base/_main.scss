@@ -16,13 +16,7 @@ body {
 }
 
 .site_wrapper{
-
-	border-top: 6px solid $textcolour_highlight;
-
-	.europeana_blog &{
- 		border-top-color: $eu-user;
-	}
-	
+	border-top: 6px solid $accent;
 }
 
 /*------------------------------------*\

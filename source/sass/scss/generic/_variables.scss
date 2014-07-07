@@ -6,9 +6,9 @@
 
 // Neutrals
 $white 			: #FFFFFF;
-$gray-lightest  : #F1F0EE;
 $offwhite 		: #F1F1EE;
 $paper 			: #D9D4CA;
+
 $gray-lighter 	: #CCCCCC;
 $gray-light 	: #A6A6A6;
 $gray-med 		: #4D4D4D;
@@ -36,6 +36,9 @@ $eu-user: $eu-blue;
 $eu-labs: $eu-jade;
 $eu-pro: $eu-raspberry;
 
+//default highlight colour - can be overridden per site
+$accent: $eu-blue;
+
 // global page
 $page_bg: $white;
 
@@ -44,7 +47,7 @@ $page_bg: $white;
 $textcolour_head: $black;
 $textcolour_body: $gray-med;
 $textcolour_heavy: $gray-dark;
-$textcolour_highlight: $eu-jade; // Just for Labs at the mo
+$textcolour_highlight: $accent; // Just for Labs at the mo
 $textcolour_link: $eu-blue;
 $text_secondary: $gray-light;
 
@@ -59,8 +62,8 @@ $block_bg: $offwhite;
 
 
 // buttons
-$tag_primary: $eu-blue;
-$tag_primary_text: $eu-blue;
+$tag_primary: $accent;
+$tag_primary_text: $accent;
 $tag_highlight: $gray-dark;
 
 //State, messaging colours
