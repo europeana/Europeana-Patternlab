@@ -90,7 +90,7 @@ $gutter:                24px!default;
 /**
  * Would you like Sass’ silent classes, or regular CSS classes?
  */
-$use-silent-classes:    false!default;
+$use-silent-classes:    true!default;
 
 
 /**
@@ -149,9 +149,17 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
 }
 
 .grid_wrapper{
+    width: 95%;
     max-width: $max-width;
-    //padding: 0 $gutter;
     margin: 0 auto;
+}
+
+.grid{
+    @extend %grid;
+}
+
+.grid--rev{
+    @extend %grid--rev;
 }
 
 /**
