@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/*
+ EUROPEANA STYLE GUIDE
+ COMMON styles
+
+ Requires: Sass, Compass
+*/
+// Sass stuff
+@import "compass/css3";
+@import "scss/generic/variables";
+@import "scss/generic/mixins";
+
+
+//SITE SPECIFIC VARIABLE OVERRIDES HERE
+$accent: $eu-pro;
+
+
+
+// Reset
+@import "scss/generic/reset";
+
+/*------------------------------------*\
+    $GLOBAL ELEMENTS
+\*------------------------------------*/
+@import "scss/base/global-classes";
+@import "scss/base/main";
+@import "scss/base/links";
+@import "scss/base/headings";
+@import "scss/base/text";
+@import "scss/base/lists";
+@import "scss/base/media";
+@import "scss/base/forms";
+
+
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+@import "scss/grid/csswizardry-grids";
+//@import "scss/grid/profoundgrid";
+
+/*------------------------------------*\
+    $PAGE STRUCTURE
+\*------------------------------------*/
+@import "scss/objects/header";
+@import "scss/objects/footer";
+
+/*------------------------------------*\
+    $NAVIGATION
+\*------------------------------------*/
+@import "scss/objects/nav";
+@import "scss/objects/navigation/breadcrumbs";
+@import "scss/objects/navigation/pagination";
+
+/*------------------------------------*\
+    $TEXT Styles
+\*------------------------------------*/
+@import "scss/objects/text";
+
+
+
+// Global icons (svg)
+@import "scss/objects/icons/svgicons";
+
+@import "scss/objects/blocks";
+
+
+/*------------------------------------*\
+    site modules
+\*------------------------------------*/
+
+// Home page module layout
+
+.pro-home-hero{
+	background-color: #00DBBC;
+	min-height: 500px;
+}
+.promo-abouteuropeana{
+	background-color: #CCC;
+	padding: $pad-double;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+.jointhenetwork{
+	@extend %grid__item;
+	@extend %lap--one-third;
+}
+
+.link-more{
+	display: block;
+	font-weight: bold;
+	color: $textcolour_link;
+}
+
+.usefulinfo{
+	@extend %grid__item;
+	@extend %lap--two-thirds;
+	
+	.usefulinfo-list{
+		@extend %grid__item;
+		@extend %lap--one-half;
+
+		margin-bottom: 2em;
+	}
+
+	.usefulinfo-secondary{
+		@extend %grid;
+	}
+}
+
+.home-news{
+
+	.posts{
+		@extend %grid__item;
+		@extend %lap--two-thirds;
+	}
+	.post-tease{
+		@extend %grid__item;
+		@extend %lap--one-half;
+	}
+	.tweets{
+		@extend %grid__item;
+		@extend %lap--one-third;
+	}
+}
+
+
+
+
