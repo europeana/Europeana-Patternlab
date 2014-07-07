@@ -4,7 +4,7 @@
 .footer {
 	clear: both;
 	overflow: hidden;
-	background: $darkbg;
+	background: $grey2;
 	padding: 20px 0 50px;
 	color: $textcolour_dark_body;
 	border-top: 3px solid $gray-lighter;
@@ -13,8 +13,26 @@
 		color: $textcolour_dark_body;
 	}
 
-	.lc{
-		
+	
+	//layout styles
+
+	.l-contact{
+		@extend %grid__item;
+		@extend %lap--one-fifth;
+	}
+
+	.l-sitemap, .l-nextsteps{
+		@extend %grid__item;
+		@extend %lap--two-fifths;
+	}
+
+	.l-linklist{
+		@extend %grid__item;
+		@extend %lap--one-half;
+	}
+
+	.l-mission{
+		@extend %grid__item;
 	}
 }
 
@@ -46,14 +64,15 @@
 	font-size: 2em;
 
 	@media all and (min-width: $bp-med) {
-		text-align: right;
+		text-align: left;
+	}
+
+	a svg{
+		fill: #293745;
 	}
 } 
 
 .copyright {
-
 	font-size: $font-size-sm;
-
-
 }
 

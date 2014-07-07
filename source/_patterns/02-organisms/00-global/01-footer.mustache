@@ -3,22 +3,57 @@
 
     <div class="grid_wrapper">
         <div class="grid">
-            <div class="grid__item lap--two-thirds">
-
-                {{> molecules-footer-nav }}
-
-                <p class="copyright">Co-funded by the European Union.</p>
+            <div class="l-contact">
+                <div>
+                    {{> atoms-biglogo }}
+                </div>
                 
-                <a class="licensehr" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                    <img alt="Creative Commons License" src="/images/cc.png">
-                </a>
+                <div class="address">
+                    ℅ Koninklijke Bibliotheek <br>
+                    Prins Willem Alexanderhof 5<br>
+                    2595 BE Den Haag
+                </div>
 
             </div><!--
 
-        --><div class="grid__item lap--one-third">
+        --><div class="l-sitemap">
+
+                <div class="grid">
+                {{> molecules-footer-sitemap-links }}
+                {{> molecules-footer-sitemap-links }}
+                </div>
+
+                <div class="grid">
+                    <div class="l-mission">
+                        <h4>Our Mission</h4>
+                        <p>The Europeana Foundation and its Network create new ways for people to engage with European cultural history for work, learning or pleasure.</p>
+                    </div>
+                </div>
+
+            </div><!--
+
+        --><div class="l-nextsteps">
+
+                <div class="signup">
+                    <h4>Sign up for our newsletter</h4>
+                    sign up form here
+                </div>
+                
                 {{> molecules-social-links }}
             </div
         </div>
+    </div>
+
+    <div class="final-footer grid">
+
+        {{> molecules-footer-nav }}
+
+        <p class="copyright">Co-funded by the European Union.</p>
+
+        <a class="licensehr" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            <img alt="Creative Commons License" src="/images/cc.png">
+        </a>
+        
     </div>
 
 </footer>
