@@ -19,8 +19,8 @@
         --><div class="l-sitemap">
 
                 <div class="grid">
-                {{> molecules-footer-sitemap-links }}
-                {{> molecules-footer-sitemap-links }}
+                {{> molecules-footer-sitemap-links }}<!--
+             -->{{> molecules-footer-sitemap-links }}
                 </div>
 
                 <div class="grid">
@@ -36,7 +36,7 @@
 
                 <div class="signup">
                     <h4>Sign up for our newsletter</h4>
-                    sign up form here
+                    <<< TODO sign up form here >>>
                 </div>
                 
                 {{> molecules-social-links }}
@@ -46,7 +46,11 @@
 
     <div class="final-footer grid">
 
-        {{> molecules-footer-nav }}
+        <ul class="nav-footer">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="http://europeana.eu/portal/rights/terms-and-policies.html">Terms &amp; policies</a></li>
+        </ul>
 
         <p class="copyright">Co-funded by the European Union.</p>
 

@@ -19,20 +19,33 @@
 	.l-contact{
 		@extend %grid__item;
 		@extend %lap--one-fifth;
+		margin-bottom: $space;
 	}
 
 	.l-sitemap, .l-nextsteps{
 		@extend %grid__item;
 		@extend %lap--two-fifths;
+		margin-bottom: $space;
 	}
 
 	.l-linklist{
 		@extend %grid__item;
 		@extend %lap--one-half;
+		margin-bottom: $space;
 	}
 
 	.l-mission{
 		@extend %grid__item;
+		margin-bottom: $space;
+	}
+
+	.signup{
+		margin-bottom: $space;
+	}
+
+	.final-footer{
+		border-top: 1px solid #a0a0a0;
+		padding: $space 0;
 	}
 }
 
@@ -54,7 +67,7 @@
 		font-weight: bold;
 		text-decoration: underline;
 		font-size: $font-size-slightly-smaller;
-		color: $textcolour_dark_head;
+		//color: $textcolour_dark_head;
 	}
 }
 
