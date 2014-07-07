@@ -76,9 +76,61 @@ td {
     font-family: $font-code;
 }
 
-@media only screen and (max-width: $bp-large) {
-    .table-responsive{
+%table-responsive{
 
+    display: block;
+    position: relative;
+    width: 100%;
+    empty-cells: show;
+
+    thead {
+        display: block;
+        float: left;
+    }
+
+    tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th {
+        display: block;
+        text-align: right;
+        
+        border-bottom: 0;
+        border-left: 0;
+    }
+
+    td {
+        display: block;
+        min-height: 1.25em;
+        text-align: left;
+
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;        
+    }
+
+    thead tr {
+        display: block;
+    }
+    tbody tr {
+        display: inline-block;
+        vertical-align: top;
+        border-left: 1px solid $tborder-color;
+    }
+}
+
+.table-scroll{
+     @extend %table-responsive;
+}
+
+.table-responsive{
+    @media only screen and (max-width: $bp-large) {
+        
         display: block;
         position: relative;
         width: 100%;
@@ -123,7 +175,6 @@ td {
             vertical-align: top;
             border-left: 1px solid $tborder-color;
         }
-
-
     }
 }
+
