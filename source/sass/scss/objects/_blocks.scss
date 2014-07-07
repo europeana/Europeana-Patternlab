@@ -154,8 +154,10 @@
 	}
 }
 
-/* Block Inset */
+/*  Block with inset headline */
+
 .block-inset {
+	margin-bottom: $space-half;
 	position: relative;
 
 	.b-thumb {
@@ -166,37 +168,18 @@
 			display: block;
 		}
 	}
-}
-
-/* Hero Block */
-.block-inset {
-	margin-bottom: $space-half;
-	position: relative;
 
 	.headline {
 		font-size: 1.1em;
+		margin-bottom: 0;
 	}
 
 	.b-text {
 		position: absolute;
-		bottom: 0;
+		bottom: 0.5em;
 		left: 0;
-		width: 100%;
-		background: $dim;
-		color: $white;
-		padding: $pad-half;
-	}
-}
-
-/* Block Thumb with Summary */
-.block-thumb-summary {
-	.b-thumb {
-		float: left;
-		width: 50%;
-	}
-
-	.b-text {
-		margin-left: 50%;
+		width: 90%;
+		background: $white;
 		padding: $pad-half;
 	}
 }
@@ -222,14 +205,20 @@
 
 .block-content-header{
 	background-color: $block_bg;
-	padding: $pad;
+	
 	margin-bottom: $space-double;
 
-	@include background-image(linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%));
-
-
 	@media all and (min-width: $bp-small-2) {
-		padding: $space-triple 0;
+		padding: $space-triple 24px;
+	}
+
+	.contents{
+		@extend %grid__item;
+		@extend %palm--one-whole;
+		@extend %push--palm--none; 
+		@extend %three-quarters;
+		@extend %push--one-quarter;
+
 	}
 }
 
