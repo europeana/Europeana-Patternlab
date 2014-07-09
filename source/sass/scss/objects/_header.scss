@@ -1,7 +1,12 @@
 .header {
-	background: $white;
+	background: rgba($white, 0.85);
 	padding: 0;
-	position: relative;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	min-height: $globalnavheight;
+	border-top: 6px solid $accent;
+
 	@include box-shadow(rgba($gray-med, 0.2) 0 0 3px);
 }
 

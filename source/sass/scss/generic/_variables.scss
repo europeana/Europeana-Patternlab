@@ -127,8 +127,6 @@ $brand-linkedin: #217bc1;
 $max-width: 70rem;
 $offset-left-1: 4.5rem;
 
-$l-sidebar-width: 19.75rem;
-
 //Defaults
 $space : 1.6rem;
 $space-and-half : $space*1.5;
@@ -147,13 +145,15 @@ $pad-quarter :$pad/4;
 $border-med: 3px;
 $border-thick: 7px;
 
+// Global navigation
+$globalnavheight: $space-triple;
 
 //Breakpoints
 $bp-small : 24em;
 $bp-small-2 : 30em;
 $bp-small-3 : 40em;
-$bp-med : 47em;
-$bp-large : 50em;
+$bp-med : 50em;
+$bp-large : 60em;
 $bp-xl : 70em;
 $bp-xxl : 90em;
 

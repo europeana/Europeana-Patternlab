@@ -84,7 +84,7 @@ $mobile-first:          true!default;
 /**
  * Set the spacing between your grid items.
  */
-$gutter:                24px!default;
+$gutter:                $space!default;
 
 
 /**
@@ -122,9 +122,9 @@ $use-markup-fix:        true!default;
  */
 $breakpoints: (
     'palm' '(max-width: 24em)',
-    'lap' '(min-width: 481px)',
-    'portable' '(max-width: 1023px)',
-    'desk' '(min-width: 1024px)'
+    'lap' '(min-width: 50em)',
+    'portable' '(max-width: 60em)',
+    'desk' '(min-width: 60em)'
 )!default;
 
 

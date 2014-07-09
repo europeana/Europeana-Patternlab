@@ -72,10 +72,17 @@ $accent: $eu-pro;
 
 // Home page module layout
 
-.pro-home-hero{
-	background-color: #00DBBC;
-	min-height: 500px;
+.pro-home{
+
+	padding-top: 0;
+
+	.hero{
+		background-color: #00DBBC;
+		min-height: 400px;
+		padding-top: 10em;
+	}
 }
+
 .promo-abouteuropeana{
 	background-color: #CCC;
 	padding: $pad-double;
@@ -140,17 +147,69 @@ $accent: $eu-pro;
 
 // Generic page layout
 .l-genericpage{
+
+	$space-top: $space-triple;
+	position: relative;
+
+	background: #f2f1ec; // fallback
+	@media all and (min-width: $bp-med) {
+		background: linear-gradient(to left, #f2f1ec 0%,#f2f1ec 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+	}
+
+
 	.l-content{
 		@extend %grid__item;
 		@extend %lap--three-quarters;
+
+		background-color: #FFF;
+	}
+
+	.l-breadcrumbs{
+		background-color: $paper;
+		height: $space-top;
+		padding-top: 1em;
+	}
+	
+	.textcontent{
+		padding: $space-triple $space;
+		max-width: 40em;
 	}
 
 	.l-sidebar{
 		@extend %grid__item;
 		@extend %lap--one-quarter;
-
-		background-color: #ccc
+		margin-top: $space-triple + $space-triple;
+		background: #f2f1ec;
 	}
+
+	.help-contact{
+		@extend %one-half;
+		@extend %lap--one-whole;
+	}
+
+	&:before{
+		content: '';
+		display: block;
+		width: 100%;
+		height: $globalnavheight + $space-top;
+		position: absolute;
+		top: 0; 
+		left: 0;
+		background-color: $paper;
+		z-index: -1;
+	}
+	
+
+
+	// @media all and (min-width: $bp-med) {
+	// 	background: -moz-linear-gradient(left,  rgba(204,204,204,0) 80%, rgba(204,204,204,1) 80%); /* FF3.6+ */
+	// 	background: -webkit-gradient(linear, left top, right top, color-stop(80%,rgba(204,204,204,0)), color-stop(80%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+	// 	background: -webkit-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Chrome10+,Safari5.1+ */
+	// 	background: -o-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Opera 11.10+ */
+	// 	background: -ms-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* IE10+ */
+	// 	background: linear-gradient(to right,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* W3C */
+	// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+	// }
 }
 
 

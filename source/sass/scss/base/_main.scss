@@ -15,10 +15,6 @@ body {
 	color: $textcolour_body;
 }
 
-.site_wrapper{
-	border-top: 6px solid $accent;
-}
-
 /*------------------------------------*\
     $LAYOUT
 \*------------------------------------*/
@@ -26,7 +22,7 @@ body {
 /* Layout Container */
 .lc {
 	width: 96%;
-	max-width: $max-width;	
+	max-width: $max-width;
 	margin: 0 auto;
 }
 
@@ -34,11 +30,12 @@ body {
 /*------------------------------------*\
     $MAIN CONTENT AREA
 \*------------------------------------*/
-[role=main] {
-	//padding: $pad-half $pad-half $pad-double;
-	//overflow: hidden;
+
+main, [role=main] {
 	@extend .cf;
+	padding-top: $globalnavheight;
 }
+
 
 
 // Generic Columns - Sidebars

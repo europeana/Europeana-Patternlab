@@ -1,11 +1,13 @@
-<div class="site_wrapper">
+
 
 {{> organisms-header}}
 
-<!-- Start content -->
-<div class="section l-genericpage">
-<div role="main" class="lc ">
 
+
+<!-- Start content -->
+<main role="main" class="l-genericpage">
+<div class="lc">
+	<!-- Start grid -->
 	<div class="grid">
 
 		<div class="l-content">
@@ -14,46 +16,59 @@
 				{{> molecules-breadcrumbs }}
 			</div>
 
+			<div class="textcontent prose">
+				{{> organisms-article-body }}
+			</div>
+
+			<div class="l-related">
+				<h4>Next steps</h4>
+
+				<ul class="relatedlinks">
+					<li><a href="">Text goes here</a></li>
+					<li><a href="">Text goes here</a></li>
+					<li><a href="">Text goes here</a></li>
+				</ul>
+			</div>
+
 		</div><!--
 
 	 --><div class="l-sidebar">
+	 		<div class="inner">
 
-			<div class="help-contact">
+				<div class="help-contact">
 
-				<h4>Need help?</h4>
-				{{> atoms-square }}
+					<h4>Need help?</h4>
+					{{> atoms-square }}
 
-				<h5>Contact:</h5>
+					<h5>Contact:</h5>
 
-				<div class="vcard">
-					<div class="fn">Firsty Surnameson</div>
-					<div class="tel">01234 5678910</div>
-					<a class="email" href="#">firsty.surnameson@europeana.eu</a>
+					<div class="vcard">
+						<div class="fn">Firsty Surnameson</div>
+						<div class="tel">01234 5678910</div>
+						<a class="email" href="#">firsty.surnameson@europeana.eu</a>
+					</div>
+
 				</div>
 
-			</div>
-
-			<ul class="nav_tertiary">
-				<li><a href="">In-page link 1</a></li>
-				<li><a href="">In-page link 2</a></li>
-				<li><a href="">In-page link 3</a></li>
-				<li><a href="">In-page link 4</a></li>
-				<li><a href="">In-page link 5</a></li>
-				<li><a href="">In-page link 6</a></li>
-				<li><a href="">In-page link 7</a></li>
-			</ul>
+				<ul class="nav_tertiary">
+					<li><a href="">In-page link 1</a></li>
+					<li><a href="">In-page link 2</a></li>
+					<li><a href="">In-page link 3</a></li>
+					<li><a href="">In-page link 4</a></li>
+					<li><a href="">In-page link 5</a></li>
+					<li><a href="">In-page link 6</a></li>
+					<li><a href="">In-page link 7</a></li>
+				</ul>
 				
 			</div>
 
 		</div>
 	</div>
-
-
+	<!-- End grid -->
 </div>
-</div>
+</main>
 <!-- End Content -->
 
 
 {{> organisms-footer }}
 
-</div>

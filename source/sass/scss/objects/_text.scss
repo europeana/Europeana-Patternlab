@@ -18,8 +18,7 @@
 
 	&:before, &:after{
 		@include font-size(4);
-		color: $textcolour_link;
-		
+		color: $textcolour_head;
 	}
 
 	&:before{

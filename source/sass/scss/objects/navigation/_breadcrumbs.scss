@@ -1,14 +1,17 @@
 .breadcrumbs { 
 	list-style: none;
 	line-height: 1;
-	font-family: $font-secondary;
 
 	a, .lastitem {
 		display: inline-block;
-		padding: 1em 1.2em;
+		padding: 1em;
 		position: relative;
 		margin-right: 0.2em;
 		text-decoration: none;
+	}
+
+	li:first-of-type a{
+		padding-left: $space;
 	}
 
 	a:after {
@@ -26,7 +29,7 @@
 	}
 
 	a:hover:after {
-		border-left-color: $textcolour_highlight;
+		border-left-color: $accent;
 	}
 
 	>li{
