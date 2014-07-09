@@ -15,39 +15,67 @@
 
 	
 	//layout styles
+	div[class^='l-']{
+		margin-bottom: $space;
+	}
 
 	.l-contact{
 		@extend %grid__item;
 		@extend %lap--one-fifth;
-		margin-bottom: $space;
 	}
 
-	.l-sitemap, .l-nextsteps{
+	.l-content, .l-nextsteps{
 		@extend %grid__item;
 		@extend %lap--two-fifths;
-		margin-bottom: $space;
 	}
 
-	.l-linklist{
+	.l-sitemap .l-linklist{
 		@extend %grid__item;
 		@extend %lap--one-half;
-		margin-bottom: $space;
 	}
 
-	.l-mission{
+	.l-mission, .l-othersites{
 		@extend %grid__item;
-		margin-bottom: $space;
 	}
 
 	.signup{
 		margin-bottom: $space;
 	}
 
-	.final-footer{
-		border-top: 1px solid #a0a0a0;
-		padding: $space 0;
+	.social-links{ 
+
+		text-align: center;
+		font-size: 2em;
+
+		@media all and (min-width: $bp-med) {
+			text-align: left;
+		}
+
+		a svg{
+			fill: #293745;
+		}
+	}
+
+	.copyright {
+		font-size: $font-size-sm;
+	}
+
+}
+
+.sub-footer{
+	border-top: 1px solid #a0a0a0;
+	padding: $space 0;
+
+	.nav a{
+		display: block;
+		font-weight: bold;
+		text-decoration: underline;
+		font-size: $font-size-slightly-smaller;
 	}
 }
+
+
+
 
 //Footer Nav
 .nav-footer {
@@ -71,21 +99,7 @@
 	}
 }
 
-.social-links{ 
 
-	text-align: center;
-	font-size: 2em;
 
-	@media all and (min-width: $bp-med) {
-		text-align: left;
-	}
 
-	a svg{
-		fill: #293745;
-	}
-} 
-
-.copyright {
-	font-size: $font-size-sm;
-}
 

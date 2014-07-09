@@ -4,6 +4,20 @@
 
 //common styles for navigation
 
+// Nav Abstraction - puts links in a line
+
+.nav{
+    list-style:none;
+    margin-left:0;
+}
+    .nav > li,
+        .nav > li > a{
+            display:inline-block;
+           *display:inline;
+            zoom:1;
+    }
+
+
 
 .nav_primary{
 

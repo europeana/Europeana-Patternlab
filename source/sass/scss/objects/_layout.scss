@@ -6,7 +6,6 @@
 .lc {
 	max-width: $max-width;	
 	margin: 0 auto;
-	//padding: $pad-half;
 }
 
 /*------------------------------------*\
@@ -273,47 +272,4 @@
 	}
 }
 
-
-
-
-/*------------------------------------*\
-    Media grid - flowing grid of items, eg. image thumbnails
-\*------------------------------------*/
-
-
-.l-grid-media{
-
-	//padding: 2px;
-
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-align: justify;
-	font-size: 0;
-
-	&:after{
-		content: '';
-		display: inline-block;
-		width: 100%;
-	}
-
-	> li, >.gi{
-		display: inline-block;
-		vertical-align: top;
-		width: 33.333%;
-		position: relative;
-
-		/* IE7 hack to mimic inline-block on block elements */
-		*display: inline;
-		*zoom: 1;
-	}
-
-	.l-placeholder{
-		padding: 0; 
-	}
-
-	a{
-		display: block;
-	}
-}
 

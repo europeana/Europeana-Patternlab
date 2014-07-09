@@ -43,6 +43,7 @@ $accent: $eu-pro;
 \*------------------------------------*/
 @import "scss/objects/header";
 @import "scss/objects/footer";
+@import "scss/objects/sections";
 
 /*------------------------------------*\
     $NAVIGATION
@@ -78,7 +79,12 @@ $accent: $eu-pro;
 	background-color: #CCC;
 	padding: $pad-double;
 	text-align: center;
-	margin-bottom: 2em;
+	margin-bottom: $space;
+
+	p{
+		margin-bottom: 0;
+	}
+
 }
 
 .jointhenetwork{
@@ -100,7 +106,7 @@ $accent: $eu-pro;
 		@extend %grid__item;
 		@extend %lap--one-half;
 
-		margin-bottom: 2em;
+		margin-bottom: $space;
 	}
 
 	.usefulinfo-secondary{
@@ -124,6 +130,12 @@ $accent: $eu-pro;
 	}
 }
 
+.events-upcoming{
+	.event{
+		@extend %grid__item;
+		@extend %lap--one-half;
+	}
+}
 
 
 
