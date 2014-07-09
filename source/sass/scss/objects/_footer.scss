@@ -38,6 +38,14 @@
 		@extend %grid__item;
 	}
 
+	.l-othersites{
+		li, li > a{
+	        display:inline-block;
+	       *display:inline;
+	        zoom:1;
+    	}
+	}
+
 	.signup{
 		margin-bottom: $space;
 	}
@@ -71,31 +79,6 @@
 		font-weight: bold;
 		text-decoration: underline;
 		font-size: $font-size-slightly-smaller;
-	}
-}
-
-
-
-
-//Footer Nav
-.nav-footer {
-
-	li {
-		border-bottom: 1px solid $gray-med;
-
-		@media all and (min-width: $bp-med) {
-			border: 0;
-			margin-right:1em;
-			display: inline-block;
-		}
-	}
-
-	a {
-		display: block;
-		font-weight: bold;
-		text-decoration: underline;
-		font-size: $font-size-slightly-smaller;
-		//color: $textcolour_dark_head;
 	}
 }
 

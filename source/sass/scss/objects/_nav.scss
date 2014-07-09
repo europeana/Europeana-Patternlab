@@ -49,7 +49,7 @@
 		}
 
 		.current:after{
-			border-color: $textcolour_highlight;
+			border-color: $accent;
 		}
 	}
 
@@ -60,7 +60,7 @@
 	.current:after{
 		content: '';
 		display: block;
-		border-bottom: 5px solid $textcolour_highlight;
+		border-bottom: 5px solid $accent;
 		margin-top: 0.2em;
 	}
 
