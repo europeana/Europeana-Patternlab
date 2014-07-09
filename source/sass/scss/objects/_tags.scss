@@ -23,12 +23,12 @@
 
 .tag, a.tag{
 	@extend %tag;
+	color: $white;
 	background-color: $textcolour_highlight;
 	
 	&:hover{
 		$i: darken($textcolour_highlight, 20);
 		text-decoration: none;
-		color: $white;
 		background-color: $i;
 	}
 }

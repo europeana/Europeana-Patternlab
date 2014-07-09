@@ -11,6 +11,10 @@
 .block {
 	overflow: visible;
 
+	a.inner{
+		color: $textcolour_body;
+	}
+
 	p:last-child {
 		margin-bottom: 0;
 	}
