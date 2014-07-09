@@ -62,6 +62,7 @@ $accent: $eu-pro;
 // Global icons (svg)
 @import "scss/objects/icons/svgicons";
 
+
 @import "scss/objects/blocks";
 
 
@@ -137,5 +138,19 @@ $accent: $eu-pro;
 	}
 }
 
+// Generic page layout
+.l-genericpage{
+	.l-content{
+		@extend %grid__item;
+		@extend %lap--three-quarters;
+	}
+
+	.l-sidebar{
+		@extend %grid__item;
+		@extend %lap--one-quarter;
+
+		background-color: #ccc
+	}
+}
 
 
