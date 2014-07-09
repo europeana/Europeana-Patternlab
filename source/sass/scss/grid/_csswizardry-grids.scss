@@ -88,7 +88,7 @@ $gutter:                24px!default;
 
 
 /**
- * Would you like Sass’ silent classes, or regular CSS classes?
+ * Would you like Sass" silent classes, or regular CSS classes?
  */
 $use-silent-classes:    true!default;
 
@@ -136,7 +136,7 @@ $breakpoints: (
  * add and remove breakpoints at will.
  *
  * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
- * have been set to ‘true’.
+ * have been set to 'true'.
  */
 $breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk')!default;
 $breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk')!default;
@@ -164,7 +164,7 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
 
 /**
  * You do not need to edit anything from this line onward; csswizardry-grids is
- * good to go. Happy griddin’!
+ * good to go. Happy griddin'!
  */
 $class-type:            unquote(".");
 
@@ -202,13 +202,13 @@ $class-type:            unquote(".");
     }
 
     @if $breakpoint-found == false{
-        @warn "Breakpoint ‘#{$media-query}’ does not exist"
+        @warn "Breakpoint '#{$media-query}' does not exist"
     }
 }
 
 
 /**
- * Drop relative positioning into silent classes which can’t take advantage of
+ * Drop relative positioning into silent classes which can't take advantage of
  * the `[class*="push--"]` and `[class*="pull--"]` selectors.
  */
 @mixin silent-relative(){
@@ -227,7 +227,7 @@ $class-type:            unquote(".");
 /**
  * 1. Allow the grid system to be used on lists.
  * 2. Remove any margins and paddings that might affect the grid system.
- * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ * 3. Apply a negative `margin-left` to negate the columns' gutters.
  */
 #{$class-type}grid{
     list-style:none;                /* [1] */
