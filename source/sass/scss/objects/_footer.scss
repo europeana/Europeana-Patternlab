@@ -63,7 +63,10 @@
 	}
 
 
-
+	.l-mission p{
+		font-size: $font-size-med;
+		font-style: italic;
+	}
 	.copyright {
 		font-size: $font-size-sm;
 	}
@@ -79,7 +82,7 @@
 	}
 	
 	a{
-		font-size: 2em;
+		font-size: 3em;
 	}
 	
 	a svg{
