@@ -1,17 +1,33 @@
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
+
 .footer {
+
+
 	clear: both;
 	overflow: hidden;
 	background: $grey2;
-	padding: 20px 0 50px;
-	color: $textcolour_dark_body;
-	border-top: 3px solid $gray-lighter;
+	padding: $space-triple 0;
+	color: $footer_text;
+	border-top: 6px solid #293745;
+	font-size: $font-size-slightly-smaller;
 
-	a {
-		color: $textcolour_dark_body;
+	.title{
+		color: $footer_headings;
+		font-size: $font-size-norm;
+		text-transform: uppercase;
 	}
+
+
+	.l-linklist a {
+		color: $footer_text;
+		font-size: $font-size-med;
+		font-weight: bold;
+		border-bottom: 1px dotted $footer_text;
+		line-height: 1.6em;
+	}
+
 
 	
 	//layout styles
@@ -38,36 +54,37 @@
 		@extend %grid__item;
 	}
 
-	.l-othersites{
-		li, li > a{
-	        display:inline-block;
-	       *display:inline;
-	        zoom:1;
-    	}
-	}
-
 	.signup{
 		margin-bottom: $space;
-	}
 
-	.social-links{ 
-
-		text-align: center;
-		font-size: 2em;
-
-		@media all and (min-width: $bp-med) {
-			text-align: left;
-		}
-
-		a svg{
-			fill: #293745;
+		label{
+			font-weight: bold;
 		}
 	}
+
+
 
 	.copyright {
 		font-size: $font-size-sm;
 	}
 
+}
+
+.social-links{ 
+
+	text-align: center;
+
+	@media all and (min-width: $bp-med) {
+		text-align: left;
+	}
+	
+	a{
+		font-size: 2em;
+	}
+	
+	a svg{
+		fill: #293745;
+	}
 }
 
 .sub-footer{

@@ -5,8 +5,6 @@
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = document.body.clientWidth;
 		sh = document.body.clientHeight;
-		
-		//updateAds();
 	});
 
 
@@ -14,7 +12,6 @@
 	$('.nav-toggle-menu').click(function(e) {
 		e.preventDefault();
 		$(this).toggleClass('active');
-		$('.nav').toggleClass('active');
 	});
 	
 	//Navigation toggle
@@ -23,4 +20,5 @@
 		$(this).toggleClass('active');
 		$('.header .search-form').toggleClass('active');
 	});
+
 })(this);

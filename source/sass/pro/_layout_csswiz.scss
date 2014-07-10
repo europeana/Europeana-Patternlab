@@ -1,0 +1,75 @@
+// Home page module layout
+
+
+
+.l-primaryaction{
+	@extend %grid__item;
+	@extend %lap--one-third;
+}
+
+.l-usefulinfo{
+	@extend %grid__item;
+	@extend %lap--two-thirds;
+	
+	.l-usefulinfo-item{
+		@extend %grid__item;
+		@extend %one-half;
+	}
+
+	.l-usefulinfo-secondary{
+		//@extend %grid;
+	}
+}
+
+.home-news{
+
+	.l-news{
+		@extend %grid__item;
+		@extend %lap--two-thirds;
+	}
+	.l-post{
+		@extend %grid__item;
+		@extend %palm--one-whole;
+		@extend %one-half;
+	}
+	.l-newsfeed{
+		@extend %grid__item;
+		@extend %lap--one-third;
+	}
+}
+
+.events-upcoming{
+	.event{
+		@extend %grid__item;
+		@extend %lap--one-half;
+	}
+}
+
+// Generic page layout
+
+.l-page{
+
+	.l-content{
+		@extend %grid__item;
+		@extend %lap--three-quarters;
+	}
+
+	.l-sidebar{
+		@extend %grid__item;
+		@extend %lap--one-quarter;
+	}
+
+	.help-contact{
+		@extend %one-half;
+		@extend %lap--one-whole;
+	}
+
+	.l-relatedlinks{
+		@extend %grid;
+
+		.related-item{
+			@extend %grid__item;
+			@extend %lap--one-third;
+		}
+	}
+}

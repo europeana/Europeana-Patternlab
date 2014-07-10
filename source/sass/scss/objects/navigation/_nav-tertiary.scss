@@ -1,0 +1,18 @@
+.nav_tertiary{
+
+	overflow: hidden;
+	margin-bottom: $space;
+
+	a {
+		display: block;
+		padding: $pad;
+		border-bottom: solid 1px $gray-lighter;
+		color: $textcolour_body;
+		font-size: $font-size-slightly-smaller;
+
+		&.active {
+			background: $textcolour_highlight;
+			color: $white;
+		}
+	}
+}

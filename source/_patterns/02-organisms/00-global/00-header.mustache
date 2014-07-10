@@ -1,10 +1,27 @@
 <!-- Begin .header -->
 <header class="header cf">
+
 	{{> atoms-logo }}
-	<a href="#" class="nav-toggle nav-toggle-search icon-search"><span class="is-vishidden">Search</span></a>
-	<a href="#" class="nav-toggle nav-toggle-menu icon-rows"><span class="is-vishidden">Menu</span></a>
+
+
+
+	<a href="#" class="nav-toggle nav-toggle-menu">
+		<svg class="icon icon-menu">
+			<use xlink:href="#icon-menu"></use>
+		</svg>
+		<span>Menu</span>
+	</a>
+	<a href="#" class="nav-toggle nav-toggle-search">
+		<svg class="icon icon-search">
+			<use xlink:href="#icon-search"></use>
+		</svg>
+		<span class="is-vishidden">Search</span>
+	</a>
+
+
 	
-	{{> //molecules-search }}
+	<!-- {{> molecules-global-search }} -->
 	{{> molecules-primary-nav }}
+
 </header>
 <!-- End .header -->

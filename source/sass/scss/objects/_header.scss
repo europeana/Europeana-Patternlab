@@ -26,20 +26,7 @@
 	}
 }
 
-
-
-.nav-toggle {
-	float: right;
-	display: block;
-	padding: 0.9rem 1rem 0.7rem;
-	font-size: 1.3rem;
-	line-height: 1;
-	border-left: 1px solid #dbdbdb;
-
-	@media all and (min-width: $bp-med) {
-		display: none;
-	}
-}
+// See objects/navigation/global-nav for offscreen menus and multi-site nav styles
 
 .search-form {
 	overflow: hidden;
@@ -51,3 +38,4 @@
 		margin: 0.65em 0.5em 0 0;
 	}
 }
+

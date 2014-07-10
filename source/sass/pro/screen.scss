@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*
- EUROPEANA STYLE GUIDE
- COMMON styles
+ EUROPEANA PROFESSIONAL
 
  Requires: Sass, Compass
 */
@@ -36,6 +35,8 @@ $accent: $eu-pro;
     $GRIDS
 \*------------------------------------*/
 @import "scss/grid/csswizardry-grids";
+@import "pro/layout_csswiz";
+
 //@import "scss/grid/profoundgrid";
 
 /*------------------------------------*\
@@ -51,6 +52,7 @@ $accent: $eu-pro;
 @import "scss/objects/nav";
 @import "scss/objects/navigation/breadcrumbs";
 @import "scss/objects/navigation/pagination";
+
 
 /*------------------------------------*\
     $TEXT Styles
@@ -70,6 +72,11 @@ $accent: $eu-pro;
     site modules
 \*------------------------------------*/
 
+
+//@import "scss/grid/profoundgrid";
+//@import "pro/layout_prof";
+
+
 // Home page module layout
 
 .pro-home{
@@ -80,14 +87,21 @@ $accent: $eu-pro;
 		background-color: #00DBBC;
 		min-height: 400px;
 		padding-top: 10em;
+
+		.lc{
+			padding: $space;
+		}
 	}
 }
 
 .promo-abouteuropeana{
 	background-color: #CCC;
-	padding: $pad-double;
 	text-align: center;
 	margin-bottom: $space;
+
+	.lc{
+		padding: $space;
+	}
 
 	p{
 		margin-bottom: 0;
@@ -96,8 +110,9 @@ $accent: $eu-pro;
 }
 
 .jointhenetwork{
-	@extend %grid__item;
-	@extend %lap--one-third;
+	padding: $space;
+	background-color: #eee;
+	margin-bottom: $space;
 }
 
 .link-more{
@@ -107,67 +122,47 @@ $accent: $eu-pro;
 }
 
 .usefulinfo{
-	@extend %grid__item;
-	@extend %lap--two-thirds;
-	
-	.usefulinfo-list{
-		@extend %grid__item;
-		@extend %lap--one-half;
-
-		margin-bottom: $space;
-	}
-
-	.usefulinfo-secondary{
-		@extend %grid;
-	}
+	margin-bottom: $space;
 }
 
-.home-news{
-
-	.posts{
-		@extend %grid__item;
-		@extend %lap--two-thirds;
-	}
-	.post-tease{
-		@extend %grid__item;
-		@extend %lap--one-half;
-	}
-	.tweets{
-		@extend %grid__item;
-		@extend %lap--one-third;
-	}
-}
-
-.events-upcoming{
-	.event{
-		@extend %grid__item;
-		@extend %lap--one-half;
-	}
+.tweets{
+	padding: $space;
+	background-color: #EEE;
 }
 
 // Generic page layout
-.l-genericpage{
+.l-page{
 
 	$space-top: $space-triple;
 	position: relative;
 
-	background: #f2f1ec; // fallback
+	background: #F1F1EE; // fallback
 	@media all and (min-width: $bp-med) {
-		background: linear-gradient(to left, #f2f1ec 0%,#f2f1ec 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left, #F1F1EE 0%,#F1F1EE 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+		// TODO: add gradients for older browsers
+
+		// 	background: -moz-linear-gradient(left,  rgba(204,204,204,0) 80%, rgba(204,204,204,1) 80%); /* FF3.6+ */
+		// 	background: -webkit-gradient(linear, left top, right top, color-stop(80%,rgba(204,204,204,0)), color-stop(80%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+		// 	background: -webkit-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Chrome10+,Safari5.1+ */
+		// 	background: -o-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Opera 11.10+ */
+		// 	background: -ms-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* IE10+ */
+		// 	background: linear-gradient(to right,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* W3C */
+		// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
 	}
 
 
-	.l-content{
-		@extend %grid__item;
-		@extend %lap--three-quarters;
-
-		background-color: #FFF;
+	.maincontent{
+		background-color: $white;
 	}
 
 	.l-breadcrumbs{
-		background-color: $paper;
-		height: $space-top;
-		padding-top: 1em;
+		background-color: $grey2;
+		padding: $space;
+		padding-top: 2em;
+
+		@media all and (min-width: $bp-med) {
+			height: $space-top;
+		}
 	}
 	
 	.textcontent{
@@ -175,16 +170,9 @@ $accent: $eu-pro;
 		max-width: 40em;
 	}
 
-	.l-sidebar{
-		@extend %grid__item;
-		@extend %lap--one-quarter;
+	.l-sidebar > .inner{
 		margin-top: $space-triple + $space-triple;
 		background: #f2f1ec;
-	}
-
-	.help-contact{
-		@extend %one-half;
-		@extend %lap--one-whole;
 	}
 
 	&:before{
@@ -195,21 +183,24 @@ $accent: $eu-pro;
 		position: absolute;
 		top: 0; 
 		left: 0;
-		background-color: $paper;
+		background-color: $grey2;
 		z-index: -1;
+	}
+
+	.related-items{
+
+	}
+	.related-item a{
+		display: block;
+		padding: $space;
+		min-height: 8em;
+		background-color: #e1cfd4;
+		margin-bottom: $space;
+		color: $white;
+		font-weight: bold;
 	}
 	
 
-
-	// @media all and (min-width: $bp-med) {
-	// 	background: -moz-linear-gradient(left,  rgba(204,204,204,0) 80%, rgba(204,204,204,1) 80%); /* FF3.6+ */
-	// 	background: -webkit-gradient(linear, left top, right top, color-stop(80%,rgba(204,204,204,0)), color-stop(80%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
-	// 	background: -webkit-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Chrome10+,Safari5.1+ */
-	// 	background: -o-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Opera 11.10+ */
-	// 	background: -ms-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* IE10+ */
-	// 	background: linear-gradient(to right,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* W3C */
-	// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
-	// }
 }
 
 

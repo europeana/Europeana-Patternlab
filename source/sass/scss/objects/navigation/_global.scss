@@ -1,0 +1,15 @@
+
+
+.nav-toggle {
+	float: right;
+	display: block;
+	padding: $space;
+	line-height: 1;
+	color: $textcolour_body;
+
+	span{
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+
+}

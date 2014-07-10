@@ -1,4 +1,5 @@
 .section {
+	@extend .cf;
 	margin: 0 0 $space;
 }
 

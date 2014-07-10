@@ -20,18 +20,18 @@
         --><div class="l-content">
 
                 <div class="l-sitemap grid">
-                {{> molecules-linklist-with-title }}<!--
-             -->{{> molecules-linklist-with-title }}
+                {{> molecules-linklist-with-title(title: "&nbsp;") }}<!--
+             -->{{> molecules-linklist-with-title(title: "More info") }}
                 </div>
 
                 <div class="grid">
                     <div class="l-mission">
-                        <h4>Our Mission</h4>
+                        <h4 class="title">Our Mission</h4>
                         <p>The Europeana Foundation and its Network create new ways for people to engage with European cultural history for work, learning or pleasure.</p>
                     </div><!--
 
                  --><div class="l-othersites">
-                        {{> molecules-linklist-with-title }}
+                        {{> molecules-linklist-with-title:inline-list(title: "Explore Europeana") }}
                     </div>
                 </div>
             </div><!--
@@ -39,8 +39,7 @@
         --><div class="l-nextsteps">
 
                 <div class="signup">
-                    <h4>Sign up for our newsletter</h4>
-                    <<< TODO sign up form here >>>
+                    {{> molecules-newsletter }}
                 </div>
                 
                 {{> molecules-social-links }}

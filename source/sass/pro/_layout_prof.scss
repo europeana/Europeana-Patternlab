@@ -1,0 +1,55 @@
+// Home page module layout
+
+
+
+.jointhenetwork{
+	@include column(4);
+}
+
+.usefulinfo{
+	@include column(8, 4);
+	
+	.usefulinfo-list{
+		@include column(6);
+	}
+
+	.usefulinfo-secondary{
+		
+	}
+}
+
+.home-news{
+
+	.posts{
+		@include column(8);
+	}
+	.post-tease{
+		@include column(6);
+	}
+	.tweets{
+		@include column(4, 8);
+	}
+}
+
+.events-upcoming{
+	.event{
+		@include column(6);
+	}
+}
+
+// Generic page layout
+
+.l-genericpage{
+
+	.l-content{
+		@include column(9);
+	}
+
+	.l-sidebar{
+		@include column(3, 9);
+	}
+
+	.help-contact{
+		//@include column(6);
+	}
+}

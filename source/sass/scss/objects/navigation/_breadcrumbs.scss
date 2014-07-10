@@ -4,32 +4,23 @@
 
 	a, .lastitem {
 		display: inline-block;
-		padding: 1em;
 		position: relative;
-		margin-right: 0.2em;
+		padding: 0 $space-half;
 		text-decoration: none;
+		font-weight: bold;
 	}
 
 	li:first-of-type a{
-		padding-left: $space;
+		padding-left: 0;
 	}
 
 	a:after {
-		content: ""; 
-		border-top: 0.3em solid transparent;
-		border-bottom: 0.3em solid transparent;
-		border-left: 0.3em solid $gray-light;
-		position: absolute; right: -0.3em; top: 50%;
-		margin-top: -0.3em;
-		z-index: 1;
+		content: "|";
+		position: absolute; right: -0.3em; top: -8%;
 	}
 
 	a:hover {
-
-	}
-
-	a:hover:after {
-		border-left-color: $accent;
+		text-decoration: underline;
 	}
 
 	>li{
@@ -42,6 +33,22 @@
 		&:last-child a:after {
 			display: none; 
 		}
+	}
+
+	&.breadcrumbs-arrows{
+		a:after {
+			content: ""; 
+			border-top: 0.3em solid transparent;
+			border-bottom: 0.3em solid transparent;
+			border-left: 0.3em solid $gray-light;
+			position: absolute; right: -0.3em; top: 50%;
+			margin-top: -0.3em;
+			z-index: 1;
+		}
+
+		a:hover:after {
+			border-left-color: $textcolour_link;
+		}		
 	}
 
 }
