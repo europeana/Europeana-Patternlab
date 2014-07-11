@@ -80,19 +80,42 @@ $accent: $eu-pro;
 
 // Home page module layout
 
-.pro-home{
+.pro-hero{
+	background-color: #00DBBC;
+	height:60%;
+	padding-top: 10em;
 
-	padding-top: 0;
+	background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
+	-webkit-background-size: cover;
+    background-size: cover;
 
-	.hero{
-		background-color: #00DBBC;
-		min-height: 400px;
-		padding-top: 10em;
-
-		.lc{
-			padding: $space;
-		}
+	.lc{
+		position: relative;
+		height: 100%;
 	}
+
+	.hero-text{
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(#FFF, 0.7);
+		padding: $space;
+		width: 40%;
+
+		@media all and (min-width: $bp-med) {
+			width: 35%;
+		}
+
+		h1.title{
+			font-size: 1.6em;
+		}
+		
+	}
+
+
+}
+
+.pro-home{
+	padding-top: 0;
 }
 
 .promo-abouteuropeana{
