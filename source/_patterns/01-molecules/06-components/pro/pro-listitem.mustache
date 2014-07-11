@@ -1,33 +1,109 @@
-<li class="listitem">
-	
-	{{# event }}
-        <div class="alert">Event</div>
-    {{/ event }}
+<li class="list-item">
 
+	<div class="item-supplementary">
 
-    {{# event }}
-        <div class="alert">Event</div>
-    {{/ event }}
+		{{# publication }}
+			<div class="item-image">
+				<a href="#"><img src="{{ img.portrait.src }}" alt="{{ img.portrait.alt }}" /></a>
+			</div>
+		{{/ publication }}
 
+		{{# blog }}
+			<div class="item-image">
+				<a href="#"><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+			</div>
+		{{/ blog }}
 
+		{{# event }}
+			<div class="item-bigdate">
+				{{> molecules-event-date}}
+			</div>
+		{{/ event }}
+		
+	</div>
 
-    {{# blog }}
-        <div class="alert">Blog</div>
-    {{/ blog }}
+	<div class="item-details">
+		
+		<h2 class="title"><a href="#">{{ title }}</a></h2>
 
+		<div class="item-meta-primary">
+			{{# blog }}
+			<span class="author-name"><a href="#">{{name.first}} {{name.last}}</a></span>
+			<span class="read-time">{{minute.short}}mins to read</span>
+			{{/ blog }}
 
+			{{# publication }}
+			<span class="author-name"><a href="#">{{name.first}} {{name.last}}</a></span>
+			{{/ publication }}
+		</div>
 
-    {{# publication }}
-        <div class="alert">Publication</div>
-    {{/ publication }}
+		<div class="item-meta-secondary">
 
+			{{# event }}
+			<span class="item-location">{{ location }}</span>
 
+			<ul class="item-tags inline-list">
+				<li class="item-tag"><a href="listpage">Archives</a></li>
+				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
+				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
+			</ul>
+			{{/ event }}
 
-    {{# people }}
-        <div class="alert">People</div>
-    {{/ people }}
+			{{# jobs }}
+			<span class="item-date">
+				<span class="item-day">{{ day.long }}</span>
+				<span class="item-month">{{ month.long}}</span>
+				<span class="item-year">{{ year.long }}</span>
+			</span>
 
+			<span class="item-location">{{ location }}</span>
+			<span class="item-department">Software Development</span>
+			{{/ jobs }}
 
-    <h2 class="title">{{ title }}</h2>
+			{{# blog }}
+			<span class="item-date">
+				<span class="item-day">{{ day.long }}</span>
+				<span class="item-month">{{ month.long}}</span>
+				<span class="item-year">{{ year.long }}</span>
+			</span>
+
+			<ul class="item-tags inline-list">
+				<li class="item-tag"><a href="listpage">Archives</a></li>
+				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
+				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
+			</ul>
+			
+			<span class="item-comments"><a href="">20 Comments</a></span>
+			{{/ blog }}
+
+			{{# publication }}
+			<span class="item-date">
+				<span class="item-day">{{ day.long }}</span>
+				<span class="item-month">{{ month.long}}</span>
+				<span class="item-year">{{ year.long }}</span>
+			</span>
+
+			<ul class="item-tags inline-list">
+				<li class="item-tag"><a href="listpage">Archives</a></li>
+				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
+				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
+			</ul>
+			{{/ publication }}
+
+		</div>
+
+		<div class="item-preview">
+			{{ excerpt.medium }}
+		</div>
+
+{{# publication }}
+		<ul class="item-files">
+			<li><a href="">Filename report<span class="file-info">pdf 1.2MB</span></a></li>
+			<li><a href="">Filename report<span class="file-info">pdf 1.2MB</span></a></li>
+			<li><a href="">Filename report<span class="file-info">pdf 1.2MB</span></a></li>
+		</ul>
+{{/ publication }}
+
+	</div>
 
 </li>
