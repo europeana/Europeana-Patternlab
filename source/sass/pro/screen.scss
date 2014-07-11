@@ -24,7 +24,8 @@ $accent: $eu-pro;
 @import "scss/base/global-classes";
 @import "scss/base/main";
 @import "scss/base/links";
-@import "scss/base/headings";
+//@import "scss/base/headings";
+@import "scss/base/headings_simple";
 @import "scss/base/text";
 @import "scss/base/lists";
 @import "scss/base/media";
@@ -99,7 +100,11 @@ $accent: $eu-pro;
 		bottom: 0;
 		background-color: rgba(#FFF, 0.7);
 		padding: $space;
-		width: 40%;
+		width: 100%;
+
+		@media all and (min-width: $bp-small) {
+			width: 60%;
+		}
 
 		@media all and (min-width: $bp-med) {
 			width: 35%;
@@ -119,18 +124,22 @@ $accent: $eu-pro;
 }
 
 .promo-abouteuropeana{
-	background-color: #CCC;
+	background-color: $grey2;
+
 	text-align: center;
-	margin-bottom: $space;
+	@include fontSize(26px);
+	line-height: 1;
+
+	margin-bottom: $space-double;
 
 	.lc{
-		padding: $space;
+		padding: 40px;
 	}
 
-	p{
-		margin-bottom: 0;
-	}
+}
 
+.pro-info h2{
+	margin-bottom: $space-double;
 }
 
 .jointhenetwork{
@@ -147,7 +156,20 @@ $accent: $eu-pro;
 
 .usefulinfo{
 	margin-bottom: $space;
+	padding: $space 0;
 }
+.usefulinfo-item{
+	margin-bottom: $space;
+}
+
+.usefulinfo-secondary{
+	
+	.usefulinfo-item{
+		padding-top: $space;
+		border-top: 1px solid $grey2;
+	}
+}
+
 
 .tweets{
 	padding: $space;

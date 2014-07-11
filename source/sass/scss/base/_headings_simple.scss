@@ -1,0 +1,53 @@
+// Simple headings
+
+
+.h1{
+	@include fontSize(32px);
+}
+.h2{
+	@include fontSize(22px);
+}
+.h3{
+	@include fontSize(16px);
+}
+.h4{
+	@include fontSize(14px);
+}
+
+
+h1,h2,h3,h4,h5,h6{
+	text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
+	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
+	margin-top: 0;
+	color: $textcolour_head;
+	
+	-ms-word-break: break-all;
+	     word-break: break-all;
+
+	/* Non standard for webkit */
+	word-break: break-word;
+
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	        hyphens: auto;
+
+	letter-spacing: -0.02em;
+}
+
+h1{
+	@extend .h1;
+	margin-bottom: $space;
+}
+h2{
+	@extend .h2;
+	margin-bottom: $space;
+}
+h3{
+	@extend .h3;
+	margin-bottom: $space-half;
+}
+h4{
+	@extend .h4;
+	margin-bottom: $space-half;
+	text-transform: uppercase;
+}

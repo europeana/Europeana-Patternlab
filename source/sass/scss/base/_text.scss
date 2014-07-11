@@ -65,17 +65,17 @@ small{
     color: $textcolour_body;
 
     h1{
-    @extend .gamma;
+    //@extend .gamma;
     text-transform: uppercase;
     color: $textcolour_highlight;
     }
 
     h2{
-    @extend .delta;
+    //@extend .delta;
     }
 
     h3{
-    @extend .epsilon;
+    //@extend .epsilon;
     }
 
     section, .section{

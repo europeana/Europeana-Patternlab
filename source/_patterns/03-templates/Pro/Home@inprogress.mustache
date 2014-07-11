@@ -22,7 +22,7 @@
 <div class="promo-abouteuropeana section">
 <div class="lc">
 
-	<p class="delta">The <a href="linky">Europeana Foundation</a> and its Network create new ways for people to engage with European cultural history for work, learning or pleasure.</p>
+	The <a href="linky">Europeana Foundation</a> and its Network create new ways for people to engage with European cultural history for work, learning or pleasure.
 
 </div>
 </div>
@@ -51,11 +51,14 @@
 		
 	</div><!--
  --><div class="l-usefulinfo">
-	<div class="grid">
+ 	<div class="usefulinfo">
 
+ 	<h2>Useful Information</h2>
+
+	<div class="grid">
 		<div class="l-usefulinfo-item">
 
-			<div class="usefulinfo">
+			<div class="usefulinfo-item">
 				<h3>Share your data</h3>
 
 				<ul class="usefulinfo-links">
@@ -69,7 +72,7 @@
 		</div><!--
 	 --><div class="l-usefulinfo-item">
 
-			<div class="usefulinfo">
+			<div class="usefulinfo-item">
 				<h3>Use Europeana data</h3>
 
 				<ul class="usefulinfo-links">
@@ -81,16 +84,14 @@
 			</div>
 
 		</div><!--
-	 --><div class="l-usefulinfo-secondary">
+	 --><div class="usefulinfo-secondary">
+	 
 			<div class="l-usefulinfo-item">
 
-
-				<div class="usefulinfo">
+				<div class="usefulinfo-item">
 					<h3>For developers</h3>
 
-					<ul class="usefulinfo-links">
-						<li><a href="">API Documentation</a></li>
-					</ul>
+					<p><a href="">API Documentation</a></p>
 
 					<p>API documentation, Case studies, Examples and much more information for Developers is available at <a href="labs.europeana.eu">Europeana Labs</a>.</p>
 				</div>
@@ -99,8 +100,7 @@
 			</div><!--
 		 --><div class="l-usefulinfo-item">
 
-
-				<div class="usefulinfo">
+				<div class="usefulinfo-item">
 					<a href="labs.europeana.eu" class="block-link labs-link">
 						<h3>Europeana Labs</h3>
 						<p>A playground for remixing and using your cultural and scientific heritage.</p>
@@ -109,6 +109,7 @@
 
 			</div>
 		</div>
+	</div>
 	</div>
 	</div>
 
@@ -160,18 +161,7 @@
 
 			<div class="event">
 
-				<div class="event-date">
-					<div class="date-days">
-						<span class="date-start">20</span>
-						<span class="date-end">— 21</span>
-					</div>
-					<div class="date-month">September</div>
-					<div class="date-year">2014</div>
-					<div class="time">
-						<span class="time-start">10:00</span>
-						<span class="time-end">— 22:00</span>
-					</div>
-				</div>
+				{{> molecules-event-date}}
 
 				<div class="event-details">
 					<h2 class="event-title">Event title</h2>
@@ -181,18 +171,7 @@
 
 	     --><div class="event">
 
-				<div class="event-date">
-					<div class="date-days">
-						<span class="date-start">20</span>
-						<span class="date-end">— 21</span>
-					</div>
-					<div class="date-month">September</div>
-					<div class="date-year">2014</div>
-					<div class="time">
-						<span class="time-start">10:00</span>
-						<span class="time-end">— 22:00</span>
-					</div>
-				</div>
+				{{> molecules-event-date}}
 
 				<div class="event-details">
 					<h2 class="event-title">Event title</h2>
