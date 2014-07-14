@@ -113,10 +113,7 @@ $accent: $eu-pro;
 		h1.title{
 			font-size: 1.6em;
 		}
-		
 	}
-
-
 }
 
 .pro-home{
@@ -205,14 +202,22 @@ $accent: $eu-pro;
 		background-color: $grey2;
 		padding: $space;
 		padding-top: 2em;
+		line-height: 1;
 
 		@media all and (min-width: $bp-med) {
 			height: $space-top;
 		}
+
+		.breadcrumbs{
+			width: 75%;
+			display: block;
+			float: left;
+		}
 	}
-	
-	.textcontent{
+	.textcontent, .results{
 		padding: $space-triple $space;
+	}
+	.textcontent{
 		max-width: 40em;
 	}
 
@@ -232,21 +237,39 @@ $accent: $eu-pro;
 		background-color: $grey2;
 		z-index: -1;
 	}
+}
 
-	.related-items{
+.related-items{
 
+}
+.related-item a{
+	display: block;
+	padding: $space;
+	min-height: 8em;
+	background-color: #e1cfd4;
+	margin-bottom: $space;
+	color: $white;
+	font-weight: bold;
+}
+
+
+// List page
+
+.sortby{
+	float: right;
+
+	label{
+		font-size: $font-size-sm;
 	}
-	.related-item a{
-		display: block;
-		padding: $space;
-		min-height: 8em;
-		background-color: #e1cfd4;
-		margin-bottom: $space;
-		color: $white;
-		font-weight: bold;
-	}
-	
 
+	label, select{
+		display: inline;
+		padding:0;
+	}
+}
+
+.results-list{
+	margin-bottom: $space-double;
 }
 
 
