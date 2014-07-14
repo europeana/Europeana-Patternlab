@@ -66,9 +66,8 @@ $accent: $eu-pro;
 // Global icons (svg)
 @import "scss/objects/icons/svgicons";
 
-
 @import "scss/objects/blocks";
-
+@import "scss/objects/dates";
 
 /*------------------------------------*\
     site modules
@@ -179,27 +178,19 @@ $accent: $eu-pro;
 	$space-top: $space-triple;
 	position: relative;
 
-	background: #F1F1EE; // fallback
+	background: $offwhite; // fallback
 	@media all and (min-width: $bp-med) {
-		background: linear-gradient(to left, #F1F1EE 0%,#F1F1EE 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
 		// TODO: add gradients for older browsers
-
-		// 	background: -moz-linear-gradient(left,  rgba(204,204,204,0) 80%, rgba(204,204,204,1) 80%); /* FF3.6+ */
-		// 	background: -webkit-gradient(linear, left top, right top, color-stop(80%,rgba(204,204,204,0)), color-stop(80%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
-		// 	background: -webkit-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Chrome10+,Safari5.1+ */
-		// 	background: -o-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* Opera 11.10+ */
-		// 	background: -ms-linear-gradient(left,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* IE10+ */
-		// 	background: linear-gradient(to right,  rgba(204,204,204,0) 80%,rgba(204,204,204,1) 80%); /* W3C */
-		// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
 	}
-
 
 	.maincontent{
 		background-color: $white;
+		padding-right: $space;
 	}
 
 	.l-breadcrumbs{
-		background-color: $grey2;
+		background-color: #F8F8F8;
 		padding: $space;
 		padding-top: 2em;
 		line-height: 1;
@@ -210,20 +201,17 @@ $accent: $eu-pro;
 
 		.breadcrumbs{
 			width: 75%;
-			display: block;
-			float: left;
 		}
 	}
-	.textcontent, .results{
-		padding: $space-triple $space;
-	}
+
 	.textcontent{
+		padding: $space-triple $space;
 		max-width: 40em;
 	}
 
 	.l-sidebar > .inner{
 		margin-top: $space-triple + $space-triple;
-		background: #f2f1ec;
+		background: $offwhite;
 	}
 
 	&:before{
@@ -234,7 +222,7 @@ $accent: $eu-pro;
 		position: absolute;
 		top: 0; 
 		left: 0;
-		background-color: $grey2;
+		background-color: #F8F8F8;
 		z-index: -1;
 	}
 }
@@ -246,7 +234,7 @@ $accent: $eu-pro;
 	display: block;
 	padding: $space;
 	min-height: 8em;
-	background-color: #e1cfd4;
+	background-color: #e1cfd4; //pinky
 	margin-bottom: $space;
 	color: $white;
 	font-weight: bold;
@@ -268,8 +256,56 @@ $accent: $eu-pro;
 	}
 }
 
+.results{
+	padding: $space-triple 0;
+}
 .results-list{
 	margin-bottom: $space-double;
+
 }
+
+.list-item{
+
+	margin-bottom: $space-double;
+
+	img, .item-preview{
+		margin-bottom: $space;
+	}
+
+	.icon{
+		fill: #e96e62; //odd orangey colour
+	}
+
+	.item-comments{
+		white-space: nowrap;
+	}
+
+	//All meta item spans
+	div[class^="item-meta"] > span{
+		margin-right: 1em;
+	}
+
+	.item-meta-primary{
+		padding: $space-half 0;
+	}
+	.item-meta-secondary{
+		border-top: 1px solid $grey2;
+		padding: $space-half 0;
+		font-size: $font-size-slightly-smaller;
+		
+		*{
+			display: inline;
+		}
+
+		a{
+			border-bottom: 1px dotted $textcolour_link;
+		}
+	}
+
+
+
+}
+
+
 
 

@@ -1,4 +1,4 @@
-
+{{> atoms-svgicons-pro }}
 
 {{> organisms-header}}
 
@@ -11,20 +11,21 @@
 	<div class="grid">
 
 		<div class="l-content">
-		<div class="maincontent">
-			
-		
+
 			<div class="l-breadcrumbs">
+				{{> molecules-sortby }}
+
 				{{> molecules-breadcrumbs }}
 
-				{{> molecules-sortby }}
 			</div>
+
+		<div class="maincontent">
 
 			<div class="results">
 
 				<ul class="results-list">
 					{{#listItems.ten}}
-						{{> molecules-pro-listitem(blog: true) }} 
+						{{> molecules-pro-listitem }} 
 					{{/listItems.ten}}
 				</ul>
 
@@ -32,10 +33,7 @@
 
 			</div>
 
-
-
 			{{> molecules-related-noimages(title: "Related") }}
-
 
 		</div>
 		</div><!--

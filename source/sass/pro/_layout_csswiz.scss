@@ -15,10 +15,6 @@
 		@extend %grid__item;
 		@extend %one-half;
 	}
-
-	.l-usefulinfo-secondary{
-		//@extend %grid;
-	}
 }
 
 .home-news{
@@ -71,5 +67,22 @@
 			@extend %grid__item;
 			@extend %lap--one-third;
 		}
+	}
+}
+
+
+//List page layout
+
+.list-item{
+	@extend %grid--rev;
+
+	.item-details{
+		@extend %grid__item;
+		@extend %lap--two-thirds;
+	}
+
+	.item-supplementary{
+		@extend %grid__item;
+		@extend %lap--one-third;
 	}
 }

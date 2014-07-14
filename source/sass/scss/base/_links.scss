@@ -3,4 +3,8 @@ a {
 	color: $textcolour_link;
 	text-decoration: none;
 	outline: 0;
+
+	&:hover{
+		color: darken($textcolour_link, 15%);
+	}
 }

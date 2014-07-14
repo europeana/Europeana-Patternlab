@@ -1,0 +1,36 @@
+
+
+.event-date{
+
+	//background-color: $accent;
+	border: 3px solid $textcolour_body;
+
+	display: inline-block;
+	padding: $space-half;
+	text-align: center;
+	line-height: 1;
+
+	.date-days{
+		color: $accent;
+		font-size: 3em;
+		font-weight: 100;
+		letter-spacing: -0.05em;
+		font-family: $font-secondary;
+	}
+
+	.date-month, .date-year{
+		display: inline;
+		color: $accent;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.time{
+		background-color: #FFF;
+		border-top: 3px solid $textcolour_body;
+		padding: 0.4em 0;
+		margin-top: 0.4em;
+		font-weight: bold;
+	}
+}

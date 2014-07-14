@@ -5,12 +5,8 @@
 	a, .lastitem {
 		display: inline-block;
 		position: relative;
-		padding: 0 $space-half;
+		padding-right: $space-half;
 		text-decoration: none;
-	}
-
-	li:first-of-type a{
-		padding-left: 0;
 	}
 
 	a:after {
@@ -23,7 +19,13 @@
 	}
 
 	>li{
-		display: inline;
+		display: inline-block;
+		margin-right: $space-half;
+		margin-bottom: 0.5em;
+
+		&:first-of-type a{
+			padding-left: 0;
+		}
 
 		&:first-child a:before {
 			display: none; 

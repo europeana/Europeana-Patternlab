@@ -1,8 +1,6 @@
 //Pagination
 .pagination {
 	overflow: hidden;
-	font-family: $font-secondary;
-
 	margin-bottom: $space;
 
 	li {
@@ -37,13 +35,13 @@
 		}
 	}
 
-	.current{
+	.current a{
 		color: $white;
 		font-weight: bold;
-		background-color: $textcolour_highlight;
+		background-color: $accent;
 
 		&:hover{
-			background-color: $textcolour_highlight;
+			background-color: $accent;
 		}
 	}
 }

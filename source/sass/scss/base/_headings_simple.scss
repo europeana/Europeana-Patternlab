@@ -51,3 +51,7 @@ h4{
 	margin-bottom: $space-half;
 	text-transform: uppercase;
 }
+h5{
+	@extend .h4;
+	margin-bottom: $space-half;
+}

@@ -20,74 +20,47 @@
 			</div>
 		{{/ event }}
 		
-	</div>
+	</div><!--
 
-	<div class="item-details">
+ --><div class="item-details">
 		
 		<h2 class="title"><a href="#">{{ title }}</a></h2>
 
+		{{# publication }}
 		<div class="item-meta-primary">
-			{{# blog }}
-			<span class="author-name"><a href="#">{{name.first}} {{name.last}}</a></span>
-			<span class="read-time">{{minute.short}}mins to read</span>
-			{{/ blog }}
-
-			{{# publication }}
-			<span class="author-name"><a href="#">{{name.first}} {{name.last}}</a></span>
-			{{/ publication }}
+			{{> molecules-item-author }}
 		</div>
+		{{/ publication }}
+
+		{{# blog }}
+		<div class="item-meta-primary">
+			{{> molecules-item-author }}
+			{{> molecules-item-readtime }}
+		</div>
+		{{/ blog }}
 
 		<div class="item-meta-secondary">
 
 			{{# event }}
-			<span class="item-location">{{ location }}</span>
-
-			<ul class="item-tags inline-list">
-				<li class="item-tag"><a href="listpage">Archives</a></li>
-				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
-				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
-			</ul>
+				{{> molecules-item-location }}
+				{{> molecules-item-tags }}
 			{{/ event }}
 
-			{{# jobs }}
-			<span class="item-date">
-				<span class="item-day">{{ day.long }}</span>
-				<span class="item-month">{{ month.long}}</span>
-				<span class="item-year">{{ year.long }}</span>
-			</span>
-
-			<span class="item-location">{{ location }}</span>
-			<span class="item-department">Software Development</span>
-			{{/ jobs }}
+			{{# job }}
+				{{> molecules-item-date }}
+				{{> molecules-item-location }}
+				{{> molecules-item-department }}
+			{{/ job }}
 
 			{{# blog }}
-			<span class="item-date">
-				<span class="item-day">{{ day.long }}</span>
-				<span class="item-month">{{ month.long}}</span>
-				<span class="item-year">{{ year.long }}</span>
-			</span>
-
-			<ul class="item-tags inline-list">
-				<li class="item-tag"><a href="listpage">Archives</a></li>
-				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
-				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
-			</ul>
-			
-			<span class="item-comments"><a href="">20 Comments</a></span>
+				{{> molecules-item-date }}
+				{{> molecules-item-tags }}
+				{{> molecules-item-comments }}
 			{{/ blog }}
 
 			{{# publication }}
-			<span class="item-date">
-				<span class="item-day">{{ day.long }}</span>
-				<span class="item-month">{{ month.long}}</span>
-				<span class="item-year">{{ year.long }}</span>
-			</span>
-
-			<ul class="item-tags inline-list">
-				<li class="item-tag"><a href="listpage">Archives</a></li>
-				<li class="item-tag"><a href="listpage">Digitalisation</a></li>
-				<li class="item-tag"><a href="listpage">Audiovisual</a></li>
-			</ul>
+				{{> molecules-item-date }}
+				{{> molecules-item-tags }}
 			{{/ publication }}
 
 		</div>
