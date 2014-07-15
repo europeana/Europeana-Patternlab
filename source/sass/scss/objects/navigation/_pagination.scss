@@ -38,10 +38,10 @@
 	.current a{
 		color: $white;
 		font-weight: bold;
-		background-color: $accent;
+		background-color: $textcolour_body;
 
 		&:hover{
-			background-color: $accent;
+			background-color: $textcolour_link;
 		}
 	}
 }

@@ -1,0 +1,15 @@
+
+
+
+.item-files{
+	a{
+		@include svg-bg-with-fallback("/icons/file");
+		background-position: 0 0.1em;
+		background-size: 1em;
+		padding-left: 1.4em; 
+	}
+	.file-info{
+		color: $text_secondary;
+		font-size: $font-size-sm;
+	}
+}

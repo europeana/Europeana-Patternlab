@@ -264,48 +264,8 @@ $accent: $eu-pro;
 
 }
 
-.list-item{
-
-	margin-bottom: $space-double;
-
-	img, .item-preview{
-		margin-bottom: $space;
-	}
-
-	.icon{
-		fill: #e96e62; //odd orangey colour
-	}
-
-	.item-comments{
-		white-space: nowrap;
-	}
-
-	//All meta item spans
-	div[class^="item-meta"] > span{
-		margin-right: 1em;
-	}
-
-	.item-meta-primary{
-		padding: $space-half 0;
-	}
-	.item-meta-secondary{
-		border-top: 1px solid $grey2;
-		padding: $space-half 0;
-		font-size: $font-size-slightly-smaller;
-		
-		*{
-			display: inline;
-		}
-
-		a{
-			border-bottom: 1px dotted $textcolour_link;
-		}
-	}
-
-
-
-}
-
+@import "scss/objects/lists/list-item";
+@import "scss/objects/lists/file-lists";
 
 
 
