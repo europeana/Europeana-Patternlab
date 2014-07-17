@@ -12,6 +12,7 @@
 	border-top: 1px solid $grey2;
 	padding: $space-half 0;
 	font-size: $font-size-slightly-smaller;
+	margin-bottom: $space-half;
 	
 	*{
 		display: inline;
@@ -32,4 +33,8 @@
 
 .item-comments{
 	white-space: nowrap;
+}
+
+.item-deadline{
+	font-weight: bold;
 }
