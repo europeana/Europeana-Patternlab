@@ -21,6 +21,7 @@
 		},
 		"file": {
 			"name": "Lorizzlepimpin.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
@@ -96,6 +97,7 @@
 		},
 		"file": {
 			"name": "Veggies.pdf",
+			"type": "pdf",
 			"size": "1.4MB"
 		},
 		"headline": {
@@ -171,6 +173,7 @@
 		},
 		"file": {
 			"name": "pancetta.pdf",
+			"type": "pdf",
 			"size": "500KB"
 		},
 		"headline": {
@@ -246,6 +249,7 @@
 		},
 		"file": {
 			"name": "Helvetica.pdf",
+			"type": "pdf",
 			"size": "4.2MB"
 		},
 		"headline": {
@@ -321,6 +325,7 @@
 		},
 		"file": {
 			"name": "DocumentCloud.pdf",
+			"type": "pdf",
 			"size": "1.15MB"
 		},
 		"headline": {
@@ -396,6 +401,7 @@
 		},
 		"file": {
 			"name": "Phooey.pdf",
+			"type": "pdf",
 			"size": "1MB"
 		},
 		"headline": {
@@ -471,6 +477,7 @@
 		},
 		"file": {
 			"name": "contingency.pdf",
+			"type": "pdf",
 			"size": "145KB"
 		},
 		"headline": {
@@ -545,7 +552,8 @@
 			}
 		},
 		"file": {
-			"name": "Lorizzlepimpin.pdf",
+			"name": "Chumby doostang.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
@@ -620,7 +628,8 @@
 			}
 		},
 		"file": {
-			"name": "Lorizzlepimpin.pdf",
+			"name": "The Force.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
@@ -695,7 +704,8 @@
 			}
 		},
 		"file": {
-			"name": "Lorizzlepimpin.pdf",
+			"name": "swallow.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
@@ -770,7 +780,8 @@
 			}
 		},
 		"file": {
-			"name": "Lorizzlepimpin.pdf",
+			"name": "Cupcake.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
@@ -845,7 +856,8 @@
 			}
 		},
 		"file": {
-			"name": "Lorizzlepimpin.pdf",
+			"name": "Lancashire.pdf",
+			"type": "pdf",
 			"size": "1.2MB"
 		},
 		"headline": {
