@@ -36,8 +36,6 @@ $accent: $eu-pro;
     $GRIDS
 \*------------------------------------*/
 @import "scss/grid/csswizardry-grids";
-@import "pro/layout_csswiz";
-
 //@import "scss/grid/profoundgrid";
 
 /*------------------------------------*\
@@ -46,6 +44,7 @@ $accent: $eu-pro;
 @import "scss/objects/header";
 @import "scss/objects/footer";
 @import "scss/objects/sections";
+@import "scss/objects/media_grid";
 
 /*------------------------------------*\
     $NAVIGATION
@@ -72,13 +71,16 @@ $accent: $eu-pro;
 /*------------------------------------*\
     site modules
 \*------------------------------------*/
+//module layout using css wizardry grid
+@import "pro/layout_csswiz";
 
-
-//@import "scss/grid/profoundgrid";
+//module layout using profound grid
 //@import "pro/layout_prof";
 
 
-// Home page module layout
+
+
+// Home page
 
 .pro-hero{
 	background-color: #00DBBC;
@@ -186,7 +188,11 @@ $accent: $eu-pro;
 
 	.maincontent{
 		background-color: $white;
-		padding-right: $space;
+		padding: $space-triple 0;
+
+		@media all and (min-width: $bp-med) {
+			padding-right: $space;
+		}
 	}
 
 	.l-breadcrumbs{
@@ -205,28 +211,35 @@ $accent: $eu-pro;
 	}
 
 	.textcontent{
-		padding: $space-triple $space;
+		padding: 0 $space;
+		padding-bottom: $space-triple;
 		max-width: 40em;
 	}
 
 	.l-sidebar > .inner{
-		margin-top: $space-triple + $space-triple;
+		margin-top: $space * 6;
 		background: $offwhite;
 	}
 
-	&:before{
-		content: '';
-		display: block;
-		width: 100%;
-		height: $globalnavheight + $space-top;
-		position: absolute;
-		top: 0; 
-		left: 0;
-		background-color: #F8F8F8;
-		z-index: -1;
+
+	@media all and (min-width: $bp-med) {
+		//The coloured band that extends the breadcrumbs background colour to the right edge of the window
+		&:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: $globalnavheight + $space-top;
+			position: absolute;
+			top: 0; 
+			left: 0;
+			background-color: #F8F8F8;
+			z-index: -1;
+		}
 	}
+
 }
 
+// The 3 related item links at the bottom of the page
 .related-items{
 
 }
@@ -257,15 +270,47 @@ $accent: $eu-pro;
 }
 
 .results{
-	padding: $space-triple 0;
 }
 .results-list{
 	margin-bottom: $space-double;
-
 }
 
 @import "scss/objects/lists/list-item";
+@import "scss/objects/metadata";
 @import "scss/objects/lists/file-lists";
 
 
+//Overview page
 
+// links grid
+.link-item{
+	background-color: $offwhite;
+	margin-bottom: $space;
+	text-align: left;
+	min-height: 10em;
+
+	a{
+		color: $textcolour_body;
+	}
+	.b-text{
+		padding: $space;
+	}
+
+	.item-title{
+		margin-bottom: 0.6rem;
+	}
+}
+
+//mini section sitemap
+.section-sitemap{
+	border-top: 1px solid $grey2;
+
+	.inner{
+		padding: $space;
+	}
+}
+
+//Blog detail
+.articleheader{
+	margin-bottom: $space-double;
+}

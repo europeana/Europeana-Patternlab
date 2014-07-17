@@ -45,28 +45,30 @@
 
 .l-page{
 
-	.l-content{
+
+}
+
+.l-content{
+	@extend %grid__item;
+	@extend %lap--three-quarters;
+}
+
+.l-sidebar{
+	@extend %grid__item;
+	@extend %lap--one-quarter;
+}
+
+.help-contact{
+	@extend %one-half;
+	@extend %lap--one-whole;
+}
+
+.l-relatedlinks{
+	@extend %grid;
+
+	.related-item{
 		@extend %grid__item;
-		@extend %lap--three-quarters;
-	}
-
-	.l-sidebar{
-		@extend %grid__item;
-		@extend %lap--one-quarter;
-	}
-
-	.help-contact{
-		@extend %one-half;
-		@extend %lap--one-whole;
-	}
-
-	.l-relatedlinks{
-		@extend %grid;
-
-		.related-item{
-			@extend %grid__item;
-			@extend %lap--one-third;
-		}
+		@extend %lap--one-third;
 	}
 }
 
@@ -82,6 +84,28 @@
 	}
 
 	.item-supplementary{
+		@extend %grid__item;
+		@extend %lap--one-third;
+	}
+}
+
+.l-next_options{
+
+	@extend %grid;
+
+	 li{
+		@extend %grid__item;
+
+		@extend %smallup--one-half;
+		@extend %lap--one-third;
+	}
+}
+
+.l-section-sitemap{
+
+	@extend %grid;
+
+	.l-linklist{
 		@extend %grid__item;
 		@extend %lap--one-third;
 	}

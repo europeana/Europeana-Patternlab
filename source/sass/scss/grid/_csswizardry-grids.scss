@@ -122,6 +122,7 @@ $use-markup-fix:        true!default;
  */
 $breakpoints: (
     'palm' '(max-width: 24em)',
+    'smallup' '(min-width: 24em)',
     'lap' '(min-width: 50em)',
     'portable' '(max-width: 60em)',
     'desk' '(min-width: 60em)'
@@ -138,9 +139,9 @@ $breakpoints: (
  * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
  * have been set to 'true'.
  */
-$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-widths: ('palm', 'smallup', 'lap', 'portable', 'desk')!default;
 $breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk')!default;
-$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-pull:   ('palm', 'lap', 'desk')!default;
 
 
 .demo-block{

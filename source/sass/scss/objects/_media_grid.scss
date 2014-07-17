@@ -22,12 +22,21 @@
 	> li, >.gi{
 		display: inline-block;
 		vertical-align: top;
-		width: 33.333%;
+		
 		position: relative;
 
 		/* IE7 hack to mimic inline-block on block elements */
 		*display: inline;
 		*zoom: 1;
+
+		width: 100%;
+
+		@media all and (min-width: $bp-small) {
+			width: 49%;
+		}
+		@media all and (min-width: $bp-med) {
+			width: 31.333%;
+		}
 	}
 
 	.l-placeholder{
