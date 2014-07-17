@@ -100,25 +100,17 @@ small{
     ul {
         list-style: disc;
         margin: 0 0 $space $space;
-
-        ul {
-            margin-bottom: 0;
-
-            >li{
-                margin-bottom: 0;
-            }
-        }
     }
 
     ol {
         list-style: decimal;
         margin: 0 0 $space $space;
-
-        ol {
-            margin-bottom: 0;
-        }
     }
 
+    ul ul, ul ul>li, ol ol, ol ol>li{
+        margin-bottom: 0;
+    }
+    
     img{
         margin-bottom: $space;
     }
