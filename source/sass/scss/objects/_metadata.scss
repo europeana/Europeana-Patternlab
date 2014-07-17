@@ -1,0 +1,35 @@
+
+
+.item-meta-primary{
+	padding: $space-half 0;
+
+	&> span{
+		margin-right: 1em;
+	}
+}
+
+.item-meta-secondary{
+	border-top: 1px solid $grey2;
+	padding: $space-half 0;
+	font-size: $font-size-slightly-smaller;
+	
+	*{
+		display: inline;
+	}
+
+	a{
+		border-bottom: 1px dotted $textcolour_link;
+	}
+
+	&> span{
+		margin-right: 1em;
+	}
+
+	.icon{
+		fill: #e96e62; //odd orangey colour
+	}
+}
+
+.item-comments{
+	white-space: nowrap;
+}

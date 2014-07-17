@@ -1,6 +1,8 @@
 /* Text-Related Elements */ 
 p {
     margin-bottom: $space;
+    font-size: 16px;
+    font-size: 1rem;
 }
 
 /* Blockquote */
@@ -66,8 +68,8 @@ small{
 
     h1{
     //@extend .gamma;
-    text-transform: uppercase;
-    color: $textcolour_highlight;
+    //text-transform: uppercase;
+    //color: $textcolour_highlight;
     }
 
     h2{
@@ -115,6 +117,10 @@ small{
         ol {
             margin-bottom: 0;
         }
+    }
+
+    img{
+        margin-bottom: $space;
     }
 }
 
