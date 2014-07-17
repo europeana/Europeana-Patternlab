@@ -2,10 +2,11 @@
 .pagination {
 	overflow: hidden;
 	margin-bottom: $space;
+	text-align: center;
 
 	li {
 		display: inline-block;
-		border-right: 1px solid $gray-light;
+		border-right: 1px solid $grey2;
 
 		&:last-child {
 			border: 0;
