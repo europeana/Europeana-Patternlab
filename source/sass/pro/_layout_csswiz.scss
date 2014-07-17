@@ -80,12 +80,12 @@
 
 	.item-details{
 		@extend %grid__item;
-		@extend %lap--two-thirds;
+		@extend %smallup--two-thirds;
 	}
 
 	.item-supplementary{
 		@extend %grid__item;
-		@extend %lap--one-third;
+		@extend %smallup--one-third;
 	}
 }
 
@@ -110,3 +110,4 @@
 		@extend %lap--one-third;
 	}
 }
+

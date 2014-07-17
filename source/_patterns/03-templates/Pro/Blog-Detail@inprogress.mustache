@@ -41,7 +41,11 @@
 				</div>
 			</div>
 
-			{{> molecules-related-noimages(title: "You might like these:") }}
+			{{> molecules-related-images(title: "You might also like:") }}
+
+			<aside>
+				<<<<< Disqus Comments go here >>>>>
+			</aside>
 
 
 		</article>
@@ -50,8 +54,13 @@
 	 --><div class="l-sidebar">
 	 		<div class="inner">
 
-				{{> molecules-help-contact(title: "Need help?") }}
+				{{> molecules-help-contact(title: "About the Author") }}
 
+				
+				<div class="downloads">
+					<h4>Downloads</h4>
+					{{> molecules-file-list-small }}
+				</div>
 				
 			</div>
 

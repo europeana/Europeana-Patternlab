@@ -189,10 +189,7 @@ $accent: $eu-pro;
 	.maincontent{
 		background-color: $white;
 		padding: $space-triple 0;
-
-		@media all and (min-width: $bp-med) {
-			padding-right: $space;
-		}
+		padding-right: $space;
 	}
 
 	.l-breadcrumbs{
@@ -216,9 +213,12 @@ $accent: $eu-pro;
 		max-width: 40em;
 	}
 
-	.l-sidebar > .inner{
-		margin-top: $space * 6;
-		background: $offwhite;
+	.l-sidebar{ 
+		&> .inner{
+			margin-top: $space * 6;
+			background: $offwhite;
+			font-size: $font-size-slightly-smaller;
+		}
 	}
 
 
@@ -239,14 +239,25 @@ $accent: $eu-pro;
 
 }
 
+.help-contact{
+	margin-bottom: $space;
+
+	img{
+		margin-bottom: $space-half;
+	}
+}
+
+.downloads{
+	margin-bottom: $space;
+}
+
 // The 3 related item links at the bottom of the page
 .related-items{
-
 }
-.related-item a{
+.noimages .related-item > a{
 	display: block;
-	padding: $space;
 	min-height: 8em;
+	padding: $space;
 	background-color: #e1cfd4; //pinky
 	margin-bottom: $space;
 	color: $white;
@@ -283,15 +294,18 @@ $accent: $eu-pro;
 //Overview page
 
 // links grid
-.link-item{
-	background-color: $offwhite;
+.link-block{
+	
 	margin-bottom: $space;
 	text-align: left;
 	min-height: 10em;
 
 	a{
 		color: $textcolour_body;
+		background-color: $offwhite;
+		display: block;
 	}
+
 	.b-text{
 		padding: $space;
 	}

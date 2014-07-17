@@ -210,15 +210,14 @@
 	@media all and (min-width: $bp-small-2) {
 		padding: $space-triple 24px;
 	}
+}
 
-	.contents{
-		@extend %grid__item;
-		@extend %palm--one-whole;
-		@extend %push--palm--none; 
-		@extend %three-quarters;
-		@extend %push--one-quarter;
-
-	}
+.block-content-header .contents{
+	@extend %grid__item;
+	@extend %palm--one-whole;
+	@extend %push--palm--none;
+	@extend %three-quarters;
+	@extend %push--one-quarter;
 }
 
 
