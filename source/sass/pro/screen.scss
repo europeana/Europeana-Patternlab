@@ -195,14 +195,17 @@ $accent: $eu-pro;
 	.l-breadcrumbs{
 		background-color: #F8F8F8;
 		padding: $space;
-		padding-top: 2em;
-		line-height: 1;
+		display: table;
+		font-size: $font-size-slightly-smaller;
+		width: 100%;
 
 		@media all and (min-width: $bp-med) {
 			height: $space-top;
 		}
 
 		.breadcrumbs{
+			display: table-cell;
+			vertical-align: middle;
 			width: 75%;
 		}
 	}
@@ -268,8 +271,10 @@ $accent: $eu-pro;
 // List page
 
 .sortby{
-	float: right;
-
+	display: table-cell;
+	width: 25%;
+	text-align: right;
+	
 	label{
 		font-size: $font-size-sm;
 	}

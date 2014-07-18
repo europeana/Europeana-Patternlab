@@ -1,6 +1,5 @@
 .breadcrumbs { 
 	list-style: none;
-	line-height: 1;
 
 	a, .lastitem {
 		display: inline-block;
@@ -21,7 +20,6 @@
 	>li{
 		display: inline-block;
 		margin-right: $space-half;
-		margin-bottom: 0.5em;
 
 		&:first-of-type a{
 			padding-left: 0;
