@@ -186,10 +186,17 @@ $accent: $eu-pro;
 		// TODO: add gradients for older browsers
 	}
 
+	.textcontent, .l-sidebar, .l-breadcrumbs{
+		position: relative;
+		z-index: 10;
+	}
+
 	.maincontent{
 		background-color: $white;
 		padding: $space-triple 0;
-		padding-right: $space;
+		@media all and (min-width: $bp-med) {
+			padding-right: $space;
+		}
 	}
 
 	.l-breadcrumbs{
@@ -213,13 +220,18 @@ $accent: $eu-pro;
 	.textcontent{
 		padding: 0 $space;
 		padding-bottom: $space-triple;
-		max-width: 40em;
+		background-color: $white;
+
+		@media all and (min-width: $bp-med){
+			max-width: 38.4em;
+		}
 	}
 
 	.l-sidebar{ 
+		background: $offwhite;
+
 		&> .inner{
 			margin-top: $space * 6;
-			background: $offwhite;
 			font-size: $font-size-slightly-smaller;
 		}
 	}
@@ -274,7 +286,7 @@ $accent: $eu-pro;
 	display: table-cell;
 	width: 25%;
 	text-align: right;
-	
+
 	label{
 		font-size: $font-size-sm;
 	}
@@ -286,6 +298,9 @@ $accent: $eu-pro;
 }
 
 .results{
+	@media all and (max-width: $bp-med) {
+		padding-right: $space;
+	}
 }
 .results-list{
 	margin-bottom: $space-double;
@@ -335,4 +350,55 @@ $accent: $eu-pro;
 //Blog detail
 .articleheader{
 	margin-bottom: $space-double;
+}
+
+// Event detail
+
+
+.map{
+
+	height: 300px;
+
+	@media all and (min-width: $bp-med) {
+		position: absolute;
+		top: 153px; 
+		left: 0; 
+		right: 25%;
+	}
+
+	@media all and (min-width: $bp-xl) {
+		height: 500px;
+	}
+
+	img {
+	    max-width: none;
+	}
+
+}
+
+.event-detail{
+
+	.textcontent{
+		padding-top: $space-double;
+
+		@media all and (min-width: $bp-med) and (max-width: $bp-xl) {
+			margin-top: 10em;
+		}
+	}
+	
+	.maincontent{
+		@media all and (max-width: $bp-med) {
+			padding-top: 0;
+		}
+	}
+
+
+	.event-date{
+		float: right;
+		//margin-right: -$space;
+		margin-top: -$space-half;
+		background-color: $white;
+		color: $textcolour_head;
+	}
+
 }
