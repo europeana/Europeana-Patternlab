@@ -125,8 +125,8 @@ $accent: $eu-pro;
 	background-color: $grey2;
 
 	text-align: center;
-	@include fontSize(26px);
-	line-height: 1;
+	@include fontSize(24px);
+	line-height: 1.2;
 
 	margin-bottom: $space-double;
 
@@ -153,8 +153,7 @@ $accent: $eu-pro;
 }
 
 .usefulinfo{
-	margin-bottom: $space;
-	padding: $space 0;
+	padding-top: $space;
 }
 .usefulinfo-item{
 	margin-bottom: $space;
@@ -392,13 +391,25 @@ $accent: $eu-pro;
 		}
 	}
 
-
 	.event-date{
 		float: right;
-		//margin-right: -$space;
 		margin-top: -$space-half;
 		background-color: $white;
 		color: $textcolour_head;
+	}
+
+	.speakers{
+		p{
+			margin-bottom: $space-half;
+		}
+		.b-text{
+			padding-top: $space-half;
+		}
+	}
+
+	.speakers, .files{
+		border-top: 1px solid $grey2;
+		padding-top: $space;
 	}
 
 }

@@ -111,3 +111,12 @@
 	}
 }
 
+.speakers .people-list{
+	@extend %grid;
+
+	 li{
+		@extend %grid__item;
+		@extend %smallup--one-half;
+	}
+}
+
