@@ -5,31 +5,21 @@ svg.icon {
 	margin-bottom: -0.25em;
 	fill: currentColor;
 }
-.icon-facebook {
+
+a.icon{
+	background-position: 0 0.1em;
+	background-size: 1em;
+	padding-left: 1.4em;
 }
-.icon-twitter {
-}
-.icon-linkedin {
-}
-.icon-googleplus {
-}
-.icon-github {
-}
-.icon-delete {
-}
-.icon-next {
-}
-.icon-previous {
-}
-.icon-check {
-}
-.icon-help {
-}
-.icon-tag {
-}
-.icon-menu {
-}
-.icon-linkout {
-}
-.icon-search {
+
+a{
+	// &.icon-twitter {
+	// 	@include svg-bg-with-fallback("/icons/twitter");
+	// }
+	// &.icon-skype {
+	// 	@include svg-bg-with-fallback("/icons/skype");
+	// }
+	// &.icon-linkedin {
+	// 	@include svg-bg-with-fallback("/icons/linkedin");
+	// }
 }
