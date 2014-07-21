@@ -1,3 +1,8 @@
+.grid-main{
+	@extend %grid;
+	@extend %grid--full;
+}
+
 // Home page module layout
 
 
@@ -76,6 +81,7 @@
 //List page layout
 
 .list-item{
+	@extend %grid;
 	@extend %grid--rev;
 
 	.item-details{
@@ -111,6 +117,8 @@
 	}
 }
 
+
+//Event page
 .speakers .people-list{
 	@extend %grid;
 

@@ -178,9 +178,10 @@ $accent: $eu-pro;
 
 	$space-top: $space-triple;
 	position: relative;
-
-	background: $offwhite; // fallback
+	background: $white; // fallback
+	
 	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
 		background: linear-gradient(to left, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
 		// TODO: add gradients for older browsers
 	}
@@ -192,7 +193,7 @@ $accent: $eu-pro;
 
 	.maincontent{
 		background-color: $white;
-		padding: $space-triple 0;
+		padding: $space-triple $space;
 		@media all and (min-width: $bp-med) {
 			padding-right: $space;
 		}
@@ -217,7 +218,7 @@ $accent: $eu-pro;
 	}
 
 	.textcontent{
-		padding: 0 $space;
+		
 		padding-bottom: $space-triple;
 		background-color: $white;
 
@@ -230,7 +231,8 @@ $accent: $eu-pro;
 		background: $offwhite;
 
 		&> .inner{
-			margin-top: $space * 6;
+			padding: $space;
+			padding-top: $space * 6;
 			font-size: $font-size-slightly-smaller;
 		}
 	}
@@ -297,9 +299,7 @@ $accent: $eu-pro;
 }
 
 .results{
-	@media all and (max-width: $bp-med) {
-		padding-right: $space;
-	}
+
 }
 .results-list{
 	margin-bottom: $space-double;
@@ -313,8 +313,9 @@ $accent: $eu-pro;
 //Overview page
 
 .page-intro{
-	margin-left: $space;
+	//margin-left: $space;
 }
+
 // links grid
 .link-block{
 	
@@ -378,7 +379,8 @@ $accent: $eu-pro;
 .event-detail{
 
 	.textcontent{
-		padding-top: $space-double;
+		padding: $space-double $space 0;
+		margin-left: -$space;
 
 		@media all and (min-width: $bp-med) and (max-width: $bp-xl) {
 			margin-top: 10em;
@@ -412,4 +414,12 @@ $accent: $eu-pro;
 		padding-top: $space;
 	}
 
+}
+
+.job-title{
+	font-weight: bold;
+}
+.contact-methods, .jobdetails, .email{
+	display: block;
+	margin-bottom: $space;
 }

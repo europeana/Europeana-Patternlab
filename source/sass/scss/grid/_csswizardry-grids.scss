@@ -163,6 +163,10 @@ $breakpoint-has-pull:   ('palm', 'lap', 'desk')!default;
     @extend %grid--rev;
 }
 
+.grid--full{
+    @extend %grid--full;
+}
+
 /**
  * You do not need to edit anything from this line onward; csswizardry-grids is
  * good to go. Happy griddin'!
