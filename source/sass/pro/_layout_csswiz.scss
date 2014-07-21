@@ -120,3 +120,30 @@
 	}
 }
 
+//Person Detail Page
+
+.contact-detail{
+	@extend %grid;
+	@extend %grid--rev;
+
+	.l-contact{
+		@extend %grid__item;
+		@extend %lap--two-thirds;
+	}
+
+	.contact-external{
+		float: right;
+		width: 33%;
+	}
+
+	.contact-internal{
+		float: left;
+		width: 66%;
+	}
+}
+
+.l-contact-photo{
+	@extend %grid__item;
+	@extend %lap--one-third;
+}
+
