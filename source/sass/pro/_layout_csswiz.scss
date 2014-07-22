@@ -155,3 +155,20 @@
 	@extend %lap--one-third;
 }
 
+
+//Publication detail
+.l-publication{
+
+	@extend %grid;
+	@extend %grid--rev;
+
+	.l-detail{
+		@extend %grid__item;
+		@extend %lap--two-thirds;
+	}
+
+	.l-photo{
+		@extend %grid__item;
+		@extend %lap--one-third;
+	}
+}
