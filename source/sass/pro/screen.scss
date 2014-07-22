@@ -255,6 +255,10 @@ $accent: $eu-pro;
 
 }
 
+.maincontent > .title{
+	margin-bottom: $space-triple;
+}
+
 .help-contact{
 	margin-bottom: $space;
 
@@ -282,7 +286,6 @@ $accent: $eu-pro;
 
 
 // List page
-
 .sortby{
 	display: table-cell;
 	width: 25%;
@@ -298,9 +301,7 @@ $accent: $eu-pro;
 	}
 }
 
-.results{
 
-}
 .results-list{
 	margin-bottom: $space-double;
 }
@@ -353,8 +354,6 @@ $accent: $eu-pro;
 }
 
 // Event detail
-
-
 .map{
 
 	height: 300px;
@@ -416,10 +415,19 @@ $accent: $eu-pro;
 
 }
 
-.job-title{
-	font-weight: bold;
-}
 .contact-methods, .jobdetails, .email{
 	display: block;
 	margin-bottom: $space;
+}
+
+.contact-methods {
+	.job-title{
+		font-weight: bold;
+	}
+}
+
+
+//People list
+.team{
+	margin-bottom: $space-triple;
 }

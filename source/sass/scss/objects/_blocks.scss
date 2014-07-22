@@ -115,14 +115,15 @@
 	.tags{
 		border-top: solid 1px $gray-light;
 		padding-top: $pad-half;
-	}
 
-	.icon{
-		color: $gray-light;
-		margin-right: $pad;
-		margin-top: 0.3em;
-		float: left;
+		.icon{
+			color: $gray-light;
+			margin-right: $pad;
+			margin-top: 0.3em;
+			float: left;
+		}
 	}
+	
 }
 
 .block-stacked{

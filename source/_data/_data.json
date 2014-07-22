@@ -25,6 +25,10 @@
 		"avatar" : {
 			"src" : "../../images/fpo_avatar.png",
 			"alt" : "Person Name"
+		},
+		"portrait" : {
+			"src" : "../../images/fpo_3x4.png",
+			"alt" : "Person Name"
 		}
 	},
 	"headline" : {

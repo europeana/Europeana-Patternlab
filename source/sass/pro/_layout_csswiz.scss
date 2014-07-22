@@ -119,7 +119,7 @@
 
 
 //Event page
-.speakers .people-list{
+.speakers .people-list, .team .results-list{
 	@extend %grid;
 
 	 li{
