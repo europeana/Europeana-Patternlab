@@ -19,7 +19,15 @@
 		<div class="maincontent">
 			
 			<div class="textcontent prose">
+
+				<h1 class="title">{{ headline.medium }}</h1>
+
 				{{> organisms-article-body }}
+			</div>
+
+			<div class="section files">
+				<h2>Files</h2>
+				{{> molecules-file-list-moredata }}
 			</div>
 
 			{{> molecules-related-noimages(title: "Next steps") }}
@@ -32,6 +40,11 @@
 	 		<div class="inner">
 
 				{{> molecules-help-contact(title: "Need help?") }}
+
+				<div class="downloads">
+					<h4>Downloads</h4>
+					{{> molecules-file-list-small }}
+				</div>
 
 				<ul class="nav_tertiary">
 					<li><a href="">In-page link 1</a></li>
