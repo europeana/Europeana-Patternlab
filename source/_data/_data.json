@@ -5,6 +5,11 @@
 			"media": "all"
 		}
 	],
+	"js_files": [
+		{
+			"path": "../../js/init.js"
+		}
+	],
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",

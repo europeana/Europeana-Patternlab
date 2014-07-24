@@ -1,24 +1,53 @@
-(function(w){
-	var sw = document.body.clientWidth,
-		sh = document.body.clientHeight;
-
-	$(w).resize(function(){ //Update dimensions on resize
-		sw = document.body.clientWidth;
-		sh = document.body.clientHeight;
-	});
 
 
-	//Navigation toggle
-	$('.nav-toggle-menu').click(function(e) {
-		e.preventDefault();
-		$(this).toggleClass('active');
-	});
-	
-	//Navigation toggle
-	$('.nav-toggle-search').click(function(e) {
-		e.preventDefault();
-		$(this).toggleClass('active');
-		$('.header .search-form').toggleClass('active');
-	});
+/* Declare a namespace for the site */
+var Site = window.Site || {};
 
-})(this);
+/* Create a closure to maintain scope of the '$'
+   and remain compatible with other frameworks.  */
+(function($) {
+
+    var body = $('body');
+
+    var bodyClickFn = function(evt) {
+        var target = $(evt.target);
+        if(!target.closest('.menu-right, .nav-toggle-menu').length){
+            Site.resetMenu();
+        }
+    };
+
+    Site.resetMenu = function(){
+        body.removeClass('menu-open');
+        document.removeEventListener( 'click', bodyClickFn );
+    };
+    
+
+
+    //same as $(document).ready();
+    $(function() {
+        
+
+        //Navigation toggle
+        $('.nav-toggle-menu').on("click", function(e) {
+
+            if( body.hasClass( "menu-open" ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('menu-open');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+
+        });
+        
+        //Navigation toggle
+        $('.nav-toggle-search').on("click", function(e) {
+            e.preventDefault();
+            body.toggleClass('globalsearch-open');
+        });
+
+
+
+    });
+})(jQuery);

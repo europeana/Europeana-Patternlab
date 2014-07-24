@@ -19,7 +19,7 @@ $accent: $eu-pro;
 @import "scss/generic/reset";
 
 /*------------------------------------*\
-    $GLOBAL ELEMENTS
+	$GLOBAL ELEMENTS
 \*------------------------------------*/
 @import "scss/base/global-classes";
 @import "scss/base/main";
@@ -33,13 +33,13 @@ $accent: $eu-pro;
 
 
 /*------------------------------------*\
-    $GRIDS
+	$GRIDS
 \*------------------------------------*/
 @import "scss/grid/csswizardry-grids";
 //@import "scss/grid/profoundgrid";
 
 /*------------------------------------*\
-    $PAGE STRUCTURE
+	$PAGE STRUCTURE
 \*------------------------------------*/
 @import "scss/objects/header";
 @import "scss/objects/footer";
@@ -47,7 +47,7 @@ $accent: $eu-pro;
 @import "scss/objects/media_grid";
 
 /*------------------------------------*\
-    $NAVIGATION
+	$NAVIGATION
 \*------------------------------------*/
 @import "scss/objects/nav";
 @import "scss/objects/navigation/breadcrumbs";
@@ -56,7 +56,7 @@ $accent: $eu-pro;
 
 
 /*------------------------------------*\
-    $TEXT Styles
+	$TEXT Styles
 \*------------------------------------*/
 @import "scss/objects/text";
 
@@ -69,7 +69,7 @@ $accent: $eu-pro;
 @import "scss/objects/dates";
 
 /*------------------------------------*\
-    site modules
+	site modules
 \*------------------------------------*/
 //module layout using css wizardry grid
 @import "pro/layout_csswiz";
@@ -89,7 +89,7 @@ $accent: $eu-pro;
 
 	background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
 	-webkit-background-size: cover;
-    background-size: cover;
+	background-size: cover;
 
 	.lc{
 		position: relative;
@@ -370,7 +370,7 @@ $accent: $eu-pro;
 	}
 
 	img {
-	    max-width: none;
+		max-width: none;
 	}
 
 }
@@ -430,4 +430,75 @@ $accent: $eu-pro;
 //People list
 .team{
 	margin-bottom: $space-triple;
+}
+
+.drawer{
+	position: fixed;
+	z-index: 1;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+nav.menu-right {
+
+	background-color: $textcolour_head;
+	
+	top: 0;
+	width: 300px;
+	right: -500px;
+
+	li {
+		display: block;
+	}
+
+	a {
+		display: block;
+		padding: 10px;
+		font-size: 18px;
+	}
+
+	a.close-menu {
+		margin: 10px 0;
+		padding: 10px 30px;
+	}
+
+}
+
+
+
+.pusher, .nav-global{
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.pusher {
+	height: 100%;
+	position: relative;
+}
+
+//right menu is open - body class
+.menu-open {
+	.menu-right{
+		-webkit-transform: translate3d(-500px, 0, 0);
+		transform: translate3d(-500px, 0, 0);
+	}
+	.pusher, .nav-global {
+		-webkit-transform: translate3d(-300px, 0, 0);
+		transform: translate3d(-300px, 0, 0);
+	}
+}
+
+//Top menu - global search and 'our sites' drawer
+.header .menu-top{
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height 0.4s;
+	transition: max-height 0.4s;
+}
+
+// global search is open - body class
+.globalsearch-open {
+	.header .menu-top{
+		max-height: 200px;
+	}
 }

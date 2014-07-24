@@ -1,15 +1,40 @@
 
-
-.nav-toggle {
+.nav-global{
 	float: right;
-	display: block;
-	padding: $space;
-	line-height: 1;
-	color: $textcolour_body;
+	z-index: 20;
 
-	span{
-		font-weight: 900;
-		text-transform: uppercase;
+	.nav-toggle {
+		display: inline-block;
+		padding: $space;
+		line-height: 1;
+		color: $textcolour_body;
+
+		span{
+			font-weight: 900;
+			text-transform: uppercase;
+		}
 	}
 
 }
+
+
+
+
+
+.search-global{
+	background-color: $white;
+
+	.inner{
+		padding: $space;		
+	}
+
+}
+
+// global search is open - body class
+.globalsearch-open {
+	.nav-toggle-search{
+		background-color: $white;
+	}
+}
+
+

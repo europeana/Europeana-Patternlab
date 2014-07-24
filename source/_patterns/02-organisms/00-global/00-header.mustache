@@ -1,27 +1,73 @@
 <!-- Begin .header -->
-<header class="header cf">
+
+
+
+<header class="header">
+
+<!-- Off canvas search bar -->
+<!-- {{> molecules-global-search }} -->
+<div class="menu-top search-global">
+	<div class="inner">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestiae dolorum accusantium harum quidem earum quod ex distinctio. Neque unde, asperiores, soluta ut voluptas dicta dignissimos placeat nemo esse facere harum quasi dolores illum accusamus a natus maiores! Enim, deleniti.
+	</div>
+</div>
+
+
+<!-- wrapper for navigation bar -->
+<div>
 
 	{{> atoms-logo }}
 
 
+	<div class="nav-global">
 
-	<a href="#" class="nav-toggle nav-toggle-menu">
-		<svg class="icon icon-menu">
-			<use xlink:href="#icon-menu"></use>
-		</svg>
-		<span>Menu</span>
-	</a>
-	<a href="#" class="nav-toggle nav-toggle-search">
-		<svg class="icon icon-search">
-			<use xlink:href="#icon-search"></use>
-		</svg>
-		<span class="is-vishidden">Search</span>
-	</a>
+		<a href="#" class="nav-toggle nav-toggle-search">
+			<svg class="icon icon-search">
+				<use xlink:href="#icon-search"></use>
+			</svg>
+			<span class="is-vishidden">Search</span>
+		</a>
+
+		<a href="#" class="nav-toggle nav-toggle-menu">
+			<svg class="icon icon-menu">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<span>Menu</span>
+		</a>
+
+	</div>
 
 
 	
-	<!-- {{> molecules-global-search }} -->
+	
 	{{> molecules-primary-nav }}
 
+
+
+
+
+<nav class="drawer menu-right">
+
+	<div class="searchfield">
+		mini search here	
+	</div>
+
+    <ul>
+        <li><a href="#">Broccoli</a></li>
+        <li><a href="#">Tomato</a></li>
+        <li><a href="#">Cucumber</a></li>
+        <li><a href="#">Kale</a></li>
+        <li><a href="#">Celery</a></li>
+    </ul>
+</nav>
+
+
+
+
+</div>
 </header>
 <!-- End .header -->
+
+
+<!-- Main site wrapper for offcanvas navigation -->
+<div class="pusher">
