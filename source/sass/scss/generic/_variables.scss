@@ -40,7 +40,7 @@ $paper 			: #D9D4CA;
 $gray-lighter 	: #CCCCCC;
 $gray-light 	: #A6A6A6;
 $gray-med 		: #4D4D4D;
-$gray-dark 		: #232323;
+$gray-dark 		: #212121;
 $black 			: #1A1A1A;
 
 //Europeana brand colours
@@ -51,6 +51,8 @@ $eu-blue 		: #1A8AC7;
 $eu-jade 		: #37B98B;
 $eu-raspberry 	: #E11D53;
 $eu-purple 		: #7F3978;
+
+$blue-dark		: #293745;
 
 
 
@@ -70,6 +72,7 @@ $accent: $eu-blue;
 // global page
 $page_bg: $white;
 
+
 // text
 // Light backgrounds
 $textcolour_head: $black;
@@ -84,9 +87,11 @@ $textcolour_dark_body: $gray-light;
 $textcolour_dark_head: $offwhite;
 
 
-$footer_headings: #74747b;
-$footer_text: #212121;
+$footer_headings: #74747b; //grayblue
+$footer_text: $gray-dark;
 
+//Menus
+$offcanvas_bg: $blue-dark;
 
 //backgrounds
 $darkbg: $black;

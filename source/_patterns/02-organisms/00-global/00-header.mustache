@@ -5,16 +5,12 @@
 <header class="header">
 
 <!-- Off canvas search bar -->
-<!-- {{> molecules-global-search }} -->
-<div class="menu-top search-global">
-	<div class="inner">
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestiae dolorum accusantium harum quidem earum quod ex distinctio. Neque unde, asperiores, soluta ut voluptas dicta dignissimos placeat nemo esse facere harum quasi dolores illum accusamus a natus maiores! Enim, deleniti.
-	</div>
-</div>
+{{> molecules-global-search }}
 
 
 <!-- wrapper for navigation bar -->
-<div>
+<div class="cf">
+
 
 	{{> atoms-logo }}
 
@@ -25,6 +21,7 @@
 			<svg class="icon icon-search">
 				<use xlink:href="#icon-search"></use>
 			</svg>
+
 			<span class="is-vishidden">Search</span>
 		</a>
 
@@ -32,18 +29,23 @@
 			<svg class="icon icon-menu">
 				<use xlink:href="#icon-menu"></use>
 			</svg>
+
 			<span>Menu</span>
 		</a>
 
 	</div>
 
-
-	
-	
 	{{> molecules-primary-nav }}
 
 
 
+
+
+
+
+</div>
+</header>
+<!-- End .header -->
 
 
 <nav class="drawer menu-right">
@@ -61,12 +63,6 @@
     </ul>
 </nav>
 
-
-
-
-</div>
-</header>
-<!-- End .header -->
 
 
 <!-- Main site wrapper for offcanvas navigation -->

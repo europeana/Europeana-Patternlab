@@ -84,12 +84,16 @@ $accent: $eu-pro;
 
 .pro-hero{
 	background-color: #00DBBC;
-	height:60%;
+	height: 80%;
 	padding-top: 10em;
 
 	background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
 	-webkit-background-size: cover;
 	background-size: cover;
+
+	@media all and (min-width: $bp-small) {
+		height: 60%;
+	}
 
 	.lc{
 		position: relative;
@@ -435,70 +439,61 @@ $accent: $eu-pro;
 .drawer{
 	position: fixed;
 	z-index: 1;
-	-webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
 }
+
+$navwidth: 300px;
 
 nav.menu-right {
 
-	background-color: $textcolour_head;
+	background-color: $offcanvas_bg;
+	color: $offwhite;
+	padding: $space;
 	
 	top: 0;
-	width: 300px;
-	right: -500px;
+	height: 100%;
+	z-index: 200;
 
-	li {
-		display: block;
-	}
+	width: $navwidth;
+	right: -$navwidth;
 
-	a {
-		display: block;
-		padding: 10px;
-		font-size: 18px;
-	}
-
-	a.close-menu {
-		margin: 10px 0;
-		padding: 10px 30px;
+	.menu-open & {
+		-webkit-transform: translate3d(-$navwidth, 0, 0);
+		transform: translate3d(-$navwidth, 0, 0);
 	}
 
 }
 
-
-
 .pusher, .nav-global{
-	-webkit-transition: -webkit-transform 0.4s;
-	transition: transform 0.4s;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+
+	.menu-open & {
+		-webkit-transform: translate3d(-$navwidth, 0, 0);
+		transform: translate3d(-$navwidth, 0, 0);
+	}
 }
 
 .pusher {
-	height: 100%;
 	position: relative;
+	height: 100%;
 }
 
 //right menu is open - body class
-.menu-open {
-	.menu-right{
-		-webkit-transform: translate3d(-500px, 0, 0);
-		transform: translate3d(-500px, 0, 0);
-	}
-	.pusher, .nav-global {
-		-webkit-transform: translate3d(-300px, 0, 0);
-		transform: translate3d(-300px, 0, 0);
-	}
-}
+
 
 //Top menu - global search and 'our sites' drawer
 .header .menu-top{
 	max-height: 0;
 	overflow: hidden;
-	-webkit-transition: max-height 0.4s;
-	transition: max-height 0.4s;
+	-webkit-transition: max-height 0.3s;
+	transition: max-height 0.3s;
 }
 
 // global search is open - body class
-.globalsearch-open {
-	.header .menu-top{
+.globalsearch-open{
+	.search-global{
 		max-height: 200px;
 	}
 }
