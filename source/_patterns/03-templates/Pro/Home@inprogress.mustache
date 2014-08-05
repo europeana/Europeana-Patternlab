@@ -45,7 +45,12 @@
 				<li>Get Involved in the future of <a href="#">Open data</a></li>
 			</ul>
 
-			<a class="button button-join cta" href="join">Join now</a>
+			<a class="btn button-join cta" href="join">			
+				<svg class="icon icon-check">
+					<use xlink:href="#icon-check"></use>
+				</svg>
+				Join now
+			</a>
 
 		</div>
 		
@@ -59,13 +64,13 @@
 		<div class="l-usefulinfo-item">
 
 			<div class="usefulinfo-item">
+
 				<h3>Share your data</h3>
 
 				<ul class="usefulinfo-links">
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
+					{{#listItems.four}}
+					<li><a href="">{{headline.short}}</a></li>
+					{{/listItems.four}}
 				</ul>
 			</div>
 
@@ -73,13 +78,13 @@
 	 --><div class="l-usefulinfo-item">
 
 			<div class="usefulinfo-item">
+
 				<h3>Use Europeana data</h3>
 
 				<ul class="usefulinfo-links">
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
-					<li><a href="">Link to item page here</a></li>
+				{{#listItems.four}}
+					<li><a href="">{{headline.short}}</a></li>
+				{{/listItems.four}}
 				</ul>
 			</div>
 
@@ -128,12 +133,7 @@
 
 		<div class="l-news">
 			<div class="grid">
-				<div class="l-post">
-					{{> molecules-inset-block}}
-				</div><!--
-			 --><div class="l-post">
-					{{> molecules-inset-block}}
-				</div>
+			{{#listItems.two}}<div class="l-post">{{> molecules-inset-block}}</div>{{/listItems.two}}
 			</div>
 
 			<a class="link-more" href="{{ link.ListPage~blog }}">More from the Europeana professional Blog</a>

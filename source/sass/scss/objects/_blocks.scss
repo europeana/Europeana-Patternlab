@@ -162,6 +162,7 @@
 	.b-thumb {
 		position: relative;
 		z-index: 0;
+		margin-bottom: $space-half;
 
 		img {
 			display: block;
@@ -179,7 +180,7 @@
 		left: 0;
 		width: 90%;
 		background: $white;
-		padding: $pad-half;
+		padding: $pad;
 	}
 }
 

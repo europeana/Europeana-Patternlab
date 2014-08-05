@@ -12,7 +12,7 @@
 
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-pro;
-
+$textcolour_highlight: $accent;
 
 
 // Reset
@@ -50,14 +50,17 @@ $accent: $eu-pro;
 	$NAVIGATION
 \*------------------------------------*/
 @import "scss/objects/nav";
+@import "scss/objects/navigation/global";
 @import "scss/objects/navigation/breadcrumbs";
 @import "scss/objects/navigation/pagination";
+
 @import "scss/objects/lists";
 
 
 /*------------------------------------*\
 	$TEXT Styles
 \*------------------------------------*/
+@import "scss/objects/buttons";
 @import "scss/objects/text";
 
 
@@ -83,13 +86,15 @@ $accent: $eu-pro;
 // Home page
 
 .pro-hero{
-	background-color: #00DBBC;
+
 	height: 80%;
 	padding-top: 10em;
 
-	background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
-	-webkit-background-size: cover;
-	background-size: cover;
+	// background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
+	// -webkit-background-size: cover;
+	// background-size: cover;
+
+	background-color: $grey2;
 
 	@media all and (min-width: $bp-small) {
 		height: 60%;
@@ -102,7 +107,7 @@ $accent: $eu-pro;
 
 	.hero-text{
 		position: absolute;
-		bottom: 0;
+		bottom: 1.4em;
 		background-color: rgba(#FFF, 0.7);
 		padding: $space;
 		width: 100%;
@@ -123,32 +128,70 @@ $accent: $eu-pro;
 
 .pro-home{
 	padding-top: 0;
+
+	.section{
+		padding: $space;
+		margin-bottom: 0;
+	}
 }
 
 .promo-abouteuropeana{
-	background-color: $grey2;
+	background-color: #FF5353;
+	background-color: $eu-pro;
+	color: $white;
 
 	text-align: center;
 	@include fontSize(24px);
 	line-height: 1.2;
 
-	margin-bottom: $space-double;
+	margin-bottom: $space;
 
 	.lc{
-		padding: 40px;
+		padding: $space 0;
+	}
+
+	a{
+		color: $white;
+		text-decoration: underline;
 	}
 
 }
 
-.pro-info h2{
-	margin-bottom: $space-double;
+.pro-info{
+	h2{
+		margin-bottom: $space-double;
+		@include fontSize(24px);
+	}
+
+	.lc{
+		border-bottom: 1px dotted $grey2;
+	}
+}
+
+.home-news{
+	background-color: $offwhite;
 }
 
 .jointhenetwork{
-	padding: $space;
-	background-color: #eee;
+	padding: $space + $space-half $space;
+	background-color: $offwhite;
 	margin-bottom: $space;
+	outline: 1px solid $offwhite;
+	border: 4px solid #FFF;
+
+	ul{
+		margin-bottom: $space-double;
+
+		a{
+			border-bottom: 1px dotted $eu-blue;
+		}
+	}
+
+	li{
+		margin-bottom: $space-half;
+	}
 }
+
 
 .link-more{
 	display: block;
@@ -156,22 +199,58 @@ $accent: $eu-pro;
 	color: $textcolour_link;
 }
 
+
+.usefulinfo-links{
+	li{
+		margin-bottom: $space;
+		@include fontSize(18px);
+		font-weight: bold;
+	}
+
+	a{
+		border-bottom: 1px dotted $eu-blue;
+	}
+}
+
 .usefulinfo{
-	padding-top: $space;
+	padding-top: $space + $space-half;
 }
 .usefulinfo-item{
 	margin-bottom: $space;
+
+	h3{
+		text-transform: uppercase;
+		margin-bottom: $space;
+	}
 }
 
 .usefulinfo-secondary{
-	
 	.usefulinfo-item{
 		padding-top: $space;
 		border-top: 1px solid $grey2;
 	}
 }
 
+a.labs-link{
+	padding: $space;
+	display: block;
+	position: relative;
+	background-color: $eu-labs;
+	color: $white;
+	background-image: url("../../images/icons/labs.svg");
+	background-position: 1.6em 50%;
+	background-repeat: no-repeat;
+	background-size: 15%;
+	padding-left: 30%;
 
+	h3{
+		color: $white;
+		margin-bottom: $space-half;
+	}
+}
+
+
+//News bit
 .tweets{
 	padding: $space;
 	background-color: #EEE;
@@ -317,10 +396,6 @@ $accent: $eu-pro;
 
 //Overview page
 
-.page-intro{
-	//margin-left: $space;
-}
-
 // links grid
 .link-block{
 	
@@ -352,10 +427,14 @@ $accent: $eu-pro;
 	}
 }
 
+
+
 //Blog detail
 .articleheader{
 	margin-bottom: $space-double;
 }
+
+
 
 // Event detail
 .map{
@@ -436,64 +515,3 @@ $accent: $eu-pro;
 	margin-bottom: $space-triple;
 }
 
-.drawer{
-	position: fixed;
-	z-index: 1;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
-
-$navwidth: 300px;
-
-nav.menu-right {
-
-	background-color: $offcanvas_bg;
-	color: $offwhite;
-	padding: $space;
-	
-	top: 0;
-	height: 100%;
-	z-index: 200;
-
-	width: $navwidth;
-	right: -$navwidth;
-
-	.menu-open & {
-		-webkit-transform: translate3d(-$navwidth, 0, 0);
-		transform: translate3d(-$navwidth, 0, 0);
-	}
-
-}
-
-.pusher, .nav-global{
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-
-	.menu-open & {
-		-webkit-transform: translate3d(-$navwidth, 0, 0);
-		transform: translate3d(-$navwidth, 0, 0);
-	}
-}
-
-.pusher {
-	position: relative;
-	height: 100%;
-}
-
-//right menu is open - body class
-
-
-//Top menu - global search and 'our sites' drawer
-.header .menu-top{
-	max-height: 0;
-	overflow: hidden;
-	-webkit-transition: max-height 0.3s;
-	transition: max-height 0.3s;
-}
-
-// global search is open - body class
-.globalsearch-open{
-	.search-global{
-		max-height: 200px;
-	}
-}

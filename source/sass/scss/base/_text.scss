@@ -1,6 +1,9 @@
 /* Text-Related Elements */ 
 p {
     margin-bottom: $space;
+    &:last-child { 
+        margin-bottom: 0;
+    }
 }
 
 /* Blockquote */

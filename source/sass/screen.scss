@@ -72,8 +72,10 @@
     $NAVIGATION
 \*------------------------------------*/
 @import "scss/objects/nav";
+@import "scss/objects/navigation/global";
 @import "scss/objects/navigation/breadcrumbs";
 @import "scss/objects/navigation/pagination";
+
 
 /*------------------------------------*\
     $TEXT Styles
