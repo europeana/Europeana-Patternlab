@@ -1,4 +1,5 @@
 
+// Right floated Search and menu butons
 .nav-global{
 	float: right;
 	z-index: 20;
@@ -21,11 +22,68 @@
 
 }
 
+// OFF CANVAS MENUS
+
+//class for all off-canvas drawers
+.drawer{
+	position: fixed;
+	z-index: 1;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.pusher, .nav-global{
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+
+	.menu-open & {
+		-webkit-transform: translate3d(-$menuwidth_right, 0, 0);
+		transform: translate3d(-$menuwidth_right, 0, 0);
+	}
+}
+
+// Whole site wrapper elemnet for push effect
+.pusher {
+	position: relative;
+	height: 100%;
+}
+
+nav.menu-right {
+
+	background-color: $offcanvas_bg;
+	color: $offwhite;
+	padding: $space;
+	
+	top: 0;
+	height: 100%;
+	z-index: 200;
+
+	width: $menuwidth_right;
+	right: -$menuwidth_right;
+
+	//right menu is open - body class
+	.menu-open & {
+		-webkit-transform: translate3d(-$menuwidth_right, 0, 0);
+		transform: translate3d(-$menuwidth_right, 0, 0);
+	}
+
+}
+
+
+//Top menu - global search and 'our sites' drawer
+
+.header .menu-top{
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height 0.3s;
+	transition: max-height 0.3s;
+}
 
 
 
-
+// global search top menu
 .search-global{
+
 	background-color: $offcanvas_bg;
 	
 	.inner{
@@ -59,11 +117,14 @@
 		cursor:pointer;
 	}
 
+	// global search is open - body class
+	.globalsearch-open & {
+		max-height: 200px;
+	}
+
 }
 
 // global search is open - body class
-.globalsearch-open {
-	.nav-toggle-search{
-		background-color: $white;
-	}
+ .globalsearch-open .nav-toggle-search{
+	background-color: $white;
 }

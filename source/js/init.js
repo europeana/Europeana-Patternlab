@@ -11,7 +11,7 @@ var Site = window.Site || {};
 
     var bodyClickFn = function(evt) {
         var target = $(evt.target);
-        if(!target.closest('.menu-right, .nav-toggle-menu, .nav-toggle-search').length){
+        if(!target.closest('.menu-right, .nav-toggle-menu, .nav-toggle-search, .search-global').length){
             Site.resetMenu();
         }
     };
