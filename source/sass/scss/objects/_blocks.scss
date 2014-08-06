@@ -156,7 +156,8 @@
 /*  Block with inset headline */
 
 .block-inset {
-	margin-bottom: $space-half;
+	
+	margin-bottom: $space;
 	position: relative;
 
 	.b-thumb {

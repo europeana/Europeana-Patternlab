@@ -130,14 +130,14 @@ $textcolour_highlight: $accent;
 	padding-top: 0;
 
 	.section{
-		padding: $space;
+		padding: $space-double $space;
 		margin-bottom: 0;
 	}
 }
 
 .promo-abouteuropeana{
 	background-color: #FF5353;
-	background-color: $eu-pro;
+	background-color: $blue-dark;
 	color: $white;
 
 	text-align: center;
@@ -146,13 +146,8 @@ $textcolour_highlight: $accent;
 
 	margin-bottom: $space;
 
-	.lc{
-		padding: $space 0;
-	}
-
 	a{
-		color: $white;
-		text-decoration: underline;
+		border-bottom: 1px dotted $textcolour_link;
 	}
 
 }
@@ -168,16 +163,13 @@ $textcolour_highlight: $accent;
 	}
 }
 
-.home-news{
-	background-color: $offwhite;
-}
+
 
 .jointhenetwork{
 	padding: $space + $space-half $space;
 	background-color: $offwhite;
 	margin-bottom: $space;
-	outline: 1px solid $offwhite;
-	border: 4px solid #FFF;
+	border: 1px solid $grey2;
 
 	ul{
 		margin-bottom: $space-double;
@@ -194,7 +186,6 @@ $textcolour_highlight: $accent;
 
 
 .link-more{
-	display: block;
 	font-weight: bold;
 	color: $textcolour_link;
 }
@@ -243,18 +234,23 @@ a.labs-link{
 	background-size: 15%;
 	padding-left: 30%;
 
+	outline: 1px solid $eu-labs;
+	border: 5px solid #FFF;
+
 	h3{
 		color: $white;
 		margin-bottom: $space-half;
 	}
 }
 
-
-//News bit
-.tweets{
-	padding: $space;
-	background-color: #EEE;
+.home-news{
+	background-color: $offwhite;
 }
+
+.events-upcoming .event{
+	margin-bottom: $space;
+}
+
 
 // Generic page layout
 .l-page{
@@ -410,7 +406,7 @@ a.labs-link{
 	}
 
 	.b-text{
-		padding: $space;
+		padding: $space-half $space;
 	}
 
 	.item-title{
