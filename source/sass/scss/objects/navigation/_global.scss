@@ -3,26 +3,94 @@
 .nav-global{
 	float: right;
 	z-index: 20;
+	display: table;
+}
 
-	.nav-toggle {
-		display: inline-block;
-		padding: $space;
-		line-height: 1;
-		color: $textcolour_body;
+.nav-toggle {
+	display: table-cell;
+	vertical-align: middle;
+	padding: $space $space-half;
+	line-height: 1;
+	color: $textcolour_body;
 
-		svg{
-			pointer-events: none;
-		}
-
-		span{
-			font-weight: 900;
-			text-transform: uppercase;
-		}
+	svg{
+		pointer-events: none;
 	}
 
+	span{
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+}
+
+.nav-toggle-sites{
+	background-color: $accent;
+	color: $white;
+	display: block;
+	padding: 1em;
+	padding-top: 0.8em;
+	height: auto;
+	border-bottom-right-radius: 0.3em;
+	border-bottom-left-radius: 0.3em;
+	margin-right: 0.3em;
+}
+
+.nav-toggle-menu{
+	background-color: $blue-dark;
+	color: $white;
+
+	.is-open-menu-right &, &:hover{
+		background-color: $accent;
+		color: $white;
+	}
+}
+
+//hover + toggled item is open
+.nav-toggle-search{
+	.is-open-globalsearch & , &:hover{
+		background-color: $blue-dark;
+		color: $white;
+	}
 }
 
 // OFF CANVAS MENUS
+
+//Our Sites - global top drawer
+.our-sites{
+
+	background-color: $white;
+	padding: 0 $space;
+
+	.l-linklist{
+		@extend %grid__item;
+		@extend %lap--one-quarter;
+
+		.inner{
+			border-top: 6px solid $textcolour_body;
+			padding: $space 0;
+		}
+	}
+
+	li {
+		display: inline-block;
+	}
+}
+
+.globallink{
+	margin-bottom: $space-half;
+}
+.globallink-title{
+	@include fontSize(18px);
+	margin-bottom: $space-quarter;
+}
+.globallink-desc{
+	@include fontSize(14px);
+}
+
+
+
+
+
 
 //class for all off-canvas drawers
 .drawer{
@@ -30,30 +98,30 @@
 	z-index: 1;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
+
+	background-color: $offcanvas_bg;
+	color: $offwhite;
+	padding: $space;
 }
 
 .pusher, .nav-global{
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 
-	.menu-open & {
+	.is-open-menu-right & {
 		-webkit-transform: translate3d(-$menuwidth_right, 0, 0);
 		transform: translate3d(-$menuwidth_right, 0, 0);
 	}
 }
 
-// Whole site wrapper elemnet for push effect
+// Whole site wrapper element for push effect
 .pusher {
 	position: relative;
 	height: 100%;
 }
 
-nav.menu-right {
+.menu-right {
 
-	background-color: $offcanvas_bg;
-	color: $offwhite;
-	padding: $space;
-	
 	top: 0;
 	height: 100%;
 	z-index: 200;
@@ -62,28 +130,42 @@ nav.menu-right {
 	right: -$menuwidth_right;
 
 	//right menu is open - body class
-	.menu-open & {
+	.is-open-menu-right & {
 		-webkit-transform: translate3d(-$menuwidth_right, 0, 0);
 		transform: translate3d(-$menuwidth_right, 0, 0);
 	}
 
 }
 
+.menu-top {
 
-//Top menu - global search and 'our sites' drawer
-
-.header .menu-top{
+	top: 0;
+	z-index: 200;
+	width: 100%;
 	max-height: 0;
 	overflow: hidden;
+
 	-webkit-transition: max-height 0.3s;
 	transition: max-height 0.3s;
+
+	//top menu is open - body class
+	.is-open-menu-top & {
+		max-height: 800px;
+	}
+
 }
+
+
+
 
 
 
 // global search top menu
 .search-global{
-
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height 0.3s;
+	transition: max-height 0.3s;
 	background-color: $offcanvas_bg;
 	
 	.inner{
@@ -118,13 +200,10 @@ nav.menu-right {
 	}
 
 	// global search is open - body class
-	.globalsearch-open & {
+	.is-open-globalsearch & {
 		max-height: 200px;
 	}
 
 }
 
-// global search is open - body class
- .globalsearch-open .nav-toggle-search{
-	background-color: $white;
-}
+

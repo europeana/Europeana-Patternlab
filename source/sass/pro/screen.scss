@@ -49,13 +49,14 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
 @import "scss/objects/nav";
-@import "scss/objects/navigation/global";
+
+//navigation types
 @import "scss/objects/navigation/breadcrumbs";
 @import "scss/objects/navigation/pagination";
 
 @import "scss/objects/lists";
-
 
 /*------------------------------------*\
 	$TEXT Styles
@@ -77,179 +78,10 @@ $textcolour_highlight: $accent;
 //module layout using css wizardry grid
 @import "pro/layout_csswiz";
 
-//module layout using profound grid
-//@import "pro/layout_prof";
-
-
-
-
 // Home page
-
-.pro-hero{
-
-	height: 80%;
-	padding-top: 10em;
-
-	// background: url("../../images/sample/landscape-16x9-mountains.jpg") top center;
-	// -webkit-background-size: cover;
-	// background-size: cover;
-
-	background-color: $grey2;
-
-	@media all and (min-width: $bp-small) {
-		height: 60%;
-	}
-
-	.lc{
-		position: relative;
-		height: 100%;
-	}
-
-	.hero-text{
-		position: absolute;
-		bottom: 1.4em;
-		background-color: rgba(#FFF, 0.7);
-		padding: $space;
-		width: 100%;
-
-		@media all and (min-width: $bp-small) {
-			width: 60%;
-		}
-
-		@media all and (min-width: $bp-med) {
-			width: 35%;
-		}
-
-		h1.title{
-			font-size: 1.6em;
-		}
-	}
-}
-
-.pro-home{
-	padding-top: 0;
-
-	.section{
-		padding: $space-double $space;
-		margin-bottom: 0;
-	}
-}
-
-.promo-abouteuropeana{
-	background-color: #FF5353;
-	background-color: $blue-dark;
-	color: $white;
-
-	text-align: center;
-	@include fontSize(24px);
-	line-height: 1.2;
-
-	margin-bottom: $space;
-
-	a{
-		border-bottom: 1px dotted $textcolour_link;
-	}
-
-}
-
-.pro-info{
-	h2{
-		margin-bottom: $space-double;
-		@include fontSize(24px);
-	}
-
-	.lc{
-		border-bottom: 1px dotted $grey2;
-	}
-}
+@import "pro/pro-homepage";
 
 
-
-.jointhenetwork{
-	padding: $space + $space-half $space;
-	background-color: $offwhite;
-	margin-bottom: $space;
-	border: 1px solid $grey2;
-
-	ul{
-		margin-bottom: $space-double;
-
-		a{
-			border-bottom: 1px dotted $eu-blue;
-		}
-	}
-
-	li{
-		margin-bottom: $space-half;
-	}
-}
-
-
-.link-more{
-	font-weight: bold;
-	color: $textcolour_link;
-}
-
-
-.usefulinfo-links{
-	li{
-		margin-bottom: $space;
-		@include fontSize(18px);
-		font-weight: bold;
-	}
-
-	a{
-		border-bottom: 1px dotted $eu-blue;
-	}
-}
-
-.usefulinfo{
-	padding-top: $space + $space-half;
-}
-.usefulinfo-item{
-	margin-bottom: $space;
-
-	h3{
-		text-transform: uppercase;
-		margin-bottom: $space;
-	}
-}
-
-.usefulinfo-secondary{
-	.usefulinfo-item{
-		padding-top: $space;
-		border-top: 1px solid $grey2;
-	}
-}
-
-a.labs-link{
-	padding: $space;
-	display: block;
-	position: relative;
-	background-color: $eu-labs;
-	color: $white;
-	background-image: url("../../images/icons/labs.svg");
-	background-position: 1.6em 50%;
-	background-repeat: no-repeat;
-	background-size: 15%;
-	padding-left: 30%;
-
-	outline: 1px solid $eu-labs;
-	border: 5px solid #FFF;
-
-	h3{
-		color: $white;
-		margin-bottom: $space-half;
-	}
-}
-
-.home-news{
-	background-color: $offwhite;
-}
-
-.events-upcoming .event{
-	margin-bottom: $space;
-}
 
 
 // Generic page layout
@@ -381,7 +213,7 @@ a.labs-link{
 }
 
 
-.results-list{
+.results-list, .page-intro{
 	margin-bottom: $space-double;
 }
 

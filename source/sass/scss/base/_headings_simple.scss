@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6{
 	text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
 	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
 	margin-top: 0;
-	color: $textcolour_head;
+	//color: $textcolour_head;
 	
 	-ms-word-break: break-all;
 	     word-break: break-all;

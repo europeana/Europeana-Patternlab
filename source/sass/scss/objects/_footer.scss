@@ -17,6 +17,9 @@
 		color: $footer_headings;
 		font-size: $font-size-norm;
 		text-transform: uppercase;
+		font-weight: bold;
+		line-height: 1;
+		margin-bottom: $space;
 	}
 
 
@@ -34,7 +37,7 @@
 
 	
 	//layout styles
-	div[class^='l-']{
+	div[class^='l-'], .signup{
 		margin-bottom: $space;
 	}
 
@@ -57,14 +60,6 @@
 		@extend %grid__item;
 	}
 
-	.signup{
-		margin-bottom: $space;
-
-		label{
-			font-weight: bold;
-		}
-	}
-
 
 	.l-mission p{
 		font-size: $font-size-med;
@@ -72,15 +67,16 @@
 	}
 	.copyright {
 		font-size: $font-size-sm;
-	}
-
-	.newsletter-options label{
-		display: inline;
-		margin-right: $space-half;
-		padding: 0;
+		color: #777777;
 	}
 
 }
+
+.footer_logo{
+	margin-left: -$space;
+}
+
+
 
 .social-links{ 
 
@@ -112,9 +108,7 @@
 	.nav a{
 		display: block;
 		color: $footer_text;
-		font-weight: bold;
-		text-decoration: underline;
-		font-size: $font-size-slightly-smaller;
+		border-bottom: 1px dotted $blue-dark;
 
 		&:hover{
 			color: $textcolour_link;

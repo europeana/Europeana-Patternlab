@@ -1,16 +1,25 @@
 .header {
 	background: rgba($white, 0.85);
-	padding: 0;
 	position: fixed;
+	padding: 0;
 	z-index: 100;
 	width: 100%;
 	min-height: $globalnavheight;
-	border-top: 6px solid $accent;
 
 	@include box-shadow(rgba($gray-med, 0.2) 0 0 3px);
-
+	
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
+
+	& > .cf{
+		border-top: 6px solid $accent;
+	}
+
+	@media all and (min-width: $bp-small) {
+		//position: fixed;
+	}
 }
 
 .logo {

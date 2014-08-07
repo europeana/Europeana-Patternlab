@@ -19,18 +19,20 @@
 //  top tab divider:  			#dedede
 //  
 //  result title text: 			#212121
-//  result descriotiin text: 	#575757
+//  result description text: 	#575757
 //  results divider line: 		#dedede
 //  
 //  view options bg: #fafafa
 //  view options back to top bg: #dedede
 //  view options back to top top border: #cecece
 //  
-//  
+//  Search Home bg: #EFEFED
 //  
 
 //Neutrals
 $grey2 			: #e7e7e7;
+$grey3 			: #dedede;
+$blue-grey		: #C8D5D7;
 
 // Neutrals
 $white 			: #FFFFFF;
@@ -160,6 +162,7 @@ $globalnavheight: $space-triple;
 
 // Global Off screen navigation
 $menuwidth_right: 300px;
+$menu_top: 300px;
 
 //Breakpoints
 $bp-small : 24em;
