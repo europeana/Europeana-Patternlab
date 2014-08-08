@@ -81,7 +81,7 @@
 	}
 
 	.lc{
-		border-bottom: 1px dotted $grey2;
+		border-bottom: 1px solid $grey3;
 	}
 }
 
@@ -91,7 +91,7 @@
 	padding: $space + $space-half $space;
 	background-color: $white;
 	margin-bottom: $space;
-	border: 1px solid $grey2;
+	border: 1px solid $grey3;
 	@include fontSize(18px);
 
 	ul{
@@ -107,6 +107,12 @@
 	}
 }
 
+.section-title{
+	text-transform: uppercase;
+	color: $footer_headings;
+	margin-bottom: $space + $space-half;
+	letter-spacing: 0;
+}
 
 .link-more{
 	font-weight: bold;
@@ -144,7 +150,7 @@
 .usefulinfo-secondary{
 	.usefulinfo-item{
 		padding-top: $space;
-		border-top: 1px solid $grey2;
+		border-top: 1px solid $grey3;
 	}
 }
 

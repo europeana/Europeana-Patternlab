@@ -105,14 +105,21 @@
 	border-top: 1px solid #a0a0a0;
 	padding: $space 0;
 
-	.nav a{
-		display: block;
-		color: $footer_text;
-		border-bottom: 1px dotted $blue-dark;
+	.nav{
 
-		&:hover{
-			color: $textcolour_link;
+		margin-bottom: $space-half;
+
+		a{
+			display: block;
+			color: $footer_text;
+			border-bottom: 1px dotted $blue-dark;
+			margin-right: 0.2em;
+
+			&:hover{
+				color: $textcolour_link;
+			}
 		}
+
 	}
 }
 
