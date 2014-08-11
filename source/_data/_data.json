@@ -7,7 +7,7 @@
 	],
 	"js_files": [
 		{
-			"path": "../../js/init-ck.js"
+			"path": "../../js/global-compiled.js"
 		}
 	],
 	"img": {
