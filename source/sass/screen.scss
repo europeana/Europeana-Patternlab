@@ -52,7 +52,8 @@
 @import "scss/base/global-classes";
 @import "scss/base/main";
 @import "scss/base/links";
-@import "scss/base/headings";
+//@import "scss/base/headings";
+@import "scss/base/headings_simple";
 @import "scss/base/text";
 @import "scss/base/code";
 @import "scss/base/lists";
@@ -90,7 +91,7 @@
 // Global icons (svg)
 @import "scss/objects/icons/svgicons";
 //Icon fonts
-//@import "scss/objects/icons";
+//@import "scss/objects/icons/icons_fonts";
 
 @import "scss/objects/buttons";
 @import "scss/objects/tags";
