@@ -86,7 +86,6 @@ $textcolour_highlight: $accent;
 // Generic page layout
 .l-page{
 
-	$space-top: $space-triple;
 	position: relative;
 	background: $white; // fallback
 	
@@ -109,23 +108,7 @@ $textcolour_highlight: $accent;
 		}
 	}
 
-	.l-breadcrumbs{
-		background-color: #F8F8F8;
-		padding: $space;
-		display: table;
-		font-size: $font-size-slightly-smaller;
-		width: 100%;
 
-		@media all and (min-width: $bp-med) {
-			height: $space-top;
-		}
-
-		.breadcrumbs{
-			display: table-cell;
-			vertical-align: middle;
-			width: 75%;
-		}
-	}
 
 	.textcontent{
 		
@@ -154,7 +137,7 @@ $textcolour_highlight: $accent;
 			content: '';
 			display: block;
 			width: 100%;
-			height: $globalnavheight + $space-top;
+			height: $globalnavheight + $space-triple;
 			position: absolute;
 			top: 0; 
 			left: 0;
@@ -195,7 +178,26 @@ $textcolour_highlight: $accent;
 }
 
 
-// List page
+// breadcrumbs and
+
+.l-breadcrumbs{
+	background-color: #F8F8F8;
+	padding: $space;
+	display: table;
+	font-size: $font-size-slightly-smaller;
+	width: 100%;
+
+	@media all and (min-width: $bp-med) {
+		height: $space-triple;
+	}
+
+	.breadcrumbs{
+		display: table-cell;
+		vertical-align: middle;
+		width: 75%;
+	}
+}
+
 .sortby{
 	display: table-cell;
 	width: 25%;
