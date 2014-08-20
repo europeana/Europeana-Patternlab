@@ -30,7 +30,6 @@
 			<svg class="icon icon-search">
 				<use xlink:href="#icon-search"></use>
 			</svg>
-
 			<span class="is-vishidden">Search</span>
 		</a>
 
@@ -55,15 +54,27 @@
 <nav class="drawer menu-right">
 
 	<div class="searchfield">
-		mini search here	
+		<form action="#" id="search_box">
+			<input type="text" id="search" name="search" placeholder="Search Europeana" />
+			<button type="submit" class="search_btn">
+				<svg class="icon icon-search">
+					<use xlink:href="#icon-search"></use>
+				</svg>
+				<span>Search</span>
+			</button>
+		</form>
 	</div>
 
     <ul>
-        <li><a href="#">Broccoli</a></li>
-        <li><a href="#">Tomato</a></li>
-        <li><a href="#">Cucumber</a></li>
-        <li><a href="#">Kale</a></li>
-        <li><a href="#">Celery</a></li>
+        <li><a href="#">Primary 1</a></li>
+        <li><a href="#">Primary 2</a></li>
+        <li><a href="#">Primary 3</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="#">Secondary 1</a></li>
+        <li><a href="#">Secondary 2</a></li>
+        <li><a href="#">Secondary 3</a></li>
     </ul>
 </nav>
 
