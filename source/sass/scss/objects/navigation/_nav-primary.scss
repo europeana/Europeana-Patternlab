@@ -1,16 +1,11 @@
 
 .nav_primary{
 
-	clear: both;
-	overflow: hidden;
-	max-height: 0;
 	@include font-size(1);
 
 	a {
 		display: block;
-		color: $textcolour_body;
 		padding: 0.6em;
-		border-top: 1px solid $gray-light;
 		font-weight: bold;
 
 		&:after{
@@ -22,15 +17,11 @@
 
 		&:hover{
 			text-decoration: none;
-			background-color: $offwhite;
 		}
 		&:hover:after{
 			border-color: $textcolour_body;
 		}
 
-		.current:after{
-			border-color: $accent;
-		}
 	}
 
 	&.active {
@@ -44,20 +35,43 @@
 		margin-top: 0.2em;
 	}
 
-	@media all and (min-width: $bp-med) {
-		max-height: none;
-		float: left;
-		clear: none;
 
-		margin-top: 0.9em;
 
-		li {
+	// primary nav in header
+	.header & {
+		clear: both;
+		overflow: hidden;
+		max-height: 0;
+
+		a{
+			color: $textcolour_body;
+			border-top: 1px solid $gray-light;
+
+			&:hover{
+				background-color: $offwhite;
+			}
+			.current:after{
+				border-color: $accent;
+			}
+		}
+
+		@media all and (min-width: $bp-med) {
+			max-height: none;
 			float: left;
-		}
+			clear: none;
 
-		a {
-			border: 0;
+			margin-top: 0.9em;
+
+			li {
+				float: left;
+			}
+
+			a {
+				border: 0;
+			}
+			
 		}
-		
 	}
+
+
 }

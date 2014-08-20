@@ -149,21 +149,28 @@ $textcolour_highlight: $accent;
 
 }
 
-.maincontent > .title{
+
+// Various spacings and margins
+
+
+.help-contact img{
+	margin-bottom: $space-half;
+}
+
+.downloads, .help-contact, .contact-methods, .jobdetails, .email{
+	display: block;
+	margin-bottom: $space;
+}
+
+.results-list, .page-intro, .articleheader{
+	margin-bottom: $space-double;
+}
+
+.maincontent > .title, .team{
 	margin-bottom: $space-triple;
 }
 
-.help-contact{
-	margin-bottom: $space;
 
-	img{
-		margin-bottom: $space-half;
-	}
-}
-
-.downloads{
-	margin-bottom: $space;
-}
 
 // The 3 related item links at the bottom of the page
 .related-items{
@@ -179,7 +186,7 @@ $textcolour_highlight: $accent;
 }
 
 
-// breadcrumbs and
+// breadcrumbs and sorting
 
 .l-breadcrumbs{
 	background-color: #F8F8F8;
@@ -215,9 +222,7 @@ $textcolour_highlight: $accent;
 }
 
 
-.results-list, .page-intro{
-	margin-bottom: $space-double;
-}
+
 
 @import "scss/objects/lists/list-item";
 @import "scss/objects/metadata";
@@ -261,12 +266,6 @@ $textcolour_highlight: $accent;
 	}
 }
 
-
-
-//Blog detail
-.articleheader{
-	margin-bottom: $space-double;
-}
 
 
 
@@ -332,10 +331,7 @@ $textcolour_highlight: $accent;
 
 }
 
-.contact-methods, .jobdetails, .email{
-	display: block;
-	margin-bottom: $space;
-}
+
 
 .contact-methods {
 	.job-title{
@@ -344,8 +340,5 @@ $textcolour_highlight: $accent;
 }
 
 
-//People list
-.team{
-	margin-bottom: $space-triple;
-}
+
 
