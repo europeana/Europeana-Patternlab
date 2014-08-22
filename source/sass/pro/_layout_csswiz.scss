@@ -27,14 +27,10 @@
 	.l-news{
 		@extend %grid__item;
 
-		@extend %lap--two-thirds;
+		//@extend %lap--two-thirds;
 		margin-bottom: $space;
 	}
 	.l-post{
-		@extend %grid__item;
-		@extend %smallup--one-half;
-	}
-	.l-newsfeed{
 		@extend %grid__item;
 		@extend %lap--one-third;
 	}
