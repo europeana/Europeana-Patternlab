@@ -133,6 +133,10 @@
 	a{
 		border-bottom: 1px dotted $eu-blue;
 	}
+
+	a[href*="//"]:not([href*="pro.europeana.com"]):after{
+		@extend %external_link_icon;
+	}
 }
 
 .usefulinfo{
