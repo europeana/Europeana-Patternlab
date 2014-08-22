@@ -9,8 +9,9 @@ a {
 	}
 }
 
-a[href^="http://"] {
-    background: center right no-repeat;
+a[href*="//"]:not([href*="pro.europeana.com"]):after{
+	content: '';
+	background: center right no-repeat;
     @include svg-bg-with-fallback("icons/link_external");
     background-size: contain;
     padding-right: 1.4em;
