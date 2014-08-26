@@ -24,7 +24,11 @@
 
  --><div class="item-details">
 		
-		<h2 class="title"><a href="#">{{ title }}</a></h2>
+		<h2 class="title"><a href="#">{{ headline.medium }}</a></h2>
+
+		{{# search }}
+			{{> molecules-breadcrumbs }}
+		{{/ search }}
 
 		{{# publication }}
 		<div class="item-meta-primary">
@@ -40,6 +44,8 @@
 		{{/ blog }}
 
 		<div class="item-meta-secondary">
+
+
 
 			{{# event }}
 				{{> molecules-item-location }}

@@ -206,6 +206,40 @@ $textcolour_highlight: $accent;
 	}
 }
 
+.item-details{
+	.breadcrumbs{
+		font-size: $font-size-slightly-smaller;
+	}
+
+	.icon-home{
+		display: none;
+	}
+}
+
+.l-filter{
+	padding: $space-half $space;
+	background-color: $white;
+}
+
+.filters{
+
+	font-size: $font-size-slightly-smaller;
+
+	.nav, .title{
+		display: inline;
+	}
+
+	.title, label{
+		margin-right: $space-half;
+	}
+}
+.searchterms{
+	margin-top: $space-half;
+}
+.resultsnum{
+	color: $gray-light;
+}
+
 .sortby{
 	display: table-cell;
 	width: 25%;
