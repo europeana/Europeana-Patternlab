@@ -67,7 +67,7 @@
 }
 
 .help-contact{
-	@extend %one-half;
+	//@extend %one-half;
 	@extend %lap--one-whole;
 }
 
@@ -122,7 +122,7 @@
 
 
 //Event page
-.speakers .people-list, .team .results-list{
+.people-list, .team .results-list{
 	@extend %grid;
 
 	 li{

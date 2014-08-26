@@ -23,45 +23,40 @@
 
 					<h1 class="title">{{ headline.medium }}</h1>
 
-					
-
 					<div class="item-meta-primary">
-						<span class="item-payscale">€2200—€2800 p/m (Scale 9-10)</span>
-
-						{{> molecules-item-location }}
-						
+						{{> molecules-item-department(team:"Europeana Tech") }}
 					</div>
 
 					<div class="item-meta-secondary">
-						From: {{> molecules-item-date }} to: {{> molecules-item-date }}
-						{{> molecules-item-department:() }}
+						Expected timeframe: {{> molecules-item-date }} to:&nbsp;&nbsp; {{> molecules-item-date }}
 					</div>
 
-					{{> molecules-item-deadline }}
-					
+					<div class="item-meta-tertiary">
+						<h4>Chaired by:</h4>
+						<ul class="people-list">
+							{{#listItems.two}}<li>{{> molecules-person-block-small }}</li>{{/listItems.two}}
+						</ul>
+
+					</div>
 				</div>
 
 
 
 				<div class="prose">
-				{{> organisms-article-body }}
+					{{> organisms-article-body }}
 				</div>
+
+
 			</div>
+
+			{{> molecules-related-images(title: "Related:") }}
 
 		</article>
 		</div><!--
 
 	 --><div class="l-sidebar">
 	 		<div class="inner">
-
 				{{> molecules-help-contact(title: "Need Help?") }}
-
-				
-				<div class="downloads">
-					<h4>Downloads</h4>
-					{{> molecules-file-list-small }}
-				</div>
-				
 			</div>
 
 		</div>
