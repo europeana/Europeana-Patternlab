@@ -1,5 +1,11 @@
 /*------------------------------------*\
     Media grid - flowing grid of items, eg. image thumbnails
+
+
+    The default is 3 columns on desktop, dropping to one column on mobile.
+	Use modifier class .fourcols or .fivecols to show 4 or 5 columns
+	respectively.
+	Each will drop one column as it decreases in size.
 \*------------------------------------*/
 
 
