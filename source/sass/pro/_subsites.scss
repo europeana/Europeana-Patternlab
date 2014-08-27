@@ -1,0 +1,49 @@
+
+// Set subsite colour variable here
+$subsite_colour: $eu_yellow;
+
+
+// this is the subsite body class
+.europeana_pro_subsite{
+ 
+	.nav-toggle-sites
+	{
+		background-color: $subsite_colour;
+	}
+
+	.subsite-banner{
+
+		min-height: 8*$space;
+		background-color: $subsite_colour;
+		position: relative;
+
+
+		&::after{
+			content: "";
+			background: url("../../images/sample/pro-background.jpg") 50% 50%;
+			-webkit-background-size: cover;
+			background-size: cover;
+			-webkit-filter: grayscale(100%);
+			opacity: 0.5;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: 1; 
+		}
+	}
+
+
+
+	.subsite-banner + .maincontent{
+		padding-top: $space;
+	}
+
+	.header > .cf,
+	.nav_primary .current:after
+	{
+		border-color: $subsite_colour;
+	}
+
+}

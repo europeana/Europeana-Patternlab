@@ -79,6 +79,7 @@ $textcolour_highlight: $accent;
 
 // Home page
 @import "pro/pro-homepage";
+@import "pro/subsites";
 
 
 
@@ -206,6 +207,8 @@ $textcolour_highlight: $accent;
 	}
 }
 
+
+// Search results
 .item-details{
 	.breadcrumbs{
 		font-size: $font-size-slightly-smaller;
@@ -374,5 +377,8 @@ $textcolour_highlight: $accent;
 }
 
 
-
+.subsite-banner{
+	background-color: $accent;
+	min-height: $space-triple;
+}
 

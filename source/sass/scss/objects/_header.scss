@@ -13,13 +13,14 @@
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 
-	& > .cf{
-		border-top: 6px solid $accent;
-	}
 
 	// @media all and (min-width: $bp-small) {
 	// 	//position: fixed;
 	// }
+}
+
+.header > .cf{
+	border-top: 6px solid $accent;
 }
 
 .logo {
