@@ -5,8 +5,6 @@
 
 .l-grid-media{
 
-	//padding: 2px;
-
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -45,5 +43,34 @@
 
 	a{
 		display: block;
+	}
+
+
+	&.fourcols{
+		> li, >.gi{
+
+			width: 49%;
+
+			@media all and (min-width: $bp-small) {
+				width: 31.333%;
+			}
+			@media all and (min-width: $bp-med) {
+				width: 24%;
+			}
+		}
+	}
+
+	&.fivecols{
+		> li, >.gi{
+			
+			width: 31.333%;
+
+			@media all and (min-width: $bp-small) {
+				width: 24%;
+			}
+			@media all and (min-width: $bp-med) {
+				width: 19%;
+			}
+		}
 	}
 }
