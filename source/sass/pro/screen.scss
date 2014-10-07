@@ -376,9 +376,18 @@ $textcolour_highlight: $accent;
 	}
 }
 
-
+//Sub site common
 .subsite-banner{
 	background-color: $accent;
-	min-height: $space-triple;
+	min-height: 8*$space;
+	background-position: 50% 50%;
+	background-image: url("../../images/sample/pro-background.jpg");
+
+	-webkit-background-size: cover;
+	background-size: cover;
 }
+
+	.subsite-banner + .maincontent{
+		padding-top: $space;
+	}
 

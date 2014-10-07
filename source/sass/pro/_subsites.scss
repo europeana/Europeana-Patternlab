@@ -1,10 +1,13 @@
 
+
+
+
 // Set subsite colour variable here
-$subsite_colour: $eu_pink;
+$subsite_colour: #00AEEF;
 
 
-// this is the subsite body class
-.europeana_pro_subsite{
+// this is the subsite body class for the Cloud sub site
+.europeana_subsite_cloud{
  
 	.nav-toggle-sites
 	{
@@ -12,32 +15,33 @@ $subsite_colour: $eu_pink;
 	}
 
 	.subsite-banner{
-
-		min-height: 8*$space;
 		background-color: $subsite_colour;
-		position: relative;
-
-
-		&::after{
-			content: "";
-			background: url("../../images/sample/pro-background.jpg") 50% 50%;
-			-webkit-background-size: cover;
-			background-size: cover;
-			-webkit-filter: grayscale(100%);
-			opacity: 0.5;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			position: absolute;
-			z-index: 1; 
-		}
 	}
 
+	.header > .cf,
+	.nav_primary .current:after
+	{
+		border-color: $subsite_colour;
+	}
+
+}
+
+// this is the subsite body class for the Creative sub site
 
 
-	.subsite-banner + .maincontent{
-		padding-top: $space;
+// Set subsite colour variable here
+$subsite_colour: #FF0066;
+
+
+.europeana_subsite_creative{
+ 
+	.nav-toggle-sites
+	{
+		background-color: $subsite_colour;
+	}
+
+	.subsite-banner{
+		background-color: $subsite_colour;
 	}
 
 	.header > .cf,
