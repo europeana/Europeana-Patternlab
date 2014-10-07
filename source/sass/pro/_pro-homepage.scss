@@ -1,7 +1,6 @@
 .pro-hero{
 
 	height: 80%;
-	padding-top: 10em;
 
 	background: url("../../images/sample/pro-background.jpg") top center;
 	-webkit-background-size: cover;
@@ -20,6 +19,7 @@
 
 	.hero-text{
 		position: absolute;
+		z-index: 10;
 		bottom: 1.4em;
 		background-color: rgba(#FFF, 0.7);
 		padding: $space;
@@ -37,6 +37,17 @@
 			font-size: 1.6em;
 			color: $textcolour_head;
 		}
+	}
+
+	.hero-link{
+		position: absolute;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		font-size: 0;
 	}
 }
 
