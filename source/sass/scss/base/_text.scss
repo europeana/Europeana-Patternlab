@@ -67,20 +67,6 @@ small{
 
     color: $textcolour_body;
 
-    h1{
-    //@extend .gamma;
-    //text-transform: uppercase;
-    //color: $textcolour_highlight;
-    }
-
-    h2{
-    //@extend .delta;
-    }
-
-    h3{
-    //@extend .epsilon;
-    }
-
     section, .section{
         margin-bottom: 3.2em;
         padding: 0 $pad;
@@ -95,7 +81,7 @@ small{
     }
 
     li{
-        margin-bottom: $space-half;
+        margin-bottom: $space-quarter;
     }
 
     ul {
@@ -110,6 +96,14 @@ small{
 
     ul ul, ul ul>li, ol ol, ol ol>li{
         margin-bottom: 0;
+    }
+
+    ul ul>li {
+        list-style: circle;
+    }
+
+    ol ol>li {
+        list-style: lower-latin;
     }
     
     img{
