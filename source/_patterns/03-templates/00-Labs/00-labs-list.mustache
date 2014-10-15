@@ -1,10 +1,12 @@
-<div class="site_labs site_wrapper">
+
 
 {{> organisms-header }}
 
+<main role="main">
+
 {{> molecules-block-content-header }}
 
-<section role="main" class="grid_wrapper">
+<section class="grid_wrapper">
 
 	<div class="grid">
 		<div class="sidebar">
@@ -22,7 +24,7 @@
 
 	 --><div class="main-content">
 
-			<ul class="post-list" >
+			<ul class="post-list l-post-list" >
 
 				<li>{{> molecules-labs-item-main }}</li><!-- 
 			 --><li>{{> molecules-labs-item-main }}</li><!-- 
@@ -43,6 +45,7 @@
 
 </section>
 
-{{> organisms-footer(newsletter: true) }}
+</main>
+<!-- End Content -->
 
-</div>
+{{> organisms-footer(newsletter: true) }}

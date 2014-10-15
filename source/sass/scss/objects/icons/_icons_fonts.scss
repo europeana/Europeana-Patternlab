@@ -29,19 +29,6 @@
   color: $textcolour_highlight;
 }
 
-
-
-@font-face {
-  font-family: "SSSocialCircle";
-  src: url('../fonts/ss-social-circle/ss-social-circle.eot');
-  src: url('../fonts/ss-social-circle/ss-social-circle.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/ss-social-circle/ss-social-circle.woff') format('woff'),
-       url('../fonts/ss-social-circle/ss-social-circle.ttf')  format('truetype'),
-       url('../fonts/ss-social-circle/ss-social-circle.svg#SSSocialCircle') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @font-face {
   font-family: "SSStandard";
   src: url('../fonts/symbolset/ss-standard.eot');
@@ -95,13 +82,6 @@ html:hover [class^="icon-"]{-ms-zoom: 1;}
   font-family: "SSStandard";
 }
 
-// Social icons
-.icon-social,
-[class^="icon-social-"]:before, [class*=" icon-social-"]:before,
-[class^="icon-social-"].right:before, [class*=" icon-social-"].right:before{
-  font-family: "SSSocialCircle";
-}
-
 .icon-license,
 [class^="icon-license-"]:before, [class*=" icon-license-"]:before {
   font-family: 'cc-licenses';
@@ -114,61 +94,6 @@ html:hover [class^="icon-"]{-ms-zoom: 1;}
 
 //standard
 .icon-cursor:before,.icon-cursor.right:after{content:''}.icon-crosshair:before,.icon-crosshair.right:after{content:'⌖'}.icon-search:before,.icon-search.right:after{content:'🔎'}.icon-zoomin:before,.icon-zoomin.right:after{content:''}.icon-zoomout:before,.icon-zoomout.right:after{content:''}.icon-view:before,.icon-view.right:after{content:'👀'}.icon-attach:before,.icon-attach.right:after{content:'📎'}.icon-link:before,.icon-link.right:after{content:'🔗'}.icon-move:before,.icon-move.right:after{content:''}.icon-write:before,.icon-write.right:after{content:'✎'}.icon-writingdisabled:before,.icon-writingdisabled.right:after{content:''}.icon-erase:before,.icon-erase.right:after{content:'✐'}.icon-compose:before,.icon-compose.right:after{content:'📝'}.icon-lock:before,.icon-lock.right:after{content:'🔒'}.icon-unlock:before,.icon-unlock.right:after{content:'🔓'}.icon-key:before,.icon-key.right:after{content:'🔑'}.icon-backspace:before,.icon-backspace.right:after{content:'⌫'}.icon-ban:before,.icon-ban.right:after{content:'🚫'}.icon-trash:before,.icon-trash.right:after{content:''}.icon-target:before,.icon-target.right:after{content:'◎'}.icon-tag:before,.icon-tag.right:after{content:''}.icon-bookmark:before,.icon-bookmark.right:after{content:'🔖'}.icon-flag:before,.icon-flag.right:after{content:'⚑'}.icon-like:before,.icon-like.right:after{content:'👍'}.icon-dislike:before,.icon-dislike.right:after{content:'👎'}.icon-heart:before,.icon-heart.right:after{content:'♥'}.icon-halfheart:before,.icon-halfheart.right:after{content:''}.icon-star:before,.icon-star.right:after{content:'⋆'}.icon-halfstar:before,.icon-halfstar.right:after{content:''}.icon-sample:before,.icon-sample.right:after{content:''}.icon-crop:before,.icon-crop.right:after{content:''}.icon-layers:before,.icon-layers.right:after{content:''}.icon-fill:before,.icon-fill.right:after{content:''}.icon-stroke:before,.icon-stroke.right:after{content:''}.icon-phone:before,.icon-phone.right:after{content:'📞'}.icon-phonedisabled:before,.icon-phonedisabled.right:after{content:''}.icon-rss:before,.icon-rss.right:after{content:''}.icon-facetime:before,.icon-facetime.right:after{content:''}.icon-reply:before,.icon-reply.right:after{content:'↩'}.icon-send:before,.icon-send.right:after{content:''}.icon-mail:before,.icon-mail.right:after{content:'✉'}.icon-inbox:before,.icon-inbox.right:after{content:'📥'}.icon-chat:before,.icon-chat.right:after{content:'💬'}.icon-ellipsischat:before,.icon-ellipsischat.right:after{content:''}.icon-ellipsis:before,.icon-ellipsis.right:after{content:'…'}.icon-user:before,.icon-user.right:after{content:'👤'}.icon-femaleuser:before,.icon-femaleuser.right:after{content:'👧'}.icon-users:before,.icon-users.right:after{content:'👥'}.icon-cart:before,.icon-cart.right:after{content:''}.icon-creditcard:before,.icon-creditcard.right:after{content:'💳'}.icon-dollarsign:before,.icon-dollarsign.right:after{content:'💲'}.icon-barchart:before,.icon-barchart.right:after{content:'📊'}.icon-piechart:before,.icon-piechart.right:after{content:''}.icon-box:before,.icon-box.right:after{content:'📦'}.icon-home:before,.icon-home.right:after{content:'⌂'}.icon-buildings:before,.icon-buildings.right:after{content:'🏢'}.icon-warehouse:before,.icon-warehouse.right:after{content:''}.icon-globe:before,.icon-globe.right:after{content:'🌎'}.icon-navigate:before,.icon-navigate.right:after{content:''}.icon-compass:before,.icon-compass.right:after{content:''}.icon-signpost:before,.icon-signpost.right:after{content:''}.icon-map:before,.icon-map.right:after{content:''}.icon-location:before,.icon-location.right:after{content:''}.icon-pin:before,.icon-pin.right:after{content:'📍'}.icon-database:before,.icon-database.right:after{content:''}.icon-hdd:before,.icon-hdd.right:after{content:''}.icon-music:before,.icon-music.right:after{content:'♫'}.icon-mic:before,.icon-mic.right:after{content:'🎤'}.icon-volume:before,.icon-volume.right:after{content:'🔈'}.icon-lowvolume:before,.icon-lowvolume.right:after{content:'🔉'}.icon-highvolume:before,.icon-highvolume.right:after{content:'🔊'}.icon-airplay:before,.icon-airplay.right:after{content:''}.icon-camera:before,.icon-camera.right:after{content:'📷'}.icon-picture:before,.icon-picture.right:after{content:'🌄'}.icon-video:before,.icon-video.right:after{content:'📹'}.icon-play:before,.icon-play.right:after{content:'▶'}.icon-pause:before,.icon-pause.right:after{content:''}.icon-stop:before,.icon-stop.right:after{content:'■'}.icon-record:before,.icon-record.right:after{content:'●'}.icon-rewind:before,.icon-rewind.right:after{content:'⏪'}.icon-fastforward:before,.icon-fastforward.right:after{content:'⏩'}.icon-skipback:before,.icon-skipback.right:after{content:'⏮'}.icon-skipforward:before,.icon-skipforward.right:after{content:'⏭'}.icon-eject:before,.icon-eject.right:after{content:'⏏'}.icon-repeat:before,.icon-repeat.right:after{content:'🔁'}.icon-replay:before,.icon-replay.right:after{content:'↺'}.icon-shuffle:before,.icon-shuffle.right:after{content:'🔀'}.icon-book:before,.icon-book.right:after{content:'📕'}.icon-openbook:before,.icon-openbook.right:after{content:'📖'}.icon-notebook:before,.icon-notebook.right:after{content:'📓'}.icon-newspaper:before,.icon-newspaper.right:after{content:'📰'}.icon-grid:before,.icon-grid.right:after{content:''}.icon-rows:before,.icon-rows.right:after{content:''}.icon-columns:before,.icon-columns.right:after{content:''}.icon-thumbnails:before,.icon-thumbnails.right:after{content:''}.icon-filter:before,.icon-filter.right:after{content:''}.icon-desktop:before,.icon-desktop.right:after{content:'💻'}.icon-laptop:before,.icon-laptop.right:after{content:''}.icon-tablet:before,.icon-tablet.right:after{content:''}.icon-cell:before,.icon-cell.right:after{content:'📱'}.icon-battery:before,.icon-battery.right:after{content:'🔋'}.icon-highbattery:before,.icon-highbattery.right:after{content:''}.icon-mediumbattery:before,.icon-mediumbattery.right:after{content:''}.icon-lowbattery:before,.icon-lowbattery.right:after{content:''}.icon-emptybattery:before,.icon-emptybattery.right:after{content:''}.icon-lightbulb:before,.icon-lightbulb.right:after{content:'💡'}.icon-downloadcloud:before,.icon-downloadcloud.right:after{content:''}.icon-download:before,.icon-download.right:after{content:''}.icon-uploadcloud:before,.icon-uploadcloud.right:after{content:''}.icon-upload:before,.icon-upload.right:after{content:''}.icon-fork:before,.icon-fork.right:after{content:''}.icon-merge:before,.icon-merge.right:after{content:''}.icon-transfer:before,.icon-transfer.right:after{content:'⇆'}.icon-refresh:before,.icon-refresh.right:after{content:'↻'}.icon-sync:before,.icon-sync.right:after{content:''}.icon-loading:before,.icon-loading.right:after{content:''}.icon-wifi:before,.icon-wifi.right:after{content:''}.icon-connection:before,.icon-connection.right:after{content:''}.icon-file:before,.icon-file.right:after{content:'📄'}.icon-folder:before,.icon-folder.right:after{content:'📁'}.icon-quote:before,.icon-quote.right:after{content:'“'}.icon-text:before,.icon-text.right:after{content:''}.icon-font:before,.icon-font.right:after{content:''}.icon-print:before,.icon-print.right:after{content:'⎙'}.icon-fax:before,.icon-fax.right:after{content:'📠'}.icon-list:before,.icon-list.right:after{content:''}.icon-layout:before,.icon-layout.right:after{content:''}.icon-action:before,.icon-action.right:after{content:''}.icon-redirect:before,.icon-redirect.right:after{content:'↪'}.icon-expand:before,.icon-expand.right:after{content:'⤢'}.icon-contract:before,.icon-contract.right:after{content:''}.icon-help:before,.icon-help.right:after{content:'❓'}.icon-info:before,.icon-info.right:after{content:'ℹ'}.icon-alert:before,.icon-alert.right:after{content:'⚠'}.icon-caution:before,.icon-caution.right:after{content:'⛔'}.icon-logout:before,.icon-logout.right:after{content:''}.icon-plus:before,.icon-plus.right:after{content:'+'}.icon-hyphen:before,.icon-hyphen.right:after{content:'-'}.icon-check:before,.icon-check.right:after{content:'✓'}.icon-delete:before,.icon-delete.right:after{content:'␡'}.icon-settings:before,.icon-settings.right:after{content:'⚙'}.icon-dashboard:before,.icon-dashboard.right:after{content:''}.icon-notifications:before,.icon-notifications.right:after{content:'🔔'}.icon-notificationsdisabled:before,.icon-notificationsdisabled.right:after{content:'🔕'}.icon-clock:before,.icon-clock.right:after{content:'⏲'}.icon-stopwatch:before,.icon-stopwatch.right:after{content:'⏱'}.icon-calendar:before,.icon-calendar.right:after{content:'📅'}.icon-addcalendar:before,.icon-addcalendar.right:after{content:''}.icon-removecalendar:before,.icon-removecalendar.right:after{content:''}.icon-checkcalendar:before,.icon-checkcalendar.right:after{content:''}.icon-deletecalendar:before,.icon-deletecalendar.right:after{content:''}.icon-briefcase:before,.icon-briefcase.right:after{content:'💼'}.icon-cloud:before,.icon-cloud.right:after{content:'☁'}.icon-droplet:before,.icon-droplet.right:after{content:'💧'}.icon-flask:before,.icon-flask.right:after{content:''}.icon-up:before,.icon-up.right:after{content:'⬆'}.icon-upright:before,.icon-upright.right:after{content:'⬈'}.icon-right:before,.icon-right.right:after{content:'➡'}.icon-downright:before,.icon-downright.right:after{content:'⬊'}.icon-down:before,.icon-down.right:after{content:'⬇'}.icon-downleft:before,.icon-downleft.right:after{content:'⬋'}.icon-left:before,.icon-left.right:after{content:'⬅'}.icon-upleft:before,.icon-upleft.right:after{content:'⬉'}.icon-navigateup:before,.icon-navigateup.right:after{content:''}.icon-navigateright:before,.icon-navigateright.right:after{content:'▻'}.icon-navigatedown:before,.icon-navigatedown.right:after{content:''}.icon-navigateleft:before,.icon-navigateleft.right:after{content:'◅'}.icon-directup:before,.icon-directup.right:after{content:'▴'}.icon-directright:before,.icon-directright.right:after{content:'▹'}.icon-dropdown:before,.icon-dropdown.right:after{content:'▾'}.icon-directleft:before,.icon-directleft.right:after{content:'◃'}.icon-retweet:before,.icon-retweet.right:after{content:''}
-
-// social
-.icon-social-facebook:before,.icon-social-facebook.right:after{content:''}
-.icon-social-twitter:before,.icon-social-twitter.right:after{content:''}
-.icon-social-linkedin:before,.icon-social-linkedin.right:after{content:''}
-.icon-social-googleplus:before,.icon-social-googleplus.right:after{content:''}
-.icon-social-appdotnet:before,.icon-social-appdotnet.right:after{content:''}
-.icon-social-zerply:before,.icon-social-zerply.right:after{content:''}
-.icon-social-reddit:before,.icon-social-reddit.right:after{content:''}
-.icon-social-steam:before,.icon-social-steam.right:after{content:''}
-.icon-social-tumblr:before,.icon-social-tumblr.right:after{content:''}
-.icon-social-wordpress:before,.icon-social-wordpress.right:after{content:''}
-.icon-social-blogger:before,.icon-social-blogger.right:after{content:''}
-.icon-social-posterous:before,.icon-social-posterous.right:after{content:''}
-.icon-social-quora:before,.icon-social-quora.right:after{content:''}
-.icon-social-youtube:before,.icon-social-youtube.right:after{content:''}
-.icon-social-vimeo:before,.icon-social-vimeo.right:after{content:''}
-.icon-social-vine:before,.icon-social-vine.right:after{content:''}
-.icon-social-letterboxd:before,.icon-social-letterboxd.right:after{content:''}
-.icon-social-flickr:before,.icon-social-flickr.right:after{content:''}
-.icon-social-instagram:before,.icon-social-instagram.right:after{content:''}
-.icon-social-500px:before,.icon-social-500px.right:after{content:''}
-.icon-social-etsy:before,.icon-social-etsy.right:after{content:''}
-.icon-social-pinterest:before,.icon-social-pinterest.right:after{content:''}
-.icon-social-svpply:before,.icon-social-svpply.right:after{content:''}
-.icon-social-readmill:before,.icon-social-readmill.right:after{content:''}
-.icon-social-dropbox:before,.icon-social-dropbox.right:after{content:''}
-.icon-social-pinboard:before,.icon-social-pinboard.right:after{content:''}
-.icon-social-delicious:before,.icon-social-delicious.right:after{content:''}
-.icon-social-dribbble:before,.icon-social-dribbble.right:after{content:''}
-.icon-social-behance:before,.icon-social-behance.right:after{content:''}
-.icon-social-github:before,.icon-social-github.right:after{content:''}
-.icon-social-octocat:before,.icon-social-octocat.right:after{content:''}
-.icon-social-stackoverflow:before,.icon-social-stackoverflow.right:after{content:''}
-.icon-social-paypal:before,.icon-social-paypal.right:after{content:''}
-.icon-social-kickstarter:before,.icon-social-kickstarter.right:after{content:''}
-.icon-social-foursquare:before,.icon-social-foursquare.right:after{content:''}
-.icon-social-yelp:before,.icon-social-yelp.right:after{content:''}
-.icon-social-skype:before,.icon-social-skype.right:after{content:''}
-.icon-social-rdio:before,.icon-social-rdio.right:after{content:''}
-.icon-social-spotify:before,.icon-social-spotify.right:after{content:''}
-.icon-social-lastfm:before,.icon-social-lastfm.right:after{content:''}
-.icon-social-soundcloud:before,.icon-social-soundcloud.right:after{content:''}
-.icon-social-link:before,.icon-social-link.right:after{content:'🔗'}
-.icon-social-phone:before,.icon-social-phone.right:after{content:'📞'}
-.icon-social-mail:before,.icon-social-mail.right:after{content:'✉'}
-.icon-social-like:before,.icon-social-like.right:after{content:'👍'}
-.icon-social-rss:before,.icon-social-rss.right:after{content:''}
-.icon-social-share:before,.icon-social-share.right:after{content:''}
-.icon-social-apple:before,.icon-social-apple.right:after{content:''}
-.icon-social-microsoft:before,.icon-social-microsoft.right:after{content:''}
-.icon-social-windows:before,.icon-social-windows.right:after{content:''}
-.icon-social-android:before,.icon-social-android.right:after{content:''}
-.icon-social-blackberry:before,.icon-social-blackberry.right:after{content:''}
-
 
 // CC license icons
 .icon-license-nc:before {

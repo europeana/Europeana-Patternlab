@@ -11,6 +11,12 @@
 //Variables and Helpers
 @import "scss/generic/variables";
 @import "scss/generic/mixins";
+
+
+//SITE SPECIFIC VARIABLE OVERRIDES HERE
+$accent: $eu-user;
+$textcolour_highlight: $accent;
+
 @import "scss/generic/reset";
 
 /*------------------------------------*\
