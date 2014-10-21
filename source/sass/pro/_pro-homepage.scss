@@ -23,6 +23,7 @@
 		z-index: 10;
 		bottom: 1.4em;
 		background-color: rgba(#FFF, 0.7);
+		border-left: $accent 5px solid;
 		padding: $space;
 		width: 100%;
 
@@ -33,10 +34,23 @@
 		@media all and (min-width: $bp-med) {
 			width: 35%;
 		}
+	}
 
-		h1.title{
-			font-size: 1.6em;
-			color: $textcolour_head;
+	h1{
+		font-family: $font-secondary;
+		font-weight: normal;
+    	line-height: 1.1;
+    	margin-bottom: $space-half;
+    	//font-size: 1.6em;
+	}
+
+	h1 a{
+		color: $textcolour_head;
+		border-bottom: 1px dotted $textcolour_head;
+
+		&:hover, &:focus{
+			color: $accent;
+			border-color: $accent;
 		}
 	}
 
@@ -66,13 +80,15 @@
 }
 
 .promo-abouteuropeana{
-	background-color: $blue-dark;
+	background-color: $gray-dark;
+	border-top: 2px solid $accent;
+	
 	color: $white;
 
 	text-align: center;
 	@include fontSize(24px);
 	line-height: 1.2;
-
+	
 	margin-bottom: $space;
 
 	a{
