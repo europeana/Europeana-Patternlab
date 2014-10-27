@@ -10,7 +10,7 @@
 	background: $grey2;
 	padding: $space-triple $space;
 	color: $footer_text;
-	border-top: 6px solid $blue-dark;
+	border-top: 6px solid $gray-med;
 	font-size: $font-size-slightly-smaller;
 
 	.title{
@@ -89,7 +89,7 @@
 	
 	a{
 		font-size: 3em;
-		color: $blue-dark;
+		color: $gray-med;
 
 		&:hover {
 			color: $textcolour_link;
@@ -113,7 +113,7 @@
 		a{
 			display: block;
 			color: $footer_text;
-			border-bottom: 1px dotted $blue-dark;
+			border-bottom: 1px dotted $gray-med;
 			margin-right: 0.2em;
 
 			&:hover{

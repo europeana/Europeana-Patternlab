@@ -27,7 +27,7 @@
 .nav-toggle:hover, 
 .is-open-globalsearch .nav-toggle-search,
 .is-open-menu-right .nav-toggle-menu{
-	background-color: $blue-dark;
+	background-color: $offcanvas_bg;
 	color: $white;
 }
 
@@ -154,7 +154,7 @@
 		color: white;
 
 		&:hover{
-			background-color: lighten($blue-dark, 5);
+			background-color: lighten($offcanvas_bg, 5);
 		}
 		&:hover:after{
 			border-color: $white;
@@ -167,7 +167,7 @@
 
 	.secondary{
 		li{
-			border-bottom: 1px solid lighten($blue-dark, 5);
+			border-bottom: 1px solid lighten($offcanvas_bg, 5);
 		}
 	}
 
