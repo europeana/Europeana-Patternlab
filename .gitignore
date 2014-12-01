@@ -8,3 +8,5 @@ source/css
 *.sass-cache/
 *.sublime-project
 *.sublime-workspace
+
+*.codekit
