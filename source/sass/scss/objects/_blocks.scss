@@ -68,19 +68,25 @@
 
 /* Block Thumbnail with Headline */
 .block-thumb {
-	display: table;
 	width: 100%;
-
 	padding-top: $pad;
 
-	.b-inner {
-		display: table-row;
-		vertical-align: top;
-  		overflow: hidden;
+
+	@media all and (min-width: $bp-med) {
+		display: table;
+		table-layout: fixed;
+
+		.b-inner {
+			display: table-row;
+			vertical-align: top;
+	  		overflow: hidden;
+		}
 	}
 
+
+
 	.b-thumb {
-		@media all and (min-width: $bp-small-2) {
+		@media all and (min-width: $bp-med) {
 			display: table-cell;
 			vertical-align: top;	
 	  		width: 33.333%;
@@ -95,7 +101,7 @@
 	}
 
 	.b-text {
-		@media all and (min-width: $bp-small-2) {
+		@media all and (min-width: $bp-med) {
 			display: table-cell;
 			width: 66.666%;
 			padding: 0 $pad;

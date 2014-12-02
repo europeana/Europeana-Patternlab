@@ -157,12 +157,24 @@ $textcolour_highlight: $accent;
 // Various spacings and margins
 
 
-.help-contact img{
-	margin-bottom: $space-half;
+.help-contact{
+
+	img{
+		margin-bottom: $space-half;
+	}
+
+	.email{
+		display: block;
+		margin-bottom: $space;
+	}
 }
 
-.downloads, .help-contact, .contact-methods, .jobdetails, .email{
+.downloads, .help-contact, .contact-methods, .jobdetails{
 	display: block;
+	margin-bottom: $space;
+}
+
+.l-person{
 	margin-bottom: $space;
 }
 
