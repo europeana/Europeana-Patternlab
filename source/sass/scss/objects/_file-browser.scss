@@ -1,11 +1,9 @@
 
 
 .file-browser-list {
-    @media all and (min-width: $bp-small-2) {
-        display: table;
-        width: 100%;
-    }
-
+    display: block;
+    margin: 0;
+    width: 100%;
     margin-bottom: $space-triple;
 }
 
@@ -13,22 +11,25 @@
 
 .file-browser-item{
 
-    @media all and (min-width: $bp-small-2) {
+    display: block;
+    margin-bottom: 2px;
+
+    img{
+        margin: 0;
+        margin-right: 5px;
+    }
+
+    &> a{
         display: block;
-        margin-bottom: 2px;
+        padding: 5px;
+    }
+    
 
-        &> a{
-            display: block;
-            padding: 5px;
-        }
-
+    @media all and (min-width: $bp-small-2) {
+        
         .file-browser-label, .file-browser-icon{
             display: inline-block;
             vertical-align: middle;
-        }
-
-        .file-browser-icon{
-            margin-right: 5px;
         }
 
         .file-browser-filename {
@@ -69,6 +70,7 @@
 
 .file-browser-list a:hover {
     text-decoration: none;
+    border: none;
 }
 
 .file-browser-list a:hover .file-browser-filename {
