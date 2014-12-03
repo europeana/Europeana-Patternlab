@@ -98,6 +98,10 @@ small{
         margin-bottom: 0;
     }
 
+    p + ul, p + ol{
+        margin-top: -$space-half;
+    }
+
     ul ul>li {
         list-style: circle;
     }
