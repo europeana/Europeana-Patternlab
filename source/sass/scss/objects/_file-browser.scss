@@ -1,6 +1,6 @@
 
 
-.file-browser-list {
+.file-browser-list, ul.file-browser-list {
     display: block;
     margin: 0;
     width: 100%;
@@ -23,7 +23,7 @@
         display: block;
         padding: 5px;
     }
-    
+
 
     @media all and (min-width: $bp-small-2) {
         
