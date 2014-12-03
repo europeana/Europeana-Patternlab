@@ -39,15 +39,6 @@
     overflow: hidden;
 }
 
-// Anchor with fixed header
-a[name]:before {
-    $offset: $globalnavheight + $space;
-    content: "";
-    display: block;
-    margin: -$offset 0 0;
-    height: $offset;
-}
-
 
 /* Floats */
 .right {
