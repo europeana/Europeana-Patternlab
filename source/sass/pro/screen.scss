@@ -68,8 +68,14 @@ $textcolour_highlight: $accent;
 // Global icons (svg)
 @import "scss/objects/icons/svgicons";
 
+
+/*------------------------------------*\
+	Components
+\*------------------------------------*/
 @import "scss/objects/blocks";
 @import "scss/objects/dates";
+@import "scss/objects/file-browser";
+
 
 /*------------------------------------*\
 	site modules
@@ -169,7 +175,10 @@ $textcolour_highlight: $accent;
 	}
 }
 
-.downloads, .help-contact, .contact-methods, .jobdetails{
+.downloads, 
+.help-contact, 
+.contact-methods, 
+.jobdetails{
 	display: block;
 	margin-bottom: $space;
 }
@@ -178,11 +187,14 @@ $textcolour_highlight: $accent;
 	margin-bottom: $space;
 }
 
-.results-list, .page-intro, .articleheader{
+.results-list, 
+.page-intro, 
+.articleheader{
 	margin-bottom: $space-double;
 }
 
-.maincontent > .title, .team{
+.maincontent > .title, 
+.team{
 	margin-bottom: $space-triple;
 }
 
