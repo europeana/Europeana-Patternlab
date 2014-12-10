@@ -1,50 +1,43 @@
-<div class="site_wrapper">
+<div class="site_labs site_wrapper">
 
-{{> organisms-header-labs }}
+{{> organisms-header }}
 
-<div role="main" class="grid">
+{{> molecules-block-content-header }}
 
-	<div class="block block-content-header">
-		<div class="grid__item palm--one-whole push--palm--none three-quarters push--one-quarter">
-			{{# hero }}
-				<h1 class="title">{{ headline.short }}</h1>
-				<p class="subhead grid grid__item desk--one-half">{{ excerpt.short }}</p>
-			{{/ hero}}
+<section role="main" class="grid_wrapper">
+
+	<div class="grid">
+		<div class="sidebar">
+
+			<div class="subnav">
+
+				<h4 class="label epsilon"> Filter by:</h4>
+
+				{{> molecules-labs-subnav }}
+
+			</div>
+
+			{{> molecules-tertiary-nav }}
+		</div><!--
+
+	 --><div class="main-content">
+
+			<ul class="post-list" >
+			{{# mainprojects }}<li>{{> molecules-labs-item-main }}</li><!-- 
+			-->{{/ mainprojects }}
+
+			{{# projects }}<li>{{> molecules-labs-item }}</li><!-- 
+			-->{{/ projects }}
+			</ul>
+
+
+			{{> molecules-pagination }}
+
 		</div>
 	</div>
 
-	<div class="grid__item one-quarter palm--one-whole">
-		<div class="subnav">
+</section>
 
-			<h4 class="label epsilon"> Filter by:</h4>
-
-			{{> molecules-labs-subnav }}
-
-		</div>
-
-		<ul class="nav_tertiary">
-			<li><a href="">Contribute to the Gallery</a></li>
-			<li><a href="">Help Improve this content</a></li>
-		</ul>
-	</div><!--
-
- --><div class="grid__item three-quarters palm--one-whole">
-
-		<ul class="post-list grid" >
-			
-			{{# mainprojects }}<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item-main }}</li><!-- 
-			-->{{/ mainprojects }}
-
-			{{# projects }}<li class="grid__item one-whole desk--one-half">{{> molecules-labs-item }}</li><!-- 
-			-->{{/ projects }}
-		</ul>
-
-
- 		{{> molecules-pagination }}
-
- 	</div>
- </div>
-
-{{> organisms-footer }}
+{{> organisms-footer(newsletter: true) }}
 
 </div>

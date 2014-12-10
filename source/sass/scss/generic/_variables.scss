@@ -4,15 +4,44 @@
 
 //Base Colors
 
+
+
+//  footer bg $grey2 : #e7e7e7;
+//  footer section titles 	#74747b
+//  Footer text  #212121
+//  Footer icons,  top border, footer logo : #293745
+//  footer funded by line #777777
+//  footer seperator line: #a0a0a0
+//  
+//  sidebar bg: 				#f1f1ee
+//  sidebar dividers: 			#dedede
+//  
+//  top tab divider:  			#dedede
+//  
+//  result title text: 			#212121
+//  result description text: 	#575757
+//  results divider line: 		#dedede
+//  
+//  view options bg: #fafafa
+//  view options back to top bg: #dedede
+//  view options back to top top border: #cecece
+//  
+//  Search Home bg: #EFEFED
+//  
+
+//Neutrals
+$grey2 			: #e7e7e7;
+$grey3 			: #dedede;
+
 // Neutrals
 $white 			: #FFFFFF;
-$gray-lightest  : #F1F0EE;
 $offwhite 		: #F1F1EE;
 $paper 			: #D9D4CA;
+
 $gray-lighter 	: #CCCCCC;
 $gray-light 	: #A6A6A6;
 $gray-med 		: #4D4D4D;
-$gray-dark 		: #232323;
+$gray-dark 		: #212121;
 $black 			: #1A1A1A;
 
 //Europeana brand colours
@@ -23,7 +52,10 @@ $eu-blue 		: #1A8AC7;
 $eu-jade 		: #37B98B;
 $eu-raspberry 	: #E11D53;
 $eu-purple 		: #7F3978;
+$eu-pink        : #FE2D67;
 
+$blue-dark		: #293745;
+$blue-grey		: #C8D5D7;
 
 
 /////////////////////////////////////////////////////////
@@ -36,15 +68,19 @@ $eu-user: $eu-blue;
 $eu-labs: $eu-jade;
 $eu-pro: $eu-raspberry;
 
+//default highlight colour - can be overridden per site
+$accent: $eu-blue;
+
 // global page
 $page_bg: $white;
+
 
 // text
 // Light backgrounds
 $textcolour_head: $black;
 $textcolour_body: $gray-med;
 $textcolour_heavy: $gray-dark;
-$textcolour_highlight: $eu-jade; // Just for Labs at the mo
+$textcolour_highlight: $accent;
 $textcolour_link: $eu-blue;
 $text_secondary: $gray-light;
 
@@ -53,14 +89,20 @@ $textcolour_dark_body: $gray-light;
 $textcolour_dark_head: $offwhite;
 
 
+$footer_headings: #74747b; //grayblue
+$footer_text: $gray-dark;
+
+//Menus
+$offcanvas_bg: $blue-dark;
+
 //backgrounds
 $darkbg: $black;
 $block_bg: $offwhite;
 
 
 // buttons
-$tag_primary: $eu-blue;
-$tag_primary_text: $eu-blue;
+$tag_primary: $accent;
+$tag_primary_text: $accent;
 $tag_highlight: $gray-dark;
 
 //State, messaging colours
@@ -83,6 +125,7 @@ $font-code 		: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewri
 $font-size-norm : 1em;
 $font-size-slightly-smaller : 0.875em;
 $font-size-sm : 0.75em;
+$font-size-med : 1.2em;
 $font-size-large : 1.6em;
 $base-font-multiplier: 1;
 
@@ -93,10 +136,8 @@ $brand-twitter: #35ccff;
 $brand-linkedin: #217bc1;
 
 //Layout
-$max-width: 70rem;
+$max-width: 80rem;
 $offset-left-1: 4.5rem;
-
-$l-sidebar-width: 19.75rem;
 
 //Defaults
 $space : 1.6rem;
@@ -116,13 +157,19 @@ $pad-quarter :$pad/4;
 $border-med: 3px;
 $border-thick: 7px;
 
+// Global navigation
+$globalnavheight: $space-triple;
+
+// Global Off screen navigation
+$menuwidth_right: 300px;
+$menu_top: 300px;
 
 //Breakpoints
 $bp-small : 24em;
 $bp-small-2 : 30em;
 $bp-small-3 : 40em;
-$bp-med : 47em;
-$bp-large : 50em;
+$bp-med : 50em;
+$bp-large : 60em;
 $bp-xl : 70em;
 $bp-xxl : 90em;
 

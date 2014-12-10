@@ -1,26 +1,108 @@
-(function(w){
-	var sw = document.body.clientWidth,
-		sh = document.body.clientHeight;
-
-	$(w).resize(function(){ //Update dimensions on resize
-		sw = document.body.clientWidth;
-		sh = document.body.clientHeight;
-		
-		//updateAds();
-	});
 
 
-	//Navigation toggle
-	$('.nav-toggle-menu').click(function(e) {
-		e.preventDefault();
-		$(this).toggleClass('active');
-		$('.nav').toggleClass('active');
-	});
-	
-	//Navigation toggle
-	$('.nav-toggle-search').click(function(e) {
-		e.preventDefault();
-		$(this).toggleClass('active');
-		$('.header .search-form').toggleClass('active');
-	});
-})(this);
+/* Declare a namespace for the site */
+var Site = window.Site || {};
+
+/* Create a closure to maintain scope of the '$'
+   and remain compatible with other frameworks.  */
+(function($) {
+
+    var body = $('body');
+
+    var bodyClickFn = function(evt) {
+        var target = $(evt.target);
+        evt.preventDefault();
+        
+        if(!target.closest('.menu-right, .nav-toggle-menu, .nav-toggle-search, .search-global, .nav-toggle-sites, .menu-top').length){
+            Site.resetMenu();
+        }
+    };
+
+    Site.resetMenu = function(){
+        body.removeClass('is-open-menu-right is-open-globalsearch is-open-menu-top');
+        document.removeEventListener( 'click', bodyClickFn );
+    };
+
+    // Swaps the input fields placeholder text in and out
+    Site.placeholders = function () {
+        var colour_focus = "#333",
+        colour_blur = "#171207";
+        
+        $('input[placeholder]').each(function(){
+
+            var $this = $(this);
+        
+            var attrPh = $this.attr('placeholder');
+            
+            $this.attr('value', attrPh)
+            .bind('focus', function() {
+
+                if($this.val() === attrPh){
+                    $this.val('').css('color', colour_blur);
+                }
+                
+            }).bind('blur', function() {
+            
+                if($this.val() === ''){
+                    $this.val(attrPh).css('color', colour_focus);
+                }
+            
+            });
+
+        });
+        
+    };
+    
+
+
+    //same as $(document).ready();
+    $(function() {
+        
+
+        //Navigation toggle
+        $('.nav-toggle-menu').on("click", function(e) {
+
+            if( body.hasClass( 'is-open-menu-right' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-menu-right');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+
+        });
+        
+        //Navigation toggle
+        $('.nav-toggle-search').on('click', function(e) {
+            
+            if( body.hasClass( 'is-open-globalsearch' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-globalsearch');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+        });
+
+        //Our Sites toggle
+        $('.nav-toggle-sites').on('click', function(e) {
+            
+            if( body.hasClass( 'is-open-menu-top' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-menu-top');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+        });
+
+
+        Site.placeholders();
+
+
+
+    });
+})(jQuery);

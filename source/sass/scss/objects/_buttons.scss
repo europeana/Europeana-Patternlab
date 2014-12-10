@@ -3,15 +3,15 @@
 \*------------------------------------*/
 .btn {
 	display: inline-block;
+	position: relative;
 	background: transparent;
 	color: $black;
-	border: solid 5px $black;
-	@include font-size(0.8);
+	border: solid 6px $black;
+	@include font-size(1);
 	line-height: 1;
 	font-weight: bold;
 	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	padding: 1em 1.6em;
+	padding: 0.8em 1.2em;
 	text-align: center;
 	
 	&:hover, &:focus {
@@ -38,6 +38,29 @@
 		&:hover{
 			background-color: $textcolour_highlight;
 			border-color: $textcolour_highlight;
+		}
+	}
+
+	&.cta{
+		&:after {
+			left: 100%;
+			top: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(0, 0, 0, 0);
+			border-left-color: $black;
+			border-width: 25px;
+			border-top-width: 15px;
+			border-bottom-width: 15px;
+			margin-top: -15px;
+		}
+
+		&:hover:after, &:focus:after{
+			border-left-color: $textcolour_highlight;
 		}
 	}
 }

@@ -38,7 +38,12 @@
 @import "scss/generic/reset";
 
 
-
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+//@import "scss/objects/layout";
+@import "scss/grid/csswizardry-grids";
+@import "scss/objects/media_grid";
 
 
 /*------------------------------------*\
@@ -47,7 +52,8 @@
 @import "scss/base/global-classes";
 @import "scss/base/main";
 @import "scss/base/links";
-@import "scss/base/headings";
+//@import "scss/base/headings";
+@import "scss/base/headings_simple";
 @import "scss/base/text";
 @import "scss/base/code";
 @import "scss/base/lists";
@@ -57,22 +63,19 @@
 @import "scss/base/animation";
 
 
-
-
-/*------------------------------------*\
-    $LAYOUT
-\*------------------------------------*/
-@import "scss/objects/layout";
-@import "scss/objects/csswizardry-grids";
-
-
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
 @import "scss/objects/header";
-@import "scss/objects/nav";
 @import "scss/objects/footer";
 
+/*------------------------------------*\
+    $NAVIGATION
+\*------------------------------------*/
+@import "scss/objects/nav";
+@import "scss/objects/navigation/global";
+@import "scss/objects/navigation/breadcrumbs";
+@import "scss/objects/navigation/pagination";
 
 
 /*------------------------------------*\
@@ -84,7 +87,12 @@
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-@import "scss/objects/icons";
+
+// Global icons (svg)
+@import "scss/objects/icons/svgicons";
+//Icon fonts
+//@import "scss/objects/icons/icons_fonts";
+
 @import "scss/objects/buttons";
 @import "scss/objects/tags";
 @import "scss/objects/blocks";
@@ -96,3 +104,4 @@
 @import "scss/objects/article";
 @import "scss/objects/comments";
 @import "scss/objects/loading";
+@import "scss/objects/dates";

@@ -1,0 +1,217 @@
+.pro-hero{
+
+	height: 80%;
+
+	background-image: url("../../images/sample/pro-background.jpg");
+	background-position: 50% 50%;
+	-webkit-background-size: cover;
+	background-size: cover;
+
+	background-color: $grey2;
+
+	@media all and (min-width: $bp-small) {
+		height: 60%;
+	}
+
+	.lc{
+		position: relative;
+		height: 100%;
+	}
+
+	.hero-text{
+		position: absolute;
+		z-index: 10;
+		bottom: 1.4em;
+		background-color: rgba(#FFF, 0.7);
+		border-left: $accent 5px solid;
+		padding: $space;
+		width: 100%;
+
+		@media all and (min-width: $bp-small) {
+			width: 60%;
+		}
+
+		@media all and (min-width: $bp-med) {
+			width: 35%;
+		}
+	}
+
+	h1{
+		font-family: $font-secondary;
+		font-weight: normal;
+    	line-height: 1.1;
+    	margin-bottom: $space-half;
+    	//font-size: 1.6em;
+	}
+
+	h1 a{
+		color: $textcolour_head;
+		border-bottom: 1px dotted $textcolour_head;
+
+		&:hover, &:focus{
+			color: $accent;
+			border-color: $accent;
+		}
+	}
+
+	.hero-link{
+		position: absolute;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		font-size: 0;
+	}
+}
+
+.pro-home{
+	padding-top: 0;
+
+	.section{
+		padding: $space-double $space-half;
+		margin-bottom: 0;
+
+		@media all and (min-width: $bp-small) {
+			padding: $space-double $space;
+		}
+	}
+}
+
+.promo-abouteuropeana{
+	background-color: $blue-dark;
+	//border-top: 2px solid $accent;
+	
+	color: $white;
+
+	text-align: center;
+	@include fontSize(24px);
+	line-height: 1.2;
+	
+	margin-bottom: $space;
+
+	a{
+		border-bottom: 1px dotted $textcolour_link;
+	}
+
+}
+
+.section.pro-info{
+
+	background-color: $offwhite;
+	padding-top: $space;
+
+	h2{
+		margin-bottom: $space-double;
+		@include fontSize(24px);
+		color: $textcolour_head;
+	}
+
+	.lc{
+		border-bottom: 1px solid $grey3;
+	}
+}
+
+
+
+.jointhenetwork{
+	padding: $space + $space-half $space;
+	background-color: $white;
+	margin-bottom: $space;
+	border: 1px solid $grey3;
+	@include fontSize(18px);
+
+	ul{
+		margin-bottom: $space-double;
+
+		a{
+			border-bottom: 1px dotted $eu-blue;
+		}
+	}
+
+	li{
+		margin-bottom: $space-half;
+	}
+}
+
+.section-title{
+	text-transform: uppercase;
+	color: $footer_headings;
+	margin-bottom: $space + $space-half;
+	letter-spacing: 0;
+}
+
+.link-more{
+	font-weight: bold;
+	color: $textcolour_link;
+}
+
+
+.usefulinfo-links{
+	margin-bottom: $space;
+	@include fontSize(18px);
+	font-weight: bold;
+	padding-bottom: 1px;
+
+	li{
+		margin-bottom: $space;
+	}
+
+	a{
+		border-bottom: 1px dotted $eu-blue;
+	}
+
+	a[href*="//"]:not([href*="pro.europeana.com"]):after{
+		@extend %external_link_icon;
+	}
+}
+
+.usefulinfo{
+	padding-top: $space + $space-half;
+}
+.usefulinfo-item{
+	margin-bottom: $space;
+
+	h3{
+		text-transform: uppercase;
+		margin-bottom: $space;
+	}
+}
+
+.usefulinfo-secondary{
+	.usefulinfo-item{
+		padding-top: $space;
+		border-top: 1px solid $grey3;
+	}
+}
+
+a.labs-link{
+	padding: $space;
+	display: block;
+	position: relative;
+	background-color: $eu-labs;
+	color: $white;
+	background-image: url("../../images/icons/labs.svg");
+	background-position: 1.6em 50%;
+	background-repeat: no-repeat;
+	background-size: 15%;
+	padding-left: 30%;
+
+	outline: 1px solid $eu-labs;
+	border: 5px solid #FFF;
+
+	h3{
+		color: $white;
+		margin-bottom: $space-half;
+	}
+}
+
+.home-news{
+	background-color: $blue-grey;
+	border-top: 2px solid darken($blue-grey, 2);
+}
+
+.events-upcoming .event{
+	margin-bottom: $space;
+}

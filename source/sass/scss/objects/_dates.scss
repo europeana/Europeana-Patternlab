@@ -1,0 +1,36 @@
+
+
+.event-date{
+
+	//background-color: $accent;
+	border: 1px solid $grey2;
+
+	display: inline-block;
+	padding: $space-half;
+	text-align: center;
+	line-height: 1;
+
+	.date-days{
+		font-size: 3em;
+		letter-spacing: -0.05em;
+		margin-bottom: 0.6rem;
+	}
+
+	.date-month, .date-year{
+		display: inline;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.time{
+		border-top: 1px solid $grey2;
+		padding: 0.4em 0;
+		margin-top: 0.4em;
+		font-weight: bold;
+
+		.icon{
+			fill: $text_secondary;
+		}
+	}
+}

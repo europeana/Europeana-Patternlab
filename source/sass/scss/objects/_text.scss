@@ -11,21 +11,24 @@
 //Pullquote
 .pullquote {
 	color: $textcolour_head;
-	@include font-size(2.625);
+	@include font-size(2);
+	line-height: 1.2;
 	border-left: none;
-	padding: 0;
+	padding: $space;
 	position:relative;
+	float: right;
+	width: 45%;
+
 
 	&:before, &:after{
 		@include font-size(4);
-		color: $textcolour_link;
-		
+		color: $textcolour_head;
 	}
 
 	&:before{
 		content: "\201C";
 		position:absolute;
-		left:-0.5em;
+		left: $space;
 		top: 0.4em;
 		line-height: 0.1em;
 	}
@@ -35,12 +38,13 @@
 
 //caption
 .caption{
-	border-top: 1px solid $gray-light;
+	border-top: 1px solid $grey2;
 	padding-top: 0.4em;
 	color: $textcolour_body;
 }
 .caption-text{
 	display: block;
 	max-width: 12em;
+	font-size: $font-size-sm;
 }
 

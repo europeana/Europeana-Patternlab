@@ -1,0 +1,46 @@
+
+
+
+.item-files{
+	a{
+		@include svg-bg-with-fallback("/icons/file");
+		background-position: 0 0.1em;
+		background-size: 1em;
+		padding-left: 1.4em; 
+	}
+
+	li{
+		margin-bottom: $space-half;
+	}
+
+	.file-info{
+		color: $text_secondary;
+		font-size: $font-size-sm;
+	}
+}
+
+
+.item-files.moredata{
+
+	@media all and (min-width: $bp-small-2) {
+		display: table;
+		width: 100%;
+
+		.file-name{
+			padding-bottom: $space-half;
+		}
+
+		li{
+			display: table-row;
+
+			&>span{
+				display: table-cell;
+			}
+		}
+
+		.file-date, .file-owner{
+			width: 20%;
+			text-align: right;
+		}
+	}
+}

@@ -5,8 +5,17 @@
 			"media": "all"
 		}
 	],
+	"js_files": [
+		{
+			"path": "../../js/global-compiled.js"
+		}
+	],
 	"img": {
 		"landscape-4x3": {
+			"src": "../../images/fpo_4x3.png",
+			"alt": "4x3 Image"
+		},
+		"rectangle": {
 			"src": "../../images/fpo_4x3.png",
 			"alt": "4x3 Image"
 		},
@@ -21,6 +30,10 @@
 		"avatar" : {
 			"src" : "../../images/fpo_avatar.png",
 			"alt" : "Person Name"
+		},
+		"portrait" : {
+			"src" : "../../images/fpo_3x4.png",
+			"alt" : "Person Name"
 		}
 	},
 	"headline" : {
@@ -29,6 +42,7 @@
 		"long" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed incididsunt ut labore (100 characters)"
 	},
 	"excerpt" : {
+		"vshort" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
 		"short" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 		"medium" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		"long" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -43,6 +57,7 @@
 		"last": "Way",
 		"lasti": "W"
 	},
+	"email":"firsty.surnameson@europeana.eu",
 	"year" : {
 		"long": "2013",
 		"short": "13"
@@ -73,7 +88,8 @@
 	},
 	"seconds" : "31",
 	"author" : {
-		"first-name": "Author",
-		"last-name": "Name"
-	}
+		"first-name": "Uthur",
+		"last-name": "LastNameson"
+	},
+	"location":"Den Haag, Netherlands"
 }

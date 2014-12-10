@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 form > div {
-	margin-bottom: $space;
+	margin-bottom: $space-half;
 }
 
 form ol, form ul {
@@ -92,18 +92,25 @@ input[type="search"]::-webkit-search-decoration {
 	}
 	
 	input[type=submit], button, .btn {
-		font-size: $font-size-slightly-smaller;
-		padding: 0.65rem 1.3rem;
-		background: $gray-med;
+		//font-size: $font-size-slightly-smaller;
+		font-weight: bold;
+
+		color: $white;
+		background: $eu-blue;
+		height: 100%;
+		padding: 0 1.3rem;
 		position: absolute;
+		border: none;
 		top: 0;
 		right: 0;
 		z-index: 1;
 		width: auto;
 
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+
 		&:hover, &:focus {
 			background: $gray-dark;
-			color: $white;
 		}
 	}
 }
@@ -147,11 +154,14 @@ input[type="search"]::-webkit-search-decoration {
 .search-field {
 	padding-right: 3em;
 }
-.inline-form .search-submit {
-	background: none;
-	padding: 0.78em 1em;
-	border: 0;
-	border-left: 1px solid $gray-dark;
-	color: $gray-dark;
-}
 
+
+// Newsletter sign up form
+.newsletter-options{
+	
+	label{
+		display: inline;
+		margin-right: $space-half;
+		padding: 0;
+	}
+}

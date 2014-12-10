@@ -1,59 +1,130 @@
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
+
 .footer {
+
+
 	clear: both;
 	overflow: hidden;
-	background: $darkbg;
-	padding: 20px 0 50px;
-	color: $textcolour_dark_body;
-	border-top: 3px solid $gray-lighter;
+	background: $grey2;
+	padding: $space-triple $space;
+	color: $footer_text;
+	border-top: 6px solid $blue-dark;
+	font-size: $font-size-slightly-smaller;
 
-	a {
-		color: $textcolour_dark_body;
+	.title{
+		color: $footer_headings;
+		font-size: $font-size-norm;
+		text-transform: uppercase;
+		font-weight: bold;
+		line-height: 1;
+		margin-bottom: $space;
 	}
 
-	.lc{
-		
-	}
-}
 
-//Footer Nav
-.nav-footer {
+	.l-linklist a {
+		color: $footer_text;
+		font-size: $font-size-med;
+		font-weight: bold;
+		border-bottom: 1px dotted $footer_text;
 
-	li {
-		border-bottom: 1px solid $gray-med;
-
-		@media all and (min-width: $bp-med) {
-			border: 0;
-			margin-right:1em;
-			display: inline-block;
+		&:hover{
+			color: $textcolour_link;
 		}
 	}
 
-	a {
-		display: block;
-		font-weight: bold;
-		text-decoration: underline;
-		font-size: $font-size-slightly-smaller;
-		color: $textcolour_dark_head;
+
+	
+	//layout styles
+	div[class^='l-'], .signup{
+		margin-bottom: $space;
 	}
+
+	.l-contact{
+		@extend %grid__item;
+		@extend %lap--one-fifth;
+	}
+
+	.l-content, .l-nextsteps{
+		@extend %grid__item;
+		@extend %lap--two-fifths;
+	}
+
+	.l-sitemap .l-linklist{
+		@extend %grid__item;
+		@extend %one-half;
+	}
+
+	.l-mission, .l-othersites{
+		@extend %grid__item;
+	}
+
+
+	.l-mission p{
+		font-size: $font-size-med;
+		font-style: italic;
+	}
+	
+	.copyright {
+		font-size: $font-size-sm;
+		color: #777777;
+	}
+
 }
+
+.footer_logo{
+	margin-left: -$space;
+}
+
+
 
 .social-links{ 
 
 	text-align: center;
-	font-size: 2em;
 
 	@media all and (min-width: $bp-med) {
-		text-align: right;
+		text-align: left;
 	}
-} 
+	
+	a{
+		font-size: 3em;
+		color: $blue-dark;
 
-.copyright {
+		&:hover {
+			color: $textcolour_link;
+		}
 
-	font-size: $font-size-sm;
-
+		svg{
+			margin: 0;
+		}
+	}
 
 }
+
+.sub-footer{
+	border-top: 1px solid #a0a0a0;
+	padding: $space 0;
+
+	.nav{
+
+		margin-bottom: $space-half;
+
+		a{
+			display: block;
+			color: $footer_text;
+			border-bottom: 1px dotted $blue-dark;
+			margin-right: 0.2em;
+
+			&:hover{
+				color: $textcolour_link;
+			}
+		}
+
+	}
+}
+
+
+
+
 

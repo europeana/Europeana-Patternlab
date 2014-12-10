@@ -1,0 +1,26 @@
+.sitemap{
+
+    a {
+        color: $textcolour_link;
+
+        &:hover{
+            border-bottom: 1px dotted $textcolour_link;
+        }
+    }
+
+    li{
+        margin-bottom: $space-half;
+    }
+
+    ul {
+        margin: 0 0 $space 0;
+    }
+
+    li > ul{
+    	margin-left: $space;
+    }
+
+    ul ul, ul ul>li, ol ol, ol ol>li{
+        margin-bottom: 0;
+    }
+}

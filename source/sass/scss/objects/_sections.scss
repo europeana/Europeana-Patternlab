@@ -1,5 +1,6 @@
 .section {
-	margin: 0 0 $space;
+	@extend .cf;
+	margin-bottom: $space-double;
 }
 
 .section-title {

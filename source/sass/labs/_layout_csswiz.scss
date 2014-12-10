@@ -1,0 +1,17 @@
+.grid-main{
+	@extend %grid;
+	@extend %grid--full;
+}
+
+// Post List
+
+.l-post-list{
+	@extend %grid;
+	margin-bottom: $space;
+
+	li{
+		@extend %grid__item;
+		@extend %lap--one-half;
+		margin-bottom: $space;
+	}
+}

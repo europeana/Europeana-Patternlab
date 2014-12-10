@@ -1,0 +1,77 @@
+
+.nav_primary{
+
+	@include font-size(1);
+
+	a {
+		display: block;
+		padding: 0.6em;
+		font-weight: bold;
+
+		&:after{
+			content: '';
+			display: block;
+			border-bottom: 5px solid transparent;
+			margin-top: 0.15em;
+		}
+
+		&:hover{
+			text-decoration: none;
+		}
+		&:hover:after{
+			border-color: $textcolour_body;
+		}
+
+	}
+
+	&.active {
+		max-height: 40em;
+	}
+
+	.current:after{
+		content: '';
+		display: block;
+		border-bottom: 5px solid $accent;
+		margin-top: 0.2em;
+	}
+
+
+
+	// primary nav in header
+	.header & {
+		clear: both;
+		overflow: hidden;
+		max-height: 0;
+
+		a{
+			color: $textcolour_body;
+			border-top: 1px solid $gray-light;
+
+			&:hover{
+				background-color: $offwhite;
+			}
+			.current:after{
+				border-color: $accent;
+			}
+		}
+
+		@media all and (min-width: $bp-med) {
+			max-height: none;
+			float: left;
+			clear: none;
+
+			margin-top: 0.9em;
+
+			li {
+				float: left;
+			}
+
+			a {
+				border: 0;
+			}
+			
+		}
+	}
+
+
+}

@@ -1,25 +1,67 @@
-<!-- Begin Footer -->
+<!-- Start Footer -->
 <footer class="footer" role="contentinfo">
-
-    <div class="grid_wrapper">
+    <div class="lc">
         <div class="grid">
-            <div class="grid__item lap--two-thirds">
 
-                {{> molecules-footer-nav }}
-
-                <p class="copyright">Co-funded by the European Union.</p>
+            <div class="l-contact">
+                <div class="footer_logo">
+                    <a href="/"><img src="../../images/footer_logo.svg" alt="Europeana - think culture" /></a>
+                </div>
                 
-                <a class="licensehr" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                    <img alt="Creative Commons License" src="/images/cc.png">
-                </a>
+                <div class="address">
+                    Head Office<br>
+                    ℅ Koninklijke Bibliotheek<br>
+                    Prins Willem Alexanderhof 5<br>
+                    2595 BE Den Haag
+                </div>
 
             </div><!--
 
-        --><div class="grid__item lap--one-third">
+         --><div class="l-content">
+
+                <div class="l-sitemap grid">
+                {{> molecules-linklist-with-title(title: "More info") }}<!--
+             -->{{> molecules-linklist-with-title(title: "&nbsp;") }}
+                </div>
+
+                <div class="grid">
+                    <div class="l-mission">
+                        <h4 class="title">Our Mission</h4>
+                        <p>The Europeana Foundation and its Network create new ways for people to engage with European cultural history for work, learning or pleasure.</p>
+                    </div><!--
+
+                 --><div class="l-othersites">
+                        {{> molecules-linklist-with-title:inline-list(title: "Explore Europeana") }}
+                    </div>
+                </div>
+            </div><!--
+
+         --><div class="l-nextsteps">
+                {{# newsletter }}
+                <div class="signup">
+                    {{> molecules-newsletter }}
+                </div>
+                {{/ newsletter }}
+                
                 {{> molecules-social-links }}
-            </div
+            </div>
         </div>
     </div>
 
+    <div class="sub-footer">
+
+        <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="http://europeana.eu/portal/rights/terms-and-policies.html">Terms of use &amp; policies</a></li>
+            <li><a href="/">Contact us</a></li>
+            <li><a href="/">Sitemap</a></li>
+        </ul>
+
+        <p class="copyright">Co-funded by the European Union.</p>
+        
+    </div>
+
+
+</div>
 </footer>
 <!-- End Footer -->

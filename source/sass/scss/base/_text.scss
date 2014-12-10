@@ -1,6 +1,9 @@
 /* Text-Related Elements */ 
 p {
     margin-bottom: $space;
+    &:last-child { 
+        margin-bottom: 0;
+    }
 }
 
 /* Blockquote */
@@ -64,20 +67,6 @@ small{
 
     color: $textcolour_body;
 
-    h1{
-    @extend .gamma;
-    text-transform: uppercase;
-    color: $textcolour_highlight;
-    }
-
-    h2{
-    @extend .delta;
-    }
-
-    h3{
-    @extend .epsilon;
-    }
-
     section, .section{
         margin-bottom: 3.2em;
         padding: 0 $pad;
@@ -91,6 +80,15 @@ small{
         }
     }
 
+    // Anchor with fixed header
+    a[name]:before {
+        $offset: $globalnavheight + $space;
+        content: "";
+        display: block;
+        margin: -$offset 0 0;
+        height: $offset;
+    }
+
     li{
         margin-bottom: $space-half;
     }
@@ -98,23 +96,31 @@ small{
     ul {
         list-style: disc;
         margin: 0 0 $space $space;
-
-        ul {
-            margin-bottom: 0;
-
-            >li{
-                margin-bottom: 0;
-            }
-        }
     }
 
     ol {
         list-style: decimal;
         margin: 0 0 $space $space;
+    }
 
-        ol {
-            margin-bottom: 0;
-        }
+    ul ul, ul ul>li, ol ol, ol ol>li{
+        margin-bottom: 0;
+    }
+
+    p + ul, p + ol{
+        margin-top: -$space-half;
+    }
+
+    ul ul>li {
+        list-style: circle;
+    }
+
+    ol ol>li {
+        list-style: lower-latin;
+    }
+    
+    img{
+        margin-bottom: $space;
     }
 }
 

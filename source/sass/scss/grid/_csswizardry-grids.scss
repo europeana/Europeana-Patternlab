@@ -69,13 +69,13 @@
 \*------------------------------------*/
 /**
  * If you are building a non-responsive site but would still like to use
- * csswizardry-grids, set this to ‘false’:
+ * csswizardry-grids, set this to false:
  */
 $responsive:            true!default;
 
 
 /**
- * Is this build mobile first? Setting to ‘true’ means that all grids will be
+ * Is this build mobile first? Setting to "true" means that all grids will be
  * 100% width if you do not apply a more specific class to them.
  */
 $mobile-first:          true!default;
@@ -84,13 +84,13 @@ $mobile-first:          true!default;
 /**
  * Set the spacing between your grid items.
  */
-$gutter:                24px!default;
+$gutter:                $space!default;
 
 
 /**
- * Would you like Sass’ silent classes, or regular CSS classes?
+ * Would you like Sass" silent classes, or regular CSS classes?
  */
-$use-silent-classes:    false!default;
+$use-silent-classes:    true!default;
 
 
 /**
@@ -122,9 +122,10 @@ $use-markup-fix:        true!default;
  */
 $breakpoints: (
     'palm' '(max-width: 24em)',
-    'lap' '(min-width: 481px)',
-    'portable' '(max-width: 1023px)',
-    'desk' '(min-width: 1024px)'
+    'smallup' '(min-width: 24em)',
+    'lap' '(min-width: 50em)',
+    'portable' '(max-width: 60em)',
+    'desk' '(min-width: 60em)'
 )!default;
 
 
@@ -136,11 +137,11 @@ $breakpoints: (
  * add and remove breakpoints at will.
  *
  * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
- * have been set to ‘true’.
+ * have been set to 'true'.
  */
-$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-widths: ('palm', 'smallup', 'lap', 'portable', 'desk')!default;
 $breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk')!default;
-$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-pull:   ('palm', 'lap', 'desk')!default;
 
 
 .demo-block{
@@ -149,14 +150,26 @@ $breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
 }
 
 .grid_wrapper{
+    width: 95%;
     max-width: $max-width;
-    //padding: 0 $gutter;
     margin: 0 auto;
+}
+
+.grid{
+    @extend %grid;
+}
+
+.grid--rev{
+    @extend %grid--rev;
+}
+
+.grid--full{
+    @extend %grid--full;
 }
 
 /**
  * You do not need to edit anything from this line onward; csswizardry-grids is
- * good to go. Happy griddin’!
+ * good to go. Happy griddin'!
  */
 $class-type:            unquote(".");
 
@@ -194,13 +207,13 @@ $class-type:            unquote(".");
     }
 
     @if $breakpoint-found == false{
-        @warn "Breakpoint ‘#{$media-query}’ does not exist"
+        @warn "Breakpoint '#{$media-query}' does not exist"
     }
 }
 
 
 /**
- * Drop relative positioning into silent classes which can’t take advantage of
+ * Drop relative positioning into silent classes which can't take advantage of
  * the `[class*="push--"]` and `[class*="pull--"]` selectors.
  */
 @mixin silent-relative(){
@@ -219,7 +232,7 @@ $class-type:            unquote(".");
 /**
  * 1. Allow the grid system to be used on lists.
  * 2. Remove any margins and paddings that might affect the grid system.
- * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ * 3. Apply a negative `margin-left` to negate the columns' gutters.
  */
 #{$class-type}grid{
     list-style:none;                /* [1] */

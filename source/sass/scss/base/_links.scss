@@ -1,6 +1,24 @@
 /* Links */ 
 a {
-	color: $textcolour_body;
+	color: $textcolour_link;
 	text-decoration: none;
 	outline: 0;
+
+	&:hover{
+		color: darken($textcolour_link, 15%);
+	}
 }
+
+
+%external_link_icon{
+	content: '';
+	background: center right no-repeat;
+    @include svg-bg-with-fallback("icons/link_external");
+    background-size: contain;
+    padding-right: 1.4em;
+}
+
+
+//extend from specific places using this code:
+//a[href*="//"]:not([href*="pro.europeana.com"]):after
+	

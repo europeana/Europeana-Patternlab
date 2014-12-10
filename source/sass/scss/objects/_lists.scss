@@ -1,6 +1,7 @@
 .inline-list {
 	li {
 		display: inline-block;
+		margin-right: $space-quarter;
 	}
 }
 
@@ -35,12 +36,26 @@
 }
 
 /* Post List */
+
 .post-list {
-	li {
+
+	@extend %grid;
+	margin-bottom: $space-double;
+
+	li{
+		@extend %grid__item;
+		@extend %lap--one-half;
+
 		margin-bottom: $space;
 	}
-	
-	margin-bottom: $space-double;
+
+	.list-item-primary{
+		@extend %lap--one-third;
+	}
+
+	.list-item-secondary{
+		@extend %lap--one-fifth;
+	}
 }
 
 /* Bullet List */

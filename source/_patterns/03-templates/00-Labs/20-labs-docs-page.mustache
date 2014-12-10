@@ -1,26 +1,18 @@
-<div class="site_labs site_wrapper">
 
 
-{{> organisms-header-labs }}
+{{> organisms-header }}
 
 
-<section class="block-content-header">
-	<div class="grid_wrapper">
-	<div class="block grid">
-		<div class="grid__item palm--one-whole push--palm--none three-quarters push--one-quarter">
-			<h1 class="title" >Getting Started with Europeana REST API</h1>
-			<p class="subhead grid grid__item desk--one-half">{{ excerpt.short }}</p>
-		</div>
-	</div>
-	</div>
-</section>
+<main role="main">
 
 
+{{> molecules-block-content-header }}
 
-<div role="main" class="grid_wrapper">
+
+<div class="grid_wrapper">
 <div class="grid grid--rev"><!--Start main content 
 
---><div id="documentation" class="grid__item three-quarters portable--one-whole prose">
+--><div id="documentation" class="main-content prose">
 
 	 	<section>
 	 		<h1>Getting Started</h1>
@@ -225,7 +217,7 @@
 
 
 Start navigation
- --><div class="grid__item one-quarter portable--one-whole">
+ --><div class="sidebar">
 		<ul class="nav_secondary">
 			<li><a href="/api" title="API Introduction">Introduction</a></li>
 			<li class="is_open">
@@ -266,6 +258,10 @@ Start navigation
 </div>
 </div>
 
-{{> organisms-footer }}
 
-</div>
+</main>
+<!-- End Content -->
+
+
+{{> organisms-footer(newsletter: true) }}
+

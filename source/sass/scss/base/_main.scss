@@ -1,3 +1,6 @@
+body, html{
+	height: 100%;
+}
 
 body {
 
@@ -10,26 +13,42 @@ body {
 	word-wrap: break-word;
 
 	background: $page_bg;
-	font: 16px/1.4 $font-primary; //18px default font
+	font: 16px/1.6 $font-primary; //16px default font
 	-webkit-text-size-adjust: 100%;
 	color: $textcolour_body;
 }
 
-.site_wrapper{
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
 
-	border-top: 6px solid $textcolour_highlight;
-
-	.europeana_blog &{
- 		border-top-color: $eu-user;
-	}
-	
+/* Layout Container */
+.lc {
+	max-width: $max-width;
+	margin: 0 auto;
 }
+
 
 /*------------------------------------*\
     $MAIN CONTENT AREA
 \*------------------------------------*/
-[role=main] {
-	//padding: $pad-half $pad-half $pad-double;
-	//overflow: hidden;
+
+main, [role=main] {
 	@extend .cf;
+	padding-top: $globalnavheight;
+}
+
+
+
+// Generic Columns - Sidebars
+.sidebar{
+	@extend %grid__item;
+	@extend %one-quarter;
+	@extend %palm--one-whole;
+}
+
+.main-content{
+	@extend %grid__item;
+	@extend %three-quarters;
+	@extend %palm--one-whole;
 }

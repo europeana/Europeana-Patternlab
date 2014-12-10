@@ -1,0 +1,48 @@
+//Pagination
+.pagination {
+	overflow: hidden;
+	margin-bottom: $space;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		border-right: 1px solid $grey2;
+
+		&:last-child {
+			border: 0;
+		}
+	}
+
+	a {
+		padding: $pad-half $pad;
+		display: block;
+		font-weight: bold;
+		color: $textcolour_body;
+
+		&:hover{
+			background-color: $offwhite;
+			color: $textcolour_body;
+		}
+	}
+
+
+	.is-disabled a{
+
+		cursor: default;
+		
+		&:hover{
+			background-color: inherit;
+			color: inherit;
+		}
+	}
+
+	.current a{
+		color: $white;
+		font-weight: bold;
+		background-color: $textcolour_body;
+
+		&:hover{
+			background-color: $textcolour_link;
+		}
+	}
+}
