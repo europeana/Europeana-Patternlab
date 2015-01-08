@@ -41,25 +41,6 @@
 		margin-bottom: $space;
 	}
 
-	.l-contact{
-		@extend %grid__item;
-		@extend %lap--one-fifth;
-	}
-
-	.l-content, .l-nextsteps{
-		@extend %grid__item;
-		@extend %lap--two-fifths;
-	}
-
-	.l-sitemap .l-linklist{
-		@extend %grid__item;
-		@extend %one-half;
-	}
-
-	.l-mission, .l-othersites{
-		@extend %grid__item;
-	}
-
 
 	.l-mission p{
 		font-size: $font-size-med;

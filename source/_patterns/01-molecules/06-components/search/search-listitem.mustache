@@ -1,0 +1,60 @@
+
+<article>
+
+	<div class="item-preview">
+		{{# type-image }}
+        	--image preview--
+    	{{/ type-image }}
+
+   		{{# type-audio }}
+        	--audio preview--
+    	{{/ type-audio }}
+
+   		{{# type-text }}
+        	--text preview--
+    	{{/ type-text }}
+
+    	{{# type-video }}
+        	--video preview--
+    	{{/ type-video }}
+		
+	</div>
+
+	<h1><a href="">{{ title }} <span class="date">({{ year.long }})</span></a></h1>
+
+	<p class="excerpt">
+		{{ excerpt.long}}
+	</p>
+	
+	<a href="" class="link-external">View at: Rijksmuseum</a>
+
+	<footer>
+
+		<div class="item-metadata">
+
+		{{# type-image }}
+        	<a href="#paintings" class="item-type-image">Painting</a>
+    	{{/ type-image }}
+
+    	{{# type-audio }}
+        	<a href="#recordings" class="item-type-audio">Recording</a>
+    	{{/ type-audio }}
+			
+
+			<span class="item-themes">
+				In theme: 
+				<a href="">Art History</a>
+				<a href="">Military History</a>
+			</span>
+		</div>
+
+		<div class="item-actions">
+			<button class="action-save">Save</button>
+			<div class="action-select">
+				--checkbox here--
+			</div>
+		</div>
+
+	</footer>
+
+</article>

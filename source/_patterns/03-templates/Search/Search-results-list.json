@@ -1,0 +1,12 @@
+{
+	"bodyClass": "europeana_search",
+	"pagetitle": "Europeana Search",
+	"search": true,
+
+	"css_files": [
+		{
+			"path": "../../css/search/screen.css",
+			"media": "all"
+		}
+	]
+}

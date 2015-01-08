@@ -3,9 +3,13 @@
 	@extend %grid--full;
 }
 
+// Global nav - Our sites
+.our-sites .l-linklist{
+	@extend %grid__item;
+	@extend %lap--one-quarter;
+}
+
 // Home page module layout
-
-
 
 .l-primaryaction{
 	@extend %grid__item;
@@ -174,4 +178,25 @@
 		@extend %grid__item;
 		@extend %lap--one-third;
 	}
+}
+
+
+// Footer layout
+.l-contact{
+	@extend %grid__item;
+	@extend %lap--one-fifth;
+}
+
+.l-content, .l-nextsteps{
+	@extend %grid__item;
+	@extend %lap--two-fifths;
+}
+
+.l-sitemap .l-linklist{
+	@extend %grid__item;
+	@extend %one-half;
+}
+
+.l-mission, .l-othersites{
+	@extend %grid__item;
 }

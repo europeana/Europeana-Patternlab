@@ -40,15 +40,3 @@ main, [role=main] {
 
 
 
-// Generic Columns - Sidebars
-.sidebar{
-	@extend %grid__item;
-	@extend %one-quarter;
-	@extend %palm--one-whole;
-}
-
-.main-content{
-	@extend %grid__item;
-	@extend %three-quarters;
-	@extend %palm--one-whole;
-}

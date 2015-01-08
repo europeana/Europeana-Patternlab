@@ -64,14 +64,9 @@
 	background-color: $white;
 	padding: 0 $space;
 
-	.l-linklist{
-		@extend %grid__item;
-		@extend %lap--one-quarter;
-
-		.inner{
-			border-top: 6px solid $textcolour_head;
-			padding: $space 0;
-		}
+	.l-linklist .inner{
+		border-top: 6px solid $textcolour_head;
+		padding: $space 0;
 	}
 
 	li {

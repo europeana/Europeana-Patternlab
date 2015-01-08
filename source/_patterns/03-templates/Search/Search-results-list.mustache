@@ -1,0 +1,58 @@
+{{> atoms-svgicons-pro }}
+
+{{> organisms-header}}
+
+<div role="main" class="l-page">
+
+<section class="l-search-hero">
+		<div class="searchbar">
+			--previous terms--
+			--input field--
+			--search button--
+		</div>
+</section>
+
+<section class="l-results">
+
+	<div class="l-refine">
+		<h2>Refine your search</h2>
+
+		--theme filter--
+		--Type filter--
+		--Date filter--
+		--Country filter--
+		--License filter--
+		--language search options--
+		
+		<a href="">More refinements…</a>
+
+	</div>
+
+	<div class="results-list l-results-list">
+
+		<div class="results-header">
+			--select all--
+			--actions drop down--
+			--result info--
+			--sort order--
+			--list mode buttons--
+		</div>
+
+
+		<ol>
+		{{# listItems.ten }}
+			<li class="results-list-item">
+		    {{> molecules-search-listitem(type-image:true) }}
+		    </li>
+		{{/ listItems.ten }}
+			
+
+		</ol>
+	</div>
+</section>
+
+</div>
+
+
+{{> organisms-footer }}
+
