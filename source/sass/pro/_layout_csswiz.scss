@@ -182,14 +182,22 @@
 
 
 // Footer layout
-.l-contact{
-	@extend %grid__item;
-	@extend %lap--one-fifth;
-}
+.footer{
 
-.l-content, .l-nextsteps{
-	@extend %grid__item;
-	@extend %lap--two-fifths;
+	.l-contact{
+		@extend %grid__item;
+		@extend %lap--one-fifth;
+	}
+
+	.l-content{
+		@extend %grid__item;
+		@extend %lap--two-fifths;
+	}
+
+	.l-nextsteps{
+		@extend %grid__item;
+		@extend %lap--two-fifths;
+	}
 }
 
 .l-sitemap .l-linklist{
