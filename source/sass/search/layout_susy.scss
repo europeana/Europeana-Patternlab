@@ -1,0 +1,65 @@
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: split,
+  global-box-sizing: border-box,
+  debug: (
+    image: show
+  ),
+);
+
+
+
+.l-search-hero{
+	padding: $space-triple;
+	background-color: #f2f2f2;
+}
+
+
+.l-results{
+	padding: 0 1.6rem;
+
+	.container{
+		@include container($max-width);
+	}
+}
+
+
+
+.l-refine{
+	@include span(3 of 12);
+}
+
+.l-results-list{
+	@include span(9 of 12);
+}
+
+
+
+// Footer layout
+.footer{
+
+	.l-contact{
+		@include span(3 of 12);
+	}
+
+	.l-content{
+		@include span(6 of 12);
+	}
+
+	.l-sitemap .l-linklist{
+		width: 50%;
+		float: left;
+	}
+
+	.l-mission{
+		@include break;
+	}
+
+	.l-nextsteps{
+		@include span(3 of 12);
+	}
+}
+

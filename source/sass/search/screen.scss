@@ -43,7 +43,6 @@ $textcolour_highlight: $accent;
 @import "scss/objects/header";
 @import "scss/objects/footer";
 @import "scss/objects/sections";
-@import "scss/objects/media_grid";
 
 /*------------------------------------*\
 	$NAVIGATION
@@ -52,19 +51,12 @@ $textcolour_highlight: $accent;
 @import "scss/objects/nav";
 
 //navigation types
-@import "scss/objects/navigation/breadcrumbs";
 @import "scss/objects/navigation/pagination";
-@import "scss/objects/navigation/sitemap";
-
-@import "scss/objects/lists";
 
 /*------------------------------------*\
 	$TEXT Styles
 \*------------------------------------*/
 @import "scss/objects/buttons";
-@import "scss/objects/text";
-
-
 
 // Global icons (svg)
 @import "scss/objects/icons/svgicons";
@@ -73,16 +65,15 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
 	Components
 \*------------------------------------*/
-@import "scss/objects/blocks";
-@import "scss/objects/dates";
-@import "scss/objects/file-browser";
+
+
 
 
 /*------------------------------------*\
 	site modules
 \*------------------------------------*/
-//module layout using css wizardry grid
-//@import "portal/layout_csswiz";
+//module layout using susy grid
+@import "layout_susy";
 
 
 
