@@ -6,8 +6,8 @@
 */
 // Sass stuff
 @import "compass/css3";
-@import "scss/generic/variables";
-@import "scss/generic/mixins";
+@import "../scss/generic/variables";
+@import "../scss/generic/mixins";
 
 
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
@@ -16,76 +16,76 @@ $textcolour_highlight: $accent;
 
 
 // Reset
-@import "scss/generic/reset";
+@import "../scss/generic/reset";
 
 /*------------------------------------*\
 	$GLOBAL ELEMENTS
 \*------------------------------------*/
-@import "scss/base/global-classes";
-@import "scss/base/main";
-@import "scss/base/links";
-@import "scss/base/headings_simple";
-@import "scss/base/text";
-@import "scss/base/lists";
-@import "scss/base/media";
-@import "scss/base/forms";
+@import "../scss/base/global-classes";
+@import "../scss/base/main";
+@import "../scss/base/links";
+@import "../scss/base/headings_simple";
+@import "../scss/base/text";
+@import "../scss/base/lists";
+@import "../scss/base/media";
+@import "../scss/base/forms";
 
 
 /*------------------------------------*\
 	$GRIDS
 \*------------------------------------*/
-@import "scss/grid/csswizardry-grids";
+@import "../scss/grid/csswizardry-grids";
 
 /*------------------------------------*\
 	$PAGE STRUCTURE
 \*------------------------------------*/
-@import "scss/objects/header";
-@import "scss/objects/footer";
-@import "scss/objects/sections";
-@import "scss/objects/media_grid";
+@import "../scss/objects/header";
+@import "../scss/objects/footer";
+@import "../scss/objects/sections";
+@import "../scss/objects/media_grid";
 
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
 //global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
-@import "scss/objects/nav";
+@import "../scss/objects/nav";
 
 //navigation types
-@import "scss/objects/navigation/breadcrumbs";
-@import "scss/objects/navigation/pagination";
-@import "scss/objects/navigation/sitemap";
+@import "../scss/objects/navigation/breadcrumbs";
+@import "../scss/objects/navigation/pagination";
+@import "../scss/objects/navigation/sitemap";
 
-@import "scss/objects/lists";
+@import "../scss/objects/lists";
 
 /*------------------------------------*\
 	$TEXT Styles
 \*------------------------------------*/
-@import "scss/objects/buttons";
-@import "scss/objects/text";
+@import "../scss/objects/buttons";
+@import "../scss/objects/text";
 
 
 
 // Global icons (svg)
-@import "scss/objects/icons/svgicons";
+@import "../scss/objects/icons/svgicons";
 
 
 /*------------------------------------*\
 	Components
 \*------------------------------------*/
-@import "scss/objects/blocks";
-@import "scss/objects/dates";
-@import "scss/objects/file-browser";
+@import "../scss/objects/blocks";
+@import "../scss/objects/dates";
+@import "../scss/objects/file-browser";
 
 
 /*------------------------------------*\
 	site modules
 \*------------------------------------*/
 //module layout using css wizardry grid
-@import "pro/layout_csswiz";
+@import "layout_csswiz";
 
 // Home page
-@import "pro/pro-homepage";
-@import "pro/subsites";
+@import "pro-homepage";
+@import "subsites";
 
 
 //Logo for Pro
