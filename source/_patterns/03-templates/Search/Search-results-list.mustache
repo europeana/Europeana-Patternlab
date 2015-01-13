@@ -2,7 +2,7 @@
 
 {{> organisms-header}}
 
-<div role="main" class="l-page">
+<div role="main" class="page l-page">
 
 <section class="search-hero">
 		<div class="searchbar">
@@ -15,8 +15,28 @@
 <section class="l-results">
 <div class="container">
 
-	<div class="l-refine">
+	<div class="refine l-refine">
 		<h2 class="h4">Refine your search</h2>
+
+		<fieldset class="filter">
+			<legend>Theme</legend>
+			<ul>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+			</ul>
+		</fieldset>
+
+		<fieldset class="filter filter-date">
+			<legend>Date</legend>
+			<ul>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+				<li><input type="checkbox" name="groupname" id="">label here</li>
+			</ul>
+		</fieldset>
 
 		--theme filter--
 		--Type filter--
@@ -32,12 +52,17 @@
 	<div class="results-list l-results-list">
 
 		<div class="results-header">
+
+			<div class="action-select">
+				<input type="checkbox" name="allselected" id="all">
+			</div>
+
 			--select all--
 			--actions drop down--
 			--result info--
 			--sort order--
 			--list mode buttons--
-			
+
 		</div>
 
 

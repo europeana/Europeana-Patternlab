@@ -1,9 +1,8 @@
 $susy: (
-  columns: 12,
-  gutters: 1/4,
+  columns: 24,
+  gutters: 1/2,
   math: fluid,
   output: float,
-  gutter-position: split,
   global-box-sizing: border-box,
   debug: (
     image: show
@@ -22,27 +21,57 @@ $susy: (
 }
 
 .l-refine{
-	@include span(3 of 12);
+	@include span(6);
 }
 
 .l-results-list{
-	@include span(9 of 12);
+	@include span(last 18);
 }
+
+
+
+//search list item
+.l-item-info{
+	@include span(10 of 18);
+	margin-left: span(2);
+
+	.action-select{
+		width: span(2);
+	}
+}
+
+
+.l-item-preview{
+	@include span(last 6 of 18);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Global navigation
 .our-sites .l-linklist{
-	@include span(3 of 12);
+	@include span(6);
 }
 
 // Footer layout
 .footer{
 
 	.l-contact{
-		@include span(3 of 12);
+		@include span(6);
 	}
 
 	.l-content{
-		@include span(6 of 12);
+		@include span(12);
 	}
 
 	.l-sitemap .l-linklist{
@@ -55,7 +84,7 @@ $susy: (
 	}
 
 	.l-nextsteps{
-		@include span(3 of 12);
+		@include span(last 6);
 	}
 }
 

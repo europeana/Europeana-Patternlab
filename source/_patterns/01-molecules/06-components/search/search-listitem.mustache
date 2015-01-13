@@ -1,7 +1,7 @@
 
-<article>
+<article class="cf">
 
-	<div class="item-preview">
+	<div class="item-preview l-item-preview">
 		{{# type-image }}
         	--image preview--
     	{{/ type-image }}
@@ -20,41 +20,46 @@
 		
 	</div>
 
-	<h1><a href="">{{ title }} <span class="date">({{ year.long }})</span></a></h1>
+	<div class="item-info l-item-info">
 
-	<p class="excerpt">
-		{{ excerpt.long}}
-	</p>
-	
-	<a href="" class="link-external">View at: Rijksmuseum</a>
+		<h1><a href="">{{ title }} <span class="date">({{ year.long }})</span></a></h1>
 
-	<footer>
+		<p class="excerpt">
+			{{ excerpt.medium}}
+		</p>
+		
+		<a href="" class="link-external">View at: Rijksmuseum</a>
 
-		<div class="item-metadata">
+		<footer>
 
-		{{# type-image }}
-        	<a href="#paintings" class="item-type-image">Painting</a>
-    	{{/ type-image }}
+			<div class="item-metadata">
 
-    	{{# type-audio }}
-        	<a href="#recordings" class="item-type-audio">Recording</a>
-    	{{/ type-audio }}
-			
+			{{# type-image }}
+	        	<a href="#paintings" class="item-type-image">Painting</a>
+	    	{{/ type-image }}
 
-			<span class="item-themes">
-				In theme: 
-				<a href="">Art History</a>
-				<a href="">Military History</a>
-			</span>
-		</div>
+	    	{{# type-audio }}
+	        	<a href="#recordings" class="item-type-audio">Recording</a>
+	    	{{/ type-audio }}
+				
 
-		<div class="item-actions">
-			<button class="action-save">Save</button>
-			<div class="action-select">
-				--checkbox here--
+				<span class="item-themes">
+					In theme: 
+					<a href="">Art History</a>
+					<a href="">Military History</a>
+				</span>
 			</div>
-		</div>
 
-	</footer>
+			<div class="item-actions">
+			
+				<button class="action-save">Save</button>
+
+				<div class="action-select">
+					<input type="checkbox" name="selected[]" id="itemx">
+				</div>
+			</div>
+
+		</footer>
+	</div>
 
 </article>

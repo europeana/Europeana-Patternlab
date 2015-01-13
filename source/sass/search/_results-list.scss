@@ -1,4 +1,58 @@
 .search-hero{
 	padding: $space-triple;
-	background-color: #f2f2f2;
+	background-color: $gray97;
 }
+
+
+
+// Generic page layout
+.page{
+
+	background: $white; // fallback
+	
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+		// TODO: add gradients for older browsers
+	}
+
+}
+
+.results-list{
+	background-color: $white;
+}
+
+.refine{ 
+	background: $offwhite;
+}
+
+
+.results-header{
+	padding: gutter();
+}
+
+.results-list-item{
+	position: relative;
+	margin-bottom: $space;
+
+	.action-select{
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
+
+		input{
+			display: inline-block;
+		}
+	}
+}
+
+.item-info{
+
+}
+
+.item-preview{
+	background-color: $gray-dark;
+	min-height: 10em;
+}
+
