@@ -11,22 +11,15 @@ $susy: (
 );
 
 
-
-.l-search-hero{
-	padding: $space-triple;
-	background-color: #f2f2f2;
-}
-
+// Search results page
 
 .l-results{
-	padding: 0 1.6rem;
+	padding: 0 $space;
 
 	.container{
 		@include container($max-width);
 	}
 }
-
-
 
 .l-refine{
 	@include span(3 of 12);
@@ -36,7 +29,10 @@ $susy: (
 	@include span(9 of 12);
 }
 
-
+// Global navigation
+.our-sites .l-linklist{
+	@include span(3 of 12);
+}
 
 // Footer layout
 .footer{
