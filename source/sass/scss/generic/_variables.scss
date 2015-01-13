@@ -38,10 +38,17 @@ $white 			: #FFFFFF;
 $offwhite 		: #F1F1EE;
 $paper 			: #D9D4CA;
 
-$gray-lighter 	: #CCCCCC;
-$gray-light 	: #A6A6A6;
-$gray-med 		: #4D4D4D;
-$gray-dark 		: #212121;
+$gray97			: #F8F8F8;
+$gray80			: #CCCCCC;
+$gray65			: #A6A6A6;
+$gray30			: #4D4D4D;
+
+$gray-lightest 	: $gray97;
+$gray-lighter 	: $gray80;
+$gray-light 	: $gray65;
+$gray-med 		: $gray30;
+
+$gray-dark 		: #212121; //13
 $black 			: #1A1A1A;
 
 //Europeana brand colours
