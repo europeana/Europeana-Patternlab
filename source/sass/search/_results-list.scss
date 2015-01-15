@@ -1,6 +1,7 @@
 .search-hero{
 	padding: $space-triple;
-	background-color: $gray97;
+	background-color: #DDEBEE;
+	border-bottom: 1px solid $gray87;
 }
 
 
@@ -19,40 +20,95 @@
 }
 
 .results-list{
-	background-color: $white;
+	background-color: rgba(255,255,255,0.8);
+
+	@media all and (min-width: $bp-med) {
+		@include span(last 18);
+	}
 }
 
 .refine{ 
 	background: $offwhite;
+
+	@media all and (min-width: $bp-med) {
+		@include span(6);
+	}
 }
 
 
 .results-header{
-	padding: gutter();
+	padding: $space-half 0;
+	border-bottom: 1px solid $gray87;
+	margin-bottom: $space;
 }
 
-.results-list-item{
+.search-list-item{
 	position: relative;
 	margin-bottom: $space;
+}
 
-	.action-select{
-		position: absolute;
-		top: 0;
-		left: 0;
-		text-align: center;
 
-		input{
-			display: inline-block;
+.search-results{
+	
+	padding: 0 $space;
+
+	.container{
+		@include container($max-width);
+	}
+
+	.item-info{
+		@include span(6 of 7);
+		margin-left: span(1 of 7 wide);
+
+		@media all and (min-width: $bp-small-3) {
+			@include span(13 of 18);
+			margin-left: span(1 of 18 wide);
 		}
+	}
+
+
+	.item-preview{
+		
+		background-color: $gray-lighter;
+		min-height: 10em;
+
+		display: none;
+
+		@media all and (min-width: $bp-small-3) {
+			display: block;
+			@include span(last 4 of 18);
+		}
+	}
+
+	.item-metadata{
+
 	}
 }
 
-.item-info{
+.action-select{
 
+	text-align: center;
+
+	.search-list-item &{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	input{
+		display: inline-block;
+	}
+
+
+	@include span(1 of 7 wide);
+	margin-right: 0;
+
+	@media all and (min-width: $bp-small-3) {
+		@include span(1 of 18 wide);
+		margin-right: 0;
+	}
 }
 
-.item-preview{
-	background-color: $gray-dark;
-	min-height: 10em;
-}
+
+
 

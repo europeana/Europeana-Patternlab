@@ -12,11 +12,41 @@
 		</div>
 </section>
 
-<section class="l-results">
+<section class="search-results">
 <div class="container">
 
-	<div class="refine l-refine">
-		<h2 class="h4">Refine your search</h2>
+
+	<div class="results-list">
+
+		<div class="results-header">
+
+			<div class="action-select">
+				<input type="checkbox" name="allselected" id="action_select_all">
+			</div>
+
+			--actions drop down--
+			--result info--
+			--sort order--
+			--list mode buttons--
+
+		</div>
+
+
+		<ol>
+		{{# listItems.ten }}
+			<li>
+		    {{> molecules-search-listitem(type-image:true) }}
+		    </li>
+		{{/ listItems.ten }}
+			
+
+		</ol>
+	</div>
+
+
+	<div class="refine">
+
+		<h2>Refine your search</h2>
 
 		<fieldset class="filter">
 			<legend>Theme</legend>
@@ -47,34 +77,6 @@
 		
 		<a href="">More refinements…</a>
 
-	</div>
-
-	<div class="results-list l-results-list">
-
-		<div class="results-header">
-
-			<div class="action-select">
-				<input type="checkbox" name="allselected" id="all">
-			</div>
-
-			--select all--
-			--actions drop down--
-			--result info--
-			--sort order--
-			--list mode buttons--
-
-		</div>
-
-
-		<ol>
-		{{# listItems.ten }}
-			<li class="results-list-item">
-		    {{> molecules-search-listitem(type-image:true) }}
-		    </li>
-		{{/ listItems.ten }}
-			
-
-		</ol>
 	</div>
 
 </div>

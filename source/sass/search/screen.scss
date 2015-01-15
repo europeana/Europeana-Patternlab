@@ -7,6 +7,8 @@
 // Sass stuff
 @import "compass/css3";
 @import "../scss/generic/variables";
+
+// Mixins
 @import "../scss/generic/mixins";
 
 
@@ -36,6 +38,20 @@ $textcolour_highlight: $accent;
 \*------------------------------------*/
 
 @import "../scss/grid/susy";
+//module layout using susy grid
+
+$susy: (
+  columns: 24,
+  gutters: 1/2,
+  math: fluid,
+  output: float,
+  global-box-sizing: border-box,
+  debug: (
+    //image: show
+  ),
+);
+
+@import "layout_susy";
 
 /*------------------------------------*\
 	$PAGE STRUCTURE
@@ -68,13 +84,15 @@ $textcolour_highlight: $accent;
 
 
 
+/*------------------------------------*\
+	Site specific modules
+\*------------------------------------*/
+
+
 
 /*------------------------------------*\
-	site modules
+	Page specific
 \*------------------------------------*/
-//module layout using susy grid
-@import "layout_susy";
-
 @import "results-list";
 
 
