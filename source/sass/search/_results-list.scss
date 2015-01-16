@@ -44,7 +44,8 @@
 
 .search-list-item{
 	position: relative;
-	margin-bottom: $space;
+	margin-bottom: $space-double;
+
 }
 
 
@@ -66,6 +67,33 @@
 		}
 	}
 
+	h1{
+		font-size: $font-size-med;
+		margin-bottom: $space-half;
+		font-weight: normal;
+		font-family: $font-secondary;
+		line-height: 1.4;
+
+		a:hover{
+			border-bottom: 1px dotted darken($textcolour_link, 15%);
+		}
+	}
+
+	footer{
+		font-size: $font-size-slightly-smaller;
+		padding: $space-half 0;
+		border-bottom: 1px solid $gray87;
+		@extend .cf;
+	}
+
+	.excerpt{
+		margin-bottom: $space-half;
+	}
+
+	.item-origin{
+		font-weight: bold;
+	}
+
 
 	.item-preview{
 		
@@ -81,7 +109,14 @@
 	}
 
 	.item-metadata{
+		@include span(11 of 13);
 
+		
+	}
+
+	.item-actions{
+		@include span(last 2 of 13);
+		text-align: right;
 	}
 }
 
