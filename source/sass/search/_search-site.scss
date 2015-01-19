@@ -3,7 +3,3 @@
 
 
 
-// External links
-a[href*="//"]:not([href*="europeana.eu"]):after{
-	@extend %external_link_icon;
-}

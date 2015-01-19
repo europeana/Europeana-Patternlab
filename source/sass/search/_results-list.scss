@@ -40,6 +40,24 @@
 	padding: $space-half 0;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
+
+	.result-actions{
+
+	}
+
+
+	.result-info{
+
+	}
+
+	.result-sort{
+
+	}
+
+	.result-mode{
+		
+	}
+
 }
 
 .search-list-item{
@@ -49,6 +67,7 @@
 }
 
 
+
 .search-results{
 	
 	padding: 0 $space;
@@ -56,7 +75,10 @@
 	.container{
 		@include container($max-width);
 	}
+}
 
+
+.search-list-item{
 	.item-info{
 		@include span(6 of 7);
 		margin-left: span(1 of 7 wide);
@@ -79,6 +101,11 @@
 		}
 	}
 
+	// External links
+	a[href*="//"]:not([href*="europeana.eu"]):after{
+		@extend %external_link_icon;
+	}
+
 	footer{
 		font-size: $font-size-slightly-smaller;
 		padding: $space-half 0;
@@ -94,12 +121,10 @@
 		font-weight: bold;
 	}
 
-
 	.item-preview{
 		
 		background-color: $gray-lighter;
 		min-height: 10em;
-
 		display: none;
 
 		@media all and (min-width: $bp-small-3) {
@@ -110,8 +135,6 @@
 
 	.item-metadata{
 		@include span(11 of 13);
-
-		
 	}
 
 	.item-actions{
@@ -143,6 +166,8 @@
 		margin-right: 0;
 	}
 }
+
+
 
 
 
