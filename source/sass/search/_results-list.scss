@@ -40,22 +40,46 @@
 	padding: $space-half 0;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
+	overflow: hidden;
+
+	// &>div{
+	// 	background-color: #ccc;
+	// }
 
 	.result-actions{
+		@include span(3 of 12);
 
+		@media all and (min-width: $bp-small-3) {
+			@include span(3 of 18);
+		}
 	}
 
 
 	.result-info{
+		@include span(last 8 of 12);
 
+		@media all and (min-width: $bp-small-3) {
+			text-align: center;
+			@include span(8 of 18);
+		}
 	}
 
 	.result-sort{
+		@include span(3 of 12);
+		margin-left: span(1 of 12 wide);
 
+		@media all and (min-width: $bp-small-3) {
+			@include span(3 of 18);
+			margin-left: 0;
+		}
 	}
 
 	.result-mode{
-		
+		@include span(last 8 of 12);
+
+		@media all and (min-width: $bp-small-3) {
+			@include span(last 3 of 18);
+		}
 	}
 
 }
@@ -69,9 +93,7 @@
 
 
 .search-results{
-	
 	padding: 0 $space;
-
 	.container{
 		@include container($max-width);
 	}
@@ -80,8 +102,8 @@
 
 .search-list-item{
 	.item-info{
-		@include span(6 of 7);
-		margin-left: span(1 of 7 wide);
+		@include span(11 of 12);
+		margin-left: span(1 of 12 wide);
 
 		@media all and (min-width: $bp-small-3) {
 			@include span(13 of 18);
@@ -155,16 +177,16 @@
 
 	input{
 		display: inline-block;
+		margin: 0;
 	}
 
 
-	@include span(1 of 7 wide);
-	margin-right: 0;
+	@include span(1 of 12 wide no-gutters);
 
 	@media all and (min-width: $bp-small-3) {
-		@include span(1 of 18 wide);
-		margin-right: 0;
+		@include span(1 of 18 wide no-gutters);
 	}
+
 }
 
 

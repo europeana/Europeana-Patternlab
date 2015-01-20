@@ -2,18 +2,24 @@
 
 // Global navigation
 .our-sites .l-linklist{
-	@include span(6);
+	@media all and (min-width: $bp-med) {
+		@include span(6);
+	}
 }
 
 // Footer layout
 .footer{
 
 	.l-contact{
-		@include span(6);
+		@media all and (min-width: $bp-med) {
+			@include span(6);
+		}
 	}
 
 	.l-content{
-		@include span(12);
+		@media all and (min-width: $bp-med) {
+			@include span(9);
+		}
 	}
 
 	.l-sitemap .l-linklist{
@@ -26,7 +32,9 @@
 	}
 
 	.l-nextsteps{
-		@include span(last 6);
+		@media all and (min-width: $bp-med) {
+			@include span(last 9);
+		}
 	}
 }
 
