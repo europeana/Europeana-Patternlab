@@ -1,0 +1,97 @@
+
+
+.button-bar {
+  display: table;
+  table-layout: fixed;
+  white-space: no-wrap;
+}
+
+.button-bar__item {
+  display: table-cell;
+  width: auto;
+  border-radius: 0;
+}
+
+.button-bar__item > input {
+  position: absolute;
+  margin-left: 100%;
+  visibility: hidden;
+}
+
+
+.button-bar > .button-bar__item:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.button-bar > .button-bar__item:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.button-bar__item:first-child > .button-bar__button {
+  border-right: none;
+}
+
+.button-bar__item:last-child > .button-bar__button {
+  border-left: none;
+}
+
+.button-bar-small .button-bar__item:first-child > .button-bar__button {
+  border-right: 1px solid $gray87;
+}
+
+.button-bar__button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: inherit;
+  vertical-align: top;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: inherit;
+  cursor: pointer;
+  user-select: none;
+
+  @include fontSize(13px);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $textcolour_body;
+
+  padding: 0 1rem;
+  border: 1px solid $gray87;
+  /* Important inheritance to manipulate border radius from parent */
+  border-radius: inherit;
+  background-color: $gray-lightest;
+  line-height: 2rem;
+
+  svg {
+    margin-left: -0.3em;
+  }
+
+}
+
+.button-bar__item > input:checked + label,
+.button-bar__button:active,
+.button-bar__button.is-active {
+  background-color: #FFF;
+  color: $textcolour_link;
+}
+
+
+
+.button-bar__item:disabled,
+.button-bar__item.is-disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.button-bar__button:focus {
+  border: 1px solid $textcolour_link;
+  z-index: 1;
+}

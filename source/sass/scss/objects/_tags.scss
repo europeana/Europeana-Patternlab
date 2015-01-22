@@ -4,17 +4,20 @@
 
 
 %tag{
-	padding: 0.35em 1em 0.35em 0.5em;
 	display: inline-block;
-	margin: 0 0.2em 0.5em 0;
 	position: relative;
-	text-transform: uppercase;
-	color: $textcolour_body;
+
+	padding: 0.35em 1em 0.35em 0.5em;
+	margin: 0 0.2em 0.5em 0;
+	margin-right: 0.2em;
+
 	@include border-right-radius(10em);
+
 	@include fontSize(13px);
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-right: 0.2em;
+	color: $textcolour_body;
+	
 }
 
 .tags a{

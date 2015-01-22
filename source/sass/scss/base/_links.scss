@@ -12,6 +12,7 @@ a {
 
 	&:hover{
 		color: darken($textcolour_link, 15%);
+		cursor: pointer;
 	}
 
 	&.highlight{

@@ -41,10 +41,18 @@
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
 	overflow: hidden;
+	@include fontSize(14px);
 
 	// &>div{
 	// 	background-color: #ccc;
 	// }
+
+	.action-select, 
+	.result-actions, 
+	.result-info, 
+	.result-sort{
+		margin-top: $space-quarter;
+	}
 
 	.result-actions{
 		@include span(3 of 12);
@@ -64,22 +72,21 @@
 		}
 	}
 
-	.result-sort{
-		@include span(3 of 12);
+	.result-controls{
+		@include span(11 of 12);
 		margin-left: span(1 of 12 wide);
 
 		@media all and (min-width: $bp-small-3) {
-			@include span(3 of 18);
+			@include span(last 6 of 18);
 			margin-left: 0;
 		}
 	}
 
-	.result-mode{
-		@include span(last 8 of 12);
-
-		@media all and (min-width: $bp-small-3) {
-			@include span(last 3 of 18);
-		}
+	.result-sort{
+		float: left;
+	}
+	.result-viewtype{
+		float: right;
 	}
 
 }
@@ -87,7 +94,6 @@
 .search-list-item{
 	position: relative;
 	margin-bottom: $space-double;
-
 }
 
 

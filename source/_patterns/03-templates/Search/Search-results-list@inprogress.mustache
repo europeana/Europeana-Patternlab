@@ -32,7 +32,11 @@
 				1640 results for <strong>Rembrandt</strong> and <strong>Art History</strong>
 			</div>
 
-			<div class="result-sort">
+
+
+			<div class="result-controls">
+
+				<div class="result-sort">
 				<a class="dropdown-trigger" href="#" data-dropdown="#dropdown-result-sort">Relevance</a>
 
 				<div id="dropdown-result-sort" class="dropdown">
@@ -47,10 +51,12 @@
 				        <li><a href="#5" class="menu-more">Advanced search</a></li>
 				    </ul>
 				</div>
-			</div>
+				</div>
 
-			<div class="result-mode">
-				--list mode buttons--
+				{{! List and grid view buttons }}
+				{{> molecules-buttonbar-viewtype }}
+
+
 			</div>
 			
 
