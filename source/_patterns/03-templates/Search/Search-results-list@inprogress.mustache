@@ -79,31 +79,16 @@
 
 		<h2>Refine your search</h2>
 
-		<fieldset class="filter">
-			<legend>Theme</legend>
-			<ul>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-			</ul>
-		</fieldset>
+		{{> molecules-filter-simple(title: "Theme") }}
 
-		<fieldset class="filter filter-date">
-			<legend>Date</legend>
-			<ul>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-				<li><input type="checkbox" name="groupname" id="">label here</li>
-			</ul>
-		</fieldset>
+		{{> molecules-filter-simple(title: "Type") }}
 
-		--theme filter--
-		--Type filter--
-		--Date filter--
-		--Country filter--
-		--License filter--
+		{{> molecules-filter-date(title: "Date") }}
+
+		{{> molecules-filter-simple(title: "Country") }}
+
+		{{> molecules-filter-license(title: "License") }}
+
 		--language search options--
 		
 		<a href="">More refinements…</a>

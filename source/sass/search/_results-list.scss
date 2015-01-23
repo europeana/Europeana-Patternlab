@@ -33,6 +33,16 @@
 	@media all and (min-width: $bp-med) {
 		@include span(6);
 	}
+
+	padding-top: $space-half + $space-quarter;
+
+	&>h2{
+		text-transform: uppercase;
+		font-weight: bold;
+		@include fontSize(16px);
+		color: $textcolour_body;
+		margin-bottom: $space-double;
+	}
 }
 
 
