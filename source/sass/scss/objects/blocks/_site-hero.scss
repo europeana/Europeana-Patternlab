@@ -1,0 +1,165 @@
+.site-hero{
+
+	height: 80%;
+	position: relative;
+	overflow: hidden;
+
+	background-image: url("../../images/sample/pro-background.jpg");
+	background-position: 50% 50%;
+	-webkit-background-size: cover;
+	background-size: cover;
+
+	background-color: $grey2;
+	color: $gray97;
+
+	@media all and (min-width: $bp-small) {
+		height: 60%;
+	}
+
+	.lc{
+		position: relative;
+		height: 100%;
+	}
+
+	.hero-text{
+		position: absolute;
+		z-index: 10;
+		bottom: 2em;
+		background-color: rgba(#000, 0.7);
+
+		padding: $space;
+		width: 100%;
+
+		@media all and (min-width: $bp-small) {
+			width: 60%;
+		}
+
+		@media all and (min-width: $bp-large) {
+			width: 35%;
+		}
+	}
+
+	.attribution{
+		position: absolute;
+		
+		z-index: 5;
+		bottom: 4px;
+		
+		background-color: rgba(#000, 0.7);
+		padding: $space-quarter;
+		font-size: $font-size-sm;
+
+		@media all and (min-width: $bp-small) {
+			display: inline-block;
+			right: 0;
+		}
+	}
+
+	.license{
+		color: $gray87;
+		display: block;
+	}
+
+
+
+	h2, h1{
+		font-family: $font-secondary;
+		font-weight: normal;
+    	line-height: 1.1;
+    	margin-bottom: $space-half;
+    	font-size: 2em;
+    	text-transform: uppercase;
+
+    	a{
+			color: $white;
+			border-bottom: 1px dotted $white;
+
+			&:hover, &:focus{
+				color: $accent;
+				border-color: $accent;
+			}
+		}
+	}
+
+}
+
+// Brand circle positioning
+
+.brand-circles{
+	
+	width: 40%;
+	position: absolute;
+
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+
+	.brand-topleft &{
+		top: 0;
+		left: 0;
+	}
+
+	.brand-topright &{
+		top: 0;	
+		right: 0;
+		left: auto;
+		transform: rotateY(180deg);
+	}
+	.brand-bottomleft &{
+		top: auto;
+		bottom: 0;
+		transform: rotateX(180deg);
+	}
+	.brand-bottomright &{
+		top: auto;
+		bottom: 0;
+		left: auto;
+		right: 0;
+		transform: rotateZ(180deg);
+	}
+
+	// Opacity
+	.brand-opacity25 &{
+		opacity: 0.25;
+	}
+	.brand-opacity50 &{
+		opacity: 0.5;
+	}	
+	.brand-opacity75 &{
+		opacity: 0.75;
+	}
+	.brand-opacity100 &{
+		opacity: 1;
+	}
+
+	svg{
+		fill: $accent;
+	}
+
+}
+
+// Brand circles colours
+.brand-colour-site svg{
+	fill: $accent;
+}
+
+.brand-colour-white svg{
+	fill: $white;
+}
+
+.brand-colour-black svg{
+	fill: #000;
+}
+
+// Text
+
+.brand-text{
+	width: 60%;
+	position: absolute;
+	top: 18%;
+	right: -30px;
+
+	svg{
+		fill: $white;
+	}
+}

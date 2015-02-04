@@ -1,70 +1,4 @@
-.pro-hero{
 
-	height: 80%;
-
-	background-image: url("../../images/sample/pro-background.jpg");
-	background-position: 50% 50%;
-	-webkit-background-size: cover;
-	background-size: cover;
-
-	background-color: $grey2;
-
-	@media all and (min-width: $bp-small) {
-		height: 60%;
-	}
-
-	.lc{
-		position: relative;
-		height: 100%;
-	}
-
-	.hero-text{
-		position: absolute;
-		z-index: 10;
-		bottom: 1.4em;
-		background-color: rgba(#FFF, 0.7);
-		border-left: $accent 5px solid;
-		padding: $space;
-		width: 100%;
-
-		@media all and (min-width: $bp-small) {
-			width: 60%;
-		}
-
-		@media all and (min-width: $bp-med) {
-			width: 35%;
-		}
-	}
-
-	h1{
-		font-family: $font-secondary;
-		font-weight: normal;
-    	line-height: 1.1;
-    	margin-bottom: $space-half;
-    	//font-size: 1.6em;
-	}
-
-	h1 a{
-		color: $textcolour_head;
-		border-bottom: 1px dotted $textcolour_head;
-
-		&:hover, &:focus{
-			color: $accent;
-			border-color: $accent;
-		}
-	}
-
-	.hero-link{
-		position: absolute;
-		display: block;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 1;
-		font-size: 0;
-	}
-}
 
 .pro-home{
 	padding-top: 0;
@@ -183,27 +117,6 @@
 	.usefulinfo-item{
 		padding-top: $space;
 		border-top: 1px solid $grey3;
-	}
-}
-
-a.labs-link{
-	padding: $space;
-	display: block;
-	position: relative;
-	background-color: $eu-labs;
-	color: $white;
-	background-image: url("../../images/icons/labs.svg");
-	background-position: 1.6em 50%;
-	background-repeat: no-repeat;
-	background-size: 15%;
-	padding-left: 30%;
-
-	outline: 1px solid $eu-labs;
-	border: 5px solid #FFF;
-
-	h3{
-		color: $white;
-		margin-bottom: $space-half;
 	}
 }
 

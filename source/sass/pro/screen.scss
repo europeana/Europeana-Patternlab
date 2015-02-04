@@ -67,6 +67,7 @@ $textcolour_highlight: $accent;
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
+@import "../scss/objects/icons/icons-licenses";
 
 
 /*------------------------------------*\
@@ -81,17 +82,24 @@ $textcolour_highlight: $accent;
 	site modules
 \*------------------------------------*/
 //module layout using css wizardry grid
-@import "layout_csswiz";
+@import "./layout_csswiz";
 
 // Home page
-@import "pro-homepage";
-@import "subsites";
+@import "../scss/objects/blocks/site-hero";
+@import "./pro-homepage";
+@import "./subsites";
 
 
 //Logo for Pro
 .logo {
-	width: 166px;
+	width: 55%;
+	max-width: 240px;
 	background-image: url("../../images/pro/europeana-pro-logo.png");
+	background-position: 0 50%;
+
+	.svg &{
+		background-image: url("../../images/pro/europeana-pro-logo.svg");
+	}
 }
 
 // Generic page layout
