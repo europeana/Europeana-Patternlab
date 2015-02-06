@@ -8,11 +8,23 @@
 			</div>
 		{{/ publication }}
 
+		{{# press }}
+			<div class="item-image">
+				<a href="#"><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+			</div>
+		{{/ press }}
+
 		{{# blog }}
 			<div class="item-image">
 				<a href="#"><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
 			</div>
 		{{/ blog }}
+
+		{{# project }}
+			<div class="item-image">
+				<a href="#"><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+			</div>
+		{{/ project }}
 
 		{{# event }}
 			<div class="item-bigdate">
@@ -45,8 +57,6 @@
 
 		<div class="item-meta-secondary">
 
-
-
 			{{# event }}
 				{{> molecules-item-location }}
 				{{> molecules-item-tags }}
@@ -69,12 +79,18 @@
 				{{> molecules-item-tags }}
 			{{/ publication }}
 
+			{{# press }}
+				{{> molecules-item-date }}
+				{{> molecules-item-tags }}
+			{{/ press }}
+
 			{{# taskforce }}
+				{{> molecules-item-daterange }}
 				{{> molecules-item-tags }}
 			{{/ taskforce }}
 
 			{{# project }}
-				{{> molecules-item-tags }}
+				{{> molecules-item-daterange }}
 			{{/ project }}
 
 		</div>

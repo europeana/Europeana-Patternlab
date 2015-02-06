@@ -18,11 +18,11 @@
 
 			<div class="maincontent">
 
-				<h1 class="title">Who works at Europeana</h1>
+				<h1 class="title">{{ title }}</h1>
 
 				
 				<div class="team">
-					<h2>Team name here</h2>
+					<h2>{{ subtitle }}</h2>
 
 					<ul class="results-list">
 						{{#listItems.six}}<li>{{> molecules-person-block-small(medium: true) }}</li>{{/listItems.six}}
@@ -30,14 +30,20 @@
 				</div>
 
 				<div class="team">
-					<h2>Another Team name here</h2>
+					<h2>{{ subtitle }}</h2>
 
 					<ul class="results-list">
 						{{#listItems.four}}<li>{{> molecules-person-block-small(medium: true) }}</li>{{/listItems.four}}
 					</ul>
 				</div>
 
-				{{> molecules-pagination }} 
+				<div class="team">
+					<h2>{{ subtitle }}</h2>
+
+					<ul class="results-list">
+						{{#listItems.four}}<li>{{> molecules-person-block-small(medium: true) }}</li>{{/listItems.four}}
+					</ul>
+				</div>	
 
 
 			</div>

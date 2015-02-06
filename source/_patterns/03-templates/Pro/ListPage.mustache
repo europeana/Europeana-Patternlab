@@ -35,7 +35,15 @@
 			{{> molecules-meta-RSS }}
 			{{/ blog }}
 
+
 			<div class="results">
+
+				{{# intro }}
+				<div class="page-intro">
+                     <h1 class="title">List Page title</h1>
+                    <p>{{ excerpt.short }}</p>
+                </div>
+                {{/ intro }}
 
 				<ul class="results-list">
 					{{#listItems.ten}}
@@ -47,7 +55,7 @@
 
 			</div>
 
-			{{> molecules-related-noimages(title: "Related") }}
+			{{> molecules-related-images(title: "Related") }}
 
 		</div>
 		</div><!--

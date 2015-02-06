@@ -16,51 +16,39 @@
 			{{> molecules-breadcrumbs }}
 		</div>
 		
-		<article class="maincontent">
-			<div class="textcontent">
 
-				<div class="articleheader">
+		<div class="maincontent">
 
-					<h1 class="title">{{ headline.medium }}</h1>
+			<div class="l-twoup">
 
-					
+			 	<div class="l-photo">
+					<img src="http://placeimg.com/300/400/tech" alt="photo of Publication"/>
+				</div><!--
 
-					<div class="item-meta-primary">
-						<span class="item-payscale">€2200—€2800 p/m (Scale 9-10)</span>
-						{{> molecules-item-location }}
-						
-					</div>
+			 --><div class="l-detail textcontent">
+
+			 		<h1 class="title">Press Release Title</h1>
 
 					<div class="item-meta-secondary">
 						{{> molecules-item-date }}
-						{{> molecules-item-department(team:"Software Development") }}
+						{{> molecules-item-tags }}
 					</div>
 
-					{{> molecules-item-deadline }}
-					
+					<div class="prose">
+					{{> organisms-article-short }}
+					</div>
+
 				</div>
-
-
-
-				<div class="prose">
-				{{> organisms-article-body }}
-				</div>
-
-				{{> molecules-file-browser}}
-				
 			</div>
 
-		</article>
+
+		</div>
 		</div><!--
 
 	 --><div class="l-sidebar">
-	 		<div class="inner">
-
+			<div class="inner">
 				{{> molecules-help-contact(title: "Need Help?") }}
-
-				
 			</div>
-
 		</div>
 	</div>
 	<!-- End grid -->

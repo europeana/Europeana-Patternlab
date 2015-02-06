@@ -96,6 +96,7 @@ $textcolour_highlight: $accent;
 	max-width: 240px;
 	background-image: url("../../images/pro/europeana-pro-logo.png");
 	background-position: 0 50%;
+	background-size: contain;
 
 	.svg &{
 		background-image: url("../../images/pro/europeana-pro-logo.svg");
@@ -189,7 +190,6 @@ $textcolour_highlight: $accent;
 	}
 }
 
-.downloads, 
 .help-contact, 
 .contact-methods, 
 .jobdetails{
@@ -309,31 +309,7 @@ $textcolour_highlight: $accent;
 
 //Overview page
 
-// links grid
-.link-block{
-	
-	margin-bottom: $space;
-	text-align: left;
-	min-height: 10em;
 
-	a{
-		color: $textcolour_body;
-		background-color: $offwhite;
-		display: block;
-	}
-
-	.b-thumb{
-		line-height: 1;
-	}
-
-	.b-text{
-		padding: $space-half $space;
-	}
-
-	.item-title{
-		margin-bottom: 0.6rem;
-	}
-}
 
 //mini section sitemap
 .section-sitemap{
