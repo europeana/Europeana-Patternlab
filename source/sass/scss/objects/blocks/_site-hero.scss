@@ -1,6 +1,6 @@
 .site-hero{
 
-	height: 80%;
+	height: 70%;
 	position: relative;
 	overflow: hidden;
 
@@ -12,8 +12,10 @@
 	background-color: $grey2;
 	color: $gray97;
 
+	margin-top: $globalnavheight;
+
 	@media all and (min-width: $bp-small) {
-		height: 60%;
+		height: 50%;
 	}
 
 	.lc{

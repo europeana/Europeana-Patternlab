@@ -120,6 +120,14 @@
 .pusher {
 	position: relative;
 	height: 100%;
+	*zoom: 1;
+}
+.pusher:before, .pusher:after {
+    content: " "; 
+    display: table;
+}
+.pusher:after {
+    clear: both;
 }
 
 
