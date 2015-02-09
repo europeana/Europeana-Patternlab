@@ -63,6 +63,10 @@
 			border-left-color: $textcolour_highlight;
 		}
 	}
+
+	&.pill{
+		border-radius: 300px;
+	}
 }
 
 .btn-small {
