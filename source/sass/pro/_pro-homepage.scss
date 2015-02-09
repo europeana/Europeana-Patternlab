@@ -26,7 +26,8 @@
 	margin-bottom: $space;
 
 	a{
-		border-bottom: 1px dotted $textcolour_link;
+		color: $white;
+		border-bottom: 1px dotted $white;
 	}
 
 }
