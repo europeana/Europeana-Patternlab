@@ -25,9 +25,10 @@
 
 	.hero-text{
 		position: absolute;
-		z-index: 10;
+		z-index: 5;
 		bottom: 2em;
 		background-color: rgba(#000, 0.7);
+		border-radius: 4px;
 
 		padding: $space;
 		width: 100%;
@@ -44,10 +45,11 @@
 	.attribution{
 		position: absolute;
 		
-		z-index: 5;
+		z-index: 10;
 		bottom: 4px;
 		
 		background-color: rgba(#000, 0.7);
+		border-radius: 4px;
 		padding: $space-quarter;
 		font-size: $font-size-sm;
 
@@ -77,8 +79,8 @@
 			border-bottom: 1px dotted $white;
 
 			&:hover, &:focus{
-				color: $accent;
-				border-color: $accent;
+				color: $textcolour_link;
+				border-color: $textcolour_link;
 			}
 		}
 	}
