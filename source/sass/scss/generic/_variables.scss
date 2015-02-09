@@ -68,6 +68,10 @@ $blue-grey		: #C8D5D7;
 $peachy			: #e96e62;
 
 
+$linkblue		: #1A8AC7; //original
+$linkblue		: #095F90; // WCAG AA All text + AAA for text > 18pt
+
+
 /////////////////////////////////////////////////////////
 
 
@@ -91,7 +95,7 @@ $textcolour_head: $black;
 $textcolour_body: $gray-med;
 $textcolour_heavy: $gray-dark;
 $textcolour_highlight: $accent;
-$textcolour_link: $eu-blue;
+$textcolour_link: $linkblue;
 $text_secondary: $gray-light;
 
 //Dark Backgrounds eg. footer
