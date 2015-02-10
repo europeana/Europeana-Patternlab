@@ -75,7 +75,7 @@ small{
     a:not(.btn) {
         color: $textcolour_link;
 
-        &:hover{
+        &:hover,&:focus{
             border-bottom: 1px dotted $textcolour_link;
         }
     }
