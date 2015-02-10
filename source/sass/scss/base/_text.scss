@@ -72,7 +72,7 @@ small{
         padding: 0 $pad;
     }
 
-    a {
+    a:not(.btn) {
         color: $textcolour_link;
 
         &:hover{
