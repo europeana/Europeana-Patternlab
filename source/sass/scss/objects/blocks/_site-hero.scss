@@ -107,19 +107,19 @@
 		top: 0;	
 		right: 0;
 		left: auto;
-		transform: rotateY(180deg);
+		@include rotateY(180);
 	}
 	.brand-bottomleft &{
 		top: auto;
 		bottom: 0;
-		transform: rotateX(180deg);
+		@include rotateX(180);
 	}
 	.brand-bottomright &{
 		top: auto;
 		bottom: 0;
 		left: auto;
 		right: 0;
-		transform: rotateZ(180deg);
+		@include rotateZ(180);
 	}
 
 	// Opacity
