@@ -80,6 +80,14 @@ small{
         }
     }
 
+    // Headings - add back line height
+    h1,h2{
+        line-height: 1.2;
+    }
+    h3,h4,h5{
+        line-height: 1.6;
+    }
+
     // Anchor with fixed header
     a[name]:before {
         $offset: $globalnavheight + $space;

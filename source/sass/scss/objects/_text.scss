@@ -10,14 +10,13 @@
 
 //Pullquote
 .pullquote {
+	position:relative;	
+	padding: $space;	
+	border-left: none;	
+
 	color: $textcolour_head;
 	@include font-size(2);
 	line-height: 1.2;
-	border-left: none;
-	padding: $space;
-	position:relative;
-	float: right;
-	width: 45%;
 
 
 	&:before, &:after{
@@ -31,6 +30,11 @@
 		left: $space;
 		top: 0.4em;
 		line-height: 0.1em;
+	}
+
+	@media all and (min-width: $bp-small-3) {
+		float: right;
+		width: 45%;
 	}
 }
 

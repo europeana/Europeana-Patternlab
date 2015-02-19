@@ -1,6 +1,5 @@
 .header {
 	background: rgba($white, 0.85);
-	position: fixed;
 	padding: 0;
 	z-index: 100;
 	width: 100%;
@@ -14,9 +13,9 @@
 	transform: translate3d(0, 0, 0);
 
 
-	// @media all and (min-width: $bp-small) {
-	// 	//position: fixed;
-	// }
+	@media all and (min-width: $bp-small) {
+		position: fixed;
+	}
 }
 
 .header > .cf{
