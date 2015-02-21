@@ -24,6 +24,10 @@ $subsite_colour: #00AEEF;
 		border-color: $subsite_colour;
 	}
 
+	.link-block-text .b-text{
+		border-top-color: $subsite_colour;
+	}
+
 }
 
 // this is the subsite body class for the Creative sub site
@@ -48,6 +52,10 @@ $subsite_colour: #FF0066;
 	.nav_primary .current:after
 	{
 		border-color: $subsite_colour;
+	}
+
+	.link-block-text .b-text{
+		border-top-color: $subsite_colour;
 	}
 
 }
