@@ -224,7 +224,7 @@
 		position: relative;	
 	}
 
-	input, input:focus { 
+	input[type=text] { 
 		border:none;
 		outline:none;
 		padding: $space-half;
