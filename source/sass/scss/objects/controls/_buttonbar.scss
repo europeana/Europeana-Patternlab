@@ -3,7 +3,7 @@
 .button-bar {
   display: table;
   table-layout: fixed;
-  white-space: no-wrap;
+  white-space: nowrap;
 }
 
 .button-bar__item {
@@ -45,15 +45,10 @@
   position: relative;
   display: inline-block;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
-  border: none;
-  color: inherit;
   vertical-align: top;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font: inherit;
   cursor: pointer;
   user-select: none;
 
