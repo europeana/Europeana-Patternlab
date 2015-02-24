@@ -6,9 +6,9 @@
 
 <section class="search-hero">
 		<div class="searchbar">
-			--previous terms--
-			--input field--
-			--search button--
+			@TODO previous terms
+			@TODO --input field--
+			@TODO --search button--
 		</div>
 </section>
 
@@ -36,27 +36,25 @@
 
 			<div class="result-controls">
 
-				<div class="result-sort">
-				<a class="dropdown-trigger" href="#" data-dropdown="#dropdown-result-sort">Relevance</a>
-
-				<div id="dropdown-result-sort" class="dropdown">
-					<div class="menu-title">Sort by…</div>
-
-				    <ul class="dropdown-menu">
-				        <li><a href="#1">Date</a></li>
-				        <li><a href="#2">Alphabetical</a></li>
-				        <li><a href="#3">Relevance</a></li>
-				        <li><a href="#3">Relevance</a></li>
-				        <li class="dropdown-divider"></li>
-				        <li><a href="#5" class="menu-more">Advanced search</a></li>
-				    </ul>
-				</div>
-				</div>
-
 				{{! List and grid view buttons }}
 				{{> molecules-buttonbar-viewtype }}
 
+				<div class="result-sort">
+					<a class="dropdown-trigger" href="#" data-dropdown="#dropdown-result-sort">Relevance</a>
 
+					<div id="dropdown-result-sort" class="dropdown">
+						<div class="menu-title">Sort by…</div>
+
+					    <ul class="dropdown-menu">
+					        <li><a href="#1">Date</a></li>
+					        <li><a href="#2">Alphabetical</a></li>
+					        <li><a href="#3">Relevance</a></li>
+					        <li><a href="#3">Relevance</a></li>
+					        <li class="dropdown-divider"></li>
+					        <li><a href="#5" class="menu-more">Advanced search</a></li>
+					    </ul>
+					</div>
+				</div>
 			</div>
 			
 
@@ -89,9 +87,11 @@
 
 		{{> molecules-filter-license(title: "License") }}
 
-		--language search options--
+		@TODO --language search options--
 		
 		<a href="">More refinements…</a>
+
+		@TODO add advanced search
 
 	</div>
 
