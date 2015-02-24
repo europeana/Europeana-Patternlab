@@ -6,6 +6,7 @@
 	color: $textcolour_body;
 	position: relative;
 	padding-right: 1em;
+	white-space: nowrap;
 
 	&:after {
 		content: '';
@@ -19,11 +20,13 @@
 	}
 }
 
+
+
 .dropdown {
+	display: none;
 
 	position: absolute;
-	z-index: 9999999;
-	display: none;
+	z-index: 1000;
 	margin-top: 8px;
 	background: $gray-lightest;
 	min-width: 160px;
@@ -31,27 +34,10 @@
 	list-style: none;
 		
 	border: solid 1px $gray87;
-	border: solid 1px rgba(0, 0, 0, .2);
 		
 	box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
 	overflow: visible;
 
-
-	.menu-title{
-		padding: $space-quarter $space-half;
-		border-bottom: 1px solid $gray87;
-		color: $textcolour_link;
-		background-color: #FFF;
-		margin-bottom: $space-quarter;
-	}
-
-	.menu-more{
-		font-size: $font-size-slightly-smaller;
-		color: $textcolour_link;
-	}
-
-
-	
 	// top arrow
 	&:before {
 	  position: absolute;
@@ -77,27 +63,42 @@
 	}
 
 
-	.dropdown-scroll{
-		.dropdown-panel {
-			max-height: 358px;
-			overflow: auto;
-		}
+	&.has-icons li > a {
+		padding-left: 30px;
+		background-position: 8px center;
+		background-repeat: no-repeat;
 	}
 
-	.dropdown-menu{
-		margin-bottom: $space-quarter;
+}
+
+.dropdown-scroll{
+	.dropdown-panel {
+		max-height: 300px;
+		overflow: auto;
 	}
+}
+
+.menu-title{
+	padding: $space-quarter $space-half;
+	border-bottom: 1px solid $gray87;
+	color: $textcolour_link;
+	background-color: #FFF;
+	margin-bottom: $space-quarter;
+}
+
+.dropdown-menu{
+	margin-bottom: $space-quarter;
 
 	li {
 		list-style: none;
 		padding: 0 0;
 		margin: 0;
-		line-height: 18px;
+		line-height: 1.2em;
 	}
 
 	li>a, label{
 		display: block;
-		color: #555;
+		color: $textcolour_body; 
 		text-decoration: none;
 		padding: 6px $space-half;
 		margin: 0;
@@ -110,19 +111,14 @@
 		}
 	}
 
-	.dropdown-divider {
-		font-size: 1px;
-		border-top: solid 1px #E5E5E5;
-		padding: 0;
-		margin: 5px 0;
+	.menu-more{
+		font-size: $font-size-slightly-smaller;
+		color: $textcolour_link;
 	}
-
-
-	&.has-icons li > a {
-		padding-left: 30px;
-		background-position: 8px center;
-		background-repeat: no-repeat;
-	}
-
 }
 
+.dropdown-divider {
+	font-size: 0;
+	border-top: solid 1px #E5E5E5;
+	margin: 5px 0;
+}
