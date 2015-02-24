@@ -1,0 +1,46 @@
+.sparkline{
+	margin-bottom: $space;
+}
+
+.sparkline-data {
+	display: table;
+	width: 100%;
+	border-bottom: 1px solid $gray-light;
+
+
+	.index {
+	  position: relative;
+	  display: table-cell;
+	  height: 5em;
+	  cursor: default;
+
+	  &:hover .count{
+	  	background-color: $textcolour_link;
+	  }
+	}
+
+	.count {
+	  display: block;
+	  position: absolute;
+	  bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 0;
+	  background: $accent;
+	  border-right: 2px solid $paper;
+	  overflow: hidden;
+	  text-indent: -9999px;
+	}
+
+}
+
+.sparkline-start, .sparkline-end{
+	font-weight: bold;
+	font-size: $font-size-slightly-smaller;
+}
+.sparkline-start{
+	float: left;
+}
+.sparkline-end{
+	float: right;
+}
