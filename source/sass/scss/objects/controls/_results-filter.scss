@@ -11,7 +11,7 @@
 	margin-bottom: $space-half;
 	@include fontSize(14px);
 
-	legend{
+	.filter-name{
 		color: $textcolour_body;
 		margin: $space-half 0;
 		text-transform: uppercase;
@@ -20,11 +20,15 @@
 		width: 100%;
 	}
 
+	.filter-list{
+		margin-bottom: $space-half;
+	}
+
 	.filter-label{
 		padding: 0.2em 0;
 	}
 
-	input{
+	input[type='checkbox']{
 		margin-right: $space-half;
 	}
 }
