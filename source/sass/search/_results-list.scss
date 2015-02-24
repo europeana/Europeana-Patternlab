@@ -56,50 +56,58 @@
 	// &>div{
 	// 	background-color: #ccc;
 	// }
+}
 
-	.action-select, 
-	.result-actions, 
-	.result-info, 
-	.result-sort{
-		margin-top: $space-quarter;
+.action-select, 
+.result-actions, 
+.result-info, 
+.result-sort{
+	margin-top: $space-quarter;
+}
+
+.result-actions{
+	@include span(3 of 12);
+
+	@media all and (min-width: $bp-small-3) {
+		@include span(2 of 18);
 	}
+}
 
-	.result-actions{
-		@include span(3 of 12);
 
-		@media all and (min-width: $bp-small-3) {
-			@include span(3 of 18);
-		}
+.result-info{
+	@include span(last 8 of 12);
+
+	@media all and (min-width: $bp-small-3) {
+		text-align: center;
+		@include span(8 of 18);
 	}
+}
 
+.result-controls{
+	@include span(11 of 12);
+	margin-left: span(1 of 12 wide);
 
-	.result-info{
-		@include span(last 8 of 12);
-
-		@media all and (min-width: $bp-small-3) {
-			text-align: center;
-			@include span(8 of 18);
-		}
+	@media all and (min-width: $bp-small-3) {
+		@include span(last 7 of 18);
+		margin-left: 0;
 	}
+}
 
-	.result-controls{
-		@include span(11 of 12);
-		margin-left: span(1 of 12 wide);
+.result-viewtype{
+	float: right;
+	margin-left: $space-half;
+}
 
-		@media all and (min-width: $bp-small-3) {
-			@include span(last 6 of 18);
-			margin-left: 0;
-		}
-	}
-
-	.result-sort{
-		float: left;
-	}
-	.result-viewtype{
+.result-sort{
+	float: left;
+	@media all and (min-width: $bp-small-3) {
 		float: right;
 	}
-
 }
+
+
+
+
 
 .search-list-item{
 	position: relative;
