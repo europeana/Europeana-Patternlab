@@ -24,11 +24,13 @@
 
 .logo {
 	float: left;
-	width: 50px;
+	width: 55%;
+	max-width: 50px;
 	height: 60px;
 	margin: 0.4rem;
 	margin-left: $space;
 
+	background-position: 0 50%;
 	background-image: url('../../images/pro/europeana-pro-logo.png');
 	background-repeat: no-repeat;
 
