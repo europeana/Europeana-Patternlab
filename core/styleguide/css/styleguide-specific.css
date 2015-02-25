@@ -59,8 +59,9 @@
     margin: 0 0.2em 0.2em 0; }
     @media all and (min-width: 30em) {
       .sg-colors li {
-        float: left;
-        width: 5em; } }
+        display: inline-block;
+        vertical-align: top;
+        width: 19%; } }
 
 .sg-swatch {
   display: block;
