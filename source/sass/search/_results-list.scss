@@ -1,0 +1,220 @@
+.search-hero{
+	padding: $space-triple;
+	background-color: #DDEBEE;
+	border-bottom: 1px solid $gray87;
+}
+
+
+
+// Generic page layout
+.page{
+
+	background: $white; // fallback
+	
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+		// TODO: add gradients for older browsers
+	}
+
+}
+
+.results-list{
+	background-color: rgba(255,255,255,0.8);
+
+	@media all and (min-width: $bp-med) {
+		@include span(last 18);
+	}
+}
+
+.refine{ 
+	background: $offwhite;
+
+	@media all and (min-width: $bp-med) {
+		@include span(6);
+	}
+
+	padding-top: $space-half + $space-quarter;
+
+	&>h2{
+		text-transform: uppercase;
+		font-weight: bold;
+		@include fontSize(16px);
+		color: $textcolour_body;
+		margin-bottom: $space-double;
+	}
+}
+
+
+.results-header{
+	padding: $space-half 0;
+	border-bottom: 1px solid $gray87;
+	margin-bottom: $space;
+	overflow: hidden;
+	@include fontSize(14px);
+
+	// &>div{
+	// 	background-color: #ccc;
+	// }
+}
+
+.action-select, 
+.result-actions, 
+.result-info, 
+.result-sort{
+	margin-top: $space-quarter;
+}
+
+.result-actions{
+	@include span(3 of 12);
+
+	@media all and (min-width: $bp-small-3) {
+		@include span(2 of 18);
+	}
+}
+
+
+.result-info{
+	@include span(last 8 of 12);
+
+	@media all and (min-width: $bp-small-3) {
+		text-align: center;
+		@include span(8 of 18);
+	}
+}
+
+.result-controls{
+	@include span(11 of 12);
+	margin-left: span(1 of 12 wide);
+
+	@media all and (min-width: $bp-small-3) {
+		@include span(last 7 of 18);
+		margin-left: 0;
+	}
+}
+
+.result-viewtype{
+	float: right;
+	margin-left: $space-half;
+}
+
+.result-sort{
+	float: left;
+	@media all and (min-width: $bp-small-3) {
+		float: right;
+	}
+}
+
+
+
+
+
+.search-list-item{
+	position: relative;
+	margin-bottom: $space-double;
+}
+
+
+
+.search-results{
+	padding: 0 $space;
+	.container{
+		@include container($max-width);
+	}
+}
+
+
+.search-list-item{
+	.item-info{
+		@include span(11 of 12);
+		margin-left: span(1 of 12 wide);
+
+		@media all and (min-width: $bp-small-3) {
+			@include span(13 of 18);
+			margin-left: span(1 of 18 wide);
+		}
+	}
+
+	h1{
+		font-size: $font-size-med;
+		margin-bottom: $space-half;
+		font-weight: normal;
+		font-family: $font-secondary;
+		line-height: 1.4;
+
+		a:hover{
+			border-bottom: 1px dotted darken($textcolour_link, 15%);
+		}
+	}
+
+	// External links
+	a[href*="//"]:not([href*="europeana.eu"]):after{
+		@extend %external_link_icon;
+	}
+
+	footer{
+		font-size: $font-size-slightly-smaller;
+		padding: $space-half 0;
+		border-bottom: 1px solid $gray87;
+		@extend .cf;
+	}
+
+	.excerpt{
+		margin-bottom: $space-half;
+	}
+
+	.item-origin{
+		font-weight: bold;
+	}
+
+	.item-preview{
+		
+		background-color: $gray-lighter;
+		min-height: 10em;
+		display: none;
+
+		@media all and (min-width: $bp-small-3) {
+			display: block;
+			@include span(last 4 of 18);
+		}
+	}
+
+	.item-metadata{
+		@include span(11 of 13);
+	}
+
+	.item-actions{
+		@include span(last 2 of 13);
+		text-align: right;
+	}
+}
+
+.action-select{
+
+	text-align: center;
+
+	.search-list-item &{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	input{
+		display: inline-block;
+		margin: 0;
+	}
+
+
+	@include span(1 of 12 wide no-gutters);
+
+	@media all and (min-width: $bp-small-3) {
+		@include span(1 of 18 wide no-gutters);
+	}
+
+}
+
+
+
+
+
+

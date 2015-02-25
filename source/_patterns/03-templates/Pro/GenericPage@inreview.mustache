@@ -16,7 +16,7 @@
 			{{> molecules-breadcrumbs }}
 		</div>
 		
-		<div class="maincontent">
+		<div id="maincontent" class="maincontent">
 			
 			<div class="textcontent prose">
 
@@ -31,9 +31,9 @@
 			</div>
 
 
-			{{> molecules-file-browser}}
+			{{> molecules-file-browser(title: "Files")}}
 
-			{{> molecules-related-noimages(title: "Next steps") }}
+			{{> molecules-related-images(title: "Next steps") }}
 
 
 		</div>
@@ -43,11 +43,6 @@
 	 		<div class="inner">
 
 				{{> molecules-help-contact(title: "Need help?") }}
-
-				<div class="downloads">
-					<h4>Downloads</h4>
-					{{> molecules-file-list-small }}
-				</div>
 
 				<ul class="nav_tertiary">
 					<li><a href="#inpage1">In-page link 1</a></li>

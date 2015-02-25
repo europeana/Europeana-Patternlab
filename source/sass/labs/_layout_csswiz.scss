@@ -1,3 +1,17 @@
+// Generic Columns - Sidebars
+.sidebar{
+	@extend %grid__item;
+	@extend %one-quarter;
+	@extend %palm--one-whole;
+}
+
+.main-content{
+	@extend %grid__item;
+	@extend %three-quarters;
+	@extend %palm--one-whole;
+}
+
+
 .grid-main{
 	@extend %grid;
 	@extend %grid--full;
@@ -14,4 +28,49 @@
 		@extend %lap--one-half;
 		margin-bottom: $space;
 	}
+
+	.list-item-primary{
+		@extend %lap--one-third;
+	}
+
+	.list-item-secondary{
+		@extend %lap--one-fifth;
+	}
+
+}
+
+// Global nav - Our sites
+.our-sites .l-linklist{
+	@extend %grid__item;
+	@extend %lap--one-quarter;
+}
+
+
+// Footer layout
+.l-contact{
+	@extend %grid__item;
+	@extend %lap--one-fifth;
+}
+
+.l-content, .l-nextsteps{
+	@extend %grid__item;
+	@extend %lap--two-fifths;
+}
+
+.l-sitemap .l-linklist{
+	@extend %grid__item;
+	@extend %one-half;
+}
+
+.l-mission, .l-othersites{
+	@extend %grid__item;
+}
+
+// header in content pages
+.block-content-header .contents{
+	@extend %grid__item;
+	@extend %palm--one-whole;
+	@extend %push--palm--none;
+	@extend %three-quarters;
+	@extend %push--one-quarter;
 }

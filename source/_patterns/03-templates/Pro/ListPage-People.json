@@ -7,5 +7,8 @@
 			"path": "../../css/pro/screen.css",
 			"media": "all"
 		}
-	]
+	],
+
+	"title": "Staff",
+    "subtitle": "Team name here"
 }

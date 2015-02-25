@@ -18,7 +18,7 @@
 
             <div class="subsite-banner" style="background-image: url(/files/Images/Teaser images/bg_europeana-creative.jpg)"></div>
 
-            <div class="maincontent">
+            <div id="maincontent" class="maincontent">
 
             
                 <div class="page-intro">
@@ -28,12 +28,9 @@
                 </div>
 
                 <ul class="l-next_options">
-                    {{#listItems.six}}<li>{{> molecules-link-block-full(excerpt: true) }}</li>{{/listItems.six}}
+                    {{#listItems.six}}<li>{{> molecules-link-block-text(excerpt: true) }}</li>{{/listItems.six}}
                 </ul>
 
-
-
-                {{> molecules-thumbnails:fivecols(title:"Thumbnail/image grid view") }}
 
 
             </div>

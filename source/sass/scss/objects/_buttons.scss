@@ -1,17 +1,18 @@
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
+
 .btn {
+	padding: 0.8em 1.2em;
 	display: inline-block;
 	position: relative;
+	line-height: 1;
 	background: transparent;
 	color: $black;
 	border: solid 6px $black;
 	@include font-size(1);
-	line-height: 1;
 	font-weight: bold;
 	text-transform: uppercase;
-	padding: 0.8em 1.2em;
 	text-align: center;
 	
 	&:hover, &:focus {
@@ -63,6 +64,10 @@
 			border-left-color: $textcolour_highlight;
 		}
 	}
+
+	&.pill{
+		border-radius: 300px;
+	}
 }
 
 .btn-small {
@@ -77,8 +82,31 @@
 	font-weight: normal;
 }
 
-
 .text-btn {
 	font-style: italic;
 }
 
+.btn2{
+	color: inherit;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+	
+	font-size: $font-size-sm;
+
+	border-radius: 6px;
+  	background-color: $gray-lightest;
+  	border: 1px solid $gray87;
+  	padding: 0.5em;
+
+  	&:hover, &:focus {
+		color: $textcolour_link;
+		border-color: $textcolour_link;
+	}
+
+	svg.icon{
+		margin-right: 0;
+	}
+}

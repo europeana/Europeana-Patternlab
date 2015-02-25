@@ -1,4 +1,5 @@
 <!-- Begin .header -->
+<a href="#maincontent" class="is-vishidden">Skip to main content</a>
 
 <!-- Super global navigation -->
 
@@ -10,8 +11,9 @@
 </div>
 
 <!-- Off canvas search bar -->
+{{#globalnav_options.search}}
 {{> molecules-global-search }}
-
+{{/globalnav_options.search}}
 
 <!-- wrapper for navigation bar -->
 <div class="cf">
@@ -25,13 +27,24 @@
 		<a href="#" class="nav-toggle nav-toggle-sites">
 			<span>Our Sites</span>
 		</a>
-
+		
+		{{#globalnav_options.search}}
 		<a href="#" class="nav-toggle nav-toggle-search">
 			<svg class="icon icon-search">
 				<use xlink:href="#icon-search"></use>
 			</svg>
 			<span class="is-vishidden">Search</span>
 		</a>
+		{{/globalnav_options.search}}
+
+		{{#globalnav_options.myeuropeana}}
+		<a href="#" class="nav-toggle nav-toggle-settings">
+			<svg class="icon icon-settings">
+				<use xlink:href="#icon-settings"></use>
+			</svg>
+			<span>My Europeana</span>
+		</a>
+		{{/globalnav_options.myeuropeana}}
 
 		<a href="#" class="nav-toggle nav-toggle-menu">
 			<svg class="icon icon-menu">

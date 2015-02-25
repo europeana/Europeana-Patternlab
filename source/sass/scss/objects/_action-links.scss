@@ -1,0 +1,19 @@
+
+// A link used as a button for an asynchronous action (eg. Save in the search results)
+//
+// :hover             - Subtle hover highlight.
+//
+// Styleguide 1.0.0
+
+
+a[class^="action-"], a[class*=" action-"]{
+
+	text-transform: uppercase;
+	color: $gray-light;
+	display: inline-block;
+	// font-weight: bold;
+
+	&:hover{
+		color: $gray-med;
+	}
+}

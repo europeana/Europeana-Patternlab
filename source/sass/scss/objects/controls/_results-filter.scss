@@ -1,0 +1,34 @@
+// Filter blocks for search results
+//
+// :hover             - Subtle hover highlight.
+//
+// Styleguide 1.0.0
+
+
+.filter{
+
+	border-top: 1px solid $gray87;
+	margin-bottom: $space-half;
+	@include fontSize(14px);
+
+	.filter-name{
+		color: $textcolour_body;
+		margin: $space-half 0;
+		text-transform: uppercase;
+		font-weight: bold;
+		float: left;
+		width: 100%;
+	}
+
+	.filter-list{
+		margin-bottom: $space-half;
+	}
+
+	.filter-label{
+		padding: 0.2em 0;
+	}
+
+	input[type='checkbox']{
+		margin-right: $space-half;
+	}
+}

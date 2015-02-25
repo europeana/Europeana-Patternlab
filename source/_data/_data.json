@@ -10,6 +10,10 @@
 			"path": "../../js/global-compiled.js"
 		}
 	],
+	"globalnav_options": {
+		"search": true,
+		"myeuropeana": false
+	},
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",

@@ -64,14 +64,9 @@
 	background-color: $white;
 	padding: 0 $space;
 
-	.l-linklist{
-		@extend %grid__item;
-		@extend %lap--one-quarter;
-
-		.inner{
-			border-top: 6px solid $textcolour_head;
-			padding: $space 0;
-		}
+	.l-linklist .inner{
+		border-top: 6px solid $textcolour_head;
+		padding: $space 0;
 	}
 
 	li {
@@ -125,6 +120,14 @@
 .pusher {
 	position: relative;
 	height: 100%;
+	*zoom: 1;
+}
+.pusher:before, .pusher:after {
+    content: " "; 
+    display: table;
+}
+.pusher:after {
+    clear: both;
 }
 
 
@@ -221,7 +224,7 @@
 		position: relative;	
 	}
 
-	input, input:focus { 
+	input[type=text] { 
 		border:none;
 		outline:none;
 		padding: $space-half;

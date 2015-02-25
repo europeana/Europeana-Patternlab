@@ -16,7 +16,7 @@
 			{{> molecules-breadcrumbs }}
 		</div>
 		
-		<article class="maincontent">
+		<article id="maincontent" class="maincontent">
 			<div class="textcontent">
 
 				<div class="articleheader">
@@ -45,6 +45,9 @@
 				<div class="prose">
 				{{> organisms-article-body }}
 				</div>
+
+				{{> molecules-file-browser}}
+				
 			</div>
 
 		</article>
@@ -55,11 +58,6 @@
 
 				{{> molecules-help-contact(title: "Need Help?") }}
 
-				
-				<div class="downloads">
-					<h4>Downloads</h4>
-					{{> molecules-file-list-small }}
-				</div>
 				
 			</div>
 

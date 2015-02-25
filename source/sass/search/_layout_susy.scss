@@ -1,0 +1,40 @@
+
+
+// Global navigation
+.our-sites .l-linklist{
+	@media all and (min-width: $bp-med) {
+		@include span(6);
+	}
+}
+
+// Footer layout
+.footer{
+
+	.l-contact{
+		@media all and (min-width: $bp-med) {
+			@include span(6);
+		}
+	}
+
+	.l-content{
+		@media all and (min-width: $bp-med) {
+			@include span(9);
+		}
+	}
+
+	.l-sitemap .l-linklist{
+		width: 50%;
+		float: left;
+	}
+
+	.l-mission{
+		@include break;
+	}
+
+	.l-nextsteps{
+		@media all and (min-width: $bp-med) {
+			@include span(last 9);
+		}
+	}
+}
+

@@ -17,7 +17,7 @@
 		</div>
 		
 
-		<div class="maincontent">
+		<div id="maincontent" class="maincontent">
 
 			<h1 class="title">Europeana Staff</h1>
 			
@@ -92,6 +92,21 @@
 						{{> molecules-pro-listitem(publication: true) }} 
 					{{/listItems.two}}
 				</ul>
+
+			</div>
+
+
+			<div class="section">
+
+				<h2>Blog posts</h2>
+
+				<ul class="results-list">
+					{{#listItems.three}}
+						{{> molecules-pro-listitem(blog: true) }} 
+					{{/listItems.three}}
+				</ul>
+
+				{{> molecules-pagination }}
 
 			</div>
 

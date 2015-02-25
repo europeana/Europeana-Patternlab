@@ -52,12 +52,22 @@ var Site = window.Site || {};
         });
         
     };
+
+    // Mini modernizr
+    Site.featuredetect = function(){
+        var $features = {};
+        var $html = document.documentElement;
+        $features.svg = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1");
+        $html.className += ($features.svg) ? " svg" : " no-svg";
+    };
     
 
 
     //same as $(document).ready();
     $(function() {
-        
+
+        //Feature detect
+        Site.featuredetect();
 
         //Navigation toggle
         $('.nav-toggle-menu').on("click", function(e) {

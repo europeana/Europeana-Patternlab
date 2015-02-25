@@ -72,12 +72,20 @@ small{
         padding: 0 $pad;
     }
 
-    a {
+    a:not(.btn) {
         color: $textcolour_link;
 
-        &:hover{
+        &:hover,&:focus{
             border-bottom: 1px dotted $textcolour_link;
         }
+    }
+
+    // Headings - add back line height
+    h1,h2{
+        line-height: 1.2;
+    }
+    h3,h4,h5{
+        line-height: 1.6;
     }
 
     // Anchor with fixed header
