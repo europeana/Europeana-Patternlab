@@ -12,7 +12,7 @@ var Site = window.Site || {};
     var bodyClickFn = function(evt) {
         var target = $(evt.target);
         evt.preventDefault();
-        
+
         if(!target.closest('.menu-right, .nav-toggle-menu, .nav-toggle-search, .search-global, .nav-toggle-sites, .menu-top').length){
             Site.resetMenu();
         }
@@ -27,30 +27,30 @@ var Site = window.Site || {};
     Site.placeholders = function () {
         var colour_focus = "#333",
         colour_blur = "#171207";
-        
+
         $('input[placeholder]').each(function(){
 
             var $this = $(this);
-        
+
             var attrPh = $this.attr('placeholder');
-            
+
             $this.attr('value', attrPh)
             .bind('focus', function() {
 
                 if($this.val() === attrPh){
                     $this.val('').css('color', colour_blur);
                 }
-                
+
             }).bind('blur', function() {
-            
+
                 if($this.val() === ''){
                     $this.val(attrPh).css('color', colour_focus);
                 }
-            
+
             });
 
         });
-        
+
     };
 
     // Mini modernizr
@@ -60,7 +60,7 @@ var Site = window.Site || {};
         $features.svg = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1");
         $html.className += ($features.svg) ? " svg" : " no-svg";
     };
-    
+
 
 
     //same as $(document).ready();
@@ -82,10 +82,10 @@ var Site = window.Site || {};
             e.preventDefault();
 
         });
-        
+
         //Navigation toggle
         $('.nav-toggle-search').on('click', function(e) {
-            
+
             if( body.hasClass( 'is-open-globalsearch' ) ){
                 Site.resetMenu();
             }else{
@@ -93,12 +93,13 @@ var Site = window.Site || {};
                 document.addEventListener( 'click', bodyClickFn );
             }
 
+            $('input.js-global-search').focus();
             e.preventDefault();
         });
 
         //Our Sites toggle
         $('.nav-toggle-sites').on('click', function(e) {
-            
+
             if( body.hasClass( 'is-open-menu-top' ) ){
                 Site.resetMenu();
             }else{
