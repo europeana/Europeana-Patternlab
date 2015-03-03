@@ -1,8 +1,4 @@
-.search-hero{
-	padding: $space-triple;
-	background-color: #DDEBEE;
-	border-bottom: 1px solid $gray87;
-}
+
 
 
 
@@ -10,7 +6,7 @@
 .page{
 
 	background: $white; // fallback
-	
+
 	@media all and (min-width: $bp-med) {
 		background: $offwhite; // fallback
 		background: linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
@@ -19,6 +15,36 @@
 
 }
 
+
+
+
+
+
+// Search hero bar
+.search-hero{
+	padding: $space-triple;
+	background-color: #DDEBEE;
+	border-bottom: 1px solid $gray87;
+}
+
+.searchbar{
+	@include container(50em);
+}
+
+
+
+
+// Search results container
+.search-results{
+	padding: 0 $space;
+	.container{
+		@include container($max-width);
+	}
+}
+
+
+// Base 2 columns
+// List of results
 .results-list{
 	background-color: rgba(255,255,255,0.8);
 
@@ -27,7 +53,8 @@
 	}
 }
 
-.refine{ 
+// Filters and secondary content
+.refine{
 	background: $offwhite;
 
 	@media all and (min-width: $bp-med) {
@@ -45,22 +72,19 @@
 	}
 }
 
-
+// Contents of Results list
+// Results list header containing controls that affect the list
 .results-header{
 	padding: $space-half 0;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
 	overflow: hidden;
 	@include fontSize(14px);
-
-	// &>div{
-	// 	background-color: #ccc;
-	// }
 }
 
-.action-select, 
-.result-actions, 
-.result-info, 
+.action-select,
+.result-actions,
+.result-info,
 .result-sort{
 	margin-top: $space-quarter;
 }
@@ -106,25 +130,12 @@
 }
 
 
-
-
-
+// Single List item in search results
 .search-list-item{
+
 	position: relative;
 	margin-bottom: $space-double;
-}
 
-
-
-.search-results{
-	padding: 0 $space;
-	.container{
-		@include container($max-width);
-	}
-}
-
-
-.search-list-item{
 	.item-info{
 		@include span(11 of 12);
 		margin-left: span(1 of 12 wide);
@@ -168,7 +179,7 @@
 	}
 
 	.item-preview{
-		
+
 		background-color: $gray-lighter;
 		min-height: 10em;
 		display: none;

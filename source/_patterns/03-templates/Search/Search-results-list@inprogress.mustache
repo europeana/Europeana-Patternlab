@@ -6,6 +6,17 @@
 
 <section class="search-hero">
 		<div class="searchbar">
+
+		<form action="#">
+			<input type="text" id="search" name="search" placeholder="Search Europeana" />
+			<button type="submit" class="search_btn">
+				<svg class="icon icon-search">
+					<use xlink:href="#icon-search"></use>
+				</svg>
+				<span>Search</span>
+			</button>
+		</form>
+
 			@TODO previous terms
 			@TODO --input field--
 			@TODO --search button--
@@ -56,7 +67,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 
 		</div>
 
@@ -67,7 +78,7 @@
 		    {{> molecules-search-listitem(type-image:true) }}
 		    </li>
 		{{/ listItems.ten }}
-			
+
 
 		</ol>
 	</div>
@@ -88,7 +99,7 @@
 		{{> molecules-filter-license(title: "License") }}
 
 		@TODO --language search options--
-		
+
 		<a href="">More refinements…</a>
 
 		@TODO add advanced search
