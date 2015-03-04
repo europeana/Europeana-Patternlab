@@ -11,5 +11,13 @@
 			"path": "../../css/search/screen.css",
 			"media": "all"
 		}
+	],
+	"js_files": [
+		{
+			"path": "../../js/dist/global-min.js"
+		},
+		{
+			"path": "../../js/dist/search-min.js"
+		}
 	]
 }

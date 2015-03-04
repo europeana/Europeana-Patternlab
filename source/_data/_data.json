@@ -7,7 +7,7 @@
 	],
 	"js_files": [
 		{
-			"path": "../../js/global-compiled.js"
+			"path": "../../js/dist/global-min.js"
 		}
 	],
 	"globalnav_options": {
