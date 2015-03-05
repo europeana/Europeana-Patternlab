@@ -3,7 +3,9 @@
 
 	<div class="item-preview">
 		{{# type-image }}
-        	@TODO --image preview--
+			<div class="item-image">
+        	<img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
+        	</div>
     	{{/ type-image }}
 
    		{{# type-audio }}
@@ -17,7 +19,7 @@
     	{{# type-video }}
         	@TODO --video preview--
     	{{/ type-video }}
-		
+
 	</div>
 
 	<div class="item-info">
@@ -27,7 +29,7 @@
 		<p class="excerpt">
 			{{ excerpt.medium}}
 		</p>
-		
+
 		<a href="http://google.com" class="item-origin link-external">View at: Rijksmuseum</a>
 
 		<footer>
@@ -45,10 +47,10 @@
 	    	{{# type-audio }}
 	        	<a href="#recordings" class="highlight item-type-audio">Recording</a>
 	    	{{/ type-audio }}
-				
+
 
 				<span class="item-themes">
-					In theme: 
+					In theme:
 					<a href="" class="highlight">Art History</a>,
 					<a href="" class="highlight">Military History</a>
 				</span>

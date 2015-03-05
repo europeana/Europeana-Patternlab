@@ -6,21 +6,21 @@
 
 <section class="search-hero">
 		<div class="searchbar">
-
-		<form action="#">
-			<input type="text" id="search" name="search" placeholder="Search Europeana" />
-			<button type="submit" class="search_btn">
+		<form action="#" class="search-multiterm">
+			<div class="inputarea">
+				<input type="text" value="Rembrandt, Art History" data-role="tagsinput" placeholder="Add a search term"/>
+			</div>
+			<div class="submitarea">
+				<button type="submit" class="search-submit">
 				<svg class="icon icon-search">
 					<use xlink:href="#icon-search"></use>
 				</svg>
-				<span>Search</span>
+				<span class="is-vishidden">Search</span>
 			</button>
+			</div>
 		</form>
-
-			@TODO previous terms
-			@TODO --input field--
-			@TODO --search button--
 		</div>
+
 </section>
 
 <section class="search-results">
@@ -88,7 +88,7 @@
 
 		<h2>Refine your search</h2>
 
-		{{> molecules-filter-simple(title: "Theme") }}
+		{{> molecules-filter-simple(title: "Channel") }}
 
 		{{> molecules-filter-simple(title: "Type") }}
 
@@ -96,13 +96,15 @@
 
 		{{> molecules-filter-simple(title: "Country") }}
 
-		{{> molecules-filter-license(title: "License") }}
+		{{> molecules-filter-license(title: "Can I use it?") }}
 
-		@TODO --language search options--
+		{{> molecules-filter-language(title: "Language") }}
 
-		<a href="">More refinements…</a>
+		<a href="#refine-advanced">More refinements…</a>
 
-		@TODO add advanced search
+		<div class="refine-advanced">
+			@TODO add advanced search
+		</div>
 
 	</div>
 

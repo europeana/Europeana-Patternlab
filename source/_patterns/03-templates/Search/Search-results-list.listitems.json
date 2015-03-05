@@ -7,11 +7,11 @@
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/people",
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/people",
                 "alt": "Rectangle"
             },
             "portrait": {
@@ -30,7 +30,7 @@
         "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/nature",
                 "alt": "Avatar"
             },
             "square": {
@@ -38,11 +38,11 @@
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/nature",
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/nature",
                 "alt": "Portrait"
             }
         },
@@ -57,11 +57,11 @@
         "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/tech",
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/tech",
                 "alt": "Square"
             },
             "rectangle": {
@@ -69,7 +69,7 @@
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/tech",
                 "alt": "Portrait"
             }
         },
@@ -88,11 +88,11 @@
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/people",
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/people",
                 "alt": "Rectangle"
             },
             "portrait": {
@@ -111,7 +111,7 @@
         "title": "Belshazzars Feast",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/nature",
                 "alt": "Avatar"
             },
             "square": {
@@ -119,11 +119,11 @@
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/nature",
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/nature",
                 "alt": "Portrait"
             }
         },
@@ -138,11 +138,11 @@
         "title": "The Stoning of Saint Stephen",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/tech",
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/tech",
                 "alt": "Square"
             },
             "rectangle": {
@@ -150,7 +150,7 @@
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/tech",
                 "alt": "Portrait"
             }
         },
@@ -169,11 +169,11 @@
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/people",
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/people",
                 "alt": "Rectangle"
             },
             "portrait": {
@@ -192,7 +192,7 @@
         "title": "The Artist in his Studio",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/nature",
                 "alt": "Avatar"
             },
             "square": {
@@ -200,11 +200,11 @@
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/nature",
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/nature",
                 "alt": "Portrait"
             }
         },
@@ -219,11 +219,11 @@
         "title": "The Storm on the Sea of Galilee",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/tech",
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/tech",
                 "alt": "Square"
             },
             "rectangle": {
@@ -231,7 +231,7 @@
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/tech",
                 "alt": "Portrait"
             }
         },
@@ -250,11 +250,11 @@
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/people",
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/people",
                 "alt": "Rectangle"
             },
             "portrait": {
@@ -273,7 +273,7 @@
         "title": "Philosopher in Meditation",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/nature",
                 "alt": "Avatar"
             },
             "square": {
@@ -281,11 +281,11 @@
                 "alt": "Square"
             },
             "rectangle": {
-                "src": "http://placeimg.com/400/300/tech",
+                "src": "http://placeimg.com/400/300/nature",
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/nature",
                 "alt": "Portrait"
             }
         },
@@ -300,11 +300,11 @@
         "title": "The Abduction of Europa",
         "img": {
             "avatar": {
-                "src": "http://placeimg.com/100/100/people",
+                "src": "http://placeimg.com/100/100/tech",
                 "alt": "Avatar"
             },
             "square": {
-                "src": "http://placeimg.com/300/300/nature",
+                "src": "http://placeimg.com/300/300/tech",
                 "alt": "Square"
             },
             "rectangle": {
@@ -312,7 +312,7 @@
                 "alt": "Rectangle"
             },
             "portrait": {
-                "src": "http://placeimg.com/300/400/people",
+                "src": "http://placeimg.com/300/400/tech",
                 "alt": "Portrait"
             }
         },
