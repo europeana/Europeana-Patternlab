@@ -28,7 +28,7 @@ var Site = window.Site || {};
         var colour_focus = "#333",
         colour_blur = "#171207";
 
-        $('input[placeholder]').each(function(){
+        $('input.js-placeholder').each(function(){
 
             var $this = $(this);
 
