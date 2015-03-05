@@ -86,7 +86,6 @@ $susy: (
 @import "../scss/objects/controls/buttonbar";
 @import "../scss/objects/controls/results-filter";
 @import "../scss/objects/controls/sparkline";
-
 @import "../scss/objects/controls/search-multiterm";
 
 /*------------------------------------*\
@@ -97,7 +96,8 @@ $susy: (
 /*------------------------------------*\
 	SITE SPECIFIC - modules
 \*------------------------------------*/
-
+// Search list item
+@import "listitem";
 
 
 /*------------------------------------*\
