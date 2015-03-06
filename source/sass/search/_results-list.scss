@@ -48,12 +48,17 @@
 // Filters and secondary content
 .refine{
 	background: $offwhite;
+	padding: $space;
+	margin-left: -$space;
+	margin-right: -$space;
 
 	@media all and (min-width: $bp-med) {
 		@include span(6);
+		margin: 0;
+		padding: $space-half + $space-quarter 0 0 0;
 	}
 
-	padding-top: $space-half + $space-quarter;
+
 
 	&>h2{
 		text-transform: uppercase;
