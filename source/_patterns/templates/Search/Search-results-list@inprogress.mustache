@@ -20,7 +20,6 @@
 			</div>
 		</form>
 		</div>
-
 </section>
 
 <section class="search-results">
@@ -29,8 +28,9 @@
 
 	<div class="results-list">
 
-		<div class="results-header">
 
+		<!-- Start of results header - sort controls, actions etc. -->
+		<div class="results-header">
 			<div class="action-select">
 				<input type="checkbox" name="allselected" id="action_select_all">
 			</div>
@@ -42,8 +42,6 @@
 			<div class="result-info">
 				1640 results for <strong>Rembrandt</strong> and <strong>Art History</strong>
 			</div>
-
-
 
 			<div class="result-controls">
 
@@ -68,18 +66,15 @@
 				</div>
 			</div>
 
-
 		</div>
-
+		<!-- End of results header -->
 
 		<ol>
 		{{# listItems.ten }}
 			<li>
-		    {{> molecules-search-listitem(type-image:true) }}
+		    {{> molecules/components/search/search-listitem }}
 		    </li>
 		{{/ listItems.ten }}
-
-
 		</ol>
 	</div>
 
@@ -88,17 +83,24 @@
 
 		<h2>Refine your search</h2>
 
-		{{> molecules-filter-simple(title: "Channel") }}
+		{{#filters}}
+		    {{#simple}}
+		        {{> molecules/controls/filter-simple }}
+		    {{/simple}}
 
-		{{> molecules-filter-simple(title: "Type") }}
+		    {{#date}}
+		        {{> molecules/controls/filter-date }}
+		    {{/date}}
 
-		{{> molecules-filter-date(title: "Date") }}
+		    {{#language}}
+		        {{> molecules/controls/filter-language }}
+		    {{/language}}
 
-		{{> molecules-filter-simple(title: "Country") }}
+		    {{#license}}
+		        {{> molecules/controls/filter-license }}
+		    {{/license}}
+		{{/filters}}
 
-		{{> molecules-filter-license(title: "Can I use it?") }}
-
-		{{> molecules-filter-language(title: "Language") }}
 
 		<a href="#refine-advanced">More refinements…</a>
 
@@ -114,5 +116,5 @@
 </div>
 
 
-{{> organisms-footer }}
+{{> organisms/global/footer }}
 
