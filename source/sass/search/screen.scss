@@ -64,7 +64,7 @@ $susy: (
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
-//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
 @import "../scss/objects/nav";
 
 //navigation types
@@ -86,7 +86,7 @@ $susy: (
 @import "../scss/objects/controls/buttonbar";
 @import "../scss/objects/controls/results-filter";
 @import "../scss/objects/controls/sparkline";
-
+@import "../scss/objects/controls/search-multiterm";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global
@@ -96,7 +96,8 @@ $susy: (
 /*------------------------------------*\
 	SITE SPECIFIC - modules
 \*------------------------------------*/
-
+// Search list item
+@import "listitem";
 
 
 /*------------------------------------*\

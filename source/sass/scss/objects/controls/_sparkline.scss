@@ -1,5 +1,5 @@
 .sparkline{
-	margin-bottom: $space;
+
 }
 
 .sparkline-data {
@@ -34,9 +34,10 @@
 
 }
 
-.sparkline-start, .sparkline-end{
+.sparkline-range {
 	font-weight: bold;
 	font-size: $font-size-slightly-smaller;
+	overflow: hidden;
 }
 .sparkline-start{
 	float: left;

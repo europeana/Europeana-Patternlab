@@ -6,7 +6,7 @@
 	min-height: $globalnavheight;
 
 	@include box-shadow(rgba($gray-med, 0.2) 0 0 3px);
-	
+
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 	-webkit-transform: translate3d(0, 0, 0);
@@ -25,17 +25,18 @@
 .logo {
 	float: left;
 	width: 55%;
-	max-width: 50px;
+	max-width: 168px;
 	height: 60px;
 	margin: 0.4rem;
 	margin-left: $space;
 
 	background-position: 0 50%;
-	background-image: url('../../images/pro/europeana-pro-logo.png');
 	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url('../../images/europeana-logo-default.png');
 
 	.svg &{
-		background-image: url('../../images/pro/europeana-pro-logo.svg');
+		background-image: url('../../images/europeana-logo-default.svg');
 	}
 }
 

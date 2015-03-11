@@ -15,8 +15,10 @@
     clear: both;
 }
 
-/* Completely remove from the flow and screen readers. */
-.is-hidden {
+/* Completely remove from the flow and screen readers.
+   Hide for js detected browsers
+*/
+.is-hidden, .js .is-jshidden {
     display: none !important;
     visibility: hidden !important;
 }

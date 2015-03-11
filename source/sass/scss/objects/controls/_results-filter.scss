@@ -6,29 +6,51 @@
 
 
 .filter{
-
 	border-top: 1px solid $gray87;
 	margin-bottom: $space-half;
 	@include fontSize(14px);
+}
 
-	.filter-name{
-		color: $textcolour_body;
-		margin: $space-half 0;
-		text-transform: uppercase;
-		font-weight: bold;
-		float: left;
-		width: 100%;
-	}
+.filter-name{
+	color: $textcolour_body;
+	margin: $space-half 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	float: left;
+	width: 100%;
+}
 
-	.filter-list{
-		margin-bottom: $space-half;
-	}
+.filter-list{
+	margin-bottom: $space-half;
+}
 
-	.filter-label{
-		padding: 0.2em 0;
-	}
+.filter-label{
+	padding: 0.2em 0;
 
 	input[type='checkbox']{
 		margin-right: $space-half;
+	}
+}
+
+.filter-num{
+	color: $gray-light;
+}
+
+
+// Date specific filter
+.filter-date .filter-controls{
+
+	& > .control-group{
+	float: left;
+	width: 50%;
+
+		&:first-of-type{
+			padding-right: 1em;
+		}
+	}
+
+	label{
+		@include fontSize(11px);
+		padding-bottom: 0;
 	}
 }
