@@ -45,6 +45,9 @@ $susy: (
   gutters: 1/2,
   math: fluid,
   output: float,
+  use-custom: (
+    box-sizing: false,
+  ),
   global-box-sizing: border-box,
   debug: (
     //image: show
