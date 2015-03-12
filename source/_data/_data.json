@@ -1,4 +1,11 @@
 {
+	"page_config": {
+		"newsletter": false
+	},
+	"globalnav_options": {
+		"search": true,
+		"myeuropeana": false
+	},
 	"css_files": [
 		{
 			"path": "../../css/screen.css",
@@ -10,10 +17,6 @@
 			"path": "../../js/dist/global-min.js"
 		}
 	],
-	"globalnav_options": {
-		"search": true,
-		"myeuropeana": false
-	},
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",
