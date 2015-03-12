@@ -1,6 +1,10 @@
 {
     "1": {
         "title": "Rembrant van Rijn, An Elephant, a drawing",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/people",
@@ -28,6 +32,10 @@
     },
     "2": {
         "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
+        "isImage": false,
+        "isAudio": true,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/nature",
@@ -55,6 +63,10 @@
     },
     "3": {
         "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+        "isImage": false,
+        "isAudio": true,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/tech",
@@ -82,6 +94,10 @@
     },
     "4": {
         "title": "Self portrait",
+        "isImage": false,
+        "isAudio": false,
+        "isText": true,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/people",
@@ -109,6 +125,10 @@
     },
     "5": {
         "title": "Belshazzars Feast",
+        "isImage": false,
+        "isAudio": false,
+        "isText": true,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/nature",
@@ -136,6 +156,10 @@
     },
     "6": {
         "title": "The Stoning of Saint Stephen",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/tech",
@@ -163,6 +187,10 @@
     },
     "7": {
         "title": "Balaam and the Ass",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/people",
@@ -190,6 +218,10 @@
     },
     "8": {
         "title": "The Artist in his Studio",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/nature",
@@ -217,6 +249,10 @@
     },
     "9": {
         "title": "The Storm on the Sea of Galilee",
+        "isImage": false,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":true,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/tech",
@@ -244,6 +280,10 @@
     },
     "10": {
         "title": "Jacob de Gheyn III",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/people",
@@ -271,6 +311,10 @@
     },
     "11": {
         "title": "Philosopher in Meditation",
+        "isImage": false,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":true,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/nature",
@@ -298,6 +342,10 @@
     },
     "12": {
         "title": "The Abduction of Europa",
+        "isImage": true,
+        "isAudio": false,
+        "isText": false,
+        "isVideo":false,
         "img": {
             "avatar": {
                 "src": "http://placeimg.com/100/100/tech",

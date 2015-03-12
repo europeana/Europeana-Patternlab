@@ -19,5 +19,53 @@
 		{
 			"path": "../../js/dist/search-min.js"
 		}
+	],
+	"filters":[
+		{
+			"title":"Channel",
+			"simple": true,
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "Label",
+					"num_results": 1000
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here",
+					"num_results": 123
+				}
+			]
+		},
+		{
+			"title":"Type",
+			"simple": true
+		},
+		{
+			"title":"Date",
+			"date": true
+		},
+		{
+			"title":"Country",
+			"simple": true
+		},
+		{
+			"title":"Can I use it?",
+			"license": true
+		},
+		{
+			"title":"Language",
+			"simple": true
+		}
 	]
 }
