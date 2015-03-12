@@ -67,5 +67,81 @@
 			"title":"Language",
 			"simple": true
 		}
-	]
+	],
+	"menus": {
+		"actions": {
+			"button-title":"Actions",
+			"menu_id": "dropdown-result-actions",
+			"menu-title": "Save to:",
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Fourth Item"
+				},
+				{
+					"divider": true
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label",
+					"calltoaction": true
+				},
+				{
+					"divider": true
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label",
+					"calltoaction": true
+				}
+			]
+		},
+		"sort": {
+			"button-title":"Relevance",
+			"menu_id": "dropdown-result-sort",
+			"menu-title": "Sort by:",
+			"items": [
+				{
+					"text": "Date",
+					"url":"http://google.com"
+				},
+				{
+					"text": "Alphabetical",
+					"url":"http://google.com"
+				},
+				{
+					"text": "Relevance",
+					"url":"http://google.com"
+				},
+				{
+					"divider": true
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label",
+					"calltoaction": true
+				},
+				{
+					"divider": true
+				},
+				{
+					"text": "Advanced Search",
+					"url":"http://google.com",
+					"calltoaction": true
+				}
+			]
+		}	
+	}
 }
