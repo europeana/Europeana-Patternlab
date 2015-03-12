@@ -7,19 +7,19 @@
 <header class="header">
 
 <div class="menu-top">
-	{{> molecules-global-topdrawer }}
+	{{> molecules/navigation/global-topdrawer }}
 </div>
 
 <!-- Off canvas search bar -->
 {{#globalnav_options.search}}
-{{> molecules-global-search }}
+{{> molecules/forms/global-search }}
 {{/globalnav_options.search}}
 
 <!-- wrapper for navigation bar -->
 <div class="cf">
 
 
-	{{> atoms-logo }}
+	{{> atoms/images/logo }}
 
 
 	<div class="nav-global">
@@ -56,7 +56,7 @@
 
 	</div>
 
-	{{> molecules-primary-nav }}
+	{{> molecules/navigation/primary-nav }}
 
 
 </div>
@@ -67,7 +67,7 @@
 <nav class="drawer menu-right">
 
 	<div class="search">
-		{{> molecules-search }}
+		{{> molecules/forms/search }}
 	</div>
 
     <ul class="nav_primary">
