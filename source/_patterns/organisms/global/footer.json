@@ -1,0 +1,56 @@
+{
+	"navigation":{
+		"footer_linklist1":{
+			"title": "More info",
+			"styleModifier":"",
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		},
+		"footer_linklist2":{
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		},
+		"footer_othersites":{
+			"title": "Explore Europeana",
+			"styleModifier":"inline-list",
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		}
+	}
+}

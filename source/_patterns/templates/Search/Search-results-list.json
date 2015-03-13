@@ -29,8 +29,8 @@
 			"items": [
 				{
 					"url":"http://google.com",
-					"text": "Label",
-					"num_results": 1000
+					"text": "Filter Label",
+					"num_results": "15K"
 				},
 				{
 					"url":"http://google.com",

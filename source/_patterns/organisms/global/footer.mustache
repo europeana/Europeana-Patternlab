@@ -20,8 +20,8 @@
          --><div class="l-content">
 
                 <div class="l-sitemap grid">
-                {{> molecules/navigation/linklist-with-title(title: "More info") }}<!--
-             -->{{> molecules/navigation/linklist-with-title(title: "&nbsp;") }}
+                {{# navigation.footer_linklist1 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer_linklist1 }}<!--
+             -->{{# navigation.footer_linklist2 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer_linklist2 }}
                 </div>
 
                 <div class="grid">
@@ -31,7 +31,9 @@
                     </div><!--
 
                  --><div class="l-othersites">
-                        {{> molecules/navigation/linklist-with-title:inline-list(title: "Explore Europeana") }}
+                        {{# navigation.footer_othersites }}
+                        {{> molecules/navigation/linklist-with-title }}
+                        {{/ navigation.footer_othersites }}
                     </div>
                 </div>
             </div><!--
