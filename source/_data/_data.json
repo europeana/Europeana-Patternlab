@@ -6,6 +6,7 @@
 		"search": true,
 		"myeuropeana": false
 	},
+	"head_meta": {"name":"test", "content": "stuff"},
 	"css_files": [
 		{
 			"path": "../../css/screen.css",

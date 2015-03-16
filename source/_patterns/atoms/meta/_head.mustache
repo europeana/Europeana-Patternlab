@@ -4,10 +4,9 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		{{#head_meta }}
-			{{>atoms/head/meta}}
-		{{/head_meta }}
+		{{# head_meta }}
+			<meta {{#name}}name="{{name}}" {{/name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
+		{{/ head_meta }}
 
 
 		<title>{{ pagetitle }}</title>
