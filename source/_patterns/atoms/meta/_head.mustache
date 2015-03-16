@@ -5,12 +5,17 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		{{#head_meta }}
+			{{>atoms/head/meta}}
+		{{/head_meta }}
+
+
 		<title>{{ pagetitle }}</title>
 
 		<!--  js detect -->
 		<script>(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)</script>
 
-		<!--
+{{!
 		Pattern specific CSS files.
 
 		The Global pattern lab stylesheet "INCLUDE ALL THE STYLES" is the default.
@@ -39,7 +44,7 @@
 				"media": "print"
 			}
 		]
-		-->
+}}
 
 {{# css_files }}
 		<link rel="stylesheet" href="{{ path }}?{{ cacheBuster }}" media="{{ media }}" />
