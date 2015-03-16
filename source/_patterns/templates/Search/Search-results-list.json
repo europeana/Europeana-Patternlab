@@ -28,22 +28,45 @@
 			"simple": true,
 			"items": [
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Filter Label",
 					"num_results": "15K"
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"num_results": 300
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Label here",
 					"num_results": 600
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			],
+			"extra_items_exist": true,
+			"extra_items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
 					"text": "Label here",
 					"num_results": 123
 				}
@@ -51,7 +74,52 @@
 		},
 		{
 			"title":"Type",
-			"simple": true
+			"simple": true,
+			"items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			],
+			"extra_items_exist": true,
+			"extra_items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			]
 		},
 		{
 			"title":"Date",
@@ -59,7 +127,52 @@
 		},
 		{
 			"title":"Country",
-			"simple": true
+			"simple": true,
+			"items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			],
+			"extra_items_exist": true,
+			"extra_items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			]
 		},
 		{
 			"title":"Can I use it?",
@@ -67,7 +180,52 @@
 		},
 		{
 			"title":"Language",
-			"simple": true
+			"simple": true,
+			"items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			],
+			"extra_items_exist": true,
+			"extra_items": [
+				{
+					"url":"http://europeana.eu",
+					"text": "Filter Label",
+					"num_results": "15K"
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Another Label",
+					"num_results": 300
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 600
+				},
+				{
+					"url":"http://europeana.eu",
+					"text": "Label here",
+					"num_results": 123
+				}
+			]
 		}
 	],
 	"menus": {
@@ -77,26 +235,26 @@
 			"menu-title": "Save to:",
 			"items": [
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "First Item"
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Another Label"
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Label here"
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Fourth Item"
 				},
 				{
 					"divider": true
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"calltoaction": true
 				},
@@ -104,7 +262,7 @@
 					"divider": true
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"calltoaction": true
 				}
@@ -117,21 +275,21 @@
 			"items": [
 				{
 					"text": "Date",
-					"url":"http://google.com"
+					"url":"http://europeana.eu"
 				},
 				{
 					"text": "Alphabetical",
-					"url":"http://google.com"
+					"url":"http://europeana.eu"
 				},
 				{
 					"text": "Relevance",
-					"url":"http://google.com"
+					"url":"http://europeana.eu"
 				},
 				{
 					"divider": true
 				},
 				{
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"calltoaction": true
 				},
@@ -140,7 +298,7 @@
 				},
 				{
 					"text": "Advanced Search",
-					"url":"http://google.com",
+					"url":"http://europeana.eu",
 					"calltoaction": true
 				}
 			]

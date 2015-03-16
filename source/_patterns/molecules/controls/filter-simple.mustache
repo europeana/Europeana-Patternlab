@@ -1,64 +1,45 @@
-<fieldset class="filter">
+<div class="filter {{styleModifier}}">
 
-	<legend class="filter-name">{{ title }}</legend>
+	<div class="filter-name">{{ title }}</div>
 
 	<ul class="filter-list">
+	{{#items}}
 		<li>
-		<label class="filter-label">
-			<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-		</label>
+			<a href="{{url}}">{{text}}
+			{{#num_results}}
+			<span class="filter-num">({{num_results}})</span>
+			{{/num_results}}
+			</a>
 		</li>
+	{{/items}}
 
-		<li>
-		<label class="filter-label">
-			<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-		</label>
-		</li>
-
-		<li>
-		<label class="filter-label">
-			<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-		</label>
-		</li>
-
-		<li>
-		<label class="filter-label">
-			<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-		</label>
-		</li>
-
+	{{#extra_items_exist}}
 		<div class="js-extrafields is-jshidden">
-			<li>
-			<label class="filter-label">
-				<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-			</label>
-			</li>
+	{{/extra_items_exist}}
 
-			<li>
-			<label class="filter-label">
-				<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-			</label>
-			</li>
+	{{#extra_items}}
+		<li>
+			<a href="{{url}}">{{text}}
+			{{#num_results}}
+			<span class="filter-num">{{num_results}}</span>
+			{{/num_results}}
+			</a>
+		</li>
+	{{/extra_items}}
 
-			<li>
-			<label class="filter-label">
-				<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-			</label>
-			</li>
+	{{#extra_items_exist}}
+	</div>
+	{{/extra_items_exist}}
 
-			<li>
-			<label class="filter-label">
-				<input type="checkbox" name="groupname" id="">Label here <span class="filter-num">(1234)</span>
-			</label>
-			</li>
-		</div>
 	</ul>
-
 
 	{{! @TODO - add in javascript show/hide extra fields functionality
 		- toggle the .is-jshidden class on nearest .js-extrafields div (above)
 		- change the text to the text in the data-swaptext attribute
 		- add an is-active class to this link
 	}}
-	<a class="js-showhide filter-moreless" href="#" data-swaptext="Less">More…</a>
-</fieldset>
+	{{#extra_items_exist}}
+		<a class="js-showhide filter-moreless" href="#" data-swaptext="Less">More…</a>
+	{{/extra_items_exist}}
+	
+</div>
