@@ -8,7 +8,14 @@
 		<div class="searchbar">
 		<form action="{{form_action_search}}" class="search-multiterm">
 			<div class="inputarea">
-				<input type="text" value="Rembrandt, Art History" data-role="tagsinput" placeholder="Add a search term"/>
+			{{#input_search}}
+				<input type="text" data-role="tagsinput" 
+				{{#title}}title="{{title}}" {{/title}}
+				{{#input_name}}name="{{input_name}}" {{/input_name}}
+				{{#input_value}}value="{{input_value}}" {{/input_value}}
+				{{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
+				/>
+			{{/input_search}}
 			</div>
 			<div class="submitarea">
 				<button type="submit" class="search-submit">
