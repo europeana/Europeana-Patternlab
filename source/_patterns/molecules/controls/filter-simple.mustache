@@ -13,11 +13,9 @@
 		</li>
 	{{/items}}
 
-	{{#extra_items_exist}}
-		<div class="js-extrafields is-jshidden">
-	{{/extra_items_exist}}
-
 	{{#extra_items}}
+		<div class="js-extrafields is-jshidden">
+	{{#items}}
 		<li>
 			<a href="{{url}}">{{text}}
 			{{#num_results}}
@@ -25,11 +23,9 @@
 			{{/num_results}}
 			</a>
 		</li>
-	{{/extra_items}}
-
-	{{#extra_items_exist}}
+	{{/items}}
 	</div>
-	{{/extra_items_exist}}
+	{{/extra_items}}
 
 	</ul>
 
@@ -38,8 +34,8 @@
 		- change the text to the text in the data-swaptext attribute
 		- add an is-active class to this link
 	}}
-	{{#extra_items_exist}}
+	{{#extra_items}}
 		<a class="js-showhide filter-moreless" href="#" data-swaptext="Less">More…</a>
-	{{/extra_items_exist}}
+	{{/extra_items}}
 	
 </div>
