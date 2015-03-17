@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{{# head_meta }}
-			<meta {{#name}}name="{{name}}" {{/name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
-		{{/ head_meta }}
+{{# head_meta }}
+		<meta {{#name}}name="{{name}}" {{/name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
+{{/ head_meta }}
 
 
 		<title>{{ pagetitle }}</title>
@@ -52,9 +52,11 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
 
+{{# patternlab }}
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{% pattern-lab-head %}
 		<!-- End Pattern Lab -->
+{{/ patternlab }}
 
 	</head>
 	<body class="{{ bodyClass }}">
