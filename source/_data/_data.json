@@ -1,4 +1,5 @@
 {
+	"patternlab": true,
 	"page_config": {
 		"newsletter": false
 	},
@@ -6,7 +7,10 @@
 		"search": true,
 		"myeuropeana": false
 	},
-	"head_meta": {"name":"test", "content": "stuff"},
+	"head_meta": {
+		"name":"test", 
+		"content": "stuff"
+	},
 	"css_files": [
 		{
 			"path": "../../css/screen.css",
@@ -19,7 +23,7 @@
 		}
 	],
 	"navigation":{
-		"global-main":{
+		"global_main":{
 
 		},
 		"footer_linklist1":{
