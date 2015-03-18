@@ -11,7 +11,13 @@ var Site = window.Site || {};
 (function($) {
 
     // Example function
-    Site.newfunc = function(){
+    Site.init_Filters = function(){
+
+		$('.js-showhide').on('click', function(e){
+		  $(this).parent().find('.js-extrafields').toggleClass("is-jshidden");  // apply the toggle to the ul
+		  $(this).parent().toggleClass('is-expanded');
+		  e.preventDefault();
+		});
 
     };
 
@@ -20,7 +26,7 @@ var Site = window.Site || {};
     //same as $(document).ready();
     $(function() {
 
-
+    	Site.init_Filters();
 
     });
 })(jQuery);
