@@ -29,13 +29,8 @@
 
 	</ul>
 
-	{{! @TODO - add in javascript show/hide extra fields functionality
-		- toggle the .is-jshidden class on nearest .js-extrafields div (above)
-		- change the text to the text in the data-swaptext attribute
-		- add an is-active class to this link
-	}}
 	{{#extra_items}}
-		<a class="js-showhide filter-moreless" href="#" data-swaptext="Less">More…</a>
+		<a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.less}}">{{i18n.more}}</a>
 	{{/extra_items}}
 	
 </div>

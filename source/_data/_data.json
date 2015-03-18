@@ -160,5 +160,9 @@
 		"first-name": "Uthur",
 		"last-name": "LastNameson"
 	},
-	"location":"Den Haag, Netherlands"
+	"location":"Den Haag, Netherlands",
+	"i18n":{
+		"more": "More",
+		"less": "Less"
+	}
 }
