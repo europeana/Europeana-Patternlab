@@ -1,21 +1,19 @@
-<div class="result-viewtype button-bar button-bar-small">
-
-    <div class="button-bar__item">
-        <input id="view_grid" class="button-toggle" name="viewtype" type="radio">
-        <label for="view_grid" class="button-bar__button">
-            <svg class="icon icon-view-grid">
-            <use xlink:href="#icon-view-grid"></use>
-            </svg>Grid
-        </label>
-    </div>
-
-  <div class="button-bar__item">
-    <input id="view_list" class="button-toggle" name="viewtype" type="radio" checked>
-    <label for="view_list" class="button-bar__button">
-        <svg class="icon icon-view-list">
+<ul class="button-bar button-bar-small">
+{{#items}}
+   <li class="button-bar__item">
+     <a href="{{url}}" class="button-bar__button {{#is_current}}is-active{{/is_current}}">
+     {{#icon_grid}}
+       <svg class="icon icon-view-grid">
+        <use xlink:href="#icon-view-grid"></use>
+        </svg>
+    {{/icon_grid}}
+    {{#icon_list}}
+       <svg class="icon icon-view-list">
         <use xlink:href="#icon-view-list"></use>
-        </svg>List
-    </label>
-  </div>
-
-</div>
+        </svg>
+    {{/icon_list}}
+        {{text}}
+     </a>
+   </li>
+{{/items}}
+</ul>

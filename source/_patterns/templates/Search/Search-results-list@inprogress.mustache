@@ -55,14 +55,16 @@
 			<div class="result-controls">
 
 				{{! List and grid view buttons }}
-				{{> molecules/controls/buttonbar-viewtype }}
+				<div class="result-viewtype">
+				{{# menus.viewoptions }}
+					{{> molecules/controls/buttonbar-viewtype }}
+				{{/ menus.viewoptions }}
+				</div>
 
 				<div class="result-sort">
-
 				{{# menus.sort }}
 					{{> molecules/controls/dropdown-menu }}
 				{{/ menus.sort }}
-
 				</div>
 
 			</div>

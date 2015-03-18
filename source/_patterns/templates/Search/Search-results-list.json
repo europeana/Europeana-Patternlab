@@ -312,6 +312,21 @@
 					"calltoaction": true
 				}
 			]
+		},
+		"viewoptions":{
+			"items": [
+				{
+					"text": "Grid",
+					"url":"url to grid view",
+					"icon_grid": true,
+					"is_current": true
+				},
+				{
+					"text": "List",
+					"url":"url to list view",
+					"icon_list": true
+				}
+			]
 		}	
 	},
 	"searchresults": [
