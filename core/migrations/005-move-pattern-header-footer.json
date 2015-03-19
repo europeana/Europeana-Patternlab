@@ -1,5 +1,5 @@
 {
-	"sourcePath": "core/source/_patterns/atoms/00-meta",
-	"destinationPath": "source/_patterns/atoms/00-meta",
+	"sourcePath": "core/source/_patterns/atoms/meta",
+	"destinationPath": "source/_patterns/atoms/meta",
 	"checkType": "dirEmpty"
 }
