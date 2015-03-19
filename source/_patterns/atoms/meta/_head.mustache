@@ -4,13 +4,17 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+{{# head_meta }}
+		<meta {{#meta_name}}name="{{meta_name}}" {{/meta_name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
+{{/ head_meta }}
+
 
 		<title>{{ pagetitle }}</title>
 
 		<!--  js detect -->
 		<script>(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)</script>
 
-		<!--
+{{!
 		Pattern specific CSS files.
 
 		The Global pattern lab stylesheet "INCLUDE ALL THE STYLES" is the default.
@@ -39,7 +43,7 @@
 				"media": "print"
 			}
 		]
-		-->
+}}
 
 {{# css_files }}
 		<link rel="stylesheet" href="{{ path }}?{{ cacheBuster }}" media="{{ media }}" />
@@ -47,10 +51,15 @@
 
 
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+{{# head_links }}
+		<link {{#title}}title="{{title}}" {{/title}}{{#rel}}rel="{{rel}}" {{/rel}}{{#type}}type="{{type}}" {{/type}}{{#href}}href="{{href}}" {{/href}}{{#media}}media="{{media}}" {{/media}}{{#sizes}}sizes="{{sizes}}" {{/sizes}} />
+{{/ head_links}}
 
+{{# patternlab }}
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{% pattern-lab-head %}
 		<!-- End Pattern Lab -->
+{{/ patternlab }}
 
 	</head>
 	<body class="{{ bodyClass }}">

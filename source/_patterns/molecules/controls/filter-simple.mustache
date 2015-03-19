@@ -1,0 +1,36 @@
+<div class="filter {{styleModifier}}">
+
+	<div class="filter-name">{{ title }}</div>
+
+	<ul class="filter-list">
+	{{#items}}
+		<li>
+			<a href="{{url}}">{{text}}
+			{{#num_results}}
+			<span class="filter-num">({{num_results}})</span>
+			{{/num_results}}
+			</a>
+		</li>
+	{{/items}}
+
+	{{#extra_items}}
+		<div class="js-extrafields is-jshidden">
+	{{#items}}
+		<li>
+			<a href="{{url}}">{{text}}
+			{{#num_results}}
+			<span class="filter-num">{{num_results}}</span>
+			{{/num_results}}
+			</a>
+		</li>
+	{{/items}}
+	</div>
+	{{/extra_items}}
+
+	</ul>
+
+	{{#extra_items}}
+		<a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.less}}">{{i18n.more}}</a>
+	{{/extra_items}}
+	
+</div>

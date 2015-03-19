@@ -1,0 +1,24 @@
+
+
+
+<a class="dropdown-trigger" href="#" data-dropdown="#{{menu_id}}">
+{{button-title}}{{^button-title}}Choose{{/button-title}}
+</a>
+
+<div id="{{menu_id}}" class="dropdown">
+
+	<div class="menu-title">{{menu-title}}</div>
+
+    <ul class="dropdown-menu">
+    {{#items}}
+        {{# divider}}
+        <li class="dropdown-divider"></li>
+        {{/divider}}
+
+        {{^ divider}}
+        <li><a href="{{url}}" {{#calltoaction}} class="menu-more" {{/calltoaction}}>{{text}}</a></li>
+        {{/divider}}
+        
+    {{/items}}
+    </ul>
+</div>

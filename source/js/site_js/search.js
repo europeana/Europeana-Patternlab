@@ -11,7 +11,25 @@ var Site = window.Site || {};
 (function($) {
 
     // Example function
-    Site.newfunc = function(){
+    Site.init_Filters = function(){
+
+		$('.js-showhide').on('click', function(e){
+
+		  var self = $(this);
+
+		  self.parent().find('.js-extrafields').toggleClass("is-jshidden");  // apply the toggle to the ul
+		  self.parent().toggleClass('is-expanded');
+
+		  // Swap the text for the value in data-text-original and back again
+		  if (self.text() === self.data("text-swap")) {
+		    self.text(self.data("text-original"));
+		  } else {
+		    self.data("text-original", self.text());
+		    self.text(self.data("text-swap"));
+		  }
+
+		  e.preventDefault();
+		});
 
     };
 
@@ -19,8 +37,6 @@ var Site = window.Site || {};
 
     //same as $(document).ready();
     $(function() {
-
-
-
+    	Site.init_Filters();
     });
 })(jQuery);

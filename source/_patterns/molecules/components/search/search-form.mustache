@@ -1,0 +1,25 @@
+<form action="{{form_search.action}}" class="search-multiterm">
+			<div class="inputarea">
+			{{#input_search}}
+				<input type="text" data-role="tagsinput" 
+				{{#title}}title="{{title}}" {{/title}}
+				{{#input_name}}name="{{input_name}}" {{/input_name}}
+				{{#input_value}}value="{{input_value}}" {{/input_value}}
+				{{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
+				/>
+			{{/input_search}}
+			
+			{{# form_search.hidden }}
+				<input type="hidden" name="{{ hidden_name }}" value="{{ hidden_value }}" />
+			{{/ form_search.hidden }}
+
+			</div>
+			<div class="submitarea">
+				<button type="submit" class="search-submit">
+				<svg class="icon icon-search">
+					<use xlink:href="#icon-search"></use>
+				</svg>
+				<span class="is-vishidden">Search</span>
+			</button>
+			</div>
+		</form>

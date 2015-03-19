@@ -2,23 +2,23 @@
 <article class="search-list-item cf">
 
 	<div class="item-preview">
-		{{# type-image }}
+		{{# isImage }}
 			<div class="item-image">
         	<img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
         	</div>
-    	{{/ type-image }}
+    	{{/ isImage }}
 
-   		{{# type-audio }}
+   		{{# isAudio }}
         	@TODO --audio preview--
-    	{{/ type-audio }}
+    	{{/ isAudio }}
 
-   		{{# type-text }}
+   		{{# isText }}
         	@TODO --text preview--
-    	{{/ type-text }}
+    	{{/ isText }}
 
-    	{{# type-video }}
+    	{{# isVideo }}
         	@TODO --video preview--
-    	{{/ type-video }}
+    	{{/ isVideo }}
 
 	</div>
 
@@ -27,26 +27,28 @@
 		<h1><a href="">{{ title }} <span class="date">({{ year.long }})</span></a></h1>
 
 		<p class="excerpt">
-			{{ excerpt.medium}}
+			 {{text.medium}}
 		</p>
 
-		<a href="http://google.com" class="item-origin link-external">View at: Rijksmuseum</a>
+		{{#origin}}
+		<a href="{{url}}" class="item-origin link-external">View at: {{text}}</a>
+		{{/origin}}
 
 		<footer>
 
 			<div class="item-metadata">
 
-			{{# type-image }}
+			{{# isImage }}
 	        	<a href="#paintings" class="highlight item-type-image">
 					<svg class="icon icon-image">
 						<use xlink:href="#icon-image"></use>
 					</svg>Painting
 	        	</a>
-	    	{{/ type-image }}
+	    	{{/ isImage }}
 
-	    	{{# type-audio }}
+	    	{{# isAudio }}
 	        	<a href="#recordings" class="highlight item-type-audio">Recording</a>
-	    	{{/ type-audio }}
+	    	{{/ isAudio }}
 
 
 				<span class="item-themes">
@@ -54,6 +56,7 @@
 					<a href="" class="highlight">Art History</a>,
 					<a href="" class="highlight">Military History</a>
 				</span>
+				
 			</div>
 
 			<div class="item-actions">

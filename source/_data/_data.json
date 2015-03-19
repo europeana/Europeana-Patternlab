@@ -1,4 +1,16 @@
 {
+	"patternlab": true,
+	"page_config": {
+		"newsletter": false
+	},
+	"globalnav_options": {
+		"search": true,
+		"myeuropeana": false
+	},
+	"head_meta": {
+		"name":"test", 
+		"content": "stuff"
+	},
 	"css_files": [
 		{
 			"path": "../../css/screen.css",
@@ -10,9 +22,62 @@
 			"path": "../../js/dist/global-min.js"
 		}
 	],
-	"globalnav_options": {
-		"search": true,
-		"myeuropeana": false
+	"navigation":{
+		"global_main":{
+
+		},
+		"footer_linklist1":{
+			"title": "More info",
+			"styleModifier":"",
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		},
+		"footer_linklist2":{
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		},
+		"footer_othersites":{
+			"title": "Explore Europeana",
+			"styleModifier":"inline-list",
+			"items": [
+				{
+					"url":"http://google.com",
+					"text": "First Item"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Another Label"
+				},
+				{
+					"url":"http://google.com",
+					"text": "Label here"
+				}
+			]
+		}
 	},
 	"img": {
 		"landscape-4x3": {
@@ -95,5 +160,9 @@
 		"first-name": "Uthur",
 		"last-name": "LastNameson"
 	},
-	"location":"Den Haag, Netherlands"
+	"location":"Den Haag, Netherlands",
+	"i18n":{
+		"more": "More",
+		"less": "Less"
+	}
 }
