@@ -19,7 +19,7 @@
 	],
 	"js_files": [
 		{
-			"path": "../../js/dist/global-min.js"
+			"path": "../../js/patternlab/output/global-min.js"
 		}
 	],
 	"navigation":{

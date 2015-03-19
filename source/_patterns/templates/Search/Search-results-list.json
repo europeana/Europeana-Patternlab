@@ -16,10 +16,10 @@
 	],
 	"js_files": [
 		{
-			"path": "../../js/dist/global-min.js"
+			"path": "../../js/patternlab/output/global-min.js"
 		},
 		{
-			"path": "../../js/dist/search-min.js"
+			"path": "../../js/patternlab/output/search-min.js"
 		}
 	],
 	"input_search": {
