@@ -1,6 +1,12 @@
 
 	</div>
 	<!-- End of pusher div - wraps the site to allow offcanvas menus-->
+
+
+{{# js_variables }}
+	<script>{{ js_variables }}</script>
+{{/ js_variables }}
+
 {{# jQuery }}
 	<script src="{{src_CDN}}"></script>
 	<script>window.jQuery || document.write('<script src="{{src_fallback}}"><\/script>')</script>
