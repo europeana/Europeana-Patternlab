@@ -1,11 +1,11 @@
 {
   "name": "europeana-styleguide",
   "version": "0.0.1",
-  "devDependencies": {
+  "XXXXXdevDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "^0.5.1"
+  },
+  "devDependencies": {
+    "grunt-concat-in-order": "^0.1.6"
   }
 }
-
-
-
