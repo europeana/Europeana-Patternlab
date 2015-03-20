@@ -17,6 +17,10 @@
 			"media": "all"
 		}
 	],
+	"jQuery":{
+		"src_CDN": "//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+		"src_fallback": "../../bower_components/jquery/dist/jquery.min.js"
+	},
 	"js_files": [
 		{
 			"path": "../../js/patternlab/output/global-min.js"

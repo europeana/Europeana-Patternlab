@@ -1,12 +1,13 @@
 
 	</div>
 	<!-- End of pusher div - wraps the site to allow offcanvas menus-->
-
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../../js/libs/jquery-1.11.1.min.js"><\/script>')</script>
+{{# jQuery }}
+	<script src="{{src_CDN}}"></script>
+	<script>window.jQuery || document.write('<script src="{{src_fallback}}"><\/script>')</script>
+{{/ jQuery }}
 
 {{# js_files }}
-	<script src="{{ path }}?{{ cacheBuster }}"></script>
+	<script src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
 {{/ js_files}}
 
 {{# patternlab }}
