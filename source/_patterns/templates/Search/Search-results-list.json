@@ -1,6 +1,10 @@
 {
 	"bodyClass": "europeana_search",
 	"pagetitle": "Europeana Search",
+
+        "total":12345,
+	"query_terms": ["Rembrandt", "Art History"],
+
 	"globalnav_options": {
 		"search": false,
 		"myeuropeana": true

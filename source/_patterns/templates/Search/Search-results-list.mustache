@@ -30,7 +30,10 @@
 			</div>
 
 			<div class="result-info">
-				1640 results for <strong>Rembrandt</strong> and <strong>Art History</strong>
+				{{ total }} results for
+				{{# query_terms }}
+					and <strong>{{ . }}</strong>
+				{{/ query_terms }}
 			</div>
 
 			<div class="result-controls">
