@@ -1,11 +1,11 @@
-<div class="filter {{styleModifier}}">
+<div class="filter {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
 	<div class="filter-name">{{ title }}</div>
 
 	<ul class="filter-list">
 	{{#items}}
 		<li>
-			<a href="{{url}}">{{text}}
+			<a href="{{url}}" class="filter-item {{#is-checked}} is-checked {{/is-checked}}{{#is-disabled}} is-disabled {{/is-disabled}}" {{#is-checked}} aria-checked="true" {{/is-checked}} {{^is-checked}} aria-checked="false" {{/is-checked}}>{{text}}
 			{{#num_results}}
 			<span class="filter-num">({{num_results}})</span>
 			{{/num_results}}
@@ -17,7 +17,7 @@
 		<div class="filter-extrafields js-extrafields is-jshidden">
 	{{#items}}
 		<li>
-			<a href="{{url}}">{{text}}
+			<a href="{{url}}" class="filter-item {{#is-checked}} is-checked {{/is-checked}}{{#is-disabled}} is-disabled {{/is-disabled}}">{{text}}
 			{{#num_results}}
 			<span class="filter-num">{{num_results}}</span>
 			{{/num_results}}

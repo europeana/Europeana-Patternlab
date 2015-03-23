@@ -58,3 +58,51 @@
 		padding-bottom: 0;
 	}
 }
+
+
+// Custom radio and checkboxes from links
+// js needed to switch on/off
+.filter-item:before{
+	.radiobuttons &, .checkboxes & {
+		content:'';
+	    display: inline-block;
+	    *display: inline;
+	    vertical-align: middle;
+	    width: 20px;
+	    height: 20px;
+	    margin-right: 0.5em;
+	    background: url(../../images/formcontrols.png) no-repeat;
+	    border: none;
+	    cursor: pointer;
+	    background-position: 0 0;
+	}
+	.radiobuttons &{
+	    background-position: -88px 0;
+	}
+}
+
+.checkboxes{
+    .is-checked:before {
+        background-position: -22px 0;
+    }
+    .is-disabled:before {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .is-checked.is-disabled:before {
+        background-position: -66px 0;
+    }
+}
+
+.radiobuttons {
+    .is-checked:before {
+        background-position: -110px 0;
+    }
+    .is-disabled:before {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .is-checked.is-disabled:before {
+        background-position: -154px 0;
+    }
+}

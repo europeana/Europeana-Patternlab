@@ -36,11 +36,13 @@
 		{
 			"title":"Channel",
 			"simple": true,
+			"select_one" : true,
 			"items": [
 				{
 					"url":"http://europeana.eu",
 					"text": "Filter Label",
-					"num_results": "15K"
+					"num_results": "15K",
+					"is-checked": true
 				},
 				{
 					"url":"http://europeana.eu",
@@ -55,7 +57,8 @@
 				{
 					"url":"http://europeana.eu",
 					"text": "Label here",
-					"num_results": 123
+					"num_results": 123,
+					"is-disabled": true
 				}
 			],
 			"extra_items": {
@@ -95,7 +98,8 @@
 				{
 					"url":"http://europeana.eu",
 					"text": "Another Label",
-					"num_results": 300
+					"num_results": 300,
+					"is-checked": true
 				},
 				{
 					"url":"http://europeana.eu",
@@ -105,7 +109,8 @@
 				{
 					"url":"http://europeana.eu",
 					"text": "Label here",
-					"num_results": 123
+					"num_results": 123,
+					"is-checked": true
 				}
 			],
 			"extra_items": {
@@ -123,7 +128,8 @@
 					{
 						"url":"http://europeana.eu",
 						"text": "Label here",
-						"num_results": 600
+						"num_results": 600,
+						"is-checked": true
 					},
 					{
 						"url":"http://europeana.eu",
@@ -149,7 +155,8 @@
 				{
 					"url":"http://europeana.eu",
 					"text": "Another Label",
-					"num_results": 300
+					"num_results": 300,
+					"is-checked": true
 				},
 				{
 					"url":"http://europeana.eu",
