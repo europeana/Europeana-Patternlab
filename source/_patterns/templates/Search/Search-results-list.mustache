@@ -32,7 +32,9 @@
 			<div class="result-info">
 				{{ total }} results for
 				{{# query_terms }}
-					and <strong>{{ . }}</strong>
+					<!-- "and" will need translated -->					
+					and
+					<strong>{{ . }}</strong>
 				{{/ query_terms }}
 			</div>
 
