@@ -24,36 +24,57 @@
 
 	<div class="item-info">
 
-		<h1><a href="">{{ title }} <span class="date">({{ year.long }})</span></a></h1>
+		<h1><a href="">{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}</a></h1>
 
+		{{#text}}
 		<p class="excerpt">
 			 {{text.medium}}
 		</p>
-
+		{{/text}}
+		
+		{{#origin}}
 		<a href="{{origin.url}}" class="item-origin link-external">View at: {{origin.text}}</a>
+		{{/origin}}
 
 		<footer>
-
 			<div class="item-metadata">
-
-			{{# isImage }}
-	        	<a href="#paintings" class="highlight item-type-image">
+			
+{{# item_type }}
+	        	<a href="{{item_type.url}}" class="highlight item-type">
+					{{# isImage }}
 					<svg class="icon icon-image">
 						<use xlink:href="#icon-image"></use>
-					</svg>Painting
+					</svg>
+					{{/ isImage }}
+					{{# isAudio }}
+					<svg class="icon icon-bookmark">
+						<use xlink:href="#icon-bookmark"></use>
+					</svg>
+					{{/ isAudio }}
+					{{# isText }}
+					<svg class="icon icon-comments">
+						<use xlink:href="#icon-comments"></use>
+					</svg>
+					{{/ isText }}
+					{{# isVideo }}
+					<svg class="icon icon-comments">
+						<use xlink:href="#icon-comments"></use>
+					</svg>
+					{{/ isVideo }}
+
+					{{item_type.name}}
 	        	</a>
-	    	{{/ isImage }}
-
-	    	{{# isAudio }}
-	        	<a href="#recordings" class="highlight item-type-audio">Recording</a>
-	    	{{/ isAudio }}
+{{/ item_type }}
 
 
+			{{# channels }}
 				<span class="item-themes">
-					In theme:
-					<a href="" class="highlight">Art History</a>,
-					<a href="" class="highlight">Military History</a>
+					In channel:
+					{{# items }}
+					<a href="{{url}}" class="highlight">{{text}}</a>,
+					{{/ items }}
 				</span>
+			{{/ channels }}
 				
 			</div>
 

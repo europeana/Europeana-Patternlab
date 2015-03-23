@@ -61,6 +61,11 @@
 	  margin: 0;
 	  width: auto !important;
 	  max-width: inherit;
+	  
+	  // Make sure the placeholder isn't poorly cut off
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
 	}
 	input:focus {
 	  border: none;
