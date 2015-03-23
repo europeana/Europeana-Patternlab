@@ -1,10 +1,7 @@
 {
 	"bodyClass": "europeana_search",
 	"pagetitle": "Europeana Search",
-
-        "total":12345,
-	"query_terms": ["Rembrandt", "Art History"],
-
+        "header_text": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
 	"globalnav_options": {
 		"search": false,
 		"myeuropeana": true
