@@ -7,10 +7,14 @@
 
 	.searchbar{
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 50%;
 
 		@include translate (-50%, -50%);
+	}
+
+	.tagline{
+
 	}
 }
 
@@ -21,5 +25,9 @@
 
 	@media all and (min-width: $bp-med) {
 		@include span(6 of 24);
+		&:last-child{
+			margin-right: 0;
+			
+		}
 	}
 }
