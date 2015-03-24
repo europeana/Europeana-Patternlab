@@ -1,5 +1,25 @@
 
 // Search Site specific styles
 
+.search-home-hero{
+	height: 80%;
+	margin-top: $globalnavheight;
 
+	.searchbar{
+		position: absolute;
+		top: 50%;
+		left: 50%;
 
+		@include translate (-50%, -50%);
+	}
+}
+
+.channels li{
+
+	@extend .prototype;
+	min-height: 20em;
+
+	@media all and (min-width: $bp-med) {
+		@include span(6 of 24);
+	}
+}

@@ -1,20 +1,4 @@
 
-
-
-
-// Generic page layout
-.page{
-
-	background: $white; // fallback
-
-	@media all and (min-width: $bp-med) {
-		background: $offwhite; // fallback
-		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
-	}
-
-}
-
-
 // Search hero bar
 .search-hero{
 	padding: $space-triple $space;
@@ -29,6 +13,14 @@
 // Search results container
 .search-results{
 	padding: 0 $space;
+
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+	}
+
 	.container{
 		@include container($max-width);
 	}
