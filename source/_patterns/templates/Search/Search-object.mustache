@@ -2,15 +2,15 @@
 
 {{> organisms/global/header}}
 
-
-<div role="main" class="page l-page">
-
-
 	<section class="">
 		<br/>
 		<br/>
-		{{{prev_link}}}		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		{{{back_link}}}		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<br/>
+		<br/>
+		{{{prev_link}}}	
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{{{back_link}}}
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		{{{next_link}}}
 		<br/>
 		<br/>
@@ -20,6 +20,17 @@
 	<section class="">
 
 		<img src="{{edmPreview}}"/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<a href="{{links.download}}">Download</a>
+		
+		<h3>Rights:</h3>
+		{{rights}}		
+		
+		<h2>{{title}}</h2>
+		
+	</section>
+	<section class="">
 
 		<h3>edmDatasetName</h3>
 		{{edmDatasetName}}
@@ -27,16 +38,15 @@
 		<h3>type</h3>
 		{{type}}
 
-		<h3>title</h3>
-		{{title}}
-
 		<h3>doc</h3>
 		{{doc}}
 
 	</section>
 
-</section>
-
 
 
 {{> organisms/global/footer }}
+
+
+
+

@@ -1,6 +1,6 @@
 {
 	"bodyClass": "europeana_search",
-	"pagetitle": "Europeana Search",
+	"page_title": "Europeana Search",
 
 	"globalnav_options": {
 		"search": false,

@@ -1,6 +1,6 @@
 {
 	"bodyClass": "europeana_search",
-	"pagetitle": "Europeana Search",
+	"page_title": "Europeana Search",
         "header_text": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
 	"globalnav_options": {
 		"search": false,
