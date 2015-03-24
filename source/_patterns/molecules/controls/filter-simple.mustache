@@ -1,18 +1,21 @@
 {{! 
 
-Filter component - Simple 
+FILTER COMPONENT - SIMPLE 
 
 Can be configured by the injected data to behave as a single selection filter (radio buttons) or as a multiple selection filter (checkboxes).
 
-if injected data isnt present, the default is displayed and false is assumed.
-(there's no need to output data like: "is_disabled": false )
+Default status: 
+Multiple select (checkboxes)
 
-Default status: Multiple select (checkboxes)
-to trigger single selection mode set 
+Single selection mode (radio buttons):
+To trigger single selection mode set 
 "select_one" : true
 
+If injected data isn't present, the default is displayed and false is assumed.
+(There's no need to output data like: "select_one" : false or "is_disabled": false )
 
-Configuration options:
+
+Configuration options and content model:
 # # # # # # # # # # # # # # # # 
 
 "filters":[
@@ -20,7 +23,7 @@ Configuration options:
 		"title":"My Filter",   	// Title of the filter group eg. Artist
 		"simple": true,			// Selects the Simple filter type - this one
 		"select_one" : true,	// Selects the single selected option - only one selected at a time - behaves like radio buttons
-		"items": [				//	An array of filterable options
+		"items": [				// Array of filterable options - visible on initial load
 			{
 				"url":"http://linktofilterapplied", 	// The url to go to with the filter applied - fallback for no js use case
 				"text": "My option name",				// The name of the option eg. Rembrandt
@@ -28,7 +31,7 @@ Configuration options:
 				"is_checked": true,						// checked/selected state of the option
 				"is_disabled": true						// enabled/disabled state of the option
 			},
-			...Add more items here
+			...Add more visible items here
 		],
 		"extra_items": {		// Extra items - hidden on initial load
 			"items": [			// Array of options as above
