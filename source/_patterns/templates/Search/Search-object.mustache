@@ -2,8 +2,41 @@
 
 {{> organisms/global/header}}
 
-<section class="">
-	<h2>This is the object page from Patternlab</h2>
+
+<div role="main" class="page l-page">
+
+
+	<section class="">
+		<br/>
+		<br/>
+		{{{prev_link}}}		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{{{back_link}}}		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{{{next_link}}}
+		<br/>
+		<br/>
+	</section>
+
+
+	<section class="">
+
+		<img src="{{edmPreview}}"/>
+
+		<h3>edmDatasetName</h3>
+		{{edmDatasetName}}
+
+		<h3>type</h3>
+		{{type}}
+
+		<h3>title</h3>
+		{{title}}
+
+		<h3>doc</h3>
+		{{doc}}
+
+	</section>
+
 </section>
+
+
 
 {{> organisms/global/footer }}
