@@ -1,23 +1,23 @@
 <article class="search-list-item cf">
 
 	<div class="item-preview">
-		{{# isImage }}
+		{{# is_image }}
 			<div class="item-image">
         	<img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
         	</div>
-    	{{/ isImage }}
+    	{{/ is_image }}
 
-   		{{# isAudio }}
+   		{{# is_audio }}
         	@TODO --audio preview--
-    	{{/ isAudio }}
+    	{{/ is_audio }}
 
-   		{{# isText }}
+   		{{# is_text }}
         	@TODO --text preview--
-    	{{/ isText }}
+    	{{/ is_text }}
 
-    	{{# isVideo }}
+    	{{# is_video }}
         	@TODO --video preview--
-    	{{/ isVideo }}
+    	{{/ is_video }}
 
 	</div>
 
@@ -40,26 +40,26 @@
 			
 {{# item_type }}
 	        	<a href="{{item_type.url}}" class="highlight item-type">
-					{{# isImage }}
+					{{# is_image }}
 					<svg class="icon icon-image">
 						<use xlink:href="#icon-image"></use>
 					</svg>
-					{{/ isImage }}
-					{{# isAudio }}
+					{{/ is_image }}
+					{{# is_audio }}
 					<svg class="icon icon-bookmark">
 						<use xlink:href="#icon-bookmark"></use>
 					</svg>
-					{{/ isAudio }}
-					{{# isText }}
+					{{/ is_audio }}
+					{{# is_text }}
 					<svg class="icon icon-comments">
 						<use xlink:href="#icon-comments"></use>
 					</svg>
-					{{/ isText }}
-					{{# isVideo }}
+					{{/ is_text }}
+					{{# is_video }}
 					<svg class="icon icon-comments">
 						<use xlink:href="#icon-comments"></use>
 					</svg>
-					{{/ isVideo }}
+					{{/ is_video }}
 
 					{{item_type.name}}
 	        	</a>

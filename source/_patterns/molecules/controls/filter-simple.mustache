@@ -5,7 +5,7 @@
 	<ul class="filter-list">
 	{{#items}}
 		<li>
-			<a href="{{url}}" class="filter-item {{#is-checked}} is-checked {{/is-checked}}{{#is-disabled}} is-disabled {{/is-disabled}}" {{#is-checked}} aria-checked="true" {{/is-checked}} {{^is-checked}} aria-checked="false" {{/is-checked}}>{{text}}
+			<a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>{{text}}
 			{{#num_results}}
 			<span class="filter-num">({{num_results}})</span>
 			{{/num_results}}
@@ -17,7 +17,7 @@
 		<div class="filter-extrafields js-extrafields is-jshidden">
 	{{#items}}
 		<li>
-			<a href="{{url}}" class="filter-item {{#is-checked}} is-checked {{/is-checked}}{{#is-disabled}} is-disabled {{/is-disabled}}">{{text}}
+			<a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
 			{{#num_results}}
 			<span class="filter-num">{{num_results}}</span>
 			{{/num_results}}

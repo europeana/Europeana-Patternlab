@@ -39,7 +39,7 @@
 					"url":"http://europeana.eu",
 					"text": "Filter Label",
 					"num_results": "15K",
-					"is-checked": true
+					"is_checked": true
 				},
 				{
 					"url":"http://europeana.eu",
@@ -55,7 +55,7 @@
 					"url":"http://europeana.eu",
 					"text": "Label here",
 					"num_results": 123,
-					"is-disabled": true
+					"is_disabled": true
 				}
 			],
 			"extra_items": {
@@ -96,7 +96,7 @@
 					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"num_results": 300,
-					"is-checked": true
+					"is_checked": true
 				},
 				{
 					"url":"http://europeana.eu",
@@ -107,7 +107,7 @@
 					"url":"http://europeana.eu",
 					"text": "Label here",
 					"num_results": 123,
-					"is-checked": true
+					"is_checked": true
 				}
 			],
 			"extra_items": {
@@ -126,7 +126,7 @@
 						"url":"http://europeana.eu",
 						"text": "Label here",
 						"num_results": 600,
-						"is-checked": true
+						"is_checked": true
 					},
 					{
 						"url":"http://europeana.eu",
@@ -153,7 +153,7 @@
 					"url":"http://europeana.eu",
 					"text": "Another Label",
 					"num_results": 300,
-					"is-checked": true
+					"is_checked": true
 				},
 				{
 					"url":"http://europeana.eu",
@@ -248,9 +248,9 @@
 	],
 	"menus": {
 		"actions": {
-			"button-title":"Actions",
+			"button_title":"Actions",
 			"menu_id": "dropdown-result-actions",
-			"menu-title": "Save to:",
+			"menu_title": "Save to:",
 			"items": [
 				{
 					"url":"http://europeana.eu",
@@ -287,9 +287,9 @@
 			]
 		},
 		"sort": {
-			"button-title":"Relevance",
+			"button_title":"Relevance",
 			"menu_id": "dropdown-result-sort",
-			"menu-title": "Sort by:",
+			"menu_title": "Sort by:",
 			"items": [
 				{
 					"text": "Date",
@@ -340,7 +340,7 @@
 	"searchresults": [
 	    {
 	        "title": "Rembrant van Rijn, An Elephant, a drawing",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Painting",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -388,7 +388,7 @@
 	    },
 	    {
 	        "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
-	        "isAudio": true,
+	        "is_audio": true,
 	        "item_type" : {
 	        	"name"	: "Recording",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -436,7 +436,7 @@
 	    },
 	    {
 	        "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
-	        "isAudio": true,
+	        "is_audio": true,
 	        "item_type" : {
 	        	"name"	: "Song",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -484,7 +484,7 @@
 	    },
 	    {
 	        "title": "Self portrait",
-	        "isText": true,
+	        "is_text": true,
 	        "item_type" : {
 	        	"name"	: "Poem",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -532,7 +532,7 @@
 	    },
 	    {
 	        "title": "Belshazzars Feast",
-	        "isText": true,
+	        "is_text": true,
 	        "item_type" : {
 	        	"name"	: "Book",
 	        	"url"	: "http://europeana.eu/search/books" 
@@ -580,7 +580,7 @@
 	    },
 	    {
 	        "title": "The Stoning of Saint Stephen",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Photograph",
 	        	"url"	: "http://europeana.eu/search/photograph" 
@@ -628,7 +628,7 @@
 	    },
 	    {
 	        "title": "Balaam and the Ass",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Drawing",
 	        	"url"	: "http://europeana.eu/search/drawing" 
@@ -676,7 +676,7 @@
 	    },
 	    {
 	        "title": "The Artist in his Studio",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Print",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -724,7 +724,7 @@
 	    },
 	    {
 	        "title": "The Storm on the Sea of Galilee",
-	        "isVideo":true,
+	        "is_video":true,
 	        "item_type" : {
 	        	"name"	: "TV programme",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -772,7 +772,7 @@
 	    },
 	    {
 	        "title": "Jacob de Gheyn III",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Painting",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -820,7 +820,7 @@
 	    },
 	    {
 	        "title": "Philosopher in Meditation",
-	        "isVideo":true,
+	        "is_video":true,
 	        "item_type" : {
 	        	"name"	: "Music video",
 	        	"url"	: "http://europeana.eu/search/paintings" 
@@ -868,7 +868,7 @@
 	    },
 	    {
 	        "title": "The Abduction of Europa",
-	        "isImage": true,
+	        "is_image": true,
 	        "item_type" : {
 	        	"name"	: "Painting",
 	        	"url"	: "http://europeana.eu/search/paintings" 
