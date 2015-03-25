@@ -1,6 +1,6 @@
 <form action="{{form.action_url}}">
 <fieldset class="filter filter-date">
-
+	{{#form.hidden_inputs}}<input type="hidden" name="{{name}}" value="{{value}}">{{/form.hidden_inputs}}
 	<legend class="filter-name">{{ title }}</legend>
 
 	{{> molecules/navigation/sparkline }}
