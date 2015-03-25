@@ -11,6 +11,7 @@
 		"name":"test", 
 		"content": "stuff"
 	},
+	"image_root":"../../images/",
 	"css_files": [
 		{
 			"path": "../../css/screen.css",
