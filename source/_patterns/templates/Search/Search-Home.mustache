@@ -4,34 +4,52 @@
 
 
 <section class="search-home-hero prototype-image">
-	<div class="searchbar">
-	{{> molecules/components/search/search-form }}
+	<div class="hero-contents">
+		<div class="searchbar">
+		{{> molecules/components/search/search-form }}
+		</div>
+
+		<div class="strapline">
+			Europeana brings together {{total_items}} items collected from Europe's libraries, galleries and museums. 
+		</div>
 	</div>
+</section>
 
-	<div class="tagline">
-		stuff about europeana
+
+<ul class="section promo-list">
+{{#channels_list}}
+	<li class="list-item channel-item">
+	<a href="{{url}}">
+	{{#comingsoon}}<div class="corner-ribbon">Coming Soon</div>{{/comingsoon}}
+		<div class="category-flag">Channels</div>
+		<div class="title">{{name}}</div>
+	</a>
+	</li>
+{{/channels_list}}
+{{#exhibitions_list}}
+	<li class="list-item exhibitions-item">
+	<a href="{{url}}">
+		<div class="category-flag">Exhibitions</div>
+		<div class="title">{{name}}</div>
+	</a>
+	</li>
+{{/exhibitions_list}}
+</ul>
+
+
+<div class="section">
+	<div class="container">
+
+	<h2 class="section-title">Europeana News</h2>
+
+	<ul class="home-news">
+		{{#listItems.three}}<li class="news-item">{{> molecules-inset-block}}</li>{{/listItems.three}}
+	</ul>
+
+	<a class="link-more" href="{{ blogurl }}">More from the Blog</a>
+
 	</div>
-</section>
-
-<section class="channels-promo">
-	<h2 class="section-title">Channels</h2>
-	<ul class="channels">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</section>
-
-<section class="exhibitions-promo">
-	<h2 class="section-title">Exhibitions</h2>
-	<ul class="channels">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</section>
+</div>
 
 
 {{> organisms/global/footer }}

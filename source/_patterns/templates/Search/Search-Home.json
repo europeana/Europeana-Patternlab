@@ -31,5 +31,37 @@
 		"title": "Search Europeana",
 		"input_name": "search",
 		"placeholder": "Search Europeana"
-	}
+	},
+
+	"channels_list":[
+		{
+			"name":"Art",
+			"url": "urlhere"
+		},
+		{
+			"name":"Music",
+			"url": "urlhere"
+		},
+		{
+			"name":"Fashion",
+			"url": "urlhere",
+			"comingsoon": true
+		}
+	],
+
+	"exhibitions_list":[
+		{
+			"name":"Exhibition name",
+			"url": "urlhere"
+		},
+		{
+			"name":"Exhibition name",
+			"url": "urlhere"
+		},
+				{
+			"name":"Exhibition name",
+			"url": "urlhere",
+			"comingsoon": true
+		}
+	]
 }

@@ -5,29 +5,113 @@
 	height: 80%;
 	margin-top: $globalnavheight;
 
-	.searchbar{
+	.hero-contents{
 		position: absolute;
-		top: 40%;
+		top: 50%;
 		left: 50%;
-
 		@include translate (-50%, -50%);
 	}
 
-	.tagline{
+	.searchbar{
+		margin-bottom: $space;
+	}
+
+	.strapline{
+		padding: $space;
+	}
+}
+
+.section, .promo-list{
+	@include pad(1/4);
+}
+
+.promo-list{
+	background-color: $offwhite;
+	padding-top: $space-quarter;
+
+	@media all and (min-width: $bp-med) {
+		padding-top: $space-half;
+	}
+}
+
+.promo-list .list-item{
+
+	@extend .prototype;
+	position: relative;
+	margin-bottom: $space-quarter; //fallback
+	margin-bottom: 1.05634vw;
+	min-height: 50vw;
+
+	overflow: hidden;
+
+	@media all and (min-width: $bp-small) {
+		@include gallery(12 of 24);
+	}
+
+	@media all and (min-width: $bp-med) {
+		@include gallery(6 of 24);
+		min-height: 25vw;
+		margin-bottom: $space-half; //fallback
+		margin-bottom: 1.05634vw;
+	}
+
+	&:last-child{
+		//margin-right: 0;
+	}
+
+	.title{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate (-50%, -50%);
+
+		color: $white;
+		font-weight: bold;
+		text-align: center;
+		max-width: 80%;
+		@include fontSize(24px);
+		line-height: 1;
+
+	}
+
+	a{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 
 	}
 }
 
-.channels li{
+.category-flag{
+	background-color: $accent;
+	color: $white;
+	text-transform: uppercase;
+	font-weight: bold;
+	@include fontSize(12px);
+	display: block;
+	padding: $space-quarter $space-half;
+	position: absolute;
+	top: 10px;
+	left: 0;
+	min-width: 30%;
+    letter-spacing: 0.1rem;
 
-	@extend .prototype;
-	min-height: 20em;
+    .channel-item &{
+    	background-color: $eu-orange;
+    }
 
+    .exhibitions-item &{
+    	background-color: $eu-yellow;
+    }
+}
+
+.news-item{
 	@media all and (min-width: $bp-med) {
-		@include span(6 of 24);
+		@include span(8);
 		&:last-child{
 			margin-right: 0;
-			
 		}
 	}
 }

@@ -7,3 +7,19 @@
 	text-transform: uppercase;
 	margin-bottom: $space-half;
 }
+
+
+.strapline{
+	background-color: $blue-dark;
+	color: $white;	
+	//border-top: 2px solid $accent;
+
+	text-align: center;
+	@include fontSize(24px);
+	line-height: 1.2;
+
+	a{
+		color: $white;
+		border-bottom: 1px dotted $white;
+	}
+}

@@ -45,14 +45,10 @@ $susy: (
   columns: 24,
   gutters: 1/2,
   math: fluid,
-  output: float,
   use-custom: (
     box-sizing: false,
   ),
-  global-box-sizing: border-box,
-  debug: (
-    //image: show
-  ),
+  global-box-sizing: border-box
 );
 
 @import "layout_susy";
@@ -79,6 +75,7 @@ $susy: (
 \*------------------------------------*/
 @import "../scss/objects/buttons";
 @import "../scss/objects/action-links";
+@import "../scss/objects/corner-ribbon";
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
