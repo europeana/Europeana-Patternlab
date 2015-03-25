@@ -1,4 +1,4 @@
-<form action="">
+<form action="{{form.action_url}}">
 <fieldset class="filter filter-date">
 
 	<legend class="filter-name">{{ title }}</legend>
@@ -8,13 +8,13 @@
 
 	<div class="filter-controls">
 		<div class="control-group">
-			<label for="date-range-start">From:</label>
-			<input id="date-range-start" type="text" value="{{filters.date_start}}">
+			<label for="date-range-start">{{range.start.label_text}}</label>
+			<input id="date-range-start" name="{{range.start.input_name}}" type="text" value="{{range.start.input_value}}">
 		</div>
 
 		<div class="control-group">
-			<label for="date-range-end">To:</label>
-			<input id="date-range-end" type="text"  value="{{filters.date_end}}">
+			<label for="date-range-end">{{range.end.label_text}}</label>
+			<input id="date-range-end" name="{{range.end.input_name}}" type="text" value="{{range.end.input_value}}">
 		</div>
 	</div>
 
