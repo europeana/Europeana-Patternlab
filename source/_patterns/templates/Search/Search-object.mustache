@@ -16,37 +16,65 @@
 		<br/>
 	</section>
 
+	<section class="actions">
 
-	<section class="">
+		<img class="main" src="{{data.edm_preview}}"/>
 
-		<img src="{{edm_preview}}"/>
+                <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<br/>
+		<a class="download-img" href="{{links.download}}">Download</a> <br/>
 
-		<a href="{{links.download}}">Download</a>
-		
-		<h3>Rights:</h3>
-		{{rights}}		
-		
-		<h2>{{title}}</h2>
-		
+		<span class="rights"><b>Rights:</b> {{data.edm_rights}}</span>
+		<br/>
+
 	</section>
+
+	<section class="">
+		<h2>{{data.title}}</h2>
+	</section>
+
+	<section class="">
+		<b>Agent:</b> {{data.agent_pref_label}} <br/>
+		<b>DC Creator:</b> {{data.dc_creator}} <br/>
+		<b>DC Description:</b> {{data.dc_description}} <br/>
+		<b>DC Format:</b> {{data.dc_format}} <br/>
+		<b>DC Identifier:</b> {{data.dc_identifier}} <br/>
+
+		<b>DC Terms Created:</b> {{data.dc_terms_created}} <br/>
+		<b>DC Terms Extent:</b> {{data.dc_terms_extent}} <br/>
+
+		<b>DC Title:</b> {{data.dc_title}} <br/>
+		<b>DC Type:</b> {{data.dc_type}} <br/>
+
+
+		<b>EDM Country:</b> {{data.edm_country}} <br/>
+		<b>EDM Dataset Name:</b> {{data.edm_dataset_name}} <br/>
+		<b>EDM Is Shown At:</b> {{data.edm_is_shown_at}} <br/>
+		<b>EDM Is Shown By:</b> {{data.edm_is_shown_by}} <br/>
+		<b>EDM Language:</b> {{data.edm_language}} <br/>
+		<b>EDM Provider:</b> {{data.edm_provider}} <br/>
+
+		<b>Latitude:</b> {{data.latitude}} <br/>
+		<b>Longitude:</b> {{data.longitude}} <br/>
+
+
+		<b>Type:</b> {{data.type}} <br/>
+		<b>Title:</b> {{data.title}} <br/>
+
+		<b>Year:</b> {{data.year}} <br/>
+
+	</section>
+	<br/>
+	<br/>
+	<br/>
 	<section class="">
 
-		<h3>EDM Dataset Name</h3>
-		{{edm_dataset_name}}
-
-		<h3>type</h3>
-		{{type}}
-
-		<h3>doc</h3>
+		<h3>entire doc</h3>
 		{{doc}}
 
 	</section>
 
 
-
 {{> organisms/global/footer }}
-
-
-
-
