@@ -36,7 +36,8 @@
 
 .promo-list .list-item{
 
-	@extend .prototype;
+	@extend .prototype; // Remove me
+
 	position: relative;
 	margin-bottom: $space-quarter; //fallback
 	margin-bottom: 1.05634vw;
@@ -66,10 +67,11 @@
 		@include translate (-50%, -50%);
 
 		color: $white;
-		font-weight: bold;
 		text-align: center;
+		text-transform: uppercase;
 		max-width: 80%;
-		@include fontSize(24px);
+		@include fontSize(20px);
+		letter-spacing: 0.2em;
 		line-height: 1;
 
 	}
