@@ -2,14 +2,20 @@
 // Search Site specific styles
 
 .search-home-hero{
-	height: 80%;
+	height: 50%;
+	position: relative;
 	margin-top: $globalnavheight;
+
+	@media all and (min-width: $bp-med) {
+		height: 80%;
+	}
 
 	.hero-contents{
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		@include translate (-50%, -50%);
+		width: 80%;
 	}
 
 	.searchbar{
@@ -18,6 +24,10 @@
 
 	.strapline{
 		padding: $space;
+
+		@media all and (min-width: $bp-med) {
+			padding: $space-double;
+		}
 	}
 }
 
@@ -27,10 +37,12 @@
 
 .promo-list{
 	background-color: $offwhite;
-	padding-top: $space-quarter;
+	padding-top: $space-quarter; //fallback
+	padding-top: 1.05634vw;
 
 	@media all and (min-width: $bp-med) {
-		padding-top: $space-half;
+		padding-top: $space-half; //fallback
+		padding-top: 1.05634vw;
 	}
 }
 
@@ -95,17 +107,25 @@
 	display: block;
 	padding: $space-quarter $space-half;
 	position: absolute;
-	top: 10px;
-	left: 0;
+	top: 5%;
+	left: -2px;
 	min-width: 30%;
     letter-spacing: 0.1rem;
 
-    .channel-item &{
+    .item-channel &{
     	background-color: $eu-orange;
     }
 
-    .exhibitions-item &{
+    .item-exhibition &{
     	background-color: $eu-yellow;
+    }
+
+    .item-new &{
+    	background-color: $eu-blue;
+    }
+
+    .item-partner &{
+    	background-color: $eu-pro;
     }
 }
 

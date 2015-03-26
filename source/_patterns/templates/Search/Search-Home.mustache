@@ -10,30 +10,39 @@
 		</div>
 
 		<div class="strapline">
-			Europeana brings together {{total_items}} items collected from Europe's libraries, galleries and museums. 
+			Europeana brings together {{content.total_items}} items collected from Europe's libraries, galleries and museums. 
 		</div>
 	</div>
 </section>
 
 
 <ul class="section promo-list">
-{{#channels_list}}
-	<li class="list-item channel-item">
-	<a href="{{url}}">
-	{{#comingsoon}}<div class="corner-ribbon">Coming Soon</div>{{/comingsoon}}
-		<div class="category-flag">Channels</div>
-		<div class="title">{{name}}</div>
-	</a>
+{{#content.promoted}}
+	<li class="list-item {{#is_channel}}item-channel {{/is_channel}}{{#is_exhibition}}item-exhibition {{/is_exhibition}}{{#is_new}}item-new {{/is_new}}{{#is_partner}}item-partner {{/is_partner}}">
+		<a href="{{url}}" style="{{#bg_image}}background-image: url({{image_root}}{{bg_image}}); {{/bg_image}}">
+
+		{{#comingsoon}}
+		<div class="corner-ribbon alternate">Coming Soon</div>
+		{{/comingsoon}}
+
+		{{#is_channel}}
+			<div class="category-flag">Channels</div>
+		{{/is_channel}}
+		{{#is_exhibition}}
+			<div class="category-flag">Exhibition</div>
+		{{/is_exhibition}}
+		{{#is_new}}
+			<div class="category-flag">What's New</div>
+		{{/is_new}}
+		{{#is_partner}}
+			<div class="category-flag">Our Partners</div>
+		{{/is_partner}}
+
+			<div class="title">{{name}}</div>
+
+		</a>
 	</li>
-{{/channels_list}}
-{{#exhibitions_list}}
-	<li class="list-item exhibitions-item">
-	<a href="{{url}}">
-		<div class="category-flag">Exhibitions</div>
-		<div class="title">{{name}}</div>
-	</a>
-	</li>
-{{/exhibitions_list}}
+{{/content.promoted}}
 </ul>
 
 

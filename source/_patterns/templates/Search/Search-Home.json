@@ -33,35 +33,62 @@
 		"placeholder": "Search Europeana"
 	},
 
-	"channels_list":[
-		{
-			"name":"Art",
-			"url": "urlhere"
-		},
-		{
-			"name":"Music",
-			"url": "urlhere"
-		},
-		{
-			"name":"Fashion",
-			"url": "urlhere",
-			"comingsoon": true
-		}
-	],
+	"content":{
 
-	"exhibitions_list":[
-		{
-			"name":"Exhibition name",
-			"url": "urlhere"
-		},
-		{
-			"name":"Exhibition name",
-			"url": "urlhere"
-		},
-				{
-			"name":"Exhibition name",
-			"url": "urlhere",
-			"comingsoon": true
-		}
-	]
+		"total_items": "40,173,111",
+
+		"promoted":[
+			{
+				"name":"Art",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"imagehere"
+			},
+			{
+				"name":"Music",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"imagehere"
+			},
+			{
+				"name":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"imagehere"
+			},
+			{
+				"name":"Fashion",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"imagehere",
+				"comingsoon": true
+			},
+			{
+				"name":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"imagehere"
+			},
+			{
+				"name":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"imagehere",
+				"comingsoon": true
+			},
+			{
+				"name":"Partner title",
+				"url": "urlhere",
+				"is_partner": true,
+				"bg_image":"imagehere"
+			},
+			{
+				"name":"Exhibition name",
+				"url": "urlhere",
+				"is_new": true,
+				"bg_image":"imagehere"
+			}
+		]
+
+	}
 }
