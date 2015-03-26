@@ -48,14 +48,15 @@
 
 .promo-list .list-item{
 
-	@extend .prototype; // Remove me
-
 	position: relative;
 	margin-bottom: $space-quarter; //fallback
 	margin-bottom: 1.05634vw;
 	min-height: 50vw;
 
-	overflow: hidden;
+	background-color: $accent;
+	background-position: center center;
+	background-size: cover;
+	//background-blend-mode: multiply;
 
 	@media all and (min-width: $bp-small) {
 		@include gallery(12 of 24);
@@ -66,10 +67,6 @@
 		min-height: 25vw;
 		margin-bottom: $space-half; //fallback
 		margin-bottom: 1.05634vw;
-	}
-
-	&:last-child{
-		//margin-right: 0;
 	}
 
 	.title{
@@ -94,7 +91,13 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+		overflow: hidden;
 
+		background-color: rgba($black, .2);
+
+		&:hover, &:focus{
+			background-color: rgba($accent, .8);
+		}
 	}
 }
 
@@ -107,9 +110,9 @@
 	display: block;
 	padding: $space-quarter $space-half;
 	position: absolute;
+	z-index: 50;
 	top: 5%;
-	left: -2px;
-	min-width: 30%;
+	left: -4px;
     letter-spacing: 0.1rem;
 
     .item-channel &{

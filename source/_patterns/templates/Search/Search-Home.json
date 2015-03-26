@@ -42,51 +42,51 @@
 				"name":"Art",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-river.jpg"
 			},
 			{
 				"name":"Music",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-ivy.jpg"
 			},
 			{
 				"name":"Exhibition name",
 				"url": "urlhere",
 				"is_exhibition": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-river.jpg"
 			},
 			{
 				"name":"Fashion",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"imagehere",
+				"bg_image":"sample/thumb-square-yosemite.jpg",
 				"comingsoon": true
 			},
 			{
 				"name":"Exhibition name",
 				"url": "urlhere",
 				"is_exhibition": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-ivy.jpg"
 			},
 			{
 				"name":"Exhibition name",
 				"url": "urlhere",
 				"is_exhibition": true,
-				"bg_image":"imagehere",
+				"bg_image":"sample/thumb-square-yosemite.jpg",
 				"comingsoon": true
 			},
 			{
 				"name":"Partner title",
 				"url": "urlhere",
 				"is_partner": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-river.jpg"
 			},
 			{
 				"name":"Exhibition name",
 				"url": "urlhere",
 				"is_new": true,
-				"bg_image":"imagehere"
+				"bg_image":"sample/thumb-square-yosemite.jpg"
 			}
 		]
 
