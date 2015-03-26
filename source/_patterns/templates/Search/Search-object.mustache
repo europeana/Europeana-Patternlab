@@ -16,25 +16,96 @@
 		<br/>
 	</section>
 
-	<section class="actions">
 
-		<img class="main" src="{{data.edm_preview}}"/>
+	<div class="container">
+		<div class="overview">
 
-                <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+			<div class="section">
+				<div class="meta-data">
+					<img class="main" src="{{data.edm_preview}}"/>
+				</div>
+			</div>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<br/>
-		<a class="download-img" href="{{links.download}}">Download</a> <br/>
+			<div class="section">
+				<div class="meta-data">
+					<h2>{{data.title}}</h2>
+		
+					{{# data.title_extra }}
+						{{.}}<br/>
+					{{/ data.title_extra }}
+					{{data.dc_terms_created}}
+				</div>
+			</div>
 
-		<span class="rights"><b>Rights:</b> {{data.edm_rights}}</span>
-		<br/>
+			<div class="section">
+				<div class="meta-label">
+					{{labels.description}}
+				</div>
+				<div class="meta-data">
+					{{data.dc_description}}
+				</div>
+			</div>
+		</div>
 
-	</section>
+		<div class="actions">
+	                <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
-	<section class="">
-		<h2>{{data.title}}</h2>
-	</section>
+			<a class="download-img" href="{{links.download}}">{{labels.download}}</a> <br/>
 
+			<span class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</span>
+			<br/>
+			<br/>
+			<a class="icon-social original_context" href="{{links.original_context}}">
+				{{data.edm_provider}}
+				<svg class="icon icon-linkout">
+					<use xlink:href="#icon-linkout"></use>
+				</svg>
+			</a>
+			<br/>
+			<span class="country">{{data.edm_country}}</span>
+			<br/>
+			<br/>
+
+			<ul>
+				{{# data.concepts }}
+					<li>{{.}}</li>
+				{{/ data.concepts }}
+			</ul>
+			<br/>
+			<br/>
+			<a class="show-more-actions-js" href="">{{labels.show_more_meta}}</a>
+		</div>
+
+		<div class="section">
+			<div class="meta-label">
+				{{labels.agent}}
+			</div>
+			<div class="meta-data">
+				{{data.agent_pref_label}}
+
+				B= {{data.agent_begin}}
+
+				E= {{data.agent_end}}
+			</div>
+		</div>
+		<div class="section">
+			<div class="meta-label">
+				{{labels.mlt}}
+			</div>
+			<div class="meta-data">
+				<div class="mlt-item"></div>
+				<div class="mlt-item"></div>
+				<div class="mlt-item"></div>
+				<div class="mlt-item"></div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 	<section class="">
 		<b>Agent:</b> {{data.agent_pref_label}} <br/>
 		<b>DC Creator:</b> {{data.dc_creator}} <br/>
@@ -76,5 +147,5 @@
 
 	</section>
 
-
 {{> organisms/global/footer }}
+
