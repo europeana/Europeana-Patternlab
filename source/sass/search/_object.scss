@@ -1,107 +1,116 @@
 
 .container{
-	@include container($max-width);
-	
-	.country{
-		text-transform: capitalize;
-	}
+  @include container($max-width);
+  
+  .country{
+    text-transform: capitalize;
+  }
 
-    > .section{
-		border-top: 1px solid lightgray;
-    }	
+  > .section{
+    border-top: 1px solid lightgray;
+  }  
 }
 
 .nav{
-	margin-top:6em;
-	.next{
-	  float:right;
-	}
-	.previous{
-	  margin-right: 5em;
-	}
+  margin-top:6em;
+  
+  .previous-wrap{
+    @include span(first 5 of 24);
+  }
+  .next-wrap{
+    @include span(last 6 of 24);
+  }
 }
 
 .section{
-	@media all and (min-width: $bp-med) {
-		@include span(24);
-		margin: 0;
-		padding: $space-half + $space-quarter 0 $space-half + $space-quarter 0;
-	}
-	.meta-label{
-		@media all and (min-width: $bp-med) {
-			@include span(5 of 24);
-		}
-	}
-	.meta-data{
-		@media all and (min-width: $bp-med) {
-			@include span(last 19 of 24);
-		}
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(24);
+    margin: 0;
+    padding: $space-half + $space-quarter 0 $space-half + $space-quarter 0;
+  }
+  .meta-label{
+    @media all and (min-width: $bp-med) {
+      @include span(5 of 24);
+    }
+  }
+  .meta-data{
+    @media all and (min-width: $bp-med) {
+      @include span(last 19 of 24);
+    }
+  }
 }
 
-.meta-label, .meta-data{
-	padding: 0;
-	margin: 0;
+.overview{ 
+  @media all and (min-width: $bp-med) {
+    @include span(18);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .section{
+    @media all and (min-width: $bp-med) {
+      @include span(18 of 18);
+      margin: 0;
+      padding: $space-half + $space-quarter 0;
+    }
+    .meta-label{
+      @media all and (min-width: $bp-med) {
+        @include span(5 of 18);
+      }
+    }
+    .meta-data{
+      @media all and (min-width: $bp-med) {
+        @include span(last 13 of 18);
+      }
+    }
+  }
+  
+  .img-frame{
+    max-height: 22em;
+    overflow-y: auto;
+    @media all and (min-width: $bp-med) {
+      margin: $space-half + $space-quarter 0;
+    }
+  }
+  
+  .img-frame img{
+    max-width: 100%;
+  }  
 }
-	
-.mlt-item{
-	width: 12em;
-	height: 10em;
-	display: inline-block;
-	margin: 0 1em 0 0;
-	background-color: lightgray;
-}
-
-.overview{
-	
-	@media all and (min-width: $bp-med) {
-		@include span(18);
-		margin: 0;
-		padding: 0;
-	}
-	
-	.img-frame{
-	  max-height: 22em;
-	  overflow-y: auto;
-	}
-	
-	.img-frame img{
-	  max-width: 100%;
-    }	
-
-
-    .section{
-		@media all and (min-width: $bp-med) {
-			@include span(18 of 18);
-			margin: 0;
-			padding: $space-half + $space-quarter 0;
-		}
-		.meta-label{
-			@media all and (min-width: $bp-med) {
-				@include span(5 of 18);
-			}
-		}
-		.meta-data{
-			@media all and (min-width: $bp-med) {
-				@include span(last 13 of 18);
-			}
-		}
-	}
-}
-
 
 
 .actions{
-	
-	@media all and (min-width: $bp-med) {
-		@include span(last 6);
-	}
-	
-	img.main{
-	  display: block;
-	  border: 1px solid red;
-	}
-	
+  @media all and (min-width: $bp-med) {
+    @include span(last 6);
+    padding: $space-half + $space-quarter 0;
+  }
+  img.main{
+    display: block;
+    margin: auto;
+  }
+}
+
+.meta-label, .meta-data{
+  padding: 0;
+  margin: 0;
+}
+
+.description{
+  max-height: 10em;
+  overflow-y: auto;
+}
+
+.download{
+  color: white;
+  background-color: #1a8ac7
+}
+  
+.mlt-item{
+  width: 12em;
+  height: 10em;
+  display: inline-block;
+  margin: 0 1em 0 0;
+  background-color: lightgray;
 }
 
 

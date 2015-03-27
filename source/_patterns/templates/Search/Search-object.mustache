@@ -2,14 +2,15 @@
 
 {{> organisms/global/header}}
 
-	<section class="nav">
-		{{{prev_link}}}	
-		{{{back_link}}}
-		{{{next_link}}}
-	</section>
-
 
 	<div class="container">
+	
+		<section class="nav">
+			<span class="previous-wrap">{{{prev_link}}}</span>	
+			{{{back_link}}}
+			<span class="next-wrap">{{{next_link}}}</span>	
+		</section>
+		
 		<div class="overview">
 
 			<div class="section">
@@ -29,20 +30,22 @@
 				</div>
 			</div>
 
-			<div class="section">
-				<div class="meta-label">
-					{{labels.description}}
+			{{# data.dc_description}}
+				<div class="section">
+					<div class="meta-label">
+						{{labels.description}}
+					</div>
+					<div class="meta-data description">
+						{{data.dc_description}}
+					</div>
 				</div>
-				<div class="meta-data">
-					{{data.dc_description}}
-				</div>
-			</div>
+			{{/ data.dc_description}}
 		</div>
 
 		<div class="actions">
-	                <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+	        <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
-			<a class="download-img" href="{{links.download}}">{{labels.download}}</a> <br/>
+			<a class="download" href="{{links.download}}">{{labels.download}}</a> <br/>
 
 			<span class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</span>
 			<br/>
@@ -68,12 +71,12 @@
 			<a class="show-more-actions-js" href="">{{labels.show_more_meta}}</a>
 		</div>
 
+		{{#data.agent_pref_label}}
 		<div class="section">
 			<div class="meta-label">
 				{{labels.agent}}
 			</div>
 			
-			{{#data.agent_pref_label}}
 			<div class="meta-data">
 				{{data.agent_pref_label}}
 
@@ -81,9 +84,9 @@
 
 				{{data.agent_end}}
 			</div>
-			{{/data.agent_pref_label}}
-			
 		</div>
+		{{/data.agent_pref_label}}
+		
 		<div class="section">
 			<div class="meta-label">
 				{{labels.mlt}}
