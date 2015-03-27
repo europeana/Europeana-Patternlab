@@ -11,6 +11,16 @@
     }	
 }
 
+.nav{
+	margin-top:6em;
+	.next{
+	  float:right;
+	}
+	.previous{
+	  margin-right: 5em;
+	}
+}
+
 .section{
 	@media all and (min-width: $bp-med) {
 		@include span(24);
