@@ -32,23 +32,16 @@ Configuration options and content model:
                 "num_results": "1234",                  // number of results in the filtered set - can be a string or int eg. "15K" or 10000
                 "is_checked": true,                     // checked/selected state of the option
                 "is_disabled": true                     // enabled/disabled state of the option
+                "related_filters": [                    // filter_ids to show when selected
+                    "colour", "orientation"
+                ]
             },
             ...Add more visible items here
         ],
-        "extra_items": {        // Extra items - hidden on initial load
-            "items": [          // Array of options as above
-                {
-                    "url":"http://europeana.eu",
-                    "text": "Extra Label",
-                    "num_results": "15K"
-                },
-                ...Add more items here
-            ]
-        },
         "filters": [
-            // this is the next level of filters (in the same format as the outer filter array) that allows us to specify filter types that apply when an item within this filter is selected. These will be filters that make sense for the current selection. eg. Orientation or Colour options for a selection of "Painting".
-
-
+            // this is the next level of filters (in the same format as the outer filter array) This will allow us to specify filter types that apply when an item within the parent filter is selected. These will be filters that make sense for the current selection. eg. Orientation or Colour options for a selection of "Painting".
+            // which filters are shown is specified by the filter_ids in related_filters in the item array (see above)
+            {more filters here, most will be type: simple}
         ]
     },
     ...Add more filters here
@@ -59,7 +52,7 @@ Configuration options and content model:
 
 
 }}
-<div class="filter {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
+<div class="filter js-filter-hierarchical">
 
     <div class="filter-name">{{ title }}</div>
 
@@ -74,24 +67,26 @@ Configuration options and content model:
         </li>
     {{/items}}
 
-    {{#extra_items}}
-        <div class="filter-extrafields js-extrafields is-jshidden">
-    {{#items}}
-        <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
-            {{#num_results}}
-            <span class="filter-num">{{num_results}}</span>
-            {{/num_results}}
-            </a>
-        </li>
-    {{/items}}
+    <div class="filter-extrafilters js-extrafilters is-jshidden">
+        {{#filters}}
+            {{#simple}}
+                {{> molecules/controls/filter-simple }}
+            {{/simple}}
+            {{#date}}
+                {{> molecules/controls/filter-date }}
+            {{/date}}
+            {{#language}}
+                {{> molecules/controls/filter-language }}
+            {{/language}}
+            {{#license}}
+                {{> molecules/controls/filter-license }}
+            {{/license}}
+        {{/filters}}
     </div>
-    {{/extra_items}}
 
     </ul>
 
     {{#extra_items}}
         <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.less}}">{{i18n.more}}</a>
     {{/extra_items}}
-    
 </div>

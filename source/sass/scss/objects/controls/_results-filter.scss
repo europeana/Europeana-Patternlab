@@ -37,7 +37,9 @@
 }
 
 .filter-extrafields{
-	padding-top: 1em;
+	margin-top: $space-half;
+	padding-top: $space-half;
+	border-top: 1px dashed $gray87;
 }
 
 
