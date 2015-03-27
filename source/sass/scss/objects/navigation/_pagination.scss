@@ -3,10 +3,12 @@
 	overflow: hidden;
 	margin-bottom: $space;
 	text-align: center;
+	font-size: 0;
 
 	li {
 		display: inline-block;
 		border-right: 1px solid $grey2;
+		@include fontSize(16px);
 
 		&:last-child {
 			border: 0;
@@ -36,7 +38,7 @@
 		}
 	}
 
-	.current a{
+	.current a, .is-current a{
 		color: $white;
 		font-weight: bold;
 		background-color: $textcolour_body;
