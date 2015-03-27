@@ -9,12 +9,12 @@
 	<div class="filter-controls">
 		<div class="control-group">
 			<label for="date-range-start">{{range.start.label_text}}</label>
-			<input id="date-range-start" name="{{range.start.input_name}}" type="number" value="{{range.start.input_value}}">
+			<input id="date-range-start" name="{{range.start.input_name}}" max="{{date_start}}" min="{{date_end}}" type="number" value="{{range.start.input_value}}">
 		</div>
 
 		<div class="control-group">
 			<label for="date-range-end">{{range.end.label_text}}</label>
-			<input id="date-range-end" name="{{range.end.input_name}}" type="number" value="{{range.end.input_value}}">
+			<input id="date-range-end" name="{{range.end.input_name}}" max="{{date_start}}" min="{{date_end}}" type="number" value="{{range.end.input_value}}">
 		</div>
 
 		<input type="submit" class="is-jshidden" />
