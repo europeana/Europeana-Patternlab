@@ -15,8 +15,12 @@
 	//border-top: 2px solid $accent;
 
 	text-align: center;
-	@include fontSize(24px);
 	line-height: 1.2;
+	@include fontSize(18px);
+
+	@media all and (min-width: $bp-med) {
+		@include fontSize(24px);
+	}
 
 	a{
 		color: $white;
