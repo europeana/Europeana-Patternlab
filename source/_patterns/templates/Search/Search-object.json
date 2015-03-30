@@ -11,6 +11,8 @@
 		"newsletter": true
 	},
 
+	"debug":"this is debug stuff",
+
 	"css_files": [
 		{
 			"path": "../../css/search/screen.css",

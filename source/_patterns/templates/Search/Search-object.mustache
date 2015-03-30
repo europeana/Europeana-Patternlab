@@ -48,26 +48,23 @@
 			<a class="download" href="{{links.download}}">{{labels.download}}</a> <br/>
 
 			<span class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</span>
-			<br/>
-			<br/>
+
 			<a class="icon-social original_context" href="{{links.original_context}}">
 				{{data.edm_provider}}
 				<svg class="icon icon-linkout">
 					<use xlink:href="#icon-linkout"></use>
 				</svg>
 			</a>
-			<br/>
+
 			<span class="country">{{data.edm_country}}</span>
-			<br/>
-			<br/>
+
 
 			<ul>
 				{{# data.concepts }}
 					<li>{{.}}</li>
 				{{/ data.concepts }}
 			</ul>
-			<br/>
-			<br/>
+
 			<a class="show-more-actions-js" href="">{{labels.show_more_meta}}</a>
 		</div>
 
@@ -99,13 +96,8 @@
 			</div>
 		</div>
 	</div>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<section class="">
+
+	<section class="cf utility_debug">
 		<b>Agent:</b> {{data.agent_pref_label}} <br/>
 		<b>DC Creator:</b> {{data.dc_creator}} <br/>
 		<b>DC Description:</b> {{data.dc_description}} <br/>
@@ -135,16 +127,10 @@
 
 		<b>Year:</b> {{data.year}} <br/>
 
-	</section>
-	<br/>
-	<br/>
-	<br/>
-	<section class="">
-
 		<h3>entire doc</h3>
 		{{doc}}
 
 	</section>
 
-{{> organisms/global/footer }}
 
+{{> organisms/global/footer }}
