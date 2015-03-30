@@ -51,7 +51,7 @@ $susy: (
   global-box-sizing: border-box
 );
 
-@import "layout_susy";
+@import "./layout_susy";
 
 
 /*------------------------------------*\
@@ -94,19 +94,19 @@ $susy: (
 /*------------------------------------*\
 	SITE SPECIFIC - global
 \*------------------------------------*/
-@import "search-site";
+@import "./search-site";
 
 /*------------------------------------*\
 	SITE SPECIFIC - modules
 \*------------------------------------*/
 // Search list item
-@import "listitem";
+@import "./listitem";
 
 
 /*------------------------------------*\
 	Page specific
 \*------------------------------------*/
-@import "results-list";
+@import "./results-list";
 
-@import "object";
+@import "./object";
 

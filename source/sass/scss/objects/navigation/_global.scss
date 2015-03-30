@@ -119,7 +119,7 @@
 // Whole site wrapper element for push effect
 .pusher {
 	position: relative;
-	min-height: 100%;
+	height: 100%; 
 	*zoom: 1;
 }
 .pusher:before, .pusher:after {
