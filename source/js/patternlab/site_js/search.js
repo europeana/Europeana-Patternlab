@@ -10,15 +10,15 @@ var Site = window.Site || {};
    and remain compatible with other frameworks.  */
 (function($) {
 
-    // Example function
-    Site.init_Filters = function(){
+    // Initialise the show/hide panel functionality - cross site
+    Site.init_showhide = function(){
 
 		$('.js-showhide').on('click', function(event){
 
 		  var self = $(this);
-
-		  self.parent().find('.js-extrafields').toggleClass("is-jshidden");  // apply the toggle to the ul
-		  self.parent().toggleClass('is-expanded');
+		  var parent = $(this).parent();
+		  parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the ul
+		  parent.toggleClass('is-expanded');
 
 		  // Swap the text for the value in data-text-original and back again
 		  if (self.text() === self.data("text-swap")) {
@@ -59,7 +59,7 @@ var Site = window.Site || {};
 
     //same as $(document).ready();
     $(function() {
-    	Site.init_Filters();
+    	Site.init_showhide();
     	Site.init_accordion_tabs();
     });
 })(jQuery);

@@ -36,7 +36,9 @@ body {
 
 main, [role=main] {
 	@extend .cf;
-	padding-top: $globalnavheight;
+	 @media all and (min-width: $bp-small) {
+        padding-top: $globalnavheight;
+    }
 }
 
 
