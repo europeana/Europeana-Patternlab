@@ -1,0 +1,17 @@
+
+// Next, previous and back to search results navigation
+// See Molecules/navigation/next-previous.mustache
+
+.next-previous{
+	text-align: left;
+	padding: $space 0;
+
+	&.nav li{
+		margin-right: $space-half; 
+	}
+
+    .next{
+		float: right;
+		margin-right: 0;
+    }
+}

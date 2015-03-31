@@ -1,0 +1,15 @@
+<ul class="next-previous nav cf">
+	<li class="previous">
+		<a class="btn btn2" href="{{navigation.next_prev.prev_url}}"><span aria-hidden="true">&larr; </span>{{navigation.next_prev.prev_text}}</a>
+	</li>
+
+	{{#navigation.next_prev.back_url}}
+	<li class="back">
+		<a class="btn btn2" href="{{navigation.next_prev.back_url}}">{{navigation.next_prev.back_text}}</a>
+	</li>
+	{{/navigation.next_prev.back_url}}
+
+	<li class="next">
+		<a class="btn btn2" href="{{navigation.next_prev.next_url}}">{{navigation.next_prev.next_text}}<span aria-hidden="true"> &rarr;</span></a>
+	</li>
+</ul>
