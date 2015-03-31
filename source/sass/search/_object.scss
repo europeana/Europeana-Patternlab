@@ -1,4 +1,14 @@
 
+.search-object{
+	margin-bottom: 0;
+	
+	.js-img-frame{
+		max-width:  100%;
+		max-height: 22em;
+		overflow-y: auto;
+	}
+}
+
 .object-overview{
     @media all and (min-width: $bp-med) {
         @include span(18);
@@ -12,7 +22,7 @@
 }
 
 .object-image{
-    min-height: 30em;
+    /*  min-height: 30em;  */
     overflow-y: auto;
 
     &.is-smallimage{
@@ -24,11 +34,14 @@
 // Thumbnail/zoomer preview widget
 .object-image-nav{
     display: none;
+    text-align: center;
+    /*
     padding-top: 100%;
-
+	*/
     @media all and (min-width: $bp-med) {
         display: block;
     }
+    
 }
 
 .object-info{
