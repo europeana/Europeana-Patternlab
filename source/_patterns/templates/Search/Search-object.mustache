@@ -2,97 +2,120 @@
 
 {{> organisms/global/header}}
 
-
-	<div class="container">
+	<div role="main" class="lc search-object">
 	
-		<section class="nav">
-			<span class="previous-wrap">{{{prev_link}}}</span>	
-			{{{back_link}}}
-			<span class="next-wrap">{{{next_link}}}</span>	
-		</section>
+		<ul class="nav-next-previous nav section">
+			<li><a class="nav-previous" href="{{navigation.next_prev.prev_url}}">{{navigation.next_prev.prev_text}}</a></li>
+			<li><a class="nav-return" href="{{navigation.next_prev.back_url}}">{{navigation.next_prev.back_text}}</a></li>
+			<li><a class="nav-next" href="{{navigation.next_prev.next_url}}">{{{navigation.next_prev.next_text}}}</a></li>
+		</ul>
 		
-		<div class="overview">
 
-			<div class="section">
-				<div class="meta-data">
-					<img class="main" src="{{data.edm_preview}}"/>
-				</div>
+		<div class="object-wrapper section">
+		<div class="object-overview">
+
+		
+			<div class="object-image prototype-image cf">
+				<img src="{{data.edm_preview}}"/>
 			</div>
 
-			<div class="section">
-				<div class="meta-data">
-					<h2>{{data.title}}</h2>
-		
-					{{# data.title_extra }}
-						{{.}}<br/>
-					{{/ data.title_extra }}
+
+			<div class="object-info cf">
+				<h2>{{data.title}}</h2>
+				
+				{{# data.title_extra }}
+					{{.}}
+				{{/ data.title_extra }}
+				
+				<div class="date_created">
 					{{data.dc_terms_created}}
 				</div>
+
+				{{# data.dc_description}}
+				<div>
+					{{data.dc_description}}
+				</div>
+				{{/ data.dc_description}}
 			</div>
 
-			{{# data.dc_description}}
-				<div class="section">
-					<div class="meta-label">
-						{{labels.description}}
-					</div>
-					<div class="meta-data description">
-						{{data.dc_description}}
-					</div>
+
+			{{! Creator info }}
+			{{#data.agent_pref_label}}
+			<div class="object-creator cf">
+
+				<h3 class="subsection-label">
+					{{labels.agent}}
+				</h3>
+				
+				<div class="subsection-content">
+					{{data.agent_pref_label}}
+
+					{{data.agent_begin}}
+
+					{{data.agent_end}}
 				</div>
-			{{/ data.dc_description}}
+
+			</div>
+			{{/data.agent_pref_label}}
+
+
 		</div>
 
-		<div class="actions">
+
+
+		<div class="object-actions">
+
+			<div>@Todo - image zoomer preview here</div>
+
 	        <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
 			<a class="download" href="{{links.download}}">{{labels.download}}</a> <br/>
 
-			<span class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</span>
+			<div class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</div>
 
-			<a class="icon-social original_context" href="{{links.original_context}}">
+			<a class="original_context" href="{{links.original_context}}">
 				{{data.edm_provider}}
 				<svg class="icon icon-linkout">
 					<use xlink:href="#icon-linkout"></use>
 				</svg>
 			</a>
 
-			<span class="country">{{data.edm_country}}</span>
-
+			<div>{{data.edm_country}}</div>
 
 			<ul>
 				{{# data.concepts }}
 					<li>{{.}}</li>
 				{{/ data.concepts }}
 			</ul>
-
-			<a class="show-more-actions-js" href="">{{labels.show_more_meta}}</a>
-		</div>
-
-		{{#data.agent_pref_label}}
-		<div class="section">
-			<div class="meta-label">
-				{{labels.agent}}
-			</div>
 			
-			<div class="meta-data">
-				{{data.agent_pref_label}}
-
-				{{data.agent_begin}}
-
-				{{data.agent_end}}
+			
+			<div class="js-showhide-panel is-jshidden">
+				@todo add extra meta data here
+				<ul>
+					<li>Extra</li>
+					<li>Meta</li>
+					<li>Data</li>
+				</ul>
 			</div>
+
+			<a class="js-showhide" href="#" data-text-swap="{{labels.show_less_meta}}Less">{{labels.show_more_meta}}More meta data</a>
+
 		</div>
-		{{/data.agent_pref_label}}
-		
-		<div class="section">
-			<div class="meta-label">
+		</div>
+
+		{{! Related itens }}
+		<div class="object-related cf section">
+			<div class="subsection-label">
 				{{labels.mlt}}
 			</div>
-			<div class="meta-data">
-				<div class="mlt-item"></div>
-				<div class="mlt-item"></div>
-				<div class="mlt-item"></div>
-				<div class="mlt-item"></div>
+			<div class="subsection-content">
+			<ul>
+				<li class="mlt-item"></li>
+				<li class="mlt-item"></li>
+				<li class="mlt-item"></li>
+				<li class="mlt-item"></li>
+				<li class="mlt-item"></li>
+			</ul>
 			</div>
 		</div>
 	</div>
