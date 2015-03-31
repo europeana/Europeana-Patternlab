@@ -5,15 +5,30 @@
     }
 }
 
+.object-actions{
+    @media all and (min-width: $bp-med) {
+        @include span(last 6);
+    }
+}
+
+.object-image{
+    min-height: 30em;
+    overflow-y: auto;
+
+    &.is-smallimage{
+        @media all and (min-width: $bp-med) {
+            @include push(4 of 18);
+        }
+    }
+}
+// Thumbnail/zoomer preview widget
 .object-image-nav{
     display: none;
     padding-top: 100%;
 
-
     @media all and (min-width: $bp-med) {
         display: block;
     }
-    
 }
 
 .object-info{
@@ -55,23 +70,18 @@
 }
 
 
-.object-actions{
-    @media all and (min-width: $bp-med) {
-        @include span(last 6);
-    }
-}
 
-.object-image{
-    min-height: 30em;
-    overflow-y: auto;
-}
 
 .mlt-item{
-    @include gallery(4 of 20);
+    @include gallery(12 of 24);
     height: 10em;
+    margin-bottom: $space-quarter;
     background-color: lightgray;
 
-    &:last-child{
-        margin-right: 0;
+    @media all and (min-width: $bp-small) {
+        @include gallery(8 of 24);
+    }
+    @media all and (min-width: $bp-med) {
+        @include gallery(4 of 20);
     }
 }
