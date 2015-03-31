@@ -30,14 +30,14 @@
 			 {{text.medium}}
 		</p>
 		{{/text}}
-		
+
 		{{#origin}}
-		<a href="{{origin.url}}" class="item-origin link-external">View at: {{origin.text}}</a>
+		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.page.view-at-provider }}</a>
 		{{/origin}}
 
 		<footer>
 			<div class="item-metadata">
-			
+
 {{# item_type }}
 	        	<a href="{{item_type.url}}" class="highlight item-type">
 					{{# is_image }}
@@ -74,7 +74,7 @@
 					{{/ items }}
 				</span>
 			{{/ channels }}
-				
+
 			</div>
 
 			<div class="item-actions">

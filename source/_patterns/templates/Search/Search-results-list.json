@@ -436,7 +436,15 @@
 					}
 			},
 			"origin":{
-				"text":"Rijksmuseum",
+				"i18n": {
+					"site": {
+						"results": {
+							"page": {
+								"view-at-provider": "Rijksmuseum"
+							}
+						}
+					}
+				},
 				"url": "http://urlhere.com"
 			},
 			"channels": {
@@ -484,7 +492,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -532,7 +548,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -580,7 +604,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -628,7 +660,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -676,7 +716,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -724,7 +772,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -772,7 +828,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -820,7 +884,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -868,7 +940,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -916,7 +996,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -964,7 +1052,15 @@
 						}
 				},
 				"origin":{
-					"text":"Rijksmuseum",
+					"i18n": {
+						"site": {
+							"results": {
+								"page": {
+									"view-at-provider": "Rijksmuseum"
+								}
+							}
+						}
+					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
