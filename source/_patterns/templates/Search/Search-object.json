@@ -22,7 +22,7 @@
 		"newsletter": true
 	},
 
-	"debug":"this is debug stuff",
+	"debug":"",
 
 	"css_files": [
 		{
@@ -75,7 +75,8 @@
 	"labels" : {
 		"description" :    "Description blah, blah, blah, blah, blah, blah",
 		"dc_description" : "DC Description blah, blah, blah, blah, blah, blah",
-		"show_more_met" : "show more object data",
+		"show_more_meta" : "show more object data",
+		"show_less_meta" : "show less",
         "download" : "download",
         "rights" : "rights",
         "agent" : "get_agent_label",

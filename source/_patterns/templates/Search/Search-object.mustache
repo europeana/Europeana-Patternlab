@@ -2,158 +2,126 @@
 
 {{> organisms/global/header}}
 
-	<div role="main" class="lc search-object">
-	
-		<ul class="nav-next-previous nav section">
-			<li><a class="nav-previous" href="{{navigation.next_prev.prev_url}}">{{navigation.next_prev.prev_text}}</a></li>
-			<li><a class="nav-return" href="{{navigation.next_prev.back_url}}">{{navigation.next_prev.back_text}}</a></li>
-			<li><a class="nav-next" href="{{navigation.next_prev.next_url}}">{{{navigation.next_prev.next_text}}}</a></li>
-		</ul>
-		
 
-		<div class="object-wrapper section">
-		<div class="object-overview">
+<div role="main" class="search-object">
 
-		
-			<div class="object-image prototype-image cf">
-				<img src="{{data.edm_preview}}"/>
-			</div>
-
-
-			<div class="object-info cf">
-				<h2>{{data.title}}</h2>
-				
-				{{# data.title_extra }}
-					{{.}}
-				{{/ data.title_extra }}
-				
-				<div class="date_created">
-					{{data.dc_terms_created}}
-				</div>
-
-				{{# data.dc_description}}
-				<div>
-					{{data.dc_description}}
-				</div>
-				{{/ data.dc_description}}
-			</div>
-
-
-			{{! Creator info }}
-			{{#data.agent_pref_label}}
-			<div class="object-creator cf">
-
-				<h3 class="subsection-label">
-					{{labels.agent}}
-				</h3>
-				
-				<div class="subsection-content">
-					{{data.agent_pref_label}}
-
-					{{data.agent_begin}}
-
-					{{data.agent_end}}
-				</div>
-
-			</div>
-			{{/data.agent_pref_label}}
-
-
-		</div>
-
-
-
-		<div class="object-actions">
-
-			<div>@Todo - image zoomer preview here</div>
-
-	        <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-
-			<a class="download" href="{{links.download}}">{{labels.download}}</a> <br/>
-
-			<div class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</div>
-
-			<a class="original_context" href="{{links.original_context}}">
-				{{data.edm_provider}}
-				<svg class="icon icon-linkout">
-					<use xlink:href="#icon-linkout"></use>
-				</svg>
-			</a>
-
-			<div>{{data.edm_country}}</div>
-
-			<ul>
-				{{# data.concepts }}
-					<li>{{.}}</li>
-				{{/ data.concepts }}
-			</ul>
-			
-			
-			<div class="js-showhide-panel is-jshidden">
-				@todo add extra meta data here
-				<ul>
-					<li>Extra</li>
-					<li>Meta</li>
-					<li>Data</li>
-				</ul>
-			</div>
-
-			<a class="js-showhide" href="#" data-text-swap="{{labels.show_less_meta}}Less">{{labels.show_more_meta}}More meta data</a>
-
-		</div>
-		</div>
-
-		{{! Related itens }}
-		<div class="object-related cf section">
-			<div class="subsection-label">
-				{{labels.mlt}}
-			</div>
-			<div class="subsection-content">
-			<ul>
-				<li class="mlt-item"></li>
-				<li class="mlt-item"></li>
-				<li class="mlt-item"></li>
-				<li class="mlt-item"></li>
-				<li class="mlt-item"></li>
-			</ul>
-			</div>
+	<div class="lc">
+		<div class="object-nav">
+			{{>molecules/navigation/next-previous}}
 		</div>
 	</div>
 
-	<section class="cf utility_debug">
-		<b>Agent:</b> {{data.agent_pref_label}} <br/>
-		<b>DC Creator:</b> {{data.dc_creator}} <br/>
-		<b>DC Description:</b> {{data.dc_description}} <br/>
-		<b>DC Format:</b> {{data.dc_format}} <br/>
-		<b>DC Identifier:</b> {{data.dc_identifier}} <br/>
+	<div class="object-wrapper lc">
 
-		<b>DC Terms Created:</b> {{data.dc_terms_created}} <br/>
-		<b>DC Terms Extent:</b> {{data.dc_terms_extent}} <br/>
+	<div class="object-overview">
 
-		<b>DC Title:</b> {{data.dc_title}} <br/>
-		<b>DC Type:</b> {{data.dc_type}} <br/>
+		<div class="object-image prototype-image cf">
+			<img src="{{data.edm_preview}}"/>
+		</div>
 
 
-		<b>EDM Country:</b> {{data.edm_country}} <br/>
-		<b>EDM Dataset Name:</b> {{data.edm_dataset_name}} <br/>
-		<b>EDM Is Shown At:</b> {{data.edm_is_shown_at}} <br/>
-		<b>EDM Is Shown By:</b> {{data.edm_is_shown_by}} <br/>
-		<b>EDM Language:</b> {{data.edm_language}} <br/>
-		<b>EDM Provider:</b> {{data.edm_provider}} <br/>
+		<div class="object-info cf">
+			<h2>{{data.title}}</h2>
+			
+			{{# data.title_extra }}
+				{{.}}
+			{{/ data.title_extra }}
+			
+			<div class="date_created">
+				{{data.dc_terms_created}}
+			</div>
 
-		<b>Latitude:</b> {{data.latitude}} <br/>
-		<b>Longitude:</b> {{data.longitude}} <br/>
+			{{# data.dc_description}}
+			<div>
+				{{data.dc_description}}
+			</div>
+			{{/ data.dc_description}}
+		</div>
 
 
-		<b>Type:</b> {{data.type}} <br/>
-		<b>Title:</b> {{data.title}} <br/>
+		{{! Creator info }}
+		{{#data.agent_pref_label}}
+		<div class="object-creator cf">
 
-		<b>Year:</b> {{data.year}} <br/>
+			<h3 class="subsection-label">
+				{{labels.agent}}
+			</h3>
+			
+			<div class="subsection-content">
+				{{data.agent_pref_label}}
 
-		<h3>entire doc</h3>
-		{{doc}}
+				{{data.agent_begin}}
 
-	</section>
+				{{data.agent_end}}
+			</div>
 
+		</div>
+		{{/data.agent_pref_label}}
+
+
+	</div>
+
+
+
+	<div class="object-actions">
+
+		<div class="object-image-nav prototype-image">
+			
+		</div>
+
+        <input type="hidden" name="edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+
+		<a class="btn btn2" href="{{links.download}}">{{labels.download}}</a> <br/>
+
+		<div class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</div>
+
+		<a class="original_context" href="{{links.original_context}}">
+			{{data.edm_provider}}
+			<svg class="icon icon-linkout">
+				<use xlink:href="#icon-linkout"></use>
+			</svg>
+		</a>
+
+		<div>{{data.edm_country}}</div>
+
+		<ul>
+			{{# data.concepts }}
+				<li>{{.}}</li>
+			{{/ data.concepts }}
+		</ul>
+		
+		
+		<div class="js-showhide-panel is-jshidden">
+			@todo add extra meta data here
+			<ul>
+				<li>Extra</li>
+				<li>Meta</li>
+				<li>Data</li>
+			</ul>
+		</div>
+
+		<a class="js-showhide" href="#" data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
+
+	</div>
+	</div>
+</div>
+
+{{! Related itens }}
+<section class="section">
+<div class="object-related lc">
+	<div class="subsection-label">
+		{{labels.mlt}}
+	</div>
+	<div class="subsection-content">
+	<ul>
+		<li class="mlt-item"></li>
+		<li class="mlt-item"></li>
+		<li class="mlt-item"></li>
+		<li class="mlt-item"></li>
+		<li class="mlt-item"></li>
+	</ul>
+	</div>
+</div>
+</section>
 
 {{> organisms/global/footer }}

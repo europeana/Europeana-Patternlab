@@ -1,10 +1,19 @@
 
-.search-object{
-
-    .download{
-        color: white;
-        background-color: #1a8ac7
+.object-overview{
+    @media all and (min-width: $bp-med) {
+        @include span(18);
     }
+}
+
+.object-image-nav{
+    display: none;
+    padding-top: 100%;
+
+
+    @media all and (min-width: $bp-med) {
+        display: block;
+    }
+    
 }
 
 .object-info{
@@ -17,16 +26,9 @@
     }
 }
 
-.object-overview{
-
-    @media all and (min-width: $bp-med) {
-        @include span(18);
-    }
-   
-}
-
 .object-creator, .object-related{
-    padding: $space 0;
+    padding-top: $space;
+    padding-bottom: $space;
     border-top: 1px solid $gray-lighter;
 }
 
@@ -72,9 +74,4 @@
     &:last-child{
         margin-right: 0;
     }
-}
-
-
-.nav-next-previous{
-    background-color: #ccc;
 }
