@@ -6,17 +6,11 @@
 	text-align: left;
 	padding: $space 0;
 
-	/*
 	&.nav li{
 		margin-right: $space-half; 
 	}
-	*/
 
-	.previous{
-	 	@include span(first 4 of 24);
-	}
-
-    .next{
+    li.next{
 		float: right;
 		margin-right: 0;
     }

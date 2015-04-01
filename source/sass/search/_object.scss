@@ -7,6 +7,13 @@
 		max-height: 22em;
 		overflow-y: auto;
 	}
+
+}
+
+.object-nav .previous{
+    @media all and (min-width: $bp-med) {
+        @include span(first 4 of 24);
+    }
 }
 
 .object-overview{
