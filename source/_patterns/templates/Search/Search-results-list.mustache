@@ -46,15 +46,19 @@
 					</div>
 				</div>
 				<!-- End of results header -->
-				<ol class="result-items">
-					{{# search_results }}
-					<li>
-					    {{> molecules/components/search/search-listitem }}
-					</li>
-					{{/ search_results }}
-				</ol>
+				{{#has_results}}
+					<ol class="result-items">
+						{{# search_results }}
+						<li>
+						    {{> molecules/components/search/search-listitem }}
+						</li>
+						{{/ search_results }}
+					</ol>
+				{{/has_results}}
 
-				{{> molecules/navigation/pagination }}
+				{{#has_results}}
+					{{> molecules/navigation/pagination }}
+				{{/has_results}}
 
 			</div>
 
