@@ -3,7 +3,8 @@
 {{> organisms/global/header}}
 
 
-<section class="search-home-hero prototype-image">
+<section class="search-home-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}} >
+
 	<div class="hero-contents">
 		<div class="searchbar">
 		{{> molecules/components/search/search-form }}
@@ -13,6 +14,18 @@
 			Europeana brings together {{content.total_items}} items collected from Europe's libraries, galleries and museums.
 		</div>
 	</div>
+	
+	{{#content.hero_config}} 
+		{{>molecules/text/attribution}}
+		{{>molecules/media/brand-svg-assets}}
+	{{/content.hero_config}}
+
+	
+
+</section>
+
+<section class="section promo-most-important">
+	I am the most important thing
 </section>
 
 

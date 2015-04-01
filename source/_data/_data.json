@@ -28,8 +28,50 @@
 		}
 	],
 	"navigation":{
-		"global_main":{
-
+		"global":{
+			"options": {
+				"search": true,
+				"myeuropeana": false,
+				"logo_url": "http://europeana.eu"
+			},
+			"items": [
+				{
+					"url": "#",
+					"text": "Home",
+					"is_current":true
+				},
+				{
+					"url": "",
+					"text": "Channels",
+					"items": [
+						{
+							"url":"http://google.com",
+							"text": "Channel 1"
+						},
+						{
+							"url":"http://google.com",
+							"text": "Channel 2",
+							"is_current":true
+						},
+						{
+							"url":"http://google.com",
+							"text": "Channel 3"
+						}
+					]
+				},
+				{
+					"url": "",
+					"text": "Exhibitions"
+				},
+				{
+					"url": "",
+					"text": "Blog"
+				},
+				{
+					"url": "",
+					"text": "My Europeana"
+				}
+			]
 		},
 		"pagination":{
 			"prev_url" : "prevurl",
@@ -99,6 +141,16 @@
 					"text": "Label here"
 				}
 			]
+		}
+	},
+	"content":{
+		"hero_config":{
+			"hero_image":"sample/mountains.jpg",
+			"brand_position" : "brand-topleft",
+			"brand_opacity" : "brand-opacity75",
+			"attribution_text" : "This is the attribution text",
+			"attribution_url" : "http://europeana.eu",
+			"license_CC-ND-NC-SA": true
 		}
 	},
 	"img": {

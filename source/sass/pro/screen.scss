@@ -86,6 +86,8 @@ $textcolour_highlight: $accent;
 
 // Home page
 @import "../scss/objects/blocks/site-hero";
+@import "../scss/theme/hero-branding";
+@import "../scss/objects/attribution";
 @import "./pro-homepage";
 @import "./subsites";
 

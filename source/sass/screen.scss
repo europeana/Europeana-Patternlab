@@ -69,6 +69,7 @@
 @import "scss/objects/header";
 @import "scss/objects/footer";
 @import "scss/objects/blocks/site-hero";
+@import "scss/theme/hero-branding";
 
 /*------------------------------------*\
     $NAVIGATION
@@ -112,5 +113,6 @@
 @import "scss/objects/lists/list-item";
 @import "scss/objects/lists/file-lists";
 @import "scss/objects/metadata";
+@import "scss/objects/attribution";
 @import "scss/objects/controls/dropdown";
 //@import "scss/objects/controls/results-filter";

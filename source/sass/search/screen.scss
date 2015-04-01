@@ -78,9 +78,13 @@ $susy: (
 @import "../scss/objects/buttons";
 @import "../scss/objects/action-links";
 @import "../scss/objects/corner-ribbon";
+@import "../scss/objects/attribution";
+@import "../scss/theme/hero-branding"; 
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
+// license icons
+@import "../scss/objects/icons/icons-licenses";
 
 /*------------------------------------*\
 	Components
