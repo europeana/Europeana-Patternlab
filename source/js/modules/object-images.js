@@ -1,6 +1,5 @@
 {
 
-
   function initFullDoc(){
     var minImgW    = 300;
     var minScreenW = 500;
