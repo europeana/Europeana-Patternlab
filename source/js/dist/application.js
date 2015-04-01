@@ -944,7 +944,6 @@ function makeArray( obj ) {
 
 });
 ;{
-
   function initFullDoc(){
     var minImgW    = 300;
     var minScreenW = 500;
@@ -961,8 +960,8 @@ function makeArray( obj ) {
 
           console.log('img w: ' + isbImgTest.width());
 
-          $('.object-image-nav').prepend($('.js-preview'));
-
+          $('.object-actions').prepend($('.is-smallimage'));
+          
           isbImgTest.removeAttr('style').removeAttr('id').addClass('main');
 	      isbImgTest.wrap( "<div class='js-img-frame'></div>" );
         }
@@ -973,7 +972,7 @@ function makeArray( obj ) {
       isbImgTest.attr('src', isb.val());
     }
   }
-	
+
   if(typeof initFullDoc != 'undefined'){
     initFullDoc();
   }
