@@ -23,7 +23,9 @@
 
 	.container{
 		@include container($max-width);
-		overflow:hidden;
+		@media all and (min-width: $bp-med) {
+			overflow:hidden;
+		}
 	}
 }
 
@@ -54,7 +56,7 @@
 	@media all and (min-width: $bp-med) {
 		@include span(6);
 		margin: 0;
-		padding: $space-half + $space-quarter 0 0 0;
+		padding: $space-half + $space-quarter 0 $space-double 0;
 	}
 
 
@@ -93,6 +95,19 @@
 	}
 }
 
+.no-results{
+	@include push(1 of 12);
+	@include span(10 of 12);
+
+	padding: $space;
+	background-color: $gray97;
+	border: 1px dashed $gray-lighter;
+
+	@media all and (min-width: $bp-small-3) {
+		@include push(1 of 18);
+		@include span(16 of 18);
+	}
+}
 
 .result-info{
 	@include span(last 8 of 12);
