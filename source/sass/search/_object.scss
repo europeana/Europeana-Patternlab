@@ -23,6 +23,7 @@
 }
 
 .object-actions{
+
     @media all and (min-width: $bp-med) {
         @include span(last 6);
     }
@@ -31,6 +32,7 @@
 .object-image{
     /*  min-height: 30em;  */
     overflow-y: auto;
+    margin-bottom: $space;
 
     &.is-smallimage{
         @media all and (min-width: $bp-med) {
@@ -53,7 +55,7 @@
 
 .object-info{
 
-    padding: $space 0;
+    padding-bottom: $space;
 
     @media all and (min-width: $bp-med) {
         width: span(14 of 18);
