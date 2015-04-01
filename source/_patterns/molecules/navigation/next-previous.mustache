@@ -1,6 +1,8 @@
 <ul class="next-previous nav cf">
 	<li class="previous">
+		{{#navigation.next_prev.prev_url}}
 		<a class="btn btn2" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}><span aria-hidden="true">&larr; </span>{{navigation.next_prev.prev_text}}</a>
+		{{/navigation.next_prev.prev_url}}
 	</li>
 
 	{{#navigation.next_prev.back_url}}
@@ -9,7 +11,9 @@
 	</li>
 	{{/navigation.next_prev.back_url}}
 
+	{{#navigation.next_prev.next_url}}
 	<li class="next">
 		<a class="btn btn2" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}>{{navigation.next_prev.next_text}}<span aria-hidden="true"> &rarr;</span></a>
 	</li>
+	{{/navigation.next_prev.next_url}}
 </ul>
