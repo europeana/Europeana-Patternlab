@@ -1,0 +1,16 @@
+
+
+.attribution{
+
+	background-color: rgba(#000, 0.7);
+	border-radius: 4px;
+	padding: $space-quarter;
+	font-size: $font-size-sm;
+	color: $gray97;
+
+	.license, a{
+		color: $gray87;
+		display: block;
+	}
+}
+

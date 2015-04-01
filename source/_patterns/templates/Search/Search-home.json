@@ -34,6 +34,14 @@
 	},
 
 	"content":{
+		"hero_config":{
+			"hero_image":"sample/mountains.jpg",
+			"brand_position" : "brand-bottomleft",
+			"brand_opacity" : "brand-opacity25",
+			"attribution_text" : "This is a placeholder image found somewhere",
+			"attribution_url" : "http://europeana.eu",
+			"license_CC-ND-NC-SA": true
+		},
 
 		"total_items": "40,173,111",
 

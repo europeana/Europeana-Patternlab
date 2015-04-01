@@ -1,0 +1,83 @@
+// Brand circle positioning
+
+.brand-circles{
+	
+	width: 40%;
+	position: absolute;
+
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+
+	.brand-topleft &{
+		top: 0;
+		left: 0;
+	}
+
+	.brand-topright &{
+		top: 0;	
+		right: 0;
+		left: auto;
+		@include rotateY(180);
+	}
+	.brand-bottomleft &{
+		top: auto;
+		bottom: 0;
+		@include rotateX(180);
+	}
+	.brand-bottomright &{
+		top: auto;
+		bottom: 0;
+		left: auto;
+		right: 0;
+		@include rotateZ(180);
+	}
+
+	// Opacity
+	.brand-opacity25 &{
+		opacity: 0.25;
+	}
+	.brand-opacity50 &{
+		opacity: 0.5;
+	}	
+	.brand-opacity75 &{
+		opacity: 0.75;
+	}
+	.brand-opacity100 &{
+		opacity: 1;
+	}
+
+	svg{
+		fill: $accent;
+		width: 100%;
+	}
+
+}
+
+// Brand circles colours
+.brand-colour-site svg{
+	fill: $accent;
+}
+
+.brand-colour-white svg{
+	fill: $white;
+}
+
+.brand-colour-black svg{
+	fill: #000;
+}
+
+// Text
+
+.brand-text{
+	width: 60%;
+	min-width: 400px;
+	max-width: 900px;
+	position: absolute;
+	top: 18%;
+	right: -30px;
+
+	svg{
+		fill: $white;
+	}
+}

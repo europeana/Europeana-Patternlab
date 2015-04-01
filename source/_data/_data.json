@@ -101,6 +101,16 @@
 			]
 		}
 	},
+	"content":{
+		"hero_config":{
+			"hero_image":"sample/mountains.jpg",
+			"brand_position" : "brand-topleft",
+			"brand_opacity" : "brand-opacity75",
+			"attribution_text" : "This is the attribution text",
+			"attribution_url" : "http://europeana.eu",
+			"license_CC-ND-NC-SA": true
+		}
+	},
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",
