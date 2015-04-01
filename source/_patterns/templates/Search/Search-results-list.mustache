@@ -56,6 +56,13 @@
 					</ol>
 				{{/has_results}}
 
+				{{^has_results}}
+					<div class="no-results">
+						<h2>No results</h2>
+						<p>Your search for {{ i18n.site.results.page.search_terms }} returned <strong>no results</strong></p>
+					</div>
+				{{/has_results}}
+
 				{{#has_results}}
 					{{> molecules/navigation/pagination }}
 				{{/has_results}}

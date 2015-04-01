@@ -5,7 +5,8 @@
 		"site": {
 			"results": {
 				"page": {
-					"count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>"
+					"count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
+					"search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
 				}
 			}
 		}
