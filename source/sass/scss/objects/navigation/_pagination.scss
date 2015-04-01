@@ -20,7 +20,6 @@
 		display: block;
 		font-weight: bold;
 		color: $textcolour_body;
-
 		&:hover{
 			background-color: $offwhite;
 			color: $textcolour_body;
@@ -31,11 +30,14 @@
 	.is-disabled a{
 
 		cursor: default;
-		
+		pointer-events: none;
+		cursor: default;
+		/*
 		&:hover{
 			background-color: inherit;
 			color: inherit;
 		}
+		*/
 	}
 
 	.current a, .is-current a{
