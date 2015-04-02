@@ -51,8 +51,21 @@
 	}
 }
 
-.section, .promo-list{
+.section, .promo-list, .promo-topcontent{
 	@include pad(1/4);
+}
+
+.promo-topcontent{
+	> .lc {
+		background-color: $offwhite;
+		text-align: center;
+		padding: $space-double;
+		margin: $space auto;
+	}
+
+	h2{
+		margin: 0;
+	}
 }
 
 .promo-list{
