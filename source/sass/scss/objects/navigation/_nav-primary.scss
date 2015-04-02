@@ -35,7 +35,11 @@
 		margin-top: 0.2em;
 	}
 
-
+	
+	// Hide subnavs
+	li ul {
+		display: none;
+	}
 
 	// primary nav in header
 	.header & {
@@ -53,10 +57,6 @@
 			.current:after{
 				border-color: $accent;
 			}
-		}
-
-		li ul {
-			display: none;
 		}
 
 		@media all and (min-width: $bp-med) {

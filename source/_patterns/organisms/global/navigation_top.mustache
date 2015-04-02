@@ -74,9 +74,11 @@
 
 <nav class="drawer menu-right">
 
+{{#options.search_active}}
 	<div class="search">
 		{{> molecules/forms/search }}
 	</div>
+{{/options.search_active}}
 
 {{#primary_nav}}
 	<nav class="nav_primary">

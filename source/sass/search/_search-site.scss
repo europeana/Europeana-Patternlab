@@ -5,11 +5,15 @@
 	height: 50%;
 	position: relative;
 	overflow: hidden;
-	margin-top: $globalnavheight;
+	
 
 	background-position: 50% 50%;
 	-webkit-background-size: cover;
 	background-size: cover;
+
+	@media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
+	}	
 
 	@media all and (min-width: $bp-med) {
 		height: 80%;
