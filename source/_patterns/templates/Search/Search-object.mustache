@@ -2,6 +2,10 @@
 
 {{> organisms/global/header}}
 
+<script>
+
+
+</script>
 
 <div role="main" class="search-object section">
 
@@ -41,6 +45,20 @@
 
 
 		{{! Creator info }}
+		{{#data.dc_creator}}
+		<div class="object-creator cf">
+
+			<h3 class="subsection-label">
+				{{labels.creator}}
+			</h3>
+			
+			<div class="subsection-content">
+				{{data.dc_creator}}
+			</div>
+
+		</div>
+		{{/data.dc_creator}}
+
 		{{#data.agent_pref_label}}
 		<div class="object-creator cf">
 
@@ -77,13 +95,14 @@
 		<div class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</div>
 
 		<a class="original_context" href="{{links.original_context}}">
-			{{data.edm_provider}}
+			{{data.edm_data_provider}}
 			<svg class="icon icon-linkout">
 				<use xlink:href="#icon-linkout"></use>
 			</svg>
 		</a>
 
-		<div>{{data.edm_country}}</div>
+		<div class="country">{{data.edm_country}}</div>
+		<div class="dc-type"><b>{{labels.dc_type}}</b> {{data.dc_type}}</div>
 
 		<ul>
 			{{# data.concepts }}
@@ -91,25 +110,7 @@
 			{{/ data.concepts }}
 		</ul>
 		
-		<!--  molecules/media/colour-search -->
-		<ul class="color-data">
-			<li class="color-datum">
-				&nbsp;
-			</li>
-			<li class="color-datum">
-				&nbsp;
-			</li>
-			<li class="color-datum">
-				&nbsp;
-			</li>
-			<li class="color-datum">
-				&nbsp;
-			</li>
-			<li class="color-datum">
-				&nbsp;
-			</li>
-		</ul>
-		<!--  e. molecules/media/colour-search -->
+		{{> molecules/media/colour-search }}
 		
 		
 		<div class="js-showhide-panel is-jshidden">

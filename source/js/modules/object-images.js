@@ -9,11 +9,17 @@
         console.log('img w: ' + isbImgTest.width());
         $('.object-actions').prepend($('.is-smallimage'));
 	    isbImgTest.wrap( "<div class='js-img-frame'></div>" );
+	    
+	    $('.next-previous .previous').remove();
+
     }
     var initChannel2 = function(){
 		$(".color-data").show();
 		$('.is-smallimage').hide();
 	    isbImgTest.wrap( "<div class='js-img-frame'></div>" );
+	    
+	    $('.next-previous .previous').remove();
+	    
     }
     
     
