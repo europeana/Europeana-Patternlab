@@ -4,6 +4,7 @@
 .search-home-hero{
 	height: 50%;
 	position: relative;
+	overflow: hidden;
 	margin-top: $globalnavheight;
 
 	background-position: 50% 50%;
@@ -16,7 +17,7 @@
 
 	.hero-contents{
 		position: absolute;
-		top: 50%;
+		top: 55%;
 		left: 50%;
 		@include translate (-50%, -50%);
 		width: 80%;
