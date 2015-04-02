@@ -14,6 +14,12 @@
 .object-nav .previous{
     @media all and (min-width: $bp-med) {
         @include span(first 4 of 24);
+
+		/* First record has no previous_document link.
+		   The empty li needs an explicit height set to stop it collapsing
+		   This keeps the "return to search" link in position 
+		*/
+        min-height:1em;
     }
 }
 
