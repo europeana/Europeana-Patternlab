@@ -30,48 +30,31 @@
 	"navigation":{
 		"global":{
 			"options": {
-				"search": true,
-				"myeuropeana": false,
-				"logo_url": "http://europeana.eu"
+				"logo_url": "http://europeana.eu",
+				"search_active": true,
+				"settings_active": false
 			},
-			"items": [
-				{
-					"url": "#",
-					"text": "Home",
-					"is_current":true
-				},
-				{
-					"url": "",
-					"text": "Channels",
-					"items": [
-						{
-							"url":"http://google.com",
-							"text": "Channel 1"
-						},
-						{
-							"url":"http://google.com",
-							"text": "Channel 2",
-							"is_current":true
-						},
-						{
-							"url":"http://google.com",
-							"text": "Channel 3"
-						}
-					]
-				},
-				{
-					"url": "",
-					"text": "Exhibitions"
-				},
-				{
-					"url": "",
-					"text": "Blog"
-				},
-				{
-					"url": "",
-					"text": "My Europeana"
-				}
-			]
+			"primary_nav":{
+				"items": [
+					{
+						"url": "#",
+						"text": "Home",
+						"is_current":true
+					},
+					{
+						"url": "",
+						"text": "Primary 1"
+					},
+					{
+						"url": "Primary 2",
+						"text": "Primary 2"
+					},
+					{
+						"url": "",
+						"text": "Primary 3"
+					}
+				]
+			}
 		},
 		"pagination":{
 			"prev_url" : "prevurl",

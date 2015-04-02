@@ -55,6 +55,10 @@
 			}
 		}
 
+		li ul {
+			display: none;
+		}
+
 		@media all and (min-width: $bp-med) {
 			max-height: none;
 			float: left;
