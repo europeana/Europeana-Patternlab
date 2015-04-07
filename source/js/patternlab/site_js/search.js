@@ -55,11 +55,21 @@ var Site = window.Site || {};
 
     };
 
+    Site.init_hitarea = function(){
+		$('.js-hitarea').on('click', function(event) {
+			if (event.target === this) {
+				$(this).find("input").focus();
+			}
+			event.preventDefault();
+		});
+    };
+
 
 
     //same as $(document).ready();
     $(function() {
     	Site.init_showhide();
     	Site.init_accordion_tabs();
+    	Site.init_hitarea();
     });
 })(jQuery);
