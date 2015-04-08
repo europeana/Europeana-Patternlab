@@ -24,7 +24,10 @@ a {
 		}
 	}
 
-
+	&.external:after{
+		@extend %external_link_icon;
+		margin-left: 0.2em;
+	}
 }
 
 // External link icon - indicates that a link is external to europeana
