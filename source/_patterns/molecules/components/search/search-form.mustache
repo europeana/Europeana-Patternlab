@@ -2,14 +2,14 @@
 	<div class="inputarea js-hitarea">
 
 		{{#input_search}}
-		<ul class="search-tags">
+		<ul class="search-tags js-search-tags">
 			{{#input_values}}
 				<li class="search-tag">{{value}}<a href="{{remove}}" data-role="remove"></a></li>
-				<input type="hidden" name="q[]" value="{{value}}"/>
+				<input type="hidden" name="q[]" value="{{value}}" class="js-hidden-search-term"/>
 			{{/input_values}}
 		</ul>
 		
-		<input class="search-input" type="text" 
+		<input class="search-input js-search-input" type="text" 
 		{{#title}}title="{{title}}" {{/title}}
 		{{#input_name}}name="{{input_name}}" {{/input_name}}
 		{{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
