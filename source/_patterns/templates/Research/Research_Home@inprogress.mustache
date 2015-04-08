@@ -26,7 +26,7 @@
 		<div class="l-collections">
 			<div class="grid">
 
-			{{#listItems.two}}<div class="l-post">
+			<div class="l-post">
 				<div class="block block-inset">
 				    <a href="#" class="inner">
 						<div class="b-thumb">
@@ -41,7 +41,26 @@
 						Provided by: <a href="#">Providername here</a>
 					</div>
 				</div>
-			</div>{{/listItems.two}}
+			</div><!--
+
+			--><div class="l-post">
+				<div class="block block-inset">
+				    <a href="#" class="inner">
+						<div class="b-thumb">
+							{{> atoms-landscape-4x3 }} 
+
+							<div class="b-text">
+								<h2 class="headline">{{ headline.medium }}</h2>
+							</div>
+						</div>
+					</a>
+					<div class="excerpt">
+						Provided by: <a href="#">Providername here</a>
+					</div>
+				</div>
+			</div>
+
+
 			</div>
 
 			<a class="link-more" href="{{ link.ListPage~blog }}">See all Collections</a>
@@ -57,7 +76,7 @@
 	<h2 class="section-title">What's New</h2>
 
 	<div class="l-news">
-	{{#listItems.one}}
+
 		<div class="block block-thumb">
 			<div class="b-thumb">
 				<a href="link_to_blog_post_here">{{> atoms-landscape-4x3 }}</a>
@@ -80,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-	{{/listItems.one}}
+
 
 	</div>
 
