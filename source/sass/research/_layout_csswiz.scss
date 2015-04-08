@@ -26,9 +26,9 @@
 	}
 }
 
-.home-news{
+.home-collections{
 
-	.l-news{
+	.l-collections{
 		@extend %grid__item;
 
 		//@extend %lap--two-thirds;
@@ -36,7 +36,13 @@
 	}
 	.l-post{
 		@extend %grid__item;
-		@extend %lap--one-third;
+		@extend %lap--one-half;
+	}
+}
+
+.home-news{
+	.l-news{
+		margin-bottom: $space;
 	}
 }
 

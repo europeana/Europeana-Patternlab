@@ -32,19 +32,17 @@
 
 }
 
-.section.pro-info{
+.section.home-collections{
 
 	background-color: $offwhite;
-	padding-top: $space;
-
-	h2{
-		margin-bottom: $space-double;
-		@include fontSize(24px);
-		color: $textcolour_head;
-	}
+	padding-top: $space-double;
 
 	.lc{
 		border-bottom: 1px solid $grey3;
+	}
+
+	.b-thumb{
+		background-color: $grey3; 
 	}
 }
 
@@ -121,10 +119,6 @@
 }
 
 .home-news{
-	background-color: $blue-grey;
+	background-color: $white;
 	border-top: 2px solid darken($blue-grey, 2);
-}
-
-.events-upcoming .event{
-	margin-bottom: $space;
 }
