@@ -45,7 +45,7 @@
 	margin-right: 0.3em;
 }
 
-.nav-toggle-search{
+.nav-toggle-search, .nav-toggle-settings{
 	//mobile first hidden
 	display: none;
 }
@@ -265,7 +265,7 @@
 		display: block;
 	}
 
-	.nav-toggle-search{
+	.nav-toggle-search, .nav-toggle-settings{
 		display: table-cell;
 	}
 }
