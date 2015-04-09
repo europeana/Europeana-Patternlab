@@ -1,0 +1,207 @@
+{
+	"bodyClass": "europeana_search",
+	"pagetitle": "Europeana Search",
+
+	"globalnav_options": {
+		"search": false,
+		"myeuropeana": true
+	},
+
+	"page_config": {
+		"newsletter": true
+	},
+
+	"css_files": [
+		{
+			"path": "../../css/search/screen.css",
+			"media": "all"
+		}
+	],
+
+	"js_files": [
+		{
+			"path": "../../js/patternlab/output/global-min.js"
+		},
+		{
+			"path": "../../js/patternlab/output/search-min.js"
+		}
+	],
+	
+	"input_search": {
+		"title": "Search Europeana",
+		"input_name": "search",
+		"placeholder": "Search Europeana"
+	},
+
+	"content":{
+		"hero_config":{
+			"hero_image":"sample/mountains.jpg",
+			"brand_position" : "brand-bottomleft",
+			"brand_opacity" : "brand-opacity75",
+			"attribution_text" : "This is a placeholder image found somewhere",
+			"attribution_url" : "http://europeana.eu",
+			"license_CC-ND-NC-SA": true
+		},
+
+		"total_items": "40,173,111",
+
+		"important": {
+			"text": "It’s your world, explore it! — Europeana stories are now in Google’s Field Trip app",
+			"url": "urlhere"
+		},
+
+		"promoted":[
+			{
+				"title":"Art",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"sample/thumb-square-river.jpg"
+			},
+			{
+				"title":"Music",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"sample/thumb-square-ivy.jpg"
+			},
+			{
+				"title":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"sample/thumb-square-river.jpg"
+			},
+			{
+				"title":"Fashion",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"sample/thumb-square-yosemite.jpg",
+				"comingsoon": true
+			},
+			{
+				"title":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"sample/thumb-square-ivy.jpg"
+			},
+			{
+				"title":"Exhibition name",
+				"url": "urlhere",
+				"is_exhibition": true,
+				"bg_image":"sample/thumb-square-yosemite.jpg",
+				"comingsoon": true
+			},
+			{
+				"title":"Find out all about Partner",
+				"url": "urlhere",
+				"is_partner": true,
+				"bg_image":"sample/thumb-square-river.jpg"
+			},
+			{
+				"title":"Exhibition name",
+				"url": "urlhere",
+				"is_new": true,
+				"bg_image":"sample/thumb-square-yosemite.jpg"
+			}
+		],
+
+		"news": {
+			"items":[
+			{
+				"headline": {
+					"medium":"Life on the edge: the Story of St Kilda"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "With its sheer cliffs and glassy waters, the archipelago St Kilda sits at the northern tip of the British isles, the westernmost part of the Outer Hebridean islands."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Celebrating World Theatre Day 2015"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Europeana takes part in #MuseumWeek 2015"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+				} 
+			}
+			]
+		}
+
+	},
+	"navigation":{
+		"global":{
+			"options": {
+				"search_active": false,
+				"settings_active": true
+			},
+			"primary_nav":{
+				"items": [
+					{
+						"url": "#",
+						"text": "Home",
+						"is_current":true
+					},
+					{
+						"url": "",
+						"text": "Channels",
+						"submenu": {
+							"items": [
+								{
+									"url":"http://google.com",
+									"text": "Channel 1"
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 2",
+									"is_current":true
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 3"
+								}
+							]
+						}
+					},
+					{
+						"url": "",
+						"text": "Exhibitions"
+					},
+					{
+						"url": "",
+						"text": "Blog"
+					},
+					{
+						"url": "",
+						"text": "My Europeana"
+					}
+				]
+			}
+		}
+	}
+}
