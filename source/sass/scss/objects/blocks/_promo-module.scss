@@ -1,0 +1,72 @@
+.promo-block{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	background-color: $accent;
+	background-position: center center;
+	background-size: cover;
+	//background-blend-mode: multiply;
+
+	.title{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate (-50%, -50%);
+
+		color: $white;
+		text-align: center;
+		text-transform: uppercase;
+		max-width: 80%;
+		@include fontSize(20px);
+		letter-spacing: 0.2em;
+		line-height: 1;
+
+	}
+
+	a{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+
+		background-color: rgba($black, .2);
+
+		&:hover, &:focus{
+			background-color: rgba($accent, .8);
+		}
+	}
+}
+
+.category-flag{
+	background-color: $accent;
+	color: $white;
+	text-transform: uppercase;
+	font-weight: bold;
+	@include fontSize(12px);
+	display: block;
+	padding: $space-quarter $space-half;
+	position: absolute;
+	z-index: 50;
+	top: 5%;
+	left: -4px;
+    letter-spacing: 0.1rem;
+
+    .item-channel &{
+    	background-color: $eu-orange;
+    }
+
+    .item-exhibition &{
+    	background-color: $eu-yellow;
+    }
+
+    .item-new &{
+    	background-color: $eu-blue;
+    }
+
+    .item-partner &{
+    	background-color: $eu-pro;
+    }
+}

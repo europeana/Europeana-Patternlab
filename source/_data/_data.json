@@ -162,6 +162,7 @@
 			"alt" : "Person Name"
 		}
 	},
+	"title" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 	"headline" : {
 		"short" : "Lorem ipsum dolor sit (37 characters)",
 		"medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)",
@@ -175,6 +176,7 @@
 	},
 	"description" : "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
 	"url" : "http://www.fillerati.com",
+	"bg_image":"sample/thumb-square-yosemite.jpg",
 	"name" : {
 		"first": "Lacy",
 		"firsti": "L",

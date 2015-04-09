@@ -96,93 +96,28 @@
 		padding-top: $space-half; //fallback
 		padding-top: 1.05634vw;
 	}
-}
 
-.promo-list .list-item{
-
-	position: relative;
-	margin-bottom: $space-quarter; //fallback
-	margin-bottom: 1.05634vw;
-	min-height: 50vw;
-
-	background-color: $accent;
-	background-position: center center;
-	background-size: cover;
-	//background-blend-mode: multiply;
-
-	@media all and (min-width: $bp-small) {
-		@include gallery(12 of 24);
-	}
-
-	@media all and (min-width: $bp-med) {
-		@include gallery(6 of 24);
-		min-height: 25vw;
-		margin-bottom: $space-half; //fallback
+	.list-item{
+		
+		margin-bottom: $space-quarter; //fallback
 		margin-bottom: 1.05634vw;
-	}
+		min-height: 49vw;
+		position: relative;
 
-	.title{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include translate (-50%, -50%);
+		@media all and (min-width: $bp-small) {
+			@include gallery(12 of 24);
+		}
 
-		color: $white;
-		text-align: center;
-		text-transform: uppercase;
-		max-width: 80%;
-		@include fontSize(20px);
-		letter-spacing: 0.2em;
-		line-height: 1;
-
-	}
-
-	a{
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		overflow: hidden;
-
-		background-color: rgba($black, .2);
-
-		&:hover, &:focus{
-			background-color: rgba($accent, .8);
+		@media all and (min-width: $bp-med) {
+			@include gallery(6 of 24);
+			min-height: 24vw;
+			margin-bottom: $space-half; //fallback
+			margin-bottom: 1.05634vw;
 		}
 	}
 }
 
-.category-flag{
-	background-color: $accent;
-	color: $white;
-	text-transform: uppercase;
-	font-weight: bold;
-	@include fontSize(12px);
-	display: block;
-	padding: $space-quarter $space-half;
-	position: absolute;
-	z-index: 50;
-	top: 5%;
-	left: -4px;
-    letter-spacing: 0.1rem;
 
-    .item-channel &{
-    	background-color: $eu-orange;
-    }
-
-    .item-exhibition &{
-    	background-color: $eu-yellow;
-    }
-
-    .item-new &{
-    	background-color: $eu-blue;
-    }
-
-    .item-partner &{
-    	background-color: $eu-pro;
-    }
-}
 
 .news-item{
 	@media all and (min-width: $bp-med) {

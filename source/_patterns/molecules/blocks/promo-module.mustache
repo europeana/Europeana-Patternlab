@@ -1,0 +1,22 @@
+<div class="promo-block {{#is_channel}}item-channel {{/is_channel}}{{#is_exhibition}}item-exhibition {{/is_exhibition}}{{#is_new}}item-new {{/is_new}}{{#is_partner}}item-partner {{/is_partner}}" style="{{#bg_image}}background-image: url({{image_root}}{{bg_image}}); {{/bg_image}}">
+
+	<a href="{{url}}">
+		{{#comingsoon}}
+		<div class="corner-ribbon alternate">Coming Soon</div>
+		{{/comingsoon}}
+		<div class="title">{{title}}</div>
+	</a>
+
+{{#is_channel}}
+	<div class="category-flag">Channels</div>
+{{/is_channel}}
+{{#is_exhibition}}
+	<div class="category-flag">Exhibition</div>
+{{/is_exhibition}}
+{{#is_new}}
+	<div class="category-flag">What's New</div>
+{{/is_new}}
+{{#is_partner}}
+	<div class="category-flag">Our Partners</div>
+{{/is_partner}}
+</div>
