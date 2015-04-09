@@ -22,12 +22,13 @@
 
 </section>
 
-{{! <section class="promo-topcontent">
+{{#content.important}}
+<section class="promo-topcontent">
 	<div class="lc">
-		<h2><a href="">It’s your world, explore it! Europeana stories are now in Google’s Field Trip app</a></h2>
+		<h2><a href="{{url}}">{{text}}</a></h2>
 	</div>
-</section> }}
-
+</section>
+{{/content.important}}
 
 <ul class="section promo-list">
 {{#content.promoted}}
@@ -56,20 +57,20 @@
 {{/content.promoted}}
 </ul>
 
-
+{{#content.news}}
 <div class="section">
 	<div class="lc">
 
 	<h2 class="section-title">Europeana News</h2>
 
 	<ul class="home-news cf">
-		{{#listItems.three}}<li class="news-item">{{> molecules-inset-block}}</li>{{/listItems.three}}
+		{{#items}}<li class="news-item">{{> molecules/blocks/inset-block}}</li>{{/items}}
 	</ul>
 
 	<a class="link-more" href="{{ blogurl }}">More from the Blog</a>
 
 	</div>
 </div>
-
+{{/content.news}}
 
 {{> organisms/global/footer }}

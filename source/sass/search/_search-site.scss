@@ -16,7 +16,7 @@
 	}	
 
 	@media all and (min-width: $bp-med) {
-		height: 80%;
+		height: 70%;
 	}
 
 	.hero-contents{
@@ -60,15 +60,30 @@
 }
 
 .promo-topcontent{
+
+	border-bottom: 3px solid $gray-lighter;
+
 	> .lc {
-		background-color: $offwhite;
+		// background-color: $offwhite;
 		text-align: center;
-		padding: $space-double;
-		margin: $space auto;
+		padding: $space;
+		margin: $space-half auto;
+		// border: 1px solid $gray-lighter;
 	}
 
 	h2{
 		margin: 0;
+		font-weight: normal;
+		line-height: 1.2;
+	}
+
+	a{
+		background-image: linear-gradient(to top,
+		    rgba($textcolour_link, 0) 10%,
+		    rgba($textcolour_link, .5) 10%,
+		    rgba($textcolour_link, .5) 13%,
+		    rgba($textcolour_link, 0) 13%
+		);
 	}
 }
 

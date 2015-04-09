@@ -45,6 +45,11 @@
 
 		"total_items": "40,173,111",
 
+		"important": {
+			"text": "It’s your world, explore it! — Europeana stories are now in Google’s Field Trip app",
+			"url": "urlhere"
+		},
+
 		"promoted":[
 			{
 				"name":"Art",
@@ -96,10 +101,60 @@
 				"is_new": true,
 				"bg_image":"sample/thumb-square-yosemite.jpg"
 			}
-		]
+		],
+
+		"news": {
+			"items":[
+			{
+				"headline": {
+					"medium":"Life on the edge: the Story of St Kilda"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "With its sheer cliffs and glassy waters, the archipelago St Kilda sits at the northern tip of the British isles, the westernmost part of the Outer Hebridean islands."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Celebrating World Theatre Day 2015"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Europeana takes part in #MuseumWeek 2015"
+				},
+				"url": "urlhere",
+				"img": {
+					"rectangle": {
+						"src":"fpo_4x3.png",
+						"alt":"A 4x3 image"
+					}
+				},
+				"excerpt": {
+					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+				} 
+			}
+			]
+		}
 
 	},
-		"navigation":{
+	"navigation":{
 		"global":{
 			"options": {
 				"search_active": false,
