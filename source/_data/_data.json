@@ -222,6 +222,10 @@
 	"location":"Den Haag, Netherlands",
 	"i18n":{
 		"more": "More",
-		"less": "Less"
+		"less": "Less",
+		"global": {
+			"our-sites": "Our sites",
+			"home": "Home"
+		}
 	}
 }
