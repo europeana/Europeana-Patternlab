@@ -1,4 +1,4 @@
-<div class="l-linklist {{ styleModifier }}">
+<div class="linklist l-linklist {{ styleModifier }}">
 <div class="inner">
 	{{# title }}
     <h4 class="title">{{ title }}</h4>
@@ -9,7 +9,13 @@
 
     <ul>
     {{# items}}
-    	<li><a href="{{url}}">{{text}}</a></li>
+    	<li class="cf">
+        <a href="{{url}}">
+            {{#text}}<span class="link-text">{{text}}</span> {{/text}}
+            {{#number}}<span class="link-number">{{number}}</span>{{/number}} 
+            {{#date}}<span class="link-date">{{date}}</span>{{/date}}
+        </a>
+        </li>
     {{/ items}}
 	</ul>
 </div>

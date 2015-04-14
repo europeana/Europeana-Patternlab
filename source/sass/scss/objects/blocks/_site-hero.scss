@@ -12,9 +12,8 @@
 	background-color: $grey2;
 	color: $gray97;
 
-	margin-top: $globalnavheight;
-
 	@media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
 		height: 50%;
 	}
 

@@ -1,5 +1,5 @@
 {
-	"bodyClass": "europeana_search",
+	"bodyClass": "channel_landing",
 	"pagetitle": "Europeana Search",
 
 	"globalnav_options": {
@@ -28,131 +28,171 @@
 	],
 	
 	"input_search": {
-		"title": "Search Europeana",
-		"input_name": "search",
-		"placeholder": "Search Europeana"
+		"title": "Search Europeana Music",
+		"input_name": "q",
+		"placeholder": "Search Europeana Music"
 	},
 
 	"content":{
+		"channel_info":{
+			"name": "Europeana Music",
+			"description": "<strong>Europeana Music</strong> brings together all music related cultural heritage from the Europeana collections",
+			"stats": {
+				"items": [
+					{
+						"count": "30,245",
+						"text": "Audio Recordings",
+						"url": "#"
+					},
+					{
+						"count": "11302",
+						"text": "Images & photographs",
+						"url": "#"
+					},
+					{
+						"count": "5904",
+						"text": "Video Recordings",
+						"url": "#"
+					},
+					{
+						"count": "1683",
+						"text": "Scores",
+						"url": "#"
+					},
+					{
+						"count": "1245",
+						"text": "Letters",
+						"url": "#"
+					}
+				]
+			},
+			"recent": {
+				"title":"Recent Additions",
+				"items": [
+					{
+						"text": "Scala museum, Milan",
+						"url": "#",
+						"number": "1234 items",
+						"date": "July 2014"
+					},
+					{
+						"text": "Dresden Library",
+						"url": "#",
+						"number": "1234 items",
+						"date": "July 2014"
+					},
+					{
+						"text": "Rijksmuseum, Amsterdam",
+						"url": "#",
+						"number": "1234 items",
+						"date": "July 2014"
+					}
+				],
+				"more_link":{
+					"text": "Load more",
+					"url": "#777"
+				}
+			},
+			"credits":{
+				"title":"Channel Curators",
+				"items": [
+					{
+						"text": "Audio Recordings",
+						"url": "#"
+					},
+					{
+						"text": "Images & photographs",
+						"url": "#"
+					},
+					{
+						"text": "Video Recordings",
+						"url": "#"
+					}
+				]
+			}
+		},
 		"hero_config":{
-			"hero_image":"sample/mountains.jpg",
-			"brand_position" : "brand-bottomleft",
-			"brand_opacity" : "brand-opacity75",
+			"hero_image":"sample/channel_hero_music.jpg",
 			"attribution_text" : "This is a placeholder image found somewhere",
 			"attribution_url" : "http://europeana.eu",
 			"license_CC-ND-NC-SA": true
 		},
-
-		"total_items": "40,173,111",
-
-		"important": {
-			"text": "It’s your world, explore it! — Europeana stories are now in Google’s Field Trip app",
-			"url": "urlhere"
-		},
-
-		"promoted":[
-			{
-				"title":"Art",
-				"url": "urlhere",
-				"is_channel": true,
-				"bg_image":"sample/thumb-square-river.jpg"
-			},
-			{
-				"title":"Music",
-				"url": "urlhere",
-				"is_channel": true,
-				"bg_image":"sample/thumb-square-ivy.jpg"
-			},
-			{
-				"title":"Exhibition name",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-river.jpg"
-			},
-			{
-				"title":"Fashion",
-				"url": "urlhere",
-				"is_channel": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg",
-				"comingsoon": true
-			},
-			{
-				"title":"Exhibition name",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-ivy.jpg"
-			},
-			{
-				"title":"Exhibition name",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg",
-				"comingsoon": true
-			},
-			{
-				"title":"Find out all about Partner",
-				"url": "urlhere",
-				"is_partner": true,
-				"bg_image":"sample/thumb-square-river.jpg"
-			},
-			{
-				"title":"Exhibition name",
-				"url": "urlhere",
-				"is_new": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg"
-			}
-		],
-
-		"news": {
+		"promoted_primary":{
+			"title": "Promoted title",
 			"items":[
-			{
-				"headline": {
-					"medium":"Life on the edge: the Story of St Kilda"
+				{
+					"title":"Erlkonig",
+					"url": "urlhere",
+					"count": "12",
+					"media_type":"audio recordings"
 				},
-				"url": "urlhere",
-				"img": {
-					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
-					}
+				{
+					"title":"Mahler 5",
+					"url": "urlhere",
+					"count": "12",
+					"media_type":"video recordings"
 				},
-				"excerpt": {
-					"short": "With its sheer cliffs and glassy waters, the archipelago St Kilda sits at the northern tip of the British isles, the westernmost part of the Outer Hebridean islands."
-				} 
-			},
-			{
-				"headline":{
-					"medium":"Celebrating World Theatre Day 2015"
+				{
+					"title":"Beethoven’s handwriting",
+					"url": "urlhere",
+					"count": "12",
+					"media_type":"scores"
 				},
-				"url": "urlhere",
-				"img": {
-					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
-					}
+				{
+					"title":"Haitink in Berlin",
+					"url": "urlhere",
+					"count": "12",
+					"media_type":"letters"
 				},
-				"excerpt": {
-					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-				} 
-			},
-			{
-				"headline":{
-					"medium":"Europeana takes part in #MuseumWeek 2015"
+				{
+					"title":"Papageno costumes",
+					"url": "urlhere",
+					"count": "42",
+					"media_type":"images"
 				},
-				"url": "urlhere",
-				"img": {
-					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
-					}
+				{
+					"title":"Baroque wedding music",
+					"url": "urlhere",
+					"count": "23",
+					"media_type":"audio recordings"
+				}
+			]
+		},
+		"promoted_secondary":{
+			"title": "Promoted title",
+			"items":[
+				{
+					"title":"The legacy of Punk",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-square-river.jpg"
 				},
-				"excerpt": {
-					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
-				} 
-			}
+				{
+					"title":"Russian conductors in the EU",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-square-river.jpg"
+				},
+				{
+					"title":"Famous Concert halls",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-square-ivy.jpg"
+				},
+				{
+					"title":"Pop Music in 1980's Berlin",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-square-yosemite.jpg"
+				},
+				{
+					"title":"Music piracy",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-square-ivy.jpg"
+				}
 			]
 		}
-
 	},
 	"navigation":{
 		"global":{

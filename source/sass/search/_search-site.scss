@@ -1,32 +1,14 @@
 
 // Search Site specific styles
 
-.search-home-hero{
-	height: 50%;
-	position: relative;
-	overflow: hidden;
-	
 
-	background-position: 50% 50%;
-	-webkit-background-size: cover;
-	background-size: cover;
 
-	@media all and (min-width: $bp-small) {
-		margin-top: $globalnavheight;
-	}	
-
-	@media all and (min-width: $bp-med) {
-		height: 70%;
-	}
-
-	.hero-contents{
-		position: absolute;
-		top: 55%;
-		left: 50%;
-		@include translate (-50%, -50%);
-		width: 80%;
-		z-index: 5;
-	}
+.hero-contents{
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	@include translate (-50%, -50%);
+	z-index: 5;
 
 	.searchbar{
 		margin-bottom: $space;
@@ -42,16 +24,17 @@
 			padding: $space;
 		}
 	}
+}
 
-	.attribution{
-		position: absolute;
-		z-index: 10;
-		bottom: 10px;
+.search-home-hero{
+	height: 50%;	
 
-		@media all and (min-width: $bp-small) {
-			display: inline-block;
-			right: 0;
-		}
+	@media all and (min-width: $bp-med) {
+		height: 70%;
+	}
+
+	.hero-contents{
+		width: 80%;
 	}
 }
 
@@ -64,11 +47,9 @@
 	border-bottom: 3px solid $gray-lighter;
 
 	> .lc {
-		// background-color: $offwhite;
 		text-align: center;
 		padding: $space;
 		margin: $space-half auto;
-		// border: 1px solid $gray-lighter;
 	}
 
 	h2{
@@ -98,26 +79,27 @@
 	}
 
 	.list-item{
-		
 		margin-bottom: $space-quarter; //fallback
 		margin-bottom: 1.05634vw;
-		min-height: 49vw;
 		position: relative;
-
-		@media all and (min-width: $bp-small) {
-			@include gallery(12 of 24);
-		}
-
-		@media all and (min-width: $bp-med) {
-			@include gallery(6 of 24);
-			min-height: 24vw;
-			margin-bottom: $space-half; //fallback
-			margin-bottom: 1.05634vw;
-		}
 	}
 }
 
+.home-promo .list-item{
+	min-height: 10em;
+	min-height: 49vw;
 
+	@media all and (min-width: $bp-small) {
+		@include gallery(12 of 24);
+	}
+
+	@media all and (min-width: $bp-med) {
+		@include gallery(6 of 24);
+		min-height: 24vw;
+		margin-bottom: $space-half; //fallback
+		margin-bottom: 1.05634vw;
+	}
+}
 
 .news-item{
 	@media all and (min-width: $bp-med) {
@@ -131,3 +113,92 @@
 		padding: 0 $space-half;
 	}
 }
+
+// Channel landing specific
+.channel-hero{
+	height: 40%;
+	margin-bottom: $space;
+}
+
+
+.channel_landing{
+
+	.exhibitions-list .list-item{
+		min-height: 10em;
+		min-height: 49vw;
+
+		@media all and (min-width: $bp-small) {
+			@include gallery(12 of 24);
+		}
+
+		@media all and (min-width: $bp-med) {
+			@include gallery(5 of 25);
+			min-height: 19vw;
+		}
+	}
+
+	.suggested-list{
+
+		background-color: $blue_dark;
+
+		.list-item{
+
+			@media all and (min-width: $bp-small) {
+				@include gallery(12 of 24);
+			}
+
+			@media all and (min-width: $bp-med) {
+				min-height: 10em;
+				min-height: 12vw;
+				@include gallery(8 of 24);
+			}
+
+			@media all and (min-width: $bp-large) {
+				@include gallery(4 of 24);
+			}
+		}
+
+		.lower{
+			@media all and (min-width: $bp-med) {
+				position: absolute;
+				bottom: 0;
+			}
+		}
+	}
+}
+
+
+
+.channel-info{
+	margin-bottom: 0;
+	.lc > div{
+		margin-bottom: $space;
+	}
+}
+.channel-description{
+	@media all and (min-width: $bp-med) {
+		@include span(8 of 24);
+	}
+}
+.channel-stats{
+	@media all and (min-width: $bp-med) {
+		@include span(6 of 24);
+	}
+}
+.channel-newstuff{
+	@media all and (min-width: $bp-med) {
+		@include span(last 10 of 24);
+	}
+
+	.link-text{
+		@include span(5 of 10);
+		font-weight: bold;
+	}
+	.link-number,.link-date{
+		display: inline-block;
+	}
+}
+
+
+
+

@@ -3,55 +3,80 @@
 {{> organisms/global/header}}
 
 
-<section class="search-home-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}} >
+<section class="site-hero channel-hero" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}}>
 
 	<div class="hero-contents">
+
+		<h1><span class="inabox">{{content.channel_info.name}}</span></h1>
+
 		<div class="searchbar">
 		{{> molecules/components/search/search-form }}
 		</div>
 
-		<div class="strapline">
-			Europeana brings together {{content.total_items}} items collected from Europe's libraries, galleries and museums.
-		</div>
 	</div>
 	
 	{{#content.hero_config}} 
 		{{>molecules/text/attribution}}
-		{{>molecules/media/brand-svg-assets}}
 	{{/content.hero_config}}
 
 </section>
 
-{{#content.important}}
-<section class="promo-topcontent">
+{{#content.channel_info}} 	
+<section class="channel-info section">
 	<div class="lc">
-		<h2><a href="{{url}}">{{text}}</a></h2>
+		<div class="channel-description">
+			{{{description}}}
+		</div>
+		<div class="channel-stats">
+			{{#stats}} 
+			<ul>
+				{{#items}}
+				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
+				{{/items}}
+			</ul>
+			{{/stats}} 
+		</div>
+
+		<div class="channel-newstuff">
+		{{#recent}}
+			{{> molecules/navigation/linklist-with-title }}
+		{{/recent}}
+		</div>
 	</div>
 </section>
-{{/content.important}}
+{{/content.channel_info}} 
 
-<ul class="section promo-list">
-{{#content.promoted}}
+{{#content.promoted_primary}}
+<section class="suggested-list cf promo-list promo-list-text">
+<ul>
+	{{#items}}
+	<li class="list-item">
+		{{> molecules/blocks/promo-module-text }}
+	</li>
+	{{/items}}
+</ul>
+</section>
+{{/content.promoted_primary}}
+
+{{#content.promoted_secondary}}
+<section class="exhibitions-list section promo-list">
+<ul>
+	{{#items}}
 	<li class="list-item">
 		{{> molecules/blocks/promo-module }}
 	</li>
-{{/content.promoted}}
+	{{/items}}
 </ul>
+</section>
+{{/content.promoted_secondary}}
 
-{{#content.news}}
-<div class="section">
-	<div class="lc">
-
-	<h2 class="section-title">Europeana News</h2>
-
-	<ul class="home-news cf">
-		{{#items}}<li class="news-item">{{> molecules/blocks/inset-block}}</li>{{/items}}
+<div class="section channel-curator-info">
+	<h2>Channel Curators</h2>
+	<ul class="channel_curators">
+	{{#items}}
+	<li><a href="{{url}}">{{text}}</a></li>
+	{{/items}}
 	</ul>
-
-	<a class="link-more" href="{{ blogurl }}">More from the Blog</a>
-
-	</div>
 </div>
-{{/content.news}}
 
 {{> organisms/global/footer }}
