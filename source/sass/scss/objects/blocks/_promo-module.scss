@@ -1,4 +1,18 @@
-.promo-block{
+.promo-block, .promo-block > a{
+	@media all and (min-width: $bp-med) {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+}
+.promo-block > a{
+	overflow: hidden;
+	display: block;
+}
+
+
+.promo-block-image{
+
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -6,7 +20,6 @@
 	background-color: $accent;
 	background-position: center center;
 	background-size: cover;
-	//background-blend-mode: multiply;
 
 	.title{
 		position: absolute;
@@ -26,17 +39,49 @@
 
 	a{
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		overflow: hidden;
-
+		height: 100%;
+		width: 100%;
 		background-color: rgba($black, .2);
 
 		&:hover, &:focus{
 			background-color: rgba($accent, .8);
 		}
+	}
+}
+
+.promo-block-text{
+	border-top: 3px solid $white;
+
+	@media all and (min-width: $bp-small) {
+		border-top: none;
+		border-left: 3px solid $white;
+	}
+
+	a{
+		padding: $space-half;
+		color: $white;
+		line-height: 1.2;
+
+		&:hover .title, &:focus .title{
+			text-decoration: underline;
+		}
+	}
+
+	.title{
+		font-weight: bold;
+		@include fontSize(18px);
+	}
+
+	.count{
+		@include fontSize(28px);
+		font-weight: bold;
+	}
+	.media_type{
+		color: rgba($white, 0.75);
+	}
+
+	span{
+		display: block;
 	}
 }
 

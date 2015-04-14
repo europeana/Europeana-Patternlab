@@ -92,6 +92,7 @@
 			]
 		},
 		"footer_linklist2":{
+			"title": "Links",
 			"items": [
 				{
 					"url":"http://google.com",

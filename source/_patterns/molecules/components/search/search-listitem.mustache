@@ -3,7 +3,7 @@
 	<div class="item-preview">
 		{{# is_image }}
 			<div class="item-image">
-        	<img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
         	</div>
     	{{/ is_image }}
 
@@ -23,7 +23,7 @@
 
 	<div class="item-info">
 
-		<h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}</a></h1>
+		<h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a></h1>
 
 		{{#text}}
 		<p class="excerpt">
