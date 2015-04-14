@@ -58,7 +58,7 @@
 </section>
 {{/content.promoted_primary}}
 
-{{#content.promoted_secondary}}
+{{# content.promoted_secondary }}
 <section class="exhibitions-list section promo-list">
 <ul>
 	{{#items}}
@@ -68,15 +68,17 @@
 	{{/items}}
 </ul>
 </section>
-{{/content.promoted_secondary}}
+{{/ content.promoted_secondary }}
 
-<div class="section channel-curator-info">
-	<h2>Channel Curators</h2>
-	<ul class="channel_curators">
+{{# content.channel_info.credits }}
+<div class="section channel-credits">
+	<h3 class="title">{{title}}</h3>
+	<ul class="credit-list">
 	{{#items}}
-	<li><a href="{{url}}">{{text}}</a></li>
+	<li><a href="{{url}}" class="external">{{text}}</a></li>
 	{{/items}}
 	</ul>
 </div>
+{{/ content.channel_info.credits }}
 
 {{> organisms/global/footer }}

@@ -194,11 +194,26 @@
 		@include span(5 of 10);
 		font-weight: bold;
 	}
+	.link-number:after{
+		content: "|";
+		margin: 0 .5em;
+	}
 	.link-number,.link-date{
 		display: inline-block;
 	}
 }
 
-
+.channel-credits{
+	.title{
+		@media all and (min-width: $bp-med) {
+			@include span(4 of 24);
+		}
+	}
+	.credit-list{
+		@media all and (min-width: $bp-med) {
+			@include span(last 20 of 24);
+		}
+	}
+}
 
 
