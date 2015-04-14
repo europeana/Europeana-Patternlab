@@ -3,7 +3,7 @@
 	<div class="item-preview">
 		{{# is_image }}
 			<div class="item-image">
-        	<img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
         	</div>
     	{{/ is_image }}
 
