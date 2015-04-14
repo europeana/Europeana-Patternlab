@@ -1003,6 +1003,7 @@ function makeArray( obj ) {
 }
 
 ;{
+	/*
 	function SearchTags($form){
 		this.$form   = $form;
 		this.$input  = $form.find('.js-search-input');
@@ -1063,7 +1064,7 @@ function makeArray( obj ) {
 	    	});
 	    	self.$form.find('.js-hidden-search-term').remove();
 	    	
-	    	/* input focus / disabling */
+	    	// input focus / disabling
 	    	
 	    	self.$form.on('click', '.js-hitarea', $.proxy(function(event) {
 	           self.$input.focus();
@@ -1074,7 +1075,7 @@ function makeArray( obj ) {
 	            event.preventDefault();
 	         }, self));
 
-	    	/* keyboard shortcuts */
+	    	// keyboard shortcuts
 
 	    	self.$form.on('keydown', 'input', function(event) {
 		 		//console.log(event.which + '    ' + String.fromCharCode(event.which) )
@@ -1121,7 +1122,7 @@ function makeArray( obj ) {
   if(typeof initSearchForm != 'undefined'){
 	 initSearchForm();
   }
-
+  */
 }
 
 ;function test(){
