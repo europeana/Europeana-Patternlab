@@ -21,6 +21,11 @@
 		position: relative;
 		height: 100%;
 	}
+	
+	// this is a wrapper around the search field and title (used in channels, not used in pro)
+	.hero-contents{
+		width: 80%;
+	}
 
 	.hero-text{
 		position: absolute;

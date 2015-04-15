@@ -165,31 +165,31 @@
 					"title":"The legacy of Punk",
 					"url": "urlhere",
 					"is_exhibition": true,
-					"bg_image":"sample/thumb-square-river.jpg"
+					"bg_image":"sample/thumb-music.jpg"
 				},
 				{
 					"title":"Russian conductors in the EU",
 					"url": "urlhere",
 					"is_exhibition": true,
-					"bg_image":"sample/thumb-square-river.jpg"
+					"bg_image":"sample/thumb-music.jpg"
 				},
 				{
 					"title":"Famous Concert halls",
 					"url": "urlhere",
 					"is_exhibition": true,
-					"bg_image":"sample/thumb-square-ivy.jpg"
+					"bg_image":"sample/thumb-music.jpg"
 				},
 				{
 					"title":"Pop Music in 1980's Berlin",
 					"url": "urlhere",
 					"is_exhibition": true,
-					"bg_image":"sample/thumb-square-yosemite.jpg"
+					"bg_image":"sample/thumb-music.jpg"
 				},
 				{
 					"title":"Music piracy",
 					"url": "urlhere",
 					"is_exhibition": true,
-					"bg_image":"sample/thumb-square-ivy.jpg"
+					"bg_image":"sample/thumb-music.jpg"
 				}
 			]
 		}
@@ -241,6 +241,46 @@
 						"text": "My Europeana"
 					}
 				]
+			}
+		},
+		"footer":{
+			"linklist1":{
+				"title": "More info",
+				"items": [
+					{
+						"text": "New collections",
+						"url":"http://google.com"
+					},
+					{
+						"text": "All data providers",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Become a data provider",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"linklist2":{
+				"title": "Help",
+				"items": [
+					{
+						"text": "Search tips",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Using My Europeana",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Copyright",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"social":{
+				"googleplus": false,
+				"github": false
 			}
 		}
 	}

@@ -95,6 +95,7 @@ $textcolour_body: $gray-med;
 $textcolour_heavy: $gray-dark;
 $textcolour_highlight: $accent;
 $textcolour_link: $linkblue;
+$textcolour_link_hover: darken($textcolour_link, 15%);
 $text_secondary: $gray-light;
 
 //Dark Backgrounds eg. footer

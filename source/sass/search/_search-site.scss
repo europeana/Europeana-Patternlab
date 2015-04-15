@@ -117,7 +117,6 @@
 // Channel landing specific
 .channel-hero{
 	height: 40%;
-	margin-bottom: $space;
 }
 
 
@@ -170,22 +169,52 @@
 
 
 .channel-info{
+
+	padding: $space;
 	margin-bottom: 0;
+
 	.lc > div{
+		margin-bottom: $space-half;
+	}
+
+	@media all and (min-width: $bp-med) {
+		margin-top: $space-double;
 		margin-bottom: $space;
+		.lc > div{
+			margin-bottom: $space;
+		}
 	}
 }
 .channel-description{
+	@include fontSize(18px);
+
 	@media all and (min-width: $bp-med) {
 		@include span(8 of 24);
 	}
 }
 .channel-stats{
+
+	@media all and (min-width: $bp-small) {
+		@include span(10 of 24);
+	}
+
 	@media all and (min-width: $bp-med) {
 		@include span(6 of 24);
 	}
+
+	.number{
+		@include fontSize(18px);
+		font-weight: bold;
+	}
+
+	a:hover, a:focus{
+		border-bottom: 1px dotted $textcolour_link_hover;
+	}
 }
 .channel-newstuff{
+	@media all and (min-width: $bp-small) {
+		@include span(last 14 of 24);
+	}
 	@media all and (min-width: $bp-med) {
 		@include span(last 10 of 24);
 	}
@@ -194,9 +223,8 @@
 		@include span(5 of 10);
 		font-weight: bold;
 	}
-	.link-number:after{
-		content: "|";
-		margin: 0 .5em;
+	.link-number{
+		margin-right: .5em;
 	}
 	.link-number,.link-date{
 		display: inline-block;

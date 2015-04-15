@@ -23,8 +23,8 @@
 		font-family: $font-secondary;
 		line-height: 1.4;
 
-		a:hover{
-			border-bottom: 1px dotted darken($textcolour_link, 15%);
+		a:hover, a:focus{
+			border-bottom: 1px dotted $textcolour_link_hover;
 		}
 	}
 
