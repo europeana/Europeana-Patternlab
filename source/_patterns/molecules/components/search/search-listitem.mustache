@@ -31,13 +31,13 @@
 		</p>
 		{{/text}}
 
-		{{#has_concepts}}
+		{{#concepts}}
 		<ul>
-			{{#concepts}}
+			{{#items}}
 			<li>{{text}}</li>
-			{{/concepts}}
+			{{/items}}
 		</ul>
-		{{/has_concepts}}
+		{{/concepts}}
 
 		{{#origin}}
 		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.page.view-at-provider }} {{origin.text}}</a>
