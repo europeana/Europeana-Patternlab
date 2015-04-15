@@ -27,7 +27,7 @@
 					</div>
 
 					<div class="result-info">
-						{{{ i18n.site.results.page.count-and-terms }}}
+						{{{ i18n.site.results.list.count-and-terms }}}
 					</div>
 
 					<div class="result-controls">
@@ -58,8 +58,8 @@
 
 				{{^has_results}}
 					<div class="no-results">
-						<h2>No results</h2>
-						<p>Your search for {{{ i18n.site.results.page.search_terms }}} returned <strong>no results</strong></p>
+						<h2>{{ i18n.site.results.list.empty }}</h2>
+						<p>{{{ i18n.site.results.list.empty-with-terms }}}</p>
 					</div>
 				{{/has_results}}
 
@@ -86,7 +86,7 @@
 					{{/tabbed}}
 				{{/filters}}
 				
-				<a href="#refine-advanced">More refinements…</a>
+				<a href="#refine-advanced">{{i18n.global.facet.more-refinements}}</a>
 				<div class="refine-advanced">
 					{{! @TODO add advanced search }}
 				</div>

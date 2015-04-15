@@ -106,18 +106,21 @@
 	        	}
 	        }));
 	    }
-	     
 	}
-	
+    */
 	
   function initSearchForm(){
-    new SearchTags($('.search-multiterm'));
+	 var form = $('.search-multiterm');
+     //new SearchTags(form);
+	 var input = form.find('.js-search-input');
+  	 form.on('click', '.js-hitarea', function(event) {
+        input.focus();
+     });
   }
 
 	
   if(typeof initSearchForm != 'undefined'){
 	 initSearchForm();
   }
-  */
 }
 

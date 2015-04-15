@@ -13,12 +13,18 @@
 		},
 		"site": {
 			"results": {
+				"list":{
+					"in-channel": "in Channel",
+					"view-at-provider": "View at Rijksmuseum",
+					"empty": "No results",
+					"empty-with-terms":	"Your search for <strong>paris</strong> returned no results"
+				},
+				"actions":{
+					"product-save": "Save"
+				},
 				"page": {
 					"count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
-					"search_terms": "<strong>paris</strong> and <strong>berlin</strong>",
-					"view-at-provider": "Rijksmuseum",
-					"in-channel": "in Channel",
-					"product-save": "Save"
+					"search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
 				}
 			}
 		}
@@ -499,7 +505,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -555,7 +561,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -608,15 +614,6 @@
 						}
 				},
 				"origin":{
-					"i18n": {
-						"site": {
-							"results": {
-								"page": {
-									"view-at-provider": "Rijksmuseum"
-								}
-							}
-						}
-					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -664,15 +661,6 @@
 						}
 				},
 				"origin":{
-					"i18n": {
-						"site": {
-							"results": {
-								"page": {
-									"view-at-provider": "Rijksmuseum"
-								}
-							}
-						}
-					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -720,15 +708,6 @@
 						}
 				},
 				"origin":{
-					"i18n": {
-						"site": {
-							"results": {
-								"page": {
-									"view-at-provider": "Rijksmuseum"
-								}
-							}
-						}
-					},
 					"url": "http://urlhere.com"
 				},
 				"channels": {
@@ -779,7 +758,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -835,7 +814,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -891,7 +870,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -947,7 +926,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -1003,7 +982,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}
@@ -1059,7 +1038,7 @@
 					"i18n": {
 						"site": {
 							"results": {
-								"page": {
+								"list": {
 									"view-at-provider": "Rijksmuseum"
 								}
 							}

@@ -40,7 +40,7 @@
 		{{/concepts}}
 
 		{{#origin}}
-		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.page.view-at-provider }} {{origin.text}}</a>
+		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
 		{{/origin}}
 
 		<footer>
@@ -76,7 +76,7 @@
 
 			{{# channels }}
 				<span class="item-themes">
-					{{i18n.site.results.page.in-channel}}:
+					{{i18n.site.results.list.in-channel}}:
 					{{# items }}
 					<a href="{{url}}" class="highlight">{{text}}</a>,
 					{{/ items }}
@@ -90,7 +90,7 @@
 				<a href="path/to/save" class="action-save">
 					<svg class="icon icon-star">
 						<use xlink:href="#icon-star"></use>
-					</svg>{{i18n.site.results.page.product-save}}
+					</svg>{{i18n.site.results.actions.product-save}}
 				</a>
 
 				<div class="action-select">
