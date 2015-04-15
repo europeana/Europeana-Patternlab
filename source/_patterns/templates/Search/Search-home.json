@@ -35,19 +35,21 @@
 
 	"content":{
 		"hero_config":{
-			"hero_image":"sample/mountains.jpg",
+			"hero_image":"sample/search_hero_1.jpg",
 			"brand_position" : "brand-bottomleft",
 			"brand_opacity" : "brand-opacity75",
-			"attribution_text" : "This is a placeholder image found somewhere",
-			"attribution_url" : "http://europeana.eu",
-			"license_CC-ND-NC-SA": true
+			"attribution_text" : "Insects and Fruit, Jan van Kessel",
+			"attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
+			"license_CC-ND-NC-SA": false,
+			"license_public": true
 		},
+		"strapline": "Explore 41,629,020 items from Europe's libraries, archives and museums. Books and manuscripts, photos and paintings, television and film, sculpture and crafts, diaries and maps, sheet music and recordings, they’re all here.",
 
 		"total_items": "40,173,111",
 
 		"important": {
 			"text": "It’s your world, explore it! — Europeana stories are now in Google’s Field Trip app",
-			"url": "urlhere"
+			"url": "http://blog.europeana.eu/2015/03/its-your-world-explore-it-europeana-stories-now-in-googles-field-trip-app/"
 		},
 
 		"promoted":[
@@ -55,51 +57,49 @@
 				"title":"Art",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"sample/thumb-square-river.jpg"
+				"bg_image":"sample/thumb-art.jpg"
 			},
 			{
 				"title":"Music",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"sample/thumb-square-ivy.jpg"
+				"bg_image":"sample/thumb-music.jpg"
 			},
 			{
-				"title":"Exhibition name",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-river.jpg"
-			},
-			{
-				"title":"Fashion",
+				"title":"Maps and Cartography",
 				"url": "urlhere",
 				"is_channel": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg",
-				"comingsoon": true
+				"bg_image":"sample/thumb-maps.jpg"
 			},
 			{
-				"title":"Exhibition name",
+				"title":"Europeana 1914—1918",
 				"url": "urlhere",
 				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-ivy.jpg"
+				"bg_image":"sample/thumb-1418.jpg"
 			},
 			{
-				"title":"Exhibition name",
+				"title":"Natural History",
+				"url": "urlhere",
+				"is_channel": true,
+				"bg_image":"sample/thumb-naturalhistory.jpg"
+			},
+			{
+				"title":"Photography on a Silver Plate",
 				"url": "urlhere",
 				"is_exhibition": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg",
-				"comingsoon": true
+				"bg_image":"sample/thumb-photography.jpg"
 			},
 			{
-				"title":"Find out all about Partner",
+				"title":"European Film and the First World War",
 				"url": "urlhere",
-				"is_partner": true,
-				"bg_image":"sample/thumb-square-river.jpg"
+				"is_exhibition": true,
+				"bg_image":"sample/thumb-expo-film.jpg"
 			},
 			{
-				"title":"Exhibition name",
+				"title":"Europeana monuments now in Google Field Trip",
 				"url": "urlhere",
 				"is_new": true,
-				"bg_image":"sample/thumb-square-yosemite.jpg"
+				"bg_image":"sample/thumb-news.jpg"
 			}
 		],
 
@@ -107,28 +107,28 @@
 			"items":[
 			{
 				"headline": {
-					"medium":"Life on the edge: the Story of St Kilda"
+					"medium":"The miniature magic of Japanese netsuke"
 				},
-				"url": "urlhere",
+				"url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
 				"img": {
 					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
+						"src":"sample/netsuke.jpg",
+						"alt":"Japanese scroll with netsuke illustration"
 					}
 				},
 				"excerpt": {
-					"short": "With its sheer cliffs and glassy waters, the archipelago St Kilda sits at the northern tip of the British isles, the westernmost part of the Outer Hebridean islands."
+					"short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
 				} 
 			},
 			{
 				"headline":{
 					"medium":"Celebrating World Theatre Day 2015"
 				},
-				"url": "urlhere",
+				"url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
 				"img": {
 					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
+						"src":"sample/theatreday.jpg",
+						"alt":"Theatre Day"
 					}
 				},
 				"excerpt": {
@@ -139,11 +139,11 @@
 				"headline":{
 					"medium":"Europeana takes part in #MuseumWeek 2015"
 				},
-				"url": "urlhere",
+				"url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
 				"img": {
 					"rectangle": {
-						"src":"fpo_4x3.png",
-						"alt":"A 4x3 image"
+						"src":"sample/Museumweek.jpg",
+						"alt":"Museum Week 2015"
 					}
 				},
 				"excerpt": {
@@ -202,6 +202,48 @@
 					}
 				]
 			}
+		},
+
+		"footer":{
+			"linklist1":{
+				"title": "More info",
+				"items": [
+					{
+						"text": "New collections",
+						"url":"http://google.com"
+					},
+					{
+						"text": "All data providers",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Become a data provider",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"linklist2":{
+				"title": "Help",
+				"items": [
+					{
+						"text": "Search tips",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Using My Europeana",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Copyright",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"social":{
+				"googleplus": false,
+				"github": false
+			}
 		}
+
 	}
 }

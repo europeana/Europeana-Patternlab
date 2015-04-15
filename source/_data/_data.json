@@ -73,60 +73,70 @@
 				{ "url":"linkhere", "index":"250" }
 			]
 		},
-		"footer_linklist1":{
-			"title": "More info",
-			"styleModifier":"",
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
-		},
-		"footer_linklist2":{
-			"title": "Links",
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
-		},
-		"footer_othersites":{
-			"title": "Explore Europeana",
-			"styleModifier":"inline-list",
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
+		"footer":{
+			"linklist1":{
+				"title": "More info",
+				"items": [
+					{
+						"url":"http://google.com",
+						"text": "First Item"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Another Label"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Label here"
+					}
+				]
+			},
+			"linklist2":{
+				"title": "Links",
+				"items": [
+					{
+						"url":"http://google.com",
+						"text": "First Item"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Another Label"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Label here"
+					}
+				]
+			},
+			"othersites":{
+				"title": "Explore Europeana",
+				"styleModifier":"inline-list",
+				"items": [
+					{
+						"url":"http://google.com",
+						"text": "Europeana 1914-1918"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Europeana Exhibitions"
+					},
+					{
+						"url":"http://google.com",
+						"text": "Europeana Blog"
+					}
+				]
+			},
+			"social":{
+				"twitter": true,
+				"facebook": true,
+				"pinterest": true,
+				"googleplus": true,
+				"linkedin": true,
+				"github": true
+			}
 		}
 	},
+
 	"content":{
 		"hero_config":{
 			"hero_image":"sample/mountains.jpg",
@@ -137,6 +147,7 @@
 			"license_CC-ND-NC-SA": true
 		}
 	},
+
 	"img": {
 		"landscape-4x3": {
 			"src": "../../images/fpo_4x3.png",
