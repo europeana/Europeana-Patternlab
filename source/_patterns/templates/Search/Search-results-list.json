@@ -15,7 +15,10 @@
 			"results": {
 				"page": {
 					"count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
-					"search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
+					"search_terms": "<strong>paris</strong> and <strong>berlin</strong>",
+					"view-at-provider": "Rijksmuseum",
+					"in-channel": "in Channel",
+					"product-save": "Save"
 				}
 			}
 		}
@@ -446,15 +449,6 @@
 					}
 			},
 			"origin":{
-				"i18n": {
-					"site": {
-						"results": {
-							"page": {
-								"view-at-provider": "Rijksmuseum"
-							}
-						}
-					}
-				},
 				"url": "http://urlhere.com"
 			},
 			"channels": {
