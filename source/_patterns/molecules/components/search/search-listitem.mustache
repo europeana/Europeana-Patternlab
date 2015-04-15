@@ -31,9 +31,13 @@
 		</p>
 		{{/text}}
 
-		{{#concepts}}
-		<p>{{concepts}}</p>
-		{{/concepts}}
+		{{#has_concepts}}
+		<ul>
+			{{#concepts}}
+			<li>{{text}}</li>
+			{{/concepts}}
+		</ul>
+		{{/has_concepts}}
 
 		{{#origin}}
 		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.page.view-at-provider }} {{origin.text}}</a>
