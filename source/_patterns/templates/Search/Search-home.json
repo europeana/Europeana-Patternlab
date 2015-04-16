@@ -74,7 +74,8 @@
 				"bg_image":"sample/thumb-maps.jpg"
 			},
 			{
-				"title":"Europeana 1914—1918 - untold stories & official histories of WWI",
+				"title":"Europeana 1914—1918",
+				"subtitle": "Untold stories & official histories of WWI",
 				"url": "urlhere",
 				"is_channel": true,
 				"bg_image":"sample/thumb-1418.jpg"
