@@ -92,17 +92,22 @@
 
 		<a class="btn btn2" href="{{links.download}}">{{labels.download}}</a> <br/>
 
-		<div class="rights"><b>{{labels.rights}}</b> {{data.edm_rights}}</div>
+		<div class="rights"><b>{{labels.rights}}</b><br/> {{data.edm_rights}}</div>
 
+		{{# data.edm_data_provider}}
 		<a class="original_context" href="{{links.original_context}}">
 			{{data.edm_data_provider}}
 			<svg class="icon icon-linkout">
 				<use xlink:href="#icon-linkout"></use>
 			</svg>
 		</a>
+		{{/ data.edm_data_provider}}
 
 		<div class="country">{{data.edm_country}}</div>
+		
+		{{# data.dc_type}}
 		<div class="dc-type"><b>{{labels.dc_type}}</b> {{data.dc_type}}</div>
+		{{/ data.dc_type}}
 
 		<ul>
 			{{# data.concepts }}

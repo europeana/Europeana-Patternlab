@@ -59,9 +59,9 @@
           "edm_is_shown_by" : "Rijksmuseum",
           "edm_language" : "nl",
           "edm_preview" : "http://placeimg.com/400/300/people/sepia",
-          "edm_provider" : "edmProvider",
+          "edm_provider" : "The European Library",
+		  "edm_data_provider" : "Rijksmuseum",
           "edm_rights" : "edmRights",
-
           "latitude" : 54,
           "longitude" : 41,
 
@@ -73,15 +73,19 @@
 	},
 	
 	"labels" : {
+	    "creator" : "Creator",
+	    "agent" : "Agent",
 		"description" :    "Description blah, blah, blah, blah, blah, blah",
 		"dc_description" : "DC Description blah, blah, blah, blah, blah, blah",
+		"dc_type" : "Type:",
 		"show_more_meta" : "show more object data",
 		"show_less_meta" : "show less",
         "download" : "download",
-        "rights" : "rights",
+        "rights" : "Can I use it?",
         "agent" : "get_agent_label",
         "mlt" : "similar items"
 	},
+
 
 	"js_files": [
 		{
