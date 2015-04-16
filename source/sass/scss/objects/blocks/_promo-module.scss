@@ -21,20 +21,28 @@
 	background-position: center center;
 	background-size: cover;
 
-	.title{
+	.inner{
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		@include translate (-50%, -50%);
-
-		color: $white;
-		text-align: center;
-		text-transform: uppercase;
 		max-width: 80%;
+		text-align: center;
+		color: $white;
+		line-height: 1.2;
+	}
+
+	.title{
+		display: block;
+		text-transform: uppercase;
 		@include fontSize(20px);
 		letter-spacing: 0.2em;
-		line-height: 1;
+	}
 
+	.subtitle{
+		display: block;
+		margin-top: $space-quarter;
+		@include fontSize(16px);
 	}
 
 	a{

@@ -38,23 +38,25 @@
 			"hero_image":"sample/search_hero_1.jpg",
 			"brand_position" : "brand-bottomleft",
 			"brand_opacity" : "brand-opacity75",
-			"attribution_text" : "Insects and Fruit, Jan van Kessel",
+			"attribution_title" : "Insects and Fruit",
+			"attribution_creator" : "Jan van Kessel",
+			"attribution_institution" : "Rijksmuseum",
 			"attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
 			"license_CC-ND-NC-SA": false,
 			"license_public": true
 		},
-		"strapline": "Explore 41,629,020 items from Europe's libraries, archives and museums. Books and manuscripts, photos and paintings, television and film, sculpture and crafts, diaries and maps, sheet music and recordings, they’re all here.",
+		"strapline": "Explore 41,629,020 items from Europe's libraries, archives and museums.",
 
 		"total_items": "40,173,111",
 
-		"important": {
-			"text": "It’s your world, explore it! — Europeana stories are now in Google’s Field Trip app",
+		"important_removed": {
+			"text": "Europeana stories are now in Google’s Field Trip app",
 			"url": "http://blog.europeana.eu/2015/03/its-your-world-explore-it-europeana-stories-now-in-googles-field-trip-app/"
 		},
 
 		"promoted":[
 			{
-				"title":"Art",
+				"title":"Art & Art History",
 				"url": "urlhere",
 				"is_channel": true,
 				"bg_image":"sample/thumb-art.jpg"
@@ -73,8 +75,9 @@
 			},
 			{
 				"title":"Europeana 1914—1918",
+				"subtitle": "Untold stories & official histories of WWI",
 				"url": "urlhere",
-				"is_exhibition": true,
+				"is_channel": true,
 				"bg_image":"sample/thumb-1418.jpg"
 			},
 			{
@@ -240,7 +243,7 @@
 				]
 			},
 			"social":{
-				"googleplus": false,
+				"linkedin": false,
 				"github": false
 			}
 		}

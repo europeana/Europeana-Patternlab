@@ -4,11 +4,16 @@
 		{{#comingsoon}}
 		<div class="corner-ribbon alternate">Coming Soon</div>
 		{{/comingsoon}}
-		<div class="title">{{title}}</div>
+		<div class="inner">
+			<span class="title">{{title}}</span>
+			{{#subtitle}}
+			<span class="subtitle">{{subtitle}}</span>
+			{{/subtitle}}
+		</div>
 	</a>
 
 {{#is_channel}}
-	<div class="category-flag">Channels</div>
+	<div class="category-flag">Channel</div>
 {{/is_channel}}
 {{#is_exhibition}}
 	<div class="category-flag">Exhibition</div>

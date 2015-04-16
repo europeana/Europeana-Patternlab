@@ -8,6 +8,10 @@
 	font-size: $font-size-sm;
 	color: $gray97;
 
+	.origin{
+		display: block;
+	}
+
 	.license, a{
 		color: $gray87;
 		display: block;
