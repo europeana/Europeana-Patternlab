@@ -17,44 +17,57 @@
 	height: 100%;
 	width: 100%;
 
-	background-color: $accent;
+	background-color: darken($accent, 10);
 	background-position: center center;
 	background-size: cover;
 
+	a{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+
+		&:hover, &:focus{
+			background-color: rgba($accent, .8);
+		}
+	}
+
 	.inner{
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include translate (-50%, -50%);
-		max-width: 80%;
 		text-align: center;
 		color: $white;
 		line-height: 1.2;
 	}
 
+	&.centred .inner {
+		top: 50%;
+		left: 50%;
+		@include translate (-50%, -50%);
+		max-width: 80%;
+	}
+
+	&.contrast .inner {
+		top: 50%;
+		@include translate (0, -50%);
+		width: 100%;
+		background-color: rgba($black, 0.4);
+		padding: $pad;
+	}
+
 	.title{
 		display: block;
 		text-transform: uppercase;
-		@include fontSize(20px);
-		letter-spacing: 0.2em;
+		@include fontSize(18px);
+		letter-spacing: 0.14em;
 	}
 
 	.subtitle{
 		display: block;
 		margin-top: $space-quarter;
 		@include fontSize(16px);
+		color: $gray97;
 	}
 
-	a{
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		background-color: rgba($black, .2);
 
-		&:hover, &:focus{
-			background-color: rgba($accent, .8);
-		}
-	}
 }
 
 .promo-block-text{

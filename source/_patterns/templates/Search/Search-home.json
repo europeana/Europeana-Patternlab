@@ -35,7 +35,7 @@
 
 	"content":{
 		"hero_config":{
-			"hero_image":"sample/search_hero_1.jpg",
+			"hero_image":"sample/search_hero_1_tint.jpg",
 			"brand_position" : "brand-bottomleft",
 			"brand_opacity" : "brand-opacity75",
 			"attribution_title" : "Insects and Fruit",
@@ -102,7 +102,7 @@
 				"title":"Europeana monuments now in Google Field Trip",
 				"url": "urlhere",
 				"is_new": true,
-				"bg_image":"sample/thumb-news.jpg"
+				"bg_image":"null"
 			}
 		],
 
