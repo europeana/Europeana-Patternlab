@@ -1131,7 +1131,7 @@ function makeArray( obj ) {
 ;{
 	
 function log(msg){
-	//console.log(msg);
+	console.log(msg);
 }
 
 function Optimiser(initialVal, fnTest, jump){	
@@ -1141,7 +1141,7 @@ function Optimiser(initialVal, fnTest, jump){
 	this.val                 = initialVal;
 	this.initialVal          = initialVal;
 	this.tries               = 0;
-	this.test                = fnTest ? fnTest : function(fs){ return fs <= 11; };
+	this.test                = fnTest ? fnTest : function(fs){ log('default optimise test'); return fs <= 11; };
 	this.max_while_break     = 10;
 }
 
@@ -1219,8 +1219,8 @@ function WrapNiceGroup(selCmpArray, selText, selTweak){
 	this.selTweak    = selTweak;
 	this.minFs       = 100;
 	this.members     = [];
-	this.styleIds    = {'test': 'wrap-nice-test',    'real': 'wrap-nice-style', 'fs': 'wrap-nice-fs'};
-	this.styles      = {'$test': null,               '$real': null,             '$fs': null};
+	this.styleIds    = {'base': 'wrap-nice-base', 'test': 'wrap-nice-test',    'real': 'wrap-nice-style', 'fs': 'wrap-nice-fs'};
+	this.styles      = {'$base': null,            '$test': null,               '$real': null,             '$fs': null};
 	this.css         = {'wwn':  'word-wrap:normal;', 'oa':   'overflow:auto;'};
 	this.init();
 }
@@ -1240,7 +1240,16 @@ WrapNiceGroup.prototype = {
 		self.styleToSmallestFs();
 	},
 	
-	get_style_tag_text: function(selectors, id){
+	set_text: function($el, text){
+		$el.empty();
+		$el[0].appendChild(document.createTextNode(text));
+	},
+	
+	get_style_tag: function(id){
+		return $('<style id="' + id + '" type="text/css"></style>').appendTo('head');
+	},
+	
+	get_style_tag_text: function(selectors){
 		
 		var res = '';
 
@@ -1253,20 +1262,17 @@ WrapNiceGroup.prototype = {
 			}
 			res += '}\n'
 		}
-		
-		if(id){
-			res = $('<style id="' + id + '" type="text/css">\n' + res + '</style>\n');
-		}
-		
 		return res;
 	},
 	
 	enable_stylesheet: function(ss){
+		var self = this;
 		
-		//log('ENABLE ' + (ss ? ss.attr('id') : '') + ' ???')
+		log('ENABLE ' + (ss ? ss.attr('id') : '') + ' ???')
 		if(ss){
 			if( ss.text().indexOf('\/*') > -1){
-				ss.text( ss.text().replace('\/*', '').replace('*\/', '') );
+				var text = ss.text().replace('\/*', '').replace('*\/', '');
+				self.set_text(ss, text);
 			}
 			else{
 				log('ALREADY ENABLED');
@@ -1279,10 +1285,12 @@ WrapNiceGroup.prototype = {
 	
 	disable_stylesheet: function(ss){
 		
-		//log('DISABLE ' + (ss ? ss.attr('id') : '') + ' ???')
+		var self = this;
+		
+		log('DISABLE ' + (ss ? ss.attr('id') : '') + ' ???')
 		if(ss){
 			if( ss.text().indexOf('\/*') == -1){
-				ss.text('\/*' + ss.text() + '*\/');
+				self.set_text(ss, '\/*' + ss.text() + '*\/');
 			}
 			else{				
 				log('ALREADY DISABLED ' + ss.attr('id'));
@@ -1307,7 +1315,6 @@ WrapNiceGroup.prototype = {
 		
 		self.test_end();
 
-
 		if(fs < self.minFs){
 			
 			var rule = 'font-size:' + fs + 'px;';
@@ -1315,16 +1322,15 @@ WrapNiceGroup.prototype = {
 				sel: self.selCmpArray + ' ' + self.selTweak,
 				rules: [
 					self.css.wwn,
-					rule,
-					'x-color: red;'
+					rule
 				]
 			}];
-			if(self.styles.$real){
-				self.styles.$real.text(self.get_style_tag_text(selectors));
+			var css = self.get_style_tag_text(selectors);
+			
+			if(!self.styles.$real){
+				self.styles.$real = self.get_style_tag(self.styleIds.real);
 			}
-			else{
-				self.styles.$real = self.get_style_tag_text(selectors, self.styleIds.real).appendTo('head');
-			}
+			self.set_text(self.styles.$real, css);
 		}
 	},
 	
@@ -1340,7 +1346,21 @@ WrapNiceGroup.prototype = {
 			self.enable_stylesheet(self.styles.$test);
 		}
 		else{
-			self.styles.$test = self.get_style_tag_text([
+            var textBase = self.get_style_tag_text([{
+	   				sel: self.selCmpArray,
+	   				rules: [self.css.wwn]
+	   		}]);
+            var textTest = self.get_style_tag_text([{
+	   				sel: self.selCmpArray + ' ' + self.selText,
+	   				rules: [self.css.oa]
+   			}]);
+            
+            self.styles.$base = self.get_style_tag(self.styleIds.base);
+            self.styles.$test = self.get_style_tag(self.styleIds.test);
+            self.set_text(self.styles.$base, textBase);
+            self.set_text(self.styles.$test, textTest);
+			/*
+            var text = self.get_style_tag_text([
 	   			{
 	   				sel: self.selCmpArray,
 	   				rules: [self.css.wwn]
@@ -1349,7 +1369,10 @@ WrapNiceGroup.prototype = {
 	   				sel: self.selCmpArray + ' ' + self.selText,
 	   				rules: [self.css.oa]
 	   			}
-	   		], self.styleIds.test).appendTo('head');
+	   		]);
+            self.styles.$test = self.get_style_tag(self.styleIds.test);
+            self.set_text(self.styles.$test, text);
+            */
 		}
 	},
 	
@@ -1358,7 +1381,6 @@ WrapNiceGroup.prototype = {
 		// applies font size 
 		
 		var self = this;
-
 		
 		if(!fs){
 			self.disable_stylesheet(self.styles.$fs);
@@ -1367,26 +1389,26 @@ WrapNiceGroup.prototype = {
 
 		var rule = 'font-size:' + fs + 'px;';
 		var selectors = [{
-			  sel:   self.selCmpArray + ' ' + self.selTweak,
-			  rules: [rule]
-		  }];
+		  sel:   self.selCmpArray + ' ' + self.selTweak,
+		  rules: [rule]
+		}];
+		var css = self.get_style_tag_text(selectors);
 
-		if(self.styles.$fs){
-			
-			// Explicit enabling not needed, i.e.
-			//  self.enable_stylesheet(self.styles.$fs);
-			
-			self.styles.$fs.text(self.get_style_tag_text(selectors));
+		if(!self.styles.$fs){
+			self.styles.$fs = self.get_style_tag(self.styleIds.fs);
 		}
-		else{
-			self.styles.$fs = self.get_style_tag_text(selectors, self.styleIds.fs).appendTo('head');
-		}
-		//log('apply(' + fs + '),  test stylesheet = ' + $('#' + self.styleIds.test ).length )
+		// Explicit enabling not needed, i.e.
+		//  self.enable_stylesheet(self.styles.$fs);
+		self.set_text(self.styles.$fs, css);
+		
+		log('apply(' + fs + '),  test stylesheet = ' + $('#' + self.styleIds.test ).length )
 	},
 	
 	test_end: function(){
 		
 		var self = this;
+		
+		log('test_end: disable test..');
 		self.disable_stylesheet(self.styles.$test);
 	},
 	
@@ -1394,6 +1416,7 @@ WrapNiceGroup.prototype = {
 		
 		var self = this;
 
+		log('resize, disable real...');
 		self.disable_stylesheet(self.styles.$real);
 		self.styleToSmallestFs();
 	}
@@ -1438,8 +1461,12 @@ WrapNice.prototype = {
 
 function initHome(){
 	
-	window.wrapNiceGroup = new WrapNiceGroup('.home-promo > li > div', 'a', 'a span.title');
 	
+	var sel1 = '.home-promo > li';
+	var sel2 = '.promo-block > a';
+	var sel3 = 'span.title';
+	
+	wrapNiceGroup = new WrapNiceGroup(sel1, sel2, sel3);
 	
 	/* event debouncing () */
 
@@ -1469,17 +1496,11 @@ function initHome(){
 
 				// smartresize
 				jQuery.fn[sr] = function(fn){	return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
-				jQuery.fn['euScroll'] = function(fn){	return fn ? this.bind('scroll', debounce(fn)) : this.trigger(sr); };
-
+				//jQuery.fn['europeanaScroll'] = function(fn){	return fn ? this.bind('scroll', debounce(fn)) : this.trigger(sr); };
 		})
-	(jQuery,'euRsz');
+	(jQuery,'europeanaResize');
 
-	
-	$(window).euRsz(function(){
-		wrapNiceGroup.resize()
-	});
-
-	$('#rm').click(function(){
+	$(window).europeanaResize(function(){
 		wrapNiceGroup.resize()
 	});
 }
