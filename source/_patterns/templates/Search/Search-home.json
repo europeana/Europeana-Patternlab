@@ -102,7 +102,7 @@
 				"title":"Europeana monuments now in Google Field Trip",
 				"url": "urlhere",
 				"is_new": true,
-				"bg_image":"null"
+				"bg_image":false
 			}
 		],
 
