@@ -35,7 +35,7 @@
 
 	"content":{
 		"hero_config":{
-			"hero_image":"sample/search_hero_1_tint.jpg",
+			"hero_image":"sample/search_hero_1.jpg",
 			"brand_position" : "brand-bottomleft",
 			"brand_opacity" : "brand-opacity75",
 			"attribution_title" : "Insects and Fruit",
