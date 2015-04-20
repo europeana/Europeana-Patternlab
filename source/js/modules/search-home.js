@@ -331,48 +331,52 @@ WrapNice.prototype = {
 
 function initHome(){
 	
-	
-	var sel1 = '.home-promo > li';
-	var sel2 = '.promo-block > a';
-	var sel3 = 'span.title';
-	
-	wrapNiceGroup = new WrapNiceGroup(sel1, sel2, sel3);
-	
-	/* event debouncing () */
 
-	(function($,sr)
-		{
-
-			var debounce = function (func, threshold, execAsap) {
-				var timeout;
-				return function debounced () {
-					var obj = this, args = arguments;
-					function delayed () {
-						if (!execAsap)
-							func.apply(obj, args);
-							timeout = null;
+	if(window.location.href.indexOf('wrapnice')>-1){
+		
+		var sel1 = '.home-promo > li';
+		var sel2 = '.promo-block > a';
+		var sel3 = 'span.title';
+		
+		wrapNiceGroup = new WrapNiceGroup(sel1, sel2, sel3);
+		
+		// event debouncing () 
+	
+		(function($,sr)
+			{
+	
+				var debounce = function (func, threshold, execAsap) {
+					var timeout;
+					return function debounced () {
+						var obj = this, args = arguments;
+						function delayed () {
+							if (!execAsap)
+								func.apply(obj, args);
+								timeout = null;
+							};
+	
+							if (timeout){
+								clearTimeout(timeout);
+							}
+							else if (execAsap){
+								func.apply(obj, args);
+							}
+	
+							timeout = setTimeout(delayed, threshold || 100);
 						};
-
-						if (timeout){
-							clearTimeout(timeout);
-						}
-						else if (execAsap){
-							func.apply(obj, args);
-						}
-
-						timeout = setTimeout(delayed, threshold || 100);
 					};
-				};
-
-				// smartresize
-				jQuery.fn[sr] = function(fn){	return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
-				//jQuery.fn['europeanaScroll'] = function(fn){	return fn ? this.bind('scroll', debounce(fn)) : this.trigger(sr); };
-		})
-	(jQuery,'europeanaResize');
-
-	$(window).europeanaResize(function(){
-		wrapNiceGroup.resize()
-	});
+	
+					// smartresize
+					jQuery.fn[sr] = function(fn){	return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+					//jQuery.fn['europeanaScroll'] = function(fn){	return fn ? this.bind('scroll', debounce(fn)) : this.trigger(sr); };
+			})
+		(jQuery,'europeanaResize');
+	
+		$(window).europeanaResize(function(){
+			wrapNiceGroup.resize()
+		});
+		
+	}
 }
 
 	
