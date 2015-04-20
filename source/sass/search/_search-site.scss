@@ -105,7 +105,12 @@
 		font-size: 1.5vw;
 	}
 
-	@media all and (min-width: 100em) {
+	@media all and (min-width: 80em) {
+		min-height: 16vw;
+		font-size: 1.25vw;
+	}
+
+	@media all and (min-width: 120em) {
 		@include gallery(6 of 48);
 		min-height: 11.5vw;
 		font-size: 0.8vw;
