@@ -88,16 +88,31 @@
 .home-promo .list-item{
 	min-height: 10em;
 	min-height: 49vw;
+	font-size: 5vw;
 
 	@media all and (min-width: $bp-small) {
 		@include gallery(12 of 24);
+		font-size: 3.5vw;
 	}
 
-	@media all and (min-width: $bp-med) {
-		@include gallery(6 of 24);
-		min-height: 24vw;
+	@media all and (min-width: $bp-small-3) {
+		@include gallery(8 of 24);
+		min-height: 32vw;
 		margin-bottom: $space-half; //fallback
 		margin-bottom: 1.05634vw;
+		font-size: 2vw;
+	}
+
+	@media all and (min-width: $bp-large) {
+		@include gallery(6 of 24);
+		min-height: 24vw;
+		font-size: 1.5vw;
+	}
+
+	@media all and (min-width: 100em) {
+		@include gallery(6 of 48);
+		min-height: 11.5vw;
+		font-size: 0.8vw;
 	}
 }
 
@@ -109,8 +124,12 @@
 		}
 	}
 
-	.excerpt{
-		padding: 0 $space-half;
+	.b-inner{
+		background: none;
+	}
+
+	.b-text{
+		padding: $space;
 	}
 }
 

@@ -3,19 +3,19 @@
 		"title": "Rembrant van Rijn, An Elephant, a drawing.",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/nature",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/tech",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -80,19 +80,19 @@
 		"title": "Veggies sunt bona vobis, proinde vos postulo",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/tech",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/people",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -157,19 +157,19 @@
 		"title": "Bacon ipsum dolor sit amet turducken strip steak beef ribs shank",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/people",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/nature",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -234,19 +234,19 @@
 		"title": "Whatever swag accusamus occupy, gentrify butcher tote bag",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/arch",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/people/grayscale",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -311,19 +311,19 @@
 		"title": "Marshall McLuhan Colbert bump backpack journalist vast wasteland Romenesko CPM",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/grayscale",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/animals",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/arch",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -388,19 +388,19 @@
 		"title": "Thunder, thunder, thundercats, Ho!",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/animals",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/people/grayscale",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -465,19 +465,19 @@
 		"title": "Yeah, I like animals better than people sometimes",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/any",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/any",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -542,19 +542,19 @@
 		"title": "Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/grayscale",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/any/grayscale",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/any/grayscale",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -619,19 +619,19 @@
 		"title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de 'Night Watch'",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/sepia",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/any/sepia",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/any/sepia",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -696,19 +696,19 @@
 		"title": "Help, help, I'm being repressed!",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/grayscale",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/nature/grayscale",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/arch/grayscale",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -773,19 +773,19 @@
 		"title": "Danish danish candy canes bonbon cheesecake danish marzipan",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/sepia",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/animals/sepia",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/arch/sepia",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},
@@ -850,19 +850,19 @@
 		"title": "Cottage cheese brie lancashire. Boursin when the cheese comes out.",
 		"img": {
 			"avatar": {
-				"src": "http://placeimg.com/100/100/people/sepia",
+				"src": "fpo_avatar.png",
 				"alt": "Avatar"
 			},
 			"square": {
-				"src": "http://placeimg.com/300/300/people/sepia",
+				"src": "sample/thumb-square-yosemite.jpg",
 				"alt": "Square"
 			},
 			"rectangle": {
-				"src": "http://placeimg.com/400/300/people/sepia",
-				"alt": "Rectangle"
+				"src": "fpo_4x3.png",
+				"alt": "A Rectangle"
 			},
 			"portrait": {
-				"src": "http://placeimg.com/300/400/people",
+				"src": "fpo_3x4.png",
 				"alt": "Portrait"
 			}
 		},

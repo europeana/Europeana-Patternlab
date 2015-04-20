@@ -10,7 +10,6 @@
 	display: block;
 }
 
-
 .promo-block-image{
 
 	position: absolute;
@@ -56,18 +55,15 @@
 	.title{
 		display: block;
 		text-transform: uppercase;
-		@include fontSize(18px);
-		letter-spacing: 0.14em;
+		letter-spacing: 0.1em;
 	}
 
 	.subtitle{
 		display: block;
 		margin-top: $space-quarter;
-		@include fontSize(16px);
 		color: $gray97;
+		font-size: 0.8em;
 	}
-
-
 }
 
 .promo-block-text{
@@ -90,7 +86,6 @@
 
 	.title{
 		font-weight: bold;
-		@include fontSize(18px);
 	}
 
 	.count{
@@ -111,14 +106,14 @@
 	color: $white;
 	text-transform: uppercase;
 	font-weight: bold;
-	@include fontSize(12px);
+	font-size: 0.75em;
 	display: block;
-	padding: $space-quarter $space-half;
+	padding: 0.4em 0.8em;
 	position: absolute;
 	z-index: 50;
 	top: 5%;
 	left: -4px;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
 
     .item-channel &{
     	background-color: $eu-orange;
