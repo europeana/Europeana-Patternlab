@@ -270,3 +270,8 @@
 	}
 }
 
+@media all and (min-width: $bp-large) {
+	.nav-toggle-settings span{
+		display: inline;
+	}
+}
