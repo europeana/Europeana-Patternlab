@@ -2,34 +2,212 @@
 	"bodyClass": "europeana_search",
 	"page_title": "Europeana Search",
 
-	"globalnav_options": {
-		"search": false,
-		"myeuropeana": true
-	},
-
-	"navigation":{
-		"next_prev":{
-			"next_url": "next_url_here",
-			"next_text": "Next",
-			"prev_url": "prev_url_here",
-			"prev_text": "Previous",
-			"back_url": "back_url_here",
-			"back_text": "Go back to search results"
-		}
-	},
-
-	"page_config": {
-		"newsletter": true
-	},
-
-	"debug":"",
-
 	"css_files": [
 		{
 			"path": "../../css/search/screen.css",
 			"media": "all"
 		}
 	],
+	"js_files": [
+		{
+			"path": "../../js/patternlab/output/global-min.js"
+		},
+		{
+			"path": "../../js/patternlab/output/search-min.js"
+		}
+	],
+
+	"content": {
+		"object":{
+			"images":{
+				"main": "sample/landscape-16x9-mountains.jpg",
+				"thumb": "sample/thumb-art.jpg",
+				"full": "sample/full_image.jpg"
+			},
+			
+			"title": "The Milkmaid",
+			"subtitle": "Het melkmeisje",
+			"description" : "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
+			"creation_date": "1660",
+			"origin": {
+				"institution_name": "Rijksmuseum",
+				"institution_country": "Netherlands",
+				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
+				"logo": "sample/logo.jpg"
+			},
+			"rights":{
+				"license_public": true,
+				"license_human": "You can use this image in any way you like"
+			},
+			"tags": {
+				"items": [
+					{
+						"text": "tagtext",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "tagtext",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "tagtext",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "tagtext",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "tagtext",
+						"url": "http://europeana.eu"
+					}
+				],
+				"add_url": "add_new_tag_url_here"
+			},
+			"colours":{
+				"items":[
+					{
+						"hex":"#2F4F4F",
+						"url": "http://europeana.eu"
+					},
+					{
+						"hex":"#800000",
+						"url": "http://europeana.eu"
+					},
+					{
+						"hex":"#696969",
+						"url": "http://europeana.eu"
+					},
+					{
+						"hex":"#8B4513",
+						"url": "http://europeana.eu"
+					},
+					{
+						"hex":"#556B2F",
+						"url": "http://europeana.eu"
+					}
+				]
+			},
+			"concepts" : {
+				"items":[
+					{
+						"text": "oil painting",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "art work",
+						"url": "http://europeana.eu"
+					}
+				]
+			},
+			"download":{
+				"primary": {
+					"text": "Download book",
+					"url": "http://europeana.eu"
+				},
+				"secondary": {
+					"items":[
+						{
+						"text": "Epub",
+						"url": "http://europeana.eu"
+						},
+						{
+							"text": "Kindle",
+							"url": "http://europeana.eu"
+						},
+						{
+							"text": "DjVU",
+							"url": "http://europeana.eu"
+						}
+					]
+				}
+			}
+		},
+
+		"actions": {
+			"title": "Choose Action",
+			"items": [
+				{
+					"text": "Save",
+					"url": "http://europeana.eu"
+				},
+				{
+					"text": "Do Something",
+					"url": "http://europeana.eu"
+				},
+				{
+					"text": "Do Something",
+					"url": "http://europeana.eu"
+				},
+				{
+					"text": "Do Something",
+					"url": "http://europeana.eu"
+				},
+				{
+					"text": "Do Something",
+					"url": "http://europeana.eu"
+				}
+			]
+		},
+		
+		"creator":{
+			"name": "Johannes Vermeer",
+			"life":{
+				"from": {
+					"long": "31st October 1632",
+					"short": "1632"
+				},
+				"to": {
+					"long": "December 1675",
+					"short": "1675"
+				}
+			},
+			"title": "Painter",
+			"biography": {
+				"text":"Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+				"source": "Wikipedia",
+				"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+			}
+		},
+
+		"related": {
+			"title": "Related items",
+			"items": [
+				{
+					"title": "Woman reading a letter",
+					"creator": "Johannes Vermeer",
+					"image": "fpo_square.png",
+					"url": "http://europeana.eu"
+				},
+				{
+					"title": "View of houses in Delft",
+					"creator": "Johannes Vermeer",
+					"image": "fpo_square.png",
+					"url": "http://europeana.eu"
+				},
+				{
+					"title": "The love letter",
+					"creator": "Johannes Vermeer",
+					"image": "fpo_square.png",
+					"url": "http://europeana.eu"
+				},
+				{
+					"title": "view of Delft",
+					"creator": "Johannes Vermeer",
+					"image": "fpo_square.png",
+					"url": "http://europeana.eu"
+				},
+				{
+					"title": "Girl with a pearl earing",
+					"creator": "Johannes Vermeer",
+					"image": "fpo_square.png",
+					"url": "http://europeana.eu"
+				}
+			],
+			"more_url": "http://europeana.eu"
+		}
+
+	},
 
 	"data" : {
 
@@ -86,13 +264,110 @@
         "mlt" : "similar items"
 	},
 
-
-	"js_files": [
-		{
-			"path": "../../js/patternlab/output/global-min.js"
+	"navigation":{
+		"next_prev":{
+			"next_url": "next_url_here",
+			"next_text": "Next",
+			"prev_url": "prev_url_here",
+			"prev_text": "Previous",
+			"back_url": "back_url_here",
+			"back_text": "Go back to search results"
 		},
-		{
-			"path": "../../js/patternlab/output/search-min.js"
+		"global":{
+			"options": {
+				"search_active": false,
+				"settings_active": true
+			},
+			"primary_nav":{
+				"items": [
+					{
+						"url": "#",
+						"text": "Home",
+						"is_current":true
+					},
+					{
+						"url": "",
+						"text": "Channels",
+						"submenu": {
+							"items": [
+								{
+									"url":"http://google.com",
+									"text": "Channel 1"
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 2",
+									"is_current":true
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 3"
+								}
+							]
+						}
+					},
+					{
+						"url": "",
+						"text": "Exhibitions"
+					},
+					{
+						"url": "",
+						"text": "Blog"
+					},
+					{
+						"url": "",
+						"text": "My Europeana"
+					}
+				]
+			}
+		},
+
+		"footer":{
+			"linklist1":{
+				"title": "More info",
+				"items": [
+					{
+						"text": "New collections",
+						"url":"http://google.com"
+					},
+					{
+						"text": "All data providers",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Become a data provider",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"linklist2":{
+				"title": "Help",
+				"items": [
+					{
+						"text": "Search tips",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Using My Europeana",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Copyright",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"social":{
+				"linkedin": false,
+				"github": false
+			}
 		}
-	]
+
+	},
+
+	"page_config": {
+		"newsletter": true
+	},
+
+	"debug":""
 }

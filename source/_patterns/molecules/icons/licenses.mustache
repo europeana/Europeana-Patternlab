@@ -1,0 +1,46 @@
+{{! 
+
+License block template
+Location specific styles should be scoped to the parent container to maintain re-usability
+
+Configuration options and content model:
+# # # # # # # # # # # # # # # # 
+
+license options: ONLY ONE should be active
+
+{
+	"license_CC0": true
+	"license_CC-BY": true
+	"license_CC-BY-SA": true
+	"license_CC-BY-NC": true
+	"license_CC-ND-NC-SA": true
+	"license_public": true
+}
+
+# # # # # # # # # # # # # # # # 
+
+}}
+
+	{{#license_CC0}}
+	<a href="http://creativecommons.org/publicdomain/zero/1.0/" class="license icon-license-zero">CC0</a>
+	{{/license_CC0}}
+
+	{{#license_CC-BY}}
+	<a href="http://creativecommons.org/licenses/by/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span>CC-BY</a>
+	{{/license_CC-BY}}
+
+	{{#license_CC-BY-SA}}
+	<a href="http://creativecommons.org/licenses/by-sa/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-sa"></span>CC-BY-SA</a>
+	{{/license_CC-BY-SA}}
+
+	{{#license_CC-BY-NC}}
+	<a href="http://creativecommons.org/licenses/by-nc/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span>CC-BY-NC</a>
+	{{/license_CC-BY-NC}}
+
+	{{#license_CC-ND-NC-SA}}
+	<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-nd"></span><span class="icon-license-nc"></span><span class="icon-license-sa"></span>CC-ND-NC-SA</a>
+	{{/license_CC-ND-NC-SA}}
+
+	{{#license_public}}
+	<a href="http://creativecommons.org/publicdomain/mark/1.0/" class="license icon-license-pd">Public Domain</a>
+	{{/license_public}}

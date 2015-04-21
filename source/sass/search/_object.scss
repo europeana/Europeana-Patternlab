@@ -108,32 +108,13 @@
 	text-transform:	capitalize;
 }
 
-/* TODO: make color data data driven - colours will come from crf */
-
 .color-data{
-	margin:0.8em 0;				
-	display: none;
+	margin:$space-half 0;
 }
 .color-datum{
-	width:1.6em;
-	height:1.6em;
-	border:solid 2px black;
+	width:$space;
+	height:$space;
 	display:inline-block;
-}
-.color-datum:nth-child(1){
-	background-color: #2F4F4F;
-}
-.color-datum:nth-child(2){
-	background-color: #800000;
-}
-.color-datum:nth-child(3){
-	background-color: #696969;
-}
-.color-datum:nth-child(4){
-	background-color: #8B4513;
-}
-.color-datum:nth-child(5){
-	background-color: #556B2F;
 }
 
 
