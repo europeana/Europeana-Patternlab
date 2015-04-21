@@ -90,7 +90,7 @@
 
         <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
-		<a class="btn btn2" href="{{links.download}}">{{labels.download}}</a> <br/>
+		{{#links.download}}<a class="btn btn2" href="{{links.download}}">{{labels.download}}</a> <br/>{{/links.download}}
 
 		<div class="rights"><b>{{labels.rights}}</b><br/> {{data.edm_rights}}</div>
 
