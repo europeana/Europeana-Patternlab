@@ -5,198 +5,220 @@
 
 <div role="main" class="search-object section">
 
-	<div class="lc">
-		<div class="object-nav">
-			{{>molecules/navigation/next-previous}}
-		</div>
-	</div>
+    <div class="lc">
+        <div class="object-nav">
+            {{>molecules/navigation/next-previous}}
+        </div>
+    </div>
 
-{{#content}}
-	<div class="object-wrapper lc">
+    {{#content}}
+    <div class="object-wrapper lc">
 
-	
-	<div class="object-overview">
-{{#object}}
-		{{#images}}
-		<div class="object-image is-smallimage cf">
-			<img src="{{image_root}}{{main}}"/>
-		</div>
-		{{/images}}
+    
+    <div class="object-overview">
+    {{#object}}
 
-		<div class="object-info cf">
-			{{# title }}
-			<h2 class="object-title">{{title}}</h2>
-			{{/ title }}
+        {{#images}}
+            {{#thumbnail}}
+            <div class="object-image is-smallimage cf">
+                <img src="{{thumbnail}}"/>
+            </div>
+            {{/thumbnail}}
+        
+        {{/images}}
 
-			{{# subtitle }}
-			<div class="subtitle">{{subtitle}}</div>
-			{{/ subtitle }}
+        <div class="object-info cf">
+            {{# title }}
+            <h2 class="object-title">{{.}}</h2>
+            {{/ title }}
 
-			{{#creation_date}}
-			<div class="date_created">
-				{{creation_date}}
-			</div>
-			{{/creation_date}}
+            {{# subtitle }}
+            <div class="subtitle">{{.}}</div>
+            {{/ subtitle }}
 
-			{{# description}}
-			<div class="object-description">
-				{{description}}
-			</div>
-			{{/ description}}
-		</div>
-{{/object}}
+            {{#creation_date}}
+            <div class="date_created">
+                {{.}}
+            </div>
+            {{/creation_date}}
 
-		{{! Creator info }}
-{{#creator}}
-		<div class="object-creator cf">
+            {{# description}}
+            <div class="object-description">
+                {{.}}
+            </div>
+            {{/ description}}
+        </div>
 
-			<h3 class="subsection-label">
-				{{title}}
-			</h3>
-			
-			<div class="subsection-content">
-				
-				<div class="creator-name">
-					{{name}}
+        {{! Creator info }}
+        {{#creator}}
+        <div class="object-creator cf">
 
-					{{#life}}
-					<span class="life-dates">
-						({{from.short}} {{#to}} — {{short}} {{/to}}) 
-					</span>
-					{{/life}}
-				</div>
+            <h3 class="subsection-label">
+                {{title}}
+            </h3>
+            
+            <div class="subsection-content">
+                
+                <div class="creator-name">
+                    {{name}}
 
-				{{#biography}}
-				<div class="biography">
-					{{biography.text}}
-				</div>
-				{{/biography}}
-			</div>
+                    {{#life}}
+                    <span class="life-dates">
+                        ({{from.short}} {{#to}} — {{short}} {{/to}}) 
+                    </span>
+                    {{/life}}
+                </div>
 
-		</div>
-{{/creator}}
+                {{#biography}}
+                <div class="biography">
+                    {{biography.text}}
+                </div>
+                {{/biography}}
+            </div>
 
-		<div class="object-extradata cf">
-
-			<a class="js-showhide subsection-label" href="#" data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
-
-			<div class="subsection-content">
-
-				<div class="js-showhide-panel is-jshidden">
-
-					@todo add extra meta data here
-
-					<ul>
-						<li>Extra</li>
-						<li>Meta</li>
-						<li>Data</li>
-					</ul>
-
-				</div>
-
-			</div>
-		</div>
+        </div>
+        {{/creator}}
 
 
+        {{#geo.long_and_lat}}   {{! check both present }}
+            <div class="js-showhide-panel is-jshidden map-section">
+            
+                <h3 class="subsection-label">
+                    {{geo.labels.map}}
+                </h3>
+                <div class="object-info">
+                    <div id="map">
+                        <span id="map-place-name" class="js-hidden">{{geo.placeName}}</span>
+                        <div><b>{{geo.labels.longitude}}</b> {{geo.longitude}}</div>
+                        <div><b>{{geo.labels.latitude}}</b>  {{geo.latitude}}</div>
+                    </div>
+                </div>
+            </div>
+            <a   class="js-showhide" 
+                 href="#"
+                 data-fire-on-open="showMap"
+                 data-fire-on-open-params='{ "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } }'
+                 data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
+                 
+        {{/geo.long_and_lat}}
 
-	</div>
-	{{! end of object info column }}
+
+    {{/object}}
+
+        <div class="object-extradata cf">
+            <div class="subsection-content">
+                <div class="js-showhide-panel is-jshidden">
+                    @todo add extra meta data here
+                    <ul>
+                        <li>Extra</li>
+                        <li>Meta</li>
+                        <li>Data</li>
+                    </ul>
+                </div>
+            <a class="js-showhide subsection-label" href="#" data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
+            </div>
+        </div>
 
 
-	<div class="object-actions">
 
-		<div class="object-image-nav prototype-image">
-			{{!  }}
-		</div>
+    </div>
+    {{! end of object info column }}
+
+
+    <div class="object-actions">
+
+        <div class="object-image-nav prototype-image">
+        </div>
 
         <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
-{{#object.download}}
-		<div class="object-downloads">
+        {{#object.download}}
+            <div class="object-downloads">
+    
+                <a class="btn" href="{{primary.url}}">{{primary.text}}</a>
+    
+               {{#secondary}}
+                <div class="secondary">
+                    Download as:
+                    <ul class="nav">
+                    {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                    </ul>
+                </div>
+                {{/secondary}}
+            </div>
+        {{/object.download}}
 
-			<a class="btn" href="{{primary.url}}">{{primary.text}}</a>
 
-		{{#secondary}}
-			<div class="secondary">
-				Download as:
-				<ul class="nav">
-				{{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
-				</ul>
-			</div>
-		{{/secondary}}
-		</div>
-{{/object.download}}
+        {{# object.rights }}
+            <p class="rights">
+            {{license_human}}
+            .
+            {{> molecules/icons/licenses }}
+            </p>
+        {{/ object.rights }}
 
-{{# object.rights }}
-		<p class="rights">
-		{{license_human}}
-		.
-		{{> molecules/icons/licenses }}
-		</p>
-{{/ object.rights }}
+        {{# object.origin }}
+        <div class="object-origin">
 
-{{# object.origin }}
-		<div class="object-origin">
+            <a class="original_context" href="{{url}}">
+                {{institution_name}}
+                <svg class="icon icon-linkout">
+                    <use xlink:href="#icon-linkout"></use>
+                </svg>
+            </a>
 
-			<a class="original_context" href="{{url}}">
-				{{institution_name}}
-				<svg class="icon icon-linkout">
-					<use xlink:href="#icon-linkout"></use>
-				</svg>
-			</a>
+            {{#logo}}
+                <img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo">
+            {{/logo}}
 
-			{{#logo}}
-				<img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo">
-			{{/logo}}
+            <div class="country">{{institution_country}}</div>
 
-			<div class="country">{{institution_country}}</div>
+        </div>
+        {{/ object.origin }}
 
-		</div>
-{{/ object.origin }}
+        
 
-		
+        {{# object.concepts }}
+        <ul class="nav">
+            {{#items}}
+            <li><a href="{{url}}">{{text}}</a></li>
+            {{/items}}
+        </ul>
+        {{/ object.concepts }}
 
-{{# object.concepts }}
-		<ul class="nav">
-		{{#items}}
-				<li><a href="{{url}}">{{text}}</a></li>
-		{{/items}}
-		</ul>
-{{/ object.concepts }}
+        {{# object.tags }}
+            <ul class="nav">
+            {{#items}}
+                    <li><a href="{{url}}" class="tag">{{text}}</a></li>
+            {{/items}}
+            </ul>
+        {{/ object.tags }}
 
-{{# object.tags }}
-		<ul class="nav">
-		{{#items}}
-				<li><a href="{{url}}" class="tag">{{text}}</a></li>
-		{{/items}}
-		</ul>
-{{/ object.tags }}
-
-{{# object.colours }}
-		{{> molecules/media/colour-search }}
-{{/ object.colours }}
-		
-	</div>
-	</div>
-	{{/content}}
+        {{# object.colours }}
+            {{> molecules/media/colour-search }}
+        {{/ object.colours }}
+        
+    </div>
+    </div>
+    {{/content}}
 </div>
 
 {{! Related itens }}
 {{#content.related}}
 <section class="section">
 <div class="object-related lc">
-	<div class="subsection-label">
-		{{title}}
-	</div>
-	<div class="subsection-content">
-	<ul>
-	{{#items}}
-		<li class="mlt-item">
-		{{title}}
-		</li>
-	{{/items}}
-	</ul>
-	</div>
+    <div class="subsection-label">
+        {{title}}
+    </div>
+    <div class="subsection-content">
+    <ul>
+    {{#items}}
+        <li class="mlt-item">
+        {{title}}
+        </li>
+    {{/items}}
+    </ul>
+    </div>
 </div>
 </section>
 {{/content.related}}

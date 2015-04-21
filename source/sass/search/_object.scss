@@ -74,7 +74,10 @@
     }
 }
 
-.object-creator, .object-related, .map-section{
+.object-creator,
+.object-related,
+.map-section,
+.object-extradata{
     padding-top: $space;
     padding-bottom: $space;
     border-top: 1px solid $gray-lighter;

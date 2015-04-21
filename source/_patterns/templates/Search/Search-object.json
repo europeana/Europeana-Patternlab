@@ -20,15 +20,35 @@
 	"content": {
 		"object":{
 			"images":{
-				"main": "sample/landscape-16x9-mountains.jpg",
-				"thumb": "sample/thumb-art.jpg",
-				"full": "sample/full_image.jpg"
+				"main": "http://develop.styleguide.eanadev.org/images/sample/landscape-16x9-mountains.jpg",
+				"thumb": "http://develop.styleguide.eanadev.org/images/sample/thumb-art.jpg",
+				"full": "http://develop.styleguide.eanadev.org/images/sample/full_image.jpg"
 			},
 			
 			"title": "The Milkmaid",
+			"type": "image",
 			"subtitle": "Het melkmeisje",
 			"description" : "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
 			"creation_date": "1660",
+			"creator": {
+                "name": "Johannes Vermeer",
+                "life":{
+                    "from": {
+                        "long": "31st October 1632",
+                        "short": "1632"
+                    },
+                    "to": {
+                        "long": "December 1675",
+                        "short": "1675"
+                    }
+                },
+                "title": "Painter",
+                "biography": {
+                    "text":"Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+                    "source": "Wikipedia",
+                    "source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+                }
+            },
 			"origin": {
 				"institution_name": "Rijksmuseum",
 				"institution_country": "Netherlands",
@@ -150,26 +170,6 @@
 			]
 		},
 		
-		"creator":{
-			"name": "Johannes Vermeer",
-			"life":{
-				"from": {
-					"long": "31st October 1632",
-					"short": "1632"
-				},
-				"to": {
-					"long": "December 1675",
-					"short": "1675"
-				}
-			},
-			"title": "Painter",
-			"biography": {
-				"text":"Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
-				"source": "Wikipedia",
-				"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
-			}
-		},
-
 		"related": {
 			"title": "Related items",
 			"items": [
