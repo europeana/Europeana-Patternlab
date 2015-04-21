@@ -74,10 +74,14 @@
     }
 }
 
-.object-creator, .object-related{
+.object-creator, .object-related, .map-section{
     padding-top: $space;
     padding-bottom: $space;
     border-top: 1px solid $gray-lighter;
+}
+
+#map{
+    height: 22em;
 }
 
 .subsection-label{
