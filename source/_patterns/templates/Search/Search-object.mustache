@@ -135,7 +135,9 @@
         {{#object.download}}
             <div class="object-downloads">
     
-                <a class="btn" href="{{primary.url}}">{{primary.text}}</a>
+               {{#primary.url}}
+               <a class="btn" href="{{primary.url}}">{{primary.text}}</a>
+               {{/primary.url}}
     
                {{#secondary}}
                 <div class="secondary">
