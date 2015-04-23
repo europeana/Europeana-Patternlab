@@ -1,5 +1,5 @@
 
-
+// The link that triggers the menu show/hide
 .dropdown-trigger{
 	text-transform: uppercase;
 	font-weight: bold;
@@ -8,6 +8,7 @@
 	padding-right: 1em;
 	white-space: nowrap;
 
+	// A little down arrow
 	&:after {
 		content: '';
 		border-left: 5px solid transparent;
@@ -21,7 +22,7 @@
 }
 
 
-
+// The menu portion
 .dropdown {
 	display: none;
 
@@ -121,4 +122,18 @@
 	font-size: 0;
 	border-top: solid 1px #E5E5E5;
 	margin: 5px 0;
+}
+
+
+//select menu theme
+.theme_select{
+	.dropdown-trigger{
+		display: block;
+		padding: $space-half;
+		border: 1px solid $gray-lighter;
+
+		&:after {
+			right: $space-half;
+		}
+	}
 }

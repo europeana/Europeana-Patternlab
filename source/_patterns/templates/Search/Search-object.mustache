@@ -19,11 +19,15 @@
     {{#object}}
 
         {{#images}}
-            {{#thumbnail}}
+            {{#primary}}
             <div class="object-image is-smallimage cf">
-                <img src="{{thumbnail}}"/>
+                <img src="{{preview}}"/>
             </div>
-            {{/thumbnail}}
+
+
+            {{/primary}}
+
+
         
         {{/images}}
 
@@ -103,12 +107,11 @@
         {{/geo.long_and_lat}}
 
 
-    {{/object}}
-
+		{{#meta_additional}}
         <div class="object-extradata cf">
             <div class="subsection-content">
                 <div class="js-showhide-panel is-jshidden">
-                    @todo add extra meta data here
+                    
                     <ul>
                         <li>Extra</li>
                         <li>Meta</li>
@@ -118,9 +121,9 @@
             <a class="js-showhide subsection-label" href="#" data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
             </div>
         </div>
+		{{/meta_additional}}
 
-
-
+    {{/object}}
     </div>
     {{! end of object info column }}
 
@@ -128,39 +131,39 @@
     <div class="object-actions">
 
         <div class="object-image-nav prototype-image">
+        {{! @TODO Object image thumbnail navigation goes here }}
         </div>
 
         <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
 
         {{#object.download}}
-            <div class="object-downloads">
-    
-               <a class="btn" href="{{primary.url}}">{{primary.text}}</a>
-    
-               {{#secondary}}
-                <div class="secondary">
-                    Download as:
-                    <ul class="nav">
-                    {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
-                    </ul>
-                </div>
-                {{/secondary}}
+        <div class="object-downloads">
+
+           <a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
+
+           {{#secondary}}
+            <div class="secondary">
+                Download as:
+                <ul class="nav">
+                {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                </ul>
             </div>
+            {{/secondary}}
+        </div>
         {{/object.download}}
 
 
         {{# object.rights }}
-            <p class="rights">
-            {{license_human}}
-            .
-            {{> molecules/icons/licenses }}
-            </p>
+        <div class="object-rights">
+        {{license_human}}
+        	<div class="object-license">{{> molecules/icons/licenses }}</div>
+        </div>
         {{/ object.rights }}
 
         {{# object.origin }}
         <div class="object-origin">
 
-            <a class="original_context" href="{{url}}">
+            <a class="original_context cap" href="{{url}}">
                 {{institution_name}}
                 <svg class="icon icon-linkout">
                     <use xlink:href="#icon-linkout"></use>
@@ -171,32 +174,44 @@
                 <img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo">
             {{/logo}}
 
-            <div class="country">{{institution_country}}</div>
+            <div class="cap">{{institution_country}}</div>
 
         </div>
         {{/ object.origin }}
-
         
 
         {{# object.concepts }}
-        <ul class="nav">
-            {{#items}}
-            <li><a href="{{url}}">{{text}}</a></li>
-            {{/items}}
-        </ul>
+        <div class="object-concepts">
+	        <ul class="nav">
+	            {{#items}}
+	            <li><a href="{{url}}">{{text}}</a></li>
+	            {{/items}}
+	        </ul>
+        </div>
         {{/ object.concepts }}
 
         {{# object.tags }}
+        <div class="object-tags">
             <ul class="nav">
             {{#items}}
                     <li><a href="{{url}}" class="tag">{{text}}</a></li>
             {{/items}}
             </ul>
+         </div>
         {{/ object.tags }}
 
         {{# object.colours }}
+        <div class="object-colours">
             {{> molecules/media/colour-search }}
+        </div>
         {{/ object.colours }}
+
+
+		{{# object.further_actions }}
+		<div class="object-furtheractions">
+			{{> molecules/controls/dropdown-menu }}
+		</div>
+		{{/ object.further_actions }}
         
     </div>
     </div>

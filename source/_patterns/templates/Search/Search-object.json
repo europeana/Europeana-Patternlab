@@ -20,13 +20,17 @@
 	"content": {
 		"object":{
 			"images":{
-				"main": "http://develop.styleguide.eanadev.org/images/sample/landscape-16x9-mountains.jpg",
-				"thumb": "http://develop.styleguide.eanadev.org/images/sample/thumb-art.jpg",
-				"full": "http://develop.styleguide.eanadev.org/images/sample/full_image.jpg"
+				"primary":{
+					"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
+					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+				}
+				
 			},
 			
 			"title": "The Milkmaid",
 			"type": "image",
+			"is_image": true,
 			"subtitle": "Het melkmeisje",
 			"description" : "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
 			"creation_date": "1660",
@@ -141,33 +145,44 @@
 						}
 					]
 				}
+			},
+			"further_actions": {
+				"button_title": "Choose Action",
+				"menu_title": "Save this object to:",
+				"menu_id": "object_furtheractions",
+				"style_modifier":"theme_select",
+				"items": [
+					{
+						"text": "My Europeana",
+						"url": "http://europeana.eu"
+					},
+					{
+						"text": "New collection",
+						"url": "http://europeana.eu"
+					},
+					{
+						"divider": true
+					},
+					{
+						"text": "Do Something",
+						"url": "http://europeana.eu",
+						"calltoaction": true
+					},
+					{
+						"text": "Do Something",
+						"url": "http://europeana.eu",
+						"calltoaction": true
+					},
+					{
+						"divider": true
+					},
+					{
+						"text": "Do Something",
+						"url": "http://europeana.eu",
+						"calltoaction": true
+					}
+				]
 			}
-		},
-
-		"actions": {
-			"title": "Choose Action",
-			"items": [
-				{
-					"text": "Save",
-					"url": "http://europeana.eu"
-				},
-				{
-					"text": "Do Something",
-					"url": "http://europeana.eu"
-				},
-				{
-					"text": "Do Something",
-					"url": "http://europeana.eu"
-				},
-				{
-					"text": "Do Something",
-					"url": "http://europeana.eu"
-				},
-				{
-					"text": "Do Something",
-					"url": "http://europeana.eu"
-				}
-			]
 		},
 		
 		"related": {
