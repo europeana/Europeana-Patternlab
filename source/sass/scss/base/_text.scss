@@ -139,6 +139,10 @@ small{
     letter-spacing: 0.1rem;
 }
 
+.cap {
+    text-transform: capitalize;
+}
+
 // Real small caps.
 .small-caps {
     -moz-font-feature-settings: 'smcp=1, kern=1';
