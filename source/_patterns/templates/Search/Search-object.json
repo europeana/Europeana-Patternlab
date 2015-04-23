@@ -126,7 +126,7 @@
 			},
 			"download":{
 				"primary": {
-					"text": "Download book",
+					"text": "Download",
 					"url": "http://europeana.eu"
 				},
 				"secondary": {

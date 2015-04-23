@@ -142,9 +142,11 @@
            <a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
 
            {{#secondary}}
-            <div class="secondary">
-                Download as:
-                <ul class="nav">
+            <div class="secondary inline-list">
+
+                <span class="label">Also available:</span>
+
+                <ul>
                 {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
                 </ul>
             </div>
@@ -160,8 +162,15 @@
         </div>
         {{/ object.rights }}
 
+
         {{# object.origin }}
         <div class="object-origin">
+
+        	<h4>Provided by:</h4>
+
+            {{#logo}}
+                <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+            {{/logo}}
 
             <a class="original_context cap" href="{{url}}">
                 {{institution_name}}
@@ -170,25 +179,25 @@
                 </svg>
             </a>
 
-            {{#logo}}
-                <img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo">
-            {{/logo}}
-
-            <div class="cap">{{institution_country}}</div>
+            <span class="cap">{{institution_country}}</span>
 
         </div>
         {{/ object.origin }}
         
 
         {{# object.concepts }}
-        <div class="object-concepts">
-	        <ul class="nav">
+        <div class="object-concepts inline-list">
+
+        	<h4 class="label">This is:</h4>
+
+	        <ul>
 	            {{#items}}
-	            <li><a href="{{url}}">{{text}}</a></li>
+	            <li><a href="{{url}}" class="cap">{{text}}</a></li>
 	            {{/items}}
 	        </ul>
         </div>
         {{/ object.concepts }}
+
 
         {{# object.tags }}
         <div class="object-tags">
@@ -200,9 +209,10 @@
          </div>
         {{/ object.tags }}
 
+
         {{# object.colours }}
         <div class="object-colours">
-            {{> molecules/media/colour-search }}
+            {{> molecules/controls/colour-search }}
         </div>
         {{/ object.colours }}
 

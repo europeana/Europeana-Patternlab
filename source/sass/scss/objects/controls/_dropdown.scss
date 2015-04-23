@@ -135,5 +135,9 @@
 		&:after {
 			right: $space-half;
 		}
+
+		&:hover, &:focus{
+			background-color: $gray-lightest;
+		}
 	}
 }

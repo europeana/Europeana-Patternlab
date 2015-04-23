@@ -31,6 +31,8 @@
 
 .object-actions{
 
+    @include fontSize(14px);
+
     @media all and (min-width: $bp-med) {
         @include span(last 6);
     }
@@ -59,13 +61,32 @@
 .object-image-nav{
     display: none;
     text-align: center;
-    /*
-    padding-top: 100%;
-	*/
+    //padding-bottom: 100%;
+	
     @media all and (min-width: $bp-med) {
         display: block;
+    }    
+}
+
+.inline-list{
+
+    > * {
+        display: inline;
+        margin-right: 0.4em;
     }
-    
+
+    li:after{
+        content: ',';
+    }
+    li:last-child:after{
+        content: '';
+    }
+}
+
+.object-downloads{
+    .btn{
+        margin-bottom: $space-quarter;
+    }
 }
 
 .object-info{
@@ -114,12 +135,25 @@
 }
 
 .color-data{
-	margin:$space-half 0;
+    font-size: 0;
 }
 .color-datum{
-	width:$space;
-	height:$space;
-	display:inline-block;
+	width:20%;
+    padding-bottom: 20%;
+    position: relative;
+
+    &:last-child a{
+        border-right: none;
+    }
+
+    a{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+        @include fontSize(14px);
+        border-right: 1px solid $white;
+    }
 }
 
 
@@ -127,7 +161,6 @@
     @include gallery(12 of 24);
     height: 10em;
     margin-bottom: $space-quarter;
-    background-color: lightgray;
 
     @media all and (min-width: $bp-small) {
         @include gallery(8 of 24);
