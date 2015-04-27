@@ -9,7 +9,7 @@ $(function() {
     var bodyClickFn = function(evt) {
         var target = $(evt.target);
         if(!target.closest('.menu-right, .nav-toggle-menu, .nav-toggle-search, .search-global, .nav-toggle-sites, .menu-top').length){
-            Site.resetMenu();
+            resetMenu();
         }
     };
 

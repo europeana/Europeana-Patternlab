@@ -21,6 +21,49 @@ var Site = window.Site || {};
     Site.resetMenu = function(){
         body.removeClass('is-open-menu-right is-open-globalsearch is-open-menu-top');
         document.removeEventListener( 'click', bodyClickFn );
+    };    
+
+    Site.init_menu = function(){
+                //Navigation toggle
+        $('.nav-toggle-menu').on("click", function(e) {
+
+            if( body.hasClass( 'is-open-menu-right' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-menu-right');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+
+        });
+
+        //Navigation toggle
+        $('.nav-toggle-search').on('click', function(e) {
+
+            if( body.hasClass( 'is-open-globalsearch' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-globalsearch');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            $('input.js-global-search').focus();
+            e.preventDefault();
+        });
+
+        //Our Sites toggle
+        $('.nav-toggle-sites').on('click', function(e) {
+
+            if( body.hasClass( 'is-open-menu-top' ) ){
+                Site.resetMenu();
+            }else{
+                body.addClass('is-open-menu-top');
+                document.addEventListener( 'click', bodyClickFn );
+            }
+
+            e.preventDefault();
+        });
     };
 
     // Swaps the input fields placeholder text in and out
@@ -68,52 +111,8 @@ var Site = window.Site || {};
 
         //Feature detect
         Site.featuredetect();
-
-        //Navigation toggle
-        $('.nav-toggle-menu').on("click", function(e) {
-
-            if( body.hasClass( 'is-open-menu-right' ) ){
-                Site.resetMenu();
-            }else{
-                body.addClass('is-open-menu-right');
-                document.addEventListener( 'click', bodyClickFn );
-            }
-
-            e.preventDefault();
-
-        });
-
-        //Navigation toggle
-        $('.nav-toggle-search').on('click', function(e) {
-
-            if( body.hasClass( 'is-open-globalsearch' ) ){
-                Site.resetMenu();
-            }else{
-                body.addClass('is-open-globalsearch');
-                document.addEventListener( 'click', bodyClickFn );
-            }
-
-            $('input.js-global-search').focus();
-            e.preventDefault();
-        });
-
-        //Our Sites toggle
-        $('.nav-toggle-sites').on('click', function(e) {
-
-            if( body.hasClass( 'is-open-menu-top' ) ){
-                Site.resetMenu();
-            }else{
-                body.addClass('is-open-menu-top');
-                document.addEventListener( 'click', bodyClickFn );
-            }
-
-            e.preventDefault();
-        });
-
-
+        Site.init_menu();
         Site.placeholders();
-
-
 
     });
 })(jQuery);
