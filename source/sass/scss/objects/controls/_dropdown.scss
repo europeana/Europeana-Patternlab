@@ -80,11 +80,17 @@
 }
 
 .menu-title{
-	padding: $space-quarter $space-half;
 	border-bottom: 1px solid $gray87;
-	color: $textcolour_link;
 	background-color: #FFF;
+	color: $textcolour_link;
 	margin-bottom: $space-quarter;
+	padding: $space-quarter $space-half;
+}
+
+.menu-subtitle{
+	padding: $space-quarter $space-half;
+	padding-bottom: 0;
+	font-size: $font-size-slightly-smaller;
 }
 
 .dropdown-menu{
@@ -92,8 +98,6 @@
 
 	li {
 		list-style: none;
-		padding: 0 0;
-		margin: 0;
 		line-height: 1.2em;
 	}
 

@@ -24,7 +24,29 @@
 					"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
 					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
-				}
+				},
+				"additional":[
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
+					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+					},
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
+					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+					},
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
+					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+					},
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
+					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+					}
+				]
 				
 			},
 			
@@ -148,40 +170,63 @@
 			},
 			"further_actions": {
 				"button_title": "Choose Action",
-				"menu_title": "Save this object to:",
+				"menu_title": "Save to:",
 				"menu_id": "object_furtheractions",
 				"style_modifier":"theme_select",
 				"items": [
 					{
 						"text": "My Europeana",
-						"url": "http://europeana.eu"
-					},
-					{
-						"text": "New collection",
-						"url": "http://europeana.eu"
-					},
-					{
+						"url": "http://europeana.eu",
 						"divider": true
 					},
 					{
-						"text": "Do Something",
+						"subtitle": "Share:",
+						"url": false
+					},
+					{
+						"text": "Share on Facebook",
 						"url": "http://europeana.eu",
 						"calltoaction": true
 					},
 					{
-						"text": "Do Something",
+						"text": "Tweet",
 						"url": "http://europeana.eu",
 						"calltoaction": true
 					},
 					{
-						"divider": true
-					},
-					{
-						"text": "Do Something",
+						"text": "Pin to Pinterest",
 						"url": "http://europeana.eu",
 						"calltoaction": true
+					},
+					{
+						"divider": true,
+						"url": false
+					},
+					{
+						"text": "Print",
+						"url": "http://europeana.eu"
 					}
 				]
+			},
+			"meta_additional":{
+
+				"geo":{
+					"long_and_lat": true,
+					"longitude": "12345",
+					"latitude": "12345",
+					"labels":{
+						"map": "Map",
+						"longitude": "Longitude",
+						"latitude": "Latitude",
+						"points":{
+							"n":"North",
+							"e":"East",
+							"s":"South",
+							"w":"West"
+						}
+					}
+				}
+
 			}
 		},
 		

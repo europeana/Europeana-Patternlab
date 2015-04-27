@@ -12,14 +12,19 @@
 
     <ul class="dropdown-menu">
     {{#items}}
+
+        {{#subtitle}}
+        <li><div class="menu-subtitle">{{subtitle}}</div></li>
+        {{/subtitle}}
+
+        {{#url}}
+        <li><a href="{{url}}" {{#calltoaction}} class="menu-more" {{/calltoaction}}>{{text}}</a></li>
+        {{/url}}
+
         {{# divider}}
         <li class="dropdown-divider"></li>
         {{/divider}}
 
-        {{^ divider}}
-        <li><a href="{{url}}" {{#calltoaction}} class="menu-more" {{/calltoaction}}>{{text}}</a></li>
-        {{/divider}}
-        
     {{/items}}
     </ul>
 </div>

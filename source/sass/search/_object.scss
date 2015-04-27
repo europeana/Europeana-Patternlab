@@ -84,6 +84,7 @@
 }
 
 .object-downloads{
+    text-align: center;
     .btn{
         margin-bottom: $space-quarter;
     }
@@ -159,7 +160,6 @@
 
 .mlt-item{
     @include gallery(12 of 24);
-    height: 10em;
     margin-bottom: $space-quarter;
 
     @media all and (min-width: $bp-small) {

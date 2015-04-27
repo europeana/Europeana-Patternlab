@@ -1,3 +1,22 @@
+{{! 
+Navigation - Next/Previous
+
+Configuration options and content model:
+# # # # # # # # # # # # # # # # 
+
+"navigation":{      // pagination should be within the navigation object
+    "next_prev":{
+		"next_url": "next_url_here",
+		"next_text": "Next",
+		"prev_url": "prev_url_here",
+		"prev_text": "Previous",
+		"back_url": "back_url_here",
+		"back_text": "Go back to search results"
+	}
+}
+# # # # # # # # # # # # # # # # 
+
+}}
 <ul class="next-previous nav cf">
 	<li class="previous">
 		{{#navigation.next_prev.prev_url}}
