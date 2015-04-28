@@ -18,18 +18,37 @@
     <div class="object-overview">
     {{#object}}
 
-        {{#images}}
+        {{#media}}
             {{#primary}}
+            {{#is_image}}
             <div class="object-image is-smallimage cf">
                 <img src="{{preview}}"/>
             </div>
-
-
+            {{/is_image}}
+            {{#is_video}}
+            <div class="object-image is-smallimage cf">
+                Video player here
+            </div>
+            {{/is_video}}
+            {{#is_text}}
+            <div class="object-image is-smallimage cf">
+                Text viewer here
+            </div>
+            {{/is_text}}
+            {{#is_audio}}
+            <div class="object-image is-smallimage cf">
+                Audio player here
+            </div>
+            {{/is_audio}}
             {{/primary}}
 
-
-        
-        {{/images}}
+            {{#additional}}
+            - additional media here
+            <ul>
+                <li><a href=""></a></li>
+            </ul>
+            {{/additional}}
+        {{/media}}
 
         <div class="object-info cf">
             {{# title }}
@@ -154,12 +173,12 @@
         {{/object.download}}
 
 
-        {{# object.rights }}
+        {{# object.media.primary.rights }}
         <div class="object-rights">
         {{license_human}}
         	<div class="object-license">{{> molecules/icons/licenses }}</div>
         </div>
-        {{/ object.rights }}
+        {{/ object.media.primary.rights }}
 
 
         {{# object.origin }}

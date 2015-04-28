@@ -19,13 +19,20 @@
 
 	"content": {
 		"object":{
-			"images":{
+			"media":{
+				
 				"primary":{
 					"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
-					"full_res": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg"
+					"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+					"is_image": true,
+					"rights":{
+						"license_public": true,
+						"license_human": "You can use this image in any way you like"
+					}
 				},
-				"additional":[
+
+				"items":[
 					{
 						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumb.jpg",
@@ -80,10 +87,6 @@
 				"institution_country": "Netherlands",
 				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
 				"logo": "sample/logo.jpg"
-			},
-			"rights":{
-				"license_public": true,
-				"license_human": "You can use this image in any way you like"
 			},
 			"tags": {
 				"items": [
