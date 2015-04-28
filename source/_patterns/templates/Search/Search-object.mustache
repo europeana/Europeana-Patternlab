@@ -17,37 +17,44 @@
     
     <div class="object-overview">
     {{#object}}
-
+        
+        
+            
+        
         {{#media}}
+        <div class="object-display is-smallimage cf">
             {{#primary}}
             {{#is_image}}
-            <div class="object-image is-smallimage cf">
-                <img src="{{preview}}"/>
+            <div class="object-media-image">
+                <img src="{{preview}}" alt="{{alt}}"/>
             </div>
             {{/is_image}}
             {{#is_video}}
-            <div class="object-image is-smallimage cf">
+            <div class="object-media-video">
                 Video player here
             </div>
             {{/is_video}}
             {{#is_text}}
-            <div class="object-image is-smallimage cf">
+            <div class="object-media-text">
                 Text viewer here
             </div>
             {{/is_text}}
             {{#is_audio}}
-            <div class="object-image is-smallimage cf">
+            <div class="object-media-audio">
                 Audio player here
             </div>
             {{/is_audio}}
             {{/primary}}
 
             {{#additional}}
-            - additional media here
-            <ul>
-                <li><a href=""></a></li>
+            <ul class="object-media-nav nav">
+            {{#items}}
+                <li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+            {{/items}}
             </ul>
+
             {{/additional}}
+        </div>
         {{/media}}
 
         <div class="object-info cf">
@@ -256,7 +263,7 @@
     <ul>
     {{#items}}
         <li class="mlt-item">
-        {{> molecules/blocks/link-block-full}}
+        >> link block here
         </li>
     {{/items}}
     </ul>

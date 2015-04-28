@@ -46,7 +46,8 @@
 	word-break: normal;
 }
 
-.object-image{
+// main media display area
+.object-display{
     /*  min-height: 30em;  */
     overflow-y: auto;
     margin-bottom: $space;
@@ -55,6 +56,15 @@
         @media all and (min-width: $bp-med) {
             @include push(4 of 18);
         }
+    }
+}
+
+.object-media-nav{
+
+    overflow-y: hidden; 
+
+    li{
+        width: 6em;
     }
 }
 // Thumbnail/zoomer preview widget
