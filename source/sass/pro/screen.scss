@@ -117,16 +117,12 @@ $textcolour_highlight: $accent;
 	
 	@media all and (min-width: $bp-med) {
 		background: $offwhite; // fallback
-		background: linear-gradient(to left, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
-		// TODO: add gradients for older browsers
-
-		//background: -moz-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
-background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
 
 	}
 
