@@ -1,0 +1,11 @@
+{
+	"bodyClass": "europeana_labs",
+	"pagetitle": "Europeana Labs - Event",
+
+	"css_files": [
+		{
+			"path": "../../css/labs/screen.css",
+			"media": "all"
+		}
+	]
+}

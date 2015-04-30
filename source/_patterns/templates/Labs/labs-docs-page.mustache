@@ -218,42 +218,9 @@
 
 Start navigation
  --><div class="sidebar">
-		<ul class="nav_secondary">
-			<li><a href="/api" title="API Introduction">Introduction</a></li>
-			<li class="is_open">
-				<a class="js-menuTrigger">REST API</a>
-
-				<ul>
-                    <li><a href="/api/introduction" title="Introduction">Introduction</a></li>
-                    <li><a href="/api/getting-started" title="Getting Started with the Europeana REST API">Getting Started</a></li>
-					<li><a href="/api/registration" title="API Registration">Get an API-key</a></li>
-					<li><a href="/api/console" title="API Console">Console</a></li>
-					<li><a href="/api/authentication" title="Authentication">Authentication</a></li>
-					<li><a href="/api/search" title="Search">Search</a></li>
-					<li><a href="/api/query" title="Query">Query Syntax</a></li>
-					<li><a href="/api/record" title="Record">Record</a></li>
-					<li><a href="/api/myeuropeana" title="Accessing MyEuropeana">MyEuropeana</a></li>
-					<li><a href="/api/provider" title="Querying Providers and Datasets">Provider and Datasets</a></li>
-					<li><a href="/api/data-hierarchy" title="Data Hierarchy">Data Hierarchy</a></li>
-                    <li><a href="/api/data-fields" title="Data Fields">Data Fields</a></li>
-					<li><a href="/api/error" title="Error Codes">Error Codes</a></li>	
-					<li><a href="/api/changelog" title="API ChangeLog">Change Log</a></li>
-				</ul>
-			</li>
-			<li>
-				<a class="js-menuTrigger">Linked Open Data</a>
-				<ul>
-					<li><a href="/api/linked-open-data/introduction">Introduction</a></li>
-					<li><a href="/api/linked-open-data/data-downloads">Data Downloads</a></li>
-					<li><a href="/api/linked-open-data/SPARQL-endpoint">SPARQL-endpoint</a></li>
-					<li><a href="/api/linked-open-data/data-structure">Data Structure</a></li>
-					<li><a href="/api/linked-open-data/FAQ">FAQ</a></li>
-					<li><a href="/api/linked-open-data/credits">Credits</a></li>
-				</ul>
-			</li>
-			<li><a href="/api/search-widget" title="Search Widget">Search Widget</a></li>			
-			<li><a href="http://www.europeana.eu/portal/rights/api-terms-of-use.html" title="API Data Fields Reference">Terms of Use</a></li>				
-		</ul>	
+ 		<div class="js-sticky">
+		{{> molecules/navigation/nav-secondary }}
+		</div>
 	</div>
 </div>
 </div>
