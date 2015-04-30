@@ -200,12 +200,13 @@
 				"items": [
 					{
 						"url": "#",
-						"text": "Home",
-						"is_current":true
+						"text": "Home"
+						
 					},
 					{
 						"url": "",
 						"text": "Channels",
+						"is_current":true,
 						"submenu": {
 							"items": [
 								{
