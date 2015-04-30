@@ -135,9 +135,7 @@
 }
 
 // Channel landing specific
-.channel-hero{
-	height: 40%;
-}
+
 
 
 .channel_landing{
@@ -186,15 +184,18 @@
 	}
 }
 
-
+.channel-hero{
+	background-position: 50% 80%;
+}
 
 .channel-info{
 
-	padding: $space;
+	padding: 0 $space;
+	margin-top: $space;
 	margin-bottom: 0;
 
 	.lc > div{
-		margin-bottom: $space-half;
+		margin-bottom: $space;
 	}
 
 	@media all and (min-width: $bp-med) {
@@ -206,7 +207,7 @@
 	}
 }
 .channel-description{
-	@include fontSize(18px);
+	//@include fontSize(18px);
 
 	@media all and (min-width: $bp-med) {
 		@include span(8 of 24);
@@ -251,7 +252,7 @@
 	}
 }
 
-.channel-credits{
+.section.channel-credits{
 	.title{
 		@media all and (min-width: $bp-med) {
 			@include span(4 of 24);

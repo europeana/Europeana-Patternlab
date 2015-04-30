@@ -1,0 +1,277 @@
+{
+	"bodyClass": "channel_landing",
+	"pagetitle": "Europeana Search",
+
+	"globalnav_options": {
+		"search": false,
+		"myeuropeana": true
+	},
+
+	"page_config": {
+		"newsletter": true
+	},
+
+	"css_files": [
+		{
+			"path": "../../css/search/screen.css",
+			"media": "all"
+		}
+	],
+
+	"js_files": [
+		{
+			"path": "../../js/patternlab/output/global-min.js"
+		},
+		{
+			"path": "../../js/patternlab/output/search-min.js"
+		}
+	],
+	
+	"input_search": {
+		"title": "Search Europeana Art History",
+		"input_name": "q",
+		"placeholder": "Search Europeana Art History"
+	},
+
+	"content":{
+		"channel_info":{
+			"name": "Europeana Art History",
+			"description": "The <strong>Europeana Art History Channel</strong> brings you the lesser known as well as the famous pieces of European art combined with the books, letters, articles, videos and other material collated from our partner libraries, archives, and museums.",
+			"stats": {
+				"items": [
+					{
+						"count": "1,459,423",
+						"text": "Art related images",
+						"url": "#"
+					},
+					{
+						"count": "393,117",
+						"text": "Art related texts",
+						"url": "#"
+					},
+					{
+						"count": "1417",
+						"text": "Art related Moving images",
+						"url": "#"
+					},
+					{
+						"count": "1001",
+						"text": "Art related 3D objects",
+						"url": "#"
+					},
+					{
+						"count": "300",
+						"text": "Art related sound recordings",
+						"url": "#"
+					}
+				]
+			},
+			"recent": {
+				"title":"Recent Additions",
+				"items": [
+					{
+						"text": "Prado Museum",
+						"url": "#",
+						"number": "100 items",
+						"date": "May 2015"
+					},
+					{
+						"text": "Royal Armouries",
+						"url": "#",
+						"number": "6480 items",
+						"date": "May 2015"
+					},
+					{
+						"text": "British Library",
+						"url": "#",
+						"number": "33,326 items",
+						"date": "May 2015"
+					}
+				],
+				"more_link":{
+					"text": "Load more",
+					"url": "#777"
+				}
+			},
+			"credits":{
+				"title":"Curated by:",
+				"items": [
+					{
+						"text": "Deutsche National Bibliothek",
+						"url": "#777"
+					},
+					{
+						"text": "Netherlands institute for sound and vision",
+						"url": "#777"
+					}
+				]
+			}
+		},
+		"hero_config":{
+			"hero_image":"sample/channel_hero_art.jpg",
+			"attribution_text" : "The Riding School by Philips Wouverman",
+			"attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_477.html",
+			"license_public": true
+		},
+		"promoted_primary":{
+			"title": "Promoted title",
+			"items":[
+				{
+					"title":"Paintings",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=what:%20paintings",
+					"count": "35",
+					"media_type":"Images"
+				},
+				{
+					"title":"Sculptures",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
+					"count": "15",
+					"media_type":"Video recordings"
+				},
+				{
+					"title":"Art history publications",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
+					"count": "58",
+					"media_type":"Documents"
+				},
+				{
+					"title":"Spotlight on Botticelli",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+					"count": "55",
+					"media_type":"Images and Videos"
+				},
+				{
+					"title":"Spotlight on Alexander Roslin",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+					"count": "42",
+					"media_type":"Images and documents"
+				},
+				{
+					"title":"Spotlight on Hokusai",
+					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+					"count": "23",
+					"media_type":"Images"
+				}
+			]
+		},
+		"promoted_secondary":{
+			"title": "Promoted title",
+			"items":[
+				{
+					"title":"Royal Book Collections",
+					"url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-book.jpg"
+				},
+				{
+					"title":"From Dada to Surrealism",
+					"url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-dada.jpg"
+				},
+				{
+					"title":"Art Nouveau",
+					"url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-artnouveau.jpg"
+				},
+				{
+					"title":"Explore the World of Musical Instruments",
+					"url": "urlhere",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-instruments.jpg"
+				}
+			]
+		}
+	},
+	"navigation":{
+		"global":{
+			"options": {
+				"search_active": false,
+				"settings_active": true
+			},
+			"primary_nav":{
+				"items": [
+					{
+						"url": "#",
+						"text": "Home",
+						"is_current":true
+					},
+					{
+						"url": "",
+						"text": "Channels",
+						"submenu": {
+							"items": [
+								{
+									"url":"http://google.com",
+									"text": "Channel 1"
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 2",
+									"is_current":true
+								},
+								{
+									"url":"http://google.com",
+									"text": "Channel 3"
+								}
+							]
+						}
+					},
+					{
+						"url": "",
+						"text": "Exhibitions"
+					},
+					{
+						"url": "",
+						"text": "Blog"
+					},
+					{
+						"url": "",
+						"text": "My Europeana"
+					}
+				]
+			}
+		},
+		"footer":{
+			"linklist1":{
+				"title": "More info",
+				"items": [
+					{
+						"text": "New collections",
+						"url":"http://google.com"
+					},
+					{
+						"text": "All data providers",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Become a data provider",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"linklist2":{
+				"title": "Help",
+				"items": [
+					{
+						"text": "Search tips",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Using My Europeana",
+						"url":"http://google.com"
+					},
+					{
+						"text": "Copyright",
+						"url":"http://google.com"
+					}
+				]
+			},
+			"social":{
+				"googleplus": false,
+				"github": false
+			}
+		}
+	}
+}

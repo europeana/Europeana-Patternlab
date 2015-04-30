@@ -25,7 +25,21 @@
 <section class="channel-info section">
 	<div class="lc">
 		<div class="channel-description">
+			<p>
 			{{{description}}}
+			</p>
+
+			{{# content.channel_info.credits }}
+			<div class="channel-credits">
+				<h3 class="title">{{title}}</h3>
+				<ul class="credit-list">
+				{{#items}}
+				<li><a href="{{url}}" class="external">{{text}}</a></li>
+				{{/items}}
+				</ul>
+			</div>
+			{{/ content.channel_info.credits }}
+
 		</div>
 		<div class="channel-stats">
 			{{#stats}} 
@@ -70,7 +84,7 @@
 </section>
 {{/ content.promoted_secondary }}
 
-{{# content.channel_info.credits }}
+{{# content.channel_info.credits2 }}
 <div class="section channel-credits">
 	<h3 class="title">{{title}}</h3>
 	<ul class="credit-list">
@@ -79,6 +93,6 @@
 	{{/items}}
 	</ul>
 </div>
-{{/ content.channel_info.credits }}
+{{/ content.channel_info.credits2 }}
 
 {{> organisms/global/footer }}
