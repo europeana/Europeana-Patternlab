@@ -30,9 +30,12 @@
 	"navigation":{
 		"global":{
 			"options": {
-				"logo_url": "http://europeana.eu",
 				"search_active": true,
 				"settings_active": false
+			},
+			"logo":{
+				"url": "http://europeana.eu",
+				"text": "Europeana"
 			},
 			"primary_nav":{
 				"items": [

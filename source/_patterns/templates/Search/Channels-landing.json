@@ -200,30 +200,30 @@
 				"search_active": false,
 				"settings_active": true
 			},
+			"logo":{
+				"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
+				"text": "Europeana Search"
+			},
 			"primary_nav":{
 				"items": [
 					{
-						"url": "#",
+						"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
 						"text": "Home",
-						"is_current":true
+						"is_current":false
 					},
 					{
-						"url": "",
+						"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
 						"text": "Channels",
+						"is_current":true,
 						"submenu": {
 							"items": [
 								{
-									"url":"http://google.com",
-									"text": "Channel 1"
+									"url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+									"text": "Art History"
 								},
 								{
-									"url":"http://google.com",
-									"text": "Channel 2",
-									"is_current":true
-								},
-								{
-									"url":"http://google.com",
-									"text": "Channel 3"
+									"url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
+									"text": "Music"
 								}
 							]
 						}

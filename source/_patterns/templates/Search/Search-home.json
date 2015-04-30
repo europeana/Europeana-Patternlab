@@ -57,32 +57,32 @@
 		"promoted":[
 			{
 				"title":"Art & Art History",
-				"url": "urlhere",
+				"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
 				"is_channel": true,
 				"bg_image":"sample/thumb-art.jpg"
 			},
 			{
 				"title":"Music",
-				"url": "urlhere",
+				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
 				"is_channel": true,
 				"bg_image":"sample/thumb-music.jpg"
 			},
 			{
 				"title":"Maps and Cartography",
-				"url": "urlhere",
+				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
 				"is_channel": true,
 				"bg_image":"sample/thumb-maps.jpg"
 			},
 			{
 				"title":"Europeana 1914—1918",
 				"subtitle": "Untold stories & official histories of WWI",
-				"url": "urlhere",
+				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
 				"is_channel": true,
 				"bg_image":"sample/thumb-1418.jpg"
 			},
 			{
 				"title":"Natural History",
-				"url": "urlhere",
+				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
 				"is_channel": true,
 				"bg_image":"sample/thumb-naturalhistory.jpg"
 			},
@@ -163,30 +163,29 @@
 				"search_active": false,
 				"settings_active": true
 			},
+			"logo":{
+				"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
+				"text": "Europeana Search"
+			},
 			"primary_nav":{
 				"items": [
 					{
-						"url": "#",
+						"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
 						"text": "Home",
 						"is_current":true
 					},
 					{
-						"url": "",
+						"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
 						"text": "Channels",
 						"submenu": {
 							"items": [
 								{
-									"url":"http://google.com",
-									"text": "Channel 1"
+									"url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+									"text": "Art History"
 								},
 								{
-									"url":"http://google.com",
-									"text": "Channel 2",
-									"is_current":true
-								},
-								{
-									"url":"http://google.com",
-									"text": "Channel 3"
+									"url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
+									"text": "Music"
 								}
 							]
 						}
