@@ -97,11 +97,11 @@
 				"title":"Curated by:",
 				"items": [
 					{
-						"text": "Deutsche National Bibliothek",
+						"text": "National Gallery of Denmark",
 						"url": "#777"
 					},
 					{
-						"text": "Netherlands institute for sound and vision",
+						"text": "Rijksmuseum",
 						"url": "#777"
 					}
 				]
@@ -117,39 +117,39 @@
 			"title": "Promoted title",
 			"items":[
 				{
-					"title":"Paintings",
+					"title":"All Paintings",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=what:%20paintings",
-					"count": "35",
+					"count": "190,226",
 					"media_type":"Images"
 				},
 				{
-					"title":"Sculptures",
+					"title":"All Sculptures",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
-					"count": "15",
-					"media_type":"Video recordings"
+					"count": "7,029",
+					"media_type":"Images and video"
 				},
 				{
-					"title":"Art history publications",
+					"title":"All Art history publications",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
-					"count": "58",
+					"count": "2,333",
 					"media_type":"Documents"
 				},
 				{
 					"title":"Spotlight on Botticelli",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
-					"count": "55",
-					"media_type":"Images and Videos"
+					"count": "76",
+					"media_type":"Images and videos"
 				},
 				{
 					"title":"Spotlight on Alexander Roslin",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
-					"count": "42",
+					"count": "46",
 					"media_type":"Images and documents"
 				},
 				{
 					"title":"Spotlight on Hokusai",
 					"url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
-					"count": "23",
+					"count": "240",
 					"media_type":"Images"
 				}
 			]
@@ -177,9 +177,15 @@
 				},
 				{
 					"title":"Explore the World of Musical Instruments",
-					"url": "urlhere",
+					"url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
 					"is_exhibition": true,
 					"bg_image":"sample/thumb-instruments.jpg"
+				},
+				{
+					"title":"Pablo Picasso",
+					"url": "http://dizbi.hazu.hr/picasso/",
+					"is_exhibition": true,
+					"bg_image":"sample/thumb-picasso.jpg"
 				}
 			]
 		}

@@ -208,6 +208,7 @@
 }
 .channel-description{
 	//@include fontSize(18px);
+	line-height: 1.8;
 
 	@media all and (min-width: $bp-med) {
 		@include span(8 of 24);
