@@ -1,63 +1,146 @@
+// .nav_secondary{
+
+// 	overflow: hidden;
+// 	margin-bottom: $space;
+
+// 	li{
+// 		li{
+// 			padding: $pad-half 0;
+// 			border-bottom: none;
+// 		}
+// 	}
+
+// 	a {
+		
+// 		color: $textcolour_body;
+// 		display: block;
+// 		padding: $pad-half 0;
+// 		border-bottom: solid 1px $gray-lighter;
+
+// 		&.active {
+// 			background: $textcolour_highlight;
+// 			color: $white;
+// 		}
+// 	}
+
+// 	&>li>a{
+// 		//font-weight: bold;
+
+// 		&:hover, &:focus, &:active {
+// 			color: $textcolour_link;
+// 			text-decoration: underline;
+// 		}
+// 	}
+
+
+// 	//sub menus
+// 	ul{
+// 		margin-top: $space-half; 
+
+// 		li{
+// 			a{
+// 				border-bottom: none;
+// 				&:hover, &:focus, &:active {
+// 					color: $textcolour_highlight;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	.is_open{
+		
+// 		& > a{
+// 			border-bottom: none;
+// 			color: $textcolour_highlight;
+// 		}
+
+// 		ul{
+// 			display: block;
+// 		}
+// 	} 
+// }
+
+
+
+
+
 .nav_secondary{
 
-	overflow: hidden;
-	margin-bottom: $space;
-
-	li{
-		display: block;
-		padding: $pad-half 0;
-		border-bottom: solid 1px $gray-lighter;
-
-		li{
-			padding: $pad-half 0;
-			border-bottom: none;
-		}
+	& > ul {
+		//border-top: solid 1px $gray-lighter;
 	}
 
 	a {
-		
+		display: block;
+		padding: $space-half;
+		position: relative;
 		color: $textcolour_body;
 
-		&.active {
-			background: $textcolour_highlight;
-			color: $white;
+		&:hover, &:focus{
+			background-color: $gray-lightest;
 		}
 	}
 
-	&>li>a{
-		//font-weight: bold;
+	.level1 {
+		& > li > a{
+			border-top: 3px solid $gray87;
+			text-transform: uppercase;
+			font-weight: bold;
+			color: $textcolour_head;
 
-		&:hover, &:focus, &:active {
-			color: $textcolour_link;
-			text-decoration: underline;
-		}
-	}
-
-
-	//sub menus
-	ul{
-		display: none;
-		margin-top: $space-half; 
-
-		li{
-			a{
-				border-bottom: none;
-				&:hover, &:focus, &:active {
-					color: $textcolour_highlight;
-				}
+			&:hover{
+				color: $textcolour_body;
 			}
 		}
 	}
 
-	.is_open{
+	.level2{
+		padding-bottom: $space-half;
+		@include fontSize(14px);
+	}
+
+	.level2 > li > a{
+		padding: $space-quarter $space-half;
+		margin-bottom: 3px;
+
+		&:hover{
+			color: $textcolour_body;
+		}
+	}
+
+	.level3 > li > a{
+		padding: $space-quarter $space-half;
+		color: $peachy;
+		text-decoration: underline;
+		margin-left: $space-half;
+	}
+
+
+
+	.has-subnav{
 		
-		& > a{
-			border-bottom: none;
-			color: $textcolour_highlight;
+		& > ul {
+		  display: none;
 		}
 
-		ul{
+		& > a:after {
+			content: '+';
+			position: absolute;
+			top: 50%;
+			right: 5%;
+			@include translate (0, -50%);
 			display: block;
 		}
-	} 
-}
+
+		& > a.active:after {
+			content: "-";
+		}
+
+	}
+
+	a.active{
+		//color: $textcolour_highlight;
+	}
+
+} 
+
