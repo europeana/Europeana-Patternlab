@@ -98,12 +98,7 @@ $textcolour_highlight: $accent;
 
 //Logo for Pro
 .logo {
-	width: 55%;
-	max-width: 168px;
 	background-image: url("../../images/pro/europeana-pro-logo.png");
-	background-position: 0 50%;
-	background-size: contain;
-
 	.svg &{
 		background-image: url("../../images/pro/europeana-pro-logo.svg");
 	}
@@ -187,62 +182,38 @@ $textcolour_highlight: $accent;
 
 
 // Various spacings and margins
-
-
-.help-contact{
-
-	img{
-		margin-bottom: $space-half;
-	}
-
-	.email{
-		display: block;
-		margin-bottom: $space;
-	}
+.help-contact img{
+    margin-bottom: $space-half;
 }
 
 .help-contact, 
+.help-contact .email, 
 .contact-methods, 
-.jobdetails{
-	display: block;
-	margin-bottom: $space;
-}
-
-.l-person{
-	margin-bottom: $space;
+.jobdetails,
+.l-person
+{
+    display: block;
+    margin-bottom: $space;
 }
 
 .results-list, 
 .page-intro, 
-.articleheader{
-	margin-bottom: $space-double;
+.articleheader
+{
+    margin-bottom: $space-double;
 }
 
 .maincontent > .title, 
-.team{
-	margin-bottom: $space-triple;
-}
-
-
-
-// The 3 related item links at the bottom of the page
-.related-items{
-}
-.noimages .related-item > a{
-	display: block;
-	min-height: 8em;
-	padding: $space;
-	background-color: #e1cfd4; //pinky
-	margin-bottom: $space;
-	color: $white;
-	font-weight: bold;
+.team
+{
+    margin-bottom: $space-triple;
 }
 
 
 // breadcrumbs and sorting
 
 .l-breadcrumbs{
-	background-color: #F8F8F8;
+	background-color: $gray97;
 	padding: $space;
 	display: table;
 	font-size: $font-size-slightly-smaller;
@@ -261,15 +232,6 @@ $textcolour_highlight: $accent;
 
 
 // Search results
-.item-details{
-	.breadcrumbs{
-		font-size: $font-size-slightly-smaller;
-	}
-
-	.icon-home{
-		display: none;
-	}
-}
 
 .l-filter{
 	padding: $space-half $space;

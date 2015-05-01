@@ -102,11 +102,16 @@ $textcolour_highlight: $accent;
 
 //extra bits
 
-h1.title{
+.block-content-header h1.title{
     font-family: $font-secondary;
     font-weight: 300;
-    font-size: 53px;
-    font-size: 3.3125rem;
+}
+
+.logo {
+    background-image: url("../../images/labs/europeana-labs-logo.png");
+    .svg &{
+        background-image: url("../../images/labs/europeana-labs-logo.svg");
+    }
 }
 
 
@@ -126,7 +131,7 @@ h1.title{
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
     }
 
-    .textcontent, .l-sidebar, .l-breadcrumbs{
+    .textcontent, .l-sidebar, .page_header{
         position: relative;
         z-index: 10;
     }
@@ -145,7 +150,17 @@ h1.title{
         margin-bottom: 3.1rem;
     }
 
+    .page_header{
+        background-color: $gray97;
+        padding: $space;
+        display: table;
+        font-size: $font-size-slightly-smaller;
+        width: 100%;
 
+        @media all and (min-width: $bp-med) {
+            height: $space-triple;
+        }
+    }
 
     .textcontent{
         
@@ -185,23 +200,115 @@ h1.title{
 
 }
 
+// Various spacings and margins
+.help-contact img{
+    margin-bottom: $space-half;
+}
 
-// breadcrumbs and sorting
+.help-contact, 
+.help-contact .email, 
+.contact-methods, 
+.jobdetails,
+.l-person
+{
+    display: block;
+    margin-bottom: $space;
+}
 
-.l-breadcrumbs{
-    background-color: #F8F8F8;
-    padding: $space;
-    display: table;
-    font-size: $font-size-slightly-smaller;
-    width: 100%;
+.results-list, 
+.page-intro, 
+.articleheader
+{
+    margin-bottom: $space-double;
+}
 
-    @media all and (min-width: $bp-med) {
-        height: $space-triple;
+.maincontent > .title, 
+.team
+{
+    margin-bottom: $space-triple;
+}
+
+// Event detail
+@import "../scss/objects/event_map";
+
+.event-detail{
+
+    .textcontent{
+        padding: $space-double $space 0;
+        margin-left: -$space;
+
+        @media all and (min-width: $bp-med) and (max-width: $bp-xl) {
+            margin-top: 10em;
+            min-height: 30em;
+        }
+    }
+    
+    .maincontent{
+        @media all and (max-width: $bp-med) {
+            padding-top: 0;
+        }
     }
 
-    .breadcrumbs{
-        display: table-cell;
-        vertical-align: middle;
-        width: 75%;
+    .event-date{
+        float: right;
+        margin-top: -$space-half;
+        background-color: $white;
+        color: $textcolour_head;
+    }
+
+    .speakers{
+        p{
+            margin-bottom: $space-half;
+        }
+        .b-text{
+            padding-top: $space-half;
+        }
+    }
+
+    .speakers, .files{
+        border-top: 1px solid $grey2;
+        padding-top: $space;
+    }
+
+}
+
+// Search results
+
+.l-filter{
+    padding: $space-half $space;
+    background-color: $white;
+}
+
+.filters{
+
+    font-size: $font-size-slightly-smaller;
+
+    .nav, .title{
+        display: inline;
+    }
+
+    .title, label{
+        margin-right: $space-half;
+    }
+}
+.searchterms{
+    margin-top: $space-half;
+}
+.resultsnum{
+    color: $gray-light;
+}
+
+.sortby{
+    display: table-cell;
+    width: 25%;
+    text-align: right;
+
+    label{
+        font-size: $font-size-sm;
+    }
+
+    label, select{
+        display: inline;
+        padding:0;
     }
 }
