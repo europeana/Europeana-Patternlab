@@ -7,7 +7,7 @@
 
 	function initViewMore() { // TODO: make this global
 		  
-	      $('.js-showhide').on('click', function(event){
+	      $('.js-showhide-action').on('click', function(event){
 
 	        var self = $(this);
 	        var tgt  = self.prev('.js-showhide-panel');
@@ -152,6 +152,9 @@
 		}
 		
 		$(window).bind('showMap', function(e, data){//longitude, latitude) {
+			
+			data.latitude  = (data.latitude  + '').indexOf('.') > -1 ? data.latitude  : data.latitude  + '.00';
+			data.longitude = (data.longitude + '').indexOf('.') > -1 ? data.longitude : data.longitude + '.00';
 	        if (data.latitude && data.longitude && [data.latitude + '', data.longitude + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)) {
 	        	showMap(data.longitude, data.latitude, data.labels);
 	        }

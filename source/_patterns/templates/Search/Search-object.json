@@ -8,12 +8,18 @@
 			"media": "all"
 		}
 	],
+	"js_variables": [
+        "var js_path= 'http://develop.styleguide.eanadev.org/js/dist/';"
+	],
 	"js_files": [
+	    {
+            "path": "../../js/patternlab/output/global-min.js"
+	    },
+	    {
+            "path": "../../js/patternlab/output/search-min.js"
+	    },
 		{
-			"path": "../../js/patternlab/output/global-min.js"
-		},
-		{
-			"path": "../../js/patternlab/output/search-min.js"
+		    "path": "../../js/dist/application.js"
 		}
 	],
 
@@ -237,8 +243,8 @@
 
 				"geo":{
 					"long_and_lat": true,
-					"longitude": "12345",
-					"latitude": "12345",
+					"longitude": "3.1",
+					"latitude": "39.2",
 					"labels":{
 						"map": "Map",
 						"longitude": "Longitude",
