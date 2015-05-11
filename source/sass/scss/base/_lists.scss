@@ -22,3 +22,19 @@ dd {
 		margin-right: $space-quarter;
 	}
 }
+
+// Comma separated inline text list
+.comma-list{
+
+    > * {
+        display: inline;
+        margin-right: 0.4em;
+    }
+
+    li:after{
+        content: ',';
+    }
+    li:last-child:after{
+        content: '';
+    }
+}

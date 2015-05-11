@@ -78,21 +78,6 @@
     }    
 }
 
-.inline-list{
-
-    > * {
-        display: inline;
-        margin-right: 0.4em;
-    }
-
-    li:after{
-        content: ',';
-    }
-    li:last-child:after{
-        content: '';
-    }
-}
-
 .object-downloads{
     text-align: center;
     .btn{
