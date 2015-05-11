@@ -13,46 +13,45 @@
 
     {{#content}}
     <div class="object-wrapper lc">
-
     
     <div class="object-overview">
     {{#object}}
         
-        
-            
-        
         {{#media}}
         <div class="object-display is-smallimage cf">
             {{#primary}}
-            {{#is_image}}
-            <div class="object-media-image">
-                <img src="{{preview}}" alt="{{alt}}"/>
-            </div>
-            {{/is_image}}
-            {{#is_video}}
-            <div class="object-media-video">
-                Video player here
-            </div>
-            {{/is_video}}
-            {{#is_text}}
-            <div class="object-media-text">
-                Text viewer here
-            </div>
-            {{/is_text}}
-            {{#is_audio}}
-            <div class="object-media-audio">
-                Audio player here
-            </div>
-            {{/is_audio}}
+                {{#is_image}}
+                <div class="object-media-image">
+                    <img src="{{preview}}" alt="{{alt}}"/>
+                </div>
+                {{/is_image}}
+                {{#is_video}}
+                <div class="object-media-video">
+                    Video player here
+                </div>
+                {{/is_video}}
+                {{#is_text}}
+                <div class="object-media-text">
+                    Text viewer here
+                </div>
+                {{/is_text}}
+                {{#is_audio}}
+                <div class="object-media-audio">
+                    Audio player here
+                </div>
+                {{/is_audio}}
             {{/primary}}
 
             {{#additional}}
-            <ul class="object-media-nav nav">
-            {{#items}}
-                <li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
-            {{/items}}
-            </ul>
-
+            
+                <ul class="object-media-nav nav">
+                    {{#items}}
+                        {{#thumbnail}}
+                            <li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+                        {{/thumbnail}}
+                    {{/items}}
+                </ul>
+                
             {{/additional}}
         </div>
         {{/media}}
@@ -110,13 +109,13 @@
         {{/creator}}
 
 
-		{{#meta_additional}}
+        {{#meta_additional}}
 
         
             <div class="js-showhide-panel is-jshidden map-section">
-			
+            
 
-			{{#geo.long_and_lat}}   {{! check both present }}
+            {{#geo.long_and_lat}}   {{! check both present }}
             <div class="map-section">
             
                 <h3 class="subsection-label">
@@ -130,24 +129,21 @@
                     </div>
                 </div>
             </div>
-			{{/geo.long_and_lat}}
+            {{/geo.long_and_lat}}
 
-			</div>
+            </div>
 
             <a  class="js-showhide" 
                  href="#"
                  data-fire-on-open="showMap"
                  data-fire-on-open-params='{ 
-
-				{{#geo.long_and_lat}}
-                 "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
-				{{/geo.long_and_lat}}
-
+                    {{#geo.long_and_lat}}
+                     "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
+                    {{/geo.long_and_lat}}
                  }'
-
                  data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
                  
-		{{/meta_additional}}
+        {{/meta_additional}}
 
     {{/object}}
     </div>
@@ -183,15 +179,14 @@
         {{# object.media.primary.rights }}
         <div class="object-rights">
         {{license_human}}
-        	<div class="object-license">{{> molecules/icons/licenses }}</div>
+            <div class="object-license">{{> molecules/icons/licenses }}</div>
         </div>
         {{/ object.media.primary.rights }}
 
 
         {{# object.origin }}
         <div class="object-origin">
-
-        	<h4>Provided by:</h4>
+            <h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
 
             {{#logo}}
                 <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
@@ -213,9 +208,9 @@
         {{# object.concepts }}
         <div class="object-concepts inline-list cap">
 
-        	<h4 class="label">This is:</h4>
+            <h4 class="label">{{{ i18n.site.object.meta-label.concepts }}}:</h4>
 
-	        {{> molecules/navigation/linklist-simple }}
+            {{> molecules/navigation/linklist-simple }}
 
         </div>
         {{/ object.concepts }}
@@ -239,11 +234,11 @@
         {{/ object.colours }}
 
 
-		{{# object.further_actions }}
-		<div class="object-furtheractions">
-			{{> molecules/controls/dropdown-menu }}
-		</div>
-		{{/ object.further_actions }}
+        {{# object.further_actions }}
+        <div class="object-furtheractions">
+            {{> molecules/controls/dropdown-menu }}
+        </div>
+        {{/ object.further_actions }}
         
     </div>
     </div>
@@ -272,4 +267,6 @@
 </section>
 {{/content.related}}
 
+
 {{> organisms/global/footer }}
+        
