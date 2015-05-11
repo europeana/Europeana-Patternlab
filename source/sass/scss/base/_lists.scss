@@ -26,7 +26,7 @@ dd {
 // Comma separated inline text list
 .comma-list{
 
-    > * {
+    > *, li {
         display: inline;
         margin-right: 0.4em;
     }
