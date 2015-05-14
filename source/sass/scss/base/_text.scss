@@ -136,10 +136,10 @@ small{
 // Letter space those capitals people, Jan Tschichold would be proud.
 .upper {
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    //letter-spacing: 0.1rem;
 }
 
-.cap {
+.cap, .caps {
     text-transform: capitalize;
 }
 

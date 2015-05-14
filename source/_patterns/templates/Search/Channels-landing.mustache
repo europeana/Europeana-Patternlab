@@ -30,26 +30,29 @@
 			</p>
 
 			{{# content.channel_info.credits }}
-			<div class="channel-credits">
+			<div class="channel-credits lc">
 				<h3 class="title">{{title}}</h3>
-				<ul class="credit-list">
+				<ul class="credit-list inline-list">
 				{{#items}}
 				<li><a href="{{url}}" class="external">{{text}}</a></li>
 				{{/items}}
 				</ul>
 			</div>
 			{{/ content.channel_info.credits }}
-
 		</div>
+
+		{{#stats}}
 		<div class="channel-stats">
-			{{#stats}} 
+			 
+			<h4 class="title">In this Channel:</h4>
 			<ul>
 				{{#items}}
 				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
 				{{/items}}
 			</ul>
-			{{/stats}} 
+			
 		</div>
+		{{/stats}} 
 
 		<div class="channel-newstuff">
 		{{#recent}}
@@ -60,7 +63,21 @@
 </section>
 {{/content.channel_info}} 
 
-{{#content.promoted_primary}}
+
+
+{{# content.promoted }}
+<section class="exhibitions-list promo-list cf">
+<ul>
+	{{#items}}
+	<li class="list-item">
+		{{> molecules/blocks/promo-module }}
+	</li>
+	{{/items}}
+</ul>
+</section>
+{{/ content.promoted }}
+
+{{#content.channel_entry}}
 <section class="suggested-list cf promo-list promo-list-text">
 <ul>
 	{{#items}}
@@ -70,29 +87,23 @@
 	{{/items}}
 </ul>
 </section>
-{{/content.promoted_primary}}
+{{/content.channel_entry}}
 
-{{# content.promoted_secondary }}
-<section class="exhibitions-list section promo-list">
-<ul>
-	{{#items}}
-	<li class="list-item">
-		{{> molecules/blocks/promo-module }}
-	</li>
-	{{/items}}
-</ul>
-</section>
-{{/ content.promoted_secondary }}
 
-{{# content.channel_info.credits2 }}
-<div class="section channel-credits">
-	<h3 class="title">{{title}}</h3>
-	<ul class="credit-list">
-	{{#items}}
-	<li><a href="{{url}}" class="external">{{text}}</a></li>
-	{{/items}}
+{{#content.news}}
+<div class="section">
+	<div class="lc">
+
+	<h2 class="section-title">{{content.channel_info.name}} News</h2>
+
+	<ul class="home-news cf">
+		{{#items}}<li class="news-item">{{> molecules/blocks/link-block-full}}</li>{{/items}}
 	</ul>
+
+	<a class="link-more" href="{{ blogurl }}">More from the Blog</a>
+
+	</div>
 </div>
-{{/ content.channel_info.credits2 }}
+{{/content.news}}
 
 {{> organisms/global/footer }}

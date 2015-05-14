@@ -17,20 +17,13 @@
 
 h1,h2,h3,h4,h5,h6{
 	text-rendering: optimizeLegibility; // voodoo to enable ligatures and kerning
-	line-height: 1; // this fixes huge spaces when a heading wraps onto two lines
+	line-height: 1.2; // this fixes huge spaces when a heading wraps onto two lines
 	margin-top: 0;
-	
-	-ms-word-break: break-all;
-	     word-break: break-all;
-
-	/* Non standard for webkit */
-	word-break: break-word;
+	word-wrap: break-word;
 
 	-webkit-hyphens: auto;
 	   -moz-hyphens: auto;
 	        hyphens: auto;
-
-	//letter-spacing: -0.02em;
 }
 
 h1{

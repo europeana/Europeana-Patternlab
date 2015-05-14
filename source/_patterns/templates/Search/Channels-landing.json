@@ -19,12 +19,9 @@
 	],
 
 	"js_files": [
-		{
-			"path": "../../js/patternlab/output/global-min.js"
-		},
-		{
-			"path": "../../js/patternlab/output/search-min.js"
-		}
+        {
+            "path": "../../js/dist/application.js"
+        }
 	],
 	
 	"input_search": {
@@ -73,19 +70,19 @@
 						"text": "Scala museum, Milan",
 						"url": "#",
 						"number": "1234 items",
-						"date": "July 2014"
+						"date": "July 2015"
 					},
 					{
 						"text": "Dresden Library",
 						"url": "#",
 						"number": "1234 items",
-						"date": "July 2014"
+						"date": "November 2014"
 					},
 					{
 						"text": "Rijksmuseum, Amsterdam",
 						"url": "#",
 						"number": "1234 items",
-						"date": "July 2014"
+						"date": "September 2014"
 					}
 				],
 				"more_link":{
@@ -117,7 +114,7 @@
 			"attribution_url" : "http://europeana.eu",
 			"license_CC-ND-NC-SA": true
 		},
-		"promoted_primary":{
+		"channel_entry":{
 			"title": "Promoted title",
 			"items":[
 				{
@@ -158,7 +155,7 @@
 				}
 			]
 		},
-		"promoted_secondary":{
+		"promoted":{
 			"title": "Promoted title",
 			"items":[
 				{
@@ -191,6 +188,55 @@
 					"is_exhibition": true,
 					"bg_image":"sample/thumb-music.jpg"
 				}
+			]
+		},
+		"news": {
+			"items":[
+			{
+				"headline": {
+					"medium":"The miniature magic of Japanese netsuke"
+				},
+				"url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+				"img": {
+					"rectangle": {
+						"src":"sample/netsuke.jpg",
+						"alt":"Japanese scroll with netsuke illustration"
+					}
+				},
+				"excerpt": {
+					"short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Celebrating World Theatre Day 2015"
+				},
+				"url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+				"img": {
+					"rectangle": {
+						"src":"sample/theatreday.jpg",
+						"alt":"Theatre Day"
+					}
+				},
+				"excerpt": {
+					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+				} 
+			},
+			{
+				"headline":{
+					"medium":"Europeana takes part in #MuseumWeek 2015"
+				},
+				"url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+				"img": {
+					"rectangle": {
+						"src":"sample/Museumweek.jpg",
+						"alt":"Museum Week 2015"
+					}
+				},
+				"excerpt": {
+					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+				} 
+			}
 			]
 		}
 	},
@@ -279,7 +325,7 @@
 				]
 			},
 			"social":{
-				"googleplus": false,
+				"googleplus": true,
 				"github": false
 			}
 		}

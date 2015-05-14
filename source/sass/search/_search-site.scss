@@ -81,7 +81,7 @@
 	}
 }
 
-.home-promo .list-item{
+.promo-list .list-item{
 	min-height: 10em;
 	min-height: 49vw;
 	font-size: 5vw;
@@ -117,6 +117,8 @@
 	}
 }
 
+
+
 .news-item{
 	@media all and (min-width: $bp-med) {
 		@include span(8);
@@ -141,24 +143,21 @@
 .channel_landing{
 
 	.exhibitions-list .list-item{
-		min-height: 10em;
-		min-height: 49vw;
 
-		@media all and (min-width: $bp-small) {
-			@include gallery(12 of 24);
-		}
-
-		@media all and (min-width: $bp-med) {
-			@include gallery(5 of 25);
-			min-height: 19vw;
+		@media all and (min-width: $bp-large) {
+			@include gallery(4 of 24);
+			min-height: 15vw;
 		}
 	}
 
 	.suggested-list{
 
 		background-color: $blue_dark;
+		margin-bottom: $space;
 
 		.list-item{
+
+			min-height: 0;
 
 			@media all and (min-width: $bp-small) {
 				@include gallery(12 of 24);
@@ -198,30 +197,26 @@
 		margin-bottom: $space;
 	}
 
-	@media all and (min-width: $bp-med) {
-		margin-top: $space-double;
-		margin-bottom: $space;
-		.lc > div{
-			margin-bottom: $space;
-		}
+	.title{
+		line-height: inherit;
 	}
+
+
 }
 .channel-description{
-	//@include fontSize(18px);
-	line-height: 1.8;
 
 	@media all and (min-width: $bp-med) {
 		@include span(8 of 24);
+		padding: $space;
 	}
 }
-.channel-stats{
 
-	@media all and (min-width: $bp-small) {
-		@include span(10 of 24);
-	}
+.channel-stats{
 
 	@media all and (min-width: $bp-med) {
 		@include span(6 of 24);
+		padding: $space;
+		border-left: 1px solid $textcolour_body;
 	}
 
 	.number{
@@ -234,22 +229,37 @@
 	}
 }
 .channel-newstuff{
-	@media all and (min-width: $bp-small) {
-		@include span(last 14 of 24);
-	}
+	background-color: $offwhite;
+	padding: $space;
+
 	@media all and (min-width: $bp-med) {
 		@include span(last 10 of 24);
 	}
 
+	ul{
+		display: block;	
+	}
+
+	li > a{
+		display: table;
+		width: 100%;
+		line-height: 1;
+		margin-bottom: $space-half;
+	}
+
+	span{
+		display: table-cell;
+	}
+
 	.link-text{
-		@include span(5 of 10);
+		width: 40%;
 		font-weight: bold;
 	}
 	.link-number{
-		margin-right: .5em;
+		width: 30%;
 	}
-	.link-number,.link-date{
-		display: inline-block;
+	.link-date{
+		width: 30%;
 	}
 }
 
