@@ -12,12 +12,6 @@
         "var js_path= 'http://develop.styleguide.eanadev.org/js/dist/';"
 	],
 	"js_files": [
-	    {
-            "path": "../../js/patternlab/output/global-min.js"
-	    },
-	    {
-            "path": "../../js/patternlab/output/search-min.js"
-	    },
 		{
 		    "path": "../../js/dist/application.js"
 		}

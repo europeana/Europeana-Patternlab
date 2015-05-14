@@ -10,7 +10,13 @@ module.exports = function(grunt) {
 	    basic:{
 	    	  
 	    	files: {
-	    		'source/js/dist/application.js': ['source/js/modules/*.js']
+	    		'source/js/dist/application.js': [
+	    		    'source/bower_components/jquery-dropdown/jquery.dropdown.min.js',	/* menus */
+	    		    
+	    		    'source/js/patternlab/global/init.js',								/* placeholder, menu, gloabl search, global sites */
+	    		    
+	            	'source/js/modules/*.js'
+	            ]
 	    	},
 	    },
 	    map:{
