@@ -476,7 +476,8 @@
 	background: #fff;
 	border: 1px solid #666;
 	}
-;.leaflet-control-minimap {
+;
+.leaflet-control-minimap {
     border:solid rgba(255, 255, 255, 0.7) 3px;
     box-shadow: 0 1px 7px #999;
     background: #f8f8f9;
@@ -507,7 +508,8 @@
     bottom: 0;
     right: 0; 
 }
-;.marker-cluster-small {
+;
+.marker-cluster-small {
 	background-color: rgba(181, 226, 140, 0.6);
 	}
 .marker-cluster-small div {
@@ -590,7 +592,8 @@
 	}
 .marker-cluster span {
 	line-height: 30px;
-	}; /* IE 6-8 fallback colors */
+	};
+ /* IE 6-8 fallback colors */
  /*
 .marker-cluster-small {
 	background-color: rgb(181, 226, 140);
