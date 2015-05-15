@@ -61,58 +61,13 @@ var Site = window.Site || {};
                 body.addClass('is-open-menu-top');
                 document.addEventListener( 'click', bodyClickFn );
             }
-
             e.preventDefault();
         });
     };
 
-    // Swaps the input fields placeholder text in and out
-    Site.placeholders = function () {
-        var colour_focus = "#333",
-        colour_blur = "#171207";
-
-        $('input.js-placeholder').each(function(){
-
-            var $this = $(this);
-
-            var attrPh = $this.attr('placeholder');
-
-            $this.attr('value', attrPh)
-            .bind('focus', function() {
-
-                if($this.val() === attrPh){
-                    $this.val('').css('color', colour_blur);
-                }
-
-            }).bind('blur', function() {
-
-                if($this.val() === ''){
-                    $this.val(attrPh).css('color', colour_focus);
-                }
-
-            });
-
-        });
-
-    };
-
-    // Mini modernizr
-    Site.featuredetect = function(){
-        var $features = {};
-        var $html = document.documentElement;
-        $features.svg = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1");
-        $html.className += ($features.svg) ? " svg" : " no-svg";
-    };
-
-
 
     //same as $(document).ready();
     $(function() {
-
-        //Feature detect
-        Site.featuredetect();
         Site.init_menu();
-        Site.placeholders();
-
     });
 })(jQuery);

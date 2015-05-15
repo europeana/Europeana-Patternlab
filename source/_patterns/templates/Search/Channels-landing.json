@@ -20,7 +20,10 @@
 
 	"js_files": [
         {
-            "path": "../../js/dist/application.js"
+            "path": "../../js/dist/site.js"
+        },
+        {
+            "path": "../../js/dist/global.js"
         }
 	],
 	

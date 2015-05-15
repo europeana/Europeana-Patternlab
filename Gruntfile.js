@@ -7,15 +7,29 @@ module.exports = function(grunt) {
 		options: {
 			separator: ';\n'
 		},
-	    basic:{
+	    site:{
 	    	  
 	    	files: {
-	    		'source/js/dist/application.js': [
+	    		'source/js/dist/site.js': [
+	    		    
+	            	/* 'source/js/modules/*.js' */
+	            	
+	            	'source/js/modules/search-form.js',
+	            	'source/js/modules/search-home.js',
+	            	'source/js/modules/search-object.js'
+	            ]
+	    	},
+	    },
+	    global:{
+	    	  
+	    	files: {
+	    		'source/js/dist/global.js': [
 	    		    'source/bower_components/jquery-dropdown/jquery.dropdown.min.js',	/* menus */
+	    		    'source/js/patternlab/global/menus.js',
+	    		    'source/js/patternlab/global/feature-detect.js',
+	    		    /* 'source/js/patternlab/global/placeholder.js', */
+	    		    'source/js/imagesloaded.pkgd.js'									/* images loaded */
 	    		    
-	    		    'source/js/patternlab/global/init.js',								/* placeholder, menu, gloabl search, global sites */
-	    		    
-	            	'source/js/modules/*.js'
 	            ]
 	    	},
 	    },
@@ -57,6 +71,6 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default', ['concat:basic', 'concat:map', 'concat:map_css', 'copy:map_img']);
+  grunt.registerTask('default', ['concat:site', 'concat:global', 'concat:map', 'concat:map_css', 'copy:map_img']);
 }
 

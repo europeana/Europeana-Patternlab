@@ -19,12 +19,12 @@
 	],
 
 	"js_files": [
-		{
-			"path": "../../js/patternlab/output/global-min.js"
-		},
-		{
-			"path": "../../js/patternlab/output/search-min.js"
-		}
+        {
+            "path": "../../js/dist/site.js"
+        },
+        {
+            "path": "../../js/dist/global.js"
+        }
 	],
 	
 	"input_search": {
