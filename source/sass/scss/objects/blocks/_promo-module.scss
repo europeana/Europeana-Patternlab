@@ -1,14 +1,4 @@
-.promo-block, .promo-block > a{
-	@media all and (min-width: $bp-med) {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-	}
-}
-.promo-block > a{
-	overflow: hidden;
-	display: block;
-}
+
 
 .promo-block-image{
 
@@ -24,6 +14,8 @@
 		position: absolute;
 		height: 100%;
 		width: 100%;
+		overflow: hidden;
+		display: block;
 
 		&:hover, &:focus{
 			background-color: rgba($accent, .8);
@@ -66,17 +58,22 @@
 	}
 }
 
+
+
+
 .promo-block-text{
-	border-top: 3px solid $white;
+
+	border-top: 3px solid $accent;
 
 	@media all and (min-width: $bp-small) {
 		border-top: none;
-		border-left: 3px solid $white;
+		border-left: 3px solid $accent;
 	}
 
 	a{
 		padding: $space-half;
-		color: $white;
+		display: block;
+		margin-bottom: $space-half;
 		line-height: 1.2;
 
 		&:hover .title, &:focus .title{
@@ -84,22 +81,49 @@
 		}
 	}
 
+	.l-upper{
+		margin-bottom: $space;
+	}
+
+	.image{
+		float: left;
+		width: 25%;
+		padding-top: 25%;
+		margin-right: $space-half;
+		background-size: cover;
+	}
+
+	img{
+		-webkit-filter: contrast(1.5) grayscale(1);
+	}
+
 	.title{
 		font-weight: bold;
 	}
 
 	.count{
-		@include fontSize(28px);
+		font-size: 1.6em;
 		font-weight: bold;
 	}
 	.media_type{
-		color: rgba($white, 0.75);
+		opacity: 0.75;
 	}
 
 	span{
 		display: block;
 	}
+
+	.theme-dark &{
+		border-color: $white;
+
+		a{
+			color: $white;
+		}
+	}
 }
+
+
+
 
 .category-flag{
 	background-color: $accent;

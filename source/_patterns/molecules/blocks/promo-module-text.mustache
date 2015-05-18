@@ -1,7 +1,22 @@
-<div class="promo-block promo-block-text">
+<div class="promo-block-text">
 	<a href="{{url}}">
-		<span class="title">{{title}}</span>
+		{{#image}}
+		<span class="image circular" {{#image}}style="background-image: url({{image_root}}{{image}}); "{{/image}}></span>
+		{{/image}}
 
+		<div class="l-upper">
+			{{# is_spotlight }}
+			<svg class="icon icon-star">
+				<use xlink:href="#icon-star"></use>
+			</svg>
+			{{/ is_spotlight }}
+			{{# is_search }}
+			<svg class="icon icon-search">
+				<use xlink:href="#icon-search"></use>
+			</svg>
+			{{/ is_search }}
+			<span class="title">{{title}}</span>
+		</div>
 		
 		<div class="lower">
 			{{#count}}<span class="count">{{count}}</span>{{/count}}

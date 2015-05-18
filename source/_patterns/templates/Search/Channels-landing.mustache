@@ -25,14 +25,14 @@
 <section class="channel-info section">
 	<div class="lc">
 		<div class="channel-description">
-			<p>
+			<div class="channel-description-text">
 			{{{description}}}
-			</p>
+			</div>
 
 			{{# content.channel_info.credits }}
-			<div class="channel-credits lc">
-				<h3 class="title">{{title}}</h3>
-				<ul class="credit-list inline-list">
+			<div class="channel-credits comma-list">
+				<span class="title">{{title}}</span>
+				<ul class="credit-list">
 				{{#items}}
 				<li><a href="{{url}}" class="external">{{text}}</a></li>
 				{{/items}}
@@ -43,14 +43,11 @@
 
 		{{#stats}}
 		<div class="channel-stats">
-			 
-			<h4 class="title">In this Channel:</h4>
 			<ul>
 				{{#items}}
 				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
 				{{/items}}
 			</ul>
-			
 		</div>
 		{{/stats}} 
 
@@ -63,11 +60,23 @@
 </section>
 {{/content.channel_info}} 
 
-
+{{#content.channel_entry}}
+<section class="channelentry-list section">
+<div class="lc">
+<ul>
+	{{#items}}
+	<li class="list-item">
+		{{> molecules/blocks/promo-module-text }}
+	</li>
+	{{/items}}
+</ul>
+</div>
+</section>
+{{/content.channel_entry}}
 
 {{# content.promoted }}
-<section class="exhibitions-list promo-list cf">
-<ul>
+<section class="exhibitions-list cf">
+<ul class="promo-list">
 	{{#items}}
 	<li class="list-item">
 		{{> molecules/blocks/promo-module }}
@@ -77,31 +86,18 @@
 </section>
 {{/ content.promoted }}
 
-{{#content.channel_entry}}
-<section class="suggested-list cf promo-list promo-list-text">
-<ul>
-	{{#items}}
-	<li class="list-item">
-		{{> molecules/blocks/promo-module-text }}
-	</li>
-	{{/items}}
-</ul>
-</section>
-{{/content.channel_entry}}
+
 
 
 {{#content.news}}
-<div class="section">
+<div class="section news">
 	<div class="lc">
 
-	<h2 class="section-title">{{content.channel_info.name}} News</h2>
+	<h2 class="section-title">{{content.channel_info.name}} News <a class="link-more" href="{{ blogurl }}">More…</a></h2>
 
-	<ul class="home-news cf">
+	<ul class="cf">
 		{{#items}}<li class="news-item">{{> molecules/blocks/link-block-full}}</li>{{/items}}
 	</ul>
-
-	<a class="link-more" href="{{ blogurl }}">More from the Blog</a>
-
 	</div>
 </div>
 {{/content.news}}

@@ -64,8 +64,12 @@
 	}
 }
 
-.promo-list{
+.exhibitions-list{
 	background-color: $offwhite;
+}
+
+.promo-list{
+	
 	padding-top: $space-quarter; //fallback
 	padding-top: 1.05634vw;
 
@@ -73,15 +77,14 @@
 		padding-top: $space-half; //fallback
 		padding-top: 1.05634vw;
 	}
-
-	.list-item{
-		margin-bottom: $space-quarter; //fallback
-		margin-bottom: 1.05634vw;
-		position: relative;
-	}
 }
 
 .promo-list .list-item{
+
+	margin-bottom: $space-quarter; //fallback
+	margin-bottom: 1.05634vw;
+	position: relative;
+
 	min-height: 10em;
 	min-height: 49vw;
 	font-size: 5vw;
@@ -149,42 +152,32 @@
 			min-height: 15vw;
 		}
 	}
+}
 
-	.suggested-list{
+.channelentry-list{
 
-		background-color: $blue_dark;
-		margin-bottom: $space;
+	//background-color: $blue_dark;
+	margin-bottom: $space;
 
-		.list-item{
+	.list-item {
+		position: relative;
+		min-height: 0;
 
-			min-height: 0;
-
-			@media all and (min-width: $bp-small) {
-				@include gallery(12 of 24);
-			}
-
-			@media all and (min-width: $bp-med) {
-				min-height: 10em;
-				min-height: 12vw;
-				@include gallery(8 of 24);
-			}
-
-			@media all and (min-width: $bp-large) {
-				@include gallery(4 of 24);
-			}
+		@media all and (min-width: $bp-small) {
+			@include gallery(12 of 24);
 		}
 
-		.lower{
-			@media all and (min-width: $bp-med) {
-				position: absolute;
-				bottom: 0;
-			}
+		@media all and (min-width: $bp-med) {
+			@include gallery(8 of 24);
 		}
 	}
 }
 
 .channel-hero{
 	background-position: 50% 80%;
+	@media all and (min-width: $bp-med) {
+		min-height: 30em;
+	}
 }
 
 .channel-info{
@@ -200,23 +193,30 @@
 	.title{
 		line-height: inherit;
 	}
-
-
 }
+
 .channel-description{
 
 	@media all and (min-width: $bp-med) {
-		@include span(8 of 24);
+		@include span(10 of 24);
 		padding: $space;
 	}
+}
+
+.channel-credits{
+	@include fontSize(14px);
+}
+
+.channel-description-text{
+	margin-bottom: $space-half;
 }
 
 .channel-stats{
 
 	@media all and (min-width: $bp-med) {
-		@include span(6 of 24);
+		@include span(5 of 24);
 		padding: $space;
-		border-left: 1px solid $textcolour_body;
+		border-left: 1px solid $gray-lighter;
 	}
 
 	.number{
@@ -228,12 +228,13 @@
 		border-bottom: 1px dotted $textcolour_link_hover;
 	}
 }
+
 .channel-newstuff{
 	background-color: $offwhite;
 	padding: $space;
 
 	@media all and (min-width: $bp-med) {
-		@include span(last 10 of 24);
+		@include span(last 9 of 24);
 	}
 
 	ul{
@@ -263,7 +264,13 @@
 	}
 }
 
+.section-title .link-more{
+	@include fontSize(14px);
+	margin-left: 1em;
+}
+
 .section.channel-credits{
+
 	.title{
 		@media all and (min-width: $bp-med) {
 			@include span(4 of 24);
