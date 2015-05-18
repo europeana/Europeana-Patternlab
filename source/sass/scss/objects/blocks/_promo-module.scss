@@ -64,6 +64,9 @@
 .promo-block-text{
 
 	border-top: 3px solid $accent;
+	overflow: visible;
+	margin-bottom: $space-half;
+
 
 	@media all and (min-width: $bp-small) {
 		border-top: none;
@@ -73,7 +76,6 @@
 	a{
 		padding: $space-half;
 		display: block;
-		margin-bottom: $space-half;
 		line-height: 1.2;
 
 		&:hover .title, &:focus .title{
@@ -81,20 +83,20 @@
 		}
 	}
 
+
+
 	.l-upper{
-		margin-bottom: $space;
+		margin-bottom: $space-half;
 	}
 
-	.image{
+	.img{
 		float: left;
 		width: 25%;
-		padding-top: 25%;
-		margin-right: $space-half;
-		background-size: cover;
+		margin-right: 5%;
 	}
-
-	img{
-		-webkit-filter: contrast(1.5) grayscale(1);
+	.bd{
+		float: left;
+		width: 70%;
 	}
 
 	.title{
@@ -109,7 +111,7 @@
 		opacity: 0.75;
 	}
 
-	span{
+	.lower span{
 		display: block;
 	}
 

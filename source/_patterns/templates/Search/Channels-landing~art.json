@@ -122,7 +122,7 @@
 					"count": "190,226",
 					"media_type":"Images",
 					"is_search": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-painting-square.jpg"
 				},
 				{
 					"title":"All Sculptures",
@@ -130,7 +130,7 @@
 					"count": "7,029",
 					"media_type":"Images and video",
 					"is_search": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-sculpture-square.jpg"
 				},
 				{
 					"title":"All Art history publications",
@@ -138,7 +138,7 @@
 					"count": "2,333",
 					"media_type":"Documents",
 					"is_search": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-documents-square.jpg"
 				},
 				{
 					"title":"Spotlight on Botticelli",
@@ -146,7 +146,7 @@
 					"count": "76",
 					"media_type":"Images and videos",
 					"is_spotlight": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-botticelli-square.jpg"
 				},
 				{
 					"title":"Spotlight on Alexander Roslin",
@@ -154,7 +154,7 @@
 					"count": "46",
 					"media_type":"Images and documents",
 					"is_spotlight": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-roslin-square.jpg"
 				},
 				{
 					"title":"Spotlight on Hokusai",
@@ -162,7 +162,7 @@
 					"count": "240",
 					"media_type":"Images",
 					"is_spotlight": true,
-					"image": "sample/thumb-dada.jpg"
+					"image": "sample/entry-hokusai-square.jpg"
 				}
 			]
 		},
