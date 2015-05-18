@@ -7,10 +7,10 @@ module.exports = function(grunt) {
 		options: {
 			separator: ';\n'
 		},
-	    site:{
+	    channels:{
 	    	  
 	    	files: {
-	    		'source/js/dist/site.js': [
+	    		'source/js/dist/channels.js': [
 	    		    
 	            	/* 'source/js/modules/*.js' */
 	            	
@@ -71,6 +71,6 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default', ['concat:site', 'concat:global', 'concat:map', 'concat:map_css', 'copy:map_img']);
+  grunt.registerTask('default', ['concat:channels', 'concat:global', 'concat:map', 'concat:map_css', 'copy:map_img']);
 }
 
