@@ -20,7 +20,7 @@
 
 	"js_files": [
         {
-            "path": "../../js/dist/site.js"
+            "path": "../../js/dist/channels.js"
         },
         {
             "path": "../../js/dist/global.js"
