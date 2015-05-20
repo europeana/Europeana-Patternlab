@@ -549,7 +549,10 @@ function initHome(){
 	      });
 	}
 
-	function showMap(longitude, latitude, labels) {
+
+	function showMap(longitudes, latitudes, labels) {
+		
+		console.log('showMap:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
 		
 	    var mapId     = 'map';
 	    var mapInfoId = 'map-info';
@@ -571,7 +574,7 @@ function initHome(){
 	                }
 	        );
 	        var map = L.map(mapId, {
-	            center: new L.LatLng(latitude, longitude),
+	            center: new L.LatLng(latitudes[0], longitudes[0]),
 	            zoomControl: true,
 	            zoom: 8
 	        });
@@ -581,16 +584,17 @@ function initHome(){
 	        map.addLayer(mq);
 	        map.invalidateSize();
 	        
-	        
-	        L.marker([latitude, longitude]).addTo(map);
+
+	        var coordLabels = [];
+		        
+	        for(var i=0; i<Math.min(latitudes.length, longitudes.length); i++){
+	        	L.marker([latitudes[i], longitudes[i]]).addTo(map);	        	
+		        coordLabels.push(latitudes[i]  + '&deg; ' + (latitudes[i] > 0  ? labels.n : labels.s) + ', ' + longitudes[i] + '&deg; ' + (longitudes[i] > 0 ? labels.e : labels.w) );
+	        }
 	        
 	        placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 	        
-	        var label = placeName
-	        + ': ' + latitude  + '&deg; ' + (latitude > 0  ? labels.n : labels.s)
-	        + ', ' + longitude + '&deg; ' + (longitude > 0 ? labels.e : labels.w)
-	        
-	        $('#' + mapInfoId).html(label);
+	        $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : '') );
 	        
 	    };
 	    
@@ -667,16 +671,49 @@ function initHome(){
 			initViewMore();			
 		}
 		
-		$(window).bind('showMap', function(e, data){//longitude, latitude) {
+		$(window).bind('showMap', function(e, data){
+
+
+			// split multi-values on (whitespace or comma + whitespace)
 			
-			data.latitude  = (data.latitude  + '').indexOf('.') > -1 ? data.latitude  : data.latitude  + '.00';
-			data.longitude = (data.longitude + '').indexOf('.') > -1 ? data.longitude : data.longitude + '.00';
-	        if (data.latitude && data.longitude && [data.latitude + '', data.longitude + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)) {
-	        	showMap(data.longitude, data.latitude, data.labels);
-	        }
-	        else{
-	        	console.log('invalid coordinates in data: ' + (data ? JSON.stringify(data) : 'null') + ' (will not init map)');
-	        }
+			var latitude  = data.latitude.split(/,*\s+/g);
+			var longitude = data.longitude.split(/,*\s+/g);
+				
+			if(latitude && longitude){
+				
+				// replace any comma-delimited decimals with decimal points / make decimal format
+				
+				for(var i=0; i<latitude.length; i++){
+					latitude[i] = latitude[i].replace(/,/g, '.').indexOf('.')  > -1 ? latitude[i]  : latitude[i]  + '.00';
+				}
+				for(var i=0; i<longitude.length; i++){
+					longitude[i] + longitude[i].replace(/,/g, '.').indexOf('.') > -1 ? longitude[i] : longitude[i] + '.00';				
+				}
+
+				var longitudes = [];
+				var latitudes  = [];
+
+				// sanity check
+				for(var i=0; i<Math.min(latitude.length, longitude.length); i++){
+					
+			        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)) {
+			        	longitudes.push(longitude[i]);
+			        	latitudes.push(latitude[i]);
+			        }
+			        else{
+			        	console.log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
+			        }
+
+				}
+				
+				if(longitudes.length && latitudes.length){
+		        	showMap(longitudes, latitudes, data.labels);					
+				}
+				else{
+		        	console.log('Map data missing');					
+				}
+
+			}
 
 		});
 	}
