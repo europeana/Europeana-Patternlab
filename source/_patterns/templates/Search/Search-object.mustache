@@ -124,8 +124,8 @@
                 <div class="object-info">
                     <div id="map">
                         <span id="map-place-name" class="js-hidden">{{geo.placeName}}</span>
-                        <div><b>{{geo.labels.longitude}}</b> {{geo.longitude}}</div>
-                        <div><b>{{geo.labels.latitude}}</b>  {{geo.latitude}}</div>
+                        <div><b>{{geo.labels.longitude}}</b>{{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+                        <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
                     </div>
                 </div>
             </div>

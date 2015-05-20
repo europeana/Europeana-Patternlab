@@ -676,8 +676,8 @@ function initHome(){
 
 			// split multi-values on (whitespace or comma + whitespace)
 			
-			var latitude  = data.latitude.split(/,*\s+/g);
-			var longitude = data.longitude.split(/,*\s+/g);
+			var latitude  = (data.latitude + '').split(/,*\s+/g);
+			var longitude = (data.longitude + '').split(/,*\s+/g);
 				
 			if(latitude && longitude){
 				
