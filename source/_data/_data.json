@@ -380,6 +380,10 @@
 	},
 	"location":"Den Haag, Netherlands",
 	"i18n":{
+		"site":{
+			"more" : "More...",
+			"news" : "News"
+		},
 		"more": "More",
 		"less": "Less",
 		"global": {
