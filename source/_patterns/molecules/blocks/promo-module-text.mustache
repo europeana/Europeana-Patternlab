@@ -3,15 +3,13 @@
 
 		{{#image}}
 		<div class="img">
-			<img class="circular" src="{{image_root}}{{image}}" alt="{{image_alt}}">
+			<img src="{{image_root}}{{image}}" alt="{{image_alt}}">
 		</div>
 		{{/image}}
 
 
 		<div class="bd">
 			<div class="l-upper">
-				<span class="title">{{title}}</span>
-
 				{{# is_spotlight }}
 				<svg class="icon icon-star">
 					<use xlink:href="#icon-star"></use>
@@ -22,6 +20,8 @@
 					<use xlink:href="#icon-search"></use>
 				</svg>
 				{{/ is_search }}
+				
+				<span class="title">{{title}}</span>
 				
 			</div>
 			

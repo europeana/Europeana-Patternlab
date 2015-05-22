@@ -70,11 +70,11 @@
 
 	@media all and (min-width: $bp-small) {
 		border-top: none;
-		border-left: 3px solid $accent;
+		//border-left: 3px solid $accent;
 	}
 
 	a{
-		padding: $space-half;
+		// padding: $space-half;
 		display: block;
 		line-height: 1.2;
 
@@ -83,7 +83,9 @@
 		}
 	}
 
-
+	.icon{
+		margin-right: 0;
+	}
 
 	.l-upper{
 		margin-bottom: $space-half;
