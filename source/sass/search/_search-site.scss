@@ -160,6 +160,12 @@
 	//background-color: $blue_dark;
 	margin-bottom: $space;
 
+	.lc{
+		@media all and (min-width: $bp-med) {
+		padding: $space-half;
+		}
+	}
+
 	.list-item {
 		position: relative;
 		min-height: 0;
@@ -214,11 +220,18 @@
 
 .channel-stats{
 
+	li{
+		line-height: 1;
+		margin-bottom: $space-half;
+	}
+
 	@media all and (min-width: $bp-med) {
 		@include span(5 of 24);
 		padding: $space;
 		border-left: 1px solid $gray-lighter;
 	}
+
+	
 
 	.number{
 		@include fontSize(18px);
