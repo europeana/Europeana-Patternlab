@@ -80,6 +80,8 @@
 
         {{! Creator info }}
         {{#creator}}
+        {{#creator.name_url}}
+        
         <div class="data-section cf">
 
             <h3 class="subsection-label">
@@ -90,7 +92,7 @@
                 
                 <div class="creator-name">
                     <a href="{{name_url}}">{{name}}</a>
-
+    
                     {{#life}}
                     <span class="life-dates">
                         ({{from.short}} {{#to}} — {{short}} {{/to}}) 
@@ -106,6 +108,7 @@
             </div>
 
         </div>
+        {{/creator.name_url}}
         {{/creator}}
         
         
@@ -157,7 +160,7 @@
         
 
         {{#meta_additional}}
-            <div class="js-showhide-panel is-jshidden map-section">
+            <div class="js-showhide-panel is-jshidden data-section">
 
             {{#geo.long_and_lat}}   {{! check both present }}
             <div class="map-section">
@@ -166,8 +169,8 @@
                     {{geo.labels.map}}
                 </h3>
                 <div class="object-info">
+                        <span id="map-place-name">{{geo.placeName}}</span>
                     <div id="map">
-                        <span id="map-place-name" class="js-hidden">{{geo.placeName}}</span>
                         <div><b>{{geo.labels.longitude}}</b>{{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
                         <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
                     </div>
@@ -177,15 +180,16 @@
 
             </div>
 
+
+            {{#geo.long_and_lat}}
             <a  class="js-showhide-action" 
                  href="#"
                  data-fire-on-open="showMap"
                  data-fire-on-open-params='{ 
-                    {{#geo.long_and_lat}}
                      "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
-                    {{/geo.long_and_lat}}
                  }'
                  data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
+            {{/geo.long_and_lat}}
                  
         {{/meta_additional}}
 
