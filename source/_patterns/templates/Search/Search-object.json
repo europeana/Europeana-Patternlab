@@ -311,8 +311,8 @@
 					"labels": 
 					{
 						"map": "Map",
-						"longitude": "Longitude jjjjj",
-						"latitude": "Latitude kkkkk",
+						"longitude": "Longitude",
+						"latitude": "Latitude",
 						"points": 
 						{
 							"n": "North",

@@ -108,6 +108,20 @@
         </div>
         {{/creator}}
 
+        {{! Creator info }}
+        {{#dates}}
+        <div class="object-creator cf">
+
+            <h3 class="subsection-label">
+               {{i18n.site.object.meta-label.dates}}
+            </h3>
+            
+            <div class="subsection-content">
+               {{.}}
+            </div>
+
+        </div>
+        {{/dates}}
 
         {{#meta_additional}}
 
@@ -269,4 +283,3 @@
 
 
 {{> organisms/global/footer }}
-        
