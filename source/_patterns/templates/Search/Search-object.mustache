@@ -80,7 +80,7 @@
 
         {{! Creator info }}
         {{#creator}}
-        <div class="object-creator cf">
+        <div class="data-section cf">
 
             <h3 class="subsection-label">
                 {{title}}
@@ -89,7 +89,7 @@
             <div class="subsection-content">
                 
                 <div class="creator-name">
-                    {{name}}
+                    <a href="{{name_url}}">{{name}}</a>
 
                     {{#life}}
                     <span class="life-dates">
@@ -107,10 +107,41 @@
 
         </div>
         {{/creator}}
+        
+        
+        <div class="data-section cf">
 
-        {{! Creator info }}
+            <h3 class="subsection-label">
+                {{{ i18n.site.object.meta-label.concepts }}}
+            </h3>
+
+	        {{# object.concepts }}
+	        <div class="object-concepts comma-list cap">
+	
+	            {{> molecules/navigation/linklist-simple }}
+	
+	        </div>
+	        {{/ object.concepts }}
+        </div>
+        
+   
+        <div class="data-section cf">
+
+            <h3 class="subsection-label">
+                {{{ i18n.site.object.meta-label.properties }}}
+            </h3>
+
+	        {{# object.properties }}
+	        <div class="object-properties comma-list cap">
+	            {{> molecules/navigation/linklist-simple }}
+	        </div>
+	        {{/ object.properties }}
+        </div>
+   
+   
+
         {{#dates}}
-        <div class="object-creator cf">
+        <div class="data-section cf">
 
             <h3 class="subsection-label">
                {{i18n.site.object.meta-label.dates}}
@@ -122,12 +153,11 @@
 
         </div>
         {{/dates}}
+        
+        
 
         {{#meta_additional}}
-
-        
             <div class="js-showhide-panel is-jshidden map-section">
-            
 
             {{#geo.long_and_lat}}   {{! check both present }}
             <div class="map-section">
@@ -159,6 +189,21 @@
                  
         {{/meta_additional}}
 
+
+		{{#origin.content_present}}
+        <div class="data-section cf">
+
+            <h3 class="subsection-label">
+               {{i18n.site.object.meta-label.provenance}}
+            </h3>
+            
+            <div class="subsection-content">
+               <a href="{{origin.url}}">{{origin.institution_name}} {{origin.institution_country}}</a>
+            </div>
+
+        </div>
+		{{/origin.content_present}}
+              
     {{/object}}
     </div>
     {{! end of object info column }}
@@ -218,16 +263,6 @@
         </div>
         {{/ object.origin }}
         
-
-        {{# object.concepts }}
-        <div class="object-concepts comma-list cap">
-
-            <h4 class="label">{{{ i18n.site.object.meta-label.concepts }}}:</h4>
-
-            {{> molecules/navigation/linklist-simple }}
-
-        </div>
-        {{/ object.concepts }}
 
 
         {{# object.tags }}

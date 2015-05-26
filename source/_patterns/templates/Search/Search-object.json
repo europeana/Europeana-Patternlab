@@ -108,6 +108,7 @@
 			"creator": 
 			{
 				"name": "Johannes Vermeer",
+				"name_url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
 				"life": 
 				{
 					"from": 
@@ -131,11 +132,13 @@
 					"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
 				}
 			},
-
+			"concepts": ["easel painting", "painting"],
+			"properties": ["41 cm high", "30 cm wide"],
 			"origin": 
 			{
 				"institution_name": "Rijksmuseum",
 				"institution_country": "Netherlands",
+				"content_present": true,
 				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
 				"logo": "sample/logo.jpg"
 			},

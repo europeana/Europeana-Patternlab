@@ -381,8 +381,14 @@
 	"location":"Den Haag, Netherlands",
 	"i18n":{
 		"site":{
-			"more" : "More...",
-			"news" : "News"
+			"more": "More...",
+			"news": "News",
+			"object": {
+				"meta-label": {
+					"concepts": "Categories",
+					"properties": "Properties"
+				} 
+			}
 		},
 		"more": "More",
 		"less": "Less",
@@ -392,3 +398,4 @@
 		}
 	}
 }
+
