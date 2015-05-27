@@ -388,7 +388,9 @@
 					"concepts": "Categories",
 					"properties": "Properties",
 					"provenance": "Provenance",
-					"dates": "Dates"
+					"dates": "Dates",
+					"location": "Location"
+					"description": "Description"
 				} 
 			}
 		},

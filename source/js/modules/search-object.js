@@ -5,6 +5,40 @@
 	}
 
 
+	function isElementInViewport(el){
+	
+	    if (typeof jQuery === "function" && el instanceof jQuery){
+	        el = el[0];
+	    }
+	
+	    var rect = el.getBoundingClientRect();
+	
+	    return (
+	        rect.top >= 0 &&
+	        rect.left >= 0 &&
+	        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+	        rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+	    );
+	}
+	
+	function initScrollEvents() {
+
+		$(window).on('scroll', function(){
+		
+			$('.scroll-trigger[enabled=true]').each(function(){
+				if(isElementInViewport( $(this) )){
+					$(this).attr('enabled', false)
+		        	var eEvent  = $(this).data('fire-on-open');
+		        	var eParams = $(this).data('fire-on-open-params');
+		        	$(window).trigger(eEvent, eParams);
+				}			
+			});
+		
+		});
+
+	}
+	
+	/*
 	function initViewMore() { // TODO: make this global
 		  
 	      $('.js-showhide-action').on('click', function(event){
@@ -32,7 +66,7 @@
 	        event.preventDefault();
 	      });
 	}
-
+	*/
 
 	function showMap(longitudes, latitudes, labels) {
 		
@@ -151,8 +185,11 @@
 		
 		testLayouts();
 		
-		if(typeof initViewMore != 'undefined'){
-			initViewMore();			
+		//if(typeof initViewMore != 'undefined'){
+		//	initViewMore();			
+		//}
+		if(typeof initScrollEvents != 'undefined'){
+			initScrollEvents();			
 		}
 		
 		$(window).bind('showMap', function(e, data){

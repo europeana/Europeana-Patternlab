@@ -101,6 +101,10 @@
     padding-bottom: $space;
     border-top: 1px solid $gray-lighter;
 }
+.data-section.no-border{
+    border-top: none;
+}
+
 
 #map{
     height: 22em;
