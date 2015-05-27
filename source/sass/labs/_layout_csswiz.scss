@@ -11,7 +11,6 @@
 	@extend %palm--one-whole;
 }
 
-
 .grid-main{
 	@extend %grid;
 	@extend %grid--full;
@@ -49,12 +48,6 @@
 	@extend %push--one-quarter;
 }
 
-
-
-.grid-main{
-	@extend %grid;
-	@extend %grid--full;
-}
 
 // Global nav - Our sites
 .our-sites .l-linklist{

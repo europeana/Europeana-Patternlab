@@ -36,6 +36,7 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
     $GRIDS
 \*------------------------------------*/
+//$use-silent-classes: false;
 @import "../scss/grid/csswizardry-grids";
 
 /*------------------------------------*\
@@ -74,7 +75,10 @@ $textcolour_highlight: $accent;
 \*------------------------------------*/
 //module layout using css wizardry grid
 @import "./layout_csswiz";
-
+@import "../scss/objects/blocks/site-hero";
+@import "../scss/theme/hero-branding";
+@import "../scss/objects/attribution";
+@import "./labs-homepage";
 
 
 /*------------------------------------*\

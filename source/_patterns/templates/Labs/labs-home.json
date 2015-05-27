@@ -1,0 +1,19 @@
+{
+	"bodyclass": "europeana_labs",
+	"pagetitle": "Europeana Labs",
+
+	"css_files": [
+		{
+			"path": "../../css/labs/screen.css",
+			"media": "all"
+		}
+	],
+	"content":{
+		"hero_config":{
+			"hero_image":"labs/hero_bg.jpg",
+			"brand_position" : "brand-bottomleft",
+			"brand_opacity" : "brand-opacity25",
+			"attribution_url" : false
+		}
+	}
+}

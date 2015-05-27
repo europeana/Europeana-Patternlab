@@ -1,0 +1,149 @@
+{{> atoms/iconography/svgicons-pro}}
+
+{{> organisms/global/header}}
+
+
+
+
+<section class="site-hero labs-home-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}} >
+
+	<div class="hero-contents">
+
+		<h1>Europeana Labs</h1>
+
+		<div class="byline">
+			<p>A playground for remixing and using your cultural and scientific&nbsp;heritage.<br>A place for inspiration, innovation and sharing.</p>
+			<p>This is your code, this is your heritage, these are your labs.</p>
+			<p>
+				<a class="btn cta cta_main cta_light" href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">GET STARTED</a>
+			</p>
+		</div>
+		
+	</div>
+	
+	{{#content.hero_config}} 
+		{{>molecules/text/attribution}}
+		{{>molecules/media/brand-svg-assets}}
+	{{/content.hero_config}}
+
+</section>
+
+<!-- Start Main page content -->
+<div  id="maincontent" role="main" class="labs-home">
+
+<div class="section api-signup">
+<div class="lc">
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#messageContainer").hide();
+	$("#loadingIcon").hide();
+});
+
+function requestAPIKey(){
+	$("#loadingIcon").show();
+	var url = "http://dev.museu.ms/Labs/RegisterApi?email="+$("#register_email").val();
+	 	$.ajax({
+	 			url: url,
+                dataType: 'jsonp',
+                success:function(data){
+                	
+                	if(data.Success==false){
+	                	$("#messageContainer")
+	                	.removeClass("alert-success")
+	                	.removeClass("alert-error")
+	                	.addClass("alert-error");
+	                	
+	                	$("#messageContainer").html(data.Message);
+	                	$("#messageContainer").show();
+                	}else{
+						$("#messageContainer").removeClass("alert-error").addClass("alert-success");
+	                	$("#messageContainer").html(data.Message);
+	                	$("#messageContainer").show();
+                	}
+                	
+                	$("#loadingIcon").hide();
+                }
+		});
+}
+</script>
+
+<div class="signupform">
+
+	<div class="block-thumb">
+	    <div class="b-inner">
+			<div class="b-thumb">
+				<img src="{{image_root}}/labs/api_key.png">
+			</div>
+			<div class="b-text">
+				<h2>Get your API key.</h2>
+				<p>Sign up for your free API key and <a href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">get started</a>!</p>
+
+				<form id="model" class="inline-form">
+					<fieldset>
+						<input id="requestedAction" name="requestedAction" value="RequestAPI" type="hidden">
+						<label for="register_email">Email address:</label>
+						<div class="inline-container">
+							<input id="register_email" name="email" type="text" placeholder="" maxlength="50" class="newsletter-field">
+							<input type="submit" onclick="requestAPIKey();return false;" name="submit_button" value="Sign up" class="newsletter-submit">
+						</div>
+					</fieldset>
+				</form>	
+
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<img class="is-hidden" id="loadingIcon" src="{{image_root}}/ajax-loader.gif" alt="Loading...">	
+		<div class="is-hidden" id="messageContainer" class="alert"> alert text here</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+{{! Apps list }}
+<section class="apps-list section">
+	<div class="lc">
+
+	<h2>Be inspired …</h2>
+
+	<ul class="l-post-list">
+	    {{#listItems.nine}}<li>
+            <div class="block block-thumb">
+
+                <div class="b-thumb">
+                    <a href="/apps/google-field-trip">
+                        <img src="{{image_root}}{{img.rectangle.src}}" alt="{{image.rectangle.alt}}">
+                    </a>
+                </div>
+
+                <div class="b-text">
+	                    <h2 class="headline"><a href="/apps/google-field-trip">{{headline.short}}</a></h2>
+	                    <div class="description">
+	                        <p>Europeana, Google’s Niantic Labs and three partner memory institutions - the Swedish National Heritage Board, the National Heritage Board of Estonia and the National Heritage Board of Poland -  have successfully completed a pilot project to integrate curated cultural content in Google’s Field Trip app  (<a href="http://www.fieldtripper.com">www.fieldtripper.com</a>). </p>
+	                    </div>
+					
+					<a href="/apps/google-field-trip" title="Europeana's pilot on Google's Field Trip app" class="text-btn-homepage">Find out more</a>
+                </div>
+            </div>
+        </li>{{/listItems.nine}}
+	</ul>
+
+
+	<div class="apps-more">
+		<p><a href="/apps" title="Application Gallery"><strong>See more examples in the Application Gallery&nbsp;→</strong></a></p>
+	</div>
+
+
+	</div>
+</section>
+
+</div>
+
+{{> organisms/global/footer }}

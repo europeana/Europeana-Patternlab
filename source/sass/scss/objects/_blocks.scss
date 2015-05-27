@@ -72,7 +72,7 @@
 	padding-top: $pad;
 
 
-	@media all and (min-width: $bp-med) {
+	@media all and (min-width: $bp-small-2) {
 		display: table;
 		table-layout: fixed;
 
@@ -86,7 +86,7 @@
 
 
 	.b-thumb {
-		@media all and (min-width: $bp-med) {
+		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			vertical-align: top;	
 	  		width: 33.333%;
@@ -101,7 +101,7 @@
 	}
 
 	.b-text {
-		@media all and (min-width: $bp-med) {
+		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			width: 66.666%;
 			padding: 0 $pad;
