@@ -11,7 +11,7 @@
 	}
 
 	.lc{
-		@media all and (min-width: $bp-med) {
+		@media all and (min-width: $bp-large) {
 			width: 75%;
 		}
 	}
@@ -22,7 +22,7 @@
 	}
 
 	.h2{
-		@include fontSize(36px);
+		@include fontSize(32px);
 		margin-bottom: $space-half;
 	}
 }
@@ -83,7 +83,7 @@
 .api-signup{
 	
 	text-align: center;
-	
+	color: $black;
 
 	.lc{
 		padding-bottom: $space-double;
@@ -144,12 +144,12 @@
 	text-align: center;
 	padding-top: 0;
 
-	.block-thumb{
+	.block-thumb, h2{
 		text-align: left;
 	}
 
 	.headline{
-		@include fontSize(32px);
+		@include fontSize(28px);
 	}
 }
 

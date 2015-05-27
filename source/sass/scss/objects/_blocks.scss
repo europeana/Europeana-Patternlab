@@ -69,8 +69,6 @@
 /* Block Thumbnail with Headline */
 .block-thumb {
 	width: 100%;
-	padding-top: $pad;
-
 
 	@media all and (min-width: $bp-small-2) {
 		display: table;
@@ -193,6 +191,7 @@
 .block-thumb-small {
 
 	border-top: 5px solid $gray-dark;
+	padding-top: 1em;
 
 	@media all and (min-width: $bp-small-2) {
 		.b-thumb {

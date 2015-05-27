@@ -78,7 +78,7 @@ function requestAPIKey(){
 			</div>
 			<div class="b-text">
 				<h2>Get your API key.</h2>
-				<p>Sign up for your free API key and <a href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">get started</a>!</p>
+				Sign up for your free API key and <a href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">get started</a>!
 
 				<form id="model" class="inline-form">
 					<fieldset>
@@ -118,18 +118,18 @@ function requestAPIKey(){
             <div class="block block-thumb">
 
                 <div class="b-thumb">
-                    <a href="/apps/google-field-trip">
+                    <a href="{{url}}">
                         <img src="{{image_root}}{{img.rectangle.src}}" alt="{{image.rectangle.alt}}">
                     </a>
                 </div>
 
                 <div class="b-text">
-	                    <h2 class="headline"><a href="/apps/google-field-trip">{{headline.short}}</a></h2>
+	                    <h2 class="headline"><a href="{{url}}">{{headline.short}}</a></h2>
 	                    <div class="description">
-	                        <p>Europeana, Google’s Niantic Labs and three partner memory institutions - the Swedish National Heritage Board, the National Heritage Board of Estonia and the National Heritage Board of Poland -  have successfully completed a pilot project to integrate curated cultural content in Google’s Field Trip app  (<a href="http://www.fieldtripper.com">www.fieldtripper.com</a>). </p>
+	                        <p>{{excerpt.medium}}</p>
 	                    </div>
 					
-					<a href="/apps/google-field-trip" title="Europeana's pilot on Google's Field Trip app" class="text-btn-homepage">Find out more</a>
+					<a href="{{url}}" title="Europeana's pilot on Google's Field Trip app">Find out more</a>
                 </div>
             </div>
         </li>{{/listItems.nine}}
