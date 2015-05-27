@@ -1,3 +1,5 @@
+
+
 {{> atoms/iconography/svgicons-search }}
 
 {{> organisms/global/header}}
@@ -111,39 +113,68 @@
         {{/creator.name_url}}
         {{/creator}}
         
-        
+
+        {{# object.concepts.content_present }}
         <div class="data-section cf">
 
             <h3 class="subsection-label">
                 {{{ i18n.site.object.meta-label.concepts }}}
             </h3>
-
-	        {{# object.concepts }}
-	        <div class="object-concepts comma-list cap">
-	
-	            {{> molecules/navigation/linklist-simple }}
-	
+            <div class="subsection-content">
+				<ul>
+			        {{# object.concepts.items }}
+			        	<li>
+							{{#label}}
+							  <b>{{ label }}</b>
+							{{/label}}
+		    
+							{{#url}}
+							<a href="{{.}}">
+							{{/url}}
+							
+							{{text}}
+							
+							{{#url}}
+							</a>
+							{{/url}}	        
+			        	</li>
+			        {{/ object.concepts.items }}
+		        </ul>
 	        </div>
-	        {{/ object.concepts }}
         </div>
+        {{/ object.concepts.content_present }}
         
    
+        {{# object.properties.content_present }}
         <div class="data-section cf">
-
             <h3 class="subsection-label">
                 {{{ i18n.site.object.meta-label.properties }}}
             </h3>
-
-	        {{# object.properties }}
-	        <div class="object-properties comma-list cap">
-	            {{> molecules/navigation/linklist-simple }}
-	        </div>
-	        {{/ object.properties }}
+            <ul>
+				{{#object.properties.items}}
+				<li>
+					{{#label}}
+					  <b>{{ label }}</b>
+					{{/label}}
+				
+					{{#url}}
+					<a href="{{.}}">
+					{{/url}}
+					
+					{{text}}
+					
+					{{#url}}
+					</a>
+					{{/url}}
+				</li>
+				{{/object.properties.items}}
+			</ul>
         </div>
+        {{/ object.properties.content_present }}
    
    
 
-        {{#dates}}
+        {{#object.dates.content_present}}
         <div class="data-section cf">
 
             <h3 class="subsection-label">
@@ -151,12 +182,28 @@
             </h3>
             
             <div class="subsection-content">
-               {{.}}
+            	<ul>
+			        {{#object.dates.items}}
+						<li>
+							{{#label}}
+							  <b>{{.}}</b>
+							{{/label}}
+					
+							{{#url}}
+							<a href="{{.}}">
+							{{/url}}
+							
+							{{text}}
+							
+							{{#url}}
+							</a>
+							{{/url}}
+						</li>
+					{{/object.dates.items}}
+				</ul>
             </div>
-
         </div>
-        {{/dates}}
-        
+        {{/object.dates.content_present}}
         
 
         {{#meta_additional}}
@@ -194,7 +241,7 @@
         {{/meta_additional}}
 
 
-		{{#origin.content_present}}
+        {{#object.provenance.content_present}}
         <div class="data-section cf">
 
             <h3 class="subsection-label">
@@ -202,11 +249,55 @@
             </h3>
             
             <div class="subsection-content">
-               <a href="{{origin.url}}">{{origin.institution_name}} {{origin.institution_country}}</a>
+            	<ul>
+			        {{#object.provenance.items}}
+						<li>
+							{{#label}}
+							  <b>{{ label }}</b>
+							{{/label}}
+					
+							{{#url}}
+							<a href="{{.}}">
+							{{/url}}
+							
+							{{text}}
+							
+							{{#url}}
+							</a>
+							{{/url}}
+						</li>
+					{{/object.provenance.items}}
+				</ul>
             </div>
-
         </div>
-		{{/origin.content_present}}
+        {{/object.provenance.content_present}}
+              
+
+
+              
+              
+        {{! Related itens }}
+		{{#content.related}}
+		<div class="data-section">
+			<div class="object-related">
+			
+			    <div class="subsection-label">
+			        {{title}}
+			    </div>
+			
+			    <div class="subsection-content">
+			    <ul>
+			    {{#items}}
+			        <li class="mlt-item">
+			        >> link block here{{title}}
+			        </li>
+			    {{/items}}
+			    </ul>
+			    </div>
+			</div>
+		</div>
+		{{/content.related}}
+		        
               
     {{/object}}
     </div>
@@ -249,6 +340,7 @@
 
         {{# object.origin }}
         <div class="object-origin">
+        
             <h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
 
             {{#logo}}
@@ -298,27 +390,6 @@
     {{/content}}
 </div>
 
-{{! Related itens }}
-{{#content.related}}
-<section class="section">
-<div class="object-related">
-
-    <div class="subsection-label">
-        {{title}}
-    </div>
-
-    <div class="subsection-content">
-    <ul>
-    {{#items}}
-        <li class="mlt-item">
-        >> link block here
-        </li>
-    {{/items}}
-    </ul>
-    </div>
-</div>
-</section>
-{{/content.related}}
 
 
 {{> organisms/global/footer }}

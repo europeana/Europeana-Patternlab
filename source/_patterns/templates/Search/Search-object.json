@@ -209,17 +209,62 @@
 
 			"concepts": 
 			{
+				"content_present": true,			
 				"items": 
 				[
 					{
 						"text": "oil painting",
-						"url": "http://europeana.eu"
+						"url": "http://europeana.eu",
+						"label": "Concept:"
 					},
 
 					{
 						"text": "art work",
 						"url": "http://europeana.eu"
 					}
+				]
+			},
+			
+			"properties": 
+			{
+				"content_present": true,			
+				"items": 
+				[
+					{
+						"text": "image/jpeg",
+						"label": "Format: "
+					}
+
+				]
+			},
+			
+			"provenance": 
+			{
+				"content_present": true,			
+				"items": 
+				[
+					{
+						"text": "Rijksmuseum",
+						"label": "Publisher: ",
+						"url": "rijksmuseum.nl"
+					}
+
+				]
+			},
+			
+			"dates": 
+			{
+				"content_present": true,			
+				"items": 
+				[
+					{
+						"text": "1600s",
+						"label": "Period: "
+					},
+					{
+						"text": "17th century"
+					}
+
 				]
 			},
 

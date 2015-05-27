@@ -107,7 +107,12 @@
 }
 
 .subsection-label{
-    font-weight: normal;
+    font-weight:    bold;
+    text-transform: capitalize;
+}
+
+.subsection-content>ul{
+	display: inline;
 }
 
 @media all and (min-width: $bp-med) {

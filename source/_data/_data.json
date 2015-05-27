@@ -386,7 +386,9 @@
 			"object": {
 				"meta-label": {
 					"concepts": "Categories",
-					"properties": "Properties"
+					"properties": "Properties",
+					"provenance": "Provenance",
+					"dates": "Dates"
 				} 
 			}
 		},
