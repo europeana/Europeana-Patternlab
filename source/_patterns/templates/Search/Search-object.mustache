@@ -1,5 +1,3 @@
-
-
 {{> atoms/iconography/svgicons-search }}
 
 {{> organisms/global/header}}
@@ -59,6 +57,7 @@
         {{/media}}
 
         <div class="object-info cf">
+        
             {{# title }}
             <h2 class="object-title">{{title}}</h2>
             {{/ title }}
@@ -73,12 +72,19 @@
             </div>
             {{/creation_date}}
 
+        </div>
+
+        <div class="data-section no-border cf">
+            <h3 class="subsection-label">
+                {{{ i18n.site.object.meta-label.description }}}
+            </h3>
+        
             {{# description}}
-            <div class="object-description">
+            <div class="subsection-content">
                 {{description}}
             </div>
             {{/ description}}
-        </div>
+		</div>
 
         {{! Creator info }}
         {{#creator}}
@@ -207,13 +213,19 @@
         
 
         {{#meta_additional}}
-            <div class="js-showhide-panel is-jshidden data-section">
 
             {{#geo.long_and_lat}}   {{! check both present }}
+			<a	class="scroll-trigger" 
+				enabled="true"
+				data-fire-on-open="showMap"
+                data-fire-on-open-params='{ 
+                	"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
+                }'
+			></a>
             <div class="map-section">
             
                 <h3 class="subsection-label">
-                    {{geo.labels.map}}
+                        {{i18n.site.object.meta-label.location}}
                 </h3>
                 <div class="object-info">
                         <span id="map-place-name">{{geo.placeName}}</span>
@@ -223,19 +235,6 @@
                     </div>
                 </div>
             </div>
-            {{/geo.long_and_lat}}
-
-            </div>
-
-
-            {{#geo.long_and_lat}}
-            <a  class="js-showhide-action" 
-                 href="#"
-                 data-fire-on-open="showMap"
-                 data-fire-on-open-params='{ 
-                     "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
-                 }'
-                 data-text-swap="{{labels.show_less_meta}}">{{labels.show_more_meta}}</a>
             {{/geo.long_and_lat}}
                  
         {{/meta_additional}}
@@ -340,7 +339,6 @@
 
         {{# object.origin }}
         <div class="object-origin">
-        
             <h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
 
             {{#logo}}
