@@ -8,7 +8,7 @@
 	
 	function initScrollEvents() {
 		
-		if(window.location.href.indexOf('preload-map')){
+		if(window.location.href.indexOf('preload-map')>-1	){
 			$(document).ready(function(){
 				$('.scroll-trigger').each(function(){
 					$(this).attr('enabled', false)
