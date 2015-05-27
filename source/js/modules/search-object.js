@@ -5,23 +5,39 @@
 	}
 
 
-	function isElementInViewport(el){
-	
-	    if (typeof jQuery === "function" && el instanceof jQuery){
-	        el = el[0];
-	    }
-	
-	    var rect = el.getBoundingClientRect();
-	
-	    return (
-	        rect.top >= 0 &&
-	        rect.left >= 0 &&
-	        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-	        rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-	    );
-	}
 	
 	function initScrollEvents() {
+		
+		if(window.location.href.indexOf('preload-map')){
+			$(document).ready(function(){
+				$('.scroll-trigger').each(function(){
+					$(this).attr('enabled', false)
+		        	var eEvent  = $(this).data('fire-on-open');
+		        	var eParams = $(this).data('fire-on-open-params');
+		        	$(window).trigger(eEvent, eParams);
+					console.log('evt: ' + eEvent + '  ' + eParams);
+				});
+			});
+			console.log('preload map');
+			return;
+		}
+
+		
+		var isElementInViewport = function(el){
+			
+			if (typeof jQuery === "function" && el instanceof jQuery){
+				el = el[0];
+			}
+			
+			var rect = el.getBoundingClientRect();
+			
+			return (
+					rect.top >= 0 &&
+					rect.left >= 0 &&
+					rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+					rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+			);
+		}
 
 		$(window).on('scroll', function(){
 		
@@ -35,7 +51,6 @@
 			});
 		
 		});
-
 	}
 	
 	/*
