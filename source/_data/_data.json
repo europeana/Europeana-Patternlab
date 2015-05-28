@@ -389,7 +389,7 @@
 					"properties": "Properties",
 					"provenance": "Provenance",
 					"dates": "Dates",
-					"location": "Location"
+					"location": "Location",
 					"description": "Description"
 				} 
 			}
