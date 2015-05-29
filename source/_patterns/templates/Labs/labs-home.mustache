@@ -80,13 +80,13 @@ function requestAPIKey(){
 				<h2>Get your API key.</h2>
 				Sign up for your free API key and <a href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">get started</a>!
 
-				<form id="model" class="inline-form">
+				<form id="model" class="submit-inline">
 					<fieldset>
 						<input id="requestedAction" name="requestedAction" value="RequestAPI" type="hidden">
 						<label for="register_email">Email address:</label>
 						<div class="inline-container">
 							<input id="register_email" name="email" type="text" placeholder="" maxlength="50" class="newsletter-field">
-							<input type="submit" onclick="requestAPIKey();return false;" name="submit_button" value="Sign up" class="newsletter-submit">
+							<input class="pushbutton" type="submit" onclick="requestAPIKey();return false;" name="submit_button" value="Sign up" class="newsletter-submit">
 						</div>
 					</fieldset>
 				</form>	
