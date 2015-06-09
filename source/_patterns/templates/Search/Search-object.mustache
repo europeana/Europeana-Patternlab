@@ -293,12 +293,13 @@
 					<div class="subsection-label">
 						{{title}}
 					</div>
-					
+										
 					<div class="subsection-content">
 						<ul>
 							{{#items}}
 								<li>
 									<div class="mlt-item height-to-width" style="background-image: url({{img.src}})">
+										<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
 									</div>
 
 										{{#text}}
@@ -316,7 +317,7 @@
 								</li>							
 							{{/items}}
 						</ul>
-						<div class="show-more-mlt" style="width:100%; text-align:right;"><a onclick="javascript:alert('todo')">Show more...</a></div>
+						<div class="show-more-mlt" style="width:100%; text-align:right;"><a href="{{more_items_query}}">Show more...</a></div>
 					</div>
 				</div>
 
