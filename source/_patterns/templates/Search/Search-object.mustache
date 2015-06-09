@@ -1,392 +1,332 @@
 {{> atoms/iconography/svgicons-search }}
-
 {{> organisms/global/header}}
-
-
 <div role="main" class="search-object section">
-
-    <div class="lc">
-        <div class="object-nav">
-            {{>molecules/navigation/next-previous}}
-        </div>
-    </div>
-
-    {{#content}}
-    <div class="object-wrapper lc">
-    
-    <div class="object-overview">
-    {{#object}}
-        
-        {{#media}}
-        <div class="object-display is-smallimage cf">
-            {{#primary}}
-                {{#is_image}}
-                <div class="object-media-image">
-                    <img src="{{preview}}" alt="{{alt}}"/>
-                </div>
-                {{/is_image}}
-                {{#is_video}}
-                <div class="object-media-video">
-                    Video player here
-                </div>
-                {{/is_video}}
-                {{#is_text}}
-                <div class="object-media-text">
-                    Text viewer here
-                </div>
-                {{/is_text}}
-                {{#is_audio}}
-                <div class="object-media-audio">
-                    Audio player here
-                </div>
-                {{/is_audio}}
-            {{/primary}}
-
-            {{#additional}}
-            
-                <ul class="object-media-nav nav">
-                    {{#items}}
-                        {{#thumbnail}}
-                            <li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
-                        {{/thumbnail}}
-                    {{/items}}
-                </ul>
-                
-            {{/additional}}
-        </div>
-        {{/media}}
-
-        <div class="object-info cf">
-        
-            {{# title }}
-            <h2 class="object-title">{{title}}</h2>
-            {{/ title }}
-
-            {{# subtitle }}
-            <div class="subtitle">{{subtitle}}</div>
-            {{/ subtitle }}
-
-            {{#creation_date}}
-            <div class="date_created">
-                {{creation_date}}
-            </div>
-            {{/creation_date}}
-
-        </div>
-
-        {{# description}}
-        <div class="data-section no-border cf">
-            <h3 class="subsection-label">
-                {{{ i18n.site.object.meta-label.description }}}
-            </h3>
-        
-            <div class="subsection-content">
-                {{description}}
-            </div>
+	<div class="lc">
+		<div class="object-nav">
+			{{>molecules/navigation/next-previous}}
 		</div>
-        {{/ description}}
-
-        {{! Creator info }}
-        {{#creator}}
-        {{#creator.name_url}}
-        
-        <div class="data-section cf">
-
-            <h3 class="subsection-label">
-                {{title}}
-            </h3>
-            
-            <div class="subsection-content">
-                
-                <div class="creator-name">
-                    <a href="{{name_url}}">{{name}}</a>
-    
-                    {{#life}}
-                    <span class="life-dates">
-                        ({{from.short}} {{#to}} — {{short}} {{/to}}) 
-                    </span>
-                    {{/life}}
-                </div>
-
-                {{#biography}}
-                <div class="biography">
-                    {{biography.text}}
-                </div>
-                {{/biography}}
-            </div>
-
-        </div>
-        {{/creator.name_url}}
-        {{/creator}}
-        
-
-        {{# object.concepts.content_present }}
-        <div class="data-section cf">
-
-            <h3 class="subsection-label">
-                {{{ i18n.site.object.meta-label.concepts }}}
-            </h3>
-            <div class="subsection-content">
-				<ul>
-			        {{# object.concepts.items }}
-			        	<li>
-							{{#label}}
-							  <b>{{ label }}</b>
-							{{/label}}
-		    
-							{{#url}}
-							<a href="{{.}}">
-							{{/url}}
-							
-							{{text}}
-							
-							{{#url}}
-							</a>
-							{{/url}}	        
-			        	</li>
-			        {{/ object.concepts.items }}
-		        </ul>
-	        </div>
-        </div>
-        {{/ object.concepts.content_present }}
-        
-   
-        {{# object.properties.content_present }}
-        <div class="data-section cf">
-            <h3 class="subsection-label">
-                {{{ i18n.site.object.meta-label.properties }}}
-            </h3>
-            <ul>
-				{{#object.properties.items}}
-				<li>
-					{{#label}}
-					  <b>{{ label }}</b>
-					{{/label}}
-				
-					{{#url}}
-					<a href="{{.}}">
-					{{/url}}
-					
-					{{text}}
-					
-					{{#url}}
-					</a>
-					{{/url}}
-				</li>
-				{{/object.properties.items}}
-			</ul>
-        </div>
-        {{/ object.properties.content_present }}
-   
-   
-
-        {{#object.dates.content_present}}
-        <div class="data-section cf">
-
-            <h3 class="subsection-label">
-               {{i18n.site.object.meta-label.dates}}
-            </h3>
-            
-            <div class="subsection-content">
-            	<ul>
-			        {{#object.dates.items}}
+	</div>
+	{{#content}}
+	<div class="object-wrapper lc">
+		<div class="object-overview">
+			{{#object}}
+			{{#media}}
+			<div class="object-display is-smallimage cf">
+				{{#primary}}
+				{{#is_image}}
+				<div class="object-media-image">
+					<img src="{{preview}}" alt="{{alt}}"/>
+				</div>
+				{{/is_image}}
+				{{#is_video}}
+				<div class="object-media-video">
+					Video player here
+				</div>
+				{{/is_video}}
+				{{#is_text}}
+				<div class="object-media-text">
+					Text viewer here
+				</div>
+				{{/is_text}}
+				{{#is_audio}}
+				<div class="object-media-audio">
+					Audio player here
+				</div>
+				{{/is_audio}}
+				{{/primary}}
+				{{#additional}}
+				<ul class="object-media-nav nav">
+					{{#items}}
+					{{#thumbnail}}
+					<li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+					{{/thumbnail}}
+					{{/items}}
+				</ul>
+				{{/additional}}
+			</div>
+			{{/media}}
+			<div class="object-info cf">
+				{{# title }}
+				<h2 class="object-title">{{title}}</h2>
+				{{/ title }}
+				{{# subtitle }}
+				<div class="subtitle">{{subtitle}}</div>
+				{{/ subtitle }}
+				{{#creation_date}}
+				<div class="date_created">
+					{{creation_date}}
+				</div>
+				{{/creation_date}}
+			</div>
+			{{# description}}
+			<div class="data-section no-border cf">
+				<h3 class="subsection-label">
+					{{{ i18n.site.object.meta-label.description }}}
+				</h3>
+				<div class="subsection-content">
+					{{description}}
+				</div>
+			</div>
+			{{/ description}}
+			{{! Creator info }}
+			{{#creator}}
+			{{#creator.name_url}}
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{title}}
+				</h3>
+				<div class="subsection-content">
+					<div class="creator-name">
+						<a href="{{name_url}}">{{name}}</a>
+						{{#life}}
+						<span class="life-dates">
+						({{from.short}} {{#to}} — {{short}} {{/to}}) 
+						</span>
+						{{/life}}
+					</div>
+					{{#biography}}
+					<div class="biography">
+						{{biography.text}}
+					</div>
+					{{/biography}}
+				</div>
+			</div>
+			{{/creator.name_url}}
+			{{/creator}}
+			{{# object.concepts.content_present }}
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{{ i18n.site.object.meta-label.concepts }}}
+				</h3>
+				<div class="subsection-content">
+					<ul>
+						{{# object.concepts.items }}
 						<li>
 							{{#label}}
-							  <b>{{.}}</b>
+							<b>{{ label }}</b>
 							{{/label}}
-					
 							{{#url}}
 							<a href="{{.}}">
 							{{/url}}
-							
 							{{text}}
-							
+							{{#url}}
+							</a>
+							{{/url}}			  
+						</li>
+						{{/ object.concepts.items }}
+					</ul>
+				</div>
+			</div>
+			{{/ object.concepts.content_present }}
+			{{# object.properties.content_present }}
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{{ i18n.site.object.meta-label.properties }}}
+				</h3>
+				<ul>
+					{{#object.properties.items}}
+					<li>
+						{{#label}}
+						<b>{{ label }}</b>
+						{{/label}}
+						{{#url}}
+						<a href="{{.}}">
+						{{/url}}
+						{{text}}
+						{{#url}}
+						</a>
+						{{/url}}
+					</li>
+					{{/object.properties.items}}
+				</ul>
+			</div>
+			{{/ object.properties.content_present }}
+			{{#object.dates.content_present}}
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{i18n.site.object.meta-label.dates}}
+				</h3>
+				<div class="subsection-content">
+					<ul>
+						{{#object.dates.items}}
+						<li>
+							{{#label}}
+							<b>{{.}}</b>
+							{{/label}}
+							{{#url}}
+							<a href="{{.}}">
+							{{/url}}
+							{{text}}
 							{{#url}}
 							</a>
 							{{/url}}
 						</li>
-					{{/object.dates.items}}
-				</ul>
-            </div>
-        </div>
-        {{/object.dates.content_present}}
-        
-
-        {{#meta_additional}}
-
-            {{#geo.long_and_lat}}   {{! check both present }}
+						{{/object.dates.items}}
+					</ul>
+				</div>
+			</div>
+			{{/object.dates.content_present}}
+			{{#meta_additional}}
+			{{#geo.long_and_lat}}	{{! check both present }}
 			<a	class="scroll-trigger" 
 				enabled="true"
 				data-fire-on-open="showMap"
-                data-fire-on-open-params='{ 
-                	"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
-                }'
-			></a>
-            <div class="map-section">
-            
-                <h3 class="subsection-label">
-                        {{i18n.site.object.meta-label.location}}
-                </h3>
-                <div class="object-info">
-                        <span id="map-place-name">{{geo.placeName}}</span>
-                    <div id="map">
-                        <div><b>{{geo.labels.longitude}}</b>{{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
-                        <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
-                    </div>
-                </div>
-            </div>
-            {{/geo.long_and_lat}}
-                 
-        {{/meta_additional}}
-
-
-        {{#object.provenance.content_present}}
-        <div class="data-section cf">
-
-            <h3 class="subsection-label">
-               {{i18n.site.object.meta-label.provenance}}
-            </h3>
-            
-            <div class="subsection-content">
-            	<ul>
-			        {{#object.provenance.items}}
+				data-fire-on-open-params='{ 
+				"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
+				}'
+				></a>
+			<div class="map-section">
+				<h3 class="subsection-label">
+					{{i18n.site.object.meta-label.location}}
+				</h3>
+				<div class="object-info">
+					<span id="map-place-name">{{geo.placeName}}</span>
+					<div id="map">
+						<div><b>{{geo.labels.longitude}}</b>{{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+						<div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
+					</div>
+				</div>
+			</div>
+			{{/geo.long_and_lat}}
+			{{/meta_additional}}
+			{{#object.provenance.content_present}}
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{i18n.site.object.meta-label.provenance}}
+				</h3>
+				<div class="subsection-content">
+					<ul>
+						{{#object.provenance.items}}
 						<li>
 							{{#label}}
-							  <b>{{ label }}</b>
+							<b>{{ label }}</b>
 							{{/label}}
-					
 							{{#url}}
 							<a href="{{.}}">
 							{{/url}}
-							
 							{{text}}
-							
 							{{#url}}
 							</a>
 							{{/url}}
 						</li>
-					{{/object.provenance.items}}
-				</ul>
-            </div>
-        </div>
-        {{/object.provenance.content_present}}
-              
-
-
-              
-              
-        {{! Related itens }}
-		{{#content.related}}
-		<div class="data-section">
-			<div class="object-related">
-			
-			    <div class="subsection-label">
-			        {{title}}
-			    </div>
-			
-			    <div class="subsection-content">
-			    <ul>
-			    {{#items}}
-			        <li class="mlt-item">
-			        >> link block here{{title}}
-			        </li>
-			    {{/items}}
-			    </ul>
-			    </div>
+						{{/object.provenance.items}}
+					</ul>
+				</div>
 			</div>
+			{{/object.provenance.content_present}}
+
+			{{/object}}
+			
 		</div>
-		{{/content.related}}
-		        
-              
-    {{/object}}
-    </div>
-    {{! end of object info column }}
+		
+		
+		{{! end of object info column }}
+		<div class="object-actions cf">
+			<div class="object-image-nav prototype-image">
+				{{! @TODO Object image thumbnail navigation goes here }}
+			</div>
+			<input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+			{{#object.download}}
+			<div class="object-downloads">
+				<a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
+				{{#secondary}}
+				<div class="secondary comma-list">
+					<span class="label">Also available:</span>
+					{{> molecules/navigation/linklist-simple }}
+				</div>
+				{{/secondary}}
+			</div>
+			{{/object.download}}
+			{{# object.media.primary.rights }}
+			<div class="object-rights">
+				{{license_human}}
+				<div class="object-license">{{> molecules/icons/licenses }}</div>
+			</div>
+			{{/ object.media.primary.rights }}
+			{{# object.origin }}
+			<div class="object-origin">
+				<h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
+				{{#logo}}
+				<a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+				{{/logo}}
+				<a class="original_context cap" href="{{url}}">
+					{{institution_name}}
+					<svg class="icon icon-linkout">
+						<use xlink:href="#icon-linkout"></use>
+					</svg>
+				</a>
+				<span class="cap">{{institution_country}}</span>
+			</div>
+			{{/ object.origin }}
+			{{# object.tags }}
+			<div class="object-tags">
+				<ul class="nav">
+					{{#items}}
+					<li><a href="{{url}}" class="tag">{{text}}</a></li>
+					{{/items}}
+				</ul>
+			</div>
+			{{/ object.tags }}
+			{{# object.colours }}
+			<div class="object-colours">
+				{{> molecules/controls/colour-search }}
+			</div>
+			{{/ object.colours }}
+			{{# object.further_actions }}
+			<div class="object-furtheractions">
+				{{> molecules/controls/dropdown-menu }}
+			</div>
+			{{/ object.further_actions }}
+		</div>
+		
+		{{! end object actions }}
+		
+	</div>
 
 
-    <div class="object-actions">
 
-        <div class="object-image-nav prototype-image">
-        {{! @TODO Object image thumbnail navigation goes here }}
-        </div>
+	<div class="lc data-border">
+			{{#content.related}}
+			<div class="data-section no-border">
+			
+				<div class="mlt">
+					<div class="subsection-label">
+						{{title}}
+					</div>
+					
+					<div class="subsection-content">
+						<ul>
+							{{#items}}
+								<li>
+									<div class="mlt-item height-to-width" style="background-image: url({{img.src}})">
+									</div>
 
-        <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+										{{#text}}
+											<a href="{{url}}" >{{title}}</a>
+															{{#date}}
+																| {{date}}
+															{{/date}}
+															{{#similiar_item_data}}
+													<div>
+													{{similiar_item_data}}
+													</div>
+											{{/similiar_item_data}}
+										{{/text}}
 
-        {{#object.download}}
-        <div class="object-downloads">
+								</li>							
+							{{/items}}
+						</ul>
+						<div class="show-more-mlt" style="width:100%; text-align:right;"><a onclick="javascript:alert('todo')">Show more...</a></div>
+					</div>
+				</div>
 
-           <a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
-
-           {{#secondary}}
-            <div class="secondary comma-list">
-
-                <span class="label">Also available:</span>
-
-                {{> molecules/navigation/linklist-simple }}
-
-            </div>
-            {{/secondary}}
-        </div>
-        {{/object.download}}
-
-
-        {{# object.media.primary.rights }}
-        <div class="object-rights">
-        {{license_human}}
-            <div class="object-license">{{> molecules/icons/licenses }}</div>
-        </div>
-        {{/ object.media.primary.rights }}
-
-
-        {{# object.origin }}
-        <div class="object-origin">
-            <h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
-
-            {{#logo}}
-                <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
-            {{/logo}}
-
-            <a class="original_context cap" href="{{url}}">
-                {{institution_name}}
-                <svg class="icon icon-linkout">
-                    <use xlink:href="#icon-linkout"></use>
-                </svg>
-            </a>
-
-            <span class="cap">{{institution_country}}</span>
-
-        </div>
-        {{/ object.origin }}
-        
-
-
-        {{# object.tags }}
-        <div class="object-tags">
-            <ul class="nav">
-            {{#items}}
-                    <li><a href="{{url}}" class="tag">{{text}}</a></li>
-            {{/items}}
-            </ul>
-         </div>
-        {{/ object.tags }}
-
-
-        {{# object.colours }}
-        <div class="object-colours">
-            {{> molecules/controls/colour-search }}
-        </div>
-        {{/ object.colours }}
-
-
-        {{# object.further_actions }}
-        <div class="object-furtheractions">
-            {{> molecules/controls/dropdown-menu }}
-        </div>
-        {{/ object.further_actions }}
-        
-    </div>
-    </div>
-    {{/content}}
+			</div>
+			{{/content.related}}
+			
+	</div>
+			
+			
+			
+	{{/content}}
 </div>
-
-
 {{> organisms/global/footer }}

@@ -1,3 +1,4 @@
+@import 'mlt';
 
 .search-object{
 	margin-bottom: 0;
@@ -104,6 +105,11 @@
 .data-section.no-border{
     border-top: none;
 }
+.data-border{
+    border-top: 1px solid $gray-lighter;
+}
+
+
 
 
 #map{
@@ -159,15 +165,3 @@
     }
 }
 
-
-.mlt-item{
-    @include gallery(12 of 24);
-    margin-bottom: $space-quarter;
-
-    @media all and (min-width: $bp-small) {
-        @include gallery(8 of 24);
-    }
-    @media all and (min-width: $bp-med) {
-        @include gallery(4 of 20);
-    }
-}
