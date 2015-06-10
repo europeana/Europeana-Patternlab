@@ -376,6 +376,9 @@
 		"related": 
 		{
 			"title": "Similar items",
+			
+			"more_items_query": "javascript:alert('loads a page of similar items')",
+			
             "items": [
               {
                 "url":  "?q=The+Lace+Maker",
