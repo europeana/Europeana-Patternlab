@@ -284,7 +284,6 @@
 	</div>
 
 
-
 	<div class="lc data-border">
 			{{#content.related}}
 			<div class="data-section no-border">
@@ -295,38 +294,28 @@
 					</div>
 										
 					<div class="subsection-content">
-						<ul>
+						<ul class="cf">
 							{{#items}}
-								<li>
-									<div class="mlt-item height-to-width" style="background-image: url({{img.src}})">
+								<li class="mlt-item">
+									<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
 										<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
 									</div>
-
-										{{#text}}
-											<a href="{{url}}" >{{title}}</a>
-															{{#date}}
-																| {{date}}
-															{{/date}}
-															{{#similiar_item_data}}
-													<div>
-													{{similiar_item_data}}
-													</div>
-											{{/similiar_item_data}}
-										{{/text}}
+									
+									<span class="mlt-title">
+										<a href="{{url}}" >{{title}}</a>
+									</span>
+									
+									<div class="show-more-mlt"><a href="{{more_items_query}}">Show more...</a></div>
 
 								</li>							
 							{{/items}}
 						</ul>
-						<div class="show-more-mlt" style="width:100%; text-align:right;"><a href="{{more_items_query}}">Show more...</a></div>
 					</div>
 				</div>
 
 			</div>
 			{{/content.related}}
-			
 	</div>
-			
-			
 			
 	{{/content}}
 </div>
