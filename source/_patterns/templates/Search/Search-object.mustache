@@ -93,31 +93,50 @@
 			</div>
 			{{/creator.name_url}}
 			{{/creator}}
-			{{# object.concepts.content_present }}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{{ i18n.site.object.meta-label.concepts }}}
-				</h3>
-				<div class="subsection-content">
-					<ul>
-						{{# object.concepts.items }}
-						<li>
-							{{#label}}
-							<b>{{ label }}</b>
-							{{/label}}
-							{{#url}}
-							<a href="{{.}}">
-							{{/url}}
-							{{text}}
-							{{#url}}
-							</a>
-							{{/url}}			  
-						</li>
-						{{/ object.concepts.items }}
-					</ul>
+						
+		    {{# object.concepts }}
+				<div class="data-section cf">
+					<h3 class="subsection-label">
+						{{{ i18n.site.object.meta-label.concepts }}}
+					</h3>
+					<div class="subsection-content">
+					
+						<ul class="concepts">
+							<li>
+								{{# type_items }}
+									<section>
+										<h4 class="data-header">{{ label }}:</h4>
+										<ul class="types">
+											{{# items }}
+												<li class="item">
+													{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}{{#comma}},{{/comma}}
+												</li>
+											{{/ items }}
+										</ul>
+									</section>
+								{{/ type_items }}
+							</li>
+							<li>
+								{{# concept_items }}
+									<section>
+										<h4 class="data-header">{{ label }}:</h4>
+										<ul class="types">
+											{{# items }}
+												<li class="item">
+													{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}{{#comma}},{{/comma}}
+												</li>
+											{{/ items }}
+										</ul>
+									</section>
+								{{/ concept_items }}
+							</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			{{/ object.concepts.content_present }}
+				
+		    {{/ object.concepts }}
+			
+			
 			{{# object.properties.content_present }}
 			<div class="data-section cf">
 				<h3 class="subsection-label">
@@ -315,7 +334,10 @@
 
 			</div>
 			{{/content.related}}
+			
 	</div>
+			
+			
 			
 	{{/content}}
 </div>

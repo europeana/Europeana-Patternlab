@@ -132,7 +132,31 @@
 					"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
 				}
 			},
-			"concepts": ["easel painting", "painting"],
+			"concepts": {
+	          	"type_items": {
+	              "label":  "Type",
+	              "items": [
+		              {
+		                  "text":   "paintings",
+		                  "comma":  true,
+		                  "url":    "javascript:alert('search concepts')"
+	                  },
+		              {
+		                  "text":   "easel paintings",
+		                  "url":    "javascript:alert('search concepts')"
+	                  }
+                  ]
+            	},
+	          	"concept_items": {
+		          "label":  "Concept",
+		          "items": [
+		          	{
+		                "text":   "art",
+		                "url":    "javascript:alert('search concepts')"
+	              	}
+	              ]
+		        }
+		     },
 			"properties": ["41 cm high", "30 cm wide"],
 			"origin": 
 			{
@@ -207,23 +231,6 @@
 				]
 			},
 
-			"concepts": 
-			{
-				"content_present": true,			
-				"items": 
-				[
-					{
-						"text": "oil painting",
-						"url": "http://europeana.eu",
-						"label": "Concept:"
-					},
-
-					{
-						"text": "art work",
-						"url": "http://europeana.eu"
-					}
-				]
-			},
 			
 			"properties": 
 			{
