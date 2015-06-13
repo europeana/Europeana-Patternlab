@@ -13,12 +13,12 @@
 	.item{
 		display: inline;
 	}
-	.item:after{
-		content: ", "
+	.item::after{
+		content: ", ";
 	}
 
-	.item:last-child:after{
-		content: ""
+	.item:last-child::after{
+		content: "";
 	}
 	
 }
