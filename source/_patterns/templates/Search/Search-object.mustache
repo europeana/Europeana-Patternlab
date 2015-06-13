@@ -105,7 +105,9 @@
 							<li>
 								{{# type_items }}
 									<section>
-										<h4 class="data-header">{{ label }}:</h4>
+										{{# items }}
+											<h4 class="data-header">{{ label }}:</h4>
+										{{/ items }}
 										<ul class="types">
 											{{# items }}
 												<li class="item">
@@ -121,11 +123,15 @@
 							<li>
 								{{# concept_items }}
 									<section>
-										<h4 class="data-header">{{ label }}:</h4>
+										{{# items }}
+											<h4 class="data-header">{{ label }}:</h4>
+										{{/ items }}
 										<ul class="types">
 											{{# items }}
 												<li class="item">
-													{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}{{#comma}},{{/comma}}
+													{{#url}}
+														<a href="{{.}}">{{text}}</a>
+													{{/url}}
 												</li>
 											{{/ items }}
 										</ul>
