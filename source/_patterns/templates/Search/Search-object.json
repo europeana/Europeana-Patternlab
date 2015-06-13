@@ -138,7 +138,6 @@
 	              "items": [
 		              {
 		                  "text":   "paintings",
-		                  "comma":  true,
 		                  "url":    "javascript:alert('search concepts')"
 	                  },
 		              {

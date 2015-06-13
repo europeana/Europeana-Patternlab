@@ -93,7 +93,7 @@
 			</div>
 			{{/creator.name_url}}
 			{{/creator}}
-						
+
 		    {{# object.concepts }}
 				<div class="data-section cf">
 					<h3 class="subsection-label">
@@ -109,7 +109,9 @@
 										<ul class="types">
 											{{# items }}
 												<li class="item">
-													{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}{{#comma}},{{/comma}}
+													{{#url}}
+														<a href="{{.}}">{{text}}</a>
+													{{/url}}
 												</li>
 											{{/ items }}
 										</ul>

@@ -12,5 +12,14 @@
 	
 	.item{
 		display: inline;
+		
+		a:after{
+			content: ", "
+		}
 	}
+
+	.item:last-child a:after{
+		content: ""
+	}
+	
 }
