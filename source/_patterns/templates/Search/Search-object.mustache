@@ -105,16 +105,12 @@
 							<li>
 								{{# type_items }}
 									<section>
-										{{# items }}
-											<h4 class="data-header">{{ label }}:</h4>
-										{{/ items }}
+										{{# type_items.label }}
+											<h4 class="data-header">{{ . }}:</h4>
+										{{/ type_items.label }}
 										<ul class="types">
 											{{# items }}
-												<li class="item">
-													{{#url}}
-														<a href="{{.}}">{{text}}</a>
-													{{/url}}
-												</li>
+												<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
 											{{/ items }}
 										</ul>
 									</section>
@@ -123,16 +119,12 @@
 							<li>
 								{{# concept_items }}
 									<section>
-										{{# items }}
-											<h4 class="data-header">{{ label }}:</h4>
-										{{/ items }}
+										{{# concept_items.label }}
+											<h4 class="data-header">{{ . }}:</h4>
+										{{/ concept_items.label }}
 										<ul class="types">
 											{{# items }}
-												<li class="item">
-													{{#url}}
-														<a href="{{.}}">{{text}}</a>
-													{{/url}}
-												</li>
+												<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
 											{{/ items }}
 										</ul>
 									</section>
