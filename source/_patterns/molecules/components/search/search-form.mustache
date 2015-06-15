@@ -16,7 +16,7 @@
 			
 				{{#input_values}}
 					<li class="search-tag">{{value}}<a href="{{remove}}" data-role="remove"></a></li>
-					<input type="hidden" name="qf[]" value="{{value}}" class="js-hidden-search-term"/>
+					<input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
 				{{/input_values}}
 			</ul>
 			
