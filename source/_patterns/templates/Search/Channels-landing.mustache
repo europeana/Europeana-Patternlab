@@ -26,53 +26,53 @@
 	<div class="lc">
 		<div class="channel-description">
 			<div class="channel-description-text">
-			{{{description}}}
+				{{{description}}}
 			</div>
 
 			{{# content.channel_info.credits }}
-			<div class="channel-credits comma-list">
-				<span class="title">{{title}}</span>
-				<ul class="credit-list">
-				{{#items}}
-				<li><a href="{{url}}" class="external">{{text}}</a></li>
-				{{/items}}
-				</ul>
-			</div>
+				<div class="channel-credits comma-list">
+					<span class="title">{{title}}</span>
+					<ul class="credit-list">
+					{{#items}}
+					<li><a href="{{url}}" class="external">{{text}}</a></li>
+					{{/items}}
+					</ul>
+				</div>
 			{{/ content.channel_info.credits }}
 		</div>
 
 		{{#stats}}
-		<div class="channel-stats">
-			<ul>
-				{{#items}}
-				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
-				{{/items}}
-			</ul>
-		</div>
+			<div class="channel-stats">
+				<ul>
+					{{#items}}
+					<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
+					{{/items}}
+				</ul>
+			</div>
 		{{/stats}} 
 
 		<div class="channel-newstuff">
-		{{#recent}}
-			{{> molecules/navigation/linklist-with-title }}
-		{{/recent}}
+			{{#recent}}
+				{{> molecules/navigation/linklist-with-title }}
+			{{/recent}}
 		</div>
 	</div>
 
 
-{{#content.channel_entry}}
-
-<div class="channelentry-list lc">
-<ul>
-	{{#items}}
-	<li class="list-item">
-		{{> molecules/blocks/promo-module-text }}
-	</li>
-	{{/items}}
-</ul>
-</div>
-
-{{/content.channel_entry}}
-
+	{{#content.channel_entry}}
+	
+		<div class="channelentry-list lc">
+			<ul>
+				{{#items}}
+				<li class="list-item">
+					{{> molecules/blocks/promo-module-text }}
+				</li>
+				{{/items}}
+			</ul>
+		</div>
+		
+	{{/content.channel_entry}}
+	
 
 
 </section>
