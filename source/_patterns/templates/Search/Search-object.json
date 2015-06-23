@@ -11,18 +11,13 @@
 
 	"js_variables": 
 	[
-		"var js_path= 'http://develop.styleguide.eanadev.org/js/dist/';"
+		"var js_path= '../../js/dist/';"
 	],
 
 	"js_files": 
 	[
-		{
-			"path": "../../js/dist/channels.js"
-		},
-
-		{
-			"path": "../../js/dist/global.js"
-		}
+	    {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main"	 }
+	
 	],
 
 	"content": 

@@ -382,7 +382,7 @@
 	"i18n":{
 		"site":{
 			"more": "More...",
-			"news": "News",
+			"news": "['News', 'Etc'].join(',')",
 			"object": {
 				"meta-label": {
 					"concepts": "Categories",

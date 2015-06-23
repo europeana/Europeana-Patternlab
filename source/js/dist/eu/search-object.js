@@ -1,4 +1,4 @@
-{
+define(['jquery'], function ($) {
 
     function log(msg){
 
@@ -48,7 +48,6 @@
             }
 
             var rect = el.getBoundingClientRect();
-
             return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*
                                                                                                                                          * or
                                                                                                                                          * $(window).height()
@@ -104,8 +103,8 @@
         var mapInfoId = 'map-info';
         var placeName = $('#map-place-name').text();
 
-        var mapJsLoaded = function(){
-
+        require([js_path + 'application-map.js'], function(){
+            
             $('#' + mapId).after('<div id="' + mapInfoId + '"></div>');
             var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
 
@@ -139,72 +138,69 @@
 
             $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
 
-        };
-
-        $('head').append('<link rel="stylesheet" href="' + js_path + 'css/map/application-map.css" type="text/css"/>');
-        $.getScript(js_path + 'application-map.js', function(data, textStatus, jqxhr){
-
-            if(textStatus == 'success'){
-                mapJsLoaded();
-            }
+            $('head').append('<link rel="stylesheet" href="' + js_path + 'css/map/application-map.css" type="text/css"/>');
         });
+        
     }
 
     function testLayouts(){
 
-        var minImgW = 300;
-        var minScreenW = 500;
-        var isb = $('input[name="js_edm_is_shown_by"]');
-
-        var initChannel1 = function(){
-
-            log('img w: ' + isbImgTest.width());
-            $('.object-actions').prepend($('.is-smallimage'));
-            isbImgTest.wrap("<div class='js-img-frame'></div>");
-
-            $('.next-previous .previous').remove();
-
-        }
-        var initChannel2 = function(){
-
-            $(".color-data").show();
-            $('.is-smallimage').hide();
-            isbImgTest.wrap("<div class='js-img-frame'></div>");
-
-            $('.next-previous .previous').remove();
-
-        }
-
-        // js detection
-        if(window.location.href.indexOf('js=') > -1 && isb.length && isb.val().length && $('body').width() > minScreenW){
-
-            var isbImgTest = $('<img id="isb_img_test" style="visibility:hidden; max-width:none; position:absolute;">');
-            isbImgTest.prependTo('.object-overview');
-
-            imagesLoaded(isbImgTest, function(instance){
-
-                log('images loaded');
-
-                if(instance.elements.length && instance.elements[0].width > minImgW){
-
-                    isbImgTest.removeAttr('style').removeAttr('id').addClass('main');
-
-                    if(window.location.href.indexOf('js=1') > -1){
-                        log('initChannel1()');
-                        initChannel1();
+        requirejs( ['imagesloaded'], function( imagesLoaded ){
+        
+            var minImgW = 300;
+            var minScreenW = 500;
+            var isb = $('input[name="js_edm_is_shown_by"]');
+    
+            var initChannel1 = function(){
+    
+                log('img w: ' + isbImgTest.width());
+                $('.object-actions').prepend($('.is-smallimage'));
+                isbImgTest.wrap("<div class='js-img-frame'></div>");
+    
+                $('.next-previous .previous').remove();
+    
+            }
+            var initChannel2 = function(){
+    
+                $(".color-data").show();
+                $('.is-smallimage').hide();
+                isbImgTest.wrap("<div class='js-img-frame'></div>");
+    
+                $('.next-previous .previous').remove();
+    
+            }
+    
+            // js detection
+            if(window.location.href.indexOf('js=') > -1 && isb.length && isb.val().length && $('body').width() > minScreenW){
+    
+                var isbImgTest = $('<img id="isb_img_test" style="visibility:hidden; max-width:none; position:absolute;">');
+                isbImgTest.prependTo('.object-overview');
+    
+                imagesLoaded(isbImgTest, function(instance){
+    
+                    log('images loaded');
+    
+                    if(instance.elements.length && instance.elements[0].width > minImgW){
+    
+                        isbImgTest.removeAttr('style').removeAttr('id').addClass('main');
+    
+                        if(window.location.href.indexOf('js=1') > -1){
+                            log('initChannel1()');
+                            initChannel1();
+                        }
+                        if(window.location.href.indexOf('js=2') > -1){
+                            log('initChannel2()');
+                            initChannel2();
+                        }
+    
                     }
-                    if(window.location.href.indexOf('js=2') > -1){
-                        log('initChannel2()');
-                        initChannel2();
+                    else{
+                        isbImgTest.remove();
                     }
-
-                }
-                else{
-                    isbImgTest.remove();
-                }
-            });
-            isbImgTest.attr('src', isb.val());
-        } // end js detection
+                });
+                isbImgTest.attr('src', isb.val());
+            } // end js detection
+        });
     }
 
     function initFullDoc(){
@@ -224,6 +220,12 @@
             initScrollEvents();
         }
 
+        $(window).bind('showMLT', function(e, data){
+            if(typeof showMLT != 'undefined'){
+                showMLT();
+            }
+        });
+        
         $(window).bind('showMap', function(e, data){
 
             // split multi-values on (whitespace or comma + whitespace)
@@ -275,4 +277,4 @@
         initFullDoc();
     }
 
-}
+});
