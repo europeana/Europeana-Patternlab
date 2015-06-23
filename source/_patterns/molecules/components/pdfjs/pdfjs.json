@@ -1,0 +1,25 @@
+{
+  "i18n": {
+		"global": {
+			"javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
+		}
+	},
+	"js_files": [
+		{
+			"path": "/js/libs/pdfjs/pdf.js"
+		},
+		{
+			"path": "/js/modules/mediaviewer-pdfjs.js"
+		}
+  ],
+  "2020715_uid_iid_3494079_DR_4166_2_flv" : {
+    "title": "Video, PN78_75. Recipiente cerámico procedente de la necrópolis ibérica de la Puerta Norte, Cástulo ( flv )",
+    "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcata.cica.es%2Farchivos%2Fdigital_resource%2F4166&size=LARGE&type=VIDEO",
+    "sources": [
+      {
+        "mime_type": "video/x-flv",
+        "src": "http://cata.cica.es/archivos/digital_resource/4166.flv"
+      }
+    ]
+  }
+}
