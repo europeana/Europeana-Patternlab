@@ -89,6 +89,42 @@
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
 							}
+						},
+
+						{
+							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+							"is_image": true,
+							"rights": 
+							{
+								"license_public": true,
+								"license_human": "You can use this image in any way you like"
+							}
+						},
+
+						{
+							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+							"is_image": true,
+							"rights": 
+							{
+								"license_public": true,
+								"license_human": "You can use this image in any way you like"
+							}
+						},
+
+						{
+							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+							"is_image": true,
+							"rights": 
+							{
+								"license_public": true,
+								"license_human": "You can use this image in any way you like"
+							}
 						}
 					]
 				}

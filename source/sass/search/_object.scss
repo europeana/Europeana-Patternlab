@@ -1,4 +1,4 @@
-@import 'concepts';
+
 @import 'mlt';
 
 .search-object{
@@ -50,9 +50,12 @@
 
 // main media display area
 .object-display{
-    /*  min-height: 30em;  */
-    overflow-y: auto;
+    
     margin-bottom: $space;
+    background-color: $gray-dark;
+    position: relative;
+    text-align: center;
+    padding: $pad;
 
     &.is-smallimage{
         @media all and (min-width: $bp-med) {
@@ -62,22 +65,15 @@
 }
 
 .object-media-nav{
+    overflow-y: scroll;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    padding: $space-quarter;
+    background-color: $gray-dark;
 
-    overflow-y: hidden; 
-
-    li{
-        width: 6em;
-    }
-}
-// Thumbnail/zoomer preview widget
-.object-image-nav{
-    display: none;
-    text-align: center;
-    //padding-bottom: 100%;
-	
-    @media all and (min-width: $bp-med) {
-        display: block;
-    }    
 }
 
 .object-downloads{
@@ -110,7 +106,16 @@
     border-top: 1px solid $gray-lighter;
 }
 
-
+.concepts{
+    .data-header{
+        text-transform: none;
+        text-transform: capitalize;
+        display: inline;
+    }
+    .types{
+        display: inline;
+    }
+}
 
 
 #map{

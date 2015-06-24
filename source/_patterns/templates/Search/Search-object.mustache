@@ -1,41 +1,49 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header}}
-<div role="main" class="search-object section">
+
+<div role="main" class="search-object">
+
 	<div class="lc">
 		<div class="object-nav">
 			{{>molecules/navigation/next-previous}}
 		</div>
 	</div>
+
 	{{#content}}
-	<div class="object-wrapper lc">
-		<div class="object-overview">
-			{{#object}}
-			{{#media}}
-			<div class="object-display is-smallimage cf">
+
+	<section class="object-display section">
+		{{#object.media}}
+
 				{{#primary}}
+
 				{{#is_image}}
 				<div class="object-media-image">
 					<img src="{{preview}}" alt="{{alt}}"/>
 				</div>
 				{{/is_image}}
+
 				{{#is_video}}
 				<div class="object-media-video">
 					Video player here
 				</div>
 				{{/is_video}}
+
 				{{#is_text}}
 				<div class="object-media-text">
 					Text viewer here
 				</div>
 				{{/is_text}}
+
 				{{#is_audio}}
 				<div class="object-media-audio">
 					Audio player here
 				</div>
 				{{/is_audio}}
+
 				{{/primary}}
+
 				{{#additional}}
-				<ul class="object-media-nav nav">
+				<ul class="object-media-nav">
 					{{#items}}
 					{{#thumbnail}}
 					<li><a href="{{file}}"><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
@@ -43,8 +51,37 @@
 					{{/items}}
 				</ul>
 				{{/additional}}
+
+
+
+			{{/object.media}}
+
+
+
+			{{#object.download}}
+			<div class="object-downloads">
+
+				<a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
+
+				{{#secondary}}
+				<div class="secondary comma-list">
+					<span class="label">Also available:</span>
+					{{> molecules/navigation/linklist-simple }}
+				</div>
+				{{/secondary}}
 			</div>
-			{{/media}}
+			{{/object.download}}
+
+
+	</section>
+
+	{{! Main object text info section }}
+	<section class="section">
+	<div class="lc">
+
+
+		<div class="object-overview">
+			{{#object}}
 			<div class="object-info cf">
 				{{# title }}
 				<h2 class="object-title">{{title}}</h2>
@@ -58,6 +95,7 @@
 				</div>
 				{{/creation_date}}
 			</div>
+
 			{{# description}}
 			<div class="data-section no-border cf">
 				<h3 class="subsection-label">
@@ -68,6 +106,7 @@
 				</div>
 			</div>
 			{{/ description}}
+
 			{{! Creator info }}
 			{{#creator}}
 			{{#creator.name_url}}
@@ -95,44 +134,44 @@
 			{{/creator}}
 
 		    {{# object.concepts }}
-				<div class="data-section cf">
-					<h3 class="subsection-label">
-						{{{ i18n.site.object.meta-label.concepts }}}
-					</h3>
-					<div class="subsection-content">
-					
-						<ul class="concepts">
-							<li>
-								{{# type_items }}
-									<section>
-										{{# type_items.label }}
-											<h4 class="data-header">{{ . }}:</h4>
-										{{/ type_items.label }}
-										<ul class="types">
-											{{# items }}
-												<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
-											{{/ items }}
-										</ul>
-									</section>
-								{{/ type_items }}
-							</li>
-							<li>
-								{{# concept_items }}
-									<section>
-										{{# concept_items.label }}
-											<h4 class="data-header">{{ . }}:</h4>
-										{{/ concept_items.label }}
-										<ul class="types">
-											{{# items }}
-												<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
-											{{/ items }}
-										</ul>
-									</section>
-								{{/ concept_items }}
-							</li>
-						</ul>
-					</div>
+			<div class="data-section cf">
+				<h3 class="subsection-label">
+					{{{ i18n.site.object.meta-label.concepts }}}
+				</h3>
+				<div class="subsection-content">
+				
+					<ul class="concepts">
+						<li>
+							{{# type_items }}
+								<section>
+									{{# type_items.label }}
+										<h4 class="data-header">{{ . }}:</h4>
+									{{/ type_items.label }}
+									<ul class="types comma-list">
+										{{# items }}
+											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
+										{{/ items }}
+									</ul>
+								</section>
+							{{/ type_items }}
+						</li>
+						<li>
+							{{# concept_items }}
+								<section>
+									{{# concept_items.label }}
+										<h4 class="data-header">{{ . }}:</h4>
+									{{/ concept_items.label }}
+									<ul class="types comma-list">
+										{{# items }}
+											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
+										{{/ items }}
+									</ul>
+								</section>
+							{{/ concept_items }}
+						</li>
+					</ul>
 				</div>
+			</div>
 				
 		    {{/ object.concepts }}
 			
@@ -185,6 +224,7 @@
 				</div>
 			</div>
 			{{/object.dates.content_present}}
+
 			{{#meta_additional}}
 			{{#geo.long_and_lat}}	{{! check both present }}
 			<a	class="scroll-trigger" 
@@ -208,6 +248,7 @@
 			</div>
 			{{/geo.long_and_lat}}
 			{{/meta_additional}}
+
 			{{#object.provenance.content_present}}
 			<div class="data-section cf">
 				<h3 class="subsection-label">
@@ -235,33 +276,22 @@
 			{{/object.provenance.content_present}}
 
 			{{/object}}
-			
 		</div>
-		
-		
 		{{! end of object info column }}
+
+
+
 		<div class="object-actions cf">
-			<div class="object-image-nav prototype-image">
-				{{! @TODO Object image thumbnail navigation goes here }}
-			</div>
+
 			<input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-			{{#object.download}}
-			<div class="object-downloads">
-				<a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
-				{{#secondary}}
-				<div class="secondary comma-list">
-					<span class="label">Also available:</span>
-					{{> molecules/navigation/linklist-simple }}
-				</div>
-				{{/secondary}}
-			</div>
-			{{/object.download}}
+
 			{{# object.media.primary.rights }}
 			<div class="object-rights">
 				{{license_human}}
 				<div class="object-license">{{> molecules/icons/licenses }}</div>
 			</div>
 			{{/ object.media.primary.rights }}
+
 			{{# object.origin }}
 			<div class="object-origin">
 				<h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
@@ -277,6 +307,7 @@
 				<span class="cap">{{institution_country}}</span>
 			</div>
 			{{/ object.origin }}
+
 			{{# object.tags }}
 			<div class="object-tags">
 				<ul class="nav">
@@ -286,59 +317,68 @@
 				</ul>
 			</div>
 			{{/ object.tags }}
+
 			{{# object.colours }}
 			<div class="object-colours">
 				{{> molecules/controls/colour-search }}
 			</div>
 			{{/ object.colours }}
+
 			{{# object.further_actions }}
 			<div class="object-furtheractions">
 				{{> molecules/controls/dropdown-menu }}
 			</div>
 			{{/ object.further_actions }}
+
 		</div>
 		
 		{{! end object actions }}
 		
 	</div>
+	</section>
 
 
+	{{#content.related}}
+	<section class="section">
 	<div class="lc data-border">
-			{{#content.related}}
-			<div class="data-section no-border">
 			
-				<div class="mlt">
-					<div class="subsection-label">
-						{{title}}
-					</div>
-										
-					<div class="subsection-content">
-						<ul class="cf">
-							{{#items}}
-								<li class="mlt-item">
-									<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-										<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
-									</div>
-									
-									<span class="mlt-title">
-										<a href="{{url}}" >{{title}}</a>
-									</span>
-									
-									<div class="show-more-mlt"><a href="{{more_items_query}}">Show more...</a></div>
-
-								</li>							
-							{{/items}}
-						</ul>
-					</div>
-				</div>
-
+		<div class="mlt">
+			<div class="subsection-label">
+				{{title}}
 			</div>
-			{{/content.related}}
-			
+								
+			<div class="subsection-content">
+				<ul class="cf">
+					{{#items}}
+						<li class="mlt-item">
+							<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+								<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+							</div>
+							
+							<span class="mlt-title">
+								<a href="{{url}}" >{{title}}</a>
+							</span>
+							
+							<div class="show-more-mlt"><a href="{{more_items_query}}">Show more...</a></div>
+
+						</li>							
+					{{/items}}
+				</ul>
+			</div>
+		</div>
+
 	</div>
+	</section>
+	{{/content.related}}
+
+
 			
 			
 			
 	{{/content}}
 </div>
+
+
+
+
 {{> organisms/global/footer }}
