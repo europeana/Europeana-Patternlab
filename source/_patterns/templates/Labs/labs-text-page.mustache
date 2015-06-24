@@ -1,6 +1,6 @@
+{{> atoms/iconography/svgicons-pro}}
 
-
-{{> organisms-header }}
+{{> organisms/global/header}}
 
 
 <main role="main">
@@ -12,12 +12,23 @@
 <div class="lc">
 <div class="grid grid--rev"><!--Start main content 
 
- --><div class="main-content prose">
- 	<section>
- 		{{> organisms-article-body }}
- 	</section>
-	</div><!-- End main content 
+ --><div class="main-content">
+	 	<section class="prose section">
+	 		{{> organisms-article-body }}
+	 	</section>
 
+		<div class="section next-actions">
+			<h4>View this item in:</h4>
+			<a href="#" title="View in the API Console" class="btn">API Console</a>
+			<a href="#" title="View in the API Console" class="btn">Portal</a>
+		</div>
+
+		<div class="section item-meta-secondary">
+			{{> molecules-item-date }}
+			{{> molecules-item-tags }}
+		</div>
+
+	</div><!-- End main content 
 
 Start navigation
  --><div class="sidebar">
