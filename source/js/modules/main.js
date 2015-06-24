@@ -15,8 +15,10 @@ require.config({
         search_form:        'eu/search-form',
         search_home:        'eu/search-home',
         search_object:      'eu/search-object',
+        eu_carousel:        'eu/eu-carousel',
         
-        jqdDropdown:        'lib/jquery.dropdown'            
+        jqDropdown:         'lib/jquery.dropdown',            
+        jqScrollto:         'lib/jquery.scrollTo'            
     },
     shim: {
         search_context: ["jquery"],

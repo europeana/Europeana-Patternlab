@@ -1,8 +1,13 @@
+.mlt{
+	width:		100%;
+	padding:	0 2em 0 0;
+	box-sizing: padding-box; 
+}
 
 .mlt .mlt-item{
 
 	width:					98%;
-	margin:					1%;
+	margin:					0 1%;
 	text-align:				center;
 
 	@media all and (min-width: $bp-med) {
@@ -39,13 +44,9 @@
     }
 }
 
-.mlt-item .show-more-mlt{
-	display:none;
-}
 
-.mlt-item:last-child .show-more-mlt{
+.show-more-mlt{
 	display:	block;
-	margin-top:	2.5em;
     font-weight:bold;
     width:		100%;
     text-align:	right;
@@ -84,7 +85,7 @@
 @media all and (max-width: $bp-large) {
 
 	.height-to-width{
-		height: 200px;
+		height: $thumbnail_max_dimension;
 	}
 }
 
@@ -92,7 +93,7 @@
 
 	.mlt .mlt-item{
 		width:					24%;
-		margin:					0.5%;
+		margin:					0 0.5%;
     }	
 
 	.mlt .mlt-item:nth-child(1){
@@ -109,7 +110,7 @@
 
 	.mlt .mlt-item,
 	.mlt-title{
-		max-width:	200px;
+		max-width:	$thumbnail_max_dimension;
 	}
 
 	.height-to-width{
@@ -123,3 +124,49 @@
 	}
 }
 
+
+/* js overrides */
+
+
+.mlt .js-mlt .mlt-item{
+	width: $thumbnail_max_dimension;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+.js-mlt,
+.js-mlt-arrows{
+	overflow-y: hidden;
+	XXXoverflow-x: hidden;
+	position: relative;
+	width: 100%;	
+}
+			
+			
+.js-mlt-arrows{
+	
+	overflow: visible;
+	z-index:2;
+	position: relative;
+	
+	.left,
+	.right{
+		color:       white;
+		font-size:   5em;
+		float:       none;
+		line-height: $thumbnail_max_dimension;
+		position:    absolute;
+		text-shadow: 0 0 10px #000;
+		z-index:     1;
+	}
+	
+	.left{
+		left: -0.5em;
+	}
+	
+	.right{
+		right: -0.5em;
+	}
+}
+			

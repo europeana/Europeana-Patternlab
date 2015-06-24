@@ -1,3 +1,3 @@
-define(['jquery', 'jqdDropdown', 'menus', 'featureDetect', 'placeholder'], function ($) {
+define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'placeholder'], function ($) {
     
 });

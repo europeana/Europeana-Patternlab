@@ -19,7 +19,9 @@ define(['jquery'], function ($) {
     
     function mltStretch(){
         if(window.location.href.indexOf('mlt-stretch') > -1){
-            $('.mlt .mlt-item, .mlt-title').css('max-width', 'none');
+            var selector = '.mlt .mlt-item, .mlt-title'
+            console.log('removed max-width from selector ' + selector);
+            $(selector).css('max-width', 'none');
         }
     }
 
@@ -106,7 +108,7 @@ define(['jquery'], function ($) {
         require([js_path + 'application-map.js'], function(){
             
             $('#' + mapId).after('<div id="' + mapInfoId + '"></div>');
-            var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />';
+            var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" alt="mapquest logo"/>';
 
             // map quest
             var mq = new L.TileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png', {
@@ -142,6 +144,25 @@ define(['jquery'], function ($) {
         });
         
     }
+    
+    var showMLT = function(EuCarousel){
+        var el = $('.js-mlt');
+        var mltData = [];
+        reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+        
+        el.find('a.link').each(function(i, ob) {
+            ob = $(ob);
+            mltData[mltData.length] = {
+                    "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
+                    "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
+                    "link"  : ob.attr('href'),
+                    "linkTarget" : "_self"
+            }
+            //console.log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
+        });
+        new EuCarousel(el, mltData);
+    }
+
 
     function testLayouts(){
 
@@ -221,9 +242,11 @@ define(['jquery'], function ($) {
         }
 
         $(window).bind('showMLT', function(e, data){
-            if(typeof showMLT != 'undefined'){
-                showMLT();
-            }
+            require(['eu_carousel'], function(EuCarousel){
+                if(typeof showMLT != 'undefined'){
+                    showMLT(EuCarousel);
+                }
+            })
         });
         
         $(window).bind('showMap', function(e, data){

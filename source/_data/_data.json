@@ -398,7 +398,10 @@
 		"less": "Less",
 		"global": {
 			"our-sites": "Our sites",
-			"home": "Home"
+			"home": "Home",
+			"more": {
+			  "load-more": "Load more"
+			}
 		}
 	}
 }

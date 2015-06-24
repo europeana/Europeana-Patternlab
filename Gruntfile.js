@@ -56,8 +56,8 @@ module.exports = function(grunt) {
 	    },
 	    mlt:{
             files: {
-                'source/js/dist/mlt.js': [
-                    'source/js/modules/mlt/EuCarousel.js'
+                'source/js/dist/eu/eu-carousel.js': [
+                    'source/js/modules/eu/eu-carousel.js'
                  ]
             }	        
 	    }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     
     copy: {
       jquery: {
-          src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.min.js',
+          src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
                    'source/js/modules/bower_components/imagesloaded/imagesloaded.pkgd.js',
                    'source/js/modules/bower_components/jquery/dist/jquery.js',
                    'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],
