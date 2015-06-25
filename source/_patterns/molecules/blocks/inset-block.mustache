@@ -1,11 +1,14 @@
-<div class="block block-inset">
-    <a href="#" class="inner">
+<div class="block block-inset {{#category}} {{style}} {{/category}}">
+    <a href="{{url}}" class="inner">
 		<div class="b-thumb">
-			<img src="{{image_root}}{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" />
+			<img src="{{image_root}}{{ image }}" alt="{{ img.rectangle.alt }}" />
 
 			<div class="b-text">
 				<h2 class="headline">{{ headline.medium }}</h2>
 			</div>
+			{{#category}}
+				<div class="category-flag"><a href="{{url}}">{{text}}</a></div>
+			{{/category}}
 		</div>
 		{{# excerpt }}
 		<div class="excerpt">

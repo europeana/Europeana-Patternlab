@@ -45,7 +45,7 @@
 
 }
 
-.cta, .cta_main{
+.btn.cta, .btn.cta_main{
 	&:after, &:before {
 		top: 50%;
 		border: solid transparent;
@@ -64,7 +64,7 @@
 
 
 
-.cta, .cta_main{
+.btn.cta, .btn.cta_main{
 	&:after{
 		left: 100%;
 		border-left-color: $black;
@@ -75,7 +75,7 @@
 	}
 }
 
-.cta_main {
+.btn.cta_main {
 	&:before{
 		right: 100%;
 		border-right-color: $black;
@@ -86,7 +86,7 @@
 	}
 }
 
-.cta_light{
+.btn.cta_light{
 	border-color: $white;
 	color: $white;
 	&:after{

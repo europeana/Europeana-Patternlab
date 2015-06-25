@@ -32,17 +32,18 @@ Various changes in style are applied by adding classes to the main outer site-he
 
  }}
 
-<div class="site-hero cf brand-topleft brand-colour-site brand-opacity75" style="background-image: url('../../images/pro/home_image_test.jpg');" >
+<div class="site-hero cf {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}} >
 
-<div class="lc">
-	<div class="hero-text">
-		<h2><a href="#">{{ headline.short }}</a></h2>
-		<p>{{ excerpt.short}}</p>
+	<div class="lc">
+		<div class="hero-text">
+			<h2><a href="#">{{ headline.short }}</a></h2>
+			<p>{{ excerpt.short}}</p>
+		</div>
 	</div>
-</div>
 
-{{>molecules/text/attribution}}
-
-{{>molecules/media/brand-svg-assets}}
+	{{#content.hero_config}} 
+		{{>molecules/text/attribution}}
+		{{>molecules/media/brand-svg-assets}}
+	{{/content.hero_config}}
 
 </div>

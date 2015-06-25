@@ -125,37 +125,3 @@
 		}
 	}
 }
-
-
-
-
-.category-flag{
-	background-color: $accent;
-	color: $white;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 0.75em;
-	display: block;
-	padding: 0.4em 0.8em;
-	position: absolute;
-	z-index: 50;
-	top: 5%;
-	left: -4px;
-    letter-spacing: 0.1em;
-
-    .item-channel &{
-    	background-color: $eu-orange;
-    }
-
-    .item-exhibition &{
-    	background-color: $eu-yellow;
-    }
-
-    .item-new &{
-    	background-color: $eu-blue;
-    }
-
-    .item-partner &{
-    	background-color: $eu-pro;
-    }
-}

@@ -75,10 +75,6 @@ $textcolour_highlight: $accent;
 \*------------------------------------*/
 //module layout using css wizardry grid
 @import "./layout_csswiz";
-@import "../scss/objects/blocks/site-hero";
-@import "../scss/theme/hero-branding";
-@import "../scss/objects/attribution";
-@import "./labs-homepage";
 
 
 /*------------------------------------*\
@@ -87,21 +83,21 @@ $textcolour_highlight: $accent;
 @import "../scss/objects/blocks";
 @import "../scss/objects/dates";
 @import "../scss/objects/file-browser";
-
+@import "../scss/objects/category-flags";
+@import "../scss/objects/attribution";
 @import "../scss/objects/lists/list-item";
 @import "../scss/objects/lists/file-lists";
 @import "../scss/objects/metadata";
 
 @import "../scss/objects/buttons";
 @import "../scss/objects/tags";
-
-
 @import "../scss/objects/tooltip";
-//@import "../scss/objects/article";
-//@import "../scss/objects/comments";
-//@import "../scss/objects/loading";
+
+@import "../scss/objects/blocks/site-hero";
+@import "../scss/theme/hero-branding"; 
 
 
+@import "./labs-homepage";
 
 
 //extra bits

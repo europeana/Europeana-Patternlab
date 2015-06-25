@@ -2,38 +2,22 @@
 
 {{> organisms/global/header}}
 
+{{> organisms/components/site-hero }}
 
-
-
-<section class="site-hero labs-home-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}} >
-
-	<div class="hero-contents">
-
-		<h1>Europeana Labs</h1>
-
-		<div class="byline">
-			<p>A playground for remixing and using your cultural and scientific&nbsp;heritage.<br>A place for inspiration, innovation and sharing.</p>
-			<p>This is your code, this is your heritage, these are your labs.</p>
-			<p>
-				<a class="btn cta cta_main cta_light" href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">GET STARTED</a>
-			</p>
-		</div>
-		
-	</div>
-	
-	{{#content.hero_config}} 
-		{{>molecules/text/attribution}}
-		{{>molecules/media/brand-svg-assets}}
-	{{/content.hero_config}}
-
-</section>
 
 <!-- Start Main page content -->
 <div  id="maincontent" role="main" class="labs-home">
 
+
+{{> organisms/sections/strapline }}
+
+{{> organisms/sections/news }}
+
+{{> organisms/sections/quickinfo }}
+
+
 <div class="section api-signup">
 <div class="lc">
-
 
 <script type="text/javascript">
 $(document).ready(function(){

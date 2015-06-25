@@ -11,8 +11,7 @@
 
 .strapline{
 	background-color: $blue-dark;
-	color: $white;	
-	//border-top: 2px solid $accent;
+	color: $white;
 
 	text-align: center;
 	line-height: 1.2;
@@ -25,5 +24,75 @@
 	a{
 		color: $white;
 		border-bottom: 1px dotted $white;
+	}
+}
+
+.section.quickinfo{
+
+	background-color: $offwhite;
+	padding-top: $space;
+
+	h2{
+		margin-bottom: $space-double;
+		@include fontSize(24px);
+		color: $textcolour_head;
+	}
+
+	.lc{
+		border-bottom: 1px solid $grey3;
+	}
+}
+
+.primaryaction{
+	padding: $space + $space-half $space;
+	background-color: $white;
+	margin-bottom: $space;
+	border: 1px solid $grey3;
+	@include fontSize(18px);
+
+	ul{
+		margin-bottom: $space-double;
+
+		a{
+			border-bottom: 1px dotted $eu-blue;
+		}
+	}
+
+	li{
+		margin-bottom: $space-half;
+	}
+}
+
+.usefulinfo-links{
+	margin-bottom: $space;
+	@include fontSize(18px);
+	font-weight: bold;
+	padding-bottom: 1px;
+
+	li{
+		margin-bottom: $space;
+	}
+
+	a{
+		border-bottom: 1px dotted $eu-blue;
+	}
+}
+
+.usefulinfo{
+	padding-top: $space + $space-half;
+}
+.usefulinfo-item{
+	margin-bottom: $space;
+
+	h3{
+		text-transform: uppercase;
+		margin-bottom: $space;
+	}
+}
+
+.usefulinfo-secondary{
+	.usefulinfo-item{
+		padding-top: $space;
+		border-top: 1px solid $grey3;
 	}
 }
