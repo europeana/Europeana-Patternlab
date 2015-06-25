@@ -390,7 +390,8 @@
 					"provenance": "Provenance",
 					"dates": "Dates",
 					"location": "Location",
-					"description": "Description"
+					"description": "Description",
+					"source": "Source"
 				} 
 			}
 		},
