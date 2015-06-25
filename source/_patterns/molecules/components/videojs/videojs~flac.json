@@ -1,0 +1,40 @@
+{
+  "i18n": {
+		"global": {
+			"javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
+		}
+	},
+  "css_files": [
+    {
+      "path": "http://vjs.zencdn.net/4.12/video-js.css"
+    }
+  ],
+	"js_files": [
+		{
+			"path": "/js/libs/audiocogs/aurora.js"
+		},
+		{
+			"path": "/js/libs/audiocogs/flac.js"
+		},
+		{
+			"path": "http://vjs.zencdn.net/4.12/video.js"
+		},
+		{
+			"path": "/js/libs/videojs-aurora/videojs-aurora.js"
+		},
+		{
+			"path": "/js/libs/videojs/init.js"
+		}
+  ],
+  "videojs" : {
+    "title": "Toccata Op.111 ( audio - flac )",
+    "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
+		"tech_order": "aurora",
+		"sources": [
+      {
+        "mime_type": "audio/flac",
+        "src": "/media/C_2336_2G_221-2.flac"
+      }
+    ]
+  }
+}
