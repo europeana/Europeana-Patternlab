@@ -1,4 +1,4 @@
-define(['jquery', 'jqScrollto'], function($){
+define(['jquery', 'jqScrollto', 'resize'], function($){
 
     /**
      * @cmp: the container
@@ -7,8 +7,7 @@ define(['jquery', 'jqScrollto'], function($){
     return function(cmp, data){
 
         log = function(msg){
-
-            console.log(msg);
+            //console.log(msg);
         }
 
         var position = 1; // index of currently viewed item
@@ -45,50 +44,37 @@ define(['jquery', 'jqScrollto'], function($){
 
             if(maxFit == 1){
                 spacing = (w - itemW) / 2;
+                spacing += 2;
             }
             else{
                 spacing = (w - (maxFit * itemW)) / (maxFit - 1);
             }
             spacing = parseInt(spacing);
 
-            log('spacing will be ' + spacing + ', maxFit = ' + maxFit);
+            log('w = ' + w + 'spacing will be ' + spacing + ', maxFit = ' + maxFit);
 
             inView = maxFit;
 
             items.find('.' + classData.itemClass + '').css('margin-left', parseInt(spacing) + 'px');
 
             log('w: ' + w + ', itemW: ' + itemW + ', maxFit ' + maxFit);
-try{
-    
+            
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
             }
-}catch(e){
-    console.log('caught error ' + e)
-}
-log('set w css')
+            
             items.css('width', w + (totalLoaded * (itemW + spacing)));
 
             var anchor = function(){
-log('in anchor')
-
                 animating = true;
                 cmp.css('overflow-x', 'hidden');
                 items.css('left', '0');
-log('SCROLl ABOUT TO HAPPEN: pos = ' + position + ', item = ' 
-        + (  items.find('.' + classData.itemClass + ':nth-child(' + position + ')').length  ) 
-        + ' - duration ' + scrollTime + ' unless ' + (inView==1) + ' (' + inView + ')'
-        )
-        
 
                 cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
                     "axis" : "x",
                     "onAfter" : function(){
-
-log('done scroll');
-
+                        
                         var done = function(){
-
                             cmp.css('overflow-x', 'hidden');
                             animating = false;
                             setArrowState();
@@ -101,9 +87,7 @@ log('done scroll');
                         else{
                             items.css('left', '0');
                         }
-
                         done();
-
                     }
                 });
             }
@@ -298,10 +282,8 @@ log('done scroll');
                 }
             }
 
-            if(typeof $(window).euRsz != 'undefined'){
-                $(window).euRsz(function(){
-
-                    log('resizing...')
+            if(typeof $(window).europeanaResize != 'undefined'){
+                $(window).europeanaResize(function(){
                     resize();
                 });
             }

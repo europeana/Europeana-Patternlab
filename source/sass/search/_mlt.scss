@@ -1,7 +1,31 @@
 .mlt{
-	width:		100%;
-	padding:	0 2em 0 0;
 	box-sizing: padding-box; 
+	padding:	0 3em 0 3em;
+	width:		100%;
+	
+	@media all and (min-width: $bp-med) {
+		padding:	0 3em 0 0;
+	}
+}
+
+
+.show-more-mlt{
+	box-sizing:    padding-box; 
+	display:       block;
+    font-weight:   bold;
+    padding:       1em 3em 0 0;
+    text-align:	   right;
+    width:		   100%;
+
+	@media all and (min-width: $bp-med) {
+		padding:	1em 3em 0 0;
+	}
+
+} 				
+
+
+.mlt ul{
+	position: relative;
 }
 
 .mlt .mlt-item{
@@ -43,14 +67,6 @@
 		background-size:		cover;
     }
 }
-
-
-.show-more-mlt{
-	display:	block;
-    font-weight:bold;
-    width:		100%;
-    text-align:	right;
-} 				
 
 
 /* technique to keep height the same as (dynamic) width used for large view
@@ -132,6 +148,7 @@
 	width: $thumbnail_max_dimension;
 	margin-left: 0;
 	margin-right: 0;
+	float: left;
 }
 
 

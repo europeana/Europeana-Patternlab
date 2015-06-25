@@ -10,6 +10,7 @@ require.config({
         
         menus:              'global/menus',
         placeholder:        'global/placeholder',
+        resize:             'eu/util/resize',
         
         search_context:     'lib/blacklight/search-context',
         search_form:        'eu/search-form',
