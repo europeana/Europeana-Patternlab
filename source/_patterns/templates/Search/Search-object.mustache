@@ -170,18 +170,18 @@
 							{{/ concept_items }}
 						</li>
 						<li>
-							{{# subjects }}
+							{{# concept_subjects }}
 								<section>
-									{{# subjects.label }}
+									{{# concept_subjects.label }}
 										<h4 class="data-header">{{ . }}:</h4>
-									{{/ subjects.label }}
+									{{/ concept_subjects.label }}
 									<ul class="types comma-list">
 										{{# items }}
 											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
 										{{/ items }}
 									</ul>
 								</section>
-							{{/ subjects }}
+							{{/ concept_subjects }}
 						</li>
 					</ul>
 				</div>

@@ -186,7 +186,7 @@
 	              	}
 	              ]
 		        },
-		        "subjects": {
+		        "concept_subjects": {
 		          "label":  "Subject",
 		          "items": [
 		          	{
