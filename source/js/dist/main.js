@@ -22,7 +22,10 @@ require.config({
     },
     shim: {
         search_context: ["jquery"],
-        featureDetect:  ["jquery"]
+        featureDetect:  ["jquery"],
+        jqDropdown:     ["jquery"],
+        menus:          ["jquery"],
+        placeholder:    ["jquery"]
     }
 });
 
