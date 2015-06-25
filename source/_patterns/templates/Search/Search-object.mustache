@@ -169,6 +169,20 @@
 								</section>
 							{{/ concept_items }}
 						</li>
+						<li>
+							{{# subjects }}
+								<section>
+									{{# subjects.label }}
+										<h4 class="data-header">{{ . }}:</h4>
+									{{/ subjects.label }}
+									<ul class="types comma-list">
+										{{# items }}
+											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
+										{{/ items }}
+									</ul>
+								</section>
+							{{/ subjects }}
+						</li>
 					</ul>
 				</div>
 			</div>

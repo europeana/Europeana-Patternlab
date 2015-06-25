@@ -185,6 +185,15 @@
 		                "url":    "javascript:alert('search concepts')"
 	              	}
 	              ]
+		        },
+		        "subjects": {
+		          "label":  "Subject",
+		          "items": [
+		          	{
+		                "text":   "Artworks",
+		                "url":    "javascript:alert('search artworks')"
+	              	}
+	              ]
 		        }
 		     },
 			"properties": ["41 cm high", "30 cm wide"],
