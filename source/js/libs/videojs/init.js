@@ -1,11 +1,28 @@
 (function() {
   'use strict';
 
-  function init() {
+  var
+  viewer = document.getElementById('videojs-viewer');
+
+  function initialiseViewer() {
     videojs(
-      document.getElementById('videojs-viewer'),
+      viewer,
       {}
     );
+  }
+
+  function setTechOrder() {
+    var
+    tech_order = viewer.getAttribute('data-tech-order');
+
+    if ( tech_order && typeof videojs !== 'undefined' ) {
+      videojs.options.techOrder = [tech_order];
+    }
+  }
+
+  function init() {
+    setTechOrder();
+    initialiseViewer();
   }
 
   init();

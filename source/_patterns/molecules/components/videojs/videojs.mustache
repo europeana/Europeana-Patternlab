@@ -1,5 +1,5 @@
 {{# videojs }}
-<video id="videojs-viewer" class="video-js vjs-default-skin" width="640" height="264" poster="{{ poster }}" controls>
+<video id="videojs-viewer" class="video-js vjs-default-skin" width="640" height="264" poster="{{ poster }}" controls {{# tech_order }}data-tech-order="{{ tech_order }}"{{/ tech_order }}>
   {{# sources }}
   <source src="{{ src }}" type="{{ mime_type }}">
   {{/ sources }}
