@@ -30,46 +30,6 @@
 	</div>
 </section>
 
-
-
-
-{{! Apps list }}
-<section class="apps-list section">
-	<div class="lc">
-
-	<h2>Be inspired …</h2>
-
-	<ul class="l-post-list">
-	    {{#listItems.nine}}<li>
-            <div class="block block-thumb">
-
-                <div class="b-thumb">
-                    <a href="{{url}}">
-                        <img src="{{image_root}}{{img.rectangle.src}}" alt="{{image.rectangle.alt}}">
-                    </a>
-                </div>
-
-                <div class="b-text">
-	                    <h2 class="headline"><a href="{{url}}">{{headline.short}}</a></h2>
-	                    <div class="description">
-	                        <p>{{excerpt.medium}}</p>
-	                    </div>
-					
-					<a href="{{url}}" title="Europeana's pilot on Google's Field Trip app">Find out more</a>
-                </div>
-            </div>
-        </li>{{/listItems.nine}}
-	</ul>
-
-
-	<div class="apps-more">
-		<p><a href="/apps" title="Application Gallery"><strong>See more examples in the Application Gallery&nbsp;→</strong></a></p>
-	</div>
-
-
-	</div>
-</section>
-
 </div>
 
 {{> organisms/global/footer }}
