@@ -16,77 +16,11 @@
 {{> organisms/sections/quickinfo }}
 
 
-<div class="section api-signup">
-<div class="lc">
-
-<script type="text/javascript">
-$(document).ready(function(){
-	$("#messageContainer").hide();
-	$("#loadingIcon").hide();
-});
-
-function requestAPIKey(){
-	$("#loadingIcon").show();
-	var url = "http://dev.museu.ms/Labs/RegisterApi?email="+$("#register_email").val();
-	 	$.ajax({
-	 			url: url,
-                dataType: 'jsonp',
-                success:function(data){
-                	
-                	if(data.Success==false){
-	                	$("#messageContainer")
-	                	.removeClass("alert-success")
-	                	.removeClass("alert-error")
-	                	.addClass("alert-error");
-	                	
-	                	$("#messageContainer").html(data.Message);
-	                	$("#messageContainer").show();
-                	}else{
-						$("#messageContainer").removeClass("alert-error").addClass("alert-success");
-	                	$("#messageContainer").html(data.Message);
-	                	$("#messageContainer").show();
-                	}
-                	
-                	$("#loadingIcon").hide();
-                }
-		});
-}
-</script>
-
-<div class="signupform">
-
-	<div class="block-thumb">
-	    <div class="b-inner">
-			<div class="b-thumb">
-				<img src="{{image_root}}/labs/api_key.png">
-			</div>
-			<div class="b-text">
-				<h2>Get your API key.</h2>
-				Sign up for your free API key and <a href="http://labs.europeana.eu/blog/welcome-to-the-new-europeana-labs/">get started</a>!
-
-				<form id="model" class="submit-inline">
-					<fieldset>
-						<input id="requestedAction" name="requestedAction" value="RequestAPI" type="hidden">
-						<label for="register_email">Email address:</label>
-						<div class="inline-container">
-							<input id="register_email" name="email" type="text" placeholder="" maxlength="50" class="newsletter-field">
-							<input class="pushbutton" type="submit" onclick="requestAPIKey();return false;" name="submit_button" value="Sign up" class="newsletter-submit">
-						</div>
-					</fieldset>
-				</form>	
-
-			</div>
 		</div>
-	</div>
 
-	<div>
-		<img class="is-hidden" id="loadingIcon" src="{{image_root}}/ajax-loader.gif" alt="Loading...">	
-		<div class="is-hidden" id="messageContainer" class="alert"> alert text here</div>
-	</div>
-</div>
 
-</div>
-</div>
+	</div>
+</section>
 
 
 
