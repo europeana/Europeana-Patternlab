@@ -24,7 +24,7 @@
 		"news":{
 			"title":"Latest Updates",
 			"more_link":{
-				"text":"More updates from Europeana Labs",
+				"text":"More…",
 				"url":"http://europeana.eu"
 			},
 			"items": [

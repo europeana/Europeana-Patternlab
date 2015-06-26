@@ -76,9 +76,7 @@
 
 	.l-news{
 		@extend %grid__item;
-
-		//@extend %lap--two-thirds;
-		margin-bottom: $space;
+		margin-bottom: -$space;
 	}
 	.l-post{
 		@extend %grid__item;

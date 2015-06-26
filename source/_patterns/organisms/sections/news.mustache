@@ -2,7 +2,7 @@
 <div class="section home-news">
 	<div class="lc">
 
-	{{#title}}<h2 class="section-title">{{ . }}</h2>{{/title}}
+	{{#title}}<h2 class="section-title">{{ . }} {{# more_link }}<a class="link-more" href="{{ more_link.url }}">{{more_link.text}}</a>{{/ more_link }}</h2>{{/title}}
 
 	<div class="grid cf">
 
@@ -11,7 +11,7 @@
 			{{#items}}<div class="l-post">{{> molecules-inset-block}}</div>{{/items}}
 			</div>
 
-			{{# more_link }}<a class="link-more" href="{{ more_link.url }}">{{more_link.text}}</a>{{/ more_link }}
+			
 		</div>
 
 	</div>

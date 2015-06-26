@@ -27,6 +27,18 @@
 	}
 }
 
+// Section "More" link
+
+.link-more{
+	font-weight: bold;
+	color: $textcolour_link;
+	.section-title &{
+		@include fontSize(14px);
+		margin-left: 1em;
+	}
+}
+
+
 .section.quickinfo{
 
 	background-color: $offwhite;
