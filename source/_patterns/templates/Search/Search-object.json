@@ -136,31 +136,40 @@
 			"subtitle": "Het melkmeisje",
 			"description": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
 			"creation_date": "1660",
-			"creator": 
+			"people": 
 			{
-				"name": "Johannes Vermeer",
-				"name_url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
-				"life": 
-				{
-					"from": 
+				"content_present": true,
+				"title": "People",
+				"creator": {
+					"title": "Creator",
+					"name": "Johannes Vermeer",
+					"url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
+					"life": 
 					{
-						"long": "31st October 1632",
-						"short": "1632"
+					    "content_present": true,
+						"from": 
+						{
+							"long": "31st October 1632",
+							"short": "1632"
+						},
+	
+						"to": 
+						{
+							"long": "December 1675",
+							"short": "1675"
+						}
 					},
-
-					"to": 
+					"biography": 
 					{
-						"long": "December 1675",
-						"short": "1675"
+						"text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+						"source": "Wikipedia",
+						"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
 					}
 				},
-
-				"title": "Painter",
-				"biography": 
-				{
-					"text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
-					"source": "Wikipedia",
-					"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+				"contributor": {
+					"title": "Contributor",
+					"name": "The contributor",
+					"url": "www.europeana.eu/portal/search.html?query=The+Contributor"
 				}
 			},
 			"concepts": {

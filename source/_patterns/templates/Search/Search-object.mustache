@@ -108,30 +108,52 @@
 			{{/ description}}
 
 			{{! Creator info }}
-			{{#creator}}
-			{{#creator.name_url}}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{title}}
-				</h3>
-				<div class="subsection-content">
-					<div class="creator-name">
-						<a href="{{name_url}}">{{name}}</a>
-						{{#life}}
-						<span class="life-dates">
-						({{from.short}} {{#to}} — {{short}} {{/to}}) 
-						</span>
-						{{/life}}
+			{{#people}}
+			
+				{{# people.content_present }}
+			
+					<div class="data-section cf">
+						<h3 class="subsection-label">
+							{{title}}
+						</h3>
+						<div class="subsection-content">
+							<ul class="people">
+								{{#people.creator.url}}
+									<li>
+										<section>
+											<h4 class="data-header">{{ people.creator.title }}:</h4>
+										
+											<a href="{{people.creator.name_url}}">{{people.creator.name}}</a>
+											{{# people.creator.life}}
+												{{# people.creator.life.content_present}}
+													<span class="life-dates">
+														({{from.short}} {{#to.short}} — {{to.short}} {{/to.short}}) 
+													</span>
+												{{/ people.creator.life.content_present}}
+											{{/ people.creator.life}}
+											{{# people.creator.biography}}
+												<div class="biography">
+													{{people.creator.biography.text}}
+												</div>
+											{{/ people.creator.biography}}
+										</section>
+									</li>
+								{{/ people.creator.url}}
+								{{# people.contributor.url}}
+									<li>
+										<section>
+											<h4 class="data-header">{{ people.contributor.title }}:</h4>
+											<a href="{{people.contributor.url}}">{{people.contributor.name}}</a>
+										</section>
+									</li>
+								{{/ people.contributor.url}}
+							</ul>
+						</div>
 					</div>
-					{{#biography}}
-					<div class="biography">
-						{{biography.text}}
-					</div>
-					{{/biography}}
-				</div>
-			</div>
-			{{/creator.name_url}}
-			{{/creator}}
+
+				{{/ people.content_present }}
+				
+			{{/people}}
 
 		    {{# object.concepts }}
 			<div class="data-section cf">
@@ -195,22 +217,24 @@
 				<h3 class="subsection-label">
 					{{{ i18n.site.object.meta-label.properties }}}
 				</h3>
-				<ul>
-					{{#object.properties.items}}
-					<li>
-						{{#label}}
-						<b>{{ label }}</b>
-						{{/label}}
-						{{#url}}
-						<a href="{{.}}">
-						{{/url}}
-						{{text}}
-						{{#url}}
-						</a>
-						{{/url}}
-					</li>
-					{{/object.properties.items}}
-				</ul>
+				<div class="subsection-content">
+					<ul>
+						{{#object.properties.items}}
+						<li>
+							{{#label}}
+							<b>{{ label }}</b>
+							{{/label}}
+							{{#url}}
+							<a href="{{.}}">
+							{{/url}}
+							{{text}}
+							{{#url}}
+							</a>
+							{{/url}}
+						</li>
+						{{/object.properties.items}}
+					</ul>
+				</div>
 			</div>
 			{{/ object.properties.content_present }}
 			{{#object.dates.content_present}}
@@ -394,8 +418,5 @@
 			
 	{{/content}}
 </div>
-
-
-
 
 {{> organisms/global/footer }}
