@@ -16,7 +16,8 @@ dd {
 	margin-left: 0;
 }
 
-.inline-list {
+.inline-list, ul.inline-list {
+    margin-left: 0;
 	li {
 		display: inline-block;
 		margin-right: $space-quarter;
