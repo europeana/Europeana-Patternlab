@@ -214,7 +214,45 @@
 				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
 				"logo": "sample/logo.jpg"
 			},
-
+			"places": {
+				"content_present": true,
+				"spatial": {
+					"content_present": true,
+					"label": "Location",
+					"items": [{"text": "Western Europe"}, {"text": "Netherlands"}]
+		          },
+		          "temporal": {
+		          	"content_present": true,
+		          	"label":  "Place/Time",
+		          	"items": [{"text": "Haarlem"}, {"text": "North Holland"}]
+		          }
+	        },
+	        "refs_rels": {
+				"content_present": true,
+	        	"relations": {
+					"content_present": true,
+	        		"label": "Relations",
+	        		"items": [{"text": "relation 1"}, {"text": "relation 2"}]
+	        	},
+	        	"references": {
+					"content_present": true,
+	        		"label": "References",
+	        		"items": [{"text": "reference 1"}, {"text": "reference 2"}]
+	        	}
+	        },
+			"times": {
+				"content_present": true,
+				"issued": {
+					"content_present": true,
+					"label": "Issued",
+					"items": [{"text": "19th century"}, {"text": "Nineteenth century"}]
+		          },
+		          "temporal": {
+		          	"content_present": true,
+		          	"label":  "Temporal",
+		          	"items": [{"text": "Nineteenth century"}, {"text": "19th century"}]
+		          }
+	        },	        
 			"tags": 
 			{
 				"items": 

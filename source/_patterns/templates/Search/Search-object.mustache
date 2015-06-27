@@ -51,18 +51,10 @@
 					{{/items}}
 				</ul>
 				{{/additional}}
-
-
-
 			{{/object.media}}
-
-
-
 			{{#object.download}}
 			<div class="object-downloads">
-
 				<a class="btn pill" href="{{primary.url}}">{{primary.text}}</a>
-
 				{{#secondary}}
 				<div class="secondary comma-list">
 					<span class="label">Also available:</span>
@@ -71,28 +63,24 @@
 				{{/secondary}}
 			</div>
 			{{/object.download}}
-
-
 	</section>
 
 	{{! Main object text info section }}
 	<section class="section">
 	<div class="lc">
-
-
 		<div class="object-overview">
 			{{#object}}
 			<div class="object-info cf">
 				{{# title }}
-				<h2 class="object-title">{{title}}</h2>
+					<h2 class="object-title">{{title}}</h2>
 				{{/ title }}
 				{{# subtitle }}
-				<div class="subtitle">{{subtitle}}</div>
+					<div class="subtitle">{{subtitle}}</div>
 				{{/ subtitle }}
 				{{#creation_date}}
-				<div class="date_created">
-					{{creation_date}}
-				</div>
+					<div class="date_created">
+						{{creation_date}}
+					</div>
 				{{/creation_date}}
 			</div>
 
@@ -109,9 +97,7 @@
 
 			{{! Creator info }}
 			{{#people}}
-
 				{{# people.content_present }}
-
 					<div class="data-section cf">
 						<h3 class="subsection-label">
 							{{title}}
@@ -122,7 +108,6 @@
 									<li>
 										<section>
 											<h4 class="data-header">{{ people.creator.title }}:</h4>
-
 											<a href="{{people.creator.name_url}}">{{people.creator.name}}</a>
 											{{# people.creator.life}}
 												{{# people.creator.life.content_present}}
@@ -150,10 +135,138 @@
 							</ul>
 						</div>
 					</div>
-
 				{{/ people.content_present }}
-
 			{{/people}}
+
+			{{! Place info }}
+			{{#places}}
+				{{# places.content_present }}
+					<div class="data-section cf">
+						<h3 class="subsection-label">
+							{{{ i18n.site.object.meta-label.place }}}
+						</h3>
+						<div class="subsection-content">
+							<ul class="places">
+								{{#places.spatial.content_present}}
+									{{#places.spatial}}
+										<li>
+											<section>
+												<h4 class="data-header">{{ places.spatial.label }}:</h4>
+												<ul class="comma-list places">
+													{{# places.spatial.items }}
+														<li>{{ text }}</li>
+													{{/ places.spatial.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ places.spatial }}
+								{{/ places.spatial.content_present }}
+								{{# places.coverage.content_present }}
+									{{# places.coverage }}
+										<li>
+											<section>
+												<h4 class="data-header">{{ places.coverage.label }}:</h4>
+												<ul class="comma-list places">
+													{{# places.coverage.items }}
+														<li>{{ text }}</li>
+													{{/ places.coverage.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ places.coverage }}
+								{{/ places.coverage.content_present }}
+							</ul>
+						</div>
+					</div>
+				{{/ places.content_present }}
+			{{/places}}
+			
+			{{! Time info }}
+			{{#times}}
+				{{# times.content_present }}
+					<div class="data-section cf">
+						<h3 class="subsection-label">
+							{{{ i18n.site.object.meta-label.time }}}
+						</h3>
+						<div class="subsection-content">
+							<ul class="times">
+								{{#times.issued.content_present}}
+									{{#times.issued}}
+										<li>
+											<section>
+												<h4 class="data-header">{{ times.issued.label }}:</h4>
+												<ul class="comma-list times">
+													{{# times.issued.items }}
+														<li>{{ text }}</li>
+													{{/ times.issued.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ times.issued }}
+								{{/ times.issued.content_present }}
+								{{# times.temporal.content_present }}
+									{{# times.temporal }}
+										<li>
+											<section>
+												<h4 class="data-header">{{ times.temporal.label }}:</h4>
+												<ul class="comma-list times">
+													{{# times.temporal.items }}
+														<li>{{ text }}</li>
+													{{/ times.temporal.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ times.temporal }}
+								{{/ times.temporal.content_present }}
+							</ul>
+						</div>
+					</div>
+				{{/ times.content_present }}
+			{{/times}}
+			
+			{{! References and relations }}
+			{{#refs_rels}}
+			
+				{{# refs_rels.content_present }}
+					<div class="data-section cf">
+						<h3 class="subsection-label">
+							{{{ i18n.site.object.meta-label.refs-rels }}}
+						</h3>
+						<div class="subsection-content">
+							<ul class="refs-rels">
+								{{# refs_rels.relations.content_present}}
+									{{# refs_rels.relations}}
+										<li>
+											<section>
+												<h4 class="data-header">{{ refs_rels.relations.label }}:</h4>
+												<ul class="comma-list refs-rels">
+												{{# refs_rels.relations.items }}
+													<li>{{ text }}</li>
+												{{/ refs_rels.relations.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ refs_rels.relations }}
+								{{/ refs_rels.relations.content_present }}
+								{{# refs_rels.references.content_present }}
+									{{# refs_rels.references}}
+										<li>
+											<section>
+												<h4 class="data-header">{{ refs_rels.references.label }}:</h4>
+												<ul class="comma-list refs-rels">
+													{{# refs_rels.references.items }}
+														<li>{{ text }}</li>
+													{{/ refs_rels.references.items}}
+												</ul>
+											</section>
+										</li>
+									{{/ refs_rels.references }}
+								{{/ refs_rels.references.content_present }}
+							</ul>
+						</div>
+					</div>
+				{{/ refs_rels.content_present }}
+			{{/refs_rels}}
 
 		    {{# object.concepts }}
 			<div class="data-section cf">
@@ -161,7 +274,7 @@
 					{{{ i18n.site.object.meta-label.concepts }}}
 				</h3>
 				<div class="subsection-content">
-
+				
 					<ul class="concepts">
 						<li>
 							{{# type_items }}
@@ -208,10 +321,8 @@
 					</ul>
 				</div>
 			</div>
-
 		    {{/ object.concepts }}
-
-
+		    
 			{{# object.properties.content_present }}
 			<div class="data-section cf">
 				<h3 class="subsection-label">
@@ -222,15 +333,9 @@
 						{{#object.properties.items}}
 						<li>
 							{{#label}}
-							<b>{{ label }}</b>
+								<b>{{ label }}</b>
 							{{/label}}
-							{{#url}}
-							<a href="{{.}}">
-							{{/url}}
-							{{text}}
-							{{#url}}
-							</a>
-							{{/url}}
+							{{#url}}<a href="{{.}}">{{/url}}{{text}}{{#url}}</a>{{/url}}
 						</li>
 						{{/object.properties.items}}
 					</ul>
@@ -247,28 +352,21 @@
 						{{#object.dates.items}}
 						<li>
 							{{#label}}
-							<b>{{.}}</b>
+								<b>{{.}}</b>
 							{{/label}}
-							{{#url}}
-							<a href="{{.}}">
-							{{/url}}
-							{{text}}
-							{{#url}}
-							</a>
-							{{/url}}
+							{{#url}}<a href="{{.}}">{{/url}}{{text}}{{#url}}</a>{{/url}}
 						</li>
 						{{/object.dates.items}}
 					</ul>
 				</div>
 			</div>
 			{{/object.dates.content_present}}
-
 			{{#meta_additional}}
 			{{#geo.long_and_lat}}	{{! check both present }}
-			<a	class="scroll-trigger"
+			<a	class="scroll-trigger" 
 				enabled="true"
 				data-fire-on-open="showMap"
-				data-fire-on-open-params='{
+				data-fire-on-open-params='{ 
 				"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
 				}'
 				></a>
@@ -279,14 +377,13 @@
 				<div class="object-info">
 					<span id="map-place-name">{{geo.placeName}}</span>
 					<div id="map">
-						<div><b>{{geo.labels.longitude}}</b>{{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+						<div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
 						<div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
 					</div>
 				</div>
 			</div>
 			{{/geo.long_and_lat}}
 			{{/meta_additional}}
-
 			{{#object.provenance.content_present}}
 			<div class="data-section cf">
 				<h3 class="subsection-label">
@@ -312,24 +409,17 @@
 				</div>
 			</div>
 			{{/object.provenance.content_present}}
-
 			{{/object}}
 		</div>
 		{{! end of object info column }}
-
-
-
 		<div class="object-actions cf">
-
 			<input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-
 			{{# object.media.primary.rights }}
 			<div class="object-rights">
 				{{license_human}}
 				<div class="object-license">{{> molecules/icons/licenses }}</div>
 			</div>
 			{{/ object.media.primary.rights }}
-
 			{{# object.origin }}
 			<div class="object-origin">
 				<h4>{{{ i18n.site.object.meta-label.provided-by }}}</h4>
@@ -345,7 +435,6 @@
 				<span class="cap">{{institution_country}}</span>
 			</div>
 			{{/ object.origin }}
-
 			{{# object.tags }}
 			<div class="object-tags">
 				<ul class="nav">
@@ -355,42 +444,34 @@
 				</ul>
 			</div>
 			{{/ object.tags }}
-
 			{{# object.colours }}
 			<div class="object-colours">
 				{{> molecules/controls/colour-search }}
 			</div>
 			{{/ object.colours }}
-
 			{{# object.further_actions }}
 			<div class="object-furtheractions">
 				{{> molecules/controls/dropdown-menu }}
 			</div>
 			{{/ object.further_actions }}
-
 		</div>
-
 		{{! end object actions }}
-
 	</div>
 
 	<div class="lc data-border">
-    	{{#content.related}}
+    	{{#content.similar}}
 			<div class="data-section no-border">
-
 				<div class="mlt cf">
 					<div class="subsection-label">
 						{{title}}
-						<a	class="scroll-trigger"
+						<a	class="scroll-trigger" 
 							enabled="true"
 							data-fire-on-open="showMLT"
 							data-fire-on-open-params='{
 							"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
 							}'
 						></a>
-
 					</div>
-
 					<div class="subsection-content">
 						<div class="js-mlt">
 							<ul class="cf">
@@ -399,7 +480,6 @@
 										<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
 											<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
 										</div>
-
 										<span class="mlt-title">
 											<a href="{{url}}" >{{title}}</a>
 										</span>
@@ -411,11 +491,9 @@
 				</div>
 				<div class="show-more-mlt"><a href="{{more_items_query}}">{{{ i18n.global.more.load-more }}}&#8230;</a></div>
 			</div>
-		{{/content.related}}
-
-    </div>
+		{{/content.similar}}
+    </div>			
 	</section>
-
 	{{/content}}
 </div>
 

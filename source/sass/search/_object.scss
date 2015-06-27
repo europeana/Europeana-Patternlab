@@ -104,13 +104,19 @@
     }
 }
 
+.refs-rels,
 .people,
-.concepts{
+.places,
+.concepts,
+.times{
     .data-header{
         text-transform: none;
         text-transform: capitalize;
         display: inline;
     }
+    .refs-rels,
+    .places,
+    .times,
     .types{
         display: inline;
     }

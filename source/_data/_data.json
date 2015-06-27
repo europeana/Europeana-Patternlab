@@ -386,12 +386,15 @@
 			"object": {
 				"meta-label": {
 					"concepts": "Categories",
+					"place": "Place",
 					"properties": "Properties",
 					"provenance": "Provenance",
+					"refs-rels": "References and Relations",
 					"dates": "Dates",
 					"location": "Location",
 					"description": "Description",
-					"source": "Source"
+					"source": "Source",
+					"time": "Time"
 				} 
 			}
 		},
