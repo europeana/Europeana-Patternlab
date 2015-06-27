@@ -15,9 +15,11 @@
     var
     tech_order = viewer.getAttribute('data-tech-order');
 
-    if ( tech_order && typeof videojs !== 'undefined' ) {
-      videojs.options.techOrder = [tech_order];
+    if ( !tech_order || typeof videojs === 'undefined' ) {
+      return;
     }
+
+    videojs.options.techOrder = [tech_order];
   }
 
   function init() {

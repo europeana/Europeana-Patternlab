@@ -26,7 +26,7 @@
 			"path": "/js/libs/videojs/init.js"
 		}
   ],
-  "videojs" : {
+  "is_audio" : {
     "title": "Toccata Op.111 ( audio - flac )",
     "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
 		"tech_order": "aurora",

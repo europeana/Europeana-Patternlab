@@ -17,7 +17,7 @@
 			"path": "/js/libs/videojs/init.js"
 		}
   ],
-	"videojs" : {
+	"is_audio" : {
     "title": "Do žalian sodi obełėłė ( audio - mp3 )",
     "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.dismarc-audio.org%2FLLTI%2FLingu_palingu.jpg&size=LARGE&type=SOUND",
     "sources": [

@@ -17,7 +17,7 @@
 			"path": "/js/libs/videojs/init.js"
 		}
   ],
-	"videojs" : {
+	"is_video" : {
     "title": "Video, PN78_75. Recipiente cerámico procedente de la necrópolis ibérica de la Puerta Norte, Cástulo ( flv )",
     "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcata.cica.es%2Farchivos%2Fdigital_resource%2F4166&size=LARGE&type=VIDEO",
     "sources": [
