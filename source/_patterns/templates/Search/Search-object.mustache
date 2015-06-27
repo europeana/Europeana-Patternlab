@@ -24,7 +24,7 @@
 
 				{{#is_video}}
 				<div class="object-media-video">
-					Video player here
+					{{> molecules/components/videojs/videojs }}
 				</div>
 				{{/is_video}}
 
@@ -36,7 +36,7 @@
 
 				{{#is_audio}}
 				<div class="object-media-audio">
-					Audio player here
+					{{> molecules/components/videojs/videojs }}
 				</div>
 				{{/is_audio}}
 
@@ -109,9 +109,9 @@
 
 			{{! Creator info }}
 			{{#people}}
-			
+
 				{{# people.content_present }}
-			
+
 					<div class="data-section cf">
 						<h3 class="subsection-label">
 							{{title}}
@@ -122,12 +122,12 @@
 									<li>
 										<section>
 											<h4 class="data-header">{{ people.creator.title }}:</h4>
-										
+
 											<a href="{{people.creator.name_url}}">{{people.creator.name}}</a>
 											{{# people.creator.life}}
 												{{# people.creator.life.content_present}}
 													<span class="life-dates">
-														({{from.short}} {{#to.short}} — {{to.short}} {{/to.short}}) 
+														({{from.short}} {{#to.short}} — {{to.short}} {{/to.short}})
 													</span>
 												{{/ people.creator.life.content_present}}
 											{{/ people.creator.life}}
@@ -152,7 +152,7 @@
 					</div>
 
 				{{/ people.content_present }}
-				
+
 			{{/people}}
 
 		    {{# object.concepts }}
@@ -161,7 +161,7 @@
 					{{{ i18n.site.object.meta-label.concepts }}}
 				</h3>
 				<div class="subsection-content">
-				
+
 					<ul class="concepts">
 						<li>
 							{{# type_items }}
@@ -208,10 +208,10 @@
 					</ul>
 				</div>
 			</div>
-				
+
 		    {{/ object.concepts }}
-			
-			
+
+
 			{{# object.properties.content_present }}
 			<div class="data-section cf">
 				<h3 class="subsection-label">
@@ -265,11 +265,11 @@
 
 			{{#meta_additional}}
 			{{#geo.long_and_lat}}	{{! check both present }}
-			<a	class="scroll-trigger" 
+			<a	class="scroll-trigger"
 				enabled="true"
 				data-fire-on-open="showMap"
-				data-fire-on-open-params='{ 
-				"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" } 
+				data-fire-on-open-params='{
+				"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
 				}'
 				></a>
 			<div class="map-section">
@@ -369,26 +369,26 @@
 			{{/ object.further_actions }}
 
 		</div>
-		
+
 		{{! end object actions }}
-		
+
 	</div>
 
 	<div class="lc data-border">
     	{{#content.related}}
 			<div class="data-section no-border">
-				
+
 				<div class="mlt cf">
 					<div class="subsection-label">
 						{{title}}
-						<a	class="scroll-trigger" 
+						<a	class="scroll-trigger"
 							enabled="true"
 							data-fire-on-open="showMLT"
-							data-fire-on-open-params='{ 
+							data-fire-on-open-params='{
 							"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
 							}'
 						></a>
-							
+
 					</div>
 
 					<div class="subsection-content">
@@ -399,11 +399,11 @@
 										<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
 											<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
 										</div>
-										
+
 										<span class="mlt-title">
 											<a href="{{url}}" >{{title}}</a>
 										</span>
-									</li>							
+									</li>
 								{{/items}}
 							</ul>
 						</div>
@@ -412,10 +412,10 @@
 				<div class="show-more-mlt"><a href="{{more_items_query}}">{{{ i18n.global.more.load-more }}}&#8230;</a></div>
 			</div>
 		{{/content.related}}
-			
-    </div>			
+
+    </div>
 	</section>
-			
+
 	{{/content}}
 </div>
 
