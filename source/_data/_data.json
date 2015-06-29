@@ -383,6 +383,7 @@
 		"site":{
 			"more": "More...",
 			"news": "['News', 'Etc'].join(',')",
+			"download":"Download",
 			"object": {
 				"meta-label": {
 					"concepts": "Categories",

@@ -12,18 +12,6 @@
 
 }
 
-.object-nav .previous{
-    @media all and (min-width: $bp-med) {
-        @include span(first 4 of 24);
-
-		/* First record has no previous_document link.
-		   The empty li needs an explicit height set to stop it collapsing
-		   This keeps the "return to search" link in position 
-		*/
-        min-height:1em;
-    }
-}
-
 .object-overview{
     @media all and (min-width: $bp-med) {
         @include span(18);
@@ -47,25 +35,30 @@
 	word-break: normal;
 }
 
+.object-nav{
+    padding: $space-half;
+    background-color: $gray-light;
+    @include fontSize(14px);
+
+    .next-previous, .breadcrumbs{
+        display: inline-block;
+    }
+}
+
 // main media display area
 .object-display{
-    /*  min-height: 30em;  */
     overflow-y: auto;
     margin-bottom: $space;
     background-color: $gray-dark;
     position: relative;
-    text-align: center;
-    padding: $pad;
-
-    &.is-smallimage{
-        @media all and (min-width: $bp-med) {
-            @include push(4 of 18);
-        }
-    }
 }
 
+.object-media{
+    text-align: center;
+    padding: $pad;
+}
+// Thumbnails list
 .object-media-nav{
-
     overflow-y: scroll;
     position: absolute;
     right: 0;
@@ -74,23 +67,13 @@
     width: 10%;
     padding: $space-quarter;
     background-color: $gray-dark;
-
-}
-// Thumbnail/zoomer preview widget
-.object-image-nav{
-    display: none;
-    text-align: center;
-    //padding-bottom: 100%;
-	
-    @media all and (min-width: $bp-med) {
-        display: block;
-    }    
 }
 
 .object-downloads{
-    text-align: center;
+    
     .btn{
-        margin-bottom: $space-quarter;
+        background-color: $accent;
+        border-color: $accent;
     }
 }
 

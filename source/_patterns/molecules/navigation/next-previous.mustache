@@ -17,22 +17,20 @@ Configuration options and content model:
 # # # # # # # # # # # # # # # # 
 
 }}
-<ul class="next-previous nav cf">
+<ul class="next-previous nav">
+	{{#navigation.next_prev.prev_url}}
 	<li class="previous">
-		{{#navigation.next_prev.prev_url}}
-		<a class="btn btn2" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}><span aria-hidden="true">&larr; </span>{{navigation.next_prev.prev_text}}</a>
-		{{/navigation.next_prev.prev_url}}
+		<a class="btn btn2" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}>
+		<span aria-hidden="true"><svg class="icon icon-previous"><use xlink:href="#icon-previous"></use></svg></span>
+		<span class="is-vishidden">{{navigation.next_prev.prev_text}}</span>
+		</a>
 	</li>
-
-	{{#navigation.next_prev.back_url}}
-	<li class="back">
-		<a class="btn btn2" href="{{navigation.next_prev.back_url}}">{{navigation.next_prev.back_text}}</a>
-	</li>
-	{{/navigation.next_prev.back_url}}
+	{{/navigation.next_prev.prev_url}}
 
 	{{#navigation.next_prev.next_url}}
 	<li class="next">
-		<a class="btn btn2" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}>{{navigation.next_prev.next_text}}<span aria-hidden="true"> &rarr;</span></a>
+		<a class="btn btn2" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}><span class="is-vishidden">{{navigation.next_prev.next_text}}</span><span aria-hidden="true"><svg class="icon icon-next"><use xlink:href="#icon-next"></use></svg></span></a>
 	</li>
 	{{/navigation.next_prev.next_url}}
+
 </ul>

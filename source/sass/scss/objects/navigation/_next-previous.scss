@@ -4,14 +4,5 @@
 
 .next-previous{
 	text-align: left;
-	padding: $space 0;
-
-	&.nav li{
-		margin-right: $space-half; 
-	}
-
-    li.next{
-		float: right;
-		margin-right: 0;
-    }
+	margin-right: $space-half;
 }
