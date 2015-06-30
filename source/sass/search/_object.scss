@@ -37,7 +37,7 @@
 
 .object-nav{
     padding: $space-half;
-    background-color: $gray-light;
+    background-color: $gray-lighter;
     @include fontSize(14px);
 
     .next-previous, .breadcrumbs{
@@ -53,9 +53,10 @@
     position: relative;
 }
 
-.object-media{
+.object-media-wrap{
     text-align: center;
     padding: $pad;
+    position: relative;
 }
 // Thumbnails list
 .object-media-nav{
@@ -69,13 +70,61 @@
     background-color: $gray-dark;
 }
 
-.object-downloads{
+.object-media-info{
+    position: relative;
+    margin-bottom: 0;
+    background-color: $offwhite;
+}
+.media-info-tab{
     
-    .btn{
-        background-color: $accent;
-        border-color: $accent;
+    position: relative;
+    overflow: hidden;
+    max-height: 0;
+
+    -webkit-transition: max-height 0.3s;
+    transition: max-height 0.3s;
+
+    .is-expanded & {
+      max-height: 20em;
     }
 }
+
+
+
+
+.object-downloads{
+
+
+
+    .btn{
+        background-color: $accent;
+        border: none;
+        position: absolute;
+        right: 11%;
+        bottom: 100%;
+        z-index: 10;
+    }
+
+    .download-primary{
+        @media all and (min-width: $bp-med) {
+            @include span(6 of 24);
+        }
+    }
+
+    .download-secondary{
+        @media all and (min-width: $bp-med) {
+            @include span(6 of 24);
+        }
+    }
+
+    .download-rights{
+        @media all and (min-width: $bp-med) {
+            @include span(last 6);
+        }
+    }
+}
+
+
 
 .object-info{
 
