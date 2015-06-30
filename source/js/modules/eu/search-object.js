@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery','mediaviewer'], function ($) {
 
     function log(msg){
 
@@ -7,7 +7,7 @@ define(['jquery'], function ($) {
 
     function addEllipsis(){
         if(window.location.href.indexOf('ellipsis') > -1){
-            $('.mlt-title a').each(function(){    
+            $('.mlt-title a').each(function(){
                 while($(this).outerHeight() > $(this).parent().height()){
                     $(this).text(function(index, text){
                         return text.replace(/\W*\s(\S)*$/, '...');
@@ -16,7 +16,7 @@ define(['jquery'], function ($) {
             });
         }
     }
-    
+
     function mltStretch(){
         if(window.location.href.indexOf('mlt-stretch') > -1){
             var selector = '.mlt .mlt-item, .mlt-title'
@@ -78,11 +78,11 @@ define(['jquery'], function ($) {
 
     /*
      * function initViewMore() { // TODO: make this global
-     * 
+     *
      * $('.js-showhide-action').on('click', function(event){
-     * 
+     *
      * var self = $(this); var tgt = self.prev('.js-showhide-panel');
-     * 
+     *
      * tgt.toggleClass('is-jshidden').toggleClass('is-expanded');
      *  // Swap the text for the value in data-text-original and back again if
      * (self.text() === self.data('text-swap')) {
@@ -92,7 +92,7 @@ define(['jquery'], function ($) {
      * self.data('fire-on-open') && self.data('fired') != true ){ var eEvent =
      * self.data('fire-on-open'); var eParams =
      * self.data('fire-on-open-params');
-     * 
+     *
      * $(window).trigger(eEvent, eParams); self.data('fired', true) }
      * event.preventDefault(); }); }
      */
@@ -106,7 +106,7 @@ define(['jquery'], function ($) {
         var placeName = $('#map-place-name').text();
 
         require([js_path + 'application-map.js'], function(){
-            
+
             $('#' + mapId).after('<div id="' + mapInfoId + '"></div>');
             var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" alt="mapquest logo"/>';
 
@@ -142,14 +142,14 @@ define(['jquery'], function ($) {
 
             $('head').append('<link rel="stylesheet" href="' + js_path + 'css/map/application-map.css" type="text/css"/>');
         });
-        
+
     }
-    
+
     var showMLT = function(EuCarousel){
         var el = $('.js-mlt');
         var mltData = [];
         reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
-        
+
         el.find('a.link').each(function(i, ob) {
             ob = $(ob);
             mltData[mltData.length] = {
@@ -167,44 +167,44 @@ define(['jquery'], function ($) {
     function testLayouts(){
 
         requirejs( ['imagesloaded'], function( imagesLoaded ){
-        
+
             var minImgW = 300;
             var minScreenW = 500;
             var isb = $('input[name="js_edm_is_shown_by"]');
-    
+
             var initChannel1 = function(){
-    
+
                 log('img w: ' + isbImgTest.width());
                 $('.object-actions').prepend($('.is-smallimage'));
                 isbImgTest.wrap("<div class='js-img-frame'></div>");
-    
+
                 $('.next-previous .previous').remove();
-    
+
             }
             var initChannel2 = function(){
-    
+
                 $(".color-data").show();
                 $('.is-smallimage').hide();
                 isbImgTest.wrap("<div class='js-img-frame'></div>");
-    
+
                 $('.next-previous .previous').remove();
-    
+
             }
-    
+
             // js detection
             if(window.location.href.indexOf('js=') > -1 && isb.length && isb.val().length && $('body').width() > minScreenW){
-    
+
                 var isbImgTest = $('<img id="isb_img_test" style="visibility:hidden; max-width:none; position:absolute;">');
                 isbImgTest.prependTo('.object-overview');
-    
+
                 imagesLoaded(isbImgTest, function(instance){
-    
+
                     log('images loaded');
-    
+
                     if(instance.elements.length && instance.elements[0].width > minImgW){
-    
+
                         isbImgTest.removeAttr('style').removeAttr('id').addClass('main');
-    
+
                         if(window.location.href.indexOf('js=1') > -1){
                             log('initChannel1()');
                             initChannel1();
@@ -213,7 +213,7 @@ define(['jquery'], function ($) {
                             log('initChannel2()');
                             initChannel2();
                         }
-    
+
                     }
                     else{
                         isbImgTest.remove();
@@ -248,7 +248,7 @@ define(['jquery'], function ($) {
                 }
             })
         });
-        
+
         $(window).bind('showMap', function(e, data){
 
             // split multi-values on (whitespace or comma + whitespace)

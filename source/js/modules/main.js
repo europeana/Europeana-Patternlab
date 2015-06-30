@@ -1,25 +1,31 @@
 require.config({
     paths: {
         channels:           'eu/channels',
-        
+
         featureDetect:      'global/feature-detect',
-        
+
         global:             'eu/global',
         imagesloaded:       'lib/imagesloaded.pkgd',
         jquery:             'lib/jquery',
-        
+
         menus:              'global/menus',
         placeholder:        'global/placeholder',
         resize:             'eu/util/resize',
-        
+
         search_context:     'lib/blacklight/search-context',
         search_form:        'eu/search-form',
         search_home:        'eu/search-home',
         search_object:      'eu/search-object',
         eu_carousel:        'eu/eu-carousel',
-        
-        jqDropdown:         'lib/jquery.dropdown',            
-        jqScrollto:         'lib/jquery.scrollTo'            
+
+        jqDropdown:         'lib/jquery.dropdown',
+        jqScrollto:         'lib/jquery.scrollTo',
+
+        mediaviewer:        'eu/search-mediaviewer',
+        aurora:             'lib/audiocogs/aurora',
+        flac:               'lib/audiocogs/flac',
+        videojs:            '//vjs.zencdn.net/4.12/video',
+        videojs_aurora:     'lib/videojs-aurora/videojs-aurora'
     },
     shim: {
         search_context: ["jquery"],
@@ -31,5 +37,5 @@ require.config({
 });
 
 require(['jquery', 'search_context', 'global',  'channels'], function($, channels){
-    
+
 });

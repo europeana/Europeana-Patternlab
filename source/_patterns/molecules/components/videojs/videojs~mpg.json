@@ -6,23 +6,26 @@
 	},
   "css_files": [
     {
-      "path": "//vjs.zencdn.net/4.12/video-js.css"
+      "path": "http://vjs.zencdn.net/4.12/video-js.css"
     }
   ],
 	"js_files": [
+		{
+			"path": "http://vjs.zencdn.net/4.12/video.js"
+		},
 		{
 			"path": "/js/dist/require.js",
 			"data_main": "/js/dist/main"
 		}
   ],
 	"is_video" : {
-    "title": "The 5000th house is finished ( video - mp4 )",
+    "title": "The 5000th house is finished ( video - mpg )",
     "poster": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
     "sources": [
-			{
-				"mime_type": "video/mp4",
-				"src": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4"
-			}
+      {
+        "mime_type": "video/mpeg",
+        "src": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg"
+      }
     ]
   }
 }

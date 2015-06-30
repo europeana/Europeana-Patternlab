@@ -6,24 +6,13 @@
 	},
   "css_files": [
     {
-      "path": "http://vjs.zencdn.net/4.12/video-js.css"
+      "path": "//vjs.zencdn.net/4.12/video-js.css"
     }
   ],
 	"js_files": [
 		{
-			"path": "/js/libs/audiocogs/aurora.js"
-		},
-		{
-			"path": "/js/libs/audiocogs/flac.js"
-		},
-		{
-			"path": "http://vjs.zencdn.net/4.12/video.js"
-		},
-		{
-			"path": "/js/libs/videojs-aurora/videojs-aurora.js"
-		},
-		{
-			"path": "/js/libs/videojs/init.js"
+			"path": "/js/dist/require.js",
+			"data_main": "/js/dist/main"
 		}
   ],
   "is_audio" : {

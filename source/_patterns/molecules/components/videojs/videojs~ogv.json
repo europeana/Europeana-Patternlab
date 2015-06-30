@@ -11,10 +11,8 @@
   ],
 	"js_files": [
 		{
-			"path": "http://vjs.zencdn.net/4.12/video.js"
-		},
-		{
-			"path": "/js/libs/videojs/init.js"
+			"path": "/js/dist/require.js",
+			"data_main": "/js/dist/main"
 		}
   ],
 	"is_video" : {

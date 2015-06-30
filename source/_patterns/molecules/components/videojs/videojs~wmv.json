@@ -1,0 +1,34 @@
+{
+  "i18n": {
+		"global": {
+			"javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
+		}
+	},
+  "css_files": [
+    {
+      "path": "http://vjs.zencdn.net/4.12/video-js.css"
+    }
+  ],
+	"js_files": [
+		{
+			"path": "http://vjs.zencdn.net/4.12/video.js"
+		},
+		{
+			"path": "/js/libs/videojs-silverlight/videojs-silverlight.js"
+		},
+		{
+			"path": "/js/libs/videojs/init.js"
+		}
+  ],
+	"is_video" : {
+    "title": "La Settimana Incom ( wmv )",
+    "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fadmin.d.efg.research-infrastructures.eu%2Fthumbs_default%2Fincom.gif&size=LARGE&type=VIDEO",
+    "tech_order": "silverlight",
+		"sources": [
+      {
+        "mime_type": "video/wmv",
+        "src": "/media/I018102.wmv"
+      }
+    ]
+  }
+}
