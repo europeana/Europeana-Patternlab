@@ -112,272 +112,34 @@
 			</div>
 			{{/ description}}
 
-			{{! Creator info }}
 			{{#people}}
-				{{# people.content_present }}
-					<div class="data-section cf">
-						<h3 class="subsection-label">
-							{{title}}
-						</h3>
-						<div class="subsection-content">
-							<ul class="people">
-								{{#people.creator.url}}
-									<li>
-										<section>
-											<h4 class="data-header">{{ people.creator.title }}:</h4>
-											<a href="{{people.creator.name_url}}">{{people.creator.name}}</a>
-											{{# people.creator.life}}
-												{{# people.creator.life.content_present}}
-													<span class="life-dates">
-														({{from.short}} {{#to.short}} — {{to.short}} {{/to.short}})
-													</span>
-												{{/ people.creator.life.content_present}}
-											{{/ people.creator.life}}
-											{{# people.creator.biography}}
-												<div class="biography">
-													{{people.creator.biography.text}}
-												</div>
-											{{/ people.creator.biography}}
-										</section>
-									</li>
-								{{/ people.creator.url}}
-								{{# people.contributor.url}}
-									<li>
-										<section>
-											<h4 class="data-header">{{ people.contributor.title }}:</h4>
-											<a href="{{people.contributor.url}}">{{people.contributor.name}}</a>
-										</section>
-									</li>
-								{{/ people.contributor.url}}
-							</ul>
-						</div>
-					</div>
-				{{/ people.content_present }}
+				{{> organisms/sections/object-data-section }}
 			{{/people}}
 
-			{{! Place info }}
-			{{#places}}
-				{{# places.content_present }}
-					<div class="data-section cf">
-						<h3 class="subsection-label">
-							{{{ i18n.site.object.meta-label.place }}}
-						</h3>
-						<div class="subsection-content">
-							<ul class="places">
-								{{#places.spatial.content_present}}
-									{{#places.spatial}}
-										<li>
-											<section>
-												<h4 class="data-header">{{ places.spatial.label }}:</h4>
-												<ul class="comma-list places">
-													{{# places.spatial.items }}
-														<li>{{ text }}</li>
-													{{/ places.spatial.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ places.spatial }}
-								{{/ places.spatial.content_present }}
-								{{# places.coverage.content_present }}
-									{{# places.coverage }}
-										<li>
-											<section>
-												<h4 class="data-header">{{ places.coverage.label }}:</h4>
-												<ul class="comma-list places">
-													{{# places.coverage.items }}
-														<li>{{ text }}</li>
-													{{/ places.coverage.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ places.coverage }}
-								{{/ places.coverage.content_present }}
-							</ul>
-						</div>
-					</div>
-				{{/ places.content_present }}
-			{{/places}}
-			
-			{{! Time info }}
-			{{#times}}
-				{{# times.content_present }}
-					<div class="data-section cf">
-						<h3 class="subsection-label">
-							{{{ i18n.site.object.meta-label.time }}}
-						</h3>
-						<div class="subsection-content">
-							<ul class="times">
-								{{#times.issued.content_present}}
-									{{#times.issued}}
-										<li>
-											<section>
-												<h4 class="data-header">{{ times.issued.label }}:</h4>
-												<ul class="comma-list times">
-													{{# times.issued.items }}
-														<li>{{ text }}</li>
-													{{/ times.issued.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ times.issued }}
-								{{/ times.issued.content_present }}
-								{{# times.temporal.content_present }}
-									{{# times.temporal }}
-										<li>
-											<section>
-												<h4 class="data-header">{{ times.temporal.label }}:</h4>
-												<ul class="comma-list times">
-													{{# times.temporal.items }}
-														<li>{{ text }}</li>
-													{{/ times.temporal.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ times.temporal }}
-								{{/ times.temporal.content_present }}
-							</ul>
-						</div>
-					</div>
-				{{/ times.content_present }}
-			{{/times}}
-			
-			{{! References and relations }}
-			{{#refs_rels}}
-			
-				{{# refs_rels.content_present }}
-					<div class="data-section cf">
-						<h3 class="subsection-label">
-							{{{ i18n.site.object.meta-label.refs-rels }}}
-						</h3>
-						<div class="subsection-content">
-							<ul class="refs-rels">
-								{{# refs_rels.relations.content_present}}
-									{{# refs_rels.relations}}
-										<li>
-											<section>
-												<h4 class="data-header">{{ refs_rels.relations.label }}:</h4>
-												<ul class="comma-list refs-rels">
-												{{# refs_rels.relations.items }}
-													<li>{{ text }}</li>
-												{{/ refs_rels.relations.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ refs_rels.relations }}
-								{{/ refs_rels.relations.content_present }}
-								{{# refs_rels.references.content_present }}
-									{{# refs_rels.references}}
-										<li>
-											<section>
-												<h4 class="data-header">{{ refs_rels.references.label }}:</h4>
-												<ul class="comma-list refs-rels">
-													{{# refs_rels.references.items }}
-														<li>{{ text }}</li>
-													{{/ refs_rels.references.items}}
-												</ul>
-											</section>
-										</li>
-									{{/ refs_rels.references }}
-								{{/ refs_rels.references.content_present }}
-							</ul>
-						</div>
-					</div>
-				{{/ refs_rels.content_present }}
-			{{/refs_rels}}
+			{{#places }}
+				{{> organisms/sections/object-data-section }}
+			{{/places }}
 
-		    {{# object.concepts }}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{{ i18n.site.object.meta-label.concepts }}}
-				</h3>
-				<div class="subsection-content">
-				
-					<ul class="concepts">
-						<li>
-							{{# type_items }}
-								<section>
-									{{# type_items.label }}
-										<h4 class="data-header">{{ . }}:</h4>
-									{{/ type_items.label }}
-									<ul class="types comma-list">
-										{{# items }}
-											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
-										{{/ items }}
-									</ul>
-								</section>
-							{{/ type_items }}
-						</li>
-						<li>
-							{{# concept_items }}
-								<section>
-									{{# concept_items.label }}
-										<h4 class="data-header">{{ . }}:</h4>
-									{{/ concept_items.label }}
-									<ul class="types comma-list">
-										{{# items }}
-											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
-										{{/ items }}
-									</ul>
-								</section>
-							{{/ concept_items }}
-						</li>
-						<li>
-							{{# concept_subjects }}
-								<section>
-									{{# concept_subjects.label }}
-										<h4 class="data-header">{{ . }}:</h4>
-									{{/ concept_subjects.label }}
-									<ul class="types comma-list">
-										{{# items }}
-											<li class="item">{{#url}}<a href="{{.}}">{{text}}</a>{{/url}}</li>
-										{{/ items }}
-									</ul>
-								</section>
-							{{/ concept_subjects }}
-						</li>
-					</ul>
-				</div>
-			</div>
-		    {{/ object.concepts }}
-		    
-			{{# object.properties.content_present }}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{{ i18n.site.object.meta-label.properties }}}
-				</h3>
-				<div class="subsection-content">
-					<ul>
-						{{#object.properties.items}}
-						<li>
-							{{#label}}
-								<b>{{ label }}</b>
-							{{/label}}
-							{{#url}}<a href="{{.}}">{{/url}}{{text}}{{#url}}</a>{{/url}}
-						</li>
-						{{/object.properties.items}}
-					</ul>
-				</div>
-			</div>
-			{{/ object.properties.content_present }}
-			{{#object.dates.content_present}}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{i18n.site.object.meta-label.dates}}
-				</h3>
-				<div class="subsection-content">
-					<ul>
-						{{#object.dates.items}}
-						<li>
-							{{#label}}
-								<b>{{.}}</b>
-							{{/label}}
-							{{#url}}<a href="{{.}}">{{/url}}{{text}}{{#url}}</a>{{/url}}
-						</li>
-						{{/object.dates.items}}
-					</ul>
-				</div>
-			</div>
-			{{/object.dates.content_present}}
+			{{#dates }}
+				{{> organisms/sections/object-data-section }}
+			{{/dates }}
+
+			{{#provenance}}
+				{{> organisms/sections/object-data-section }}
+			{{/provenance}}
+
+			{{#concepts }}
+				{{> organisms/sections/object-data-section }}
+			{{/concepts }}
+			
+			{{#properties }}
+				{{> organisms/sections/object-data-section }}
+			{{/properties }}
+			
+			{{#refs_rels}}
+				{{> organisms/sections/object-data-section }}
+			{{/refs_rels}}
+			
 			{{#meta_additional}}
 			{{#geo.long_and_lat}}	{{! check both present }}
 			<a	class="scroll-trigger" 
@@ -401,31 +163,6 @@
 			</div>
 			{{/geo.long_and_lat}}
 			{{/meta_additional}}
-			{{#object.provenance.content_present}}
-			<div class="data-section cf">
-				<h3 class="subsection-label">
-					{{i18n.site.object.meta-label.source}}
-				</h3>
-				<div class="subsection-content">
-					<ul>
-						{{#object.provenance.items}}
-						<li>
-							{{#label}}
-							<b>{{ label }}</b>
-							{{/label}}
-							{{#url}}
-							<a href="{{.}}">
-							{{/url}}
-							{{text}}
-							{{#url}}
-							</a>
-							{{/url}}
-						</li>
-						{{/object.provenance.items}}
-					</ul>
-				</div>
-			</div>
-			{{/object.provenance.content_present}}
 			{{/object}}
 		</div>
 		{{! end of object info column }}

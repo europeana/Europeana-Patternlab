@@ -138,120 +138,169 @@
 			"creation_date": "1660",
 			"people": 
 			{
-				"content_present": true,
 				"title": "People",
-				"creator": {
-					"title": "Creator",
-					"name": "Johannes Vermeer",
-					"url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
-					"life": 
+				"sections": [
 					{
-					    "content_present": true,
-						"from": 
-						{
-							"long": "31st October 1632",
-							"short": "1632"
-						},
-	
-						"to": 
-						{
-							"long": "December 1675",
-							"short": "1675"
-						}
-					},
-					"biography": 
-					{
-						"text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
-						"source": "Wikipedia",
-						"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+						"title": false,
+						"items": [
+							{
+								"text": "Johannes Vermeer",
+								"url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
+								"extra_info":{
+									"life": {
+									    "content_present": true,
+										"from": {
+											"long": "31st October 1632",
+											"short": "1632"
+										},
+										"to": {
+											"long": "December 1675",
+											"short": "1675"
+										}
+									},
+									"biography": 
+									{
+										"text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+										"source": "Wikipedia",
+										"source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+									}
+								}
+							}
+						]
 					}
-				},
-				"contributor": {
-					"title": "Contributor",
-					"name": "The contributor",
-					"url": "www.europeana.eu/portal/search.html?query=The+Contributor"
-				}
+				]
 			},
 			"concepts": {
-	          	"type_items": {
-	              "label":  "Type",
-	              "items": [
-		              {
-		                  "text":   "paintings",
-		                  "url":    "javascript:alert('search concepts')"
-	                  },
-		              {
-		                  "text":   "easel paintings",
-		                  "url":    "javascript:alert('search concepts')"
-	                  }
-                  ]
-            	},
-	          	"concept_items": {
-		          "label":  "Concept",
-		          "items": [
-		          	{
-		                "text":   "art",
-		                "url":    "javascript:alert('search concepts')"
-	              	}
-	              ]
-		        },
-		        "concept_subjects": {
-		          "label":  "Subject",
-		          "items": [
-		          	{
-		                "text":   "Artworks",
-		                "url":    "javascript:alert('search artworks')"
-	              	}
-	              ]
-		        }
+				"title": "Categories",
+				"sections": [
+					{
+						"title": "Type",
+						"items": [
+				              {
+				                  "text":  "paintings",
+				                  "url":    "javascript:alert('search concepts')"
+			                  },
+				              {
+				                  "text":  "easel paintings",
+				                  "url":    "javascript:alert('search concepts')"
+			                  }
+						]
+					},
+					{
+						"title": "Subject",
+						"items": [
+				              {
+				                  "text":  "Kitchen maid",
+				                  "url":    "javascript:alert('search concepts')"
+			                  },
+				              {
+				                  "text":  "Kitchen servant",
+				                  "url":    "javascript:alert('search concepts')"
+			                  }
+						]
+					}
+				]
 		     },
-			"properties": ["41 cm high", "30 cm wide"],
-			"origin": 
-			{
-				"institution_name": "Rijksmuseum",
-				"institution_country": "Netherlands",
-				"content_present": true,
-				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
-				"logo": "sample/logo.jpg"
+			"properties": {
+				"title": "Properties",
+				"sections": [
+					{
+						"title": "Extent",
+						"items": [
+							{"text": "41 cm high"},
+							{"text": "30 cm wide"} 
+						]
+					},
+					{
+						"title": "Format",
+						"items": [
+							{"text": "oil paint",  "url": "search"},
+							{"text": "oil paints", "url": "search"} 
+						]
+					}
+				]
 			},
+			"provenance": {
+				"title": "Source",
+				"sections": [
+					{
+						"title": "Publisher",
+						"items": [
+							{ "text": "DC Publisher" }
+						]
+					},
+					{
+						"title": "Source",
+						"items": [
+							{ 
+								"text": "Rijksmuseum",
+								"url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
+							}
+						]
+					},
+					{
+						"title": "Provider",
+						"items": [
+							{
+								"text": "Rijksmuseum"
+							}
+						]
+					},
+					{
+						"title": "Providing Country",
+						"items": [
+							{ "text": "Netherlands" }
+						]
+					}
+				]
+			},
+			
 			"places": {
-				"content_present": true,
-				"spatial": {
-					"content_present": true,
-					"label": "Location",
-					"items": [{"text": "Western Europe"}, {"text": "Netherlands"}]
-		          },
-		          "temporal": {
-		          	"content_present": true,
-		          	"label":  "Place/Time",
-		          	"items": [{"text": "Haarlem"}, {"text": "North Holland"}]
-		          }
+			    "title": "Place",
+			    "sections": [
+			    	{
+					 "title": "Place/Time",
+					 "items": [
+					 	{"text": "third quarter 17th century"}
+					 ]
+			 	 	},
+			    	{
+					 "title": "Location",
+					 "items": [
+					 	{"text": "Western Europe"}, {"text": "Netherlands"}
+					 ]
+			 	 	},
+			    	{
+					 "title": "Location",
+			         "items": [{"text": "Near Delft"}]
+			 	 	}
+			 	 ]
 	        },
 	        "refs_rels": {
-				"content_present": true,
-	        	"relations": {
-					"content_present": true,
-	        		"label": "Relations",
-	        		"items": [{"text": "relation 1"}, {"text": "relation 2"}]
-	        	},
-	        	"references": {
-					"content_present": true,
-	        		"label": "References",
-	        		"items": [{"text": "reference 1"}, {"text": "reference 2"}]
-	        	}
+	        	"title": "References and Relationships",
+	        	"sections": [
+	        		{
+		        		"title": "Relations",
+		        		"items": [{"text": "relation 1"}, {"text": "relation 2"}]
+	        		},
+	        		{
+		        		"title": "References",
+		        		"items": [{"text": "reference 1"}, {"text": "reference 2"}]
+	        		}
+	        	]
 	        },
-			"times": {
-				"content_present": true,
-				"issued": {
-					"content_present": true,
-					"label": "Issued",
-					"items": [{"text": "19th century"}, {"text": "Nineteenth century"}]
-		          },
-		          "temporal": {
-		          	"content_present": true,
-		          	"label":  "Temporal",
-		          	"items": [{"text": "Nineteenth century"}, {"text": "19th century"}]
-		          }
+			"dates": {
+				"title": "Times",
+				"sections": [
+					{
+						"title": "Issued",
+						"items": [{"text": "17th century"}, {"text": "Seventeenth century"}]
+					},
+					{
+						"title": "Temporal",
+						"items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
+					}
+				]
 	        },	        
 			"tags": 
 			{
@@ -317,50 +366,7 @@
 				]
 			},
 
-			
-			"properties": 
-			{
-				"content_present": true,			
-				"items": 
-				[
-					{
-						"text": "image/jpeg",
-						"label": "Format: "
-					}
-
-				]
-			},
-			
-			"provenance": 
-			{
-				"content_present": true,			
-				"items": 
-				[
-					{
-						"text": "Rijksmuseum",
-						"label": "Publisher: ",
-						"url": "rijksmuseum.nl"
-					}
-
-				]
-			},
-			
-			"dates": 
-			{
-				"content_present": true,			
-				"items": 
-				[
-					{
-						"text": "1600s",
-						"label": "Period: "
-					},
-					{
-						"text": "17th century"
-					}
-
-				]
-			},
-
+						
 			"download": 
 			{
 				"primary": 

@@ -1,0 +1,39 @@
+<div class="data-section cf">
+	<h3 class="subsection-label">
+		{{ title }}
+	</h3>
+	<div class="subsection-content">
+	
+		<ul class="places">
+			{{#sections}}
+				<li>
+					<section>
+						<h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+						
+						<ul class="comma-list places">
+							{{# items }}
+								<li>
+									{{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }} 
+									
+									{{#extra_info}}
+										{{#life}}
+											<span class="life-dates">
+												({{from.short}} {{#to.short}} — {{.}} {{/to.short}})
+											</span>
+										{{/life}}
+										{{#biography}}
+											<div class="biography">
+												{{text}}
+											</div>
+										{{/biography}}
+									{{/extra_info}}
+
+								</li>
+							{{/ items}}
+						</ul>
+					</section>
+				</li>
+			{{/sections}}
+		</ul>
+	</div>
+</div>
