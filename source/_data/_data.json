@@ -384,8 +384,10 @@
 		"site":{
 			"more": "More...",
 			"news": "['News', 'Etc'].join(',')",
-			"download":"Download",
 			"object": {
+				"actions": {
+					"download": "Download"
+				},
 				"meta-label": {
 					"concepts": "Categories",
 					"place": "Place",
