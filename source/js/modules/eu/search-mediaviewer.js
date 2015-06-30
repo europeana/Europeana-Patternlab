@@ -26,7 +26,7 @@
   function determineMediaViewer() {
     viewer = document.getElementById('videojs-viewer');
 
-    if ( typeof viewer === 'undefined' ) {
+    if ( !viewer || typeof viewer === 'undefined' ) {
       return;
     }
 
