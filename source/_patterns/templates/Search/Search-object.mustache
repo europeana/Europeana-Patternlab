@@ -14,31 +14,31 @@
 
 	{{#content}}
 
-	<section class="object-display section">
+	<section class="object-display">
 		{{#object.media}}
-
+		<div class="object-media-wrap">
 				{{#primary}}
 
 				{{#is_image}}
-				<div class="object-media object-media-image">
+				<div class="object-media-image">
 					<img src="{{preview}}" alt="{{alt}}"/>
 				</div>
 				{{/is_image}}
 
 				{{#is_video}}
-				<div class="object-media object-media-video">
+				<div class="object-media-video">
 					{{> molecules/components/videojs/videojs }}
 				</div>
 				{{/is_video}}
 
 				{{#is_text}}
-				<div class="object-media object-media-text">
+				<div class="object-media-text">
 					Text viewer here
 				</div>
 				{{/is_text}}
 
 				{{#is_audio}}
-				<div class="object-media object-media-audio">
+				<div class="object-media-audio">
 					{{> molecules/components/videojs/videojs }}
 				</div>
 				{{/is_audio}}
@@ -55,31 +55,60 @@
 				</ul>
 				{{/additional}}
 			{{/object.media}}
+		</div>
 
-			{{#object.download}}
-			<div class="object-downloads">
 
-				<a class="download-button btn alt" href="#object-downloads">{{ i18n.site.download }}</a>
 
-				<div id="object-downloads" class="is-jshidden">
+		<div class="object-media-info section">
+		
+		{{#object.download}}
+		<div class="object-downloads">
+
+			<a class="js-showhide download-button btn alt" href="#">
+			<svg class="icon icon-download">
+				<use xlink:href="#icon-download"></use>
+			</svg>
+			{{ i18n.site.download }}
+			</a>
+
+			<div id="object-downloads" class="js-showhide-panel media-info-tab">
+				<div class="lc">
 
 					{{#primary}}
 					<div class="download-primary">
-						<span class="label">Also available:</span>
-						{{> molecules/navigation/linklist-simple }}
+
+						<div class="download-file">
+							<div class="file-icon">{{filetype}}</div>
+							<div class="info">
+								<a href="{{url}}">{{text}}</a>
+								<ul class="file-meta">
+									<li>{{width}} × {{height}} pixels</li>
+									<li>{{width}} × {{height}} pixels</li>
+								</ul>
+							</div>
+						</div>
+						
+
+						
 					</div>
 					{{/primary}}
 
-					{{#secondary}}
-					<div class="download-secondary">
-						
-					</div>
-					{{/secondary}}
 					
+					<div class="download-secondary">
+						{{#secondary}}
+						secondary downloads
+						{{/secondary}}
+					</div>
+					
+					<div class="download-rights">
+						rights here
+					</div>
+
 				</div>
 			</div>
-			{{/object.download}}
-
+		</div>
+		{{/object.download}}
+		</div>
 	</section>
 
 	{{! Main object text info section }}

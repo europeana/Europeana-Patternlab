@@ -97,6 +97,28 @@ define(['jquery','mediaviewer'], function ($) {
      * event.preventDefault(); }); }
      */
 
+     function init_showhide(){
+
+        $('.js-showhide').on('click', function(event){
+
+          var self = $(this);
+          var parent = $(this).parent();
+          parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the panel
+          parent.toggleClass('is-expanded');
+
+          // Swap the text for the value in data-text-original and back again
+          if (self.text() === self.data("text-swap")) {
+            self.text(self.data("text-original"));
+          } else {
+            self.data("text-original", self.text());
+            self.text(self.data("text-swap"));
+          }
+
+          event.preventDefault();
+        });
+
+    };
+
     function showMap(longitudes, latitudes, labels){
 
         console.log('showMap:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
@@ -239,6 +261,9 @@ define(['jquery','mediaviewer'], function ($) {
         }
         if(typeof initScrollEvents != 'undefined'){
             initScrollEvents();
+        }        
+        if(typeof init_showhide != 'undefined'){
+            init_showhide();
         }
 
         $(window).bind('showMLT', function(e, data){

@@ -32,6 +32,9 @@ var Europeana_labs = window.Europeana_labs || {};
 
         $(".js-accordion li > ul").parent().addClass('has-subnav');
 
+        $(".js-accordion .has-subnav ul").has( ".is-current" ).show();
+        $(".js-accordion .is-current").parentsUntil( $(".js-accordion"), ".has-subnav" ).children('a').addClass('active');
+
         $('.js-accordion').on('click', '.has-subnav > a', function(e) {
 
             e.preventDefault();
