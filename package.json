@@ -1,10 +1,21 @@
 {
   "name": "europeana-styleguide",
-  "version": "0.0.1",
-  "XXXXXdevDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "^0.5.1"
+  "version": "0.0.3",
+  "license": "EUPL-1.1",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/europeana/Europeana-Patternlab.git"
   },
+  "contributors": [
+    {
+      "name": "Andy MacLean",
+      "email": "andyjmaclean@gmail.com"
+    },
+    {
+      "name": "dan entous",
+      "email": "contact@pennlinepublishing.com"
+    }
+  ],
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-concat-in-order": "^0.1.6",
