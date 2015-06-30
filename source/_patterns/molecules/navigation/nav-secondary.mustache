@@ -3,16 +3,16 @@
 	<ul class="level1">
 	{{#items}}
 		<li>
-			<a href="{{url}}">{{text}}</a>
+			<a href="{{url}}" {{#is_current}}class="is-current"{{/is_current}}>{{text}}</a>
 			{{#submenu}}
 			<ul class="level2">
 			{{#items}}
 				<li>
-					<a href="{{url}}">{{text}}</a>
+					<a href="{{url}}" {{#is_current}}class="is-current"{{/is_current}}>{{text}}</a>
 					{{#submenu}}
 					<ul class="level3">
 					{{#items}}
-						<li><a href="{{url}}">{{text}}</a></li>
+						<li><a href="{{url}}" {{#is_current}}class="is-current"{{/is_current}}>{{text}}</a></li>
 					{{/items}}
 					</ul>
 					{{/submenu}}

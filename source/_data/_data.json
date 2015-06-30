@@ -83,7 +83,8 @@
 									"items":[
 										{
 											"url": "#",
-											"text": "Grandchild #1"
+											"text": "Grandchild #1",
+											"is_current": true
 										},
 										{
 											"url": "#",

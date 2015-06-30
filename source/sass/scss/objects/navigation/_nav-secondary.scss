@@ -138,8 +138,9 @@
 
 	}
 
-	a.active{
-		//color: $textcolour_highlight;
+
+	.is-current{
+		font-weight: bold;
 	}
 
 } 
