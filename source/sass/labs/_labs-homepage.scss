@@ -11,26 +11,3 @@
 	}
 
 }
-
-
-
-.labs-home .apps-list{
-	text-align: center;
-	padding-top: 0;
-
-	.block-thumb, h2{
-		text-align: left;
-	}
-
-	.headline{
-		@include fontSize(28px);
-	}
-}
-
-.apps-more{
-	text-align: center;
-	padding: $space;
-	margin: 0 auto;
-	width: 50%;
-	border-top: solid 3px $gray-med;
-}

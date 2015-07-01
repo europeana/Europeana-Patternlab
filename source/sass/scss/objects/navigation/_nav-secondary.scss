@@ -81,16 +81,19 @@
 		}
 	}
 
-	.level1 {
-		& > li > a{
-			border-top: 3px solid $gray87;
-			text-transform: uppercase;
-			font-weight: bold;
-			color: $textcolour_head;
+	.level1 > li > a{
+		border-top: 3px solid $gray87;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: $textcolour_head;
 
-			&:hover{
-				color: $textcolour_body;
-			}
+		&:hover{
+			color: $textcolour_body;
+		}
+
+		&.is-current{
+			font-weight: bold;
+			background-color: $accent;
 		}
 	}
 
@@ -105,6 +108,12 @@
 
 		&:hover{
 			color: $textcolour_body;
+		}
+
+		&.is-current{
+			font-weight: bold;
+			background-color: $accent;
+			color: $white;
 		}
 	}
 
@@ -140,7 +149,11 @@
 
 
 	.is-current{
-		font-weight: bold;
+		.level1 &{
+			font-weight: bold;
+			background-color: $offwhite;
+		}
+		
 	}
 
 } 
