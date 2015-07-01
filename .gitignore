@@ -10,3 +10,7 @@ source/css
 *.sublime-workspace
 
 *.codekit
+
+# Ignore bower files
+source/js/dist/README.md
+source/js/dist/bower.json
