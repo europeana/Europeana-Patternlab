@@ -27,7 +27,6 @@
     viewer = document.getElementById('videojs-viewer');
 
     if ( !viewer || typeof viewer === 'undefined' ) {
-      console.log('returning');
       return;
     }
 
