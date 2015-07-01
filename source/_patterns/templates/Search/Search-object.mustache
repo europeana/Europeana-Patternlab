@@ -71,11 +71,11 @@
 			{{ i18n.site.object.actions.download }}
 			</a>
 
-			<div id="object-downloads" class="js-showhide-panel media-info-tab">
+			<div class="media-info-tab">
 				<div class="lc">
 
 					{{#primary}}
-					<div class="download-primary">
+					<div class="info-primary">
 
 						<div class="download-file">
 							<div class="file-icon">{{filetype}}</div>
@@ -94,20 +94,84 @@
 					{{/primary}}
 
 					
-					<div class="download-secondary">
+					<div class="info-secondary">
 						{{#secondary}}
 						secondary downloads
 						{{/secondary}}
 					</div>
 					
-					<div class="download-rights">
-						rights here
+					<div class="info-support">
+					{{# object.media.primary.rights }}
+					<div class="object-rights">
+						{{license_human}}
+						<div class="object-license">{{> molecules/icons/licenses }}</div>
 					</div>
+					{{/ object.media.primary.rights }}
+				</div>
 
 				</div>
 			</div>
 		</div>
 		{{/object.download}}
+
+
+
+		{{#object.media.primary.technical_metadata}}
+		<div class="object-techdata">
+
+			<a class="js-showhide show-button" href="#">
+			<svg class="icon icon-info">
+				<use xlink:href="#icon-info"></use>
+			</svg>
+			{{ i18n.site.object.actions.technicalmetadata }}
+			</a>
+
+			<div class="media-info-tab">
+				<div class="lc">
+				
+				<div class="info-primary">
+
+				<h4>Original file</h4>
+
+				<ul>
+					<li><span class="label">{{i18n.site.object.meta-label-technical.language}}</span> {{language}}</li>
+					<li><span class="label">{{i18n.site.object.meta-label-technical.format}}</span> {{format}}</li>
+					<li><span class="label">{{i18n.site.object.meta-label-technical.file_size}}</span> {{file_size}} {{file_unit}}</li>
+				</ul>
+
+				</div>
+
+				<div class="info-secondary">
+					<ul>
+						<li><span class="label">{{i18n.site.object.meta-label-technical.codec}}</span> {{codec}}</li>
+						<li><span class="label">{{i18n.site.object.meta-label-technical.fps}}</span> {{fps}} {{fps_unit}}</li>
+						<li><span class="label">{{i18n.site.object.meta-label-technical.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+						<li><span class="label">{{i18n.site.object.meta-label-technical.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+					</ul>
+				</div>
+
+				<div class="info-support">
+					{{# object.media.primary.rights }}
+					<div class="object-rights">
+						{{license_human}}
+						<div class="object-license">{{> molecules/icons/licenses }}</div>
+					</div>
+					{{/ object.media.primary.rights }}
+				</div>
+
+
+					
+						
+
+				</div>
+			</div>
+		</div>
+		{{/object.media.primary.technical_metadata}}
+
+
+
+
+
 		</div>
 	</section>
 

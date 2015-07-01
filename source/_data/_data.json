@@ -69,7 +69,8 @@
 							{
 								"url": "#",
 								"text": "Child #1",
-								"submenu": false
+								"submenu": false,
+								"is_current": true
 							},
 							{
 								"url": "#",
@@ -83,8 +84,7 @@
 									"items":[
 										{
 											"url": "#",
-											"text": "Grandchild #1",
-											"is_current": true
+											"text": "Grandchild #1"
 										},
 										{
 											"url": "#",
@@ -386,7 +386,17 @@
 			"news": "['News', 'Etc'].join(',')",
 			"object": {
 				"actions": {
-					"download": "Download"
+					"download": "Download",
+					"technicalmetadata": "Technical Metadata"
+				},
+				"meta-label-technical":{
+					"language":"Language",
+					"format": "Format",
+					"file_size": "File size",
+					"codec": "Codec",
+					"fps": "Frames per second",
+					"dimensions": "Dimensions",
+					"runtime": "Run time"
 				},
 				"meta-label": {
 					"concepts": "Categories",

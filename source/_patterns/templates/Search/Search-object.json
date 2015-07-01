@@ -36,6 +36,21 @@
 					{
 						"license_public": true,
 						"license_human": "You can use this image in any way you like"
+					},
+					"technical_metadata":
+					{
+						"language":"English",
+						"format": "jpg",
+						"file_size": "23.2",
+						"file_unit": "MB",
+						"codec": "MPEG-2",
+						"fps": "30",
+						"fps_unit": "fps",
+						"width": "1200",
+						"height": "900",
+						"size_unit": "pixels",
+						"runtime": "34",
+						"runtime_unit": "minutes"
 					}
 				},
 
