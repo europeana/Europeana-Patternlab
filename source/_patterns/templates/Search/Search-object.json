@@ -149,7 +149,6 @@
 			"type": "image",
 			"is_image": true,
 			"subtitle": "Het melkmeisje",
-			"description": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
 			"creation_date": "1660",
 			"people": 
 			{
@@ -216,6 +215,17 @@
 					}
 				]
 		     },
+ 			"description": 
+			{
+ 				"title": "Description", 
+				"sections": [{
+					"title": false,
+					"items": [
+						{"text": "Girl pouring milk into bowl"},
+						{"text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects."}
+					]
+				}]
+			},		     
 			"properties": {
 				"title": "Properties",
 				"sections": [
@@ -411,7 +421,6 @@
 					]
 				}
 			},
-
 			"further_actions": 
 			{
 				"button_title": "Choose Action",
@@ -543,8 +552,6 @@
 			"oil painting",
 			"art work"
 		],
-
-		"dc_description": "Girl pouring milk into bowl",
 		"dc_type": "IMAGE",
 		"dc_creator": "Vermeeer",
 		"dc_format": "format",

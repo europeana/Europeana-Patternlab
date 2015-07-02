@@ -194,16 +194,9 @@
 				{{/creation_date}}
 			</div>
 
-			{{# description}}
-			<div class="data-section no-border cf">
-				<h3 class="subsection-label">
-					{{{ i18n.site.object.meta-label.description }}}
-				</h3>
-				<div class="subsection-content">
-					{{description}}
-				</div>
-			</div>
-			{{/ description}}
+			{{#description}}
+				{{> organisms/sections/object-data-section }}
+			{{/description}}
 
 			{{#people}}
 				{{> organisms/sections/object-data-section }}
