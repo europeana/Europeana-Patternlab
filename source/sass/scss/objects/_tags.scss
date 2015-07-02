@@ -24,6 +24,10 @@
 	@extend %tag;
 }
 
+ul.tags li{
+	display: inline-block;
+}
+
 .tag, a.tag{
 	@extend %tag;
 	color: $white;

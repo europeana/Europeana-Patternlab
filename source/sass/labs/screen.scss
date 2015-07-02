@@ -14,6 +14,17 @@
 $accent: $eu-labs;
 $textcolour_highlight: $accent;
 
+$breakpoints: (
+    'palm' '(max-width: 24em)',
+    'smallup' '(min-width: 24em)',
+    'medium' '(min-width: 40em)',
+    'lap' '(min-width: 50em)'
+);
+
+$breakpoint-has-widths: ('palm', 'smallup', 'medium', 'lap');
+$breakpoint-has-push:   ('palm');
+$breakpoint-has-pull:   ();
+
 
 // Reset
 @import "../scss/generic/reset";
@@ -299,12 +310,11 @@ $textcolour_highlight: $accent;
 }
 
 .sortby{
-    display: table-cell;
-    width: 25%;
-    text-align: right;
-
-    label{
-        font-size: $font-size-sm;
+    
+    .pageheader &, .l-breadcrumbs &{
+        display: table-cell;
+        width: 25%;
+        text-align: right;
     }
 
     label, select{
@@ -312,3 +322,7 @@ $textcolour_highlight: $accent;
         padding:0;
     }
 }
+
+.subnav .sortby{
+    margin-bottom: $space;
+} 

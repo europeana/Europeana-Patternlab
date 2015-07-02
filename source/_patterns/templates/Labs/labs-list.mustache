@@ -1,48 +1,48 @@
-
-
+{{> atoms/iconography/svgicons-pro}}
 {{> organisms-header }}
 
 <main role="main">
 
 {{> molecules-block-content-header }}
 
-<section class="lc">
+<section class="grid_wrapper">
+	<div class="grid grid--rev">
+		<div class="main-content">
 
-	<div class="grid">
-		<div class="sidebar">
-
-			<div class="subnav">
-
-				<h4 class="label epsilon"> Filter by:</h4>
-
-				{{> molecules-labs-subnav }}
-
-			</div>
-
-			{{> molecules-tertiary-nav }}
-		</div><!--
-
-	 --><div class="main-content">
-
-			<ul class="post-list l-post-list" >
-
-				<li>{{> molecules-labs-item-main }}</li><!-- 
-			 --><li>{{> molecules-labs-item-main }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 --><li>{{> molecules-labs-item }}</li><!-- 
-			 -->
+			<ul class="results-list">
+				{{#listItems.ten}}
+					{{> molecules-pro-listitem(blog: true) }} 
+				{{/listItems.ten}}
 			</ul>
 
 
 			{{> molecules-pagination }}
 
-		</div>
-	</div>
+		</div><!--
 
+	 --><div class="sidebar">
+
+			<div class="subnav">
+				
+				<div class="sortby">
+				    <label for="list_sortby" class="h4">Sort by:</label>
+				    <select id="list_sortby">
+				            <option>Date</option>
+				            <option>Option Two</option>
+				            <option>Option Three</option>
+				    </select>
+				</div>
+
+
+				<h4>Filter by:</h4>
+				{{> molecules-labs-subnav }}
+
+			</div>
+
+			{{> molecules-tertiary-nav }}
+		</div>
+
+	</div>
 </section>
 
 </main>

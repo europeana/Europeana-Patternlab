@@ -1,14 +1,15 @@
+
+
+
 // Generic Columns - Sidebars
 .sidebar{
 	@extend %grid__item;
-	@extend %one-quarter;
-	@extend %palm--one-whole;
+	@extend %medium--one-quarter;
 }
 
 .main-content{
 	@extend %grid__item;
-	@extend %three-quarters;
-	@extend %palm--one-whole;
+	@extend %medium--three-quarters;
 }
 
 .grid-main{
