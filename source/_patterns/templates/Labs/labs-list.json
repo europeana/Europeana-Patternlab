@@ -7,5 +7,6 @@
 			"path": "../../css/labs/screen.css",
 			"media": "all"
 		}
-	]
+	],
+	"blog": true
 }
