@@ -31,6 +31,18 @@ module.exports = function(grunt) {
 	    	},
 	    },
 	    */
+        blacklight:{
+            files: {
+                'source/js/modules/lib/blacklight/blacklight_all.js': [
+                    'source/js/modules/lib/blacklight/core.js',
+                    'source/js/modules/lib/blacklight/search_context.js',
+                    //'source/js/modules/lib/blacklight/checkbox_submit.js',
+                    //'source/js/modules/lib/blacklight/bookmark_toggle.js',
+                    //'source/js/modules/lib/blacklight/ajax_modal.js',
+                    //'source/js/modules/lib/blacklight/collapsable.js',
+                 ]
+            }           
+        },
 	    map:{
 	    	files: {
 	    		'source/js/dist/application-map.js': [
@@ -76,7 +88,7 @@ module.exports = function(grunt) {
       },
       blacklight: {
           src:    '**',
-          cwd:    'source/js/modules/blacklight',
+          cwd:    'source/js/modules/lib/blacklight',
           dest:   'source/js/dist/lib/blacklight',
           expand:  true
       },
@@ -122,6 +134,7 @@ module.exports = function(grunt) {
           [
            //'concat:channels',
            //'concat:global',
+           'concat:blacklight',
            'concat:map',
            'concat:map_css',
            'concat:mlt',
