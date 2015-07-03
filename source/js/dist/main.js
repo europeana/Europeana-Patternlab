@@ -12,10 +12,9 @@ require.config({
         placeholder:        'global/placeholder',
         resize:             'eu/util/resize',
 
-        //search_context:     'lib/blacklight/search-context',
         blacklight:         'lib/blacklight/blacklight_all',
-        
-        
+
+
         search_form:        'eu/search-form',
         search_home:        'eu/search-home',
         search_object:      'eu/search-object',
