@@ -4,11 +4,11 @@
 			"javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
 		}
 	},
-  "css_files": [
-    {
-      "path": "http://vjs.zencdn.net/4.12/video-js.css"
-    }
-  ],
+	"css_files": [
+		{
+			"path": "/css/search/screen.css"
+		}
+	],
 	"js_files": [
 		{
 			"path": "/js/dist/require.js",
