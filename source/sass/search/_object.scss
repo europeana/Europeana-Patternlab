@@ -2,7 +2,7 @@
 
 .search-object{
 	margin-bottom: 0;
-	
+
 	.js-img-frame{
 		max-width:  100%;
 		max-height: 22em;
@@ -78,7 +78,7 @@
 
 }
 .media-info-tab{
-    
+
     position: relative;
     overflow: hidden;
     max-height: 0;
@@ -87,7 +87,7 @@
     transition: max-height 0.3s;
 
     .is-open & {
-      max-height: 20em;
+      max-height: 40em;
     }
 
     .lc > div{
@@ -102,7 +102,7 @@
 
     .info-secondary{
         @media all and (min-width: $bp-med) {
-            @include span(6 of 24);
+            @include span(9 of 24);
         }
     }
 
@@ -142,7 +142,19 @@
     }
 }
 
+.downloads-secondary{
+    & > li{
+        margin-bottom: $space-quarter;
+    }
 
+    .file-type{
+        @include fontSize(12px);
+    }
+
+    .file-info *{
+        display: inline;
+    }
+}
 
 
 

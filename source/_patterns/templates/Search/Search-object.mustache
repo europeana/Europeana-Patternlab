@@ -60,7 +60,7 @@
 
 
 		<div class="object-media-info section">
-		
+
 		{{#object.download}}
 		<div class="object-downloads">
 
@@ -76,33 +76,27 @@
 
 					{{#primary}}
 					<div class="info-primary">
-
-						<div class="download-file">
-							<div class="file-icon">{{filetype}}</div>
-							<div class="info">
-								<a href="{{url}}">{{text}}</a>
-								<ul class="file-meta">
-									<li>{{width}} × {{height}} pixels</li>
-									<li>{{width}} × {{height}} pixels</li>
-								</ul>
-							</div>
-						</div>
-						
-
-						
+						{{> molecules/metadata/file-detail }}
 					</div>
 					{{/primary}}
 
-					
+
 					<div class="info-secondary">
 						{{#secondary}}
-						secondary downloads
+						<ul class="downloads-secondary">
+							{{#items}}
+							<li>{{> molecules/metadata/file-detail }}</li>
+							{{/items}}
+						</ul>
 						{{/secondary}}
 					</div>
-					
+
 					<div class="info-support">
 					{{# object.media.primary.rights }}
 					<div class="object-rights">
+
+						<h4>Can I use It?</h4>
+
 						{{license_human}}
 						<div class="object-license">{{> molecules/icons/licenses }}</div>
 					</div>
@@ -128,40 +122,27 @@
 
 			<div class="media-info-tab">
 				<div class="lc">
-				
-				<div class="info-primary">
 
-				<h4>Original file</h4>
-
-				<ul>
-					<li><span class="label">{{i18n.site.object.meta-label-technical.language}}</span> {{language}}</li>
-					<li><span class="label">{{i18n.site.object.meta-label-technical.format}}</span> {{format}}</li>
-					<li><span class="label">{{i18n.site.object.meta-label-technical.file_size}}</span> {{file_size}} {{file_unit}}</li>
-				</ul>
-
-				</div>
-
-				<div class="info-secondary">
-					<ul>
-						<li><span class="label">{{i18n.site.object.meta-label-technical.codec}}</span> {{codec}}</li>
-						<li><span class="label">{{i18n.site.object.meta-label-technical.fps}}</span> {{fps}} {{fps_unit}}</li>
-						<li><span class="label">{{i18n.site.object.meta-label-technical.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-						<li><span class="label">{{i18n.site.object.meta-label-technical.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
-					</ul>
-				</div>
-
-				<div class="info-support">
-					{{# object.media.primary.rights }}
-					<div class="object-rights">
-						{{license_human}}
-						<div class="object-license">{{> molecules/icons/licenses }}</div>
+					<div class="info-primary">
+						<ul>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.language}}</span> {{language}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.format}}</span> {{format}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.file_size}}</span> {{file_size}} {{file_unit}}</li>
+						</ul>
 					</div>
-					{{/ object.media.primary.rights }}
-				</div>
 
+					<div class="info-secondary">
+						<ul>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.codec}}</span> {{codec}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.fps}}</span> {{fps}} {{fps_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label-technical.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+						</ul>
+					</div>
 
-					
-						
+					<div class="info-support">
+
+					</div>
 
 				</div>
 			</div>
