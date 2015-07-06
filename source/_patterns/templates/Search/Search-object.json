@@ -1,7 +1,7 @@
 {
 	"bodyclass": "europeana_search",
 	"page_title": "Europeana Search",
-	"css_files": 
+	"css_files":
 	[
 		{
 			"path": "../../css/search/screen.css",
@@ -9,30 +9,30 @@
 		}
 	],
 
-	"js_variables": 
+	"js_variables":
 	[
 		"var js_path= '../../js/dist/';"
 	],
 
-	"js_files": 
+	"js_files":
 	[
 	    {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main"	 }
-	
+
 	],
 
-	"content": 
+	"content":
 	{
-		"object": 
+		"object":
 		{
-			"media": 
+			"media":
 			{
-				"primary": 
+				"primary":
 				{
 					"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 					"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 					"is_image": true,
-					"rights": 
+					"rights":
 					{
 						"license_public": true,
 						"license_human": "You can use this image in any way you like"
@@ -54,16 +54,16 @@
 					}
 				},
 
-				"additional": 
+				"additional":
 				{
-					"items": 
+					"items":
 					[
 						{
 							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -75,7 +75,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -87,7 +87,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -99,7 +99,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -111,7 +111,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -123,7 +123,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -135,7 +135,7 @@
 							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
 							"is_image": true,
-							"rights": 
+							"rights":
 							{
 								"license_public": true,
 								"license_human": "You can use this image in any way you like"
@@ -149,9 +149,8 @@
 			"type": "image",
 			"is_image": true,
 			"subtitle": "Het melkmeisje",
-			"description": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
 			"creation_date": "1660",
-			"people": 
+			"people":
 			{
 				"title": "People",
 				"sections": [
@@ -173,7 +172,7 @@
 											"short": "1675"
 										}
 									},
-									"biography": 
+									"biography":
 									{
 										"text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
 										"source": "Wikipedia",
@@ -216,6 +215,17 @@
 					}
 				]
 		     },
+ 			"description":
+			{
+ 				"title": "Description",
+				"sections": [{
+					"title": false,
+					"items": [
+						{"text": "Girl pouring milk into bowl"},
+						{"text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects."}
+					]
+				}]
+			},
 			"properties": {
 				"title": "Properties",
 				"sections": [
@@ -223,14 +233,14 @@
 						"title": "Extent",
 						"items": [
 							{"text": "41 cm high"},
-							{"text": "30 cm wide"} 
+							{"text": "30 cm wide"}
 						]
 					},
 					{
 						"title": "Format",
 						"items": [
 							{"text": "oil paint",  "url": "search"},
-							{"text": "oil paints", "url": "search"} 
+							{"text": "oil paints", "url": "search"}
 						]
 					}
 				]
@@ -247,7 +257,7 @@
 					{
 						"title": "Source",
 						"items": [
-							{ 
+							{
 								"text": "Rijksmuseum",
 								"url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
 							}
@@ -269,7 +279,7 @@
 					}
 				]
 			},
-			
+
 			"places": {
 			    "title": "Place",
 			    "sections": [
@@ -316,10 +326,10 @@
 						"items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
 					}
 				]
-	        },	        
-			"tags": 
+	        },
+			"tags":
 			{
-				"items": 
+				"items":
 				[
 					{
 						"text": "tagtext",
@@ -350,9 +360,9 @@
 				"add_url": "add_new_tag_url_here"
 			},
 
-			"colours": 
+			"colours":
 			{
-				"items": 
+				"items":
 				[
 					{
 						"hex": "#2F4F4F",
@@ -381,44 +391,71 @@
 				]
 			},
 
-						
-			"download": 
+
+			"download":
 			{
-				"primary": 
+				"primary":
 				{
-					"text": "Download",
-					"url": "http://europeana.eu"
+					"url": "this is the download url",
+					"text": "Original File",
+					"language":"English",
+					"format": "jpg",
+					"file_size": "23.2",
+					"file_unit": "MB",
+					"width": "1200",
+					"height": "900",
+					"size_unit": "pixels"
 				},
 
-				"secondary": 
+				"secondary":
 				{
-					"items": 
+					"items":
 					[
 						{
-							"text": "Epub",
-							"url": "http://europeana.eu"
+							"url": "this is the download url",
+							"text": "Secondary file 1",
+							"language":"English",
+							"format": "jpg",
+							"file_size": "23.2",
+							"file_unit": "MB",
+							"width": "1200",
+							"height": "900",
+							"size_unit": "pixels"
 						},
 
 						{
-							"text": "Kindle",
-							"url": "http://europeana.eu"
+							"url": "this is the download url",
+							"text": "Secondary file 2",
+							"language":"English",
+							"format": "jpg",
+							"file_size": "23.2",
+							"file_unit": "MB",
+							"width": "1200",
+							"height": "900",
+							"size_unit": "pixels"
 						},
 
 						{
-							"text": "DjVU",
-							"url": "http://europeana.eu"
+							"url": "this is the download url",
+							"text": "Secondary file 3",
+							"language":"English",
+							"format": "jpg",
+							"file_size": "23.2",
+							"file_unit": "MB",
+							"width": "1200",
+							"height": "900",
+							"size_unit": "pixels"
 						}
 					]
 				}
 			},
-
-			"further_actions": 
+			"further_actions":
 			{
 				"button_title": "Choose Action",
 				"menu_title": "Save to:",
 				"menu_id": "object_furtheractions",
 				"style_modifier": "theme_select",
-				"items": 
+				"items":
 				[
 					{
 						"text": "My Europeana",
@@ -461,21 +498,21 @@
 				]
 			},
 
-			"meta_additional": 
+			"meta_additional":
 			{
-				"geo": 
+				"geo":
 				{
 					"long_and_lat": true,
 					"longitude": "3.1",
 
 					"latitude": "39.2",
 
-					"labels": 
+					"labels":
 					{
 						"map": "Map",
 						"longitude": "Longitude",
 						"latitude": "Latitude",
-						"points": 
+						"points":
 						{
 							"n": "North",
 							"e": "East",
@@ -487,12 +524,12 @@
 			}
 		},
 
-		"similar": 
+		"similar":
 		{
 			"title": "Similar items",
-			
+
 			"more_items_query": "javascript:alert('loads a page of similar items')",
-			
+
             "items": [
               {
                 "url":  "?q=The+Lace+Maker",
@@ -533,18 +570,16 @@
 		}
 	},
 
-	"data": 
+	"data":
 	{
 		"agent_pref_label": "J Vermeer",
 		"agent_begin": "1611",
 		"agent_end": "1660",
-		"concepts": 
+		"concepts":
 		[
 			"oil painting",
 			"art work"
 		],
-
-		"dc_description": "Girl pouring milk into bowl",
 		"dc_type": "IMAGE",
 		"dc_creator": "Vermeeer",
 		"dc_format": "format",
@@ -568,7 +603,7 @@
 		"year": "year"
 	},
 
-	"labels": 
+	"labels":
 	{
 		"creator": "Creator",
 		"agent": "Agent",
@@ -583,9 +618,9 @@
 		"mlt": "similar items"
 	},
 
-	"navigation": 
+	"navigation":
 	{
-		"next_prev": 
+		"next_prev":
 		{
 			"next_url": "next_url_here",
 			"next_text": "Next",
@@ -595,17 +630,17 @@
 			"back_text": "Your search results"
 		},
 
-		"global": 
+		"global":
 		{
-			"options": 
+			"options":
 			{
 				"search_active": false,
 				"settings_active": true
 			},
 
-			"primary_nav": 
+			"primary_nav":
 			{
-				"items": 
+				"items":
 				[
 					{
 						"url": "#",
@@ -615,10 +650,10 @@
 
 					{
 						"url": "",
-						"text": "Channels",
-						"submenu": 
+						"text": "Themes",
+						"submenu":
 						{
-							"items": 
+							"items":
 							[
 								{
 									"url": "http://google.com",
@@ -657,12 +692,12 @@
 			}
 		},
 
-		"footer": 
+		"footer":
 		{
-			"linklist1": 
+			"linklist1":
 			{
 				"title": "More info",
-				"items": 
+				"items":
 				[
 					{
 						"text": "New collections",
@@ -681,10 +716,10 @@
 				]
 			},
 
-			"linklist2": 
+			"linklist2":
 			{
 				"title": "Help",
-				"items": 
+				"items":
 				[
 					{
 						"text": "Search tips",
@@ -703,7 +738,7 @@
 				]
 			},
 
-			"social": 
+			"social":
 			{
 				"linkedin": false,
 				"github": false
@@ -711,7 +746,7 @@
 		}
 	},
 
-	"page_config": 
+	"page_config":
 	{
 		"newsletter": true
 	},

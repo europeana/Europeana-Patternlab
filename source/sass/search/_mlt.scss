@@ -155,11 +155,33 @@
 .js-mlt,
 .js-mlt-arrows{
 	overflow-y: hidden;
-	XXXoverflow-x: hidden;
 	position: relative;
 	width: 100%;	
 }
-			
+
+.js-mlt.loading ul:after {
+  content: " ";
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  cursor: progress;
+}
+
+.js-mlt ul:after {
+  background: none;
+  -webkit-transition: background .25s ease-in-out;
+  -moz-transition:    background .25s ease-in-out;
+  -o-transition:      background .25s ease-in-out;
+  transition:         background .25s ease-in-out;
+}
+
+
 			
 .js-mlt-arrows{
 	

@@ -12,7 +12,9 @@ require.config({
         placeholder:        'global/placeholder',
         resize:             'eu/util/resize',
 
-        search_context:     'lib/blacklight/search-context',
+        blacklight:         'lib/blacklight/blacklight_all',
+
+
         search_form:        'eu/search-form',
         search_home:        'eu/search-home',
         search_object:      'eu/search-object',
@@ -28,7 +30,7 @@ require.config({
         videojs_aurora:     'lib/videojs-aurora/videojs-aurora'
     },
     shim: {
-        search_context: ["jquery"],
+        blacklight: ["jquery"],
         featureDetect:  ["jquery"],
         jqDropdown:     ["jquery"],
         menus:          ["jquery"],
@@ -36,6 +38,11 @@ require.config({
     }
 });
 
-require(['jquery', 'search_context', 'global',  'channels'], function($, channels){
-
+require(['jquery'], function($){    
+    $.holdReady(true);
+    require(['blacklight'], function(blacklight){
+        require(['global',  'channels'], function(global, channels){
+            $.holdReady(false);
+        });
+    });
 });

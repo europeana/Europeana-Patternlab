@@ -18,12 +18,12 @@
 		}
 	],
 
-	"js_files": 
+	"js_files":
 	[
 	    {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main"	 }
-	
+
 	],
-	
+
 	"input_search": {
 		"title": "Search Europeana",
 		"input_name": "search",
@@ -118,7 +118,7 @@
 				},
 				"excerpt": {
 					"short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
-				} 
+				}
 			},
 			{
 				"headline":{
@@ -133,7 +133,7 @@
 				},
 				"excerpt": {
 					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-				} 
+				}
 			},
 			{
 				"headline":{
@@ -148,7 +148,7 @@
 				},
 				"excerpt": {
 					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
-				} 
+				}
 			}
 			]
 		}
@@ -173,7 +173,7 @@
 					},
 					{
 						"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-						"text": "Channels",
+						"text": "Themes",
 						"submenu": {
 							"items": [
 								{

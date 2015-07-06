@@ -7,7 +7,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
     return function(cmp, data){
 
         log = function(msg){
-            //console.log(msg);
+           console.log(msg);
         }
 
         var position = 1; // index of currently viewed item
@@ -16,7 +16,8 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
         var minSpacingPx = 15;
         var spacing = minSpacingPx;
         var inView = 0;
-        var totalLoaded = data.length;
+        var totalLoaded    = data.length;
+        var totalAvailable = 100;
         var animating = false;
         var scrollTime = 1000;
 
@@ -102,7 +103,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
             else{
                 btnLeft.show();
             }
-            if(position + inView <= totalLoaded){
+            if(totalLoaded < totalAvailable || position + inView <= totalLoaded){
                 btnRight.show();
             }
             else{
@@ -151,12 +152,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
 
         };
 
-        var goRight = function(){
-
-            if((position + inView) > totalLoaded){
-                return;
-            }
-
+        var scrollRight = function(){
             var nextIndex = position + inView;
             var nextItem = items.find('.' + classData.itemClass + ':nth-child(' + nextIndex + ')');
 
@@ -172,7 +168,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 "onAfter" : function(){
 
                     var done = function(){
-
+                        cmp.removeClass('loading');
                         cmp.css('overflow-x', 'hidden');
                         animating = false;
                         setArrowState();
@@ -185,18 +181,58 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                     else{
                         items.css('left', '0');
                     }
-
                     done();
-
+                    console.log('b) position '  + position + ', inView ' + inView);
+                    
                 }
             });
+        }
 
+        var goRight = function(){
+
+            if((position + inView) < totalLoaded){
+                log('no going right: -pos=' + position +  ', '  + (position + inView) + ' > ' + totalLoaded)
+                scrollRight();
+                return;
+            }
+            else{
+                loadMore(true);
+            }
+        }
+
+        var loadMore = function(scroll){
+            if(cmp.hasClass('loading')){
+                return;
+            }
+            cmp.addClass('loading');
+            
+            var dataLoaded = function(data){
+                $.each(data.documents, function(i, ob){
+                    items.append(getItemMarkup(ob));
+                    totalLoaded += 1;
+                });
+                resize();
+                if(scroll){
+                    scrollRight();                    
+                }
+            }
+            
+            var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
+            var url = window.location.href.split('.html')[0] + '/similar.json?page=' + page_param + '&per_page=' + inView;
+                
+            $.getJSON( url, null, function( data ) {
+                dataLoaded(data);
+            })
+            .fail(function(msg){
+                cmp.removeClass('loading');
+                log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+            });
         };
 
         var getItemMarkup = function(data){
 
-            return '' + '<li class="' + classData.itemClass + '">' + '<div class="' + classData.itemDivClass + '" style="background-image: url(' + data.thumb + ')">' + '<div class="' + classData.itemInnerClass + '"><a class="' + classData.itemLinkClass + '" href="' + data.link
-                    + '">&nbsp;</a></div>' + '</div>' + '<span class="' + classData.titleClass + '">' + '<a href="' + data.link + '">' + data.title + '</a>';
+            return '' + '<li class="' + classData.itemClass + '">' + '<div class="' + classData.itemDivClass + '" style="background-image: url(' + data.img.src + ')">' + '<div class="' + classData.itemInnerClass + '"><a title="' + data.img.alt + '" class="' + classData.itemLinkClass + '" href="' + data.link
+                    + '">&nbsp;</a></div>' + '</div>' + '<span class="' + classData.titleClass + '">' + '<a href="' + data.url + '">' + data.title + '</a>';
             +'</span>' + '</li>';
         }
 
@@ -211,12 +247,6 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
             cmp.prev('.' + classData.arrowClasses.container).append(btnRight);
 
             totalLoaded = items.find('.' + classData.itemClass).length;
-
-            $.each(data, function(i, ob){
-
-                items.append(getItemMarkup(ob));
-                totalLoaded += 1;
-            });
 
             if(typeof Ellipsis != 'undefined'){
                 $('.' + classData.itemClass + ' .info').each(function(i, ob){
@@ -293,7 +323,6 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
         init();
         return {
             resize : function(){
-
                 resize();
             },
             inView : function(){

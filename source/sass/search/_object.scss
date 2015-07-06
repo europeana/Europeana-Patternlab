@@ -86,7 +86,7 @@
     -webkit-transition: max-height 0.3s;
     transition: max-height 0.3s;
 
-    .is-open & {
+    .is-expanded & {
       max-height: 40em;
     }
 
@@ -168,20 +168,13 @@
     }
 }
 
-.refs-rels,
-.people,
-.places,
-.concepts,
-.times{
+.data-group{
     .data-header{
         text-transform: none;
         text-transform: capitalize;
         display: inline;
     }
-    .refs-rels,
-    .places,
-    .times,
-    .types{
+    .data-group{
         display: inline;
     }
 }

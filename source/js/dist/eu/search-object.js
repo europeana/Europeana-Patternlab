@@ -104,7 +104,7 @@ define(['jquery','mediaviewer'], function ($) {
           var self = $(this);
           var parent = $(this).parent();
           parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the panel
-          parent.toggleClass('is-open');
+          parent.toggleClass('is-expanded');
 
           // Swap the text for the value in data-text-original and back again
           if (self.text() === self.data("text-swap")) {
