@@ -8,7 +8,7 @@
 		"myeuropeana": false
 	},
 	"head_meta": {
-		"name":"test", 
+		"name":"test",
 		"content": "stuff"
 	},
 	"image_root":"../../images/",
@@ -389,15 +389,6 @@
 					"download": "Download",
 					"technicalmetadata": "Technical Metadata"
 				},
-				"meta-label-technical":{
-					"language":"Language",
-					"format": "Format",
-					"file_size": "File size",
-					"codec": "Codec",
-					"fps": "Frames per second",
-					"dimensions": "Dimensions",
-					"runtime": "Run time"
-				},
 				"meta-label": {
 					"concepts": "Categories",
 					"place": "Place",
@@ -408,8 +399,16 @@
 					"location": "Location",
 					"description": "Description",
 					"source": "Source",
-					"time": "Time"
-				} 
+					"time": "Time",
+					"language":"Language",
+					"format": "Format",
+					"file-size": "File size",
+					"codec": "Codec",
+					"fps": "Frames per second",
+					"dimensions": "Dimensions",
+					"runtime": "Run time",
+					"rights": "Can I use this?"
+				}
 			}
 		},
 		"more": "More",
