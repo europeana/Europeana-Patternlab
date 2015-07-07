@@ -95,7 +95,7 @@
 					{{# object.media.primary.rights }}
 					<div class="object-rights">
 
-						<h4>Can I use It?</h4>
+						<h4>{{i18n.site.object.meta-label.rights}}</h4>
 
 						{{license_human}}
 						<div class="object-license">{{> molecules/icons/licenses }}</div>
@@ -125,18 +125,18 @@
 
 					<div class="info-primary">
 						<ul>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.language}}</span> {{language}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.format}}</span> {{format}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.file_size}}</span> {{file_size}} {{file_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
 						</ul>
 					</div>
 
 					<div class="info-secondary">
 						<ul>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.codec}}</span> {{codec}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.fps}}</span> {{fps}} {{fps_unit}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label-technical.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
 						</ul>
 					</div>
 
@@ -278,6 +278,12 @@
 				{{> molecules/controls/dropdown-menu }}
 			</div>
 			{{/ object.further_actions }}
+
+			{{# object.social_share }}
+			<div class="object-social">
+				{{> molecules/controls/share-social }}
+			</div>
+			{{/ object.social_share }}
 
 		</div>
 		{{! end object actions }}
