@@ -46,6 +46,12 @@
 				</div>
 				{{/is_audio}}
 
+				{{#is_pdf}}
+				<div class="object-media-pdf">
+					{{> molecules/components/pdfjs/pdfjs }}
+				</div>
+				{{/is_pdf}}
+
 				{{/is_current}}
 				{{/items}}
 
@@ -59,6 +65,11 @@
 
 		</div>
 
+		<div class="js-markup hidden">
+			<div class="pdf">
+				{{> molecules/components/pdfjs/pdfjs }}
+			</div>
+		</div>
 
 		{{#items}}
 		{{#is_current}}
@@ -151,6 +162,10 @@
 	</section>
 	{{/object.media}}
 
+	<a	class="scroll-trigger"
+		enabled="true"
+		data-fire-on-open="showPDF"
+		></a>
 	{{! Main object text info section }}
 	<section class="section">
 	<div class="lc">

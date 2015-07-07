@@ -1,18 +1,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    
+
 	pkg: grunt.file.readJSON('package.json'),
-    
+
     concat: {
 		options: {
 			separator: ';\n'
 		},
 		/*
 	    channels:{
-	    	  
+
 	    	files: {
 	    		'source/js/dist/channels.js': [
-	    	    	
+
 	            	'source/js/modules/search-form.js',
 	            	'source/js/modules/search-home.js',
 	            	'source/js/modules/search-object.js'
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                     //'source/js/modules/lib/blacklight/ajax_modal.js',
                     //'source/js/modules/lib/blacklight/collapsable.js',
                  ]
-            }           
+            }
         },
 	    map:{
 	    	files: {
@@ -56,11 +56,11 @@ module.exports = function(grunt) {
 	    	files: {
 	    		'source/js/dist/css/map/application-map.css': [
                   'source/js/modules/map/leaflet-0.7.3/leaflet.css',
-                  
+
                   /*'source/js/modules/map/leaflet.ie.css',*/
-                  
+
                   'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
-	    		                                      
+
 	    		  'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
                   'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
 	    	]
@@ -71,17 +71,17 @@ module.exports = function(grunt) {
                 'source/js/dist/eu/eu-carousel.js': [
                     'source/js/modules/eu/eu-carousel.js'
                  ]
-            }	        
+            }
 	    }
     },
-    
+
     copy: {
       jquery: {
           src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
                    'source/js/modules/bower_components/imagesloaded/imagesloaded.pkgd.js',
                    'source/js/modules/bower_components/jquery/dist/jquery.js',
                    'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],
-                   
+
           dest:    'source/js/dist/lib',
           expand:  true,
           flatten: true
@@ -111,20 +111,32 @@ module.exports = function(grunt) {
           dest:   'source/js/dist',
           expand: true
       },
+      map_img: {
+        src:     '**',
+        cwd:     'source/js/modules/map/leaflet-0.7.3/images/',
+        dest:    'source/js/dist/css/map/images',
+        flatten: true,
+        nonull:  true,
+        expand:  true
+      },
+      mediaviewers: {
+          src:    'mediaviewer*.js',
+          cwd:    'source/js/modules',
+          dest:   'source/js/dist',
+          expand: true
+      },
+      pdfjs: {
+          src:    '**',
+          cwd:    'source/js/modules/lib/pdfjs',
+          dest:   'source/js/dist/lib/pdfjs',
+          expand:  true
+      },
       require: {
         src:    '**',
         cwd:    'source/js/modules/bower_components/requirejs/',
         dest:   'source/js/dist/',
         expand: true
-      },
-      map_img: {
-	    src:     '**',
-	    cwd:     'source/js/modules/map/leaflet-0.7.3/images/',
-	    dest:    'source/js/dist/css/map/images',
-	    flatten: true,
-	    nonull:  true,
-	    expand:  true
-	  },
+      }
 	}
   });
   //grunt.loadNpmTasks('grunt-contrib-concat');
@@ -144,6 +156,8 @@ module.exports = function(grunt) {
            'copy:jquery',
            'copy:main',
            'copy:map_img',
+           'copy:mediaviewers',
+           'copy:pdfjs',
            'copy:require'
            ]);
 }

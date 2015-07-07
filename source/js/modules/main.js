@@ -23,14 +23,17 @@ require.config({
         jqDropdown:         'lib/jquery.dropdown',
         jqScrollto:         'lib/jquery.scrollTo',
 
+        pdfjs:              'lib/pdfjs/pdf',
+        mediaviewer_pdf:    'mediaviewer-pdfjs',
         mediaviewer:        'eu/search-mediaviewer',
+
         aurora:             'lib/audiocogs/aurora',
         flac:               'lib/audiocogs/flac',
         videojs:            '//vjs.zencdn.net/4.12/video',
         videojs_aurora:     'lib/videojs-aurora/videojs-aurora'
     },
     shim: {
-        blacklight: ["jquery"],
+        blacklight:     ["jquery"],
         featureDetect:  ["jquery"],
         jqDropdown:     ["jquery"],
         menus:          ["jquery"],
@@ -38,7 +41,7 @@ require.config({
     }
 });
 
-require(['jquery'], function($){    
+require(['jquery'], function($){
     $.holdReady(true);
     require(['blacklight'], function(blacklight){
         require(['global',  'channels'], function(global, channels){

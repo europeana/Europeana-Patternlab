@@ -1,4 +1,4 @@
-define(['jquery','mediaviewer'], function ($) {
+define(['jquery', 'mediaviewer'], function ($) {
 
     function log(msg){
 
@@ -261,10 +261,18 @@ define(['jquery','mediaviewer'], function ($) {
         }
         if(typeof initScrollEvents != 'undefined'){
             initScrollEvents();
-        }        
+        }
         if(typeof init_showhide != 'undefined'){
             init_showhide();
         }
+
+        $(window).bind('showPDF', function(e, data){
+            require(['pdfjs'], function(){
+                $('.object-media-wrap').html( $('.js-markup .pdf').html() );
+                    require(['mediaviewer_pdf'], function(){
+                });
+            });
+        });
 
         $(window).bind('showMLT', function(e, data){
             require(['eu_carousel'], function(EuCarousel){
