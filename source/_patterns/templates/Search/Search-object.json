@@ -150,6 +150,13 @@
 			"subtitle": "Het melkmeisje",
 			"creation_date": "1660",
 			"creator": "Johannes Vermeer",
+			"origin":
+			{
+				"institution_name": "Rijksmuseum",
+				"institution_country": "Netherlands",
+				"url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
+				"logo": "sample/logo.jpg"
+			},
 			"people":
 			{
 				"title": "People",

@@ -407,7 +407,8 @@
 					"fps": "Frames per second",
 					"dimensions": "Dimensions",
 					"runtime": "Run time",
-					"rights": "Can I use this?"
+					"rights": "Can I use this?",
+					"provided-by": "Provided by"
 				}
 			}
 		},
