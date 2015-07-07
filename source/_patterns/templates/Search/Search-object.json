@@ -26,123 +26,122 @@
 		{
 			"media":
 			{
-				"primary":
-				{
-					"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-					"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-					"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-					"is_image": true,
-					"rights":
+				"items":
+				[
 					{
-						"license_public": true,
-						"license_human": "You can use this image in any way you like"
-					},
-					"technical_metadata":
-					{
-						"language":"English",
-						"format": "jpg",
-						"file_size": "23.2",
-						"file_unit": "MB",
-						"codec": "MPEG-2",
-						"fps": "30",
-						"fps_unit": "fps",
-						"width": "1200",
-						"height": "900",
-						"size_unit": "pixels",
-						"runtime": "34",
-						"runtime_unit": "minutes"
-					}
-				},
-
-				"additional":
-				{
-					"items":
-					[
-						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
+						"is_current": true,
+						"is_image": true,
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"download":{
+							"url": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+							"text": "Original file"
 						},
-
+						"rights":
 						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
 						},
-
+						"technical_metadata":
 						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
-						},
-
-						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
-						},
-
-						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
-						},
-
-						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
-						},
-
-						{
-							"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-							"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-							"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-							"is_image": true,
-							"rights":
-							{
-								"license_public": true,
-								"license_human": "You can use this image in any way you like"
-							}
+							"language":"English",
+							"format": "jpg",
+							"file_size": "23.2",
+							"file_unit": "MB",
+							"codec": "MPEG-2",
+							"fps": "30",
+							"fps_unit": "fps",
+							"width": "1200",
+							"height": "900",
+							"size_unit": "pixels",
+							"runtime": "34",
+							"runtime_unit": "minutes"
 						}
-					]
-				}
+					},
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					},
+
+					{
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+						"is_image": true,
+						"rights":
+						{
+							"license_public": true,
+							"license_human": "You can use this image in any way you like"
+						}
+					}
+				]
 			},
 
 			"title": "The Milkmaid",
@@ -150,6 +149,7 @@
 			"is_image": true,
 			"subtitle": "Het melkmeisje",
 			"creation_date": "1660",
+			"creator": "Johannes Vermeer",
 			"people":
 			{
 				"title": "People",
@@ -389,65 +389,6 @@
 						"url": "http://europeana.eu"
 					}
 				]
-			},
-
-
-			"download":
-			{
-				"primary":
-				{
-					"url": "this is the download url",
-					"text": "Original File",
-					"language":"English",
-					"format": "jpg",
-					"file_size": "23.2",
-					"file_unit": "MB",
-					"width": "1200",
-					"height": "900",
-					"size_unit": "pixels"
-				},
-
-				"secondary":
-				{
-					"items":
-					[
-						{
-							"url": "this is the download url",
-							"text": "Secondary file 1",
-							"language":"English",
-							"format": "jpg",
-							"file_size": "23.2",
-							"file_unit": "MB",
-							"width": "1200",
-							"height": "900",
-							"size_unit": "pixels"
-						},
-
-						{
-							"url": "this is the download url",
-							"text": "Secondary file 2",
-							"language":"English",
-							"format": "jpg",
-							"file_size": "23.2",
-							"file_unit": "MB",
-							"width": "1200",
-							"height": "900",
-							"size_unit": "pixels"
-						},
-
-						{
-							"url": "this is the download url",
-							"text": "Secondary file 3",
-							"language":"English",
-							"format": "jpg",
-							"file_size": "23.2",
-							"file_unit": "MB",
-							"width": "1200",
-							"height": "900",
-							"size_unit": "pixels"
-						}
-					]
-				}
 			},
 			"meta_additional":
 			{
