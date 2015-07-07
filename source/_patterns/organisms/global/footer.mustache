@@ -12,11 +12,11 @@
                 <div class="footer_logo">
                     <a href="/"><img src="{{image_root}}footer_logo.svg" alt="Europeana - think culture" /></a>
                 </div>
-                
+
                 <div class="address">
-                    Main Europeana Office<br> 
-                    Koningin Julianaplein 10<br>  
-                    2595 AA Den Haag<br>  
+                    Main Europeana Office<br>
+                    Koningin Julianaplein 10<br>
+                    2595 AA Den Haag<br>
                     Netherlands
                 </div>
 
@@ -49,8 +49,10 @@
                     {{> molecules/forms/newsletter }}
                 </div>
                 {{/ page_config.newsletter }}
-                
+
+                {{# navigation.footer.social }}
                 {{> molecules/navigation/social-links }}
+                {{/ navigation.footer.social }}
             </div>
         </div>
     </div>
@@ -65,7 +67,7 @@
         </ul>
 
         <p class="copyright">Co-funded by the European Union.</p>
-        
+
     </div>
 
 </footer>
