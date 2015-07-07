@@ -1,0 +1,48 @@
+//Social Share
+.social-share {
+	margin-bottom: $space;
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		display: block;
+	}
+
+	.icon{
+		width: 3em;
+		height: 3em;
+		margin-right: 0;
+	}
+
+	.icon-twitter{
+		color: $brand-twitter;
+		&:hover{
+			color: darken($brand-twitter, 15%);
+			cursor: pointer;
+		}
+	}
+	.icon-facebook{
+		color: $brand-facebook;
+		&:hover{
+			color: darken($brand-facebook, 15%);
+			cursor: pointer;
+		}
+	}
+	.icon-pinterest{
+		color: $brand-pinterest;
+		&:hover{
+			color: darken($brand-pinterest, 15%);
+			cursor: pointer;
+		}
+	}
+	.icon-googleplus{
+		color: $brand-google;
+		&:hover{
+			color: darken($brand-google, 15%);
+			cursor: pointer;
+		}
+	}
+
+}

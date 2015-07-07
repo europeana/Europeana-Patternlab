@@ -449,55 +449,6 @@
 					]
 				}
 			},
-			"further_actions":
-			{
-				"button_title": "Choose Action",
-				"menu_title": "Save to:",
-				"menu_id": "object_furtheractions",
-				"style_modifier": "theme_select",
-				"items":
-				[
-					{
-						"text": "My Europeana",
-						"url": "http://europeana.eu",
-						"divider": true
-					},
-
-					{
-						"subtitle": "Share:",
-						"url": false
-					},
-
-					{
-						"text": "Share on Facebook",
-						"url": "http://europeana.eu",
-						"calltoaction": true
-					},
-
-					{
-						"text": "Tweet",
-						"url": "http://europeana.eu",
-						"calltoaction": true
-					},
-
-					{
-						"text": "Pin to Pinterest",
-						"url": "http://europeana.eu",
-						"calltoaction": true
-					},
-
-					{
-						"divider": true,
-						"url": false
-					},
-
-					{
-						"text": "Print",
-						"url": "http://europeana.eu"
-					}
-				]
-			},
-
 			"meta_additional":
 			{
 				"geo":
@@ -521,6 +472,13 @@
 						}
 					}
 				}
+			},
+			"social_share":{
+				"url": "this page url for share links",
+				"twitter": true,
+				"facebook": true,
+				"pinterest": true,
+				"googleplus": true
 			}
 		},
 
