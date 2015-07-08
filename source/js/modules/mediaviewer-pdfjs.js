@@ -31,10 +31,8 @@ define(['jquery'], function($){
       }
 
       function getPdf(pdfFile) {
-        var
-        pdf_src = pdfFile ? pdfFile : pdfjs_canvas.getAttribute( 'data-src' );
-
-        console.log( pdf_src );
+        var pdf_src = pdfFile ? pdfFile : pdfjs_canvas.getAttribute( 'data-src' );
+        console.log('get pdf_src: ' +  pdf_src );
         PDFJS.getDocument( pdf_src ).then( processPdf );
       }
 
@@ -122,17 +120,14 @@ define(['jquery'], function($){
 
       function init($el, pdfUrl){
         pdfjs_canvas        = $el.find('canvas')[0];
-        next                = $el.find('#pdfjs-next');
-        page_count_span     = $el.find('#pdfjs-page-count');
-        page_number_span    = $el.find('#pdfjs-page-number');
-        prev                = $el.find('#pdfjs-prev');
-
-        console.log('pdfjs_canvas  = ' + pdfjs_canvas + '\n\n' + $el.html() );
-
+        next                = $el.find('#pdfjs-next')[0];
+        page_count_span     = $el.find('#pdfjs-page-count')[0];
+        page_number_span    = $el.find('#pdfjs-page-number')[0];
+        prev                = $el.find('#pdfjs-prev')[0];
         context             = pdfjs_canvas.getContext('2d');
 
+        PDFJS.workerSrc     = typeof(js_path) == 'undefined' ? '/js/dist/lib/pdfjs/pdf.worker.js' : js_path + 'lib/pdfjs/pdf.worker.js';
 
-        PDFJS.workerSrc = typeof(js_path) == 'undefined' ? '/js/lib/pdfjs/pdf.worker.js' : js_path + 'lib/pdfjs/pdf.worker.js';
         next.addEventListener( 'click', onNextPage );
         prev.addEventListener( 'click', onPrevPage );
         getPdf(pdfUrl);

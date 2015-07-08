@@ -111,6 +111,12 @@ module.exports = function(grunt) {
           dest:   'source/js/dist',
           expand: true
       },
+      main_pdf: {
+          src:    'main-pdf-molecule.js',
+          cwd:    'source/js/modules',
+          dest:   'source/js/dist',
+          expand: true
+      },
       map_img: {
         src:     '**',
         cwd:     'source/js/modules/map/leaflet-0.7.3/images/',
@@ -155,6 +161,7 @@ module.exports = function(grunt) {
            'copy:global_dependencies',
            'copy:jquery',
            'copy:main',
+           'copy:main_pdf',
            'copy:map_img',
            'copy:mediaviewers',
            'copy:pdfjs',

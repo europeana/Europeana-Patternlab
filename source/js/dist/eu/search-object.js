@@ -267,7 +267,21 @@ define(['jquery', 'mediaviewer'], function ($) {
         }
 
         $(window).bind('showPDF', function(e, data){
-            doShowPdf();
+            if(typeof pdfFile == 'undefined' || !pdfFile || pdfFile.length==0){
+                console.log('no pdfFile given');
+            }
+            else{
+                require(['pdfjs'], function(){
+                    $('.object-media-wrap').html( $('.js-markup .pdf')[0].outerHTML );
+                    $('.object-media-wrap .pdf canvas').attr('id', 'pdfjs-canvas-1');
+
+                    $('#pdfjs-canvas-1').attr('data-src', pdfFile); // lose this - Andy
+
+                    require(['mediaviewer_pdf'], function(mediaViewerPdf){
+                      mediaViewerPdf.init($($('.object-media-wrap .pdf')[0].outerHTML), pdfFile);
+                    });
+                });
+            }
         });
 
         $(window).bind('showMLT', function(e, data){
