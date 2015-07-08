@@ -1,6 +1,28 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header}}
 
+<script>
+    function doShowPdf(){
+        // TODO - read this from data:
+
+        var pdfFile = 'http://develop.styleguide.eanadev.org/media/compressed.tracemonkey-pldi-09.pdf';
+
+        require(['pdfjs'], function(){
+
+            $('.object-media-wrap').html();
+
+              $('.object-media-wrap').html( $('.js-markup .pdf')[0].outerHTML );
+              $('.object-media-wrap .pdf canvas').attr('id', 'pdfjs-canvas-1');
+
+              $('pdfjs-canvas-1').attr('data-src', pdfFile)
+
+              require(['mediaviewer_pdf'], function(mediaViewerPdf){
+					mediaViewerPdf.init($('pdfjs-canvas-1'), pdfFile);
+              });
+        });
+    }
+</script>
+
 <div role="main" class="search-object">
 
 	<div class="object-nav">
@@ -65,7 +87,8 @@
 
 		</div>
 
-		<div class="js-markup hidden">
+		<div class="js-markup is-hidden">
+			<h1>make sure that this is hidden</h1>
 			<div class="pdf">
 				{{> molecules/components/pdfjs/pdfjs }}
 			</div>

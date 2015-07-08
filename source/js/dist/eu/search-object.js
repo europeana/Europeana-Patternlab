@@ -267,11 +267,7 @@ define(['jquery', 'mediaviewer'], function ($) {
         }
 
         $(window).bind('showPDF', function(e, data){
-            require(['pdfjs'], function(){
-                $('.object-media-wrap').html( $('.js-markup .pdf').html() );
-                    require(['mediaviewer_pdf'], function(){
-                });
-            });
+            doShowPdf();
         });
 
         $(window).bind('showMLT', function(e, data){
