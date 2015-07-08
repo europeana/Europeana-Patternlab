@@ -29,9 +29,9 @@
 	}
 
 	// External links
-	a[href*="//"]:not([href*="europeana.eu"]):after{
-		@extend %external_link_icon;
-	}
+	// a[href*="//"]:not([href*="europeana.eu"]):after{
+	// 	@extend %external_link_icon;
+	// }
 
 	footer{
 		font-size: $font-size-slightly-smaller;
@@ -46,6 +46,12 @@
 
 	.item-origin{
 		font-weight: bold;
+	}
+
+	.item-concepts{
+		margin-bottom: $space-half;
+		font-size: $font-size-slightly-smaller;
+		color: $gray-light;
 	}
 
 	.item-preview{

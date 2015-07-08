@@ -8,15 +8,21 @@
     	{{/ is_image }}
 
    		{{# is_audio }}
-        	@TODO --audio preview--
+   			<div class="item-image">
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	</div>
     	{{/ is_audio }}
 
    		{{# is_text }}
-        	@TODO --text preview--
+        	<div class="item-image">
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	</div>
     	{{/ is_text }}
 
     	{{# is_video }}
-        	@TODO --video preview--
+        	<div class="item-image">
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	</div>
     	{{/ is_video }}
 
 	</div>
@@ -32,7 +38,7 @@
 		{{/text}}
 
 		{{#concepts}}
-		<ul>
+		<ul class="item-concepts comma-list">
 			{{#items}}
 			<li>{{text}}</li>
 			{{/items}}
@@ -40,13 +46,13 @@
 		{{/concepts}}
 
 		{{#origin}}
-		<a href="{{origin.url}}" class="item-origin link-external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
+		<a href="{{origin.url}}" class="item-origin external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
 		{{/origin}}
 
 		<footer>
 			<div class="item-metadata">
 
-{{# item_type }}
+			{{# item_type }}
 	        	<a href="{{item_type.url}}" class="highlight item-type">
 					{{# is_image }}
 					<svg class="icon icon-image">
@@ -71,7 +77,7 @@
 
 					{{item_type.name}}
 	        	</a>
-{{/ item_type }}
+			{{/ item_type }}
 
 
 			{{# channels }}
@@ -82,6 +88,8 @@
 					{{/ items }}
 				</span>
 			{{/ channels }}
+
+
 
 			</div>
 
