@@ -1,27 +1,14 @@
 .mlt{
-	box-sizing: padding-box; 
-	padding:	0 3em 0 3em;
-	width:		100%;
-	
-	@media all and (min-width: $bp-med) {
-		padding:	0 3em 0 0;
-	}
+
 }
 
 
 .show-more-mlt{
-	box-sizing:    padding-box; 
 	display:       block;
     font-weight:   bold;
-    padding:       1em 3em 0 0;
+    //padding:       1em 3em 0 0;
     text-align:	   right;
-    width:		   100%;
-
-	@media all and (min-width: $bp-med) {
-		padding:	1em 3em 0 0;
-	}
-
-} 				
+}
 
 
 .mlt ul{
@@ -43,13 +30,13 @@
 		text-align:				left;
 
 	}
-	
-	
+
+
 }
 
 
 .mlt-img-div{
-    
+
     margin-bottom: $space-quarter;
 
 	background-repeat:		no-repeat;
@@ -62,7 +49,7 @@
     @media all and (min-width: $bp-med) and (max-width: $bp-large) {
 		background-size:		cover;
     }
-    
+
 	@media all and (min-width: $bp-large) {
 		background-size:		cover;
     }
@@ -71,7 +58,7 @@
 
 /* technique to keep height the same as (dynamic) width used for large view
 
-	see here: http://www.mademyday.de/css-height-equals-width-with-pure-css.html 
+	see here: http://www.mademyday.de/css-height-equals-width-with-pure-css.html
 
 */
 
@@ -110,19 +97,19 @@
 	.mlt .mlt-item{
 		width:					24%;
 		margin:					0 0.5%;
-    }	
+    }
 
 	.mlt .mlt-item:nth-child(1){
 		width:					24%;
 		margin-left:			0%;
 		margin-right:			1%;
-    }	
-    
+    }
+
 	.mlt .mlt-item:nth-child(4){
 		width:					24%;
 		margin-left:			1%;
 		margin-right:			0;
-    }	
+    }
 
 	.mlt .mlt-item,
 	.mlt-title{
@@ -132,7 +119,7 @@
 	.height-to-width{
 		height:		auto;
 	}
-	
+
 	.height-to-width:before{
 		content: "";
 		display: block;
@@ -151,12 +138,17 @@
 	float: left;
 }
 
+.js-mlt{
+	margin: 0 3em;
+	@media all and (min-width: $bp-med) {
+		margin: 0 3em 0 0;
+	}
+}
 
 .js-mlt,
 .js-mlt-arrows{
 	overflow-y: hidden;
 	position: relative;
-	width: 100%;	
 }
 
 .js-mlt.loading ul:after {
@@ -182,30 +174,27 @@
 }
 
 
-			
+
 .js-mlt-arrows{
-	
+
 	overflow: visible;
 	z-index:2;
 	position: relative;
-	
-	.left,
-	.right{
-		color:       white;
-		font-size:   5em;
-		float:       none;
+
+	> a{
+		font-size: 3em;
+		float: none;
 		line-height: $thumbnail_max_dimension;
-		position:    absolute;
-		text-shadow: 0 0 10px #000;
-		z-index:     1;
+		position: absolute;
+		z-index: 1;
 	}
-	
+
 	.left{
-		left: -0.5em;
+		left: 0;
 	}
-	
+
 	.right{
-		right: -0.5em;
+		right: 0;
 	}
 }
-			
+
