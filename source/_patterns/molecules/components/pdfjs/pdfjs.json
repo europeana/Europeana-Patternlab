@@ -6,10 +6,10 @@
 	},
 	"js_files": [
 		{
-			"path": "/js/libs/pdfjs/pdf.js"
+			"path": "/js/lib/pdfjs/pdf.js"
 		},
 		{
-			"path": "/js/modules/mediaviewer-pdfjs.js"
+			"path": "/js/mediaviewer-pdfjs.js"
 		}
   ],
   "2020715_uid_iid_3494079_DR_4166_2_flv" : {

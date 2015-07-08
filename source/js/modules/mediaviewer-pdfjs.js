@@ -120,7 +120,7 @@
   }
 
   function init() {
-    PDFJS.workerSrc = js_path + 'lib/pdfjs/pdf.worker.js';
+    PDFJS.workerSrc = typeof(js_path) == 'undefined' ? '/js/lib/pdfjs/pdf.worker.js' : js_path + 'lib/pdfjs/pdf.worker.js';
     next.addEventListener( 'click', onNextPage );
     prev.addEventListener( 'click', onPrevPage );
     getPdf();
