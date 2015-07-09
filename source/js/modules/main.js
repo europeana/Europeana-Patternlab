@@ -23,9 +23,10 @@ require.config({
         jqDropdown:          'lib/jquery.dropdown',
         jqScrollto:          'lib/jquery.scrollTo',
 
+        media_controller:    'eu/media/search-media-controller',
+        media_viewer_pdf:    'eu/media/search-pdf-viewer',
+        media_viewer:        'eu/media/search-media-viewer',
         pdfjs:               'lib/pdfjs/pdf',
-        mediaviewer_pdf:     'mediaviewer-pdfjs',
-        mediaviewer:         'eu/search-mediaviewer',
 
         aurora:              'lib/audiocogs/aurora',
         flac:                'lib/audiocogs/flac',
@@ -34,11 +35,11 @@ require.config({
         videojs_silverlight: 'lib/videojs-silverlight/videojs-silverlight'
     },
     shim: {
-        blacklight:     ["jquery"],
-        featureDetect:  ["jquery"],
-        jqDropdown:     ["jquery"],
-        menus:          ["jquery"],
-        placeholder:    ["jquery"]
+        blacklight:     ['jquery'],
+        featureDetect:  ['jquery'],
+        jqDropdown:     ['jquery'],
+        menus:          ['jquery'],
+        placeholder:    ['jquery']
     }
 });
 

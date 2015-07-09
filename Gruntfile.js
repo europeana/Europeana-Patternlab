@@ -128,7 +128,7 @@ module.exports = function(grunt) {
       mediaviewers: {
           src:    'mediaviewer*.js',
           cwd:    'source/js/modules',
-          dest:   'source/js/dist',
+          dest:   'source/js/dist/eu/media',
           expand: true
       },
       pdfjs: {

@@ -59,10 +59,10 @@
 						}
 					},
 					{
-						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-						"file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-						"is_image": true,
+						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg?field=preview",
+						"thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+						"file": "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
+						"is_pdf": true,
 						"rights":
 						{
 							"license_public": true,

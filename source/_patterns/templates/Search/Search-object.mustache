@@ -1,12 +1,6 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header}}
 
-<script>
-	<!-- sorry about this... it's a temp thing - Andy-->
-	//var pdfFile = '{{ edm_is_shown_by_download_url }}';
-	//var pdfFile = 'http://europeana-pattern-lab/media/compressed.tracemonkey-pldi-09.pdf';
-</script>
-
 <div role="main" class="search-object">
 
 	<div class="object-nav">
@@ -25,14 +19,34 @@
 	<section class="object-display">
 
 		<div class="object-media-wrap">
+
+			<div class="media-viewer">
+
+				{{! media molecules }}
+
+				<div class="pdf is-hidden">
+					{{> molecules/components/pdfjs/pdfjs }}
+				</div>
+
+				<div class="image is-hidden">
+
+					{{! TODO: molecule for photo swipe }}
+
+					{{#items}}
+					{{#is_current}}
+					{{#is_image}}
+
+					<img src="{{preview}}" alt="{{alt}}"/>
+
+					{{/is_image}}
+					{{/is_current}}
+					{{/items}}
+				</div>
+
+				{{! end media molecules }}
+
 				{{#items}}
 				{{#is_current}}
-
-				{{#is_image}}
-				<div class="object-media-image">
-					<img src="{{preview}}" alt="{{alt}}"/>
-				</div>
-				{{/is_image}}
 
 				{{#is_video}}
 				<div class="object-media-video">
@@ -60,22 +74,20 @@
 
 				{{/is_current}}
 				{{/items}}
-
-				<ul class="object-media-nav">
-					{{#items}}
-					{{#thumbnail}}
-					<li><a href="{{file}}" {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
-					{{/thumbnail}}
-					{{/items}}
-				</ul>
-
-		</div>
-
-		<div class="js-markup is-hidden">
-			<h1>make sure that this is hidden</h1>
-			<div class="pdf">
-				{{> molecules/components/pdfjs/pdfjs }}
 			</div>
+
+			<ul class="object-media-nav">
+				{{#items}}
+				{{#thumbnail}}
+				<li><a href="{{file}}"
+					   {{#is_audio}}data-type="audio"{{/is_audio}}
+					   {{#is_image}}data-type="image"{{/is_image}}
+					   {{#is_pdf}}data-type="pdf"{{/is_pdf}}
+					   {{#is_video}}data-type="video"{{/is_video}}
+                      {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+				{{/thumbnail}}
+				{{/items}}
+			</ul>
 		</div>
 
 		{{#items}}

@@ -1,4 +1,4 @@
-define(['jquery', 'mediaviewer'], function ($) {
+define(['jquery', 'media_controller'], function ($) {
 
     function log(msg){
 
@@ -25,7 +25,7 @@ define(['jquery', 'mediaviewer'], function ($) {
         }
     }
 
-    function initScrollEvents(){
+    function initScrollEventTriggers(){
 
         if(window.location.href.indexOf('preload-map') > -1){
             $(document).ready(function(){
@@ -167,25 +167,28 @@ define(['jquery', 'mediaviewer'], function ($) {
 
     }
 
-    var showMLT = function(EuCarousel){
-        var el = $('.js-mlt');
-        var mltData = [];
-        reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+    var showMLT = function(){
+        require(['eu_carousel'], function(EuCarousel){
 
-        el.find('a.link').each(function(i, ob) {
-            ob = $(ob);
-            mltData[mltData.length] = {
-                    "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
-                    "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
-                    "link"  : ob.attr('href'),
-                    "linkTarget" : "_self"
-            }
-            //console.log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
+            var el = $('.js-mlt');
+            var mltData = [];
+            reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+
+            el.find('a.link').each(function(i, ob) {
+                ob = $(ob);
+                mltData[mltData.length] = {
+                        "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
+                        "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
+                        "link"  : ob.attr('href'),
+                        "linkTarget" : "_self"
+                }
+                //console.log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
+            });
+            new EuCarousel(el, mltData);
         });
-        new EuCarousel(el, mltData);
     }
 
-
+/*
     function testLayouts(){
 
         requirejs( ['imagesloaded'], function( imagesLoaded ){
@@ -245,51 +248,28 @@ define(['jquery', 'mediaviewer'], function ($) {
             } // end js detection
         });
     }
+*/
 
     function initFullDoc(){
 
-        testLayouts();
-
+        //testLayouts();
         // if(typeof initViewMore != 'undefined'){
         // initViewMore();
         // }
+
+        // functions to assist design
         if(typeof addEllipsis != 'undefined'){
             addEllipsis();
         }
         if(typeof mltStretch != 'undefined'){
             mltStretch();
         }
-        if(typeof initScrollEvents != 'undefined'){
-            initScrollEvents();
-        }
-        if(typeof init_showhide != 'undefined'){
-            init_showhide();
-        }
+        // (end functions to assist design)
 
-        $(window).bind('showPDF', function(e, data){
-            if(typeof pdfFile == 'undefined' || !pdfFile || pdfFile.length==0){
-                console.log('no pdfFile given');
-            }
-            else{
-                require(['pdfjs'], function(){
-                    $('.object-media-wrap').html( $('.js-markup .pdf')[0].outerHTML );
-                    $('.object-media-wrap .pdf canvas').attr('id', 'pdfjs-canvas-1');
-
-                    $('#pdfjs-canvas-1').attr('data-src', pdfFile); // lose this - Andy
-
-                    require(['mediaviewer_pdf'], function(mediaViewerPdf){
-                      mediaViewerPdf.init($($('.object-media-wrap .pdf')[0].outerHTML), pdfFile);
-                    });
-                });
-            }
-        });
+        init_showhide();
 
         $(window).bind('showMLT', function(e, data){
-            require(['eu_carousel'], function(EuCarousel){
-                if(typeof showMLT != 'undefined'){
-                    showMLT(EuCarousel);
-                }
-            })
+            showMLT();
         });
 
         $(window).bind('showMap', function(e, data){
@@ -316,7 +296,6 @@ define(['jquery', 'mediaviewer'], function ($) {
 
                 // sanity check
                 for(var i = 0; i < Math.min(latitude.length, longitude.length); i++){
-
                     if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)){
                         longitudes.push(longitude[i]);
                         latitudes.push(latitude[i]);
@@ -324,7 +303,6 @@ define(['jquery', 'mediaviewer'], function ($) {
                     else{
                         console.log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
                     }
-
                 }
 
                 if(longitudes.length && latitudes.length){
@@ -333,10 +311,11 @@ define(['jquery', 'mediaviewer'], function ($) {
                 else{
                     console.log('Map data missing');
                 }
-
             }
-
         });
+
+        initScrollEventTriggers();
+        $('.media-viewer').trigger("media");
     }
 
     if(typeof initFullDoc != 'undefined'){
