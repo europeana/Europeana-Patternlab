@@ -142,7 +142,13 @@ module.exports = function(grunt) {
         cwd:    'source/js/modules/bower_components/requirejs/',
         dest:   'source/js/dist/',
         expand: true
-      }
+      },
+      videojs_silverlight: {
+				src:    '**',
+				cwd:    'source/js/modules/lib/videojs-silverlight',
+				dest:   'source/js/dist/lib/videojs-silverlight',
+				expand:  true
+      },
 	}
   });
   //grunt.loadNpmTasks('grunt-contrib-concat');
@@ -165,7 +171,7 @@ module.exports = function(grunt) {
            'copy:map_img',
            'copy:mediaviewers',
            'copy:pdfjs',
-           'copy:require'
+           'copy:require',
+					 'copy:videojs_silverlight'
            ]);
 }
-

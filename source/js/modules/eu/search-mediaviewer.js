@@ -32,8 +32,23 @@
 
     switch ( viewer.nodeName ) {
       case 'VIDEO':
-        require(['videojs'], function() { initialiseViewer(); });
-        break;
+        switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
+          case 'video/wmv':
+          case 'video/x-msvideo':
+          case 'video/x-ms-wmv':
+            require(['videojs'], function() {
+              require(['videojs_silverlight'], function() {
+                videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
+                setTechOrder();
+                initialiseViewer();
+              });
+            });
+            break;
+
+          default:
+            require(['videojs'], function() { initialiseViewer(); });
+        }
+      break;
 
       case 'AUDIO':
         switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
