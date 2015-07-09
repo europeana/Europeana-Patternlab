@@ -57,6 +57,7 @@ define(['jquery'], function(){
      * Triggers
      */
 
+
     $(listItemSelector).bind('click', function(e){
         e.preventDefault();
         console.log('clicked ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
