@@ -95,8 +95,15 @@
 
 			<div class="media-info-tab">
 				<div class="lc">
-					{{# technical_metadata }}
+
 					<div class="info-primary">
+					<h3>
+						{{ i18n.site.object.actions.download }}
+					</h3>
+					</div>
+
+					{{# technical_metadata }}
+					<div class="info-secondary">
 						{{> molecules/metadata/file-detail }}
 					</div>
 					{{/ technical_metadata }}
@@ -135,15 +142,15 @@
 				<div class="lc">
 
 					<div class="info-primary">
-						<ul>
-							<li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
-						</ul>
+						<h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
 					</div>
 
 					<div class="info-secondary">
-						<ul>
+
+						<ul class="object-techdata-list">
+							<li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
+							<li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
 							<li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
 							<li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
 							<li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>

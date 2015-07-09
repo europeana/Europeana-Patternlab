@@ -96,13 +96,13 @@
 
     .info-primary{
         @media all and (min-width: $bp-med) {
-            @include span(6 of 24);
+            @include span(4 of 24);
         }
     }
 
     .info-secondary{
         @media all and (min-width: $bp-med) {
-            @include span(9 of 24);
+            @include span(14 of 24);
         }
     }
 
@@ -119,6 +119,10 @@
         bottom: 100%;
         z-index: 10;
         left: 10px;
+
+        &:hover{
+            color: $white;
+        }
     }
 
     .label{
@@ -128,6 +132,11 @@
             content: ':'
         }
     }
+}
+.object-techdata-list li{
+    margin-right: 5%;
+    width: 40%;
+    display: inline-block;
 }
 
 
@@ -139,24 +148,13 @@
         right: 11%;
         bottom: 100%;
         z-index: 10;
+
+        &.is-disabled{
+            background: lighten($text_secondary, 10%);
+            color: darken($text_secondary, 20%);
+        }
     }
 }
-
-.downloads-secondary{
-    & > li{
-        margin-bottom: $space-quarter;
-    }
-
-    .file-type{
-        @include fontSize(12px);
-    }
-
-    .file-info *{
-        display: inline;
-    }
-}
-
-
 
 .object-info{
 

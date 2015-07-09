@@ -14,13 +14,13 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
-	
+
 	&:hover, &:focus {
 		color: $textcolour_highlight;
 		border-color: $textcolour_highlight;
 	}
 
-	&.disabled {
+	&.disabled, &.is-disabled {
 		background: lighten($text_secondary, 10%);
 		color: darken($text_secondary, 20%);
 		cursor: not-allowed;
@@ -80,7 +80,7 @@
 		right: 100%;
 		border-right-color: $black;
 	}
-	
+
 	&:hover:before, &:focus:before{
 		border-right-color: $textcolour_highlight;
 	}
@@ -129,7 +129,7 @@
 	white-space: nowrap;
 	cursor: pointer;
 	user-select: none;
-	
+
 	font-size: $font-size-sm;
 
 	border-radius: 6px;
