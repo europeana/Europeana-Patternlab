@@ -14,7 +14,8 @@ require(['jquery'], function($){
         require(['pdf_viewer'], function(viewer){
             viewer.init(
                 $('.pdf-viewer'),
-                '/media/compressed.tracemonkey-pldi-09.pdf'
+                'http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09'
+                //'/media/compressed.tracemonkey-pldi-09.pdf'
                 //'/media/m1990_pafilis.pdf'
             );
         });
