@@ -80,19 +80,21 @@
 			{{/ item_type }}
 
 
-			{{# channels }}
+			{{# channels.disabled }}
 				<span class="item-themes">
 					{{i18n.site.results.list.in-channel}}:
 					{{# items }}
 					<a href="{{url}}" class="highlight">{{text}}</a>,
 					{{/ items }}
 				</span>
-			{{/ channels }}
+			{{/ channels.disabled }}
 
 
 
 			</div>
 
+
+			{{# menus.actions_disabled }}
 			<div class="item-actions">
 
 				<a href="path/to/save" class="action-save">
@@ -105,6 +107,7 @@
 					<input type="checkbox" name="selected[]" id="itemx">
 				</div>
 			</div>
+			{{/ menus.actions_disabled }}
 
 		</footer>
 	</div>

@@ -16,15 +16,15 @@
 
                 <!-- Start of results header - sort controls, actions etc. -->
                 <div class="results-header">
+                    {{# menus.actions_disabled }}
                     <div class="action-select">
                         <input type="checkbox" name="allselected" id="action_select_all">
                     </div>
 
                     <div class="result-actions">
-                        {{# menus.actions }}
                             {{> molecules/controls/dropdown-menu }}
-                        {{/ menus.actions }}
                     </div>
+                    {{/ menus.actions_disabled }}
 
                     <div class="result-info">
                         {{# has_single_result }}
@@ -44,11 +44,11 @@
                             {{/ menus.viewoptions }}
                         </div>
 
+                        {{# menus.sort_disabled }}
                         <div class="result-sort">
-                            {{# menus.sort }}
-                                {{> molecules/controls/dropdown-menu }}
-                            {{/ menus.sort }}
+                            {{> molecules/controls/dropdown-menu }}
                         </div>
+                        {{/ menus.sort_disabled }}
                     </div>
                 </div>
                 <!-- End of results header -->
