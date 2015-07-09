@@ -14,8 +14,7 @@ require(['jquery'], function($){
         require(['pdf_viewer'], function(viewer){
             viewer.init(
                 $('.pdf-viewer'),
-                'http://www.ceti.gr/carare/CETI_OTX_1_EN.pdf'
-                //'/media/compressed.tracemonkey-pldi-09.pdf'
+                '/media/compressed.tracemonkey-pldi-09.pdf'
                 //'/media/m1990_pafilis.pdf'
             );
         });
