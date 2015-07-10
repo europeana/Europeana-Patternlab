@@ -445,7 +445,8 @@
             "more": {
                 "load-more": "Load more"
             },
-            "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
+            "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
+            "share": "Share"
         }
     }
 }
