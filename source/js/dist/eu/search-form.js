@@ -85,7 +85,6 @@ define(['jquery'], function ($){
 
      form.on('submit', function(event) {
          if(input.val().length==0){
-             console.log('empty search term')
              return false;
          }
      });
