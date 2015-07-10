@@ -3,11 +3,13 @@ define(['jquery'], function(){
     // main link between search page and the various players
 
     var listItemSelector   = '.object-media-nav a';
-    var currentlyViewedUrl = null;
 
     function hideAllViewers(){
-        $('.media-viewer .pdf').addClass('is-hidden');
-        $('.media-viewer .image').addClass('is-hidden');
+        $('.media-viewer .object-media-audio').addClass('is-hidden');
+        $('.media-viewer .object-media-image').addClass('is-hidden');
+        $('.media-viewer .object-media-pdf').addClass('is-hidden');
+        $('.media-viewer .object-media-text').addClass('is-hidden');
+        $('.media-viewer .object-media-video').addClass('is-hidden');
     }
 
     /*
@@ -22,6 +24,8 @@ define(['jquery'], function(){
         // temporary measure until it becomes possible to click on links without following them
         //  + too many image players on the screen - model need reorganised
         $('.object-media-image:first').removeClass('is-hidden');
+
+        // restore this when the above is done
         //$(listItemSelector + ':first').click();
     });
 

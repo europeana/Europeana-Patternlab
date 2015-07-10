@@ -5,8 +5,11 @@ define(['jquery'], function(){
     var listItemSelector   = '.object-media-nav a';
 
     function hideAllViewers(){
-        $('.media-viewer .pdf').addClass('is-hidden');
-        $('.media-viewer .image').addClass('is-hidden');
+        $('.media-viewer .object-media-audio').addClass('is-hidden');
+        $('.media-viewer .object-media-image').addClass('is-hidden');
+        $('.media-viewer .object-media-pdf').addClass('is-hidden');
+        $('.media-viewer .object-media-text').addClass('is-hidden');
+        $('.media-viewer .object-media-video').addClass('is-hidden');
     }
 
     /*
