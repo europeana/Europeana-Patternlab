@@ -22,10 +22,10 @@ define(['jquery'], function(){
         console.log('media_init');
 
         // temporary measure until it becomes possible to click on links without following them
-        $('.object-media-image').removeClass('is-hidden');
+        //$('.object-media-image').removeClass('is-hidden');
 
         // restore this when the above is done
-        //$(listItemSelector + ':first').click();
+        $(listItemSelector + ':first').click();
     });
 
     $('.media-viewer').bind('object-media-audio', function(e, data){
