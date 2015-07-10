@@ -1,5 +1,5 @@
 define(['jquery'], function ($){
-	/*
+    /*
      * function SearchTags($form){ this.$form = $form; this.$input =
      * $form.find('.js-search-input'); this.$tags =
      * $form.find('.js-search-tags'); this.$hidden = $('<select name="q[]"
@@ -65,21 +65,36 @@ define(['jquery'], function ($){
      * if(self.$input.val().length==0){ self.$input.attr('name', null); } })); } }
      */
 
-    function initSearchForm(){
-        var form = $('.search-multiterm');
-        // new SearchTags(form);
-        var input = form.find('.js-search-input');
-        form.on('click', '.js-hitarea', function(event) {
-           input.focus();
-        });
+  function initSearchForm(){
+     var form = $('.search-multiterm');
+     // new SearchTags(form);
+     var input = form.find('.js-search-input');
 
-        form.on('submit', function(event) {
-            if(input.val().length==0){
-                console.log('empty search term')
-                return false;
-            }
-        }
-    }
-    initSearchForm();
+     if( $(document).width() > 640 ){
+          input.width(function(){
+               var tagswidth = $('.js-search-tags').width();
+               var parentWidth = $('.js-hitarea').width();
+               var margin = 10;
+               return parentWidth - (tagswidth + margin);
+           });
+     }
+
+     form.on('click', '.js-hitarea', function(event) {
+        input.focus();
+     });
+
+     form.on('submit', function(event) {
+         if(input.val().length==0){
+             console.log('empty search term')
+             return false;
+         }
+     });
+
+  }
+
+
+  if(typeof initSearchForm != 'undefined'){
+     initSearchForm();
+  }
 
 });
