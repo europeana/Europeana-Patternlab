@@ -67,6 +67,8 @@ define(['jquery'], function(){
      */
 
     $(listItemSelector).bind('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
         console.log('clicked on ' + $(this)[0].nodeName  + ' ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
         $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('href')});
     });
