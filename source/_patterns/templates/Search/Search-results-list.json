@@ -47,8 +47,19 @@
     "input_search": {
         "title": "Search",
         "input_name": "supersearch",
-        "input_value": "Rembrandt",
-        "placeholder": "Add a search term"
+        "placeholder": "Add a search term",
+        "input_values": [
+	        {
+	        	"value": "Rembrandt",
+	        	"remove": "removeurl",
+	        	"name": "fieldname"
+	        },
+	        {
+	        	"value": "Paintings",
+	        	"remove": "removeurl",
+	        	"name": "fieldname"
+	        }
+        ]
     },
     "filters": [
         {

@@ -50,7 +50,7 @@
     @include fontSize(16px);
 }
 .search-tags{
-    display: inline;
+    display: inline-block;
 }
 .search-tag{
     display: inline;
@@ -89,7 +89,9 @@
   padding: 0;
   margin: 0;
   max-width: inherit;
-  
+  line-height: 2;
+  float: right;
+
   // Make sure the placeholder isn't poorly cut off
   overflow: hidden;
   text-overflow: ellipsis;
