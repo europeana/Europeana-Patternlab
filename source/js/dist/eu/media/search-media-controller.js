@@ -2,52 +2,57 @@ define(['jquery'], function(){
 
     // main link between search page and the various players
 
-    var listItemSelector = '.object-media-nav a';
+    var listItemSelector   = '.object-media-nav a';
+    var currentlyViewedUrl = null;
 
     function hideAllViewers(){
         $('.media-viewer .pdf').addClass('is-hidden');
         $('.media-viewer .image').addClass('is-hidden');
     }
+
     /*
      * Bind
      */
 
     // General media event fired once (on page load) to handle media viewer initialisation
 
-    $('.media-viewer').bind('media', function(e, data){
-        console.log('media event');
-        $(listItemSelector + ':first').click();
+    $('.media-viewer').bind('media_init', function(e, data){
+        console.log('media_init');
+
+        // temporary measure until it becomes possible to click on links without following them
+        //  + too many image players on the screen - model need reorganised
+        $('.object-media-image:first').removeClass('is-hidden');
+        //$(listItemSelector + ':first').click();
     });
 
-    $('.media-viewer').bind('media_audio', function(e, data){
-        console.log('media_audio');
+    $('.media-viewer').bind('object-media-audio', function(e, data){
+        console.log('object-media-audio');
         require(['media_viewer'], function(mediaViewer){
             console.log('loaded media viewer');
         });
     });
 
-    $('.media-viewer').bind('media_image', function(e, data){
-        console.log('media_image');
+    $('.media-viewer').bind('object-media-image', function(e, data){
+        console.log('object-media-image');
         hideAllViewers();
-        $('.media-viewer .image').removeClass('is-hidden');
+        $('.media-viewer .object-media-image').removeClass('is-hidden');
     });
 
-    $('.media-viewer').bind('media_pdf', function(e, data){
-        console.log('media_pdf: ' + data.url);
-
+    $('.media-viewer').bind('object-media-pdf', function(e, data){
+        console.log('object-media-pdf: ' + data.url);
         if(data.url && data.url.length > 0){
             require(['pdfjs'], function(){
-                hideAllViewers();
-                $('.media-viewer .pdf').removeClass('is-hidden');
                 require(['media_viewer_pdf'], function(mediaViewerPdf){
-                  mediaViewerPdf.init($('.media-viewer .pdf'), data.url);
+                    hideAllViewers();
+                    $('.media-viewer .object-media-pdf').removeClass('is-hidden');
+                    mediaViewerPdf.init($('.media-viewer .object-media-pdf'), data.url);
                 });
             });
         }
     });
 
-    $('.media-viewer').bind('media_video', function(e, data){
-        console.log('media_video');
+    $('.media-viewer').bind('object-media-video', function(e, data){
+        console.log('object-media-video');
         require(['media_viewer'], function(mediaViewer){
             console.log('loaded media viewer');
         });
@@ -57,11 +62,8 @@ define(['jquery'], function(){
      * Triggers
      */
 
-
     $(listItemSelector).bind('click', function(e){
-        e.preventDefault();
-        console.log('clicked ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
-        $('.media-viewer').trigger("media_" + $(this).attr('data-type'), {url:$(this).attr('href')});
+        console.log('clicked on ' + $(this)[0].nodeName  + ' ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
+        $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('href')});
     });
-
 });

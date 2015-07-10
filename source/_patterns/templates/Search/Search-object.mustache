@@ -22,31 +22,13 @@
 
 			<div class="media-viewer">
 
-				{{! media molecules }}
-
-				<div class="pdf is-hidden">
-					{{> molecules/components/pdfjs/pdfjs }}
-				</div>
-
-				<div class="image is-hidden">
-
-					{{! TODO: molecule for photo swipe }}
-
-					{{#items}}
-					{{#is_current}}
-					{{#is_image}}
-
-					<img src="{{preview}}" alt="{{alt}}"/>
-
-					{{/is_image}}
-					{{/is_current}}
-					{{/items}}
-				</div>
-
-				{{! end media molecules }}
-
 				{{#items}}
-				{{#is_current}}
+
+				{{#is_image}}
+				<div class="object-media-image is-hidden">
+					<img src="{{preview}}" alt="{{alt}}"/>
+				</div>
+				{{/is_image}}
 
 				{{#is_video}}
 				<div class="object-media-video">
@@ -67,12 +49,11 @@
 				{{/is_audio}}
 
 				{{#is_pdf}}
-				<div class="object-media-pdf">
+				<div class="object-media-pdf is-hidden">
 					{{> molecules/components/pdfjs/pdfjs }}
 				</div>
 				{{/is_pdf}}
 
-				{{/is_current}}
 				{{/items}}
 			</div>
 
@@ -188,10 +169,6 @@
 	</section>
 	{{/object.media}}
 
-	<a	class="scroll-trigger"
-		enabled="true"
-		data-fire-on-open="showPDF"
-		></a>
 	{{! Main object text info section }}
 	<section class="section">
 	<div class="lc">

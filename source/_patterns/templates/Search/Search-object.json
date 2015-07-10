@@ -31,7 +31,8 @@
 					{
 						"is_current": true,
 						"is_image": true,
-						"preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"file":      "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
+						"preview":   "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
 						"thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
 						"download":{
 							"url": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
