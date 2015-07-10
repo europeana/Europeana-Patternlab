@@ -22,39 +22,40 @@
 
 			<div class="media-viewer">
 
-				{{#items}}
+				{{#required_players}}
 
-				{{#is_image}}
+				{{#image}}
 				<div class="object-media-image is-hidden">
-					<img src="{{preview}}" alt="{{alt}}"/>
+					{{! hard-coded image to give the viewer some height until we get the molecule integrated }}
+					<img src="http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg" />
 				</div>
-				{{/is_image}}
+				{{/image}}
 
-				{{#is_video}}
-				<div class="object-media-video">
+				{{#video}}
+				<div class="object-media-video is-hidden">
 					{{> molecules/components/videojs/videojs }}
 				</div>
-				{{/is_video}}
+				{{/video}}
 
-				{{#is_text}}
-				<div class="object-media-text">
+				{{#text}}
+				<div class="object-media-text is-hidden">
 					Text viewer here
 				</div>
-				{{/is_text}}
+				{{/text}}
 
-				{{#is_audio}}
-				<div class="object-media-audio">
+				{{#audio}}
+				<div class="object-media-audio is-hidden">
 					{{> molecules/components/videojs/videojs }}
 				</div>
-				{{/is_audio}}
+				{{/audio}}
 
-				{{#is_pdf}}
+				{{#pdf}}
 				<div class="object-media-pdf is-hidden">
 					{{> molecules/components/pdfjs/pdfjs }}
 				</div>
-				{{/is_pdf}}
+				{{/pdf}}
 
-				{{/items}}
+				{{/required_players}}
 			</div>
 
 			<ul class="object-media-nav">

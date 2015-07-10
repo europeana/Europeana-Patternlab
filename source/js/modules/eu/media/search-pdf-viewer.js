@@ -15,7 +15,6 @@ define(['jquery'], function($){
       page_rendering      = false,
       pdf_doc             = null;
 
-
       /**
        * @param {object} pdf_doc_
        */
@@ -130,12 +129,12 @@ define(['jquery'], function($){
 
         next.addEventListener( 'click', onNextPage );
         prev.addEventListener( 'click', onPrevPage );
-        getPdf(pdfUrl);
+        return getPdf(pdfUrl);
       }
 
       return {
           init: function($el, pdfUrl){
-              init($el, pdfUrl);
+              return init($el, pdfUrl);
           }
       }
 

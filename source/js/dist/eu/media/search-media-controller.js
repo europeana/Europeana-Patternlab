@@ -22,8 +22,7 @@ define(['jquery'], function(){
         console.log('media_init');
 
         // temporary measure until it becomes possible to click on links without following them
-        //  + too many image players on the screen - model need reorganised
-        $('.object-media-image:first').removeClass('is-hidden');
+        $('.object-media-image').removeClass('is-hidden');
 
         // restore this when the above is done
         //$(listItemSelector + ':first').click();

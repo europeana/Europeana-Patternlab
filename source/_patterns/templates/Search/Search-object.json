@@ -26,6 +26,13 @@
 		{
 			"media":
 			{
+				"required_players": [
+					{"audio": true},
+					{"image": true},
+					{"pdf":   true},
+					{"text":  true},
+					{"video": true}
+				],
 				"items":
 				[
 					{
