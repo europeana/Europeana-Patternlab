@@ -7,6 +7,20 @@
     <section class="search-hero">
         <div class="searchbar">
         {{> molecules/components/search/search-form }}
+
+        {{#facets_selected}}
+        <ul class="facets-selected">
+            {{#items}}
+                <li class="search-tag">
+                    {{#filter}}<span class="title">{{filter}}:</span>{{/filter}}
+                    {{value}}
+                    <a href="{{remove}}" data-role="remove"></a>
+                    <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
+                </li>
+            {{/items}}
+        </ul>
+        {{/facets_selected}}
+
         </div>
     </section>
 

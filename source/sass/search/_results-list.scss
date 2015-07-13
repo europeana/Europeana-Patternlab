@@ -1,7 +1,7 @@
 
 // Search hero bar
 .search-hero{
-	padding: $space-triple $space;
+	padding: $space-double $space $space;
 	background-color: #DDEBEE;
 	border-bottom: 1px solid $gray87;
 }
@@ -38,12 +38,12 @@
 
 	@media all and (min-width: $bp-med) {
 		@include span(last 18);
-		
+
 		/* keep column height as high as facet column when result list empty */
 		padding-bottom: 100em;
 		margin-bottom: -100em;
 	}
-	
+
 }
 
 // Filters and secondary content

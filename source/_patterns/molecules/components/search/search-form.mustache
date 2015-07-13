@@ -21,8 +21,11 @@
 
 
 				{{#input_values}}
-					<li class="search-tag">{{value}}<a href="{{remove}}" data-role="remove"></a></li>
+					<li class="search-tag">
+					{{value}}
 					<input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
+					<a href="{{remove}}" data-role="remove"></a>
+					</li>
 				{{/input_values}}
 			</ul>
 

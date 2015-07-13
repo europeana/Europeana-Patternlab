@@ -8,7 +8,8 @@
                 "date": {
                     "to": "to",
                     "from": "from"
-                }
+                },
+                "more-refinements": "Advanced filters"
             }
         },
         "site": {
@@ -221,7 +222,7 @@
         },
         {
             "title": "Can I use it?",
-            "license": true
+            "tabbed": true
         },
         {
             "title": "Language",
@@ -274,6 +275,22 @@
             }
         }
     ],
+    "facets_selected":{
+    	"items":[
+	        {
+	        	"filter": "Theme",
+	        	"value": "Art",
+	        	"remove": "removeurl",
+	        	"name": "fieldname"
+	        },
+	        {
+	        	"filter": "Type",
+	        	"value": "Paintings",
+	        	"remove": "removeurl",
+	        	"name": "fieldname"
+	        }
+        ]
+    },
     "menus": {
         "actions": {
             "button_title": "Actions",
