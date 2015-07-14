@@ -34,9 +34,9 @@ require.config({
         videojs_aurora:      'lib/videojs-aurora/videojs-aurora',
         videojs_silverlight: 'lib/videojs-silverlight/videojs-silverlight',
 
-        photoswipe:          'lib/photoswipe/photoswipe',
-        photoswipe_ui:       'lib/photoswipe/photoswipe-ui-default',
-        photoswipe_init:     'lib/photoswipe/init'
+        photoswipe:         'lib/photoswipe/photoswipe',
+        photoswipe_ui:      'lib/photoswipe/photoswipe-ui-default',
+        media_viewer_image: 'eu/media/search-image-viewer'
     },
     shim: {
         blacklight:     ['jquery'],

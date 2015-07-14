@@ -14,14 +14,14 @@
     "title": "Self-portrait as the Apostle Paul",
     "is_current": true,
 
-    "xxx_src": "/images/sample/object_thumbnail.jpg",
-    "xxx_data_src": "/images/sample/object_thumbnail.jpg",
-    "xxx_data_w": 500,
-    "xxx_data_h": 563,
+    "src": "../../images/sample/object_thumbnail.jpg",
+    "data_src": "../../images/sample/object_thumbnail.jpg",
+    "data_w": 500,
+    "data_h": 563,
 
-    "src": "../..//images/sample/object_thumbnail.jpg",
-    "data_src": "../../images/sample/channel_hero_art.jpg",
-    "data_w": 1280,
-    "data_h": 975
+    "xxx_src": "../../images/sample/object_thumbnail.jpg",
+    "xxx_data_src": "../../images/sample/channel_hero_art.jpg",
+    "xxx_data_w": 1280,
+    "xxx_data_h": 975
   }
 }

@@ -5,15 +5,16 @@ require.config({
         jquery:             'lib/jquery',
         photoswipe:         'lib/photoswipe/photoswipe',
         photoswipe_ui:      'lib/photoswipe/photoswipe-ui-default',
-        photoswipe_init:    'lib/photoswipe/init'
+        media_viewer_image: 'eu/media/search-image-viewer'
+
     },
     shim: {
-        photoswipe_init: ['jquery']
+        media_viewer_image: ['jquery']
     }
 });
 
 require(['jquery'], function($){
-    require(['photoswipe_init'], function(photoSwipeInit){
+    require(['media_viewer_image'], function(photoSwipeInit){
         photoSwipeInit.init();
     });
 });

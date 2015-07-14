@@ -25,12 +25,12 @@ define(['jquery'], function(){
     if ( $viewer.hasClass('object-media-image') ) {
         require(['photoswipe'], function(){
             require(['photoswipe_ui'], function(){
-                require(['photoswipe_init']);
+                require(['media_viewer_image']);
             });
         });
     }
     */
-    require(['photoswipe_init'], function(photoSwipeInit){
+    require(['media_viewer_image'], function(photoSwipeInit){
         photoSwipeInit.init();
     });
 
@@ -49,7 +49,7 @@ define(['jquery'], function(){
 
     // restore this when the above is done
     if ( $( listItemSelector + ':first' ).length === 1 ) {
-      $( listItemSelector + ':first' ).click();
+      //$( listItemSelector + ':first' ).click();
     } else {
       determineMediaViewer();
     }
@@ -66,6 +66,11 @@ define(['jquery'], function(){
     console.log('object-media-image');
     hideAllViewers();
     $('.media-viewer .object-media-image').removeClass('is-hidden');
+
+    require(['media_viewer_image'], function(mediaViewerImage){
+        mediaViewerImage.init();//$('.media-viewer .object-media-image'), data.url);
+    });
+
   });
 
   $('.media-viewer').bind('object-media-pdf', function(e, data){
@@ -95,6 +100,7 @@ define(['jquery'], function(){
   $(listItemSelector).bind('click', function(e){
     e.preventDefault();
     e.stopPropagation();
+
     console.log('clicked on ' + $(this)[0].nodeName  + ' ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
     $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('href')});
   });

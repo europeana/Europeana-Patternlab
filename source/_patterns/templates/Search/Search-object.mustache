@@ -3,343 +3,343 @@
 
 <div role="main" class="search-object">
 
-	<div class="object-nav">
-		{{>molecules/navigation/next-previous}}
+  <div class="object-nav">
+    {{>molecules/navigation/next-previous}}
 
-		<ul class="breadcrumbs">
-			<li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
-			<li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
-		</ul>
-	</div>
+    <ul class="breadcrumbs">
+      <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
+      <li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
+    </ul>
+  </div>
 
-	{{#content}}
+  {{#content}}
 
 
-	{{#object.media}}
-	<section class="object-display">
+  {{#object.media}}
+  <section class="object-display">
 
-		<div class="object-media-wrap">
+    <div class="object-media-wrap">
 
-			<div class="media-viewer">
+      <div class="media-viewer">
 
-				{{#required_players}}
+        {{#required_players}}
 
-				{{#image}}
-				<div class="object-media-image is-hidden">
-					{{! hard-coded image to give the viewer some height until we get the molecule integrated }}
-					<img src="http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg" />
-				</div>
-				{{/image}}
+        {{#image}}
+        <div class="object-media-image is-hidden">
+          {{! hard-coded image to give the viewer some height until we get the molecule integrated }}
+          {{> molecules/components/photoswipe/photoswipe }}
+        </div>
+        {{/image}}
 
-				{{#video}}
-				<div class="object-media-video is-hidden">
-					{{> molecules/components/videojs/videojs }}
-				</div>
-				{{/video}}
+        {{#video}}
+        <div class="object-media-video is-hidden">
+          {{> molecules/components/videojs/videojs }}
+        </div>
+        {{/video}}
 
-				{{#text}}
-				<div class="object-media-text is-hidden">
-					Text viewer here
-				</div>
-				{{/text}}
+        {{#text}}
+        <div class="object-media-text is-hidden">
+          Text viewer here
+        </div>
+        {{/text}}
 
-				{{#audio}}
-				<div class="object-media-audio is-hidden">
-					{{> molecules/components/videojs/videojs }}
-				</div>
-				{{/audio}}
+        {{#audio}}
+        <div class="object-media-audio is-hidden">
+          {{> molecules/components/videojs/videojs }}
+        </div>
+        {{/audio}}
 
-				{{#pdf}}
-				<div class="object-media-pdf is-hidden">
-					{{> molecules/components/pdfjs/pdfjs }}
-				</div>
-				{{/pdf}}
+        {{#pdf}}
+        <div class="object-media-pdf is-hidden">
+          {{> molecules/components/pdfjs/pdfjs }}
+        </div>
+        {{/pdf}}
 
-				{{/required_players}}
-			</div>
+        {{/required_players}}
+      </div>
 
-			<ul class="object-media-nav">
-				{{#items}}
-				{{#thumbnail}}
-				<li><a href="{{file}}"
-					   {{#is_audio}}data-type="audio"{{/is_audio}}
-					   {{#is_image}}data-type="image"{{/is_image}}
-					   {{#is_pdf}}data-type="pdf"{{/is_pdf}}
-					   {{#is_text}}data-type="pdf"{{/is_text}}
-					   {{#is_video}}data-type="video"{{/is_video}}
+      <ul class="object-media-nav">
+        {{#items}}
+        {{#thumbnail}}
+        <li><a href="{{file}}"
+             {{#is_audio}}data-type="audio"{{/is_audio}}
+             {{#is_image}}data-type="image"{{/is_image}}
+             {{#is_pdf}}data-type="pdf"{{/is_pdf}}
+             {{#is_text}}data-type="pdf"{{/is_text}}
+             {{#is_video}}data-type="video"{{/is_video}}
                       {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
-				{{/thumbnail}}
-				{{/items}}
-			</ul>
-		</div>
-
-		{{#items}}
-		{{#is_current}}
-
-		<div class="object-media-info section">
-
-		{{#download}}
-		<div class="object-downloads">
-
-			<a class="js-showhide download-button btn alt" href="#">
-			<svg class="icon icon-download">
-				<use xlink:href="#icon-download"></use>
-			</svg>
-			{{ i18n.site.object.actions.download }}
-			</a>
-
-			<div class="media-info-tab">
-				<div class="lc">
-
-					<div class="info-primary">
-					<h3>
-						{{ i18n.site.object.actions.download }}
-					</h3>
-					</div>
-
-					{{# technical_metadata }}
-					<div class="info-secondary">
-						{{> molecules/metadata/file-detail }}
-					</div>
-					{{/ technical_metadata }}
-
-					<div class="info-support">
-						{{# rights }}
-						<div class="object-rights">
-
-							<h4>{{i18n.site.object.meta-label.rights}}</h4>
-
-							{{license_human}}
-
-							<div class="object-license">{{> molecules/icons/licenses }}</div>
-						</div>
-						{{/ rights }}
-					</div>
-
-				</div>
-			</div>
-		</div>
-		{{/download}}
-
-
-
-		{{#technical_metadata}}
-		<div class="object-techdata">
-
-			<a class="js-showhide show-button" href="#">
-			<svg class="icon icon-info">
-				<use xlink:href="#icon-info"></use>
-			</svg>
-			{{ i18n.site.object.actions.technicalmetadata }}
-			</a>
-
-			<div class="media-info-tab">
-				<div class="lc">
-
-					<div class="info-primary">
-						<h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
-					</div>
-
-					<div class="info-secondary">
-
-						<ul class="object-techdata-list">
-							<li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-							<li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
-						</ul>
-					</div>
-
-					<div class="info-support">
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-		{{/technical_metadata}}
-
-
-		{{/is_current}}
-		{{/items}}
-
-
-		</div>
-	</section>
-	{{/object.media}}
-
-	{{! Main object text info section }}
-	<section class="section">
-	<div class="lc">
-		<div class="object-overview">
-			{{#object}}
-			<div class="object-info cf">
-				{{# title }}
-					<h2 class="object-title">{{title}}</h2>
-				{{/ title }}
-				{{# subtitle }}
-					<div class="subtitle">{{subtitle}}</div>
-				{{/ subtitle }}
-				{{#creation_date}}
-					<div class="date_created">
-						{{creation_date}}
-					</div>
-				{{/creation_date}}
-			</div>
-
-			{{#description}}
-				{{> organisms/sections/object-data-section }}
-			{{/description}}
-
-			{{#people}}
-				{{> organisms/sections/object-data-section }}
-			{{/people}}
-
-			{{#places }}
-				{{> organisms/sections/object-data-section }}
-			{{/places }}
-
-			{{#dates }}
-				{{> organisms/sections/object-data-section }}
-			{{/dates }}
-
-			{{#provenance}}
-				{{> organisms/sections/object-data-section }}
-			{{/provenance}}
-
-			{{#concepts }}
-				{{> organisms/sections/object-data-section }}
-			{{/concepts }}
-
-			{{#properties }}
-				{{> organisms/sections/object-data-section }}
-			{{/properties }}
-
-			{{#refs_rels}}
-				{{> organisms/sections/object-data-section }}
-			{{/refs_rels}}
-
-			{{#meta_additional}}
-			{{#geo.long_and_lat}}	{{! check both present }}
-			<a	class="scroll-trigger"
-				enabled="true"
-				data-fire-on-open="showMap"
-				data-fire-on-open-params='{
-				"longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-				}'
-				></a>
-			<div class="map-section">
-				<h3 class="subsection-label">
-					{{i18n.site.object.meta-label.location}}
-				</h3>
-				<div class="object-info">
-					<span id="map-place-name">{{geo.placeName}}</span>
-					<div id="map">
-						<div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
-						<div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
-					</div>
-				</div>
-			</div>
-			{{/geo.long_and_lat}}
-			{{/meta_additional}}
-			{{/object}}
-		</div>
-		{{! end of object info column }}
-		<div class="object-actions cf">
-			<input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-			{{# object.media.primary.rights }}
-			<div class="object-rights">
-				{{license_human}}
-				<div class="object-license">{{> molecules/icons/licenses }}</div>
-			</div>
-			{{/ object.media.primary.rights }}
-
-			{{# object.origin }}
-			<div class="object-origin">
-				<h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
-				{{#logo}}
-				<a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
-				{{/logo}}
-				<a class="original_context cap" href="{{url}}">
-					{{institution_name}}
-					<svg class="icon icon-linkout">
-						<use xlink:href="#icon-linkout"></use>
-					</svg>
-				</a>
-				<span class="cap">{{institution_country}}</span>
-			</div>
-			{{/ object.origin }}
-
-			{{# object.tags }}
-			<div class="object-tags">
-				<ul class="nav">
-					{{#items}}
-					<li><a href="{{url}}" class="tag">{{text}}</a></li>
-					{{/items}}
-				</ul>
-			</div>
-			{{/ object.tags }}
-
-			{{# object.colours }}
-			<div class="object-colours">
-				{{> molecules/controls/colour-search }}
-			</div>
-			{{/ object.colours }}
-
-			{{# object.further_actions }}
-			<div class="object-furtheractions">
-				{{> molecules/controls/dropdown-menu }}
-			</div>
-			{{/ object.further_actions }}
-
-			{{# object.social_share }}
-			<div class="object-social">
-				<h4>{{{ i18n.global.share }}}</h4>
-				{{> molecules/controls/share-social }}
-			</div>
-			{{/ object.social_share }}
-
-		</div>
-		{{! end object actions }}
-	</div>
-
-	<div class="lc data-border">
-    	{{#content.similar}}
-			<div class="data-section no-border">
-				<div class="mlt cf">
-					<div class="subsection-label">
-						{{title}}
-						<a	class="scroll-trigger"
-							enabled="true"
-							data-fire-on-open="showMLT"
-						></a>
-					</div>
-					<div class="subsection-content">
-						<div class="js-mlt">
-							<ul class="cf">
-								{{#items}}
-									<li class="mlt-item">
-										<div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-											<div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
-										</div>
-										<span class="mlt-title">
-											<a href="{{url}}">{{title}}</a>
-										</span>
-									</li>
-								{{/items}}
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="show-more-mlt"><a href="{{more_items_query}}">{{{ i18n.global.more.load-more }}}&#8230;</a></div>
-			</div>
-		{{/content.similar}}
+        {{/thumbnail}}
+        {{/items}}
+      </ul>
     </div>
-	</section>
-	{{/content}}
+
+    {{#items}}
+    {{#is_current}}
+
+    <div class="object-media-info section">
+
+    {{#download}}
+    <div class="object-downloads">
+
+      <a class="js-showhide download-button btn alt" href="#">
+      <svg class="icon icon-download">
+        <use xlink:href="#icon-download"></use>
+      </svg>
+      {{ i18n.site.object.actions.download }}
+      </a>
+
+      <div class="media-info-tab">
+        <div class="lc">
+
+          <div class="info-primary">
+          <h3>
+            {{ i18n.site.object.actions.download }}
+          </h3>
+          </div>
+
+          {{# technical_metadata }}
+          <div class="info-secondary">
+            {{> molecules/metadata/file-detail }}
+          </div>
+          {{/ technical_metadata }}
+
+          <div class="info-support">
+            {{# rights }}
+            <div class="object-rights">
+
+              <h4>{{i18n.site.object.meta-label.rights}}</h4>
+
+              {{license_human}}
+
+              <div class="object-license">{{> molecules/icons/licenses }}</div>
+            </div>
+            {{/ rights }}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {{/download}}
+
+
+
+    {{#technical_metadata}}
+    <div class="object-techdata">
+
+      <a class="js-showhide show-button" href="#">
+      <svg class="icon icon-info">
+        <use xlink:href="#icon-info"></use>
+      </svg>
+      {{ i18n.site.object.actions.technicalmetadata }}
+      </a>
+
+      <div class="media-info-tab">
+        <div class="lc">
+
+          <div class="info-primary">
+            <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
+          </div>
+
+          <div class="info-secondary">
+
+            <ul class="object-techdata-list">
+              <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+              <li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+            </ul>
+          </div>
+
+          <div class="info-support">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {{/technical_metadata}}
+
+
+    {{/is_current}}
+    {{/items}}
+
+
+    </div>
+  </section>
+  {{/object.media}}
+
+  {{! Main object text info section }}
+  <section class="section">
+  <div class="lc">
+    <div class="object-overview">
+      {{#object}}
+      <div class="object-info cf">
+        {{# title }}
+          <h2 class="object-title">{{title}}</h2>
+        {{/ title }}
+        {{# subtitle }}
+          <div class="subtitle">{{subtitle}}</div>
+        {{/ subtitle }}
+        {{#creation_date}}
+          <div class="date_created">
+            {{creation_date}}
+          </div>
+        {{/creation_date}}
+      </div>
+
+      {{#description}}
+        {{> organisms/sections/object-data-section }}
+      {{/description}}
+
+      {{#people}}
+        {{> organisms/sections/object-data-section }}
+      {{/people}}
+
+      {{#places }}
+        {{> organisms/sections/object-data-section }}
+      {{/places }}
+
+      {{#dates }}
+        {{> organisms/sections/object-data-section }}
+      {{/dates }}
+
+      {{#provenance}}
+        {{> organisms/sections/object-data-section }}
+      {{/provenance}}
+
+      {{#concepts }}
+        {{> organisms/sections/object-data-section }}
+      {{/concepts }}
+
+      {{#properties }}
+        {{> organisms/sections/object-data-section }}
+      {{/properties }}
+
+      {{#refs_rels}}
+        {{> organisms/sections/object-data-section }}
+      {{/refs_rels}}
+
+      {{#meta_additional}}
+      {{#geo.long_and_lat}}	{{! check both present }}
+      <a	class="scroll-trigger"
+        enabled="true"
+        data-fire-on-open="showMap"
+        data-fire-on-open-params='{
+        "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+        }'
+        ></a>
+      <div class="map-section">
+        <h3 class="subsection-label">
+          {{i18n.site.object.meta-label.location}}
+        </h3>
+        <div class="object-info">
+          <span id="map-place-name">{{geo.placeName}}</span>
+          <div id="map">
+            <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+            <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
+          </div>
+        </div>
+      </div>
+      {{/geo.long_and_lat}}
+      {{/meta_additional}}
+      {{/object}}
+    </div>
+    {{! end of object info column }}
+    <div class="object-actions cf">
+      <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+      {{# object.media.primary.rights }}
+      <div class="object-rights">
+        {{license_human}}
+        <div class="object-license">{{> molecules/icons/licenses }}</div>
+      </div>
+      {{/ object.media.primary.rights }}
+
+      {{# object.origin }}
+      <div class="object-origin">
+        <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+        {{#logo}}
+        <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+        {{/logo}}
+        <a class="original_context cap" href="{{url}}">
+          {{institution_name}}
+          <svg class="icon icon-linkout">
+            <use xlink:href="#icon-linkout"></use>
+          </svg>
+        </a>
+        <span class="cap">{{institution_country}}</span>
+      </div>
+      {{/ object.origin }}
+
+      {{# object.tags }}
+      <div class="object-tags">
+        <ul class="nav">
+          {{#items}}
+          <li><a href="{{url}}" class="tag">{{text}}</a></li>
+          {{/items}}
+        </ul>
+      </div>
+      {{/ object.tags }}
+
+      {{# object.colours }}
+      <div class="object-colours">
+        {{> molecules/controls/colour-search }}
+      </div>
+      {{/ object.colours }}
+
+      {{# object.further_actions }}
+      <div class="object-furtheractions">
+        {{> molecules/controls/dropdown-menu }}
+      </div>
+      {{/ object.further_actions }}
+
+      {{# object.social_share }}
+      <div class="object-social">
+        <h4>{{{ i18n.global.share }}}</h4>
+        {{> molecules/controls/share-social }}
+      </div>
+      {{/ object.social_share }}
+
+    </div>
+    {{! end object actions }}
+  </div>
+
+  <div class="lc data-border">
+      {{#content.similar}}
+      <div class="data-section no-border">
+        <div class="mlt cf">
+          <div class="subsection-label">
+            {{title}}
+            <a	class="scroll-trigger"
+              enabled="true"
+              data-fire-on-open="showMLT"
+            ></a>
+          </div>
+          <div class="subsection-content">
+            <div class="js-mlt">
+              <ul class="cf">
+                {{#items}}
+                  <li class="mlt-item">
+                    <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                      <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                    </div>
+                    <span class="mlt-title">
+                      <a href="{{url}}">{{title}}</a>
+                    </span>
+                  </li>
+                {{/items}}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="show-more-mlt"><a href="{{more_items_query}}">{{{ i18n.global.more.load-more }}}&#8230;</a></div>
+      </div>
+    {{/content.similar}}
+    </div>
+  </section>
+  {{/content}}
 </div>
 
 {{> organisms/global/footer }}
