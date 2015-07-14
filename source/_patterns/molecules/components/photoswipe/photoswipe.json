@@ -10,18 +10,28 @@
       "data_main": "/js/dist/main/main-photoswipe-molecule"
     }
   ],
-  "poster" : {
-    "title": "Self-portrait as the Apostle Paul",
-    "is_current": true,
 
-    "src": "../../images/sample/object_thumbnail.jpg",
-    "data_src": "../../images/sample/object_thumbnail.jpg",
-    "data_w": 500,
-    "data_h": 563,
 
-    "xxx_src": "../../images/sample/object_thumbnail.jpg",
-    "xxx_data_src": "../../images/sample/channel_hero_art.jpg",
-    "xxx_data_w": 1280,
-    "xxx_data_h": 975
-  }
+  "items": [
+      {
+        "is_current": true,
+        "is_image": true,
+        "thumbnail": "/images/sample/object_2_thumbnail.jpg",
+        "download":{
+          "file":  "/images/sample/object_2_full.jpg",
+          "url":   "/images/sample/object_2_full.jpg"
+        },
+        "rights":
+        {
+          "license_public": true,
+          "license_human": "You can use this image in any way you like"
+        },
+        "technical_metadata":
+        {
+          "width": "2261",
+          "height": "2548"
+        }
+     }
+  ]
+
 }

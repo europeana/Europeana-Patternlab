@@ -21,15 +21,6 @@ define(['jquery'], function(){
 
     $viewer.removeClass('is-hidden');
 
-    /*
-    if ( $viewer.hasClass('object-media-image') ) {
-        require(['photoswipe'], function(){
-            require(['photoswipe_ui'], function(){
-                require(['media_viewer_image']);
-            });
-        });
-    }
-    */
     require(['media_viewer_image'], function(photoSwipeInit){
         photoSwipeInit.init();
     });
@@ -49,9 +40,7 @@ define(['jquery'], function(){
 
     // restore this when the above is done
     if ( $( listItemSelector + ':first' ).length === 1 ) {
-      //$( listItemSelector + ':first' ).click();
-    } else {
-      determineMediaViewer();
+      $( listItemSelector + ':first' ).click();
     }
   });
 
@@ -63,12 +52,37 @@ define(['jquery'], function(){
   });
 
   $('.media-viewer').bind('object-media-image', function(e, data){
+
     console.log('object-media-image');
-    hideAllViewers();
-    $('.media-viewer .object-media-image').removeClass('is-hidden');
+
+    // collect all image data:
+    var imgData = [];
+
+    $(listItemSelector + '[data-type=image]').each(function(){
+
+        var $el    = $(this);
+        var uri    = $el.attr('data-uri');
+        var height = $el.attr('data-height');
+        var width  = $el.attr('data-width');
+
+        if(uri && width && height){
+            imgData.push({
+                src: uri,
+                h: height,
+                w: width
+            });
+        }
+        else{
+            console.log('incomplete image data')
+        }
+    });
+
+    console.log(JSON.stringify(imgData))
 
     require(['media_viewer_image'], function(mediaViewerImage){
-        mediaViewerImage.init();//$('.media-viewer .object-media-image'), data.url);
+        hideAllViewers();
+        $('.media-viewer .object-media-image').removeClass('is-hidden');
+        mediaViewerImage.init(imgData);
     });
 
   });
@@ -102,6 +116,6 @@ define(['jquery'], function(){
     e.stopPropagation();
 
     console.log('clicked on ' + $(this)[0].nodeName  + ' ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
-    $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('href')});
+    $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri')});
   });
 });

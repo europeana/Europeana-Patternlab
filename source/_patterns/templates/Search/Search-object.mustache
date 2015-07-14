@@ -61,13 +61,42 @@
       <ul class="object-media-nav">
         {{#items}}
         {{#thumbnail}}
-        <li><a href="{{file}}"
+
+        {{! pattern lab bug - a link to an image here causes cyclic events - removed hred attribute }}
+
+        <li><a href="#"
              {{#is_audio}}data-type="audio"{{/is_audio}}
-             {{#is_image}}data-type="image"{{/is_image}}
-             {{#is_pdf}}data-type="pdf"{{/is_pdf}}
-             {{#is_text}}data-type="pdf"{{/is_text}}
+
+             {{#is_image}}
+                 data-type="image"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+                 {{#technical_metadata}}
+                   data-width="{{width}}"
+                   data-height="{{height}}"
+                 {{/technical_metadata}}
+             {{/is_image}}
+
+             {{#is_pdf}}
+                 data-type="pdf"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+             {{/is_pdf}}
+
+             {{! TODO: fix the text -> pdf switch here once we have the mime type }}
+
+             {{#is_text}}
+                 data-type="pdf"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+             {{/is_text}}
+
              {{#is_video}}data-type="video"{{/is_video}}
-                      {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+
+             {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
         {{/thumbnail}}
         {{/items}}
       </ul>

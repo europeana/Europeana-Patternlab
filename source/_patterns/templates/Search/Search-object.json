@@ -38,11 +38,12 @@
           {
             "is_current": true,
             "is_image": true,
-            "file":      "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "preview":   "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+
+            "preview":   "/images/sample/object_preview.jpg",
+
             "download":{
-              "url": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+              "url":  "/images/sample/object_full.jpg",
               "text": "Original file"
             },
             "rights":
@@ -52,6 +53,12 @@
             },
             "technical_metadata":
             {
+              "NOTE:": "width and height used for image viewer",
+
+              "width": "2261",
+              "height": "2548",
+
+
               "language":"English",
               "format": "jpg",
               "file_size": "23.2",
@@ -59,29 +66,50 @@
               "codec": "MPEG-2",
               "fps": "30",
               "fps_unit": "fps",
-              "width": "1200",
-              "height": "900",
               "size_unit": "pixels",
               "runtime": "34",
               "runtime_unit": "minutes"
             }
           },
           {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg?field=preview",
             "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
             "file": "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
             "is_pdf": true,
+            "download":{
+              "url":  "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
+              "text": "Original file"
+            },
             "rights":
             {
               "license_public": true,
               "license_human": "You can use this image in any way you like"
             }
           },
+          {
+            "is_image": true,
+            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
+            "download":{
+              "url": "/images/sample/object_2_full.jpg",
+              "text": "Original file"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this image in any way you like"
+            },
+            "technical_metadata":
+            {
+              "NOTE:": "width and height used for image viewer",
+
+              "width": "532",
+              "height": "768"
+            }
+          },
 
           {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+            "preview": "/images/sample/object_preview.jpg",
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+            "file": "/images/sample/object_full.jpg",
             "is_image": true,
             "rights":
             {
@@ -91,9 +119,9 @@
           },
 
           {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+            "preview": "/images/sample/object_preview.jpg",
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+            "file": "/images/sample/object_full.jpg",
             "is_image": true,
             "rights":
             {
@@ -103,9 +131,9 @@
           },
 
           {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+            "preview": "/images/sample/object_preview.jpg",
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+            "file": "/images/sample/object_full.jpg",
             "is_image": true,
             "rights":
             {
@@ -115,33 +143,9 @@
           },
 
           {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-            "is_image": true,
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            }
-          },
-
-          {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
-            "is_image": true,
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            }
-          },
-
-          {
-            "preview": "http://develop.styleguide.eanadev.org/images/sample/object_preview.jpg",
-            "thumbnail": "http://develop.styleguide.eanadev.org/images/sample/object_thumbnail.jpg",
-            "file": "http://develop.styleguide.eanadev.org/images/sample/object_full.jpg",
+            "preview": "/images/sample/object_preview.jpg",
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+            "file": "/images/sample/object_full.jpg",
             "is_image": true,
             "rights":
             {
@@ -149,6 +153,7 @@
               "license_human": "You can use this image in any way you like"
             }
           }
+
         ]
       },
 

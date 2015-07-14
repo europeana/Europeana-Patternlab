@@ -1,8 +1,6 @@
 define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
   'use strict';
 
-  // var css_path = '/js/dist/lib/photoswipe/photoswipe.css'
-
   var
     css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
     items = [],
@@ -33,6 +31,11 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
    * @param {DOM Element} elm
    */
   function setItems( elm ) {
+
+    if(items.length > 0){
+        return true;
+    }
+
     var
     item = {
       src: elm.getAttribute( 'data-src' ),
@@ -66,13 +69,16 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     initialiseGallery();
   }
 
-  function init() {
+  function init(itemsIn) {
+    if(itemsIn){
+        items = itemsIn;
+    }
     $poster.on( 'click', handleImageClick );
   }
 
   return {
-      init:function(){
-          init();
+      init:function(items){
+          init(items);
       }
   }
 });
