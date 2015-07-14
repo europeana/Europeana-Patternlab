@@ -32,7 +32,10 @@ require.config({
         flac:                'lib/audiocogs/flac',
         videojs:             '//vjs.zencdn.net/4.12/video',
         videojs_aurora:      'lib/videojs-aurora/videojs-aurora',
-        videojs_silverlight: 'lib/videojs-silverlight/videojs-silverlight'
+        videojs_silverlight: 'lib/videojs-silverlight/videojs-silverlight',
+
+        photoswipe:          'lib/photoswipe/photoswipe',
+        photoswipe_ui:       'lib/photoswipe/photoswipe-ui-default'
     },
     shim: {
         blacklight:     ['jquery'],
