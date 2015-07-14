@@ -156,7 +156,7 @@
   z-index: 10;
   display: block;
   position: absolute;
-  height: 200px;
+  height: $thumbnail_max_dimension;
   width: 100%;
   top: 0;
   left: 0;
