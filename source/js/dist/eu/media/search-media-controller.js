@@ -22,58 +22,17 @@ define(['jquery'], function(){
     $viewer.removeClass('is-hidden');
 
     if ( $viewer.hasClass('object-media-image') ) {
-      // init photoswipe
-      console.log('photo');
+      //require(['photoswipe'], function(PhotoSwipe) {
 
-      require(['photoswipe'], function() {
-        require(['photoswipe_ui'], function() {
+        //alert('loaded photoswipe: ' + PhotoSwipe)
+
+        //require(['photoswipe_ui'], function(PhotoSwipeUI_Default) {
+
+          //alert('window.PhotoSwipeUI = ' + PhotoSwipeUI )
           require(['photoswipe_init']);
-        });
-      });
-
+        //});
+      //});
     }
-
-    //switch ( viewer.nodeName ) {
-    //  case 'VIDEO':
-    //    switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
-    //      case 'video/wmv':
-    //      case 'video/x-msvideo':
-    //      case 'video/x-ms-wmv':
-    //        require(['videojs'], function() {
-    //          require(['videojs_silverlight'], function() {
-    //            videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
-    //            setTechOrder();
-    //            initialiseViewer();
-    //          });
-    //        });
-    //        break;
-    //
-    //      default:
-    //        require(['videojs'], function() { initialiseViewer(); });
-    //    }
-    //  break;
-    //
-    //  case 'AUDIO':
-    //    switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
-    //      case 'audio/flac':
-    //        require(['aurora'], function() {
-    //          require(['flac'], function() {
-    //            require(['videojs'], function() {
-    //              require(['videojs_aurora'], function() {
-    //                setTechOrder();
-    //                initialiseViewer();
-    //              });
-    //            });
-    //          });
-    //        });
-    //        break;
-    //
-    //      default:
-    //        require(['videojs'], function() { initialiseViewer(); });
-    //    }
-    //
-    //    break;
-    //}
   }
 
   /*

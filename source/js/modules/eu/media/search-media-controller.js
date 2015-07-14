@@ -22,11 +22,7 @@ define(['jquery'], function(){
     $viewer.removeClass('is-hidden');
 
     if ( $viewer.hasClass('object-media-image') ) {
-      require(['photoswipe'], function() {
-        require(['photoswipe_ui'], function() {
-          require(['photoswipe_init']);
-        });
-      });
+      require(['photoswipe_init']);
     }
   }
 
