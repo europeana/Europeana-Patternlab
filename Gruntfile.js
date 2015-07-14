@@ -149,6 +149,12 @@ module.exports = function(grunt) {
 				dest:   'source/js/dist/lib/videojs-silverlight',
 				expand:  true
       },
+			photoswipe: {
+				src:    '**',
+				cwd:    'source/js/modules/lib/photoswipe',
+				dest:   'source/js/dist/lib/photoswipe',
+				expand:  true
+			}
 	}
   });
   //grunt.loadNpmTasks('grunt-contrib-concat');
@@ -172,6 +178,7 @@ module.exports = function(grunt) {
            'copy:mediaviewers',
            'copy:pdfjs',
            'copy:require',
-					 'copy:videojs_silverlight'
+					 'copy:videojs_silverlight',
+					 'copy:photoswipe'
            ]);
 }

@@ -35,7 +35,8 @@ require.config({
         videojs_silverlight: 'lib/videojs-silverlight/videojs-silverlight',
 
         photoswipe:          'lib/photoswipe/photoswipe',
-        photoswipe_ui:       'lib/photoswipe/photoswipe-ui-default'
+        photoswipe_ui:       'lib/photoswipe/photoswipe-ui-default',
+        photoswipe_init:     'lib/photoswipe/init'
     },
     shim: {
         blacklight:     ['jquery'],
