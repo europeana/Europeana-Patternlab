@@ -12,10 +12,10 @@
   ],
   "poster" : {
     "title": "Self-portrait as the Apostle Paul",
-		"src": "http://europeanastatic.eu/api/image?uri=https%3A%2F%2Fwww.rijksmuseum.nl%2Fassetimage2.jsp%3Fid%3DSK-A-4050&size=LARGE&type=IMAGE",
+		"src": "/images/sample/object_thumbnail.jpg",
     "is_current": true,
-		"data_src": "https://www.rijksmuseum.nl/assetimage2.jsp?id=SK-A-4050",
-		"data_w": 2287,
-    "data_h": 2724
+		"data_src": "/images/sample/object_thumbnail.jpg",
+		"data_w": 500,
+    "data_h": 563
   }
 }
