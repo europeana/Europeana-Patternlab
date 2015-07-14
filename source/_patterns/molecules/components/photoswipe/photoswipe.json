@@ -4,23 +4,10 @@
 			"javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
 		}
 	},
-	"css_files": [
-    {
-      "path": "/js/libs/photoswipe/photoswipe.css"
-    },
-		{
-			"path": "/js/libs/photoswipe/default-skin/default-skin.css"
-		}
-  ],
 	"js_files": [
 		{
-			"path": "/js/libs/photoswipe/photoswipe.js"
-		},
-		{
-			"path": "/js/libs/photoswipe/photoswipe-ui-default.js"
-		},
-		{
-			"path": "/js/libs/photoswipe/init.js"
+			"path": "/js/dist/require.js",
+			"data_main": "/js/dist/main"
 		}
   ],
   "poster" : {
