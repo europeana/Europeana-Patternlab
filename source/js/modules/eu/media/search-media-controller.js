@@ -12,15 +12,14 @@ define(['jquery'], function(){
     $('.media-viewer .object-media-video').addClass('is-hidden');
   }
 
-
-
   function determineMediaViewer() {
-    viewer = $( '.is-current' ).eq(0);
-    viewer.removeClass( 'is-hidden' );
+    var viewer = $('.is-current').eq(0);
 
-    if ( !viewer || typeof viewer === 'undefined' ) {
+    if ( !viewer ) {
       return;
     }
+
+    viewer.removeClass('is-hidden');
 
     switch ( viewer.nodeName ) {
       case 'VIDEO':
@@ -77,7 +76,7 @@ define(['jquery'], function(){
     //$('.object-media-image').removeClass('is-hidden');
 
     // restore this when the above is done
-    if ( $( listItemSelector + ':first' ).length  === 1 ) {
+    if ( $( listItemSelector + ':first' ).length === 1 ) {
       $( listItemSelector + ':first' ).click();
     } else {
       determineMediaViewer();

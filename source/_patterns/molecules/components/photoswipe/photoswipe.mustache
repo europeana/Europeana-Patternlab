@@ -1,5 +1,5 @@
 <div class="media-viewer">
-  <div class="object-media-image is-hidden is-current">
+  <div class="object-media-image is-hidden {{#poster.is_current}}is-current{{/poster.is_current}}">
     <img id="photoswipe-poster" src="{{ poster.src }}" title="{{ poster.title }}" data-src="{{ poster.data_src }}" data-w="{{ poster.data_w }}" data-h="{{ poster.data_h }}" />
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
