@@ -8,10 +8,8 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     items = [],
     options = { index: 0 },
     gallery = {},
-//    $poster = $('.media-viewer .is-current > img'),
-  //  viewer = $('.media-viewer .is-current > .pswp')[0];
-  $poster = $('.photoswipe-wrapper > img'),
-  viewer  = $('.photoswipe-wrapper  > .pswp')[0];
+    $poster = $('.photoswipe-wrapper > img'),
+    viewer  = $('.photoswipe-wrapper  > .pswp')[0];
 
   function initialiseGallery() {
 
@@ -24,7 +22,6 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       console.warn( 'initialiseGallery() - PhotoSwipe is not available' );
       return;
     }
-    alert("items = " + JSON.stringify(items, null, 4));
 
     $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
