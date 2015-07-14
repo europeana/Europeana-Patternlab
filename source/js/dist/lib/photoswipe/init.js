@@ -1,69 +1,76 @@
 define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
   'use strict';
 
-	var
-		items = [],
-		options = { index: 0 },
-		gallery = {},
-		$poster = $('.media-viewer .is-current > img'),
-		viewer = $('.media-viewer .is-current > .pswp')[0];
+  var css_path = '/js/dist/lib/photoswipe/photoswipe.css'
 
-	function initialiseGallery() {
-		if ( items.length < 1 ) {
-			console.warn( 'initialiseGallery() - no images to add to the gallery' );
-			return;
-		}
+  var
+    items = [],
+    options = { index: 0 },
+    gallery = {},
+    $poster = $('.media-viewer .is-current > img'),
+    viewer = $('.media-viewer .is-current > .pswp')[0];
 
-		if ( !PhotoSwipe ) {
-			console.warn( 'initialiseGallery() - PhotoSwipe is not available' );
-			return;
-		}
+  function initialiseGallery() {
 
-		gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
-		gallery.init();
-	}
+    if ( items.length < 1 ) {
+      console.warn( 'initialiseGallery() - no images to add to the gallery' );
+      return;
+    }
 
-	/**
-	 * @param {DOM Element} elm
-	 */
-	function setItems( elm ) {
-		var
-		item = {
-			src: elm.getAttribute( 'data-src' ),
-			w: elm.getAttribute( 'data-w' ),
-			h: elm.getAttribute( 'data-h' )
-		};
+    if ( !PhotoSwipe ) {
+      console.warn( 'initialiseGallery() - PhotoSwipe is not available' );
+      return;
+    }
+    $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-		if ( !item.src ) {
-			console.warn( 'no data-src given' );
-			return false;
-		}
+    gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
+    gallery.init();
+  }
 
-		if ( !item.w ) {
-			console.warn( 'no data-w given' );
-			return false;
-		}
+  /**
+   * @param {DOM Element} elm
+   */
+  function setItems( elm ) {
+    var
+    item = {
+      src: elm.getAttribute( 'data-src' ),
+      w: elm.getAttribute( 'data-w' ),
+      h: elm.getAttribute( 'data-h' )
+    };
 
-		if ( !item.h ) {
-			console.warn( 'no data-h given' );
-			return false;
-		}
+    if ( !item.src ) {
+      console.warn( 'no data-src given' );
+      return false;
+    }
 
-		items.push( item );
-		return true;
-	}
+    if ( !item.w ) {
+      console.warn( 'no data-w given' );
+      return false;
+    }
 
-	function handleImageClick() {
-		if ( !setItems( this ) ) {
-			return;
-		}
+    if ( !item.h ) {
+      console.warn( 'no data-h given' );
+      return false;
+    }
 
-		initialiseGallery();
-	}
+    items.push( item );
+    return true;
+  }
 
-	function init() {
-		$poster.on( 'click', handleImageClick );
-	}
+  function handleImageClick() {
+    if ( !setItems( this ) ) {
+      return;
+    }
+    initialiseGallery();
+  }
 
-	init();
+  function init() {
+    $poster.on( 'click', handleImageClick );
+  }
+
+  return {
+      init:function(){
+          init();
+      }
+  }
 });

@@ -109,18 +109,14 @@ module.exports = function(grunt) {
               dest:   'source/js/dist/eu/util',
               expand: true
           },
+
           main: {
-              src:    'main.js',
-              cwd:    'source/js/modules',
-              dest:   'source/js/dist',
+              src:    ['main.js', 'main-pdf-molecule.js', 'main-photoswipe-molecule.js'],
+              cwd:    'source/js/modules/main',
+              dest:   'source/js/dist/main',
               expand: true
           },
-          main_pdf: {
-              src:    'main-pdf-molecule.js',
-              cwd:    'source/js/modules',
-              dest:   'source/js/dist',
-              expand: true
-          },
+
           map_img: {
             src:     '**',
             cwd:     'source/js/modules/map/leaflet-0.7.3/images/',
@@ -162,7 +158,6 @@ module.exports = function(grunt) {
       }
   });
 
-  //grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.registerTask('default',
@@ -178,7 +173,6 @@ module.exports = function(grunt) {
            'copy:global_dependencies',
            'copy:jquery',
            'copy:main',
-           'copy:main_pdf',
            'copy:map_img',
            'copy:mediaviewers',
            'copy:pdfjs',

@@ -1,248 +1,248 @@
 {
-	"bodyclass": "europeana_search",
-	"pagetitle": "Europeana Search",
+  "bodyclass": "europeana_search",
+  "pagetitle": "Europeana Search",
 
-	"globalnav_options": {
-		"search": false,
-		"myeuropeana": true
-	},
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
 
-	"page_config": {
-		"newsletter": true
-	},
+  "page_config": {
+    "newsletter": true
+  },
 
-	"css_files": [
-		{
-			"path": "../../css/search/screen.css",
-			"media": "all"
-		}
-	],
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
 
-	"js_files":
-	[
-	    {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main"	 }
+  "js_files":
+  [
+      {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main/main"	 }
 
-	],
+  ],
 
-	"input_search": {
-		"title": "Search Europeana",
-		"input_name": "search",
-		"placeholder": "Search Europeana"
-	},
+  "input_search": {
+    "title": "Search Europeana",
+    "input_name": "search",
+    "placeholder": "Search Europeana"
+  },
 
-	"content":{
-		"hero_config":{
-			"hero_image":"sample/search_hero_1.jpg",
-			"brand_position" : "brand-bottomleft",
-			"brand_opacity" : "brand-opacity75",
-			"attribution_title" : "Insects and Fruit",
-			"attribution_creator" : "Jan van Kessel",
-			"attribution_institution" : "Rijksmuseum",
-			"attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
-			"license_CC-ND-NC-SA": false,
-			"license_public": true
-		},
-		"strapline": "Explore 41,629,020 items from Europe's libraries, archives and museums.",
+  "content":{
+    "hero_config":{
+      "hero_image":"sample/search_hero_1.jpg",
+      "brand_position" : "brand-bottomleft",
+      "brand_opacity" : "brand-opacity75",
+      "attribution_title" : "Insects and Fruit",
+      "attribution_creator" : "Jan van Kessel",
+      "attribution_institution" : "Rijksmuseum",
+      "attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
+      "license_CC-ND-NC-SA": false,
+      "license_public": true
+    },
+    "strapline": "Explore 41,629,020 items from Europe's libraries, archives and museums.",
 
-		"total_items": "40,173,111",
+    "total_items": "40,173,111",
 
-		"important_removed": {
-			"text": "Europeana stories are now in Google’s Field Trip app",
-			"url": "http://blog.europeana.eu/2015/03/its-your-world-explore-it-europeana-stories-now-in-googles-field-trip-app/"
-		},
+    "important_removed": {
+      "text": "Europeana stories are now in Google’s Field Trip app",
+      "url": "http://blog.europeana.eu/2015/03/its-your-world-explore-it-europeana-stories-now-in-googles-field-trip-app/"
+    },
 
-		"promoted":[
-			{
-				"title":"Art & Art History",
-				"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-				"is_channel": true,
-				"bg_image":"sample/thumb-art.jpg"
-			},
-			{
-				"title":"Music",
-				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-				"is_channel": true,
-				"bg_image":"sample/thumb-music.jpg"
-			},
-			{
-				"title":"Maps and Cartography",
-				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-				"is_channel": true,
-				"bg_image":"sample/thumb-maps.jpg"
-			},
-			{
-				"title":"Europeana 1914—1918",
-				"subtitle": "Untold stories & official histories of WWI",
-				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-				"is_channel": true,
-				"bg_image":"sample/thumb-1418.jpg"
-			},
-			{
-				"title":"Natural History",
-				"url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-				"is_channel": true,
-				"bg_image":"sample/thumb-naturalhistory.jpg"
-			},
-			{
-				"title":"Photography on a Silver Plate",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-photography.jpg"
-			},
-			{
-				"title":"European Film and the First World War",
-				"url": "urlhere",
-				"is_exhibition": true,
-				"bg_image":"sample/thumb-expo-film.jpg"
-			},
-			{
-				"title":"Europeana monuments now in Google Field Trip",
-				"url": "urlhere",
-				"is_new": true,
-				"bg_image":false
-			}
-		],
+    "promoted":[
+      {
+        "title":"Art & Art History",
+        "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+        "is_channel": true,
+        "bg_image":"sample/thumb-art.jpg"
+      },
+      {
+        "title":"Music",
+        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
+        "is_channel": true,
+        "bg_image":"sample/thumb-music.jpg"
+      },
+      {
+        "title":"Maps and Cartography",
+        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
+        "is_channel": true,
+        "bg_image":"sample/thumb-maps.jpg"
+      },
+      {
+        "title":"Europeana 1914—1918",
+        "subtitle": "Untold stories & official histories of WWI",
+        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
+        "is_channel": true,
+        "bg_image":"sample/thumb-1418.jpg"
+      },
+      {
+        "title":"Natural History",
+        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
+        "is_channel": true,
+        "bg_image":"sample/thumb-naturalhistory.jpg"
+      },
+      {
+        "title":"Photography on a Silver Plate",
+        "url": "urlhere",
+        "is_exhibition": true,
+        "bg_image":"sample/thumb-photography.jpg"
+      },
+      {
+        "title":"European Film and the First World War",
+        "url": "urlhere",
+        "is_exhibition": true,
+        "bg_image":"sample/thumb-expo-film.jpg"
+      },
+      {
+        "title":"Europeana monuments now in Google Field Trip",
+        "url": "urlhere",
+        "is_new": true,
+        "bg_image":false
+      }
+    ],
 
-		"news": {
-			"items":[
-			{
-				"headline": {
-					"medium":"The miniature magic of Japanese netsuke"
-				},
-				"url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
-				"img": {
-					"rectangle": {
-						"src":"sample/netsuke.jpg",
-						"alt":"Japanese scroll with netsuke illustration"
-					}
-				},
-				"excerpt": {
-					"short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
-				}
-			},
-			{
-				"headline":{
-					"medium":"Celebrating World Theatre Day 2015"
-				},
-				"url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
-				"img": {
-					"rectangle": {
-						"src":"sample/theatreday.jpg",
-						"alt":"Theatre Day"
-					}
-				},
-				"excerpt": {
-					"short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-				}
-			},
-			{
-				"headline":{
-					"medium":"Europeana takes part in #MuseumWeek 2015"
-				},
-				"url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
-				"img": {
-					"rectangle": {
-						"src":"sample/Museumweek.jpg",
-						"alt":"Museum Week 2015"
-					}
-				},
-				"excerpt": {
-					"short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
-				}
-			}
-			]
-		}
+    "news": {
+      "items":[
+      {
+        "headline": {
+          "medium":"The miniature magic of Japanese netsuke"
+        },
+        "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+        "img": {
+          "rectangle": {
+            "src":"sample/netsuke.jpg",
+            "alt":"Japanese scroll with netsuke illustration"
+          }
+        },
+        "excerpt": {
+          "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
+        }
+      },
+      {
+        "headline":{
+          "medium":"Celebrating World Theatre Day 2015"
+        },
+        "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+        "img": {
+          "rectangle": {
+            "src":"sample/theatreday.jpg",
+            "alt":"Theatre Day"
+          }
+        },
+        "excerpt": {
+          "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+        }
+      },
+      {
+        "headline":{
+          "medium":"Europeana takes part in #MuseumWeek 2015"
+        },
+        "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+        "img": {
+          "rectangle": {
+            "src":"sample/Museumweek.jpg",
+            "alt":"Museum Week 2015"
+          }
+        },
+        "excerpt": {
+          "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+        }
+      }
+      ]
+    }
 
-	},
-	"navigation":{
-		"global":{
-			"options": {
-				"search_active": false,
-				"settings_active": true
-			},
-			"logo":{
-				"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-				"text": "Europeana Search"
-			},
-			"primary_nav":{
-				"items": [
-					{
-						"url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-						"text": "Home",
-						"is_current":true
-					},
-					{
-						"url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-						"text": "Themes",
-						"submenu": {
-							"items": [
-								{
-									"url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-									"text": "Art History"
-								},
-								{
-									"url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
-									"text": "Music"
-								}
-							]
-						}
-					},
-					{
-						"url": "",
-						"text": "Exhibitions"
-					},
-					{
-						"url": "",
-						"text": "Blog"
-					},
-					{
-						"url": "",
-						"text": "My Europeana"
-					}
-				]
-			}
-		},
+  },
+  "navigation":{
+    "global":{
+      "options": {
+        "search_active": false,
+        "settings_active": true
+      },
+      "logo":{
+        "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
+        "text": "Europeana Search"
+      },
+      "primary_nav":{
+        "items": [
+          {
+            "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
+            "text": "Home",
+            "is_current":true
+          },
+          {
+            "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+            "text": "Themes",
+            "submenu": {
+              "items": [
+                {
+                  "url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+                  "text": "Art History"
+                },
+                {
+                  "url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
+                  "text": "Music"
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Exhibitions"
+          },
+          {
+            "url": "",
+            "text": "Blog"
+          },
+          {
+            "url": "",
+            "text": "My Europeana"
+          }
+        ]
+      }
+    },
 
-		"footer":{
-			"linklist1":{
-				"title": "More info",
-				"items": [
-					{
-						"text": "New collections",
-						"url":"http://google.com"
-					},
-					{
-						"text": "All data providers",
-						"url":"http://google.com"
-					},
-					{
-						"text": "Become a data provider",
-						"url":"http://google.com"
-					}
-				]
-			},
-			"linklist2":{
-				"title": "Help",
-				"items": [
-					{
-						"text": "Search tips",
-						"url":"http://google.com"
-					},
-					{
-						"text": "Using My Europeana",
-						"url":"http://google.com"
-					},
-					{
-						"text": "Copyright",
-						"url":"http://google.com"
-					}
-				]
-			},
-			"social":{
-				"linkedin": false,
-				"github": false
-			}
-		}
+    "footer":{
+      "linklist1":{
+        "title": "More info",
+        "items": [
+          {
+            "text": "New collections",
+            "url":"http://google.com"
+          },
+          {
+            "text": "All data providers",
+            "url":"http://google.com"
+          },
+          {
+            "text": "Become a data provider",
+            "url":"http://google.com"
+          }
+        ]
+      },
+      "linklist2":{
+        "title": "Help",
+        "items": [
+          {
+            "text": "Search tips",
+            "url":"http://google.com"
+          },
+          {
+            "text": "Using My Europeana",
+            "url":"http://google.com"
+          },
+          {
+            "text": "Copyright",
+            "url":"http://google.com"
+          }
+        ]
+      },
+      "social":{
+        "linkedin": false,
+        "github": false
+      }
+    }
 
-	}
+  }
 }

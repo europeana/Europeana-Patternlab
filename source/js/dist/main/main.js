@@ -1,4 +1,5 @@
 require.config({
+    baseUrl: '/js/dist',
     paths: {
         channels:            'eu/channels',
 
@@ -13,7 +14,6 @@ require.config({
         resize:              'eu/util/resize',
 
         blacklight:          'lib/blacklight/blacklight_all',
-
 
         search_form:         'eu/search-form',
         search_home:         'eu/search-home',

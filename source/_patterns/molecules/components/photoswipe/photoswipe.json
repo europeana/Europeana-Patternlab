@@ -1,21 +1,27 @@
 {
   "i18n": {
-		"global": {
-			"javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
-		}
-	},
-	"js_files": [
-		{
-			"path": "/js/dist/require.js",
-			"data_main": "/js/dist/main"
-		}
+    "global": {
+      "javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
+    }
+  },
+  "js_files": [
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/main-photoswipe-molecule"
+    }
   ],
   "poster" : {
     "title": "Self-portrait as the Apostle Paul",
-		"src": "/images/sample/object_thumbnail.jpg",
     "is_current": true,
-		"data_src": "/images/sample/object_thumbnail.jpg",
-		"data_w": 500,
-    "data_h": 563
+
+    "xxx_src": "/images/sample/object_thumbnail.jpg",
+    "xxx_data_src": "/images/sample/object_thumbnail.jpg",
+    "xxx_data_w": 500,
+    "xxx_data_h": 563,
+
+    "src": "../..//images/sample/object_thumbnail.jpg",
+    "data_src": "../../images/sample/channel_hero_art.jpg",
+    "data_w": 1280,
+    "data_h": 975
   }
 }
