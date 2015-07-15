@@ -15,8 +15,8 @@ define([], function() {
   function setTechOrder() {
     var
     tech_order = viewer.getAttribute('data-tech-order');
-console.log(tech_order);
     if ( !tech_order || typeof videojs === 'undefined' ) {
+      console.log('no tech order');
       return;
     }
 
@@ -25,7 +25,7 @@ console.log(tech_order);
 
   function determineMediaViewer() {
     //viewer = document.getElementById('videojs-viewer');
-    viewer = $('.object-media-audio video')[0];
+    viewer = $('audio')[0];
 
     if ( !viewer || typeof viewer === 'undefined' ) {
       console.log('no viewer');
@@ -33,7 +33,7 @@ console.log(tech_order);
     }
 
     switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
-      case 'audio/flac':
+      case 'audio/flac': {
         require(['aurora'], function() {
           require(['flac'], function() {
             require(['videojs'], function() {
@@ -45,9 +45,11 @@ console.log(tech_order);
           });
         });
         break;
+      }
 
-      default:
-        require(['videojs'], function() { initialiseViewer(); });
+      default: {
+          require(['videojs'], function() { initialiseViewer(); });
+      }
     }
   }
 
