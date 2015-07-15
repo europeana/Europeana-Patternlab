@@ -38,6 +38,10 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
 
     // Let's get all viewers working - then we'll optimise.
 
+    // to do this we also need to remove the @import statement from the screen.scss; otherwise the styles
+    // will be loaded twice. i have removed the @import statements and the associated scss files from
+    // /source/sass/search/ directory to avoid any confusion
+
     $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
