@@ -24,9 +24,11 @@ console.log(tech_order);
   }
 
   function determineMediaViewer() {
-    viewer = document.getElementById('videojs-viewer');
+    //viewer = document.getElementById('videojs-viewer');
+    viewer = $('.object-media-audio video')[0];
 
     if ( !viewer || typeof viewer === 'undefined' ) {
+      console.log('no viewer');
       return;
     }
 
