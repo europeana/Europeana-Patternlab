@@ -15,7 +15,7 @@ define([], function() {
   function setTechOrder() {
     var
     tech_order = viewer.getAttribute('data-tech-order');
-
+console.log(tech_order);
     if ( !tech_order || typeof videojs === 'undefined' ) {
       return;
     }
@@ -50,7 +50,7 @@ define([], function() {
   }
 
   function init() {
-    //determineMediaViewer();
+    determineMediaViewer();
     console.log('init search audio viewer');
   }
 

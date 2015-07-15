@@ -46,6 +46,7 @@ define([], function() {
       default:
         require(['videojs'], function() { initialiseViewer(); });
     }
+  }
 
   function init() {
     determineMediaViewer();
@@ -56,5 +57,5 @@ define([], function() {
     init:function() {
       init();
     }
-  }
+  };
 });
