@@ -26,7 +26,7 @@ define([], function() {
   function determineMediaViewer() {
     //viewer = document.getElementById('videojs-viewer');
 
-    viewer = $('.object-media-video video')[0];
+    viewer = $('video')[0];
 
     if ( !viewer || typeof viewer === 'undefined' ) {
       console.log('no viewer');
