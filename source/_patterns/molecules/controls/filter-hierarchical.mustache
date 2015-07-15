@@ -1,6 +1,6 @@
-{{! 
+{{!
 
-FILTER COMPONENT - Hierarchical 
+FILTER COMPONENT - Hierarchical
 
 Behaviour:
 Should display a list of properties that the search results can be filterable by, eg: Type
@@ -15,7 +15,7 @@ When the selected facet is removed the search results are updated to the previou
 
 
 Configuration options and content model:
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 "filters":[
     {
@@ -38,6 +38,7 @@ Configuration options and content model:
             },
             ...Add more visible items here
         ],
+        "has_subfilters": true,     // flag to output subfilters
         "filters": [
             // this is the next level of filters (in the same format as the outer filter array) This will allow us to specify filter types that apply when an item within the parent filter is selected. These will be filters that make sense for the current selection. eg. Orientation or Colour options for a selection of "Painting".
             // which filters are shown is specified by the filter_ids in related_filters in the item array (see above)
@@ -47,12 +48,12 @@ Configuration options and content model:
     ...Add more filters here
 ]
 
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 
 
 }}
-<div class="filter js-filter-hierarchical">
+<div class="filter filter-hierarchical js-filter-hierarchical {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
     <div class="filter-name">{{ title }}</div>
 
@@ -64,29 +65,45 @@ Configuration options and content model:
             <span class="filter-num">({{num_results}})</span>
             {{/num_results}}
             </a>
+
+            {{#has_subfilters}}
+            <ul class="subfilters js-extrafilters {{^is_checked}} is-jshidden {{/is_checked}}">
+                {{#filters}}
+                    {{#simple}}
+                        {{> molecules/controls/filter-simple }}
+                    {{/simple}}
+
+                    {{#colour}}
+                        {{> molecules/controls/filter-colour }}
+                    {{/colour}}
+
+                    {{#tabbed}}
+                        {{> molecules/controls/filter-tabbed }}
+                    {{/tabbed}}
+                {{/filters}}
+            </ul>
+            {{/has_subfilters}}
         </li>
     {{/items}}
 
-    <div class="filter-extrafilters js-extrafilters is-jshidden">
-        {{#filters}}
-            {{#simple}}
-                {{> molecules/controls/filter-simple }}
-            {{/simple}}
-            {{#date}}
-                {{> molecules/controls/filter-date }}
-            {{/date}}
-            {{#language}}
-                {{> molecules/controls/filter-language }}
-            {{/language}}
-            {{#license}}
-                {{> molecules/controls/filter-license }}
-            {{/license}}
-        {{/filters}}
+    {{#extra_items}}
+        <div class="filter-extrafields js-showhide-panel is-jshidden">
+    {{#items}}
+        <li>
+            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
+            {{#num_results}}
+            <span class="filter-num">{{num_results}}</span>
+            {{/num_results}}
+            </a>
+        </li>
+    {{/items}}
     </div>
+    {{/extra_items}}
 
     </ul>
 
     {{#extra_items}}
         <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.less}}">{{i18n.more}}</a>
     {{/extra_items}}
+
 </div>

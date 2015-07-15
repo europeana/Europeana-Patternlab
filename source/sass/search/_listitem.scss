@@ -5,6 +5,7 @@
 
 	position: relative;
 	margin-bottom: $space-double;
+	border-bottom: 1px solid $gray87;
 
 	.item-info{
 		@include span(11 of 12);
@@ -36,7 +37,7 @@
 	footer{
 		font-size: $font-size-slightly-smaller;
 		padding: $space-half 0;
-		border-bottom: 1px solid $gray87;
+
 		@extend .cf;
 	}
 

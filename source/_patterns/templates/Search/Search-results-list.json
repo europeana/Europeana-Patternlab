@@ -65,14 +65,111 @@
     "filters": [
         {
             "title": "Themes",
-            "simple": true,
+            "hierarchical": true,
             "select_one": true,
             "items": [
                 {
                     "url": "http://europeana.eu",
                     "text": "Art",
                     "num_results": "15K",
-                    "is_checked": true
+                    "is_checked": true,
+                    "has_subfilters": true,
+				    "filters": [
+				        {
+				            "title": "Orientation",
+				            "simple": true,
+				            "select_one": false,
+				            "items": [
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Portrait",
+				                    "num_results": "15K",
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Landscape",
+				                    "num_results": 300,
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Square",
+				                    "num_results": 600,
+				                    "is_checked": false
+				                }
+				            ],
+				            "extra_items": false
+				        },
+				        {
+				            "title": "Medium",
+				            "simple": true,
+				            "select_one": false,
+				            "items": [
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Photograph",
+				                    "num_results": "15K",
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Painting",
+				                    "num_results": 300,
+				                    "is_checked": true
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Sculpture",
+				                    "num_results": 600,
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "Mixed media",
+				                    "num_results": 123,
+				                    "is_checked": true
+				                }
+				            ],
+				            "extra_items": false
+				        },
+				        {
+				            "title": "Colour",
+				            "colour": true,
+				            "select_one": false,
+				            "items": [
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "colour name",
+				                    "hex": "#F1F1EE",
+				                    "num_results": "123",
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "colour name",
+				                    "hex": "#F22F24",
+				                    "num_results": 123,
+				                    "is_checked": true
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "colour name",
+				                    "hex": "#FFAE00",
+				                    "num_results": 123,
+				                    "is_checked": false
+				                },
+				                {
+				                    "url": "http://europeana.eu",
+				                    "text": "colour name",
+				                    "hex": "#C8D5D7",
+				                    "num_results": 123,
+				                    "is_checked": true
+				                }
+				            ],
+				            "extra_items": false
+				        }
+				    ]
                 },
                 {
                     "url": "http://europeana.eu",
@@ -391,22 +488,14 @@
                 "name": "Painting",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/400/300/people",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/people",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/people",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/people",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/people",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
@@ -451,27 +540,31 @@
                 "name": "Recording",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/400/300/nature",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/nature",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/nature",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/nature",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/nature",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -499,27 +592,31 @@
                 "name": "Song",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/400/300/tech",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/tech",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/tech",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/tech",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/tech",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -547,27 +644,31 @@
                 "name": "Poem",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/people",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/people",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/people",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/people",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/people",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Providerhere"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -595,27 +696,31 @@
                 "name": "Book",
                 "url": "http://europeana.eu/search/books"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/nature",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/nature",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/nature",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/nature",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/nature",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Providerhere"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -643,27 +748,31 @@
                 "name": "Photograph",
                 "url": "http://europeana.eu/search/photograph"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/300/tech",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/tech",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/tech",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/tech",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/tech",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Providerhere"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -691,27 +800,31 @@
                 "name": "Drawing",
                 "url": "http://europeana.eu/search/drawing"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/people",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/people",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/people",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/people",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/people",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -739,27 +852,31 @@
                 "name": "Print",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/nature",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/nature",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/nature",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/nature",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/nature",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -787,27 +904,31 @@
                 "name": "TV programme",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/300/tech",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/tech",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/tech",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/tech",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/tech",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -835,27 +956,31 @@
                 "name": "Painting",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/people",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/people",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/people",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/people",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/people",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -883,27 +1008,31 @@
                 "name": "Music video",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/300/nature",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/nature",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/nature",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/nature",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/nature",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
@@ -931,27 +1060,31 @@
                 "name": "Painting",
                 "url": "http://europeana.eu/search/paintings"
             },
+            "thumbnail": {
+                "src": "http://placeimg.com/300/400/tech",
+                "alt": "Rectangle"
+            },
             "img": {
-                "avatar": {
-                    "src": "http://placeimg.com/100/100/tech",
-                    "alt": "Avatar"
-                },
-                "square": {
-                    "src": "http://placeimg.com/300/300/tech",
-                    "alt": "Square"
-                },
                 "rectangle": {
                     "src": "http://placeimg.com/400/300/tech",
                     "alt": "Rectangle"
-                },
-                "portrait": {
-                    "src": "http://placeimg.com/300/400/tech",
-                    "alt": "Portrait"
                 }
             },
             "origin": {
                 "url": "http://urlhere.com",
                 "text": "Rijksmuseum"
+            },
+            "concepts": {
+                "items": [
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "prints (visual works)"
+                    },
+                    {
+                        "url": "http://europeana.eu",
+                        "text": "paper (fiber product)"
+                    }
+                ]
             },
             "channels": {
                 "items": [
