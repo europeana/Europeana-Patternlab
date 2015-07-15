@@ -8,7 +8,7 @@ define([], function() {
     );
   }
 
-  function setTechOrder() {
+  function setTechOrder( viewer ) {
     var tech_order = viewer.getAttribute('data-tech-order');
 
     if ( !tech_order ) {
@@ -36,7 +36,7 @@ define([], function() {
           require(['flac'], function() {
             require(['videojs'], function() {
               require(['videojs_aurora'], function() {
-                setTechOrder();
+                setTechOrder( viewer );
                 initialiseViewer( viewer );
               });
             });
@@ -50,7 +50,7 @@ define([], function() {
         require(['videojs'], function() {
           require(['videojs_silverlight'], function() {
             videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
-            setTechOrder();
+            setTechOrder( viewer );
             initialiseViewer( viewer );
           });
         });

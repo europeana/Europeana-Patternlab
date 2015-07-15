@@ -12,7 +12,7 @@
 	"js_files": [
 		{
 			"path": "/js/dist/require.js",
-			"data_main": "/js/dist/main/main-audio-molecule"
+			"data_main": "/js/dist/main/main-videojs-molecule"
 		}
   ],
 	"items": [
