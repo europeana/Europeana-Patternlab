@@ -15,15 +15,22 @@
 			"data_main": "/js/dist/main"
 		}
   ],
-  "is_audio" : {
-    "title": "Toccata Op.111 ( audio - flac )",
-    "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
-		"tech_order": "aurora",
-		"sources": [
-      {
-        "mime_type": "audio/flac",
-        "src": "/media/C_2336_2G_221-2.flac"
-      }
-    ]
-  }
+	"items": [
+		{
+			"is_audio": true,
+			"thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
+			"download": {
+				"url": "/media/C_2336_2G_221-2.flac",
+				"text": "Original file"
+			},
+			"technical_metadata": {
+				"mime_type": "audio/flac",
+				"tech_order": "aurora"
+			},
+			"rights": {
+				"license_public": true,
+				"license_human": "You can use this image in any way you like"
+			}
+		}
+	]
 }

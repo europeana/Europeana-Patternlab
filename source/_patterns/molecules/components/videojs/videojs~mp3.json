@@ -15,14 +15,21 @@
 			"data_main": "/js/dist/main"
 		}
   ],
-	"is_audio" : {
-    "title": "Do žalian sodi obełėłė ( audio - mp3 )",
-    "poster": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.dismarc-audio.org%2FLLTI%2FLingu_palingu.jpg&size=LARGE&type=SOUND",
-    "sources": [
-      {
-        "mime_type": "audio/mp3",
-        "src": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3"
-      }
-    ]
-  }
+	"items": [
+		{
+			"is_audio": true,
+			"thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.dismarc-audio.org%2FLLTI%2FLingu_palingu.jpg&size=LARGE&type=SOUND",
+			"download": {
+				"url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
+				"text": "Original file"
+			},
+			"technical_metadata": {
+				"mime_type": "audio/mp3"
+			},
+			"rights": {
+				"license_public": true,
+				"license_human": "You can use this image in any way you like"
+			}
+		}
+	]
 }

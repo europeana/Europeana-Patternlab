@@ -15,14 +15,21 @@
 			"data_main": "/js/dist/main"
 		}
   ],
-	"is_video" : {
-    "title": "The 5000th house is finished ( video - ogv )",
-    "poster": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
-    "sources": [
-      {
-        "mime_type": "video/mp4",
-        "src": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv"
-      }
-    ]
-  }
+	"items": [
+		{
+			"is_video": true,
+			"thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+			"download": {
+				"url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
+				"text": "Original file"
+			},
+			"technical_metadata": {
+				"mime_type": "video/ogv"
+			},
+			"rights": {
+				"license_public": true,
+				"license_human": "You can use this image in any way you like"
+			}
+		}
+	]
 }
