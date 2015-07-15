@@ -3,7 +3,10 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
 
   var
     // would rather keep the css inside the patternlab scss
-    // css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
+    //css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
+
+    // would rather keep the css working - see commnent below
+    css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
     items = [],
     options = { index: 0 },
     gallery = {},
@@ -21,8 +24,21 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       return;
     }
 
-    // would rather keep the css inside the patternlab scss
-    // $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+
+    // I think css should be loaded on demand the same way the js component it styles is loaded on demand.
+
+    // I understand it's not nice having paths to cs inside javascript
+    // but sometimes it's unavoidable (note how we have a similar thing going on with paths in search-pdf-viewer)
+    // to set PDFJS.workerSrc.  Likewise the css for the leaflet map is loaded on demand - only if needed.
+
+    // If we do want to make things easier to style for Tim we should develop a different theme (it looks like there's
+    // a a JS aspect to that - PhotoSwipeUI_Default - would need to be replaced) and then, when it works, look at getting
+    // that included in pattern lab, but just removing the CSS path causes it to break (and hides the bug we have with the
+    // first item opening in miniature).
+
+    // Let's get all viewers working - then we'll optimise.
+
+    $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
     gallery.init();
