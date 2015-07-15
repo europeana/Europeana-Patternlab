@@ -1,4 +1,4 @@
-(function() {
+define([], function() {
   'use strict';
 
   var
@@ -74,8 +74,13 @@
   }
 
   function init() {
-    determineMediaViewer();
+    //determineMediaViewer();
+    console.log('init search audio viewer');
   }
 
-  init();
-}());
+  return {
+    init:function() {
+      init();
+    }
+  }
+});

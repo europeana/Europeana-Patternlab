@@ -24,7 +24,10 @@ require.config({
 
         media_controller:    '../eu/media/search-media-controller',
         media_viewer_pdf:    '../eu/media/search-pdf-viewer',
-        media_viewer:        '../eu/media/search-media-viewer',
+        media_viewer_video:  '../eu/media/search-video-viewer',
+        media_viewer_audio:  '../eu/media/search-audio-viewer',
+        media_viewer_image: '../eu/media/search-image-viewer',
+
         pdfjs:               '../lib/pdfjs/pdf',
 
         aurora:              '../lib/audiocogs/aurora',
@@ -36,8 +39,7 @@ require.config({
         videojs_silverlight: '../lib/videojs-silverlight/videojs-silverlight',
 
         photoswipe:         '../lib/photoswipe/photoswipe',
-        photoswipe_ui:      '../lib/photoswipe/photoswipe-ui-default',
-        media_viewer_image: '../eu/media/search-image-viewer'
+        photoswipe_ui:      '../lib/photoswipe/photoswipe-ui-default'
     },
     shim: {
         blacklight:     ['jquery'],

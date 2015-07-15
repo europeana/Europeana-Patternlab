@@ -111,7 +111,7 @@ module.exports = function(grunt) {
           },
 
           main: {
-              src:    ['main.js', 'main-pdf-molecule.js', 'main-photoswipe-molecule.js'],
+							src:    '**',
               cwd:    'source/js/modules/main',
               dest:   'source/js/dist/main',
               expand: true
