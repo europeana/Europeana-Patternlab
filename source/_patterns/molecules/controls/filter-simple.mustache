@@ -1,14 +1,14 @@
-{{! 
+{{!
 
-FILTER COMPONENT - SIMPLE 
+FILTER COMPONENT - SIMPLE
 
 Can be configured by the injected data to behave as a single selection filter (radio buttons) or as a multiple selection filter (checkboxes).
 
-Default status: 
+Default status:
 Multiple select (checkboxes)
 
 Single selection mode (radio buttons):
-To trigger single selection mode set 
+To trigger single selection mode set
 "select_one" : true
 
 If injected data isn't present, the default is displayed and false is assumed.
@@ -16,7 +16,7 @@ If injected data isn't present, the default is displayed and false is assumed.
 
 
 Configuration options and content model:
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 "filters":[
     {
@@ -47,14 +47,14 @@ Configuration options and content model:
     ...Add more filters here
 ]
 
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 
 
 }}
 <div class="filter {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
-    <div class="filter-name">{{ title }}</div>
+    {{# title }}<div class="filter-name">{{ title }}</div>{{/ title }}
 
     <ul class="filter-list">
     {{#items}}
@@ -86,5 +86,5 @@ Configuration options and content model:
     {{#extra_items}}
         <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.less}}">{{i18n.more}}</a>
     {{/extra_items}}
-    
+
 </div>

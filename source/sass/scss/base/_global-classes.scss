@@ -58,6 +58,13 @@
 	padding: 0 $pad $pad 0;
 }
 
+.centre{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate (-50%, -50%);
+}
+
 /* Text-Align */
 .align-right {
 	text-align: right;
