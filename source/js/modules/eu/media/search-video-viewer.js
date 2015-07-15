@@ -24,13 +24,20 @@ define([], function() {
   }
 
   function determineMediaViewer() {
-    viewer = document.getElementById('videojs-viewer');
+    //viewer = document.getElementById('videojs-viewer');
+
+    viewer = $('.object-media-video video')[0];
 
     if ( !viewer || typeof viewer === 'undefined' ) {
+      console.log('no viewer');
       return;
     }
 
-    switch ( viewer.getElementsByTagName('source')[0].getAttribute('type') ) {
+    var sourceType = viewer.getElementsByTagName('source')[0].getAttribute('type');
+
+    console.log('video mime type is ' + sourceType);
+
+    switch ( sourceType ) {
       case 'video/wmv':
       case 'video/x-msvideo':
       case 'video/x-ms-wmv':
