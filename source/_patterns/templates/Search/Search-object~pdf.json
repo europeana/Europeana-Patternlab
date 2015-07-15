@@ -37,17 +37,15 @@
         [
           {
             "is_current": true,
-            "is_audio": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
-            "download": {
-              "url": "/media/C_2336_2G_221-2.flac",
+            "is_pdf": true,
+            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "file": "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
+            "download":{
+              "url":  "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
               "text": "Original file"
             },
-            "technical_metadata": {
-              "mime_type": "audio/flac",
-              "tech_order": "aurora"
-            },
-            "rights": {
+            "rights":
+            {
               "license_public": true,
               "license_human": "You can use this image in any way you like"
             }
