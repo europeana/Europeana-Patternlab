@@ -26,7 +26,7 @@ define(['jquery'], function() {
 
   function initMediaAudio() {
     console.log('object-media-audio');
-    require(['media_viewer'], function(mediaViewer){
+    require(['media_viewer_audio'], function(mediaViewer){
       console.log('loaded audio viewer');
     });
   }
@@ -85,7 +85,7 @@ define(['jquery'], function() {
 
   function initMediaVideo() {
     console.log('object-media-video');
-    require(['media_viewer'], function(mediaViewer){
+    require(['media_viewer_video'], function(mediaViewer){
       console.log('loaded video viewer');
     });
   }
