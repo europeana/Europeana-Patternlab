@@ -107,10 +107,15 @@
           },
 
           {
-            "preview": "/images/sample/object_preview.jpg",
-            "thumbnail": "/images/sample/object_thumbnail.jpg",
-            "file": "/images/sample/object_full.jpg",
-            "is_image": true,
+            "is_video": true,
+            "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+            "download": {
+              "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
+              "text": "Original file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/mp4"
+            },
             "rights":
             {
               "license_public": true,
