@@ -21,9 +21,8 @@ define(['jquery'], function() {
     $viewer.removeClass('is-hidden');
 
     require(['media_viewer_image'], function(photoSwipeInit){
-        photoSwipeInit.init();
+      photoSwipeInit.init();
     });
-
   }
 
   function initMedia() {

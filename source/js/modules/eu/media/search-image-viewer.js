@@ -1,8 +1,9 @@
-define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
+define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Default ) {
   'use strict';
 
   var
-    css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
+    // would rather keep the css inside the patternlab scss
+    // css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
     items = [],
     options = { index: 0 },
     gallery = {},
@@ -10,7 +11,6 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     viewer  = $('.photoswipe-wrapper  > .pswp')[0];
 
   function initialiseGallery() {
-
     if ( items.length < 1 ) {
       console.warn( 'initialiseGallery() - no images to add to the gallery' );
       return;
@@ -21,7 +21,8 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       return;
     }
 
-    $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+    // would rather keep the css inside the patternlab scss
+    // $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
     gallery.init();
@@ -31,9 +32,8 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
    * @param {DOM Element} elm
    */
   function setItems( elm ) {
-
-    if(items.length > 0){
-        return true;
+    if ( items.length > 0 ) {
+      return true;
     }
 
     var
@@ -70,15 +70,16 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
   }
 
   function init(itemsIn) {
-    if(itemsIn){
-        items = itemsIn;
+    if ( itemsIn ) {
+      items = itemsIn;
     }
+
     $poster.on( 'click', handleImageClick );
   }
 
   return {
-      init:function(items){
-          init(items);
-      }
+    init:function( items ) {
+      init( items );
+    }
   }
 });
