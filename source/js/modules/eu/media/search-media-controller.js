@@ -11,19 +11,6 @@ define(['jquery'], function() {
     $('.media-viewer .object-media-video').addClass('is-hidden');
   }
 
-  function determineMediaViewer() {
-    var $viewer = $('.media-viewer .is-current').eq(0);
-
-    if ( !$viewer ) {
-      return;
-    }
-
-    $viewer.removeClass('is-hidden');
-
-    require(['media_viewer_image'], function(photoSwipeInit){
-      photoSwipeInit.init();
-    });
-  }
 
   function initMedia() {
     console.log('media_init');
@@ -40,7 +27,7 @@ define(['jquery'], function() {
   function initMediaAudio() {
     console.log('object-media-audio');
     require(['media_viewer'], function(mediaViewer){
-      console.log('loaded media viewer');
+      console.log('loaded audio viewer');
     });
   }
 
@@ -99,7 +86,7 @@ define(['jquery'], function() {
   function initMediaVideo() {
     console.log('object-media-video');
     require(['media_viewer'], function(mediaViewer){
-      console.log('loaded media viewer');
+      console.log('loaded video viewer');
     });
   }
 
