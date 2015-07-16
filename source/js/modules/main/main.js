@@ -9,7 +9,6 @@ require.config({
         jquery:                 '../lib/jquery',
 
         menus:                  '../global/menus',
-        placeholder:            '../global/placeholder',
         resize:                 '../eu/util/resize',
 
         blacklight:             '../lib/blacklight/blacklight_all',

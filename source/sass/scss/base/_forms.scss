@@ -58,6 +58,17 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 	-webkit-appearance: none;
 }
 
+input[type=text]{
+	@include placeholder{
+		color: $textcolour_link;
+	}
+}
+input[type=text]:focus{
+	@include placeholder{
+		color: $gray-light;
+	}
+}
+
 button, input[type="submit"] {
 	width: auto;
 	padding: $pad-half $pad;
@@ -74,11 +85,11 @@ button.pushbutton, input[type="submit"].pushbutton {
 
 	$grad-start: #FFFFFF;
 	$grad-end: #CCCCCC;
-	
+
 	background: -moz-linear-gradient(top, $grad-start 0%, $grad-end 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad-start), color-stop(100%,$grad-end));
-	
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end);    
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end)";
 	background: -ms-linear-gradient(top, $grad-start 0%, $grad-end 100%);
 	border: 1px solid #ccc;
