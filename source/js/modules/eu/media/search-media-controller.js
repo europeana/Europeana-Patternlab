@@ -26,7 +26,7 @@ define(['jquery'], function() {
 
   function initMediaAudio() {
     console.log('object-media-audio');
-    require(['media_viewer_audio'], function(audioViewer){
+    require(['media_viewer_videojs'], function(audioViewer){
         console.log('loaded audio viewer');
         hideAllViewers();
         $('.media-viewer .object-media-audio').removeClass('is-hidden');

@@ -58,12 +58,14 @@ define([], function() {
    * @param {DOM Element} viewr
    */
   function initVideojs( viewer ) {
-    require(['videojs'], function() { initialiseViewer( viewer ); });
+    require(['videojs'], function() {
+      initialiseViewer( viewer );
+    });
   }
 
   function determineMediaViewer() {
     var
-      viewer = $('audio')[0] || $('video')[0],
+      viewer = $('audio.is-current')[0] || $('video.is-current')[0],
       sourceType = viewer.getElementsByTagName('source')[0].getAttribute('type');
 
     if ( !viewer ) {
