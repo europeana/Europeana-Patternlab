@@ -2,16 +2,18 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
   'use strict';
 
   var
-    // would rather keep the css inside the patternlab scss
-    //css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
-
-    // would rather keep the css working - see commnent below
-    css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
+    css_path_1 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
+    css_path_2 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/default-skin/default-skin.css' : js_path + 'lib/photoswipe/default-skin/default-skin.css',
     items = [],
     options = { index: 0 },
     gallery = {},
     $poster = $('.photoswipe-wrapper > img'),
     viewer  = $('.photoswipe-wrapper  > .pswp')[0];
+
+
+  $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+
 
   function initialiseGallery() {
     if ( items.length < 1 ) {
@@ -41,8 +43,6 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     // to do this we also need to remove the @import statement from the screen.scss; otherwise the styles
     // will be loaded twice. i have removed the @import statements and the associated scss files from
     // /source/sass/search/ directory to avoid any confusion
-
-    $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
     gallery.init();
