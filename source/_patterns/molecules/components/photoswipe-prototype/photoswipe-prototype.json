@@ -1,0 +1,33 @@
+{
+  "i18n": {
+		"global": {
+			"javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
+		}
+	},
+	"css_files": [
+    {
+      "path": "/js/dist/lib/photoswipe/photoswipe.css"
+    },
+		{
+			"path": "/js/dist/lib/photoswipe/default-skin/default-skin.css"
+		}
+  ],
+	"js_files": [
+		{
+			"path": "/js/dist/lib/photoswipe/photoswipe.js"
+		},
+		{
+			"path": "/js/dist/lib/photoswipe/photoswipe-ui-default.js"
+		},
+		{
+			"path": "/js/dist/lib/photoswipe/init.js"
+		}
+  ],
+  "poster" : {
+    "title": "Self-portrait as the Apostle Paul",
+		"src": "http://europeanastatic.eu/api/image?uri=https%3A%2F%2Fwww.rijksmuseum.nl%2Fassetimage2.jsp%3Fid%3DSK-A-4050&size=LARGE&type=IMAGE",
+    "data_src": "https://www.rijksmuseum.nl/assetimage2.jsp?id=SK-A-4050",
+		"data_w": 2287,
+    "data_h": 2724
+  }
+}
