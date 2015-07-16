@@ -27,7 +27,7 @@
 }
 
 .search-home-hero{
-	height: 50%;	
+	height: 50%;
 
 	@media all and (min-width: $bp-med) {
 		height: 75%;
@@ -70,7 +70,7 @@
 }
 
 .promo-list{
-	
+
 	padding-top: $space-quarter; //fallback
 	padding-top: 1.05634vw;
 
@@ -231,7 +231,7 @@
 		border-left: 1px solid $gray-lighter;
 	}
 
-	
+
 
 	.number{
 		@include fontSize(18px);
@@ -252,7 +252,7 @@
 	}
 
 	ul{
-		display: block;	
+		display: block;
 	}
 
 	li > a{
@@ -269,6 +269,7 @@
 	.link-text{
 		width: 40%;
 		font-weight: bold;
+		padding-right: 0.5em;
 	}
 	.link-number{
 		width: 30%;

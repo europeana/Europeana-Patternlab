@@ -408,7 +408,7 @@
     "i18n": {
         "site": {
             "more": "More...",
-            "news": "['News', 'Etc'].join(',')",
+            "news": "News",
             "object": {
                 "actions": {
                     "download": "Download",

@@ -14,14 +14,14 @@
 		</div>
 
 	</div>
-	
-	{{#content.hero_config}} 
+
+	{{#content.hero_config}}
 		{{>molecules/text/attribution}}
 	{{/content.hero_config}}
 
 </section>
 
-{{#content.channel_info}} 	
+{{#content.channel_info}}
 <section class="channel-info section">
 	<div class="lc">
 		<div class="channel-description">
@@ -42,14 +42,14 @@
 		</div>
 
 		{{#stats}}
-			<div class="channel-stats">
-				<ul>
-					{{#items}}
-					<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
-					{{/items}}
-				</ul>
-			</div>
-		{{/stats}} 
+		<div class="channel-stats">
+			<ul>
+				{{#items}}
+				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
+				{{/items}}
+			</ul>
+		</div>
+		{{/stats}}
 
 		<div class="channel-newstuff">
 			{{#recent}}
@@ -60,7 +60,7 @@
 
 
 	{{#content.channel_entry}}
-	
+
 		<div class="channelentry-list lc">
 			<ul>
 				{{#items}}
@@ -70,13 +70,13 @@
 				{{/items}}
 			</ul>
 		</div>
-		
+
 	{{/content.channel_entry}}
-	
+
 
 
 </section>
-{{/content.channel_info}} 
+{{/content.channel_info}}
 
 
 
