@@ -1,6 +1,9 @@
 define([], function() {
   'use strict';
 
+  /**
+   * @param {DOM Element} viewr
+   */
   function initialiseViewer( viewer ) {
     videojs(
       viewer,
@@ -8,6 +11,9 @@ define([], function() {
     );
   }
 
+  /**
+   * @param {DOM Element} viewr
+   */
   function setTechOrder( viewer ) {
     var tech_order = viewer.getAttribute('data-tech-order');
 
@@ -19,46 +25,58 @@ define([], function() {
     videojs.options.techOrder = [tech_order];
   }
 
+  /**
+   * @param {DOM Element} viewr
+   */
+  function initFlac( viewer ) {
+    require(['aurora'], function() {
+      require(['flac'], function() {
+        require(['videojs'], function() {
+          require(['videojs_aurora'], function() {
+            setTechOrder( viewer );
+            initialiseViewer( viewer );
+          });
+        });
+      });
+    });
+  }
+
+  /**
+   * @param {DOM Element} viewr
+   */
+  function initSilverlight( viewer ) {
+    require(['videojs'], function() {
+      require(['videojs_silverlight'], function() {
+        videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
+        setTechOrder( viewer );
+        initialiseViewer( viewer );
+      });
+    });
+  }
+
+  /**
+   * @param {DOM Element} viewr
+   */
+  function initVideojs( viewer ) {
+    require(['videojs'], function() { initialiseViewer( viewer ); });
+  }
+
   function determineMediaViewer() {
     var
       viewer = $('audio')[0] || $('video')[0],
       sourceType = viewer.getElementsByTagName('source')[0].getAttribute('type');
 
-      console.log( viewer );
     if ( !viewer ) {
       console.log( 'no viewer available' );
       return;
     }
 
     switch ( sourceType ) {
-      case 'audio/flac':
-        require(['aurora'], function() {
-          require(['flac'], function() {
-            require(['videojs'], function() {
-              require(['videojs_aurora'], function() {
-                setTechOrder( viewer );
-                initialiseViewer( viewer );
-              });
-            });
-          });
-        });
-        break;
-
-      case 'video/wmv':
-      case 'video/x-msvideo':
-      case 'video/x-ms-wmv':
-        require(['videojs'], function() {
-          require(['videojs_silverlight'], function() {
-            videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
-            setTechOrder( viewer );
-            initialiseViewer( viewer );
-          });
-        });
-        break;
-
-      default: {
-        require(['videojs'], function() { initialiseViewer(); });
-      }
+      case 'audio/flac': initFlac( viewer ); break;
+      case 'video/wmv': initSilverlight( viewer ); break;
+      case 'video/x-msvideo': initSilverlight( viewer ); break;
+      case 'video/x-ms-wmv': initSilverlight( viewer ); break;
+      default: initVideojs( viewer );
     }
   }
 
