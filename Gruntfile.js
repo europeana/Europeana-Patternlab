@@ -76,7 +76,9 @@ module.exports = function(grunt) {
         copy: {
           jquery: {
               src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
-                       'source/js/modules/bower_components/imagesloaded/imagesloaded.pkgd.js',
+
+                       'source/js/modules/lib/jquery.imagesloaded.min.js',
+
                        'source/js/modules/bower_components/jquery/dist/jquery.js',
                        'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],
 
@@ -111,7 +113,7 @@ module.exports = function(grunt) {
           },
 
           main: {
-							src:    '**',
+              src:    '**',
               cwd:    'source/js/modules/main',
               dest:   'source/js/dist/main',
               expand: true

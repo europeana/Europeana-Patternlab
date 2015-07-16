@@ -1,4 +1,4 @@
-define(['jquery'], function() {
+define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   // main link between search page and the various players
   var listItemSelector   = '.object-media-nav a';
@@ -39,6 +39,8 @@ define(['jquery'], function() {
 
     // collect all image data:
     var imgData = [];
+    var checkData = [];
+
 
     $(listItemSelector + '[data-type=image]').each(function(){
 
@@ -54,18 +56,52 @@ define(['jquery'], function() {
                 w: width
             });
         }
+        else if(uri){
+            checkData.push(uri);
+        }
         else{
             console.log('incomplete image data')
         }
     });
 
-    console.log(JSON.stringify(imgData))
 
-    require(['media_viewer_image'], function(mediaViewerImage){
-        hideAllViewers();
-        $('.media-viewer .object-media-image').removeClass('is-hidden');
-        mediaViewerImage.init(imgData);
-    });
+    // temporary fix until we get technical meta-data
+    if(checkData.length > 0){
+
+        $('body').append('<div id="img-measure" style="position:absolute;">');
+
+        for(var i=0; i < checkData.length; i++){
+            $('#img-measure').append('<img src="' + checkData[i]+ '">');
+        }
+        $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
+
+            for(var i=0; i< $images.length; i++){
+                var img = $( $images[i] )
+                imgData.push({
+                    src: img.attr('src'),
+                    h:   img.height(),
+                    w:   img.width()
+                });
+            }
+
+            require(['media_viewer_image'], function(mediaViewerImage){
+                hideAllViewers();
+                $('.media-viewer .object-media-image').removeClass('is-hidden');
+                mediaViewerImage.init(imgData);
+            });
+
+        });
+    }
+    else{
+        console.log('img data given... ' + JSON.stringify(imgData))
+
+        require(['media_viewer_image'], function(mediaViewerImage){
+            hideAllViewers();
+            $('.media-viewer .object-media-image').removeClass('is-hidden');
+            mediaViewerImage.init(imgData);
+        });
+    }
+
   }
 
   /**

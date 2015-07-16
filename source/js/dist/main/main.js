@@ -5,7 +5,7 @@ require.config({
         featureDetect:          '../global/feature-detect',
 
         global:                 '../eu/global',
-        imagesloaded:           '../lib/imagesloaded.pkgd',
+        imagesLoaded:           '../lib/jquery.imagesloaded.min',
         jquery:                 '../lib/jquery',
 
         menus:                  '../global/menus',
