@@ -199,6 +199,25 @@
         }
       ]
     },
+    "social":{
+        "url": "this page url for share links",
+        "twitter": {
+          "url": "twitter url here",
+          "text": "Channel specific twitter account"
+        },
+        "facebook": {
+          "url": "twitter url here",
+          "text": "Channel specific facebook account"
+        },
+        "pinterest": {
+          "url": "twitter url here",
+          "text": "Channel specific pinterest account"
+        },
+        "googleplus": {
+          "url": "twitter url here",
+          "text": "Channel specific googleplus account"
+        }
+      },
     "news": {
       "items":[
       {

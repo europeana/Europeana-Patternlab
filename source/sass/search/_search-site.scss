@@ -193,6 +193,12 @@
 	margin-top: $space;
 	margin-bottom: 0;
 
+	.lc{
+		@include flexbox();
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
 	.lc > div{
 		margin-bottom: $space;
 	}
@@ -203,7 +209,6 @@
 }
 
 .channel-description{
-
 	@media all and (min-width: $bp-med) {
 		@include span(10 of 24);
 		padding: $space;
@@ -298,4 +303,10 @@
 	}
 }
 
-
+.channel-social{
+	.lc{
+		border-top: 6px solid $offwhite;
+		text-align: center;
+		padding: $space-double;
+	}
+}
