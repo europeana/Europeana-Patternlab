@@ -88,7 +88,7 @@ define(['jquery'], function() {
 
   function initMediaVideo() {
     console.log('object-media-video');
-    require(['media_viewer_video'], function(videoViewer){
+    require(['media_viewer_videojs'], function(videoViewer){
       console.log('loaded video viewer');
       hideAllViewers();
       $('.media-viewer .object-media-video').removeClass('is-hidden');
