@@ -65,15 +65,22 @@ define([], function() {
 
   function determineMediaViewer() {
     var
-      viewer = $('audio.is-current')[0] || $('video.is-current')[0],
-      sourceType = viewer.getElementsByTagName('source')[0].getAttribute('type');
+      mime_type,
+      viewer = $('audio.is-current')[0] || $('video.is-current')[0];
 
     if ( !viewer ) {
       console.log( 'no viewer available' );
       return;
     }
 
-    switch ( sourceType ) {
+    mime_type = viewer.getElementsByTagName('source')[0].getAttribute('type');
+
+    if ( !mime_type ) {
+      console.log( 'no mime type available' );
+      return;
+    }
+
+    switch ( mime_type ) {
       case 'audio/flac': initFlac( viewer ); break;
       case 'video/wmv': initSilverlight( viewer ); break;
       case 'video/x-msvideo': initSilverlight( viewer ); break;
