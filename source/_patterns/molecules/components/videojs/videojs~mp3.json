@@ -17,6 +17,7 @@
   ],
 	"items": [
 		{
+			"is_current": true,
 			"is_audio": true,
 			"thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.dismarc-audio.org%2FLLTI%2FLingu_palingu.jpg&size=LARGE&type=SOUND",
 			"download": {

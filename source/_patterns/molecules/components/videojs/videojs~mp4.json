@@ -17,6 +17,7 @@
   ],
 	"items": [
 		{
+			"is_current": true,
 			"is_video": true,
 			"thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
 			"download": {

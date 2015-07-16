@@ -17,6 +17,7 @@
   ],
 	"items": [
 		{
+			"is_current": true,
 			"is_audio": true,
 			"thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
 			"download": {
