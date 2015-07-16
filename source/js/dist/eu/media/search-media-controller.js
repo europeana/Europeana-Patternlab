@@ -65,7 +65,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     });
 
 
-    if(checkData.length>0){
+    // temporary fix until we get technical meta-data
+    if(checkData.length > 0){
 
         $('body').append('<div id="img-measure" style="position:absolute;">');
 
@@ -74,13 +75,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         }
         $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
 
-
             for(var i=0; i< $images.length; i++){
-//                alert( $images[i].width() + ' / ' + $images[i].height() );
-//                alert( $images[i] );
-  //              alert( JSON.stringify($images[i]) );
                 var img = $( $images[i] )
-                alert( img.width() );
                 imgData.push({
                     src: img.attr('src'),
                     h:   img.height(),

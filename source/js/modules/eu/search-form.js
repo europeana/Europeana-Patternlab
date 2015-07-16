@@ -83,12 +83,6 @@ define(['jquery'], function ($){
         input.focus();
      });
 
-     form.on('submit', function(event) {
-         if(input.val().length==0){
-             return false;
-         }
-     });
-
   }
 
 
