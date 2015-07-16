@@ -83,11 +83,16 @@ define(['jquery'], function ($){
         input.focus();
      });
 
+     form.on('submit', function(event) {
+
+         if(input.attr('name')=='qf[]' && input.val().length==0){
+             return false;
+         }
+     });
+
   }
 
 
-  if(typeof initSearchForm != 'undefined'){
-     initSearchForm();
-  }
+ initSearchForm();
 
 });
