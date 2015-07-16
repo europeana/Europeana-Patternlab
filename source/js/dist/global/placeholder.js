@@ -5,6 +5,8 @@ var Site = window.Site || {};
 
 /* Create a closure to maintain scope of the '$'
    and remain compatible with other frameworks.  */
+
+/*
 (function($) {
 
     // Swaps the input fields placeholder text in and out
@@ -26,11 +28,9 @@ var Site = window.Site || {};
                 }
 
             }).bind('blur', function() {
-
                 if($this.val() === ''){
-                    $this.val(attrPh).css('color', colour_focus);
+                    $this.css('color', colour_focus);
                 }
-
             });
 
         });
@@ -42,3 +42,4 @@ var Site = window.Site || {};
         Site.placeholders();
     });
 })(jQuery);
+*/
