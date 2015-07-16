@@ -18,6 +18,23 @@
 		gallery.init();
 	}
 
+	function pushItem( item ) {
+		var
+		i,
+		item_exists = false;
+
+		for ( i = 0; i < items.length; i += 1 ) {
+			if ( item.src === items[i].src ) {
+				item_exists = true;
+				break;
+			}
+		}
+
+		if ( !item_exists ) {
+			items.push( item );
+		}
+	}
+
 	/**
 	 * @param {DOM Element} elm
 	 */
@@ -44,7 +61,7 @@
 			return false;
 		}
 
-		items.push( item );
+		pushItem( item );
 		return true;
 	}
 
