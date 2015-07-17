@@ -109,52 +109,52 @@
       "title": "Promoted title",
       "items":[
         {
-          "title":"All Opera",
+          "title":"Opera",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what:opera",
           "count": "190,226",
           "media_type":"Images",
           "is_search": true,
-          "image": "sample/entry-painting-square.jpg"
+          "image": "sample/entry-opera-square.jpg"
         },
         {
-          "title":"All Folk Music",
+          "title":"Folk Music",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what%3A+folk%20music",
           "count": "7,029",
           "media_type":"Recordings",
           "is_search": true,
-          "image": "sample/entry-sculpture-square.jpg"
+          "image": "sample/entry-folk-square.jpg"
         },
         {
-          "title":"All Sheet music",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what%3A+%28sheet+music+OR+partition+OR+partitur%29",
-          "count": "2,333",
-          "media_type":"Documents",
+          "title":"Musical Instruments",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=PROVIDER%3A%22MIMO+-+Musical+Instrument+Museums+Online%22",
+          "count": "46,843",
+          "media_type":"Images",
           "is_search": true,
-          "image": "sample/entry-documents-square.jpg"
+          "image": "sample/entry-lute-square.jpg"
         },
         {
-          "title":"Piano concertos",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(piano+concerto)",
-          "count": "76",
-          "media_type":"Recordings and videos",
-          "is_search": true,
-          "image": "sample/entry-botticelli-square.jpg"
+          "title":"Life and music of Edvard Grieg",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(edvard grieg)",
+          "count": "573",
+          "media_type":"Recordings and Videos",
+          "is_spotlight": true,
+          "image": "sample/entry-grieg-square.jpg"
         },
         {
-          "title":"Spotlight on the folk music of Lithuania",
+          "title":"Spotlight: The Lute",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(lithuanian+folk+music)+OR+(lithuanian+folk+song)",
           "count": "46",
           "media_type":"Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-roslin-square.jpg"
+          "image": "sample/entry-lute-square.jpg"
         },
         {
-          "title":"Spotlight on Edvard Grieg",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=who:Edvard%20Grieg",
+          "title":"Spotlight: The Harpsichord",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=harpsichord",
           "count": "240",
           "media_type":"Texts and Recordings",
           "is_spotlight": true,
-          "image": "sample/entry-hokusai-square.jpg"
+          "image": "sample/entry-harpsichord-square.jpg"
         }
       ]
     },
@@ -174,17 +174,17 @@
           "bg_image":"sample/thumb-wedding.jpg"
         },
         {
+          "title":"Hungarian Music and Dance",
+          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
+          "is_exhibition": true,
+          "bg_image":"sample/thumb-dancers.jpg"
+        },
+        {
           "title":"Find more from Europeana Music on Soundcloud",
           "url": "http://soundcloud.com",
           "wide": true,
           "bg_image":"sample/sc_st_white_240x140.png",
           "class_custom":"soundcloud"
-        },
-        {
-          "title":"Hungarian Music and Dance",
-          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
-          "is_exhibition": true,
-          "bg_image":"sample/thumb-dancers.jpg"
         }
       ]
     },
