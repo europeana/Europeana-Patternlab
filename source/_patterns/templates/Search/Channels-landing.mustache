@@ -3,7 +3,7 @@
 {{> organisms/global/header}}
 
 
-<section class="site-hero channel-hero" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}}>
+<section class="site-hero channel-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}}>
 
 	<div class="hero-contents">
 
@@ -17,6 +17,7 @@
 
 	{{#content.hero_config}}
 		{{>molecules/text/attribution}}
+		{{>molecules/media/brand-svg-assets}}
 	{{/content.hero_config}}
 
 </section>
