@@ -12,7 +12,11 @@ define([], function() {
   }
 
   /**
-   * @param {DOM Element} viewr
+   * @param {DOM Element} viewer
+   *
+   * current tech orders:
+   *   aurora ( audio/flac )
+   *   silverlight ( video/wmv, video/x-msvideo, video/x-ms-wmv )
    */
   function setTechOrder( viewer ) {
     var tech_order = viewer.getAttribute('data-tech-order');
@@ -22,6 +26,7 @@ define([], function() {
       return;
     }
 
+    console.log( 'tech order: ' + tech_order );
     videojs.options.techOrder = [tech_order];
   }
 
@@ -59,6 +64,7 @@ define([], function() {
    */
   function initVideojs( viewer ) {
     require(['videojs'], function() {
+      setTechOrder( viewer );
       initialiseViewer( viewer );
     });
   }
