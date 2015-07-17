@@ -10,28 +10,19 @@
       "data_main": "/js/dist/main/main-photoswipe-molecule"
     }
   ],
-
-
-  "items": [
-      {
-        "is_current": true,
-        "is_image": true,
-        "thumbnail": "/images/sample/object_2_thumbnail.jpg",
-        "download":{
-          "file":  "/images/sample/object_2_full.jpg",
-          "url":   "/images/sample/object_2_full.jpg"
-        },
-        "rights":
-        {
-          "license_public": true,
-          "license_human": "You can use this image in any way you like"
-        },
-        "technical_metadata":
-        {
-          "width": "532",
-          "height": "768"
-        }
-     }
-  ]
-
+  "is_current": true,
+  "is_image": true,
+  "thumbnail": "/images/sample/object_thumbnail.jpg",
+  "download": {
+    "file":  "/images/sample/object_full.jpg",
+    "url":   "/images/sample/object_full.jpg"
+  },
+  "rights": {
+    "license_public": true,
+    "license_human": "You can use this image in any way you like"
+  },
+  "technical_metadata": {
+    "width": "2261",
+    "height": "2548"
+  }
 }

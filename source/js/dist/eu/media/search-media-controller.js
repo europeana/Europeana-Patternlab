@@ -32,13 +32,12 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     });
   }
 
-  function initMediaImage() {
-    console.log( 'initMediaImage()' );
+  function initMediaImage(evt, data) {
 
     // collect all image data:
     var imgData = [];
     var checkData = [];
-
+    var clickedImg = data.target.find('img').attr('src');
 
     $(listItemSelector + '[data-type=image]').each(function(){
 
@@ -72,7 +71,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             $('#img-measure').append('<img src="' + checkData[i]+ '">');
         }
         $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
-
             for(var i=0; i< $images.length; i++){
                 var img = $( $images[i] )
                 imgData.push({
@@ -81,13 +79,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                     w:   img.width()
                 });
             }
-
             $('#img-measure').remove();
-
             require(['media_viewer_image'], function(mediaViewerImage){
                 hideAllViewers();
                 $('.media-viewer .object-media-image').removeClass('is-hidden');
-                mediaViewerImage.init(imgData);
+                mediaViewerImage.init(imgData, clickedImg);
             });
 
         });
@@ -98,16 +94,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         require(['media_viewer_image'], function(mediaViewerImage){
             hideAllViewers();
             $('.media-viewer .object-media-image').removeClass('is-hidden');
-            mediaViewerImage.init(imgData);
+            mediaViewerImage.init(imgData, clickedImg);
         });
     }
-
   }
 
-  /**
-   * @param {Event} evt
-   * @param {Object} data
-   */
   function initMediaPdf( evt, data ) {
     console.log( 'initMediaPdf(): ' + data.url );
 
@@ -139,9 +130,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function handleListItemSelectorClick( evt ) {
     evt.preventDefault();
     evt.stopPropagation();
-
-    console.log('clicked on ' + $(this)[0].nodeName  + ' ' + $(this).attr('data-type') + ', ' + $(this).attr('href') );
-    $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri')});
+    $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri'), target:$(this)});
   }
 
   /*

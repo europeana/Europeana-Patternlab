@@ -82,10 +82,8 @@
                  {{/download}}
              {{/is_pdf}}
 
-             {{! TODO: fix the text -> pdf switch here once we have the mime type }}
-
              {{#is_text}}
-                 data-type="pdf"
+                 data-type="text"
                  {{#download}}
                    data-uri="{{url}}"
                  {{/download}}

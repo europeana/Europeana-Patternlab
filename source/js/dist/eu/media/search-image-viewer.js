@@ -98,7 +98,8 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     initialiseGallery();
   }
 
-  function init(itemsIn) {
+  function init(itemsIn, posterIn) {
+
     if ( gallery ) {
         return false;
     }
@@ -110,16 +111,26 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
                 valid_items.push(itemsIn[i]);
             }
         }
-        //items = itemsIn;
         items = valid_items;
     }
+    if(posterIn){
+        $poster = $('<img src="' + posterIn + '">').appendTo('.photoswipe-wrapper');
+    }
     $poster.on( 'click', handleImageClick );
+
     return true;
   }
 
+  function changeIndex(indexIn){
+      console.log('TODO: update active image:  ' + indexIn);
+  }
+
   return {
-    init:function( items ) {
-      return init( items );
+    init: function(items, posterIn) {
+      return init(items, posterIn);
+    },
+    changeIndex: function(indexIn) {
+      changeIndex(indexIn);
     }
   }
 });
