@@ -4,6 +4,7 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
   var
     css_path_1 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
     css_path_2 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/default-skin/default-skin.css' : js_path + 'lib/photoswipe/default-skin/default-skin.css',
+    min_width_pixels = 400,
     items = [],
     options = { index: 0 },
     gallery = null,
@@ -48,6 +49,27 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     gallery.init();
   }
 
+
+
+  function checkItem(item){
+      if(!item.w) {
+        console.warn( 'no data-w given' );
+        return false;
+      }
+      if(!item.h){
+        console.warn( 'no data-h given' );
+        return false;
+      }
+      if(!item.src){
+        console.warn( 'no data-src given' );
+        return false;
+      }
+      if( item.w < min_width_pixels) {
+        console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
+        return false;
+      }
+      return true;
+  }
   /**
    * @param {DOM Element} elm
    */
@@ -56,30 +78,17 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       return true;
     }
 
-    var
-    item = {
+    var item = {
       src: elm.getAttribute( 'data-src' ),
       w: elm.getAttribute( 'data-w' ),
       h: elm.getAttribute( 'data-h' )
     };
 
-    if ( !item.src ) {
-      console.warn( 'no data-src given' );
-      return false;
+    var valid = checkItem(item);
+    if(valid){
+      items.push( item );
     }
-
-    if ( !item.w ) {
-      console.warn( 'no data-w given' );
-      return false;
-    }
-
-    if ( !item.h ) {
-      console.warn( 'no data-h given' );
-      return false;
-    }
-
-    items.push( item );
-    return true;
+    return valid;
   }
 
   function handleImageClick() {
@@ -94,7 +103,15 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
         return false;
     }
     if ( itemsIn ) {
-      items = itemsIn;
+
+        var valid_items = []
+        for(var i=0; i<itemsIn.length; i++){
+            if(checkItem(itemsIn[i])){
+                valid_items.push(itemsIn[i]);
+            }
+        }
+        //items = itemsIn;
+        items = valid_items;
     }
     $poster.on( 'click', handleImageClick );
     return true;
