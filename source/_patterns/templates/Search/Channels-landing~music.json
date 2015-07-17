@@ -109,50 +109,50 @@
       "title": "Promoted title",
       "items":[
         {
-          "title":"Opera",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what:",
+          "title":"All Opera",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what:opera",
           "count": "190,226",
           "media_type":"Images",
           "is_search": true,
           "image": "sample/entry-painting-square.jpg"
         },
         {
-          "title":"All Sculptures",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
+          "title":"All Folk Music",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what%3A+folk%20music",
           "count": "7,029",
-          "media_type":"Images and video",
+          "media_type":"Recordings",
           "is_search": true,
           "image": "sample/entry-sculpture-square.jpg"
         },
         {
-          "title":"All Art history publications",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
+          "title":"All Sheet music",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what%3A+%28sheet+music+OR+partition+OR+partitur%29",
           "count": "2,333",
           "media_type":"Documents",
           "is_search": true,
           "image": "sample/entry-documents-square.jpg"
         },
         {
-          "title":"Spotlight on Botticelli",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+          "title":"Piano concertos",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(piano+concerto)",
           "count": "76",
-          "media_type":"Images and videos",
-          "is_spotlight": true,
+          "media_type":"Recordings and videos",
+          "is_search": true,
           "image": "sample/entry-botticelli-square.jpg"
         },
         {
-          "title":"Spotlight on Alexander Roslin",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+          "title":"Spotlight on the folk music of Lithuania",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(lithuanian+folk+music)+OR+(lithuanian+folk+song)",
           "count": "46",
           "media_type":"Images and documents",
           "is_spotlight": true,
           "image": "sample/entry-roslin-square.jpg"
         },
         {
-          "title":"Spotlight on Hokusai",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+          "title":"Spotlight on Edvard Grieg",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=who:Edvard%20Grieg",
           "count": "240",
-          "media_type":"Images",
+          "media_type":"Texts and Recordings",
           "is_spotlight": true,
           "image": "sample/entry-hokusai-square.jpg"
         }
@@ -162,40 +162,29 @@
       "title": "Promoted title",
       "items":[
         {
-          "title":"Royal Book Collections",
-          "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
-          "is_exhibition": true,
-          "bg_image":"sample/thumb-book.jpg"
-        },
-        {
-          "title":"From Dada to Surrealism",
-          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
-          "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
-        },
-        {
-          "title":"Art Nouveau",
-          "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
-          "is_exhibition": true,
-          "bg_image":"sample/thumb-artnouveau.jpg"
-        },
-        {
           "title":"Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
           "bg_image":"sample/thumb-instruments.jpg"
         },
         {
-          "title":"Pablo Picasso",
-          "url": "http://dizbi.hazu.hr/picasso/",
+          "title":"Weddings in Eastern Europe",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-picasso.jpg"
+          "bg_image":"sample/thumb-wedding.jpg"
         },
         {
-          "title":"From Dada to Surrealism",
-          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+          "title":"Find more from Europeana Music on Soundcloud",
+          "url": "http://soundcloud.com",
+          "wide": true,
+          "bg_image":"sample/sc_st_white_240x140.png",
+          "class_custom":"soundcloud"
+        },
+        {
+          "title":"Hungarian Music and Dance",
+          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
+          "bg_image":"sample/thumb-dancers.jpg"
         }
       ]
     },

@@ -91,12 +91,12 @@
 	font-size: 5vw;
 
 	@media all and (min-width: $bp-small) {
-		@include gallery(12 of 24);
+		@include span(12 of 24 split);
 		font-size: 3.5vw;
 	}
 
 	@media all and (min-width: $bp-small-3) {
-		@include gallery(8 of 24);
+		@include span(8 of 24 split);
 		min-height: 32vw;
 		margin-bottom: $space-half; //fallback
 		margin-bottom: 1.05634vw;
@@ -104,7 +104,7 @@
 	}
 
 	@media all and (min-width: $bp-large) {
-		@include gallery(6 of 24);
+		@include span(6 of 24 split);
 		min-height: 24vw;
 		font-size: 1.5vw;
 	}
@@ -113,9 +113,11 @@
 		min-height: 16vw;
 		font-size: 1.25vw;
 	}
+}
 
+.home-promo .list-item{
 	@media all and (min-width: 120em) {
-		@include gallery(6 of 48);
+		@include span(6 of 48 split);
 		min-height: 11.5vw;
 		font-size: 0.8vw;
 	}
@@ -140,24 +142,42 @@
 	}
 }
 
+
+
 // Channel landing specific
 
+.exhibitions-list .list-item{
 
-
-.channel_landing{
-
-	.exhibitions-list .list-item{
-
-		@media all and (min-width: $bp-large) {
-			@include gallery(4 of 24);
-			min-height: 15vw;
-		}
+	@media all and (min-width: $bp-large) {
+		width: span(4 of 24 split);
+		min-height: 15vw;
 	}
 }
 
+.list-item.list-item-wide {
+
+	width: span(24 of 24 split);
+
+	@media all and (min-width: $bp-large) {
+		width: span(12 of 24 split);
+	}
+}
+
+.soundcloud{
+	background-color: #FC5B1F;
+	//border: 1px solid $gray-lighter;
+	background-size: inherit;
+	background-repeat: no-repeat;
+	background-position: 84% 50%;
+
+	.inner{
+		width: 50%;
+	}
+}
+
+
 .channelentry-list{
 
-	//background-color: $blue_dark;
 	margin-bottom: $space;
 
 	.lc{

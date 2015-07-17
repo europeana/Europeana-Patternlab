@@ -27,19 +27,18 @@
 		text-align: center;
 		color: $white;
 		line-height: 1.2;
+		top: 50%;
+		@include translate (0, -50%);
+		width: 100%;
 	}
 
 	&.centred .inner {
-		top: 50%;
 		left: 50%;
 		@include translate (-50%, -50%);
 		max-width: 80%;
 	}
 
 	&.contrast .inner {
-		top: 50%;
-		@include translate (0, -50%);
-		width: 100%;
 		background-color: rgba($black, 0.4);
 		padding: $pad;
 	}

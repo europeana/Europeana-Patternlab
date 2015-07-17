@@ -1,4 +1,4 @@
-<div class="promo-block promo-block-image {{#is_channel}}item-channel {{/is_channel}}{{#is_exhibition}}item-exhibition {{/is_exhibition}}{{#is_new}}item-new {{/is_new}}{{#is_partner}}item-partner {{/is_partner}} contrast" {{#bg_image}}style="background-image: url({{image_root}}{{bg_image}}); "{{/bg_image}}>
+<div class="promo-block promo-block-image {{#is_channel}}item-channel {{/is_channel}}{{#is_exhibition}}item-exhibition {{/is_exhibition}}{{#is_new}}item-new {{/is_new}}{{#is_partner}}item-partner {{/is_partner}} {{class_custom}} contrast" {{#bg_image}}style="background-image: url({{image_root}}{{bg_image}}); "{{/bg_image}}>
 
 	<a href="{{url}}">
 		{{#comingsoon}}
@@ -13,7 +13,7 @@
 	</a>
 
 {{#is_channel}}
-	<div class="category-flag">Channel</div>
+	<div class="category-flag">Theme</div>
 {{/is_channel}}
 {{#is_exhibition}}
 	<div class="category-flag">Exhibition</div>
