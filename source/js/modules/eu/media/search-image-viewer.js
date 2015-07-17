@@ -6,7 +6,7 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     css_path_2 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/default-skin/default-skin.css' : js_path + 'lib/photoswipe/default-skin/default-skin.css',
     items = [],
     options = { index: 0 },
-    gallery = {},
+    gallery = null,
     $poster = $('.photoswipe-wrapper > img'),
     viewer  = $('.photoswipe-wrapper  > .pswp')[0];
 
@@ -90,16 +90,19 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
   }
 
   function init(itemsIn) {
+    if ( gallery ) {
+        return false;
+    }
     if ( itemsIn ) {
       items = itemsIn;
     }
-
     $poster.on( 'click', handleImageClick );
+    return true;
   }
 
   return {
     init:function( items ) {
-      init( items );
+      return init( items );
     }
   }
 });

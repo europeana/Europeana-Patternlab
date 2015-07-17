@@ -15,12 +15,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function initMedia() {
     console.log('media_init');
 
-    // temporary measure until it becomes possible to click on links without following them
-    //$('.object-media-image').removeClass('is-hidden');
-
-    // restore this when the above is done
     if ( $( listItemSelector + ':first' ).length === 1 ) {
-      $( listItemSelector + ':first' ).click();
+    //  $( listItemSelector + ':first' ).click();
     }
   }
 
@@ -68,7 +64,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     // temporary fix until we get technical meta-data
     if(checkData.length > 0){
 
-        $('body').append('<div id="img-measure" style="position:absolute;">');
+        $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
 
         for(var i=0; i < checkData.length; i++){
             $('#img-measure').append('<img src="' + checkData[i]+ '">');
@@ -83,6 +79,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                     w:   img.width()
                 });
             }
+
+            $('#img-measure').remove();
 
             require(['media_viewer_image'], function(mediaViewerImage){
                 hideAllViewers();
