@@ -171,7 +171,9 @@
 	background-position: 84% 50%;
 
 	.inner{
-		width: 50%;
+		@media all and (min-width: $bp-small) {
+			width: 50%;
+		}
 	}
 }
 

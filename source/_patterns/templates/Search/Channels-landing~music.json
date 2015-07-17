@@ -174,17 +174,17 @@
           "bg_image":"sample/thumb-wedding.jpg"
         },
         {
+          "title":"Hungarian Music and Dance",
+          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
+          "is_exhibition": true,
+          "bg_image":"sample/thumb-dancers.jpg"
+        },
+        {
           "title":"Find more from Europeana Music on Soundcloud",
           "url": "http://soundcloud.com",
           "wide": true,
           "bg_image":"sample/sc_st_white_240x140.png",
           "class_custom":"soundcloud"
-        },
-        {
-          "title":"Hungarian Music and Dance",
-          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
-          "is_exhibition": true,
-          "bg_image":"sample/thumb-dancers.jpg"
         }
       ]
     },
