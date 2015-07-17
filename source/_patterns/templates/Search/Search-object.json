@@ -73,7 +73,6 @@
           },
           {
             "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
-            "file": "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
             "is_pdf": true,
             "download":{
               "url":  "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
@@ -121,44 +120,7 @@
               "license_public": true,
               "license_human": "You can use this image in any way you like"
             }
-          },
-
-          {
-            "preview": "/images/sample/object_preview.jpg",
-            "thumbnail": "/images/sample/object_thumbnail.jpg",
-            "file": "/images/sample/object_full.jpg",
-            "is_image": true,
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            }
-          },
-
-          {
-            "preview": "/images/sample/object_preview.jpg",
-            "thumbnail": "/images/sample/object_thumbnail.jpg",
-            "file": "/images/sample/object_full.jpg",
-            "is_image": true,
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            }
-          },
-
-          {
-            "preview": "/images/sample/object_preview.jpg",
-            "thumbnail": "/images/sample/object_thumbnail.jpg",
-            "file": "/images/sample/object_full.jpg",
-            "is_image": true,
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            }
           }
-
         ]
       },
 
