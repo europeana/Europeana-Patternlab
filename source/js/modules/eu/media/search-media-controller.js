@@ -16,7 +16,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     console.log('media_init');
 
     if ( $( listItemSelector + ':first' ).length === 1 ) {
-    //  $( listItemSelector + ':first' ).click();
+      $( listItemSelector + ':first' ).click();
     }
   }
 

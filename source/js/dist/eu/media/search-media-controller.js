@@ -16,7 +16,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     console.log('media_init');
 
     if ( $( listItemSelector + ':first' ).length === 1 ) {
-    //  $( listItemSelector + ':first' ).click();
+      $( listItemSelector + ':first' ).click();
     }
   }
 
@@ -64,7 +64,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     // temporary fix until we get technical meta-data
     if(checkData.length > 0){
 
-        $('body').append('<div id="img-measure" style="position:absolute; zvisibility:hidden;">');
+        $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
 
         for(var i=0; i < checkData.length; i++){
             $('#img-measure').append('<img src="' + checkData[i]+ '">');
@@ -80,7 +80,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                 });
             }
 
-//            $('#img-measure').remove();
+            $('#img-measure').remove();
 
             require(['media_viewer_image'], function(mediaViewerImage){
                 hideAllViewers();
