@@ -1,6 +1,10 @@
 define([], function() {
   'use strict';
 
+  var css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
+
+  $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+
   /**
    * @param {DOM Element} viewr
    */

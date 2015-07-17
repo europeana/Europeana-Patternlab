@@ -145,6 +145,12 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/',
             expand: true
           },
+          videojs: {
+            src:    '**',
+            cwd:    'source/js/modules/lib/videojs',
+            dest:   'source/js/dist/lib/videojs',
+            expand:  true
+          },
           videojs_silverlight: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs-silverlight',
@@ -179,7 +185,8 @@ module.exports = function(grunt) {
            'copy:mediaviewers',
            'copy:pdfjs',
            'copy:require',
-           'copy:videojs_silverlight',
+           'copy:videojs',
+					 'copy:videojs_silverlight',
            'copy:photoswipe'
   ]);
 }
