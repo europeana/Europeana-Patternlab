@@ -3,7 +3,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   // main link between search page and the various players
   var listItemSelector   = '.object-media-nav a';
 
-  function hideAllViewers(){
+  function hideAllViewers() {
+    console.log( 'hideAllViewers()' );
     $('.media-viewer .object-media-audio').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-pdf').addClass('is-hidden');
@@ -13,7 +14,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function initMedia() {
-    console.log('media_init');
+    console.log( 'initMedia()' );
 
     if ( $( listItemSelector + ':first' ).length === 1 ) {
       $( listItemSelector + ':first' ).click();
@@ -21,17 +22,18 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaAudio() {
-    console.log('object-media-audio');
+    console.log( 'initMediaAudio()' );
+    hideAllViewers();
+    $('.media-viewer .object-media-audio').removeClass('is-hidden');
+
     require(['media_viewer_videojs'], function(audioViewer){
-        console.log('loaded audio viewer');
-        hideAllViewers();
-        $('.media-viewer .object-media-audio').removeClass('is-hidden');
-        audioViewer.init();
+      console.log('media_viewer_videojs loaded');
+      audioViewer.init();
     });
   }
 
   function initMediaImage() {
-    console.log('object-media-image');
+    console.log( 'initMediaImage()' );
 
     // collect all image data:
     var imgData = [];
@@ -107,7 +109,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
    * @param {Object} data
    */
   function initMediaPdf( evt, data ) {
-    console.log('object-media-pdf: ' + data.url);
+    console.log( 'initMediaPdf(): ' + data.url );
 
     if(data.url && data.url.length > 0){
       require(['pdfjs'], function(){
@@ -121,12 +123,13 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaVideo() {
-    console.log('object-media-video');
-    require(['media_viewer_videojs'], function(videoViewer){
-      console.log('loaded video viewer');
-      hideAllViewers();
-      $('.media-viewer .object-media-video').removeClass('is-hidden');
-      videoViewer.init();
+    console.log( 'initMediaVideo()' );
+    hideAllViewers();
+    $('.media-viewer .object-media-video').removeClass('is-hidden');
+
+    require(['media_viewer_videojs'], function( viewer ) {
+      console.log('media_viewer_videojs loaded');
+      viewer.init();
     });
   }
 
