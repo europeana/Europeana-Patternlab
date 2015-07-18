@@ -22,12 +22,14 @@ require.config({
         jqScrollto:             '../lib/jquery.scrollTo',
 
         media_controller:       '../eu/media/search-media-controller',
-        media_viewer_pdf:       '../eu/media/search-pdf-viewer',
+        //media_viewer_pdf:       '../eu/media/search-pdf-viewer',
+        media_viewer_pdf:       '../eu/media/search-pdf-ui-viewer',
         media_viewer_videojs:   '../eu/media/search-videojs-viewer',
         media_viewer_image:     '../eu/media/search-image-viewer',
 
         pdfjs:                  '../lib/pdfjs/pdf',
-
+        pdf_ui:                 '../lib/pdfjs/pdf-ui',
+        pdf_lang:               '../lib/pdfjs/l10n',
         aurora:                 '../lib/audiocogs/aurora',
         flac:                   '../lib/audiocogs/flac',
 

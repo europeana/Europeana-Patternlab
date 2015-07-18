@@ -15,7 +15,8 @@
 
 /*
  *  Europeana changes:
- *  mainContainer renamed to main-container-pdf
+ *   - #mainContainer renamed to #main-container-pdf
+ *   - body renamed to .pdf-ui-wrappper
  */
 
 .textLayer {
@@ -187,24 +188,23 @@ html {
   font-size: 10px;
 }
 
-body {
+.pdf-ui-wrappper {
   height: 100%;
   background-color: #404040;
   background-image: url(images/texture.png);
 }
 
-body,
-input,
-button,
-select {
+.pdf-ui-wrappper input,
+.pdf-ui-wrappper button,
+.pdf-ui-wrappper select {
   font: message-box;
   outline: none;
 }
 
-.hidden {
+.pdf-ui-wrappper .hidden {
   display: none !important;
 }
-[hidden] {
+.pdf-ui-wrappper [hidden] {
   display: none !important;
 }
 
@@ -1828,7 +1828,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 
 @media print {
   /* General rules for printing. */
-  body {
+  .pdf-ui-wrappper {
     background: transparent none;
   }
 
@@ -1864,10 +1864,10 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 
   /* Rules for browsers that support mozPrintCallback */
-  body[data-mozPrintCallback] #outerContainer {
+  .pdf-ui-wrappper[data-mozPrintCallback] #outerContainer {
     display: none;
   }
-  body[data-mozPrintCallback] #printContainer {
+  .pdf-ui-wrappper[data-mozPrintCallback] #printContainer {
     display: block;
   }
   /* wrapper around (scaled) print canvas elements */
