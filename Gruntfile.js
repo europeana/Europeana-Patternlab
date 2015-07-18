@@ -139,6 +139,12 @@ module.exports = function(grunt) {
               dest:   'source/js/dist/lib/pdfjs',
               expand:  true
           },
+          pdfjs_img: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/pdfjs/images',
+              dest:   'source/js/dist/lib/pdfjs/images',
+              expand:  true
+          },
           require: {
             src:    '**',
             cwd:    'source/js/modules/bower_components/requirejs/',
@@ -184,9 +190,10 @@ module.exports = function(grunt) {
            'copy:map_img',
            'copy:mediaviewers',
            'copy:pdfjs',
+           'copy:pdfjs_img',
            'copy:require',
            'copy:videojs',
-					 'copy:videojs_silverlight',
+           'copy:videojs_silverlight',
            'copy:photoswipe'
   ]);
 }
