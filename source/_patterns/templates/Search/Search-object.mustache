@@ -100,98 +100,91 @@
     {{#items}}
     {{#is_current}}
 
-    <div class="object-media-info section">
+    <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
 
-    {{#download}}
-    <div class="object-downloads">
+      {{#download}}
+      <div class="object-downloads">
 
-      <a class="js-showhide download-button btn alt" href="#">
-      <svg class="icon icon-download">
-        <use xlink:href="#icon-download"></use>
-      </svg>
-      {{ i18n.site.object.actions.download }}
-      </a>
+        <a class="js-showhide download-button btn alt" href="#">
+          <svg class="icon icon-download">
+            <use xlink:href="#icon-download"></use>
+          </svg>
+          {{ i18n.site.object.actions.download }}
+        </a>
 
-      <div class="media-info-tab">
-        <div class="lc">
+        <div class="media-info-tab">
+          <div class="lc">
 
-          <div class="info-primary">
-          <h3>
-            {{ i18n.site.object.actions.download }}
-          </h3>
-          </div>
-
-          {{# technical_metadata }}
-          <div class="info-secondary">
-            {{> molecules/metadata/file-detail }}
-          </div>
-          {{/ technical_metadata }}
-
-          <div class="info-support">
-            {{# rights }}
-            <div class="object-rights">
-
-              <h4>{{i18n.site.object.meta-label.rights}}</h4>
-
-              {{license_human}}
-
-              <div class="object-license">{{> molecules/icons/licenses }}</div>
+            <div class="info-primary">
+              <h3>
+                {{ i18n.site.object.actions.download }}
+              </h3>
             </div>
-            {{/ rights }}
-          </div>
 
+            {{# technical_metadata }}
+            <div class="info-secondary">
+              {{> molecules/metadata/file-detail }}
+            </div>
+            {{/ technical_metadata }}
+
+            <div class="info-support">
+              {{# rights }}
+              <div class="object-rights">
+
+                <h4>{{i18n.site.object.meta-label.rights}}</h4>
+
+                {{license_human}}
+
+                <div class="object-license">{{> molecules/icons/licenses }}</div>
+              </div>
+              {{/ rights }}
+            </div>
+
+          </div>
+        </div> {{! end media-info}}
+      </div>
+      {{/download}}
+
+      {{#technical_metadata}}
+      <div class="object-techdata">
+        <a class="js-showhide show-button" href="#">
+          <svg class="icon icon-info">
+            <use xlink:href="#icon-info"></use>
+          </svg>
+          {{ i18n.site.object.actions.technicalmetadata }}
+        </a>
+
+        <div class="media-info-tab">
+          <div class="lc">
+            <div class="info-primary">
+              <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
+            </div>
+            <div class="info-secondary">
+              <ul class="object-techdata-list">
+                <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+                <li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+              </ul>
+            </div>
+
+            <div class="info-support">
+            </div>
+
+          </div>
         </div>
       </div>
+      {{/technical_metadata}}
+
     </div>
-    {{/download}}
-
-
-
-    {{#technical_metadata}}
-    <div class="object-techdata">
-
-      <a class="js-showhide show-button" href="#">
-      <svg class="icon icon-info">
-        <use xlink:href="#icon-info"></use>
-      </svg>
-      {{ i18n.site.object.actions.technicalmetadata }}
-      </a>
-
-      <div class="media-info-tab">
-        <div class="lc">
-
-          <div class="info-primary">
-            <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
-          </div>
-
-          <div class="info-secondary">
-
-            <ul class="object-techdata-list">
-              <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-              <li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
-            </ul>
-          </div>
-
-          <div class="info-support">
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-    {{/technical_metadata}}
-
 
     {{/is_current}}
     {{/items}}
 
 
-    </div>
   </section>
   {{/object.media}}
 

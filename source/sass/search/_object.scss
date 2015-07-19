@@ -76,9 +76,13 @@
     position: relative;
     margin-bottom: 0;
     background-color: $offwhite;
-
-
+    display:none;
 }
+
+.object-media-info.is-current{
+    display:block;
+}
+
 .media-info-tab{
 
     position: relative;
