@@ -49,29 +49,34 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     gallery.init();
   }
 
+  /**
+   * @param {object} item
+   * @returns {bool}
+   */
+  function checkItem( item ) {
+    if ( !item.w ) {
+      console.warn( 'no data-w given' );
+      return false;
+    }
+    if ( !item.h ) {
+      console.warn( 'no data-h given' );
+      return false;
+    }
+    if ( !item.src ) {
+      console.warn( 'no data-src given' );
+      return false;
+    }
+    if ( item.w < min_width_pixels ) {
+      console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
+      return false;
+    }
 
-
-  function checkItem(item){
-      if(!item.w) {
-        console.warn( 'no data-w given' );
-        return false;
-      }
-      if(!item.h){
-        console.warn( 'no data-h given' );
-        return false;
-      }
-      if(!item.src){
-        console.warn( 'no data-src given' );
-        return false;
-      }
-      if( item.w < min_width_pixels) {
-        console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
-        return false;
-      }
-      return true;
+    return true;
   }
+
   /**
    * @param {DOM Element} elm
+   * @returns {bool}
    */
   function setItems( elm ) {
     if ( items.length > 0 ) {
@@ -84,10 +89,12 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       h: elm.getAttribute( 'data-h' )
     };
 
-    var valid = checkItem(item);
-    if(valid){
+    var valid = checkItem( item );
+
+    if ( valid ) {
       items.push( item );
     }
+
     return valid;
   }
 
@@ -98,39 +105,50 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     initialiseGallery();
   }
 
-  function init(itemsIn, posterIn) {
-
+  /**
+   * @param {array} itemsIn
+   * @param {string} posterIn
+   * @returns {bool}
+   */
+  function init( itemsIn, posterIn ) {
     if ( gallery ) {
-        return false;
+      return false;
     }
-    if ( itemsIn ) {
 
-        var valid_items = []
-        for(var i=0; i<itemsIn.length; i++){
-            if(checkItem(itemsIn[i])){
-                valid_items.push(itemsIn[i]);
-            }
+    if ( itemsIn ) {
+      var valid_items = [];
+
+      for ( var i = 0; i < itemsIn.length; i += 1 ){
+        if ( checkItem( itemsIn[i] ) ) {
+          valid_items.push( itemsIn[i] );
         }
-        items = valid_items;
+      }
+
+      items = valid_items;
     }
-    if(posterIn){
-        $poster = $('<img src="' + posterIn + '">').appendTo('.photoswipe-wrapper');
+
+    if ( posterIn ) {
+      $poster = $('<img src="' + posterIn + '">').appendTo('.photoswipe-wrapper');
     }
+
     $poster.on( 'click', handleImageClick );
 
     return true;
   }
 
-  function changeIndex(indexIn){
-      console.log('TODO: update active image:  ' + indexIn);
+  /**
+   * @param {int} indexIn
+   */
+  function changeIndex( indexIn ) {
+    console.log( 'TODO: update active image:  ' + indexIn );
   }
 
   return {
-    init: function(items, posterIn) {
-      return init(items, posterIn);
+    init: function( items, posterIn ) {
+      return init( items, posterIn );
     },
-    changeIndex: function(indexIn) {
-      changeIndex(indexIn);
+    changeIndex: function( indexIn ) {
+      changeIndex( indexIn );
     }
   }
 });
