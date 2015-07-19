@@ -58,6 +58,7 @@
     padding: $pad;
     position: relative;
 }
+
 // Thumbnails list
 .object-media-nav{
     overflow-y: scroll;
@@ -111,6 +112,13 @@
             @include span(last 6);
         }
     }
+}
+
+.object-media-video,
+.object-media-video {
+	margin-bottom: 26px;
+	max-height: 300px;
+	overflow: hidden;
 }
 
 .object-techdata{
@@ -250,6 +258,3 @@
         border-right: 1px solid $white;
     }
 }
-
-
-
