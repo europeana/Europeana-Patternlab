@@ -40,17 +40,19 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function initMediaImage(evt, data) {
 
-    console.log( 'initMediaImage()' );
+    console.log( 'initMediaImage()   '  + mediaViewerImage );
 
     if(mediaViewerImage){
-        alert('update existing viewer');
+        hideAllViewers();
+        $('.media-viewer .object-media-image').removeClass('is-hidden');
+        mediaViewerImage.setUrl(data.url)
         return;
     }
 
     // collect all image data:
     var imgData = [];
     var checkData = [];
-    var clickedImg = data.target.find('img').attr('src');
+    var clickedImg = data.target.attr('data-uri');
 
     $(listItemSelector + '[data-type=image]').each(function(){
 

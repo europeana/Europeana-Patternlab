@@ -16,17 +16,11 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
   $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
 
-  function initialiseGallery() {
+  function initialiseGallery(delay) {
     if ( items.length < 1 ) {
       console.warn( 'initialiseGallery() - no images to add to the gallery' );
       return;
     }
-
-    if ( !PhotoSwipe ) {
-      console.warn( 'initialiseGallery() - PhotoSwipe is not available' );
-      return;
-    }
-
 
     // I think css should be loaded on demand the same way the js component it styles is loaded on demand.
 
@@ -46,7 +40,18 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     // /source/sass/search/ directory to avoid any confusion
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
-    gallery.init();
+
+    if(delay){
+        /**  this delay is to mitigate a load issue - see here:
+          *     http://stackoverflow.com/questions/14946200/use-photoswipe-on-dynamically-created-ul
+          */
+        setTimeout(function(){
+            gallery.init();
+        }, delay);
+    }
+    else{
+        gallery.init();
+    }
   }
 
   /**
@@ -75,46 +80,38 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
   }
 
   /**
-   * @param {DOM Element} elm
-   * @returns {bool}
+   * @param {jquery-wrapped DOM Element} $el
+   * @returns {Object or null}
    */
-  function setItems( elm ) {
-    if ( items.length > 0 ) {
-      return true;
+  function getItemFromMarkup( $el ) {
+
+    if(!$el){
+      return null;
     }
 
     var item = {
-      src: elm.getAttribute( 'data-src' ),
-      w: elm.getAttribute( 'data-w' ),
-      h: elm.getAttribute( 'data-h' )
+      src: $el.attr( 'data-src' ),
+      w:   $el.attr( 'data-w' ),
+      h:   $el.attr( 'data-h' )
     };
 
     var valid = checkItem( item );
-
-    if ( valid ) {
-      items.push( item );
+    if ( ! valid ) {
+        item = null;
     }
-
-    return valid;
+    return item;
   }
 
-  function handleImageClick() {
-    if ( !setItems( this ) ) {
-      return;
-    }
-    initialiseGallery();
-  }
 
   /**
    * @param {array} itemsIn
    * @param {string} posterIn
    * @returns {bool}
    */
-  function init( itemsIn, posterIn ) {
+  function init( itemsIn, active ) {
     if ( gallery ) {
       return false;
     }
-
     if ( itemsIn ) {
       var valid_items = [];
 
@@ -123,32 +120,50 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
           valid_items.push( itemsIn[i] );
         }
       }
-
       items = valid_items;
+
+      if(active){
+          var index = getItemIndex(active);
+          if(index > -1){
+              options.index = index;
+          }
+      }
     }
 
-    if ( posterIn ) {
-      $poster = $('<img src="' + posterIn + '">').appendTo('.photoswipe-wrapper');
-    }
-
-    $poster.on( 'click', handleImageClick );
+    initialiseGallery(100);
 
     return true;
   }
 
-  /**
-   * @param {int} indexIn
-   */
-  function changeIndex( indexIn ) {
-    console.log( 'TODO: update active image:  ' + indexIn );
+  function getItemIndex(url){
+      var result = -1;
+      for(var i=0; i<items.length; i++){
+          if(items[i].src == url){
+              result = i;
+              break;
+          }
+      }
+      return result;
+  }
+
+  function setUrl( url ) {
+      var index = getItemIndex(url);
+      if(index > -1){
+          $poster.attr('src', url); // this is pointless, because the poster is hidden when the gallery is closed.
+          options.index = index;
+          initialiseGallery();
+      }
   }
 
   return {
-    init: function( items, posterIn ) {
-      return init( items, posterIn );
+    init: function( items, active ) {
+      return init( items, active );
     },
-    changeIndex: function( indexIn ) {
-      changeIndex( indexIn );
+    setUrl: function( url ) {
+      setUrl( url );
+    },
+    getItemFromMarkup: function($el){
+        return getItemFromMarkup($el);
     }
   }
 });
