@@ -2,6 +2,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   // main link between search page and the various players
   var listItemSelector   = '.object-media-nav a';
+  var mediaViewerImage   = null;
 
   function hideAllViewers() {
     console.log( 'hideAllViewers()' );
@@ -17,9 +18,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     console.log( 'initMedia()' );
 
     var firstItem = $(listItemSelector + ':first');
+
     if(firstItem.length === 1) {
        var type = firstItem.attr('data-type');
-       if(type != 'pdf'){
+       if(['pdf', 'image'].indexOf(type)==-1){
           firstItem.click();
        }
     }
@@ -37,6 +39,13 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaImage(evt, data) {
+
+    console.log( 'initMediaImage()' );
+
+    if(mediaViewerImage){
+        alert('update existing viewer');
+        return;
+    }
 
     // collect all image data:
     var imgData = [];
@@ -84,7 +93,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                 });
             }
             $('#img-measure').remove();
-            require(['media_viewer_image'], function(mediaViewerImage){
+            require(['media_viewer_image'], function(mediaViewerImageIn){
+                mediaViewerImage = mediaViewerImageIn;
                 hideAllViewers();
                 $('.media-viewer .object-media-image').removeClass('is-hidden');
                 mediaViewerImage.init(imgData, clickedImg);
@@ -93,9 +103,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         });
     }
     else{
-        console.log('img data given... ' + JSON.stringify(imgData))
+        console.log('full img meta-data given:\n\t' + JSON.stringify(imgData))
 
-        require(['media_viewer_image'], function(mediaViewerImage){
+        require(['media_viewer_image'], function(mediaViewerImageIn){
+            mediaViewerImage = mediaViewerImageIn;
             hideAllViewers();
             $('.media-viewer .object-media-image').removeClass('is-hidden');
             mediaViewerImage.init(imgData, clickedImg);
