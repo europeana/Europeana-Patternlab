@@ -44,5 +44,12 @@
 			cursor: pointer;
 		}
 	}
+	.icon-soundcloud{
+		color: $brand-soundcloud;
+		&:hover{
+			color: darken($brand-soundcloud, 15%);
+			cursor: pointer;
+		}
+	}
 
 }
