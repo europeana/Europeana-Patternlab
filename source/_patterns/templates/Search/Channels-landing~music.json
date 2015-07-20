@@ -189,22 +189,17 @@
       ]
     },
     "social":{
-        "url": "this page url for share links",
         "twitter": {
-          "url": "twitter url here",
-          "text": "Channel specific twitter account"
+          "url": "https://twitter.com/eu_sounds",
+          "text": "Europeana sounds on twitter (@eu_sounds)"
         },
         "facebook": {
-          "url": "twitter url here",
-          "text": "Channel specific facebook account"
+          "url": "Europeana Sounds on facebook",
+          "text": "https://www.facebook.com/soundseuropeana"
         },
-        "pinterest": {
-          "url": "twitter url here",
-          "text": "Channel specific pinterest account"
-        },
-        "googleplus": {
-          "url": "twitter url here",
-          "text": "Channel specific googleplus account"
+        "soundcloud": {
+          "url": "https://soundcloud.com/europeana",
+          "text": "Europeana on Soundcloud"
         }
       },
     "news": {
