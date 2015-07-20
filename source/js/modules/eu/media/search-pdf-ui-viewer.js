@@ -15,6 +15,11 @@ define(['jquery'], function($){
 
         function init(pdfUrl){
 
+            if(typeof PDFView != 'undefined' && PDFView.initialized){
+                PDFView.open(pdfUrl);
+                return;
+            }
+
             $('html').attr('dir', 'ltr');
             $('head').append('<link rel="stylesheet" href="' + resource_path + 'viewer.css" type="text/css"/>');
             $('head').append('<link rel="stylesheet" href="' + resource_path + 'viewer-europeana.css" type="text/css"/>');
