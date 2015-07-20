@@ -182,8 +182,7 @@ module.exports = function(grunt) {
               cwd: 'source/js/dist',
               expand:  true,
               src: ['**/*.js'],
-              dest: 'source/js/min',
-              ext: '.min.js'
+              dest: 'source/js/min'
           }
       }
   });
