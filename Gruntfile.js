@@ -168,10 +168,7 @@ module.exports = function(grunt) {
             cwd:    'source/js/modules/lib/photoswipe',
             dest:   'source/js/dist/lib/photoswipe',
             expand:  true
-          }
-      },
-
-      copy: {
+          },
           non_js: {
               cwd: 'source/js/dist',
               expand:  true,
@@ -194,6 +191,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('prod', [
+      'uglify:min_js',
+      'copy:non_js'
+ ]);
   grunt.registerTask('default', [
        //'concat:channels',
        //'concat:global',
@@ -214,13 +215,7 @@ module.exports = function(grunt) {
        'copy:require',
        'copy:videojs',
        'copy:videojs_silverlight',
-       'copy:photoswipe',
-
-       'uglify:min'
+       'copy:photoswipe'
   ]);
 
-  grunt.registerTask('prod', [
-       'uglify:min_js',
-       'copy:non_js'
-  ]);
 }
