@@ -77,6 +77,7 @@
 .single-item .object-media-nav{
     width: 100%;
     position: relative;
+    overflow-y: visible;
 }
 .single-item .object-media-nav.open{
     display: none;
