@@ -82,6 +82,13 @@
             {
               "license_public": true,
               "license_human": "You can use this image in any way you like"
+            },
+            "technical_metadata":
+            {
+              "language":"English",
+              "format": "png",
+              "file_size": "23.2",
+              "file_unit": "MB"
             }
           },
           {
