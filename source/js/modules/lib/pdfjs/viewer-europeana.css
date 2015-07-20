@@ -1,7 +1,12 @@
 .pdf-ui-wrappper{
   height:			480px;
+  width:			100%;
+}
+
+.multi-item .pdf-ui-wrappper{
   width:			90%;
 }
+
 
 /* prevent pattern lab interference */
 

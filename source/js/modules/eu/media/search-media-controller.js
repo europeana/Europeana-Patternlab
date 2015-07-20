@@ -1,7 +1,8 @@
 define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   // main link between search page and the various players
-  var listItemSelector   = '.object-media-nav a';
+  var listSelector       = '.object-media-nav';
+  var listItemSelector   = listSelector + ' a';
   var mediaViewerImage   = null;
 
   function hideAllViewers() {
@@ -15,8 +16,9 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function initMedia() {
-    console.log( 'initMedia()' );
+    console.log( 'initMedia() - no longer clicking first list item' );
 
+    /*
     var firstItem = $(listItemSelector + ':first');
 
     if(firstItem.length === 1) {
@@ -25,7 +27,13 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
           firstItem.click();
        }
     }
+    */
   }
+
+  function mediaOpened(){
+      $(listSelector).addClass('open');
+  }
+
 
   function initMediaAudio() {
     console.log( 'initMediaAudio()' );
@@ -181,6 +189,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-image', initMediaImage);
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
+  $('.media-viewer').on('object-media-open', mediaOpened);
   $(listItemSelector).on('click', handleListItemSelectorClick);
 
 });
