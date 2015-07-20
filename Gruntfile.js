@@ -169,31 +169,58 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/lib/photoswipe',
             expand:  true
           }
+      },
+
+      copy: {
+          non_js: {
+              cwd: 'source/js/dist',
+              expand:  true,
+              src: ['**/*.*',  '!**/*.js'],
+              dest: 'source/js/min'
+          }
+      },
+
+      uglify: {
+          min_js: {
+              cwd: 'source/js/dist',
+              expand:  true,
+              src: ['**/*.js'],
+              dest: 'source/js/min',
+              ext: '.min.js'
+          }
       }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default',
-          [
-           //'concat:channels',
-           //'concat:global',
-           'concat:blacklight',
-           'concat:map',
-           'concat:map_css',
-           'concat:mlt',
-           'copy:blacklight',
-           'copy:eu',
-           'copy:global_dependencies',
-           'copy:jquery',
-           'copy:main',
-           'copy:map_img',
-           'copy:mediaviewers',
-           'copy:pdfjs',
-           'copy:pdfjs_img',
-           'copy:require',
-           'copy:videojs',
-           'copy:videojs_silverlight',
-           'copy:photoswipe'
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default', [
+       //'concat:channels',
+       //'concat:global',
+       'concat:blacklight',
+       'concat:map',
+       'concat:map_css',
+       'concat:mlt',
+
+       'copy:blacklight',
+       'copy:eu',
+       'copy:global_dependencies',
+       'copy:jquery',
+       'copy:main',
+       'copy:map_img',
+       'copy:mediaviewers',
+       'copy:pdfjs',
+       'copy:pdfjs_img',
+       'copy:require',
+       'copy:videojs',
+       'copy:videojs_silverlight',
+       'copy:photoswipe',
+
+       'uglify:min'
+  ]);
+
+  grunt.registerTask('prod', [
+       'uglify:min_js',
+       'copy:non_js'
   ]);
 }
