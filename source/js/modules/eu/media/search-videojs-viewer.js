@@ -1,113 +1,128 @@
 define([], function() {
   'use strict';
 
-  var
-  css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
+  var css_path        = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
+  var silverlight_xap = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs-silverlight/video-js.xap' : js_path + 'lib/videojs-silverlight/video-js.xap';
+  var player          = null;
+  var $viewer         = null;
 
   $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-  /**
-   * @param {DOM Element} viewr
-   */
-  function initialiseViewer( viewer ) {
-    var player = videojs( viewer, {} );
-    player.play();
+  function log(msg) {
+    console.log(msg);
   }
 
-  /**
-   * @param {DOM Element} viewer
-   *
-   * current tech orders:
-   *   aurora ( audio/flac )
-   *   silverlight ( video/wmv, video/x-msvideo, video/x-ms-wmv )
-   */
-  function setTechOrder( viewer ) {
-    var tech_order = viewer.getAttribute('data-tech-order');
+  function initFlac(callback) {
 
-    if ( !tech_order ) {
-      console.log('no tech order provdied, thus no need to set it');
-      return;
-    }
+    log('initFlac');
 
-    console.log( 'tech order: ' + tech_order );
-    videojs.options.techOrder = [tech_order];
-  }
+    // since we're always loading videojs first the only way to get the tech order into the player
+    // is to do so here
 
-  /**
-   * @param {DOM Element} viewr
-   */
-  function initFlac( viewer ) {
+    $viewer.attr('data-setup', '{ "techOrder": ["aurora"] }');
+
     require(['aurora'], function() {
       require(['flac'], function() {
-        require(['videojs'], function() {
-          require(['videojs_aurora'], function() {
-            setTechOrder( viewer );
-            initialiseViewer( viewer );
-          });
+        require(['videojs_aurora'], function() {
+          callback()
         });
       });
     });
   }
 
-  /**
-   * @param {DOM Element} viewr
-   */
-  function initSilverlight( viewer ) {
-    require(['videojs'], function() {
-      require(['videojs_silverlight'], function() {
-        videojs.options.silverlight.xap = "/js/dist/lib/videojs-silverlight/video-js.xap";
-        setTechOrder( viewer );
-        initialiseViewer( viewer );
+
+  function initSilverlight(callback) {
+
+    log('initSilverlight');
+
+    require(['videojs_silverlight'], function() {
+      callback({
+          "silverlight": { "xap": silverlight_xap },
+          "techOrder": ["silverlight"]
       });
     });
   }
 
-  /**
-   * @param {DOM Element} viewr
-   */
-  function initVideojs( viewer ) {
-    require(['videojs'], function() {
-      setTechOrder( viewer );
-      initialiseViewer( viewer );
-    });
-  }
+  function determineMediaViewer(mime_type, callback) {
 
-  function determineMediaViewer() {
-    var
-      mime_type,
-      viewer = $('audio.is-current')[0] || $('video.is-current')[0];
-
-    if ( !viewer ) {
-      console.log( 'no viewer available' );
-      return;
-    }
-
-    mime_type = viewer.getElementsByTagName('source')[0].getAttribute('type');
-
-    if ( !mime_type ) {
-      console.log( 'no mime type available' );
-      return;
-    }
-
-    console.log( 'mime-type: ' + mime_type );
+    log('determineMediaViewer: ' + mime_type );
 
     switch ( mime_type ) {
-      case 'audio/flac': initFlac( viewer ); break;
-      case 'video/wmv': initSilverlight( viewer ); break;
-      case 'video/x-msvideo': initSilverlight( viewer ); break;
-      case 'video/x-ms-wmv': initSilverlight( viewer ); break;
-      default: initVideojs( viewer );
+      case 'audio/flac': initFlac( callback ); break;
+      case 'video/wmv': initSilverlight( callback ); break;
+      case 'video/x-msvideo': initSilverlight( callback ); break;
+      case 'video/x-ms-wmv': initSilverlight( callback ); break;
+      default: callback();
     }
   }
 
-  function init() {
-    determineMediaViewer();
-    $('.media-viewer').trigger("object-media-open");
+  function doPlay(media_item){
+      player.src([ { type: media_item.mime_type, src: media_item.url } ]);
+      player.play();
+  }
+
+  /**
+   * @mediaItem = Object
+   * */
+  function init(mediaItem) {
+
+    media_item = mediaItem
+
+    log('init video viewer with media_item:\n\t' + JSON.stringify(media_item, null, 4));
+
+    $viewer = $('audio, video');
+
+    if ( $viewer.length==0 ) {
+      log( 'no media dom element available' );
+      return;
+    }
+
+    if ( !media_item.mime_type ) {
+      log( 'no mime type available' );
+      return;
+    }
+
+
+    require(['videojs'], function(){
+
+        determineMediaViewer(media_item.mime_type, function(playerOptions){
+
+            // it would be nice to set the tech order via the player options here:
+            // but I can't verify ot works.
+            //
+            // TechOrder only works for aurora which is configured differently
+            // to avoid the load order it imposes (see above) and has I don't think
+            // techOrder has ever worked for silverlight
+            //
+            // This technique may well be fine so leaving it here to try again once
+            // the underlying problem with silverlight has been solved.
+            //
+            //   player = videojs( $viewer[0], playerOptions );
+
+            player = videojs( $viewer[0], {});
+
+            // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
+            // see:
+            //    http://europeana-pattern-lab/patterns/molecules-components-videojs-wmv/molecules-components-videojs-wmv.html
+
+            if(playerOptions){
+                for (var attrname in playerOptions){
+                    videojs.options[attrname] = playerOptions[attrname];
+                }
+                log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
+            }
+
+            doPlay(media_item);
+            $('.media-viewer').trigger("object-media-open");
+        });
+
+    });
+
   }
 
   return {
-    init:function() {
-      init();
+    init: function(media_item) {
+      init(media_item);
     }
   };
 });

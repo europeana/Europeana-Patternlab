@@ -41,8 +41,7 @@
               "text": "Original file"
             },
             "technical_metadata": {
-              "mime_type": "audio/flac",
-              "tech_order": "aurora"
+              "mime_type": "audio/flac"
             },
             "rights": {
               "license_public": true,

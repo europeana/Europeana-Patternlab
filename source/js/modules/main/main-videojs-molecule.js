@@ -16,6 +16,11 @@ require.config({
 
 require(['jquery'], function($){
   require(['media_viewer_videojs'], function(viewer){
-    viewer.init();
+      if(media_item){
+          viewer.init(media_item);
+      }
+      else{
+          console.log('main video molecule expects media_item');
+      }
   });
 });

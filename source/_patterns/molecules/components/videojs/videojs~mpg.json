@@ -1,39 +1,35 @@
 {
   "i18n": {
-		"global": {
-			"javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
-		}
-	},
-	"css_files": [
-		{
-			"path": "/css/search/screen.css"
-		}
-	],
-	"js_files": [
-		{
-			"path": "http://vjs.zencdn.net/4.12/video.js"
-		},
-		{
-			"path": "/js/dist/require.js",
-			"data_main": "/js/dist/main/main-videojs-molecule"
-		}
+    "global": {
+      "javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
+    }
+  },
+  "css_files": [
+    {
+      "path": "/css/search/screen.css"
+    }
   ],
-	"items": [
-		{
-			"is_current": true,
-			"is_video": true,
-			"thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
-			"download": {
-				"url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-				"text": "Original file"
-			},
-			"technical_metadata": {
-				"mime_type": "video/mpeg"
-			},
-			"rights": {
-				"license_public": true,
-				"license_human": "You can use this image in any way you like"
-			}
-		}
-	]
+  "js_files": [
+    {
+      "path": "http://vjs.zencdn.net/4.12/video.js"
+    },
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/main-videojs-molecule"
+    }
+  ],
+  "is_current": true,
+  "is_video": true,
+  "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+  "download": {
+    "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
+    "text": "Original file"
+  },
+  "technical_metadata": {
+    "mime_type": "video/mpeg"
+  },
+  "rights": {
+    "license_public": true,
+    "license_human": "You can use this image in any way you like"
+  }
 }
