@@ -33,6 +33,7 @@
           {"text":  true},
           {"video": true}
         ],
+        "single_item": true,
         "items":
         [
           {
