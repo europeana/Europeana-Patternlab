@@ -17,17 +17,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function initMedia() {
     console.log( 'initMedia() - no longer clicking first list item' );
-
-    /*
-    var firstItem = $(listItemSelector + ':first');
-
-    if(firstItem.length === 1) {
-       var type = firstItem.attr('data-type');
-       if(['pdf', 'image'].indexOf(type)==-1){
-          firstItem.click();
-       }
-    }
-    */
   }
 
   function mediaOpened(){
@@ -126,18 +115,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function initMediaPdf( evt, data ) {
     console.log( 'initMediaPdf(): ' + data.url );
-
-    /*
-    if(data.url && data.url.length > 0){
-      require(['pdfjs'], function(){
-        require(['media_viewer_pdf'], function(mediaViewerPdf){
-          hideAllViewers();
-          $('.media-viewer .object-media-pdf').removeClass('is-hidden');
-          mediaViewerPdf.init($('.media-viewer .object-media-pdf'), data.url);
-        });
-      });
-    }
-    */
 
     if(data.url && data.url.length > 0){
         require(['jquery'], function(){
