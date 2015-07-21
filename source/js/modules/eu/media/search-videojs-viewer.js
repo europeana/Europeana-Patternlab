@@ -2,8 +2,8 @@ define([], function() {
   'use strict';
 
   var
-  media_item_recursion_count = 0,
-  media_item_recursion_limit = 9,
+  //media_item_recursion_count = 0,
+  //media_item_recursion_limit = 9,
   css_path = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
 
   $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
@@ -16,6 +16,7 @@ define([], function() {
     console.log( 'initialiseViewer()' );
     videojs( viewer, {} );
 
+    viewer.play();
     //if ( media_item && media_item_recursion_count <= media_item_recursion_limit ) {
     //  media_item_recursion_count += 1;
     //  $('.media-viewer').trigger("media_init");
