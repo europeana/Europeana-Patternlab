@@ -25,12 +25,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function initMediaAudio() {
-    console.log( 'initMediaAudio()' );
     hideAllViewers();
     $('.media-viewer .object-media-audio').removeClass('is-hidden');
 
     require(['media_viewer_videojs'], function(audioViewer){
-      console.log('media_viewer_videojs loaded');
       audioViewer.init();
     });
   }
@@ -132,12 +130,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaVideo() {
-    console.log( 'initMediaVideo()' );
     hideAllViewers();
     $('.media-viewer .object-media-video').removeClass('is-hidden');
 
     require(['media_viewer_videojs'], function( viewer ) {
-      console.log('media_viewer_videojs loaded');
       viewer.init();
     });
   }

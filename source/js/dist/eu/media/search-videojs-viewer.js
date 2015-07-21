@@ -12,16 +12,16 @@ define([], function() {
    * @param {DOM Element} viewr
    */
   function initialiseViewer( viewer ) {
-    var media_item = $('.media-viewer .object-media-video').find( '.video-js' );
+    //var media_item = $('.media-viewer .object-media-video').find( '.video-js' );
     console.log( 'initialiseViewer()' );
     videojs( viewer, {} );
 
-    if ( media_item && media_item_recursion_count <= media_item_recursion_limit ) {
-      media_item_recursion_count += 1;
-      $('.media-viewer').trigger("media_init");
-    } else {
-      media_item_recursion_count = 0;
-    }
+    //if ( media_item && media_item_recursion_count <= media_item_recursion_limit ) {
+    //  media_item_recursion_count += 1;
+    //  $('.media-viewer').trigger("media_init");
+    //} else {
+    //  media_item_recursion_count = 0;
+    //}
   }
 
   /**
@@ -32,8 +32,6 @@ define([], function() {
    *   silverlight ( video/wmv, video/x-msvideo, video/x-ms-wmv )
    */
   function setTechOrder( viewer ) {
-    console.log( 'setTechOrder()' );
-
     var tech_order = viewer.getAttribute('data-tech-order');
 
     if ( !tech_order ) {
@@ -78,18 +76,13 @@ define([], function() {
    * @param {DOM Element} viewr
    */
   function initVideojs( viewer ) {
-    console.log( 'initVideojs()' );
-
     require(['videojs'], function() {
-      console.log( 'videojs loaded' );
       setTechOrder( viewer );
       initialiseViewer( viewer );
     });
   }
 
   function determineMediaViewer() {
-    console.log( 'determineMediaViewer()' );
-
     var
       mime_type,
       viewer = $('audio.is-current')[0] || $('video.is-current')[0];
@@ -106,7 +99,7 @@ define([], function() {
       return;
     }
 
-    console.log( 'determined mime-type: ' + mime_type );
+    console.log( 'mime-type: ' + mime_type );
 
     switch ( mime_type ) {
       case 'audio/flac': initFlac( viewer ); break;
@@ -118,7 +111,6 @@ define([], function() {
   }
 
   function init() {
-    console.log( 'search-videojs-viewer init()' );
     determineMediaViewer();
     $('.media-viewer').trigger("object-media-open");
   }
