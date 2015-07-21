@@ -16,7 +16,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function initMedia() {
-    console.log( 'initMedia() - no longer clicking first list item' );
+    console.log( 'initMedia()' );
   }
 
   function mediaOpened(){
@@ -24,12 +24,12 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
 
-  function initMediaAudio() {
+  function initMediaAudio(evt, data) {
     hideAllViewers();
     $('.media-viewer .object-media-audio').removeClass('is-hidden');
 
-    require(['media_viewer_videojs'], function(audioViewer){
-      audioViewer.init();
+    require(['media_viewer_videojs'], function( viewer ) {
+      viewer.init(viewer.getItemFromMarkup(data.target));
     });
   }
 
@@ -129,12 +129,12 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     }
   }
 
-  function initMediaVideo() {
+  function initMediaVideo(evt, data) {
     hideAllViewers();
     $('.media-viewer .object-media-video').removeClass('is-hidden');
 
     require(['media_viewer_videojs'], function( viewer ) {
-      viewer.init();
+      viewer.init(viewer.getItemFromMarkup(data.target));
     });
   }
 

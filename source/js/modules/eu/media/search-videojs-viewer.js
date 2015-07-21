@@ -12,6 +12,26 @@ define([], function() {
     console.log(msg);
   }
 
+  function getItemFromMarkup( $el ) {
+
+      if(!$el){
+        return null;
+      }
+
+      var item = {
+        url:       $el.attr( 'data-uri' ),
+        data_type: $el.attr( 'data-type' ),
+        mime_type: $el.attr( 'data-mime-type' )
+      };
+
+      var valid = item.url && item.mime_type && item.data_type;
+      if ( ! valid ) {
+          item = null;
+      }
+      return item;
+    }
+
+
   function initFlac(callback) {
 
     log('initFlac');
@@ -64,13 +84,12 @@ define([], function() {
   /**
    * @mediaItem = Object
    * */
-  function init(mediaItem) {
+  function init(media_item) {
 
-    media_item = mediaItem
 
     log('init video viewer with media_item:\n\t' + JSON.stringify(media_item, null, 4));
 
-    $viewer = $('audio, video');
+    $viewer = $(media_item.data_type);
 
     if ( $viewer.length==0 ) {
       log( 'no media dom element available' );
@@ -81,7 +100,6 @@ define([], function() {
       log( 'no mime type available' );
       return;
     }
-
 
     require(['videojs'], function(){
 
@@ -99,6 +117,7 @@ define([], function() {
             //
             //   player = videojs( $viewer[0], playerOptions );
 
+
             player = videojs( $viewer[0], {});
 
             // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
@@ -111,8 +130,8 @@ define([], function() {
                 }
                 log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
             }
-
             doPlay(media_item);
+
             $('.media-viewer').trigger("object-media-open");
         });
 
@@ -123,6 +142,9 @@ define([], function() {
   return {
     init: function(media_item) {
       init(media_item);
+    },
+    getItemFromMarkup: function($el){
+        return getItemFromMarkup($el);
     }
   };
 });

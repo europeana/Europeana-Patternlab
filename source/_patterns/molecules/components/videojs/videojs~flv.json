@@ -1,4 +1,5 @@
 {
+  "test": true,
   "i18n": {
     "global": {
       "javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
@@ -16,7 +17,7 @@
     }
   ],
   "is_current": true,
-  "is_video": true,
+  "video": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcata.cica.es%2Farchivos%2Fdigital_resource%2F4166&size=LARGE&type=VIDEO",
   "download": {
     "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",

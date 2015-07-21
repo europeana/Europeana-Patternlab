@@ -3,7 +3,15 @@
         {{#thumbnail}}
 
         <li><a href="#"
-             {{#is_audio}}data-type="audio"{{/is_audio}}
+             {{#is_audio}}
+                 data-type="audio"
+                {{#download}}
+                   data-uri="{{url}}"
+                {{/download}}
+                 {{#technical_metadata}}
+                   data-mime-type="{{mime_type}}"
+                 {{/technical_metadata}}
+             {{/is_audio}}
 
              {{#is_image}}
                  data-type="image"
@@ -30,7 +38,15 @@
                  {{/download}}
              {{/is_text}}
 
-             {{#is_video}}data-type="video"{{/is_video}}
+             {{#is_video}}
+                 data-type="video"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+                 {{#technical_metadata}}
+                   data-mime-type="{{mime_type}}"
+                 {{/technical_metadata}}
+             {{/is_video}}
 
              {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
         {{/thumbnail}}

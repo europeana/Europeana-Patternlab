@@ -1,4 +1,5 @@
 {
+  "test": true,
   "i18n": {
     "global": {
       "javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
@@ -16,7 +17,7 @@
     }
   ],
   "is_current": true,
-  "is_video": true,
+  "video": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
   "download": {
     "url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
