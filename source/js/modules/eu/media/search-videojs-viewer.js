@@ -120,6 +120,7 @@ define([], function() {
   function init() {
     console.log( 'search-videojs-viewer init()' );
     determineMediaViewer();
+    $('.media-viewer').trigger("object-media-open");
   }
 
   return {
