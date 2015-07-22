@@ -156,7 +156,9 @@
 
 .list-item.list-item-wide {
 
-	width: span(24 of 24 split);
+	@media all and (min-width: $bp-small) {
+		width: span(24 of 24 split);
+	}
 
 	@media all and (min-width: $bp-large) {
 		width: span(12 of 24 split);

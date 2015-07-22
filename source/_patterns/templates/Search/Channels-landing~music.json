@@ -101,9 +101,11 @@
     },
     "hero_config":{
       "hero_image":"sample/channel_hero_music.jpg",
-      "attribution_text" : "Kaja Draksler on piano, Nada Žgank",
-      "attribution_url" : "http://www.europeana.eu/portal/search.html?qf=DATA_PROVIDER%3a%22Culture.si%20photo%20library%22&rows=24",
-      "license_CC-ND-NC-SA": true
+      "attribution_title" : "Danse de trois faunes et trois bacchantes",
+      "attribution_creator" : "Hieronymus Hopfer",
+      "attribution_institution" : "Bibliothèque municipale de Lyon",
+      "attribution_url" : "http://www.europeana.eu/portal/record/15802/eDipRouteurBML_eDipRouteurBML_aspx_Application_ESTA_26Action_RechercherDirectement_NUID___554__ESTA_3BAfficherVueSurEnregistrement_Vue_Fiche_Principal_3BAfficherFrameset.html",
+      "license_public": true
     },
     "channel_entry":{
       "title": "Promoted title",

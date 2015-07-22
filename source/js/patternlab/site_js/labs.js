@@ -21,11 +21,11 @@ var Europeana_labs = window.Europeana_labs || {};
                 topSpacing:100,
                 bottomSpacing: footerheight,
                 responsiveWidth: true,
-                getWidthFrom: ".sidebar"
+                getWidthFrom: ".js-getstickywidth"
             });
         }
-        
-    }; 
+
+    };
 
     // Initialise the sticky sidebar navigation - cross site
     Europeana_labs.init_accordions = function(){
@@ -49,7 +49,7 @@ var Europeana_labs = window.Europeana_labs || {};
                 $(this).addClass('active');
             }
         });
-    	
+
     };
 
     //same as $(document).ready();

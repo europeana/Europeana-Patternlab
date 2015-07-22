@@ -21,7 +21,7 @@
 		position: relative;
 		height: 100%;
 	}
-	
+
 	// this is a wrapper around the search field and title (used in channels, not used in pro)
 	.hero-contents{
 		width: 80%;
@@ -44,6 +44,16 @@
 		@media all and (min-width: $bp-large) {
 			width: 35%;
 		}
+
+	   a{
+			color: $white;
+			border-bottom: 1px dotted $white;
+
+			&:hover, &:focus{
+				color: $accent;
+				border-color: $accent;
+			}
+		}
 	}
 
 	.attribution{
@@ -64,16 +74,6 @@
     	margin-bottom: $space-half;
     	font-size: 2em;
     	text-transform: uppercase;
-
-    	a{
-			color: $white;
-			border-bottom: 1px dotted $white;
-
-			&:hover, &:focus{
-				color: $textcolour_link;
-				border-color: $textcolour_link;
-			}
-		}
 	}
 
 }
