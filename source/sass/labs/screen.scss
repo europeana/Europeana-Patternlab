@@ -13,6 +13,7 @@
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-labs;
 $textcolour_highlight: $accent;
+$icon_primary: lighten($accent, 10);
 
 $breakpoints: (
     'palm' '(max-width: 24em)',
@@ -61,7 +62,7 @@ $breakpoint-has-pull:   ();
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
-//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
 @import "../scss/objects/nav";
 
 //navigation types
@@ -105,7 +106,7 @@ $breakpoint-has-pull:   ();
 @import "../scss/objects/tooltip";
 
 @import "../scss/objects/blocks/site-hero";
-@import "../scss/theme/hero-branding"; 
+@import "../scss/theme/hero-branding";
 
 
 @import "./labs-homepage";
@@ -131,7 +132,7 @@ $breakpoint-has-pull:   ();
 
     position: relative;
     background: $white; // fallback
-    
+
     @media all and (min-width: $bp-med) {
         background: $offwhite; // fallback
         background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
@@ -150,6 +151,7 @@ $breakpoint-has-pull:   ();
     .maincontent{
         background-color: $white;
         padding: $space-triple $space;
+        overflow: hidden;
         @media all and (min-width: $bp-med) {
             padding-right: $space;
         }
@@ -174,7 +176,7 @@ $breakpoint-has-pull:   ();
     }
 
     .textcontent{
-        
+
         padding-bottom: $space-triple;
         background-color: $white;
 
@@ -183,7 +185,7 @@ $breakpoint-has-pull:   ();
         }
     }
 
-    .l-sidebar{ 
+    .l-sidebar{
         background: $offwhite;
 
         &> .inner{
@@ -202,7 +204,7 @@ $breakpoint-has-pull:   ();
             width: 100%;
             height: $globalnavheight + $space-triple;
             position: absolute;
-            top: 0; 
+            top: 0;
             left: 0;
             background-color: #F8F8F8;
             z-index: -1;
@@ -216,9 +218,9 @@ $breakpoint-has-pull:   ();
     margin-bottom: $space-half;
 }
 
-.help-contact, 
-.help-contact .email, 
-.contact-methods, 
+.help-contact,
+.help-contact .email,
+.contact-methods,
 .jobdetails,
 .l-person
 {
@@ -226,14 +228,14 @@ $breakpoint-has-pull:   ();
     margin-bottom: $space;
 }
 
-.results-list, 
-.page-intro, 
+.results-list,
+.page-intro,
 .articleheader
 {
     margin-bottom: $space-double;
 }
 
-.maincontent > .title, 
+.maincontent > .title,
 .team
 {
     margin-bottom: $space-triple;
@@ -253,7 +255,7 @@ $breakpoint-has-pull:   ();
             min-height: 30em;
         }
     }
-    
+
     .maincontent{
         @media all and (max-width: $bp-med) {
             padding-top: 0;
@@ -310,7 +312,7 @@ $breakpoint-has-pull:   ();
 }
 
 .sortby{
-    
+
     .pageheader &, .l-breadcrumbs &{
         display: table-cell;
         width: 25%;
@@ -325,4 +327,4 @@ $breakpoint-has-pull:   ();
 
 .subnav .sortby{
     margin-bottom: $space;
-} 
+}

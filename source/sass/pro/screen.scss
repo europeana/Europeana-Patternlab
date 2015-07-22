@@ -13,6 +13,7 @@
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-pro;
 $textcolour_highlight: $accent;
+$icon_primary: lighten($accent, 10);
 
 
 // Reset
@@ -47,7 +48,7 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
-//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
 @import "../scss/objects/nav";
 
 //navigation types
@@ -109,7 +110,7 @@ $textcolour_highlight: $accent;
 
 	position: relative;
 	background: $white; // fallback
-	
+
 	@media all and (min-width: $bp-med) {
 		background: $offwhite; // fallback
 		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
@@ -143,7 +144,7 @@ $textcolour_highlight: $accent;
 
 
 	.textcontent{
-		
+
 		padding-bottom: $space-triple;
 		background-color: $white;
 
@@ -152,7 +153,7 @@ $textcolour_highlight: $accent;
 		}
 	}
 
-	.l-sidebar{ 
+	.l-sidebar{
 		background: $offwhite;
 
 		&> .inner{
@@ -171,7 +172,7 @@ $textcolour_highlight: $accent;
 			width: 100%;
 			height: $globalnavheight + $space-triple;
 			position: absolute;
-			top: 0; 
+			top: 0;
 			left: 0;
 			background-color: #F8F8F8;
 			z-index: -1;
@@ -186,9 +187,9 @@ $textcolour_highlight: $accent;
     margin-bottom: $space-half;
 }
 
-.help-contact, 
-.help-contact .email, 
-.contact-methods, 
+.help-contact,
+.help-contact .email,
+.contact-methods,
 .jobdetails,
 .l-person
 {
@@ -196,14 +197,14 @@ $textcolour_highlight: $accent;
     margin-bottom: $space;
 }
 
-.results-list, 
-.page-intro, 
+.results-list,
+.page-intro,
 .articleheader
 {
     margin-bottom: $space-double;
 }
 
-.maincontent > .title, 
+.maincontent > .title,
 .team
 {
     margin-bottom: $space-triple;
@@ -308,7 +309,7 @@ $textcolour_highlight: $accent;
 			min-height: 30em;
 		}
 	}
-	
+
 	.maincontent{
 		@media all and (max-width: $bp-med) {
 			padding-top: 0;
