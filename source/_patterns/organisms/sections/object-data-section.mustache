@@ -12,9 +12,7 @@
             <ul class="comma-list data-group">
               {{# items }}
                 <li>
-                  {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}
-
-                  {{#extra_info}}
+                  {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
                     {{#life}}
                       <span class="life-dates">
                         ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
@@ -25,9 +23,8 @@
                         {{text}}
                       </div>
                     {{/biography}}
-                  {{/extra_info}}
-
-                </li>
+                  {{/extra_info}}</li>
+                  </li>
               {{/ items}}
             </ul>
           </section>

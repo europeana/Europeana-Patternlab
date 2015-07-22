@@ -93,7 +93,7 @@
               {{# rights }}
               <div class="object-rights">
 
-                <h4>{{i18n.site.object.meta-label.rights}}</h4>
+                <h4>{{i18n.site.object.meta-label.rights-human}}</h4>
 
                 {{license_human}}
 
@@ -161,11 +161,6 @@
         {{# subtitle }}
           <div class="subtitle">{{subtitle}}</div>
         {{/ subtitle }}
-        {{#creation_date}}
-          <div class="date_created">
-            {{creation_date}}
-          </div>
-        {{/creation_date}}
       </div>
 
       {{#description}}
@@ -176,18 +171,6 @@
         {{> organisms/sections/object-data-section }}
       {{/people}}
 
-      {{#places }}
-        {{> organisms/sections/object-data-section }}
-      {{/places }}
-
-      {{#dates }}
-        {{> organisms/sections/object-data-section }}
-      {{/dates }}
-
-      {{#provenance}}
-        {{> organisms/sections/object-data-section }}
-      {{/provenance}}
-
       {{#concepts }}
         {{> organisms/sections/object-data-section }}
       {{/concepts }}
@@ -195,6 +178,22 @@
       {{#properties }}
         {{> organisms/sections/object-data-section }}
       {{/properties }}
+
+      {{#dates }}
+        {{> organisms/sections/object-data-section }}
+      {{/dates }}
+
+      {{#places }}
+        {{> organisms/sections/object-data-section }}
+      {{/places }}
+
+      {{#provenance}}
+        {{> organisms/sections/object-data-section }}
+      {{/provenance}}
+
+      {{#copyright}}
+        {{> organisms/sections/object-data-section }}
+      {{/copyright}}
 
       {{#refs_rels}}
         {{> organisms/sections/object-data-section }}
