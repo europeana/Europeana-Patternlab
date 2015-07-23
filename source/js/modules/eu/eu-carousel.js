@@ -320,6 +320,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
             resize();
         };
 
+
         init();
         return {
             resize : function(){
