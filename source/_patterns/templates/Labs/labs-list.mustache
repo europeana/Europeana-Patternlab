@@ -3,12 +3,18 @@
 
 <main role="main">
 
+<section class="page_header">
+<div class="lc">
+	{{> molecules/navigation/breadcrumbs}}
+</div>
+</section>
+
+
 {{> molecules-block-content-header }}
 
 <section class="grid_wrapper">
 	<div class="grid">
 		<div class="main-content">
-
 			<ul class="results-list">
 				{{#listItems.ten}}
 					{{> molecules-pro-listitem }}

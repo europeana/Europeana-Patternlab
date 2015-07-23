@@ -163,17 +163,7 @@ $breakpoint-has-pull:   ();
         margin-bottom: 3.1rem;
     }
 
-    .page_header{
-        background-color: $gray97;
-        padding: $space;
-        display: table;
-        font-size: $font-size-slightly-smaller;
-        width: 100%;
 
-        @media all and (min-width: $bp-med) {
-            height: $space-triple;
-        }
-    }
 
     .textcontent{
 
@@ -211,6 +201,18 @@ $breakpoint-has-pull:   ();
         }
     }
 
+}
+
+.page_header{
+    background-color: $gray97;
+    padding: $space;
+    display: table;
+    font-size: $font-size-slightly-smaller;
+    width: 100%;
+
+    @media all and (min-width: $bp-med) {
+        height: $space-triple;
+    }
 }
 
 // Various spacings and margins
