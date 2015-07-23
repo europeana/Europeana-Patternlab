@@ -4,7 +4,7 @@
 		{{#input_search}}
 
 			{{#has_original}}
-			    <input type="hidden" name="q" value="{{input_original.value}}"/>
+			<input type="hidden" name="q" value="{{input_original.value}}"/>
 			{{/has_original}}
 
 			<input class="search-input js-search-input js-placeholder" type="text"
@@ -13,6 +13,7 @@
 			{{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
 			/>
 
+			{{#input_values}}
 			<ul class="search-tags js-search-tags">
 
 				{{#has_original}}
@@ -28,6 +29,7 @@
 					</li>
 				{{/input_values}}
 			</ul>
+			{{/input_values}}
 
 
 		{{/input_search}}

@@ -49,12 +49,12 @@
         "title": "Search",
         "input_name": "supersearch",
         "placeholder": "Add a search term",
-        "input_values": [
-          {
+        "has_original": true,
+        "input_original":{
             "value": "Rembrandt",
-            "remove": "removeurl",
-            "name": "fieldname"
-          },
+            "remove": "removeurl"
+        },
+        "input_values": [
           {
             "value": "Paintings",
             "remove": "removeurl",
