@@ -2,7 +2,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
 
     /**
      * @cmp: the container
-     * 
+     *
      */
     return function(cmp, data){
 
@@ -59,11 +59,11 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
             items.find('.' + classData.itemClass + '').css('margin-left', parseInt(spacing) + 'px');
 
             log('w: ' + w + ', itemW: ' + itemW + ', maxFit ' + maxFit);
-            
+
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
             }
-            
+
             items.css('width', w + (totalLoaded * (itemW + spacing)));
 
             var anchor = function(){
@@ -74,7 +74,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
                     "axis" : "x",
                     "onAfter" : function(){
-                        
+
                         var done = function(){
                             cmp.css('overflow-x', 'hidden');
                             animating = false;
@@ -183,7 +183,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                     }
                     done();
                     console.log('b) position '  + position + ', inView ' + inView);
-                    
+
                 }
             });
         }
@@ -205,7 +205,7 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 return;
             }
             cmp.addClass('loading');
-            
+
             var dataLoaded = function(data){
                 $.each(data.documents, function(i, ob){
                     items.append(getItemMarkup(ob));
@@ -213,13 +213,13 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 });
                 resize();
                 if(scroll){
-                    scrollRight();                    
+                    scrollRight();
                 }
             }
-            
+
             var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
             var url = window.location.href.split('.html')[0] + '/similar.json?page=' + page_param + '&per_page=' + inView;
-                
+
             $.getJSON( url, null, function( data ) {
                 dataLoaded(data);
             })
@@ -239,8 +239,8 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
         var init = function(){
 
             items = cmp.find('ul');
-            btnLeft = $('<a class="' + classData.arrowClasses.left + '">&#10096;</a>');
-            btnRight = $('<a class="' + classData.arrowClasses.right + '">&#10097;</a>');
+            btnLeft = $('<a class="' + classData.arrowClasses.left + '">◂</a>');
+            btnRight = $('<a class="' + classData.arrowClasses.right + '">▸</a>');
 
             cmp.before('<div class="' + classData.arrowClasses.container + '"></div>');
             cmp.prev('.' + classData.arrowClasses.container).append(btnLeft);
