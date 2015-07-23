@@ -40,21 +40,21 @@
             "primary_nav": {
                 "items": [
                     {
-                        "url": "#",
-                        "text": "Home",
-                        "is_current": true
-                    },
-                    {
                         "url": "",
                         "text": "Primary 1"
                     },
                     {
-                        "url": "Primary 2",
-                        "text": "Primary 2"
+                        "url": "",
+                        "text": "Primary 2",
+                        "is_current": true
+                    },
+                    {
+                        "url": "Primary 3",
+                        "text": "Primary 3"
                     },
                     {
                         "url": "",
-                        "text": "Primary 3"
+                        "text": "Primary 4"
                     }
                 ]
             }

@@ -8,39 +8,6 @@
 			"media": "all"
 		}
 	],
-	"navigation": {
-        "global": {
-            "options": {
-                "search_active": true,
-                "settings_active": false
-            },
-            "logo": {
-                "url": "http://europeana.eu",
-                "text": "Europeana"
-            },
-            "primary_nav": {
-                "items": [
-                    {
-                        "url": "#",
-                        "text": "Primary 1",
-                        "is_current": false
-                    },
-                    {
-                        "url": "",
-                        "text": "Primary 2"
-                    },
-                    {
-                        "url": "",
-                        "text": "Primary 3"
-                    },
-                    {
-                        "url": "",
-                        "text": "Primary 4"
-                    }
-                ]
-            }
-        }
-    },
 	"content":{
 		"hero_config":{
 			"hero_image":"labs/hero_bg.jpg",
