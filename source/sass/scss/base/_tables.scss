@@ -99,7 +99,7 @@ td {
     th {
         display: block;
         text-align: right;
-        
+
         border-bottom: 0;
         border-left: 0;
     }
@@ -111,7 +111,7 @@ td {
 
         border-left: 0;
         border-right: 0;
-        border-bottom: 0;        
+        border-bottom: 0;
     }
 
     thead tr {
@@ -130,7 +130,7 @@ td {
 
 .table-responsive{
     @media only screen and (max-width: $bp-large) {
-        
+
         display: block;
         position: relative;
         width: 100%;
@@ -152,7 +152,7 @@ td {
         th {
             display: block;
             text-align: right;
-            
+
             border-bottom: 0;
             border-left: 0;
         }
@@ -164,7 +164,7 @@ td {
 
             border-left: 0;
             border-right: 0;
-            border-bottom: 0;        
+            border-bottom: 0;
         }
 
         thead tr {
@@ -178,3 +178,142 @@ td {
     }
 }
 
+/* RESPONSIVE BREAKABLE TABLES */
+
+
+.table-responsive-break {
+
+    thead {
+      // Accessibly hide <thead> on narrow viewports
+      position: absolute;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+
+      @media (min-width: $bp-small-3) {
+        // Unhide <thead> on wide viewports
+        position: relative;
+        clip: auto;
+        height: auto;
+        width: auto;
+        overflow: auto;
+      }
+
+      th {
+        background-color: $thead-color;
+        font-weight: bold;
+        text-align: center;
+
+        &:first-of-type {
+          text-align: left;
+        }
+      }
+    }
+
+    // Set these items to display: block for narrow viewports
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+
+    tr {
+      @media (min-width: $bp-small-3) {
+        // Undo display: block
+        display: table-row;
+      }
+    }
+
+    th,
+    td {
+      padding: $pad-half;
+      vertical-align: middle;
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        // Undo display: block
+        display: table-cell;
+        padding: $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em;
+      }
+    }
+
+    tbody {
+      display: block;
+
+      @media (min-width: $bp-small-3) {
+        display: table-row-group;
+      }
+
+      tr {
+        margin-bottom: $pad;
+
+        @media (min-width: $bp-small-3) {
+          // Undo display: block
+          display: table-row;
+          border-width: 1px;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        &:nth-of-type(even) {
+          @media (min-width: $bp-small-3) {
+            background-color: $thead-color;
+          }
+        }
+      }
+
+      th[scope="row"] {
+        background-color: $thead-color;
+
+        @media (min-width: $bp-small-3) {
+          background-color: transparent;
+          text-align: left;
+        }
+      }
+
+      td {
+        text-align: right;
+
+        @media (min-width: $bp-small-3) {
+          text-align: center;
+        }
+      }
+
+      td[data-title]:before {
+        content: attr(data-title);
+        float: left;
+        font-size: $font-size-slightly-smaller;
+        color: $gray-light;
+
+        @media (min-width: $bp-small-3) {
+          font-size: $font-size-slightly-smaller;
+        }
+
+        @media (min-width: $bp-small-3) {
+          // Don’t show data-title labels
+          content: none;
+        }
+      }
+    }
+}
