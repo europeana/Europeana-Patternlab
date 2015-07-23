@@ -198,7 +198,10 @@
 
 .channel-intro{
 	@include flexbox();
+	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
+
+	-webkit-align-items: center;
 	align-items: center;
 
 	.title{
