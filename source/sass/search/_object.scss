@@ -138,6 +138,10 @@
 }
 
 .object-techdata{
+
+    // Hide for beta launch
+    display: none;
+
     &>.show-button{
         position: absolute;
         bottom: 100%;
@@ -165,6 +169,10 @@
 
 
 .object-downloads{
+
+    // Hide for beta launch
+    display: none;
+
     .btn{
         background-color: $accent;
         border: none;
@@ -179,6 +187,19 @@
         }
     }
 }
+
+.original_context{
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.original_context_country{
+    display: block;
+    margin-top: 0.5em;
+}
+
+
+
 
 .object-info{
 
