@@ -169,6 +169,12 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/lib/photoswipe',
             expand:  true
           },
+          iipmooviewer: {
+            src:    '**',
+            cwd:    'source/js/modules/lib/iipmooviewer',
+            dest:   'source/js/dist/lib/iipmooviewer',
+            expand:  true
+          },
           non_js: {
               cwd: 'source/js/dist',
               expand:  true,
@@ -214,7 +220,8 @@ module.exports = function(grunt) {
        'copy:require',
        'copy:videojs',
        'copy:videojs_silverlight',
-       'copy:photoswipe'
+       'copy:photoswipe',
+			 'copy:iipmooviewer'
   ]);
 
 }
