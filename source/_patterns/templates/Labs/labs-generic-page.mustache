@@ -15,9 +15,11 @@
 		<div class="l-breadcrumbs page_header">
 			{{> molecules/navigation/breadcrumbs}}
 		</div>
-		
+
+    {{> molecules-block-content-header }}
+
 		<div id="maincontent" class="maincontent">
-			
+
 			<div class="textcontent prose">
 
 				<h1 class="title">{{ headline.medium }}</h1>
@@ -40,23 +42,17 @@
 		</div><!--
 
 	 --><div class="l-sidebar">
-	 		<div class="inner">
+        <div class="inner js-getstickywidth">
 
-				{{> molecules-help-contact(title: "Need help?") }}
+          {{> molecules-help-contact(title: "Need help?") }}
 
-				<ul class="nav_tertiary js-sticky">
-					<li><a href="#inpage1">In-page link 1</a></li>
-					<li><a href="#inpage2">In-page link 2</a></li>
-					<li><a href="#inpage3">In-page link 3</a></li>
-					<li><a href="#inpage4">In-page link 4</a></li>
-					<li><a href="#inpage5">In-page link 5</a></li>
-					<li><a href="#inpage6">In-page link 6</a></li>
-					<li><a href="#inpage7">In-page link 7</a></li>
-				</ul>
-				
-			</div>
+          <div class="js-sticky">
+          {{> molecules-tertiary-nav }}
+          </div>
 
-		</div>
+        </div>
+
+      </div>
 	</div>
 	<!-- End grid -->
 </div>
