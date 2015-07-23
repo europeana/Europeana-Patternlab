@@ -237,7 +237,6 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
         }
 
         var init = function(){
-
             items = cmp.find('ul');
             btnLeft = $('<a class="' + classData.arrowClasses.left + '">◂</a>');
             btnRight = $('<a class="' + classData.arrowClasses.right + '">▸</a>');
