@@ -434,7 +434,8 @@
                     "runtime": "Run time",
                     "rights": "Can I use this?",
                     "provided-by": "Provided by"
-                }
+                },
+                "show-more-similar-items":"Show more similar items"
             }
         },
         "more": "More",

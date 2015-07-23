@@ -191,10 +191,15 @@
 
 	.left{
 		left: 0;
+		@media all and (min-width: $bp-med) {
+			left: -1em;
+		}
 	}
 
 	.right{
 		right: 0;
 	}
+
+
 }
 
