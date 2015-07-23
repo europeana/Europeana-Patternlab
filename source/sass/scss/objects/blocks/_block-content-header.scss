@@ -8,7 +8,7 @@
 
 	.l-content &{
 		margin-bottom: 0;
-		background-color: $accent;
+		background-color: lighten($accent, 10);
 		color: $white;
 	}
 }
