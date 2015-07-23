@@ -246,8 +246,9 @@
             <use xlink:href="#icon-linkout"></use>
           </svg>
         </a>
-        {{{ i18n.site.object.meta-label.provided-by-detail }}}
-
+        {{#url}}{{#institution_country}}
+          {{{ i18n.site.object.meta-label.provided-by-detail }}}
+        {{/institution_country}}{{/url}}
         <span class="cap original_context_country">{{institution_country}}</span>
       </div>
       {{/ object.origin }}

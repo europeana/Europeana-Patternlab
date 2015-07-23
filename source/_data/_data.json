@@ -433,7 +433,8 @@
                     "dimensions": "Dimensions",
                     "runtime": "Run time",
                     "rights": "Can I use this?",
-                    "provided-by": "Provided by"
+                    "provided-by": "Provided by",
+                    "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
                 },
                 "show-more-similar-items":"Show more similar items"
             }
