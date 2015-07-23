@@ -33,7 +33,7 @@
   "content":{
     "channel_info":{
       "name": "Europeana Music",
-      "description": "The <strong>Europeana Music Theme</strong> brings together the best music recordings, sheet music, and other music related collections from Europeana’s audio-visual archives, libraries, archives and museums. Curated by Europeana Sounds.",
+      "description": "The <strong>Europeana Music Channel</strong> brings together the best music recordings, sheet music, and other music related collections from Europeana’s audio-visual archives, libraries, archives and museums.",
       "stats": {
         "items": [
           {
@@ -272,7 +272,7 @@
           },
           {
             "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Themes",
+            "text": "Channels",
             "is_current":true,
             "submenu": {
               "items": [
