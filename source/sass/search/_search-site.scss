@@ -180,29 +180,7 @@
 }
 
 
-.channelentry-list{
 
-	margin-bottom: $space;
-
-	.lc{
-		@media all and (min-width: $bp-med) {
-		padding: $space-half;
-		}
-	}
-
-	.list-item {
-		position: relative;
-		min-height: 0;
-
-		@media all and (min-width: $bp-small) {
-			@include gallery(12 of 24);
-		}
-
-		@media all and (min-width: $bp-med) {
-			@include gallery(8 of 24);
-		}
-	}
-}
 
 .channel-hero{
 	background-position: 50% 80%;
@@ -212,23 +190,22 @@
 }
 
 .channel-info{
-
 	padding: 0 $space;
 	margin-top: $space;
 	margin-bottom: 0;
+}
 
-	.lc{
-		@include flexbox();
-		flex-wrap: wrap;
-		align-items: center;
-	}
-
-	.lc > div{
-		margin-bottom: $space;
-	}
+.channel-intro{
+	@include flexbox();
+	flex-wrap: wrap;
+	align-items: center;
 
 	.title{
 		line-height: inherit;
+	}
+
+	& > div{
+		margin-bottom: $space;
 	}
 }
 
@@ -305,6 +282,29 @@
 	}
 	.link-date{
 		width: 30%;
+	}
+}
+
+.browse-entry-list{
+
+	margin-bottom: $space;
+	display: block;
+
+	@media all and (min-width: $bp-med) {
+		//padding: $space-half;
+	}
+
+	.list-item {
+		position: relative;
+		min-height: 0;
+
+		@media all and (min-width: $bp-small) {
+			@include gallery(12 of 24);
+		}
+
+		@media all and (min-width: $bp-med) {
+			@include gallery(8 of 24);
+		}
 	}
 }
 

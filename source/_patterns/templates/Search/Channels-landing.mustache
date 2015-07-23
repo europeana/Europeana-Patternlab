@@ -24,7 +24,8 @@
 
 {{#content.channel_info}}
 <section class="channel-info section">
-	<div class="lc">
+
+	<div class="channel-intro lc">
 		<div class="channel-description">
 			<div class="channel-description-text">
 				{{{description}}}
@@ -62,15 +63,13 @@
 
 	{{#content.channel_entry}}
 
-		<div class="channelentry-list lc">
-			<ul>
-				{{#items}}
-				<li class="list-item">
-					{{> molecules/blocks/browse-entry }}
-				</li>
-				{{/items}}
-			</ul>
-		</div>
+	<ul class="browse-entry-list lc">
+		{{#items}}
+		<li class="list-item">
+			{{> molecules/blocks/browse-entry }}
+		</li>
+		{{/items}}
+	</ul>
 
 	{{/content.channel_entry}}
 
