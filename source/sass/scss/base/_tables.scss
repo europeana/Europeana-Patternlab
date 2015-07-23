@@ -183,58 +183,137 @@ td {
 
 .table-responsive-break {
 
-    /* Zebra striping */
-    tr:nth-of-type(odd) {
-        background: $gray-lighter;
-    }
-    th {
-        background: $thead-color;
+    thead {
+      // Accessibly hide <thead> on narrow viewports
+      position: absolute;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+
+      @media (min-width: $bp-small-3) {
+        // Unhide <thead> on wide viewports
+        position: relative;
+        clip: auto;
+        height: auto;
+        width: auto;
+        overflow: auto;
+      }
+
+      th {
+        background-color: $thead-color;
         font-weight: bold;
+        text-align: center;
+
+        &:first-of-type {
+          text-align: left;
+        }
+      }
     }
 
-    @media only screen and (max-width: $bp-small-3){
+    // Set these items to display: block for narrow viewports
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
 
-		    /* Force table to not be like tables anymore */
-        table, thead, tbody, th, td, tr {
-            display: block;
+    tr {
+      @media (min-width: $bp-small-3) {
+        // Undo display: block
+        display: table-row;
+      }
+    }
+
+    th,
+    td {
+      padding: $pad-half;
+      vertical-align: middle;
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        // Undo display: block
+        display: table-cell;
+        padding: $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em $pad-half;
+      }
+
+      @media (min-width: $bp-small-3) {
+        padding: .75em;
+      }
+    }
+
+    tbody {
+      display: block;
+
+      @media (min-width: $bp-small-3) {
+        display: table-row-group;
+      }
+
+      tr {
+        margin-bottom: $pad;
+
+        @media (min-width: $bp-small-3) {
+          // Undo display: block
+          display: table-row;
+          border-width: 1px;
         }
 
-        /* Hide table headers (but not display: none;, for accessibility) */
-        thead tr {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
+        &:last-of-type {
+          margin-bottom: 0;
         }
 
-        tr { border: none; }
+        &:nth-of-type(even) {
+          @media (min-width: $bp-small-3) {
+            background-color: $thead-color;
+          }
+        }
+      }
 
-        td {
-            /* Behave like a "row" */
-            border: none;
-            border-bottom: 1px solid $tborder-color;
-            position: relative;
-            padding-left: 50%;
-		    }
+      th[scope="row"] {
+        background-color: $thead-color;
 
-        td:before {
-            /* Now like a table header */
-            position: absolute;
-            /* Top/left values mimic padding */
-            top: 6px;
-            left: 6px;
-            width: 45%;
-            padding-right: 10px;
-            white-space: nowrap;
-            font-weight: bold;
-		    }
+        @media (min-width: $bp-small-3) {
+          background-color: transparent;
+          text-align: left;
+        }
+      }
 
-        /*
-        Label the data
-        */
-        td:nth-of-type(1):before { content: "Table Heading 1"; }
-        td:nth-of-type(2):before { content: "Table Heading 2"; }
-        td:nth-of-type(3):before { content: "Table Heading 3"; }
-        td:nth-of-type(4):before { content: "Table Heading 4"; }
-        td:nth-of-type(5):before { content: "Table Heading 5"; }
+      td {
+        text-align: right;
+
+        @media (min-width: $bp-small-3) {
+          text-align: center;
+        }
+      }
+
+      td[data-title]:before {
+        content: attr(data-title);
+        float: left;
+        font-size: $font-size-slightly-smaller;
+        color: $gray-light;
+
+        @media (min-width: $bp-small-3) {
+          font-size: $font-size-slightly-smaller;
+        }
+
+        @media (min-width: $bp-small-3) {
+          // Don’t show data-title labels
+          content: none;
+        }
+      }
     }
 }
