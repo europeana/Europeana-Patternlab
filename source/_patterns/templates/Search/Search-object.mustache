@@ -18,8 +18,9 @@
   {{#object.media}}
   <section class="object-display">
 
-    <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}multi-item{{/single_item}}">
+    <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
 
+      {{^empty_item}}
       <div class="media-viewer">
 
         {{#required_players}}
@@ -56,8 +57,11 @@
 
         {{/required_players}}
       </div>
-
       {{> molecules/components/media-nav}}
+      {{/empty_item}}
+      {{#empty_item}}
+        <img src={{thumbnail}}>
+      {{/empty_item}}
     </div>
 
     {{#items}}
@@ -320,11 +324,8 @@
     </div>
   </section>
   {{/content}}
-
 </div>
-
 {{# version.is_alpha }}
-{{> organisms/sections/alpha-feedback }}
+  {{> organisms/sections/alpha-feedback }}
 {{/ version.is_alpha }}
-
 {{> organisms/global/footer }}
