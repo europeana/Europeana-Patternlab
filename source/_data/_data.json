@@ -1,5 +1,10 @@
 {
     "patternlab": true,
+
+    "version":{
+        "is_alpha": true
+    },
+
     "page_config": {
         "newsletter": false
     },
@@ -457,6 +462,14 @@
                     "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
                 },
                 "show-more-similar-items": "Show more similar items"
+            },
+            "alpha":{
+                "feedback_banner":{
+                    "title": "This is an Alpha release of the new Europeana search website",
+                    "description": "An alpha release means that this website will change frequently and may not work as well as we'd like.",
+                    "link-text":"Help us to make it better"
+                }
+
             }
         },
         "more": "More",

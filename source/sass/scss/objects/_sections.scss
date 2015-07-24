@@ -108,3 +108,16 @@
 		border-top: 1px solid $grey3;
 	}
 }
+
+.prelaunch-feedback{
+	@include fontSize(18px);
+	background-color: $accent;
+	padding: $space;
+	padding-top: $space-double;
+	color: $white;
+
+	.lc > div{
+		margin-bottom: $space;
+	}
+
+}

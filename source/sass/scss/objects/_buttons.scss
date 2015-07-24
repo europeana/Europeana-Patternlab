@@ -102,6 +102,16 @@
 	}
 }
 
+.btn.btn-light{
+	border-color: $white;
+	color: $white;
+
+	&:hover, &:focus{
+		background-color: $black;
+		color: $white;
+	}
+}
+
 .pill{
 	border-radius: 300px;
 }

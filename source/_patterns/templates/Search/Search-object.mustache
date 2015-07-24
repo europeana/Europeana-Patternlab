@@ -320,6 +320,11 @@
     </div>
   </section>
   {{/content}}
+
 </div>
+
+{{# version.is_alpha }}
+{{> organisms/sections/alpha-feedback }}
+{{/ version.is_alpha }}
 
 {{> organisms/global/footer }}

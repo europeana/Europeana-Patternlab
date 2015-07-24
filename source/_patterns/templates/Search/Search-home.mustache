@@ -51,12 +51,8 @@
 </div>
 {{/content.news}}
 
-{{# version.alpha }}
-	<section class="prelaunch-feedback">
-		<div class="lc">
-			{{ i18n.site.alpha.feedback-message }}
-		</div>
-	</section>
-{{/ version.alpha }}
+{{# version.is_alpha }}
+{{> organisms/sections/alpha-feedback }}
+{{/ version.is_alpha }}
 
 {{> organisms/global/footer }}

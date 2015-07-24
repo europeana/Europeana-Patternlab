@@ -186,7 +186,26 @@
 	}
 }
 
+.prelaunch-feedback .lc{
 
+	@media all and (min-width: $bp-small) {
+		@include flexbox();
+		-webkit-align-items: center;
+		align-items: center;
+	}
+
+	& > div{
+		@media all and (min-width: $bp-large) {
+			@include span(12 of 24);
+
+			&:last-child{
+				margin-right: 0;
+				text-align: center;
+			}
+		}
+	}
+
+}
 
 
 .channel-hero{
