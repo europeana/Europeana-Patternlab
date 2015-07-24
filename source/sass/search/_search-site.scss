@@ -1,7 +1,13 @@
 
 // Search Site specific styles
 
-
+//Logo for Search
+.logo {
+	background-image: url("../../images/europeana-logo-collections.png");
+	.svg &{
+		background-image: url("../../images/europeana-logo-collections.svg");
+	}
+}
 
 .hero-contents{
 	position: absolute;
@@ -197,12 +203,15 @@
 }
 
 .channel-intro{
-	@include flexbox();
-	-webkit-flex-wrap: wrap;
-	flex-wrap: wrap;
 
-	-webkit-align-items: center;
-	align-items: center;
+	@media all and (min-width: $bp-med) {
+		@include flexbox();
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+
+		-webkit-align-items: center;
+		align-items: center;
+	}
 
 	.title{
 		line-height: inherit;
