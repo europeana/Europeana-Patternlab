@@ -4,7 +4,7 @@
 </audio>
 {{/ audio }}
 {{# video }}
-<video class="video-js vjs-default-skin{{#is_current}} is-current{{/is_current}}" width="100%" preload="none" controls>
+<video class="video-js vjs-default-skin{{#is_current}} is-current{{/is_current}}" width="auto" height="auto" preload="none" controls>
   <p class="no-js">{{ i18n.global.requires_javascript }}</p>
 </video>
 {{/ video }}
@@ -18,3 +18,20 @@
   }
 </script>
 {{/ test }}
+
+<!-- This is a horrible way to set the height of the video... -->
+
+<style>
+.video-js {padding-top: 56.25%}
+.vjs-fullscreen {padding-top: 0px}
+</style>
+
+<!--
+
+ Prompted by:
+     - some of what this is saying:
+           http://coolestguidesontheplanet.com/videodrome/videojs/
+           - the "golden mean"
+    We want to let videojs do its thing - but we want to style this in sass.  To re-visit.
+
+-->

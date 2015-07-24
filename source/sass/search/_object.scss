@@ -167,11 +167,13 @@
     }
 }
 
-.object-media-video,
-.object-media-video {
-  margin-bottom: 26px;
-  max-height: 300px;
-  overflow: hidden;
+
+// override default if we have a column of thumbnails on the right
+
+.multi-item{
+  .object-media-video {
+    width: 90%;
+  }
 }
 
 .object-techdata{
