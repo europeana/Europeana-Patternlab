@@ -308,6 +308,26 @@
                 "googleplus": true,
                 "linkedin": true,
                 "github": true
+            },
+            "subfooter": {
+                "items": [
+                    {
+                        "text": "Home",
+                        "url": "http://google.com"
+                    },
+                    {
+                        "text": "Terms of use & policies",
+                        "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+                    },
+                    {
+                        "text": "Contact us",
+                        "url": "http://google.com"
+                    },
+                    {
+                        "text": "Sitemap",
+                        "url": "http://google.com"
+                    }
+                ]
             }
         }
     },
@@ -436,7 +456,7 @@
                     "provided-by": "Provided by",
                     "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
                 },
-                "show-more-similar-items":"Show more similar items"
+                "show-more-similar-items": "Show more similar items"
             }
         },
         "more": "More",

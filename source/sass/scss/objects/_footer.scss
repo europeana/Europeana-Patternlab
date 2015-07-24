@@ -35,7 +35,7 @@
 	}
 
 
-	
+
 	//layout styles
 	div[class^='l-'], .signup{
 		margin-bottom: $space;
@@ -46,7 +46,7 @@
 		font-size: $font-size-med;
 		font-style: italic;
 	}
-	
+
 	.copyright {
 		font-size: $font-size-sm;
 		color: #777777;
@@ -64,14 +64,14 @@
 
 
 
-.social-links{ 
+.social-links{
 
 	text-align: center;
 
 	@media all and (min-width: $bp-med) {
 		text-align: left;
 	}
-	
+
 	a{
 		font-size: 3em;
 		color: $blue-dark;
@@ -99,7 +99,7 @@
 			display: block;
 			color: $footer_text;
 			border-bottom: 1px dotted $blue-dark;
-			margin-right: 0.2em;
+			margin-right: $space-half;
 
 			&:hover{
 				color: $textcolour_link;

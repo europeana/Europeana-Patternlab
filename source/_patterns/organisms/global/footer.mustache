@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="address">
-                    Main Europeana Office<br>
+                    Europeana Foundation<br>
                     Koningin Julianaplein 10<br>
                     2595 AA Den Haag<br>
                     Netherlands
@@ -57,18 +57,23 @@
         </div>
     </div>
 
-    <div class="sub-footer lc">
 
+    <div class="sub-footer lc">
+        {{# navigation.footer.subfooter }}
         <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="http://europeana.eu/portal/rights/terms-and-policies.html">Terms of use &amp; policies</a></li>
-            <li><a href="/">Contact us</a></li>
-            <li><a href="/">Sitemap</a></li>
+            {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
         </ul>
+        {{/ navigation.footer.subfooter }}
+
+        {{^ navigation.footer.subfooter }}
+        <ul class="nav">
+            <li><a href="./">{{i18n.global.navigation.home}}</a></li>
+        </ul>
+        {{/ navigation.footer.subfooter }}
 
         <p class="copyright">Co-funded by the European Union.</p>
-
     </div>
+
 
 </footer>
 <!-- End Footer -->
