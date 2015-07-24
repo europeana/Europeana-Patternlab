@@ -73,7 +73,7 @@
 // Contents of Results list
 // Results list header containing controls that affect the list
 .results-header{
-	padding: $space-half 0;
+	padding: $space-half $space-quarter;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
 	overflow: hidden;
@@ -113,7 +113,7 @@
 	@include span(last 8 of 12);
 
 	@media all and (min-width: $bp-small-3) {
-		text-align: center;
+		//text-align: center;
 		@include span(8 of 18);
 	}
 }
