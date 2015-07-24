@@ -41,12 +41,12 @@
                 "items": [
                     {
                         "url": "",
-                        "text": "Primary 1"
+                        "text": "Primary 1",
+                        "is_current": true
                     },
                     {
                         "url": "",
-                        "text": "Primary 2",
-                        "is_current": true
+                        "text": "Primary 2"
                     },
                     {
                         "url": "Primary 3",
