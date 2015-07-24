@@ -437,7 +437,8 @@
             "object": {
                 "actions": {
                     "download": "Download",
-                    "technicalmetadata": "Technical Metadata"
+                    "technicalmetadata": "Technical Metadata",
+                    "open-media": "Open this media item"
                 },
                 "meta-label": {
                     "concepts": "Categories",

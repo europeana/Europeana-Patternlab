@@ -48,7 +48,15 @@
                  {{/technical_metadata}}
              {{/is_video}}
 
-             {{#is_current}}class="is-current"{{/is_current}}><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+             {{#is_current}}class="is-current"{{/is_current}}
+
+             ><span title="{{i18n.site.object.actions.open-media}}"
+                    {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
+                  {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}
+                  {{#is_pdf}}   class="media-clickable-indicator pdf"    {{/is_pdf}}
+                  {{#is_text}}  class="media-clickable-indicator text"   {{/is_text}}
+                  {{#is_video}} class="media-clickable-indicator video"  {{/is_video}}
+                   >+</span><img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
         {{/thumbnail}}
         {{/items}}
       </ul>
