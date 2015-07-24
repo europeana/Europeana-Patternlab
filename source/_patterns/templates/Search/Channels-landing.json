@@ -2,11 +2,6 @@
   "bodyclass": "channel_landing",
   "pagetitle": "Europeana Search",
 
-  "globalnav_options": {
-    "search": false,
-    "myeuropeana": true
-  },
-
   "page_config": {
     "newsletter": true
   },
@@ -244,7 +239,7 @@
     "global":{
       "options": {
         "search_active": false,
-        "settings_active": true
+        "settings_active": false
       },
       "logo":{
         "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
@@ -259,7 +254,7 @@
           },
           {
             "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Themes",
+            "text": "Channels",
             "is_current":true,
             "submenu": {
               "items": [

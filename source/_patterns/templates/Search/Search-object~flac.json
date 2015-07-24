@@ -1,37 +1,14 @@
 {
-  "bodyclass": "europeana_search",
-  "page_title": "Europeana Search",
-  "css_files":
-  [
-    {
-      "path": "../../css/search/screen.css",
-      "media": "all"
-    }
-  ],
-
-  "js_variables":
-  [
-    "var js_path= '../../js/dist/';"
-  ],
-
-  "js_files":
-  [
-      {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main/main"	 }
-
-  ],
-
-  "content":
-  {
-    "object":
-    {
-      "media":
-      {
+  "content": {
+    "object": {
+      "media": {
         "required_players": [
-          {"audio": true}
+          {
+            "audio": true
+          }
         ],
         "single_item": true,
-        "items":
-        [
+        "items": [
           {
             "is_current": true,
             "is_audio": true,
@@ -50,22 +27,19 @@
           }
         ]
       },
-
       "title": "The Milkmaid",
       "type": "image",
       "is_image": true,
       "subtitle": "Het melkmeisje",
       "creation_date": "1660",
       "creator": "Johannes Vermeer",
-      "origin":
-      {
+      "origin": {
         "institution_name": "Rijksmuseum",
         "institution_country": "Netherlands",
         "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
         "logo": "sample/logo.jpg"
       },
-      "people":
-      {
+      "people": {
         "title": "People",
         "sections": [
           {
@@ -74,9 +48,9 @@
               {
                 "text": "Johannes Vermeer",
                 "url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
-                "extra_info":{
+                "extra_info": {
                   "life": {
-                      "content_present": true,
+                    "content_present": true,
                     "from": {
                       "long": "31st October 1632",
                       "short": "1632"
@@ -86,8 +60,7 @@
                       "short": "1675"
                     }
                   },
-                  "biography":
-                  {
+                  "biography": {
                     "text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
                     "source": "Wikipedia",
                     "source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
@@ -104,41 +77,46 @@
           {
             "title": "Type",
             "items": [
-                      {
-                          "text":  "paintings",
-                          "url":    "javascript:alert('search concepts')"
-                        },
-                      {
-                          "text":  "easel paintings",
-                          "url":    "javascript:alert('search concepts')"
-                        }
+              {
+                "text": "paintings",
+                "url": "javascript:alert('search concepts')"
+              },
+              {
+                "text": "easel paintings",
+                "url": "javascript:alert('search concepts')"
+              }
             ]
           },
           {
             "title": "Subject",
             "items": [
-                      {
-                          "text":  "Kitchen maid",
-                          "url":    "javascript:alert('search concepts')"
-                        },
-                      {
-                          "text":  "Kitchen servant",
-                          "url":    "javascript:alert('search concepts')"
-                        }
+              {
+                "text": "Kitchen maid",
+                "url": "javascript:alert('search concepts')"
+              },
+              {
+                "text": "Kitchen servant",
+                "url": "javascript:alert('search concepts')"
+              }
             ]
           }
         ]
-         },
-       "description":
-      {
-         "title": "Description",
-        "sections": [{
-          "title": false,
-          "items": [
-            {"text": "Girl pouring milk into bowl"},
-            {"text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects."}
-          ]
-        }]
+      },
+      "description": {
+        "title": "Description",
+        "sections": [
+          {
+            "title": false,
+            "items": [
+              {
+                "text": "Girl pouring milk into bowl"
+              },
+              {
+                "text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects."
+              }
+            ]
+          }
+        ]
       },
       "properties": {
         "title": "Properties",
@@ -146,15 +124,25 @@
           {
             "title": "Extent",
             "items": [
-              {"text": "41 cm high"},
-              {"text": "30 cm wide"}
+              {
+                "text": "41 cm high"
+              },
+              {
+                "text": "30 cm wide"
+              }
             ]
           },
           {
             "title": "Format",
             "items": [
-              {"text": "oil paint",  "url": "search"},
-              {"text": "oil paints", "url": "search"}
+              {
+                "text": "oil paint",
+                "url": "search"
+              },
+              {
+                "text": "oil paints",
+                "url": "search"
+              }
             ]
           }
         ]
@@ -165,7 +153,9 @@
           {
             "title": "Publisher",
             "items": [
-              { "text": "DC Publisher" }
+              {
+                "text": "DC Publisher"
+              }
             ]
           },
           {
@@ -173,7 +163,7 @@
             "items": [
               {
                 "text": "Rijksmuseum",
-                "url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
+                "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
               }
             ]
           },
@@ -188,138 +178,158 @@
           {
             "title": "Providing Country",
             "items": [
-              { "text": "Netherlands" }
+              {
+                "text": "Netherlands"
+              }
             ]
           }
         ]
       },
-
       "places": {
-          "title": "Place",
-          "sections": [
-            {
-           "title": "Place/Time",
-           "items": [
-             {"text": "third quarter 17th century"}
-           ]
-            },
-            {
-           "title": "Location",
-           "items": [
-             {"text": "Western Europe"}, {"text": "Netherlands"}
-           ]
-            },
-            {
-           "title": "Location",
-               "items": [{"text": "Near Delft"}]
-            }
-          ]
-          },
-          "refs_rels": {
-            "title": "References and Relationships",
-            "sections": [
+        "title": "Place",
+        "sections": [
+          {
+            "title": "Place/Time",
+            "items": [
               {
-                "title": "Relations",
-                "items": [{"text": "relation 1"}, {"text": "relation 2"}]
-              },
-              {
-                "title": "References",
-                "items": [{"text": "reference 1"}, {"text": "reference 2"}]
+                "text": "third quarter 17th century"
               }
             ]
           },
+          {
+            "title": "Location",
+            "items": [
+              {
+                "text": "Western Europe"
+              },
+              {
+                "text": "Netherlands"
+              }
+            ]
+          },
+          {
+            "title": "Location",
+            "items": [
+              {
+                "text": "Near Delft"
+              }
+            ]
+          }
+        ]
+      },
+      "refs_rels": {
+        "title": "References and Relationships",
+        "sections": [
+          {
+            "title": "Relations",
+            "items": [
+              {
+                "text": "relation 1"
+              },
+              {
+                "text": "relation 2"
+              }
+            ]
+          },
+          {
+            "title": "References",
+            "items": [
+              {
+                "text": "reference 1"
+              },
+              {
+                "text": "reference 2"
+              }
+            ]
+          }
+        ]
+      },
       "dates": {
         "title": "Times",
         "sections": [
           {
             "title": "Issued",
-            "items": [{"text": "17th century"}, {"text": "Seventeenth century"}]
+            "items": [
+              {
+                "text": "17th century"
+              },
+              {
+                "text": "Seventeenth century"
+              }
+            ]
           },
           {
             "title": "Temporal",
-            "items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
+            "items": [
+              {
+                "text": "1700s"
+              },
+              {
+                "text": "Mid-second millennium"
+              }
+            ]
           }
         ]
-          },
-      "tags":
-      {
-        "items":
-        [
+      },
+      "tags": {
+        "items": [
           {
             "text": "tagtext",
             "url": "http://europeana.eu"
           },
-
           {
             "text": "tagtext",
             "url": "http://europeana.eu"
           },
-
           {
             "text": "tagtext",
             "url": "http://europeana.eu"
           },
-
           {
             "text": "tagtext",
             "url": "http://europeana.eu"
           },
-
           {
             "text": "tagtext",
             "url": "http://europeana.eu"
           }
         ],
-
         "add_url": "add_new_tag_url_here"
       },
-
-      "colours":
-      {
-        "items":
-        [
+      "colours": {
+        "items": [
           {
             "hex": "#2F4F4F",
             "url": "http://europeana.eu"
           },
-
           {
             "hex": "#800000",
             "url": "http://europeana.eu"
           },
-
           {
             "hex": "#696969",
             "url": "http://europeana.eu"
           },
-
           {
             "hex": "#8B4513",
             "url": "http://europeana.eu"
           },
-
           {
             "hex": "#556B2F",
             "url": "http://europeana.eu"
           }
         ]
       },
-      "meta_additional":
-      {
-        "geo":
-        {
+      "meta_additional": {
+        "geo": {
           "long_and_lat": true,
           "longitude": "3.1",
-
           "latitude": "39.2",
-
-          "labels":
-          {
+          "labels": {
             "map": "Map",
             "longitude": "Longitude",
             "latitude": "Latitude",
-            "points":
-            {
+            "points": {
               "n": "North",
               "e": "East",
               "s": "South",
@@ -328,197 +338,52 @@
           }
         }
       },
-      "social_share":{
+      "social_share": {
         "url": "this page url for share links",
         "twitter": true,
         "facebook": true,
         "pinterest": true,
         "googleplus": true
       }
-    }
-
-  },
-
-  "data":
-  {
-    "agent_pref_label": "J Vermeer",
-    "agent_begin": "1611",
-    "agent_end": "1660",
-    "concepts":
-    [
-      "oil painting",
-      "art work"
-    ],
-    "dc_type": "IMAGE",
-    "dc_creator": "Vermeeer",
-    "dc_format": "format",
-    "dc_identifier": "dcIdentifier",
-    "dc_terms_created": "1650",
-    "dc_terms_created_web": "2011",
-    "dc_terms_extent": "40 cm",
-    "dc_title": "Melkmeisje",
-    "edm_country": "netherlands",
-    "edm_dataset_name": "edmDatasetName",
-    "edm_is_shown_at": "http://placeimg.com/400/300/people/sepia",
-    "edm_is_shown_by": "Rijksmuseum",
-    "edm_language": "nl",
-    "edm_preview": "http://placeimg.com/400/300/people/sepia",
-    "edm_provider": "The European Library",
-    "edm_data_provider": "Rijksmuseum",
-    "edm_rights": "edmRights",
-    "title": "Milk maid",
-    "title_extra": "get_doc_title_extra",
-    "type": "type",
-    "year": "year"
-  },
-
-  "labels":
-  {
-    "creator": "Creator",
-    "agent": "Agent",
-    "description": "Description blah, blah, blah, blah, blah, blah",
-    "dc_description": "DC Description blah, blah, blah, blah, blah, blah",
-    "dc_type": "Type:",
-    "show_more_meta": "show more object data",
-    "show_less_meta": "show less",
-    "download": "download",
-    "rights": "Can I use it?",
-    "agent": "get_agent_label",
-    "mlt": "similar items"
-  },
-
-  "navigation":
-  {
-    "next_prev":
-    {
-      "next_url": "next_url_here",
-      "next_text": "Next",
-      "prev_url": "prev_url_here",
-      "prev_text": "Previous",
-      "back_url": "back_url_here",
-      "back_text": "Your search results"
     },
-
-    "global":
-    {
-      "options":
-      {
-        "search_active": false,
-        "settings_active": true
-      },
-
-      "primary_nav":
-      {
-        "items":
-        [
+      "similar": {
+        "title": "Similar items",
+        "more_items_query": "javascript:alert('loads a page of similar items')",
+        "items": [
           {
-            "url": "#",
-            "text": "Home",
-            "is_current": true
-          },
-
-          {
-            "url": "",
-            "text": "Themes",
-            "submenu":
-            {
-              "items":
-              [
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 1"
-                },
-
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 2",
-                  "is_current": true
-                },
-
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 3"
-                }
-              ]
+            "url": "?q=The+Lace+Maker",
+            "title": "The Lace Maker",
+            "img": {
+              "alt": "The Lace Maker",
+              "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
             }
           },
-
           {
-            "url": "",
-            "text": "Exhibitions"
+            "url": "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+            "title": "Zittende jongeman bij ton met het hoofd naar links",
+            "img": {
+              "alt": "Zittende jongeman bij ton met het hoofd naar links",
+              "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+            }
           },
-
           {
-            "url": "",
-            "text": "Blog"
+            "url": "?q=Delft",
+            "title": "Delft",
+            "img": {
+              "alt": "Delft",
+              "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+            }
           },
-
           {
-            "url": "",
-            "text": "My Europeana"
+            "url": "?q=Girl+with+the+pearl+earring",
+            "title": "Girl with the pearl earring",
+            "img": {
+              "alt": "Girl with the pearl earring",
+              "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+            }
           }
-        ]
+        ],
+        "more_url": "http://europeana.eu"
       }
-    },
-
-    "footer":
-    {
-      "linklist1":
-      {
-        "title": "More info",
-        "items":
-        [
-          {
-            "text": "New collections",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "All data providers",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Become a data provider",
-            "url": "http://google.com"
-          }
-        ]
-      },
-
-      "linklist2":
-      {
-        "title": "Help",
-        "items":
-        [
-          {
-            "text": "Search tips",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Using My Europeana",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Copyright",
-            "url": "http://google.com"
-          }
-        ]
-      },
-
-      "social":
-      {
-        "linkedin": false,
-        "github": false
-      }
-    }
-  },
-
-  "page_config":
-  {
-    "newsletter": true
-  },
-
-  "debug": ""
+  }
 }

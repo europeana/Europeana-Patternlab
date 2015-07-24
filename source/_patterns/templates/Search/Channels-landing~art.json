@@ -259,8 +259,7 @@
   "navigation":{
     "global":{
       "options": {
-        "search_active": false,
-        "settings_active": true
+        "search_active": false
       },
       "logo":{
         "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
@@ -274,7 +273,7 @@
           },
           {
             "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Themes",
+            "text": "Channels",
             "is_current":true,
             "submenu": {
               "items": [

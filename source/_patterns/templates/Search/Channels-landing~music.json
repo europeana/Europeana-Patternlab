@@ -257,8 +257,7 @@
   "navigation":{
     "global":{
       "options": {
-        "search_active": false,
-        "settings_active": true
+        "search_active": false
       },
       "logo":{
         "url": "../templates-Search-Search-home/templates-Search-Search-home.html",

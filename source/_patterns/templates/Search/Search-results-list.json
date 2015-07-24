@@ -64,7 +64,7 @@
     },
     "filters": [
         {
-            "title": "Themes",
+            "title": "Channels",
             "hierarchical": true,
             "select_one": true,
             "items": [
@@ -1128,7 +1128,7 @@
 
           {
             "url": "",
-            "text": "Themes",
+            "text": "Channels",
             "submenu":
             {
               "items":

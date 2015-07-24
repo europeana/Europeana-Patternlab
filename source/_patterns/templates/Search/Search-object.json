@@ -644,7 +644,7 @@
       "options":
       {
         "search_active": false,
-        "settings_active": true
+        "settings_active": false
       },
 
       "primary_nav":
@@ -659,7 +659,7 @@
 
           {
             "url": "",
-            "text": "Themes",
+            "text": "Channels",
             "submenu":
             {
               "items":
