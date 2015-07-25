@@ -77,6 +77,7 @@ module.exports = function(grunt) {
           jquery: {
               src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
 
+                       'source/js/modules/lib/hotjar.js',
                        'source/js/modules/lib/jquery.imagesloaded.min.js',
 
                        'source/js/modules/bower_components/jquery/dist/jquery.js',
@@ -221,7 +222,7 @@ module.exports = function(grunt) {
        'copy:videojs',
        'copy:videojs_silverlight',
        'copy:photoswipe',
-			 'copy:iipmooviewer'
+       'copy:iipmooviewer'
   ]);
 
 }
