@@ -1,10 +1,10 @@
-{{! 
+{{!
 
 License block template
 Location specific styles should be scoped to the parent container to maintain re-usability
 
 Configuration options and content model:
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 license options: ONLY ONE should be active
 
@@ -17,7 +17,28 @@ license options: ONLY ONE should be active
 	"license_public": true
 }
 
-# # # # # # # # # # # # # # # # 
+List of required license options:
+
+
+CC0
+CC BY
+CC BY-SA
+CC BY-NC
+CC BY-ND
+CC BY-NC-SA
+CC BY-NC-ND
+Public Domain
+
+Rights Reserved - Restricted Access
+Rights Reserved - Free Access
+Rights Reserved - Paid Access
+
+Unknown copyright status
+Out of copyright - non commercial re-use
+
+Orphan Work
+
+# # # # # # # # # # # # # # # #
 
 }}
 
@@ -33,14 +54,38 @@ license options: ONLY ONE should be active
 	<a href="http://creativecommons.org/licenses/by-sa/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-sa"></span>CC-BY-SA</a>
 	{{/license_CC-BY-SA}}
 
+	{{#license_CC-BY-ND}}
+	<a href="http://creativecommons.org/licenses/by-nd/3.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nd"></span>CC-BY-ND</a>
+	{{/license_CC-BY-ND}}
+
 	{{#license_CC-BY-NC}}
 	<a href="http://creativecommons.org/licenses/by-nc/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span>CC-BY-NC</a>
 	{{/license_CC-BY-NC}}
 
-	{{#license_CC-ND-NC-SA}}
-	<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-nd"></span><span class="icon-license-nc"></span><span class="icon-license-sa"></span>CC-ND-NC-SA</a>
-	{{/license_CC-ND-NC-SA}}
+	{{#license_CC-BY-NC-SA}}
+	<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-sa"></span>CC-BY-NC-SA</a>
+	{{/license_CC-BY-NC-SA}}
+
+	{{#license_CC-BY-NC-ND}}
+	<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>CC-BY-NC-ND</a>
+	{{/license_CC-BY-NC-ND}}
 
 	{{#license_public}}
 	<a href="http://creativecommons.org/publicdomain/mark/1.0/" class="license icon-license-pd">Public Domain</a>
 	{{/license_public}}
+
+	{{#license_RR_free}}
+	<a href="http://www.europeana.eu/portal/rights/rr-f.html" class="license icon-license-rr">Rights Reserved - Free Access</a>
+	{{/license_RR_free}}
+
+	{{#license_RR_paid}}
+	<a href="http://www.europeana.eu/portal/rights/rr-p.html" class="license icon-license-rr">Rights Reserved - Paid Access</a>
+	{{/license_RR_paid}}
+
+	{{#license_RR_restricted}}
+	<a href="http://www.europeana.eu/portal/rights/rr-p.html" class="license icon-license-rr">Rights Reserved - Restricted Access</a>
+	{{/license_RR_restricted}}
+
+	{{#license_PD_NC}}
+	<a href="http://www.europeana.eu/portal/rights/out-of-copyright-non-commercial.html" class="license"><span class="icon-license-pd"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>Out of copyright - non commercial re-use</a>
+	{{/license_PD_NC}}
