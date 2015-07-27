@@ -482,7 +482,11 @@
                 "load-more": "Load more"
             },
             "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
-            "share": "Share"
+            "share": "Share",
+            "reusability": {
+                "header": "Can I use this?",
+                "open": "Yes, with attribution"
+            }
         }
     }
 }

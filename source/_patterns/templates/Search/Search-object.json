@@ -55,6 +55,7 @@
             "rights":
             {
               "license_public": true,
+              "license_name": "CC0",
               "license_human": "You can use this image in any way you like"
             },
             "technical_metadata":
@@ -248,7 +249,12 @@
           }
         ]
       },
-
+      "rights":
+      {
+        "license_public": true,
+        "license_name": "CC0",
+        "license_human": "You can use this image in any way you like"
+      },
       "title": "The Milkmaid",
       "type": "image",
       "is_image": true,
