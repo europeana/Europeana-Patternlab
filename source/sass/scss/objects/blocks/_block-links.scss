@@ -38,4 +38,8 @@
 		background-size: cover;
 		background-position: 50% 50%;
 	}
+
+	a:hover .item-title{
+		color: $textcolour_link_hover;
+	}
 }
