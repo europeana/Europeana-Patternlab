@@ -50,13 +50,13 @@
 
              class="{{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
 
-             >{{#single_item}}<span title="{{i18n.site.object.actions.open-media}}"
+             >{{#single_item}}{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
                   {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
                   {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}
                   {{#is_pdf}}   class="media-clickable-indicator pdf"    {{/is_pdf}}
                   {{#is_text}}  class="media-clickable-indicator text"   {{/is_text}}
                   {{#is_video}} class="media-clickable-indicator video"  {{/is_video}}
-                   >+</span>{{/single_item}}<img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+                   >+</span>{{/playable}}{{/single_item}}<img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
         {{/thumbnail}}
         {{/items}}
       </ul>
