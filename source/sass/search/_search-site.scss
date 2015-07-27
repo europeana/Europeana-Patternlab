@@ -188,15 +188,18 @@
 
 .prelaunch-feedback .lc{
 
-	@media all and (min-width: $bp-small) {
+	text-align: center;
+
+	@media all and (min-width: $bp-med) {
 		@include flexbox();
 		-webkit-align-items: center;
 		align-items: center;
 	}
 
 	& > div{
-		@media all and (min-width: $bp-large) {
+		@media all and (min-width: $bp-med) {
 			@include span(12 of 24);
+			text-align: left;
 
 			&:last-child{
 				margin-right: 0;
