@@ -5,8 +5,13 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   var listItemSelector   = listSelector + ' a';
   var mediaViewerImage   = null;
 
+
+  function log(msg){
+      console.log(msg);
+  }
+
   function hideAllViewers() {
-    console.log( 'hideAllViewers()' );
+    log( 'hideAllViewers()' );
     $('.media-viewer .object-media-audio').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-pdf').addClass('is-hidden');
@@ -16,7 +21,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function initMedia() {
-    console.log( 'initMedia()' );
+    log( 'initMedia()' );
   }
 
   function mediaOpened(){
@@ -35,7 +40,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function initMediaImage(evt, data) {
 
-    console.log( 'initMediaImage()   '  + mediaViewerImage );
+    log( 'initMediaImage()   '  + mediaViewerImage );
 
     if(mediaViewerImage){
         hideAllViewers();
@@ -67,7 +72,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             checkData.push(uri);
         }
         else{
-            console.log('incomplete image data')
+            log('incomplete image data')
         }
     });
 
@@ -100,7 +105,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         });
     }
     else{
-        console.log('full img meta-data given:\n\t' + JSON.stringify(imgData))
+        log('full img meta-data given:\n\t' + JSON.stringify(imgData))
 
         require(['media_viewer_image'], function(mediaViewerImageIn){
             mediaViewerImage = mediaViewerImageIn;
@@ -112,7 +117,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaPdf( evt, data ) {
-    console.log( 'initMediaPdf(): ' + data.url );
+    log( 'initMediaPdf(): ' + data.url );
 
     if(data.url && data.url.length > 0){
         require(['jquery'], function(){
@@ -144,7 +149,13 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function handleListItemSelectorClick( evt ) {
     evt.preventDefault();
     evt.stopPropagation();
-    $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri'), target:$(this)});
+
+    if($(this).hasClass('playable')){
+        $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri'), target:$(this)});
+    }
+    else{
+        log('media item not playable');
+    }
   }
 
   /*

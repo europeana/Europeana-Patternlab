@@ -48,7 +48,7 @@
                  {{/technical_metadata}}
              {{/is_video}}
 
-             {{#is_current}}class="is-current"{{/is_current}}
+             class="{{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
 
              >{{#single_item}}<span title="{{i18n.site.object.actions.open-media}}"
                   {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}

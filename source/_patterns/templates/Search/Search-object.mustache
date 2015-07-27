@@ -71,7 +71,7 @@
       {{#download}}
       <div class="object-downloads">
 
-        <a class="js-showhide download-button btn alt" href="#">
+        <a class="js-showhide download-button btn alt {{^downloadable}}is-disabled{{/downloadable}}" href="#">
           <svg class="icon icon-download">
             <use xlink:href="#icon-download"></use>
           </svg>

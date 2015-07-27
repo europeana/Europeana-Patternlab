@@ -41,6 +41,8 @@
         [
           {
             "is_current": true,
+            "playable": true,
+            "downloadable": true,
             "is_image": true,
             "thumbnail": "/images/sample/object_thumbnail.jpg",
 
