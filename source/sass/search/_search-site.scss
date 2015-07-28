@@ -286,7 +286,7 @@
 	}
 
 	@media all and (min-width: $bp-med) {
-		@include span(5 of 24);
+		@include span(last 5 of 24);
 		padding: $space;
 		border-left: 1px solid $gray-lighter;
 	}
@@ -308,7 +308,7 @@
 	padding: $space;
 
 	@media all and (min-width: $bp-med) {
-		@include span(last 9 of 24);
+		@include span(9 of 24);
 	}
 
 	ul{

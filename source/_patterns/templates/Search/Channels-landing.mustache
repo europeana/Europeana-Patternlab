@@ -25,7 +25,44 @@
 {{#content.channel_info}}
 <section class="channel-info section">
 
+	{{#content.channel_entry}}
+	<ul class="browse-entry-list lc">
+		{{#items}}
+		<li class="list-item">
+			{{> molecules/blocks/browse-entry }}
+		</li>
+		{{/items}}
+	</ul>
+	{{/content.channel_entry}}
+
+</section>
+{{/content.channel_info}}
+
+
+
+{{# content.promoted }}
+<section class="exhibitions-list cf">
+<ul class="promo-list">
+	{{#items}}
+	<li class="list-item {{#wide}}list-item-wide{{/wide}}">
+		{{> molecules/blocks/promo-module }}
+	</li>
+	{{/items}}
+</ul>
+</section>
+{{/ content.promoted }}
+
+{{#content.channel_info}}
+<section class="channel-info section">
 	<div class="channel-intro lc">
+
+		<div class="channel-newstuff">
+			{{#recent}}
+				{{> molecules/navigation/linklist-with-title }}
+			{{/recent}}
+		</div>
+
+
 		<div class="channel-description">
 			<div class="channel-description-text">
 				{{{description}}}
@@ -53,45 +90,10 @@
 		</div>
 		{{/stats}}
 
-		<div class="channel-newstuff">
-			{{#recent}}
-				{{> molecules/navigation/linklist-with-title }}
-			{{/recent}}
-		</div>
+
 	</div>
-
-
-	{{#content.channel_entry}}
-
-	<ul class="browse-entry-list lc">
-		{{#items}}
-		<li class="list-item">
-			{{> molecules/blocks/browse-entry }}
-		</li>
-		{{/items}}
-	</ul>
-
-	{{/content.channel_entry}}
-
-
-
 </section>
 {{/content.channel_info}}
-
-
-
-{{# content.promoted }}
-<section class="exhibitions-list cf">
-<ul class="promo-list">
-	{{#items}}
-	<li class="list-item {{#wide}}list-item-wide{{/wide}}">
-		{{> molecules/blocks/promo-module }}
-	</li>
-	{{/items}}
-</ul>
-</section>
-{{/ content.promoted }}
-
 
 
 {{#content.news}}
