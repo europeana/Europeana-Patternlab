@@ -4,15 +4,23 @@
 	overflow: visible;
 	margin-bottom: $space-half;
 
+	display: table;
+
+	& > a{
+		display: table-row;
+
+		& > div{
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
 	.img{
-		float: left;
 		width: 25%;
-		margin-right: 5%;
 	}
 
 	.bd{
-		float: left;
-		width: 70%;
+		padding-left: 5%;
 	}
 
 
