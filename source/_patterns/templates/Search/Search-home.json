@@ -49,34 +49,16 @@
     "promoted":[
       {
         "title":"Music",
-        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
+        "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
         "is_channel": true,
+        "wide": true,
         "bg_image":"sample/thumb-music.jpg"
       },
       {
-        "title":"Art & Art History",
-        "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-        "is_channel": true,
-        "bg_image":"sample/thumb-art.jpg"
-      },
-      {
-        "title":"Maps and Cartography",
-        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-        "is_channel": true,
-        "bg_image":"sample/thumb-maps.jpg"
-      },
-      {
-        "title":"Europeana 1914—1918",
-        "subtitle": "Untold stories & official histories of WWI",
-        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-        "is_channel": true,
-        "bg_image":"sample/thumb-1418.jpg"
-      },
-      {
-        "title":"Natural History",
-        "url": "../templates-Search-Channels-landing/templates-Search-Channels-landing.html",
-        "is_channel": true,
-        "bg_image":"sample/thumb-naturalhistory.jpg"
+        "title":"Recording and Playing Machines",
+        "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
+        "is_exhibition": true,
+        "bg_image":"sample/thumb-machines.jpg"
       },
       {
         "title":"Photography on a Silver Plate",

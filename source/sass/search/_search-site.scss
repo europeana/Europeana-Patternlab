@@ -128,6 +128,26 @@
 		min-height: 11.5vw;
 		font-size: 0.8vw;
 	}
+
+	&.list-item-wide{
+		@media all and (min-width: $bp-small) {
+			@include span(24 of 24 split);
+		}
+
+		@media all and (min-width: $bp-small-3) {
+			@include span(16 of 24 split);
+		}
+
+		@media all and (min-width: $bp-large) {
+			@include span(24 of 24 split);
+		}
+		@media all and (min-width: 80em) {
+			@include span(12 of 24 split);
+		}
+		@media all and (min-width: 120em) {
+			@include span(24 of 48 split);
+		}
+	}
 }
 
 
@@ -159,16 +179,15 @@
 		width: span(4 of 24 split);
 		min-height: 15vw;
 	}
-}
 
-.list-item.list-item-wide {
+	&.list-item-wide {
+		@media all and (min-width: $bp-small) {
+			width: span(24 of 24 split);
+		}
 
-	@media all and (min-width: $bp-small) {
-		width: span(24 of 24 split);
-	}
-
-	@media all and (min-width: $bp-large) {
-		width: span(12 of 24 split);
+		@media all and (min-width: $bp-large) {
+			width: span(12 of 24 split);
+		}
 	}
 }
 

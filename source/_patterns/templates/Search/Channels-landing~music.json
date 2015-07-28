@@ -37,23 +37,22 @@
       "stats": {
         "items": [
           {
-            "count": "450,068",
-            "text": "Sound recordings",
-            "url": "#"
-          },
-          {
-            "count": "216,014",
+            "count": "53,431",
             "text": "Images",
             "url": "#"
           },
           {
-            "count": "102,558",
+            "count": "31,027",
             "text": "Texts",
+            "url": "#"
+          },          {
+            "count": "13,549",
+            "text": "Sound recordings",
             "url": "#"
           },
           {
-            "count": "13,925",
-            "text": "Moving images",
+            "count": "118",
+            "text": "Videos",
             "url": "#"
           }
         ]
@@ -81,7 +80,7 @@
           }
         ],
         "more_link":{
-          "text": "Load more",
+          "text": "See all new",
           "url": "#777"
         }
       },
@@ -176,10 +175,10 @@
           "bg_image":"sample/thumb-wedding.jpg"
         },
         {
-          "title":"Hungarian Music and Dance",
-          "url": "http://oldportal.euscreen.eu/exhibitions.html?id=hungarianmusicanddance",
+          "title":"Recording and playing Machines",
+          "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dancers.jpg"
+          "bg_image":"sample/thumb-machines.jpg"
         },
         {
           "title":"Find more from Europeana Music on Soundcloud",
