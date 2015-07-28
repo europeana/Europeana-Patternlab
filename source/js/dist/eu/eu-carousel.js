@@ -279,11 +279,11 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 var leftRight = function(direction){
 
                     if(animating){
-                        alert('return because animating');
+                        console.log('return because animating');
                         return;
                     }
                     else{
-                        alert(direction)
+                        console.log(direction)
                     }
                 };
 
