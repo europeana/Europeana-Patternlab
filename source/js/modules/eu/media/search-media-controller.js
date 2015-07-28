@@ -99,7 +99,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                 mediaViewerImage = mediaViewerImageIn;
                 hideAllViewers();
                 $('.media-viewer .object-media-image').removeClass('is-hidden');
-                mediaViewerImage.init(imgData, clickedImg);
+                if(!mediaViewerImage.init(imgData, clickedImg)){
+                    // remove playability
+                    $(data.target).removeClass('playable');
+                    $(data.target).find('.media-clickable-indicator').remove();
+                }
             });
 
         });
@@ -111,7 +115,9 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             mediaViewerImage = mediaViewerImageIn;
             hideAllViewers();
             $('.media-viewer .object-media-image').removeClass('is-hidden');
-            mediaViewerImage.init(imgData, clickedImg);
+            if(!mediaViewerImage.init(imgData, clickedImg)){
+                // remove playability
+            }
         });
     }
   }

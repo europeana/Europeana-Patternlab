@@ -122,6 +122,11 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       }
       items = valid_items;
 
+      if(items.length == 0){
+          return false;
+      }
+
+
       if(active){
           var index = getItemIndex(active);
           if(index > -1){
@@ -129,7 +134,6 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
           }
       }
     }
-
     initialiseGallery(100);
 
     return true;
