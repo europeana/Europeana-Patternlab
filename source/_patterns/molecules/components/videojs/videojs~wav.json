@@ -19,9 +19,8 @@
   "is_current": true,
   "audio": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.geluidvannederland.nl%2Fsites%2Fdefault%2Ffiles%2FHGVN_logo_cirkels.png&size=FULL_DOC&type=SOUND",
+  "play_url": "/media/Kermis_Santpoort_120803_01.wav",
   "download": {
-    "url": "/media/Kermis_Santpoort_120803_01.wav",
-    "text": "Original file"
   },
   "technical_metadata": {
     "mime_type": "audio/wav"

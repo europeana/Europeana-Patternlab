@@ -19,9 +19,8 @@
   "is_current": true,
   "audio": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fwww.dismarc-audio.org%2FLLTI%2FLingu_palingu.jpg&size=LARGE&type=SOUND",
+  "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
   "download": {
-    "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
-    "text": "Original file"
   },
   "technical_metadata": {
     "mime_type": "audio/mp3"

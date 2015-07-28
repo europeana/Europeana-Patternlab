@@ -13,9 +13,8 @@
   "is_current": true,
   "is_image": true,
   "thumbnail": "/images/sample/object_thumbnail.jpg",
+  "play_url": "/images/sample/object_full.jpg",
   "download": {
-    "file":  "/images/sample/object_full.jpg",
-    "url":   "/images/sample/object_full.jpg"
   },
   "rights": {
     "license_public": true,

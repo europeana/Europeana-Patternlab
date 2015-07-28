@@ -22,9 +22,8 @@
   "is_current": true,
   "video": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+  "play_url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
   "download": {
-    "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-    "text": "Original file"
   },
   "technical_metadata": {
     "mime_type": "video/mpeg"

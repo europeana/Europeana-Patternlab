@@ -19,9 +19,8 @@
   "is_current": true,
   "video": true,
   "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fadmin.d.efg.research-infrastructures.eu%2Fthumbs_default%2Fincom.gif&size=LARGE&type=VIDEO",
+  "play_url": "/media/I018102.wmv",
   "download": {
-    "url": "/media/I018102.wmv",
-    "text": "Original file"
   },
   "technical_metadata": {
     "mime_type": "video/wmv"

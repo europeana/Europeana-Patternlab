@@ -47,7 +47,7 @@
             "thumbnail": "/images/sample/object_thumbnail.jpg",
 
             "preview":   "/images/sample/object_preview.jpg",
-
+            "play_url": "/images/sample/object_full.jpg",
             "download":{
               "url":  "/images/sample/object_full.jpg",
               "text": "Original file"

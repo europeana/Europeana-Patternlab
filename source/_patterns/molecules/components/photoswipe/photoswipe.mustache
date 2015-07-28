@@ -2,8 +2,11 @@
 
   {{#is_current}}<img id="photoswipe-poster" src="{{ thumbnail }}"
     {{#download}}
-      title="{{ txt }}" data-src="{{ url }}"
+      title="{{ txt }}"
     {{/download}}
+    {{#play_url}}
+       data-src="{{ play_url }}"
+    {{/play_url}}
     {{#technical_metadata}}
       data-w="{{ width }}"
       data-h="{{ height }}"
