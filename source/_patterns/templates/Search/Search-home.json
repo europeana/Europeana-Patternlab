@@ -1,162 +1,152 @@
 {
   "bodyclass": "europeana_search",
   "pagetitle": "Europeana Search",
-
-  "version":{
-      "is_alpha": true
+  "version": {
+    "is_alpha": true
   },
-
   "page_config": {
     "newsletter": true
   },
-
   "css_files": [
     {
       "path": "../../css/search/screen.css",
       "media": "all"
     }
   ],
-
-  "js_files":
-  [
-      {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main/main"	 }
-
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
   ],
-
   "input_search": {
     "title": "Search Europeana",
     "input_name": "search",
     "placeholder": "Search Europeana"
   },
-
-  "content":{
-    "hero_config":{
-      "hero_image":"sample/search_hero_1.jpg",
-      "brand_position" : "brand-bottomleft",
-      "brand_opacity" : "brand-opacity75",
-      "attribution_title" : "Insects and Fruit",
-      "attribution_creator" : "Jan van Kessel",
-      "attribution_institution" : "Rijksmuseum",
-      "attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
+  "content": {
+    "hero_config": {
+      "hero_image": "sample/search_hero_1.jpg",
+      "brand_position": "brand-bottomleft",
+      "brand_opacity": "brand-opacity75",
+      "attribution_title": "Insects and Fruit",
+      "attribution_creator": "Jan van Kessel",
+      "attribution_institution": "Rijksmuseum",
+      "attribution_url": "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
       "license_CC-ND-NC-SA": false,
       "license_public": true
     },
     "strapline": "Explore 44,725,949 artworks, artefacts, books, videos and sounds from across Europe.",
-
     "total_items": "44,725,949",
-
     "important_disabled": {
       "text": "Europeana stories are now in Google’s Field Trip app",
       "url": "http://blog.europeana.eu/2015/03/its-your-world-explore-it-europeana-stories-now-in-googles-field-trip-app/"
     },
-
-    "promoted":[
+    "promoted": [
       {
-        "title":"Music",
+        "title": "Music",
         "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
         "is_channel": true,
         "wide": true,
-        "bg_image":"sample/thumb-music.jpg"
+        "bg_image": "sample/thumb-music.jpg"
       },
       {
-        "title":"Recording and Playing Machines",
+        "title": "Recording and Playing Machines",
         "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
         "is_exhibition": true,
-        "bg_image":"sample/thumb-machines.jpg"
+        "bg_image": "sample/thumb-machines.jpg"
       },
       {
-        "title":"Photography on a Silver Plate",
+        "title": "Photography on a Silver Plate",
         "url": "urlhere",
         "is_exhibition": true,
-        "bg_image":"sample/thumb-photography.jpg"
+        "bg_image": "sample/thumb-photography.jpg"
       },
       {
-        "title":"European Film and the First World War",
+        "title": "European Film and the First World War",
         "url": "urlhere",
         "is_exhibition": true,
-        "bg_image":"sample/thumb-expo-film.jpg"
+        "bg_image": "sample/thumb-expo-film.jpg"
       },
       {
-        "title":"Europeana 1914—1918",
+        "title": "Europeana 1914—1918",
         "url": "urlhere",
         "is_featured_site": true,
-        "bg_image":"sample/thumb-1418.jpg"
+        "bg_image": "sample/thumb-1418.jpg"
       },
       {
-        "title":"Europeana monuments now in Google Field Trip",
+        "title": "Europeana monuments now in Google Field Trip",
         "url": "urlhere",
         "is_new": true,
-        "bg_image":false
+        "bg_image": false
       }
     ],
-
     "news": {
-      "items":[
-      {
-        "headline": {
-          "medium":"The miniature magic of Japanese netsuke"
-        },
-        "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
-        "img": {
-          "rectangle": {
-            "src":"sample/netsuke.jpg",
-            "alt":"Japanese scroll with netsuke illustration"
+      "items": [
+        {
+          "headline": {
+            "medium": "The miniature magic of Japanese netsuke"
+          },
+          "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+          "img": {
+            "rectangle": {
+              "src": "sample/netsuke.jpg",
+              "alt": "Japanese scroll with netsuke illustration"
+            }
+          },
+          "excerpt": {
+            "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
           }
         },
-        "excerpt": {
-          "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
-        }
-      },
-      {
-        "headline":{
-          "medium":"Celebrating World Theatre Day 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/theatreday.jpg",
-            "alt":"Theatre Day"
+        {
+          "headline": {
+            "medium": "Celebrating World Theatre Day 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/theatreday.jpg",
+              "alt": "Theatre Day"
+            }
+          },
+          "excerpt": {
+            "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
           }
         },
-        "excerpt": {
-          "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-        }
-      },
-      {
-        "headline":{
-          "medium":"Europeana takes part in #MuseumWeek 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/Museumweek.jpg",
-            "alt":"Museum Week 2015"
+        {
+          "headline": {
+            "medium": "Europeana takes part in #MuseumWeek 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/Museumweek.jpg",
+              "alt": "Museum Week 2015"
+            }
+          },
+          "excerpt": {
+            "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
           }
-        },
-        "excerpt": {
-          "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
         }
-      }
       ]
     }
-
   },
-  "navigation":{
-    "global":{
+  "navigation": {
+    "global": {
       "options": {
         "search_active": false,
         "settings_active": false
       },
-      "logo":{
+      "logo": {
         "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
         "text": "Europeana Search"
       },
-      "primary_nav":{
+      "primary_nav": {
         "items": [
           {
             "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
             "text": "Home",
-            "is_current":true
+            "is_current": true
           },
           {
             "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
@@ -164,11 +154,11 @@
             "submenu": {
               "items": [
                 {
-                  "url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+                  "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
                   "text": "Art History"
                 },
                 {
-                  "url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
+                  "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
                   "text": "Music"
                 }
               ]
@@ -189,50 +179,65 @@
         ]
       }
     },
-
-    "footer":{
-      "linklist1":{
+    "footer": {
+      "linklist1": {
         "title": "More info",
         "items": [
           {
             "text": "New collections",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "All data providers",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Become a data provider",
-            "url":"http://google.com"
+            "url": "http://google.com"
           }
         ]
       },
-      "linklist2":{
+      "linklist2": {
         "title": "Help",
         "items": [
           {
             "text": "Search tips",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Using My Europeana",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Copyright",
-            "url":"http://google.com"
+            "url": "http://google.com"
           }
         ]
       },
-      "social":{
+      "social": {
         "linkedin": false,
         "github": false
       },
-
-      "subfooter": false
-
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Contact us",
+            "url": "./"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
+      }
     }
-
   }
 }

@@ -1,1154 +1,1141 @@
 {
-    "bodyclass": "europeana_search",
-    "page_title": "Europeana Search",
-
-    "version":{
-      "is_alpha": true
-    },
-
-    "i18n": {
-        "global": {
-            "refine-your-search": "Refine your search",
-            "facet": {
-                "date": {
-                    "to": "to",
-                    "from": "from"
-                },
-                "more-refinements": "Advanced filters"
-            }
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version": {
+    "is_alpha": true
+  },
+  "i18n": {
+    "global": {
+      "refine-your-search": "Refine your search",
+      "facet": {
+        "date": {
+          "to": "to",
+          "from": "from"
         },
-        "site": {
-            "results": {
-                "list": {
-                    "in-channel": "in Channel",
-                    "view-at-provider": "View at",
-                    "empty": "No results",
-                    "empty-with-terms": "Your search for <strong>paris</strong> returned no results"
+        "more-refinements": "Advanced filters"
+      }
+    },
+    "site": {
+      "results": {
+        "list": {
+          "in-channel": "in Channel",
+          "view-at-provider": "View at",
+          "empty": "No results",
+          "empty-with-terms": "Your search for <strong>paris</strong> returned no results"
+        },
+        "actions": {
+          "product-save": "Save"
+        },
+        "page": {
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
+          "search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
+        }
+      }
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+  "input_search": {
+    "title": "Search",
+    "input_name": "supersearch",
+    "placeholder": "Add a search term",
+    "has_original": true,
+    "input_original": {
+      "value": "Rembrandt",
+      "remove": "removeurl"
+    },
+    "input_values": [
+      {
+        "value": "Paintings",
+        "remove": "removeurl",
+        "name": "fieldname"
+      }
+    ]
+  },
+  "filters": [
+    {
+      "title": "Channels",
+      "hierarchical": true,
+      "select_one": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Art",
+          "num_results": "15K",
+          "is_checked": true,
+          "has_subfilters": true,
+          "filters": [
+            {
+              "title": "Orientation",
+              "simple": true,
+              "select_one": false,
+              "items": [
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Portrait",
+                  "num_results": "15K",
+                  "is_checked": false
                 },
-                "actions": {
-                    "product-save": "Save"
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Landscape",
+                  "num_results": 300,
+                  "is_checked": false
                 },
-                "page": {
-                    "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
-                    "search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Square",
+                  "num_results": 600,
+                  "is_checked": false
                 }
+              ],
+              "extra_items": false
+            },
+            {
+              "title": "Medium",
+              "simple": true,
+              "select_one": false,
+              "items": [
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Photograph",
+                  "num_results": "15K",
+                  "is_checked": false
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Painting",
+                  "num_results": 300,
+                  "is_checked": true
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Sculpture",
+                  "num_results": 600,
+                  "is_checked": false
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "Mixed media",
+                  "num_results": 123,
+                  "is_checked": true
+                }
+              ],
+              "extra_items": false
+            },
+            {
+              "title": "Colour",
+              "colour": true,
+              "select_one": false,
+              "items": [
+                {
+                  "url": "http://europeana.eu",
+                  "text": "colour name",
+                  "hex": "#F1F1EE",
+                  "num_results": "123",
+                  "is_checked": false
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "colour name",
+                  "hex": "#F22F24",
+                  "num_results": 123,
+                  "is_checked": true
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "colour name",
+                  "hex": "#FFAE00",
+                  "num_results": 123,
+                  "is_checked": false
+                },
+                {
+                  "url": "http://europeana.eu",
+                  "text": "colour name",
+                  "hex": "#C8D5D7",
+                  "num_results": 123,
+                  "is_checked": true
+                }
+              ],
+              "extra_items": false
             }
-        }
-    },
-    "page_config": {
-        "newsletter": true
-    },
-    "css_files": [
-        {
-            "path": "../../css/search/screen.css",
-            "media": "all"
-        }
-    ],
-    "js_files": [
-        {
-            "path": "../../js/dist/require.js",
-            "data_main": "../../js/dist/main/main"
-        }
-    ],
-    "input_search": {
-        "title": "Search",
-        "input_name": "supersearch",
-        "placeholder": "Add a search term",
-        "has_original": true,
-        "input_original":{
-            "value": "Rembrandt",
-            "remove": "removeurl"
+          ]
         },
-        "input_values": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Music",
+          "num_results": 300
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123,
+          "is_disabled": true
+        }
+      ],
+      "extra_items": {
+        "items": [
           {
-            "value": "Paintings",
-            "remove": "removeurl",
-            "name": "fieldname"
-          }
-        ]
-    },
-    "filters": [
-        {
-            "title": "Channels",
-            "hierarchical": true,
-            "select_one": true,
-            "items": [
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Art",
-                    "num_results": "15K",
-                    "is_checked": true,
-                    "has_subfilters": true,
-				    "filters": [
-				        {
-				            "title": "Orientation",
-				            "simple": true,
-				            "select_one": false,
-				            "items": [
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Portrait",
-				                    "num_results": "15K",
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Landscape",
-				                    "num_results": 300,
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Square",
-				                    "num_results": 600,
-				                    "is_checked": false
-				                }
-				            ],
-				            "extra_items": false
-				        },
-				        {
-				            "title": "Medium",
-				            "simple": true,
-				            "select_one": false,
-				            "items": [
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Photograph",
-				                    "num_results": "15K",
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Painting",
-				                    "num_results": 300,
-				                    "is_checked": true
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Sculpture",
-				                    "num_results": 600,
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "Mixed media",
-				                    "num_results": 123,
-				                    "is_checked": true
-				                }
-				            ],
-				            "extra_items": false
-				        },
-				        {
-				            "title": "Colour",
-				            "colour": true,
-				            "select_one": false,
-				            "items": [
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "colour name",
-				                    "hex": "#F1F1EE",
-				                    "num_results": "123",
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "colour name",
-				                    "hex": "#F22F24",
-				                    "num_results": 123,
-				                    "is_checked": true
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "colour name",
-				                    "hex": "#FFAE00",
-				                    "num_results": 123,
-				                    "is_checked": false
-				                },
-				                {
-				                    "url": "http://europeana.eu",
-				                    "text": "colour name",
-				                    "hex": "#C8D5D7",
-				                    "num_results": 123,
-				                    "is_checked": true
-				                }
-				            ],
-				            "extra_items": false
-				        }
-				    ]
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Music",
-                    "num_results": 300
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 600
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 123,
-                    "is_disabled": true
-                }
-            ],
-            "extra_items": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Extra Label",
-                        "num_results": "15K"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Another Label",
-                        "num_results": 300
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 600
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 123
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Type",
-            "simple": true,
-            "items": [
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Filter Label",
-                    "num_results": "15K"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "num_results": 300,
-                    "is_checked": true
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 600
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 123,
-                    "is_checked": true
-                }
-            ],
-            "extra_items": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Extra Label",
-                        "num_results": "15K"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Another Label",
-                        "num_results": 300
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 600,
-                        "is_checked": true
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 123
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Country",
-            "simple": true,
-            "items": [
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Filter Label",
-                    "num_results": "15K"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "num_results": 300,
-                    "is_checked": true
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 600
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 123
-                }
-            ],
-            "extra_items": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Extra Label",
-                        "num_results": "15K"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Another Label",
-                        "num_results": 300
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 600
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 123
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Can I use it?",
-            "tabbed": true
-        },
-        {
-            "title": "Language",
-            "simple": true,
-            "items": [
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Filter Label",
-                    "num_results": "15K"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "num_results": 300
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 600
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here",
-                    "num_results": 123
-                }
-            ],
-            "extra_items": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Extra Label",
-                        "num_results": "15K"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Another Label",
-                        "num_results": 300
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 600
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Label here",
-                        "num_results": 123
-                    }
-                ]
-            }
-        }
-    ],
-    "facets_selected":{
-      "items":[
-          {
-            "filter": "Theme",
-            "value": "Art",
-            "remove": "removeurl",
-            "name": "fieldname"
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
           },
           {
-            "filter": "Type",
-            "value": "Paintings",
-            "remove": "removeurl",
-            "name": "fieldname"
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 600
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
           }
         ]
+      }
     },
-    "menus": {
-        "actions": {
-            "button_title": "Actions",
-            "menu_id": "dropdown-result-actions",
-            "menu_title": "Save to:",
-            "items": [
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Label here"
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Fourth Item"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "calltoaction": true
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "calltoaction": true
-                }
-            ]
-        },
-        "sort": {
-            "button_title": "Relevance",
-            "menu_id": "dropdown-result-sort",
-            "menu_title": "Sort by:",
-            "items": [
-                {
-                    "text": "Date",
-                    "url": "http://europeana.eu"
-                },
-                {
-                    "text": "Alphabetical",
-                    "url": "http://europeana.eu"
-                },
-                {
-                    "text": "Relevance",
-                    "url": "http://europeana.eu"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "url": "http://europeana.eu",
-                    "text": "Another Label",
-                    "calltoaction": true
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "text": "Advanced Search",
-                    "url": "http://europeana.eu",
-                    "calltoaction": true
-                }
-            ]
-        },
-        "viewoptions": {
-            "items": [
-                {
-                    "text": "Grid",
-                    "url": "url to grid view",
-                    "icon_grid": true,
-                    "is_current": true
-                },
-                {
-                    "text": "List",
-                    "url": "url to list view",
-                    "icon_list": true
-                }
-            ]
-        }
-    },
-    "has_results": true,
-    "search_results": [
-        {
-            "title": "Rembrant van Rijn, An Elephant, a drawing",
-            "is_image": true,
-            "item_type": {
-                "name": "Painting",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/400/300/people",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/people",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures..."
-            },
-            "year": {
-                "long": "1637"
-            }
-        },
-        {
-            "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
-            "is_audio": true,
-            "item_type": {
-                "name": "Recording",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/400/300/nature",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/nature",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch."
-            },
-            "year": {
-                "long": "1642"
-            }
-        },
-        {
-            "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
-            "is_audio": true,
-            "item_type": {
-                "name": "Song",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/400/300/tech",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/tech",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "The Anatomy Lesson of Dr. Nicolaes Tulp is a 1632 oil painting on canvas by Rembrandt housed in the Mauritshuis museum in The Hague, the Netherlands. Dr. Nicolaes Tulp is pictured explaining the musculature of the arm to medical professionals. Some of the spectators are..."
-            },
-            "year": {
-                "long": "1632"
-            }
-        },
-        {
-            "title": "Self portrait",
-            "is_text": true,
-            "item_type": {
-                "name": "Poem",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/people",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/people",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Providerhere"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro."
-            },
-            "year": {
-                "long": "1628"
-            }
-        },
-        {
-            "title": "Belshazzars Feast",
-            "is_text": true,
-            "item_type": {
-                "name": "Book",
-                "url": "http://europeana.eu/search/books"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/nature",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/nature",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Providerhere"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London."
-            },
-            "year": {
-                "long": "1635"
-            }
-        },
-        {
-            "title": "The Stoning of Saint Stephen",
-            "is_image": true,
-            "item_type": {
-                "name": "Photograph",
-                "url": "http://europeana.eu/search/photograph"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/300/tech",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/tech",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Providerhere"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19."
-            },
-            "year": {
-                "long": "1625"
-            }
-        },
-        {
-            "title": "Balaam and the Ass",
-            "is_image": true,
-            "item_type": {
-                "name": "Drawing",
-                "url": "http://europeana.eu/search/drawing"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/people",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/people",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Balaam and the Ass is a 1626 painting by the Dutch artist Rembrandt, dating from his time in Leiden and now in the Mus\u00e9e Cognacq-Jay in Paris."
-            },
-            "year": {
-                "long": "1626"
-            }
-        },
-        {
-            "title": "The Artist in his Studio",
-            "is_image": true,
-            "item_type": {
-                "name": "Print",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/nature",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/nature",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "The Artist in his Studio is an 1628 oil painting made by Rembrandt. The painting shows an artist' studio in realist style. It is held by the Museum of Fine Arts in Boston, Massachusetts."
-            },
-            "year": {
-                "long": "1628"
-            }
-        },
-        {
-            "title": "The Storm on the Sea of Galilee",
-            "is_video": true,
-            "item_type": {
-                "name": "TV programme",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/300/tech",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/tech",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "The Storm on the Sea of Galilee is a painting from 1633 by the Dutch Golden Agepainter Rembrandt van Rijn that was in the Isabella Stewart Gardner Museum of Boston, Massachusetts, United States, prior to being stolen on March 18, 1990. The painting depicts the miracle of..."
-            },
-            "year": {
-                "long": "1633"
-            }
-        },
-        {
-            "title": "Jacob de Gheyn III",
-            "is_image": true,
-            "item_type": {
-                "name": "Painting",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/people",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/people",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Huygens and de Gheyn had commissioned Rembrandt to paint them in identical formats and he did so upon the same oak panel. The friends had agreed that the first of them to die would receive the painting owned by the other, as evidenced by inscriptions on the their reverse. They w..."
-            },
-            "year": {
-                "long": "1632"
-            }
-        },
-        {
-            "title": "Philosopher in Meditation",
-            "is_video": true,
-            "item_type": {
-                "name": "Music video",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/300/nature",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/nature",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Philosopher in Meditation (Bredius 431) is the traditional title of an oil painting in the Mus\u00e9e du Louvre, Paris, that has long been attributed to the 17th-century Dutch artist Rembrandt."
-            },
-            "year": {
-                "long": "1632"
-            }
-        },
-        {
-            "title": "The Abduction of Europa",
-            "is_image": true,
-            "item_type": {
-                "name": "Painting",
-                "url": "http://europeana.eu/search/paintings"
-            },
-            "thumbnail": {
-                "src": "http://placeimg.com/300/400/tech",
-                "alt": "Rectangle"
-            },
-            "img": {
-                "rectangle": {
-                    "src": "http://placeimg.com/400/300/tech",
-                    "alt": "Rectangle"
-                }
-            },
-            "origin": {
-                "url": "http://urlhere.com",
-                "text": "Rijksmuseum"
-            },
-            "concepts": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "prints (visual works)"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "paper (fiber product)"
-                    }
-                ]
-            },
-            "channels": {
-                "items": [
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Art History"
-                    },
-                    {
-                        "url": "http://europeana.eu",
-                        "text": "Military History"
-                    }
-                ]
-            },
-            "text": {
-                "medium": "Rembrandt Harmenszoon van Rijn\u2019s The Abduction of Europa (1632) is one of his rare mythological subject paintings. The piece is oil on canvas and now located in the J. Paul Getty Museum. The inspiration for the painting is Ovid\u2019s Metamorphoses, part of which tells the tale..."
-            },
-            "year": {
-                "long": "1632"
-            }
-        }
-    ],
-    "navigation":
-  {
-    "global":
     {
-      "options":
+      "title": "Type",
+      "simple": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Filter Label",
+          "num_results": "15K"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "num_results": 300,
+          "is_checked": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123,
+          "is_checked": true
+        }
+      ],
+      "extra_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 600,
+            "is_checked": true
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
+          }
+        ]
+      }
+    },
+    {
+      "title": "Country",
+      "simple": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Filter Label",
+          "num_results": "15K"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "num_results": 300,
+          "is_checked": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123
+        }
+      ],
+      "extra_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 600
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
+          }
+        ]
+      }
+    },
+    {
+      "title": "Can I use it?",
+      "tabbed": true
+    },
+    {
+      "title": "Language",
+      "simple": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Filter Label",
+          "num_results": "15K"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "num_results": 300
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123
+        }
+      ],
+      "extra_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 600
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
+          }
+        ]
+      }
+    }
+  ],
+  "facets_selected": {
+    "items": [
       {
+        "filter": "Theme",
+        "value": "Art",
+        "remove": "removeurl",
+        "name": "fieldname"
+      },
+      {
+        "filter": "Type",
+        "value": "Paintings",
+        "remove": "removeurl",
+        "name": "fieldname"
+      }
+    ]
+  },
+  "menus": {
+    "actions": {
+      "button_title": "Actions",
+      "menu_id": "dropdown-result-actions",
+      "menu_title": "Save to:",
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Label"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Fourth Item"
+        },
+        {
+          "divider": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "calltoaction": true
+        },
+        {
+          "divider": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "calltoaction": true
+        }
+      ]
+    },
+    "sort": {
+      "button_title": "Relevance",
+      "menu_id": "dropdown-result-sort",
+      "menu_title": "Sort by:",
+      "items": [
+        {
+          "text": "Date",
+          "url": "http://europeana.eu"
+        },
+        {
+          "text": "Alphabetical",
+          "url": "http://europeana.eu"
+        },
+        {
+          "text": "Relevance",
+          "url": "http://europeana.eu"
+        },
+        {
+          "divider": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "calltoaction": true
+        },
+        {
+          "divider": true
+        },
+        {
+          "text": "Advanced Search",
+          "url": "http://europeana.eu",
+          "calltoaction": true
+        }
+      ]
+    },
+    "viewoptions": {
+      "items": [
+        {
+          "text": "Grid",
+          "url": "url to grid view",
+          "icon_grid": true,
+          "is_current": true
+        },
+        {
+          "text": "List",
+          "url": "url to list view",
+          "icon_list": true
+        }
+      ]
+    }
+  },
+  "has_results": true,
+  "search_results": [
+    {
+      "title": "Rembrant van Rijn, An Elephant, a drawing",
+      "is_image": true,
+      "item_type": {
+        "name": "Painting",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/400/300/people",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/people",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures..."
+      },
+      "year": {
+        "long": "1637"
+      }
+    },
+    {
+      "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
+      "is_audio": true,
+      "item_type": {
+        "name": "Recording",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/400/300/nature",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/nature",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch."
+      },
+      "year": {
+        "long": "1642"
+      }
+    },
+    {
+      "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+      "is_audio": true,
+      "item_type": {
+        "name": "Song",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/400/300/tech",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/tech",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "The Anatomy Lesson of Dr. Nicolaes Tulp is a 1632 oil painting on canvas by Rembrandt housed in the Mauritshuis museum in The Hague, the Netherlands. Dr. Nicolaes Tulp is pictured explaining the musculature of the arm to medical professionals. Some of the spectators are..."
+      },
+      "year": {
+        "long": "1632"
+      }
+    },
+    {
+      "title": "Self portrait",
+      "is_text": true,
+      "item_type": {
+        "name": "Poem",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/people",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/people",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Providerhere"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro."
+      },
+      "year": {
+        "long": "1628"
+      }
+    },
+    {
+      "title": "Belshazzars Feast",
+      "is_text": true,
+      "item_type": {
+        "name": "Book",
+        "url": "http://europeana.eu/search/books"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/nature",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/nature",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Providerhere"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London."
+      },
+      "year": {
+        "long": "1635"
+      }
+    },
+    {
+      "title": "The Stoning of Saint Stephen",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/photograph"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/300/tech",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/tech",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Providerhere"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19."
+      },
+      "year": {
+        "long": "1625"
+      }
+    },
+    {
+      "title": "Balaam and the Ass",
+      "is_image": true,
+      "item_type": {
+        "name": "Drawing",
+        "url": "http://europeana.eu/search/drawing"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/people",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/people",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Balaam and the Ass is a 1626 painting by the Dutch artist Rembrandt, dating from his time in Leiden and now in the Musée Cognacq-Jay in Paris."
+      },
+      "year": {
+        "long": "1626"
+      }
+    },
+    {
+      "title": "The Artist in his Studio",
+      "is_image": true,
+      "item_type": {
+        "name": "Print",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/nature",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/nature",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "The Artist in his Studio is an 1628 oil painting made by Rembrandt. The painting shows an artist' studio in realist style. It is held by the Museum of Fine Arts in Boston, Massachusetts."
+      },
+      "year": {
+        "long": "1628"
+      }
+    },
+    {
+      "title": "The Storm on the Sea of Galilee",
+      "is_video": true,
+      "item_type": {
+        "name": "TV programme",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/300/tech",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/tech",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "The Storm on the Sea of Galilee is a painting from 1633 by the Dutch Golden Agepainter Rembrandt van Rijn that was in the Isabella Stewart Gardner Museum of Boston, Massachusetts, United States, prior to being stolen on March 18, 1990. The painting depicts the miracle of..."
+      },
+      "year": {
+        "long": "1633"
+      }
+    },
+    {
+      "title": "Jacob de Gheyn III",
+      "is_image": true,
+      "item_type": {
+        "name": "Painting",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/people",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/people",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Huygens and de Gheyn had commissioned Rembrandt to paint them in identical formats and he did so upon the same oak panel. The friends had agreed that the first of them to die would receive the painting owned by the other, as evidenced by inscriptions on the their reverse. They w..."
+      },
+      "year": {
+        "long": "1632"
+      }
+    },
+    {
+      "title": "Philosopher in Meditation",
+      "is_video": true,
+      "item_type": {
+        "name": "Music video",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/300/nature",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/nature",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Philosopher in Meditation (Bredius 431) is the traditional title of an oil painting in the Musée du Louvre, Paris, that has long been attributed to the 17th-century Dutch artist Rembrandt."
+      },
+      "year": {
+        "long": "1632"
+      }
+    },
+    {
+      "title": "The Abduction of Europa",
+      "is_image": true,
+      "item_type": {
+        "name": "Painting",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "thumbnail": {
+        "src": "http://placeimg.com/300/400/tech",
+        "alt": "Rectangle"
+      },
+      "img": {
+        "rectangle": {
+          "src": "http://placeimg.com/400/300/tech",
+          "alt": "Rectangle"
+        }
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Rijksmuseum"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Military History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Rembrandt Harmenszoon van Rijn’s The Abduction of Europa (1632) is one of his rare mythological subject paintings. The piece is oil on canvas and now located in the J. Paul Getty Museum. The inspiration for the painting is Ovid’s Metamorphoses, part of which tells the tale..."
+      },
+      "year": {
+        "long": "1632"
+      }
+    }
+  ],
+  "navigation": {
+    "global": {
+      "options": {
         "search_active": false,
         "settings_active": true
       },
-
-      "primary_nav":
-      {
-        "items":
-        [
+      "primary_nav": {
+        "items": [
           {
             "url": "#",
             "text": "Home",
             "is_current": true
           },
-
           {
             "url": "",
             "text": "Channels",
-            "submenu":
-            {
-              "items":
-              [
+            "submenu": {
+              "items": [
                 {
                   "url": "http://google.com",
                   "text": "Channel 1"
                 },
-
                 {
                   "url": "http://google.com",
                   "text": "Channel 2",
                   "is_current": true
                 },
-
                 {
                   "url": "http://google.com",
                   "text": "Channel 3"
@@ -1156,17 +1143,14 @@
               ]
             }
           },
-
           {
             "url": "",
             "text": "Exhibitions"
           },
-
           {
             "url": "",
             "text": "Blog"
           },
-
           {
             "url": "",
             "text": "My Europeana"
@@ -1174,55 +1158,42 @@
         ]
       }
     },
-
-    "footer":
-    {
-      "linklist1":
-      {
+    "footer": {
+      "linklist1": {
         "title": "More info",
-        "items":
-        [
+        "items": [
           {
             "text": "New collections",
             "url": "http://google.com"
           },
-
           {
             "text": "All data providers",
             "url": "http://google.com"
           },
-
           {
             "text": "Become a data provider",
             "url": "http://google.com"
           }
         ]
       },
-
-      "linklist2":
-      {
+      "linklist2": {
         "title": "Help",
-        "items":
-        [
+        "items": [
           {
             "text": "Search tips",
             "url": "http://google.com"
           },
-
           {
             "text": "Using My Europeana",
             "url": "http://google.com"
           },
-
           {
             "text": "Copyright",
             "url": "http://google.com"
           }
         ]
       },
-
-      "social":
-      {
+      "social": {
         "linkedin": false,
         "github": false
       }

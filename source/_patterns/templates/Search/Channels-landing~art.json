@@ -366,6 +366,26 @@
         "facebook": true,
         "pinterest": true,
         "linkedin": true
+      },
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Contact us",
+            "url": "./"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
       }
     }
   }

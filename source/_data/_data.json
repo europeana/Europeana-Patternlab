@@ -318,7 +318,7 @@
                 "items": [
                     {
                         "text": "Home",
-                        "url": "http://google.com"
+                        "url": "./"
                     },
                     {
                         "text": "Terms of use & policies",
@@ -326,11 +326,11 @@
                     },
                     {
                         "text": "Contact us",
-                        "url": "http://google.com"
+                        "url": "./"
                     },
                     {
                         "text": "Sitemap",
-                        "url": "http://google.com"
+                        "url": "./"
                     }
                 ]
             }
@@ -468,7 +468,7 @@
                 "feedback_banner":{
                     "title": "This is an Alpha release of our new collections search and Music Channel",
                     "description": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
-                    "link-text":"Give us your input!"
+                    "link-text":"Give us your input"
                 }
 
             }

@@ -1,43 +1,33 @@
 {
   "bodyclass": "channel_landing",
   "pagetitle": "Europeana - Music",
-
-  "version":{
-      "is_alpha": true
+  "version": {
+    "is_alpha": true
   },
-
-  "globalnav_options": {
-    "search": false,
-    "myeuropeana": true
-  },
-
   "page_config": {
     "newsletter": true
   },
-
   "css_files": [
     {
       "path": "../../css/search/screen.css",
       "media": "all"
     }
   ],
-
-  "js_files":
-  [
-      {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main/main"	 }
-
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
   ],
-
   "input_search": {
     "title": "Search Europeana for Music",
     "input_name": "q",
     "placeholder": "Search Europeana for Music"
   },
-
-  "content":{
-    "channel_info":{
+  "content": {
+    "channel_info": {
       "name": "Europeana Music",
-      "description": "The <strong>Europeana Music Channel</strong> brings together the best music recordings, sheet music, and other music related collections from Europeana’s audio-visual archives, libraries, archives and museums.",
+      "description": "The <strong>Europeana Music Channel</strong> brings together the best music recordings, sheet music, and other music related collections from Europeana's audio-visual archives, libraries, archives and museums. <a href='./portal/channels/music/about/'>Find out more about the Music Channel</a>.",
       "stats": {
         "items": [
           {
@@ -49,7 +39,8 @@
             "count": "31,027",
             "text": "Texts",
             "url": "#"
-          },          {
+          },
+          {
             "count": "13,549",
             "text": "Sound recordings",
             "url": "#"
@@ -62,7 +53,7 @@
         ]
       },
       "recent": {
-        "title":"Recent additions:",
+        "title": "Recent additions:",
         "items": [
           {
             "text": "Netherlands Institute of Sound and Vision",
@@ -83,190 +74,186 @@
             "date": "May 2015"
           }
         ],
-        "more_link":{
+        "more_link": {
           "text": "See all new",
           "url": "#777"
         }
       },
-      "credits":{
-        "title":"Curated by:",
+      "credits": {
+        "title": "Curated by:",
         "items": [
           {
-            "text": "National Gallery of Denmark",
-            "url": "#777"
-          },
-          {
-            "text": "Rijksmuseum",
-            "url": "#777"
+            "text": "Europeana Sounds",
+            "url": "http://www.europeanasounds.eu"
           }
         ]
       }
     },
-    "hero_config":{
-      "hero_image":"sample/channel_hero_music.jpg",
-      "attribution_title" : "Danse de trois faunes et trois bacchantes",
-      "attribution_creator" : "Hieronymus Hopfer",
-      "attribution_institution" : "Bibliothèque municipale de Lyon",
-      "attribution_url" : "http://www.europeana.eu/portal/record/15802/eDipRouteurBML_eDipRouteurBML_aspx_Application_ESTA_26Action_RechercherDirectement_NUID___554__ESTA_3BAfficherVueSurEnregistrement_Vue_Fiche_Principal_3BAfficherFrameset.html",
+    "hero_config": {
+      "hero_image": "sample/channel_hero_music.jpg",
+      "attribution_title": "Danse de trois faunes et trois bacchantes",
+      "attribution_creator": "Hieronymus Hopfer",
+      "attribution_institution": "Bibliothèque municipale de Lyon",
+      "attribution_url": "http://www.europeana.eu/portal/record/15802/eDipRouteurBML_eDipRouteurBML_aspx_Application_ESTA_26Action_RechercherDirectement_NUID___554__ESTA_3BAfficherVueSurEnregistrement_Vue_Fiche_Principal_3BAfficherFrameset.html",
       "license_public": true
     },
-    "channel_entry":{
+    "channel_entry": {
       "title": "Promoted title",
-      "items":[
+      "items": [
         {
-          "title":"Opera",
+          "title": "Opera",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what:opera",
           "count": "190,226",
-          "media_type":"Images",
+          "media_type": "Images",
           "is_search": true,
           "image": "sample/entry-opera-square.jpg"
         },
         {
-          "title":"Folk Music",
+          "title": "Folk Music",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=what%3A+folk%20music",
           "count": "7,029",
-          "media_type":"Recordings",
+          "media_type": "Recordings",
           "is_search": true,
           "image": "sample/entry-folk-square.jpg"
         },
         {
-          "title":"Musical Instruments",
+          "title": "Musical Instruments",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=PROVIDER%3A%22MIMO+-+Musical+Instrument+Museums+Online%22",
           "count": "46,843",
-          "media_type":"Images",
+          "media_type": "Images",
           "is_search": true,
           "image": "sample/entry-lute-square.jpg"
         },
         {
-          "title":"Life and music of Edvard Grieg",
+          "title": "Life and music of Edvard Grieg",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(edvard grieg)",
           "count": "573",
-          "media_type":"Recordings and Videos",
+          "media_type": "Recordings and Videos",
           "is_spotlight": true,
           "image": "sample/entry-grieg-square.jpg"
         },
         {
-          "title":"Spotlight: The Lute",
+          "title": "Spotlight: The Lute",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(lithuanian+folk+music)+OR+(lithuanian+folk+song)",
           "count": "46",
-          "media_type":"Images and documents",
+          "media_type": "Images and documents",
           "is_spotlight": true,
           "image": "sample/entry-lute-square.jpg"
         },
         {
-          "title":"Spotlight: The Harpsichord",
+          "title": "Spotlight: The Harpsichord",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=harpsichord",
           "count": "240",
-          "media_type":"Texts and Recordings",
+          "media_type": "Texts and Recordings",
           "is_spotlight": true,
           "image": "sample/entry-harpsichord-square.jpg"
         }
       ]
     },
-    "promoted":{
+    "promoted": {
       "title": "Promoted title",
-      "items":[
+      "items": [
         {
-          "title":"Explore the World of Musical Instruments",
+          "title": "Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-instruments.jpg"
+          "bg_image": "sample/thumb-instruments.jpg"
         },
         {
-          "title":"Weddings in Eastern Europe",
+          "title": "Weddings in Eastern Europe",
           "url": "http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-wedding.jpg"
+          "bg_image": "sample/thumb-wedding.jpg"
         },
         {
-          "title":"Recording and playing Machines",
+          "title": "Recording and playing Machines",
           "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-machines.jpg"
+          "bg_image": "sample/thumb-machines.jpg"
         },
         {
-          "title":"Find more from Europeana Music on Soundcloud",
+          "title": "Find more from Europeana Music on Soundcloud",
           "url": "http://soundcloud.com",
           "wide": true,
-          "bg_image":"sample/sc_st_white_240x140.png",
-          "class_custom":"soundcloud"
+          "bg_image": "sample/sc_st_white_240x140.png",
+          "class_custom": "soundcloud"
         }
       ]
     },
-    "social":{
-        "twitter": {
-          "url": "https://twitter.com/eu_sounds",
-          "text": "Europeana sounds on twitter (@eu_sounds)"
-        },
-        "facebook": {
-          "url": "Europeana Sounds on facebook",
-          "text": "https://www.facebook.com/soundseuropeana"
-        },
-        "soundcloud": {
-          "url": "https://soundcloud.com/europeana",
-          "text": "Europeana on Soundcloud"
-        }
+    "social": {
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Europeana sounds on twitter (@eu_sounds)"
       },
-    "news": {
-      "items":[
-      {
-        "headline": {
-          "medium":  "The miniature magic of Japanese netsuke"
-        },
-        "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
-        "img": {
-          "rectangle": {
-            "src":"sample/netsuke.jpg",
-            "alt":"Japanese scroll with netsuke illustration"
-          }
-        },
-        "excerpt": {
-          "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
-        }
+      "facebook": {
+        "url": "Europeana Sounds on facebook",
+        "text": "https://www.facebook.com/soundseuropeana"
       },
-      {
-        "headline":{
-          "medium":"Celebrating World Theatre Day 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/theatreday.jpg",
-            "alt":"Theatre Day"
-          }
-        },
-        "excerpt": {
-          "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-        }
-      },
-      {
-        "headline":{
-          "medium":"Europeana takes part in #MuseumWeek 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/Museumweek.jpg",
-            "alt":"Museum Week 2015"
-          }
-        },
-        "excerpt": {
-          "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
-        }
+      "soundcloud": {
+        "url": "https://soundcloud.com/europeana",
+        "text": "Europeana on Soundcloud"
       }
+    },
+    "news": {
+      "items": [
+        {
+          "headline": {
+            "medium": "The miniature magic of Japanese netsuke"
+          },
+          "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+          "img": {
+            "rectangle": {
+              "src": "sample/netsuke.jpg",
+              "alt": "Japanese scroll with netsuke illustration"
+            }
+          },
+          "excerpt": {
+            "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
+          }
+        },
+        {
+          "headline": {
+            "medium": "Celebrating World Theatre Day 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/theatreday.jpg",
+              "alt": "Theatre Day"
+            }
+          },
+          "excerpt": {
+            "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+          }
+        },
+        {
+          "headline": {
+            "medium": "Europeana takes part in #MuseumWeek 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/Museumweek.jpg",
+              "alt": "Museum Week 2015"
+            }
+          },
+          "excerpt": {
+            "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+          }
+        }
       ]
     }
   },
-  "navigation":{
-    "global":{
+  "navigation": {
+    "global": {
       "options": {
         "search_active": false
       },
-      "logo":{
+      "logo": {
         "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
         "text": "Europeana Search"
       },
-      "primary_nav":{
+      "primary_nav": {
         "items": [
           {
             "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
@@ -275,16 +262,16 @@
           {
             "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
             "text": "Channels",
-            "is_current":true,
+            "is_current": true,
             "submenu": {
               "items": [
                 {
-                  "url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
+                  "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
                   "text": "Art History",
-                  "is_current":true
+                  "is_current": true
                 },
                 {
-                  "url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
+                  "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
                   "text": "Music"
                 }
               ]
@@ -305,64 +292,84 @@
         ]
       }
     },
-    "footer":{
-      "linklist1":{
+    "footer": {
+      "linklist1": {
         "title": "More info",
         "items": [
           {
             "text": "New collections",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "All data providers",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Become a data provider",
-            "url":"http://google.com"
+            "url": "http://google.com"
           }
         ]
       },
-      "linklist2":{
+      "linklist2": {
         "title": "Help",
         "items": [
           {
             "text": "Search tips",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Using My Europeana",
-            "url":"http://google.com"
+            "url": "http://google.com"
           },
           {
             "text": "Copyright",
-            "url":"http://google.com"
+            "url": "http://google.com"
           }
         ]
       },
-      "othersites":{
+      "othersites": {
         "title": "Explore Europeana",
-        "styleModifier":"inline-list",
+        "styleModifier": "inline-list",
         "items": [
           {
-            "url":"http://google.com",
+            "url": "http://google.com",
             "text": "Europeana 1914-1918"
           },
           {
-            "url":"http://google.com",
+            "url": "http://google.com",
             "text": "Europeana Exhibitions"
           },
           {
-            "url":"http://google.com",
+            "url": "http://google.com",
             "text": "Europeana Blog"
           }
         ]
       },
-      "social":{
+      "social": {
         "twitter": true,
         "facebook": true,
         "pinterest": true,
         "linkedin": true
+      },
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Contact us",
+            "url": "./"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
       }
     }
   }

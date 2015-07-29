@@ -59,7 +59,7 @@
             },
             "rights":
             {
-              "license_public": true,
+              "license_CC0": true,
               "license_name": "CC0",
               "license_human": "You can use this image in any way you like"
             },
@@ -256,7 +256,7 @@
       },
       "rights":
       {
-        "license_public": true,
+        "license_CC0": true,
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like"
       },
