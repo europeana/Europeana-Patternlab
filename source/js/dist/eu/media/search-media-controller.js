@@ -49,7 +49,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         hideAllViewers();
         $('.media-viewer .object-media-image').removeClass('is-hidden');
         mediaViewerImage.setUrl(data.url);
-        mediaOpened();
+        mediaOpened(evt, data);
         return;
     }
 
