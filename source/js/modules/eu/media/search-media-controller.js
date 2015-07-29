@@ -24,8 +24,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     log( 'initMedia()' );
   }
 
-  function mediaOpened(){
-      $(listSelector).addClass('open');
+  function mediaOpened(evt, data){
+      if(data.hide_thumb){
+        $(listSelector).addClass('open');
+      }
+      $(listItemSelector).removeClass('loading');
   }
 
 
@@ -45,7 +48,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     if(mediaViewerImage){
         hideAllViewers();
         $('.media-viewer .object-media-image').removeClass('is-hidden');
-        mediaViewerImage.setUrl(data.url)
+        mediaViewerImage.setUrl(data.url);
+        mediaOpened();
         return;
     }
 
@@ -103,6 +107,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                     // remove playability
                     $(data.target).removeClass('playable');
                     $(data.target).find('.media-clickable-indicator').remove();
+                    $(listItemSelector).removeClass('loading');
                 }
             });
 
@@ -117,6 +122,9 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             $('.media-viewer .object-media-image').removeClass('is-hidden');
             if(!mediaViewerImage.init(imgData, clickedImg)){
                 // remove playability
+                $(data.target).removeClass('playable');
+                $(data.target).find('.media-clickable-indicator').remove();
+                $(listItemSelector).removeClass('loading');
             }
         });
     }
@@ -157,6 +165,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     evt.stopPropagation();
 
     if($(this).hasClass('playable')){
+        $(this).addClass('loading');
         $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri'), target:$(this)});
     }
     else{

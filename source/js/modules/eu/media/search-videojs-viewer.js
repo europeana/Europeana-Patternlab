@@ -132,7 +132,7 @@ define([], function() {
             }
             doPlay(media_item);
 
-            $('.media-viewer').trigger("object-media-open");
+            $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
         });
 
     });

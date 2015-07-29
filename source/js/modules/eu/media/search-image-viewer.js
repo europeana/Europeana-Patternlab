@@ -22,22 +22,7 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       return;
     }
 
-    // I think css should be loaded on demand the same way the js component it styles is loaded on demand.
-
-    // I understand it's not nice having paths to cs inside javascript
-    // but sometimes it's unavoidable (note how we have a similar thing going on with paths in search-pdf-viewer)
-    // to set PDFJS.workerSrc.  Likewise the css for the leaflet map is loaded on demand - only if needed.
-
-    // If we do want to make things easier to style for Tim we should develop a different theme (it looks like there's
-    // a a JS aspect to that - PhotoSwipeUI_Default - would need to be replaced) and then, when it works, look at getting
-    // that included in pattern lab, but just removing the CSS path causes it to break (and hides the bug we have with the
-    // first item opening in miniature).
-
-    // Let's get all viewers working - then we'll optimise.
-
-    // to do this we also need to remove the @import statement from the screen.scss; otherwise the styles
-    // will be loaded twice. i have removed the @import statements and the associated scss files from
-    // /source/sass/search/ directory to avoid any confusion
+    $('.media-viewer').trigger("object-media-open", {hide_thumb:false});
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
 
@@ -125,7 +110,6 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       if(items.length == 0){
           return false;
       }
-
 
       if(active){
           var index = getItemIndex(active);

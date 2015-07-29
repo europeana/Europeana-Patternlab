@@ -30,7 +30,7 @@ define(['jquery'], function($){
                 PDFView.initialize().then(webViewerInitialized);
                 if(pdfUrl){
                     PDFView.open(pdfUrl);
-                    $('.media-viewer').trigger("object-media-open");
+                    $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
                 }
             });
         }
