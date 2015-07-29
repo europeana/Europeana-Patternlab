@@ -166,7 +166,12 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     if($(this).hasClass('playable')){
         $(this).addClass('loading');
-        $('.media-viewer').trigger("object-media-" + $(this).attr('data-type'), {url:$(this).attr('data-uri'), target:$(this)});
+
+        var data_type = $(this).attr('data-type');
+
+        console.log('media controller will trigger event' + "object-media-" + data_type);
+
+        $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), target:$(this)});
     }
     else{
         log('media item not playable');
