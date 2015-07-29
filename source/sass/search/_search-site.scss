@@ -135,17 +135,17 @@
 		}
 
 		@media all and (min-width: $bp-small-3) {
-			@include span(16 of 24 split);
+			@include span(8 of 24 split);
 		}
 
 		@media all and (min-width: $bp-large) {
-			@include span(24 of 24 split);
+			@include span(18 of 24 split);
 		}
 		@media all and (min-width: 80em) {
-			@include span(12 of 24 split);
+			@include span(18 of 24 split);
 		}
 		@media all and (min-width: 120em) {
-			@include span(24 of 48 split);
+			@include span(18 of 48 split);
 		}
 	}
 }
