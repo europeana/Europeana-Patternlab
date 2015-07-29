@@ -1,6 +1,11 @@
 {
   "bodyclass": "europeana_search",
   "page_title": "Europeana Search",
+
+  "version":{
+      "is_alpha": true
+  },
+
   "css_files":
   [
     {

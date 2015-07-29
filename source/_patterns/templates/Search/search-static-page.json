@@ -1,61 +1,51 @@
 {
-	"bodyclass": "europeana_search",
-    "page_title": "Europeana Search",
-    "page_config": {
-        "newsletter": true
-    },
-
-	"css_files": [
-		{
-			"path": "../../css/search/screen.css",
-			"media": "all"
-		}
-	],
-	"js_files": [
-        {
-            "path": "../../js/dist/require.js",
-            "data_main": "../../js/dist/main/main"
-        }
-    ],
-
-    "navigation":
-  {
-    "global":
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
     {
-      "options":
-      {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+  "navigation": {
+    "global": {
+      "options": {
         "search_active": false,
         "settings_active": true
       },
-
-      "primary_nav":
-      {
-        "items":
-        [
+      "primary_nav": {
+        "items": [
           {
             "url": "#",
             "text": "Home",
             "is_current": true
           },
-
           {
             "url": "",
             "text": "Themes",
-            "submenu":
-            {
-              "items":
-              [
+            "submenu": {
+              "items": [
                 {
                   "url": "http://google.com",
                   "text": "Channel 1"
                 },
-
                 {
                   "url": "http://google.com",
                   "text": "Channel 2",
                   "is_current": true
                 },
-
                 {
                   "url": "http://google.com",
                   "text": "Channel 3"
@@ -63,17 +53,14 @@
               ]
             }
           },
-
           {
             "url": "",
             "text": "Exhibitions"
           },
-
           {
             "url": "",
             "text": "Blog"
           },
-
           {
             "url": "",
             "text": "My Europeana"
@@ -81,55 +68,42 @@
         ]
       }
     },
-
-    "footer":
-    {
-      "linklist1":
-      {
+    "footer": {
+      "linklist1": {
         "title": "More info",
-        "items":
-        [
+        "items": [
           {
             "text": "New collections",
             "url": "http://google.com"
           },
-
           {
             "text": "All data providers",
             "url": "http://google.com"
           },
-
           {
             "text": "Become a data provider",
             "url": "http://google.com"
           }
         ]
       },
-
-      "linklist2":
-      {
+      "linklist2": {
         "title": "Help",
-        "items":
-        [
+        "items": [
           {
             "text": "Search tips",
             "url": "http://google.com"
           },
-
           {
             "text": "Using My Europeana",
             "url": "http://google.com"
           },
-
           {
             "text": "Copyright",
             "url": "http://google.com"
           }
         ]
       },
-
-      "social":
-      {
+      "social": {
         "linkedin": false,
         "github": false
       }

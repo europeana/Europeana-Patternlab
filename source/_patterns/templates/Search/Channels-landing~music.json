@@ -2,6 +2,10 @@
   "bodyclass": "channel_landing",
   "pagetitle": "Europeana - Music",
 
+  "version":{
+      "is_alpha": true
+  },
+
   "globalnav_options": {
     "search": false,
     "myeuropeana": true

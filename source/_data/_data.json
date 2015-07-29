@@ -2,7 +2,7 @@
     "patternlab": true,
 
     "version":{
-        "is_alpha": true
+        "is_alpha": false
     },
 
     "page_config": {

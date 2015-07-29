@@ -1,6 +1,11 @@
 {
     "bodyclass": "europeana_search",
     "page_title": "Europeana Search",
+
+    "version":{
+      "is_alpha": true
+    },
+
     "i18n": {
         "global": {
             "refine-your-search": "Refine your search",
