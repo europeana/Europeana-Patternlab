@@ -69,46 +69,7 @@
     <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
 
       {{#download}}
-      <div class="object-downloads">
-
-        <a class="js-showhide download-button btn alt {{^downloadable}}is-disabled{{/downloadable}}" href="#">
-          <svg class="icon icon-download">
-            <use xlink:href="#icon-download"></use>
-          </svg>
-          {{ i18n.site.object.actions.download }}
-        </a>
-
-        <div class="media-info-tab">
-          <div class="lc">
-
-            <div class="info-primary">
-              <h3>
-                {{ i18n.site.object.actions.download }}
-              </h3>
-            </div>
-
-            {{# technical_metadata }}
-            <div class="info-secondary">
-              {{> molecules/metadata/file-detail }}
-            </div>
-            {{/ technical_metadata }}
-
-            <div class="info-support">
-              {{# rights }}
-              <div class="object-rights">
-
-                <h4>{{ i18n.global.facet.header.reusability }}</h4>
-
-                {{license_human}}
-
-                <div class="object-license">{{> molecules/icons/licenses }}</div>
-              </div>
-              {{/ rights }}
-            </div>
-
-          </div>
-        </div> {{! end media-info}}
-      </div>
+        {{> organisms/search/download }}
       {{/download}}
 
       {{#technical_metadata}}
