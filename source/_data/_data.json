@@ -466,9 +466,9 @@
             },
             "alpha":{
                 "feedback_banner":{
-                    "title": "This is an Alpha release of the new Europeana search website",
-                    "description": "An alpha release means that this website will change frequently and may not work as well as we'd like.",
-                    "link-text":"Help us to make it better"
+                    "title": "This is an Alpha release of our new collections search and Music Channel",
+                    "description": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+                    "link-text":"Give us your input!"
                 }
 
             }
