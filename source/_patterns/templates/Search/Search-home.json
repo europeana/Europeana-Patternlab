@@ -73,6 +73,12 @@
         "bg_image":"sample/thumb-expo-film.jpg"
       },
       {
+        "title":"Europeana 1914—1918",
+        "url": "urlhere",
+        "is_featured_site": true,
+        "bg_image":"sample/thumb-1418.jpg"
+      },
+      {
         "title":"Europeana monuments now in Google Field Trip",
         "url": "urlhere",
         "is_new": true,
