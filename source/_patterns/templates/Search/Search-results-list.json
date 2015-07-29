@@ -21,7 +21,8 @@
           "in-channel": "in Channel",
           "view-at-provider": "View at",
           "empty": "No results",
-          "empty-with-terms": "Your search for <strong>paris</strong> returned no results"
+          "empty-with-terms": "Your search for <strong>paris</strong> returned no results",
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>"
         },
         "actions": {
           "product-save": "Save"
@@ -483,6 +484,7 @@
     }
   },
   "has_results": true,
+  "has_multiple_results": true,
   "search_results": [
     {
       "title": "Rembrant van Rijn, An Elephant, a drawing",

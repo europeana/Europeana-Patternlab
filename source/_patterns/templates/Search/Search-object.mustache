@@ -149,14 +149,16 @@
 
     {{/items}}
     {{^items}}
+    <div class="object-media-info section is-current">
       <div class="object-downloads">
-        <a class="js-showhide download-button btn alt is-disabled" href="#">
+        <a class="download-button btn alt is-disabled" href="#">
           <svg class="icon icon-download">
             <use xlink:href="#icon-download"></use>
           </svg>
           {{ i18n.site.object.actions.download }}
         </a>
       </div>
+    </div>
     {{/items}}
 
   </section>
