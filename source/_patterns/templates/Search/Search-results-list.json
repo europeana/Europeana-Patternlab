@@ -4,6 +4,9 @@
   "version": {
     "is_alpha": true
   },
+  "page_config": {
+    "newsletter": true
+  },
   "i18n": {
     "global": {
       "refine-your-search": "Refine your search",
@@ -33,9 +36,6 @@
         }
       }
     }
-  },
-  "page_config": {
-    "newsletter": true
   },
   "css_files": [
     {
@@ -1115,7 +1115,7 @@
     "global": {
       "options": {
         "search_active": false,
-        "settings_active": true
+        "settings_active": false
       },
       "primary_nav": {
         "items": [

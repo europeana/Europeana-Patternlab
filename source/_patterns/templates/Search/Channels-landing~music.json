@@ -122,15 +122,15 @@
           "count": "46,843",
           "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-lute-square.jpg"
+          "image": "sample/entry-intruments-square.jpg"
         },
         {
-          "title": "Life and music of Edvard Grieg",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/music?q=(edvard grieg)",
+          "title": "Georges Bizet's Carmen",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/portal/channels/music?q=georges+bizet+carmen",
           "count": "573",
           "media_type": "Recordings and Videos",
           "is_spotlight": true,
-          "image": "sample/entry-grieg-square.jpg"
+          "image": "sample/entry-carmen-square.jpg"
         },
         {
           "title": "Spotlight: The Lute",
