@@ -58,7 +58,7 @@
 			<div class="item-metadata">
 
 			{{# item_type }}
-	        	<a href="{{item_type.url}}" class="highlight item-type">
+	        	<span data-href="{{url}} " class="highlight item-type">
 					{{# is_image }}
 					<svg class="icon icon-image">
 						<use xlink:href="#icon-image"></use>
@@ -81,7 +81,7 @@
 					{{/ is_video }}
 
 					{{item_type.name}}
-	        	</a>
+	        	</span>
 			{{/ item_type }}
 
 

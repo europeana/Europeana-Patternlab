@@ -41,6 +41,10 @@
 		@extend .cf;
 	}
 
+	.highlight{
+		color: $peachy;
+	}
+
 	.excerpt{
 		margin-bottom: $space-half;
 	}
