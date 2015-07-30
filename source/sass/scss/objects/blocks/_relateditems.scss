@@ -1,0 +1,11 @@
+// The 3 related item links at the bottom of the page
+.related-items{
+}
+.noimages .related-item > a{
+	display: block;
+	min-height: 8em;
+	padding: $space;
+	margin-bottom: $space;
+	color: $white;
+	font-weight: bold;
+}

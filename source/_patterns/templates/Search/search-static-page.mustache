@@ -1,0 +1,42 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header}}
+
+
+<div role="main">
+
+<section class="block-content-header section">
+	<div class="lc">
+		<div class="contents">
+			<h1 class="title">{{ headline.medium }}</h1>
+			<p class="subhead">{{ excerpt.short }}</p>
+		</div>
+	</div>
+</section>
+
+<section class="static-content section">
+<div class="lc">
+
+	<div class="prose">
+		{{> organisms/article/article-body }}
+	</div>
+
+	<div class="sidebar js-getstickywidth">
+ 		<div class="js-sticky">
+		{{> molecules/navigation/nav-secondary }}
+		</div>
+	</div>
+
+</div>
+</section>
+
+</div>
+<!-- End Main -->
+
+{{# version.is_alpha }}
+{{> organisms/sections/phase-feedback }}
+{{/ version.is_alpha }}
+
+
+{{> organisms/global/footer }}
+

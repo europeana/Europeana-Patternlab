@@ -20,15 +20,16 @@
 
 .header > .cf{
 	border-top: 6px solid $accent;
+	position: relative;
 }
 
 .logo {
 	float: left;
-	width: 55%;
+	width: 50%;
 	max-width: 168px;
 	height: 60px;
 	margin: 0.4rem;
-	margin-left: $space;
+	margin-left: 2%;
 
 	background-position: 0 50%;
 	background-repeat: no-repeat;

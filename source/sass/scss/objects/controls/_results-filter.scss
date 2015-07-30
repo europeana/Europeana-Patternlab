@@ -9,6 +9,10 @@
 	border-top: 1px solid $gray87;
 	margin-bottom: $space-half;
 	@include fontSize(14px);
+
+	.subfilters &{
+		border-top: none;
+	}
 }
 
 .filter-name{
@@ -16,8 +20,12 @@
 	margin: $space-half 0;
 	text-transform: uppercase;
 	font-weight: bold;
-	float: left;
 	width: 100%;
+
+	.subfilters &{
+		@include fontSize(12px);
+		margin-bottom: $space-quarter;
+	}
 }
 
 .filter-list{
@@ -37,7 +45,23 @@
 }
 
 .filter-extrafields{
-	padding-top: 1em;
+	margin-top: $space-half;
+	padding-top: $space-half;
+	border-top: 1px dashed $gray87;
+}
+
+.subfilters{
+	border-left: 1px solid $gray87;
+	//background-color: rgba($gray87, 0.2);
+	padding: $space-half;
+	padding-bottom: $space-quarter;
+	margin-bottom: $space-half;
+	margin-top: $space-quarter;
+	margin-left: 10px;
+
+	.filter-name{
+		margin-top: 0;
+	}
 }
 
 
@@ -56,5 +80,81 @@
 	label{
 		@include fontSize(11px);
 		padding-bottom: 0;
+		text-transform: capitalize;
 	}
+}
+
+// Colour filter
+.filter-colour{
+	.filter-list li{
+		display: inline-block;
+	}
+
+	.filter-item{
+		width: 40px;
+		height: 40px;
+		display: block;
+		position: relative;
+		border: 1px solid $gray87;
+	}
+
+	.filter-item:before{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate (-50%, -50%);
+		background-image: none;
+	}
+
+	.filter-item.is-checked:before {
+        background: url(../../images/formcontrols.png) no-repeat;
+    }
+}
+
+
+// Custom radio and checkboxes from links
+// js needed to switch on/off
+.filter-item:before{
+	content:'';
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+    background: url(../../images/formcontrols.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    background-position: 0 0;
+}
+
+.radiobuttons > ul > li > .filter-item:before{
+    background-position: -88px 0;
+}
+
+
+.checkboxes > ul > li > .filter-item{
+    &.is-checked:before {
+        background-position: -22px 0;
+    }
+    &.is-disabled:before {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    &.is-checked.is-disabled:before {
+        background-position: -66px 0;
+    }
+}
+
+.radiobuttons > ul > li > .filter-item{
+    &.is-checked:before {
+        background-position: -110px 0;
+    }
+    &.is-disabled:before {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    &.is-checked.is-disabled:before {
+        background-position: -154px 0;
+    }
 }

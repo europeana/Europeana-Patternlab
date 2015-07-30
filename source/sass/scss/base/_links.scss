@@ -15,16 +15,23 @@ a {
 	}
 
 	&.highlight{
-		color: $peachy;
+		color: $icon_primary;
 
 		&:hover{
-			$darker: darken($peachy, 15%);
+			$darker: darken($icon_primary, 15%);
 			color: $darker;
 			border-bottom: 1px dotted $darker;
 		}
 	}
 
+	&.external:after{
+		@extend %external_link_icon;
+		margin-left: 0.2em;
+	}
+}
 
+.highlight{
+	color: $icon_primary;
 }
 
 // External link icon - indicates that a link is external to europeana
@@ -39,6 +46,6 @@ a {
 	background: center right no-repeat;
     @include svg-bg-with-fallback("icons/link_external");
     background-size: contain;
-    padding-right: 1.4em;
+    padding-right: 1.2em;
 }
 

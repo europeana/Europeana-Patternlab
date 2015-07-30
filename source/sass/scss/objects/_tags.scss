@@ -24,12 +24,16 @@
 	@extend %tag;
 }
 
+ul.tags li{
+	display: inline-block;
+}
+
 .tag, a.tag{
 	@extend %tag;
 	color: $white;
 	background-color: $textcolour_highlight;
 	
-	&:hover{
+	&:hover, &.is-active{
 		$i: darken($textcolour_highlight, 20);
 		text-decoration: none;
 		background-color: $i;

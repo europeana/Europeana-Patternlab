@@ -1,23 +1,7 @@
 
-
-
-
-// Generic page layout
-.page{
-
-	background: $white; // fallback
-
-	@media all and (min-width: $bp-med) {
-		background: $offwhite; // fallback
-		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
-	}
-
-}
-
-
 // Search hero bar
 .search-hero{
-	padding: $space-triple $space;
+	padding: $space-double $space $space;
 	background-color: #DDEBEE;
 	border-bottom: 1px solid $gray87;
 }
@@ -29,8 +13,19 @@
 // Search results container
 .search-results{
 	padding: 0 $space;
+
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+	}
+
 	.container{
 		@include container($max-width);
+		@media all and (min-width: $bp-med) {
+			overflow:hidden;
+		}
 	}
 }
 
@@ -39,10 +34,16 @@
 // List of results
 .results-list{
 	background-color: rgba(255,255,255,0.8);
+	padding-bottom: $space;
 
 	@media all and (min-width: $bp-med) {
 		@include span(last 18);
+
+		/* keep column height as high as facet column when result list empty */
+		padding-bottom: 100em;
+		margin-bottom: -100em;
 	}
+
 }
 
 // Filters and secondary content
@@ -55,7 +56,7 @@
 	@media all and (min-width: $bp-med) {
 		@include span(6);
 		margin: 0;
-		padding: $space-half + $space-quarter 0 0 0;
+		padding: $space-half + $space-quarter 0 $space-double 0;
 	}
 
 
@@ -72,7 +73,7 @@
 // Contents of Results list
 // Results list header containing controls that affect the list
 .results-header{
-	padding: $space-half 0;
+	padding: $space-half $space-quarter;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
 	overflow: hidden;
@@ -94,12 +95,25 @@
 	}
 }
 
+.no-results{
+	@include push(1 of 12);
+	@include span(10 of 12);
+
+	padding: $space;
+	background-color: $gray97;
+	border: 1px dashed $gray-lighter;
+
+	@media all and (min-width: $bp-small-3) {
+		@include push(1 of 18);
+		@include span(16 of 18);
+	}
+}
 
 .result-info{
 	@include span(last 8 of 12);
 
 	@media all and (min-width: $bp-small-3) {
-		text-align: center;
+		//text-align: center;
 		@include span(8 of 18);
 	}
 }

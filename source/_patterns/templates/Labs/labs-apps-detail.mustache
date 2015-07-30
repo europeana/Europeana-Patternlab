@@ -1,0 +1,57 @@
+{{> atoms/iconography/svgicons-pro}}
+
+{{> organisms/global/header}}
+
+
+
+<!-- Start content -->
+<main role="main" class="l-page">
+<div class="lc">
+	<!-- Start grid -->
+	<div class="grid-main">
+
+		<div class="l-content">
+
+		<div class="l-breadcrumbs page_header">
+			{{> molecules/navigation/breadcrumbs}}
+		</div>
+
+		{{> molecules-block-content-header }}
+
+		<div id="maincontent" class="maincontent">
+
+			<div class="textcontent prose">
+
+				<section>
+	 				{{> organisms-article-body }}
+				</section>
+
+			</div>
+
+			{{> molecules-related-noimages(title: "Next steps") }}
+
+
+		</div>
+		</div><!--
+
+	 --><div class="l-sidebar">
+        <div class="inner js-getstickywidth">
+
+          {{> molecules-help-contact(title: "Need help?") }}
+
+          <div class="js-sticky">
+          {{> molecules-tertiary-nav }}
+          </div>
+
+        </div>
+
+      </div>
+	</div>
+	<!-- End grid -->
+</div>
+</main>
+<!-- End Content -->
+
+
+{{> organisms/global/footer }}
+

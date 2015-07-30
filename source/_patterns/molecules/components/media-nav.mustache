@@ -1,0 +1,62 @@
+      <ul class="object-media-nav">
+        {{#items}}
+        {{#thumbnail}}
+
+        <li><a href="#"
+             {{#is_audio}}
+                 data-type="audio"
+                {{#download}}
+                   data-uri="{{url}}"
+                {{/download}}
+                 {{#technical_metadata}}
+                   data-mime-type="{{mime_type}}"
+                 {{/technical_metadata}}
+             {{/is_audio}}
+
+             {{#is_image}}
+                 data-type="image"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+                 {{#technical_metadata}}
+                   data-width="{{width}}"
+                   data-height="{{height}}"
+                 {{/technical_metadata}}
+             {{/is_image}}
+
+             {{#is_pdf}}
+                 data-type="pdf"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+             {{/is_pdf}}
+
+             {{#is_text}}
+                 data-type="text"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+             {{/is_text}}
+
+             {{#is_video}}
+                 data-type="video"
+                 {{#download}}
+                   data-uri="{{url}}"
+                 {{/download}}
+                 {{#technical_metadata}}
+                   data-mime-type="{{mime_type}}"
+                 {{/technical_metadata}}
+             {{/is_video}}
+
+             class="{{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
+
+             >{{#single_item}}{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
+                  {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
+                  {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}
+                  {{#is_pdf}}   class="media-clickable-indicator pdf"    {{/is_pdf}}
+                  {{#is_text}}  class="media-clickable-indicator text"   {{/is_text}}
+                  {{#is_video}} class="media-clickable-indicator video"  {{/is_video}}
+                   >+</span>{{/playable}}{{/single_item}}<img src="{{thumbnail}}" alt="{{alt}}"/></a></li>
+        {{/thumbnail}}
+        {{/items}}
+      </ul>

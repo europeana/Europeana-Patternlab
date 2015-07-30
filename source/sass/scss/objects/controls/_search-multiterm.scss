@@ -1,93 +1,157 @@
 
 
 .searchbar{
-	display: table;
-	width: 100%;
-	margin: 0 auto;
+    display: table;
+    width: 100%;
+    margin: 0 auto;
 
-	.search-multiterm{
-		display: table-row;
-	}
+    .search-multiterm{
+        display: table-row;
+    }
 
-	.search-multiterm > div{
-		display: table-cell;
-		vertical-align: middle;
-	}
-	.submitarea{
-		width: 1%;
-	}
+    .search-multiterm > div{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .submitarea{
+        width: 1%;
+    }
 
-	.search-submit{
-		height: 3em;
-		width: 3em;
-		font-weight: bold;
-		color: $white;
-		background: $eu-blue;
-		border: none;
-		border-radius: 4px;
-		margin-left: $space-quarter;
+    .search-submit{
+        height: 3em;
+        width: 3em;
+        font-weight: bold;
+        color: $white;
+        background: $eu-blue;
+        border: none;
+        border-radius: 4px;
+        margin-left: $space-quarter;
 
-		.icon{
-			margin-right: 0;
-		}
+        .icon{
+            margin-right: 0;
+        }
 
-		&:hover, &:focus {
-			background: $gray-dark;
-		}
-	}
+        &:hover, &:focus {
+            background: $gray-dark;
+        }
+    }
 }
 
 
+.inputarea {
+    background-color: $white;
+    border: 1px solid $gray-lighter;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 0.2rem 0.4rem;
+    margin: 0;
+    border-radius: 4px;
+    line-height: 2rem;
+    cursor: text;
+    @include fontSize(16px);
+}
+.search-tags{
+    display: inline-block;
+}
+.search-tag{
+    display: inline-block;
+    color: white;
+    background-color: $accent;
+    padding: 0.2rem 0.4rem;
+    @include fontSize(14px);
+    margin-right: 0.2em;
+    line-height: 1.6;
+    border-radius: 3px;
 
+    & a[data-role="remove"] {
+        margin-left: 4px;
+        cursor: pointer;
+        color: white;
 
-.bootstrap-tagsinput {
+        &:after {
+            content: "✕";
+            vertical-align: baseline;
+            padding: 0px 2px;
+        }
 
-	background-color: $white;
-	border: 1px solid $gray-lighter;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
-	padding: 8px 10px;
-	margin: 0;
-	border-radius: 4px;
-	line-height: 2rem;
-	cursor: text;
-	@include fontSize(16px);
+        &:hover:after {
+          color: $textcolour_body;
+        }
+        &:hover:after:active {
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        }
 
-	input {
-	  border: none;
-	  box-shadow: none;
-	  outline: none;
-	  background-color: transparent;
-	  padding: 0;
-	  margin: 0;
-	  width: auto !important;
-	  max-width: inherit;
-	}
-	input:focus {
-	  border: none;
-	  box-shadow: none;
-	}
-	.tag {
-	  color: white;
-	  background-color: $accent;
-	  padding: 0.2rem 0.4rem;
-	  @include fontSize(14px);
-	}
-	.tag [data-role="remove"] {
-	  margin-left: 8px;
-	  cursor: pointer;
-	}
-	.tag [data-role="remove"]:after {
-	  content: "x";
-	  vertical-align: top;
-	  padding: 0px 2px;
-	}
-	.tag [data-role="remove"]:hover {
-	  color: $textcolour_body;
-	}
-	.tag [data-role="remove"]:hover:active {
-	  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-	}
+    }
+
+    .facets-selected &{
+        background-color: transparent;
+        border-right: 1px solid rgb(163, 184, 189);
+        color: $textcolour_body;
+        @include fontSize(14px);
+
+        &:last-child{
+            border-right: none;
+        }
+
+        a{
+            background-color: rgb(163, 184, 189);
+            border-radius: 20em;
+            font-size: 11px;
+            width: 1.6em;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            top: -1px;
+
+            &:hover{
+                background-color: $accent;
+            }
+            &:hover:after{
+                color: $white;
+            }
+        }
+    }
+
+    .title{
+        text-transform: uppercase;
+        @include fontSize(12px);
+        font-weight: bold;
+        color: rgba($textcolour_body, 0.5);
+        //display: inline-block;
+        //position: relative;
+        //top: -1px;
+        //border-right: 1px solid rgba($textcolour_body, 0.2);
+        //padding-right: 0.5em;
+    }
 
 }
 
+.js input.search-input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  max-width: inherit;
+  line-height: 2;
+  float: right;
 
+  // Make sure the placeholder isn't poorly cut off
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+}
+
+
+.facets-selected{
+    display: block;
+    padding-top: $space-quarter;
+    font-size: 0;
+    text-align: center;
+    margin-bottom: -1 * $space-double;
+}

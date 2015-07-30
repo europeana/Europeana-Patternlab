@@ -58,11 +58,41 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 	-webkit-appearance: none;
 }
 
+input[type=text]{
+	@include placeholder{
+		color: $textcolour_link;
+	}
+}
+input[type=text]:focus{
+	@include placeholder{
+		color: $gray-light;
+	}
+}
+
 button, input[type="submit"] {
-	padding: $pad-half;
-	background: $gray-med;
-	border: 1px solid $gray-dark;
+	width: auto;
+	padding: $pad-half $pad;
+	background: $accent;
+	border: none;
 	cursor: pointer;
+	color: $white;
+	border-radius: 4px;
+}
+
+button.pushbutton, input[type="submit"].pushbutton {
+
+	color: $gray-dark;
+
+	$grad-start: #FFFFFF;
+	$grad-end: #CCCCCC;
+
+	background: -moz-linear-gradient(top, $grad-start 0%, $grad-end 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad-start), color-stop(100%,$grad-end));
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end)";
+	background: -ms-linear-gradient(top, $grad-start 0%, $grad-end 100%);
+	border: 1px solid #ccc;
 }
 
 input[type="checkbox"],
@@ -85,18 +115,23 @@ input[type="search"]::-webkit-search-decoration {
 	margin-bottom: $space;
 }
 
-.inline-form {
+.form-inline{
+	input, button{
+		display: inline-block;
+	}
+	input[type="text"]{
+		width: 70%;
+	}
+}
+
+.form-button-overlay, .inline-form {
 
 	fieldset, .inline-container {
 		position: relative;
 	}
 
-	input[type=submit], button, .btn {
-		//font-size: $font-size-slightly-smaller;
-		font-weight: bold;
+	input[type="submit"], button, .btn {
 
-		color: $white;
-		background: $eu-blue;
 		height: 100%;
 		padding: 0 1.3rem;
 		position: absolute;
@@ -106,6 +141,7 @@ input[type="search"]::-webkit-search-decoration {
 		z-index: 1;
 		width: auto;
 
+		border-radius: 0;
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
 

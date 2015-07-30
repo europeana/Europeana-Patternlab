@@ -14,13 +14,13 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: center;
-	
+
 	&:hover, &:focus {
 		color: $textcolour_highlight;
 		border-color: $textcolour_highlight;
 	}
 
-	&.disabled {
+	&.disabled, &.is-disabled {
 		background: lighten($text_secondary, 10%);
 		color: darken($text_secondary, 20%);
 		cursor: not-allowed;
@@ -32,7 +32,7 @@
 	}
 
 	&.alt{
-		color: $offwhite;
+		color: $white;
 		background-color: $black;
 		border-color: $black;
 
@@ -42,32 +42,78 @@
 		}
 	}
 
-	&.cta{
-		&:after {
-			left: 100%;
-			top: 50%;
-			border: solid transparent;
-			content: " ";
-			height: 0;
-			width: 0;
-			position: absolute;
-			pointer-events: none;
-			border-color: rgba(0, 0, 0, 0);
-			border-left-color: $black;
-			border-width: 25px;
-			border-top-width: 15px;
-			border-bottom-width: 15px;
-			margin-top: -15px;
-		}
 
-		&:hover:after, &:focus:after{
-			border-left-color: $textcolour_highlight;
-		}
+}
+
+.btn.cta, .btn.cta_main{
+	&:after, &:before {
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(0, 0, 0, 0);
+		border-width: 25px;
+		border-top-width: 15px;
+		border-bottom-width: 15px;
+		margin-top: -15px;
+	}
+}
+
+
+
+.btn.cta, .btn.cta_main{
+	&:after{
+		left: 100%;
+		border-left-color: $black;
 	}
 
-	&.pill{
-		border-radius: 300px;
+	&:hover:after, &:focus:after{
+		border-left-color: $textcolour_highlight;
 	}
+}
+
+.btn.cta_main {
+	&:before{
+		right: 100%;
+		border-right-color: $black;
+	}
+
+	&:hover:before, &:focus:before{
+		border-right-color: $textcolour_highlight;
+	}
+}
+
+.btn.cta_light{
+	border-color: $white;
+	color: $white;
+	&:after{
+		border-left-color: $white;
+	}
+	&:before{
+		border-right-color: $white;
+	}
+
+	&:hover, &:focus{
+		background-color: $textcolour_highlight;
+		color: $white;
+	}
+}
+
+.btn.btn-light{
+	border-color: $white;
+	color: $white;
+
+	&:hover, &:focus{
+		background-color: $black;
+		color: $white;
+	}
+}
+
+.pill{
+	border-radius: 300px;
 }
 
 .btn-small {
@@ -93,7 +139,7 @@
 	white-space: nowrap;
 	cursor: pointer;
 	user-select: none;
-	
+
 	font-size: $font-size-sm;
 
 	border-radius: 6px;

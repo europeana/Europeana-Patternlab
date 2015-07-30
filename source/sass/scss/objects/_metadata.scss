@@ -13,7 +13,7 @@
 	padding: $space-half 0;
 	font-size: $font-size-slightly-smaller;
 	margin-bottom: $space-half;
-	
+
 	*{
 		display: inline;
 	}
@@ -27,7 +27,7 @@
 	}
 
 	.icon{
-		fill: #e96e62; //odd orangey colour
+		fill: $icon_primary;
 	}
 }
 

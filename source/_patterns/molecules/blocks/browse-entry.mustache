@@ -1,0 +1,36 @@
+<div class="browse-entry cf">
+	<a href="{{url}}" class="cf">
+
+		{{#image}}
+		<div class="img">
+			<img src="{{image_root}}{{image}}" alt="{{image_alt}}">
+		</div>
+		{{/image}}
+
+
+		<div class="bd">
+			<div class="l-upper">
+				{{# is_spotlight }}
+				<svg class="icon icon-star">
+					<use xlink:href="#icon-star"></use>
+				</svg>
+				{{/ is_spotlight }}
+				{{# is_search }}
+				<svg class="icon icon-search">
+					<use xlink:href="#icon-search"></use>
+				</svg>
+				{{/ is_search }}
+
+				<span class="title">{{title}}</span>
+
+			</div>
+
+			<!--
+			<div class="lower">
+				{{#count}}<span class="count">{{.}}</span>{{/count}}
+				{{#media_type}}<span class="media_type">{{.}}</span>{{/media_type}}
+			</div>
+			-->
+		</div>
+	</a>
+</div>

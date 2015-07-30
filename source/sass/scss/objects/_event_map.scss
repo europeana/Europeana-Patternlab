@@ -1,0 +1,21 @@
+// Event detail
+.map{
+
+	height: 300px;
+
+	@media all and (min-width: $bp-med) {
+		position: absolute;
+		top: 153px; 
+		left: 0; 
+		right: 25%;
+	}
+
+	@media all and (min-width: $bp-xl) {
+		height: 500px;
+	}
+
+	img {
+		max-width: none;
+	}
+
+}

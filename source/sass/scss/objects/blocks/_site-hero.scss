@@ -12,15 +12,19 @@
 	background-color: $grey2;
 	color: $gray97;
 
-	margin-top: $globalnavheight;
-
 	@media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
 		height: 50%;
 	}
 
 	.lc{
 		position: relative;
 		height: 100%;
+	}
+
+	// this is a wrapper around the search field and title (used in channels, not used in pro)
+	.hero-contents{
+		width: 80%;
 	}
 
 	.hero-text{
@@ -40,31 +44,28 @@
 		@media all and (min-width: $bp-large) {
 			width: 35%;
 		}
+
+	   a{
+			color: $white;
+			border-bottom: 1px dotted $white;
+
+			&:hover, &:focus{
+				color: $accent;
+				border-color: $accent;
+			}
+		}
 	}
 
 	.attribution{
 		position: absolute;
-		
 		z-index: 10;
 		bottom: 4px;
-		
-		background-color: rgba(#000, 0.7);
-		border-radius: 4px;
-		padding: $space-quarter;
-		font-size: $font-size-sm;
 
 		@media all and (min-width: $bp-small) {
 			display: inline-block;
 			right: 0;
 		}
 	}
-
-	.license{
-		color: $gray87;
-		display: block;
-	}
-
-
 
 	h2, h1{
 		font-family: $font-secondary;
@@ -73,100 +74,6 @@
     	margin-bottom: $space-half;
     	font-size: 2em;
     	text-transform: uppercase;
-
-    	a{
-			color: $white;
-			border-bottom: 1px dotted $white;
-
-			&:hover, &:focus{
-				color: $textcolour_link;
-				border-color: $textcolour_link;
-			}
-		}
 	}
 
-}
-
-// Brand circle positioning
-
-.brand-circles{
-	
-	width: 40%;
-	position: absolute;
-
-	top: 0;
-	left: 0;
-	opacity: 0.5;
-
-	.brand-topleft &{
-		top: 0;
-		left: 0;
-	}
-
-	.brand-topright &{
-		top: 0;	
-		right: 0;
-		left: auto;
-		@include rotateY(180);
-	}
-	.brand-bottomleft &{
-		top: auto;
-		bottom: 0;
-		@include rotateX(180);
-	}
-	.brand-bottomright &{
-		top: auto;
-		bottom: 0;
-		left: auto;
-		right: 0;
-		@include rotateZ(180);
-	}
-
-	// Opacity
-	.brand-opacity25 &{
-		opacity: 0.25;
-	}
-	.brand-opacity50 &{
-		opacity: 0.5;
-	}	
-	.brand-opacity75 &{
-		opacity: 0.75;
-	}
-	.brand-opacity100 &{
-		opacity: 1;
-	}
-
-	svg{
-		fill: $accent;
-		width: 100%;
-	}
-
-}
-
-// Brand circles colours
-.brand-colour-site svg{
-	fill: $accent;
-}
-
-.brand-colour-white svg{
-	fill: $white;
-}
-
-.brand-colour-black svg{
-	fill: #000;
-}
-
-// Text
-
-.brand-text{
-	width: 60%;
-	min-width: 400px;
-	max-width: 900px;
-	position: absolute;
-	top: 18%;
-	right: -30px;
-
-	svg{
-		fill: $white;
-	}
 }

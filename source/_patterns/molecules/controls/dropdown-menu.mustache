@@ -1,24 +1,32 @@
 
-
+<div class="menu_dropdown {{style_modifier}}">
 
 <a class="dropdown-trigger" href="#" data-dropdown="#{{menu_id}}">
-{{button-title}}{{^button-title}}Choose{{/button-title}}
+{{button_title}}{{^button_title}}Choose{{/button_title}}
 </a>
 
 <div id="{{menu_id}}" class="dropdown">
-
-	<div class="menu-title">{{menu-title}}</div>
+    {{#menu_title}}
+	<div class="menu-title">{{menu_title}}</div>
+    {{/menu_title}}
 
     <ul class="dropdown-menu">
     {{#items}}
+
+        {{#subtitle}}
+        <li><div class="menu-subtitle">{{subtitle}}</div></li>
+        {{/subtitle}}
+
+        {{#url}}
+        <li><a href="{{url}}" {{#calltoaction}} class="menu-more" {{/calltoaction}}>{{text}}</a></li>
+        {{/url}}
+
         {{# divider}}
         <li class="dropdown-divider"></li>
         {{/divider}}
 
-        {{^ divider}}
-        <li><a href="{{url}}" {{#calltoaction}} class="menu-more" {{/calltoaction}}>{{text}}</a></li>
-        {{/divider}}
-        
     {{/items}}
     </ul>
+</div>
+
 </div>

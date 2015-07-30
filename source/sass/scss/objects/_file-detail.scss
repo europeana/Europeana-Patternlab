@@ -1,0 +1,53 @@
+.file-detail{
+
+	display: table;
+	width: 100%;
+
+	.inner{
+		display: table-row;
+	}
+
+	.file-icon{
+		display: table-cell;
+		position: relative;
+		vertical-align: middle;
+		text-align: center;
+		width: 10%;
+	}
+
+	.icon-file{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+
+	.file-info{
+		display: table-cell;
+		vertical-align: middle;
+		padding: $space-half;
+	}
+
+	.file-title{
+		text-decoration: underline;
+	}
+
+	.file-type{
+		padding: $space-half;
+		display: block;
+		color: $white;
+		@include fontSize(14px);
+		font-weight: bold;
+		text-transform: uppercase;
+		position: relative;
+		z-index: 10;
+	}
+
+	.file-meta{
+		@include fontSize(14px);
+		color: $gray-med;
+		line-height: 1.2;
+	}
+}

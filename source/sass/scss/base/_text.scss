@@ -136,7 +136,11 @@ small{
 // Letter space those capitals people, Jan Tschichold would be proud.
 .upper {
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    //letter-spacing: 0.1rem;
+}
+
+.cap, .caps {
+    text-transform: capitalize;
 }
 
 // Real small caps.
@@ -165,4 +169,15 @@ small{
     -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
     -o-font-feature-settings: 'onum' 1, 'kern' 1;
     font-feature-settings: 'onum' 1, 'kern' 1;
+}
+
+.inabox{
+    background-color: $black;
+    color: $offwhite;
+    display: inline;
+    padding: 0.2em 0.5em;
+
+    /* Needs prefixing */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }

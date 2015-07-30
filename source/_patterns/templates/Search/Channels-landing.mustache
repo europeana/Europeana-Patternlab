@@ -1,0 +1,122 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header}}
+
+
+<section class="site-hero search-hero {{#content.hero_config}}{{brand_position}} brand-colour-site {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{image_root}}{{hero_image}}');" {{/content.hero_config}}>
+
+	<div class="hero-contents">
+
+		<h1><span class="inabox">{{content.channel_info.name}}</span></h1>
+
+		<div class="searchbar">
+		{{> molecules/components/search/search-form }}
+		</div>
+
+	</div>
+
+	{{#content.hero_config}}
+		{{>molecules/text/attribution}}
+		{{>molecules/media/brand-svg-assets}}
+	{{/content.hero_config}}
+
+</section>
+
+{{#content.channel_info}}
+<section class="channel-info section">
+
+	{{#content.channel_entry}}
+	<ul class="browse-entry-list lc">
+		{{#items}}
+		<li class="list-item">
+			{{> molecules/blocks/browse-entry }}
+		</li>
+		{{/items}}
+	</ul>
+	{{/content.channel_entry}}
+
+</section>
+{{/content.channel_info}}
+
+
+
+{{# content.promoted }}
+<section class="exhibitions-list cf">
+<ul class="promo-list">
+	{{#items}}
+	<li class="list-item {{#wide}}list-item-wide{{/wide}}">
+		{{> molecules/blocks/promo-module }}
+	</li>
+	{{/items}}
+</ul>
+</section>
+{{/ content.promoted }}
+
+{{#content.channel_info}}
+<section class="channel-info section">
+	<div class="channel-intro lc">
+
+		<div class="channel-newstuff">
+			{{#recent}}
+				{{> molecules/navigation/linklist-with-title }}
+			{{/recent}}
+		</div>
+
+
+		<div class="channel-description">
+			<div class="channel-description-text">
+				{{{description}}}
+			</div>
+
+			{{# content.channel_info.credits }}
+				<div class="channel-credits comma-list">
+					<span class="title">{{title}}</span>
+					<ul class="credit-list">
+					{{#items}}
+					<li><a href="{{url}}" class="external">{{text}}</a></li>
+					{{/items}}
+					</ul>
+				</div>
+			{{/ content.channel_info.credits }}
+		</div>
+
+		{{#stats}}
+		<div class="channel-stats">
+			<ul>
+				{{#items}}
+				<li><a href="{{url}}"><span class="number">{{count}} </span>{{text}}</a></li>
+				{{/items}}
+			</ul>
+		</div>
+		{{/stats}}
+
+
+	</div>
+</section>
+{{/content.channel_info}}
+
+
+{{#content.news}}
+<div class="section news">
+	<div class="lc">
+
+	<h2 class="section-title">{{content.channel_info.name}} {{i18n.site.news}} <a class="link-more" href="{{ blogurl }}">{{i18n.site.more}}</a></h2>
+
+	<ul class="cf">
+		{{#items}}<li class="news-item">{{> molecules/blocks/link-block-image}}</li>{{/items}}
+	</ul>
+	</div>
+</div>
+{{/content.news}}
+
+
+{{# content.social }}
+{{> organisms/sections/social-share }}
+{{/ content.social }}
+
+{{# version.is_alpha }}
+{{> organisms/sections/phase-feedback }}
+{{/ version.is_alpha }}
+
+
+{{> organisms/global/footer }}

@@ -5,6 +5,7 @@
 
 	position: relative;
 	margin-bottom: $space-double;
+	border-bottom: 1px solid $gray87;
 
 	.item-info{
 		@include span(11 of 12);
@@ -23,20 +24,20 @@
 		font-family: $font-secondary;
 		line-height: 1.4;
 
-		a:hover{
-			border-bottom: 1px dotted darken($textcolour_link, 15%);
+		a:hover, a:focus{
+			border-bottom: 1px dotted $textcolour_link_hover;
 		}
 	}
 
 	// External links
-	a[href*="//"]:not([href*="europeana.eu"]):after{
-		@extend %external_link_icon;
-	}
+	// a[href*="//"]:not([href*="europeana.eu"]):after{
+	// 	@extend %external_link_icon;
+	// }
 
 	footer{
 		font-size: $font-size-slightly-smaller;
 		padding: $space-half 0;
-		border-bottom: 1px solid $gray87;
+
 		@extend .cf;
 	}
 
@@ -46,6 +47,12 @@
 
 	.item-origin{
 		font-weight: bold;
+	}
+
+	.item-concepts{
+		margin-bottom: $space-half;
+		font-size: $font-size-slightly-smaller;
+		color: $gray-light;
 	}
 
 	.item-preview{
@@ -67,5 +74,9 @@
 	.item-actions{
 		@include span(last 2 of 13);
 		text-align: right;
+	}
+
+	.item-type svg{
+		margin-right: -4px;
 	}
 }

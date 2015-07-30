@@ -50,4 +50,20 @@
 		}		
 	}
 
+	.page_header & {
+		display: table-cell;
+		vertical-align: middle;
+		width: 75%;
+	}
+	
+	//inside search result item
+	.item-details & {
+		font-size: $font-size-slightly-smaller;
+
+		.icon-home{
+			display: none;
+		}
+	}
+
 }
+

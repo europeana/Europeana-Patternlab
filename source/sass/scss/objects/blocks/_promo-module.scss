@@ -1,0 +1,58 @@
+
+
+.promo-block-image{
+
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	background-color: darken($accent, 10);
+	background-position: center center;
+	background-size: cover;
+
+	a{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		display: block;
+
+		&:hover, &:focus{
+			background-color: rgba($accent, .8);
+		}
+	}
+
+	.inner{
+		position: absolute;
+		text-align: center;
+		color: $white;
+		line-height: 1.2;
+		top: 50%;
+		@include translate (0, -50%);
+		width: 100%;
+	}
+
+	&.centred .inner {
+		left: 50%;
+		@include translate (-50%, -50%);
+		max-width: 80%;
+	}
+
+	&.contrast .inner {
+		background-color: rgba($black, 0.4);
+		padding: $pad;
+	}
+
+	.title{
+		display: block;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.subtitle{
+		display: block;
+		margin-top: $space-quarter;
+		color: $gray97;
+		font-size: 0.8em;
+	}
+}

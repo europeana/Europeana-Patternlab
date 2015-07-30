@@ -1,5 +1,5 @@
 {
-	"bodyClass": "europeana_labs",
+	"bodyclass": "europeana_labs",
 	"title": "Europeana Labs",
 
 	"css_files": [
@@ -7,5 +7,6 @@
 			"path": "../../css/labs/screen.css",
 			"media": "all"
 		}
-	]
+	],
+	"blog": true
 }

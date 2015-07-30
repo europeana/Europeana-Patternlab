@@ -69,10 +69,8 @@
 /* Block Thumbnail with Headline */
 .block-thumb {
 	width: 100%;
-	padding-top: $pad;
 
-
-	@media all and (min-width: $bp-med) {
+	@media all and (min-width: $bp-small-2) {
 		display: table;
 		table-layout: fixed;
 
@@ -86,9 +84,9 @@
 
 
 	.b-thumb {
-		@media all and (min-width: $bp-med) {
+		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
-			vertical-align: top;	
+			vertical-align: top;
 	  		width: 33.333%;
 	  		max-width: 10em;
 
@@ -101,7 +99,7 @@
 	}
 
 	.b-text {
-		@media all and (min-width: $bp-med) {
+		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
 			width: 66.666%;
 			padding: 0 $pad;
@@ -127,12 +125,12 @@
 			float: left;
 		}
 	}
-	
+
 }
 
 .block-stacked{
 	.b-thumb {
-		@media all and (min-width: $bp-small-2) {	
+		@media all and (min-width: $bp-small-2) {
 			width: 100%;
 		}
 
@@ -160,7 +158,7 @@
 /*  Block with inset headline */
 
 .block-inset {
-	
+
 	margin-bottom: $space;
 	position: relative;
 
@@ -193,6 +191,7 @@
 .block-thumb-small {
 
 	border-top: 5px solid $gray-dark;
+	padding-top: 1em;
 
 	@media all and (min-width: $bp-small-2) {
 		.b-thumb {
@@ -203,7 +202,7 @@
 			width: 80%;
 		}
 	}
-	
+
 
 }
 

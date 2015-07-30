@@ -13,6 +13,7 @@
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-pro;
 $textcolour_highlight: $accent;
+$icon_primary: lighten($accent, 10);
 
 
 // Reset
@@ -48,7 +49,7 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
-//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
 @import "../scss/objects/nav";
 
 //navigation types
@@ -78,6 +79,10 @@ $textcolour_highlight: $accent;
 @import "../scss/objects/dates";
 @import "../scss/objects/file-browser";
 
+@import "../scss/objects/metadata";
+@import "../scss/objects/lists/list-item";
+@import "../scss/objects/lists/file-lists";
+
 
 /*------------------------------------*\
 	site modules
@@ -87,18 +92,15 @@ $textcolour_highlight: $accent;
 
 // Home page
 @import "../scss/objects/blocks/site-hero";
+@import "../scss/theme/hero-branding";
+@import "../scss/objects/attribution";
 @import "./pro-homepage";
 @import "./subsites";
 
 
 //Logo for Pro
 .logo {
-	width: 55%;
-	max-width: 168px;
 	background-image: url("../../images/pro/europeana-pro-logo.png");
-	background-position: 0 50%;
-	background-size: contain;
-
 	.svg &{
 		background-image: url("../../images/pro/europeana-pro-logo.svg");
 	}
@@ -109,11 +111,16 @@ $textcolour_highlight: $accent;
 
 	position: relative;
 	background: $white; // fallback
-	
+
 	@media all and (min-width: $bp-med) {
 		background: $offwhite; // fallback
-		background: linear-gradient(to left, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
-		// TODO: add gradients for older browsers
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
 	}
 
 	.textcontent, .l-sidebar, .l-breadcrumbs{
@@ -138,7 +145,7 @@ $textcolour_highlight: $accent;
 
 
 	.textcontent{
-		
+
 		padding-bottom: $space-triple;
 		background-color: $white;
 
@@ -147,7 +154,7 @@ $textcolour_highlight: $accent;
 		}
 	}
 
-	.l-sidebar{ 
+	.l-sidebar{
 		background: $offwhite;
 
 		&> .inner{
@@ -166,7 +173,7 @@ $textcolour_highlight: $accent;
 			width: 100%;
 			height: $globalnavheight + $space-triple;
 			position: absolute;
-			top: 0; 
+			top: 0;
 			left: 0;
 			background-color: #F8F8F8;
 			z-index: -1;
@@ -177,62 +184,38 @@ $textcolour_highlight: $accent;
 
 
 // Various spacings and margins
-
-
-.help-contact{
-
-	img{
-		margin-bottom: $space-half;
-	}
-
-	.email{
-		display: block;
-		margin-bottom: $space;
-	}
+.help-contact img{
+    margin-bottom: $space-half;
 }
 
-.help-contact, 
-.contact-methods, 
-.jobdetails{
-	display: block;
-	margin-bottom: $space;
+.help-contact,
+.help-contact .email,
+.contact-methods,
+.jobdetails,
+.l-person
+{
+    display: block;
+    margin-bottom: $space;
 }
 
-.l-person{
-	margin-bottom: $space;
+.results-list,
+.page-intro,
+.articleheader
+{
+    margin-bottom: $space-double;
 }
 
-.results-list, 
-.page-intro, 
-.articleheader{
-	margin-bottom: $space-double;
-}
-
-.maincontent > .title, 
-.team{
-	margin-bottom: $space-triple;
-}
-
-
-
-// The 3 related item links at the bottom of the page
-.related-items{
-}
-.noimages .related-item > a{
-	display: block;
-	min-height: 8em;
-	padding: $space;
-	background-color: #e1cfd4; //pinky
-	margin-bottom: $space;
-	color: $white;
-	font-weight: bold;
+.maincontent > .title,
+.team
+{
+    margin-bottom: $space-triple;
 }
 
 
 // breadcrumbs and sorting
 
 .l-breadcrumbs{
-	background-color: #F8F8F8;
+	background-color: $gray97;
 	padding: $space;
 	display: table;
 	font-size: $font-size-slightly-smaller;
@@ -251,15 +234,6 @@ $textcolour_highlight: $accent;
 
 
 // Search results
-.item-details{
-	.breadcrumbs{
-		font-size: $font-size-slightly-smaller;
-	}
-
-	.icon-home{
-		display: none;
-	}
-}
 
 .l-filter{
 	padding: $space-half $space;
@@ -303,9 +277,7 @@ $textcolour_highlight: $accent;
 
 
 
-@import "scss/objects/lists/list-item";
-@import "scss/objects/metadata";
-@import "scss/objects/lists/file-lists";
+
 
 
 //Overview page
@@ -325,26 +297,7 @@ $textcolour_highlight: $accent;
 
 
 // Event detail
-.map{
-
-	height: 300px;
-
-	@media all and (min-width: $bp-med) {
-		position: absolute;
-		top: 153px; 
-		left: 0; 
-		right: 25%;
-	}
-
-	@media all and (min-width: $bp-xl) {
-		height: 500px;
-	}
-
-	img {
-		max-width: none;
-	}
-
-}
+@import "../scss/objects/event_map";
 
 .event-detail{
 
@@ -357,7 +310,7 @@ $textcolour_highlight: $accent;
 			min-height: 30em;
 		}
 	}
-	
+
 	.maincontent{
 		@media all and (max-width: $bp-med) {
 			padding-top: 0;

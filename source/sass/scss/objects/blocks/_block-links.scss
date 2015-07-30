@@ -1,6 +1,6 @@
 // links grid
 .link-block{
-	
+
 	margin-bottom: $space;
 	text-align: left;
 	min-height: 10em;
@@ -21,6 +21,7 @@
 
 	.item-title{
 		margin-bottom: 0.6rem;
+		line-height: 1.2;
 	}
 }
 
@@ -28,5 +29,17 @@
 	.b-text{
 		padding: $space;
 		border-top: solid 6px $accent;
+	}
+}
+
+.link-block-image{
+	.b-thumb{
+		padding-top: 50%;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
+	a:hover .item-title{
+		color: $textcolour_link_hover;
 	}
 }

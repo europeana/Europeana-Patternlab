@@ -2,7 +2,7 @@
 	<svg class="icon icon-calendar">
 		<use xlink:href="#icon-calendar"></use>
 	</svg>
-	<span class="item-day">{{ day.long }}</span>
-	<span class="item-month">{{ month.long}}</span>
-	<span class="item-year">{{ year.long }}</span>
+	{{#day}}<span class="item-day">{{ day.long }}</span>{{/day}}
+	{{#month}}<span class="item-month">{{ month.long}}</span>{{/month}}
+	{{#year}}<span class="item-year">{{ year.long }}</span>{{/year}}
 </span>

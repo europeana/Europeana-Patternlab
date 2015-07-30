@@ -1,0 +1,25 @@
+.corner-ribbon{
+    position: absolute;
+    z-index: 50;
+    width: 300px;    
+    top: 25px;
+    left: -80px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    padding: $space;
+
+    text-align: center;
+    line-height: 1;
+    color: $accent;
+    background: $white;
+    font-weight: bold;
+
+    &.alternate{
+        // top right
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        left: auto;
+        right: -80px;
+    }
+
+}

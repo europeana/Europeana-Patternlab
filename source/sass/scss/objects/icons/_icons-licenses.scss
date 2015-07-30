@@ -12,7 +12,9 @@ html:hover [class^="icon-"]{-ms-zoom: 1;}
 
 
 .icon-license,
-[class^="icon-license-"]:before, [class*=" icon-license-"]:before {
+[class^="icon-license-"]:before,
+[class*=" icon-license-"]:before
+{
   font-family: 'cc-licenses';
   speak: none;
   font-style: normal;
@@ -70,4 +72,7 @@ html:hover [class^="icon-"]{-ms-zoom: 1;}
 }
 .icon-license-by:before {
   content: "\e60c";
+}
+.icon-license-rr:before {
+  content: "©";
 }

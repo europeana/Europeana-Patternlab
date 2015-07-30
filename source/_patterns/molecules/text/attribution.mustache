@@ -1,0 +1,42 @@
+{{! 
+
+Attribution block template
+
+scss: objects/attribution.scss
+Location specific styles should be scoped to the parent container to maintain re-usability
+
+Configuration options and content model:
+# # # # # # # # # # # # # # # # 
+
+{
+	"attribution_text" : "This is the attribution text",
+	"attribution_url" : "http://europeana.eu",
+	"license_CC0": true
+
+	//// other license options:	only one should be active
+	"license_CC-BY": true
+	"license_CC-BY-SA": true
+	"license_CC-BY-NC": true
+	"license_CC-ND-NC-SA": true
+	"license_public": true
+}
+
+# # # # # # # # # # # # # # # # 
+
+}}
+
+{{#attribution_url}}
+<div class="attribution">
+
+	{{#attribution_title}}
+	<a href="{{attribution_url}}">{{attribution_title}}, {{attribution_creator}} <span class="origin">{{attribution_institution}}</span></a>
+	{{/attribution_title}}
+
+	{{^attribution_title}}
+	<a href="{{attribution_url}}">{{attribution_text}}</a>
+	{{/attribution_title}}
+	
+	{{> molecules/icons/licenses }}
+
+</div>
+{{/attribution_url}}

@@ -1,0 +1,23 @@
+{
+  "name": "channels_modules",
+  "version": "0.0.0",
+  "homepage": "https://github.com/europeana/Europeana-Patternlab",
+  "authors": [
+    "andyjmaclean <andyjmaclean@gmail.com>"
+  ],
+  "description": "Channels dependencies kept distinct from pattern-lab dependencies",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.scrollTo": "~2.1.1",
+    "jquery-dropdown": "~1.0.5",
+    "requirejs": "~2.1.18",
+    "imagesloaded": "~3.1.8"
+  }
+}

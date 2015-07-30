@@ -73,7 +73,6 @@ $linkblue		: #095F90; // WCAG AA All text + AAA for text > 18pt
 
 /////////////////////////////////////////////////////////
 
-
 // Assign colours to functions
 //
 //Europeana channel colours
@@ -82,7 +81,8 @@ $eu-labs: $eu-jade;
 $eu-pro: $eu-raspberry;
 
 //default highlight colour - can be overridden per site
-$accent: $eu-blue;
+$accent: $eu-blue !default;
+
 
 // global page
 $page_bg: $white;
@@ -95,6 +95,7 @@ $textcolour_body: $gray-med;
 $textcolour_heavy: $gray-dark;
 $textcolour_highlight: $accent;
 $textcolour_link: $linkblue;
+$textcolour_link_hover: darken($textcolour_link, 15%);
 $text_secondary: $gray-light;
 
 //Dark Backgrounds eg. footer
@@ -117,6 +118,9 @@ $block_bg: $offwhite;
 $tag_primary: $accent;
 $tag_primary_text: $accent;
 $tag_highlight: $gray-dark;
+
+//Icons
+$icon_primary: $accent !default;
 
 //State, messaging colours
 $error : $eu-red;
@@ -147,6 +151,9 @@ $base-font-multiplier: 1;
 $brand-facebook: #03539e;
 $brand-twitter: #35ccff;
 $brand-linkedin: #217bc1;
+$brand-pinterest: #b81621;
+$brand-google: #e93f2e;
+$brand-soundcloud: #FF5500;
 
 //Layout
 $max-width: 80rem;
@@ -169,6 +176,7 @@ $pad-quarter :$pad/4;
 //Borders
 $border-med: 3px;
 $border-thick: 7px;
+$base-border-radius: 4px;
 
 // Global navigation
 $globalnavheight: $space-triple;

@@ -60,6 +60,7 @@
 @import "scss/base/forms";
 @import "scss/base/tables";
 @import "scss/base/animation";
+@import "scss/base/utility";
 
 
 /*------------------------------------*\
@@ -68,6 +69,9 @@
 @import "scss/objects/header";
 @import "scss/objects/footer";
 @import "scss/objects/blocks/site-hero";
+@import "scss/objects/blocks/promo-module";
+@import "scss/objects/blocks/browse-entry";
+@import "scss/theme/hero-branding";
 
 /*------------------------------------*\
     $NAVIGATION
@@ -97,6 +101,8 @@
 @import "scss/objects/buttons";
 @import "scss/objects/controls/buttonbar";
 @import "scss/objects/tags";
+@import "scss/objects/corner-ribbon";
+@import "scss/objects/category-flags";
 @import "scss/objects/blocks";
 @import "scss/objects/lists";
 @import "scss/objects/tooltip";
@@ -108,8 +114,11 @@
 @import "scss/objects/loading";
 @import "scss/objects/dates";
 @import "scss/objects/file-browser";
+@import "scss/objects/file-detail";
 @import "scss/objects/lists/list-item";
 @import "scss/objects/lists/file-lists";
 @import "scss/objects/metadata";
+@import "scss/objects/attribution";
+@import "scss/objects/social-share";
 @import "scss/objects/controls/dropdown";
 //@import "scss/objects/controls/results-filter";

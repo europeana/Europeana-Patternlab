@@ -1,0 +1,13 @@
+.labs-home{
+	padding-top: 0;
+
+	.section{
+		padding: $space-double $space-half;
+		margin-bottom: 0;
+
+		@media all and (min-width: $bp-small) {
+			padding: $space-double $space;
+		}
+	}
+
+}

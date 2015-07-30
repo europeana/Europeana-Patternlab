@@ -1,168 +1,500 @@
 {
-	"patternlab": true,
-	"page_config": {
-		"newsletter": false
-	},
-	"globalnav_options": {
-		"search": true,
-		"myeuropeana": false
-	},
-	"head_meta": {
-		"name":"test", 
-		"content": "stuff"
-	},
-	"css_files": [
-		{
-			"path": "../../css/screen.css",
-			"media": "all"
-		}
-	],
-	"js_files": [
-		{
-			"path": "../../js/dist/global-min.js"
-		}
-	],
-	"navigation":{
-		"global_main":{
+    "patternlab": true,
 
-		},
-		"footer_linklist1":{
-			"title": "More info",
-			"styleModifier":"",
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
-		},
-		"footer_linklist2":{
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
-		},
-		"footer_othersites":{
-			"title": "Explore Europeana",
-			"styleModifier":"inline-list",
-			"items": [
-				{
-					"url":"http://google.com",
-					"text": "First Item"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Another Label"
-				},
-				{
-					"url":"http://google.com",
-					"text": "Label here"
-				}
-			]
-		}
-	},
-	"img": {
-		"landscape-4x3": {
-			"src": "../../images/fpo_4x3.png",
-			"alt": "4x3 Image"
-		},
-		"rectangle": {
-			"src": "../../images/fpo_4x3.png",
-			"alt": "4x3 Image"
-		},
-		"landscape-16x9": {
-			"src": "../../images/fpo_16x9.png",
-			"alt": "16x9 Image"
-		},
-		"square": {
-			"src": "../../images/fpo_square.png",
-			"alt": "Square Thumbnail"
-		},
-		"avatar" : {
-			"src" : "../../images/fpo_avatar.png",
-			"alt" : "Person Name"
-		},
-		"portrait" : {
-			"src" : "../../images/fpo_3x4.png",
-			"alt" : "Person Name"
-		}
-	},
-	"headline" : {
-		"short" : "Lorem ipsum dolor sit (37 characters)",
-		"medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)",
-		"long" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed incididsunt ut labore (100 characters)"
-	},
-	"excerpt" : {
-		"vshort" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-		"short" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-		"medium" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-		"long" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-	},
-	"description" : "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
-	"url" : "http://www.fillerati.com",
-	"name" : {
-		"first": "Lacy",
-		"firsti": "L",
-		"middle": "Tommie",
-		"middlei": "T",
-		"last": "Way",
-		"lasti": "W"
-	},
-	"email":"firsty.surnameson@europeana.eu",
-	"year" : {
-		"long": "2013",
-		"short": "13"
-	},
-	"month" : {
-		"long": "February",
-		"short": "Feb",
-		"digit": "02"
-	},
-	"dayofweek" : {
-		"long": "Monday",
-		"short": "Mon"
-	},
-	"day" : {
-		"long": "10",
-		"short": "10",
-		"ordinal": "th"
-	},
-	"hour" : {
-		"long": "01",
-		"short": "1",
-		"military": "13",
-		"ampm": "pm"
-	},
-	"minute" : {
-		"long": "20",
-		"short": "20"
-	},
-	"seconds" : "31",
-	"author" : {
-		"first-name": "Uthur",
-		"last-name": "LastNameson"
-	},
-	"location":"Den Haag, Netherlands",
-	"i18n":{
-		"more": "More",
-		"less": "Less"
-	}
+    "version":{
+        "is_alpha": false
+    },
+
+    "page_config": {
+        "newsletter": false
+    },
+    "globalnav_options": {
+        "search": true,
+        "myeuropeana": false
+    },
+    "head_meta": {
+        "name": "test",
+        "content": "stuff"
+    },
+    "image_root": "../../images/",
+    "css_files": [
+        {
+            "path": "../../css/screen.css",
+            "media": "all"
+        }
+    ],
+    "jQuery": {
+        "src_CDN": "//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js",
+        "src_fallback": "../../bower_components/jquery/dist/jquery.min.js"
+    },
+    "js_files": [
+        {
+            "path": "../../js/patternlab/output/global-min.js"
+        }
+    ],
+    "navigation": {
+        "global": {
+            "options": {
+                "search_active": true,
+                "settings_active": false
+            },
+            "logo": {
+                "url": "http://europeana.eu",
+                "text": "Europeana"
+            },
+            "primary_nav": {
+                "items": [
+                    {
+                        "url": "",
+                        "text": "Primary 1",
+                        "is_current": true
+                    },
+                    {
+                        "url": "",
+                        "text": "Primary 2"
+                    },
+                    {
+                        "url": "Primary 3",
+                        "text": "Primary 3"
+                    },
+                    {
+                        "url": "",
+                        "text": "Primary 4"
+                    }
+                ]
+            }
+        },
+        "secondary": {
+            "items": [
+                {
+                    "url": "#",
+                    "text": "Parent #1",
+                    "submenu": {
+                        "items": [
+                            {
+                                "url": "#",
+                                "text": "Child #1",
+                                "submenu": false,
+                                "is_current": true
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #2",
+                                "submenu": false
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #3",
+                                "submenu": {
+                                    "items": [
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #1"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #2"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #3"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #4"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #4",
+                                "submenu": {
+                                    "items": [
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #1"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #2"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #3"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #4"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "url": "#",
+                    "text": "Parent #2"
+                },
+                {
+                    "url": "#",
+                    "text": "Parent #3",
+                    "submenu": {
+                        "items": [
+                            {
+                                "url": "#",
+                                "text": "Child #1",
+                                "submenu": false
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #2",
+                                "submenu": false
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #3",
+                                "submenu": {
+                                    "items": [
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #1"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #2"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #3"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #4"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "#",
+                                "text": "Child #4",
+                                "submenu": {
+                                    "items": [
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #1"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #2"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #3"
+                                        },
+                                        {
+                                            "url": "#",
+                                            "text": "Grandchild #4"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "url": "#",
+                    "text": "Parent #4"
+                }
+            ]
+        },
+        "pagination": {
+            "prev_url": "prevurl",
+            "next_url": "nexturl",
+            "is_first_page": false,
+            "is_last_page": false,
+            "pages": [
+                {
+                    "url": "linkhere",
+                    "index": "1"
+                },
+                {
+                    "url": "linkhere",
+                    "index": "2"
+                },
+                {
+                    "url": "linkhere",
+                    "index": "3"
+                },
+                {
+                    "url": "linkhere",
+                    "index": "4",
+                    "is_current": true
+                },
+                {
+                    "url": "linkhere",
+                    "index": "5"
+                },
+                {
+                    "url": "linkhere",
+                    "index": "6"
+                },
+                {
+                    "url": "linkhere",
+                    "index": "7"
+                },
+                {
+                    "separator": true
+                },
+                {
+                    "url": "linkhere",
+                    "index": "250"
+                }
+            ]
+        },
+        "footer": {
+            "linklist1": {
+                "title": "More info",
+                "items": [
+                    {
+                        "url": "http://google.com",
+                        "text": "First Item"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Another Label"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Label here"
+                    }
+                ]
+            },
+            "linklist2": {
+                "title": "Links",
+                "items": [
+                    {
+                        "url": "http://google.com",
+                        "text": "First Item"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Another Label"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Label here"
+                    }
+                ]
+            },
+            "othersites": {
+                "title": "Explore Europeana",
+                "styleModifier": "inline-list",
+                "items": [
+                    {
+                        "url": "http://google.com",
+                        "text": "Europeana 1914-1918"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Europeana Exhibitions"
+                    },
+                    {
+                        "url": "http://google.com",
+                        "text": "Europeana Blog"
+                    }
+                ]
+            },
+            "social": {
+                "twitter": true,
+                "facebook": true,
+                "pinterest": true,
+                "googleplus": true,
+                "linkedin": true,
+                "github": true
+            },
+            "subfooter": {
+                "items": [
+                    {
+                        "text": "Home",
+                        "url": "./"
+                    },
+                    {
+                        "text": "Terms of use & policies",
+                        "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+                    },
+                    {
+                        "text": "Contact us",
+                        "url": "./"
+                    },
+                    {
+                        "text": "Sitemap",
+                        "url": "./"
+                    }
+                ]
+            }
+        }
+    },
+    "content": {
+        "hero_config": {
+            "hero_image": "pro/home_image_test.jpg",
+            "brand_position": "brand-topleft",
+            "brand_opacity": "brand-opacity75",
+            "attribution_text": "This is the attribution text",
+            "attribution_url": "http://europeana.eu",
+            "license_CC-ND-NC-SA": true
+        }
+    },
+    "img": {
+        "landscape-4x3": {
+            "src": "../../images/fpo_4x3.png",
+            "alt": "4x3 Image"
+        },
+        "rectangle": {
+            "src": "../../images/fpo_4x3.png",
+            "alt": "4x3 Image"
+        },
+        "landscape-16x9": {
+            "src": "../../images/fpo_16x9.png",
+            "alt": "16x9 Image"
+        },
+        "square": {
+            "src": "../../images/fpo_square.png",
+            "alt": "Square Thumbnail"
+        },
+        "avatar": {
+            "src": "../../images/fpo_avatar.png",
+            "alt": "Person Name"
+        },
+        "portrait": {
+            "src": "../../images/fpo_3x4.png",
+            "alt": "Person Name"
+        }
+    },
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "headline": {
+        "short": "Lorem ipsum dolor sit (37 characters)",
+        "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)",
+        "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed incididsunt ut labore (100 characters)"
+    },
+    "excerpt": {
+        "vshort": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "short": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    "description": "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
+    "url": "http://www.fillerati.com",
+    "bg_image": "sample/thumb-square-yosemite.jpg",
+    "name": {
+        "first": "Lacy",
+        "firsti": "L",
+        "middle": "Tommie",
+        "middlei": "T",
+        "last": "Way",
+        "lasti": "W"
+    },
+    "email": "firsty.surnameson@europeana.eu",
+    "year": {
+        "long": "2013",
+        "short": "13"
+    },
+    "month": {
+        "long": "February",
+        "short": "Feb",
+        "digit": "02"
+    },
+    "dayofweek": {
+        "long": "Monday",
+        "short": "Mon"
+    },
+    "day": {
+        "long": "10",
+        "short": "10",
+        "ordinal": "th"
+    },
+    "hour": {
+        "long": "01",
+        "short": "1",
+        "military": "13",
+        "ampm": "pm"
+    },
+    "minute": {
+        "long": "20",
+        "short": "20"
+    },
+    "seconds": "31",
+    "author": {
+        "first-name": "Uthur",
+        "last-name": "LastNameson"
+    },
+    "location": "Den Haag, Netherlands",
+    "i18n": {
+        "site": {
+            "more": "More...",
+            "news": "News",
+            "object": {
+                "actions": {
+                    "download": "Download",
+                    "technicalmetadata": "Technical Metadata",
+                    "open-media": "Open this media item"
+                },
+                "meta-label": {
+                    "concepts": "Categories",
+                    "place": "Place",
+                    "properties": "Properties",
+                    "provenance": "Provenance",
+                    "refs-rels": "References and Relations",
+                    "dates": "Dates",
+                    "location": "Location",
+                    "description": "Description",
+                    "source": "Source",
+                    "time": "Time",
+                    "language": "Language",
+                    "format": "Format",
+                    "file-size": "File size",
+                    "codec": "Codec",
+                    "fps": "Frames per second",
+                    "dimensions": "Dimensions",
+                    "runtime": "Run time",
+                    "rights": "Can I use this?",
+                    "provided-by": "Provided by",
+                    "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
+                },
+                "show-more-similar-items": "Show more similar items"
+            },
+            "results":{
+                "list":{
+                    "more":"More",
+                    "less":"Less"
+                }
+            },
+            "alpha":{
+                "feedback_banner":{
+                    "title": "This is an Alpha release of our new collections search and Music Channel",
+                    "description": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+                    "link-text":"Give us your input"
+                }
+
+            }
+        },
+        "global": {
+            "facet": {
+              "header": {
+                "reusability": "Can I use this?"
+              }
+            },
+            "our-sites": "Our sites",
+            "home": "Home",
+            "more": {
+                "load-more": "Load more"
+            },
+            "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
+            "share": "Share",
+            "reusability": {
+                "open": "Yes, with attribution"
+            }
+        }
+    }
 }

@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /*
  EUROPEANA LABS
 
@@ -7,97 +6,327 @@
 */
 // Sass stuff
 @import "compass/css3";
-@import "scss/generic/variables";
-@import "scss/generic/mixins";
+@import "../scss/generic/variables";
+@import "../scss/generic/mixins";
 
 
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-labs;
 $textcolour_highlight: $accent;
+$icon_primary: lighten($accent, 10);
+
+$breakpoints: (
+    'palm' '(max-width: 24em)',
+    'smallup' '(min-width: 24em)',
+    'medium' '(min-width: 40em)',
+    'lap' '(min-width: 50em)'
+);
+
+$breakpoint-has-widths: ('palm', 'smallup', 'medium', 'lap');
+$breakpoint-has-push:   ('palm');
+$breakpoint-has-pull:   ();
 
 
 // Reset
-@import "scss/generic/reset";
+@import "../scss/generic/reset";
 
 /*------------------------------------*\
     $GLOBAL ELEMENTS
 \*------------------------------------*/
-@import "scss/base/global-classes";
-@import "scss/base/main";
-@import "scss/base/links";
-@import "scss/base/headings_simple";
-@import "scss/base/text";
-@import "scss/base/code";
-@import "scss/base/lists";
-@import "scss/base/media";
-@import "scss/base/forms";
-@import "scss/base/tables";
+@import "../scss/base/global-classes";
+@import "../scss/base/main";
+@import "../scss/base/links";
+@import "../scss/base/headings_simple";
+@import "../scss/base/text";
+@import "../scss/base/code";
+@import "../scss/base/lists";
+@import "../scss/base/media";
+@import "../scss/base/forms";
+@import "../scss/base/tables";
 
 
 /*------------------------------------*\
     $GRIDS
 \*------------------------------------*/
-@import "scss/grid/csswizardry-grids";
+//$use-silent-classes: false;
+@import "../scss/grid/csswizardry-grids";
 
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
-@import "scss/objects/header";
-@import "scss/objects/footer";
+@import "../scss/objects/header";
+@import "../scss/objects/footer";
+@import "../scss/objects/sections";
+@import "../scss/objects/media_grid";
 
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
-@import "scss/objects/nav";
-@import "scss/objects/navigation/breadcrumbs";
-@import "scss/objects/navigation/pagination";
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
+@import "../scss/objects/nav";
+
+//navigation types
+@import "../scss/objects/navigation/breadcrumbs";
+@import "../scss/objects/navigation/pagination";
+@import "../scss/objects/navigation/sitemap";
+
+@import "../scss/objects/lists";
 
 /*------------------------------------*\
     $TEXT Styles
 \*------------------------------------*/
-@import "scss/objects/text";
+@import "../scss/objects/buttons";
+@import "../scss/objects/text";
+
+// Global icons (svg)
+@import "../scss/objects/icons/svgicons";
+@import "../scss/objects/icons/icons-licenses";
 
 /*------------------------------------*\
     Site modules
 \*------------------------------------*/
 //module layout using css wizardry grid
-@import "labs/layout_csswiz";
+@import "./layout_csswiz";
+
 
 /*------------------------------------*\
-    $COMPONENTS
+    Components
 \*------------------------------------*/
+@import "../scss/objects/blocks";
+@import "../scss/objects/dates";
+@import "../scss/objects/file-browser";
+@import "../scss/objects/category-flags";
+@import "../scss/objects/attribution";
+@import "../scss/objects/lists/list-item";
+@import "../scss/objects/lists/file-lists";
+@import "../scss/objects/metadata";
 
-// Global icons (svg)
-@import "scss/objects/icons/svgicons";
-//Icon fonts
-@import "scss/objects/icons/icons_fonts";
+@import "../scss/objects/buttons";
+@import "../scss/objects/tags";
+@import "../scss/objects/tooltip";
 
-@import "scss/objects/buttons";
-@import "scss/objects/tags";
-@import "scss/objects/blocks";
-
-
-@import "scss/objects/lists";
-@import "scss/objects/tooltip";
-@import "scss/objects/accordion";
-@import "scss/objects/tabs";
-@import "scss/objects/sections";
-@import "scss/objects/article";
-@import "scss/objects/comments";
-@import "scss/objects/loading";
-@import "scss/objects/dates";
+@import "../scss/objects/blocks/site-hero";
+@import "../scss/theme/hero-branding";
 
 
-
-
-
+@import "./labs-homepage";
 
 
 //extra bits
 
-h1.title{
+.block-content-header h1.title{
     font-family: $font-secondary;
     font-weight: 300;
-    font-size: 53px;
-    font-size: 3.3125rem;
+}
+
+.logo {
+    background-image: url("../../images/labs/europeana-labs-logo.png");
+    .svg &{
+        background-image: url("../../images/labs/europeana-labs-logo.svg");
+    }
+}
+
+
+// Generic page layout
+.l-page{
+
+    position: relative;
+    background: $white; // fallback
+
+    @media all and (min-width: $bp-med) {
+        background: $offwhite; // fallback
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+        background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+        background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+        background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+    }
+
+    .textcontent, .l-sidebar, .page_header{
+        position: relative;
+        z-index: 10;
+    }
+
+    .maincontent{
+        background-color: $white;
+        padding: $space-triple $space;
+        overflow: hidden;
+        @media all and (min-width: $bp-med) {
+            padding-right: $space;
+        }
+    }
+
+    .item-rss{
+        text-align: right;
+        margin-top: -3rem;
+        margin-bottom: 3.1rem;
+    }
+
+
+
+    .textcontent{
+
+        padding-bottom: $space-triple;
+        background-color: $white;
+
+        @media all and (min-width: $bp-med){
+            max-width: 38.4em;
+        }
+    }
+
+    .l-sidebar{
+        background: $offwhite;
+
+        &> .inner{
+            padding: $space;
+            padding-top: $space * 6;
+            font-size: $font-size-slightly-smaller;
+        }
+    }
+
+
+    @media all and (min-width: $bp-med) {
+        //The coloured band that extends the breadcrumbs background colour to the right edge of the window
+        &:before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: $globalnavheight + $space-triple;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #F8F8F8;
+            z-index: -1;
+        }
+    }
+
+}
+
+.page_header{
+    background-color: $gray97;
+    padding: $space;
+    display: table;
+    font-size: $font-size-slightly-smaller;
+    width: 100%;
+
+    @media all and (min-width: $bp-med) {
+        height: $space-triple;
+    }
+}
+
+// Various spacings and margins
+.help-contact img{
+    margin-bottom: $space-half;
+}
+
+.help-contact,
+.help-contact .email,
+.contact-methods,
+.jobdetails,
+.l-person
+{
+    display: block;
+    margin-bottom: $space;
+}
+
+.results-list,
+.page-intro,
+.articleheader
+{
+    margin-bottom: $space-double;
+}
+
+.maincontent > .title,
+.team
+{
+    margin-bottom: $space-triple;
+}
+
+// Event detail
+@import "../scss/objects/event_map";
+
+.event-detail{
+
+    .textcontent{
+        padding: $space-double $space 0;
+        margin-left: -$space;
+
+        @media all and (min-width: $bp-med) and (max-width: $bp-xl) {
+            margin-top: 10em;
+            min-height: 30em;
+        }
+    }
+
+    .maincontent{
+        @media all and (max-width: $bp-med) {
+            padding-top: 0;
+        }
+    }
+
+    .event-date{
+        float: right;
+        margin-top: -$space-half;
+        background-color: $white;
+        color: $textcolour_head;
+    }
+
+    .speakers{
+        p{
+            margin-bottom: $space-half;
+        }
+        .b-text{
+            padding-top: $space-half;
+        }
+    }
+
+    .speakers, .files{
+        border-top: 1px solid $grey2;
+        padding-top: $space;
+    }
+
+}
+
+// Search results
+
+.l-filter{
+    padding: $space-half $space;
+    background-color: $white;
+}
+
+.filters{
+
+    font-size: $font-size-slightly-smaller;
+
+    .nav, .title{
+        display: inline;
+    }
+
+    .title, label{
+        margin-right: $space-half;
+    }
+}
+.searchterms{
+    margin-top: $space-half;
+}
+.resultsnum{
+    color: $gray-light;
+}
+
+.sortby{
+
+    .pageheader &, .l-breadcrumbs &{
+        display: table-cell;
+        width: 25%;
+        text-align: right;
+    }
+
+    label, select{
+        display: inline;
+        padding:0;
+    }
+}
+
+.subnav .sortby{
+    margin-bottom: $space;
 }

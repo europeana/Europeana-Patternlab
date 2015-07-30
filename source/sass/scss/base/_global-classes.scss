@@ -3,16 +3,16 @@
 \*------------------------------------*/
 
 /* Clearfix */
-.cf {
-    *zoom: 1;
-}
-.cf:before, .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
-.cf:after {
-    clear: both;
+.cf {
+    @extend %clearfix;
 }
 
 /* Completely remove from the flow and screen readers.
@@ -56,6 +56,13 @@
 .left {
 	float: left;
 	padding: 0 $pad $pad 0;
+}
+
+.centre{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate (-50%, -50%);
 }
 
 /* Text-Align */

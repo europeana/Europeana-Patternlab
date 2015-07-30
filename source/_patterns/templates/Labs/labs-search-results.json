@@ -1,0 +1,12 @@
+{
+	"bodyclass": "europeana_labs",
+	"pagetitle": "Europeana Labs",
+	"search": true,
+
+	"css_files": [
+		{
+			"path": "../../css/labs/screen.css",
+			"media": "all"
+		}
+	]
+}
