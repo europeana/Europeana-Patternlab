@@ -49,7 +49,7 @@ var Site = window.Site || {};
 				accordionTabs.find('.is-active').removeClass('is-active');
 				$(this).addClass('is-active');
 			}
-			
+
 			event.preventDefault();
 		});
 
@@ -64,6 +64,23 @@ var Site = window.Site || {};
 		});
     };
 
+    // Initialise the sticky sidebar navigation - cross site
+    Site.init_stickynav = function(){
+
+        if($(window).width() > 800){
+
+            var footerheight = $(".footer").outerHeight( true ) + 75;
+
+            $(".js-sticky").sticky({
+                topSpacing:100,
+                bottomSpacing: footerheight,
+                responsiveWidth: true,
+                getWidthFrom: ".js-getstickywidth"
+            });
+        }
+
+    };
+
 
 
     //same as $(document).ready();
@@ -71,5 +88,6 @@ var Site = window.Site || {};
     	Site.init_showhide();
     	Site.init_accordion_tabs();
     	Site.init_hitarea();
+    	Site.init_stickynav();
     });
 })(jQuery);

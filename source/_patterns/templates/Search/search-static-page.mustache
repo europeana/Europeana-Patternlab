@@ -3,32 +3,35 @@
 {{> organisms/global/header}}
 
 
-<main role="main">
+<div role="main">
 
+<section class="block-content-header section">
+	<div class="lc">
+		<div class="contents">
+			<h1 class="title">{{ headline.medium }}</h1>
+			<p class="subhead">{{ excerpt.short }}</p>
+		</div>
+	</div>
+</section>
 
-{{> molecules/blocks/block-content-header }}
-
-
+<section class="static-content section">
 <div class="lc">
-<!--Start main content -->
+
 	<div class="prose">
 		{{> organisms/article/article-body }}
-	</div><!-- End main content
+	</div>
 
-
-Start navigation
- --><div class="sidebar">
+	<div class="sidebar js-getstickywidth">
  		<div class="js-sticky">
 		{{> molecules/navigation/nav-secondary }}
 		</div>
 	</div>
 
 </div>
+</section>
 
-
-</main>
-<!-- End Content -->
-
+</div>
+<!-- End Main -->
 
 {{# version.is_alpha }}
 {{> organisms/sections/phase-feedback }}

@@ -1,9 +1,10 @@
 .block-content-header{
 	background-color: $block_bg;
 	margin-bottom: $space-double;
+	padding: $space;
 
 	@media all and (min-width: $bp-small-2) {
-		padding: $space-triple 24px;
+		padding: $space-triple $space;
 	}
 
 	.l-content &{

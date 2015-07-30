@@ -388,3 +388,20 @@
 		padding: $space-double;
 	}
 }
+
+
+// Static Pages
+.static-content{
+	.lc > .prose{
+		@media all and (min-width: $bp-med) {
+			@include span(18 of 24);
+			max-width: 40em;
+		}
+		padding-bottom: $space-triple;
+	}
+	.sidebar{
+		@media all and (min-width: $bp-med) {
+			@include span(last 6 of 24);
+		}
+	}
+}
