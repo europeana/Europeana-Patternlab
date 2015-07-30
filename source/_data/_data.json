@@ -464,7 +464,7 @@
                 },
                 "show-more-similar-items": "Show more similar items"
             },
-            "result":{
+            "results":{
                 "list":{
                     "more":"More",
                     "less":"Less"
