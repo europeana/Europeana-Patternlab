@@ -464,6 +464,12 @@
                 },
                 "show-more-similar-items": "Show more similar items"
             },
+            "result":{
+                "list":{
+                    "more":"More",
+                    "less":"Less"
+                }
+            },
             "alpha":{
                 "feedback_banner":{
                     "title": "This is an Alpha release of our new collections search and Music Channel",
@@ -473,8 +479,6 @@
 
             }
         },
-        "more": "More",
-        "less": "Less",
         "global": {
             "facet": {
               "header": {
