@@ -23,7 +23,7 @@
     "global": {
       "options": {
         "search_active": false,
-        "settings_active": false
+        "settings_active": true
       },
       "primary_nav": {
         "items": [
@@ -68,6 +68,9 @@
         ]
       }
     },
+
+    "secondary": false,
+
     "footer": {
       "linklist1": {
         "title": "More info",
@@ -103,9 +106,49 @@
           }
         ]
       },
+      "othersites": {
+        "title": "Explore Europeana",
+        "styleModifier": "inline-list",
+        "items": [
+          {
+            "url": "http://google.com",
+            "text": "Europeana 1914-1918"
+          },
+          {
+            "url": "http://google.com",
+            "text": "Europeana Exhibitions"
+          },
+          {
+            "url": "http://google.com",
+            "text": "Europeana Blog"
+          }
+        ]
+      },
       "social": {
-        "linkedin": false,
-        "github": false
+        "twitter": true,
+        "facebook": true,
+        "pinterest": true,
+        "linkedin": true
+      },
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Contact us",
+            "url": "./"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
       }
     }
   }
