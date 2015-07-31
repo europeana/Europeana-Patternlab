@@ -60,7 +60,6 @@ require(['jquery'], function( $ ) {
 
       require(["ga"], function(ga) {
           ga("send", "pageview");
-          alert('sent...');
       });
 
     });
