@@ -1,3 +1,9 @@
+window.GoogleAnalyticsObject = '__ga__';
+window.__ga__ = {
+    q: [['create', 'UA-12776629-5', 'auto']],
+    l: Date.now()
+};
+
 require.config({
   paths: {
     aurora:                        '../lib/audiocogs/aurora',
@@ -6,6 +12,7 @@ require.config({
     eu_carousel:                   '../eu/eu-carousel',
     featureDetect:                 '../global/feature-detect',
     flac:                          '../lib/audiocogs/flac',
+    "ga":                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
     hotjar:                        '../lib/hotjar',
     iipmooviewer:                  '../lib/iipmooviewer/js/iipmooviewer-2.0-min',
@@ -38,15 +45,24 @@ require.config({
     featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
-    placeholder:    ['jquery']
+    placeholder:    ['jquery'],
+    ga: {
+      exports: "__ga__"
+    }
   }
 });
 
 require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
-    require(['global', 'channels', 'hotjar'], function( global, channels ) {
+    require(['channels', 'hotjar', 'global'], function( global, channels ) {
       $.holdReady(false);
+
+      // http://veithen.github.io/2015/02/14/requirejs-google-analytics.html
+      require(["ga"], function(ga) {
+          ga("send", "pageview");
+      });
+
     });
   });
 });
