@@ -398,10 +398,18 @@
 			max-width: 40em;
 		}
 		padding-bottom: $space-triple;
+
+		& p:first-child{
+			font-size: 1.5625em;
+		}
 	}
 	.sidebar{
 		@media all and (min-width: $bp-med) {
 			@include span(last 6 of 24);
 		}
 	}
+}
+
+.block-content-header h1{
+	margin-bottom: 0;
 }

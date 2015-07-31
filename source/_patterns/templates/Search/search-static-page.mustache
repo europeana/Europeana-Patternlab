@@ -7,10 +7,7 @@
 
 <section class="block-content-header section">
 	<div class="lc">
-		<div class="contents">
-			<h1 class="title">{{ headline.medium }}</h1>
-			<p class="subhead">{{ excerpt.short }}</p>
-		</div>
+		<h1 class="title">{{ title }}</h1>
 	</div>
 </section>
 
@@ -18,13 +15,15 @@
 <div class="lc">
 
 	<div class="prose">
-		{{> organisms/article/article-body }}
+		{{{ description }}}
 	</div>
 
 	<div class="sidebar js-getstickywidth">
+	{{#navigation.secondary}}
  		<div class="js-sticky">
 		{{> molecules/navigation/nav-secondary }}
 		</div>
+	{{/navigation.secondary}}
 	</div>
 
 </div>
