@@ -44,6 +44,9 @@
 .section, .promo-list, .promo-topcontent{
 	@include pad(1/4);
 }
+.section-box{
+	padding: $space;
+}
 
 .promo-topcontent{
 
@@ -412,4 +415,14 @@
 
 .block-content-header h1{
 	margin-bottom: 0;
+}
+
+.section.page-header{
+	@media all and (min-width: $bp-med) {
+		padding-top: $space-triple;
+	}
+
+	& > .lc{
+		max-width: 40em;
+	}
 }

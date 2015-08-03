@@ -19,6 +19,11 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
+  "input_search": {
+    "title": "Search",
+    "input_name": "q",
+    "placeholder": "Search Europeana"
+  },
   "navigation": {
     "global": {
       "options": {
@@ -68,6 +73,7 @@
         ]
       }
     },
+    "secondary": false,
     "footer": {
       "linklist1": {
         "title": "More info",
@@ -110,7 +116,35 @@
     }
   },
   "content":{
-    "title":"404 file not found",
-    "text":"<p>Imagine looking at original handwritten manuscripts of a piece of music while listening to different interpretations of it, and reading a biography of the composer. On the Europeana Music Channel, you can.</p><p>Our partners, all experts in music, from across Europe have carefully curated this collection of music recordings, sheet music, images of musical instruments, books about music and other music-related content.</p><p>We’ve made this early test version of the Music Channel available to you, our users, so you can help us shape it as we develop it further. So when you visit the site you will at times be asked to answer questions or surveys that appear on screen. We would really appreciate if you could take the time to answer those questions and surveys!</p><p>Also, in the interest of transparency and privacy, you should know that we log user statistics and user behaviour in Google Analytics and a service called Hotjar. We do that because it shows us where we’ve gone wrong in our designs and so helps us to improve the Music Channel. All logs are kept private and anonymised and will only be used to improve our service.</p><p>We encourage you to search the collection, play music, view the sheet music or read around it. When copyright allows, you can download the things you love most. And visit our virtual exhibitions to discover music in ways you’ve never done before!</p>"
+    "intro":"Sorry we can't find that page",
+    "text":"Unfortunately we couldn't find the page you were looking for. Try searching Europeana or you might like the selected items below.",
+    "channel_entry":{
+      "items":[
+        {
+          "title":"Spotlight on Botticelli",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+          "count": "76",
+          "media_type":"Images and videos",
+          "is_spotlight": true,
+          "image": "sample/entry-botticelli-square.jpg"
+        },
+        {
+          "title":"Spotlight on Alexander Roslin",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+          "count": "46",
+          "media_type":"Images and documents",
+          "is_spotlight": true,
+          "image": "sample/entry-roslin-square.jpg"
+        },
+        {
+          "title":"Spotlight on Hokusai",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+          "count": "240",
+          "media_type":"Images",
+          "is_spotlight": true,
+          "image": "sample/entry-hokusai-square.jpg"
+        }
+      ]
+    }
   }
 }
