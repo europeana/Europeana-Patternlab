@@ -1,31 +1,24 @@
 {{> atoms/iconography/svgicons-pro}}
+{{> organisms-header }}
 
-{{> organisms/global/header}}
-
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
-<div class="lc">
-	<!-- Start grid -->
-	<div class="grid-main">
 
-		<div class="l-content">
+<section class="page_header">
+	<div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
 
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
-
-    {{> molecules-block-content-header }}
-
-		<article id="maincontent" class="maincontent">
+<section class="grid_wrapper">
+	<div class="grid">
+		<div class="main-content content">
 			<div class="textcontent">
 
 				<div class="articleheader">
 
 					<h1 class="title">Sorry we can't find that page</h1>
 
-				</div>
+					</div>
 
 				<div class="prose">
 				<p>Unfortunately we haven't found the page you were looking for. Why not go back to the <a href="#">Europeana Labs home page</a>, or have a look at some content that may interest you.
@@ -33,24 +26,22 @@
 				</div>
 			</div>
 
+
 			{{> molecules-related-noimages(title: "Things you may find interesting:") }}
 
-
-		</article>
 		</div><!--
 
-	 --><div class="l-sidebar">
-	 		<div class="inner">
-				{{> molecules-help-contact(title: "Need Help?") }}
-			</div>
+	 --><div class="sidebar">
 
-		</div>
+        <div class="inner-pad">
+				{{> molecules-help-contact(title: "Need Help?") }}
+        </div>
+		  </div>
+
 	</div>
-	<!-- End grid -->
-</div>
+</section>
+
 </main>
 <!-- End Content -->
 
-
-{{> organisms/global/footer }}
-
+{{> organisms-footer(newsletter: true) }}
