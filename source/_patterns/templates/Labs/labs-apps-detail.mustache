@@ -1,57 +1,58 @@
 {{> atoms/iconography/svgicons-pro}}
+{{> organisms-header }}
 
-{{> organisms/global/header}}
-
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
-<div class="lc">
-	<!-- Start grid -->
-	<div class="grid-main">
 
-		<div class="l-content">
+<section class="page_header">
+	<div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
 
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
 
-		{{> molecules-block-content-header }}
+{{> molecules-block-content-header }}
 
-		<div id="maincontent" class="maincontent">
+<section class="grid_wrapper">
+	<div class="grid">
+		<div class="main-content">
+			<div class="textcontent">
 
-			<div class="textcontent prose">
+				<div class="articleheader">
 
-				<section>
-	 				{{> organisms-article-body }}
-				</section>
+					<div class="item-meta-secondary">
+						{{> molecules-item-tags }}
+						{{> molecules-item-comments }}
+					</div>
 
+				</div>
+
+				<div class="prose">
+				{{> organisms-article-body }}
+				</div>
 			</div>
+
 
 			{{> molecules-related-noimages(title: "Next steps") }}
 
-
-		</div>
 		</div><!--
 
-	 --><div class="l-sidebar">
+	 --><div class="sidebar">
+
         <div class="inner js-getstickywidth">
 
-          {{> molecules-help-contact(title: "Need help?") }}
+            {{> molecules-help-contact(title: "Need help?") }}
 
-          <div class="js-sticky">
-          {{> molecules-tertiary-nav }}
-          </div>
+            <div class="js-sticky">
+            {{> molecules-tertiary-nav }}
+            </div>
 
         </div>
+		  </div>
 
-      </div>
 	</div>
-	<!-- End grid -->
-</div>
+</section>
+
 </main>
 <!-- End Content -->
 
-
-{{> organisms/global/footer }}
-
+{{> organisms-footer(newsletter: true) }}
