@@ -62,6 +62,26 @@
                         "text": "Primary 4"
                     }
                 ]
+            },
+            "secondary_nav":{
+                "items": [
+                    {
+                        "url": "",
+                        "text": "Secondary 1"
+                    },
+                    {
+                        "url": "",
+                        "text": "Secondary 2"
+                    },
+                    {
+                        "url": "Secondary 3",
+                        "text": "Secondary 3"
+                    },
+                    {
+                        "url": "",
+                        "text": "Secondary moo"
+                    }
+                ]
             }
         },
         "secondary": {

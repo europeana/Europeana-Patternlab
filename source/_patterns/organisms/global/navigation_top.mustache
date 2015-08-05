@@ -102,9 +102,19 @@
 	</nav><!--end .nav-->
 {{/primary_nav}}
 
-    <ul class="nav_secondary">
-        <li><a href="#">Secondary 1</a></li>
-        <li><a href="#">Secondary 2</a></li>
-        <li><a href="#">Secondary 3</a></li>
-    </ul>
+{{#secondary_nav}}
+	<ul class="nav_secondary">
+		{{#options.settings_active}}
+		<li>
+		<a href="#" class="nav-toggle nav-toggle-settings">
+			<svg class="icon icon-settings">
+				<use xlink:href="#icon-settings"></use>
+			</svg>
+			<span>Settings</span>
+		</a>
+		</li>
+		{{/options.settings_active}}
+
+	</ul>
+{{/secondary_nav}}
 </nav>
