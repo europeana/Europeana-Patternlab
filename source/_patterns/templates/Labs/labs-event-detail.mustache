@@ -12,16 +12,17 @@
 <div class="lc">
 	<!-- Start grid -->
 	<div class="grid-main">
-		
+
+    <section class="page_header">
+      <div class="lc">
+        {{> molecules/navigation/breadcrumbs}}
+      </div>
+    </section>
 
 		<div class="l-content">
 
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
-
 		{{> organisms-event-map }}
-		
+
 		<div id="maincontent" class="maincontent">
 			<div class="textcontent">
 
@@ -77,10 +78,10 @@
 		</div><!--
 
 	 --><div class="l-sidebar">
-	 		<div class="inner">
+	 		<div class="inner-map">
 
 				{{> molecules-help-contact(title: "Need Help?") }}
-				
+
 			</div>
 
 		</div>
