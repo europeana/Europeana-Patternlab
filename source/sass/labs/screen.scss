@@ -128,19 +128,14 @@ $breakpoint-has-pull:   ();
 
 
 // Generic page layout
+
 .l-page{
 
     position: relative;
     background: $white; // fallback
 
     @media all and (min-width: $bp-med) {
-        background: $offwhite; // fallback
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
-        background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-        background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-        background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-        background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+        background: $white; // fallback
     }
 
     .textcontent, .l-sidebar, .page_header{
@@ -155,6 +150,14 @@ $breakpoint-has-pull:   ();
         @media all and (min-width: $bp-med) {
             padding-right: $space;
         }
+    }
+
+    .main-content {
+        overflow: hidden;
+    }
+
+    .content-pad {
+        padding: $space-triple $space;
     }
 
     .item-rss{
@@ -176,15 +179,25 @@ $breakpoint-has-pull:   ();
     }
 
     .l-sidebar{
-        background: $offwhite;
+        background: $white;
 
         &> .inner{
             padding: $space;
             padding-top: $space * 6;
             font-size: $font-size-slightly-smaller;
         }
+        &> .inner-map{
+            @extend .inner;
+            padding-top: $space * 3;
+        }
     }
 
+    .sidebar {
+        &> .inner-pad  {
+            @extend .inner;
+            padding-top: $space * 3;
+        }
+    }
 
     @media all and (min-width: $bp-med) {
         //The coloured band that extends the breadcrumbs background colour to the right edge of the window
