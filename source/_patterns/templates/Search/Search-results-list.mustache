@@ -51,12 +51,13 @@
                     </div>
 
                     <div class="result-controls">
+
+                        {{# menus.viewoptions_disabled }}
                         {{! List and grid view buttons }}
                         <div class="result-viewtype">
-                            {{# menus.viewoptions }}
-                                {{> molecules/controls/buttonbar-viewtype }}
-                            {{/ menus.viewoptions }}
+                            {{> molecules/controls/buttonbar-viewtype }}
                         </div>
+                        {{/ menus.viewoptions_disabled }}
 
                         {{# menus.sort_disabled }}
                         <div class="result-sort">

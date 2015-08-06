@@ -4,14 +4,22 @@
 .search-list-item{
 
 	position: relative;
-	margin-bottom: $space-double;
+	margin-bottom: $space;
 	border-bottom: 1px solid $gray87;
 
 	.item-info{
-		@include span(11 of 12);
-		margin-left: span(1 of 12 wide);
+		//@include span(11 of 12);
+		//margin-left: span(1 of 12 wide);
+
+		@media all and (min-width: $bp-small) {
+			@include span(12 of 18);
+		}
 
 		@media all and (min-width: $bp-small-3) {
+			@include span(14 of 18);
+		}
+
+		@media all and (min-width: $bp-med) {
 			@include span(13 of 18);
 			margin-left: span(1 of 18 wide);
 		}
@@ -29,15 +37,9 @@
 		}
 	}
 
-	// External links
-	// a[href*="//"]:not([href*="europeana.eu"]):after{
-	// 	@extend %external_link_icon;
-	// }
-
 	footer{
 		font-size: $font-size-slightly-smaller;
-		padding: $space-half 0;
-
+		margin-bottom: $space;
 		@extend .cf;
 	}
 
@@ -46,7 +48,18 @@
 	}
 
 	.excerpt{
-		margin-bottom: $space-half;
+		display: none;
+
+		@media all and (min-width: $bp-small-3) {
+			display: block;
+			margin-bottom: $space-half;
+		}
+	}
+
+	.item-origin,
+	.item-concepts,
+	 {
+		margin-bottom: $space-quarter;
 	}
 
 	.item-origin{
@@ -54,20 +67,22 @@
 	}
 
 	.item-concepts{
-		margin-bottom: $space-half;
 		font-size: $font-size-slightly-smaller;
 		color: $gray-light;
 	}
 
 	.item-preview{
 
-		// background-color: $gray-lighter;
-		min-height: 10em;
-		display: none;
-
+		text-align: center;
+		a{
+			display: inline-block;
+		}
+		@media all and (min-width: $bp-small) {
+			@include span(last 6 of 18);
+		}
 		@media all and (min-width: $bp-small-3) {
-			display: block;
 			@include span(last 4 of 18);
+			min-height: 10em;
 		}
 	}
 

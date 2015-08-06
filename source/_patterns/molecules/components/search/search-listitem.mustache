@@ -51,7 +51,9 @@
 		{{/concepts}}
 
 		{{#origin}}
-		<a href="{{origin.url}}" class="item-origin external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
+		<div class="item-origin">
+		<a href="{{origin.url}}" class="external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
+		</div>
 		{{/origin}}
 
 		<footer>
@@ -94,10 +96,7 @@
 				</span>
 			{{/ channels.disabled }}
 
-
-
 			</div>
-
 
 			{{# menus.actions_disabled }}
 			<div class="item-actions">

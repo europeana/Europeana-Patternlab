@@ -110,10 +110,9 @@
 }
 
 .result-info{
-	@include span(last 8 of 12);
-
-	@media all and (min-width: $bp-small-3) {
+	@media all and (min-width: $bp-med) {
 		//text-align: center;
+		margin-left: span(1 of 18 wide);
 		@include span(8 of 18);
 	}
 }
