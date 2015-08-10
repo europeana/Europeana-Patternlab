@@ -1,26 +1,23 @@
 {{> atoms/iconography/svgicons-pro}}
+{{> organisms-header }}
 
-{{> organisms/global/header}}
-
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
-<div class="lc">
-	<!-- Start grid -->
-	<div class="grid-main">
 
-		<div class="l-content">
-
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
-		
-		<div id="maincontent" class="maincontent">
-		<div class="textcontent">
+<section class="page_header">
+	<div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
 
 
-			<h1>Site map</h1>
+{{> molecules-block-content-header }}
+
+<section class="grid_wrapper">
+	<div class="grid">
+		<div class="main-content">
+			<div class="textcontent">
+
+				<h1>Site map</h1>
 
 
 
@@ -166,38 +163,30 @@
 				</li>
 			</ul>
 			</div>
-
-		</div> 
-
-		{{> molecules-related-noimages(title: "Next steps") }}
-
-		</div>
-		</div><!--
-
-	 --><div class="l-sidebar">
-	 		<div class="inner">
-
-				{{> molecules-help-contact(title: "Need help?") }}
-
-				<ul class="nav_tertiary">
-					<li><a href="">In-page link 1</a></li>
-					<li><a href="">In-page link 2</a></li>
-					<li><a href="">In-page link 3</a></li>
-					<li><a href="">In-page link 4</a></li>
-					<li><a href="">In-page link 5</a></li>
-					<li><a href="">In-page link 6</a></li>
-					<li><a href="">In-page link 7</a></li>
-				</ul>
-				
 			</div>
 
-		</div>
+
+			{{> molecules-related-noimages(title: "Next steps") }}
+
+		</div><!--
+
+	 --><div class="sidebar">
+
+        <div class="inner js-getstickywidth">
+
+            {{> molecules-help-contact(title: "Need help?") }}
+
+            <div class="js-sticky">
+            {{> molecules-tertiary-nav }}
+            </div>
+
+        </div>
+		  </div>
+
 	</div>
-	<!-- End grid -->
-</div>
+</section>
+
 </main>
 <!-- End Content -->
 
-
-{{> organisms/global/footer }}
-
+{{> organisms-footer(newsletter: true) }}
