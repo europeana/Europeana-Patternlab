@@ -85,7 +85,6 @@
               <h4>
                 {{ i18n.global.facet.header.reusability }}
               </h4>
-              <p>Yes with attibution</p>
             </div>
 
 
@@ -94,9 +93,7 @@
               {{# rights }}
               <div class="object-rights">
 
-                <h4>How to use it</h4>
-
-                <p>You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.</p>
+                <p>Yes, with attribution</p>
 
                 <div class="object-license">{{> molecules/icons/licenses }}</div>
 
@@ -109,7 +106,7 @@
               <div class="">
               <h4 class="title">Attribute the author</h4>
               <div class="" aria-disabled="false">
-                <input class="input-attr" type="text" tabindex="0" aria-disabled="false" placeholder="The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ " readonly>
+                <input class="input-attr" id="snippet-attr" type="text" tabindex="0" aria-disabled="false" readonly>
               </div>
               <div class="button-bar button-bar-small atribute-selector">
                 <div class="button-bar__item">
@@ -135,6 +132,26 @@
             </div>
           </div>
 
+          <!--  Important to review!! -->
+          <script type="text/javascript">
+
+            var el = document.getElementById('snippet-attr');
+            document.getElementById('html').onclick = function showHide4() {
+                el.readOnly = false;
+                el.style.backgroundColor = "$white";
+                el.focus();
+                el.value = '<a href="http://www.europeana.eu/portal/record/xxx">dc:title</a>. dc:creator. <a href="edm:isshownat">edm:dataProvider</a>. <a href="edm:rights" rel="xhv:license http://www.europeana.eu/schemas/edm/rights">rightslabel</a>';
+            };
+
+            var el = document.getElementById('snippet-attr');
+            document.getElementById('plain').onclick = function showHide4() {
+                el.readOnly = false;
+                el.style.backgroundColor = "$white";
+                el.focus();
+                el.value = 'The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ .';
+            };
+          </script>
+          <!-- // Important to review!! -->
 
           {{# technical_metadata }}
           <div class="info-support">
