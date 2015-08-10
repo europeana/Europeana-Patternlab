@@ -159,7 +159,13 @@
 
     .info-secondary{
         @media all and (min-width: $bp-med) {
-            @include span(14 of 24);
+            @include span(7 of 24);
+        }
+    }
+
+    .info-attribute{
+        @media all and (min-width: $bp-med) {
+            @include span(7 of 24);
         }
     }
 
@@ -224,6 +230,19 @@
             background: lighten($text_secondary, 10%);
             color: darken($text_secondary, 20%);
         }
+    }
+
+    p{
+        font-size: $font-size-slightly-smaller;
+        margin-bottom: 0;
+    }
+
+    .atribute-selector{
+        margin-top: $space-quarter;
+        }
+
+    .input-attr{
+        width: 90%;
     }
 }
 

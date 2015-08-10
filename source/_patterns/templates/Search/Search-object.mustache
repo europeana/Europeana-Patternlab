@@ -82,31 +82,66 @@
           <div class="lc">
 
             <div class="info-primary">
-              <h3>
-                {{ i18n.site.object.actions.download }}
-              </h3>
+              <h4>
+                {{ i18n.global.facet.header.reusability }}
+              </h4>
+              <p>Yes with attibution</p>
             </div>
 
-            {{# technical_metadata }}
+
             <div class="info-secondary">
-              {{> molecules/metadata/file-detail }}
-            </div>
-            {{/ technical_metadata }}
 
-            <div class="info-support">
               {{# rights }}
               <div class="object-rights">
 
-                <h4>{{ i18n.global.facet.header.reusability }}</h4>
+                <h4>How to use it</h4>
 
-                {{license_human}}
+                <p>You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.</p>
 
                 <div class="object-license">{{> molecules/icons/licenses }}</div>
+
               </div>
               {{/ rights }}
             </div>
 
+
+            <div class="info-attribute">
+              <div class="">
+              <h4 class="title">Attribute the author</h4>
+              <div class="" aria-disabled="false">
+                <input class="input-attr" type="text" tabindex="0" aria-disabled="false" placeholder="The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ " readonly>
+              </div>
+              <div class="button-bar button-bar-small atribute-selector">
+                <div class="button-bar__item">
+                  <input id="plain" class="button-toggle" checked="checked" name="atribute" type="radio">
+                  <label for="plain" class="button-bar__button">
+                    <svg class="icon icon-check">
+                      <use xlink:href="#icon-check"></use>
+                    </svg>
+                    Plain
+                  </label>
+                </div>
+
+                <div class="button-bar__item">
+                  <input id="html" class="button-toggle" name="atribute" type="radio">
+                  <label for="html" class="button-bar__button">
+                    <svg class="icon icon-linkout">
+                      <use xlink:href="#icon-linkout"></use>
+                    </svg>
+                    HTML
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
+
+
+          {{# technical_metadata }}
+          <div class="info-support">
+              {{> molecules/metadata/file-detail }}
+          </div>
+          {{/ technical_metadata }}
+
         </div> {{! end media-info}}
       </div>
       {{/download}}
