@@ -6,6 +6,7 @@ define(['jquery', 'media_controller'], function ($) {
     }
 
     function addEllipsis(){
+
         if(window.location.href.indexOf('ellipsis') > -1){
             $('.mlt-title a').each(function(){
                 while($(this).outerHeight() > $(this).parent().height()){
@@ -14,14 +15,6 @@ define(['jquery', 'media_controller'], function ($) {
                     });
                 }
             });
-        }
-    }
-
-    function mltStretch(){
-        if(window.location.href.indexOf('mlt-stretch') > -1){
-            var selector = '.mlt .mlt-item, .mlt-title'
-            console.log('removed max-width from selector ' + selector);
-            $(selector).css('max-width', 'none');
         }
     }
 
@@ -66,7 +59,7 @@ define(['jquery', 'media_controller'], function ($) {
                     var eEvent = $(this).data('fire-on-open');
                     var eParams = $(this).data('fire-on-open-params');
                     $(window).trigger(eEvent, eParams);
-                    console.log('evt: ' + eEvent + '  ' + eParams);
+                    log('evt: ' + eEvent + '  ' + eParams);
                 }
             });
         });
@@ -117,7 +110,7 @@ define(['jquery', 'media_controller'], function ($) {
 
     function showMap(data){
         var initLeaflet = function(longitudes, latitudes, labels){
-            console.log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
+            log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
 
             var mapId = 'map';
             var mapInfoId = 'map-info';
@@ -189,7 +182,7 @@ define(['jquery', 'media_controller'], function ($) {
                     latitudes.push(latitude[i]);
                 }
                 else{
-                    console.log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
+                    log('Map data error: invalid coordinate pair:\n\t' + longitudes[i] + '\n\t' + latitudes[i]);
                 }
             }
 
@@ -197,7 +190,7 @@ define(['jquery', 'media_controller'], function ($) {
                 initLeaflet(longitudes, latitudes, data.labels);
             }
             else{
-                console.log('Map data missing');
+                log('Map data missing');
             }
         }
     }
@@ -217,7 +210,7 @@ define(['jquery', 'media_controller'], function ($) {
                         "link"  : ob.attr('href'),
                         "linkTarget" : "_self"
                 }
-                //console.log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
+                //log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
             });
             new EuCarousel(el, mltData);
         });
@@ -229,9 +222,6 @@ define(['jquery', 'media_controller'], function ($) {
         // functions to assist design
         if(typeof addEllipsis != 'undefined'){
             addEllipsis();
-        }
-        if(typeof mltStretch != 'undefined'){
-            mltStretch();
         }
         // (end functions to assist design)
 

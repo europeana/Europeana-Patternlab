@@ -57,8 +57,6 @@ require(['jquery'], function( $ ) {
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'hotjar', 'global'], function( global, channels ) {
       $.holdReady(false);
-
-      // http://veithen.github.io/2015/02/14/requirejs-google-analytics.html
       require(["ga"], function(ga) {
           ga("send", "pageview");
       });

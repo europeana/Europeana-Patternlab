@@ -57,7 +57,6 @@ require(['jquery'], function( $ ) {
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'hotjar', 'global'], function( global, channels ) {
       $.holdReady(false);
-
       require(["ga"], function(ga) {
           ga("send", "pageview");
       });
