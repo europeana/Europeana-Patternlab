@@ -88,6 +88,7 @@
           },
           {
             "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "playable": true,
             "is_pdf": true,
             "download":{
               "url":  "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
@@ -109,6 +110,7 @@
           {
             "is_image": true,
             "thumbnail": "/images/sample/object_2_thumbnail.jpg",
+            "playable": true,
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
@@ -242,6 +244,23 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "download": {
+              "url": "/media/I018102.wmv",
+              "text": "Original WMV file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/wmv"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+          {
+            "is_iif": true,
+            "playable": true,
+            "thumbnail": "/media/iif.jpg",
             "download": {
               "url": "/media/I018102.wmv",
               "text": "Original WMV file"

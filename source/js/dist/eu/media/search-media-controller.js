@@ -17,6 +17,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     $('.media-viewer .object-media-pdf').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
     $('.media-viewer .object-media-video').addClass('is-hidden');
+    $('.media-viewer .object-media-iif').addClass('is-hidden');
   }
 
 
