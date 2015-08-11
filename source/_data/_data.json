@@ -458,7 +458,10 @@
                 "actions": {
                     "download": "Download",
                     "technicalmetadata": "Technical Metadata",
-                    "open-media": "Open this media item"
+                    "open-media": "Open this media item",
+                    "attribute-author":"Attribute the author",
+                    "attribute-plaintext": "Plain Text",
+                    "attribute-html": "HTML"
                 },
                 "meta-label": {
                     "concepts": "Categories",

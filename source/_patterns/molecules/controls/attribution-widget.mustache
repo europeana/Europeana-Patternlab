@@ -1,0 +1,27 @@
+<div class="js-attribution-widget widget-attribution">
+
+<div class="" aria-disabled="false">
+  <input class="input-attr is-active" type="text" tabindex="0" aria-disabled="false" value="{{ attribution_plain }}">
+</div>
+
+
+<ul class="button-bar">
+ <li class="button-bar__item">
+   <a href="#" class="button-bar__button is-active" data-e-licence-content='{{ attribution_plain }}'>
+      <svg class="icon icon-check">
+        <use xlink:href="#icon-check"></use>
+      </svg>
+     {{ i18n.site.object.actions.attribute-plaintext }}
+   </a>
+ </li>
+ <li class="button-bar__item">
+   <a href="#" class="button-bar__button" data-e-licence-content="{{ attribution_html }}">
+      <svg class="icon icon-check">
+        <use xlink:href="#icon-check"></use>
+      </svg>
+     {{ i18n.site.object.actions.attribute-html }}
+   </a>
+ </li>
+</ul>
+
+</div>
