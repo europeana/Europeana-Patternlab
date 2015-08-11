@@ -81,44 +81,31 @@
         <div class="media-info-tab">
           <div class="lc">
 
-            <div class="info-primary">
+            {{# rights }}
+            <div class="info-license">
               <h4>
                 {{ i18n.global.facet.header.reusability }}
               </h4>
+
+              <p>{{ license_human }}</p>
+              <div class="object-license">{{> molecules/icons/licenses }}</div>
             </div>
-
-
-            <div class="info-secondary">
-
-              {{# rights }}
-              <div class="object-rights">
-
-                <p>Yes, with attribution</p>
-
-                <div class="object-license">{{> molecules/icons/licenses }}</div>
-
-              </div>
-              {{/ rights }}
-            </div>
-
 
             <div class="info-attribute">
-
-
-            {{# rights }}
-              <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
-              {{> molecules/controls/attribution-widget }}
+                <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
+                {{> molecules/controls/attribution-widget }}
+            </div>
             {{/ rights }}
 
-          </div>
 
-          {{# technical_metadata }}
-          <div class="info-support">
-              {{> molecules/metadata/file-detail }}
-          </div>
-          {{/ technical_metadata }}
+            {{# technical_metadata }}
+            <div class="info-support">
+                {{> molecules/metadata/file-detail }}
+            </div>
+            {{/ technical_metadata }}
 
-        </div> {{! end media-info}}
+          </div> {{! end media-info}}
+        </div>
       </div>
       {{/download}}
 
@@ -133,9 +120,11 @@
 
         <div class="media-info-tab">
           <div class="lc">
+
             <div class="info-primary">
               <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
             </div>
+
             <div class="info-secondary">
               <ul class="object-techdata-list">
                 <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>

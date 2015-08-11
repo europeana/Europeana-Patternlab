@@ -163,9 +163,15 @@
         }
     }
 
-    .info-attribute{
+    .info-license{
         @media all and (min-width: $bp-med) {
             @include span(7 of 24);
+        }
+    }
+
+    .info-attribute{
+        @media all and (min-width: $bp-med) {
+            @include span(11 of 24);
         }
     }
 
@@ -235,14 +241,6 @@
     p{
         font-size: $font-size-slightly-smaller;
         margin-bottom: 0;
-    }
-
-    .atribute-selector{
-        margin-top: $space-quarter;
-        }
-
-    .input-attr{
-        width: 90%;
     }
 }
 
