@@ -1,6 +1,7 @@
 
 
-.attribution{
+
+.attribution {
 
 	background-color: rgba(#000, 0.7);
 	border-radius: 4px;
@@ -16,5 +17,29 @@
 		color: $gray87;
 		display: block;
 	}
+
+	&:focus{
+		.attribution-content{
+	 		display:block;
+		}
+		.attribution-toggle{
+			display: none;
+		}
+	}
+
 }
 
+.attribution-toggle {
+	color: $white;
+	cursor:pointer;
+	@media all and (min-width: $bp-small-2) {
+		display: none;
+	}
+}
+
+.attribution-content{
+	display: none;
+	@media all and (min-width: $bp-small-2) {
+		display: block;
+	}
+}

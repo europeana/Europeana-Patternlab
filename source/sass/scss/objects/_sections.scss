@@ -15,7 +15,11 @@
 
 	text-align: center;
 	line-height: 1.2;
-	@include fontSize(18px);
+
+	@media all and (min-width: $bp-small) {
+		@include fontSize(18px);
+	}
+
 
 	@media all and (min-width: $bp-med) {
 		@include fontSize(24px);

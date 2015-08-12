@@ -13,12 +13,10 @@
       {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
       />
 
+      {{#has_original}}
       <ul class="search-tags js-search-tags">
 
-        {{#has_original}}
           <li class="search-tag">{{input_original.value}}<a href="{{input_original.remove}}" data-role="remove"></a></li>
-        {{/has_original}}
-
 
         {{#input_values}}
           <li class="search-tag">
@@ -28,6 +26,7 @@
           </li>
         {{/input_values}}
       </ul>
+      {{/has_original}}
 
 
     {{/input_search}}

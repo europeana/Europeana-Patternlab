@@ -10,11 +10,18 @@
 }
 
 .hero-contents{
-	position: absolute;
-	top: 55%;
-	left: 50%;
-	@include translate (-50%, -50%);
+
+	position: relative;
 	z-index: 5;
+	top: 50%;
+	@include translate (0, -50%);
+
+	@media all and (min-width: $bp-med) {
+		position: absolute;
+		left: 50%;
+		@include translate (-50%, -50%);
+		width: 80%;
+	}
 
 	.searchbar{
 		margin-bottom: $space;
@@ -35,6 +42,7 @@
 .search-hero{
 	height: 50%;
 	max-height: 50em;
+	min-height: 300px;
 
 	@media all and (min-width: $bp-med) {
 		height: 75%;

@@ -22,11 +22,6 @@
 		height: 100%;
 	}
 
-	// this is a wrapper around the search field and title (used in channels, not used in pro)
-	.hero-contents{
-		width: 80%;
-	}
-
 	.hero-text{
 		position: absolute;
 		z-index: 5;
@@ -57,12 +52,13 @@
 	}
 
 	.attribution{
+
 		position: absolute;
 		z-index: 10;
 		bottom: 4px;
+		right: 4px;
 
-		@media all and (min-width: $bp-small) {
-			display: inline-block;
+		@media all and (min-width: $bp-small-2) {
 			right: 0;
 		}
 	}
