@@ -5,71 +5,45 @@ module.exports = function(grunt) {
         options: {
           separator: ';\n'
         },
-        /*
-          channels:{
-
+        blacklight:{
             files: {
-              'source/js/dist/channels.js': [
-
-                    'source/js/modules/search-form.js',
-                    'source/js/modules/search-home.js',
-                    'source/js/modules/search-object.js'
-                  ]
-            },
-          },
-          */
-        /*
-          global:{
-            files: {
-              'source/js/dist/global.js': [
-                  'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.min.js',
-                  'source/js/patternlab/global/menus.js',
-                  'source/js/patternlab/global/feature-detect.js'
-                  ]
-            },
-          },
-          */
-            blacklight:{
-                files: {
-                    'source/js/modules/lib/blacklight/blacklight_all.js': [
-                        'source/js/modules/lib/blacklight/core.js',
-                        'source/js/modules/lib/blacklight/search_context.js',
-                        //'source/js/modules/lib/blacklight/checkbox_submit.js',
-                        //'source/js/modules/lib/blacklight/bookmark_toggle.js',
-                        //'source/js/modules/lib/blacklight/ajax_modal.js',
-                        //'source/js/modules/lib/blacklight/collapsable.js',
-                     ]
-                }
-            },
-          map:{
-            files: {
-              'source/js/dist/application-map.js': [
-                'source/js/modules/map/leaflet-0.7.3/leaflet.js',
-                'source/js/modules/map/Leaflet-Pan/L.Control.Pan.js',
-                'source/js/modules/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js'
-               ]
+                'source/js/modules/lib/blacklight/blacklight_all.js': [
+                  'source/js/modules/lib/blacklight/core.js',
+                  'source/js/modules/lib/blacklight/search_context.js',
+                  //'source/js/modules/lib/blacklight/checkbox_submit.js',
+                  //'source/js/modules/lib/blacklight/bookmark_toggle.js',
+                  //'source/js/modules/lib/blacklight/ajax_modal.js',
+                  //'source/js/modules/lib/blacklight/collapsable.js',
+                ]
             }
-          },
-          map_css:{
-            files: {
-              'source/js/dist/css/map/application-map.css': [
-                      'source/js/modules/map/leaflet-0.7.3/leaflet.css',
+        },
+        map:{
+          files: {
+            'source/js/dist/application-map.js': [
+            'source/js/modules/map/leaflet-0.7.3/leaflet.js',
+            'source/js/modules/map/Leaflet-Pan/L.Control.Pan.js',
+            'source/js/modules/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js'
+           ]
+          }
+        },
 
-                      /*'source/js/modules/map/leaflet.ie.css',*/
-
-                      'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
-
+        map_css:{
+          files: {
+            'source/js/dist/css/map/application-map.css': [
+                'source/js/modules/map/leaflet-0.7.3/leaflet.css',
+                 /*'source/js/modules/map/leaflet.ie.css',*/
+                'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
                 'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
-                      'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
-            ]
+                'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
+              ]
             }
           },
           mlt:{
-                files: {
-                    'source/js/dist/eu/eu-carousel.js': [
-                        'source/js/modules/eu/eu-carousel.js'
-                     ]
-                }
+            files: {
+              'source/js/dist/eu/eu-carousel.js': [
+                'source/js/modules/eu/eu-carousel.js'
+              ]
+            }
           }
         },
 
@@ -172,8 +146,8 @@ module.exports = function(grunt) {
           },
           iif_viewer: {
             src:    '**',
-            cwd:    'source/js/modules/lib/mirador',
-            dest:   'source/js/dist/lib/mirador',
+            cwd:    'source/js/modules/lib/iiif',
+            dest:   'source/js/dist/lib/iiif',
             expand:  true
           },
           non_js: {
