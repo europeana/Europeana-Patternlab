@@ -39,6 +39,7 @@
         "required_players": [
           {"audio": true},
           {"image": true},
+          {"iiif":  true},
           {"pdf":   true},
           {"text":  true},
           {"video": true}
@@ -87,6 +88,20 @@
             }
           },
           {
+            "is_iiif": true,
+            "playable": true,
+            "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
+            "thumbnail": "/media/iiif.jpg",
+            "technical_metadata": {
+              "mime_type": "video/wmv"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+          {
             "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
             "playable": true,
             "is_pdf": true,
@@ -97,7 +112,7 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this image in any way you like"
+              "license_human": "You can use this pdf in any way you like"
             },
             "technical_metadata":
             {
@@ -128,7 +143,6 @@
               "height": "768"
             }
           },
-
           {
             "is_audio": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
@@ -244,23 +258,6 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
-            "download": {
-              "url": "/media/I018102.wmv",
-              "text": "Original WMV file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/wmv"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_iif": true,
-            "playable": true,
-            "thumbnail": "/media/iif.jpg",
             "download": {
               "url": "/media/I018102.wmv",
               "text": "Original WMV file"

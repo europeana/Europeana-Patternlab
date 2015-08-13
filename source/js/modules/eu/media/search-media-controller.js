@@ -13,6 +13,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function hideAllViewers() {
     log( 'hideAllViewers()' );
     $('.media-viewer .object-media-audio').addClass('is-hidden');
+    $('.media-viewer .object-media-iiif').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-pdf').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
@@ -26,10 +27,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function mediaOpened(evt, data){
-      if(data.hide_thumb){
-        $(listSelector).addClass('open');
-      }
-      $(listItemSelector).removeClass('loading');
+    if(data.hide_thumb){
+      $(listSelector).addClass('open');
+    }
+    $(listItemSelector).removeClass('loading');
   }
 
 
@@ -39,6 +40,20 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     require(['media_viewer_videojs'], function( viewer ) {
       viewer.init(viewer.getItemFromMarkup(data.target));
+    });
+  }
+
+  function initMediaIIIF(evt, data) {
+
+    log( 'initMediaIIIF() ' + data.url);
+
+    hideAllViewers();
+    $('.media-viewer .object-media-iiif').removeClass('is-hidden');
+
+    require(['leaflet'], function(viewer) {
+      require(['media_viewer_iiif'], function(viewer) {
+          viewer.init(data.url);
+      });
     });
   }
 
@@ -191,6 +206,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   //
   $('.media-viewer').on('media_init', initMedia);
   $('.media-viewer').on('object-media-audio', initMediaAudio);
+  $('.media-viewer').on('object-media-iiif', initMediaIIIF);
   $('.media-viewer').on('object-media-image', initMediaImage);
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);

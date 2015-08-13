@@ -25,6 +25,12 @@
 
         {{#required_players}}
 
+        {{#iiif}}
+        <div class="object-media-iiif is-hidden">
+          {{> molecules/components/iiif/iiif }}
+        </div>
+        {{/iiif}}
+
         {{#image}}
         <div class="object-media-image is-hidden">
           {{> molecules/components/photoswipe/photoswipe }}

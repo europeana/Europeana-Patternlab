@@ -13,6 +13,13 @@
                  {{/technical_metadata}}
              {{/is_audio}}
 
+             {{#is_iiif}}
+                 data-type="iiif"
+                 {{#play_url}}
+                   data-uri="{{.}}"
+                 {{/play_url}}
+             {{/is_iiif}}
+
              {{#is_image}}
                  data-type="image"
                  {{#download}}

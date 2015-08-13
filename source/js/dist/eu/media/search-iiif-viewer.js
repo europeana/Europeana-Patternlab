@@ -11,16 +11,15 @@ define([], function() {
   var labelledData = {};  // JSON (entire manifest): data.label: data
   var iiifLayers = {};    // Layers (loaded): label: layer
 
-  var manifestUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
+//  var manifestUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
   //var manifestUrl = 'http://iiif.bodleian.ox.ac.uk/iiif/manifest/9fb27615-ede3-4fa0-89e4-f0785acbba06.json';
   //var manifestUrl = 'http://gallicalabs.bnf.fr/ark:/12148/btv1b84238966/manifest.json';
-
 
   $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
   $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
   function log(msg) {
-      console.log(msg);
+    console.log(msg);
   }
 
   /**
@@ -39,21 +38,21 @@ define([], function() {
 
     while(!done){
       if(noLoaded == noToLoad){
-          done = true;
+        done = true;
       }
       else if(index >= Object.keys(labelledData).length){
-          done = true;
+        done = true;
       }
       else{
-          var key   = Object.keys(labelledData)[ index ];
-          var data  = labelledData[key];
+        var key   = Object.keys(labelledData)[ index ];
+        var data  = labelledData[key];
 
-          if(! iiifLayers[data.label] ){
-              var layer = L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
-              iiifLayers[data.label] = layer;
-              noLoaded += 1;
-          }
-          index += 1;
+        if(! iiifLayers[data.label] ){
+          var layer = L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
+          iiifLayers[data.label] = layer;
+          noLoaded += 1;
+        }
+        index += 1;
       }
     }
   }
@@ -68,11 +67,10 @@ define([], function() {
   };
 
   var updateCtrls = function(){
-    log('update ui = Object.keys(labelledData)[currentImg]) = ' + Object.keys(labelledData)[currentImg])
-
     $('#iiif-ctrl .title').html(Object.keys(labelledData)[currentImg]);
     $('#iiif-ctrl .jump-to-img').val(currentImg+1);
     $('#iiif-ctrl .first').attr('disabled', currentImg == 0);
+    $('#iiif-ctrl .prev').attr('disabled', currentImg == 0);
     $('#iiif-ctrl .next').attr('disabled', currentImg == totalImages-1);
     $('#iiif-ctrl .last').attr('disabled', currentImg == totalImages-1);
   }
@@ -86,9 +84,10 @@ define([], function() {
     var layer = iiifLayers[target];
 
     if(!layer){
-      log('got to load');
+      $('#iiif').addClass('loading');
       load(index);
       layer = iiifLayers[target];
+      $('#iiif').removeClass('loading');
     }
 
     switchLayer(layer);
@@ -106,25 +105,23 @@ define([], function() {
       zoom: 0
     });
 
-    $('#iiif-ctrl .load').click(function(){
-      $('#iiif').addClass('loading');
-      load();
-      $('#iiif').removeClass('loading');
-    });
-
-    $('#iiif-ctrl .first').click(function(){
+    $('#iiif-ctrl .first').on('click', function(e){
+      e.preventDefault();
       nav($(this), 0);
     });
 
-    $('#iiif-ctrl .prev').click(function(){
+    $('#iiif-ctrl .prev').on('click', function(e){
+      e.preventDefault();
       nav($(this), currentImg-1);
     });
 
-    $('#iiif-ctrl .next').click(function(){
+    $('#iiif-ctrl .next').on('click', function(e){
+      e.preventDefault();
       nav($(this), currentImg+1);
     });
 
-    $('#iiif-ctrl .last').click(function(){
+    $('#iiif-ctrl .last').on('click', function(e){
+      e.preventDefault();
       nav($(this), totalImages-1);
     });
 
@@ -136,15 +133,14 @@ define([], function() {
           nav($(this), val-1);
         }
         else{
-          $(this).val(currentImg);
+          $(this).val(currentImg+1);
         }
       }
     });
-    updateCtrls();
   }
 
 
-  function initViewer() {
+  function initViewer(manifestUrl) {
     initUI();
 
     // Grab a IIIF manifest
@@ -160,17 +156,17 @@ define([], function() {
       load();
       $('#iiif').removeClass('loading');
 
-      // Access the first Iiif object and add it to the map
       iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
 
+      $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
       updateCtrls();
     });
   }
 
   return {
-    init: function() {
+    init: function(manifestUrl) {
       require(['leaflet_iiif'], function(){
-        initViewer();
+        initViewer(manifestUrl);
       });
     }
   };

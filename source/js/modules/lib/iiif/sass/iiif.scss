@@ -1,9 +1,8 @@
 #iiif{
   border: 1px solid #000;
-  height: 18em;
-  width:  40em;
+  height: 24em;
   position: relative;
-  margin: 1.5em auto 0 auto;
+  margin: 0 auto;
 
   .leaflet-control-zoom{
     display: none;
@@ -12,7 +11,6 @@
   &.loading{
     cursor:progress
   }
-
 }
 
 #iiif,
@@ -23,10 +21,14 @@
 #iiif-ctrl{
   background-color: #4d4d4d;
   border: 1px solid #000;
-  width:  40em;
   padding: 0.5em 0;
   position: relative;
   margin: auto;
+
+  .iiif-ctrl-group{
+    max-width: 40em;
+    margin: auto;
+  }
 
   a{
     color: #fff;
@@ -76,6 +78,10 @@
     background-color: #fff;
   }
 
+  .total-images{
+    text-align: left;
+  }
+
   .total-images,
   .title{
     color: #fff;
@@ -89,6 +95,4 @@
     font-style: italic;
     font-weight: bold;
   }
-
-
 }
