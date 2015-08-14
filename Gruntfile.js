@@ -2,10 +2,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
       concat: {
-        options: {
-          separator: ';\n'
-        },
-        blacklight:{
+        blacklight: {
+            options: {
+              separator: ';\n'
+            },
             files: {
                 'source/js/modules/lib/blacklight/blacklight_all.js': [
                   'source/js/modules/lib/blacklight/core.js',
@@ -18,27 +18,34 @@ module.exports = function(grunt) {
             }
         },
         map:{
+          options: {
+            separator: ';\n'
+          },
           files: {
             'source/js/dist/application-map.js': [
             'source/js/modules/map/leaflet-0.7.3/leaflet.js',
             'source/js/modules/map/Leaflet-Pan/L.Control.Pan.js',
-            'source/js/modules/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js'
+            'source/js/modules/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js',
+            'source/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.js'
            ]
           }
         },
-
         map_css:{
+          options: {
+            separator: '\n'
+          },
           files: {
             'source/js/dist/css/map/application-map.css': [
-                'source/js/modules/map/leaflet-0.7.3/leaflet.css',
-                 /*'source/js/modules/map/leaflet.ie.css',*/
-                'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
-                'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
-                'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
-              ]
-            }
-          },
-          mlt:{
+              'source/js/modules/map/leaflet-0.7.3/leaflet.css',
+               /*'source/js/modules/map/leaflet.ie.css',*/
+              'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
+              'source/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.css',
+              'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
+              'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
+            ]
+          }
+        },
+        mlt:{
             files: {
               'source/js/dist/eu/eu-carousel.js': [
                 'source/js/modules/eu/eu-carousel.js'
@@ -49,6 +56,9 @@ module.exports = function(grunt) {
 
         copy: {
           jquery: {
+              options: {
+                separator: ';\n'
+              },
               src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
 
                        'source/js/modules/lib/hotjar.js',
@@ -102,6 +112,16 @@ module.exports = function(grunt) {
             nonull:  true,
             expand:  true
           },
+
+          map_img_fs: {
+              src:     '*.png',
+              cwd:     'source/js/modules/map/leaflet.fullscreen-master/',
+              dest:    'source/js/dist/css/map',
+              flatten: true,
+              nonull:  true,
+              expand:  true
+          },
+
           mediaviewers: {
               src:    '*.js',
               cwd:    'source/js/modules',
@@ -189,6 +209,7 @@ module.exports = function(grunt) {
        'copy:jquery',
        'copy:main',
        'copy:map_img',
+       'copy:map_img_fs',
        'copy:mediaviewers',
        'copy:pdfjs',
        'copy:pdfjs_img',

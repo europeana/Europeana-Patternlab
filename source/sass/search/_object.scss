@@ -60,6 +60,9 @@
 }
 .object-media-wrap.multi-item{
    min-height: 18em;
+  .object-media-iiif{
+    width: 90%;
+  }
 }
 
 // Thumbnails list

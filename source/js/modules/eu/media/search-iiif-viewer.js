@@ -11,10 +11,6 @@ define([], function() {
   var labelledData = {};  // JSON (entire manifest): data.label: data
   var iiifLayers = {};    // Layers (loaded): label: layer
 
-//  var manifestUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
-  //var manifestUrl = 'http://iiif.bodleian.ox.ac.uk/iiif/manifest/9fb27615-ede3-4fa0-89e4-f0785acbba06.json';
-  //var manifestUrl = 'http://gallicalabs.bnf.fr/ark:/12148/btv1b84238966/manifest.json';
-
   $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
   $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
@@ -104,6 +100,12 @@ define([], function() {
       crs: L.CRS.Simple,
       zoom: 0
     });
+
+    L.control.fullscreen({
+      position: 'topright',
+      forceSeparateButton: true,
+      forcePseudoFullscreen: false
+    }).addTo(iiif);
 
     $('#iiif-ctrl .first').on('click', function(e){
       e.preventDefault();
