@@ -10,9 +10,9 @@
 
 //Pullquote
 .pullquote {
-	position:relative;	
-	padding: $space;	
-	border-left: none;	
+	position:relative;
+	padding: $space;
+	border-left: none;
 
 	color: $textcolour_head;
 	@include font-size(2);
@@ -39,7 +39,6 @@
 }
 
 
-
 //caption
 .caption{
 	border-top: 1px solid $grey2;
@@ -51,4 +50,3 @@
 	max-width: 12em;
 	font-size: $font-size-sm;
 }
-
