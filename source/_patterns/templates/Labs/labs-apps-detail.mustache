@@ -29,10 +29,16 @@
 				<div class="prose">
 				{{> organisms-article-body }}
 				</div>
+
+        <div class="item-meta-secondary">
+          {{> molecules-item-provider }}
+          {{> molecules-item-email }}
+          {{> molecules-item-website }}
+        </div>
+
 			</div>
 
-
-			{{> molecules-related-noimages(title: "Next steps") }}
+			{{> molecules-related-noimages(title: "Related Content") }}
 
 		</div><!--
 
@@ -40,7 +46,7 @@
 
         <div class="inner js-getstickywidth">
 
-            {{> molecules-help-contact(title: "Need help?") }}
+            {{> molecules-help-contact(title: "Questions") }}
 
             <div class="js-sticky">
             {{> molecules-tertiary-nav }}
