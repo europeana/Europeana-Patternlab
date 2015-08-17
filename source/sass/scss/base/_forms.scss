@@ -233,6 +233,10 @@ input[type="search"]::-webkit-search-decoration {
     background-color: transparent;
     color: $accent;
     padding: $pad-quarter $pad-quarter;
+    &:hover{
+      $darker: darken($icon_primary, 15%);
+      color: $darker;
+    }
   }
 }
 
