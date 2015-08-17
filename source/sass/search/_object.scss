@@ -43,6 +43,36 @@
     .next-previous, .breadcrumbs{
         display: inline-block;
     }
+
+    .item-nav-search{
+      position: relative;
+      top: -0.15em;
+
+      @media all and (max-width: $bp-med) {
+			margin-top: $pad;
+		}
+
+     .item-search-input{
+        width: 100% !important;
+        padding: $pad-quarter $pad-and-half $pad-quarter $pad-half;
+        border-color: transparent;
+        box-shadow: none;
+        border-radius: 6px;
+        &:focus{
+          border-color: $textcolour_link;
+        }
+      }
+
+      .item-nav-submit{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        color: $accent;
+        padding: $pad-quarter $pad-quarter;
+      }
+
+    }
 }
 
 // main media display area

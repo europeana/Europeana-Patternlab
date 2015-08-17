@@ -10,6 +10,9 @@
       <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
       <li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
     </ul>
+
+    {{>molecules/forms/search-item-navigation}}
+    
   </div>
 
   {{#content}}
