@@ -26,6 +26,14 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     log( 'initMedia()' );
   }
 
+  function removePlayability(data){
+      log('remove playability...');
+      data.$thumb.removeClass('playable');
+      data.$thumb.find('.media-clickable-indicator').remove();
+      $(listItemSelector).removeClass('loading');
+      $('.media-viewer .object-media-' + data.player).addClass('is-hidden');
+  }
+
   function mediaOpened(evt, data){
     if(data.hide_thumb){
       $(listSelector).addClass('open');
@@ -52,7 +60,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     require(['leaflet'], function(viewer) {
       require(['media_viewer_iiif'], function(viewer) {
-          viewer.init(data.url);
+          viewer.init(data.url, data.target)
       });
     });
   }
@@ -120,13 +128,9 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
                 hideAllViewers();
                 $('.media-viewer .object-media-image').removeClass('is-hidden');
                 if(!mediaViewerImage.init(imgData, clickedImg)){
-                    // remove playability
-                    $(data.target).removeClass('playable');
-                    $(data.target).find('.media-clickable-indicator').remove();
-                    $(listItemSelector).removeClass('loading');
+                    removePlayability({"$thumb": $(data.target)});
                 }
             });
-
         });
     }
     else{
@@ -137,10 +141,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             hideAllViewers();
             $('.media-viewer .object-media-image').removeClass('is-hidden');
             if(!mediaViewerImage.init(imgData, clickedImg)){
-                // remove playability
-                $(data.target).removeClass('playable');
-                $(data.target).find('.media-clickable-indicator').remove();
-                $(listItemSelector).removeClass('loading');
+                removePlayability({"$thumb": $(data.target)});
             }
         });
     }
@@ -211,6 +212,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
   $('.media-viewer').on('object-media-open', mediaOpened);
+  $('.media-viewer').on('remove-playability', removePlayability);
   $(listItemSelector).on('click', handleListItemSelectorClick);
 
 });

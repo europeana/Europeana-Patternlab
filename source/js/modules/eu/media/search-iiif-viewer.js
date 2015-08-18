@@ -142,7 +142,7 @@ define([], function() {
   }
 
 
-  function initViewer(manifestUrl) {
+  function initViewer(manifestUrl, $thumbnail) {
     initUI();
 
     // Grab a IIIF manifest
@@ -162,13 +162,16 @@ define([], function() {
 
       $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
       updateCtrls();
+    }).fail(function(jqxhr) {
+        log('error loading manifest: ' + JSON.stringify(jqxhr, null, 4));
+        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
     });
   }
 
   return {
-    init: function(manifestUrl) {
+    init: function(manifestUrl, $thumbnail) {
       require(['leaflet_iiif'], function(){
-        initViewer(manifestUrl);
+        initViewer(manifestUrl, $thumbnail);
       });
     }
   };
