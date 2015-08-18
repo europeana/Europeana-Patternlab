@@ -59,6 +59,7 @@
 
              >{{#single_item}}{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
                   {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
+                  {{#is_iiif}}  class="media-clickable-indicator iiif"   {{/is_iiif}}
                   {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}
                   {{#is_pdf}}   class="media-clickable-indicator pdf"    {{/is_pdf}}
                   {{#is_text}}  class="media-clickable-indicator text"   {{/is_text}}
