@@ -127,6 +127,27 @@ define([], function() {
       nav($(this), totalImages-1);
     });
 
+    $(iiif._container).bind('keydown', function(e) {
+        var key = window.event ? e.keyCode : e.which;
+        e = e || window.event;
+        if(e.shiftKey || e.ctrlKey){
+            e.stopPropagation();
+            e.preventDefault();
+            if(key == 37){
+                $('#iiif-ctrl .prev').click();
+            }
+            if(key == 38){
+                $('#iiif-ctrl .first').click();
+            }
+            if(key == 39){
+                $('#iiif-ctrl .next').click();
+            }
+            if(key == 40){
+                $('#iiif-ctrl .last').click();
+            }
+        }
+    });
+
     $('#iiif-ctrl .jump-to-img').bind('keydown', function(e) {
       var key = window.event ? e.keyCode : e.which;
       if(key == 13){

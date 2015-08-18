@@ -55,8 +55,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     log( 'initMediaIIIF() ' + data.url);
 
-alert('data.target.html()\n\n' + data.target.html())
-
     hideAllViewers();
     $('.media-viewer .object-media-iiif').removeClass('is-hidden');
 
@@ -130,7 +128,6 @@ alert('data.target.html()\n\n' + data.target.html())
                 hideAllViewers();
                 $('.media-viewer .object-media-image').removeClass('is-hidden');
                 if(!mediaViewerImage.init(imgData, clickedImg)){
-                    alert('mac 1')
                     removePlayability({"$thumb": $(data.target)});
                 }
             });
@@ -144,10 +141,7 @@ alert('data.target.html()\n\n' + data.target.html())
             hideAllViewers();
             $('.media-viewer .object-media-image').removeClass('is-hidden');
             if(!mediaViewerImage.init(imgData, clickedImg)){
-                alert('mac 2')
-//                        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
                 removePlayability({"$thumb": $(data.target)});
-                removePlayability($(data.target));
             }
         });
     }
