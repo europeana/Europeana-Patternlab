@@ -15,27 +15,20 @@
 <section class="grid_wrapper">
 	<div class="grid">
 		<div class="main-content">
-			<div class="page-intro">
-                    <h1 class="title">Share your data</h1>
 
-                    <p>Notare quam littera gothica quam nunc putamus parum claram anteposuerit litterarum formas humanitatis. Usus legentis in iis qui facit eorum claritatem lectores legere me.</p>
-                </div>
+      <ul class="l-next_options">
+          {{#listItems.six}}<li>{{> molecules-link-block-text(excerpt: true) }}</li>{{/listItems.six}}
+      </ul>
 
-                <ul class="l-next_options">
-                    {{#listItems.six}}<li>{{> molecules-link-block-text(excerpt: true) }}</li>{{/listItems.six}}
-                </ul>
+    </div><!--
 
+ --><div class="sidebar">
+      <div class="inner js-getstickywidth">
 
-      </div><!--
+          {{> molecules-help-contact(title: "Questions?") }}
 
-	 --><div class="sidebar">
-
-        <div class="inner js-getstickywidth">
-
-            {{> molecules-help-contact(title: "Questions?") }}
-
-        </div>
-		  </div>
+      </div>
+    </div>
 
 	</div>
 </section>
