@@ -46,6 +46,10 @@
       }
     }
 
+    .object-nav-lists{
+        @include span(first 18);
+    }
+
     .next-previous, .breadcrumbs{
         display: inline-block;
     }
@@ -55,8 +59,8 @@
       top: -0.15em;
 
       @media all and (max-width: $bp-med) {
-			margin-top: $pad;
-		}
+      margin-top: $pad;
+    }
 
    .item-search-input{
       width: 100% !important;

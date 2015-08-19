@@ -3,14 +3,15 @@
 
 <div role="main" class="search-object">
 
-  <div class="object-nav">
-    {{>molecules/navigation/next-previous}}
+  <div class="object-nav cf">
+    <div class="object-nav-lists">
+      {{>molecules/navigation/next-previous}}
 
-    <ul class="breadcrumbs">
-      <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
-      <li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
-    </ul>
-
+      <ul class="breadcrumbs">
+        <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
+        <li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
+      </ul>
+    </div>
     {{>molecules/forms/search-item-navigation}}
 
   </div>
@@ -72,7 +73,6 @@
         <img src={{thumbnail}}>
       {{/empty_item}}
     </div>
-
     {{#items}}
 
     <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
