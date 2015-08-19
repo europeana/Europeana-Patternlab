@@ -1,0 +1,23 @@
+{
+    "primary_nav": {
+      "items": [
+          {
+              "url": "",
+              "text": "Primary 1",
+              "is_current": true
+          },
+          {
+              "url": "",
+              "text": "Primary 2"
+          },
+          {
+              "url": "Primary 3",
+              "text": "Primary 3"
+          },
+          {
+              "url": "",
+              "text": "Primary 4"
+          }
+      ]
+    }
+}
