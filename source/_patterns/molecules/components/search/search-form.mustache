@@ -7,11 +7,14 @@
           <input type="hidden" name="q" value="{{input_original.value}}"/>
       {{/has_original}}
 
+      {{^has_original}}
       <input class="search-input js-search-input js-placeholder" type="text"
       {{#title}}title="{{title}}" {{/title}}
       {{#input_name}}name="{{input_name}}" {{/input_name}}
       {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
       />
+      {{/has_original}}
+
 
       {{#has_original}}
       <ul class="search-tags js-search-tags">
@@ -25,6 +28,15 @@
           <a href="{{remove}}" data-role="remove"></a>
           </li>
         {{/input_values}}
+
+
+        <li class="search-input-item">
+          <input class="search-input js-search-input js-placeholder" type="text"
+          {{#title}}title="{{title}}" {{/title}}
+          {{#input_name}}name="{{input_name}}" {{/input_name}}
+          {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}/>
+        </li>
+
       </ul>
       {{/has_original}}
 

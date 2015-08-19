@@ -49,17 +49,19 @@
     cursor: text;
     @include fontSize(16px);
 }
-.search-tags{
-    //display: inline-block;
-}
+
+.search-input-item,
 .search-tag{
     display: inline-block;
-    color: white;
-    background-color: $accent;
     padding: 0.2rem 0.4rem;
-    @include fontSize(14px);
     margin-right: 0.2em;
     line-height: 1.6;
+}
+
+.search-tag{
+    color: white;
+    background-color: $accent;
+    @include fontSize(14px);
     border-radius: 3px;
 
     & a[data-role="remove"] {
@@ -128,8 +130,6 @@
   padding: 0;
   margin: 0;
   max-width: inherit;
-  line-height: 2;
-  float: right;
 
   // Make sure the placeholder isn't poorly cut off
   overflow: hidden;
