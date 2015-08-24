@@ -46,11 +46,7 @@ A new site is defined by its own folder within `source/sass` and a folder in `so
 * Pattern Lab configuration can be adjusted in the /core/config/config.ini.default file.
 * If, for any reason, you need to delete all assets from the public directory, you should also delete the /config/config.ini file. The `./core/scripts/generateSite.command` will then re-generate that file and the /public/ directory without error.
 * The development site will rebuild automatically in response to commits to this repository
-<<<<<<< HEAD
-* To update the "production" site go here - http://jenknisa.eanadev.org/job/styleguide-engineyard-production - and log in if you haven't already and click "build now"
-=======
 * To update the "production" site go here - http://jenkins.eanadev.org/job/styleguide-engineyard-production - and log in if you haven't already and click "build now"
->>>>>>> develop
 * This site: http://develop.styleguide.eanadev.org/ is built from the develop branch
 * This site: http://styleguide.europeana.eu/ is built from the master branch
 * Make sure that the develop branch has been merged with the master branch before attempting to build the master branch
