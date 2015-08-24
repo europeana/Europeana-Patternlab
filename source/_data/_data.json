@@ -508,12 +508,26 @@
                 "reusability": "Can I use this?"
               }
             },
-            "our-sites": "Our sites",
+            "header": {
+              "discover": "discover",
+              "network": "network",
+              "develop": "develop",
+              "connect": "connect"
+            },
             "home": "Home",
+            "labs": "Labs",
+            "labs-text": "A playground for remixing cultural content",
             "more": {
                 "load-more": "Load more"
             },
+            "our-sites": "Our sites",
+            "professional": "Professional",
+            "professional-text": "For Culture Professionals",
+            "research": "Research",
+            "research-text": "Connecting to the academic community",
             "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
+            "search-collections": "Search collections",
+            "search-collections-text": "Search through Europe's cultural heritage",
             "share": "Share",
             "reusability": {
                 "open": "Yes, with attribution"
