@@ -46,8 +46,11 @@
       }
     }
 
+
     .object-nav-lists{
+      @media all and (min-width: $bp-med) {
         @include span(first 18);
+    }
     }
 
     .next-previous, .breadcrumbs{
@@ -60,6 +63,7 @@
 
       @media all and (max-width: $bp-med) {
       margin-top: $pad;
+    }
     }
 
    .item-search-input{
@@ -84,8 +88,6 @@
         $darker: darken($icon_primary, 15%);
         color: $darker;
       }
-    }
-
     }
 }
 
