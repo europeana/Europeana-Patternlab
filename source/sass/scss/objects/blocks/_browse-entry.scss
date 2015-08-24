@@ -6,6 +6,8 @@
 	margin-bottom: $space-half;
 
 	display: table;
+	table-layout: fixed;
+	width: 100%;
 
 	& > a{
 		display: table-row;
@@ -22,6 +24,7 @@
 
 	.bd{
 		padding-left: 5%;
+		width: 70%;
 	}
 
 	@media all and (min-width: $bp-small) {
@@ -29,6 +32,9 @@
 
 		.img{
 			width: 25%;
+		}
+		.bd{
+			width: 75%;
 		}
 	}
 
@@ -39,7 +45,6 @@
 	}
 
 	a{
-		display: block;
 		line-height: 1.2;
 
 		&:hover .title, &:focus .title{
