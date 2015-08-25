@@ -1,0 +1,95 @@
+Architecture for Players / Viewers
+
+The architecture for media files was developed with the following in mind:
+
+	- media players / viewers should only be loaded on demand
+	- playable / viewable media files should only be loaded on demand
+	- individual players / viewers should correspond to a single "molecule" in the styleguide
+	- multiple media files (of different types) may be present on the same page
+	- media players should communicate with the main app or other players by triggering events
+
+The players / viewers in the channels app are:
+
+	- Photoswipe (for images) 
+	- Leaflet-IIIF (for iiif images) 
+	- VideoJS (for audio / video files) 
+	- PdfJS (for pdf files) 
+
+Each player / viewer molecule in the app has javacript elements and markup elements.
+
+	- Molecule markup lives here:
+              - /source/_patterns/molecules/components
+
+	- 3rd party molecule javascript lives here:
+              - /source/js/modules/lib
+
+	- Europeana integration javascript lives here:
+              - /source/js/modules/eu
+
+	- Molecule loading is handled by requirejs, the "main" files of which is found here:
+	      - /source/js/modules/main
+
+The markup data comes from json data in the styleguide (ruby supplies the model in the actual channels app).
+
+This json model follows a convention in pattern lab, which looks for a json file with the same name as the mustache template name.
+
+For example, the model for the pdf viewer lives alongside the template:
+
+        - source/_patterns/molecules/components/pdfjs/pdfjs-ui.mustache
+        - source/_patterns/molecules/components/pdfjs/pdfjs-ui.json
+
+It is also possible, however, to plug alternative models into the same template.  For example, there are several models available for the videojs template:
+
+        /videojs
+          - videojs.mustache
+          - videojs~flac.json
+          - videojs~flv.json
+          - videojs~mp3.json
+          - videojs~mp4.json
+          - videojs~mpg.json
+          - videojs~mpga.json
+          - videojs~ogv.json
+          - videojs~wav.json
+          - videojs~wmv.json
+
+The tilde (~) in the filename after "videojs" instructs pattern lab to use that file as the model when the corresponding url is visited, i.e.
+
+        - /patterns/molecules-components-videojs-flv/molecules-components-videojs-flv.html
+        - /patterns/molecules-components-videojs-mpg/molecules-components-videojs-mpg.html
+        - /patterns/molecules-components-videojs-wav/molecules-components-videojs-wav.html
+        - etc
+
+The application communicates with each player / viewer via a wrapper file in /source/js/modules/eu/media/:
+
+	- search-iiif-viewer.js
+	- search-image-viewer.js
+	- search-pdf-ui-viewer.js
+	- search-videojs-viewer.js
+
+Alongside these files is the following file:
+
+	- search-media-controller.js
+
+This file contains the logic connecting click events on the UI to the loading and playing of the media file, to hide thumbnails after they've been clicked and to handle any errors that may arise from specific media items that are unavailable or contain errors.
+
+
+Walkthrough:
+
+1. User requests a record with two images and a video clip attached to it
+2. Model created with two entries in the "required_players" array and three entries in the "items" array.  The booleans "single_item" and "empty_item" are both set to false.
+3. Page is rendered with three thumbnails, each containing the meta-data for the media is refers to in data attributes.
+4. Page load finishes and thumbnails are wired to a click handler (search-media-controller.js)
+5. User clicks first thumbnail (for a larger image)
+6. Custom event "object-media-image" gets triggered
+7. Event "object-media-image" picked up by search-image-viewer.js - js dependencies are loaded
+8. Image viewer initialised
+9. User clicks second thumbnail (for a video)
+10. Custom event "object-media-video" gets triggered
+11. Event "object-media-video" picked up by search-image-viewer.js - all visible viewers are hidden and js dependencies are loaded
+12. Video viewer initialised
+
+
+
+
+
+
