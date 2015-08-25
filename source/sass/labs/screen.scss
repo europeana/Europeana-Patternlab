@@ -322,6 +322,11 @@ $breakpoint-has-pull:   ();
 .searchterms{
     margin-top: $space-half;
 }
+
+.results {
+  padding: $space-half $space;
+}
+
 .resultsnum{
     color: $gray-light;
 }
