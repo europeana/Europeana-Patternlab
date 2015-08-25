@@ -154,6 +154,19 @@ $breakpoint-has-pull:   ();
 
     .main-content {
         overflow: hidden;
+      table {
+        td {
+          word-break: normal;
+        }
+      }
+      .table-responsive-break {
+        th {
+          word-break: normal;
+        }
+        td {
+          word-break: inherit;
+        }
+      }
     }
 
     .content-pad {
