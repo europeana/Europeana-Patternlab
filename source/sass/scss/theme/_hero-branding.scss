@@ -1,7 +1,7 @@
 // Brand circle positioning
 
 .brand-circles{
-	
+
 	width: 40%;
 	position: absolute;
 
@@ -15,7 +15,7 @@
 	}
 
 	.brand-topright &{
-		top: 0;	
+		top: 0;
 		right: 0;
 		left: auto;
 		@include rotateY(180);
@@ -39,7 +39,7 @@
 	}
 	.brand-opacity50 &{
 		opacity: 0.5;
-	}	
+	}
 	.brand-opacity75 &{
 		opacity: 0.75;
 	}
@@ -64,7 +64,7 @@
 }
 
 .brand-colour-black svg{
-	fill: #000;
+	fill: $black;
 }
 
 // Text
