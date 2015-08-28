@@ -358,7 +358,7 @@
     },
     "content": {
         "hero_config": {
-            "hero_image": "pro/home_image_test.jpg",
+            "hero_image": "../../images/pro/home_image_test.jpg",
             "brand_colour": "brand-colour-site",
             "brand_position": "brand-topleft",
             "brand_opacity": "brand-opacity75",
