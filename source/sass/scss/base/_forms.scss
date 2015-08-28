@@ -249,7 +249,7 @@ input[type="search"]::-webkit-search-decoration {
   }
 
   .options{
-    padding: $pad 0;
+    padding-bottom: $pad;
     font-size: $font-size-sm;
   }
 
@@ -261,6 +261,7 @@ input[type="search"]::-webkit-search-decoration {
   }
 
   .contact-select{
+    padding-top: $pad;
     select{
       width: 35%;
 

@@ -28,6 +28,9 @@
 			<label for="contact-name">Country <abbr title="Required">*</abbr></label>
 			<input id="contact-country" type="text" placeholder="Please enter the country in English" />
 		</div>
+
+        {{> molecules-sortby }}
+
     <div class="field-container contact-select">
 			<label for="contact-interest">Interested in...</label>
 			<select id="contact-interest" multiple />
@@ -37,9 +40,6 @@
       </select>
       <p>Hold Ctrl to multi-select</p>
 		</div>
-
-    {{> molecules-sortby }}
-
 
     <form action="#">
       <fieldset class="options">
