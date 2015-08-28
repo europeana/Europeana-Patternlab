@@ -109,7 +109,7 @@
       }
     },
     "hero_config":{
-      "hero_image":"sample/channel_hero_art.jpg",
+      "hero_image":"../../images/sample/channel_hero_art.jpg",
       "attribution_title" : "Ships in a storm off a rocky coast",
       "attribution_creator" : "Jan Porcellis",
       "attribution_institution" : "Hallwylska museet",

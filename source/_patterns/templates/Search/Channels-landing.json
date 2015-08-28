@@ -103,7 +103,7 @@
       }
     },
     "hero_config": {
-      "hero_image": "sample/channel_hero_music.jpg",
+      "hero_image": "../../images/sample/channel_hero_music.jpg",
       "attribution_text": "This is a placeholder image found somewhere",
       "attribution_url": "http://europeana.eu",
       "license_CC-ND-NC-SA": true
