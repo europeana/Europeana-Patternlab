@@ -239,6 +239,56 @@ input[type="search"]::-webkit-search-decoration {
   }
 }
 
+/* Contact Form */
+
+.contact-form{
+  input[type=text]{
+    @include placeholder{
+      color: $gray-light;
+    }
+  }
+
+  .options{
+    padding: $pad 0;
+    font-size: $font-size-sm;
+  }
+
+  .field-container{
+    margin-bottom: $pad;
+    p{
+      color: $gray-light;
+    }
+  }
+
+  .contact-select{
+    select{
+      width: 35%;
+
+      @media all and (max-width: $bp-med) {
+        width: 100%;
+      }
+
+      option{
+        padding: $pad-quarter 0.65rem;
+      }
+    }
+  }
+
+  .options_link{
+    margin-top: -0.25em;
+    margin-bottom: $pad-half;
+  }
+
+    .submit-contact{
+      input{
+        box-shadow: none;
+      }
+      .pushbutton{
+        background: $gray-light;
+      }
+  }
+}
+
 // Newsletter sign up form
 .newsletter-options{
 
