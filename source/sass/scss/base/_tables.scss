@@ -206,7 +206,7 @@ td {
       th {
         background-color: $thead-color;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
 
         &:first-of-type {
           text-align: left;
@@ -236,6 +236,7 @@ td {
     td {
       padding: $pad-half;
       vertical-align: middle;
+      word-break: normal;
 
       @media (min-width: $bp-small-3) {
         padding: .75em $pad-half;
@@ -296,7 +297,7 @@ td {
         text-align: right;
 
         @media (min-width: $bp-small-3) {
-          text-align: center;
+          text-align: left;
         }
       }
 
