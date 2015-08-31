@@ -95,7 +95,7 @@
 .object-display{
     overflow-y: auto;
     margin-bottom: $space;
-    background-color: $gray-dark;
+    background-color: $media_bg;
     position: relative;
 }
 
@@ -120,7 +120,7 @@
     height: 100%;
     width: 10%;
     padding: $space-quarter;
-    background-color: $gray-dark;
+    background-color: $media_bg;
 }
 
 .object-media-nav a:not(.playable){
