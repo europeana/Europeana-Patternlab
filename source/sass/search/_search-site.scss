@@ -3,181 +3,179 @@
 
 //Logo for Search
 .logo {
-	background-image: url("../../images/europeana-logo-collections.png");
-	.svg &{
-		background-image: url("../../images/europeana-logo-collections.svg");
-	}
+  background-image: url("../../images/europeana-logo-collections.png");
+  .svg &{
+    background-image: url("../../images/europeana-logo-collections.svg");
+  }
 }
 
 .hero-contents{
 
-	position: relative;
-	z-index: 5;
-	top: 50%;
-	@include translate (0, -50%);
+  position: relative;
+  z-index: 5;
+  top: 50%;
+  @include translate (0, -50%);
 
-	@media all and (min-width: $bp-med) {
-		position: absolute;
-		left: 50%;
-		@include translate (-50%, -50%);
-		width: 80%;
-	}
+  @media all and (min-width: $bp-med) {
+    position: absolute;
+    left: 50%;
+    @include translate (-50%, -50%);
+    width: 80%;
+  }
 
-	.searchbar{
-		margin-bottom: $space;
-	}
+  .searchbar{
+    margin-bottom: $space;
+  }
 
-	.strapline{
-		max-width: 50em;
-		margin: 0 auto;
+  .strapline{
+    max-width: 50em;
+    margin: 0 auto;
 
-		padding: $space-half $space;
+    padding: $space-half $space;
 
-		@media all and (min-width: $bp-med) {
-			padding: $space;
-		}
-	}
+    @media all and (min-width: $bp-med) {
+      padding: $space;
+    }
+  }
 }
 
 .search-hero{
-	height: 50%;
-	max-height: 50em;
-	min-height: 300px;
+  height: 50%;
 
-	@media all and (min-width: $bp-med) {
-		height: 75%;
-	}
+  @media all and (min-width: $bp-med) {
+    height: 75%;
+  }
 }
 
 .section, .promo-list, .promo-topcontent{
-	@include pad(1/4);
+  @include pad(1/4);
 }
 .section-box{
-	padding: $space;
+  padding: $space;
 }
 
 .promo-topcontent{
 
-	border-bottom: 3px solid $gray-lighter;
+  border-bottom: 3px solid $gray-lighter;
 
-	> .lc {
-		text-align: center;
-		padding: $space;
-		margin: $space-half auto;
-	}
+  > .lc {
+    text-align: center;
+    padding: $space;
+    margin: $space-half auto;
+  }
 
-	h2{
-		margin: 0;
-		font-weight: normal;
-		line-height: 1.2;
-	}
+  h2{
+    margin: 0;
+    font-weight: normal;
+    line-height: 1.2;
+  }
 
-	a{
-		background-image: linear-gradient(to top,
-		    rgba($textcolour_link, 0) 10%,
-		    rgba($textcolour_link, .5) 10%,
-		    rgba($textcolour_link, .5) 13%,
-		    rgba($textcolour_link, 0) 13%
-		);
-	}
+  a{
+    background-image: linear-gradient(to top,
+        rgba($textcolour_link, 0) 10%,
+        rgba($textcolour_link, .5) 10%,
+        rgba($textcolour_link, .5) 13%,
+        rgba($textcolour_link, 0) 13%
+    );
+  }
 }
 
 .exhibitions-list{
-	background-color: $offwhite;
-	margin-bottom: $space;
+  background-color: $offwhite;
+  margin-bottom: $space;
 }
 
 .promo-list{
 
-	padding-top: $space-quarter; //fallback
-	padding-top: 1.05634vw;
+  padding-top: $space-quarter; //fallback
+  padding-top: 1.05634vw;
 
-	@media all and (min-width: $bp-med) {
-		padding-top: $space-half; //fallback
-		padding-top: 1.05634vw;
-	}
+  @media all and (min-width: $bp-med) {
+    padding-top: $space-half; //fallback
+    padding-top: 1.05634vw;
+  }
 }
 
 .promo-list .list-item{
 
-	margin-bottom: $space-quarter; //fallback
-	margin-bottom: 1.05634vw;
-	position: relative;
+  margin-bottom: $space-quarter; //fallback
+  margin-bottom: 1.05634vw;
+  position: relative;
 
-	min-height: 10em;
-	min-height: 49vw;
-	font-size: 5vw;
+  min-height: 10em;
+  min-height: 49vw;
+  font-size: 5vw;
 
-	@media all and (min-width: $bp-small) {
-		@include span(12 of 24 split);
-		font-size: 3.5vw;
-	}
+  @media all and (min-width: $bp-small) {
+    @include span(12 of 24 split);
+    font-size: 3.5vw;
+  }
 
-	@media all and (min-width: $bp-small-3) {
-		@include span(8 of 24 split);
-		min-height: 32vw;
-		margin-bottom: $space-half; //fallback
-		margin-bottom: 1.05634vw;
-		font-size: 2vw;
-	}
+  @media all and (min-width: $bp-small-3) {
+    @include span(8 of 24 split);
+    min-height: 32vw;
+    margin-bottom: $space-half; //fallback
+    margin-bottom: 1.05634vw;
+    font-size: 2vw;
+  }
 
-	@media all and (min-width: $bp-large) {
-		@include span(6 of 24 split);
-		min-height: 24vw;
-		font-size: 1.5vw;
-	}
+  @media all and (min-width: $bp-large) {
+    @include span(6 of 24 split);
+    min-height: 24vw;
+    font-size: 1.5vw;
+  }
 
-	@media all and (min-width: 80em) {
-		min-height: 16vw;
-		font-size: 1.25vw;
-	}
+  @media all and (min-width: 80em) {
+    min-height: 16vw;
+    font-size: 1.25vw;
+  }
 }
 
 .home-promo .list-item{
-	@media all and (min-width: 120em) {
-		@include span(6 of 48 split);
-		min-height: 11.5vw;
-		font-size: 0.8vw;
-	}
+  @media all and (min-width: 120em) {
+    @include span(6 of 48 split);
+    min-height: 11.5vw;
+    font-size: 0.8vw;
+  }
 
-	&.list-item-wide{
-		@media all and (min-width: $bp-small) {
-			@include span(24 of 24 split);
-		}
+  &.list-item-wide{
+    @media all and (min-width: $bp-small) {
+      @include span(24 of 24 split);
+    }
 
-		@media all and (min-width: $bp-small-3) {
-			@include span(8 of 24 split);
-		}
+    @media all and (min-width: $bp-small-3) {
+      @include span(8 of 24 split);
+    }
 
-		@media all and (min-width: $bp-large) {
-			@include span(18 of 24 split);
-		}
-		@media all and (min-width: 80em) {
-			@include span(18 of 24 split);
-		}
-		@media all and (min-width: 120em) {
-			@include span(18 of 48 split);
-		}
-	}
+    @media all and (min-width: $bp-large) {
+      @include span(18 of 24 split);
+    }
+    @media all and (min-width: 80em) {
+      @include span(18 of 24 split);
+    }
+    @media all and (min-width: 120em) {
+      @include span(18 of 48 split);
+    }
+  }
 }
 
 
 
 .news-item{
-	@media all and (min-width: $bp-med) {
-		@include span(8);
-		&:last-child{
-			margin-right: 0;
-		}
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(8);
+    &:last-child{
+      margin-right: 0;
+    }
+  }
 
-	.b-inner{
-		background: none;
-	}
+  .b-inner{
+    background: none;
+  }
 
-	.b-text{
-		padding: $space;
-	}
+  .b-text{
+    padding: $space;
+  }
 }
 
 
@@ -186,251 +184,251 @@
 
 .exhibitions-list .list-item{
 
-	@media all and (min-width: $bp-large) {
-		width: span(4 of 24 split);
-		min-height: 15vw;
-	}
+  @media all and (min-width: $bp-large) {
+    width: span(4 of 24 split);
+    min-height: 15vw;
+  }
 
-	&.list-item-wide {
-		@media all and (min-width: $bp-small) {
-			width: span(24 of 24 split);
-		}
+  &.list-item-wide {
+    @media all and (min-width: $bp-small) {
+      width: span(24 of 24 split);
+    }
 
-		@media all and (min-width: $bp-large) {
-			width: span(12 of 24 split);
-		}
-	}
+    @media all and (min-width: $bp-large) {
+      width: span(12 of 24 split);
+    }
+  }
 }
 
 .soundcloud{
-	background-color: #FC5B1F;
-	//border: 1px solid $gray-lighter;
-	background-size: inherit;
-	background-repeat: no-repeat;
-	background-position: 84% 50%;
+  background-color: #FC5B1F;
+  //border: 1px solid $gray-lighter;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  background-position: 84% 50%;
 
-	.inner{
-		@media all and (min-width: $bp-small) {
-			width: 50%;
-		}
-	}
+  .inner{
+    @media all and (min-width: $bp-small) {
+      width: 50%;
+    }
+  }
 }
 
 .prelaunch-feedback .lc{
 
-	text-align: center;
+  text-align: center;
 
-	@media all and (min-width: $bp-med) {
-		@include flexbox();
-		-webkit-align-items: center;
-		align-items: center;
-	}
+  @media all and (min-width: $bp-med) {
+    @include flexbox();
+    -webkit-align-items: center;
+    align-items: center;
+  }
 
-	& > div{
-		@media all and (min-width: $bp-med) {
-			@include span(12 of 24);
-			text-align: left;
+  & > div{
+    @media all and (min-width: $bp-med) {
+      @include span(12 of 24);
+      text-align: left;
 
-			&:last-child{
-				margin-right: 0;
-				text-align: center;
-			}
-		}
-	}
+      &:last-child{
+        margin-right: 0;
+        text-align: center;
+      }
+    }
+  }
 
 }
 
 
 .channel-hero{
-	background-position: 50% 80%;
-	@media all and (min-width: $bp-med) {
-		min-height: 30em;
-	}
+  background-position: 50% 80%;
+  @media all and (min-width: $bp-med) {
+    min-height: 30em;
+  }
 }
 
 .channel-info{
-	padding: 0 $space;
-	margin-top: $space;
-	margin-bottom: 0;
+  padding: 0 $space;
+  margin-top: $space;
+  margin-bottom: 0;
 }
 
 .channel-intro{
 
-	@media all and (min-width: $bp-med) {
-		@include flexbox();
-		-webkit-flex-wrap: wrap;
-		flex-wrap: wrap;
+  @media all and (min-width: $bp-med) {
+    @include flexbox();
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
 
-		-webkit-align-items: center;
-		align-items: center;
-	}
+    -webkit-align-items: center;
+    align-items: center;
+  }
 
-	.title{
-		line-height: inherit;
-	}
+  .title{
+    line-height: inherit;
+  }
 
-	& > div{
-		margin-bottom: $space;
-	}
+  & > div{
+    margin-bottom: $space;
+  }
 }
 
 .channel-description{
-	@media all and (min-width: $bp-med) {
-		@include span(10 of 24);
-		padding: $space;
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(10 of 24);
+    padding: $space;
+  }
 }
 
 .channel-credits{
-	@include fontSize(14px);
+  @include fontSize(14px);
 }
 
 .channel-description-text{
-	margin-bottom: $space-half;
+  margin-bottom: $space-half;
 }
 
 .channel-stats{
 
-	li{
-		line-height: 1;
-		margin-bottom: $space-half;
-	}
+  li{
+    line-height: 1;
+    margin-bottom: $space-half;
+  }
 
-	@media all and (min-width: $bp-med) {
-		@include span(last 5 of 24);
-		padding: $space;
-		border-left: 1px solid $gray-lighter;
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(last 5 of 24);
+    padding: $space;
+    border-left: 1px solid $gray-lighter;
+  }
 
 
 
-	.number{
-		@include fontSize(18px);
-		font-weight: bold;
-	}
+  .number{
+    @include fontSize(18px);
+    font-weight: bold;
+  }
 
-	a:hover, a:focus{
-		border-bottom: 1px dotted $textcolour_link_hover;
-	}
+  a:hover, a:focus{
+    border-bottom: 1px dotted $textcolour_link_hover;
+  }
 }
 
 .channel-newstuff{
-	background-color: $offwhite;
-	padding: $space;
+  background-color: $offwhite;
+  padding: $space;
 
-	@media all and (min-width: $bp-med) {
-		@include span(9 of 24);
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(9 of 24);
+  }
 
-	ul{
-		display: block;
-	}
+  ul{
+    display: block;
+  }
 
-	li > a{
-		display: table;
-		width: 100%;
-		line-height: 1;
-		margin-bottom: $space-half;
-	}
+  li > a{
+    display: table;
+    width: 100%;
+    line-height: 1;
+    margin-bottom: $space-half;
+  }
 
-	span{
-		display: table-cell;
-	}
+  span{
+    display: table-cell;
+  }
 
-	.link-text{
-		width: 40%;
-		font-weight: bold;
-		padding-right: 0.5em;
-	}
-	.link-number{
-		width: 30%;
-	}
-	.link-date{
-		width: 30%;
-	}
+  .link-text{
+    width: 40%;
+    font-weight: bold;
+    padding-right: 0.5em;
+  }
+  .link-number{
+    width: 30%;
+  }
+  .link-date{
+    width: 30%;
+  }
 }
 
 .browse-entry-list{
 
-	margin-bottom: $space;
-	display: block;
+  margin-bottom: $space;
+  display: block;
 
-	@media all and (min-width: $bp-med) {
-		//padding: $space-half;
-	}
+  @media all and (min-width: $bp-med) {
+    //padding: $space-half;
+  }
 
-	.list-item {
-		position: relative;
-		min-height: 0;
+  .list-item {
+    position: relative;
+    min-height: 0;
 
-		@media all and (min-width: $bp-small) {
-			@include gallery(12 of 24);
-		}
+    @media all and (min-width: $bp-small) {
+      @include gallery(12 of 24);
+    }
 
-		@media all and (min-width: $bp-med) {
-			@include gallery(8 of 24);
-		}
-	}
+    @media all and (min-width: $bp-med) {
+      @include gallery(8 of 24);
+    }
+  }
 }
 
 .section-title .link-more{
-	@include fontSize(14px);
-	margin-left: 1em;
+  @include fontSize(14px);
+  margin-left: 1em;
 }
 
 .section.channel-credits{
 
-	.title{
-		@media all and (min-width: $bp-med) {
-			@include span(4 of 24);
-		}
-	}
-	.credit-list{
-		@media all and (min-width: $bp-med) {
-			@include span(last 20 of 24);
-		}
-	}
+  .title{
+    @media all and (min-width: $bp-med) {
+      @include span(4 of 24);
+    }
+  }
+  .credit-list{
+    @media all and (min-width: $bp-med) {
+      @include span(last 20 of 24);
+    }
+  }
 }
 
 .channel-social{
-	.lc{
-		border-top: 6px solid $offwhite;
-		text-align: center;
-		padding: $space-double;
-	}
+  .lc{
+    border-top: 6px solid $offwhite;
+    text-align: center;
+    padding: $space-double;
+  }
 }
 
 
 // Static Pages
 .static-content{
-	.lc > .prose{
-		@media all and (min-width: $bp-med) {
-			@include span(18 of 24);
-			max-width: 40em;
-		}
-		padding-bottom: $space-triple;
+  .lc > .prose{
+    @media all and (min-width: $bp-med) {
+      @include span(18 of 24);
+      max-width: 40em;
+    }
+    padding-bottom: $space-triple;
 
-		& p:first-child{
-			font-size: 1.5625em;
-		}
-	}
-	.sidebar{
-		@media all and (min-width: $bp-med) {
-			@include span(last 6 of 24);
-		}
-	}
+    & p:first-child{
+      font-size: 1.5625em;
+    }
+  }
+  .sidebar{
+    @media all and (min-width: $bp-med) {
+      @include span(last 6 of 24);
+    }
+  }
 }
 
 .block-content-header h1{
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .section.page-header{
-	@media all and (min-width: $bp-med) {
-		padding-top: $space-triple;
-	}
+  @media all and (min-width: $bp-med) {
+    padding-top: $space-triple;
+  }
 
-	& > .lc{
-		max-width: 40em;
-	}
+  & > .lc{
+    max-width: 40em;
+  }
 }
