@@ -9,16 +9,35 @@ Configuration options and content model:
 # # # # # # # # # # # # # # # #
 
 {
-	"attribution_text" : "This is the attribution text",
-	"attribution_url" : "http://europeana.eu",
-	"license_CC0": true
 
-	//// other license options:	only one should be active
-	"license_CC-BY": true
-	"license_CC-BY-SA": true
-	"license_CC-BY-NC": true
-	"license_CC-ND-NC-SA": true
+	"attribution_url" : "http://europeana.eu", **REQUIRED** // url to item on europeana
+
+	// basic config
+	"attribution_text" : "This is the attribution string", // A string that contains attribution text/html
+
+	// advanced config
+	"attribution_title": "The Milkmaid", // This is the title of the work
+	"attribution_creator": "Johannes Vermeer", // This is the creator of the work
+	"attribution_institution": "Rijksmuseum", // Contributing institution
+
+
+	// license options:	only one should be active
+	// See licenses.mustache
+	"license_CC0": true
+	"license_CC_BY": true
+	"license_CC_BY_SA": true
+	"license_CC_BY_ND": true
+	"license_CC_BY_NC": true
+	"license_CC_BY_NC_SA": true
+	"license_CC_BY_NC_ND": true
+	"license_OOC": true
+	"license_PD_NC": true
 	"license_public": true
+	"license_RR_free": true
+	"license_RR_paid": true
+	"license_RR_restricted": true
+	"license_unknown": true
+	"license_orphan": true
 }
 
 # # # # # # # # # # # # # # # #
