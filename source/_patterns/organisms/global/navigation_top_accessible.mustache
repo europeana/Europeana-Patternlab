@@ -1,0 +1,122 @@
+<nav role="navigation">
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm global-nav">
+    <li><a href="#">Primary 1</a></li>
+    <li><a href="#" class="current">Primary 2</a>
+      <ul>
+        <li><a href="#">A pretty section text for the sub menus</a></li>
+        <li><a href="#">Children 1</a></li>
+        <li><a href="#">Children 2</a></li>
+        <li><a href="#">Children 3</a></li>
+        <li><a href="#">Children 4</a>
+          <ul>
+            <li><a href="#">A pretty section text for the sub menus</a></li>
+            <li><a href="#">GrandChildren 1</a></li>
+            <li><a href="#">GrandChildren 2</a></li>
+            <li><a href="#">GrandChildren 3</a></li>
+            <li><a href="#">GrandChildren 4</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Children 5</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Primary 3</a></li>
+    <li><a href="#">Primary 4</a>
+      <ul>
+        <li><a href="#">A pretty section text for the sub menus</a></li>
+        <li><a href="#">Children 1</a></li>
+        <li><a href="#">Children 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Primary 5</a>
+      <ul>
+        <li><a href="#">Children 1</a></li>
+        <li><a href="#">Children 2</a></li>
+        <li><a href="#" class="disabled">Children 3 Disabled</a></li>
+        <li><a href="#">Children 4</a></li>
+        <li><a href="#">more...</a>
+          <ul>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+<!-- JQuery / javascript - needs to be moved -->
+
+$(function() {
+	$('#main-menu').smartmenus({
+		mainMenuSubOffsetX: -1,
+		mainMenuSubOffsetY: 4,
+		subMenusSubOffsetX: 6,
+		subMenusSubOffsetY: -6
+	});
+});
