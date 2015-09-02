@@ -122,24 +122,34 @@ module.exports = function(grunt) {
               expand:  true
           },
 
-          mediaviewers: {
-              src:    '*.js',
-              cwd:    'source/js/modules',
-              dest:   'source/js/dist/eu/media',
-              expand: true
+          NOF: {
+            src:    '*.js',
+            cwd:    'source/js/modules/lib/904Labs',
+            dest:   'source/js/dist/lib/904Labs',
+            expand: true
           },
+
           pdfjs: {
-              src:    '**',
-              cwd:    'source/js/modules/lib/pdfjs',
-              dest:   'source/js/dist/lib/pdfjs',
-              expand:  true
+            src:    '**',
+            cwd:    'source/js/modules/lib/pdfjs',
+            dest:   'source/js/dist/lib/pdfjs',
+            expand:  true
           },
+
           pdfjs_img: {
-              src:    '**',
-              cwd:    'source/js/modules/lib/pdfjs/images',
-              dest:   'source/js/dist/lib/pdfjs/images',
-              expand:  true
+            src:    '**',
+            cwd:    'source/js/modules/lib/pdfjs/images',
+            dest:   'source/js/dist/lib/pdfjs/images',
+            expand:  true
           },
+
+          purl: {
+            src:    '*.js',
+            cwd:    'source/js/modules/lib/purl',
+            dest:   'source/js/dist/lib/purl',
+            expand: true
+          },
+
           require: {
             src:    '**',
             cwd:    'source/js/modules/bower_components/requirejs/',
@@ -153,10 +163,10 @@ module.exports = function(grunt) {
             expand:  true
           },
           videojs_aurora: {
-              src:    '**',
-              cwd:    'source/js/modules/lib/videojs-aurora',
-              dest:   'source/js/dist/lib/videojs-aurora',
-              expand:  true
+            src:    '**',
+            cwd:    'source/js/modules/lib/videojs-aurora',
+            dest:   'source/js/dist/lib/videojs-aurora',
+            expand:  true
           },
           videojs_silverlight: {
             src:    '**',
@@ -216,9 +226,10 @@ module.exports = function(grunt) {
        'copy:main',
        'copy:map_img',
        'copy:map_img_fs',
-       'copy:mediaviewers',
+       'copy:NOF',
        'copy:pdfjs',
        'copy:pdfjs_img',
+       'copy:purl',
        'copy:require',
        'copy:videojs',
        'copy:videojs_aurora',

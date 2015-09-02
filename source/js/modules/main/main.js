@@ -31,9 +31,15 @@ require.config({
 
     menus:                         '../global/menus',
     mootools:                      '../lib/iipmooviewer/js/mootools-core-1.5.1-full-nocompat-yc',
+
+    NOFlogger:                     '../lib/904Labs/904-logger',
+    NOFremote:                     '../lib/904Labs/noflogging-0.2.min',
+//    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',
+
     pdfjs:                         '../lib/pdfjs/pdf',
     pdf_ui:                        '../lib/pdfjs/pdf-ui',
     pdf_lang:                      '../lib/pdfjs/l10n',
+    purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
     resize:                        '../eu/util/resize',
@@ -61,9 +67,23 @@ require(['jquery'], function( $ ) {
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'hotjar', 'global'], function( global, channels ) {
       $.holdReady(false);
+
       require(["ga"], function(ga) {
           ga("send", "pageview");
       });
+
+      /*
+      require(['purl'], function() {
+          require(['NOFlogger'], function(NOFlogger) {
+              NOFlogger.init904();
+
+              require(['NOFremote'], function() {
+                 console.log('NOFlogger = ' + NOFlogger)
+              });
+
+          });
+      });
+      */
 
     });
   });
