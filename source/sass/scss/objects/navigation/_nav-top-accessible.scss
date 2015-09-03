@@ -76,39 +76,77 @@
 	   collapsible to desktop (navbar + dropdowns)
 	-----------------------------------------------*/
 	/* start... (it's not recommended editing these rules) */
-	.global-nav ul{
+	.nav-access ul{
     position:absolute;
   }
 
-	.global-nav li{
+	.nav-access li{
     float:left;
   }
 
-	.global-nav.sm-rtl li{
+	.nav-access.sm-rtl li{
     float:right;
   }
 
-	.global-nav ul li,
-  .global-nav.sm-rtl ul li,
-  .global-nav.sm-vertical li{
+	.nav-access ul li,
+  .nav-access.sm-rtl ul li,
+  .nav-access.sm-vertical li{
     float:none;
   }
 
-	.global-nav a{
+	.nav-access a{
     white-space:nowrap;
   }
 
-	.global-nav ul a,
-  .global-nav.sm-vertical a{
+	.nav-access ul a,
+  .nav-access.sm-vertical a{
     white-space:normal;
   }
 
-	.global-nav .sm-nowrap > li > a,
-  .global-nav .sm-nowrap > li > :not(ul) a{
+	.nav-access .sm-nowrap > li > a,
+  .nav-access .sm-nowrap > li > :not(ul) a{
     white-space:nowrap;
   }
 	/* ...end */
 
-
 	/* Your rules to style the menu in desktop view here... */
+
+  .nav_primary.nav-access {
+    // Style for hover menu
+    li{
+      ul{
+        a {
+          font-size: $font-size-slightly-smaller;
+          font-weight: normal;
+          line-height: 1.2;
+          color: $black;
+          &:after {
+            border-bottom: none;
+          }
+        }
+      }
+      .see_more{
+        font-size: $font-size-slightly-smaller;
+        font-weight: bold;
+        color: $accent;
+        padding: 0.7em 0.6em;
+        &:hover {
+          color: $black;
+        }
+      }
+      .menu-section{
+        padding: 0.6em 0.6em 0.2em 0.6em;
+        font-size: $font-size-sm;
+        color: $gray-light;
+      }
+      .sub-arrow{
+        float: right;
+        margin-left: $pad-quarter;
+      }
+    }
+    .levelb{
+      width: 12em;
+      border: 1px solid #bbbbbb;
+    }
+  }
 }
