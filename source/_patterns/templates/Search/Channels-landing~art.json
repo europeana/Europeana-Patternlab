@@ -125,7 +125,7 @@
           "count": "190,226",
           "media_type":"Images",
           "is_search": true,
-          "image": "sample/entry-painting-square.jpg"
+          "image": "../../images/sample/entry-painting-square.jpg"
         },
         {
           "title":"All Sculptures",
@@ -133,7 +133,7 @@
           "count": "7,029",
           "media_type":"Images and video",
           "is_search": true,
-          "image": "sample/entry-sculpture-square.jpg"
+          "image": "../../images/sample/entry-sculpture-square.jpg"
         },
         {
           "title":"All Art history publications",
@@ -141,7 +141,7 @@
           "count": "2,333",
           "media_type":"Documents",
           "is_search": true,
-          "image": "sample/entry-documents-square.jpg"
+          "image": "../../images/sample/entry-documents-square.jpg"
         },
         {
           "title":"Spotlight on Botticelli",
@@ -149,7 +149,7 @@
           "count": "76",
           "media_type":"Images and videos",
           "is_spotlight": true,
-          "image": "sample/entry-botticelli-square.jpg"
+          "image": "../../images/sample/entry-botticelli-square.jpg"
         },
         {
           "title":"Spotlight on Alexander Roslin",
@@ -157,7 +157,7 @@
           "count": "46",
           "media_type":"Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-roslin-square.jpg"
+          "image": "../../images/sample/entry-roslin-square.jpg"
         },
         {
           "title":"Spotlight on Hokusai",
@@ -165,7 +165,7 @@
           "count": "240",
           "media_type":"Images",
           "is_spotlight": true,
-          "image": "sample/entry-hokusai-square.jpg"
+          "image": "../../images/sample/entry-hokusai-square.jpg"
         }
       ]
     },
@@ -176,37 +176,37 @@
           "title":"Royal Book Collections",
           "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-book.jpg"
+          "bg_image":"../../images/sample/thumb-book.jpg"
         },
         {
           "title":"From Dada to Surrealism",
           "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
+          "bg_image":"../../images/sample/thumb-dada.jpg"
         },
         {
           "title":"Art Nouveau",
           "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-artnouveau.jpg"
+          "bg_image":"../../images/sample/thumb-artnouveau.jpg"
         },
         {
           "title":"Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-instruments.jpg"
+          "bg_image":"../../images/sample/thumb-instruments.jpg"
         },
         {
           "title":"Pablo Picasso",
           "url": "http://dizbi.hazu.hr/picasso/",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-picasso.jpg"
+          "bg_image":"../../images/sample/thumb-picasso.jpg"
         },
         {
           "title":"From Dada to Surrealism",
           "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
+          "bg_image":"../../images/sample/thumb-dada.jpg"
         }
       ]
     },

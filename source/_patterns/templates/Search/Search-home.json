@@ -48,31 +48,31 @@
         "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
         "is_channel": true,
         "wide": true,
-        "bg_image": "sample/thumb-music.jpg"
+        "bg_image": "../../images/sample/thumb-music.jpg"
       },
       {
         "title": "Recording and Playing Machines",
         "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
         "is_exhibition": true,
-        "bg_image": "sample/thumb-machines.jpg"
+        "bg_image": "../../images/sample/thumb-machines.jpg"
       },
       {
         "title": "Photography on a Silver Plate",
         "url": "urlhere",
         "is_exhibition": true,
-        "bg_image": "sample/thumb-photography.jpg"
+        "bg_image": "../../images/sample/thumb-photography.jpg"
       },
       {
         "title": "European Film and the First World War",
         "url": "urlhere",
         "is_exhibition": true,
-        "bg_image": "sample/thumb-expo-film.jpg"
+        "bg_image": "../../images/sample/thumb-expo-film.jpg"
       },
       {
         "title": "Europeana 1914—1918",
         "url": "urlhere",
         "is_featured_site": true,
-        "bg_image": "sample/thumb-1418.jpg"
+        "bg_image": "../../images/sample/thumb-1418.jpg"
       },
       {
         "title": "Europeana monuments now in Google Field Trip",

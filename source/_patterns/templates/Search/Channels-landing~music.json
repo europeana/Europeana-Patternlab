@@ -106,7 +106,7 @@
           "count": "190,226",
           "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-opera-square.jpg"
+          "image": "../../images/sample/entry-opera-square.jpg"
         },
         {
           "title": "Folk Music",
@@ -114,7 +114,7 @@
           "count": "7,029",
           "media_type": "Recordings",
           "is_search": true,
-          "image": "sample/entry-folk-square.jpg"
+          "image": "../../images/sample/entry-folk-square.jpg"
         },
         {
           "title": "Musical Instruments",
@@ -122,7 +122,7 @@
           "count": "46,843",
           "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-intruments-square.jpg"
+          "image": "../../images/sample/entry-intruments-square.jpg"
         },
         {
           "title": "Georges Bizet's Carmen",
@@ -130,7 +130,7 @@
           "count": "573",
           "media_type": "Recordings and Videos",
           "is_spotlight": true,
-          "image": "sample/entry-carmen-square.jpg"
+          "image": "../../images/sample/entry-carmen-square.jpg"
         },
         {
           "title": "Spotlight: The Lute",
@@ -138,7 +138,7 @@
           "count": "46",
           "media_type": "Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-lute-square.jpg"
+          "image": "../../images/sample/entry-lute-square.jpg"
         },
         {
           "title": "Spotlight: The Harpsichord",
@@ -146,7 +146,7 @@
           "count": "240",
           "media_type": "Texts and Recordings",
           "is_spotlight": true,
-          "image": "sample/entry-harpsichord-square.jpg"
+          "image": "../../images/sample/entry-harpsichord-square.jpg"
         }
       ]
     },
@@ -157,25 +157,25 @@
           "title": "Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-instruments.jpg"
+          "bg_image": "../../images/sample/thumb-instruments.jpg"
         },
         {
           "title": "Weddings in Eastern Europe",
           "url": "http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-wedding.jpg"
+          "bg_image": "../../images/sample/thumb-wedding.jpg"
         },
         {
           "title": "Recording and playing Machines",
           "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-machines.jpg"
+          "bg_image": "../../images/sample/thumb-machines.jpg"
         },
         {
           "title": "Find more from Europeana Music on Soundcloud",
           "url": "http://soundcloud.com",
           "wide": true,
-          "bg_image": "sample/sc_st_white_240x140.png",
+          "bg_image": "../../images/sample/sc_st_white_240x140.png",
           "class_custom": "soundcloud"
         }
       ]
