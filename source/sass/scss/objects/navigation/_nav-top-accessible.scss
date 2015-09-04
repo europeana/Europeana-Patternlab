@@ -186,6 +186,29 @@
       background: $white;
       box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px;
     }
+    .levelc{
+      @extend .levelb;
+      // First sub level carets
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: -18px;
+        left: 30px;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        border-width: 9px;
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $gray87 transparent;
+      }
+      &:after {
+        top: -16px;
+        left: 31px;
+        border-width: 8px;
+        border-color: transparent transparent $white transparent;
+      }
+    }
   }
 }
 
