@@ -17,8 +17,7 @@
 			subMenusSubOffsetX: 6,
 			subMenusSubOffsetY: -6
 		});
-
-
+		$('#main-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
     });
 })(jQuery);
