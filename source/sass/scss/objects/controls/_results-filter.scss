@@ -32,6 +32,14 @@
 	margin-bottom: $space-half;
 }
 
+.filter-list li{
+	display: inline-block;
+
+	@media all and (min-width: $bp-med) {
+		display: block;
+	}
+}
+
 .filter-label{
 	padding: 0.2em 0;
 
@@ -114,6 +122,21 @@
 
 // Custom radio and checkboxes from links
 // js needed to switch on/off
+
+.filter-item{
+	display: block;
+	padding: 8px;
+	border-radius: 5px;
+
+	@media all and (min-width: $bp-med) {
+		padding: 5px;
+	}
+
+	&:hover, &:focus{
+		background-color: $white;
+	}
+}
+
 .filter-item:before{
 	content:'';
     display: inline-block;
@@ -157,4 +180,10 @@
     &.is-checked.is-disabled:before {
         background-position: -154px 0;
     }
+}
+
+
+.filter-hierarchical > .filter-list > li{
+	//only top level of hierarchical filters
+	display: block;
 }
