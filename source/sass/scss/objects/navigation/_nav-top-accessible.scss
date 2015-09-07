@@ -111,6 +111,10 @@
 
 	/* Your rules to style the menu in desktop view here... */
 
+  .header .nav_primary.nav-access{
+    overflow: visible;
+  }
+
   .nav_primary.nav-access {
     // Toggle buttons (sub menu indicators)
 		a{
