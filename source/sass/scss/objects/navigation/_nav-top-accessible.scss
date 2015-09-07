@@ -181,13 +181,16 @@
         padding-bottom: $pad-half;
       }
     }
-    .levelb{
+    .sublevel{
       width: 12em;
       background: $white;
       box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px;
+      li{
+        float: none;
+      }
     }
-    .levelc{
-      @extend .levelb;
+    .sublevel-caret{
+      @extend .sublevel;
       // First sub level carets
       &:before,
       &:after {
@@ -208,6 +211,9 @@
         border-width: 8px;
         border-color: transparent transparent $white transparent;
       }
+    }
+    .header & {
+      overflow: visible;
     }
   }
 }
