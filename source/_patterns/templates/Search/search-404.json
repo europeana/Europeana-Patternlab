@@ -126,7 +126,7 @@
           "count": "76",
           "media_type":"Images and videos",
           "is_spotlight": true,
-          "image": "sample/entry-botticelli-square.jpg"
+          "image": "../../images/sample/entry-botticelli-square.jpg"
         },
         {
           "title":"Spotlight on Alexander Roslin",
@@ -134,7 +134,7 @@
           "count": "46",
           "media_type":"Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-roslin-square.jpg"
+          "image": "../../images/sample/entry-roslin-square.jpg"
         },
         {
           "title":"Spotlight on Hokusai",
@@ -142,7 +142,7 @@
           "count": "240",
           "media_type":"Images",
           "is_spotlight": true,
-          "image": "sample/entry-hokusai-square.jpg"
+          "image": "../../images/sample/entry-hokusai-square.jpg"
         }
       ]
     }

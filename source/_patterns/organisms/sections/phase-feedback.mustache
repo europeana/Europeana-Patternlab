@@ -1,18 +1,12 @@
 <section class="prelaunch-feedback" id="phase-feedback">
 	<div class="lc">
 		<div class="phase-info">
-		{{# version.is_alpha }}
-			<h2>{{ i18n.site.alpha.feedback_banner.title }}</h2>
-			<p>{{ i18n.site.alpha.feedback_banner.description }}</p>
-		{{/ version.is_alpha }}
-		{{# version.is_beta }}
-			<h2>{{ i18n.site.beta.feedback_banner.title }}</h2>
-			<p>{{ i18n.site.beta.feedback_banner.description }}</p>
-		{{/ version.is_beta }}
+			<h2>{{ content.phase_feedback.title }}</h2>
+			<p>{{ content.phase_feedback.text }}</p>
 		</div>
 
 		<div class="feedback-link">
-			<a href="http://insights.hotjar.com/s?siteId=54631&surveyId=2939" class="btn btn-light pill">{{# version.is_alpha }}{{ i18n.site.alpha.feedback_banner.link-text }}{{/ version.is_alpha }}{{# version.is_beta }}{{ i18n.site.beta.feedback_banner.link-text }}{{/ version.is_beta }}</a>
+			<a href="{{ content.phase_feedback.cta_url }}" class="btn btn-light pill">{{ content.phase_feedback.cta_text }}</a>
 		</div>
 
 	</div>
