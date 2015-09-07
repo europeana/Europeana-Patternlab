@@ -1,3 +1,60 @@
+<header class="header">
+
+<div class="menu-top">
+	{{> molecules/navigation/global-topdrawer }}
+</div>
+
+<!-- Off canvas search bar -->
+{{#options.search_active}}
+{{> molecules/forms/global-search }}
+{{/options.search_active}}
+
+<!-- wrapper for navigation bar -->
+<div class="cf">
+
+{{# version.is_alpha }}
+	<a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
+{{/ version.is_alpha }}
+
+
+	{{> atoms/images/logo }}
+
+
+	<div class="nav-global">
+
+		<a href="#" class="nav-toggle nav-toggle-sites">
+			<span>{{i18n.global.our-sites}}</span>
+		</a>
+
+		{{#options.search_active}}
+		<a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea">
+			<svg class="icon icon-search">
+				<use xlink:href="#icon-search"></use>
+			</svg>
+			<span class="is-vishidden">Search</span>
+		</a>
+		{{/options.search_active}}
+
+		{{#options.settings_active}}
+		<a href="#" class="nav-toggle nav-toggle-settings">
+			<svg class="icon icon-settings">
+				<use xlink:href="#icon-settings"></use>
+			</svg>
+			<span>Settings</span>
+		</a>
+		{{/options.settings_active}}
+
+		<a href="#" class="nav-toggle nav-toggle-menu">
+			<svg class="icon icon-menu">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<span>Menu</span>
+		</a>
+
+	</div>
+
+  <!-- Primary navigation -->
+
 <nav role="navigation">
   <!-- Sample menu definition -->
   <ul id="main-menu" class="sm nav_primary nav-access">
@@ -122,3 +179,4 @@
   </ul>
 </nav>
 
+</header>
