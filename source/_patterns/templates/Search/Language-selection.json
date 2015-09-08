@@ -1,0 +1,147 @@
+{
+  "bodyclass": "europeana_language",
+  "page_title": "Europeana Language Selection",
+  "version": {
+    "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "i18n": {
+    "global": {
+      "settings": "Settings",
+      "facet": {
+        "more-refinements": "Advanced filters",
+        "language": "Language"
+      }
+    },
+    "site": {
+      "results": {
+        "list": {
+          "in-channel": "in Channel",
+          "view-at-provider": "View at",
+          "empty": "No results",
+          "empty-with-terms": "Your search for <strong>paris</strong> returned no results",
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>"
+        },
+        "actions": {
+          "product-save": "Save"
+        },
+        "page": {
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
+          "search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
+        }
+      }
+    }
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+  "language_select": [
+    {
+      "title": "Language Settings",
+      "translate-search": "Automatically translate search keywords into...",
+      "limit": "A maximum of 6 languages can be selected.",
+      "translate-item": "Automatically translate item pages into..."
+    }
+  ],
+  "navigation": {
+    "global": {
+      "options": {
+        "search_active": false,
+        "settings_active": false
+      },
+      "primary_nav": {
+        "items": [
+          {
+            "url": "#",
+            "text": "Home",
+            "is_current": true
+          },
+          {
+            "url": "",
+            "text": "Channels",
+            "submenu": {
+              "items": [
+                {
+                  "url": "http://google.com",
+                  "text": "Channel 1"
+                },
+                {
+                  "url": "http://google.com",
+                  "text": "Channel 2",
+                  "is_current": true
+                },
+                {
+                  "url": "http://google.com",
+                  "text": "Channel 3"
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Exhibitions"
+          },
+          {
+            "url": "",
+            "text": "Blog"
+          },
+          {
+            "url": "",
+            "text": "My Europeana"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "linklist1": {
+        "title": "More info",
+        "items": [
+          {
+            "text": "New collections",
+            "url": "http://google.com"
+          },
+          {
+            "text": "All data providers",
+            "url": "http://google.com"
+          },
+          {
+            "text": "Become a data provider",
+            "url": "http://google.com"
+          }
+        ]
+      },
+      "linklist2": {
+        "title": "Help",
+        "items": [
+          {
+            "text": "Search tips",
+            "url": "http://google.com"
+          },
+          {
+            "text": "Using My Europeana",
+            "url": "http://google.com"
+          },
+          {
+            "text": "Copyright",
+            "url": "http://google.com"
+          }
+        ]
+      },
+      "social": {
+        "linkedin": false,
+        "github": false
+      }
+    }
+  }
+}

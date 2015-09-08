@@ -1,0 +1,43 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header}}
+
+<div role="main" class="page l-page">
+
+    <section class="search-results">
+        <div class="container">
+            <div class="results-list cf">
+
+
+
+                    <ol class="result-items">
+                        {{# language_select }}
+                        <li>
+
+                            {{> molecules/controls/selector-language }}
+                        </li>
+                        {{/ language_select }}
+                    </ol>
+
+
+            </div>
+
+            <div class="refine">
+                <h2>{{i18n.global.settings}}</h2>
+                <div class="filter">
+                  <a href="#languages-selection">{{i18n.global.facet.language}}</a>
+                  <div class="refine-advanced">
+                    <a href="#language-advanced">{{i18n.global.facet.more-refinements}}</a>
+                      {{! @TODO add advanced search }}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{{# version.is_alpha }}
+{{> organisms/sections/phase-feedback }}
+{{/ version.is_alpha }}
+
+{{> organisms/global/footer }}
