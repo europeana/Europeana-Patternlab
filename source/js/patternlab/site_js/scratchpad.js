@@ -6,9 +6,6 @@
 /* Create a closure to maintain scope of the '$'
    and remain compatible with other frameworks.  */
 (function($) {
-    //same as $(document).ready();
-    $(function() {
-
 
 
     	$('#main-menu').smartmenus({
@@ -17,7 +14,8 @@
 			subMenusSubOffsetX: 6,
 			subMenusSubOffsetY: -6
 		});
+
 		$('#main-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
-    });
+
 })(jQuery);

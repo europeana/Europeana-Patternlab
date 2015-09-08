@@ -24,7 +24,7 @@
 
 }
 
-.nav-toggle:hover, 
+.nav-toggle:hover,
 .is-open-globalsearch .nav-toggle-search,
 .is-open-menu-right .nav-toggle-menu{
 	background-color: $offcanvas_bg;
@@ -74,6 +74,19 @@
 	}
 }
 
+.our-sites .l-linklist{
+	@media all and (min-width: $bp-med) {
+
+		width: 23.94366%;
+		float: left;
+		margin-right: 1.40845%;
+
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
+
 .globallink{
 	margin-bottom: $space-half;
 	a{
@@ -119,11 +132,11 @@
 // Whole site wrapper element for push effect
 .pusher {
 	position: relative;
-	height: 100%; 
+	height: 100%;
 	*zoom: 1;
 }
 .pusher:before, .pusher:after {
-    content: " "; 
+    content: " ";
     display: table;
 }
 .pusher:after {
@@ -215,16 +228,16 @@
 	-webkit-transition: max-height 0.3s;
 	transition: max-height 0.3s;
 	background-color: $offcanvas_bg;
-	
+
 	.inner{
 		padding: $space;
 	}
 
 	form{
-		position: relative;	
+		position: relative;
 	}
 
-	input[type=text] { 
+	input[type=text] {
 		border:none;
 		outline:none;
 		padding: $space-half;

@@ -499,14 +499,6 @@
                     "more":"More",
                     "less":"Less"
                 }
-            },
-            "alpha":{
-                "feedback_banner":{
-                    "title": "This is an Alpha release of our new collections search and Music Channel",
-                    "description": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
-                    "link-text":"Give us your input"
-                }
-
             }
         },
         "global": {
@@ -516,10 +508,10 @@
               }
             },
             "header": {
-              "discover": "discover",
-              "network": "network",
-              "develop": "develop",
-              "connect": "connect"
+              "discover": "Discover",
+              "network": "Network",
+              "develop": "Develop",
+              "connect": "Connect"
             },
             "home": "Home",
             "labs": "Labs",
