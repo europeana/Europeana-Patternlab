@@ -1,0 +1,47 @@
+<article class="search-list-item cf">
+
+
+	<div class="item-language">
+
+		<h1>{{ title }}</h1>
+
+    <div class="field-container">
+        <label for="select">{{ default-language }}</label>
+        <select id="select">
+            <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <div class="check-language">
+
+      <h1>{{ translate-search }}</h1>
+    {{#checkbox_language}}
+      <ul>
+      {{#items}}
+        <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> {{text}}</label></li>
+      </ul>
+    {{/checkbox_language}}
+      <p>{{ limit }}</p>
+
+      <input class="pushbutton" type="submit" value="Clear Selection"/>
+
+    </div>
+
+    <div class="check-language">
+
+      <h1>{{ translate-item }}</h1>
+
+      {{> atoms/forms/select-menu }}
+
+      <input type="submit" value="Save Settings"/>
+
+    </div>
+
+		<footer>
+		</footer>
+	</div>
+</article>
