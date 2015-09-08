@@ -14,24 +14,6 @@
         "more-refinements": "Advanced filters",
         "language": "Language"
       }
-    },
-    "site": {
-      "results": {
-        "list": {
-          "in-channel": "in Channel",
-          "view-at-provider": "View at",
-          "empty": "No results",
-          "empty-with-terms": "Your search for <strong>paris</strong> returned no results",
-          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>"
-        },
-        "actions": {
-          "product-save": "Save"
-        },
-        "page": {
-          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
-          "search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
-        }
-      }
     }
   },
   "css_files": [
@@ -46,14 +28,63 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
-  "language_select": [
-    {
-      "title": "Language Settings",
-      "translate-search": "Automatically translate search keywords into...",
-      "limit": "A maximum of 6 languages can be selected.",
-      "translate-item": "Automatically translate item pages into..."
+  "content": {
+    "title": "Language Settings",
+    "translate-search": "Automatically translate search keywords into...",
+    "limit": "A maximum of 6 languages can be selected.",
+    "translate-item": "Automatically translate item pages into...",
+    "language_options": {
+      "title": "My Checkbox list title",
+      "is_required": false,
+      "name": "checkboxes[]",
+      "items": [
+        {
+          "text": "French",
+          "value": "french",
+          "item_id": "french"
+        },
+        {
+          "text": "My option name",
+          "value": "Myoptionname",
+          "item_id": "option2"
+        },
+        {
+          "text": "My option",
+          "value": "Myoptionname",
+          "item_id": "option3",
+          "is_checked": true
+        },
+        {
+          "text": "My option lkjhlkjhlkjhlkjhlkjhl",
+          "value": "Myoptionname",
+          "item_id": "option4"
+        },
+        {
+          "text": "My lkjhlkjhl kjhlkjh lkjhlkjhlkj hl",
+          "value": "Myoptionname",
+          "item_id": "option5",
+          "is_checked": true
+        },
+        {
+          "text": "My jkhkjhkjh kjhk jhkj h name",
+          "value": "Myoptionname",
+          "item_id": "option6"
+        },
+        {
+          "text": "My iuyoiuyoiuyoiu name",
+          "value": "Myoptionname",
+          "item_id": "option7"
+        },
+        {
+          "text": "My kjhgkjh kjhgkjhgkjhgkjhgkjhgkjhgkjhgkjhgkjhg name",
+          "value": "Myoptionname",
+          "item_id": "option8",
+          "is_checked": true,
+          "is_disabled": true
+        }
+      ]
     }
-  ],
+  },
   "navigation": {
     "global": {
       "options": {

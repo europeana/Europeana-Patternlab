@@ -9,16 +9,36 @@
             <div class="results-list cf">
 
 
+                <div class="item-language">
 
-                    <ol class="result-items">
-                        {{# language_select }}
-                        <li>
+                    <h1>{{ content.title }}</h1>
 
-                            {{> molecules/controls/selector-language }}
-                        </li>
-                        {{/ language_select }}
-                    </ol>
+                    {{> atoms/forms/select-menu }}
 
+                    <div class="check-language">
+
+                        <h1>{{ content.translate-search }}</h1>
+
+                        {{#content.language_options}}
+                            {{> molecules/controls/group-checkbox }}
+                        {{/content.language_options}}
+
+                      <p>{{ content.limit }}</p>
+
+                      <input class="pushbutton" type="submit" value="Clear Selection"/>
+
+                    </div>
+
+                    <div class="check-language">
+
+                      <h1>{{ content.translate-item }}</h1>
+
+                      {{> atoms/forms/select-menu }}
+
+                      <input type="submit" value="Save Settings"/>
+
+                    </div>
+                </div>
 
             </div>
 
