@@ -4,18 +4,16 @@
 
 	width: 40%;
 	position: absolute;
-
 	top: 0;
 	left: 0;
 	opacity: 0.5;
 
-	.brand-topleft &{
-		top: 0;
-		left: 0;
-	}
+	// .brand-topleft &{ // redundant as top left is default
+	// 	top: 0;
+	// 	left: 0;
+	// }
 
 	.brand-topright &{
-		top: 0;
 		right: 0;
 		left: auto;
 		@include rotateY(180);
@@ -27,8 +25,8 @@
 	}
 	.brand-bottomright &{
 		top: auto;
-		bottom: 0;
 		left: auto;
+		bottom: 0;
 		right: 0;
 		@include rotateZ(180);
 	}
@@ -49,9 +47,16 @@
 
 	svg{
 		fill: $accent;
-		width: 100%;
 	}
 
+}
+
+.brand-circles > svg, .brand-text > svg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
 // Brand circles colours
@@ -80,4 +85,14 @@
 	svg{
 		fill: $white;
 	}
+}
+
+
+.scaling-svg-container {
+ position: relative;
+ height: 0;
+ width: 100%;
+ padding: 0;
+ padding-bottom: 100%;
+ /* override this inline for aspect ratio other than square */
 }
