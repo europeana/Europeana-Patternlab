@@ -49,7 +49,24 @@
   "language_select": [
     {
       "title": "Language Settings",
+      "default-language": "Default Language",
       "translate-search": "Automatically translate search keywords into...",
+      "checkbox_language": {
+        "items": [
+          {
+            "text": "Primary 1"
+          },
+          {
+            "text": "Primary 2"
+          },
+          {
+            "text": "Primary 3"
+          },
+          {
+            "text": "Primary 4"
+          }
+        ]
+      },
       "limit": "A maximum of 6 languages can be selected.",
       "translate-item": "Automatically translate item pages into..."
     }

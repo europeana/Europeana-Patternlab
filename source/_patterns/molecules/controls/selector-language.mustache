@@ -5,14 +5,26 @@
 
 		<h1>{{ title }}</h1>
 
-    {{> atoms/forms/select-menu }}
+    <div class="field-container">
+        <label for="select">{{ default-language }}</label>
+        <select id="select">
+            <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+            </optgroup>
+        </select>
+    </div>
 
     <div class="check-language">
 
       <h1>{{ translate-search }}</h1>
-
-      {{> atoms/forms/checkbox }}
-
+    {{#checkbox_language}}
+      <ul>
+      {{#items}}
+        <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> {{text}}</label></li>
+      </ul>
+    {{/checkbox_language}}
       <p>{{ limit }}</p>
 
       <input class="pushbutton" type="submit" value="Clear Selection"/>
