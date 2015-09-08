@@ -99,3 +99,40 @@
 		margin-right: -4px;
 	}
 }
+
+//move to scss/objects/controls/selector-language.scss
+
+.item-language{
+  @extend .item-info;
+  padding-top: $pad-and-half;
+  h1{
+		font-size: $font-size-norm;
+		margin-bottom: $space-half;
+		font-family: $font-primary;
+    font-weight: bold;
+  }
+  .check-language{
+    h1{
+      padding-top: $pad;
+      border-top: 1px solid $gray87;
+		  font-size: $font-size-slightly-smaller;
+    }
+    p{
+      font-size: $font-size-slightly-smaller;
+      margin-bottom: $pad-half
+    }
+
+    input{
+      box-shadow: none;
+      font-size: $font-size-slightly-smaller;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .pushbutton{
+      color: $gray-med;
+      background: $offwhite;
+      margin-bottom: $pad;
+    }
+
+  }
+}
