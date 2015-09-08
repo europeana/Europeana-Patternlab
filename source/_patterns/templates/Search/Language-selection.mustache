@@ -13,7 +13,18 @@
 
                     <h1>{{ content.title }}</h1>
 
-                    {{> atoms/forms/select-menu }}
+                    <div class="field-container">
+                        <label for="select">{{ content.default-language }}</label>
+                        <select id="select">
+                            <optgroup label="Option Group">
+                                <option>Option One</option>
+                                <option>Option Two</option>
+                                <option>Option Three</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+
 
                     <div class="check-language">
 
