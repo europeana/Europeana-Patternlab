@@ -1,0 +1,25 @@
+.control-group .title{
+	margin-bottom: $space;
+	font-weight: bold;
+}
+
+ul{
+	@include flexbox();
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+// This will apply to all items in a
+.control-group .group-item{
+
+	display: inline-block;
+	padding: $space-quarter;
+	width: 100%;
+
+	@media all and (min-width: $bp-small) {
+		width: 49%;
+	}
+	@media all and (min-width: $bp-med) {
+		width: 33%;
+	}
+}

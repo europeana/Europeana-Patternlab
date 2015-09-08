@@ -44,6 +44,19 @@
 @import "scss/grid/csswizardry-grids";
 @import "scss/objects/media_grid";
 
+@import "scss/grid/susy";
+//module layout using susy grid
+
+$susy: (
+  columns: 24,
+  gutters: 1/2,
+  math: fluid,
+  use-custom: (
+    box-sizing: false,
+  ),
+  global-box-sizing: border-box
+);
+
 
 /*------------------------------------*\
     $GLOBAL ELEMENTS
@@ -121,4 +134,4 @@
 @import "scss/objects/social-share";
 @import "scss/objects/controls/dropdown";
 @import "scss/objects/controls/attribution-widget";
-//@import "scss/objects/controls/results-filter";
+@import "scss/objects/controls/form-control-groups";
