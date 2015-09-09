@@ -81,8 +81,6 @@
 		}
 	}
 
-
-
 	.b-thumb {
 		@media all and (min-width: $bp-small-2) {
 			display: table-cell;
@@ -105,6 +103,20 @@
 			padding: 0 $pad;
 		}
 	}
+
+  .b-thumb-wide {
+    @extend .b-thumb;
+    @media all and (min-width: $bp-small-2) {
+      width: 20%;
+    }
+  }
+
+  .b-text-wide {
+    @extend .b-text;
+    @media all and (min-width: $bp-small-2) {
+      width: 80%;
+    }
+  }
 
 	.headline{
 		//color: $blue;

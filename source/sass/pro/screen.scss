@@ -340,12 +340,19 @@ $icon_primary: lighten($accent, 10);
 
 }
 
+// List Page for People, Partners and Elections
 
-
-.contact-methods {
-	.job-title{
+.jobdetails {
+	.job-title {
 		font-weight: bold;
 	}
+}
+
+.list-teaser {
+  .teaser{
+    font-style: italic;
+    padding-top: $pad-quarter;
+  }
 }
 
 //Sub site common
