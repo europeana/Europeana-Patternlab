@@ -348,6 +348,12 @@ $icon_primary: lighten($accent, 10);
 	}
 }
 
+.contact-detail {
+  .candidacy-intro {
+    padding-top: $pad;
+  }
+}
+
 .list-teaser {
   .teaser{
     font-style: italic;
