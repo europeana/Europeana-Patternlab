@@ -25,6 +25,9 @@
         "search_active": false,
         "settings_active": true
       },
+      "logo":{
+        "text":"Europeana Collections"
+      },
       "primary_nav": {
         "items": [
           {

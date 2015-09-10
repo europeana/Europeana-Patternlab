@@ -30,6 +30,9 @@
         "search_active": false,
         "settings_active": false
       },
+      "logo":{
+        "text":"Europeana Collections"
+      },
       "primary_nav": {
         "items": [
           {
