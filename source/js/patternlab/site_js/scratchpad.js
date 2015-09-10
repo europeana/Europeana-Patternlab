@@ -8,6 +8,8 @@
 (function($) {
 
 
+	if(jQuery().smartmenus) {
+
     	$('#main-menu').smartmenus({
 			mainMenuSubOffsetX: -1,
 			mainMenuSubOffsetY: 4,
@@ -16,6 +18,8 @@
 		});
 
 		$('#main-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+
+	}
 
 
 })(jQuery);
