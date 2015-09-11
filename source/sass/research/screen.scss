@@ -13,7 +13,7 @@
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: $eu-purple;
 $textcolour_highlight: $accent;
-
+$icon_primary: lighten($accent, 10);
 
 // Reset
 @import "../scss/generic/reset";
@@ -29,6 +29,7 @@ $textcolour_highlight: $accent;
 @import "../scss/base/lists";
 @import "../scss/base/media";
 @import "../scss/base/forms";
+@import "../scss/base/tables";
 
 
 /*------------------------------------*\
@@ -47,7 +48,7 @@ $textcolour_highlight: $accent;
 /*------------------------------------*\
 	$NAVIGATION
 \*------------------------------------*/
-//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles 
+//global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
 @import "../scss/objects/nav";
 
 //navigation types
@@ -63,8 +64,6 @@ $textcolour_highlight: $accent;
 @import "../scss/objects/buttons";
 @import "../scss/objects/text";
 
-
-
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
 @import "../scss/objects/icons/icons-licenses";
@@ -76,7 +75,8 @@ $textcolour_highlight: $accent;
 @import "../scss/objects/blocks";
 @import "../scss/objects/dates";
 @import "../scss/objects/file-browser";
-
+@import "../scss/objects/lists/list-item";
+@import "../scss/objects/tags";
 
 /*------------------------------------*\
 	site modules
@@ -86,7 +86,7 @@ $textcolour_highlight: $accent;
 
 // Home page
 @import "../scss/objects/blocks/site-hero";
-@import "../scss/theme/hero-branding"; 
+@import "../scss/theme/hero-branding";
 @import "../scss/objects/attribution";
 @import "./research-homepage";
 
@@ -109,7 +109,7 @@ $textcolour_highlight: $accent;
 
 	position: relative;
 	background: $white; // fallback
-	
+
 	@media all and (min-width: $bp-med) {
 		background: $offwhite; // fallback
 		background: linear-gradient(to left, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
@@ -138,7 +138,7 @@ $textcolour_highlight: $accent;
 
 
 	.textcontent{
-		
+
 		padding-bottom: $space-triple;
 		background-color: $white;
 
@@ -147,7 +147,7 @@ $textcolour_highlight: $accent;
 		}
 	}
 
-	.l-sidebar{ 
+	.l-sidebar{
 		background: $offwhite;
 
 		&> .inner{
@@ -155,6 +155,10 @@ $textcolour_highlight: $accent;
 			padding-top: $space * 6;
 			font-size: $font-size-slightly-smaller;
 		}
+
+    .subnav{
+      padding-top: $space-quad;
+    }
 	}
 
 
@@ -166,7 +170,7 @@ $textcolour_highlight: $accent;
 			width: 100%;
 			height: $globalnavheight + $space-triple;
 			position: absolute;
-			top: 0; 
+			top: 0;
 			left: 0;
 			background-color: #F8F8F8;
 			z-index: -1;
@@ -191,8 +195,8 @@ $textcolour_highlight: $accent;
 	}
 }
 
-.help-contact, 
-.contact-methods, 
+.help-contact,
+.contact-methods,
 .jobdetails{
 	display: block;
 	margin-bottom: $space;
@@ -202,13 +206,13 @@ $textcolour_highlight: $accent;
 	margin-bottom: $space;
 }
 
-.results-list, 
-.page-intro, 
+.results-list,
+.page-intro,
 .articleheader{
 	margin-bottom: $space-double;
 }
 
-.maincontent > .title, 
+.maincontent > .title,
 .team{
 	margin-bottom: $space-triple;
 }
@@ -336,7 +340,7 @@ $textcolour_highlight: $accent;
 			min-height: 30em;
 		}
 	}
-	
+
 	.maincontent{
 		@media all and (max-width: $bp-med) {
 			padding-top: 0;
