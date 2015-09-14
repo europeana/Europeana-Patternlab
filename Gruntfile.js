@@ -63,8 +63,9 @@ module.exports = function(grunt) {
 
                        'source/js/modules/lib/hotjar.js',
                        'source/js/modules/lib/jquery.imagesloaded.min.js',
-//                       'source/js/modules/lib/jquery.touchSwipe.min.js',
-                       'source/js/modules/lib/jquery.touchwipe.js',
+
+                       'source/js/modules/lib/jquery.event.move.js',
+                       'source/js/modules/lib/jquery.event.swipe.js',
 
                        'source/js/modules/bower_components/jquery/dist/jquery.js',
                        'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],

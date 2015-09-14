@@ -1,4 +1,4 @@
-define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
+define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function($){
 
     /**
      * @cmp: the container
@@ -10,16 +10,23 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
            console.log(msg);
         }
 
-        var position = 1; // index of currently viewed item
+        var animating = false;
         var btnLeft , btnRight , items;
         var cmp = $(cmp);
+
         var minSpacingPx = 15;
-        var spacing = minSpacingPx;
-        var inView = 0;
+        var spacing      = minSpacingPx;
+
+        var inView       = 0; // num items currently visible in viewport
+        var position     = 1; // index of currently viewed item
+
+
         var totalLoaded    = data.length;
         var totalAvailable = 100;
-        var animating = false;
-        var scrollTime = 1000;
+        var scrollTime     = 400;
+
+        var itemW = cmp.find('.mlt-item:first').width();
+        var loadedOnSwipe = false; // a single swipe can generate only a single load event - track of that's been done or not
 
         var classData = {
             "arrowClasses" : {
@@ -52,7 +59,7 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
             }
             spacing = parseInt(spacing);
 
-            log('w = ' + w + 'spacing will be ' + spacing + ', maxFit = ' + maxFit);
+            log('w = ' + w + ', spacing will be ' + spacing + ', maxFit = ' + maxFit);
 
             inView = maxFit;
 
@@ -182,12 +189,11 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
                         items.css('left', '0');
                     }
                     done();
-                    console.log('b) position '  + position + ', inView ' + inView);
-
                 }
             });
         }
 
+        // handles loading and scrolls
         var goRight = function(){
 
             if((position + inView) < totalLoaded){
@@ -214,6 +220,9 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
                 resize();
                 if(scroll){
                     scrollRight();
+                }
+                else{
+                    cmp.removeClass('loading');
                 }
             }
 
@@ -247,17 +256,17 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
 
             totalLoaded = items.find('.' + classData.itemClass).length;
 
+            /*
             if(typeof Ellipsis != 'undefined'){
                 $('.' + classData.itemClass + ' .info').each(function(i, ob){
-
                     new Ellipsis(ob);
                 });
             }
+            */
 
             btnLeft.click(function(e){
 
                 if(!animating){
-                    log('go left....');
                     goLeft();
                 }
                 e.stopPropagation();
@@ -267,48 +276,52 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
             btnRight.click(function(e){
 
                 if(!animating){
-                    log('go right....');
                     goRight();
                 }
                 e.stopPropagation();
                 return false;
             });
 
-            if(!$("html").hasClass("ie8")){
 
-                var leftRight = function(direction){
 
-                    if(animating){
-                        console.log('return because animating');
-                        return;
+            cmp.on('movestart', function(e) { // respond to horizontal movement only
+              if ((e.distX > e.distY && e.distX < -e.distY) ||
+                  (e.distX < e.distY && e.distX > -e.distY)) {
+                  e.preventDefault();
+                  return;
+              }
+            })
+            .on('move', function(e) {
+                if (e.distX < 0) {
+                    items.css('left',  e.distX + 'px');
+                    var swipeLoadThreshold = 0-(itemW / 2);
+                    if (e.distX < swipeLoadThreshold){
+                        if(!loadedOnSwipe){
+                            if ((position + inView + inView) > totalLoaded){
+                                loadedOnSwipe = true;
+                                loadMore();
+                            }
+                        }
                     }
-                    else{
-                        console.log(direction)
-                    }
-                };
-
-                if(typeof cmp.touchwipe != 'undefined'){
-
-                    cmp.find('a').touchwipe({
-
-                        wipeLeft : function(){
-                            btnRight.click();
-                        },
-                        wipeRight : function(){
-                            btnLeft.click();
-                        },
-                        wipeUp : function(){
-
-                        },
-                        wipeDown : function(){
-
-                        },
-                        min_move_x : 20,
-                        min_move_y : 20,
-                        preventDefaultEvents : true
-                    });
                 }
-            }
+                if (e.distX > 0) {
+                    items.css('left',  e.distX + 'px');
+                }
+            })
+            .on('moveend', function(e) {
+
+                var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
+                var newPos          = position + (-1 * positionsPassed)
+
+                loadedOnSwipe = false;
+
+                cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
+                items.css('left', '');
+
+                position = Math.max(1, newPos);
+                resize();
+            });
+
 
             if(typeof $(window).europeanaResize != 'undefined'){
                 $(window).europeanaResize(function(){
@@ -325,15 +338,12 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
                 resize();
             },
             inView : function(){
-
                 return fnInView();
             },
             goLeft : function(){
-
                 goLeft();
             },
             goRight : function(){
-
                 goRight();
             }
         }
