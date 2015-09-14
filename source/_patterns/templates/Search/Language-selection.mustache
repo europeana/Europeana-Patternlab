@@ -4,31 +4,30 @@
 
 <div role="main" class="page l-page">
 
-    <section class="search-results">
+    <section class="language-selection">
         <div class="container">
             <div class="results-list cf">
-
 
                 <div class="item-language">
 
                     <h1>{{ content.title }}</h1>
 
                     <div class="field-container">
-                        <label for="select">{{ content.default-language }}</label>
+                        {{#content.language_default}}
+                        <label for="select">{{ title }}</label>
                         <select id="select">
-                            <optgroup label="Option Group">
-                                <option>Option One</option>
-                                <option>Option Two</option>
-                                <option>Option Three</option>
+                            <optgroup label="{{group_id}}">
+                              {{#items}}
+                                <option> {{ text }} </option>
+                              {{/items}}
                             </optgroup>
                         </select>
+                        {{/content.language_default}}
                     </div>
 
-
+                  <div class="dropdown-divider"></div>
 
                     <div class="check-language">
-
-                        <h1>{{ content.translate-search }}</h1>
 
                         {{#content.language_options}}
                             {{> molecules/controls/group-checkbox }}
@@ -40,11 +39,26 @@
 
                     </div>
 
+                    <div class="dropdown-divider"></div>
+
                     <div class="check-language">
 
-                      <h1>{{ content.translate-item }}</h1>
+                    <div class="field-container">
 
-                      {{> atoms/forms/select-menu }}
+                      {{#content.language_itempages}}
+                      <label for="select">{{ title }}</label>
+                      <div class="language_wrapper">
+                        <label for="{{item_id}}"><input id="{{item_id}}" name="{{name}}" type="checkbox" value="{{value}}" {{#is_checked}} checked {{/is_checked}} {{#is_disabled}} checked {{/is_disabled}}> {{ text }}</label>
+                        <select id="select">
+                            <optgroup label="{{group_id}}">
+                            {{#items}}
+                                <option> {{ text }} </option>
+                            {{/items}}
+                            </optgroup>
+                        </select>
+                        {{/content.language_itempages}}
+                      </div>
+                    </div>
 
                       <input type="submit" value="Save Settings"/>
 

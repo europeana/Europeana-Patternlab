@@ -440,9 +440,27 @@
 
 // Language selection page
 
+.language-selection{
+	padding: 0 $space;
+
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+	}
+
+	.container{
+		@include container($max-width);
+		@media all and (min-width: $bp-med) {
+			overflow:hidden;
+		}
+	}
+}
+
 .item-language{
 
-  padding-top: $pad-and-half;
+  padding: $pad-double;
 
   h1{
     font-size: $font-size-norm;
@@ -451,10 +469,31 @@
     font-weight: bold;
   }
   .check-language{
-    h1{
-      padding-top: $pad;
-      border-top: 1px solid $gray87;
-      font-size: $font-size-slightly-smaller;
+    .control-group{
+      margin-bottom: $pad-half;
+      .title{
+        padding-top: $pad;
+        margin-bottom: $pad-half;
+        font-size: $font-size-slightly-smaller;
+      }
+    }
+    .field-container{
+      .language_wrapper{
+        display: flex;
+        label{
+          font-weight: normal;
+        }
+        select{
+          margin-top: $pad;
+          margin-left: $pad-half;
+        }
+      }
+      label{
+        padding-top: $pad;
+        margin-bottom: $pad-half;
+        font-size: $font-size-slightly-smaller;
+        font-weight: bold;
+      }
     }
     p{
       font-size: $font-size-slightly-smaller;
