@@ -137,8 +137,19 @@ small{
         list-style: none;
     }
 
+
+    // Categorization
+    .categories-list{
+      margin-left: 0;
+      list-style: none;
+    }
 }
 
+.title-category{
+    font-size: $font-size-slightly-smaller;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 
 // Letter space those capitals people, Jan Tschichold would be proud.
 .upper {

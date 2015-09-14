@@ -35,6 +35,14 @@
 	white-space: nowrap;
 }
 
+.item-categories{
+	white-space: nowrap;
+  .icon{
+    height: $pad;
+    width:  $pad;    
+  }
+}
+
 .item-deadline{
 	font-weight: bold;
 }
