@@ -27,6 +27,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
 
         var itemW = cmp.find('.mlt-item:first').width();
         var loadedOnSwipe = false; // a single swipe can generate only a single load event - track of that's been done or not
+        var swiping       = false;
 
         var classData = {
             "arrowClasses" : {
@@ -43,7 +44,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
 
         var resize = function(){
 
-            log('resizing');
+            //log('resizing');
+            if(swiping){
+                //log('return because swiping');
+                return;
+            }
 
             var w = cmp.width();
             var itemW = items.find('.' + classData.itemClass + '').first().outerWidth();
@@ -131,6 +136,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
             prevItem = items.find('.' + classData.itemClass + ':nth-child(' + prevItem + ')');
 
             cmp.css('overflow-x', 'hidden');
+
             items.css('left', '0');
 
             cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
@@ -208,6 +214,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
 
         var loadMore = function(scroll){
             if(cmp.hasClass('loading')){
+                console.log('already loading');
                 return;
             }
             cmp.addClass('loading');
@@ -292,6 +299,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
               }
             })
             .on('move', function(e) {
+                swiping = true;
                 if (e.distX < 0) {
                     items.css('left',  e.distX + 'px');
                     var swipeLoadThreshold = 0-(itemW / 2);
@@ -313,10 +321,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
                 var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
                 var newPos          = position + (-1 * positionsPassed)
 
-                loadedOnSwipe = false;
 
                 cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
                 items.css('left', '');
+
+                loadedOnSwipe = false;
+                swiping = false;
 
                 position = Math.max(1, newPos);
                 resize();
