@@ -46,6 +46,10 @@ require.config({
     search_form:                   '../eu/search-form',
     search_home:                   '../eu/search-home',
     search_object:                 '../eu/search-object',
+
+//    touchSwipe:                    '../lib/jquery.touchSwipe.min',
+    touchwipe:                    '../lib/jquery.touchwipe',
+
     videojs:                       '//vjs.zencdn.net/4.12/video',
     videojs_aurora:                '../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../lib/videojs-silverlight/videojs-silverlight'

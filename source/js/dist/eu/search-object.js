@@ -196,24 +196,44 @@ define(['jquery', 'media_controller'], function ($) {
     }
 
     var showMLT = function(){
-        require(['eu_carousel'], function(EuCarousel){
+        //require(['touchSwipe'], function(){
+            require(['eu_carousel'], function(EuCarousel){
 
-            var el = $('.js-mlt');
-            var mltData = [];
-            reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+                var el = $('.js-mlt');
 
-            el.find('a.link').each(function(i, ob) {
-                ob = $(ob);
-                mltData[mltData.length] = {
-                        "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
-                        "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
-                        "link"  : ob.attr('href'),
-                        "linkTarget" : "_self"
-                }
-                //log('mlt item...' + JSON.stringify(mltData[mltData.length-1]) ) ;
+                var mltData = [];
+                reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+
+                el.find('a.link').each(function(i, ob) {
+                    ob = $(ob);
+                    mltData[mltData.length] = {
+                            "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
+                            "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
+                            "link"  : ob.attr('href'),
+                            "linkTarget" : "_self"
+                    }
+                });
+                new EuCarousel(el, mltData);
+/*
+                el.on('dragstart', 'a', function (e) {
+                    console.log('escape drag '  + e);
+                    e.stopPropagation();
+                    e.preventDefault();
+                    return false;
+                });
+*?
+                /*
+                el.swipe({
+                    //Generic swipe handler for all directions
+                  swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                   console.log("EL swiped " + direction );
+                  },
+                  excludedElements: 'button, input, select, textarea, .noSwipe'
+                });
+                */
+
             });
-            new EuCarousel(el, mltData);
-        });
+        //});
     }
 
 

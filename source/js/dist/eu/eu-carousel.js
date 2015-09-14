@@ -1,4 +1,4 @@
-define(['jquery', 'jqScrollto', 'resize'], function($){
+define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
 
     /**
      * @cmp: the container
@@ -288,13 +288,18 @@ define(['jquery', 'jqScrollto', 'resize'], function($){
                 };
 
                 if(typeof cmp.touchwipe != 'undefined'){
-                    cmp.touchwipe({
+
+                    alert('we have cmp.touchwipe  YAS WE DO  ' + cmp.find('a').length )
+
+                    cmp.find('a').touchwipe({
 
                         wipeLeft : function(){
+                            alert('RIGHT')
 
                             btnRight.click();
                         },
                         wipeRight : function(){
+                            alert('LEFT')
 
                             btnLeft.click();
                         },
