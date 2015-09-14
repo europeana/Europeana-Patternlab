@@ -289,18 +289,12 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
 
                 if(typeof cmp.touchwipe != 'undefined'){
 
-                    alert('we have cmp.touchwipe  YAS WE DO  ' + cmp.find('a').length )
-
                     cmp.find('a').touchwipe({
 
                         wipeLeft : function(){
-                            alert('RIGHT')
-
                             btnRight.click();
                         },
                         wipeRight : function(){
-                            alert('LEFT')
-
                             btnLeft.click();
                         },
                         wipeUp : function(){

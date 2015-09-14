@@ -292,13 +292,9 @@ define(['jquery', 'jqScrollto', 'touchwipe', 'resize'], function($){
                     cmp.find('a').touchwipe({
 
                         wipeLeft : function(){
-                            alert('RIGHT')
-
                             btnRight.click();
                         },
                         wipeRight : function(){
-                            alert('LEFT')
-
                             btnLeft.click();
                         },
                         wipeUp : function(){
