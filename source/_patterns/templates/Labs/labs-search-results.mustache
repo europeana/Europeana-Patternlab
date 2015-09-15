@@ -1,87 +1,65 @@
 {{> atoms/iconography/svgicons-pro}}
-
-{{> organisms/global/header}}
-
+{{> organisms-header }}
 
 
 <!-- Start content -->
-<main role="main" class="l-page">
-<div class="lc">
+<main role="main">
+
+<section class="page_header">
+  <div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
+
+{{> molecules-block-content-header }}
+
 	<!-- Start grid -->
-	<div class="grid-main">
+<section class="grid-wrapper">
+  <div class="grid">
+    <div class="main-content">
 
-		<div class="l-content">
+      <div class="results">
+        <ul class="results-list">
 
-			<div class="l-breadcrumbs page_header">
-				{{> molecules/navigation/breadcrumbs}}
-				{{> molecules-sortby }}
-			</div>
+            {{> molecules-pro-listitem(blog:true) }}
 
-			<div class="l-filter filters">
-				<form action="#">
-				    <fieldset>
-				    <h4 class="title">Include:</h4>
-				        <ul class="nav">
-				            <li><label for="checkbox1">Pages <input id="checkbox1" name="checkbox" type="checkbox" checked="checked"></label></li>
-				            <li><label for="checkbox2">Documents <input id="checkbox2" name="checkbox" type="checkbox" checked="checked"></label></li>
-				            <li><label for="checkbox3">Blog Posts <input id="checkbox3" name="checkbox" type="checkbox" checked="checked"></label></li>
-				            <li><label for="checkbox4">Events <input id="checkbox4" name="checkbox" type="checkbox" checked="checked"></label></li>
-				        </ul>
-				    </fieldset>
-				</form>
+            {{> molecules-pro-listitem(event:true) }}
 
-				{{# searchmistake }}
-					<div class="searchterms">
-						Did you mean "EDM documentation"? 
-						<div class="resultsnum">Showing <strong>75</strong> results for <strong>"EDM documentation"</strong></div>
-					</div>
-				{{/ searchmistake }}
-			</div>
+            {{> molecules-pro-listitem(publication:true) }}
 
-		<div id="maincontent" class="maincontent">
+            {{> molecules-pro-listitem(job:true) }}
 
-			<div class="results">
-				<ul class="results-list">
-					
-						{{> molecules-pro-listitem(blog:true) }} 
+            {{> molecules-pro-listitem(blog:true) }}
 
-						{{> molecules-pro-listitem(event:true) }} 
+            {{> molecules-pro-listitem(blog:true) }}
 
-						{{> molecules-pro-listitem(publication:true) }} 
+            {{> molecules-pro-listitem(project:true) }}
 
-						{{> molecules-pro-listitem(job:true) }} 
+            {{> molecules-pro-listitem(taskforce:true) }}
 
-						{{> molecules-pro-listitem(blog:true) }} 
+        </ul>
 
-						{{> molecules-pro-listitem(blog:true) }} 
+        {{> molecules-pagination }}
 
-						{{> molecules-pro-listitem(project:true) }} 
+      </div>
 
-						{{> molecules-pro-listitem(taskforce:true) }} 
-					
-				</ul>
 
-				{{> molecules-pagination }} 
+    </div><!--
 
-			</div>
+   --><div class="sidebar">
+      <div class="inner">
 
-		</div>
-		</div><!--
 
-	 --><div class="l-sidebar">
-	 		<div class="inner">
 
-				
-				
-			</div>
+      </div>
 
-		</div>
-	</div>
+    </div>
+  </div>
+</section>
 	<!-- End grid -->
-</div>
 </main>
 <!-- End Content -->
 
 
-{{> organisms/global/footer }}
+{{> organisms-footer(newsletter: true) }}
 

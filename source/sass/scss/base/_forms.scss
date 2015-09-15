@@ -206,6 +206,89 @@ input[type="search"]::-webkit-search-decoration {
 	padding-right: 3em;
 }
 
+/* Item Navigation Search */
+.item-nav-search{
+  position: relative;
+  top: -0.15em;
+
+  @media all and (max-width: $bp-med) {
+  margin-top: $pad;
+  }
+
+ .item-search-input{
+    padding: $pad-quarter $pad-and-half $pad-quarter $pad-half;
+    border-color: transparent;
+    box-shadow: none;
+    border-radius: 6px;
+    &:focus{
+      border-color: $textcolour_link;
+    }
+  }
+
+  .item-nav-submit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    color: $accent;
+    padding: $pad-quarter $pad-quarter;
+    &:hover{
+      $darker: darken($icon_primary, 15%);
+      color: $darker;
+    }
+  }
+}
+
+/* Contact Form */
+
+.contact-form{
+  input[type=text]{
+    @include placeholder{
+      color: $gray-light;
+    }
+  }
+
+  .options{
+    padding-bottom: $pad;
+    font-size: $font-size-sm;
+  }
+
+  .field-container{
+    margin-bottom: $pad;
+    p{
+      color: $gray-light;
+    }
+  }
+
+  .contact-select{
+    padding-top: $pad;
+    select{
+      width: 35%;
+
+      @media all and (max-width: $bp-med) {
+        width: 100%;
+      }
+
+      option{
+        padding: $pad-quarter 0.65rem;
+      }
+    }
+  }
+
+  .options_link{
+    margin-top: -0.25em;
+    margin-bottom: $pad-half;
+  }
+
+    .submit-contact{
+      input{
+        box-shadow: none;
+      }
+      .pushbutton{
+        background: $gray-light;
+      }
+  }
+}
 
 // Newsletter sign up form
 .newsletter-options{
