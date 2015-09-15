@@ -23,9 +23,12 @@
 
 
 // The menu portion
-.dropdown {
-	display: none;
 
+.js .dropdown{
+	display: none;
+}
+
+.dropdown {
 	position: absolute;
 	z-index: 1000;
 	margin-top: 8px;
@@ -33,9 +36,9 @@
 	min-width: 160px;
 	max-width: 360px;
 	list-style: none;
-		
+
 	border: solid 1px $gray87;
-		
+
 	box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
 	overflow: visible;
 
@@ -103,7 +106,7 @@
 
 	li>a, label{
 		display: block;
-		color: $textcolour_body; 
+		color: $textcolour_body;
 		text-decoration: none;
 		padding: 6px $space-half;
 		margin: 0;

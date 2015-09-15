@@ -1,7 +1,7 @@
-/* Text-Related Elements */ 
+/* Text-Related Elements */
 p {
     margin-bottom: $space;
-    &:last-child { 
+    &:last-child {
         margin-bottom: 0;
     }
 }
@@ -44,7 +44,7 @@ p + .drop-cap {
     margin-top: 0;
 }
 
-/* Horizontal Rule */ 
+/* Horizontal Rule */
 hr {
     border: 0;
     height: 2px;
@@ -126,12 +126,30 @@ small{
     ol ol>li {
         list-style: lower-latin;
     }
-    
+
     img{
         margin-bottom: $space;
     }
+
+    // External link list
+    .ext-link-list {
+        margin-left: 0;
+        list-style: none;
+    }
+
+
+    // Categorization
+    .categories-list{
+      margin-left: 0;
+      list-style: none;
+    }
 }
 
+.title-category{
+    font-size: $font-size-slightly-smaller;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 
 // Letter space those capitals people, Jan Tschichold would be proud.
 .upper {
@@ -181,3 +199,4 @@ small{
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
+
