@@ -1,29 +1,23 @@
 {{> atoms/iconography/svgicons-pro}}
+{{> organisms-header }}
 
-{{> organisms/global/header}}
-
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
-<div class="lc">
-	<!-- Start grid -->
-	<div class="grid-main">
 
-		<div class="l-content">
+<section class="page_header">
+	<div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
 
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
 
-    {{> molecules-block-content-header }}
+{{> molecules-block-content-header }}
 
-		<article id="maincontent" class="maincontent">
+<section class="grid_wrapper">
+	<div class="grid">
+		<div class="main-content">
 			<div class="textcontent">
 
 				<div class="articleheader">
-
-					<h1 class="title">{{ headline.medium }}</h1>
 
 					<div class="item-meta-primary">
 						{{> molecules-item-author }}
@@ -43,27 +37,25 @@
 				</div>
 			</div>
 
-			{{> molecules-related-noimages(title: "You might also like:") }}
 
+			{{> molecules-related-noimages(title: "Related Content") }}
 
-		</article>
 		</div><!--
 
-	 --><div class="l-sidebar">
-	 		<div class="inner">
+	 --><div class="sidebar">
 
-				{{> molecules-help-contact(title: "About the Author") }}
+        <div class="inner js-getstickywidth">
+
+            {{> molecules-help-contact(title: "Questions?") }}
 
 
-			</div>
+        </div>
+		  </div>
 
-		</div>
 	</div>
-	<!-- End grid -->
-</div>
+</section>
+
 </main>
 <!-- End Content -->
 
-
-{{> organisms/global/footer }}
-
+{{> organisms-footer(newsletter: true) }}

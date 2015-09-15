@@ -1,26 +1,24 @@
 {{> atoms/iconography/svgicons-pro}}
+{{> organisms-header }}
 
-{{> organisms/global/header}}
-
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
-<div class="lc">
-	<!-- Start grid -->
-	<div class="grid-main">
 
-		<div class="l-content">
+<section class="page_header">
+	<div class="lc">
+    {{> molecules/navigation/breadcrumbs}}
+  </div>
+</section>
 
-		<div class="l-breadcrumbs page_header">
-			{{> molecules/navigation/breadcrumbs}}
-		</div>
-		
 
-		<div id="maincontent" class="maincontent">
+{{> molecules-block-content-header }}
 
-			<h1 class="title">Europeana Staff</h1>
-			
+<section class="grid_wrapper">
+	<div class="grid">
+		<div class="main-content">
+			<div class="textcontent">
+
+				<h1 class="title">Europeana Staff</h1>
+
 
 			<div class="section contact-detail">
 
@@ -41,7 +39,7 @@
 						</div>
 
 						<div class="contact-internal">
-							{{> molecules-meta-phone-work }} 
+							{{> molecules-meta-phone-work }}
 							{{> molecules-meta-phone-mobile }}
 						</div>
 
@@ -61,9 +59,9 @@
 						<ul class="nav">
 							<li><a href="#">Link to website</a></li>
 							<li><a href="#">Link to another site</a></li>
-						</ul>		
+						</ul>
 					</div>
-					
+
 
 
 				</div>
@@ -76,7 +74,7 @@
 				<div class="results">
 					<ul class="results-list">
 						{{#listItems.three}}
-							{{> molecules-pro-listitem(event: true) }} 
+							{{> molecules-pro-listitem(event: true) }}
 						{{/listItems.three}}
 					</ul>
 				</div>
@@ -89,7 +87,7 @@
 
 				<ul class="results-list">
 					{{#listItems.two}}
-						{{> molecules-pro-listitem(publication: true) }} 
+						{{> molecules-pro-listitem(publication: true) }}
 					{{/listItems.two}}
 				</ul>
 
@@ -102,33 +100,33 @@
 
 				<ul class="results-list">
 					{{#listItems.three}}
-						{{> molecules-pro-listitem(blog: true) }} 
+						{{> molecules-pro-listitem(blog: true) }}
 					{{/listItems.three}}
 				</ul>
 
 				{{> molecules-pagination }}
 
-			</div>
+      </div>
 
-			
+
 
 		</div>
 		</div><!--
 
-	 --><div class="l-sidebar">
-			<div class="inner">
-			
-				{{> molecules-help-contact(title: "Need Help?") }}
-				
-			</div>
+	 --><div class="sidebar">
 
-		</div>
+        <div class="inner js-getstickywidth">
+
+            {{> molecules-help-contact(title: "Questions?") }}
+
+
+        </div>
+		  </div>
+
 	</div>
-	<!-- End grid -->
-</div>
+</section>
+
 </main>
 <!-- End Content -->
 
-
-{{> organisms/global/footer }}
-
+{{> organisms-footer(newsletter: true) }}
