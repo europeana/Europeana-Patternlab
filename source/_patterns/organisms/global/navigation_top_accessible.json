@@ -1,10 +1,31 @@
 {
-	"js_files": [
-        {
-            "path": "../../bower_components/smartmenus/dist/jquery.smartmenus.js"
-        },
-        {
-            "path": "../../js/patternlab/output/global-min.js"
-        }
+  "js_files": [
+    {
+      "path": "../../bower_components/smartmenus/dist/jquery.smartmenus.js"
+    },
+    {
+      "path": "../../js/patternlab/output/global-min.js"
+    }
+  ],
+  "primary_nav": {
+    "items": [
+      {
+        "url": "",
+        "text": "Primary 1",
+        "is_current": true
+      },
+      {
+        "url": "",
+        "text": "Primary 2"
+      },
+      {
+        "url": "Primary 3",
+        "text": "Primary 3"
+      },
+      {
+        "url": "",
+        "text": "Primary 4"
+      }
     ]
+  }
 }
