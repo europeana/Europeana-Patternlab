@@ -12,10 +12,12 @@
         "search": true,
         "myeuropeana": false
     },
-    "head_meta": {
-        "name": "test",
-        "content": "stuff"
-    },
+    "head_meta": [
+        {
+            "meta_name": "test",
+            "content": "stuff"
+        }
+    ],
     "image_root": "../../images/",
     "css_files": [
         {
