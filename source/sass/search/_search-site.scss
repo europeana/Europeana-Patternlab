@@ -30,6 +30,7 @@
   .strapline{
     max-width: 50em;
     margin: 0 auto;
+    word-wrap: normal;
 
     padding: $space-half $space;
 
@@ -441,21 +442,21 @@
 // Language selection page
 
 .language-selection{
-	padding: 0 $space;
+  padding: 0 $space;
 
-	background: $white; // fallback
+  background: $white; // fallback
 
-	@media all and (min-width: $bp-med) {
-		background: $offwhite; // fallback
-		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
-	}
+  @media all and (min-width: $bp-med) {
+    background: $offwhite; // fallback
+    @include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+  }
 
-	.container{
-		@include container($max-width);
-		@media all and (min-width: $bp-med) {
-			overflow:hidden;
-		}
-	}
+  .container{
+    @include container($max-width);
+    @media all and (min-width: $bp-med) {
+      overflow:hidden;
+    }
+  }
 }
 
 .item-language{
