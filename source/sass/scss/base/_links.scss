@@ -49,3 +49,25 @@ a {
     padding-right: 1.2em;
 }
 
+// Skip to main link (uses is-vishidden)
+a.skip-main {
+    left:100%;
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color: $black;
+    left: auto;
+    width: auto;
+    height: auto;
+    overflow:auto;
+    margin: 0 auto;
+    padding: $pad-half;
+    border:4px solid yellow;
+    text-align:center;
+    z-index:999;
+}

@@ -7,25 +7,155 @@
       "path": "../../js/patternlab/output/global-min.js"
     }
   ],
-  "primary_nav": {
-    "items": [
-      {
-        "url": "",
-        "text": "Primary 1",
-        "is_current": true
+  "navigation": {
+    "global": {
+      "options": {
+        "search_active": true,
+        "settings_active": true
       },
-      {
-        "url": "",
-        "text": "Primary 2"
+      "logo": {
+        "url": "http://europeana.eu",
+        "text": "Europeana"
       },
-      {
-        "url": "Primary 3",
-        "text": "Primary 3"
+      "primary_nav": {
+        "items": [
+          {
+            "url": "#",
+            "text": "Home",
+            "is_current": true,
+            "submenu": false
+          },
+          {
+            "url": "#",
+            "text": "Channels",
+            "submenu": {
+              "items": [
+                {
+                  "url": "#",
+                  "text": "Music"
+                },
+                {
+                  "url": "#",
+                  "text": "Art"
+                }
+              ]
+            }
+          },
+          {
+            "url": "all exhibitions",
+            "text": "Exhibitions",
+            "submenu": {
+              "items": [
+                {
+                  "url": false,
+                  "text": "Exhibitions Title",
+                  "subtitle": true
+                },
+                {
+                  "url": false,
+                  "text": "This is some text for a message",
+                  "message": true
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 1"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 2"
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 3"
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 4"
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 5"
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 6"
+                },
+                {
+                  "url": "#",
+                  "text": "Exhibitions 7"
+                },
+                {
+                  "url": "url to all exhibitions",
+                  "text": "All Exhibitions…",
+                  "is_morelink": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Blog",
+            "submenu": {
+              "items": [
+                {
+                  "url": "#",
+                  "text": "Blog Post 1"
+                },
+                {
+                  "url": "#",
+                  "text": "Blog Post 2"
+                },
+                {
+                  "url": "#",
+                  "text": "Blog Post 3"
+                },
+                {
+                  "url": "#",
+                  "text": "Blog Post 4"
+                },
+                {
+                  "url": "#",
+                  "text": "Blog Post 5"
+                },
+                {
+                  "url": "#",
+                  "text": "Blog Post 6"
+                },
+                {
+                  "url": "url to all blog posts",
+                  "text": "All Posts…",
+                  "is_morelink": true
+                }
+              ]
+            }
+          }
+        ]
       },
-      {
-        "url": "",
-        "text": "Primary 4"
+      "utility_nav": {
+        "items": [
+          {
+            "url": "url to settings",
+            "text": "Settings",
+            "icon": "settings",
+            "submenu": {
+              "items": [
+                {
+                  "url": false,
+                  "text": "Exhibitions Title",
+                  "subtitle": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Utility 2"
+          }
+        ]
       }
-    ]
+    }
   }
 }

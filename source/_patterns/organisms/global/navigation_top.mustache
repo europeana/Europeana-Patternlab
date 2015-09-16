@@ -58,15 +58,7 @@
 	<nav id="nav" class="nav_primary nav">
 		<ul>
 		{{#items}}
-			<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
-			{{#submenu}}
-				<ul>
-				{{#items}}
-					<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
-				{{/items}}
-				</ul>
-			{{/submenu}}
-			</li>
+			<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
 		{{/items}}
 		</ul>
 	</nav><!--end .nav-->
@@ -89,13 +81,6 @@
 		<ul>
 		{{#items}}
 			<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
-			{{#submenu}}
-				<ul>
-				{{#items}}
-					<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
-				{{/items}}
-				</ul>
-			{{/submenu}}
 			</li>
 		{{/items}}
 		</ul>

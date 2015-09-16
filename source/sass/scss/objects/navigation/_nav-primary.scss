@@ -35,17 +35,12 @@
 		margin-top: 0.2em;
 	}
 
-
-	// Hide subnavs
-	li ul {
-		display: none;
-	}
-
 	// primary nav in header
 	.header & {
 		clear: both;
 		overflow: hidden;
 		max-height: 0;
+		display: none;
 
 		a{
 			color: $textcolour_body;
@@ -62,8 +57,10 @@
 		@media all and (min-width: $bp-med) {
 			max-height: none;
 			clear: none;
+			display: block;
+			float: left;
 
-			margin-top: 0.9em;
+			margin-top: 0.7em;
 			margin-left: $space-half;
 
 			li {

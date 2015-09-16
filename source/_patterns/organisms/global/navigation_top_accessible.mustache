@@ -1,183 +1,123 @@
+{{# navigation.global }}
+<a href="#maincontent" class="skip-main" tabindex="1">Skip to page contents</a>
+
+
 <header class="header">
 
-  <div class="menu-top">
-    {{> molecules/navigation/global-topdrawer }}
-  </div>
+	<div class="menu-top">
+		{{> molecules/navigation/global-topdrawer }}
+	</div>
 
-  <!-- Off canvas search bar -->
-  {{#options.search_active}}
-  {{> molecules/forms/global-search }}
-  {{/options.search_active}}
+	<!-- Off canvas search bar -->
+	{{#options.search_active}}
+	{{> molecules/forms/global-search }}
+	{{/options.search_active}}
 
-  <!-- wrapper for navigation bar -->
-  <div class="cf">
+	<!-- wrapper for navigation bar -->
+	<div class="cf">
 
-  {{# version.is_alpha }}
-    <a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
-  {{/ version.is_alpha }}
-
-
-    {{> atoms/images/logo }}
+	{{# version.is_alpha }}
+		<a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
+	{{/ version.is_alpha }}
 
 
-    <div class="nav-global">
+		{{> atoms/images/logo }}
 
-      <a href="#" class="nav-toggle nav-toggle-sites">
-        <span>{{i18n.global.our-sites}}</span>
-      </a>
 
-      {{#options.search_active}}
-      <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea">
-        <svg class="icon icon-search">
-          <use xlink:href="#icon-search"></use>
-        </svg>
-        <span class="is-vishidden">Search</span>
-      </a>
-      {{/options.search_active}}
+		<!-- Primary navigation -->
 
-      {{#options.settings_active}}
-      <a href="#" class="nav-toggle nav-toggle-settings">
-        <svg class="icon icon-settings">
-          <use xlink:href="#icon-settings"></use>
-        </svg>
-        <span>Settings</span>
-      </a>
-      {{/options.settings_active}}
+	{{# primary_nav }}
+	<nav role="navigation">
+		<!-- Sample menu definition -->
+		<ul id="main-menu" class="sm nav_primary nav-access">
 
-      <a href="#" class="nav-toggle nav-toggle-menu">
-        <svg class="icon icon-menu">
-          <use xlink:href="#icon-menu"></use>
-        </svg>
-        <span>Menu</span>
-      </a>
+		{{#items}}
+				<li><a href="{{url}}"  class="{{#is_current}} current {{/is_current}}"  tabindex="1">{{text}}</a>
 
-    </div>
+					{{#submenu}}
+					<ul class="menu-sublevel caret">
 
-    <!-- Primary navigation -->
+					{{#items}}
 
-  <nav role="navigation">
-    <!-- Sample menu definition -->
-    <ul id="main-menu" class="sm nav_primary nav-access">
-      <li><a href="#">Primary 1</a></li>
-      <li><a href="#" class="current">Primary 2</a>
-        <ul class="sublevel">
-          <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-          <li class="section-message"><p>Message that there's no content in this section</a></p>
-          <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-          <li><a href="#">Children 1</a></li>
-          <li><a href="#">Children 2</a></li>
-          <li><a href="#">Children 3</a></li>
-          <li><a href="#">Children 4</a>
-            <ul class="sublevel">
-              <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-              <li><a href="#">GrandChildren 1</a></li>
-              <li><a href="#">GrandChildren 2</a></li>
-              <li><a href="#">GrandChildren 3</a></li>
-              <li><a href="#">GrandChildren 4</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#">Primary 3</a>
-        <ul class="sublevel">
-          <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-          <li><a href="#">Children 1</a></li>
-          <li><a href="#">Children 2</a></li>
-          <li><a href="#">Children 3</a></li>
-          <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-          <li><a href="#">Children 4</a></li>
-          <li><a href="#">Children 5</a></li>
-          <li><a href="#">Children 6</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Primary 4</a>
-        <ul class="sublevel">
-          <li class="menu-section"><span>A pretty section text for the sub menus</span></li>
-          <li><a href="#">Children 1</a></li>
-          <li><a href="#">Children 2</a></li>
-          <li><a href="#" class="see_more">more...</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Primary 5</a>
-        <ul class="sublevel-caret">
-          <li><a href="#">Children 1</a></li>
-          <li><a href="#">Children 2</a></li>
-          <li><a href="#" class="disabled">Children 3 Disabled</a></li>
-          <li><a href="#">Children 4</a></li>
-          <li><a href="#" class="see_more">more...</a>
-            <ul class="sublevel">
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li class="menu-section"><span>A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</span></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+						{{#is_divider}}
+						<li class="menu-divider"></li>
+						{{/is_divider}}
+
+						{{^is_divider}}
+
+						{{#subtitle}}
+						<li class="menu-subtitle">{{text}}</li>
+						{{/subtitle}}
+
+						{{#message}}
+						<li class="menu-message">{{text}}</li>
+						{{/message}}
+
+						{{#url}}
+						<li><a href="{{url}}" {{#is_morelink}} class="menu-more" {{/is_morelink}} tabindex="1">{{text}}</a></li>
+						{{/url}}
+
+						{{/is_divider}}
+
+					{{/items}}
+					</ul>
+					{{/submenu}}
+				</li>
+		{{/items}}
+
+		</ul>
+	</nav>
+	{{/ primary_nav }}
+
+
+	<div class="nav-global">
+
+		<a href="#" class="nav-toggle nav-toggle-sites"  tabindex="2">
+			<span>{{i18n.global.our-sites}}</span>
+		</a>
+
+		{{#options.search_active}}
+		<a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea"  tabindex="2">
+			<svg class="icon icon-search">
+				<use xlink:href="#icon-search"></use>
+			</svg>
+			<span class="is-vishidden">Search</span>
+		</a>
+		{{/options.search_active}}
+
+		{{#options.settings_active}}
+		<a href="#" class="nav-toggle nav-toggle-settings" tabindex="2">
+			<svg class="icon icon-settings">
+				<use xlink:href="#icon-settings"></use>
+			</svg>
+			<span>Settings</span>
+		</a>
+		{{/options.settings_active}}
+
+		<a href="#" class="nav-toggle nav-toggle-menu" tabindex="2">
+			<svg class="icon icon-menu">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<span>Menu</span>
+		</a>
+
+	</div>
+
+	{{#utility_navx}}
+	<ul class="nav_secondary">
+		{{#options.settings_active}}
+		<li>
+		<a href="#" class="nav-toggle nav-toggle-settings">
+			<svg class="icon icon-settings">
+				<use xlink:href="#icon-settings"></use>
+			</svg>
+			<span>Settings</span>
+		</a>
+		</li>
+		{{/options.settings_active}}
+
+	</ul>
+	{{/utility_navx}}
 </header>
 
 <!-- Collapsed drawer menu -->
@@ -207,7 +147,7 @@
 	</nav><!--end .nav-->
 {{/primary_nav}}
 
-{{#secondary_nav}}
+{{#utility_nav}}
 	<ul class="nav_secondary">
 		{{#options.settings_active}}
 		<li>
@@ -221,5 +161,7 @@
 		{{/options.settings_active}}
 
 	</ul>
-{{/secondary_nav}}
+{{/utility_nav}}
 </nav>
+
+{{/ navigation.global }}
