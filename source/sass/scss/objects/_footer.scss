@@ -48,6 +48,11 @@
 	}
 
 	.copyright {
+		background-image: url("../../images/eu_flag.svg");
+		background-position: 0 50%;
+  		background-size: contain;
+  		background-repeat: no-repeat;
+		padding-left: 3em;
 		font-size: $font-size-sm;
 		color: #777777;
 	}
