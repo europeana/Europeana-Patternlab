@@ -1121,6 +1121,7 @@
         "text":"Europeana Collections"
       },
       "primary_nav": {
+        "menu_id": "main-menu",
         "items": [
           {
             "url": "#",

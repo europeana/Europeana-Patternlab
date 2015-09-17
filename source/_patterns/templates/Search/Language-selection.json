@@ -166,6 +166,7 @@
         "settings_active": false
       },
       "primary_nav": {
+        "menu_id": "main-menu",
         "items": [
           {
             "url": "#",

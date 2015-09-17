@@ -45,16 +45,6 @@
   cursor:not-allowed;
 }
 
-.sm:after{
-  content:"\00a0";
-  display:block;
-  height:0;
-  font:0px/0 serif;
-  clear:both;
-  visibility:hidden;
-  overflow:hidden;
-}
-
 /* Your rules to style the menu in mobile view (collapsible mode) here... */
 
 
@@ -84,32 +74,30 @@
     float:none;
   }
 
-	.nav-access a{
-    white-space:nowrap;
+	.nav-access > a{
+    white-space: nowrap;
   }
 
 	.nav-access ul a,
   .nav-access.sm-vertical a{
-    white-space:normal;
+    white-space: normal;
   }
 
 	.nav-access .sm-nowrap > li > a,
   .nav-access .sm-nowrap > li > :not(ul) a{
-    white-space:nowrap;
+    white-space: nowrap;
   }
 	/* ...end */
 
 	/* Your rules to style the menu in desktop view here... */
 
-  .header .nav_primary.nav-access {
+  .header .nav_primary .nav-access {
     overflow: visible;
   }
-
-
-
 }
 
-.nav_primary.nav-access {
+.sm{
+
   // Toggle buttons (sub menu indicators)
   .sub-arrow {
     top: 50%;
@@ -118,6 +106,7 @@
     margin-left: $pad-quarter;
     right: 12px;
     width: 0;
+    height: 10px;
     border-width: 4px;
     border-style: solid dashed dashed dashed;
     border-color: $gray-light transparent transparent transparent;
@@ -130,6 +119,7 @@
 
   .menu-subtitle{
     margin: $pad-half;
+    margin-bottom: 0.1em;
     font-size: $font-size-sm;
     color: $gray-light;
   }
@@ -146,14 +136,20 @@
   }
 }
 
-
-
 .sm .menu-sublevel{
 
-    width: 20em;
+    //to show all menus for easier styling
+    // display: block !important;
+
     background: $white;
-    box-shadow: rgba(77, 77, 77, 0.2) 0 0 3px;
+    box-shadow: rgba(77, 77, 77, 0.3) 0 1px 4px;
     padding: $pad-quarter;
+
+    word-wrap: normal;
+    word-break: normal;
+
+    min-width: 16em;
+    max-width: 20em;
 
     li{
       float: none;
@@ -162,9 +158,12 @@
     a{
       font-size: $font-size-slightly-smaller;
       font-weight: normal;
-      line-height: 1.2;
       color: $textcolour_body;
       padding: 0.4em 0.6em;
+
+      &:hover{
+        background-color: $offwhite;
+      }
 
       &:after {
         border-bottom: none;
@@ -209,5 +208,16 @@
     left: 31px;
     border-width: 8px;
     border-color: transparent transparent $white transparent;
+  }
+
+  .caret-right &{
+      &:before,
+      &:after {
+        left: auto;
+        right: 30px;
+      }
+      &:after {
+        right: 31px;
+      }
   }
 }

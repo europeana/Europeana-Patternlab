@@ -4,7 +4,10 @@
       "path": "../../bower_components/smartmenus/dist/jquery.smartmenus.js"
     },
     {
-      "path": "../../js/patternlab/output/global-min.js"
+      "path": "../../bower_components/smartmenus/dist/addons/keyboard/jquery.smartmenus.keyboard.js"
+    },
+    {
+      "path": "../../js/patternlab/global/menus.js"
     }
   ],
   "navigation": {
@@ -18,6 +21,7 @@
         "text": "Europeana"
       },
       "primary_nav": {
+        "menu_id": "main-menu",
         "items": [
           {
             "url": "#",
@@ -135,6 +139,9 @@
         ]
       },
       "utility_nav": {
+        "menu_id": "settings-menu",
+        "style_modifier": "caret-right",
+        "tabindex": "6",
         "items": [
           {
             "url": "url to settings",
@@ -143,16 +150,48 @@
             "submenu": {
               "items": [
                 {
-                  "url": false,
-                  "text": "Exhibitions Title",
-                  "subtitle": true
+                  "text": "Settings",
+                  "subtitle": true,
+                  "url": false
+                },
+                {
+                  "text": "Language",
+                  "url": "url to language settings page"
+                },
+                {
+                  "text": "My Profile",
+                  "url": "url to profile page"
+                },
+                {
+                  "text": "Advanced",
+                  "url": "url to settings page"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "text": "Admin",
+                  "subtitle": true,
+                  "url": false
+                },
+                {
+                  "text": "Channel Admin",
+                  "url": "url to admin page"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "text": "Account",
+                  "subtitle": true,
+                  "url": false
+                },
+                {
+                  "text": "Log Out",
+                  "url": "url to login page"
                 }
               ]
             }
-          },
-          {
-            "url": "",
-            "text": "Utility 2"
           }
         ]
       }

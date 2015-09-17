@@ -142,6 +142,7 @@
         "text": "Europeana Collections"
       },
       "primary_nav": {
+        "menu_id": "main-menu",
         "items": [
           {
             "url": "../templates-Search-Search-home/templates-Search-Search-home.html",

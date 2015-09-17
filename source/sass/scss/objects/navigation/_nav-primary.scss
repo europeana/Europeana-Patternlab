@@ -37,9 +37,6 @@
 
 	// primary nav in header
 	.header & {
-		clear: both;
-		overflow: hidden;
-		max-height: 0;
 		display: none;
 
 		a{
@@ -55,8 +52,7 @@
 		}
 
 		@media all and (min-width: $bp-med) {
-			max-height: none;
-			clear: none;
+
 			display: block;
 			float: left;
 
@@ -75,4 +71,20 @@
 	}
 
 
+}
+
+
+.nav-utility{
+
+	.sm .menu-sublevel{
+		min-width: 10em;
+	}
+
+	.sm > li > a{
+		color: $textcolour_body;
+
+		&:hover{
+			color: $black;
+		}
+	}
 }

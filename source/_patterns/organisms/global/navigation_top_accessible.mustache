@@ -27,53 +27,16 @@
 		<!-- Primary navigation -->
 
 	{{# primary_nav }}
-	<nav role="navigation">
-		<!-- Sample menu definition -->
-		<ul id="main-menu" class="sm nav_primary nav-access">
-
-		{{#items}}
-				<li><a href="{{url}}"  class="{{#is_current}} current {{/is_current}}"  tabindex="1">{{text}}</a>
-
-					{{#submenu}}
-					<ul class="menu-sublevel caret">
-
-					{{#items}}
-
-						{{#is_divider}}
-						<li class="menu-divider"></li>
-						{{/is_divider}}
-
-						{{^is_divider}}
-
-						{{#subtitle}}
-						<li class="menu-subtitle">{{text}}</li>
-						{{/subtitle}}
-
-						{{#message}}
-						<li class="menu-message">{{text}}</li>
-						{{/message}}
-
-						{{#url}}
-						<li><a href="{{url}}" {{#is_morelink}} class="menu-more" {{/is_morelink}} tabindex="1">{{text}}</a></li>
-						{{/url}}
-
-						{{/is_divider}}
-
-					{{/items}}
-					</ul>
-					{{/submenu}}
-				</li>
-		{{/items}}
-
-		</ul>
+	<nav role="navigation" class="nav_primary">
+	{{> molecules/navigation/smartmenu }}
 	</nav>
 	{{/ primary_nav }}
 
 
 	<div class="nav-global">
 
-		<a href="#" class="nav-toggle nav-toggle-sites"  tabindex="2">
-			<span>{{i18n.global.our-sites}}</span>
+		<a href="#" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false" aria-haspopup="true" aria-label="open Our Sites panel" aria-owns="oursites"  tabindex="2">
+			<span class="link-text">{{i18n.global.our-sites}}</span>
 		</a>
 
 		{{#options.search_active}}
@@ -86,12 +49,11 @@
 		{{/options.search_active}}
 
 		{{#options.settings_active}}
-		<a href="#" class="nav-toggle nav-toggle-settings" tabindex="6">
-			<svg class="icon icon-settings">
-				<use xlink:href="#icon-settings"></use>
-			</svg>
-			<span>Settings</span>
-		</a>
+		<div class="nav-toggle nav-toggle-settings nav-utility">
+		{{#utility_nav}}
+		{{> molecules/navigation/smartmenu }}
+		{{/utility_nav}}
+		</div>
 		{{/options.settings_active}}
 
 		<a href="#" class="nav-toggle nav-toggle-menu" tabindex="1">
@@ -102,22 +64,6 @@
 		</a>
 
 	</div>
-
-	{{#utility_navx}}
-	<ul class="nav_secondary">
-		{{#options.settings_active}}
-		<li>
-		<a href="#" class="nav-toggle nav-toggle-settings">
-			<svg class="icon icon-settings">
-				<use xlink:href="#icon-settings"></use>
-			</svg>
-			<span>Settings</span>
-		</a>
-		</li>
-		{{/options.settings_active}}
-
-	</ul>
-	{{/utility_navx}}
 </header>
 
 <!-- Collapsed drawer menu -->
@@ -147,7 +93,7 @@
 	</nav><!--end .nav-->
 {{/primary_nav}}
 
-{{#utility_nav}}
+{{#utility_navx}}
 	<ul class="nav_secondary">
 		{{#options.settings_active}}
 		<li>
@@ -161,7 +107,7 @@
 		{{/options.settings_active}}
 
 	</ul>
-{{/utility_nav}}
+{{/utility_navx}}
 </nav>
 
 {{/ navigation.global }}

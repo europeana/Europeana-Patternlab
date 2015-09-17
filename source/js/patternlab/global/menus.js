@@ -48,7 +48,7 @@ var Site = window.Site || {};
                 document.addEventListener( 'click', bodyClickFn );
             }
 
-            $('input.js-global-search').focus();
+            //$('input.js-global-search').focus();
             e.preventDefault();
         });
 

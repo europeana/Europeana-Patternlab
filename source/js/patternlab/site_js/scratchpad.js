@@ -14,7 +14,18 @@
 			mainMenuSubOffsetX: -1,
 			mainMenuSubOffsetY: 4,
 			subMenusSubOffsetX: 6,
-			subMenusSubOffsetY: -6
+			subMenusSubOffsetY: -6,
+			subMenusMaxWidth: null,
+			subMenusMinWidth: null
+		});
+
+		$('#settings-menu').smartmenus({
+			mainMenuSubOffsetX: -62,
+			mainMenuSubOffsetY: 4,
+			subMenusSubOffsetX: 0,
+			subMenusSubOffsetY: -6,
+			subMenusMaxWidth: null,
+			subMenusMinWidth: null
 		});
 
 		$('#main-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
