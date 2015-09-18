@@ -28,7 +28,7 @@
 		max-height: 40em;
 	}
 
-	.current:after{
+	.current:after, .is-current:after{
 		content: '';
 		display: block;
 		border-bottom: 5px solid $accent;
@@ -46,7 +46,7 @@
 			&:hover{
 				background-color: $offwhite;
 			}
-			.current:after{
+			.current:after, .is-current:after{
 				border-color: $accent;
 			}
 		}

@@ -18,7 +18,7 @@
       },
       "logo": {
         "url": "http://europeana.eu",
-        "text": "Europeana"
+        "text": "Europeana Collections"
       },
       "primary_nav": {
         "menu_id": "main-menu",
@@ -36,11 +36,12 @@
               "items": [
                 {
                   "url": "#",
-                  "text": "Music"
+                  "text": "Music",
+                  "is_current": true
                 },
                 {
                   "url": "#",
-                  "text": "Art"
+                  "text": "Art History"
                 }
               ]
             }

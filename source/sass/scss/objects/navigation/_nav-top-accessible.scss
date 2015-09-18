@@ -169,12 +169,16 @@
         border-bottom: none;
       }
 
-      &.menu-more{
+      &.menu-more, &.is-current{
         font-weight: bold;
         color: $textcolour_link;
+      }
+      &.menu-more{
         padding: 0.7em 0.6em;
       }
     }
+
+
 
     // Sub menu carets
     .sub-arrow {
