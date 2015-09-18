@@ -1,0 +1,62 @@
+{
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+
+  "title": "Medium",
+  "simple": true,
+  "select_one": false,
+  "items": [
+    {
+      "url": "http://europeana.eu",
+      "text": "Photograph",
+      "num_results": "15K",
+      "is_checked": false
+    },
+    {
+      "url": "http://europeana.eu",
+      "text": "Painting",
+      "num_results": 300,
+      "is_checked": true
+    },
+    {
+      "url": "http://europeana.eu",
+      "text": "Sculpture",
+      "num_results": 600,
+      "is_checked": false
+    },
+    {
+      "url": "http://europeana.eu",
+      "text": "Mixed media",
+      "num_results": 123,
+      "is_checked": true
+    }
+  ],
+  "extra_items": {
+    "items": [
+      {
+        "url": "http://europeana.eu",
+        "text": "Extra Label",
+        "num_results": "15K"
+      },
+      {
+        "url": "http://europeana.eu",
+        "text": "Another Label",
+        "num_results": 300
+      },
+      {
+        "url": "http://europeana.eu",
+        "text": "Label here",
+        "num_results": 600
+      },
+      {
+        "url": "http://europeana.eu",
+        "text": "Label here",
+        "num_results": 123
+      }
+    ]
+  }
+}
