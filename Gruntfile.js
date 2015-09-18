@@ -159,6 +159,12 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/',
             expand: true
           },
+          smartmenus: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/smartmenus/',
+              dest:   'source/js/dist/lib/smartmenus',
+              expand: true
+          },
           videojs: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs*',
@@ -234,6 +240,7 @@ module.exports = function(grunt) {
        'copy:pdfjs_img',
        'copy:purl',
        'copy:require',
+       'copy:smartmenus',
        'copy:videojs',
        'copy:videojs_aurora',
        'copy:videojs_silverlight',

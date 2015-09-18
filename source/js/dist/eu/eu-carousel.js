@@ -340,7 +340,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
                 $(window).europeanaResize(function(){
                     var scrollTimeRef = scrollTime;
                     scrollTime = 0;
-                    log('suppress anim')
                     resize();
                     scrollTime = scrollTimeRef;
                 });

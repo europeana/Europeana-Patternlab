@@ -58,6 +58,9 @@ require.config({
     search_home:                   '../eu/search-home',
     search_object:                 '../eu/search-object',
 
+    smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
+    smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
+
     touch_move:                     '../lib/jquery.event.move',
     touch_swipe:                    '../lib/jquery.event.swipe',
 
@@ -71,6 +74,7 @@ require.config({
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
     placeholder:    ['jquery'],
+    smartmenus:     ['jquery'],
     ga: {
       exports: "__ga__"
     }
