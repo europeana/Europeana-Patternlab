@@ -1,4 +1,10 @@
 {
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
 	"button_title": "Choose Action",
 	"menu_title": "Save to:",
 	"menu_id": "object_furtheractions",
