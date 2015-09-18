@@ -35,13 +35,16 @@
       "group_id": "Available Languages",
       "items": [
         {
-          "text": "English"
+          "text": "English",
+          "value": "value"
         },
         {
-          "text": "French"
+          "text": "French",
+          "value": "value"
         },
         {
-          "text": "Spanish"
+          "text": "Spanish",
+          "value": "value"
         }
       ]
     },
@@ -55,13 +58,16 @@
       "group_id": "Available Languages",
       "items": [
         {
-          "text": "Arabian"
+          "text": "عربي",
+          "value": "value"
         },
         {
-          "text": "Russian"
+          "text": "Russian",
+          "value": "value"
         },
         {
-          "text": "Greek"
+          "text": "Greek",
+          "value": "value"
         }
       ]
     },
