@@ -7,26 +7,26 @@
         	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" /></a>
         	{{/ thumbnail }}
 			{{^ thumbnail }}
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
         	{{/ thumbnail }}
         	</div>
     	{{/ is_image }}
 
    		{{# is_audio }}
    			<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
         	</div>
     	{{/ is_audio }}
 
    		{{# is_text }}
         	<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
         	</div>
     	{{/ is_text }}
 
     	{{# is_video }}
         	<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
         	</div>
     	{{/ is_video }}
 
