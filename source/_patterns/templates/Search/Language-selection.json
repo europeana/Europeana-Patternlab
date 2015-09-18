@@ -49,9 +49,11 @@
       ]
     },
     "limit": "A maximum of 6 languages can be selected.",
+
     "language_itempages": {
+
       "title": "Automatically translate item pages into...",
-      "text": "Auto translate items into",
+      "label": "Auto translate items into",
       "value": "autotranslateitem",
       "item_id": "translate-item",
       "is_checked": true,

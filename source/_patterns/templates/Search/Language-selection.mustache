@@ -43,22 +43,28 @@
 
                     <div class="check-language">
 
-                    <div class="field-container">
+                      <div class="field-container">
 
-                      {{#content.language_itempages}}
-                      <label for="select">{{ title }}</label>
-                      <div class="language_wrapper">
-                        <label for="{{item_id}}"><input id="{{item_id}}" name="{{name}}" type="checkbox" value="{{value}}" {{#is_checked}} checked {{/is_checked}} {{#is_disabled}} checked {{/is_disabled}}> {{ text }}</label>
-                        <select id="select">
-                            <optgroup label="{{group_id}}">
-                            {{#items}}
-                                <option> {{ text }} </option>
-                            {{/items}}
-                            </optgroup>
-                        </select>
-                        {{/content.language_itempages}}
+                        {{#content.language_itempages}}
+
+                        <label for="select">{{ title }}</label>
+
+                        <div class="language_wrapper">
+                          <label for="{{item_id}}">
+                          <input id="{{item_id}}" name="{{item_id}}" type="checkbox" value="{{value}}" {{#is_checked}} checked {{/is_checked}} {{#is_disabled}} disabled {{/is_disabled}}> {{ label }}
+                          </label>
+
+                          <select id="select">
+                              <optgroup label="{{group_id}}">
+                              {{#items}}
+                                  <option> {{ text }} </option>
+                              {{/items}}
+                              </optgroup>
+                          </select>
+                          {{/content.language_itempages}}
+                        </div>
+
                       </div>
-                    </div>
 
                       <input type="submit" value="Save Settings"/>
 
