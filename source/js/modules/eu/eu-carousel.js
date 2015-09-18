@@ -42,11 +42,40 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
             "titleClass" : "mlt-title"
         };
 
+
+        var anchor = function(){
+            animating = true;
+            cmp.css('overflow-x', 'hidden');
+            items.css('left', '0');
+
+            cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
+                "axis" : "x",
+                "onAfter" : function(){
+
+                    var done = function(){
+                        cmp.css('overflow-x', 'hidden');
+                        animating = false;
+                        setArrowState();
+                    };
+
+                    if(inView == 1){
+                        var margin = items.find('.' + classData.itemClass + ':first').css('margin-left');
+                        items.css('left', spacing + 'px');
+                    }
+                    else{
+                        items.css('left', '0');
+                    }
+                    done();
+                }
+            });
+        }
+
+
         var resize = function(){
 
-            //log('resizing');
+            log('resizing');
             if(swiping){
-                //log('return because swiping');
+                log('return because swiping');
                 return;
             }
 
@@ -78,32 +107,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
 
             items.css('width', w + (totalLoaded * (itemW + spacing)));
 
-            var anchor = function(){
-                animating = true;
-                cmp.css('overflow-x', 'hidden');
-                items.css('left', '0');
-
-                cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
-                    "axis" : "x",
-                    "onAfter" : function(){
-
-                        var done = function(){
-                            cmp.css('overflow-x', 'hidden');
-                            animating = false;
-                            setArrowState();
-                        };
-
-                        if(inView == 1){
-                            var margin = items.find('.' + classData.itemClass + ':first').css('margin-left');
-                            items.css('left', spacing + 'px');
-                        }
-                        else{
-                            items.css('left', '0');
-                        }
-                        done();
-                    }
-                });
-            }
             anchor();
         };
 
@@ -335,7 +338,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function
 
             if(typeof $(window).europeanaResize != 'undefined'){
                 $(window).europeanaResize(function(){
+                    var scrollTimeRef = scrollTime;
+                    scrollTime = 0;
                     resize();
+                    scrollTime = scrollTimeRef;
                 });
             }
             resize();
