@@ -123,6 +123,27 @@
             }
           },
           {
+            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "playable": true,
+            "is_pdf": true,
+            "download":{
+              "url":  "/media/PDF2.pdf",
+              "text": "2nd PDF file"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this pdf in any way you like"
+            },
+            "technical_metadata":
+            {
+              "language":"English",
+              "format": "png",
+              "file_size": "23.2",
+              "file_unit": "MB"
+            }
+          },
+          {
             "is_image": true,
             "thumbnail": "/images/sample/object_2_thumbnail.jpg",
             "playable": true,
