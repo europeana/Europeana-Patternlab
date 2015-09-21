@@ -4,12 +4,15 @@ define([], function() {
   var css_path_1 = (typeof(js_path) == 'undefined' ? '/js/dist/' : js_path) + 'css/map/application-map.css';
   var css_path_2 = (typeof(js_path) == 'undefined' ? '/js/dist/' : js_path) + 'lib/iiif/iiif.css';
   var iiif;
+  //var html = $('.object-media-iiif #iiif')[0].outerHTML;
+  //var html = $('.object-media-iiif').html();
   var layerCtrl;
   var currentImg = 0;
   var totalImages;
 
   var labelledData = {};  // JSON (entire manifest): data.label: data
   var iiifLayers = {};    // Layers (loaded): label: layer
+
 
   $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
   $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
@@ -107,27 +110,27 @@ define([], function() {
       forcePseudoFullscreen: false
     }).addTo(iiif);
 
-    $('#iiif-ctrl .first').on('click', function(e){
+    $('#iiif-ctrl .first').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), 0);
     });
 
-    $('#iiif-ctrl .prev').on('click', function(e){
+    $('#iiif-ctrl .prev').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), currentImg-1);
     });
 
-    $('#iiif-ctrl .next').on('click', function(e){
+    $('#iiif-ctrl .next').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), currentImg+1);
     });
 
-    $('#iiif-ctrl .last').on('click', function(e){
+    $('#iiif-ctrl .last').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), totalImages-1);
     });
 
-    $(iiif._container).bind('keydown', function(e) {
+    $(iiif._container).off('keydown').on('keydown', function(e) {
         var key = window.event ? e.keyCode : e.which;
         e = e || window.event;
         if(e.shiftKey || e.ctrlKey){
@@ -148,7 +151,7 @@ define([], function() {
         }
     });
 
-    $('#iiif-ctrl .jump-to-img').bind('keydown', function(e) {
+    $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
       var key = window.event ? e.keyCode : e.which;
       if(key == 13){
         var val = parseInt($(this).val());
@@ -194,6 +197,13 @@ define([], function() {
       require(['leaflet_iiif'], function(){
         initViewer(manifestUrl, $thumbnail);
       });
+    },
+    hide: function(){
+        iiif.remove();
+        currentImg   = 0;
+        totalImages  = 0;
+        labelledData = {};
+        iiifLayers   = {};
     }
   };
 });

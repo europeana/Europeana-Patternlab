@@ -145,8 +145,8 @@
           },
           {
             "is_image": true,
-            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
             "playable": true,
+            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
@@ -166,6 +166,7 @@
           },
           {
             "is_audio": true,
+            "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
             "download": {
               "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
@@ -182,6 +183,7 @@
           },
           {
             "is_video": true,
+            "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
@@ -197,7 +199,25 @@
             }
           },
           {
+            "is_video": true,
+            "playable": true,
+            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "download": {
+              "url": "/media/MP3-2.mp3",
+              "text": "Original MP3 file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/mp4"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+          {
             "is_audio": true,
+            "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
             "download": {
               "url": "/media/C_2336_2G_221-2.flac",
@@ -214,6 +234,7 @@
           },
           {
             "is_video": true,
+            "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
             "download": {
               "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",

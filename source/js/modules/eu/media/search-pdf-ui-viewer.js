@@ -6,17 +6,19 @@ define(['jquery'], function($){
 
         var resource_path = typeof (js_path) == 'undefined' ? '/js/dist/lib/pdfjs/' : js_path + 'lib/pdfjs/';
 
+        /*
         function open(pdfUrl){
-
             if(pdfUrl){
                 PDFView.open(pdfUrl);
             }
         }
+        */
 
         function init(pdfUrl){
 
             if(typeof PDFView != 'undefined' && PDFView.initialized){
                 PDFView.open(pdfUrl);
+                $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
                 return;
             }
 
@@ -40,9 +42,20 @@ define(['jquery'], function($){
 
                 init(pdfUrl);
             },
-            open : function(pdfUrl){
-
-                open(pdfUrl);
+            //open : function(pdfUrl){
+            //    open(pdfUrl);
+            //},
+            hide : function(){
+                $('.object-media-pdf').css({
+                    'position' : 'absolute',
+                    'z-index' : '-1'
+                });
+            },
+            show : function(){
+                $('.object-media-pdf').css({
+                    'position' : 'static',
+                    'z-index' : '0'
+                });
             }
         }
 

@@ -1,15 +1,18 @@
 define([], function() {
   'use strict';
 
-  var css_path        = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
-  var silverlight_xap = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs-silverlight/video-js.xap' : js_path + 'lib/videojs-silverlight/video-js.xap';
   var player          = null;
   var $viewer         = null;
-
+  var css_path        = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
+  var silverlight_xap = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs-silverlight/video-js.xap' : js_path + 'lib/videojs-silverlight/video-js.xap';
+  var html = {
+      "audio": $('.object-media-audio').length > 0 ? $('.object-media-audio audio')[0].outerHTML : '',
+      "video": $('.object-media-video').length > 0 ? $('.object-media-video video')[0].outerHTML : ''
+  }
   $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
   function log(msg) {
-    console.log(msg);
+    console.log('video-viewer log: ' + msg);
   }
 
   function getItemFromMarkup( $el ) {
@@ -36,15 +39,14 @@ define([], function() {
 
     log('initFlac');
 
-    // since we're always loading videojs first the only way to get the tech order into the player
-    // is to do so here
+    // since we're always loading videojs first the only way to get the tech order into the player is to do so here
 
     $viewer.attr('data-setup', '{ "techOrder": ["aurora"] }');
 
     require(['aurora'], function() {
       require(['flac'], function() {
         require(['videojs_aurora'], function() {
-          callback()
+          callback();
         });
       });
     });
@@ -65,7 +67,7 @@ define([], function() {
 
   function determineMediaViewer(mime_type, callback) {
 
-    log('determineMediaViewer: ' + mime_type );
+    log('determineMediaViewer: ' + mime_type);
 
     switch ( mime_type ) {
       case 'audio/flac': initFlac( callback ); break;
@@ -86,19 +88,22 @@ define([], function() {
    * */
   function init(media_item) {
 
-
     log('init video viewer with media_item:\n\t' + JSON.stringify(media_item, null, 4));
 
     $viewer = $(media_item.data_type);
 
-    if ( $viewer.length==0 ) {
-      log( 'no media dom element available' );
-      return;
+    if(!media_item.mime_type){
+        log('no mime type available');
+        return;
     }
 
-    if ( !media_item.mime_type ) {
-      log( 'no mime type available' );
-      return;
+    if($viewer.length == 0){
+      $('.object-media-' + media_item.data_type).append(html[media_item.data_type]);
+      $viewer = $('.object-media-' + media_item.data_type + ' ' + media_item.data_type);
+      if($viewer.length == 0){
+          log('missing player markup');
+          return;
+      }
     }
 
     require(['videojs'], function(){
@@ -106,7 +111,7 @@ define([], function() {
         determineMediaViewer(media_item.mime_type, function(playerOptions){
 
             // it would be nice to set the tech order via the player options here:
-            // but I can't verify ot works.
+            // but I can't verify it works.
             //
             // TechOrder only works for aurora which is configured differently
             // to avoid the load order it imposes (see above) and has I don't think
@@ -116,7 +121,6 @@ define([], function() {
             // the underlying problem with silverlight has been solved.
             //
             //   player = videojs( $viewer[0], playerOptions );
-
 
             player = videojs( $viewer[0], {});
 
@@ -134,17 +138,23 @@ define([], function() {
 
             $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
         });
-
     });
-
   }
 
+
   return {
-    init: function(media_item) {
-      init(media_item);
-    },
-    getItemFromMarkup: function($el){
-        return getItemFromMarkup($el);
-    }
-  };
+      init: function(media_item) {
+          init(media_item);
+      },
+      hide: function(media_item) {
+          console.log('hiding.... ' + player);
+          if(player){
+              player.dispose();
+              player = null;
+          }
+      },
+      getItemFromMarkup: function($el){
+          return getItemFromMarkup($el);
+      }
+    };
 });

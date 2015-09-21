@@ -3,22 +3,50 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   // main link between search page and the various players
   var listSelector       = '.object-media-nav';
   var listItemSelector   = listSelector + ' a';
-  var mediaViewerImage   = null;
 
+
+  var mediaViewerImage   = null;
+  var pdfViewer          = null;
+  var videoViewer        = null;
+  var audioPlayer        = null;
+  var iiifViewer         = null;
 
   function log(msg){
       console.log(msg);
   }
 
   function hideAllViewers() {
-    log( 'hideAllViewers()' );
-    $('.media-viewer .object-media-audio').addClass('is-hidden');
+
+    log('hideAllViewers()');
+
+    //$('.media-viewer .object-media-audio').addClass('is-hidden');
+
     $('.media-viewer .object-media-iiif').addClass('is-hidden');
+
     $('.media-viewer .object-media-image').addClass('is-hidden');
-    $('.media-viewer .object-media-pdf').addClass('is-hidden');
+
+    //$('.media-viewer .object-media-pdf').addClass('is-hidden');
+
     $('.media-viewer .object-media-text').addClass('is-hidden');
-    $('.media-viewer .object-media-video').addClass('is-hidden');
-    $('.media-viewer .object-media-iif').addClass('is-hidden');
+
+    //$('.media-viewer .object-media-video').addClass('is-hidden');
+
+    if(audioPlayer){
+        audioPlayer.hide();
+    }
+    if(iiifViewer){
+        log('hide iiif 1')
+        iiifViewer.hide();
+        iiifViewer = null;
+        log('hide iiif 2')
+    }
+    if(pdfViewer){
+        pdfViewer.hide();
+    }
+    if(videoViewer){
+        videoViewer.hide();
+    }
+
   }
 
 
@@ -44,11 +72,16 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function initMediaAudio(evt, data) {
     hideAllViewers();
+
+    alert('show audio div.....');
+
     $('.media-viewer .object-media-audio').removeClass('is-hidden');
 
-    require(['media_viewer_videojs'], function( viewer ) {
-      viewer.init(viewer.getItemFromMarkup(data.target));
+    require(['media_viewer_videojs'], function(player) {
+        audioPlayer = player;
+        audioPlayer.init(player.getItemFromMarkup(data.target));
     });
+
   }
 
   function initMediaIIIF(evt, data) {
@@ -60,7 +93,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     require(['leaflet'], function(viewer) {
       require(['media_viewer_iiif'], function(viewer) {
-          viewer.init(data.url, data.target)
+          iiifViewer = viewer;
+          iiifViewer.init(data.url, data.target)
       });
     });
   }
@@ -148,51 +182,60 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   }
 
   function initMediaPdf( evt, data ) {
-    log( 'initMediaPdf(): ' + data.url );
 
-    if(data.url && data.url.length > 0){
-        require(['jquery'], function(){
-            require(['pdfjs'], function(){
-                require(['pdf_lang'], function(){
-                    require(['media_viewer_pdf'], function(viewer){
-                        hideAllViewers();
-                        $('.media-viewer .object-media-pdf').removeClass('is-hidden');
-                        viewer.init(data.url);
-                    });
-                });
-            });
-        });
-    }
+      log( 'initMediaPdf(): ' + data.url );
+
+      if(data.url && data.url.length > 0){
+          if(pdfViewer){
+              hideAllViewers();
+              pdfViewer.show();
+              pdfViewer.init(data.url);
+          }
+          else{
+              require(['jquery'], function(){
+                  require(['pdfjs'], function(){
+                      require(['pdf_lang'], function(){
+                          require(['media_viewer_pdf'], function(viewer){
+                              hideAllViewers();
+                              $('.media-viewer .object-media-pdf').removeClass('is-hidden');
+                              pdfViewer = viewer;
+                              pdfViewer.init(data.url);
+                          });
+                      });
+                  });
+              });
+          }
+      }
   }
 
   function initMediaVideo(evt, data) {
-    hideAllViewers();
-    $('.media-viewer .object-media-video').removeClass('is-hidden');
+      hideAllViewers();
+      $('.media-viewer .object-media-video').removeClass('is-hidden');
 
-    require(['media_viewer_videojs'], function( viewer ) {
-      viewer.init(viewer.getItemFromMarkup(data.target));
-    });
+      require(['media_viewer_videojs'], function( viewer ) {
+          videoViewer = viewer;
+          videoViewer.init(viewer.getItemFromMarkup(data.target));
+      });
   }
 
-  /**
-   * @param {Event} evt
-   */
-  function handleListItemSelectorClick( evt ) {
-    evt.preventDefault();
-    evt.stopPropagation();
 
-    if($(this).hasClass('playable')){
-        $(this).addClass('loading');
+  function handleListItemSelectorClick(evt) {
 
-        var data_type = $(this).attr('data-type');
+      evt.preventDefault();
+      evt.stopPropagation();
 
-        console.log('media controller will trigger event' + "object-media-" + data_type);
+      if($(this).hasClass('playable')){
+          $(this).addClass('loading');
 
-        $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), target:$(this)});
-    }
-    else{
-        log('media item not playable');
-    }
+          var data_type = $(this).attr('data-type');
+
+          console.log('media controller will trigger event' + "object-media-" + data_type);
+
+          $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), target:$(this)});
+      }
+      else{
+          log('media item not playable');
+      }
   }
 
   /*
