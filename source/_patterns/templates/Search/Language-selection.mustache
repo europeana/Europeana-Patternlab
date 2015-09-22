@@ -10,10 +10,10 @@
 
                 <div class="item-language">
 
-                    <h1>{{ content.title }}</h1>
+                    <h1>{{ settings.language.title }}</h1>
 
                     <div class="field-container">
-                        {{#content.language_default}}
+                        {{#settings.language.language_default}}
                         <label for="select">{{ title }}</label>
                         <select id="select">
                             <optgroup label="{{group_id}}">
@@ -22,18 +22,18 @@
                               {{/items}}
                             </optgroup>
                         </select>
-                        {{/content.language_default}}
+                        {{/settings.language.language_default}}
                     </div>
 
                   <div class="dropdown-divider"></div>
 
                     <div class="check-language">
 
-                        {{#content.language_options}}
+                        {{#settings.language.language_options}}
                             {{> molecules/controls/group-checkbox }}
-                        {{/content.language_options}}
+                        {{/settings.language.language_options}}
 
-                      <p>{{ content.limit }}</p>
+                      <p>{{ settings.language.limit }}</p>
 
                       <input class="pushbutton" type="submit" value="Clear Selection"/>
 
@@ -45,7 +45,7 @@
 
                       <div class="field-container">
 
-                        {{#content.language_itempages}}
+                        {{#settings.language.language_itempages}}
 
                         <label for="select">{{ title }}</label>
 
@@ -61,7 +61,7 @@
                               {{/items}}
                               </optgroup>
                           </select>
-                          {{/content.language_itempages}}
+                          {{/settings.language.language_itempages}}
                         </div>
 
                       </div>

@@ -28,145 +28,148 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
-  "content": {
-    "title": "Language Settings",
-    "language_default": {
-      "title": "Default Language",
-      "group_id": "Available Languages",
-      "items": [
-        {
-          "text": "English",
-          "value": "value"
-        },
-        {
-          "text": "French",
-          "value": "value"
-        },
-        {
-          "text": "Spanish",
-          "value": "value"
-        }
-      ]
-    },
-    "limit": "A maximum of 6 languages can be selected.",
+  "settings": {
+    "language" : {
+      "title": "Language Settings",
+      "language_default": {
+        "title": "Default Language",
+        "group_id": "Available Languages",
+        "items": [
+          {
+            "text": "English",
+            "value": "value"
+          },
+          {
+            "text": "French",
+            "value": "value"
+          },
+          {
+            "text": "Spanish",
+            "value": "value"
+          }
+        ]
+      },
+      "limit": "A maximum of 6 languages can be selected.",
 
-    "language_itempages": {
+      "language_itempages": {
 
-      "title": "Automatically translate item pages into...",
-      "label": "Auto translate items into",
-      "value": "autotranslateitem",
-      "item_id": "translate-item",
-      "is_checked": true,
-      "group_id": "Available Languages",
-      "items": [
-        {
-          "text": "عربي",
-          "value": "value"
-        },
-        {
-          "text": "Russian",
-          "value": "value"
-        },
-        {
-          "text": "Greek",
-          "value": "value"
-        }
-      ]
-    },
-    "language_options": {
-      "title": "Automatically translate search keywords into...",
-      "is_required": false,
-      "name": "checkboxes[]",
-      "items": [
-        {
-          "text": "French",
-          "value": "french",
-          "item_id": "french"
-        },
-        {
-          "text": "My option name",
-          "value": "Myoptionname",
-          "item_id": "option2"
-        },
-        {
-          "text": "My option",
-          "value": "Myoptionname",
-          "item_id": "option3"
-        },
-        {
-          "text": "My optionalilili",
-          "value": "Myoptionname",
-          "item_id": "option4",
-          "is_checked": true
-        },
-        {
-          "text": "Esperanto",
-          "value": "esperanto",
-          "item_id": "esperanto"
-        },
-        {
-          "text": "My language",
-          "value": "Myoptionname",
-          "item_id": "my_language"
-        },
-        {
-          "text": "La Langue",
-          "value": "Myoptionname",
-          "item_id": "lalangue",
-          "is_checked": true
-        },
-        {
-          "text": "Optionale Langue",
-          "value": "Myoptionname",
-          "item_id": "option-lang"
-        },
-        {
-          "text": "Karkov",
-          "value": "french",
-          "item_id": "karkov"
-        },
-        {
-          "text": "Arrakis",
-          "value": "Myoptionname",
-          "item_id": "arrakis",
-          "is_checked": true
-        },
-        {
-          "text": "Cthutulangue",
-          "value": "Myoptionname",
-          "item_id": "chtulu"
-        },
-        {
-          "text": "THX 1143",
-          "value": "Myoptionname",
-          "item_id": "thx1143"
-        },
-        {
-          "text": "My lkjhlkjhl kjhlkjh lkjhlkjhlkj hl",
-          "value": "Myoptionname",
-          "item_id": "option5",
-          "is_checked": true
-        },
-        {
-          "text": "My jkhkjhkjh kjhk jhkj h name",
-          "value": "Myoptionname",
-          "item_id": "option6"
-        },
-        {
-          "text": "My iuyoiuyoiuyoiu name",
-          "value": "Myoptionname",
-          "item_id": "option7"
-        },
-        {
-          "text": "My kjhgkjh kjhgkjhgkjhgkj name",
-          "value": "Myoptionname",
-          "item_id": "option8",
-          "is_checked": true,
-          "is_disabled": true
-        }
-      ]
+        "title": "Automatically translate item pages into...",
+        "label": "Auto translate items into",
+        "value": "autotranslateitem",
+        "item_id": "translate-item",
+        "is_checked": true,
+        "group_id": "Available Languages",
+        "items": [
+          {
+            "text": "عربي",
+            "value": "value"
+          },
+          {
+            "text": "Russian",
+            "value": "value"
+          },
+          {
+            "text": "Greek",
+            "value": "value"
+          }
+        ]
+      },
+      "language_options": {
+        "title": "Automatically translate search keywords into...",
+        "is_required": false,
+        "name": "checkboxes[]",
+        "items": [
+          {
+            "text": "French",
+            "value": "french",
+            "item_id": "french"
+          },
+          {
+            "text": "My option name",
+            "value": "Myoptionname",
+            "item_id": "option2"
+          },
+          {
+            "text": "My option",
+            "value": "Myoptionname",
+            "item_id": "option3"
+          },
+          {
+            "text": "My optionalilili",
+            "value": "Myoptionname",
+            "item_id": "option4",
+            "is_checked": true
+          },
+          {
+            "text": "Esperanto",
+            "value": "esperanto",
+            "item_id": "esperanto"
+          },
+          {
+            "text": "My language",
+            "value": "Myoptionname",
+            "item_id": "my_language"
+          },
+          {
+            "text": "La Langue",
+            "value": "Myoptionname",
+            "item_id": "lalangue",
+            "is_checked": true
+          },
+          {
+            "text": "Optionale Langue",
+            "value": "Myoptionname",
+            "item_id": "option-lang"
+          },
+          {
+            "text": "Karkov",
+            "value": "french",
+            "item_id": "karkov"
+          },
+          {
+            "text": "Arrakis",
+            "value": "Myoptionname",
+            "item_id": "arrakis",
+            "is_checked": true
+          },
+          {
+            "text": "Cthutulangue",
+            "value": "Myoptionname",
+            "item_id": "chtulu"
+          },
+          {
+            "text": "THX 1143",
+            "value": "Myoptionname",
+            "item_id": "thx1143"
+          },
+          {
+            "text": "My lkjhlkjhl kjhlkjh lkjhlkjhlkj hl",
+            "value": "Myoptionname",
+            "item_id": "option5",
+            "is_checked": true
+          },
+          {
+            "text": "My jkhkjhkjh kjhk jhkj h name",
+            "value": "Myoptionname",
+            "item_id": "option6"
+          },
+          {
+            "text": "My iuyoiuyoiuyoiu name",
+            "value": "Myoptionname",
+            "item_id": "option7"
+          },
+          {
+            "text": "My kjhgkjh kjhgkjhgkjhgkj name",
+            "value": "Myoptionname",
+            "item_id": "option8",
+            "is_checked": true,
+            "is_disabled": true
+          }
+        ]
+      }
     }
   },
+
   "navigation": {
     "global": {
       "options": {
