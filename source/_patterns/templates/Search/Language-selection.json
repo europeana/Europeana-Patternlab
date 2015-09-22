@@ -30,6 +30,9 @@
   ],
   "settings": {
     "language" : {
+      "form": {
+        "action": "portal/settings"
+      },
       "title": "Language Settings",
       "language_default": {
         "title": "Default Language",
