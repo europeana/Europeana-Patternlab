@@ -1,8 +1,8 @@
-{{! 
+{{!
 Navigation - Next/Previous
 
 Configuration options and content model:
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 "navigation":{      // pagination should be within the navigation object
     "next_prev":{
@@ -14,13 +14,13 @@ Configuration options and content model:
 		"back_text": "Go back to search results"
 	}
 }
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 }}
 <ul class="next-previous nav">
 	{{#navigation.next_prev.prev_url}}
 	<li class="previous">
-		<a class="btn btn2" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}>
+		<a class="btn btn2" title="{{navigation.next_prev.prev_text}}" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}>
 		<span aria-hidden="true"><svg class="icon icon-previous"><use xlink:href="#icon-previous"></use></svg></span>
 		<span class="is-vishidden">{{navigation.next_prev.prev_text}}</span>
 		</a>
@@ -29,7 +29,7 @@ Configuration options and content model:
 
 	{{#navigation.next_prev.next_url}}
 	<li class="next">
-		<a class="btn btn2" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}><span class="is-vishidden">{{navigation.next_prev.next_text}}</span><span aria-hidden="true"><svg class="icon icon-next"><use xlink:href="#icon-next"></use></svg></span></a>
+		<a class="btn btn2" title="{{navigation.next_prev.next_text}}" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}><span class="is-vishidden">{{navigation.next_prev.next_text}}</span><span aria-hidden="true"><svg class="icon icon-next"><use xlink:href="#icon-next"></use></svg></span></a>
 	</li>
 	{{/navigation.next_prev.next_url}}
 
