@@ -128,30 +128,6 @@
                                         }
                                     ]
                                 }
-                            },
-                            {
-                                "url": "#",
-                                "text": "Child #4",
-                                "submenu": {
-                                    "items": [
-                                        {
-                                            "url": "#",
-                                            "text": "Grandchild #1"
-                                        },
-                                        {
-                                            "url": "#",
-                                            "text": "Grandchild #2"
-                                        },
-                                        {
-                                            "url": "#",
-                                            "text": "Grandchild #3"
-                                        },
-                                        {
-                                            "url": "#",
-                                            "text": "Grandchild #4"
-                                        }
-                                    ]
-                                }
                             }
                         ]
                     }

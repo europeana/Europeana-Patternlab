@@ -400,7 +400,7 @@
 }
 
 
-// Static Pages
+// STATIC PAGES
 .static-content{
   .lc > .prose{
     @media all and (min-width: $bp-med) {
@@ -420,8 +420,14 @@
   }
 }
 
-.block-content-header h1{
-  margin-bottom: 0;
+.block-content-header {
+  background-color: #DDEBEE;
+  padding: $space-double $space;
+  h1{
+    margin-bottom: 0;
+    margin-left: 0;
+    color: $accent;
+  }
 }
 
 .section.page-header{
@@ -435,11 +441,13 @@
 }
 
 
+.prose li {
+    margin-bottom: 0;
+  }
 
 
+// LANGUAGE SELECTION PAGE
 
-
-// Language selection page
 
 .language-selection{
   padding: 0 $space;
@@ -461,7 +469,7 @@
 
 .item-language{
 
-  padding: $pad-double;
+  padding: 0 $pad $pad;
 
   h1{
     font-size: $font-size-norm;
@@ -506,13 +514,37 @@
       font-size: $font-size-slightly-smaller;
       font-weight: bold;
       text-transform: uppercase;
+      &:hover {
+        background: $blue-dark;
+      }
     }
 
     .pushbutton{
       color: $gray-med;
-      background: $offwhite;
       margin-bottom: $pad;
+      background: $white;
+      font-size: $font-size-sm;
+      padding: $pad-half;
+      &:hover {
+        background: $offwhite;
+      }
     }
-
   }
+
+  .group-item {
+      padding-left: 0;
+      font-size: $font-size-slightly-smaller;
+  }
+  .group-checkbox {
+    margin: 0;
+  }
+
 }
+
+.settings-nav {
+    .level1 > li > a {
+      color: $gray87;
+    }
+}
+
+// clear language selection button
