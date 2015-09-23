@@ -23,4 +23,25 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
         $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
     });
 
+    // TODO: finish implementing this improved load strategy (done for settings only)
+
+    switch(pageName){
+        case 'portal/show':
+            // require('search_object');
+            break;
+        case 'portal/index':
+            // require('search_results');
+            break;
+        case 'home/index':
+            // require('search_home');
+            break;
+        case 'settings/language':
+            require(['settings'], function(page){
+                page.initPage();
+            });
+            break;
+        default:
+            console.log('page not recognised: ' + pageName)
+     }
+
 });

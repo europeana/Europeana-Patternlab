@@ -1,4 +1,4 @@
-define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'resize'], function($){
+define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], function($){
 
     /**
      * @cmp: the container

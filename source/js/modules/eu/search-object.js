@@ -18,53 +18,6 @@ define(['jquery', 'media_controller'], function ($) {
         }
     }
 
-    function initScrollEventTriggers(){
-
-        var isElementInViewport = function(el){
-
-            if(typeof jQuery === "function" && el instanceof jQuery){
-                el = el[0];
-            }
-            var rect = el.getBoundingClientRect();
-            return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*
-                                                                                                                                         * or
-                                                                                                                                         * $(window).height()
-                                                                                                                                         */
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*
-                                                                                         * or
-                                                                                         * $(window).width()
-                                                                                         */
-            );
-        }
-
-        $(window).on('scroll', function(){
-
-            $('.scroll-trigger[enabled=true]').each(function(){
-
-                if(isElementInViewport($(this))){
-                    $(this).attr('enabled', false)
-                    var eEvent = $(this).data('fire-on-open');
-                    var eParams = $(this).data('fire-on-open-params');
-                    $(window).trigger(eEvent, eParams);
-                }
-            });
-        });
-
-        // don't wait for a scroll event if the trigger is already in view
-
-        $(document).ready(function(){
-            $('.scroll-trigger').each(function(){
-                if(isElementInViewport(this)){
-                    $(this).attr('enabled', false)
-                    var eEvent = $(this).data('fire-on-open');
-                    var eParams = $(this).data('fire-on-open-params');
-                    $(window).trigger(eEvent, eParams);
-                    log('evt: ' + eEvent + '  ' + eParams);
-                }
-            });
-        });
-
-    }
 
     /*
      * function initViewMore() { // TODO: make this global
@@ -234,8 +187,6 @@ define(['jquery', 'media_controller'], function ($) {
         $(window).bind('showMap', function(e, data){
             showMap(data);
         });
-
-        initScrollEventTriggers();
 
         $('.media-viewer').trigger("media_init");
     };

@@ -53,7 +53,12 @@ require.config({
     purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
-    resize:                        '../eu/util/resize',
+
+    util_resize:                   '../eu/util/resize',
+    util_scrollEvents:             '../eu/util/scrollEvents',
+
+    settings:                      '../eu/settings',
+
     search_form:                   '../eu/search-form',
     search_home:                   '../eu/search-home',
     search_object:                 '../eu/search-object',
@@ -84,7 +89,7 @@ require.config({
 require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
-    require(['channels', 'hotjar', 'global'], function( global, channels ) {
+    require(['channels', 'hotjar', 'global'], function() {
       $.holdReady(false);
 
       require(["ga"], function(ga) {

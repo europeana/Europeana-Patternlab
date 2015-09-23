@@ -221,8 +221,6 @@ module.exports = function(grunt) {
       'copy:non_js'
  ]);
   grunt.registerTask('default', [
-       //'concat:channels',
-       //'concat:global',
        'concat:blacklight',
        'concat:map',
        'concat:map_css',
