@@ -24,23 +24,22 @@
         "menu_id": "main-menu",
         "items": [
           {
-            "url": "#",
+            "url": "home url",
             "text": "Home",
             "is_current": true,
             "submenu": false
           },
           {
-            "url": "#",
             "text": "Channels",
             "submenu": {
               "items": [
                 {
-                  "url": "#",
+                  "url": "music channel url",
                   "text": "Music",
                   "is_current": true
                 },
                 {
-                  "url": "#",
+                  "url": "art history channel url",
                   "text": "Art History"
                 }
               ]

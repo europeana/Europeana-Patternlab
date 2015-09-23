@@ -79,11 +79,11 @@
 	<nav class="nav_primary">
 		<ul>
 		{{#items}}
-			<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
+			<li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
 			{{#submenu}}
 				<ul>
 				{{#items}}
-					<li><a href="{{url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
+					<li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
 				{{/items}}
 				</ul>
 			{{/submenu}}

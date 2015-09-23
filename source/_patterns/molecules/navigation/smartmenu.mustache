@@ -7,11 +7,14 @@ Add config stuff in here
 <ul id="{{menu_id}}" class="sm cf nav-access {{style_modifier}}">
 
 {{#items}}
-		<li><a href="{{url}}"  class="{{#is_current}} is-current {{/is_current}}" {{^tabindex}} tabindex="1" {{/tabindex}}{{#tabindex}} tabindex="{{tabindex}}" {{/tabindex}}>
+		<li>
+		<a {{#url}}href="{{url}}"{{/url}}  class="{{#is_current}} is-current {{/is_current}}" {{^tabindex}} tabindex="1" {{/tabindex}}{{#tabindex}} tabindex="{{tabindex}}" {{/tabindex}}>
+
 		{{#icon}}
 		<svg class="icon icon-{{icon}}">
 			<use xlink:href="#icon-{{icon}}"></use>
-		</svg>{{/icon}}<span class="link-text">{{text}}</span></a>
+		</svg>{{/icon}}<span class="link-text">{{text}}</span>
+		</a>
 
 			{{#submenu}}
 			<ul class="menu-sublevel caret">
