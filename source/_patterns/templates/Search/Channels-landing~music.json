@@ -4,6 +4,10 @@
   "version": {
     "is_alpha": true
   },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
   "page_config": {
     "newsletter": true
   },
@@ -251,6 +255,10 @@
     }
   },
   "navigation": {
+    "breadcrumbs": {
+      "back_home": "Return to Home",
+      "home_url": "back_url_here"
+    },
     "global": {
       "options": {
         "search_active": false,

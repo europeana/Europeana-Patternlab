@@ -1,6 +1,6 @@
 {
   "bodyclass": "channel_landing",
-  "pagetitle": "Europeana Search",
+  "pagetitle": "Europeana - Art History",
   "version": {
     "is_alpha": true
   },
@@ -261,6 +261,10 @@
     }
   },
   "navigation": {
+    "breadcrumbs": {
+      "back_home": "Return to Home",
+      "home_url": "back_url_here"
+    },
     "global": {
       "options": {
         "search_active": false,
