@@ -1112,6 +1112,13 @@
     }
   ],
   "navigation": {
+    "breadcrumbs": {
+      "back_home": "Return to Home",
+      "home_url": "back_url_here",
+      "channel_name": "Europeana Music",
+      "channel_url" : "channel_url_here",
+      "results_list": "Results List"
+    },
     "global":
     {
       "options":
