@@ -459,7 +459,6 @@
             "submenu": false
           },
           {
-            "url": "#",
             "text": "Channels",
             "submenu": {
               "items": [

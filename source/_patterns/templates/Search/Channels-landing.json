@@ -254,7 +254,6 @@
             "is_current": false
           },
           {
-            "url": "#",
             "text": "Channels",
             "is_current": true,
             "submenu": {

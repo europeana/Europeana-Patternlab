@@ -280,7 +280,6 @@
             "submenu": false
           },
           {
-            "url": "#",
             "text": "Channels",
             "is_current": true,
             "submenu": {
