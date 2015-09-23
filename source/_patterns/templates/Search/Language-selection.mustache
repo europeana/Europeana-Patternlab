@@ -19,7 +19,7 @@
                           <select id="locale" name="locale">
                               <optgroup label="{{group_id}}">
                                 {{#items}}
-                                  <option value="{{value}}"> {{ text }} </option>
+                                  <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}> {{ text }} </option>
                                 {{/items}}
                               </optgroup>
                           </select>
