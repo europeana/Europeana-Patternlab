@@ -504,6 +504,12 @@
                     "more":"More",
                     "less":"Less"
                 }
+            },
+            "settings":{
+              "actions":{
+                "clear-selection": "Clear Selection",
+                "save-settings": "Save settings"
+              }
             }
         },
         "global": {
