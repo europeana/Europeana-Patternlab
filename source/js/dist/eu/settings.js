@@ -23,12 +23,12 @@ define(['jquery'], function ($){
                     console.log('success');
                     var selectedLocale =$('#locale').val();
                     if(initialLocale != selectedLocale){
-                        console.log('successfully changed locale to ' + initialLocale + ' (will reload page)');
+                        alert('successfully changed locale from ' + initialLocale + ' to ' + selectedLocale + ' (will reload page)');
                         initialLocale = selectedLocale;
                         window.location.reload();
                     }
                     else{
-                        console.log('locale unchanged from ' + initialLocale);
+                        alert.log('locale unchanged from ' + initialLocale);
                     }
                 },
                 error: function(msg){
