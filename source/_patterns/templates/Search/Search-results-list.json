@@ -1134,13 +1134,11 @@
     }
   ],
   "channel_data": {
-      "name": "Europeana Music",
+      "label": "Europeana Music",
+      "name": "music",
       "url": "music-channel-url"
   },
   "navigation": {
-    "breadcrumbs": {
-      "home_url": "back_url_here"
-    },
     "global":
     {
       "options":

@@ -264,9 +264,6 @@
     }
   },
   "navigation": {
-    "breadcrumbs": {
-      "home_url": "back_url_here"
-    },
     "global": {
       "options": {
         "search_active": false,

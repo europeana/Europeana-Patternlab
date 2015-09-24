@@ -35,6 +35,7 @@
         }
     ],
     "channel_data": {
+        "label": "Channel",
         "name": "Global Channel Name",
         "url": "global_channel_url"
     },
