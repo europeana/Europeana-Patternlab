@@ -1,4 +1,11 @@
 {
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+
   "title": "Channels",
   "hierarchical": true,
   "select_one": true,
@@ -18,19 +25,16 @@
             {
               "url": "http://europeana.eu",
               "text": "Portrait",
-              "num_results": "15K",
               "is_checked": false
             },
             {
               "url": "http://europeana.eu",
               "text": "Landscape",
-              "num_results": 300,
               "is_checked": false
             },
             {
               "url": "http://europeana.eu",
               "text": "Square",
-              "num_results": 600,
               "is_checked": false
             }
           ],
