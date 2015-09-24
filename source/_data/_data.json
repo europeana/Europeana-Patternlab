@@ -34,7 +34,12 @@
             "path": "../../js/patternlab/output/global-min.js"
         }
     ],
+    "channel_data": {
+        "name": "Global Channel Name",
+        "url": "global_channel_url"
+    },
     "navigation": {
+        "home_url": "www.europeana.eu",
         "global": {
             "options": {
                 "search_active": true,
@@ -441,6 +446,13 @@
     "i18n": {
         "site": {
             "more": "More...",
+            "navigation": {
+                "breadcrumb": {
+                  "item_detail": "Item Detail",
+                  "return_home": "Return to Home",
+                  "results_list": "Results List"
+                }
+            },
             "news": "News",
             "object": {
                 "actions": {

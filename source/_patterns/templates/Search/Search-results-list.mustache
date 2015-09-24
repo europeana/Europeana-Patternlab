@@ -8,9 +8,9 @@
       <div class="object-nav cf">
         <div class="object-nav-lists">
           <ul class="breadcrumbs">
-            <li><a href="{{navigation.breadcrumbs.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{navigation.breadcrumbs.back_home}}</a></li>
-            <li><a href="{{channel_url}}">{{navigation.breadcrumbs.channel_name}}</a></li>
-            <li><span class="lastitem"><strong>{{navigation.breadcrumbs.results_list}}</strong></span></li>
+            <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+            {{#channel_data}}<li><a href="{{url}}">{{name}}</a></li>{{/channel_data}}
+            <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.results_list}}</strong></span></li>
           </ul>
         </div>
       </div>

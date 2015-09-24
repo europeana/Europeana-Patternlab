@@ -19,6 +19,11 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
+  "js_variables":
+  [
+    "var js_path = '../../js/dist/';",
+    "var pageName = 'portal/static';"
+  ],
   "navigation":
   {
     "next_prev": {

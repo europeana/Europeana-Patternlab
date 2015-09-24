@@ -17,7 +17,8 @@
 
   "js_variables":
   [
-    "var js_path= '../../js/dist/';"
+    "var js_path = '../../js/dist/';",
+    "var pageName = 'portal/show';"
   ],
 
   "js_files":
@@ -432,15 +433,12 @@
       "next_text": "Next Item",
       "prev_url": "prev_url_here",
       "prev_text": "Previous Item",
+      "back_text": "Return to search",
       "results_list": "Results List",
-      "results_url": "results_url_here",
-      "item_detail": "Item Detail"
+      "results_url": "results_url_here"
     },
-    "channel_name": "Channel Name",
-    "channel_url": "channel_url_here",
-    "home_url" : "Home url",
-    "home_text": "Return to Home",
 
+    "home_text": "Return to Home",
     "global":
     {
       "options":

@@ -49,6 +49,9 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
+  "js_variables": [
+    "var pageName = 'portal/index';"
+  ],
   "input_search": {
     "title": "Search",
     "input_name": "supersearch",
@@ -1130,13 +1133,13 @@
       }
     }
   ],
+  "channel_data": {
+      "name": "Europeana Music",
+      "url": "music-channel-url"
+  },
   "navigation": {
     "breadcrumbs": {
-      "back_home": "Return to Home",
-      "home_url": "back_url_here",
-      "channel_name": "Europeana Music",
-      "channel_url" : "channel_url_here",
-      "results_list": "Results List"
+      "home_url": "back_url_here"
     },
     "global":
     {

@@ -663,11 +663,8 @@
       "prev_text": "Previous",
       "back_url": "back_url_here",
       "back_text": "Return to Home",
-      "channel_name": "Channel Name",
-      "channel_url": "channel_url_here",
       "results_list": "Results List",
-      "results_url": "results_url_here",
-      "item_detail": "Item Detail"
+      "results_url": "results_url_here"
     },
 
     "global":

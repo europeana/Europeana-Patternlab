@@ -1,6 +1,6 @@
 {
   "bodyclass": "europeana_search",
-  "pagetitle": "Europeana Search",
+  "pagetitle": "Europeana Search Home",
   "version": {
     "is_alpha": true
   },
@@ -18,6 +18,9 @@
       "path": "../../js/dist/require.js",
       "data_main": "../../js/dist/main/main"
     }
+  ],
+  "js_variables": [
+    "var pageName = 'home/index';"
   ],
   "input_search": {
     "title": "Search Europeana",

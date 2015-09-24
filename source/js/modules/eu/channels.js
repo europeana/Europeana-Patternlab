@@ -35,6 +35,8 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
         case 'portal/index':
             // require('search_results');
             break;
+        case 'portal/static':
+            break;
         case 'home/index':
             // require('search_home');
             break;

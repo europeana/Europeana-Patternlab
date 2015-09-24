@@ -23,6 +23,9 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
+  "js_variables": [
+    "var pageName = 'channels/show';"
+  ],
   "input_search": {
     "title": "Search Europeana Art History",
     "input_name": "q",
@@ -262,7 +265,6 @@
   },
   "navigation": {
     "breadcrumbs": {
-      "back_home": "Return to Home",
       "home_url": "back_url_here"
     },
     "global": {
