@@ -39,7 +39,6 @@ define([], function(){
                 var eEvent = $(this).data('fire-on-open');
                 var eParams = $(this).data('fire-on-open-params');
                 $(window).trigger(eEvent, eParams);
-                log('evt: ' + eEvent + '  ' + eParams);
             }
         });
     });
