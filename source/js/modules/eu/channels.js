@@ -27,13 +27,17 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
 
     switch(pageName){
         case 'channels/show':
-            // channels landing and search share this controller / action
+            require(['search_results'], function(page){
+                page.initPage();
+            });
             break;
         case 'portal/show':
             // require('search_object');
             break;
         case 'portal/index':
-            // require('search_results');
+            require(['search_results'], function(page){
+                page.initPage();
+            });
             break;
         case 'portal/static':
             break;

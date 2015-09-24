@@ -1,4 +1,4 @@
-define(['jquery', 'media_controller'], function ($) {
+define(['jquery', 'media_controller', 'purl'], function ($) {
 
     function log(msg){
 
@@ -6,7 +6,6 @@ define(['jquery', 'media_controller'], function ($) {
     }
 
     function addEllipsis(){
-
         if(window.location.href.indexOf('ellipsis') > -1){
             $('.mlt-title a').each(function(){
                 while($(this).outerHeight() > $(this).parent().height()){
@@ -169,6 +168,28 @@ define(['jquery', 'media_controller'], function ($) {
         });
     }
 
+    var respondToChannelParam = function(){
+
+        var purl    = $.url(window.location.href);
+        var channel = purl.param('src_channel');
+        if(channel){
+
+            // menu styling
+            $('#main-menu ul a').each(function(i, ob){
+              var $ob = $(ob);
+              if($ob.attr('href').indexOf('/channels/' + channel) >-1){
+                  $ob.addClass('is-current');
+              }
+            });
+
+            // add src_channel param to next / prev . back links
+            // (parameters get wiped on click by blacklight - this only works if opened in new tab)
+            $('.next-previous a').each(function(i, ob){
+              var $ob = $(ob);
+              $ob.attr('href', $ob.attr('href') + '?src_channel=' + channel);
+            });
+        }
+    }
 
     function initFullDoc(){
 
@@ -179,6 +200,7 @@ define(['jquery', 'media_controller'], function ($) {
         // (end functions to assist design)
 
         init_showhide();
+        respondToChannelParam();
 
         $(window).bind('showMLT', function(e, data){
             showMLT();

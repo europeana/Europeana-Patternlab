@@ -62,6 +62,7 @@ require.config({
     search_form:                   '../eu/search-form',
     search_home:                   '../eu/search-home',
     search_object:                 '../eu/search-object',
+    search_results:                '../eu/search-results',
 
     smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
