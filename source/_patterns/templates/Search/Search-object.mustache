@@ -7,10 +7,10 @@
     <div class="object-nav-lists">
 
       <ul class="breadcrumbs">
-        <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{navigation.next_prev.back_text}}</a></li>
-        <li><a href="{{navigation.next_prev.channel_url}}">{{navigation.next_prev.channel_name}}</a></li>
-        <li><a href="{{navigation.next_prev.results_url}}">{{navigation.next_prev.results_list}}</a></li>
-        <li><span class="lastitem"><strong>{{navigation.next_prev.item_detail}}</strong></span></li>
+        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.global.navigation.breadcrumb_return_home}}</a></li>
+        {{#navigation.channel_name}}<li><a href="{{navigation.channel_url}}">{{navigation.channel_name}}</a></li>{{/navigation.channel_name}}
+        <li><a href="{{navigation.next_prev.back_url}}">{{navigation.next_prev.back_text}}</a></li>
+        <li><span class="lastitem"><strong>{{navigation.item_detail}}</strong></span></li>
       </ul>
 
       {{>molecules/navigation/next-previous}}

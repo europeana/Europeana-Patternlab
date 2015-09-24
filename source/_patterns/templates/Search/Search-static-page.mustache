@@ -10,7 +10,7 @@
     <div class="object-nav-lists">
 
       <ul class="breadcrumbs">
-        <li><a href="{{navigation.next_prev.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{navigation.next_prev.back_text}}</a></li>
+        <li><a href="{{navigation.breadcrumbs.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{navigation.next_prev.back_text}}</a></li>
         <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
       </ul>
     </div>
@@ -19,25 +19,25 @@
 </section>
 
 <section class="static-header section">
-	<div class="lc">
-		<h1 class="title">{{ content.title }}</h1>
-	</div>
+  <div class="lc">
+    <h1 class="title">{{ content.title }}</h1>
+  </div>
 </section>
 
 <section class="static-content section">
 <div class="lc">
 
-	<div class="prose">
-		{{{ content.text }}}
-	</div>
+  <div class="prose">
+    {{{ content.text }}}
+  </div>
 
-	<div class="sidebar js-getstickywidth">
-	{{#navigation.secondary}}
- 		<div class="js-sticky">
-		{{> molecules/navigation/nav-secondary }}
-		</div>
-	{{/navigation.secondary}}
-	</div>
+  <div class="sidebar js-getstickywidth">
+  {{#navigation.secondary}}
+     <div class="js-sticky">
+    {{> molecules/navigation/nav-secondary }}
+    </div>
+  {{/navigation.secondary}}
+  </div>
 
 </div>
 </section>

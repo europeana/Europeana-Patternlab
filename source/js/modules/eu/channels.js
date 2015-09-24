@@ -26,6 +26,9 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
     // TODO: finish implementing this improved load strategy (done for settings only)
 
     switch(pageName){
+        case 'channels/show':
+            // channels landing and search share this controller / action
+            break;
         case 'portal/show':
             // require('search_object');
             break;
