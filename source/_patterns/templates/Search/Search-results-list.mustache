@@ -120,12 +120,13 @@
                     {{#tabbed}}
                         {{> molecules/controls/filter-tabbed }}
                     {{/tabbed}}
+
+                    {{#advanced}}
+                        {{> molecules/controls/filter-advanced }}
+                    {{/advanced}}
+
                 {{/filters}}
 
-                <a href="#refine-advanced">{{i18n.global.facet.more-refinements}}</a>
-                <div class="refine-advanced">
-                    {{! @TODO add advanced search }}
-                </div>
             </div>
         </div>
     </section>

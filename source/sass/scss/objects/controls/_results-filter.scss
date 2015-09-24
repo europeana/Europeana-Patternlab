@@ -5,7 +5,7 @@
 // Styleguide 1.0.0
 
 
-.filter{
+.filter, .filter-advanced{
 	border-top: 1px solid $gray87;
 	margin-bottom: $space-half;
 	@include fontSize(14px);
@@ -13,6 +13,12 @@
 	.subfilters &{
 		border-top: none;
 	}
+}
+
+.filter-advanced{
+  .filter-moreless{
+    @include fontSize(16px);
+  }
 }
 
 .filter-name{
@@ -52,10 +58,24 @@
 	color: $gray-light;
 }
 
-.filter-extrafields{
+.filter-extrafields, .filter-adv{
 	margin-top: $space-half;
 	padding-top: $space-half;
-	border-top: 1px dashed $gray87;
+}
+
+.filter-extrafields{
+  border-top: 1px dashed $gray87;
+}
+
+.filter-extra-adv{
+
+  a{
+    color: $textcolour_body;
+  }
+
+  .filter-name{
+		margin-top: $space-half;
+	}
 }
 
 .subfilters{

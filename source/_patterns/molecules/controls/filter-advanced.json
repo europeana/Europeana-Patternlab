@@ -1,0 +1,35 @@
+{
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main"
+    }
+  ],
+
+  "i18n": {
+        "site": {
+          "results": {
+              "list": {
+                  "more_adv":"Advanced Filters",
+                  "less_adv":"Less Refinements"
+              }
+          }
+        }
+  },
+
+  "title": "Advanced Options",
+  "simple": true,
+  "select_one": false,
+  "advanced_items": {
+    "items": [
+      {
+        "url": "http://europeana.eu",
+        "text": "Show content contributed by users"
+      },
+      {
+        "url": "http://europeana.eu",
+        "text": "Only show items with thumbnails"
+      }
+    ]
+  }
+}

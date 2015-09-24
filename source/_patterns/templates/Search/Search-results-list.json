@@ -374,7 +374,26 @@
           }
         ]
       }
+    },
+    {
+      "title": "Advanced Options",
+        "advanced": true,
+        "select_one": false,
+        "advanced_items": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "Show content contributed by users"
+            },
+            {
+              "url": "http://europeana.eu",
+              "text": "Only show items with thumbnails"
+            }
+          ]
+        }
     }
+
+
   ],
   "facets_selected": {
     "items": [
