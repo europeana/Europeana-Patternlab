@@ -18,6 +18,9 @@
 		<div class="cf">
 
               <form id="settings-form" action="{{settings.language.form.action}}" method="PUT">
+
+                                  <input type="hidden" name="authenticity_token" value="{{settings.language.form.form_authenticity_token}}"/>
+
                   <div class="item-language">
 
                       <h1>{{ settings.language.title }}</h1>
@@ -25,7 +28,7 @@
                       <div class="field-container">
                           {{#settings.language.language_default}}
                           <label for="select">{{ title }}</label>
-                          <select id="locale" name="locale">
+                          <select id="locale" name="locale" autocomplete="off">
                               <optgroup label="{{group_id}}">
                                 {{#items}}
                                   <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}> {{ text }} </option>
