@@ -4,6 +4,18 @@
 
 <div role="main" class="page l-page">
 
+    <section class="search-object">
+      <div class="object-nav cf">
+        <div class="object-nav-lists">
+          <ul class="breadcrumbs">
+            <li><a href="{{home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{navigation.breadcrumbs.back_home}}</a></li>
+            <li><a href="{{channel_url}}">{{navigation.breadcrumbs.channel_name}}</a></li>
+            <li><span class="lastitem"><strong>{{navigation.breadcrumbs.results_list}}</strong></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="search-hero">
         <div class="searchbar">
         {{> molecules/components/search/search-form }}

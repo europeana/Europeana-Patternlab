@@ -1,7 +1,9 @@
-.block-content-header{
-	background-color: $block_bg;
+.block-content-header, .static-header{
 	margin-bottom: $space-double;
 	padding: $space;
+  .title{
+    color: $accent;
+  }
 
 	@media all and (min-width: $bp-small-2) {
 		padding: $space-triple $space;
@@ -12,4 +14,12 @@
 		background-color: lighten($accent, 10);
 		color: $white;
 	}
+}
+
+.block-content-header{
+  background-color: $block_bg;
+  }
+
+.static-header{
+  background-color: #DDEBEE;
 }

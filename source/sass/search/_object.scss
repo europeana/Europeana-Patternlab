@@ -36,8 +36,8 @@
 }
 
 .object-nav{
-    padding: $space-half;
-    background-color: $gray-lighter;
+    padding: 0.7rem $space-half;
+    background-color: $offwhite;
     @include fontSize(14px);
 
     .object-nav-search{
@@ -55,11 +55,23 @@
 
     .next-previous, .breadcrumbs{
         display: inline;
+        a {
+          font-size: $font-size-slightly-smaller;
+          &:after{
+          font-size: $font-size-norm;
+          top: 0.01em;
+          }
+        }
+        strong {
+          font-size: $font-size-slightly-smaller;}
+        .btn2{
+          background-color: $gray87;
+          font-size: 0.7em;
+        }
     }
 
     .item-nav-search{
       position: relative;
-      top: -0.15em;
 
       @media all and (max-width: $bp-med) {
       margin-top: $pad;

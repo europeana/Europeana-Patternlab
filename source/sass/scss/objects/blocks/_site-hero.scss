@@ -1,4 +1,5 @@
-.site-hero{
+.site-hero,
+.hero-nopad {
 
 	height: 70%;
 	position: relative;
@@ -11,11 +12,6 @@
 
 	background-color: $grey2;
 	color: $gray97;
-
-	@media all and (min-width: $bp-small) {
-		margin-top: $globalnavheight;
-		height: 50%;
-	}
 
 	.lc{
 		position: relative;
@@ -72,4 +68,11 @@
     	text-transform: uppercase;
 	}
 
+}
+
+.site-hero{
+  @media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
+		height: 50%;
+	}
 }

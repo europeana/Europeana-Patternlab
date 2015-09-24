@@ -19,8 +19,13 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
-  "navigation": {
-        "global":
+  "navigation":
+  {
+    "next_prev": {
+      "back_text": "Return to Home",
+      "home_url": "back_url_here"
+    },
+    "global":
     {
       "options":
       {

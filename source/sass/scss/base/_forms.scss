@@ -237,6 +237,12 @@ input[type="search"]::-webkit-search-decoration {
       color: $darker;
     }
   }
+
+  .item-nav-input{
+    @media all and (min-width: $bp-med) {
+      height: $pad-half;
+      }
+  }
 }
 
 /* Contact Form */
