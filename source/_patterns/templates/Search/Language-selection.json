@@ -31,7 +31,8 @@
   "settings": {
     "language" : {
       "form": {
-        "action": "portal/settings"
+        "action": "portal/settings",
+        "method": "put"
       },
       "title": "Language Settings",
       "language_default": {
