@@ -1,13 +1,12 @@
-define(['jquery', 'media_controller', 'purl'], function ($) {
+define(['jquery', 'util_scrollEvents', 'media_controller', 'purl'], function($, scrollEvents) {
 
     function log(msg){
-
         console.log(msg);
     }
 
     function addEllipsis(){
         if(window.location.href.indexOf('ellipsis') > -1){
-            $('.mlt-title a').each(function(){
+            $('.js-carousel-title a').each(function(){
                 while($(this).outerHeight() > $(this).parent().height()){
                     $(this).text(function(index, text){
                         return text.replace(/\W*\s(\S)*$/, '...');
@@ -17,47 +16,23 @@ define(['jquery', 'media_controller', 'purl'], function ($) {
         }
     }
 
+    function init_showhide(){
+      $('.js-showhide').on('click', function(event){
 
-    /*
-     * function initViewMore() { // TODO: make this global
-     *
-     * $('.js-showhide-action').on('click', function(event){
-     *
-     * var self = $(this); var tgt = self.prev('.js-showhide-panel');
-     *
-     * tgt.toggleClass('is-jshidden').toggleClass('is-expanded');
-     *  // Swap the text for the value in data-text-original and back again if
-     * (self.text() === self.data('text-swap')) {
-     * self.text(self.data('text-original')); } else {
-     * self.data('text-original', self.text());
-     * self.text(self.data('text-swap')); } if(tgt.hasClass('is-expanded') &&
-     * self.data('fire-on-open') && self.data('fired') != true ){ var eEvent =
-     * self.data('fire-on-open'); var eParams =
-     * self.data('fire-on-open-params');
-     *
-     * $(window).trigger(eEvent, eParams); self.data('fired', true) }
-     * event.preventDefault(); }); }
-     */
+        var self = $(this);
+        var parent = $(this).parent();
+        parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the panel
+        parent.toggleClass('is-expanded');
 
-     function init_showhide(){
-
-        $('.js-showhide').on('click', function(event){
-
-          var self = $(this);
-          var parent = $(this).parent();
-          parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the panel
-          parent.toggleClass('is-expanded');
-
-          // Swap the text for the value in data-text-original and back again
-          if (self.text() === self.data("text-swap")) {
-            self.text(self.data("text-original"));
-          } else {
-            self.data("text-original", self.text());
-            self.text(self.data("text-swap"));
-          }
-          event.preventDefault();
-
-        });
+        // Swap the text for the value in data-text-original and back again
+        if (self.text() === self.data("text-swap")) {
+          self.text(self.data("text-original"));
+        } else {
+          self.data("text-original", self.text());
+          self.text(self.data("text-swap"));
+        }
+        event.preventDefault();
+      });
     };
 
     function showMap(data){
@@ -147,25 +122,29 @@ define(['jquery', 'media_controller', 'purl'], function ($) {
         }
     }
 
-    var showMLT = function(){
+    var initCarousel = function(el, ops){
         require(['eu_carousel'], function(EuCarousel){
-
-            var el = $('.js-mlt');
-
-            var mltData = [];
-            reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
-
+            var reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
+            var data = [];
             el.find('a.link').each(function(i, ob) {
                 ob = $(ob);
-                mltData[mltData.length] = {
-                        "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
-                        "title" : ob.closest('.mlt-img-div').next('.mlt-title').find('a')[0].innerHTML,
-                        "link"  : ob.attr('href'),
-                        "linkTarget" : "_self"
+                data[data.length] = {
+                    "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
+                    "title" : ob.closest('.mlt-img-div').next('.js-carousel-title').find('a')[0].innerHTML,
+                    "link"  : ob.attr('href'),
+                    "linkTarget" : "_self"
                 }
             });
-            new EuCarousel(el, mltData);
+            new EuCarousel(el, data, ops);
         });
+    }
+
+    var showMediaThumbs = function(data){
+        initCarousel($('.media-thumbs'), data);
+    }
+
+    var showMLT = function(data){
+        initCarousel($('.more-like-this'), data);
     }
 
     var respondToChannelParam = function(){
@@ -191,7 +170,7 @@ define(['jquery', 'media_controller', 'purl'], function ($) {
         }
     }
 
-    function initFullDoc(){
+    function initPage(){
 
         // functions to assist design
         if(typeof addEllipsis != 'undefined'){
@@ -202,16 +181,28 @@ define(['jquery', 'media_controller', 'purl'], function ($) {
         init_showhide();
         respondToChannelParam();
 
+        // event binding
+
         $(window).bind('showMLT', function(e, data){
-            showMLT();
+            showMLT(data);
+        });
+
+        $(window).bind('showMediaThumbs', function(e, data){
+            showMediaThumbs(data);
         });
 
         $(window).bind('showMap', function(e, data){
             showMap(data);
         });
 
-        $('.media-viewer').trigger("media_init");
+        $('.media-viewer').trigger('media_init');
+
+        scrollEvents.fireAllVisible();
     };
 
-    initFullDoc();
+    return {
+        initPage: function(){
+            initPage();
+        }
+    }
 });

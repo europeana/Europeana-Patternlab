@@ -324,17 +324,18 @@
             <a	class="scroll-trigger"
               enabled="true"
               data-fire-on-open="showMLT"
+              data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}"}'
             ></a>
           </div>
           <div class="subsection-content">
-            <div class="js-mlt">
+            <div class="js-carousel more-like-this">
               <ul class="cf">
                 {{#items}}
-                  <li class="mlt-item">
+                  <li class="js-carousel-item">
                     <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
                       <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
                     </div>
-                    <span class="mlt-title">
+                    <span class="js-carousel-title">
                       <a href="{{url}}">{{title}}</a>
                     </span>
                   </li>
@@ -347,6 +348,55 @@
       </div>
     {{/content.similar}}
     </div>
+
+
+
+
+
+  <!-- vertical test -->
+
+  <!--
+
+  <div class="lc data-border">
+      {{#content.similar}}
+      <div class="data-section no-border">
+        <div class="mlt cf">
+          <div class="subsection-label">
+            {{title}}
+            <a class="scroll-trigger"
+              enabled="true"
+              data-fire-on-open="showMediaThumbs"
+              data-fire-on-open-params='{ "minSpacingPx": 5, "loadUrl": "{{content.object.media.more_thumbs_url}}"}'
+            ></a>
+          </div>
+          <div class="subsection-content">
+              <div style="position: relative; height:400px; width:5.6em;">
+                  <div class="js-carousel v media-thumbs">
+                    <ul class="cf">
+                      {{#items}}
+                        <li class="js-carousel-item">
+                          <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                            <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                          </div>
+                          <span class="js-carousel-title">
+                            <a href="{{url}}">{{title}}</a>
+                          </span>
+                        </li>
+                      {{/items}}
+                    </ul>
+                  </div>
+               </div>
+          </div>
+        </div>
+      </div>
+      {{/content.similar}}
+    </div>
+  -->
+
+
+
+
+
   </section>
   {{/content}}
 </div>

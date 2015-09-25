@@ -1,214 +1,217 @@
 define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], function($){
 
+    var log = function(msg){
+        console.log(msg);
+     }
+
     /**
      * @cmp: the container
+     * @data: initial items
+     * @ops: (optional) overrides
      *
+     * NOTE: in vertical mode the parent has to have a position of relative
      */
-    return function(cmp, data){
+    return function(cmp, data, ops){
 
-        log = function(msg){
-           console.log(msg);
-        }
+        var ops      = ops ? ops : {};
+        var vertical = cmp.hasClass('v');
+        var axis     = vertical ? 'y' : 'x';
+        var edge     = vertical ? 'top' : 'left';
 
-        var animating = false;
-        var btnLeft , btnRight , items;
-        var cmp = $(cmp);
+        var btnPrev, btnNext, items;
+        var animating      = false;
+        var cmp            = $(cmp);
 
-        var minSpacingPx = 15;
-        var spacing      = minSpacingPx;
+        var minSpacingPx   = ops.minSpacingPx ? ops.minSpacingPx : 15;
+        var loadUrl        = ops.loadUrl;
 
-        var inView       = 0; // num items currently visible in viewport
-        var position     = 1; // index of currently viewed item
+        var spacing        = minSpacingPx;
 
+        var inView         = 0; // num items currently visible in viewport
+        var position       = 1; // index of currently viewed item
 
         var totalLoaded    = data.length;
         var totalAvailable = 100;
         var scrollTime     = 400;
 
-        var itemW = cmp.find('.mlt-item:first').width();
-        var loadedOnSwipe = false; // a single swipe can generate only a single load event - track of that's been done or not
-        var swiping       = false;
+        var first          = cmp.find('.js-carousel-item:first');
+        var itemW          = first.width();
+        var itemH          = first.height();
+        var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
+        var swiping        = false;
 
         var classData = {
             "arrowClasses" : {
-                "container" : "js-mlt-arrows",
-                "left" : "left",
-                "right" : "right"
+                "container" : ["js-carousel-arrows", vertical ? "v" : "h"],
+                "back" : "left",
+                "fwd"  : "right",
+                "content" : {
+                    "back" : vertical ? "^" : "◂",
+                    "fwd"  : vertical ? "v" : "▸"
+                }
             },
-            "itemClass" : "mlt-item",
+            "itemClass" : "js-carousel-item",
             "itemDivClass" : "mlt-img-div height-to-width",
             "itemInnerClass" : "inner",
             "itemLinkClass" : "link",
-            "titleClass" : "mlt-title"
+            "titleClass" : "js-carousel-title"
         };
+
+        if(!vertical){
+          cmp.addClass('h');
+        }
 
 
         var anchor = function(){
             animating = true;
-            cmp.css('overflow-x', 'hidden');
-            items.css('left', '0');
+
+            cmp.css('overflow-' + axis, 'hidden');
+            items.css(edge, '0');
 
             cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
-                "axis" : "x",
+                "axis" : axis,
                 "onAfter" : function(){
 
                     var done = function(){
-                        cmp.css('overflow-x', 'hidden');
+                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
 
                     if(inView == 1){
-                        var margin = items.find('.' + classData.itemClass + ':first').css('margin-left');
-                        items.css('left', spacing + 'px');
+                        items.find('.' + classData.itemClass + ':first').css('margin-' + edge);
+                        items.css(edge, spacing + 'px');
                     }
                     else{
-                        items.css('left', '0');
+                        items.css(edge, '0');
                     }
                     done();
                 }
             });
         }
 
-
         var resize = function(){
 
-            log('resizing');
             if(swiping){
-                log('return because swiping');
                 return;
             }
 
-            var w = cmp.width();
-            var itemW = items.find('.' + classData.itemClass + '').first().outerWidth();
-            var maxFit = parseInt(w / (itemW + minSpacingPx));
+            var cmpD  = vertical ? cmp.height() : cmp.width();
+            var first  = items.find('.' + classData.itemClass + '').first();
+            var itemD  = vertical ? first.outerHeight() : first.outerWidth();
+            var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
+
             spacing = minSpacingPx;
 
             if(maxFit == 1){
-                spacing = (w - itemW) / 2;
+                spacing = (cmpD - itemD) / 2;
                 spacing += 2;
             }
             else{
-                spacing = (w - (maxFit * itemW)) / (maxFit - 1);
+                spacing = (cmpD - (maxFit * itemD)) / (maxFit - 1);
             }
             spacing = parseInt(spacing);
+            inView  = maxFit;
 
-            log('w = ' + w + ', spacing will be ' + spacing + ', maxFit = ' + maxFit);
-
-            inView = maxFit;
-
-            items.find('.' + classData.itemClass + '').css('margin-left', parseInt(spacing) + 'px');
-
-            log('w: ' + w + ', itemW: ' + itemW + ', maxFit ' + maxFit);
+            items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
             if(maxFit != 1){
-                items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
+                items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
             }
 
-            items.css('width', w + (totalLoaded * (itemW + spacing)));
+            items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
 
             anchor();
         };
 
         var setArrowState = function(){
-
-            if(position == 1){
-                btnLeft.hide();
+            if(btnPrev){
+                position == 1 ? btnPrev.hide() : btnPrev.show();
             }
-            else{
-                btnLeft.show();
-            }
-            if(totalLoaded < totalAvailable || position + inView <= totalLoaded){
-                btnRight.show();
-            }
-            else{
-                log('hide right arrow: position ' + position + ' + inView ' + inView + ' <= ' + totalLoaded);
-
-                btnRight.hide();
+            if(btnNext){
+                if(totalLoaded < totalAvailable || position + inView <= totalLoaded){
+                    btnNext.show();
+                }
+                else{
+                    btnNext.hide();
+                }
             }
         }
 
-        var goLeft = function(){
+        var goBack = function(){
 
             animating = true;
             var prevItem = position - inView < 1 ? 1 : position - inView;
+
             log('prev index = ' + prevItem);
 
             position = prevItem;
 
             prevItem = items.find('.' + classData.itemClass + ':nth-child(' + prevItem + ')');
 
-            cmp.css('overflow-x', 'hidden');
+            cmp.css('overflow-' + axis, 'hidden');
 
-            items.css('left', '0');
+            items.css(edge, '0');
 
             cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
-                "axis" : "x",
+                "axis" : axis,
                 "onAfter" : function(){
 
                     var done = function(){
-
-                        cmp.css('overflow-x', 'hidden');
+                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
 
                     if(inView == 1){
-                        var margin = items.find('.' + classData.itemClass + ':first').css('margin-left');
-                        items.css('left', spacing + 'px');
+                        items.find('.' + classData.itemClass + ':first').css('margin-' + edge);
+                        items.css(edge, spacing + 'px');
                     }
                     else{
-                        items.css('left', '0');
+                        items.css(edge, '0');
                     }
-
                     done();
-
                 }
             });
-
         };
 
-        var scrollRight = function(){
+        var scrollForward = function(){
+
             var nextIndex = position + inView;
-            var nextItem = items.find('.' + classData.itemClass + ':nth-child(' + nextIndex + ')');
+            var nextItem  = items.find('.' + classData.itemClass + ':nth-child(' + nextIndex + ')');
 
             position = nextIndex;
 
-            cmp.css('overflow-x', 'hidden');
-
-            items.css('left', '0');
-
+            cmp.css('overflow-' + axis, 'hidden');
+            items.css(edge, '0');
             animating = true;
-            cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
-                "axis" : "x",
-                "onAfter" : function(){
 
+            cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
+                "axis" : axis,
+                "onAfter" : function(){
                     var done = function(){
                         cmp.removeClass('loading');
-                        cmp.css('overflow-x', 'hidden');
+                        cmp.css('overflow' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
 
                     if(inView == 1){
-                        var margin = items.find('.' + classData.itemClass + ':first').css('margin-left');
+                        items.find('.' + classData.itemClass + ':first').css('margin-' + edge);
                         items.css('left', spacing + 'px');
                     }
                     else{
-                        items.css('left', '0');
+                        items.css(edge, '0');
                     }
                     done();
                 }
             });
         }
 
-        // handles loading and scrolls
-        var goRight = function(){
+        var goFwd = function(){
 
             if((position + inView) < totalLoaded){
-                log('no going right: -pos=' + position +  ', '  + (position + inView) + ' > ' + totalLoaded)
-                scrollRight();
-                return;
+                scrollForward();
             }
             else{
                 loadMore(true);
@@ -216,8 +219,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         }
 
         var loadMore = function(scroll){
+
+            if(!loadUrl){
+                console.log('no load url (return)');
+                return;
+            }
             if(cmp.hasClass('loading')){
-                console.log('already loading');
+                console.log('already loading (return)');
                 return;
             }
             cmp.addClass('loading');
@@ -229,7 +237,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 });
                 resize();
                 if(scroll){
-                    scrollRight();
+                    scrollForward();
                 }
                 else{
                     cmp.removeClass('loading');
@@ -237,7 +245,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             }
 
             var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
-            var url = window.location.href.split('.html')[0] + '/similar.json?page=' + page_param + '&per_page=' + inView;
+            var url = loadUrl + '?page=' + page_param + '&per_page=' + inView;
 
             $.getJSON( url, null, function( data ) {
                 dataLoaded(data);
@@ -255,86 +263,124 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             +'</span>' + '</li>';
         }
 
-        var init = function(){
-            items = cmp.find('ul');
-            btnLeft = $('<a class="' + classData.arrowClasses.left + '">◂</a>');
-            btnRight = $('<a class="' + classData.arrowClasses.right + '">▸</a>');
+        var addButtons = function(){
 
-            cmp.before('<div class="' + classData.arrowClasses.container + '"></div>');
-            cmp.prev('.' + classData.arrowClasses.container).append(btnLeft);
-            cmp.prev('.' + classData.arrowClasses.container).append(btnRight);
+            btnPrev = $('<a class="' + classData.arrowClasses.back + '">' + classData.arrowClasses.content.back + '</a>');
+            btnNext = $('<a class="' + classData.arrowClasses.fwd + '">' + classData.arrowClasses.content.fwd + '</a>');
+
+            cmp.before('<div class="' + classData.arrowClasses.container.join(' ') + '"></div>');
+            cmp.prev('.' + classData.arrowClasses.container.join('.')).append(btnPrev);
+            cmp.prev('.' + classData.arrowClasses.container.join('.')).append(btnNext);
 
             totalLoaded = items.find('.' + classData.itemClass).length;
 
-            /*
-            if(typeof Ellipsis != 'undefined'){
-                $('.' + classData.itemClass + ' .info').each(function(i, ob){
-                    new Ellipsis(ob);
-                });
-            }
-            */
-
-            btnLeft.click(function(e){
-
+            btnPrev.click(function(e){
                 if(!animating){
-                    goLeft();
+                    goBack();
                 }
                 e.stopPropagation();
                 return false;
             });
 
-            btnRight.click(function(e){
-
+            btnNext.click(function(e){
                 if(!animating){
-                    goRight();
+                    goFwd();
                 }
                 e.stopPropagation();
                 return false;
             });
+        }
 
+        var init = function(){
+            items = cmp.find('ul');
+            addButtons();
 
+            var swipeLoadThreshold = Math.min(-100, 0-(itemW / 2));
 
             cmp.on('movestart', function(e) { // respond to horizontal movement only
-              if ((e.distX > e.distY && e.distX < -e.distY) ||
-                  (e.distX < e.distY && e.distX > -e.distY)) {
-                  e.preventDefault();
-                  return;
+
+              var mvVertical =  (e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY);
+
+              if(vertical){
+                  if (!mvVertical) {
+                      log('v cmp mv horizontal (return)');
+                       e.preventDefault();
+                      return;
+                  }
+              }
+              else{
+                  if (mvVertical) {
+                      log('h cmp mv vertical (return)');
+                      e.preventDefault();
+                      return;
+                  }
               }
             })
             .on('move', function(e) {
                 swiping = true;
-                if (e.distX < 0) {
-                    items.css('left',  e.distX + 'px');
-                    var swipeLoadThreshold = 0-(itemW / 2);
-                    if (e.distX < swipeLoadThreshold){
-                        if(!loadedOnSwipe){
-                            if ((position + inView + inView) > totalLoaded){
-                                loadedOnSwipe = true;
-                                loadMore();
+
+                if(vertical){
+                    if (e.distY < 0) {
+                        items.css('top',  e.distY + 'px');
+                        if (e.distY < swipeLoadThreshold){
+                            if(!loadedOnSwipe){
+                                if ((position + inView + inView) > totalLoaded){
+                                    loadedOnSwipe = true;
+                                    loadMore();
+                                }
                             }
                         }
                     }
+                    if (e.distY > 0) {
+                        items.css('top', e.distY + 'px');
+                    }
                 }
-                if (e.distX > 0) {
-                    items.css('left',  e.distX + 'px');
+                else{
+                    if (e.distX < 0) {
+                        items.css('left',  e.distX + 'px');
+                        if (e.distX < swipeLoadThreshold){
+                            if(!loadedOnSwipe){
+                                if ((position + inView + inView) > totalLoaded){
+                                    loadedOnSwipe = true;
+                                    loadMore();
+                                }
+                            }
+                        }
+                    }
+                    if (e.distX > 0) {
+                        items.css('left',  e.distX + 'px');
+                    }
                 }
             })
             .on('moveend', function(e) {
 
-                var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
-                var newPos          = position + (-1 * positionsPassed)
+                if(vertical){
+                    var positionsPassed = Math.round(e.distY / (itemH + spacing/2));
+                    var newPos          = position + (-1 * positionsPassed)
 
+                    cmp.scrollTo(cmp.scrollTop() - parseInt(items.css('top')), 0);
+                    items.css('top', '');
 
-                cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
-                items.css('left', '');
+                    loadedOnSwipe = false;
+                    swiping = false;
 
-                loadedOnSwipe = false;
-                swiping = false;
+                    position = Math.max(1, newPos);
+                    resize();
+                }
+                else{
+                    var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
+                    var newPos          = position + (-1 * positionsPassed)
 
-                position = Math.max(1, newPos);
-                resize();
+                    cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
+                    items.css('left', '');
+
+                    loadedOnSwipe = false;
+                    swiping = false;
+
+                    position = Math.max(1, newPos);
+                    resize();
+                }
             });
-
 
             if(typeof $(window).europeanaResize != 'undefined'){
                 $(window).europeanaResize(function(){
@@ -347,9 +393,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             resize();
         };
 
-
         init();
+
         return {
+
             resize : function(){
                 resize();
             },
@@ -357,10 +404,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 return fnInView();
             },
             goLeft : function(){
-                goLeft();
+                goBack();
             },
             goRight : function(){
-                goRight();
+                goFwd();
             }
         }
     };

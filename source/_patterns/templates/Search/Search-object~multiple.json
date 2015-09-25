@@ -16,7 +16,8 @@
 
   "js_variables":
   [
-    "var js_path= '../../js/dist/';"
+    "var js_path= '../../js/dist/';",
+    "var pageName = 'portal/show';"
   ],
 
   "js_files":

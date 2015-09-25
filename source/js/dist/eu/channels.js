@@ -1,4 +1,4 @@
-define(['search_form', 'search_home', 'search_object', 'smartmenus'], function () {
+define(['search_form', 'search_home', 'smartmenus'], function () {
 
     require(['smartmenus_keyboard'], function(){
 
@@ -25,6 +25,10 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
 
     // TODO: finish implementing this improved load strategy (done for settings only)
 
+    if(!pageName){
+        console.warn('pageName not specified - cannot bootstrap app');
+        return;
+    }
     switch(pageName){
         case 'channels/show':
             require(['search_results'], function(page){
@@ -32,7 +36,9 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
             });
             break;
         case 'portal/show':
-            // require('search_object');
+            require(['search_object'], function(page){
+                page.initPage();
+            });
             break;
         case 'portal/index':
             require(['search_results'], function(page){
@@ -50,7 +56,7 @@ define(['search_form', 'search_home', 'search_object', 'smartmenus'], function (
             });
             break;
         default:
-            console.log('page not recognised: ' + pageName)
+            console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
      }
 
 });

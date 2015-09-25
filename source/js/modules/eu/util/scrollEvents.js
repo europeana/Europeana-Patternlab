@@ -17,29 +17,39 @@ define([], function(){
         );
     }
 
-    $(window).on('scroll', function(){
 
-        $('.scroll-trigger[enabled=true]').each(function(){
+    var triggerIfInView = function($trigger){
+        if(isElementInViewport($trigger[0])){
+            $trigger.attr('enabled', false);
+            var eEvent  = $trigger.data('fire-on-open');
+            var eParams = $trigger.data('fire-on-open-params');
+            $(window).trigger(eEvent, eParams);
+        }
+    }
 
-            if(isElementInViewport($(this))){
-                $(this).attr('enabled', false)
-                var eEvent = $(this).data('fire-on-open');
-                var eParams = $(this).data('fire-on-open-params');
-                $(window).trigger(eEvent, eParams);
-            }
-        });
-    });
-
-    // don't wait for a scroll event if the trigger is already in view
-
-    $(document).ready(function(){
+    var fireAllVisible = function(){
         $('.scroll-trigger').each(function(){
-            if(isElementInViewport(this)){
-                $(this).attr('enabled', false)
-                var eEvent = $(this).data('fire-on-open');
-                var eParams = $(this).data('fire-on-open-params');
-                $(window).trigger(eEvent, eParams);
-            }
+            triggerIfInView($(this));
+        });
+    }
+
+    $(window).on('scroll', function(){
+        $('.scroll-trigger[enabled=true]').each(function(){
+            triggerIfInView($(this));
         });
     });
+
+    // don't wait for a scroll event if the trigger is already in view on page load
+
+    $(window).on('fire-visible-scroll-triggers', function(){
+        fireAllVisible();
+    });
+
+    return {
+        fireAllVisible: function(){
+            fireAllVisible();
+        }
+    }
+
+
 });
