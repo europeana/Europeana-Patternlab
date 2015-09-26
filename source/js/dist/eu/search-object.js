@@ -153,36 +153,33 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         }
         if(typeof(Storage) !== "undefined") {
 
-                // get channel data
+            // get channel data
 
-                var label = sessionStorage.eu_portal_channel_label;
-                var name  = sessionStorage.eu_portal_channel_name;
-                var url   = sessionStorage.eu_portal_channel_url;
+            var label = sessionStorage.eu_portal_channel_label;
+            var name  = sessionStorage.eu_portal_channel_name;
+            var url   = sessionStorage.eu_portal_channel_url;
 
-                console.log('retrieved  ' + label + ', ' + name + ', ' + url);
+            console.log('retrieved  ' + label + ', ' + name + ', ' + url);
 
-                // show crumb
-
-                if(label && url){
-                    var crumb = $('.breadcrumbs li.js-channel');
-                    var link  = crumb.find('a');
-                    link.text(label);
-                    link.attr('href', url);
-                    crumb.show();
-                }
-
-
-                // menu styling
-
-                if(name){
-                    $('#main-menu ul a').each(function(i, ob){
-                        var $ob = $(ob);
-                        if($ob.attr('href').indexOf('/channels/' + name) >-1){
-                            $ob.addClass('is-current');
-                        }
-                    });
-                }
+            if(typeof url != 'undefined' ){
+                var crumb = $('.breadcrumbs li.js-channel');
+                var link  = crumb.find('a');
+                link.text(label);
+                link.attr('href', url);
+                crumb.removeClass('js-channel');
             }
+
+            // menu styling
+
+            if(name && name != 'undefined'){
+                $('#main-menu ul a').each(function(i, ob){
+                    var $ob = $(ob);
+                    if($ob.attr('href').indexOf('/channels/' + name) >-1){
+                        $ob.addClass('is-current');
+                    }
+                });
+            }
+
         }
     }
 
