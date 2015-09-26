@@ -157,23 +157,29 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                 var name  = sessionStorage.eu_portal_channel_name;
                 var url   = sessionStorage.eu_portal_channel_url;
 
+                console.log('retrieved  ' + label + ', ' + name + ', ' + url);
+
                 // show crumb
 
-                var crumb = $('.breadcrumbs li.js-channel');
-                var link  = crumb.find('a');
-                link.text(label);
-                link.attr('href', url);
+                if(label && url){
+                    var crumb = $('.breadcrumbs li.js-channel');
+                    var link  = crumb.find('a');
+                    link.text(label);
+                    link.attr('href', url);
+                    crumb.show();
+                }
 
-                crumb.show();
 
                 // menu styling
 
-                $('#main-menu ul a').each(function(i, ob){
-                  var $ob = $(ob);
-                  if($ob.attr('href').indexOf('/channels/' + name) >-1){
-                      $ob.addClass('is-current');
-                  }
-                });
+                if(name){
+                    $('#main-menu ul a').each(function(i, ob){
+                        var $ob = $(ob);
+                        if($ob.attr('href').indexOf('/channels/' + name) >-1){
+                            $ob.addClass('is-current');
+                        }
+                    });
+                }
             }
         }
     }
