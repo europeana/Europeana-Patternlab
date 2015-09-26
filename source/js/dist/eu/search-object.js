@@ -148,6 +148,9 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     }
 
     var channelCheck = function(){
+        if(typeof(Storage) == "undefined") {
+            console.log('no storage');
+        }
         if(typeof(Storage) !== "undefined") {
             if (sessionStorage.eu_portal_channel) {
 
@@ -180,6 +183,9 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         }
                     });
                 }
+            }
+            else{
+                console.log('sessionStorage.eu_portal_channel is null');
             }
         }
     }
