@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'media_controller', 'purl'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEvents) {
 
     function log(msg){
         console.log(msg);
@@ -147,26 +147,34 @@ define(['jquery', 'util_scrollEvents', 'media_controller', 'purl'], function($, 
         initCarousel($('.more-like-this'), data);
     }
 
-    var respondToChannelParam = function(){
+    var channelCheck = function(){
+        if(typeof(Storage) !== "undefined") {
+            if (sessionStorage.eu_portal_channel) {
 
-        var purl    = $.url(window.location.href);
-        var channel = purl.param('src_channel');
-        if(channel){
+                // get channel data
 
-            // menu styling
-            $('#main-menu ul a').each(function(i, ob){
-              var $ob = $(ob);
-              if($ob.attr('href').indexOf('/channels/' + channel) >-1){
-                  $ob.addClass('is-current');
-              }
-            });
+                var label = sessionStorage.eu_portal_channel_label;
+                var name  = sessionStorage.eu_portal_channel_name;
+                var url   = sessionStorage.eu_portal_channel_url;
 
-            // add src_channel param to next / prev . back links
-            // (parameters get wiped on click by blacklight - this only works if opened in new tab)
-            $('.next-previous a').each(function(i, ob){
-              var $ob = $(ob);
-              $ob.attr('href', $ob.attr('href') + '?src_channel=' + channel);
-            });
+                // show crumb
+
+                var crumb = $('.breadcrumbs li.js-channel');
+                var link  = crumb.find('a');
+                link.text(label);
+                link.attr('href', url);
+
+                crumb.show();
+
+                // menu styling
+
+                $('#main-menu ul a').each(function(i, ob){
+                  var $ob = $(ob);
+                  if($ob.attr('href').indexOf('/channels/' + name) >-1){
+                      $ob.addClass('is-current');
+                  }
+                });
+            }
         }
     }
 
@@ -179,7 +187,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller', 'purl'], function($, 
         // (end functions to assist design)
 
         init_showhide();
-        respondToChannelParam();
+        channelCheck();
 
         // event binding
 

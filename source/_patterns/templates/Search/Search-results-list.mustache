@@ -7,7 +7,12 @@
     <section class="search-object">
       <div class="object-nav cf">
         <div class="object-nav-lists">
-          <ul class="breadcrumbs">
+          <ul class="breadcrumbs"
+            {{#channel_data}}
+                data-store-channel-label = "{{label}}"
+                data-store-channel-name  = "{{name}}"
+                data-store-channel-url   = "{{url}}"
+              {{/channel_data}}>
             <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
             {{#channel_data}}<li><a href="{{url}}">{{label}}</a></li>{{/channel_data}}
             <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.results_list}}</strong></span></li>
