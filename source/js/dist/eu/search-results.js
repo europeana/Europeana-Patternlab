@@ -9,6 +9,8 @@ define(['jquery'], function ($){
            sessionStorage.eu_portal_channel_label = label;
            sessionStorage.eu_portal_channel_name  = name;
            sessionStorage.eu_portal_channel_url   = url;
+
+           console.log('stored ' + label + ', ' + name + ', ' + url);
         }
     };
 
