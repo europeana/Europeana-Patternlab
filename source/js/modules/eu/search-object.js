@@ -161,7 +161,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
             console.log('retrieved  ' + label + ', ' + name + ', ' + url);
 
-            if( url != 'undefined' ){
+            if(typeof url != 'undefined' && url != 'undefined' ){
                 var crumb = $('.breadcrumbs li.js-channel');
                 var link  = crumb.find('a');
                 link.text(label);

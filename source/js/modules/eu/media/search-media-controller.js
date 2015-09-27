@@ -12,7 +12,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   var iiifViewer         = null;
 
   function log(msg){
-      console.log(msg);
+      console.log('search-media-controller: ' + msg);
   }
 
   function hideAllViewers() {
@@ -46,9 +46,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     if(videoViewer){
         videoViewer.hide();
     }
-
   }
-
 
   function initMedia() {
     log( 'initMedia()' );
@@ -73,13 +71,20 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function initMediaAudio(evt, data) {
     hideAllViewers();
 
-    alert('show audio div.....');
-
     $('.media-viewer .object-media-audio').removeClass('is-hidden');
 
     require(['media_viewer_videojs'], function(player) {
         audioPlayer = player;
-        audioPlayer.init(player.getItemFromMarkup(data.target));
+
+        var media = audioPlayer.getItemFromMarkup(data.target);
+
+        if(media){
+            audioPlayer.init(media);
+        }
+        else{
+            $('.media-viewer').trigger({"type": "remove-playability", "$thumb": data.target, "player": "audio"});
+            log('missing audio item - removed');
+        }
     });
 
   }
@@ -214,7 +219,16 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
       require(['media_viewer_videojs'], function( viewer ) {
           videoViewer = viewer;
-          videoViewer.init(viewer.getItemFromMarkup(data.target));
+
+          var media = videoViewer.getItemFromMarkup(data.target);
+
+          if(media){
+              videoViewer.init(media);
+          }
+          else{
+              $('.media-viewer').trigger({"type": "remove-playability", "$thumb": data.target, "player": "video"});
+              log('missing video item - removed');
+          }
       });
   }
 

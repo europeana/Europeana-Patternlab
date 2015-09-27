@@ -11,6 +11,8 @@ define(['jquery'], function ($){
            sessionStorage.eu_portal_channel_url   = url;
 
            console.log('stored ' + label + ', ' + name + ', ' + url);
+
+           // TODO: only write values if defined
         }
     };
 
