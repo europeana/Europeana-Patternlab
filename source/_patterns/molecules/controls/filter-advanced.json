@@ -19,7 +19,6 @@
 
   "title": "Advanced Options",
   "simple": true,
-  "select_one": false,
   "advanced_items": {
     "items": [
       {
