@@ -25,7 +25,7 @@ define(['search_form', 'search_home', 'smartmenus'], function () {
 
     // TODO: finish implementing this improved load strategy (done for settings only)
 
-    if(!pageName){
+    if(typeof pageName == 'undefined' || !pageName){
         console.warn('pageName not specified - cannot bootstrap app');
         return;
     }

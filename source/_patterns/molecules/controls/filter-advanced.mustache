@@ -54,23 +54,21 @@ Configuration options and content model:
 }}
 <div class="filter-advanced {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
-    <ul class="filter-list">
 
     {{#advanced_items}}
-        <div class="filter-extra-adv js-showhide-panel is-jshidden">
+    <div class="filter-extra-adv js-showhide-panel is-jshidden">
+        {{# title }}<div class="filter-name">{{ title }}</div>{{/ title }}
 
-    {{# title }}<div class="filter-name">{{ title }}</div>{{/ title }}
-
-    {{#items}}
-        <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>{{text}}
-            </a>
-        </li>
-    {{/items}}
+        <ul class="filter-list">
+        {{#items}}
+            <li>
+                <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>{{text}}
+                </a>
+            </li>
+        {{/items}}
+        </ul>
     </div>
     {{/advanced_items}}
-
-    </ul>
 
     {{#advanced_items}}
         <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.site.results.list.less_adv}}">{{i18n.site.results.list.more_adv}}</a>
