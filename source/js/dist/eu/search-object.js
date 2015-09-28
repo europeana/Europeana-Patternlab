@@ -172,7 +172,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         }
         // (end functions to assist design)
 
-        init_showhide();
         channelCheck();
 
         // event binding
