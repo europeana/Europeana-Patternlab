@@ -1,74 +1,81 @@
 
 .nav_primary{
 
-	@include font-size(1);
+  @include font-size(1);
 
-	a {
-		display: block;
-		padding: 0.6em;
-		font-weight: bold;
+  a {
+    display: block;
+    padding: 0.6em;
+    font-weight: bold;
 
-		&:after{
-			content: '';
-			display: block;
-			border-bottom: 5px solid transparent;
-			margin-top: 0.15em;
-		}
+    &:after{
+      content: '';
+      display: block;
+      border-bottom: 5px solid transparent;
+      margin-top: 0.15em;
+    }
 
-		&:hover{
-			text-decoration: none;
-		}
-		&:hover:after{
-			border-color: $textcolour_body;
-		}
+    &:hover{
+      text-decoration: none;
+    }
+    &:hover:after{
+      border-color: $textcolour_body;
+    }
 
-	}
+  }
 
-	&.active {
-		max-height: 40em;
-	}
+  // hide display of sub-menus on mobiles until clicked
+  ul {
+    ul {
+      display: none;
+    }
+  }
 
-	.current:after, .is-current:after{
-		content: '';
-		display: block;
-		border-bottom: 5px solid $accent;
-		margin-top: 0.2em;
-	}
+  &.active {
+    max-height: 40em;
+  }
 
-	// primary nav in header
-	.header & {
-		display: none;
+  .current:after, .is-current:after{
+    content: '';
+    display: block;
+    border-bottom: 5px solid $accent;
+    margin-top: 0.2em;
+  }
 
-		a{
-			color: $textcolour_body;
-			border-top: 1px solid $gray-light;
+  // primary nav in header
+  .header & {
+    display: none;
 
-			&:hover{
-				background-color: $offwhite;
-			}
-			.current:after, .is-current:after{
-				border-color: $accent;
-			}
-		}
+    a{
+      color: $textcolour_body;
+      border-top: 1px solid $gray-light;
 
-		@media all and (min-width: $bp-med) {
+      &:hover{
+        background-color: $offwhite;
+      }
+      .current:after, .is-current:after{
+        border-color: $accent;
+      }
+    }
 
-			display: block;
-			float: left;
+    @media all and (min-width: $bp-med) {
 
-			margin-top: 0.7em;
-			margin-left: $space-half;
+      display: block;
+      float: left;
 
-			li {
-				float: left;
-			}
+      margin-top: 0.7em;
+      margin-left: $space-half;
 
-			a {
-				border: 0;
-			}
+      li {
+        float: left;
+      }
 
-		}
-	}
+      a {
+        border: 0;
+      }
+
+    }
+  }
 
 
 }
@@ -76,15 +83,15 @@
 
 .nav-utility{
 
-	.sm .menu-sublevel{
-		min-width: 10em;
-	}
+  .sm .menu-sublevel{
+    min-width: 10em;
+  }
 
-	.sm > li > a{
-		color: $textcolour_body;
+  .sm > li > a{
+    color: $textcolour_body;
 
-		&:hover{
-			color: $black;
-		}
-	}
+    &:hover{
+      color: $black;
+    }
+  }
 }

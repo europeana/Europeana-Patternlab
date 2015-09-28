@@ -740,7 +740,19 @@
 						}
 					}
 				}
-				$sub.css({ top: 'auto', left: '0', marginLeft: x, marginTop: y - itemH });
+
+
+				/* Europeana: disabled margin
+				*
+				* On mobile the indented submenu is off-screen
+				*/
+				var europeanaDrawerMenu = this.$root.hasClass('js-hack-smartmenu');
+				if(!europeanaDrawerMenu){
+				    $sub.css({ top: 'auto', left: '0', marginLeft: x, marginTop: y - itemH });
+				}
+				/* Europeana: end disabled margin */
+
+
 				// IE iframe shim
 				this.menuIframeShim($sub);
 				if ($sub.dataSM('ie-shim')) {
