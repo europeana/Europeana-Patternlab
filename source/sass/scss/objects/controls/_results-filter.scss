@@ -18,6 +18,8 @@
 .filter-advanced{
   .filter-moreless{
     @include fontSize(16px);
+    top: 0.8rem;
+    position: relative;
   }
 }
 
