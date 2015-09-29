@@ -14,22 +14,19 @@
   {{/options.search_active}}
 
   <!-- wrapper for navigation bar -->
-  <div class="cf">
 
   {{# version.is_alpha }}
     <a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
   {{/ version.is_alpha }}
 
+  {{> atoms/images/logo }}
 
-    {{> atoms/images/logo }}
-
-
-    <!-- Primary navigation -->
+  <!-- Primary navigation -->
 
   {{# primary_nav }}
-  <nav role="navigation" class="nav_primary">
-  {{> molecules/navigation/smartmenu }}
-  </nav>
+    <nav role="navigation" class="nav_primary">
+      {{> molecules/navigation/smartmenu }}
+    </nav>
   {{/ primary_nav }}
 
 
@@ -49,11 +46,11 @@
     {{/options.search_active}}
 
     {{#options.settings_active}}
-    <div class="nav-toggle nav-toggle-settings nav-utility">
-    {{#utility_nav}}
-    {{> molecules/navigation/smartmenu }}
-    {{/utility_nav}}
-    </div>
+      <div class="nav-toggle nav-toggle-settings nav-utility">
+        {{#utility_nav}}
+        {{> molecules/navigation/smartmenu }}
+        {{/utility_nav}}
+      </div>
     {{/options.settings_active}}
 
     <a href="#" class="nav-toggle nav-toggle-menu" tabindex="1">
@@ -66,29 +63,29 @@
   </div>
 </header>
 
-<!-- Collapsed drawer menu -->
-<nav class="drawer menu-right">
-
 {{#options.search_active}}
   <div class="search">
     {{> molecules/forms/search }}
   </div>
 {{/options.search_active}}
 
-<nav class="nav_primary">
-  <ul class="js-hack-smartmenu">
+
+<!-- Collapsed drawer menu -->
+<nav class="drawer menu-right nav_primary">
+
+  <ul class="js-hack-smartmenu sm nav-access {{style_modifier}}">
     {{#options.settings_active}}
       {{#utility_nav}}
       {{#items}}
       {{^subtitle}}
-        <li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
+        <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
         {{#submenu}}
-          <ul>
-          {{#items}}
-          {{^subtitle}}
-            <li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
-          {{/subtitle}}
-          {{/items}}
+          <ul class="sub-menu">
+            {{#items}}
+            {{^subtitle}}
+              <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
+            {{/subtitle}}
+            {{/items}}
           </ul>
         {{/submenu}}
         </li>
@@ -99,12 +96,12 @@
     {{#primary_nav}}
       {{#items}}
       {{^subtitle}}
-        <li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
+        <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
         {{#submenu}}
-          <ul>
+          <ul class="sub-menu">
           {{#items}}
           {{^subtitle}}
-            <li><a {{#url}}href="{{url}}"{{/url}} {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
+            <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
           {{/subtitle}}
           {{/items}}
           </ul>
@@ -113,24 +110,9 @@
       {{/subtitle}}
       {{/items}}
     {{/primary_nav}}
-  </ul>
-</nav>
 
-
-{{#utility_nav}}
-  <ul class="nav_secondary">
-    {{#options.settings_active}}
-    <li>
-    <a href="#" class="nav-toggle nav-toggle-settings">
-      <svg class="icon icon-settings">
-        <use xlink:href="#icon-settings"></use>
-      </svg>
-      <span>Settings</span>
-    </a>
-    </li>
-    {{/options.settings_active}}
   </ul>
-{{/utility_nav}}
+
 </nav>
 
 {{/ navigation.global }}

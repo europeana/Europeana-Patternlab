@@ -3,6 +3,8 @@
 
   @include font-size(1);
 
+  word-break: normal;
+
   a {
     display: block;
     padding: 0.6em;
@@ -24,12 +26,6 @@
 
   }
 
-  // hide display of sub-menus on mobiles until clicked
-  ul {
-    ul {
-      display: none;
-    }
-  }
 
   &.active {
     max-height: 40em;

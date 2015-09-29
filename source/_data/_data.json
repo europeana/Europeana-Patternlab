@@ -66,29 +66,29 @@
             "menu_id": "main-menu",
             "items": [
               {
-                "url": "#",
                 "text": "Home",
                 "is_current": false,
                 "submenu": false
               },
               {
                 "text": "Channels",
+                "url": "#",
                 "submenu": {
                   "items": [
                     {
-                      "url": "#",
+                      "url": "music",
                       "text": "Music"
                     },
                     {
-                      "url": "#",
+                      "url": "art-history",
                       "text": "Art History"
                     }
                   ]
                 }
               },
               {
-                "url": "all exhibitions",
                 "text": "Exhibitions",
+                "url": "#",
                 "submenu": {
                   "items": [
                     {
@@ -102,7 +102,7 @@
                       "message": true
                     },
                     {
-                      "url": "#",
+                      "url": "www.exhibitions.eu",
                       "text": "We know this war by heart"
                     },
                     {
@@ -185,7 +185,7 @@
             "tabindex": "6",
             "items": [
               {
-                "url": "url to settings",
+                "url": "#",
                 "text": "Settings",
                 "icon": "settings",
                 "submenu": {
