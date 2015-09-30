@@ -17,7 +17,6 @@ define([], function(){
         );
     }
 
-
     var triggerIfInView = function($trigger){
         if(isElementInViewport($trigger[0])){
             $trigger.attr('enabled', false);
@@ -28,8 +27,6 @@ define([], function(){
             var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
             if(dynamicParamsStr != 'none'){
 
-                console.log('dynamicParamsStr = ' + dynamicParamsStr);
-
                 var dynamicParams = JSON.parse(dynamicParamsStr);
                 if(typeof dynamicParams == 'string'){
                     dynamicParams = JSON.parse(dynamicParams);
@@ -38,7 +35,8 @@ define([], function(){
                     eParams[item] = dynamicParams[item];
                 }
             }
-            console.log('trigger full params = ' + JSON.stringify( eParams ));
+
+            //console.log('trigger full params = ' + JSON.stringify( eParams ));
             $(window).trigger(eEvent, eParams);
         }
     }

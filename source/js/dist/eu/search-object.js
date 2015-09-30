@@ -104,7 +104,10 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     }
 
     var initCarousel = function(el, ops){
-        require(['eu_carousel'], function(EuCarousel){
+
+        var carousel = jQuery.Deferred();
+
+        require(['eu_carousel'], function(Carousel){
             var reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
             var data = [];
             el.find('a.link').each(function(i, ob) {
@@ -118,14 +121,41 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     "linkTarget" : "_self"
                 }
             });
-            new EuCarousel(el, data, ops);
+            carousel.resolve(Carousel.create(el, data, ops));
         });
+        return carousel.promise();
     }
 
     var showMediaThumbs = function(data){
-        log('showMediaThumbs...');
         if($('.object-media-nav li').length > 1){
-            initCarousel($('.media-thumbs'), data);
+
+            // keep ref to carousel for thumb strip updates
+            var promisedCarousel = initCarousel($('.media-thumbs'), data);
+            promisedCarousel.done(
+
+                function(carousel){
+                    var setOptimalHeight = function(v){
+                        if(v){
+                            var deduct = $('.media-thumbs').outerHeight(true) - $('.media-thumbs').height();
+                            $('.media-thumbs').removeAttr('style');
+                            var newH = $('.media-viewer').height() - deduct;
+                            $('.media-thumbs').css('height', Math.max(333, newH) + 'px');
+                        }
+                        else{
+                            $('.media-thumbs').removeAttr('style');
+                        }
+                        carousel.resize();
+                    }
+
+                    carousel.vChange(function(v){
+                        setOptimalHeight(v);
+                    });
+
+                    $('.media-viewer').on('refresh-nav-carousel', function(){
+                        setOptimalHeight(carousel.isVertical());
+                    });
+                }
+            );
         }
         else{
             log('no media carousel needed');
@@ -148,7 +178,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             var name  = sessionStorage.eu_portal_channel_name;
             var url   = sessionStorage.eu_portal_channel_url;
 
-            console.log('retrieved  ' + label + ', ' + name + ', ' + url);
+            //console.log('retrieved storage data ' + label + ', ' + name + ', ' + url);
 
             if(typeof url != 'undefined' && url != 'undefined' ){
                 var crumb = $('.breadcrumbs li.js-channel');

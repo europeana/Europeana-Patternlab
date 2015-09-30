@@ -108,49 +108,6 @@
 }
 
 // main media display area
-.object-display{
-    overflow-y: auto;
-    background-color: $media_bg;
-    position: relative;
-}
-
-.object-media-wrap{
-
-    text-align: center;
-    padding: $pad;
-    position: relative;
-
-    &.multi-item{
-      .object-media-iiif{
-        width: 90%;
-      }
-    }
-
-    &.single-item{
-      min-height: 15em;
-    }
-}
-
-
-//   this does not alter the carousel (horizontal) height
-// - it should be as big as the carousel
-// - it cannot be left as auto / 100%
-// - to size the (horizontal) carousel:
-//    - TODO
-//    - TODO
-
-.media-thumb-section{
-  width: 100%;
-
-//  position: absolute;
-//  height: 1em;
-//  left: 0;
-//  bottom: 0;
-
-  float: right;
-}
-
-
 
 #scroll-trigger-media-items:before{
 
@@ -163,21 +120,76 @@
 }
 
 
+.object-display{
+    overflow-y: auto;
+    background-color: $media_bg;
+    position: relative;
+}
+
+.object-media-wrap{
+
+    text-align: center;
+    padding: $pad;
+    position: relative;
+    z-index: 0;
+
+    .media-viewer{
+      position: relative;
+      width: 100%;
+
+      &.active{
+        padding-bottom: $space;
+      }
+      .object-media-audio{
+        position: relative;
+        width: 100%;
+      }
+      .object-media-image{
+        z-index: 1;
+      }
+    }
+
+}
+
+@media all and (min-width: $bp-med) {
+  .object-media-wrap{
+
+    &.multi-item{
+
+      .media-viewer{
+        float: left;
+      }
+
+      .media-thumb-section{
+        width:14%;
+      }
+
+      .media-viewer{
+         width: 86%;
+         padding-right:  $space;
+         box-sizing:     padding-box;
+      }
+    }
+  }
+}
+
+.media-thumb-section{
+  width: 100%;
+  float: right;
+
+  .js-carousel-arrows a{
+     color: white;
+  }
+}
+
+
 .media-thumb-section-inner{
   position: relative;
 }
 
 
-@media all and (min-width: $bp-med) {
+// media thumbnails list
 
-  .media-thumb-section{
-    width:10%;
-  }
-
-}
-
-
-// Thumbnails list
 .object-media-nav{
     background-color: $media_bg;
 }
@@ -207,10 +219,10 @@
 }
 
 .single-item-thumb{
-    width: 400px;
     display: inline-block;
     position: relative;
     margin: auto;
+    max-width: 100%;
 }
 
 .single-item .object-media-nav.open{
@@ -312,11 +324,6 @@
 
 // override default if we have a column of thumbnails on the right
 
-.multi-item{
-  .object-media-video {
-    width: 90%;
-  }
-}
 
 .object-techdata{
 
@@ -438,27 +445,26 @@
 }
 
 
-// override carousel default item size for mlt
+// override carousel defaults
+
+// item size for mlt
 .mlt .js-carousel .js-carousel-item{
   width: $thumbnail_max_dimension;
 }
 
-// override carousel default item size for media thumbs
 
-.media-thumbs.js-carousel .js-carousel-item{
-  width: $thumbnail_max_dimension / 2;
-}
+//.media-thumbs.js-carousel{
+  // item size for media thumbs
+// .js-carousel-item{
+//    width: $thumbnail_max_dimension / 2;
+//  }
+//}
+
+
 
 .mlt .js-carousel-arrows a{
   line-height: $thumbnail_max_dimension;
 }
-
-
-// override carousel default height for media items
-//.media-thumbs{
-//  height: 10em;
-//}
-
 
 .subsection-content>ul{
     display: inline;
@@ -480,8 +486,7 @@
         }
     }
 
-    // override carousel default height for media items
-    // margin allows space for arrows
+    // override carousel default height for media items (margin allows space for arrows)
 
     .media-thumbs{
       height: 21em;

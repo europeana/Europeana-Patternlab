@@ -11,7 +11,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       return array2;
     };
 
-
     /**
      * @cmp: the container
      * @data: initial items
@@ -19,11 +18,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
      *
      * NOTE: in vertical mode the parent has to have a position of relative
      */
-    return function(cmp, data, opsIn){
+    var EuCarousel = function(cmp, data, opsIn){
 
         var dynamic    = null;
         var vertical   = null;
         var bpVertical = null;
+        var onOrientationChange = null;
 
         var axis     = 'x';
         var edge     = 'left';
@@ -86,7 +86,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             if(dynamic){
                 ascertainVerticality();
-                log('ascertained carousel will be ' + (vertical ? 'vertical' : 'horizontal') );
+                log('carousel will be vertical (' + vertical + ') on breakpoint ' + bpVertical + ' (px)');
             }
             else{
                 vertical = false;
@@ -177,8 +177,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 }
                 else{
                     var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
-//console.warn('positionsPassed ' + positionsPassed);
-//console.warn(' = (e.distX) ' + e.distX  + ' /  (itemW + spacing/2) (' + itemW + '/' + (spacing/2) + ')');
                     var newPos          = position + (-1 * positionsPassed)
 
                     cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
@@ -259,6 +257,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 cmp.find('.' + classData.itemClass + '').css('margin-left', '0px');
 
                 console.log('switched to horizontal w(' + dynamicThreshold + ')');
+                if(onOrientationChange){
+                    onOrientationChange(vertical);
+                }
+
             }
             else if( dynamic && dynamicThreshold > bpVertical && (vertical == null || vertical == false)){
 
@@ -283,6 +285,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 cmp.find('.' + classData.itemClass + '').css('margin-left', '0px');
 
                 console.log('switched to vertical' + dynamicThreshold + '');
+                if(onOrientationChange){
+                    onOrientationChange(vertical);
+                }
             }
         }
 
@@ -312,11 +317,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             spacing = parseInt(spacing);
             inView  = maxFit;
 
-log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
+            //log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
 
             items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
-log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
+            //log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
 
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
@@ -412,7 +417,7 @@ log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.
 
         var goFwd = function(){
 
-log('go fwd: position + inView  = (' + position + ', ' + inView + ') ' + (position + inView) + ', totalLoaded = ' + totalLoaded );
+            // log('go fwd: position + inView  = (' + position + ', ' + inView + ') ' + (position + inView) + ', totalLoaded = ' + totalLoaded );
 
             if((position + inView) < totalLoaded){
                 scrollForward();
@@ -504,20 +509,33 @@ log('go fwd: position + inView  = (' + position + ', ' + inView + ') ' + (positi
         init();
 
         return {
-
             resize : function(){
                 resize();
+            },
+            isVertical : function(){
+              return vertical;
+            },
+            vChange : function(callback){
+                onOrientationChange = callback;
             },
             inView : function(){
                 return fnInView();
             },
             goLeft : function(){
+                console.error('deprecated function call in eu-carousel: goLeft');
                 goBack();
             },
             goRight : function(){
-                log('clicked on go right');
+                console.error('deprecated function call in eu-carousel: goRight');
                 goFwd();
             }
         }
     };
+
+    return {
+        create : function(cmp, data, opsIn){
+            return EuCarousel(cmp, data, opsIn);
+        }
+    }
+
 });

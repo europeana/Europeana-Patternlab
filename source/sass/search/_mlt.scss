@@ -45,7 +45,7 @@
   background-repeat:   no-repeat;
   background-size:     cover;
   background-position: center;
-  margin-bottom:       $space-quarter;
+  margin:              0 auto $space-quarter auto;
   position:				     relative;
 }
 
@@ -74,7 +74,6 @@
 
 .js-carousel-title{
   display:		block;
-//  height:			4.8em;
   line-height:	1.6em;
   overflow:		hidden;
 }
@@ -86,7 +85,7 @@
 
 @media all and (max-width: $bp-large) {
 
-  // TODO move to object
+   // TODO move to object
   .mlt .height-to-width{
     height: $thumbnail_max_dimension;
   }

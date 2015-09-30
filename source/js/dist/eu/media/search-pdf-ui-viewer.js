@@ -46,15 +46,16 @@ define(['jquery'], function($){
             //    open(pdfUrl);
             //},
             hide : function(){
+
                 $('.object-media-pdf').css({
                     'position' : 'absolute',
-                    'z-index' : '-1'
+                    'top' : '1000000px'
                 });
             },
             show : function(){
                 $('.object-media-pdf').css({
                     'position' : 'static',
-                    'z-index' : '0'
+                    'top' : '0'
                 });
             }
         }

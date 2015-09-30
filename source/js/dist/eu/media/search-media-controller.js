@@ -22,26 +22,16 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
     log('hideAllViewers()');
 
-    //$('.media-viewer .object-media-audio').addClass('is-hidden');
-
     $('.media-viewer .object-media-iiif').addClass('is-hidden');
-
     $('.media-viewer .object-media-image').addClass('is-hidden');
-
-    //$('.media-viewer .object-media-pdf').addClass('is-hidden');
-
     $('.media-viewer .object-media-text').addClass('is-hidden');
-
-    //$('.media-viewer .object-media-video').addClass('is-hidden');
 
     if(audioPlayer){
         audioPlayer.hide();
     }
     if(iiifViewer){
-        log('hide iiif 1')
         iiifViewer.hide();
         iiifViewer = null;
-        log('hide iiif 2')
     }
     if(pdfViewer){
         pdfViewer.hide();
@@ -68,11 +58,19 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function mediaOpened(evt, data){
     if(data.hide_thumb){
+      // TODOL review this
       $(listSelector).addClass('open');
       $(singleSelector).addClass('open');
     }
     $(listItemSelector).removeClass('loading');
     $(singleItemSelector).removeClass('loading');
+
+    $('.media-viewer').addClass('active');
+
+    // trigger resize of arrows
+    if(data.type != 'image'){
+        $('.media-viewer').trigger({"type": "refresh-nav-carousel"});
+    }
   }
 
 
@@ -120,6 +118,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         hideAllViewers();
         $('.media-viewer .object-media-image').removeClass('is-hidden');
         mediaViewerImage.setUrl(data.url);
+        alert('data = ' + JSON.stringify(data));
+        data.type = 'image';
         mediaOpened(evt, data);
         return;
     }
@@ -129,7 +129,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     var checkData = [];
     var clickedImg = data.target.attr('data-uri');
 
-    $(listItemSelector + '[data-type=image]').add(singleItemSelector + '[data-type=image]').each(function(){
+    $(listItemSelector + '[data-type=image]')
+      .add(singleItemSelector + '[data-type=image]').each(function(){
 
         var $el    = $(this);
         var uri    = $el.attr('data-uri');
