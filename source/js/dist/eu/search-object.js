@@ -109,9 +109,11 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             var data = [];
             el.find('a.link').each(function(i, ob) {
                 ob = $(ob);
+                var parentImgDiv = ob.closest('.mlt-img-div');
+                var title        = parentImgDiv.next('.js-carousel-title');
                 data[data.length] = {
-                    "thumb" : reg.exec(ob.closest('.mlt-img-div').css('background-image'))[1],
-                    "title" : ob.closest('.mlt-img-div').next('.js-carousel-title').find('a')[0].innerHTML,
+                    "thumb" : reg.exec(parentImgDiv.css('background-image'))[1],
+                    "title" : title.length > 0 ? title.find('a')[0].innerHTML : null,
                     "link"  : ob.attr('href'),
                     "linkTarget" : "_self"
                 }
@@ -121,7 +123,13 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     }
 
     var showMediaThumbs = function(data){
-        initCarousel($('.media-thumbs'), data);
+        log('showMediaThumbs...');
+        if($('.object-media-nav li').length > 1){
+            initCarousel($('.media-thumbs'), data);
+        }
+        else{
+            log('no media carousel needed');
+        }
     }
 
     var showMLT = function(data){

@@ -29,6 +29,14 @@
       {{^empty_item}}
       <div class="media-viewer">
 
+        {{#single_item}}
+          {{#items}}
+            <div class="single-item-thumb">
+              {{> molecules/components/media-nav-item}}
+            </div>
+          {{/items}}
+        {{/single_item}}
+
         {{#required_players}}
 
         {{#iiif}}
@@ -69,13 +77,26 @@
 
         {{/required_players}}
       </div>
-      {{> molecules/components/media-nav}}
+
+      {{^single_item}}
+        {{> molecules/components/media-nav}}
+      {{/single_item}}
+
       {{/empty_item}}
       {{#empty_item}}
         <img src={{thumbnail}}>
       {{/empty_item}}
     </div>
-    {{#items}}
+  </section>
+
+  {{#items}}
+  <!--
+  <section>
+  <h1> INFO BELOW</h1>
+  </section>
+   -->
+
+  <section>
 
     <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
 
@@ -158,8 +179,10 @@
 
     </div>
 
-    {{/items}}
-    {{^items}}
+  </section>
+  {{/items}}
+  {{^items}}
+  <section>
     <div class="object-media-info section is-current">
       <div class="object-downloads">
         <a class="download-button btn alt is-disabled" href="#">
@@ -170,13 +193,13 @@
         </a>
       </div>
     </div>
-    {{/items}}
-
   </section>
+  {{/items}}
+
   {{/object.media}}
 
   {{! Main object text info section }}
-  <section class="section">
+  <section class="section object-details">
   <div class="lc">
     <div class="object-overview">
       {{#object}}
@@ -352,8 +375,7 @@
 
 
   <!-- vertical test -->
-
-  <!--
+<!--
 
   <div class="lc data-border">
       {{#content.similar}}
@@ -389,7 +411,8 @@
       </div>
       {{/content.similar}}
     </div>
-  -->
+ -->
+
 
 
 

@@ -23,6 +23,22 @@ define([], function(){
             $trigger.attr('enabled', false);
             var eEvent  = $trigger.data('fire-on-open');
             var eParams = $trigger.data('fire-on-open-params');
+
+            // extra params from the "before"
+            var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
+            if(dynamicParamsStr != 'none'){
+
+                console.log('dynamicParamsStr = ' + dynamicParamsStr);
+
+                var dynamicParams = JSON.parse(dynamicParamsStr);
+                if(typeof dynamicParams == 'string'){
+                    dynamicParams = JSON.parse(dynamicParams);
+                }
+                for(var item in dynamicParams) {
+                    eParams[item] = dynamicParams[item];
+                }
+            }
+            console.log('trigger full params = ' + JSON.stringify( eParams ));
             $(window).trigger(eEvent, eParams);
         }
     }

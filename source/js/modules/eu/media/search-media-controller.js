@@ -2,8 +2,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   // main link between search page and the various players
   var listSelector       = '.object-media-nav';
+  var singleSelector     = '.single-item-thumb';
   var listItemSelector   = listSelector + ' a';
+  var singleItemSelector = singleSelector + ' a';
 
+  var isMultiple         = $(listItemSelector).length > 1;
 
   var mediaViewerImage   = null;
   var pdfViewer          = null;
@@ -56,15 +59,20 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       log('remove playability...');
       data.$thumb.removeClass('playable');
       data.$thumb.find('.media-clickable-indicator').remove();
+
       $(listItemSelector).removeClass('loading');
+      $(singleItemSelector).removeClass('loading');
+
       $('.media-viewer .object-media-' + data.player).addClass('is-hidden');
   }
 
   function mediaOpened(evt, data){
     if(data.hide_thumb){
       $(listSelector).addClass('open');
+      $(singleSelector).addClass('open');
     }
     $(listItemSelector).removeClass('loading');
+    $(singleItemSelector).removeClass('loading');
   }
 
 
@@ -121,7 +129,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     var checkData = [];
     var clickedImg = data.target.attr('data-uri');
 
-    $(listItemSelector + '[data-type=image]').each(function(){
+    $(listItemSelector + '[data-type=image]').add(singleItemSelector + '[data-type=image]').each(function(){
 
         var $el    = $(this);
         var uri    = $el.attr('data-uri');
@@ -271,5 +279,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-open', mediaOpened);
   $('.media-viewer').on('remove-playability', removePlayability);
   $(listItemSelector).on('click', handleListItemSelectorClick);
+  $(singleItemSelector).on('click', handleListItemSelectorClick);
 
 });

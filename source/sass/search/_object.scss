@@ -110,32 +110,75 @@
 // main media display area
 .object-display{
     overflow-y: auto;
-    margin-bottom: $space;
     background-color: $media_bg;
     position: relative;
 }
 
 .object-media-wrap{
+
     text-align: center;
     padding: $pad;
     position: relative;
+
+    &.multi-item{
+      .object-media-iiif{
+        width: 90%;
+      }
+    }
+
+    &.single-item{
+      min-height: 15em;
+    }
 }
-.object-media-wrap.multi-item{
-   min-height: 18em;
-  .object-media-iiif{
-    width: 90%;
+
+
+//   this does not alter the carousel (horizontal) height
+// - it should be as big as the carousel
+// - it cannot be left as auto / 100%
+// - to size the (horizontal) carousel:
+//    - TODO
+//    - TODO
+
+.media-thumb-section{
+  width: 100%;
+
+//  position: absolute;
+//  height: 1em;
+//  left: 0;
+//  bottom: 0;
+
+  float: right;
+}
+
+
+
+#scroll-trigger-media-items:before{
+
+  // model for carousel
+  // - technique to get sass var into markup (and so to js)
+  // - breakpoint for vertical display, in pixels
+
+  content: '{ "bpVertical": "' + (($bp-med/1em)*16) + '"}';
+  display: none;
+}
+
+
+.media-thumb-section-inner{
+  position: relative;
+}
+
+
+@media all and (min-width: $bp-med) {
+
+  .media-thumb-section{
+    width:10%;
   }
+
 }
+
 
 // Thumbnails list
 .object-media-nav{
-    overflow-y: scroll;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 10%;
-    padding: $space-quarter;
     background-color: $media_bg;
 }
 
@@ -146,23 +189,30 @@
     cursor:progress
 }
 
+.single-item-thumb svg.icon.icon-play,
 .object-media-nav svg.icon.icon-play{
     font-size: 0.9em;
     margin: 0.42em 0 0 0.2em;
 }
-.object-media-nav svg.icon.icon-plus	{
+
+.single-item-thumb svg.icon.icon-plus,
+.object-media-nav svg.icon.icon-plus{
     margin: 0.31em 0 0 0;
 }
+
+.single-item-thumb svg.icon.icon-newspaper,
 .object-media-nav svg.icon.icon-newspaper	{
     font-size: 0.9em;
     margin: 0.4em 0 0 0.16em;
 }
 
-.single-item .object-media-nav{
-    width: 100%;
+.single-item-thumb{
+    width: 400px;
+    display: inline-block;
     position: relative;
-    overflow-y: visible;
+    margin: auto;
 }
+
 .single-item .object-media-nav.open{
     display: none;
 }
@@ -331,7 +381,9 @@
     margin-top: 0.5em;
 }
 
-
+.object-details{
+  margin-top: $space;
+}
 
 
 .object-info{
@@ -385,6 +437,29 @@
     text-transform: capitalize;
 }
 
+
+// override carousel default item size for mlt
+.mlt .js-carousel .js-carousel-item{
+  width: $thumbnail_max_dimension;
+}
+
+// override carousel default item size for media thumbs
+
+.media-thumbs.js-carousel .js-carousel-item{
+  width: $thumbnail_max_dimension / 2;
+}
+
+.mlt .js-carousel-arrows a{
+  line-height: $thumbnail_max_dimension;
+}
+
+
+// override carousel default height for media items
+//.media-thumbs{
+//  height: 10em;
+//}
+
+
 .subsection-content>ul{
     display: inline;
 }
@@ -405,6 +480,13 @@
         }
     }
 
+    // override carousel default height for media items
+    // margin allows space for arrows
+
+    .media-thumbs{
+      height: 21em;
+      margin: 1.6em 0 3.2em 0;
+    }
 }
 
 .color-data{
