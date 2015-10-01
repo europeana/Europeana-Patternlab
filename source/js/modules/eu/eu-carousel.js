@@ -205,15 +205,23 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var anchor = function(){
             animating = true;
 
-            cmp.css('overflow-' + axis, 'hidden');
+//            cmp.css('overflow-y', 'hidden');
+
+//            cmp.css('overflow-' + axis, 'hidden');
+log('anchor: hide overflow ' + axis);
+
             items.css(edge, '0');
 
-            cmp.scrollTo(items.find('.' + classData.itemClass + ':nth-child(' + position + ')'), inView == 1 ? 0 : scrollTime, {
+            var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
+
+log('anchor: ' + scrollTarget.length);
+
+            cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
                 "axis" : axis,
                 "onAfter" : function(){
 
                     var done = function(){
-                        cmp.css('overflow-' + axis, 'hidden');
+//                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -295,8 +303,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var resize = function(){
 
             if(swiping){
+                log('!resize (swiping)');
                 return;
             }
+log('resize')
             ascertainVerticality();
 
             var cmpD   = vertical ? cmp.height() : cmp.width();
@@ -318,18 +328,19 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             spacing = parseInt(spacing);
             inView  = maxFit;
 
-            //log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
+log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
 
             items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
-            //log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
+log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
 
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
             }
-
+log('resize-c');
             items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
 
+log('resize-d')
             anchor();
         };
 
@@ -358,7 +369,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             prevItem = items.find('.' + classData.itemClass + ':nth-child(' + prevItem + ')');
 
-            cmp.css('overflow-' + axis, 'hidden');
+//            cmp.css('overflow-' + axis, 'hidden');
 
             items.css(edge, '0');
 
@@ -367,7 +378,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 "onAfter" : function(){
 
                     var done = function(){
-                        cmp.css('overflow-' + axis, 'hidden');
+//                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -391,7 +402,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             position = nextIndex;
 
-            cmp.css('overflow-' + axis, 'hidden');
+//            cmp.css('overflow-' + axis, 'hidden');
             items.css(edge, '0');
             animating = true;
 
@@ -400,7 +411,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 "onAfter" : function(){
                     var done = function(){
                         cmp.removeClass('loading');
-                        cmp.css('overflow' + axis, 'hidden');
+//                        cmp.css('overflow' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -440,18 +451,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             }
             cmp.addClass('loading');
 
-log('load calls appender')
-
-// PARAMS
-//            var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
-//            var url = loadUrl + '?page=' + page_param + '&per_page=' + inView;
-
             appender.append(function(added){
 
                 totalLoaded = appender.getDataCount();
 
                 if(added){
                     // move resize() to else?
+                    log('added > resize');
                     resize();
                     if(scroll){
                         scrollForward();
@@ -459,22 +465,16 @@ log('load calls appender')
                     else{
                         cmp.removeClass('loading');
                     }
-
                 }
                 else if(added ===0){
-                    // loaded all
                     log('loaded all');
                 }
                 else{
-                    // error
                     log('handle error');
                 }
-
             });
-
             return;
-
-
+/*
             if(!loadUrl){
                 console.log('no load url (return)');
                 return;
@@ -489,22 +489,10 @@ log('load calls appender')
 
                 log('data loaded:\n' + JSON.stringify(data, null, 4));
 
-
-                /*
-                $.each(data, function(i, ob){
-                    log('traverse res');
-                    items.append(getItemMarkup(ob));
-                    totalLoaded += 1;
-                });
-                 */
-
-                // mlt
-
                 $.each(data.documents, function(i, ob){
                     items.append(getItemMarkup(ob));
                     totalLoaded += 1;
                 });
-
 
                 resize();
                 if(scroll){
@@ -528,10 +516,10 @@ log('load calls appender')
                 cmp.removeClass('loading');
                 log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
             });
+*/
         };
 
         var getItemMarkup = function(data){
-            console.warn('getItemMarkup will fail for media nav');
 
             return '' + '<li class="' + classData.itemClass + '">' + '<div class="' + classData.itemDivClass + '" style="background-image: url(' + data.img.src + ')">' + '<div class="' + classData.itemInnerClass + '"><a title="' + data.img.alt + '" class="' + classData.itemLinkClass + '" href="' + data.url
                     + '">&nbsp;</a></div>' + '</div>' + '<span class="' + classData.titleClass + '">' + '<a href="' + data.url + '">' + data.title + '</a>';

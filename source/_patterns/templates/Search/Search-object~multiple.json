@@ -45,6 +45,10 @@
           {"text":  true},
           {"video": true}
         ],
+        "more_thumbs_total": 25,
+        "more_thumbs_url": "url-to-more-thumbs",
+        "more_thumbs_page": "url-to-page-with-thumbs",
+
         "items":
         [
           {
@@ -56,7 +60,7 @@
 
             "preview":   "/images/sample/object_preview.jpg",
             "play_url": "/images/sample/object_full.jpg",
-            "download":{
+            "xxdownload":{
               "url":  "/images/sample/object_full.jpg",
               "text": "Original file"
             },
@@ -148,6 +152,7 @@
             "is_image": true,
             "playable": true,
             "thumbnail": "/images/sample/object_2_thumbnail.jpg",
+            "play_url": "/images/sample/object_2_full.jpg",
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
@@ -316,7 +321,7 @@
           },
           {
               "playable": true,
-              "downloadable": true,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
@@ -693,7 +698,7 @@
       "more_items_query" : "javascript:alert('loads a page of similar items')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
-      "more_items_template" : "mlt",
+
 
       "items": [
         {

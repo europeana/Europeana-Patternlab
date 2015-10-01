@@ -7,8 +7,12 @@
   <div class="inner"><a href="#"
       {{#is_audio}}
           data-type="audio"
-         {{#download}}
+         {{#play_url}}
             data-uri="{{url}}"
+         {{/play_url}}
+
+         {{#download}}
+            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXdata-uri="{{url}}"
          {{/download}}
           {{#technical_metadata}}
             data-mime-type="{{mime_type}}"
@@ -24,9 +28,15 @@
 
       {{#is_image}}
           data-type="image"
-          {{#download}}
+
+          {{#play_url}}
+            data-uri="{{.}}"
+          {{/play_url}}
+
+          {{#xxxxdownload}}
             data-uri="{{url}}"
-          {{/download}}
+          {{/xxxxdownload}}
+
           {{#technical_metadata}}
             data-width="{{width}}"
             data-height="{{height}}"

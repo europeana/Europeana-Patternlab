@@ -128,7 +128,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             // END extract initial js data model from markup
             */
 
-            appender = CarouselAppender.create({
+            var appender = CarouselAppender.create({
                 'cmp':             el.find('ul'),
                 'loadUrl':         ops.loadUrl,
                 'template':        ops.template,
