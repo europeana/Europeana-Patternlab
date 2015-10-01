@@ -14,52 +14,54 @@
   {{/options.search_active}}
 
   <!-- wrapper for navigation bar -->
+  <div class="cf">
 
-  {{# version.is_alpha }}
-    <a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
-  {{/ version.is_alpha }}
+    {{# version.is_alpha }}
+      <a href="#phase-feedback" class="phase-flag alpha">ALPHA</a>
+    {{/ version.is_alpha }}
 
-  {{> atoms/images/logo }}
+    {{> atoms/images/logo }}
 
-  <!-- Primary navigation -->
+    <!-- Primary navigation -->
 
-  {{# primary_nav }}
-    <nav role="navigation" class="nav_primary">
-      {{> molecules/navigation/smartmenu }}
-    </nav>
-  {{/ primary_nav }}
-
-
-  <div class="nav-global">
-
-    <a href="#" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false" aria-haspopup="true" aria-label="open Our Sites panel" aria-owns="oursites"  tabindex="2">
-      <span class="link-text">{{i18n.global.our-sites}}</span>
-    </a>
-
-    {{#options.search_active}}
-    <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea"  tabindex="4">
-      <svg class="icon icon-search">
-        <use xlink:href="#icon-search"></use>
-      </svg>
-      <span class="is-vishidden">Search</span>
-    </a>
-    {{/options.search_active}}
-
-    {{#options.settings_active}}
-      <div class="nav-toggle nav-toggle-settings nav-utility">
-        {{#utility_nav}}
+    {{# primary_nav }}
+      <nav role="navigation" class="nav_primary">
         {{> molecules/navigation/smartmenu }}
-        {{/utility_nav}}
-      </div>
-    {{/options.settings_active}}
+      </nav>
+    {{/ primary_nav }}
 
-    <a href="#" class="nav-toggle nav-toggle-menu" tabindex="1">
-      <svg class="icon icon-menu">
-        <use xlink:href="#icon-menu"></use>
-      </svg>
-      <span>Menu</span>
-    </a>
 
+    <div class="nav-global">
+
+      <a href="#" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false" aria-haspopup="true" aria-label="open Our Sites panel" aria-owns="oursites"  tabindex="2">
+        <span class="link-text">{{i18n.global.our-sites}}</span>
+      </a>
+
+      {{#options.search_active}}
+      <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea"  tabindex="4">
+        <svg class="icon icon-search">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+        <span class="is-vishidden">Search</span>
+      </a>
+      {{/options.search_active}}
+
+      {{#options.settings_active}}
+        <div class="nav-toggle nav-toggle-settings nav-utility">
+          {{#utility_nav}}
+          {{> molecules/navigation/smartmenu }}
+          {{/utility_nav}}
+        </div>
+      {{/options.settings_active}}
+
+      <a href="#" class="nav-toggle nav-toggle-menu" tabindex="1">
+        <svg class="icon icon-menu">
+          <use xlink:href="#icon-menu"></use>
+        </svg>
+        <span>Menu</span>
+      </a>
+
+    </div>
   </div>
 </header>
 
