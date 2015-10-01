@@ -21,6 +21,7 @@ require.config({
     blacklight:                    '../lib/blacklight/blacklight_all',
     channels:                      '../eu/channels',
     eu_carousel:                   '../eu/eu-carousel',
+    eu_carousel_appender:          '../eu/eu-carousel-appender',
     featureDetect:                 '../global/feature-detect',
     flac:                          '../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',

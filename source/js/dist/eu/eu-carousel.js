@@ -1,7 +1,7 @@
 define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], function($){
 
     var log = function(msg){
-        console.log(msg);
+        console.log('carousel: ' + msg);
     };
 
     var mergeHashes = function(array1,array2) {
@@ -18,7 +18,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
      *
      * NOTE: in vertical mode the parent has to have a position of relative
      */
-    var EuCarousel = function(cmp, data, opsIn){
+    var EuCarousel = function(cmp, appender, opsIn){
 
         var dynamic    = null;
         var vertical   = null;
@@ -35,7 +35,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var inView         = 0; // num items currently visible in viewport
         var position       = 1; // index of currently viewed item
 
-        var totalLoaded    = data.length;
+        var totalLoaded    = appender.getDataCount();
         var totalAvailable = 100;
         var scrollTime     = 400;
 
@@ -443,10 +443,40 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
                 log('data loaded:\n' + JSON.stringify(data, null, 4));
 
+
+                $.each(data, function(i, ob){
+                    log('traverse res');
+                    items.append(getItemMarkup(ob));
+                    totalLoaded += 1;
+
+                    /*
+
+   {
+        "webResourceDcRights": {
+            "def": [
+                "Copyright: Atma Classique, 2004"
+            ]
+        },
+        "webResourceEdmRights": {
+            "def": [
+                "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+            ]
+        },
+        "about": "http://www.mimo-db.eu/media/GNM/AUDIO/MIR_1097_Stein_124s_01.mp3"
+    },
+
+                     */
+
+                });
+
+                // mlt
+                /*
                 $.each(data.documents, function(i, ob){
                     items.append(getItemMarkup(ob));
                     totalLoaded += 1;
                 });
+                */
+
                 resize();
                 if(scroll){
                     scrollForward();
@@ -539,8 +569,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
     };
 
     return {
-        create : function(cmp, data, opsIn){
-            return EuCarousel(cmp, data, opsIn);
+        create : function(cmp, appender, opsIn){
+            return EuCarousel(cmp, appender, opsIn);
         }
     }
 

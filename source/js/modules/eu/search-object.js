@@ -107,13 +107,17 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
         var carousel = jQuery.Deferred();
 
-        require(['eu_carousel'], function(Carousel){
+        require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
+            /*
             var reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
             var data = [];
+
+            // extract initial js data model from markup
             el.find('a.link').each(function(i, ob) {
                 ob = $(ob);
                 var parentImgDiv = ob.closest('.mlt-img-div');
                 var title        = parentImgDiv.next('.js-carousel-title');
+
                 data[data.length] = {
                     "thumb" : reg.exec(parentImgDiv.css('background-image'))[1],
                     "title" : title.length > 0 ? title.find('a')[0].innerHTML : null,
@@ -121,7 +125,17 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     "linkTarget" : "_self"
                 }
             });
-            carousel.resolve(Carousel.create(el, data, ops));
+            // END extract initial js data model from markup
+            */
+
+            appender = CarouselAppender.create({
+                'cmp':             el,
+                'loadUrl':         ops.loadUrl,
+                'template':        ops.template,
+                'total_available': ops.total_available
+            });
+//          alert('carousel ops = \n\n' + JSON.stringify(ops, null, 11));
+            carousel.resolve(Carousel.create(el, appender, ops));
         });
         return carousel.promise();
     }
