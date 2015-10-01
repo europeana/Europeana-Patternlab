@@ -31,6 +31,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing;
         var animating      = false;
         var cmp            = $(cmp); // the viewport
+        var appender       = appender;
 
         var inView         = 0; // num items currently visible in viewport
         var position       = 1; // index of currently viewed item
@@ -439,43 +440,71 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             }
             cmp.addClass('loading');
 
+log('load calls appender')
+
+// PARAMS
+//            var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
+//            var url = loadUrl + '?page=' + page_param + '&per_page=' + inView;
+
+            appender.append(function(added){
+
+                totalLoaded = appender.getDataCount();
+
+                if(added){
+                    // move resize() to else?
+                    resize();
+                    if(scroll){
+                        scrollForward();
+                    }
+                    else{
+                        cmp.removeClass('loading');
+                    }
+
+                }
+                else if(added ===0){
+                    // loaded all
+                    log('loaded all');
+                }
+                else{
+                    // error
+                    log('handle error');
+                }
+
+            });
+
+            return;
+
+
+            if(!loadUrl){
+                console.log('no load url (return)');
+                return;
+            }
+            if(cmp.hasClass('loading')){
+                console.log('already loading (return)');
+                return;
+            }
+            cmp.addClass('loading');
+
             var dataLoaded = function(data){
 
                 log('data loaded:\n' + JSON.stringify(data, null, 4));
 
 
+                /*
                 $.each(data, function(i, ob){
                     log('traverse res');
                     items.append(getItemMarkup(ob));
                     totalLoaded += 1;
-
-                    /*
-
-   {
-        "webResourceDcRights": {
-            "def": [
-                "Copyright: Atma Classique, 2004"
-            ]
-        },
-        "webResourceEdmRights": {
-            "def": [
-                "http://creativecommons.org/licenses/by-nc-sa/3.0/"
-            ]
-        },
-        "about": "http://www.mimo-db.eu/media/GNM/AUDIO/MIR_1097_Stein_124s_01.mp3"
-    },
-
-                     */
-
                 });
+                 */
 
                 // mlt
-                /*
+
                 $.each(data.documents, function(i, ob){
                     items.append(getItemMarkup(ob));
                     totalLoaded += 1;
                 });
-                */
+
 
                 resize();
                 if(scroll){

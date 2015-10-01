@@ -42,28 +42,43 @@ define(['jquery'], function($){
     var templates = {
 
       "mlt": function(data){
-          return ''
+
+      log('mlt template: ' + data);
+
+      var markup = '';
+      $.each(data.documents, function(i, item){
+        markup += ''
           + '<li class="js-carousel-item">'
-          +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + data.img.src + ')">'
+          +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
           +     '<div class="inner">'
-          +         '<a title="' + data.img.alt + '"'
+          +         '<a title="' + item.img.alt + '"'
           +             ' class="link"'
-          +             ' href="'  + data.url
+          +             ' href="'  + item.url
           +         '">&nbsp;</a>'
           +     '</div>'
           +   '</div>'
           +   '<span class="js-carousel-title">'
-          +     '<a href="' + data.url + '">' + data.title + '</a>';
+          +     '<a href="' + item.url + '">' + item.title + '</a>';
           +   '</span>'
           + '</li>';
-      },
+       });
+       return {
+           "markup": markup,
+           "added":  data.documents.length
+       }
+    },
 
-      "media_thumb": function(data){
-          return '<li>NOT YET IMPLEMENTED</li>';
+    "media_thumb": function(data){
+          return {
+              "markup": '<li>NOT YET IMPLEMENTED</li>',
+              "added":  data.documents.length
+          }
+
       }
     };
 
     // utilities to extract initial carousel model from markup
+    /*
     var extractors = {
       "mlt": function(el){
 
@@ -89,38 +104,40 @@ define(['jquery'], function($){
         return 'NOT IMPLEMENTED';
       }
     };
+    */
 
     var EuCarouselAppender = function(conf){
 
-        var cmp       = conf.cmp;
-        var loadUrl   = conf.loadUrl;
-        var template  = conf.template;
-        var available = conf.total_available;
+        var cmp         = conf.cmp;
+        var loadUrl     = conf.loadUrl;
+        var template    = conf.template;
+        var available   = conf.total_available;
+        var totalLoaded = cmp.find('li').length;
 
         if(!templates[template]){
           warn('no valid template found (' + template + ')');
           return;
         }
 
-        var data     = extractors[template](cmp);
-
-        console.log('extracted data ' + JSON.stringify(data, null, 4));
-
         var append = function(data){
-          cmp.append(  templates[template](data)  );
+          var appendData = templates[template](data);
+          totalLoaded += appendData.added;
+          cmp.append(appendData.markup);
         };
 
         var load = function(callback){
 
             // url needs params set
 
-            var url = loadUrl;
+            var per_page = 4;
+            var page_param = parseInt(Math.floor(totalLoaded / per_page)) + 1;
+            var url = loadUrl + '?page=' + page_param + '&per_page=' + per_page;
 
             log('load more from: ' + url);
 
             $.getJSON( url, null, function( data ) {
                 append(data);
-                callback(data.length);
+                callback(totalLoaded);
             })
             .fail(function(msg){
                 cmp.removeClass('loading');
@@ -135,8 +152,8 @@ define(['jquery'], function($){
                 load(callback);
             },
             getDataCount : function(){
-                log('data count is ' + data.length);
-                return data.length;
+                log('data count is ' + totalLoaded);
+                return totalLoaded;
             }
         }
     };

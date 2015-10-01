@@ -129,7 +129,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             */
 
             appender = CarouselAppender.create({
-                'cmp':             el,
+                'cmp':             el.find('ul'),
                 'loadUrl':         ops.loadUrl,
                 'template':        ops.template,
                 'total_available': ops.total_available
