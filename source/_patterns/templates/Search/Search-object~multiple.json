@@ -110,6 +110,7 @@
             "thumbnail": "/media/falcon-thumb.png",
             "playable": true,
             "is_pdf": true,
+            "play_url": "/media/falcon.pdf",
             "download":{
               "url":  "/media/falcon.pdf",
               "text": "Original file"
@@ -131,6 +132,7 @@
             "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
             "playable": true,
             "is_pdf": true,
+            "play_url": "/media/PDF2.pdf",
             "download":{
               "url":  "/media/PDF2.pdf",
               "text": "2nd PDF file"
@@ -174,6 +176,7 @@
             "is_audio": true,
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
             "download": {
               "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
               "text": "Original MP3 file"
@@ -191,6 +194,7 @@
             "is_video": true,
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+            "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
               "text": "Original MP4 file"
@@ -208,6 +212,7 @@
             "is_video": true,
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "play_url": "/media/MP3-2.mp3",
             "download": {
               "url": "/media/MP3-2.mp3",
               "text": "Original MP3 file"
@@ -225,6 +230,7 @@
             "is_audio": true,
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "play_url": "/media/C_2336_2G_221-2.flac",
             "download": {
               "url": "/media/C_2336_2G_221-2.flac",
               "text": "Original FLAC file"
@@ -242,6 +248,7 @@
             "is_video": true,
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "play_url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
             "download": {
               "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
               "text": "Original FLV file"
@@ -258,6 +265,7 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "play_url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
               "text": "Original MPG file"
@@ -274,6 +282,7 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "play_url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
               "text": "Original OGG file"
@@ -290,6 +299,7 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "play_url": "/media/Kermis_Santpoort_120803_01.wav",
             "download": {
               "url": "/media/Kermis_Santpoort_120803_01.wav",
               "text": "Original WMV file"
@@ -306,6 +316,7 @@
           {
             "is_video": true,
             "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "play_url": "/media/I018102.wmv",
             "download": {
               "url": "/media/I018102.wmv",
               "text": "Original WMV file"
@@ -320,83 +331,81 @@
             }
           },
           {
-              "playable": true,
+              "playable": false,
               "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
 
           },
           {
-              "playable": true,
-              "downloadable": true,
+              "playable": false,
+              "downloadable": false,
               "is_image": true,
               "thumbnail": "/images/sample/object_thumbnail.jpg"
-
           }
-
         ]
       },
       "rights":

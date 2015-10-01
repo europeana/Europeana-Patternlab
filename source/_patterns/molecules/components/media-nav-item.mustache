@@ -8,11 +8,11 @@
       {{#is_audio}}
           data-type="audio"
          {{#play_url}}
-            data-uri="{{url}}"
+            data-uri="{{.}}"
          {{/play_url}}
 
          {{#download}}
-            XXXXXXXXXXXXXXXXXXXXXXXXXXXXXdata-uri="{{url}}"
+            XXXdata-uri="{{url}}"
          {{/download}}
           {{#technical_metadata}}
             data-mime-type="{{mime_type}}"
@@ -45,8 +45,11 @@
 
       {{#is_pdf}}
           data-type="pdf"
+          {{#play_url}}
+            data-uri="{{.}}"
+          {{/play_url}}
           {{#download}}
-            data-uri="{{url}}"
+            xxxdata-uri="{{url}}"
           {{/download}}
       {{/is_pdf}}
 
@@ -59,8 +62,11 @@
 
       {{#is_video}}
           data-type="video"
+          {{#play_url}}
+            data-uri="{{.}}"
+          {{/play_url}}
           {{#download}}
-            data-uri="{{url}}"
+            xxxxxxxxxxxxxxxdata-uri="{{url}}"
           {{/download}}
           {{#technical_metadata}}
             data-mime-type="{{mime_type}}"
