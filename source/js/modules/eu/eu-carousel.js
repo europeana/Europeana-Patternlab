@@ -51,14 +51,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 "back" : "left",
                 "fwd"  : "right",
                 "content" : {
-                    "back" : "◂",
-                    "fwd"  : "▸",
-                    "up" : "^",
-                    "down"  : "\\/",
-                    //"back" : "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>",
-                    //"fwd"  : "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>",
-                    //"up"   : "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>",
-                    //"down" : "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>"
+                    //"back" : "◂",
+                    //"fwd"  : "▸",
+                    //"up" : "^",
+                    //"down"  : "\\/",
+                    "back" : "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>",
+                    "fwd"  : "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>",
+                    "up"   : "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>",
+                    "down" : "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>"
                 }
             },
             "itemClass" : "js-carousel-item",
@@ -440,6 +440,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             cmp.addClass('loading');
 
             var dataLoaded = function(data){
+
+                log('data loaded:\n' + JSON.stringify(data, null, 4));
+
                 $.each(data.documents, function(i, ob){
                     items.append(getItemMarkup(ob));
                     totalLoaded += 1;
@@ -455,6 +458,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
             var url = loadUrl + '?page=' + page_param + '&per_page=' + inView;
+
+            log('go here for more: ' + url);
+
 
             $.getJSON( url, null, function( data ) {
                 dataLoaded(data);
