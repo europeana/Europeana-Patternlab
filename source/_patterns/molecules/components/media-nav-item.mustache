@@ -10,10 +10,6 @@
          {{#play_url}}
             data-uri="{{.}}"
          {{/play_url}}
-
-         {{#download}}
-            XXXdata-uri="{{url}}"
-         {{/download}}
           {{#technical_metadata}}
             data-mime-type="{{mime_type}}"
           {{/technical_metadata}}
@@ -28,15 +24,9 @@
 
       {{#is_image}}
           data-type="image"
-
           {{#play_url}}
             data-uri="{{.}}"
           {{/play_url}}
-
-          {{#xxxxdownload}}
-            data-uri="{{url}}"
-          {{/xxxxdownload}}
-
           {{#technical_metadata}}
             data-width="{{width}}"
             data-height="{{height}}"
@@ -48,16 +38,10 @@
           {{#play_url}}
             data-uri="{{.}}"
           {{/play_url}}
-          {{#download}}
-            xxxdata-uri="{{url}}"
-          {{/download}}
       {{/is_pdf}}
 
       {{#is_text}}
           data-type="text"
-          {{#download}}
-            data-uri="{{url}}"
-          {{/download}}
       {{/is_text}}
 
       {{#is_video}}
@@ -65,13 +49,14 @@
           {{#play_url}}
             data-uri="{{.}}"
           {{/play_url}}
-          {{#download}}
-            xxxxxxxxxxxxxxxdata-uri="{{url}}"
-          {{/download}}
           {{#technical_metadata}}
             data-mime-type="{{mime_type}}"
           {{/technical_metadata}}
       {{/is_video}}
+
+      {{#download}}
+        download-data-uri="{{url}}"
+      {{/download}}
 
       class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
 

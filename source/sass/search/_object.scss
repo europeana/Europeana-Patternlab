@@ -115,7 +115,7 @@
   // - technique to get sass var into markup (and so to js)
   // - breakpoint for vertical display, in pixels
 
-  content: '{ "bpVertical": "' + (($bp-med/1em)*16) + '"}';
+  content: '{ "bpVertical": "' + (($bp-js-carousel-to-v/1em)*16) + '"}';
   display: none;
 }
 
@@ -151,8 +151,18 @@
 
 }
 
-@media all and (min-width: $bp-med) {
+@media all and (min-width: $bp-js-carousel-to-v) {
+
   .object-media-wrap{
+
+    .media-viewer .single-item-thumb a{
+      cursor: default;
+    }
+
+    .media-viewer .single-item-thumb a.playable{
+      cursor: pointer;
+    }
+
 
     &.multi-item{
 
@@ -162,6 +172,12 @@
 
       .media-thumb-section{
         width:14%;
+
+        // override carousel default height for media items (margin allows space for arrows)
+        .media-thumbs{
+          height: 21em;
+          margin: 1.6em 0 3.2em 0;
+        }
       }
 
       .media-viewer{
@@ -486,12 +502,6 @@
         }
     }
 
-    // override carousel default height for media items (margin allows space for arrows)
-
-    .media-thumbs{
-      height: 21em;
-      margin: 1.6em 0 3.2em 0;
-    }
 }
 
 .color-data{

@@ -231,7 +231,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var ascertainVerticality = function(){
 
-            var dynamicThreshold = $(document).width();
+            // this (+12) hack may be due to the fact the page has a (tiny) horizontal overflow
+            var dynamicThreshold = $(document).width() + 12;
             var changed = false;
 
             if( dynamic && dynamicThreshold < bpVertical && (vertical== null || vertical == true)){
@@ -255,13 +256,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 cmp.find('.' + classData.itemClass + '').css('margin-top', '0px');
                 cmp.find('.' + classData.itemClass + '').css('margin-left', '0px');
 
-                console.log('switched to horizontal w(' + dynamicThreshold + ')');
+                console.log('switched to horizontal bp(' + bpVertical + '), w(' + dynamicThreshold + ')');
                 if(onOrientationChange){
                     onOrientationChange(vertical);
                 }
 
             }
-            else if( dynamic && dynamicThreshold > bpVertical && (vertical == null || vertical == false)){
+            else if( dynamic && dynamicThreshold >= bpVertical && (vertical == null || vertical == false)){
 
                 vertical = true;
                 cmp.addClass('v');
@@ -386,9 +387,6 @@ log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.
 
             items.css(edge, '0');
             animating = true;
-
-alert('next ' + nextItem.length + ' (' + nextIndex + ')');
-
 
             cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
                 "onAfter" : function(){
