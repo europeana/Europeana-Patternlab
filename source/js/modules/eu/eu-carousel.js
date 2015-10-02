@@ -25,7 +25,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var bpVertical = null;
         var onOrientationChange = null;
 
-        var axis     = 'x';
         var edge     = 'left';
 
         var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing;
@@ -38,6 +37,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var totalLoaded    = appender.getDataCount();
         var totalAvailable = 100;
+
         var scrollTime     = 400;
 
         var first          = cmp.find('.js-carousel-item:first');
@@ -80,7 +80,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             var opsDef = {"dynamic": false};
             var ops = mergeHashes(opsIn, opsDef);
 
-            console.log('carousel ops = ' + ops);
+            console.log('carousel ops = ' + JSON.stringify(ops, null, 4));
+
 
             dynamic    = typeof ops.bpVertical != 'undefined';
             bpVertical = ops.bpVertical;
@@ -92,12 +93,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             else{
                 vertical = false;
             }
-            axis     = vertical ? 'y' : 'x';
             edge     = vertical ? 'top' : 'left';
 
-            minSpacingPx   = ops.minSpacingPx ? ops.minSpacingPx : 15;
-            loadUrl        = ops.loadUrl;
-            spacing        = minSpacingPx;
+            minSpacingPx    = ops.minSpacingPx ? ops.minSpacingPx : 15;
+            loadUrl         = ops.loadUrl;
+            totalAvailable  = ops.total_available ? ops.total_available : totalAvailable;
+            spacing         = minSpacingPx;
 
             // ui
 
@@ -204,24 +205,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var anchor = function(){
             animating = true;
-
-//            cmp.css('overflow-y', 'hidden');
-
-//            cmp.css('overflow-' + axis, 'hidden');
-log('anchor: hide overflow ' + axis);
-
             items.css(edge, '0');
 
             var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
 
-log('anchor: ' + scrollTarget.length);
-
             cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
-                "axis" : axis,
                 "onAfter" : function(){
 
                     var done = function(){
-//                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -259,7 +250,6 @@ log('anchor: ' + scrollTarget.length);
                     items.css('width', '100%');
                 }
 
-                axis = 'x';
                 edge = 'left';
 
                 cmp.find('.' + classData.itemClass + '').css('margin-top', '0px');
@@ -287,7 +277,6 @@ log('anchor: ' + scrollTarget.length);
                     items.css('width', '100%');
                 }
 
-                axis = 'y';
                 edge = 'top';
 
                 cmp.find('.' + classData.itemClass + '').css('margin-top', '0px');
@@ -337,10 +326,7 @@ log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
             }
-log('resize-c');
             items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
-
-log('resize-d')
             anchor();
         };
 
@@ -369,16 +355,12 @@ log('resize-d')
 
             prevItem = items.find('.' + classData.itemClass + ':nth-child(' + prevItem + ')');
 
-//            cmp.css('overflow-' + axis, 'hidden');
-
             items.css(edge, '0');
 
             cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
-                "axis" : axis,
                 "onAfter" : function(){
 
                     var done = function(){
-//                        cmp.css('overflow-' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -402,16 +384,16 @@ log('resize-d')
 
             position = nextIndex;
 
-//            cmp.css('overflow-' + axis, 'hidden');
             items.css(edge, '0');
             animating = true;
 
+alert('next ' + nextItem.length + ' (' + nextIndex + ')');
+
+
             cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
-                "axis" : axis,
                 "onAfter" : function(){
                     var done = function(){
                         cmp.removeClass('loading');
-//                        cmp.css('overflow' + axis, 'hidden');
                         animating = false;
                         setArrowState();
                     };
@@ -456,14 +438,17 @@ log('resize-d')
                 totalLoaded = appender.getDataCount();
 
                 if(added){
-                    // move resize() to else?
                     log('added > resize');
                     resize();
+                    log('added > resize > scroll ' + scroll);
                     if(scroll){
                         scrollForward();
                     }
                     else{
                         cmp.removeClass('loading');
+                    }
+                    if(totalLoaded == totalAvailable){
+                        alert('loaded all');
                     }
                 }
                 else if(added ===0){
@@ -473,50 +458,6 @@ log('resize-d')
                     log('handle error');
                 }
             });
-            return;
-/*
-            if(!loadUrl){
-                console.log('no load url (return)');
-                return;
-            }
-            if(cmp.hasClass('loading')){
-                console.log('already loading (return)');
-                return;
-            }
-            cmp.addClass('loading');
-
-            var dataLoaded = function(data){
-
-                log('data loaded:\n' + JSON.stringify(data, null, 4));
-
-                $.each(data.documents, function(i, ob){
-                    items.append(getItemMarkup(ob));
-                    totalLoaded += 1;
-                });
-
-                resize();
-                if(scroll){
-                    scrollForward();
-                }
-                else{
-                    cmp.removeClass('loading');
-                }
-            }
-
-            var page_param = parseInt(Math.floor(totalLoaded/inView)) + 1;
-            var url = loadUrl + '?page=' + page_param + '&per_page=' + inView;
-
-            log('go here for more: ' + url);
-
-
-            $.getJSON( url, null, function( data ) {
-                dataLoaded(data);
-            })
-            .fail(function(msg){
-                cmp.removeClass('loading');
-                log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
-            });
-*/
         };
 
         var getItemMarkup = function(data){
@@ -556,7 +497,6 @@ log('resize-d')
                 e.stopPropagation();
                 return false;
             });
-            log('made btns - vertical = ' + vertical);
         }
 
         init();
