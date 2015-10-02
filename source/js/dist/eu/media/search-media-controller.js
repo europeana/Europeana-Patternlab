@@ -56,6 +56,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       $('.media-viewer .object-media-' + data.player).addClass('is-hidden');
   }
 
+  function mediaClosed(evt, data){
+      $('.media-viewer').removeClass('active');
+  };
+
   function mediaOpened(evt, data){
     if(data.hide_thumb){
       // TODOL review this
@@ -246,6 +250,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       evt.preventDefault();
       evt.stopPropagation();
 
+      if($(this).hasClass('disabled')){
+          log('return because media link disabled');
+          return;
+      }
+
       if($(this).hasClass('playable')){
           $(this).addClass('loading');
 
@@ -277,6 +286,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
   $('.media-viewer').on('object-media-open', mediaOpened);
+  $('.media-viewer').on('object-media-close', mediaClosed);
   $('.media-viewer').on('remove-playability', removePlayability);
   $(listItemSelector).on('click', handleListItemSelectorClick);
   $(singleItemSelector).on('click', handleListItemSelectorClick);

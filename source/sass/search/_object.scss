@@ -126,12 +126,30 @@
     position: relative;
 }
 
+
 .object-media-wrap{
 
     text-align: center;
     padding: $pad;
     position: relative;
-    z-index: 0;
+    z-index: 2;
+
+    .media-thumb-section{
+      width: 100%;
+      .js-carousel-arrows a{
+        color: white;
+      }
+      .js-carousel{
+        .js-carousel-item{
+            width: $thumbnail_max_dimension_media;
+        }
+        &.h{
+          .height-to-width{
+            height: $thumbnail_max_dimension_media;
+          }
+        }
+      }
+    }
 
     .media-viewer{
       position: relative;
@@ -155,6 +173,15 @@
 
   .object-media-wrap{
 
+    width:100%;
+    max-width:100%;
+
+    .media-viewer,
+    .media-thumb-section{
+      display: table-cell;
+      vertical-align: middle;
+    }
+
     .media-viewer .single-item-thumb a{
       cursor: default;
     }
@@ -163,38 +190,38 @@
       cursor: pointer;
     }
 
-
     &.multi-item{
 
-      .media-viewer{
-        float: left;
-      }
+      display: table-row;
+      table-layout: fixed;
 
       .media-thumb-section{
-        width:14%;
 
-        // override carousel default height for media items (margin allows space for arrows)
+        width:         $thumbnail_max_dimension_media;	// set width of thumbnail column here - thumbnail width and height (if left unset) will match it
+        min-width:     $thumbnail_max_dimension_media;	// (both needed - and should match the thumbnail width to keep arrows aligned)
+        padding-right: 1.6rem;
+
+
+        // override carousel default height for thumbnail list (margin allows space for arrows)
         .media-thumbs{
           height: 21em;
-          margin: 1.6em 0 3.2em 0;
+          margin: 2 * $space 0 2 * $space 0;
         }
       }
 
       .media-viewer{
-         width: 86%;
+
+          &.active{
+            padding-top:    $space;
+          }
+
+         width: 100%;
+
+         padding-left:   $space;
          padding-right:  $space;
          box-sizing:     padding-box;
       }
     }
-  }
-}
-
-.media-thumb-section{
-  width: 100%;
-  float: right;
-
-  .js-carousel-arrows a{
-     color: white;
   }
 }
 
@@ -349,7 +376,7 @@
     &>.show-button{
         position: absolute;
         bottom: 100%;
-        z-index: 10;
+        z-index: 1;
         left: 10px;
 
         &:hover{
@@ -380,7 +407,7 @@
         position: absolute;
         right: 11%;
         bottom: 100%;
-        z-index: 10;
+        z-index: 1;
 
         &.is-disabled{
             background: lighten($text_secondary, 10%);
@@ -461,26 +488,39 @@
 }
 
 
-// override carousel defaults
+// override carousel defaults for mlt
 
-// item size for mlt
-.mlt .js-carousel .js-carousel-item{
-  width: $thumbnail_max_dimension;
+.mlt{
+    .js-carousel{
+        .js-carousel-item{
+            width: $thumbnail_max_dimension_mlt;
+        }
+        .height-to-width{
+          height: $thumbnail_max_dimension_mlt;
+        }
+    }
+    .js-carousel-arrows{
+        &.h{
+            .left{
+                @media all and (min-width: $bp-med) {
+                  left: -1em;
+                }
+            }
+        }
+         a{
+            line-height: $thumbnail_max_dimension_mlt;
+        }
+    }
 }
 
 
-//.media-thumbs.js-carousel{
-  // item size for media thumbs
-// .js-carousel-item{
-//    width: $thumbnail_max_dimension / 2;
-//  }
-//}
-
-
-
-.mlt .js-carousel-arrows a{
-  line-height: $thumbnail_max_dimension;
+.js-carousel.media-thumbs.h{
+    margin: 0 1.6rem;
 }
+.js-carousel-arrows.h{
+    line-height: $thumbnail_max_dimension_media;
+}
+
 
 .subsection-content>ul{
     display: inline;

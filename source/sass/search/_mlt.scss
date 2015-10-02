@@ -18,8 +18,6 @@
   text-align:				center;
 
   @media all and (min-width: $bp-med) {
-
-    width:					48%;
     float:					left;
     text-align:			left;
   }
@@ -28,7 +26,6 @@
 
 .js-carousel.v .js-carousel-item{
 
-  width:					auto;
   margin:					1% 0;
   text-align:			center;
 
@@ -45,7 +42,7 @@
   background-repeat:   no-repeat;
   background-size:     cover;
   background-position: center;
-  margin:              0 auto $space-quarter auto;
+  margin:              0 auto 0 auto;
   position:				     relative;
 }
 
@@ -83,34 +80,14 @@
 }
 
 
-@media all and (max-width: $bp-large) {
-
-   // TODO move to object
-  .mlt .height-to-width{
-    height: $thumbnail_max_dimension;
-  }
-
-  // TODO move to object
-  .media-thumbs .height-to-width{
-    height: $thumbnail_max_dimension / 2;
-    width:  $thumbnail_max_dimension / 2;
-  }
-
-}
-
 
 @media all and (min-width: $bp-large) {
 
-  // TODO rempove
   .js-carousel .js-carousel-item{
     width:					24%;
     margin:					0;
-    }
-
-  .js-carousel .js-carousel-item,
-  .js-carousel .js-carousel-title{
-    max-width:	$thumbnail_max_dimension;
   }
+
 
   .js-carousel.v .js-carousel-title{
      text-align: center;
@@ -128,26 +105,23 @@
 }
 
 
-/* js overrides */
-
-
-.js-carousel .js-carousel-item{
-  margin-left: 0;
-  margin-right: 0;
-  float: left;
-
-  width:  $thumbnail_max_dimension / 2;
-
-}
 
 
 .js-carousel{
-  overflow: hidden;
 
+  overflow: hidden;
   position: relative;
+
+  .js-carousel-item{
+    margin-left: 0;
+    margin-right: 0;
+    float: left;
+
+    width:  auto;  // no override needed
+  }
+
   .h{
     margin: 0 3em;
-//    overflow-y: hidden;
 
     @media all and (min-width: $bp-med) {
       margin: 0 3em 0 0;
@@ -156,10 +130,8 @@
 
   .v{
     margin: 2em 0 2em 0;
-//    overflow-x: hidden;
 
      .js-carousel-item{
-        // width:  auto;
         margin-left: auto;
         margin-right: auto;
         float: none;
@@ -175,7 +147,9 @@
   display: block;
   position: absolute;
   height: 100%;
-  min-height: $thumbnail_max_dimension;
+//  min-height: $thumbnail_max_dimension;
+  min-height: 5000000px;
+
   width: 100%;
   top: 0;
   left: 0;
@@ -208,11 +182,14 @@
 
   &.h{
     position: relative;
+
+    .left,
+    .right{
+      top: -0.1em;
+    }
+
     .left{
       left: 0;
-      @media all and (min-width: $bp-med) {
-        left: -1em;
-      }
     }
 
     .right{
@@ -238,7 +215,6 @@
     left: 0;
     right: o;
 
-
     z-index: 0;
 
     .right,
@@ -252,6 +228,13 @@
 
     .right{
       bottom: -1em;
+
+      // until the svgs are ready, rotate the caret (^) for a down arrow
+      -webkit-transform: rotate(180deg);
+      -moz-transform:    rotate(180deg);
+      -o-transform:      rotate(180deg);
+      -ms-transform:     rotate(180deg);
+      transform:         rotate(180deg);
     }
 
     .left{

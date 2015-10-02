@@ -175,7 +175,7 @@
           {
             "is_audio": true,
             "playable": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "thumbnail": "/media/thumb-default-sound.jpg",
             "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
             "download": {
               "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
@@ -211,7 +211,7 @@
           {
             "is_video": true,
             "playable": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "thumbnail": "/media/thumb-default-sound.jpg",
             "play_url": "/media/MP3-2.mp3",
             "download": {
               "url": "/media/MP3-2.mp3",
@@ -229,7 +229,7 @@
           {
             "is_audio": true,
             "playable": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "thumbnail": "/media/thumb-default-sound.jpg",
             "play_url": "/media/C_2336_2G_221-2.flac",
             "download": {
               "url": "/media/C_2336_2G_221-2.flac",
@@ -247,7 +247,7 @@
           {
             "is_video": true,
             "playable": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "thumbnail": "/media/thumb-default-video.jpg",
             "play_url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
             "download": {
               "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
@@ -264,7 +264,7 @@
           },
           {
             "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "thumbnail": "/media/thumb-default-video.jpg",
             "play_url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
@@ -281,7 +281,7 @@
           },
           {
             "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "thumbnail": "/media/thumb-default-video.jpg",
             "play_url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
@@ -298,7 +298,7 @@
           },
           {
             "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
+            "thumbnail": "/media/thumb-default-sound.jpg",
             "play_url": "/media/Kermis_Santpoort_120803_01.wav",
             "download": {
               "url": "/media/Kermis_Santpoort_120803_01.wav",
@@ -315,7 +315,7 @@
           },
           {
             "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
+            "thumbnail": "/media/thumb-default-video.jpg",
             "play_url": "/media/I018102.wmv",
             "download": {
               "url": "/media/I018102.wmv",

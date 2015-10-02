@@ -24,6 +24,9 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
     $('.media-viewer').trigger("object-media-open", {hide_thumb:false, type:'image'});
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
+    gallery.listen('close', function() {
+        $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image'});
+    });
 
     if(delay){
         /**  this delay is to mitigate a load issue - see here:

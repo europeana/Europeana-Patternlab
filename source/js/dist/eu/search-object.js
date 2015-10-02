@@ -4,6 +4,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         console.log(msg);
     }
 
+    /*
     function addEllipsis(){
         if(window.location.href.indexOf('ellipsis') > -1){
             $('.js-carousel-title a').each(function(){
@@ -15,6 +16,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             });
         }
     }
+    */
 
     function showMap(data){
         var initLeaflet = function(longitudes, latitudes, labels){
@@ -70,8 +72,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
         if(latitude && longitude){
 
-            // replace any comma-delimited decimals with decimal points /
-            // make decimal format
+            // replace any comma-delimited decimals with decimal points / make decimal format
 
             for(var i = 0; i < latitude.length; i++){
                 latitude[i] = latitude[i].replace(/,/g, '.').indexOf('.') > -1 ? latitude[i] : latitude[i] + '.00';
@@ -108,33 +109,12 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         var carousel = jQuery.Deferred();
 
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
-            /*
-            var reg = /(?:\(['|"]?)(.*?)(?:['|"]?\))/;
-            var data = [];
-
-            // extract initial js data model from markup
-            el.find('a.link').each(function(i, ob) {
-                ob = $(ob);
-                var parentImgDiv = ob.closest('.mlt-img-div');
-                var title        = parentImgDiv.next('.js-carousel-title');
-
-                data[data.length] = {
-                    "thumb" : reg.exec(parentImgDiv.css('background-image'))[1],
-                    "title" : title.length > 0 ? title.find('a')[0].innerHTML : null,
-                    "link"  : ob.attr('href'),
-                    "linkTarget" : "_self"
-                }
-            });
-            // END extract initial js data model from markup
-            */
-
             var appender = CarouselAppender.create({
                 'cmp':             el.find('ul'),
                 'loadUrl':         ops.loadUrl,
                 'template':        ops.template,
                 'total_available': ops.total_available
             });
-//          alert('carousel ops = \n\n' + JSON.stringify(ops, null, 11));
             carousel.resolve(Carousel.create(el, appender, ops));
         });
         return carousel.promise();
@@ -143,17 +123,20 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     var showMediaThumbs = function(data){
         if($('.object-media-nav li').length > 1){
 
-            // keep ref to carousel for thumb strip updates
+            // keep reference to carousel for thumb strip updates
             var promisedCarousel = initCarousel($('.media-thumbs'), data);
             promisedCarousel.done(
 
                 function(carousel){
                     var setOptimalHeight = function(v){
                         if(v){
-                            var deduct = $('.media-thumbs').outerHeight(true) - $('.media-thumbs').height();
+                            var currHeight    = $('.media-thumbs').outerHeight(true);
+                            var deduct        = currHeight - $('.media-thumbs').height();
+
                             $('.media-thumbs').removeAttr('style');
                             var newH = $('.media-viewer').height() - deduct;
-                            $('.media-thumbs').css('height', Math.max(333, newH) + 'px');
+
+                            $('.media-thumbs').css('height', newH + 'px');
                         }
                         else{
                             $('.media-thumbs').removeAttr('style');
@@ -192,8 +175,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             var name  = sessionStorage.eu_portal_channel_name;
             var url   = sessionStorage.eu_portal_channel_url;
 
-            //console.log('retrieved storage data ' + label + ', ' + name + ', ' + url);
-
             if(typeof url != 'undefined' && url != 'undefined' ){
                 var crumb = $('.breadcrumbs li.js-channel');
                 var link  = crumb.find('a');
@@ -212,17 +193,10 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     }
                 });
             }
-
         }
     }
 
     function initPage(){
-
-        // functions to assist design
-        if(typeof addEllipsis != 'undefined'){
-            addEllipsis();
-        }
-        // (end functions to assist design)
 
         channelCheck();
 

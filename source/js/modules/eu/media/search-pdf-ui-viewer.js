@@ -49,7 +49,7 @@ define(['jquery'], function($){
 
                 $('.object-media-pdf').css({
                     'position' : 'absolute',
-                    'top' : '1000000px'
+                    'top' : '-1000000px'
                 });
             },
             show : function(){

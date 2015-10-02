@@ -42,7 +42,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var first          = cmp.find('.js-carousel-item:first');
         var itemW          = first.width();
-        var itemH          = first.height();
+
         var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
         var swiping        = false;
 
@@ -52,14 +52,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 "back" : "left",
                 "fwd"  : "right",
                 "content" : {
-                    //"back" : "◂",
-                    //"fwd"  : "▸",
-                    //"up" : "^",
-                    //"down"  : "\\/",
-                    "back" : "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>",
-                    "fwd"  : "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>",
-                    "up"   : "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>",
-                    "down" : "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>"
+                    "back" : "◂",
+                    "fwd"  : "▸",
+                    "up" : "^",
+                    "down"  : "^",
+                    //"back" : "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>",
+                    //"fwd"  : "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>",
+                    //"up"   : "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>",
+                    //"down" : "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>"
                 }
             },
             "itemClass" : "js-carousel-item",
@@ -106,21 +106,26 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             addButtons();
 
             var swipeLoadThreshold = Math.min(-100, 0-(itemW / 2));
+            // var swipeLoadThreshold = 0;
+
 
             cmp.on('movestart', function(e) { // respond to horizontal movement only
+
+              var tgt = $(e.target)
+              if(tgt[0].nodeName.toLowerCase()=='a'){
+                tgt.addClass('disabled');
+              }
 
               var mvVertical =  (e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY);
 
               if(vertical){
                   if (!mvVertical) {
-                      log('v cmp mv horizontal (return)');
                        e.preventDefault();
                       return;
                   }
               }
               else{
                   if (mvVertical) {
-                      log('h cmp mv vertical (return)');
                       e.preventDefault();
                       return;
                   }
@@ -164,7 +169,16 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             })
             .on('moveend', function(e) {
 
+                var tgt = $(e.target)
+                if(tgt[0].nodeName.toLowerCase()=='a'){
+                    setTimeout(function(){
+                        tgt.removeClass('disabled');
+                    },1000)
+                }
+
+                e.stopPropagation();
                 if(vertical){
+                    var itemH           = tgt.height();
                     var positionsPassed = Math.round(e.distY / (itemH + spacing/2));
                     var newPos          = position + (-1 * positionsPassed)
 
@@ -296,7 +310,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 log('!resize (swiping)');
                 return;
             }
-log('resize')
+//log('resize')
             ascertainVerticality();
 
             var cmpD   = vertical ? cmp.height() : cmp.width();
@@ -318,11 +332,11 @@ log('resize')
             spacing = parseInt(spacing);
             inView  = maxFit;
 
-log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
+//log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
 
             items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
-log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
+//log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
 
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
@@ -408,8 +422,6 @@ log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.
         }
 
         var goFwd = function(){
-
-            // log('go fwd: position + inView  = (' + position + ', ' + inView + ') ' + (position + inView) + ', totalLoaded = ' + totalLoaded );
 
             if((position + inView) < totalLoaded){
                 scrollForward();
