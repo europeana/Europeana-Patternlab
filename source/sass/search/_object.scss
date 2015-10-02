@@ -176,12 +176,6 @@
     width:100%;
     max-width:100%;
 
-    .media-viewer,
-    .media-thumb-section{
-      display: table-cell;
-      vertical-align: middle;
-    }
-
     .media-viewer .single-item-thumb a{
       cursor: default;
     }
@@ -190,10 +184,20 @@
       cursor: pointer;
     }
 
+    &.single-item{
+
+    }
+
     &.multi-item{
 
       display: table-row;
       table-layout: fixed;
+
+      .media-viewer,
+      .media-thumb-section{
+        display: table-cell;
+        vertical-align: middle;
+      }
 
       .media-thumb-section{
 
@@ -264,8 +268,13 @@
 .single-item-thumb{
     display: inline-block;
     position: relative;
-    margin: auto;
+    margin: $space / 2 auto;
     max-width: 100%;
+
+
+    @media all and (max-width: $bp-med) {
+      margin: $space * 2 auto;
+    }
 }
 
 .single-item .object-media-nav.open{
