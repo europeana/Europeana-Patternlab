@@ -25,7 +25,7 @@ define([], function(){
 
             // extra params from the "before"
             var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
-            if(dynamicParamsStr != 'none'){
+            if(dynamicParamsStr && dynamicParamsStr.length > 0 && dynamicParamsStr != 'none'){
 
                 var dynamicParams = JSON.parse(dynamicParamsStr);
                 if(typeof dynamicParams == 'string'){
@@ -35,7 +35,6 @@ define([], function(){
                     eParams[item] = dynamicParams[item];
                 }
             }
-
             //console.log('trigger full params = ' + JSON.stringify( eParams ));
             $(window).trigger(eEvent, eParams);
         }
