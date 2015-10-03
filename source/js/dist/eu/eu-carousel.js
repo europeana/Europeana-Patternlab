@@ -46,28 +46,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
         var swiping        = false;
 
-        var classData = {
-            "arrowClasses" : {
-                "container" : "js-carousel-arrows",
-                "back" : "left",
-                "fwd"  : "right",
-                "content" : {
-                    "back" : "◂",
-                    "fwd"  : "▸",
-                    "up" : "^",
-                    "down"  : "^",
-                    //"back" : "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>",
-                    //"fwd"  : "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>",
-                    //"up"   : "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>",
-                    //"down" : "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>"
-                }
-            },
-            "itemClass" : "js-carousel-item",
-            "itemDivClass" : "mlt-img-div height-to-width",
-            "itemInnerClass" : "inner",
-            "itemLinkClass" : "link",
-            "titleClass" : "js-carousel-title"
-        };
+        var classData      = {};
 
         if(!vertical){
           cmp.addClass('h');
@@ -75,13 +54,30 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var init = function(){
 
-            // vars
-
-            var opsDef = {"dynamic": false};
+            var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
             var ops = mergeHashes(opsIn, opsDef);
 
-            console.log('carousel ops = ' + JSON.stringify(ops, null, 4));
-
+            log('ops = ' + JSON.stringify(ops, null, 4));
+            classData = {
+                    "arrowClasses" : {
+                        "container" : "js-carousel-arrows",
+                        "back" : "left",
+                        "fwd"  : "right",
+                        "content" : {
+//                            "back" : "◂",
+//                            "fwd"  : "▸",
+                            "back"  : ops.svg ? "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>" : "&lt;",
+                            "fwd"   : ops.svg ? "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>" : "&gt;",
+                            "up"    : ops.svg ? "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>" : "^",
+                            "down"  : ops.svg ? "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>" : "^"
+                        }
+                    },
+                    "itemClass" : "js-carousel-item",
+                    "itemDivClass" : "mlt-img-div height-to-width",
+                    "itemInnerClass" : "inner",
+                    "itemLinkClass" : "link",
+                    "titleClass" : "js-carousel-title"
+                };
 
             dynamic    = typeof ops.bpVertical != 'undefined';
             bpVertical = ops.bpVertical;
@@ -95,9 +91,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             }
             edge     = vertical ? 'top' : 'left';
 
-            minSpacingPx    = ops.minSpacingPx ? ops.minSpacingPx : 15;
             loadUrl         = ops.loadUrl;
             totalAvailable  = ops.total_available ? ops.total_available : totalAvailable;
+            minSpacingPx    = ops.minSpacingPx;
             spacing         = minSpacingPx;
 
             // ui
@@ -109,7 +105,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             // var swipeLoadThreshold = 0;
 
 
-            cmp.on('movestart', function(e) { // respond to horizontal movement only
+            cmp.on('movestart', function(e) {
 
               var tgt = $(e.target)
               if(tgt[0].nodeName.toLowerCase()=='a'){
@@ -347,17 +343,17 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var setArrowState = function(){
             if(btnPrev){
-                position == 1 ? btnPrev.hide() : btnPrev.show();
+                position == 1 ? btnPrev.addClass('arrow-hidden') : btnPrev.removeClass('arrow-hidden');
             }
             if(btnNext){
                 if(totalLoaded < totalAvailable || position + inView <= totalLoaded){
-                    btnNext.show();
+                    btnNext.removeClass('arrow-hidden');
                 }
                 else{
-                    btnNext.hide();
+                    btnNext.addClass('arrow-hidden');
                 }
             }
-        }
+        };
 
         var goBack = function(){
 

@@ -135,9 +135,23 @@
     z-index: 2;
 
     .media-thumb-section{
+      overflow: hidden;
       width: 100%;
-      .js-carousel-arrows a{
-        color: white;
+      .js-carousel-arrows{
+        &.left,
+        &.right{
+          top: -0.1em;
+        }
+        a{
+          color: white;
+          text-shadow: 0 0 1px #000;
+          font-weight: bold;
+
+          &.arrow-hidden{
+            color: silver;
+            cursor: default;
+          }
+        }
       }
       .js-carousel{
         .js-carousel-item{
@@ -518,13 +532,16 @@
         }
          a{
             line-height: $thumbnail_max_dimension_mlt;
+            &.arrow-hidden{
+              display: none;
+            }
         }
     }
 }
 
 
 .js-carousel.media-thumbs.h{
-    margin: 0 1.6rem;
+    margin: 0 2.6rem;
 }
 .js-carousel-arrows.h{
     line-height: $thumbnail_max_dimension_media;

@@ -183,11 +183,6 @@
   &.h{
     position: relative;
 
-    .left,
-    .right{
-      top: -0.1em;
-    }
-
     .left{
       left: 0;
     }
@@ -227,7 +222,7 @@
     }
 
     .right{
-      bottom: -1em;
+      bottom: -1.2em;
 
       // until the svgs are ready, rotate the caret (^) for a down arrow
       -webkit-transform: rotate(180deg);
@@ -238,7 +233,7 @@
     }
 
     .left{
-      top: -1em;
+      top: -1.2em;
     }
 
     .icon icon-caret-down{
