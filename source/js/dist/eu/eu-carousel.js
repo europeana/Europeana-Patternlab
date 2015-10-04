@@ -57,15 +57,16 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
             var ops = mergeHashes(opsIn, opsDef);
 
-            log('ops = ' + JSON.stringify(ops, null, 4));
+            //log('ops = ' + JSON.stringify(ops, null, 4));
+
             classData = {
                     "arrowClasses" : {
                         "container" : "js-carousel-arrows",
                         "back" : "left",
                         "fwd"  : "right",
                         "content" : {
-//                            "back" : "◂",
-//                            "fwd"  : "▸",
+                            // "back" : "◂",
+                            // "fwd"  : "▸",
                             "back"  : ops.svg ? "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>" : "&lt;",
                             "fwd"   : ops.svg ? "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>" : "&gt;",
                             "up"    : ops.svg ? "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>" : "^",
@@ -175,8 +176,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 e.stopPropagation();
                 if(vertical){
                     var itemH           = tgt.height();
+                    //var itemH           = tgt.closest('.inner').height();
                     var positionsPassed = Math.round(e.distY / (itemH + spacing/2));
                     var newPos          = position + (-1 * positionsPassed)
+
+                    // less scroll needed to shift one space
+                    if(newPos == position && Math.abs(e.distY) >= (itemH / 2.5)){
+                        newPos += e.distY > 0 ? -1 : 1;
+                    }
 
                     cmp.scrollTo(cmp.scrollTop() - parseInt(items.css('top')), 0);
                     items.css('top', '');
@@ -185,11 +192,17 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     swiping = false;
 
                     position = Math.max(1, newPos);
+                    position = Math.min(position, totalAvailable);
                     resize();
                 }
                 else{
                     var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
                     var newPos          = position + (-1 * positionsPassed)
+
+                    // less scroll needed to shift one space
+                    if(newPos == position && Math.abs(e.distX) >= (itemW / 2.5)){
+                        newPos += e.distX > 0 ? -1 : 1;
+                    }
 
                     cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
                     items.css('left', '');
@@ -198,6 +211,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     swiping = false;
 
                     position = Math.max(1, newPos);
+                    position = Math.min(position, totalAvailable);
                     resize();
                 }
             });
@@ -266,7 +280,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 cmp.find('.' + classData.itemClass + '').css('margin-top', '0px');
                 cmp.find('.' + classData.itemClass + '').css('margin-left', '0px');
 
-                console.log('switched to horizontal bp(' + bpVertical + '), w(' + dynamicThreshold + ')');
+                log('switched to horizontal bp(' + bpVertical + '), w(' + dynamicThreshold + ')');
+
                 if(onOrientationChange){
                     onOrientationChange(vertical);
                 }
@@ -293,7 +308,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 cmp.find('.' + classData.itemClass + '').css('margin-top', '0px');
                 cmp.find('.' + classData.itemClass + '').css('margin-left', '0px');
 
-                console.log('switched to vertical' + dynamicThreshold + '');
+                log('switched to vertical bp(' + bpVertical + '), w(' + dynamicThreshold + ')');
+
                 if(onOrientationChange){
                     onOrientationChange(vertical);
                 }
@@ -306,7 +322,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 log('!resize (swiping)');
                 return;
             }
-//log('resize')
             ascertainVerticality();
 
             var cmpD   = vertical ? cmp.height() : cmp.width();
@@ -315,6 +330,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             var first  = items.find('.' + classData.itemClass + '').first();
             var itemD  = vertical ? first.outerHeight() : first.outerWidth();
             var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
+                maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
 
             spacing = minSpacingPx;
 
@@ -346,7 +362,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 position == 1 ? btnPrev.addClass('arrow-hidden') : btnPrev.removeClass('arrow-hidden');
             }
             if(btnNext){
-                if(totalLoaded < totalAvailable || position + inView <= totalLoaded){
+                if( (position-1) + inView < totalAvailable ){
                     btnNext.removeClass('arrow-hidden');
                 }
                 else{
@@ -392,6 +408,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             var nextIndex = position + inView;
             var nextItem  = items.find('.' + classData.itemClass + ':nth-child(' + nextIndex + ')');
+            if(nextItem.length == 0){
+                log('cannot scroll forward (return)');
+                setArrowState();
+                return;
+            }
 
             position = nextIndex;
 
@@ -420,6 +441,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var goFwd = function(){
 
             if((position + inView) < totalLoaded){
+
                 scrollForward();
             }
             else{
@@ -430,13 +452,21 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var loadMore = function(scroll){
 
             if(!loadUrl){
-                console.log('no load url (return)');
+                log('no load url (return)');
                 return;
             }
             if(cmp.hasClass('loading')){
-                console.log('already loading (return)');
+                log('already loading (return)');
                 return;
             }
+            if(totalLoaded == totalAvailable){
+                log('no more to load (scroll and return)');
+                if(!swiping){
+                    scrollForward();
+                }
+                return;
+            }
+
             cmp.addClass('loading');
 
             appender.append(function(added){
@@ -444,7 +474,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 totalLoaded = appender.getDataCount();
 
                 if(added){
-                    log('added > resize');
                     resize();
                     log('added > resize > scroll ' + scroll);
                     if(scroll){
@@ -461,7 +490,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     log('loaded all');
                 }
                 else{
-                    log('handle error');
+                    log('load error: only ' + totalLoaded + ' available');
+                    totalAvailable = totalLoaded;
+                    cmp.removeClass('loading');
+                    if(!swiping){
+                        scrollForward();
+                    }
                 }
             });
         };

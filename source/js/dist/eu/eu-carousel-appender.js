@@ -74,7 +74,6 @@ define(['jquery'], function($){
         var cmp         = conf.cmp;
         var loadUrl     = conf.loadUrl;
         var template    = conf.template;
-        var available   = conf.total_available;
         var totalLoaded = cmp.find('li').length;
 
         if(!templates[template]){
@@ -98,10 +97,13 @@ define(['jquery'], function($){
 
             log('load more from: ' + url);
 
-            $.getJSON( url, null, function( data ) {
-                append(data);
-                callback(totalLoaded);
-            })
+            $.getJSON( url, null)
+            .done(
+                function( data ) {
+                    append(data);
+                    callback(totalLoaded);
+                }
+            )
             .fail(function(msg){
                 cmp.removeClass('loading');
                 log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
