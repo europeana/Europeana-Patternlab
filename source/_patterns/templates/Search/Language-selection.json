@@ -12,7 +12,9 @@
       "settings": "Settings",
       "facet": {
         "more-refinements": "Advanced filters",
-        "language": "Language"
+        "header": {
+          "language": "Language"
+        }
       }
     }
   },
