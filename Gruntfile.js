@@ -1,6 +1,8 @@
 module.exports = function(grunt) {
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
       concat: {
         blacklight: {
             options: {
@@ -159,18 +161,28 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/',
             expand: true
           },
+
           smartmenus: {
               src:    '**',
               cwd:    'source/js/modules/lib/smartmenus/',
               dest:   'source/js/dist/lib/smartmenus',
               expand: true
           },
+
+          version_images: {
+              src:    '**',
+              cwd:    'source/images',
+              dest:   'source/v/' + grunt.option('styleguide-version') + '/images',
+              expand: true
+          },
+
           videojs: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs*',
             dest:   'source/js/dist/lib/videojs',
             expand:  true
           },
+
           videojs_aurora: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs-aurora',
@@ -209,17 +221,74 @@ module.exports = function(grunt) {
               expand:  true,
               src: ['**/*.js'],
               dest: 'source/js/min'
+          },
+          version_js: {
+              cwd: 'source/js/dist',
+              expand:  true,
+              src: ['**/*.js'],
+              dest: 'source/v/' + grunt.option('styleguide-version') + '/js'
           }
+      },
+
+      mkdir: {
+          version:{
+              options:{
+                  create:['source/v/' + grunt.option('styleguide-version') ]
+              }
+          }
+      },
+
+      sass: {
+          version: {
+              options: {
+                  compass: true,
+                  style: 'compressed'
+              },
+              files: [{
+                expand: true,
+                cwd: 'source/sass/',
+                src: ['*.scss'],
+                dest: 'source/v/' + grunt.option('styleguide-version') + '/css',
+                ext: '.css'
+              }]
+            }
       }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
   grunt.registerTask('prod', [
       'uglify:min_js',
       'copy:non_js'
  ]);
+
+
+  // Usage:  # grunt freeze-version --styleguide-version=0.2
+
+  grunt.registerTask('freeze-version', function(){
+      var version = grunt.option('styleguide-version');
+      if(grunt.file.exists('source/v/' + version)){
+          console.warn('Version ' + version  + ' already exists (return)');
+          return;
+      }
+      // usual compile
+      grunt.task.run('default');
+      // make folder
+      grunt.task.run('mkdir:version');
+      // pull in (non-js) css
+      grunt.task.run('sass:version');
+      // pull in (minified) js
+      grunt.task.run('uglify:version_js');
+      // pull in images
+      grunt.task.run('copy:version_images');
+  });
+
+
   grunt.registerTask('default', [
        'concat:blacklight',
        'concat:map',
