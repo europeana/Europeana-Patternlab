@@ -48,13 +48,14 @@
 	}
 
 	.copyright {
-		background-image: url("../../images/eu_flag.svg");
+		background-image: url("../../images/eu_flag_cef.svg");
 		background-position: 0 50%;
   		background-size: contain;
   		background-repeat: no-repeat;
-		padding-left: 3em;
+		padding-top: 3em;
 		font-size: $font-size-sm;
-		color: #777777;
+		color: transparent;
+    height: 3.34em;
 	}
 
 	.newsletter-form .inline-container{
