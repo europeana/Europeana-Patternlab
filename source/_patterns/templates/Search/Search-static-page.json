@@ -21,7 +21,6 @@
   ],
   "js_variables":
   [
-    "var js_path = '../../js/dist/';",
     "var pageName = 'portal/static';"
   ],
   "content":{

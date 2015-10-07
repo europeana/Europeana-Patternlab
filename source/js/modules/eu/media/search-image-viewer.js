@@ -1,9 +1,10 @@
-define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Default ) {
+define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default ) {
   'use strict';
 
   var
-    css_path_1 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
-    css_path_2 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/default-skin/default-skin.css' : js_path + 'lib/photoswipe/default-skin/default-skin.css',
+    css_path_1 = require.toUrl('../lib/photoswipe/photoswipe.css'),
+    css_path_2 = require.toUrl('../lib/photoswipe/default-skin/default-skin.css'),
+
     min_width_pixels = 400,
     items = [],
     options = { index: 0 },

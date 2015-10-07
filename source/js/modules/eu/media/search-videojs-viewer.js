@@ -3,8 +3,11 @@ define([], function() {
 
   var player          = null;
   var $viewer         = null;
-  var css_path        = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs/videojs.css' : js_path + 'lib/videojs/videojs.css';
-  var silverlight_xap = typeof(js_path) == 'undefined' ? '/js/dist/lib/videojs-silverlight/video-js.xap' : js_path + 'lib/videojs-silverlight/video-js.xap';
+
+
+  var css_path        = require.toUrl('../lib/videojs/videojs.css');
+  var silverlight_xap = require.toUrl('../lib/videojs-silverlight/video-js.xap');
+
   var html = {
       "audio": $('.object-media-audio').length > 0 ? $('.object-media-audio audio')[0].outerHTML : '',
       "video": $('.object-media-video').length > 0 ? $('.object-media-video video')[0].outerHTML : ''

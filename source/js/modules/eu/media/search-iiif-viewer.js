@@ -1,8 +1,10 @@
 define([], function() {
   'use strict';
 
-  var css_path_1 = (typeof(js_path) == 'undefined' ? '/js/dist/' : js_path) + 'css/map/application-map.css';
-  var css_path_2 = (typeof(js_path) == 'undefined' ? '/js/dist/' : js_path) + 'lib/iiif/iiif.css';
+
+  var css_path_1 = require.toUrl('../css/map/application-map.css');
+  var css_path_2 = require.toUrl('../lib/iiif/iiif.css');
+
   var iiif;
   //var html = $('.object-media-iiif #iiif')[0].outerHTML;
   //var html = $('.object-media-iiif').html();

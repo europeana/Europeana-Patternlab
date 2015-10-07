@@ -26,7 +26,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             var mapInfoId = 'map-info';
             var placeName = $('#map-place-name').text();
 
-            require([js_path + 'application-map.js'], function(){
+            require(['leaflet'], function(){
 
                 $('#' + mapId).after('<div id="' + mapInfoId + '"></div>');
                 var mqTilesAttr = 'Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" alt="mapquest logo"/>';
@@ -45,7 +45,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     zoom : 8
                 });
 
-                L.Icon.Default.imagePath = js_path + 'css/map/images';
+                L.Icon.Default.imagePath = require.toUrl('../css/map/images');
 
                 map.addLayer(mq);
                 map.invalidateSize();
@@ -61,7 +61,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
                 $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
 
-                $('head').append('<link rel="stylesheet" href="' + js_path + 'css/map/application-map.css" type="text/css"/>');
+                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../css/map/application-map.css') + '" type="text/css"/>');
             });
         }
 

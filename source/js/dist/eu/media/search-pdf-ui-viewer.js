@@ -4,7 +4,9 @@ define(['jquery'], function($){
 
         'use strict';
 
-        var resource_path = typeof (js_path) == 'undefined' ? '/js/dist/lib/pdfjs/' : js_path + 'lib/pdfjs/';
+        var resource_path_1 = require.toUrl('../lib/pdfjs/viewer.css');
+        var resource_path_2 = require.toUrl('../lib/pdfjs/viewer-europeana.css');
+        var resource_path_3 = require.toUrl('../lib/pdfjs/pdf.worker.js');
 
         /*
         function open(pdfUrl){
@@ -23,10 +25,10 @@ define(['jquery'], function($){
             }
 
             $('html').attr('dir', 'ltr');
-            $('head').append('<link rel="stylesheet" href="' + resource_path + 'viewer.css" type="text/css"/>');
-            $('head').append('<link rel="stylesheet" href="' + resource_path + 'viewer-europeana.css" type="text/css"/>');
+            $('head').append('<link rel="stylesheet" href="' + resource_path_1 + 'viewer.css" type="text/css"/>');
+            $('head').append('<link rel="stylesheet" href="' + resource_path_2 + 'viewer-europeana.css" type="text/css"/>');
 
-            PDFJS.workerSrc = resource_path + 'pdf.worker.js';
+            PDFJS.workerSrc = resource_path_3;
 
             require(['pdf_ui'], function(){
                 PDFView.initialize().then(webViewerInitialized);
