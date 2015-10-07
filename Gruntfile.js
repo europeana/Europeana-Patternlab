@@ -3,6 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+      clean:{
+          js_assets_disable:{
+              src : [ "source/sass/js/**/*.scss", "!source/sass/js/**/_*.scss"]
+          }
+      },
       concat: {
         blacklight: {
             options: {
@@ -19,6 +24,7 @@ module.exports = function(grunt) {
                 ]
             }
         },
+
         map:{
           options: {
             separator: ';\n'
@@ -75,6 +81,23 @@ module.exports = function(grunt) {
               dest:    'source/js/dist/lib',
               expand:  true,
               flatten: true
+          },
+          js_assets_enable: {
+              files: [{
+                  expand: true,
+                  cwd: 'source/sass/js',
+                  dest: 'source/sass/js/',
+                  src: [
+                    '**'
+                  ],
+                  rename: function(dest, src) {
+
+                    // this exploits an undocumented feature - see here:
+                    //   - http://fettblog.eu/blog/2014/05/27/undocumented-features-rename/
+
+                    return dest + src.replace('/_', '/');
+                  }
+                }]
           },
           blacklight: {
               src:    '**',
@@ -175,7 +198,14 @@ module.exports = function(grunt) {
               dest:   'source/v/' + grunt.option('styleguide-version') + '/images',
               expand: true
           },
-
+/*
+          version_css: {
+              src:    ['1914-1918/*', 'blog/*', 'labs/*', 'pro/*', 'research/*', 'search/*'],
+              cwd:    'source/v',
+              dest:   'source/v/' + grunt.option('styleguide-version') + '/css',
+              expand: true
+          },
+*/
           videojs: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs*',
@@ -238,56 +268,88 @@ module.exports = function(grunt) {
           }
       },
 
-      sass: {
-          version: {
+      compass: {
+          js_assets: {
               options: {
-                  compass: true,
-                  style: 'compressed'
+                  cssDir: 'source/js',
+                  sassDir: 'source/sass/js'
               },
               files: [{
-                expand: true,
-                cwd: 'source/sass/',
-                src: ['*.scss'],
-                dest: 'source/v/' + grunt.option('styleguide-version') + '/css',
-                ext: '.css'
+                  expand: true,
+                  src: ['**.scss'],
               }]
-            }
+          },
+
+          version: {
+              options: {
+                  config: 'config-versions.rb',
+                  cssDir: 'source/v/' + grunt.option('styleguide-version') + '/css'
+              },
+              files: [{
+                  expand: true,
+                  cwd: 'source/sass/',
+                  src: ['*.scss'],
+                  ext: '.css'
+              }]
+          }
       }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
   grunt.loadNpmTasks('grunt-mkdir');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('prod', [
       'uglify:min_js',
       'copy:non_js'
  ]);
 
-
-  // Usage:  # grunt freeze-version --styleguide-version=0.2
-
   grunt.registerTask('freeze-version', function(){
+
+      // # grunt freeze-version --styleguide-version=0.2
+
       var version = grunt.option('styleguide-version');
+
       if(grunt.file.exists('source/v/' + version)){
           console.warn('Version ' + version  + ' already exists (return)');
           return;
       }
       // usual compile
       grunt.task.run('default');
+
       // make folder
       grunt.task.run('mkdir:version');
-      // pull in (non-js) css
-      grunt.task.run('sass:version');
+
+      // compile (non-js) css
+      grunt.task.run('compass:version');
+
       // pull in (minified) js
       grunt.task.run('uglify:version_js');
+
       // pull in images
       grunt.task.run('copy:version_images');
   });
 
+
+  grunt.registerTask('js-component-styles', function(){
+
+      // remove leading underscore in filename
+      grunt.task.run('copy:js_assets_enable');
+
+      // compile pattern-lab css
+      grunt.task.run('compass:js_assets');
+
+      // replace leading underscore in filename
+      grunt.task.run('clean:js_assets_disable');
+
+      // push restyled js
+      grunt.task.run('default');
+
+  }),
 
   grunt.registerTask('default', [
        'concat:blacklight',
