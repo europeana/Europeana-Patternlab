@@ -25,8 +25,8 @@ define(['jquery'], function($){
             }
 
             $('html').attr('dir', 'ltr');
-            $('head').append('<link rel="stylesheet" href="' + resource_path_1 + 'viewer.css" type="text/css"/>');
-            $('head').append('<link rel="stylesheet" href="' + resource_path_2 + 'viewer-europeana.css" type="text/css"/>');
+            $('head').append('<link rel="stylesheet" href="' + resource_path_1 + '" type="text/css"/>');
+            $('head').append('<link rel="stylesheet" href="' + resource_path_2 + '" type="text/css"/>');
 
             PDFJS.workerSrc = resource_path_3;
 
