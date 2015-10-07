@@ -15,9 +15,11 @@
     }
   ],
 
-  "js_variables":
-  [
-    "var pageName = 'portal/show';"
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/show"
+    }
   ],
 
   "js_files":

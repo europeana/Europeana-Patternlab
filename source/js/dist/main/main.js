@@ -4,6 +4,7 @@ window.__ga__ = {
     l: Date.now()
 };
 
+/*
 var release   = null;
 
 var scripts = document.getElementsByTagName('script');
@@ -13,9 +14,10 @@ for (var i=0; i<scripts.length; i++){
         release = v;
     }
 };
+*/
 
 require.config({
-  urlArgs: "cache=" + (release || Math.random()),
+  //urlArgs: "cache=" + (release || Math.random()),
   paths: {
     aurora:                        '../lib/audiocogs/aurora',
     blacklight:                    '../lib/blacklight/blacklight_all',

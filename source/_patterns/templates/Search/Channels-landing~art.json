@@ -23,8 +23,11 @@
       "data_main": "../../js/dist/main/main"
     }
   ],
-  "js_variables": [
-    "var pageName = 'channels/show';"
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "channels/show"
+    }
   ],
   "input_search": {
     "title": "Search Europeana Art History",

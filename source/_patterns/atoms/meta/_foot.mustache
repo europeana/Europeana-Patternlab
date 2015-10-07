@@ -2,10 +2,17 @@
   </div>
   <!-- End of pusher div - wraps the site to allow offcanvas menus-->
 
-
+{{! deprecated: move to json formatted model for js variables }}
 {{# js_variables }}
     <script>{{{ . }}}</script>
 {{/ js_variables }}
+
+{{! new format for js variables }}
+<script>
+{{# js_vars }}
+   var {{ name }} = "{{ value }}";
+{{/ js_vars }}
+</script>
 
 
 {{# jQuery }}
