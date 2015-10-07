@@ -208,7 +208,7 @@ module.exports = function(grunt) {
 */
           videojs: {
             src:    '**',
-            cwd:    'source/js/modules/lib/videojs*',
+            cwd:    'source/js/modules/lib/videojs',
             dest:   'source/js/dist/lib/videojs',
             expand:  true
           },
