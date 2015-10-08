@@ -61,6 +61,8 @@ To use the javascript in the styleguide the client application must indicate whi
 `js_files`
  - JSON array (Object) where each entry has a "path" (String) and an optional "data_main" (String) value.  Script tags with the src set to "path" are added to the document for each of these.  The "data_main" value, if present, is added to the script's "data-main" attribute for requirejs integration.
 
+A typical styleguide model will contain a single entry in `js_files` which instructs the styleguide to load requirejs and identifies the corresponding "data-main" attribute - this single-entry-point is the recommended way to use the styleguide.
+
 ## Additional notes
 * Apache should serve the /public/ directory as the site’s document root.
 * Pattern Lab configuration can be adjusted in the /core/config/config.ini.default file.
