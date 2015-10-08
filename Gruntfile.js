@@ -236,27 +236,28 @@ module.exports = function(grunt) {
             cwd:    'source/js/modules/lib/iiif',
             dest:   'source/js/dist/lib/iiif',
             expand:  true
-          },
-          non_js: {
-              cwd: 'source/js/dist',
-              expand:  true,
-              src: ['**/*.*',  '!**/*.js'],
-              dest: 'source/js/min'
           }
+          //,
+          //non_js: {
+          //    cwd: 'source/js/dist',
+          //    expand:  true,
+          //    src: ['**/*.*',  '!**/*.js'],
+          //    dest: 'source/js/min'
+          //}
       },
 
       uglify: {
-          min_js: {
-              cwd: 'source/js/dist',
-              expand:  true,
-              src: ['**/*.js'],
-              dest: 'source/js/min'
-          },
+          //min_js: {
+          //    cwd: 'source/js/dist',
+          //    expand:  true,
+          //    src: ['**/*.js'],
+          //    dest: 'source/js/min'
+          //},
           version_js: {
               cwd: 'source/js/dist',
               expand:  true,
               src: ['**/*.js'],
-              dest: 'source/v/' + grunt.option('styleguide-version') + '/js'
+              dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
           }
       },
 
@@ -296,17 +297,18 @@ module.exports = function(grunt) {
 
   });
 
+
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mkdir');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('prod', [
-      'uglify:min_js',
-      'copy:non_js'
- ]);
+  //grunt.registerTask('prod', [
+  //    'uglify:min_js',
+  //    'copy:non_js'
+  //]);
 
   grunt.registerTask('freeze-version', function(){
 

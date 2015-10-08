@@ -1,7 +1,6 @@
-define(['search_form', 'search_home', 'smartmenus'], function () {
+define(['search_form', 'smartmenus'], function () {
 
     require(['smartmenus_keyboard'], function(){
-
 
         $('.nav_primary>ul').smartmenus({
             mainMenuSubOffsetX: -1,
@@ -37,6 +36,7 @@ define(['search_form', 'search_home', 'smartmenus'], function () {
         console.warn('pageName not specified - cannot bootstrap app');
         return;
     }
+
     switch(pageName){
         case 'channels/show':
             require(['search_results'], function(page){
@@ -56,7 +56,9 @@ define(['search_form', 'search_home', 'smartmenus'], function () {
         case 'portal/static':
             break;
         case 'home/index':
-            // require('search_home');
+            require(['search_home'], function(page){
+                page.initPage();
+            });
             break;
         case 'settings/language':
             require(['settings'], function(page){
