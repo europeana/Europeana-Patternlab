@@ -369,6 +369,40 @@
       </div>
     {{/content.similar}}
     </div>
+
+    <div class="lc data-border">
+      {{#content.hierarchy}}
+      <div class="data-section no-border">
+        <div class="hierarchy cf">
+          {{#parent}}
+            <div class="subsection-label"><a href="{{url}}">{{title}}</a></div>
+          {{/parent}}
+          <div class="subsection-content">
+            {{#siblings.items}}
+              <ol class="cf hierarchy-siblings">
+                <li>
+                  {{#is_current}}
+                    {{#parent}}{{index}}. {{/parent}}{{title}}
+                    {{#content.hierarchy.children}}
+                      <ol class="cf hierarchy-children">
+                        {{#items}}
+                          <li>{{index}}. <a href="{{url}}">{{title}}</a></li>
+                        {{/items}}
+                      </ol>
+                    {{/content.hierarchy.children}}
+                  {{/is_current}}
+                  {{^is_current}}
+                    {{index}}. <a href="{{url}}">{{title}}</a>
+                  {{/is_current}}
+                </li>
+              </ol>
+            {{/siblings.items}}
+          </div>
+        </div>
+      </div>
+    {{/content.hierarchy}}
+    </div>
+
   </section>
   {{/content}}
 </div>
