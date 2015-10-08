@@ -1,5 +1,5 @@
 ## Background
-Europeana has chosen to use Pattern Lab in order to develop its styleguide and maintain its sites’ stylesheets. Styleguide development is done on files within the /source/ directory of this project, focused primarily on the files within the /source/_patterns directory. Site assets are generated using compass and moved into the public directory using the /core/scripts/generateSite.command.
+Europeana has chosen to use Pattern Lab in order to develop its styleguide and maintain its sites’ stylesheets, javascripts, images and markup templates. Styleguide development is done on files within the /source/ directory of this project, focused primarily on the files within the /source/_patterns directory. Site assets are generated using compass (css) and grunt (js) and moved into the public directory using the /core/scripts/generateSite.command.
 
 ## Setup
 1. Clone this repo into a working directory.
@@ -41,6 +41,26 @@ A new site is defined by its own folder within `source/sass` and a folder in `so
             1. `"path": "../../js/search/screen.js"`
             1. The `source/_patterns/00-atoms/00-meta/_00-foot.mustache` will iterate over the `js_files` definition and create corresponding `<script>` tags.
 
+## Javascript
+Javascripts are stored in the source/js directory of the Europeana-Patternlab project.  To include them in the compiled styleguide the default grunt task must be run from the project root:
+
+ - #grunt
+ 
+then the site must be regenerated
+
+ - #./core/scripts/generateSite.command
+
+To use the javascript in the styleguide the client application must indicate which javascript files and variables it wants to make available to each page via the model.  The following entries in the model will output javascript imports / declarations in the generated html.
+
+`js_variables (deprecated)`
+ - JSON array (String) of javascript statements that will be written to the page footer (individually wrapped in a script tag)
+
+`js_vars` 
+ - JSON array (Object) where each entry has a "name" / "value" pair (both String) that will be written to the page footer as a global js var.
+
+`js_files`
+ - JSON array (Object) where each entry has a "path" (String) and an optional "data_main" (String) value.  Script tags with the src set to "path" are added to the document for each of these.  The "data_main" value, if present, is added to the script's "data-main" attribute for requirejs integration.
+
 ## Additional notes
 * Apache should serve the /public/ directory as the site’s document root.
 * Pattern Lab configuration can be adjusted in the /core/config/config.ini.default file.
@@ -57,4 +77,4 @@ A new site is defined by its own folder within `source/sass` and a folder in `so
 - [Documentation](http://patternlab.io/docs/index.html)
 - [Demo](http://demo.patternlab.io/)
 
-The PHP version of Pattern Lab is, at its core, a static site generator. It combines platform-agnostic assets, like the [Mustache](http://mustache.github.io/)-based patterns and the JavaScript-based viewer, with a PHP-based "builder" that transforms and dynamically builds the Pattern Lab site. By making it a static site generator, Pattern Lab strongly separates patterns, data, and presentation from build logic.
+The PHP version of Pattern Lab is, at its core, a static site generator. It combines platform-agnostic assets, like the [Mustache](http://mustache.github.io/)-based patterns and the JavaScript-based viewer, with a PHP-based "builder" that transforms and dynamically builds the Pattern Lab site. By making it a static site generator, Pattern Lab strongly separates patterns, data, and presentation from build logi.cg

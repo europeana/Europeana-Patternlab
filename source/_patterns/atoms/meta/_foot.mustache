@@ -21,7 +21,7 @@
 {{/ jQuery }}
 
 {{# js_files }}
-  <script {{# data_main }}data-main="{{.}}"{{/ data_main }} {{#js_version}}js-version="{{.}}"{{/js_version}} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
+  <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
 {{/ js_files}}
 
 {{# patternlab }}
