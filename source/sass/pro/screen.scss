@@ -193,10 +193,18 @@ $icon_primary: lighten($accent, 10);
 .help-contact .email,
 .contact-methods,
 .jobdetails,
-.l-person
+.l-person,
+.l-candidate
 {
     display: block;
     margin-bottom: $space;
+}
+
+.l-candidate
+{
+    @media all and (min-width: $bp-med){
+            max-width: 38.4em;
+        }
 }
 
 .results-list,
