@@ -21,12 +21,12 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function hideAllViewers() {
 
     log('hideAllViewers()');
-
     $('.media-viewer .object-media-iiif').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
 
     if(audioPlayer){
+        log('cleanup audio');
         audioPlayer.hide();
     }
     if(iiifViewer){
@@ -37,6 +37,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         pdfViewer.hide();
     }
     if(videoViewer){
+        log('cleanup video');
+//        cleanupVideo(videoViewer);
         videoViewer.hide();
     }
   }
@@ -65,6 +67,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       // TODOL review this
       $(listSelector).addClass('open');
       $(singleSelector).addClass('open');
+
+log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
     }
     $(listItemSelector).removeClass('loading');
     $(singleItemSelector).removeClass('loading');
@@ -77,6 +81,40 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     }
   }
 
+
+  function cleanupVideo(player){
+
+      // for html5 - clear out the src which solves a browser memory leak
+      //  this workaround was found here: http://stackoverflow.com/questions/5170398/ios-safari-memory-leak-when-loading-unloading-html5-video
+      if(player.techName == "html5"){
+        player.tag.src = "";
+        player.tech.removeTriggers();
+        player.load();
+log('clean html5');
+      }
+
+      // destroy the parts of the player which are specific to html5 or flash
+      if(player.tech){
+log('clean tech');
+          player.tech.destroy();
+      }
+
+      // destroy the player
+      if(player.destroy){
+log('destroy');
+          player.destroy();
+      }
+
+      // destroy the player
+      if(player.dispose){
+log('dispose');
+          player.dispose();
+      }
+
+log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  );
+      // remove the entire player from the dom
+      //$(player.el).remove();
+  }
 
   function initMediaAudio(evt, data) {
     hideAllViewers();
@@ -119,8 +157,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     log( 'initMediaImage()   '  + mediaViewerImage );
 
     if(mediaViewerImage){
+
         hideAllViewers();
+
         $('.media-viewer .object-media-image').removeClass('is-hidden');
+
         mediaViewerImage.setUrl(data.url);
         data.type = 'image';
         mediaOpened(evt, data);
@@ -140,15 +181,15 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
         var height = $el.attr('data-height');
         var width  = $el.attr('data-width');
 
-        if(uri && width && height){
+        if(uri && width && height && width.length > 0 && height.length > 0){
+
+            log('add img: ' + uri + ', w ' + width + ', h ' + height);
+
             imgData.push({
                 src: uri,
-                h: height,
-                w: width
+                h: parseInt(height),
+                w: parseInt(width)
             });
-        }
-        else if(uri){
-            checkData.push(uri);
         }
         else{
             log('incomplete image data')
@@ -157,6 +198,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
     // temporary fix until we get technical meta-data
+    /*
     if(checkData.length > 0){
 
         $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
@@ -184,7 +226,8 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
             });
         });
     }
-    else{
+    */
+    {
         log('full img meta-data given:\n\t' + JSON.stringify(imgData))
 
         require(['media_viewer_image'], function(mediaViewerImageIn){
@@ -278,7 +321,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
    *
    * General media event fired once (on page load) to handle media viewer initialisation
    */
-  //
+
   $('.media-viewer').on('media_init', initMedia);
   $('.media-viewer').on('object-media-audio', initMediaAudio);
   $('.media-viewer').on('object-media-iiif', initMediaIIIF);
@@ -288,7 +331,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-open', mediaOpened);
   $('.media-viewer').on('object-media-close', mediaClosed);
   $('.media-viewer').on('remove-playability', removePlayability);
-  $(listItemSelector).on('click', handleListItemSelectorClick);
+  $(listSelector).on('click', 'a', handleListItemSelectorClick);
   $(singleItemSelector).on('click', handleListItemSelectorClick);
 
 });

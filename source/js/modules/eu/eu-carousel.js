@@ -440,8 +440,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var goFwd = function(){
 
-            if((position + inView) < totalLoaded){
-
+            if((position + inView + inView) < totalLoaded){
+// log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position + ' + ' + inView + ') < ' + totalLoaded );
                 scrollForward();
             }
             else{
@@ -483,7 +483,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                         cmp.removeClass('loading');
                     }
                     if(totalLoaded == totalAvailable){
-                        alert('loaded all');
+                        log('loaded all');
                     }
                 }
                 else if(added ===0){

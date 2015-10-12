@@ -1,6 +1,10 @@
 define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default ) {
   'use strict';
 
+  function log(msg){
+      console.log('search-image-viewer: ' + msg);
+  }
+
   var
     css_path_1 = require.toUrl('../lib/photoswipe/photoswipe.css'),
     css_path_2 = require.toUrl('../lib/photoswipe/default-skin/default-skin.css'),
@@ -97,6 +101,7 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
    * @returns {bool}
    */
   function init( itemsIn, active ) {
+
     if ( gallery ) {
       return false;
     }
@@ -121,6 +126,7 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
           }
       }
     }
+
     initialiseGallery(100);
 
     return true;

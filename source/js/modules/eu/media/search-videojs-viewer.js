@@ -14,12 +14,13 @@ define([], function() {
   $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
   function log(msg) {
-    console.log('video-viewer log: ' + msg);
+    console.log('video-viewer: ' + msg);
   }
 
   function getItemFromMarkup( $el ) {
 
       if(!$el){
+        log('no element to get item from');
         return null;
       }
 
@@ -31,6 +32,7 @@ define([], function() {
 
       var valid = item.url && item.mime_type && item.data_type;
       if ( ! valid ) {
+          log('invalid item markup: missing [url, mime_type, data_type] [' + item.url + ', ' + item.mime_type + ', ' + item.data_type + ']');
           item = null;
       }
       return item;
@@ -94,12 +96,17 @@ define([], function() {
 
     $viewer = $(media_item.data_type);
 
+log('video viewer ' + media_item.data_type)
+
     if(!media_item.mime_type){
         log('no mime type available');
         return;
     }
 
     if($viewer.length == 0){
+
+log('viewer length is zero');
+
       $('.object-media-' + media_item.data_type).append(html[media_item.data_type]);
       $viewer = $('.object-media-' + media_item.data_type + ' ' + media_item.data_type);
       if($viewer.length == 0){
@@ -133,8 +140,9 @@ define([], function() {
             if(playerOptions){
                 for (var attrname in playerOptions){
                     videojs.options[attrname] = playerOptions[attrname];
+                    log('set player option:\t' + attrname + ' = ' + playerOptions[attrname]);
                 }
-                log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
+                //log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
             }
             doPlay(media_item);
 
@@ -149,9 +157,11 @@ define([], function() {
           init(media_item);
       },
       hide: function(media_item) {
-          console.log('hiding.... ' + player);
+          console.log('video - hiding.... ' + player);
+          return;
           if(player){
               player.dispose();
+              $(player.el).remove();
               player = null;
           }
       },

@@ -284,6 +284,9 @@
     margin: $space / 2 auto;
     max-width: 100%;
 
+   &.open{
+     display: none;
+   }
 
     @media all and (max-width: $bp-med) {
       margin: $space * 2 auto;
