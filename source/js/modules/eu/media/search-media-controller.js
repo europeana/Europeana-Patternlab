@@ -291,7 +291,7 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
   function handleListItemSelectorClick(evt) {
 
       evt.preventDefault();
-      evt.stopPropagation();
+      // evt.stopPropagation();
 
       if($(this).hasClass('disabled')){
           log('return because media link disabled');

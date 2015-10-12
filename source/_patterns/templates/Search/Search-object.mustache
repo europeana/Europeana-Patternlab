@@ -90,15 +90,10 @@
   </section>
 
   {{#items}}
-  <!--
-  <section>
-  <h1> INFO BELOW</h1>
-  </section>
-   -->
-
+  {{#is_current}}
   <section>
 
-    <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
+    <div class="object-media-info section is-current">
 
       {{#download}}
       <div class="object-downloads">
@@ -180,6 +175,7 @@
     </div>
 
   </section>
+  {{/is_current}}
   {{/items}}
   {{^items}}
   <section>

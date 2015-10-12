@@ -151,6 +151,25 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     $('.media-viewer').on('refresh-nav-carousel', function(){
                         setOptimalHeight(carousel.isVertical());
                     });
+
+
+                    // download handling
+                    var downloadPrep = function(e){
+log('downloadPrep....');
+                        var tgt = $(e.target);
+
+                        if(tgt.attr('data-download-uri')){
+
+log('enable button....');
+                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
+
+                        }
+
+                    }
+
+                    $('.media-thumbs').on('click', 'a', downloadPrep);
+
+
                 }
             );
         }

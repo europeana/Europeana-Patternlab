@@ -101,7 +101,7 @@ define(['jquery'], function($){
               +            ' href="#"'
 
               +            (item.play_url ?     ' data-uri="'          + item.play_url + '"' : '')
-              +            (download      ?     ' download-data-uri="' + download      + '"' : '')
+              +            (download      ?     ' data-download-uri="' + download      + '"' : '')
               +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
 
               +            (width         ?     ' data-width="'        + width  + '"' : '')
