@@ -154,13 +154,13 @@
 
             <div class="info-secondary">
               <ul class="object-techdata-list">
-                <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+                <li><span class="label tech-meta-language   {{^language}}is-disabled{{/language}}"   >{{i18n.site.object.meta-label.language}}</span>   {{language}}</li>
+                <li><span class="label tech-meta-format     {{^format}}is-disabled{{/format}}"       >{{i18n.site.object.meta-label.format}}</span>     {{format}}</li>
+                <li><span class="label tech-meta-filesize   {{^file_size}}is-disabled{{/file_size}}" >{{i18n.site.object.meta-label.file-size}}</span>  {{file_size}} {{file_unit}}</li>
+                <li><span class="label tech-meta-codec      {{^codec}}is-disabled{{/codec}}"         >{{i18n.site.object.meta-label.codec}}</span>      {{codec}}</li>
+                <li><span class="label tech-meta-fps        {{^fps}}is-disabled{{/fps}}"             >{{i18n.site.object.meta-label.fps}}</span>        {{fps}} {{fps_unit}}</li>
+                <li><span class="label tech-meta-dimensions {{^width}}is-disabled{{/width}}"         >{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
+                <li><span class="label tech-meta-runtime    {{^runtime}}is-disabled{{/runtime}}"     >{{i18n.site.object.meta-label.runtime}}</span>    {{runtime}} {{runtime_unit}}</li>
               </ul>
             </div>
 

@@ -396,7 +396,7 @@
 .object-techdata{
 
     // Hide for beta launch
-    display: none;
+    // display: none;
 
     &>.show-button{
         position: absolute;
@@ -424,6 +424,7 @@
 }
 
 
+.object-techdata-list,
 .object-downloads{
 
     .btn{
@@ -433,11 +434,11 @@
         right: 11%;
         bottom: 100%;
         z-index: 1;
+    }
 
-        &.is-disabled{
-            background: lighten($text_secondary, 10%);
-            color: darken($text_secondary, 20%);
-        }
+    .is-disabled{
+        background: lighten($text_secondary, 10%);
+        color: darken($text_secondary, 20%);
     }
 
     p{
