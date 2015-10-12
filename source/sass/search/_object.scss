@@ -421,10 +421,14 @@
     margin-right: 5%;
     width: 40%;
     display: inline-block;
+    white-space: nowrap;
+
+    .is-disabled{
+        opacity: 0.3;
+    }
 }
 
 
-.object-techdata-list,
 .object-downloads{
 
     .btn{

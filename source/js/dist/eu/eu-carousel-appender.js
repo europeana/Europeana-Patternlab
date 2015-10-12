@@ -48,50 +48,46 @@ define(['jquery'], function($){
           var markup = '';
           $.each(data, function(i, item){
 
-//log('single item:\n\t' + stringify(item));
+log('single item:\n\t' + stringify(item) + '\n');
 
-//            var img = 'http://delta-api.de.a9sapp.eu/v2/thumbnail-by-url.json?uri=' + item.about;
-
-/*
-            data-mime-type
-
-            var is_audio
-            {{#is_audio}}
-                data-type="audio"
-
-               {{#play_url}}
-                  data-uri="{{.}}"
-               {{/play_url}}
-
-                {{#technical_metadata}}
-                  data-mime-type="{{mime_type}}
-                {{/technical_metadata}}
-            {{/is_audio}}
-*/
-            var download = null;
-            var mimeType = null
-            var height   = null
-            var width    = null
+            var codec = null, download = null, fileSize = null, fileUnit = null, height = null, mimeType = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
 
 
             if(item.downloadable && item.download && item.download.url){
                 download = item.download.url;
             }
             if(item.technical_metadata){
-                if(item.technical_metadata.mime_type){
-                    mimeType = item.technical_metadata.mime_type;
+
+                var tm = item.technical_metadata;
+
+                if(tm.codec){
+                    codec = tm.codec;
                 }
-                if(item.technical_metadata.width){
-                    // TODO: do not permit blank values on the model
-                    width = item.technical_metadata.width;
+                if(tm.mime_type){
+                    mimeType = tm.mime_type;
                 }
-                if(item.technical_metadata.height){
-                    // TODO: do not permit blank values on the model
-                    height = item.technical_metadata.height;
+                if(tm.width){
+                    width = tm.width;
+                }
+                if(tm.height){
+                    height = tm.height;
+                }
+                if(tm.file_size){
+                    fileSize = tm.file_size;
+                }
+                if(tm.file_unit){
+                    fileUnit = tm.file_unit;
+                }
+                if(tm.runtime){
+                    runtime = tm.runtime;
+                }
+                if(tm.runtime_unit){
+                    runtimeUnit = tm.runtime_unit;
+                }
+                if(tm.size_unit){
+                    sizeUnit = tm.size_unit;
                 }
             }
-
-
 
             markup += ''
               + '<li class="js-carousel-item">'
@@ -104,8 +100,19 @@ define(['jquery'], function($){
               +            (download      ?     ' data-download-uri="' + download      + '"' : '')
               +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
 
-              +            (width         ?     ' data-width="'        + width  + '"' : '')
-              +            (height        ?     ' data-height="'       + height + '"' : '')
+              +            (codec         ?     ' data-codec="'        + codec         + '"' : '')
+
+              +            (fileSize      ?     ' data-file-size="'    + fileSize      + '"' : '')
+              +            (fileUnit      ?     ' data-file-unit="'    + fileUnit      + '"' : '')
+
+              +            (width         ?     ' data-width="'        + width         + '"' : '')
+              +            (height        ?     ' data-height="'       + height        + '"' : '')
+
+
+
+              +            (runtime       ?     ' data-runtime="'      + runtime       + '"' : '')
+              +            (runtimeUnit   ?     ' data-runtime-unit="' + runtimeUnit   + '"' : '')
+              +            (sizeUnit      ?     ' data-size-unit="'    + sizeUnit      + '"' : '')
 
               +            (item.is_audio ?     ' data-type="audio"' : '')
               +            (item.is_iiif  ?     ' data-type="iiif"'  : '')

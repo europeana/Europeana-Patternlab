@@ -152,24 +152,62 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         setOptimalHeight(carousel.isVertical());
                     });
 
-
-                    // download handling
-                    var downloadPrep = function(e){
-log('downloadPrep....');
-                        var tgt = $(e.target);
-
-                        if(tgt.attr('data-download-uri')){
-
-log('enable button....');
-                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
-
-                        }
-
+                    // TODO
+                    var setFileInfoData = function(href, meta){
+                        $('.file-info .file-title').attr('href', href);
+                        $('.file-info .file-meta li').remove();
+                        $.each(meta, function(i, ob){
+                            log('append file metadata');
+                            $('.file-info .file-meta').append('<li>' + ob + '</li>');
+                        });
                     }
 
+                    // download handling
+
+                    var downloadPrep = function(e){
+
+                        var tgt          = $(e.target);
+                        var fileInfoData = {"href": "", "meta": []};
+
+                        if(tgt.data('download-uri')){
+                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
+                            fileInfoData["href"] = tgt.data('download-uri');
+                        }
+
+                        var setVal = function(dataAttrs, writeEl){
+
+                            var allFound  = true;
+                            var allConcat = '';
+
+                            for(var i=0; i<dataAttrs.length; i++){
+                                var val = tgt.data(dataAttrs[i]);
+                                if(val){
+                                    allConcat += val + ' ';
+                                }
+                                else{
+                                    allFound = false;
+                                }
+                            }
+                            if(allFound){
+                                $( writeEl )[0].nextSibling.nodeValue = allConcat;
+                                $( writeEl ).removeClass('is-disabled');
+                            }
+                            else{
+                                $( writeEl )[0].nextSibling.nodeValue = '';
+                                $( writeEl ).addClass('is-disabled');
+                            }
+                        }
+
+                        setVal(['file-size', 'file-unit'],  '.tech-meta-filesize');
+
+                        setVal(['runtime', 'runtime-unit'], '.tech-meta-runtime');
+
+                        setVal(['codec'],  '.tech-meta-codec');
+
+                        setVal(['width', 'height', 'size-unit'], '.tech-meta-dimensions');
+
+                    }
                     $('.media-thumbs').on('click', 'a', downloadPrep);
-
-
                 }
             );
         }

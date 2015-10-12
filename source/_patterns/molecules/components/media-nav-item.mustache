@@ -7,37 +7,18 @@
   <div class="inner"><a href="#"
       {{#is_audio}}
           data-type="audio"
-         {{#play_url}}
-            data-uri="{{.}}"
-         {{/play_url}}
-          {{#technical_metadata}}
-            data-mime-type="{{mime_type}}"
-          {{/technical_metadata}}
       {{/is_audio}}
 
       {{#is_iiif}}
           data-type="iiif"
-          {{#play_url}}
-            data-uri="{{.}}"
-          {{/play_url}}
       {{/is_iiif}}
 
       {{#is_image}}
           data-type="image"
-          {{#play_url}}
-            data-uri="{{.}}"
-          {{/play_url}}
-          {{#technical_metadata}}
-            data-width="{{width}}"
-            data-height="{{height}}"
-          {{/technical_metadata}}
       {{/is_image}}
 
       {{#is_pdf}}
           data-type="pdf"
-          {{#play_url}}
-            data-uri="{{.}}"
-          {{/play_url}}
       {{/is_pdf}}
 
       {{#is_text}}
@@ -46,17 +27,45 @@
 
       {{#is_video}}
           data-type="video"
-          {{#play_url}}
-            data-uri="{{.}}"
-          {{/play_url}}
-          {{#technical_metadata}}
-            data-mime-type="{{mime_type}}"
-          {{/technical_metadata}}
       {{/is_video}}
+
+      {{#play_url}}
+         data-uri="{{.}}"
+      {{/play_url}}
 
       {{#download}}
         data-download-uri="{{url}}"
       {{/download}}
+
+      {{#technical_metadata}}
+        {{#codec}}
+          data-codec="{{.}}"
+        {{/codec}}
+        {{#file_size}}
+          data-file-size="{{.}}"
+        {{/file_size}}
+        {{#file_unit}}
+          data-file-unit="{{.}}"
+        {{/file_unit}}
+        {{#height}}
+          data-height="{{.}}"
+        {{/height}}
+        {{#mime_type}}
+          data-mime-type="{{.}}"
+        {{/mime_type}}
+        {{#runtime}}
+          data-runtime="{{.}}"
+        {{/runtime}}
+        {{#runtime_unit}}
+          data-runtime-unit="{{.}}"
+        {{/runtime_unit}}
+        {{#size_unit}}
+          data-size-unit="{{.}}"
+        {{/size_unit}}
+        {{#width}}
+          data-width="{{.}}"
+        {{/width}}
+      {{/technical_metadata}}
 
       class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
 
