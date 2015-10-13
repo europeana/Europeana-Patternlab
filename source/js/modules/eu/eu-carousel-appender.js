@@ -108,8 +108,6 @@ log('single item:\n\t' + stringify(item) + '\n');
               +            (width         ?     ' data-width="'        + width         + '"' : '')
               +            (height        ?     ' data-height="'       + height        + '"' : '')
 
-
-
               +            (runtime       ?     ' data-runtime="'      + runtime       + '"' : '')
               +            (runtimeUnit   ?     ' data-runtime-unit="' + runtimeUnit   + '"' : '')
               +            (sizeUnit      ?     ' data-size-unit="'    + sizeUnit      + '"' : '')
@@ -118,7 +116,6 @@ log('single item:\n\t' + stringify(item) + '\n');
               +            (item.is_iiif  ?     ' data-type="iiif"'  : '')
               +            (item.is_image ?     ' data-type="image"' : '')
               +            (item.is_video ?     ' data-type="video"' : '')
-
 
               +         '>&nbsp;</a>'
               +     '</div>'
@@ -151,10 +148,13 @@ log('single item:\n\t' + stringify(item) + '\n');
           cmp.append(appendData.markup);
         };
 
-        var load = function(callback){
+        var load = function(callback, perPage){
 
             // url needs params set
-            var per_page = 4;
+            var per_page = perPage || 4;
+
+log('per_page = ' + per_page);
+
             var page_param = parseInt(Math.floor(totalLoaded / per_page)) + 1;
             var url = loadUrl + '?page=' + page_param + '&per_page=' + per_page;
 
@@ -175,9 +175,9 @@ log('single item:\n\t' + stringify(item) + '\n');
         };
 
         return {
-            append : function(callback){
+            append : function(callback, perPage){
                 log('append...');
-                load(callback);
+                load(callback, perPage);
             },
             getDataCount : function(){
                 log('data count is ' + totalLoaded);

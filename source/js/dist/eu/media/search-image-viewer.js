@@ -103,7 +103,14 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
   function init( itemsIn, active ) {
 
     if ( gallery ) {
-      return false;
+
+        log('will not reinit');
+        gallery.close();
+    //    PhotoSwipe.disposeInstance(gallery);
+//        window.Code.PhotoSwipe.unsetActivateInstance(instance);
+
+  //      window.Code.PhotoSwipe.detatch(instance);
+//      return false;
     }
     if ( itemsIn ) {
       var valid_items = [];

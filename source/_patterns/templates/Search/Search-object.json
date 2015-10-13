@@ -68,11 +68,9 @@
             },
             "technical_metadata":
             {
-              "NOTE:": "width and height used for image viewer",
-
               "width": "2261",
               "height": "2548",
-
+              "width_or_height": true,
 
               "language":"English",
               "format": "jpg",

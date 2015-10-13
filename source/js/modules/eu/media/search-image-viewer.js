@@ -103,7 +103,10 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
   function init( itemsIn, active ) {
 
     if ( gallery ) {
-      return false;
+        // TODO: handle this on close - see here:
+        //         http://photoswipe.com/documentation/api.html
+        // (or find how to add to existing gallery)
+        gallery.close();
     }
     if ( itemsIn ) {
       var valid_items = [];

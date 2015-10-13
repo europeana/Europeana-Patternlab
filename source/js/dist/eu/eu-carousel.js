@@ -468,7 +468,7 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
                 return;
             }
 
-            cmp.addClass('loading');
+            cmp.addClass('loading (' + inView + ')');
 
             appender.append(function(added){
 
@@ -488,7 +488,7 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
                     }
                 }
                 else if(added ===0){
-                    log('loaded all');
+                    log('loaded all (added 0)');
                 }
                 else{
                     log('load error: only ' + totalLoaded + ' available');
@@ -498,7 +498,7 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
                         scrollForward();
                     }
                 }
-            });
+            }, inView);
         };
 
         var getItemMarkup = function(data){

@@ -162,9 +162,9 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         });
                     }
 
-                    // download handling
+                    // tech-data download handling
 
-                    var downloadPrep = function(e){
+                    var updateTechData = function(e){
 
                         var tgt          = $(e.target);
                         var fileInfoData = {"href": "", "meta": []};
@@ -174,15 +174,19 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                             fileInfoData["href"] = tgt.data('download-uri');
                         }
 
-                        var setVal = function(dataAttrs, writeEl){
+                        var setVal = function(data, writeEl){
 
                             var allFound  = true;
+                            var anyFound  = false;
                             var allConcat = '';
 
-                            for(var i=0; i<dataAttrs.length; i++){
-                                var val = tgt.data(dataAttrs[i]);
+                            for(var i=0; i<data.length; i++){
+                                var val = tgt.data(data[i]['attr']) || data[i]['def'];
                                 if(val){
                                     allConcat += val + ' ';
+                                    if(!data[i]['label']){
+                                        anyFound  = true;
+                                    }
                                 }
                                 else{
                                     allFound = false;
@@ -190,24 +194,38 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                             }
                             if(allFound){
                                 $( writeEl )[0].nextSibling.nodeValue = allConcat;
-                                $( writeEl ).removeClass('is-disabled');
+                                $( writeEl ).closest('li').removeClass('is-disabled');
                             }
                             else{
                                 $( writeEl )[0].nextSibling.nodeValue = '';
-                                $( writeEl ).addClass('is-disabled');
+                                $( writeEl ).closest('li').addClass('is-disabled');
                             }
+                            return anyFound;
                         }
+                        var techData        = $('.object-techdata');
+                        var somethingGotSet = setVal(
+                                [{attr: 'file-size'},
+                                 {attr: 'file-unit'}],  '.tech-meta-filesize')
+                        | setVal(
+                                [{attr: 'runtime'},
+                                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
+                        | setVal(
+                                [{attr: 'codec'}],  '.tech-meta-codec')
+                        | setVal(
+                                [{attr: 'width'},
+                                 {attr: 'use_def', def: 'x', label: true},
+                                 {attr: 'height'},
+                                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions');
 
-                        setVal(['file-size', 'file-unit'],  '.tech-meta-filesize');
-
-                        setVal(['runtime', 'runtime-unit'], '.tech-meta-runtime');
-
-                        setVal(['codec'],  '.tech-meta-codec');
-
-                        setVal(['width', 'height', 'size-unit'], '.tech-meta-dimensions');
-
+                        if(somethingGotSet){
+                            techData.show();
+                        }
+                        else{
+                            techData.removeClass('is-expanded')
+                            $('.object-techdata').hide();
+                        }
                     }
-                    $('.media-thumbs').on('click', 'a', downloadPrep);
+                    $('.media-thumbs').on('click', 'a', updateTechData);
                 }
             );
         }

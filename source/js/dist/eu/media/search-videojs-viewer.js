@@ -158,7 +158,6 @@ log('viewer length is zero');
       },
       hide: function(media_item) {
           console.log('video - hiding.... ' + player);
-          return;
           if(player){
               player.dispose();
               $(player.el).remove();

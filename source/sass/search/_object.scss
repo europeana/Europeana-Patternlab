@@ -136,6 +136,9 @@
     .media-thumb-section{
       overflow: hidden;
       width: 100%;
+      max-width: $max-width;
+      margin: 0 auto 3.2rem;
+
       .js-carousel-arrows{
         &.left,
         &.right{
@@ -392,18 +395,19 @@
 
 // override default if we have a column of thumbnails on the right
 
-
 .object-techdata{
 
-    // Hide for beta launch
-    // display: none;
+    // these 3 indent it - is that design's intent?
+    max-width: $max-width;
+    position: relative;
+    margin: auto;
+
 
     &>.show-button{
         position: absolute;
         bottom: 100%;
         z-index: 1;
-        left: 10px;
-
+        color: silver;
         &:hover{
             color: $white;
         }
@@ -423,8 +427,9 @@
     display: inline-block;
     white-space: nowrap;
 
-    .is-disabled{
-        opacity: 0.3;
+    &.is-disabled{
+        display: none;
+       // opacity: 0.3;
     }
 }
 
@@ -443,6 +448,10 @@
     .is-disabled{
         background: lighten($text_secondary, 10%);
         color: darken($text_secondary, 20%);
+        pointer-events: none;
+        &:hover{
+            background: lighten($text_secondary, 10%);
+        }
     }
 
     p{

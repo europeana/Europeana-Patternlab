@@ -38,7 +38,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     }
     if(videoViewer){
         log('cleanup video');
-//        cleanupVideo(videoViewer);
         videoViewer.hide();
     }
   }
@@ -82,40 +81,6 @@ log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
   }
 
 
-  function cleanupVideo(player){
-
-      // for html5 - clear out the src which solves a browser memory leak
-      //  this workaround was found here: http://stackoverflow.com/questions/5170398/ios-safari-memory-leak-when-loading-unloading-html5-video
-      if(player.techName == "html5"){
-        player.tag.src = "";
-        player.tech.removeTriggers();
-        player.load();
-log('clean html5');
-      }
-
-      // destroy the parts of the player which are specific to html5 or flash
-      if(player.tech){
-log('clean tech');
-          player.tech.destroy();
-      }
-
-      // destroy the player
-      if(player.destroy){
-log('destroy');
-          player.destroy();
-      }
-
-      // destroy the player
-      if(player.dispose){
-log('dispose');
-          player.dispose();
-      }
-
-log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  );
-      // remove the entire player from the dom
-      //$(player.el).remove();
-  }
-
   function initMediaAudio(evt, data) {
     hideAllViewers();
 
@@ -134,7 +99,6 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
             log('missing audio item - removed');
         }
     });
-
   }
 
   function initMediaIIIF(evt, data) {
@@ -155,7 +119,7 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
   function initMediaImage(evt, data) {
 
     log( 'initMediaImage()   '  + mediaViewerImage );
-
+/*
     if(mediaViewerImage){
 
         hideAllViewers();
@@ -167,7 +131,7 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
         mediaOpened(evt, data);
         return;
     }
-
+*/
     // collect all image data:
     var imgData = [];
     var checkData = [];
@@ -196,49 +160,14 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
         }
     });
 
-
-    // temporary fix until we get technical meta-data
-    /*
-    if(checkData.length > 0){
-
-        $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
-
-        for(var i=0; i < checkData.length; i++){
-            $('#img-measure').append('<img src="' + checkData[i]+ '">');
+    require(['media_viewer_image'], function(mediaViewerImageIn){
+        mediaViewerImage = mediaViewerImageIn;
+        hideAllViewers();
+        $('.media-viewer .object-media-image').removeClass('is-hidden');
+        if(!mediaViewerImage.init(imgData, clickedImg)){
+            removePlayability({"$thumb": $(data.target)});
         }
-        $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
-            for(var i=0; i< $images.length; i++){
-                var img = $( $images[i] )
-                imgData.push({
-                    src: img.attr('src'),
-                    h:   img.height(),
-                    w:   img.width()
-                });
-            }
-            $('#img-measure').remove();
-            require(['media_viewer_image'], function(mediaViewerImageIn){
-                mediaViewerImage = mediaViewerImageIn;
-                hideAllViewers();
-                $('.media-viewer .object-media-image').removeClass('is-hidden');
-                if(!mediaViewerImage.init(imgData, clickedImg)){
-                    removePlayability({"$thumb": $(data.target)});
-                }
-            });
-        });
-    }
-    */
-    {
-        log('full img meta-data given:\n\t' + JSON.stringify(imgData))
-
-        require(['media_viewer_image'], function(mediaViewerImageIn){
-            mediaViewerImage = mediaViewerImageIn;
-            hideAllViewers();
-            $('.media-viewer .object-media-image').removeClass('is-hidden');
-            if(!mediaViewerImage.init(imgData, clickedImg)){
-                removePlayability({"$thumb": $(data.target)});
-            }
-        });
-    }
+    });
   }
 
   function initMediaPdf( evt, data ) {
@@ -291,7 +220,6 @@ log('cleaned ' + player.el + '   ' +  (player.el ?  player.el.nodeName : ''  )  
   function handleListItemSelectorClick(evt) {
 
       evt.preventDefault();
-      // evt.stopPropagation();
 
       if($(this).hasClass('disabled')){
           log('return because media link disabled');
