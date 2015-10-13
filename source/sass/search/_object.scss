@@ -458,6 +458,13 @@
         font-size: $font-size-slightly-smaller;
         margin-bottom: 0;
     }
+
+    .file-meta .label{
+        font-weight: bold;
+        &:after{
+            content: ': '
+        }
+    }
 }
 
 .original_context{

@@ -152,28 +152,28 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         setOptimalHeight(carousel.isVertical());
                     });
 
-                    // TODO
-                    var setFileInfoData = function(href, meta){
-                        $('.file-info .file-title').attr('href', href);
-                        $('.file-info .file-meta li').remove();
-                        $.each(meta, function(i, ob){
-                            log('append file metadata');
-                            $('.file-info .file-meta').append('<li>' + ob + '</li>');
-                        });
-                    }
 
                     // tech-data download handling
 
                     var updateTechData = function(e){
+                        log('updateTechData');
 
                         var tgt          = $(e.target);
                         var fileInfoData = {"href": "", "meta": []};
 
-                        if(tgt.data('download-uri')){
-                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
-                            fileInfoData["href"] = tgt.data('download-uri');
+                        // download section
+                        var setFileInfoData = function(href, meta){
+                            $('.file-info .file-title').attr('href', href);
+                            $('.file-info .file-meta li').remove();
+                            $.each(meta, function(i, ob){
+                                $('.file-info .file-meta').append('<li>' + ob + '</li>');
+                            });
+                            if(!href){
+                                $('.object-downloads').removeClass('is-expanded')
+                            }
                         }
 
+                        // individual tech-data fields
                         var setVal = function(data, writeEl){
 
                             var allFound  = true;
@@ -224,6 +224,26 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                             techData.removeClass('is-expanded')
                             $('.object-techdata').hide();
                         }
+
+                        // download window
+                        if(tgt.data('download-uri')){
+                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
+                            fileInfoData["href"] = tgt.data('download-uri');
+                            fileInfoData["meta"] = [];//tgt.data('download-uri');
+
+                            // take 1st 2 available metadatas
+                            var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
+                            for(var i=0; i < Math.min(2, availableMeta.length); i++){
+                                fileInfoData["meta"].push($(availableMeta[i]).html());
+                            }
+                        }
+                        else{
+                            $('.object-downloads .download-button').addClass('js-showhide').addClass('is-disabled');
+                            fileInfoData["href"] = '';
+                            fileInfoData["meta"] = [];
+                        }
+                        setFileInfoData(fileInfoData["href"], fileInfoData["meta"]);
+
                     }
                     $('.media-thumbs').on('click', 'a', updateTechData);
                 }

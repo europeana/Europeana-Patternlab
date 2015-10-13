@@ -98,8 +98,8 @@ log('single item:\n\t' + stringify(item) + '\n');
 
               +            (item.play_url ?     ' data-uri="'          + item.play_url + '"' : '')
               +            (download      ?     ' data-download-uri="' + download      + '"' : '')
-              +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
 
+              +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
               +            (codec         ?     ' data-codec="'        + codec         + '"' : '')
 
               +            (fileSize      ?     ' data-file-size="'    + fileSize      + '"' : '')

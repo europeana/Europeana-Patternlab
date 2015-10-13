@@ -103,14 +103,10 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
   function init( itemsIn, active ) {
 
     if ( gallery ) {
-
-        log('will not reinit');
+        // TODO: handle this on close - see here:
+        //         http://photoswipe.com/documentation/api.html
+        // (or find how to add to existing gallery)
         gallery.close();
-    //    PhotoSwipe.disposeInstance(gallery);
-//        window.Code.PhotoSwipe.unsetActivateInstance(instance);
-
-  //      window.Code.PhotoSwipe.detatch(instance);
-//      return false;
     }
     if ( itemsIn ) {
       var valid_items = [];
