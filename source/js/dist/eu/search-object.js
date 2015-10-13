@@ -4,20 +4,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         console.log(msg);
     }
 
-    /*
-    function addEllipsis(){
-        if(window.location.href.indexOf('ellipsis') > -1){
-            $('.js-carousel-title a').each(function(){
-                while($(this).outerHeight() > $(this).parent().height()){
-                    $(this).text(function(index, text){
-                        return text.replace(/\W*\s(\S)*$/, '...');
-                    });
-                }
-            });
-        }
-    }
-    */
-
     function showMap(data){
         var initLeaflet = function(longitudes, latitudes, labels){
             log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
@@ -229,7 +215,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         if(tgt.data('download-uri')){
                             $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
                             fileInfoData["href"] = tgt.data('download-uri');
-                            fileInfoData["meta"] = [];//tgt.data('download-uri');
+                            fileInfoData["meta"] = [];
 
                             // take 1st 2 available metadatas
                             var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');

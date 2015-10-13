@@ -37,6 +37,20 @@
           {{/items}}
         {{/single_item}}
 
+        {{^single_item}}
+          {{#items}}
+            {{#is_current}}
+              <div class="multi-item-poster {{#playable}} clickable{{/playable}}">
+                <a {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                    <img src="{{thumbnail}}"/>
+                    {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
+                    <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
+                </a>
+              </div>
+            {{/is_current}}
+          {{/items}}
+        {{/single_item}}
+
         {{#required_players}}
 
         {{#iiif}}

@@ -1,6 +1,7 @@
 define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   // main link between search page and the various players
+  var posterSelector     = '.multi-item-poster a';
   var listSelector       = '.object-media-nav';
   var singleSelector     = '.single-item-thumb';
   var listItemSelector   = listSelector + ' a';
@@ -67,8 +68,9 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       $(listSelector).addClass('open');
       $(singleSelector).addClass('open');
 
-log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
+      //log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
     }
+
     $(listItemSelector).removeClass('loading');
     $(singleItemSelector).removeClass('loading');
 
@@ -136,6 +138,7 @@ log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
     var imgData = [];
     var checkData = [];
     var clickedImg = data.target.attr('data-uri');
+
 
     $(listItemSelector + '[data-type=image]')
       .add(singleItemSelector + '[data-type=image]').each(function(){
@@ -218,7 +221,6 @@ log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
 
 
   function handleListItemSelectorClick(evt) {
-
       evt.preventDefault();
 
       if($(this).hasClass('disabled')){
@@ -240,15 +242,16 @@ log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
       }
   }
 
-  /*
-   * bind vs on
-   * @see http://api.jquery.com/bind/#entry-longdesc
-   *
-   * some reasons why to limit anonymous functions in jquery callbacks
-   * @see http://toddmotto.com/avoiding-anonymous-javascript-functions/
-   *
-   * General media event fired once (on page load) to handle media viewer initialisation
-   */
+  $(posterSelector).on('click', function(e){
+      var target = $(e.target).closest('a');
+      var uri    = target.data('uri');
+      $(listItemSelector).each(function(i, ob){
+          var item = $(ob);
+          if(item.data('uri')==uri){
+              item.click();
+          }
+      });
+  });
 
   $('.media-viewer').on('media_init', initMedia);
   $('.media-viewer').on('object-media-audio', initMediaAudio);
