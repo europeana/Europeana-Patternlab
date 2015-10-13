@@ -168,8 +168,10 @@
     }
 
     .media-viewer{
+      margin: auto;
       position: relative;
       width: 100%;
+      max-width: $max-width;
 
       &.active{
         padding-bottom: $space;

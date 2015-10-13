@@ -25,6 +25,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
     $('.media-viewer .object-media-iiif').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
+    $('.media-viewer .multi-item-poster').addClass('is-hidden');
 
     if(audioPlayer){
         log('cleanup audio');
@@ -60,6 +61,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
   function mediaClosed(evt, data){
       $('.media-viewer').removeClass('active');
+      $('.media-viewer .multi-item-poster').removeClass('is-hidden');
   };
 
   function mediaOpened(evt, data){
