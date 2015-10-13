@@ -33,9 +33,11 @@
          data-uri="{{.}}"
       {{/play_url}}
 
-      {{#download}}
-        data-download-uri="{{url}}"
-      {{/download}}
+      {{#downloadable}}
+        {{#download}}
+          data-download-uri="{{url}}"
+        {{/download}}
+      {{/downloadable}}
 
       {{#technical_metadata}}
         {{#codec}}
