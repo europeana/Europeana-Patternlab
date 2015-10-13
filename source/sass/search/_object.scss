@@ -194,16 +194,6 @@
     width:100%;
     max-width:100%;
 
-    .media-viewer .single-item-thumb a,
-    .media-viewer .multi-item-poster a{
-      cursor: default;
-    }
-
-    .media-viewer .single-item-thumb a.playable,
-    .media-viewer .multi-item-poster a.playable{
-      cursor: pointer;
-    }
-
     &.single-item{
 
     }
@@ -298,13 +288,13 @@
 
     a{
       cursor: default;
-    }
-
-    &.clickable{
-      margin: $space auto;
-      a{
+      &.playable{
         cursor: pointer;
       }
+    }
+
+    &.contains-playable{
+      margin: $space auto;
     }
 
     &.open{

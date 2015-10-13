@@ -48,9 +48,9 @@ define(['jquery'], function($){
           var markup = '';
           $.each(data, function(i, item){
 
-log('single item:\n\t' + stringify(item) + '\n');
+            //log('single item:\n\t' + stringify(item) + '\n');
 
-            var codec = null, download = null, fileSize = null, fileUnit = null, height = null, mimeType = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
+            var codec = null, download = null, format = null, fileSize = null, fileUnit = null, height = null, mimeType = null, language = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
 
 
             if(item.downloadable && item.download && item.download.url){
@@ -63,6 +63,9 @@ log('single item:\n\t' + stringify(item) + '\n');
                 if(tm.codec){
                     codec = tm.codec;
                 }
+                if(tm.language){
+                    language = tm.language;
+                }
                 if(tm.mime_type){
                     mimeType = tm.mime_type;
                 }
@@ -71,6 +74,9 @@ log('single item:\n\t' + stringify(item) + '\n');
                 }
                 if(tm.height){
                     height = tm.height;
+                }
+                if(tm.format){
+                    format = tm.format;
                 }
                 if(tm.file_size){
                     fileSize = tm.file_size;
@@ -99,9 +105,12 @@ log('single item:\n\t' + stringify(item) + '\n');
               +            (item.play_url ?     ' data-uri="'          + item.play_url + '"' : '')
               +            (download      ?     ' data-download-uri="' + download      + '"' : '')
 
+              +            (language      ?     ' data-language="'     + language      + '"' : '')
+
               +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
               +            (codec         ?     ' data-codec="'        + codec         + '"' : '')
 
+              +            (format        ?     ' data-format="'       + format        + '"' : '')
               +            (fileSize      ?     ' data-file-size="'    + fileSize      + '"' : '')
               +            (fileUnit      ?     ' data-file-unit="'    + fileUnit      + '"' : '')
 

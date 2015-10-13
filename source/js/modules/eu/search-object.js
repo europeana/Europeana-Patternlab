@@ -106,6 +106,102 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         return carousel.promise();
     }
 
+    // tech-data download handling
+
+    var updateTechData = function(e){
+
+        var tgt          = $(e.target);
+        var fileInfoData = {"href": "", "meta": [], "fmt": ""};
+
+        // download section
+        var setFileInfoData = function(href, meta, fmt){
+            $('.file-info .file-title').attr('href', href);
+            $('.file-info .file-meta li').remove();
+            $('.file-detail .file-type').html(fmt);
+            $.each(meta, function(i, ob){
+                $('.file-info .file-meta').append('<li>' + ob + '</li>');
+            });
+            if(!href){
+                $('.object-downloads').removeClass('is-expanded')
+            }
+        }
+
+        // individual tech-data fields
+        var setVal = function(data, writeEl){
+
+            var allFound  = true;
+            var anyFound  = false;
+            var allConcat = '';
+
+            for(var i=0; i<data.length; i++){
+                var val = tgt.data(data[i]['attr']) || data[i]['def'];
+                if(val){
+                    allConcat += val + ' ';
+                    if(!data[i]['label']){
+                        anyFound  = true;
+                    }
+                }
+                else{
+                    allFound = false;
+                }
+            }
+            if(allFound){
+                $( writeEl )[0].nextSibling.nodeValue = allConcat.trim();
+                $( writeEl ).closest('li').removeClass('is-disabled');
+            }
+            else{
+                $( writeEl )[0].nextSibling.nodeValue = '';
+                $( writeEl ).closest('li').addClass('is-disabled');
+            }
+            return anyFound;
+        }
+        var techData        = $('.object-techdata');
+        var somethingGotSet = setVal(
+                [{attr: 'file-size'},
+                 {attr: 'file-unit'}],  '.tech-meta-filesize')
+        | setVal(
+                [{attr: 'runtime'},
+                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
+        | setVal(
+                [{attr: 'format'}], '.object-techdata .tech-meta-format')
+        | setVal(
+                [{attr: 'codec'}],  '.tech-meta-codec')
+        | setVal(
+                [{attr: 'width'},
+                 {attr: 'use_def', def: 'x', label: true},
+                 {attr: 'height'},
+                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions');
+
+        if(somethingGotSet){
+            techData.show();
+        }
+        else{
+            techData.removeClass('is-expanded')
+            $('.object-techdata').hide();
+        }
+
+        // download window
+        if(tgt.data('download-uri')){
+            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
+            fileInfoData["href"] = tgt.data('download-uri');
+            fileInfoData["fmt"]  = tgt.data('format');
+            fileInfoData["meta"] = [];
+
+            // take 1st 2 available metadatas
+            var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
+            for(var i=0; i < Math.min(2, availableMeta.length); i++){
+                fileInfoData["meta"].push($(availableMeta[i]).html());
+            }
+        }
+        else{
+            $('.object-downloads .download-button').addClass('js-showhide').addClass('is-disabled');
+            fileInfoData["href"] = '';
+            fileInfoData["meta"] = [];
+            fileInfoData["fmt"]  = '';
+        }
+        setFileInfoData(fileInfoData["href"], fileInfoData["meta"], fileInfoData["fmt"]);
+    }
+
     var showMediaThumbs = function(data){
         if($('.object-media-nav li').length > 1){
 
@@ -138,100 +234,8 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         setOptimalHeight(carousel.isVertical());
                     });
 
-
-                    // tech-data download handling
-
-                    var updateTechData = function(e){
-                        log('updateTechData');
-
-                        var tgt          = $(e.target);
-                        var fileInfoData = {"href": "", "meta": []};
-
-                        // download section
-                        var setFileInfoData = function(href, meta){
-                            $('.file-info .file-title').attr('href', href);
-                            $('.file-info .file-meta li').remove();
-                            $.each(meta, function(i, ob){
-                                $('.file-info .file-meta').append('<li>' + ob + '</li>');
-                            });
-                            if(!href){
-                                $('.object-downloads').removeClass('is-expanded')
-                            }
-                        }
-
-                        // individual tech-data fields
-                        var setVal = function(data, writeEl){
-
-                            var allFound  = true;
-                            var anyFound  = false;
-                            var allConcat = '';
-
-                            for(var i=0; i<data.length; i++){
-                                var val = tgt.data(data[i]['attr']) || data[i]['def'];
-                                if(val){
-                                    allConcat += val + ' ';
-                                    if(!data[i]['label']){
-                                        anyFound  = true;
-                                    }
-                                }
-                                else{
-                                    allFound = false;
-                                }
-                            }
-                            if(allFound){
-                                $( writeEl )[0].nextSibling.nodeValue = allConcat;
-                                $( writeEl ).closest('li').removeClass('is-disabled');
-                            }
-                            else{
-                                $( writeEl )[0].nextSibling.nodeValue = '';
-                                $( writeEl ).closest('li').addClass('is-disabled');
-                            }
-                            return anyFound;
-                        }
-                        var techData        = $('.object-techdata');
-                        var somethingGotSet = setVal(
-                                [{attr: 'file-size'},
-                                 {attr: 'file-unit'}],  '.tech-meta-filesize')
-                        | setVal(
-                                [{attr: 'runtime'},
-                                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
-                        | setVal(
-                                [{attr: 'codec'}],  '.tech-meta-codec')
-                        | setVal(
-                                [{attr: 'width'},
-                                 {attr: 'use_def', def: 'x', label: true},
-                                 {attr: 'height'},
-                                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions');
-
-                        if(somethingGotSet){
-                            techData.show();
-                        }
-                        else{
-                            techData.removeClass('is-expanded')
-                            $('.object-techdata').hide();
-                        }
-
-                        // download window
-                        if(tgt.data('download-uri')){
-                            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
-                            fileInfoData["href"] = tgt.data('download-uri');
-                            fileInfoData["meta"] = [];
-
-                            // take 1st 2 available metadatas
-                            var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
-                            for(var i=0; i < Math.min(2, availableMeta.length); i++){
-                                fileInfoData["meta"].push($(availableMeta[i]).html());
-                            }
-                        }
-                        else{
-                            $('.object-downloads .download-button').addClass('js-showhide').addClass('is-disabled');
-                            fileInfoData["href"] = '';
-                            fileInfoData["meta"] = [];
-                        }
-                        setFileInfoData(fileInfoData["href"], fileInfoData["meta"]);
-
-                    }
                     $('.media-thumbs').on('click', 'a', updateTechData);
+                    updateTechData({target:$('.media-thumbs a:first')[0]});
                 }
             );
         }
@@ -280,6 +284,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     function initPage(){
 
         channelCheck();
+        updateTechData({target:$('.single-item-thumb a')[0]});
 
         // event binding
 
