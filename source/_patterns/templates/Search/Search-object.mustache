@@ -384,33 +384,21 @@
       {{#content.hierarchy}}
       <div class="data-section no-border">
         <div class="hierarchy cf">
-          {{#parent}}
-            <div class="subsection-label"><a href="{{url}}">{{title}}</a></div>
-          {{/parent}}
+
+          <div class="subsection-label">
+           {{i18n.site.object.hierarchy.title}}
+            <a	class="scroll-trigger"
+                enabled="true"
+                data-fire-on-open="showHierarchy"
+                data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
+            ></a>
+          </div>
           <div class="subsection-content">
-            {{#siblings.items}}
-              <ol class="cf hierarchy-siblings">
-                <li>
-                  {{#is_current}}
-                    {{index}}. {{title}}
-                    {{#content.hierarchy.children}}
-                      <ol class="cf hierarchy-children">
-                        {{#items}}
-                          <li>{{index}}. <a href="{{url}}">{{title}}</a></li>
-                        {{/items}}
-                      </ol>
-                    {{/content.hierarchy.children}}
-                  {{/is_current}}
-                  {{^is_current}}
-                    {{index}}. <a href="{{url}}">{{title}}</a>
-                  {{/is_current}}
-                </li>
-              </ol>
-            {{/siblings.items}}
+            <div class="hierarchy-objects" style="display:none;">{{.}}</div>
           </div>
         </div>
       </div>
-    {{/content.hierarchy}}
+      {{/content.hierarchy}}
     </div>
 
   </section>

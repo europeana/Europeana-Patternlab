@@ -24,6 +24,7 @@ require.config({
     channels:                      '../eu/channels',
     eu_carousel:                   '../eu/eu-carousel',
     eu_carousel_appender:          '../eu/eu-carousel-appender',
+    eu_hierarchy:                  '../eu/eu-hierarchy',
     featureDetect:                 '../global/feature-detect',
     flac:                          '../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',
@@ -37,6 +38,7 @@ require.config({
     jqDropdown:                    '../lib/jquery.dropdown',
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
+    jsTree:                        '../lib/jstree/jstree',
     media_controller:              '../eu/media/search-media-controller',
     media_viewer_iiif:             '../eu/media/search-iiif-viewer',
     media_viewer_pdf:              '../eu/media/search-pdf-ui-viewer',
@@ -100,6 +102,7 @@ require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
   require(['channels', 'hotjar', 'global'], function() {
+  //require(['channels', 'global'], function() {
       $.holdReady(false);
 
       require(["ga"], function(ga) {

@@ -85,6 +85,7 @@ module.exports = function(grunt) {
               expand:  true,
               flatten: true
           },
+
           js_assets_enable: {
               files: [{
                   expand: true,
@@ -102,6 +103,14 @@ module.exports = function(grunt) {
                   }
                 }]
           },
+
+          jstree: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/jstree',
+              dest:   'source/js/dist/lib/jstree',
+              expand:  true
+          },
+
           blacklight: {
               src:    '**',
               cwd:    'source/js/modules/lib/blacklight',
@@ -366,6 +375,7 @@ module.exports = function(grunt) {
        'copy:eu',
        'copy:global_dependencies',
        'copy:jquery',
+       'copy:jstree',
        'copy:main',
        'copy:map_img',
        'copy:map_img_fs',

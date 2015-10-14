@@ -4,6 +4,43 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         console.log(msg);
     }
 
+    function showHierarchy(params){
+
+        require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
+            var data       = JSON.parse( $('.hierarchy-objects').text() );
+
+            var css_path_1 = require.toUrl('../lib/jstree/css/style.css');
+            var css_path_2 = require.toUrl('../lib/jstree/css/style-overrides.css');
+
+            $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
+            $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+
+            var markup = ''
+            + '<div class="hierarchy-top-panel uninitialised">'
+            + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
+            + '  <div class="hierarchy-title"></div>'
+            + '</div>'
+            + '<div class="hierarchy-container uninitialised">'
+            + '  <div id="hierarchy"></div>'
+            + '</div>'
+            + '<div class="hierarchy-bottom-panel">'
+            + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
+            + '</div>';
+
+            $('.hierarchy-objects').html(markup);
+
+            var hierarchy = Hierarchy.create(
+                    $('#hierarchy'),
+                    16,
+                    $('.hierarchy-objects'),
+                    window.location.href.split('/record')[0] + '/record',
+                    'http://delta-api.de.a9sapp.eu/v2/record',
+                    'api2demo');
+            $('.hierarchy-objects').removeAttr('style');
+            hierarchy.init(data, true);
+        });
+    }
+
     function showMap(data){
         var initLeaflet = function(longitudes, latitudes, labels){
             log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
@@ -130,6 +167,11 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         // individual tech-data fields
         var setVal = function(data, writeEl){
 
+            writeEl = $(writeEl);
+            if(writeEl.length==0){
+                return false;
+            }
+
             var allFound  = true;
             var anyFound  = false;
             var allConcat = '';
@@ -147,12 +189,12 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                 }
             }
             if(allFound){
-                $( writeEl )[0].nextSibling.nodeValue = allConcat.trim();
-                $( writeEl ).closest('li').removeClass('is-disabled');
+                writeEl[0].nextSibling.nodeValue = allConcat.trim();
+                writeEl.closest('li').removeClass('is-disabled');
             }
             else{
-                $( writeEl )[0].nextSibling.nodeValue = '';
-                $( writeEl ).closest('li').addClass('is-disabled');
+                writeEl[0].nextSibling.nodeValue = '';
+                writeEl.closest('li').addClass('is-disabled');
             }
             return anyFound;
         }
@@ -299,6 +341,10 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
         $(window).bind('showMap', function(e, data){
             showMap(data);
+        });
+
+        $(window).bind('showHierarchy', function(e, data){
+            showHierarchy(data);
         });
 
         $('.media-viewer').trigger('media_init');
