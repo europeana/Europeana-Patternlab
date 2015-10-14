@@ -282,6 +282,12 @@
 }
 
 /* general toolbar styles */
+/* line 208, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+.leaflet-bar {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  border-radius: 4px;
+}
+
 /* line 212, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a,
 .leaflet-bar a:hover {

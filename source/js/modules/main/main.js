@@ -40,8 +40,13 @@ require.config({
     media_controller:              '../eu/media/search-media-controller',
     media_viewer_iiif:             '../eu/media/search-iiif-viewer',
     media_viewer_pdf:              '../eu/media/search-pdf-ui-viewer',
-    media_viewer_videojs:          '../eu/media/search-videojs-viewer',
     media_viewer_image:            '../eu/media/search-image-viewer',
+
+
+
+    media_viewer_videojs:          '../eu/media/search-videojs-viewer',
+
+
 
     menus:                         '../global/menus',
     mootools:                      '../lib/iipmooviewer/js/mootools-core-1.5.1-full-nocompat-yc',
@@ -74,6 +79,7 @@ require.config({
     touch_swipe:                    '../lib/jquery.event.swipe',
 
     videojs:                       '//vjs.zencdn.net/4.12/video',
+//    videojs:                       '//vjs.zencdn.net/5.0/video',
     videojs_aurora:                '../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../lib/videojs-silverlight/videojs-silverlight'
   },
@@ -93,7 +99,7 @@ require.config({
 require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
-    require(['channels', 'hotjar', 'global'], function() {
+  require(['channels', 'hotjar', 'global'], function() {
       $.holdReady(false);
 
       require(["ga"], function(ga) {
