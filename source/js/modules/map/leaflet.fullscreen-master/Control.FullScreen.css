@@ -1,12 +1,12 @@
 /* line 2, ../../../../sass/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.scss */
 .fullscreen-icon {
-  background-image: url(icon-fullscreen.png);
+  background-image: url(icon-fullscreen.svg);
 }
 
 /* line 4, ../../../../sass/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.scss */
 .leaflet-retina .fullscreen-icon {
-  background-image: url(icon-fullscreen-2x.png);
-  background-size: 26px 26px;
+  background-image: url(icon-fullscreen.svg);
+  background-size: 16px 16px;
 }
 
 /* line 5, ../../../../sass/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.scss */

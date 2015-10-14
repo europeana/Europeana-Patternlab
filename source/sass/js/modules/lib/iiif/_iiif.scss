@@ -1,5 +1,5 @@
 #iiif{
-  border: 1px solid #000;
+  //border: 1px solid #000;
   height: 24em;
   position: relative;
   margin: 0 auto;
@@ -15,13 +15,17 @@
 
 #iiif,
 #iiif-ctrl{
-  font-size: 1em;
+  font-size: 0.875em;
 }
 
 #iiif-ctrl{
-  background-color: #4d4d4d;
-  border: 1px solid #000;
-  padding: 0.5em 0;
+  //background-color: #4d4d4d;
+  //border: 1px solid #000;
+  background-image: -webkit-gradient(
+    linear, left top, left bottom, from(rgba(0,0,0,0.15)),
+    to(rgba(0,0,0,0.85)), color-stop(.6,#373737)
+  );
+  padding: 3em 0 0.5em;
   position: relative;
   margin: auto;
 
@@ -39,23 +43,73 @@
     text-decoration: underline;
   }
 
+
   a,
   a[disabled="disabled"]:hover{
     text-decoration: none;
   }
 
+  .first[disabled="disabled"],
+  .prev[disabled="disabled"],
+  .last[disabled="disabled"],
+  .next[disabled="disabled"]{
+    text-decoration: none;
+    color: transparent;
+    opacity: 0.4;
+  }
+
   a,
   .jump-to-img,
   .total-images{
-    display: inline-block;
-    width: 15%;
-    max-width: 15%;
+    //display: inline-block;
+    width: 5%;
+    max-width: 5%;
   }
 
   .next,
   .last{
     text-align: right;
+    padding-right: 0.5em;
   }
+
+  .prev {
+    padding-right: 0.5em;
+  }
+
+.first,
+.prev,
+.last,
+.next {
+    background-size: 14px 14px;
+    color: transparent;
+    top: 2px;
+    background-repeat: no-repeat;
+    position: relative;
+    opacity: 0.8;
+}
+
+.first:hover,
+.prev:hover,
+.last:hover,
+.next:hover {
+    opacity: 1;
+}
+
+.first {
+    background-image: url(icon-first.svg);
+}
+
+.prev {
+    background-image: url(icon-previous.svg);
+}
+
+.next {
+    background-image: url(icon-next.svg);
+}
+
+.last {
+    background-image: url(icon-last.svg);
+}
 
   a[disabled="disabled"]{
     color: #aaa;
@@ -64,13 +118,14 @@
 
   .jump-to-img{
     color: #fff;
-    background-color: #4d4d4d;
+    background-color: rgba(0,0,0,0.85);
     border: none;
     box-shadow: none;
     box-sizing: padding-box;
     margin: none;
     padding: 1px;
     text-align: right;
+    border-radius: 0;
   }
 
   .jump-to-img:hover{
@@ -90,7 +145,7 @@
   .title{
     width: 100%;
     text-align: center;
-    display: block;
+    display: none;
     padding-top: 0.5em;
     font-style: italic;
     font-weight: bold;

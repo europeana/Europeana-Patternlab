@@ -255,54 +255,47 @@
 /* visual tweaks */
 /* line 183, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container {
-  background: #ddd;
+  background: rgba(0, 0, 0, 0.15);
   outline: 0;
 }
 
-/* line 187, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 188, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container a {
   color: #0078A8;
 }
 
-/* line 190, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 191, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container a.leaflet-active {
   outline: 2px solid orange;
 }
 
-/* line 193, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 194, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-zoom-box {
   border: 2px dotted #38f;
   background: rgba(255, 255, 255, 0.5);
 }
 
 /* general typography */
-/* line 200, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 201, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container {
   font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 /* general toolbar styles */
-/* line 207, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
-.leaflet-bar {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
-  border-radius: 4px;
-}
-
-/* line 211, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 212, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a,
 .leaflet-bar a:hover {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
   display: block;
   text-align: center;
   text-decoration: none;
   color: black;
+  opacity: 0.75;
 }
 
-/* line 223, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 225, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
   background-position: 50% 50%;
@@ -310,32 +303,32 @@
   display: block;
 }
 
-/* line 229, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 231, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a:hover {
-  background-color: #f4f4f4;
+  opacity: 1;
 }
 
-/* line 232, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 235, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a:first-child {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
 
-/* line 236, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 239, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   border-bottom: none;
 }
 
-/* line 241, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 244, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bar a.leaflet-disabled {
   cursor: default;
   background-color: #f4f4f4;
   color: #bbb;
 }
 
-/* line 247, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 250, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-bar a {
   width: 30px;
   height: 30px;
@@ -343,87 +336,87 @@
 }
 
 /* zoom control */
-/* line 256, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 259, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
   font: bold 18px 'Lucida Console', Monaco, monospace;
   text-indent: 1px;
 }
 
-/* line 261, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 264, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-zoom-out {
   font-size: 20px;
 }
 
-/* line 265, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 268, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-control-zoom-in {
   font-size: 22px;
 }
 
-/* line 268, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 271, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-control-zoom-out {
   font-size: 24px;
 }
 
 /* layers control */
-/* line 275, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 278, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   background: #fff;
   border-radius: 5px;
 }
 
-/* line 280, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 283, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers-toggle {
   background-image: url(images/layers.png);
   width: 36px;
   height: 36px;
 }
 
-/* line 285, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 288, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-retina .leaflet-control-layers-toggle {
   background-image: url(images/layers-2x.png);
   background-size: 26px 26px;
 }
 
-/* line 289, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 292, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-control-layers-toggle {
   width: 44px;
   height: 44px;
 }
 
-/* line 293, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 296, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
   display: none;
 }
 
-/* line 297, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 300, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
   display: block;
   position: relative;
 }
 
-/* line 301, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 304, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers-expanded {
   padding: 6px 10px 6px 6px;
   color: #333;
   background: #fff;
 }
 
-/* line 306, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 309, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers-selector {
   margin-top: 2px;
   position: relative;
   top: 1px;
 }
 
-/* line 311, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 314, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers label {
   display: block;
 }
 
-/* line 314, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 317, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-layers-separator {
   height: 0;
   border-top: 1px solid #ddd;
@@ -431,47 +424,47 @@
 }
 
 /* attribution and scale controls */
-/* line 323, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 326, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container .leaflet-control-attribution {
   background: #fff;
   background: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
-/* line 328, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 331, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
   padding: 0 5px;
   color: #333;
 }
 
-/* line 333, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 336, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-attribution a {
   text-decoration: none;
 }
 
-/* line 336, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 339, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-attribution a:hover {
   text-decoration: underline;
 }
 
-/* line 339, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 342, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container .leaflet-control-attribution,
 .leaflet-container .leaflet-control-scale {
   font-size: 11px;
 }
 
-/* line 343, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 346, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-left .leaflet-control-scale {
   margin-left: 5px;
 }
 
-/* line 346, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 349, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-bottom .leaflet-control-scale {
   margin-bottom: 5px;
 }
 
-/* line 349, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 352, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-scale-line {
   border: 2px solid #777;
   border-top: none;
@@ -486,26 +479,26 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* line 363, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 366, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-scale-line:not(:first-child) {
   border-top: 2px solid #777;
   border-bottom: none;
   margin-top: -2px;
 }
 
-/* line 368, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 371, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-control-scale-line:not(:first-child):not(:last-child) {
   border-bottom: 2px solid #777;
 }
 
-/* line 372, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 375, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-control-attribution,
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   box-shadow: none;
 }
 
-/* line 377, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 380, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   border: 2px solid rgba(0, 0, 0, 0.2);
@@ -513,31 +506,31 @@
 }
 
 /* popup */
-/* line 386, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 389, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup {
   position: absolute;
   text-align: center;
 }
 
-/* line 390, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 393, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-content-wrapper {
   padding: 1px;
   text-align: left;
   border-radius: 12px;
 }
 
-/* line 395, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 398, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-content {
   margin: 13px 19px;
   line-height: 1.4;
 }
 
-/* line 399, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 402, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-content p {
   margin: 18px 0;
 }
 
-/* line 402, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 405, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-tip-container {
   margin: 0 auto;
   width: 40px;
@@ -546,7 +539,7 @@
   overflow: hidden;
 }
 
-/* line 409, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 412, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-tip {
   width: 17px;
   height: 17px;
@@ -559,14 +552,14 @@
   transform: rotate(45deg);
 }
 
-/* line 422, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 425, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   background: white;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 }
 
-/* line 428, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 431, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container a.leaflet-popup-close-button {
   position: absolute;
   top: 0;
@@ -582,24 +575,24 @@
   background: transparent;
 }
 
-/* line 442, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 445, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-container a.leaflet-popup-close-button:hover {
   color: #999;
 }
 
-/* line 445, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 448, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-popup-scrolled {
   overflow: auto;
   border-bottom: 1px solid #ddd;
   border-top: 1px solid #ddd;
 }
 
-/* line 451, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 454, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-oldie .leaflet-popup-content-wrapper {
   zoom: 1;
 }
 
-/* line 454, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 457, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-oldie .leaflet-popup-tip {
   width: 24px;
   margin: 0 auto;
@@ -607,12 +600,12 @@
   filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
 }
 
-/* line 461, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 464, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-oldie .leaflet-popup-tip-container {
   margin-top: -1px;
 }
 
-/* line 465, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 468, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-oldie .leaflet-control-zoom,
 .leaflet-oldie .leaflet-control-layers,
 .leaflet-oldie .leaflet-popup-content-wrapper,
@@ -621,7 +614,7 @@
 }
 
 /* div icon */
-/* line 475, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
+/* line 478, ../../../../sass/js/modules/map/leaflet-0.7.3/leaflet.scss */
 .leaflet-div-icon {
   background: #fff;
   border: 1px solid #666;

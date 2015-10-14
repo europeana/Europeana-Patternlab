@@ -1,6 +1,6 @@
 
-.fullscreen-icon { background-image: url(icon-fullscreen.png); }
+.fullscreen-icon { background-image: url(icon-fullscreen.svg); }
 
-.leaflet-retina .fullscreen-icon { background-image: url(icon-fullscreen-2x.png); background-size: 26px 26px; }
+.leaflet-retina .fullscreen-icon { background-image: url(icon-fullscreen.svg); background-size: 16px 16px; }
 .leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
 .leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
