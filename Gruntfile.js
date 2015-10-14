@@ -34,7 +34,8 @@ module.exports = function(grunt) {
             'source/js/modules/map/leaflet-0.7.3/leaflet.js',
             'source/js/modules/map/Leaflet-Pan/L.Control.Pan.js',
             'source/js/modules/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js',
-            'source/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.js'
+            'source/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.js',
+            'source/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.js'
            ]
           }
         },
@@ -49,7 +50,9 @@ module.exports = function(grunt) {
               'source/js/modules/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
               'source/js/modules/map/leaflet.fullscreen-master/Control.FullScreen.css',
               'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
-              'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css'
+              'source/js/modules/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css',
+              'source/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.css',
+              'source/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.css'
             ]
           }
         },

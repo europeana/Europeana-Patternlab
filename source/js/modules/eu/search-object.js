@@ -28,6 +28,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                 var map = L.map(mapId, {
                     center : new L.LatLng(latitudes[0], longitudes[0]),
                     zoomControl : true,
+                    zoomsliderControl: false,
                     zoom : 8
                 });
 

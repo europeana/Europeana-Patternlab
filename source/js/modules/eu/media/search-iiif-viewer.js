@@ -103,7 +103,9 @@ define([], function() {
     iiif = L.map('iiif', {
       center: [0, 0],
       crs: L.CRS.Simple,
-      zoom: 0
+      zoom: 0,
+      maxZoom: 10,
+      zoomsliderControl: true
     });
 
     L.control.fullscreen({
