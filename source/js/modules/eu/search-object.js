@@ -28,14 +28,13 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             + '</div>';
 
             $('.hierarchy-objects').html(markup);
-
             var hierarchy = Hierarchy.create(
                     $('#hierarchy'),
                     16,
                     $('.hierarchy-objects'),
                     window.location.href.split('/record')[0] + '/record',
-                    'http://delta-api.de.a9sapp.eu/v2/record',
-                    'api2demo');
+                    window.location.href.split('/record')[0] + '/record'
+            );
             $('.hierarchy-objects').removeAttr('style');
             hierarchy.init(data, true);
         });

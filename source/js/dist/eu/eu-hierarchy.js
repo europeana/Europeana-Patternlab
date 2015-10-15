@@ -2,14 +2,11 @@ define(['jquery', 'jqScrollto'], function() {
 
     var apiServerRoot = null;
     var portalRecordRoot = null;
-    var apiKey = null;
 
     var EuHierarchy = function(cmp, rows, wrapper) {
 
         var self               = this;
         var debug              = true;
-        //var apiServerRoot      = window.apiServerRoot ? window.apiServerRoot : '';
-        //var apiKey             = window.apiKey;
         var rows               = rows;
         var defaultChunk       = rows * 2;
         var defaultChunkLoaded = rows;
@@ -162,8 +159,12 @@ define(['jquery', 'jqScrollto'], function() {
                 window.followLink = function(e){
                     e.stopPropagation();
                 }
-//                return '<span class="icon' + (type ? '  icon-' + type.toLowerCase() : '') + '">' + text + ' '  +  '</span>';
-                return '<span>' + text + ' '  +  '<svg class="icon icon-newspaper"><use xlink:href="#icon-newspaper"/></svg></span>';
+                //return '<span class="icon' + (type ? '  icon-' + type.toLowerCase() : '') + '">' + text + ' '  +  '</span>';
+                var svg = '';
+                if(type == 'TEXT'){
+                    svg = '<svg class="icon icon-newspaper"><use xlink:href="#icon-newspaper"/></svg>'
+                }
+                return '<span>' + text + ' '  + svg + '</span>';
             }
 
 
@@ -332,12 +333,12 @@ define(['jquery', 'jqScrollto'], function() {
 
             if(node.data && node.data.hasChildren && (!node.children || !node.children.length) ){
 
-                var childInfoUrl = apiServerRoot + node.data.id + '/children.json?wskey=' + apiKey + '&limit=1';
+                var childInfoUrl = apiServerRoot + node.data.id + '/hierarchy/children.json?limit=1';
 
                 loadData(childInfoUrl, function(data){
 
                     var info = data.children[0];
-                    childUrl = apiServerRoot + info.id + '/self.json?wskey=' + apiKey;
+                    childUrl = apiServerRoot + info.id + '/hierarchy/self.json';
 
                     loadData(childUrl, function(data){
 
@@ -477,13 +478,12 @@ define(['jquery', 'jqScrollto'], function() {
                     eosl();
                 }
                 else{
-                    //var url = apiServerRoot + node.data.id   + '/following-siblings.json?wskey=' + apiKey + '&limit=' + leftToLoad;
-                    var url = apiServerRoot + node.data.id   + '/' + (backwards ? 'preceeding' : 'following') + '-siblings.json?wskey=' + apiKey + '&limit=' + leftToLoad;
+                    var url = apiServerRoot + node.data.id   + '/hierarchy/' + (backwards ? 'preceding' : 'following') + '-siblings.json?limit=' + leftToLoad;
 
                     loadData(url, function(data){
 
                         var origData = data;
-                        data = data[(backwards ? 'preceeding' : 'following') + '-siblings'];
+                        data = data[(backwards ? 'preceding' : 'following') + '-siblings'];
 
                         log(' - loaded ' + typeof data);
 
@@ -1444,7 +1444,7 @@ define(['jquery', 'jqScrollto'], function() {
                     }
 
                     if(recurseData && recurseData.data && recurseData.data.parent && (typeof recurseData.data.index != 'undefined')  ){
-                        var parentUrl = apiServerRoot + recurseData.data.parent + '/self.json?wskey=' + apiKey;
+                        var parentUrl = apiServerRoot + recurseData.data.parent + '/hierarchy/self.json';
                         chainUp(parentUrl, data, callbackWhenDone);
                     }
                     else{
@@ -1514,8 +1514,8 @@ define(['jquery', 'jqScrollto'], function() {
 
 
                 // preceding
-                if(ob['preceeding-siblings']){
-                    $.each(ob['preceeding-siblings'], function(i, item){
+                if(ob['preceding-siblings']){
+                    $.each(ob['preceding-siblings'], function(i, item){
                         data.children.unshift( formatNodeData(item, {"self":{ "id" : data.data.id }})  );
                     });
                 }
@@ -1649,9 +1649,8 @@ define(['jquery', 'jqScrollto'], function() {
 
 
     return {
-        create : function(cmp, rows, wrapper, portalRecordRootIn, apiServerRootIn, apiKeyIn){
+        create : function(cmp, rows, wrapper, portalRecordRootIn, apiServerRootIn){
             apiServerRoot = apiServerRootIn ? apiServerRootIn : '';
-            apiKey = apiKeyIn;
             portalRecordRoot = portalRecordRootIn;
 
             return EuHierarchy(cmp, rows, wrapper);
