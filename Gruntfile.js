@@ -210,6 +210,15 @@ module.exports = function(grunt) {
               dest:   'source/v/' + grunt.option('styleguide-version') + '/images',
               expand: true
           },
+
+          version_non_js: {
+              cwd: 'source/js/dist',
+              expand:  true,
+              src: ['**/*.*',  '!**/*.js'],
+//              dest: 'source/js/min'
+              dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
+          },
+
 /*
           version_css: {
               src:    ['1914-1918/*', 'blog/*', 'labs/*', 'pro/*', 'research/*', 'search/*'],
@@ -343,6 +352,8 @@ module.exports = function(grunt) {
 
       // pull in (minified) js
       grunt.task.run('uglify:version_js');
+
+      grunt.task.run('copy:version_non_js');
 
       // pull in images
       grunt.task.run('copy:version_images');

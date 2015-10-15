@@ -1,0 +1,149 @@
+/* line 1, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif {
+  height: 24em;
+  position: relative;
+  margin: 0 auto;
+}
+/* line 7, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif .leaflet-control-zoom {
+  display: none;
+}
+/* line 11, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif.loading {
+  cursor: progress;
+}
+
+/* line 16, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif,
+#iiif-ctrl {
+  font-size: 0.875em;
+}
+
+/* line 21, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl {
+  background-color: #4d4d4d;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0.85)), color-stop(0.6, #373737));
+  padding: 3em 0 0.5em;
+  position: relative;
+  margin: auto;
+}
+/* line 32, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .iiif-ctrl-group {
+  max-width: 40em;
+  margin: auto;
+}
+/* line 37, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl a {
+  color: #fff;
+  text-align: center;
+}
+/* line 42, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl a:hover {
+  text-decoration: underline;
+}
+/* line 47, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl a,
+#iiif-ctrl a[disabled="disabled"]:hover {
+  text-decoration: none;
+}
+/* line 52, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .first[disabled="disabled"],
+#iiif-ctrl .prev[disabled="disabled"],
+#iiif-ctrl .last[disabled="disabled"],
+#iiif-ctrl .next[disabled="disabled"] {
+  text-decoration: none;
+  color: transparent;
+  opacity: 0.4;
+}
+/* line 61, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl a,
+#iiif-ctrl .jump-to-img,
+#iiif-ctrl .total-images {
+  width: 5%;
+  max-width: 5%;
+}
+/* line 69, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .next,
+#iiif-ctrl .last {
+  text-align: right;
+  padding-right: 0.5em;
+}
+/* line 75, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .prev {
+  padding-right: 0.5em;
+}
+/* line 79, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .first,
+#iiif-ctrl .prev,
+#iiif-ctrl .last,
+#iiif-ctrl .next {
+  background-size: 14px 14px;
+  color: transparent;
+  top: 2px;
+  background-repeat: no-repeat;
+  position: relative;
+  opacity: 0.8;
+}
+/* line 91, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .first:hover,
+#iiif-ctrl .prev:hover,
+#iiif-ctrl .last:hover,
+#iiif-ctrl .next:hover {
+  opacity: 1;
+}
+/* line 98, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .first {
+  background-image: url(icon-first.svg);
+}
+/* line 102, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .prev {
+  background-image: url(icon-previous.svg);
+}
+/* line 106, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .next {
+  background-image: url(icon-next.svg);
+}
+/* line 110, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .last {
+  background-image: url(icon-last.svg);
+}
+/* line 114, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl a[disabled="disabled"] {
+  color: #aaa;
+  cursor: not-allowed;
+}
+/* line 119, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .jump-to-img {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: none;
+  box-shadow: none;
+  box-sizing: padding-box;
+  margin: none;
+  padding: 1px;
+  text-align: right;
+  border-radius: 0;
+}
+/* line 131, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .jump-to-img:hover {
+  color: #4d4d4d;
+  background-color: #fff;
+}
+/* line 136, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .total-images {
+  text-align: left;
+}
+/* line 140, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .total-images,
+#iiif-ctrl .title {
+  color: #fff;
+}
+/* line 145, ../../../../sass/js/modules/lib/iiif/iiif.scss */
+#iiif-ctrl .title {
+  width: 100%;
+  text-align: center;
+  display: none;
+  padding-top: 0.5em;
+  font-style: italic;
+  font-weight: bold;
+}
