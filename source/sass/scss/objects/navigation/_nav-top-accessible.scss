@@ -19,14 +19,20 @@
   text-align:right;
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /* Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430 */
 
-  .sm,
-  .sm ul,
-  .sm li{
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  // Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430
+
+  .sm>li{
     direction:rtl;
   }
+
+  .sm>li *{
+    direction:ltr;
+  }
+
 }
 
 .sm-rtl,
