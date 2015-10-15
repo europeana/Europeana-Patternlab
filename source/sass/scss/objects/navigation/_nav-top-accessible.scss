@@ -12,6 +12,11 @@
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430 */
+  direction:rtl;
+}
+
 .sm-rtl,
 .sm-rtl ul,
 .sm-rtl li{
@@ -50,46 +55,46 @@
 
 @media (min-width: $bp-med) {
 
-	/* Switch to desktop layout
-	-----------------------------------------------
-	   These transform the menu tree from
-	   collapsible to desktop (navbar + dropdowns)
-	-----------------------------------------------*/
-	/* start... (it's not recommended editing these rules) */
-	.nav-access ul{
+  /* Switch to desktop layout
+  -----------------------------------------------
+     These transform the menu tree from
+     collapsible to desktop (navbar + dropdowns)
+  -----------------------------------------------*/
+  /* start... (it's not recommended editing these rules) */
+  .nav-access ul{
     position:absolute;
   }
 
-	.nav-access > li{
+  .nav-access > li{
     float:left;
   }
 
-	.nav-access.sm-rtl > li{
+  .nav-access.sm-rtl > li{
     float:right;
   }
 
-	.nav-access ul li,
+  .nav-access ul li,
   .nav-access.sm-rtl ul li,
   .nav-access.sm-vertical li{
     float:none;
   }
 
-	.nav-access > a{
+  .nav-access > a{
     white-space: nowrap;
   }
 
-	.nav-access ul a,
+  .nav-access ul a,
   .nav-access.sm-vertical a{
     white-space: normal;
   }
 
-	.nav-access .sm-nowrap > li > a,
+  .nav-access .sm-nowrap > li > a,
   .nav-access .sm-nowrap > li > :not(ul) a{
     white-space: nowrap;
   }
-	/* ...end */
+  /* ...end */
 
-	/* Your rules to style the menu in desktop view here... */
+  /* Your rules to style the menu in desktop view here... */
 
   .header .nav_primary .nav-access {
     overflow: visible;
