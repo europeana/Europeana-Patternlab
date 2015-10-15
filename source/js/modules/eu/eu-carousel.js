@@ -148,6 +148,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     }
                 }
                 else{
+                    items.css('top', '0px');
                     if (e.distX < 0) {
                         items.css('left',  e.distX + 'px');
                         if (e.distX < swipeLoadThreshold){
