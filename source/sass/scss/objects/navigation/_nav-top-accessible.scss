@@ -12,16 +12,27 @@
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /* Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430 */
-  direction:rtl;
-}
-
 .sm-rtl,
 .sm-rtl ul,
 .sm-rtl li{
   direction:rtl;
   text-align:right;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430 */
+
+  .sm,
+  .sm ul,
+  .sm li{
+    direction:rtl;
+  }
+}
+
+.sm-rtl,
+.sm-rtl ul,
+.sm-rtl li{
+   direction:rtl;
 }
 
 .sm>li>h1,
