@@ -122,7 +122,7 @@ define(['jquery', 'jqScrollto'], function() {
 
         var log = function(msg){
             if(debug){
-                console.log(msg);
+            //    console.log(msg);
             }
         };
 
@@ -286,7 +286,7 @@ define(['jquery', 'jqScrollto'], function() {
         // if we land at the root using the stratup shortcut a call to this the expanded tree will be missing nodes without this call
 
         var fakeChildNodes = function(node){
-            console.log('fakeChildNodes');
+            log('fakeChildNodes');
 
             fakeFirstChild(node);
             for(var i=0; i<node.children.length; i++){
@@ -345,10 +345,10 @@ define(['jquery', 'jqScrollto'], function() {
                         var newId   = self.treeCmp.jstree("create_node", node, formatNodeData(data), "first", false, true);
                         var newNode = self.treeCmp.jstree('get_node', newId);
 
-                        console.log('add override here?');
+                        log('add override here?');
 
                         if(newNode.data.relBefore == false){
-                            console.log('add override here '  + node.id);
+                            log('add override here '  + node.id);
                             nodeULOverrides.push(escapeId(node.id));
                         }
 
@@ -358,7 +358,7 @@ define(['jquery', 'jqScrollto'], function() {
                 });
             }
             else if(callback){
-                console.log('loadFirstChild takes no action'
+                log('loadFirstChild takes no action'
                     + '\n\tnode.data ' + node.id
                     + '\n\tnode.has  ' + node.data.hasChildren
                     + '\n\tnode.children[0] ' + (node.children ? JSON.stringify(node.children[0], null, 4) : '(none)')
@@ -1190,7 +1190,7 @@ define(['jquery', 'jqScrollto'], function() {
                         setTimeout(function() {
                             var pageNode = self.treeCmp.jstree('get_node', self.pageNodeId);
 
-                            console.log('loaded.tree lfc');
+                            log('loaded.tree lfc');
 
                             loadFirstChild(pageNode, function(){
     //onInit();
@@ -1227,7 +1227,7 @@ define(['jquery', 'jqScrollto'], function() {
 
                                     // fix for offest on startup
                                     setTimeout(function(){
-                                        console.log('scroll to ' + self.pageNodeId + ' (' + $('#' + self.pageNodeId).length + ')');
+                                        log('scroll to ' + self.pageNodeId + ' (' + $('#' + self.pageNodeId).length + ')');
                                         doScrollTo('#' + self.pageNodeId);
                                     }, 800);
                                 }
@@ -1324,20 +1324,20 @@ define(['jquery', 'jqScrollto'], function() {
             self.treeCmp.on("open_node.jstree", function(e, jstreeData) {
 
                 if(self.loadingAll || self.isLoading){
-                    console.log('return because loading - open_node');
+                    log('return because loading - open_node');
                     return;
                 }
 
                 var node   = jstreeData.node;
                 var fChild = self.treeCmp.jstree('get_node', node.children[0]);
 
-                console.log('openNode lfc ' + fChild.id);
+                log('openNode lfc ' + fChild.id);
 
                 var prevNextCallback = function(){
                     // the root node is auto-opened - this may be the final act of initialisation
                     // TODO: test this after refactor
                     if(!self.initialised){
-                        console.log('open_node handles onInit() call');
+                        log('open_node handles onInit() call');
                         onInit();
                     }
 
@@ -1359,7 +1359,7 @@ define(['jquery', 'jqScrollto'], function() {
                 }
 
                 if(fChild.id.indexOf('DUMMY_CHILD')>-1){
-                    console.log('load real data');
+                    log('load real data');
 
                     self.isLoading = true;
                     self.timer.start();
@@ -1377,7 +1377,7 @@ define(['jquery', 'jqScrollto'], function() {
                     });
                 }
                 else{
-                    console.log('non dummy opened');
+                    log('non dummy opened');
                     fakeFirstChild(fChild);
                     viewPrevOrNext(fChild, false, defaultChunk, true, function(){
                         prevNextCallback();
