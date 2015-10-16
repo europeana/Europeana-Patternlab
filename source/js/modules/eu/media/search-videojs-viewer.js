@@ -75,6 +75,7 @@ define([], function() {
 
     switch ( mime_type ) {
       case 'audio/flac': initFlac( callback ); break;
+      case 'audio/x-flac': initFlac( callback ); break;
       case 'video/wmv': initSilverlight( callback ); break;
       case 'video/x-msvideo': initSilverlight( callback ); break;
       case 'video/x-ms-wmv': initSilverlight( callback ); break;
