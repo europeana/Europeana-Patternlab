@@ -24,9 +24,9 @@ var Site = window.Site || {};
     };
 
     Site.init_menu = function(){
-                //Navigation toggle
-        $('.nav-toggle-menu').on("click focus", function(e) {
 
+                //Navigation toggle
+        $('.nav-toggle-menu').on("click", function(e) {
             if( body.hasClass( 'is-open-menu-right' ) ){
                 Site.resetMenu();
             }else{
@@ -39,7 +39,7 @@ var Site = window.Site || {};
         });
 
         //Navigation toggle
-        $('.nav-toggle-search').on('click focus', function(e) {
+        $('.nav-toggle-search').on('click', function(e) {
 
             if( body.hasClass( 'is-open-globalsearch' ) ){
                 Site.resetMenu();
@@ -53,7 +53,7 @@ var Site = window.Site || {};
         });
 
         //Our Sites toggle
-        $('.nav-toggle-sites').on('click focus', function(e) {
+        $('.nav-toggle-sites').on('click', function(e) {
 
             if( body.hasClass( 'is-open-menu-top' ) ){
                 Site.resetMenu();
