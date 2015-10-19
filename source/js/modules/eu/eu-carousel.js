@@ -327,9 +327,32 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             var cmpD   = vertical ? cmp.height() : cmp.width();
             var itemD  = null;
-
             var first  = items.find('.' + classData.itemClass + '').first();
             var itemD  = vertical ? first.outerHeight() : first.outerWidth();
+
+
+            // NOTE: this has not been done for (now unused) vertical carousels
+
+            cmp.removeAttr('style');
+            btnPrev.css('display', 'block');
+            btnNext.css('display', 'block');
+
+            var comfortableFit = ((totalAvailable * itemD) + ((totalAvailable -1) * minSpacingPx)) < cmpD;
+
+            if(comfortableFit){
+                btnPrev.css('display', 'none');
+                btnNext.css('display', 'none');
+                cmp.css('display', 'table');
+                cmp.css('width',   'auto');
+                cmp.css('margin',  'auto');
+                items.css(vertical ? 'height' : 'width', 'auto');
+                items.find('.' + classData.itemClass           ).css('margin-left', minSpacingPx + 'px');
+                items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
+                spacing = minSpacingPx;
+                inView  = totalAvailable;
+                return;
+            }
+
             var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
                 maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
 
