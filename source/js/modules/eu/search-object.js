@@ -154,7 +154,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         var setFileInfoData = function(href, meta, fmt){
             $('.file-info .file-title').attr('href', href);
             $('.file-info .file-meta li').remove();
-            $('.file-detail .file-type').html(fmt);
+            $('.file-detail .file-type').html(fmt.indexOf('/')>-1 ? fmt.split('/')[1] : fmt);
             $.each(meta, function(i, ob){
                 $('.file-info .file-meta').append('<li>' + ob + '</li>');
             });
