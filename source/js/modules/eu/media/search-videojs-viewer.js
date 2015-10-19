@@ -30,6 +30,10 @@ define([], function() {
         mime_type: $el.attr( 'data-mime-type' )
       };
 
+      if(item.mime_type == 'audio/x-flac'){
+          item.mime_type = 'audio/flac'
+      }
+
       var valid = item.url && item.mime_type && item.data_type;
       if ( ! valid ) {
           log('invalid item markup: missing [url, mime_type, data_type] [' + item.url + ', ' + item.mime_type + ', ' + item.data_type + ']');
@@ -75,7 +79,6 @@ define([], function() {
 
     switch ( mime_type ) {
       case 'audio/flac': initFlac( callback ); break;
-      case 'audio/x-flac': initFlac( callback ); break;
       case 'video/wmv': initSilverlight( callback ); break;
       case 'video/x-msvideo': initSilverlight( callback ); break;
       case 'video/x-ms-wmv': initSilverlight( callback ); break;
@@ -97,7 +100,9 @@ define([], function() {
 
     $viewer = $(media_item.data_type);
 
-log('video viewer ' + media_item.data_type)
+    if(media_item.mime_type == 'audio/x-flac'){
+        media_item.mime_type = 'audio/flac';
+    }
 
     if(!media_item.mime_type){
         log('no mime type available');
@@ -106,7 +111,7 @@ log('video viewer ' + media_item.data_type)
 
     if($viewer.length == 0){
 
-log('viewer length is zero');
+      log('viewer length is zero');
 
       $('.object-media-' + media_item.data_type).append(html[media_item.data_type]);
       $viewer = $('.object-media-' + media_item.data_type + ' ' + media_item.data_type);
