@@ -474,7 +474,7 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
             }
         }
 
-        var loadMore = function(scroll){
+        var loadMore = function(scroll, doAfter){
 
             if(!loadUrl){
                 log('no load url (return)');
@@ -495,10 +495,9 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
             cmp.addClass('loading (' + inView + ')');
 
             appender.append(function(added){
-
                 totalLoaded = appender.getDataCount();
 
-                if(added){
+                if(added.length){
                     resize();
                     log('added > resize > scroll ' + scroll);
                     if(scroll){
@@ -511,7 +510,7 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
                         log('loaded all');
                     }
                 }
-                else if(added ===0){
+                else if(added.length == 0){
                     log('loaded all (added 0)');
                 }
                 else{
@@ -521,6 +520,9 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
                     if(!swiping){
                         scrollForward();
                     }
+                }
+                if(doAfter){
+                    doAfter(added);
                 }
             }, inView);
         };
@@ -578,6 +580,9 @@ log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position
             },
             inView : function(){
                 return fnInView();
+            },
+            loadMore: function(scroll, doAfter){
+                loadMore(scroll, doAfter);
             },
             goLeft : function(){
                 console.error('deprecated function call in eu-carousel: goLeft');
