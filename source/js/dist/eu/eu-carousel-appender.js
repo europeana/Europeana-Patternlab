@@ -38,7 +38,7 @@ define(['jquery'], function($){
           });
           return {
             "markup": markup,
-            "added":  data.documents.length
+            "added":  data.documents
           }
       },
 
@@ -133,7 +133,7 @@ define(['jquery'], function($){
           });
           return {
               "markup": markup,
-              "added":  data.length
+              "added":  data
           }
       }
   };
@@ -153,17 +153,15 @@ define(['jquery'], function($){
 
         var append = function(data){
           var appendData = templates[template](data);
-          totalLoaded += appendData.added;
+          totalLoaded += appendData.added.length;
           cmp.append(appendData.markup);
+          return appendData.added;
         };
 
         var load = function(callback, perPage){
 
             // url needs params set
             var per_page = perPage || 4;
-
-log('per_page = ' + per_page);
-
             var page_param = parseInt(Math.floor(totalLoaded / per_page)) + 1;
             var url = loadUrl + '?page=' + page_param + '&per_page=' + per_page;
 
@@ -172,8 +170,8 @@ log('per_page = ' + per_page);
             $.getJSON( url, null)
             .done(
                 function( data ) {
-                    append(data);
-                    callback(totalLoaded);
+                    var appendedData = append(data);
+                    callback(appendedData);
                 }
             )
             .fail(function(msg){

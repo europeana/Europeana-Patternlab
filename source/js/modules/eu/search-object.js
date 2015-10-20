@@ -252,6 +252,8 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             promisedCarousel.done(
 
                 function(carousel){
+                    // disabled unused vertical functionality
+                    /*
                     var setOptimalHeight = function(v){
                         if(v){
                             var currHeight    = $('.media-thumbs').outerHeight(true);
@@ -274,6 +276,15 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
                     $('.media-viewer').on('refresh-nav-carousel', function(){
                         setOptimalHeight(carousel.isVertical());
+                    });
+                    */
+
+                    /*
+                       photoswipe wrapper triggers this when user reaches the last visible image
+                       load more into the carousel then hand control back to search-image-viewer
+                    */
+                    $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
+                        carousel.loadMore(false, data.doAfterLoad);
                     });
 
                     $('.media-thumbs').on('click', 'a', updateTechData);

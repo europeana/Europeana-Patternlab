@@ -32,6 +32,30 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     gallery.listen('close', function() {
         $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image'});
     });
+    gallery.listen('afterChange', function() {
+        if(this.getCurrentIndex() + 1 == this.options.getNumItemsFn()){
+            $('.media-viewer').trigger("object-media-last-image-reached", {doAfterLoad: function(newItems){
+                var added = 0;
+                for(var i=0; i<newItems.length; i++){
+                    var newItem = {
+                        src: newItems[i].play_url,
+                        w:   newItems[i].technical_metadata.width,
+                        h:   newItems[i].technical_metadata.height
+                    };
+                    if(checkItem( newItem )){
+                        gallery.items.push(newItem);
+                        added += 1;
+                    }
+                }
+                if(added>0){
+                    gallery.invalidateCurrItems();
+                    gallery.updateSize(true);
+                    gallery.ui.update();
+                }
+            }});
+        }
+    });
+
 
     if(delay){
         /**  this delay is to mitigate a load issue - see here:
