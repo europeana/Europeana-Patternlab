@@ -2,25 +2,25 @@
 .leaflet-control-zoomslider-wrap {
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color: #fff;
-	border-bottom: 1px solid #ccc;
+	//background-color: #fff;
+	//border-bottom: 1px solid #ccc;
 }
 .leaflet-control-zoomslider-body {
 	width: 2px;
-	border: solid #fff;
+	//border: solid #fff;
 	border-width: 0px 9px 0px 9px;
-	background-color: black;
+	background-color: #1A8AC7;
 	margin: 0 auto;
 }
 .leaflet-control-zoomslider-knob {
 	position: relative;
 	width: 12px;
-	height: 4px;
-	background-color: #efefef;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #000;
-	margin-left: -6px;
+	height: 12px;
+	background-color: #1A8AC7;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	//border: 1px solid #000;
+	margin-left: -5px;
 }
 .leaflet-control-zoomslider-body:hover {
 	cursor: pointer;
@@ -48,27 +48,40 @@
 	margin-top: 10px;
 }
 .leaflet-control-zoomslider a {
-	width: 26px;
-	height: 26px;
+	width: 30px;
+	height: 30px;
+  padding-top: 6px;
+  margin-bottom: -8px;
 	text-align: center;
 	text-decoration: none;
 	color: black;
 	display: block;
 }
 .leaflet-control-zoomslider a:hover {
-	background-color: #f4f4f4;
+	//background-color: #f4f4f4;
+  width: 30px;
+  height: 30px;
 }
 .leaflet-control-zoomslider-in {
 	font: bold 18px 'Lucida Console', Monaco, monospace;
 }
 .leaflet-control-zoomslider-in:after{
-	content:"+"
+  content: "+";
+	background-image: url(icon-plus.svg);
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  color: transparent;
+  padding-left: 3px;
 }
 .leaflet-control-zoomslider-out {
 	font: bold 22px 'Lucida Console', Monaco, monospace;
 }
 .leaflet-control-zoomslider-out:after{
-	content:"-"
+  content: "-";
+	background-image: url(icon-minus.svg);
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  color: transparent;
 }
 .leaflet-control-zoomslider a.leaflet-control-zoomslider-disabled {
 	cursor: default;
