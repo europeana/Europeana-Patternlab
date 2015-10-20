@@ -26,6 +26,10 @@
 
     <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
 
+      <a class="scroll-trigger trigger-chain"
+         enabled="true"
+         data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
+
       {{^empty_item}}
       <div class="media-viewer">
 

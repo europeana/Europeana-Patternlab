@@ -15,36 +15,52 @@ define([], function(){
                                                                                      * $(window).width()
                                                                                      */
         );
-    }
+    };
 
-    var triggerIfInView = function($trigger){
-        if(isElementInViewport($trigger[0])){
-            $trigger.attr('enabled', false);
-            var eEvent  = $trigger.data('fire-on-open');
-            var eParams = $trigger.data('fire-on-open-params');
+    var triggerIfInView = function(trigger){
+        if(isElementInViewport(trigger[0])){
 
-            // extra params from the "before"
-            var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
-            if(dynamicParamsStr && dynamicParamsStr.length > 0 && dynamicParamsStr != 'none'){
+            var pullTrigger = function($trigger, sendEvent){
+                $trigger.attr('enabled', false);
+                var eEvent  = $trigger.data('fire-on-open');
+                var eParams = $trigger.data('fire-on-open-params');
 
-                var dynamicParams = JSON.parse(dynamicParamsStr);
-                if(typeof dynamicParams == 'string'){
-                    dynamicParams = JSON.parse(dynamicParams);
+                // extra params from the "before"
+                var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
+                if(dynamicParamsStr && dynamicParamsStr.length > 0 && dynamicParamsStr != 'none'){
+
+                    var dynamicParams = JSON.parse(dynamicParamsStr);
+                    if(typeof dynamicParams == 'string'){
+                        dynamicParams = JSON.parse(dynamicParams);
+                    }
+                    for(var item in dynamicParams) {
+                        eParams[item] = dynamicParams[item];
+                    }
                 }
-                for(var item in dynamicParams) {
-                    eParams[item] = dynamicParams[item];
+                $(window).trigger(eEvent, eParams);
+            }
+
+            if(trigger.hasClass('trigger-chain')){
+                var target = $('#' + trigger.data('fire-on-open-params').trigger + '.scroll-trigger');
+                if(target.length > 0){
+                  trigger.attr('enabled', false);
+                  pullTrigger(target, false);
+                }
+                else{
+                    console.warn('scroll-trigger chaining must reference a valid target trigger in the fire-on-open-params');
                 }
             }
-            //console.log('trigger full params = ' + JSON.stringify( eParams ));
-            $(window).trigger(eEvent, eParams);
+            else{
+                pullTrigger(trigger, true);
+            }
         }
-    }
+    };
 
     var fireAllVisible = function(){
         $('.scroll-trigger').each(function(){
             triggerIfInView($(this));
         });
-    }
+    };
 
     $(window).on('scroll', function(){
         $('.scroll-trigger[enabled=true]').each(function(){
@@ -62,7 +78,7 @@ define([], function(){
         fireAllVisible: function(){
             fireAllVisible();
         }
-    }
+    };
 
 
 });
