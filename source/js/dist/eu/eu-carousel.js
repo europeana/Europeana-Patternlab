@@ -466,7 +466,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var goFwd = function(){
 
             if((position + inView + inView) < totalLoaded){
-log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position + ' + ' + inView + ') < ' + totalLoaded );
+                //log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position + ' + ' + inView + ') < ' + totalLoaded );
                 scrollForward();
             }
             else{
