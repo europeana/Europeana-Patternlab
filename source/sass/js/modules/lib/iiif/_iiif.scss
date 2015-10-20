@@ -1,6 +1,6 @@
 #iiif{
   //border: 1px solid #000;
-  height: 24em;
+  height: 36em;
   position: relative;
   margin: 0 auto;
 
@@ -19,15 +19,22 @@
 }
 
 #iiif-ctrl{
-  background-color: #4d4d4d;
+  //background-color: #4d4d4d;
   //border: 1px solid #000;
   background-image: -webkit-gradient(
-    linear, left top, left bottom, from(rgba(0,0,0,0.15)),
-    to(rgba(0,0,0,0.85)), color-stop(.6,#373737)
+    linear, left top, left bottom, from(rgba(0,0,0,0.025)),
+    to(rgba(0,0,0,0.75))
   );
-  padding: 3em 0 0.5em;
+  background-image: -moz-linear-gradient(
+  rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 95%
+  );
+  //padding: 3em 0 0.5em;
+  padding-top: 1em;
   position: relative;
   margin: auto;
+  bottom: 4em;
+  height: 4em;
+  margin-bottom: -3em;
 
   .iiif-ctrl-group{
     max-width: 40em;
