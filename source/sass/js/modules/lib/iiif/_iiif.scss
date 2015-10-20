@@ -26,7 +26,17 @@
     to(rgba(0,0,0,0.75))
   );
   background-image: -moz-linear-gradient(
-  rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 95%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.7) 95%
+  );
+  background: -ms-linear-gradient(
+    top, rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.65) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr='#00000000',
+    endColorstr='#a6000000',
+    GradientType=0
   );
   //padding: 3em 0 0.5em;
   padding-top: 1em;
