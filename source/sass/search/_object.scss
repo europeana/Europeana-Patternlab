@@ -387,7 +387,7 @@
         column-gap: $space;
 
         @media all and (min-width: $bp-med) {
-            @include span(10 of 24);
+            @include span(10	 of 24);
         }
     }
 
@@ -479,6 +479,17 @@
         }
     }
 }
+
+// when download drawer is open tech-data is pushed down onto a white background - create contrast here:
+
+.object-downloads.is-expanded + .object-techdata > a.show-button{
+   color: $gray30;
+   &:hover{
+    color: red;
+    color: $textcolour_link_hover;
+  }
+}
+
 
 .original_context{
     display: block;
