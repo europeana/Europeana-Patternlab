@@ -378,8 +378,16 @@
     }
 
     .info-secondary{
+
+        -moz-column-count: 2;
+        -moz-column-gap: $space;
+        -webkit-column-count: 2;
+        -webkit-column-gap: $space;
+        column-count: 2;
+        column-gap: $space;
+
         @media all and (min-width: $bp-med) {
-            @include span(7 of 24);
+            @include span(10	 of 24);
         }
     }
 
@@ -432,14 +440,9 @@
     }
 }
 .object-techdata-list li{
-    margin-right: 5%;
-    width: 40%;
-    display: inline-block;
     white-space: nowrap;
-
     &.is-disabled{
         display: none;
-       // opacity: 0.3;
     }
 }
 
@@ -476,6 +479,17 @@
         }
     }
 }
+
+// when download drawer is open tech-data is pushed down onto a white background - create contrast here:
+
+.object-downloads.is-expanded + .object-techdata > a.show-button{
+   color: $gray30;
+   &:hover{
+    color: red;
+    color: $textcolour_link_hover;
+  }
+}
+
 
 .original_context{
     display: block;
