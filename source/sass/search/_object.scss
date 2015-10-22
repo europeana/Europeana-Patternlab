@@ -173,6 +173,7 @@
       position: relative;
       width: 100%;
       max-width: $max-width;
+      z-index: 0;
 
       &.active{
         padding-bottom: $space;
