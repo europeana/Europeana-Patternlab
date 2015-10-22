@@ -192,6 +192,16 @@ fonts to show/hide properly.
   opacity: 0.8;
   //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
+/* Affects the margin-top only on video */
+.object-media-video .vjs-default-skin .vjs-control:before,
+.object-media-video .vjs-default-skin.vjs-playing .vjs-play-control:before,
+.object-media-video .vjs-default-skin .vjs-mute-control.vjs-vol-2:before,
+.object-media-video .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2:before,
+.object-media-video .vjs-default-skin .vjs-mute-control.vjs-vol-0:before,
+.object-media-video .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
+  margin-top: 0.4em;
+}
+
 /* Replacement for focus outline */
 .vjs-default-skin .vjs-control:focus:before,
 .vjs-default-skin .vjs-control:hover:before {
@@ -202,7 +212,7 @@ fonts to show/hide properly.
   /*  outline: 0; */
   /* keyboard-only users cannot see the focus on several of the UI elements when
   this is set to 0 */
-
+  opacity: 0.8;
 }
 /* Hide control text visually, but have it available for screenreaders */
 .vjs-default-skin .vjs-control-text {
@@ -225,9 +235,21 @@ fonts to show/hide properly.
 }
 .vjs-default-skin .vjs-play-control:before {
   content: "\e001";
+  background-size: 16px 16px;
+  background-image: url(icon-play.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
+
 }
 .vjs-default-skin.vjs-playing .vjs-play-control:before {
   content: "\e002";
+  background-size: 16px 16px;
+  background-image: url(icon-pause.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
+
 }
 /* Playback toggle
 --------------------------------------------------------------------------------
@@ -258,18 +280,38 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-mute-control:before,
 .vjs-default-skin .vjs-volume-menu-button:before {
   content: "\e006";
+  background-size: 16px 16px;
+  background-image: url(icon-vol-max.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-0:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
   content: "\e003";
+  background-size: 16px 16px;
+  background-image: url(icon-vol-off.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-1:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-1:before {
   content: "\e004";
+  background-size: 16px 16px;
+  background-image: url(icon-vol-min.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-2:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2:before {
   content: "\e005";
+  background-size: 16px 16px;
+  background-image: url(icon-vol-med.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin: 0.7em 0 0 1em;
 }
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
@@ -478,10 +520,20 @@ fonts to show/hide properly.
 }
 .vjs-default-skin .vjs-fullscreen-control:before {
   content: "\e000";
+  background-size: 16px 16px;
+  background-image: url(icon-fullscreen.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin-left: 0.5em;
 }
 /* Switch to the exit icon when the player is in fullscreen */
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before {
   content: "\e00b";
+  background-size: 16px 16px;
+  background-image: url(icon-compress.svg);
+  color: transparent;
+  background-repeat: no-repeat;
+  margin-left: 0.5em;
 }
 /* Big Play Button (play button at start)
 --------------------------------------------------------------------------------
@@ -663,7 +715,10 @@ easily in the skin designer. http://designer.videojs.com/
 }
 .vjs-default-skin .vjs-loading-spinner:before {
   content: "\e01e";
-  font-family: VideoJS;
+  background-size: 18px 18px;
+  background-image: url(icon-spinner.svg);
+  color: transparent;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
