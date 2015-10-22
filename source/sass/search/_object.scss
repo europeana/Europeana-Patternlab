@@ -115,8 +115,9 @@
   // - technique to get sass var into markup (and so to js)
   // - breakpoint for vertical display, in pixels
 
-  content: '{ "bpVertical": "' + (($bp-js-carousel-to-v/1em)*16) + '"}';
-  display: none;
+  // disabled because safari doesn't like parsing the escaped quotes in JSON
+  // content: '{ "bpVertical": "' + (($bp-js-carousel-to-v/1em)*16) + '"}';
+  // display: none;
 }
 
 
