@@ -27,7 +27,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var edge     = 'left';
 
-        var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing;
+        var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing, comfortableFit;
         var animating      = false;
         var cmp            = $(cmp); // the viewport
         var appender       = appender;
@@ -107,6 +107,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
 
             cmp.on('movestart', function(e) {
+
+              if(comfortableFit){
+                  e.preventDefault();
+                  return;
+              }
 
               var tgt = $(e.target)
               if(tgt[0].nodeName.toLowerCase()=='a'){
@@ -337,7 +342,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             btnPrev.css('display', 'block');
             btnNext.css('display', 'block');
 
-            var comfortableFit = ((totalAvailable * itemD) + ((totalAvailable -1) * minSpacingPx)) < cmpD;
+            comfortableFit = ((totalAvailable * itemD) + ((totalAvailable -1) * minSpacingPx)) < cmpD;
 
             if(comfortableFit){
                 btnPrev.css('display', 'none');

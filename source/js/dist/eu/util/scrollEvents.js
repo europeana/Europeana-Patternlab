@@ -21,9 +21,11 @@ define([], function(){
         if(isElementInViewport(trigger[0])){
 
             var pullTrigger = function($trigger, sendEvent){
-                $trigger.attr('enabled', false);
                 var eEvent  = $trigger.data('fire-on-open');
                 var eParams = $trigger.data('fire-on-open-params');
+
+                $trigger.attr('enabled', false);
+                $('*[data-disable-when-fired="' + eEvent + '"]').attr('enabled', false);
 
                 // extra params from the "before"
                 var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
