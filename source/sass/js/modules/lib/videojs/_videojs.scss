@@ -316,6 +316,7 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
   float: right;
+  margin-right: 1.5em;
 }
 .vjs-default-skin .vjs-volume-bar {
   width: 5em;
@@ -524,7 +525,7 @@ fonts to show/hide properly.
   background-image: url(icon-fullscreen.svg);
   color: transparent;
   background-repeat: no-repeat;
-  margin-left: 0.5em;
+  margin: 0.6 0 0 0.5em;
 }
 /* Switch to the exit icon when the player is in fullscreen */
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before {

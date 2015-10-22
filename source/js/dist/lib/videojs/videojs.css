@@ -344,16 +344,17 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
   float: right;
+  margin-right: 1.5em;
 }
 
-/* line 320, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 321, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-bar {
   width: 5em;
   height: 0.35em;
   margin: 1.3em auto 0;
 }
 
-/* line 325, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 326, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-level {
   position: absolute;
   top: 0;
@@ -364,7 +365,7 @@ fonts to show/hide properly.
   background-color: #1A8AC7;
 }
 
-/* line 336, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 337, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
   height: 0.35em;
@@ -374,7 +375,7 @@ fonts to show/hide properly.
   left: 4.5em;
 }
 
-/* line 345, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 346, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-handle:before {
   font-size: 0.75em;
   top: 0.5em;
@@ -388,7 +389,7 @@ fonts to show/hide properly.
     without hitting space bar on the menu button. To do this we're not using
     display:none to hide the slider menu by default, and instead setting the
     width and height to zero. */
-/* line 357, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 358, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu {
   display: block;
   width: 0;
@@ -396,20 +397,20 @@ fonts to show/hide properly.
   border-top-color: transparent;
 }
 
-/* line 363, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 364, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content {
   height: 0;
   width: 0;
 }
 
-/* line 367, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 368, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu,
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu.vjs-lock-showing {
   border-top-color: rgba(7, 40, 50, 0.5);
   /* Same as ul background */
 }
 
-/* line 373, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 374, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu .vjs-menu-content,
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu.vjs-lock-showing .vjs-menu-content {
   height: 2.9em;
@@ -419,7 +420,7 @@ fonts to show/hide properly.
 /* Progress
 --------------------------------------------------------------------------------
 */
-/* line 381, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 382, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-progress-control {
   position: absolute;
   left: 2.5%;
@@ -440,7 +441,7 @@ fonts to show/hide properly.
 /* On hover, make the progress bar grow to something that's more clickable.
     This simply changes the overall font for the progress bar, and this
     updates both the em-based widths and heights, as wells as the icon font */
-/* line 400, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 401, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin:hover .vjs-progress-control {
   font-size: .5em;
   width: 95%;
@@ -452,7 +453,7 @@ fonts to show/hide properly.
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-/* line 405, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 406, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin:hover .vjs-progress-control .vjs-slider-handle:before {
   width: 2.3em;
   height: 2.3em;
@@ -464,13 +465,13 @@ fonts to show/hide properly.
 }
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
-/* line 422, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 423, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-progress-holder {
   height: 100%;
 }
 
 /* Progress Bars */
-/* line 426, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 427, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-progress-holder .vjs-play-progress,
 .vjs-default-skin .vjs-progress-holder .vjs-load-progress,
 .vjs-default-skin .vjs-progress-holder .vjs-load-progress div {
@@ -486,7 +487,7 @@ fonts to show/hide properly.
   top: 0;
 }
 
-/* line 441, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 442, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-play-progress {
   /*
     Using a data URI to create the white diagonal lines with a transparent
@@ -499,7 +500,7 @@ fonts to show/hide properly.
   background-color: #1A8AC7;
 }
 
-/* line 454, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 455, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-load-progress {
   background: #646464;
   background: rgba(255, 255, 255, 0.35);
@@ -507,19 +508,19 @@ fonts to show/hide properly.
 
 /* there are child elements of the load progress bar that represent the
    specific time ranges that have been buffered */
-/* line 460, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 461, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-load-progress div {
   background: #787878;
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* line 464, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 465, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-seek-handle {
   width: 1.5em;
   height: 100%;
 }
 
-/* line 468, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 469, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-seek-handle:before {
   padding-top: 0.1em;
 }
@@ -527,14 +528,14 @@ fonts to show/hide properly.
 /* Live Mode
 --------------------------------------------------------------------------------
 */
-/* line 474, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 475, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-live .vjs-time-controls,
 .vjs-default-skin.vjs-live .vjs-time-divider,
 .vjs-default-skin.vjs-live .vjs-progress-control {
   display: none;
 }
 
-/* line 479, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 480, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-live .vjs-live-display {
   display: block;
 }
@@ -542,7 +543,7 @@ fonts to show/hide properly.
 /* Live Display
 --------------------------------------------------------------------------------
 */
-/* line 485, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 486, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-live-display {
   display: none;
   font-size: 1em;
@@ -552,31 +553,31 @@ fonts to show/hide properly.
 /* Time Display
 --------------------------------------------------------------------------------
 */
-/* line 493, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 494, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-time-controls {
   font-size: 1em;
   /* Align vertically by making the line height the same as the control bar */
   line-height: 3em;
 }
 
-/* line 498, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 499, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-current-time {
   float: left;
 }
 
-/* line 501, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 502, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-duration {
   float: left;
 }
 
 /* Remaining time is in the HTML, but not included in default design */
-/* line 505, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 506, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-remaining-time {
   display: none;
   float: left;
 }
 
-/* line 509, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 510, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-time-divider {
   float: left;
   line-height: 3em;
@@ -585,25 +586,25 @@ fonts to show/hide properly.
 /* Fullscreen
 --------------------------------------------------------------------------------
 */
-/* line 516, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 517, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-fullscreen-control {
   width: 3.8em;
   cursor: pointer;
   float: right;
 }
 
-/* line 521, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 522, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-fullscreen-control:before {
   content: "\e000";
   background-size: 16px 16px;
   background-image: url(icon-fullscreen.svg);
   color: transparent;
   background-repeat: no-repeat;
-  margin-left: 0.5em;
+  margin: 0.6 0 0 0.5em;
 }
 
 /* Switch to the exit icon when the player is in fullscreen */
-/* line 530, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 531, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before {
   content: "\e00b";
   background-size: 16px 16px;
@@ -618,7 +619,7 @@ fonts to show/hide properly.
 Positioning of the play button in the center or other corners can be done more
 easily in the skin designer. http://designer.videojs.com/
 */
-/* line 543, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 544, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-big-play-button {
   left: 0.5em;
   top: 0.5em;
@@ -653,7 +654,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Optionally center */
-/* line 576, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 577, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-big-play-centered .vjs-big-play-button {
   /* Center it horizontally */
   left: 50%;
@@ -664,25 +665,25 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Hide if controls are disabled */
-/* line 585, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 586, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-controls-disabled .vjs-big-play-button {
   display: none;
 }
 
 /* Hide when video starts playing */
-/* line 589, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 590, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-has-started .vjs-big-play-button {
   display: none;
 }
 
 /* Hide on mobile devices. Remove when we stop using native controls
     by default on mobile  */
-/* line 594, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 595, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-using-native-controls .vjs-big-play-button {
   display: none;
 }
 
-/* line 597, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 598, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin:hover .vjs-big-play-button,
 .vjs-default-skin .vjs-big-play-button:focus {
   outline: 0;
@@ -701,7 +702,7 @@ easily in the skin designer. http://designer.videojs.com/
   transition: all 0s;
 }
 
-/* line 614, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 615, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-big-play-button:before {
   content: "\e001";
   font-family: VideoJS;
@@ -715,7 +716,7 @@ easily in the skin designer. http://designer.videojs.com/
   height: 100%;
 }
 
-/* line 628, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 629, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error .vjs-big-play-button {
   display: none;
 }
@@ -723,12 +724,12 @@ easily in the skin designer. http://designer.videojs.com/
 /* Error Display
 --------------------------------------------------------------------------------
 */
-/* line 634, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 635, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error-display {
   display: none;
 }
 
-/* line 637, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 638, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error .vjs-error-display {
   display: block;
   position: absolute;
@@ -738,7 +739,7 @@ easily in the skin designer. http://designer.videojs.com/
   height: 100%;
 }
 
-/* line 645, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 646, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error .vjs-error-display:before {
   content: 'X';
   font-family: Arial;
@@ -756,7 +757,7 @@ easily in the skin designer. http://designer.videojs.com/
   width: 100%;
 }
 
-/* line 663, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 664, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error-display div {
   position: absolute;
   bottom: 1em;
@@ -769,7 +770,7 @@ easily in the skin designer. http://designer.videojs.com/
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 674, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 675, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error-display a,
 .vjs-error-display a:visited {
   color: #F4A460;
@@ -778,7 +779,7 @@ easily in the skin designer. http://designer.videojs.com/
 /* Loading Spinner
 --------------------------------------------------------------------------------
 */
-/* line 681, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 682, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-loading-spinner {
   /* Should be hidden by default */
   display: none;
@@ -795,7 +796,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Show the spinner when waiting for data and seeking to a new time */
-/* line 696, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 697, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-waiting .vjs-loading-spinner,
 .vjs-seeking .vjs-loading-spinner {
   display: block;
@@ -808,7 +809,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Errors are unrecoverable without user interaction so hide the spinner */
-/* line 707, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 708, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-error .vjs-loading-spinner {
   display: none;
   /* ensure animation doesn't continue while hidden */
@@ -819,7 +820,7 @@ easily in the skin designer. http://designer.videojs.com/
   animation: none;
 }
 
-/* line 716, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 717, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-loading-spinner:before {
   content: "\e01e";
   background-size: 18px 18px;
@@ -869,13 +870,13 @@ easily in the skin designer. http://designer.videojs.com/
 /* Menu Buttons (Captions/Subtitles/etc.)
 --------------------------------------------------------------------------------
 */
-/* line 765, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 766, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button {
   float: right;
   cursor: pointer;
 }
 
-/* line 769, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 770, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu {
   display: none;
   position: absolute;
@@ -894,7 +895,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Button Pop-up Menu */
-/* line 789, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 790, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button .vjs-menu .vjs-menu-content {
   display: block;
   padding: 0;
@@ -916,19 +917,19 @@ easily in the skin designer. http://designer.videojs.com/
   box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
 }
 
-/* line 811, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 812, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button:hover .vjs-control-content .vjs-menu,
 .vjs-default-skin .vjs-control-content .vjs-menu.vjs-lock-showing {
   display: block;
 }
 
 /* prevent menus from opening while scrubbing (FF, IE) */
-/* line 816, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 817, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin.vjs-scrubbing .vjs-menu-button:hover .vjs-control-content .vjs-menu {
   display: none;
 }
 
-/* line 819, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 820, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button ul li {
   list-style: none;
   margin: 0;
@@ -939,12 +940,12 @@ easily in the skin designer. http://designer.videojs.com/
   text-transform: lowercase;
 }
 
-/* line 828, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 829, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button ul li.vjs-selected {
   background-color: #000;
 }
 
-/* line 831, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 832, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button ul li:focus,
 .vjs-default-skin .vjs-menu-button ul li:hover,
 .vjs-default-skin .vjs-menu-button ul li.vjs-selected:focus,
@@ -960,7 +961,7 @@ easily in the skin designer. http://designer.videojs.com/
   box-shadow: 0 0 1em #ffffff;
 }
 
-/* line 845, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 846, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-menu-button ul li.vjs-menu-title {
   text-align: center;
   text-transform: uppercase;
@@ -973,31 +974,31 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Subtitles Button */
-/* line 856, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 857, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-subtitles-button:before {
   content: "\e00c";
 }
 
 /* Captions Button */
-/* line 860, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 861, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-captions-button:before {
   content: "\e008";
 }
 
 /* Chapters Button */
-/* line 864, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 865, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-chapters-button:before {
   content: "\e00c";
 }
 
-/* line 867, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 868, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-chapters-button.vjs-menu-button .vjs-menu .vjs-menu-content {
   width: 24em;
   left: -12em;
 }
 
 /* Replacement for focus outline */
-/* line 872, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 873, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-default-skin .vjs-captions-button:focus .vjs-control-content:before,
 .vjs-default-skin .vjs-captions-button:hover .vjs-control-content:before {
   /* box-shadow */
@@ -1018,7 +1019,7 @@ and sets the width and height of the video.
 positioning, use another containing element. Otherwise you risk messing up
 control positioning and full window mode. **
 */
-/* line 891, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 892, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js {
   background-color: #000;
   position: relative;
@@ -1047,7 +1048,7 @@ control positioning and full window mode. **
 
 /* Playback technology elements expand to the width/height of the containing div
     <video> or <object> */
-/* line 924, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 925, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js .vjs-tech {
   position: absolute;
   top: 0;
@@ -1058,13 +1059,13 @@ control positioning and full window mode. **
 
 /* Fix for Firefox 9 fullscreen (only if it is enabled). Not needed when
    checking fullScreenEnabled. */
-/* line 933, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 934, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js:-moz-full-screen {
   position: absolute;
 }
 
 /* Fullscreen Styles */
-/* line 937, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 938, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 body.vjs-full-window {
   padding: 0;
   margin: 0;
@@ -1073,7 +1074,7 @@ body.vjs-full-window {
   overflow-y: auto;
 }
 
-/* line 944, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 945, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-fullscreen {
   position: fixed;
   overflow: hidden;
@@ -1088,19 +1089,19 @@ body.vjs-full-window {
   _position: absolute;
 }
 
-/* line 957, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 958, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js:-webkit-full-screen {
   width: 100% !important;
   height: 100% !important;
 }
 
-/* line 961, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 962, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-fullscreen.vjs-user-inactive {
   cursor: none;
 }
 
 /* Poster Styles */
-/* line 965, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 966, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-poster {
   background: rgba(0, 0, 0, 0.15);
   cursor: pointer;
@@ -1113,7 +1114,7 @@ body.vjs-full-window {
   left: 0;
 }
 
-/* line 980, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 981, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-poster img {
   display: block;
   margin: 0 auto;
@@ -1123,33 +1124,33 @@ body.vjs-full-window {
 }
 
 /* Hide the poster after the video has started playing */
-/* line 988, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 989, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-has-started .vjs-poster {
   display: none;
 }
 
 /* Don't hide the poster if we're playing audio */
-/* line 992, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 993, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-audio.vjs-has-started .vjs-poster {
   display: block;
 }
 
 /* Hide the poster when controls are disabled because it's clickable
     and the native poster can take over */
-/* line 997, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 998, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-controls-disabled .vjs-poster {
   display: none;
 }
 
 /* Hide the poster when native controls are used otherwise it covers them */
-/* line 1001, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1002, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js.vjs-using-native-controls .vjs-poster {
   display: none;
 }
 
 /* Text Track Styles */
 /* Overall track holder for both captions and subtitles */
-/* line 1006, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1007, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .video-js .vjs-text-track-display {
   position: absolute;
   top: 0;
@@ -1160,7 +1161,7 @@ body.vjs-full-window {
 }
 
 /* Captions Settings Dialog */
-/* line 1015, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1016, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings {
   position: relative;
   top: 1em;
@@ -1175,7 +1176,7 @@ body.vjs-full-window {
   width: 40em;
 }
 
-/* line 1028, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1029, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksettings {
   top: 0;
   bottom: 2em;
@@ -1185,77 +1186,77 @@ body.vjs-full-window {
   overflow: auto;
 }
 
-/* line 1036, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1037, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksettings-colors,
 .vjs-caption-settings .vjs-tracksettings-font {
   float: left;
 }
 
-/* line 1040, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1041, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksettings-colors:after,
 .vjs-caption-settings .vjs-tracksettings-font:after,
 .vjs-caption-settings .vjs-tracksettings-controls:after {
   clear: both;
 }
 
-/* line 1045, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1046, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksettings-controls {
   position: absolute;
   bottom: 1em;
   right: 1em;
 }
 
-/* line 1050, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1051, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksetting {
   margin: 5px;
   padding: 3px;
   min-height: 40px;
 }
 
-/* line 1055, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1056, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksetting label {
   display: block;
   width: 100px;
   margin-bottom: 5px;
 }
 
-/* line 1060, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1061, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksetting span {
   display: inline;
   margin-left: 5px;
 }
 
-/* line 1064, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1065, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksetting > div {
   margin-bottom: 5px;
   min-height: 20px;
 }
 
-/* line 1068, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1069, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings .vjs-tracksetting > div:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   min-height: 0;
 }
 
-/* line 1073, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1074, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings label > input {
   margin-right: 10px;
 }
 
-/* line 1076, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1077, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-caption-settings input[type="button"] {
   width: 40px;
   height: 40px;
 }
 
 /* Hide disabled or unsupported controls */
-/* line 1081, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1082, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-hidden {
   display: none !important;
 }
 
-/* line 1084, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1085, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-lock-showing {
   display: block !important;
   opacity: 1;
@@ -1266,7 +1267,7 @@ body.vjs-full-window {
     The .video-js classname on the video tag also isn't considered.
     This optional paragraph inside the video tag can provide a message to users
     about what's required to play video. */
-/* line 1093, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1094, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-no-js {
   padding: 2em;
   color: #ccc;
@@ -1279,7 +1280,7 @@ body.vjs-full-window {
   margin: 0 auto;
 }
 
-/* line 1104, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+/* line 1105, ../../../../sass/js/modules/lib/videojs/videojs.scss */
 .vjs-no-js a,
 .vjs-no-js a:visited {
   color: #F4A460;
