@@ -149,8 +149,7 @@
   display: block;
   position: absolute;
   height: 100%;
-//  min-height: $thumbnail_max_dimension;
-  min-height: 5000000px;
+  min-height: $thumbnail_max_dimension_mlt;
 
   width: 100%;
   top: 0;

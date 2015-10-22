@@ -1289,3 +1289,11 @@ body.vjs-full-window {
 /* -----------------------------------------------------------------------------
 The original source of this file lives at
 https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
+/* line 1123, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+.audio-js .vjs-fullscreen-control.vjs-control {
+  display: none;
+}
+/* line 1126, ../../../../sass/js/modules/lib/videojs/videojs.scss */
+.audio-js .vjs-volume-control.vjs-control {
+  margin-right: 2em;
+}

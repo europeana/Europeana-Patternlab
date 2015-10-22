@@ -1118,3 +1118,13 @@ https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
 .media-viewer .vjs-default-skin.vjs-has-started .vjs-control-bar{
   //background-color: orange;
 }
+
+.audio-js{
+    .vjs-fullscreen-control.vjs-control{
+      display:none;
+    }
+    .vjs-volume-control.vjs-control{
+      margin-right:2em;
+    }
+}
+

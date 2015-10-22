@@ -57,8 +57,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
             var ops = mergeHashes(opsIn, opsDef);
 
-            //log('ops = ' + JSON.stringify(ops, null, 4));
-
             classData = {
                     "arrowClasses" : {
                         "container" : "js-carousel-arrows",
@@ -148,9 +146,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                             }
                         }
                     }
-                    if (e.distY > 0) {
-                        items.css('top', e.distY + 'px');
-                    }
                 }
                 else{
                     items.css('top', '0px');
@@ -164,9 +159,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                                 }
                             }
                         }
-                    }
-                    if (e.distX > 0) {
-                        items.css('left',  e.distX + 'px');
                     }
                 }
             })
@@ -342,7 +334,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             btnPrev.css('display', 'block');
             btnNext.css('display', 'block');
 
-            comfortableFit = ((totalAvailable * itemD) + ((totalAvailable -1) * minSpacingPx)) < cmpD;
+            comfortableFit = ((totalAvailable * itemD) + ((totalAvailable -1) * minSpacingPx)) <= cmpD;
 
             if(comfortableFit){
                 btnPrev.css('display', 'none');

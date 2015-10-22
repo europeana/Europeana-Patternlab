@@ -165,6 +165,9 @@
             height: $thumbnail_max_dimension_media;
           }
         }
+        &.loading ul:after {
+          min-height: $thumbnail_max_dimension_media;
+        }
       }
     }
 
@@ -173,7 +176,6 @@
       position: relative;
       width: 100%;
       max-width: $max-width;
-      z-index: 0;
 
       &.active{
         padding-bottom: $space;
@@ -182,9 +184,12 @@
         position: relative;
         width: 100%;
       }
-      .object-media-image{
-        z-index: 1;
+      .object-media-image,
+      .object-media-iiif{
+        position: relative;
+        z-index: 2;
       }
+
     }
 
 }
@@ -551,6 +556,8 @@
 
 #map{
     height: 22em;
+    z-index: 1;
+    position: relative;
 }
 
 
