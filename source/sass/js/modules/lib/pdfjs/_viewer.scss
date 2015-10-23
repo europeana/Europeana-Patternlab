@@ -289,11 +289,11 @@
   pointer-events: none;
   position: relative;
 }
-html[dir='ltr'] .outerCenter {
+.pdf-ui-wrappper.ltr .outerCenter {
   float: right;
   right: 50%;
 }
-html[dir='rtl'] .outerCenter {
+.pdf-ui-wrappper.rtl .outerCenter {
   float: left;
   left: 50%;
 }
@@ -301,11 +301,11 @@ html[dir='rtl'] .outerCenter {
   pointer-events: auto;
   position: relative;
 }
-html[dir='ltr'] .innerCenter {
+.pdf-ui-wrappper.ltr .innerCenter {
   float: right;
   right: -50%;
 }
-html[dir='rtl'] .innerCenter {
+.pdf-ui-wrappper.rtl .innerCenter {
   float: left;
   left: -50%;
 }
@@ -326,14 +326,15 @@ html[dir='rtl'] .innerCenter {
   -webkit-transition-timing-function: ease;
   transition-duration: 200ms;
   transition-timing-function: ease;
-
 }
-html[dir='ltr'] #sidebarContainer {
+
+.pdf-ui-wrappper.ltr #sidebarContainer {
   -webkit-transition-property: left;
   transition-property: left;
   left: -200px;
 }
-html[dir='rtl'] #sidebarContainer {
+
+.pdf-ui-wrappper.rtl #sidebarContainer {
   -webkit-transition-property: right;
   transition-property: right;
   right: -200px;
@@ -343,10 +344,11 @@ html[dir='rtl'] #sidebarContainer {
 #outerContainer.sidebarOpen > #sidebarContainer {
   visibility: visible;
 }
-html[dir='ltr'] #outerContainer.sidebarOpen > #sidebarContainer {
+.pdf-ui-wrappper.ltr #outerContainer.sidebarOpen > #sidebarContainer {
   left: 0px;
 }
-html[dir='rtl'] #outerContainer.sidebarOpen > #sidebarContainer {
+
+.pdf-ui-wrappper.rtl #outerContainer.sidebarOpen > #sidebarContainer {
   right: 0px;
 }
 
@@ -362,12 +364,14 @@ html[dir='rtl'] #outerContainer.sidebarOpen > #sidebarContainer {
   transition-duration: 200ms;
   transition-timing-function: ease;
 }
-html[dir='ltr'] #outerContainer.sidebarOpen > #main-container-pdf {
+
+.pdf-ui-wrappper.ltr #outerContainer.sidebarOpen > #main-container-pdf {
   -webkit-transition-property: left;
   transition-property: left;
   left: 200px;
 }
-html[dir='rtl'] #outerContainer.sidebarOpen > #main-container-pdf {
+
+.pdf-ui-wrappper.rtl #outerContainer.sidebarOpen > #main-container-pdf {
   -webkit-transition-property: right;
   transition-property: right;
   right: 200px;
@@ -382,11 +386,11 @@ html[dir='rtl'] #outerContainer.sidebarOpen > #main-container-pdf {
   width: 200px;
   background-color: hsla(0,0%,0%,.1);
 }
-html[dir='ltr'] #sidebarContent {
+.pdf-ui-wrappper.ltr #sidebarContent {
   left: 0;
   box-shadow: inset -1px 0 0 hsla(0,0%,0%,.25);
 }
-html[dir='rtl'] #sidebarContent {
+.pdf-ui-wrappper.rtl #sidebarContent {
   right: 0;
   box-shadow: inset 1px 0 0 hsla(0,0%,0%,.25);
 }
@@ -401,10 +405,11 @@ html[dir='rtl'] #sidebarContent {
   left: 0;
   outline: none;
 }
-html[dir='ltr'] #viewerContainer {
+
+.pdf-ui-wrappper.ltr #viewerContainer {
   box-shadow: inset 1px 0 0 hsla(0,0%,100%,.05);
 }
-html[dir='rtl'] #viewerContainer {
+.pdf-ui-wrappper.rtl #viewerContainer {
   box-shadow: inset -1px 0 0 hsla(0,0%,100%,.05);
 }
 
@@ -427,13 +432,14 @@ html[dir='rtl'] #viewerContainer {
   background-image: url(images/texture.png),
                     linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));
 }
-html[dir='ltr'] #toolbarSidebar {
+.pdf-ui-wrappper.ltr #toolbarSidebar {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25),
               inset 0 -1px 0 hsla(0,0%,100%,.05),
               0 1px 0 hsla(0,0%,0%,.15),
               0 0 1px hsla(0,0%,0%,.1);
 }
-html[dir='rtl'] #toolbarSidebar {
+
+.pdf-ui-wrappper.rtl #toolbarSidebar {
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25),
               inset 0 1px 0 hsla(0,0%,100%,.05),
               0 1px 0 hsla(0,0%,0%,.15),
@@ -447,14 +453,15 @@ html[dir='rtl'] #toolbarSidebar {
   background-image: url(images/texture.png),
                     linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
 }
-html[dir='ltr'] #toolbarContainer, .findbar, .secondaryToolbar {
+
+.pdf-ui-wrappper.ltr #toolbarContainer, .findbar, .secondaryToolbar {
   box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),
               inset 0 1px 1px hsla(0,0%,0%,.15),
               inset 0 -1px 0 hsla(0,0%,100%,.05),
               0 1px 0 hsla(0,0%,0%,.15),
               0 1px 1px hsla(0,0%,0%,.1);
 }
-html[dir='rtl'] #toolbarContainer, .findbar, .secondaryToolbar {
+.pdf-ui-wrappper.rtl #toolbarContainer, .findbar, .secondaryToolbar {
   box-shadow: inset -1px 0 0 hsla(0,0%,100%,.08),
               inset 0 1px 1px hsla(0,0%,0%,.15),
               inset 0 -1px 0 hsla(0,0%,100%,.05),
@@ -535,11 +542,11 @@ html[dir='rtl'] #toolbarContainer, .findbar, .secondaryToolbar {
   cursor: default;
 }
 
-html[dir='ltr'] .findbar {
+.pdf-ui-wrappper.ltr .findbar {
   left: 68px;
 }
 
-html[dir='rtl'] .findbar {
+.pdf-ui-wrappper.rtl .findbar {
   right: 68px;
 }
 
@@ -562,10 +569,12 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   height: auto;
   z-index: 30000;
 }
-html[dir='ltr'] .secondaryToolbar {
+
+.pdf-ui-wrappper.ltr .secondaryToolbar {
   right: 4px;
 }
-html[dir='rtl'] .secondaryToolbar {
+
+.pdf-ui-wrappper.rtl .secondaryToolbar {
   left: 4px;
 }
 
@@ -604,26 +613,36 @@ html[dir='rtl'] .secondaryToolbar {
   border-width: 9px;
 }
 
-html[dir='ltr'] .doorHanger:after,
-html[dir='rtl'] .doorHangerRight:after {
+.pdf-ui-wrappper.ltr .doorHanger:after,
+.pdf-ui-wrappper.rtl .doorHangerRight:after {
   left: 13px;
   margin-left: -8px;
 }
 
-html[dir='ltr'] .doorHanger:before,
-html[dir='rtl'] .doorHangerRight:before {
+.pdf-ui-wrappper.ltr .doorHanger:before,
+.pdf-ui-wrappper.rtl .doorHangerRight:before {
   left: 13px;
   margin-left: -9px;
 }
 
-html[dir='rtl'] .doorHanger:after,
-html[dir='ltr'] .doorHangerRight:after {
+
+
+
+
+
+
+
+.pdf-ui-wrappper.rtl .doorHanger:after,
+.pdf-ui-wrappper.ltr .doorHangerRight:after {
   right: 13px;
   margin-right: -8px;
 }
 
-html[dir='rtl'] .doorHanger:before,
-html[dir='ltr'] .doorHangerRight:before {
+
+
+
+.pdf-ui-wrappper.rtl .doorHanger:before,
+.pdf-ui-wrappper.ltr .doorHangerRight:before {
   right: 13px;
   margin-right: -9px;
 }
@@ -637,53 +656,55 @@ html[dir='ltr'] .doorHangerRight:before {
   background-color: rgb(255, 102, 102);
 }
 
-html[dir='ltr'] #toolbarViewerLeft {
+.pdf-ui-wrappper.ltr #toolbarViewerLeft {
   margin-left: -1px;
 }
-html[dir='rtl'] #toolbarViewerRight {
+.pdf-ui-wrappper.rtl #toolbarViewerRight {
   margin-right: -1px;
 }
 
-html[dir='ltr'] #toolbarViewerLeft,
-html[dir='rtl'] #toolbarViewerRight {
+.pdf-ui-wrappper.ltr #toolbarViewerLeft,
+.pdf-ui-wrappper.rtl #toolbarViewerRight {
   position: absolute;
   top: 0;
   left: 0;
 }
-html[dir='ltr'] #toolbarViewerRight,
-html[dir='rtl'] #toolbarViewerLeft {
+
+.pdf-ui-wrappper.ltr #toolbarViewerRight,
+.pdf-ui-wrappper.rtl #toolbarViewerLeft {
   position: absolute;
   top: 0;
   right: 0;
 }
-html[dir='ltr'] #toolbarViewerLeft > *,
-html[dir='ltr'] #toolbarViewerMiddle > *,
-html[dir='ltr'] #toolbarViewerRight > *,
-html[dir='ltr'] .findbar > * {
+.pdf-ui-wrappper.ltr #toolbarViewerLeft > *,
+.pdf-ui-wrappper.ltr #toolbarViewerMiddle > *,
+.pdf-ui-wrappper.ltr #toolbarViewerRight > *,
+.pdf-ui-wrappper.ltr .findbar > * {
   position: relative;
   float: left;
 }
-html[dir='rtl'] #toolbarViewerLeft > *,
-html[dir='rtl'] #toolbarViewerMiddle > *,
-html[dir='rtl'] #toolbarViewerRight > *,
-html[dir='rtl'] .findbar > * {
+
+.pdf-ui-wrappper.rtl #toolbarViewerLeft > *,
+.pdf-ui-wrappper.rtl #toolbarViewerMiddle > *,
+.pdf-ui-wrappper.rtl #toolbarViewerRight > *,
+.pdf-ui-wrappper.rtl .findbar > * {
   position: relative;
   float: right;
 }
 
-html[dir='ltr'] .splitToolbarButton {
+.pdf-ui-wrappper.ltr .splitToolbarButton {
   margin: 3px 2px 4px 0;
   display: inline-block;
 }
-html[dir='rtl'] .splitToolbarButton {
+.pdf-ui-wrappper.rtl .splitToolbarButton {
   margin: 3px 0 4px 2px;
   display: inline-block;
 }
-html[dir='ltr'] .splitToolbarButton > .toolbarButton {
+.pdf-ui-wrappper.ltr .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: left;
 }
-html[dir='rtl'] .splitToolbarButton > .toolbarButton {
+.pdf-ui-wrappper.rtl .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: right;
 }
@@ -753,8 +774,8 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
 .splitToolbarButton > .toolbarButton {
   position: relative;
 }
-html[dir='ltr'] .splitToolbarButton > .toolbarButton:first-child,
-html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
+.pdf-ui-wrappper.ltr .splitToolbarButton > .toolbarButton:first-child,
+.pdf-ui-wrappper.rtl .splitToolbarButton > .toolbarButton:last-child {
   position: relative;
   margin: 0;
   margin-right: -1px;
@@ -762,8 +783,8 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
   border-bottom-left-radius: 2px;
   border-right-color: transparent;
 }
-html[dir='ltr'] .splitToolbarButton > .toolbarButton:last-child,
-html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
+.pdf-ui-wrappper.ltr .splitToolbarButton > .toolbarButton:last-child,
+.pdf-ui-wrappper.rtl .splitToolbarButton > .toolbarButton:first-child {
   position: relative;
   margin: 0;
   margin-left: -1px;
@@ -780,10 +801,11 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   display: inline-block;
   margin: 5px 0;
 }
-html[dir='ltr'] .splitToolbarButtonSeparator {
+
+.pdf-ui-wrappper.ltr .splitToolbarButtonSeparator {
   float: left;
 }
-html[dir='rtl'] .splitToolbarButtonSeparator {
+.pdf-ui-wrappper.rtl .splitToolbarButtonSeparator {
   float: right;
 }
 .splitToolbarButton:hover > .splitToolbarButtonSeparator,
@@ -823,14 +845,15 @@ html[dir='rtl'] .splitToolbarButtonSeparator {
   transition-timing-function: ease;
 }
 
-html[dir='ltr'] .toolbarButton,
-html[dir='ltr'] .overlayButton,
-html[dir='ltr'] .dropdownToolbarButton {
+.pdf-ui-wrappper.ltr .toolbarButton,
+.pdf-ui-wrappper.ltr .overlayButton,
+.pdf-ui-wrappper.ltr .dropdownToolbarButton {
   margin: 3px 2px 4px 0;
 }
-html[dir='rtl'] .toolbarButton,
-html[dir='rtl'] .overlayButton,
-html[dir='rtl'] .dropdownToolbarButton {
+
+.pdf-ui-wrappper.rtl .toolbarButton,
+.pdf-ui-wrappper.rtl .overlayButton,
+.pdf-ui-wrappper.rtl .dropdownToolbarButton {
   margin: 3px 0 4px 2px;
 }
 
@@ -902,10 +925,11 @@ html[dir='rtl'] .dropdownToolbarButton {
   overflow: hidden;
   background: url(images/toolbarButton-menuArrows.png) no-repeat;
 }
-html[dir='ltr'] .dropdownToolbarButton {
+
+.pdf-ui-wrappper.ltr .dropdownToolbarButton {
   background-position: 95%;
 }
-html[dir='rtl'] .dropdownToolbarButton {
+.pdf-ui-wrappper.rtl .dropdownToolbarButton {
   background-position: 5%;
 }
 
@@ -931,16 +955,16 @@ html[dir='rtl'] .dropdownToolbarButton {
   border-bottom: 1px rgba(255, 255, 255, .5) solid;
 }
 
-html[dir='ltr'] .splitToolbarButton:first-child,
-html[dir='ltr'] .toolbarButton:first-child,
-html[dir='rtl'] .splitToolbarButton:last-child,
-html[dir='rtl'] .toolbarButton:last-child {
+.pdf-ui-wrappper.ltr .splitToolbarButton:first-child,
+.pdf-ui-wrappper.ltr .toolbarButton:first-child,
+.pdf-ui-wrappper.rtl .splitToolbarButton:last-child,
+.pdf-ui-wrappper.rtl .toolbarButton:last-child {
   margin-left: 4px;
 }
-html[dir='ltr'] .splitToolbarButton:last-child,
-html[dir='ltr'] .toolbarButton:last-child,
-html[dir='rtl'] .splitToolbarButton:first-child,
-html[dir='rtl'] .toolbarButton:first-child {
+.pdf-ui-wrappper.ltr .splitToolbarButton:last-child,
+.pdf-ui-wrappper.ltr .toolbarButton:last-child,
+.pdf-ui-wrappper.rtl .splitToolbarButton:first-child,
+.pdf-ui-wrappper.rtl .toolbarButton:first-child {
   margin-right: 4px;
 }
 
@@ -956,17 +980,17 @@ html[dir='rtl'] .toolbarButton:first-child {
   min-width: 30px;
 }
 
-html[dir='ltr'] #findPrevious {
+.pdf-ui-wrappper.ltr #findPrevious {
   margin-left: 3px;
 }
-html[dir='ltr'] #findNext {
+.pdf-ui-wrappper.ltr #findNext {
   margin-right: 3px;
 }
 
-html[dir='rtl'] #findPrevious {
+.pdf-ui-wrappper.rtl #findPrevious {
   margin-right: 3px;
 }
-html[dir='rtl'] #findNext {
+.pdf-ui-wrappper.rtl #findNext {
   margin-left: 3px;
 }
 
@@ -980,52 +1004,52 @@ html[dir='rtl'] #findNext {
   left: 7px;
 }
 
-html[dir="ltr"] .secondaryToolbarButton::before {
+.pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
   left: 4px;
 }
-html[dir="rtl"] .secondaryToolbarButton::before {
+.pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
   right: 4px;
 }
 
-html[dir='ltr'] .toolbarButton#sidebarToggle::before {
+.pdf-ui-wrappper.ltr .toolbarButton#sidebarToggle::before {
   content: url(images/toolbarButton-sidebarToggle.png);
 }
-html[dir='rtl'] .toolbarButton#sidebarToggle::before {
+.pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
   content: url(images/toolbarButton-sidebarToggle-rtl.png);
 }
 
-html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
+.pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/toolbarButton-secondaryToolbarToggle.png);
 }
-html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
+.pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/toolbarButton-secondaryToolbarToggle-rtl.png);
 }
 
-html[dir='ltr'] .toolbarButton.findPrevious::before {
+.pdf-ui-wrappper.ltr .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous.png);
 }
-html[dir='rtl'] .toolbarButton.findPrevious::before {
+.pdf-ui-wrappper.rtl .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous-rtl.png);
 }
 
-html[dir='ltr'] .toolbarButton.findNext::before {
+.pdf-ui-wrappper.ltr .toolbarButton.findNext::before {
   content: url(images/findbarButton-next.png);
 }
-html[dir='rtl'] .toolbarButton.findNext::before {
+.pdf-ui-wrappper.rtl .toolbarButton.findNext::before {
   content: url(images/findbarButton-next-rtl.png);
 }
 
-html[dir='ltr'] .toolbarButton.pageUp::before {
+.pdf-ui-wrappper.ltr .toolbarButton.pageUp::before {
   content: url(images/toolbarButton-pageUp.png);
 }
-html[dir='rtl'] .toolbarButton.pageUp::before {
+.pdf-ui-wrappper.rtl .toolbarButton.pageUp::before {
   content: url(images/toolbarButton-pageUp-rtl.png);
 }
 
-html[dir='ltr'] .toolbarButton.pageDown::before {
+.pdf-ui-wrappper.ltr .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-pageDown.png);
 }
-html[dir='rtl'] .toolbarButton.pageDown::before {
+.pdf-ui-wrappper.rtl .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-pageDown-rtl.png);
 }
 
@@ -1084,10 +1108,10 @@ html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-viewThumbnail.png);
 }
 
-html[dir="ltr"] #viewOutline.toolbarButton::before {
+.pdf-ui-wrappper.ltr #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline.png);
 }
-html[dir="rtl"] #viewOutline.toolbarButton::before {
+.pdf-ui-wrappper.rtl #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline-rtl.png);
 }
 
@@ -1109,25 +1133,28 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   min-width: 100%;
   white-space: normal;
 }
-html[dir="ltr"] .secondaryToolbarButton {
+
+.pdf-ui-wrappper.ltr .secondaryToolbarButton {
   padding-left: 24px;
   text-align: left;
 }
-html[dir="rtl"] .secondaryToolbarButton {
+
+.pdf-ui-wrappper.rtl .secondaryToolbarButton {
   padding-right: 24px;
   text-align: right;
 }
-html[dir="ltr"] .secondaryToolbarButton.bookmark {
+
+.pdf-ui-wrappper.ltr .secondaryToolbarButton.bookmark {
   padding-left: 27px;
 }
-html[dir="rtl"] .secondaryToolbarButton.bookmark {
+.pdf-ui-wrappper.rtl .secondaryToolbarButton.bookmark {
   padding-right: 27px;
 }
 
-html[dir="ltr"] .secondaryToolbarButton > span {
+.pdf-ui-wrappper.ltr .secondaryToolbarButton > span {
   padding-right: 4px;
 }
-html[dir="rtl"] .secondaryToolbarButton > span {
+.pdf-ui-wrappper.rtl .secondaryToolbarButton > span {
   padding-left: 4px;
 }
 
@@ -1163,10 +1190,10 @@ html[dir="rtl"] .secondaryToolbarButton > span {
   background-color: hsla(0,0%,0%,.5);
   box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
 }
-html[dir='ltr'] .verticalToolbarSeparator {
+.pdf-ui-wrappper.ltr .verticalToolbarSeparator {
   margin-left: 2px;
 }
-html[dir='rtl'] .verticalToolbarSeparator {
+.pdf-ui-wrappper.rtl .verticalToolbarSeparator {
   margin-right: 2px;
 }
 
@@ -1341,11 +1368,11 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   padding: 3px 4px 0;
 }
 
-html[dir='ltr'] .outlineItem > .outlineItems {
+.pdf-ui-wrappper.ltr .outlineItem > .outlineItems {
   margin-left: 20px;
 }
 
-html[dir='rtl'] .outlineItem > .outlineItems {
+.pdf-ui-wrappper.rtl .outlineItem > .outlineItems {
   margin-right: 20px;
 }
 
@@ -1371,18 +1398,18 @@ html[dir='rtl'] .outlineItem > .outlineItems {
   width: 100%;
 }
 
-html[dir='ltr'] .outlineItem > a {
+.pdf-ui-wrappper.ltr .outlineItem > a {
   padding: 2px 0 5px 10px;
 }
-html[dir='ltr'] .attachmentsItem > button {
+.pdf-ui-wrappper.ltr .attachmentsItem > button {
   padding: 2px 0 3px 7px;
   text-align: left;
 }
 
-html[dir='rtl'] .outlineItem > a {
+.pdf-ui-wrappper.rtl .outlineItem > a {
   padding: 2px 10px 5px 0;
 }
-html[dir='rtl'] .attachmentsItem > button {
+.pdf-ui-wrappper.rtl .attachmentsItem > button {
   padding: 2px 7px 3px 0;
   text-align: right;
 }
@@ -1535,10 +1562,10 @@ html[dir='rtl'] .attachmentsItem > button {
 #documentPropertiesOverlay .row > * {
   min-width: 100px;
 }
-html[dir='ltr'] #documentPropertiesOverlay .row > * {
+.pdf-ui-wrappper.ltr #documentPropertiesOverlay .row > * {
   text-align: left;
 }
-html[dir='rtl'] #documentPropertiesOverlay .row > * {
+.pdf-ui-wrappper.rtl #documentPropertiesOverlay .row > * {
   text-align: right;
 }
 #documentPropertiesOverlay .row > span {
@@ -1674,15 +1701,15 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     top: -4px;
   }
 
-  html[dir='ltr'] .toolbarButton::before,
-  html[dir='rtl'] .toolbarButton::before {
+  .pdf-ui-wrappper.ltr .toolbarButton::before,
+  .pdf-ui-wrappper.rtl .toolbarButton::before {
     left: -1px;
   }
 
-  html[dir='ltr'] .secondaryToolbarButton::before {
+  .pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
     left: -2px;
   }
-  html[dir='rtl'] .secondaryToolbarButton::before {
+  .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
     left: 186px;
   }
 
@@ -1697,45 +1724,45 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     background-size: 7px 16px;
   }
 
-  html[dir='ltr'] .toolbarButton#sidebarToggle::before {
+  .pdf-ui-wrappper.ltr .toolbarButton#sidebarToggle::before {
     content: url(images/toolbarButton-sidebarToggle@2x.png);
   }
-  html[dir='rtl'] .toolbarButton#sidebarToggle::before {
+  .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
     content: url(images/toolbarButton-sidebarToggle-rtl@2x.png);
   }
 
-  html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
+  .pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
-  html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
+  .pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
   }
 
-  html[dir='ltr'] .toolbarButton.findPrevious::before {
+  .pdf-ui-wrappper.ltr .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous@2x.png);
   }
-  html[dir='rtl'] .toolbarButton.findPrevious::before {
+  .pdf-ui-wrappper.rtl .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous-rtl@2x.png);
   }
 
-  html[dir='ltr'] .toolbarButton.findNext::before {
+  .pdf-ui-wrappper.ltr .toolbarButton.findNext::before {
     content: url(images/findbarButton-next@2x.png);
   }
-  html[dir='rtl'] .toolbarButton.findNext::before {
+  .pdf-ui-wrappper.rtl .toolbarButton.findNext::before {
     content: url(images/findbarButton-next-rtl@2x.png);
   }
 
-  html[dir='ltr'] .toolbarButton.pageUp::before {
+  .pdf-ui-wrappper.ltr .toolbarButton.pageUp::before {
     content: url(images/toolbarButton-pageUp@2x.png);
   }
-  html[dir='rtl'] .toolbarButton.pageUp::before {
+  .pdf-ui-wrappper.rtl .toolbarButton.pageUp::before {
     content: url(images/toolbarButton-pageUp-rtl@2x.png);
   }
 
-  html[dir='ltr'] .toolbarButton.pageDown::before {
+  .pdf-ui-wrappper.ltr .toolbarButton.pageDown::before {
     content: url(images/toolbarButton-pageDown@2x.png);
   }
-  html[dir='rtl'] .toolbarButton.pageDown::before {
+  .pdf-ui-wrappper.rtl .toolbarButton.pageDown::before {
     content: url(images/toolbarButton-pageDown-rtl@2x.png);
   }
 
@@ -1776,10 +1803,10 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     content: url(images/toolbarButton-viewThumbnail@2x.png);
   }
 
-  html[dir="ltr"] #viewOutline.toolbarButton::before {
+  .pdf-ui-wrappper.ltr #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline@2x.png);
   }
-  html[dir="rtl"] #viewOutline.toolbarButton::before {
+  .pdf-ui-wrappper.rtl #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline-rtl@2x.png);
   }
 
@@ -1879,13 +1906,13 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 }
 
 @media all and (max-width: 960px) {
-  html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
-  html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter {
+  .pdf-ui-wrappper.ltr #outerContainer.sidebarMoving .outerCenter,
+  .pdf-ui-wrappper.ltr #outerContainer.sidebarOpen .outerCenter {
     float: left;
     left: 205px;
   }
-  html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
-  html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter {
+  .pdf-ui-wrappper.rtl #outerContainer.sidebarMoving .outerCenter,
+  .pdf-ui-wrappper.rtl #outerContainer.sidebarOpen .outerCenter {
     float: right;
     right: 205px;
   }
@@ -1922,18 +1949,18 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     background-color: hsla(0,0%,0%,.7);
   }
 
-  html[dir='ltr'] #outerContainer.sidebarOpen > #main-container-pdf {
+  .pdf-ui-wrappper.ltr #outerContainer.sidebarOpen > #main-container-pdf {
     left: 0px;
   }
-  html[dir='rtl'] #outerContainer.sidebarOpen > #main-container-pdf {
+  .pdf-ui-wrappper.rtl #outerContainer.sidebarOpen > #main-container-pdf {
     right: 0px;
   }
 
-  html[dir='ltr'] .outerCenter {
+  .pdf-ui-wrappper.ltr .outerCenter {
     float: left;
     left: 205px;
   }
-  html[dir='rtl'] .outerCenter {
+  .pdf-ui-wrappper.rtl .outerCenter {
     float: right;
     right: 205px;
   }
@@ -1973,14 +2000,14 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   .visibleSmallView {
     display: inherit;
   }
-  html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
-  html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter,
-  html[dir='ltr'] .outerCenter {
+  .pdf-ui-wrappper.ltr #outerContainer.sidebarMoving .outerCenter,
+  .pdf-ui-wrappper.ltr #outerContainer.sidebarOpen .outerCenter,
+  .pdf-ui-wrappper.ltr .outerCenter {
     left: 156px;
   }
-  html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
-  html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter,
-  html[dir='rtl'] .outerCenter {
+  .pdf-ui-wrappper.rtl #outerContainer.sidebarMoving .outerCenter,
+  .pdf-ui-wrappper.rtl #outerContainer.sidebarOpen .outerCenter,
+  .pdf-ui-wrappper.rtl .outerCenter {
     right: 156px;
   }
   .toolbarButtonSpacer {
