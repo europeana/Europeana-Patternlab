@@ -27,7 +27,8 @@ define([], function() {
       var item = {
         url:       $el.attr( 'data-uri' ),
         data_type: $el.attr( 'data-type' ),
-        mime_type: $el.attr( 'data-mime-type' )
+        mime_type: $el.attr( 'data-mime-type' ),
+        thumbnail: $el.attr( 'data-thumbnail' )
       };
 
       if(item.mime_type == 'audio/x-flac'){
@@ -88,7 +89,29 @@ define([], function() {
 
   function doPlay(media_item){
       player.src([ { type: media_item.mime_type, src: media_item.url } ]);
+
+      if(media_item.thumbnail){
+        $('.vjs-poster').css('background-image',    'url(' + media_item.thumbnail + ')');
+        $('.vjs-poster').css('background-repeat',   'no-repeat');
+        $('.vjs-poster').css('background-position', 'center');
+        $('.vjs-poster').removeClass('vjs-hidden');
+      }
+      else{
+          $('.vjs-poster').css('background-image', '');
+          $('.vjs-poster').addClass('vjs-hidden');
+      }
+
+
       player.play();
+
+      /*
+      $('.vjs-fullscreen-control').css('visibility', 'hidden');
+      $viewer.append('<div class="eufs">FS 4</div>')
+      $('.eufs').click(function(){
+          $('.vjs-fullscreen-control').click();
+      });
+      log('added fs 2');
+      */
   }
 
   /**
@@ -135,9 +158,11 @@ define([], function() {
             // This technique may well be fine so leaving it here to try again once
             // the underlying problem with silverlight has been solved.
             //
-            //   player = videojs( $viewer[0], playerOptions );
+            // The height option here applies only to audio - videos will override this
 
-            player = videojs( $viewer[0], {});
+            player = videojs( $viewer[0], {
+                height: media_item.thumbnail ? 340 : 150
+            });
 
             // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
             // see:
@@ -150,6 +175,16 @@ define([], function() {
                 }
                 //log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
             }
+
+            /*
+            $('.vjs-fullscreen-control').css('visibility', 'hidden');
+            $viewer.append('<div class="eufs">FS 3</div>')
+            $('.eufs').click(function(){
+                $('.vjs-fullscreen-control').click();
+            });
+            log('added fs 1');
+            */
+
             doPlay(media_item);
 
             $('.media-viewer').trigger("object-media-open", {hide_thumb: true});

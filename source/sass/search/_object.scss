@@ -184,7 +184,10 @@
         position: relative;
         width: 100%;
       }
-      .object-media-image,
+      .object-media-image{
+        position: relative;
+        z-index: 100;
+      }
       .object-media-iiif{
         position: relative;
         z-index: 2;
