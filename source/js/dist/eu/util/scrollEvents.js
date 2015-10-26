@@ -49,6 +49,7 @@ define([], function(){
                   pullTrigger(target, false);
                 }
                 else{
+                    trigger.attr('enabled', false);
                     console.warn('scroll-trigger chaining must reference a valid target trigger in the fire-on-open-params');
                 }
             }

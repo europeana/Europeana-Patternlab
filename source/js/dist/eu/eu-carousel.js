@@ -146,6 +146,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                             }
                         }
                     }
+                    if (e.distY > 0) {
+                        items.css('top', e.distY + 'px');
+                    }
                 }
                 else{
                     items.css('top', '0px');
@@ -159,6 +162,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                                 }
                             }
                         }
+                    }
+                    if (e.distX > 0) {
+                        items.css('left',  e.distX + 'px');
                     }
                 }
             })

@@ -24,27 +24,56 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
   overflow: hidden;
 }
 
-/* right-align the thumbs (disabled because js changes are needed) */
-/*
-html[dir="ltr"] #sidebarContainer{
+/* show / hide duplicate buttons */
 
-  right: -200px;
-  transition-property: right;
+.pdf-ui-wrappper.ltr{
+
+    #toolbarViewerRight{
+
+        #secondaryToolbarToggle-copy{
+          display: block;
+          &::before{
+            content: url("images/toolbarButton-secondaryToolbarToggle-rtl.png")
+          }
+        }
+        #sidebarToggle{
+          display: none;
+        }
+    }
+
+    #toolbarViewerLeft{
+
+        #sidebarToggle-copy{
+          display: block;
+          &::before {
+            content: url("images/toolbarButton-sidebarToggle.png");
+          }
+        }
+        #secondaryToolbarToggle{
+          display: none;
+        }
+        #sidebarToggle-copy{
+          display: block;
+        }
+    }
 }
 
-html[dir="ltr"] .pdf-ui-wrappper #outerContainer.sidebarOpen > #sidebarContainer{
-  left:  auto;
-  right: 0;
-}
+.pdf-ui-wrappper.rtl{
 
-html[dir="ltr"] .pdf-ui-wrappper #outerContainer.sidebarOpen > #mainContainer{
-  left:  0;
-  right: 200px;
+    #toolbarViewerRight{
+        #secondaryToolbarToggle-copy{
+            display: none;
+        }
+        #sidebarToggle{
+            display: block;
+        }
+     }
+    #toolbarViewerLeft{
+        #secondaryToolbarToggle-copy{
+          display: block;
+        }
+        #sidebarToggle-copy{
+          display: none;
+        }
+    }
 }
-
-html[dir="ltr"] .pdf-ui-wrappper #outerContainer.sidebarOpen > #main-container-pdf{
-  right: 200px;
-  left:   0;
-  transition-property: right;
-}
-*/
