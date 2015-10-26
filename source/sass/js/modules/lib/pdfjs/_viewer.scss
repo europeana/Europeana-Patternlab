@@ -180,8 +180,8 @@
 
 .pdf-ui-wrappper {
   height: 100%;
-  background-color: #404040;
-  background-image: url(images/texture.png);
+  background-color: rgba(0, 0, 0, 0.15);
+  //background-image: url(images/texture.png);
 }
 
 .pdf-ui-wrappper input,
@@ -443,9 +443,9 @@ html[dir='rtl'] #toolbarSidebar {
 #toolbarContainer, .findbar, .secondaryToolbar {
   position: relative;
   height: 32px;
-  background-color: #474747; /* fallback */
-  background-image: url(images/texture.png),
-                    linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
+  background-color: rgba(0, 0, 0, 0.3); /* fallback */
+  //background-image: url(images/texture.png),
+  //                  linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
 }
 html[dir='ltr'] #toolbarContainer, .findbar, .secondaryToolbar {
   box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),

@@ -206,8 +206,7 @@
 /* line 181, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper {
   height: 100%;
-  background-color: #404040;
-  background-image: url(images/texture.png);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 /* line 187, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
@@ -525,9 +524,8 @@ html[dir='rtl'] #toolbarSidebar {
 #toolbarContainer, .findbar, .secondaryToolbar {
   position: relative;
   height: 32px;
-  background-color: #474747;
+  background-color: rgba(0, 0, 0, 0.3);
   /* fallback */
-  background-image: url(images/texture.png), linear-gradient(rgba(82, 82, 82, 0.99), rgba(69, 69, 69, 0.95));
 }
 
 /* line 450, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
