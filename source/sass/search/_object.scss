@@ -259,14 +259,14 @@
 
 .object-media-nav{
     background-color: $media_bg;
+    a:not(.playable){
+        cursor: default;
+    }
+    a.loading{
+        cursor:progress
+    }
 }
 
-.object-media-nav a:not(.playable){
-    cursor: default;
-}
-.object-media-nav a.loading{
-    cursor:progress
-}
 
 .single-item-thumb svg.icon.icon-play,
 .multi-item-poster svg.icon.icon-play,
@@ -298,7 +298,8 @@
 
     a{
       cursor: default;
-      &.playable{
+      &.playable,
+      &.is-shown-by-or-at{
         cursor: pointer;
       }
     }

@@ -3,8 +3,7 @@
     class="mlt-img-div height-to-width"
     style="background-image: url({{thumbnail}})"
   {{/single_item}}>
-
-  <div class="inner"><a href="#"
+  <div class="inner"><a {{#is_shown_by_or_at}}href="{{.}}" target="_blank"{{/is_shown_by_or_at}}
       {{#is_audio}}
           data-type="audio"
       {{/is_audio}}
@@ -79,7 +78,7 @@
         {{/width}}
       {{/technical_metadata}}
 
-      class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}"
+      class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}{{#is_shown_by_or_at}} is-shown-by-or-at{{/is_shown_by_or_at}}"
 
       >{{#single_item}}<img src="{{thumbnail}}"/>{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
             {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}

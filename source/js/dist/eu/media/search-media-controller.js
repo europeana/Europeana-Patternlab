@@ -223,10 +223,10 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
 
 
   function handleListItemSelectorClick(evt) {
-      evt.preventDefault();
 
       if($(this).hasClass('disabled')){
           log('return because media link disabled');
+          evt.preventDefault();
           return;
       }
 
@@ -238,6 +238,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
           console.log('media controller will trigger event' + "object-media-" + data_type);
 
           $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), target:$(this)});
+          evt.preventDefault();
       }
       else{
           log('media item not playable');
