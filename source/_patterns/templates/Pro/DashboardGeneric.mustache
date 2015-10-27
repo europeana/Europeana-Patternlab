@@ -9,7 +9,6 @@
 
 <section class="page_header">
 	<div class="lc">
-    {{> molecules/navigation/breadcrumbs}}
   </div>
 </section>
 
@@ -22,12 +21,12 @@
             <div id="maincontent" class="maincontent">
 
                 <div class="page-intro">
-                    <h1 class="title">Share your data</h1>
+                  {{#content}}
+                    <h1 class="title">{{title}}</h1>
 
-                    <p>Notare quam littera gothica quam nunc putamus parum claram anteposuerit litterarum formas humanitatis. Usus legentis in iis qui facit eorum claritatem lectores legere me.</p>
+                    {{{text}}}
+                  {{/content}}
                 </div>
-
-
 
 
             </div>
