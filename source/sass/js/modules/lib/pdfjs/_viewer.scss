@@ -664,6 +664,7 @@ html[dir='rtl'] #toolbarViewerLeft {
   position: absolute;
   top: 0;
   right: 0;
+  margin-right: 0.15em;
 }
 html[dir='ltr'] #toolbarViewerLeft > *,
 html[dir='ltr'] #toolbarViewerMiddle > *,
@@ -785,7 +786,7 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   width: 1px;
   background-color: hsla(0,0%,0%,.5);
   z-index: 99;
-  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+  //box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
   display: inline-block;
   margin: 5px 0;
 }
@@ -815,7 +816,7 @@ html[dir='rtl'] .splitToolbarButtonSeparator {
   min-width: 16px;
   padding: 2px 6px 0;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 0;
   color: hsla(0,0%,100%,.8);
   font-size: 12px;
   line-height: 14px;
@@ -849,14 +850,14 @@ html[dir='rtl'] .dropdownToolbarButton {
 .overlayButton,
 .secondaryToolbarButton:hover,
 .secondaryToolbarButton:focus {
-  background-color: hsla(0,0%,0%,.12);
-  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
-  background-clip: padding-box;
-  border: 1px solid hsla(0,0%,0%,.35);
-  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
-  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
-              0 0 1px hsla(0,0%,100%,.15) inset,
-              0 1px 0 hsla(0,0%,100%,.05);
+  background-color: hsla(0,0%,0%,.3);
+  //background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  //background-clip: padding-box;
+  border: 1px solid hsla(0,0%,0%,.0);
+  //border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+  //box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+  //            0 0 1px hsla(0,0%,100%,.15) inset,
+  //            0 1px 0 hsla(0,0%,100%,.05);
 }
 
 .toolbarButton:hover:active,
@@ -881,11 +882,11 @@ html[dir='rtl'] .dropdownToolbarButton {
 .splitToolbarButton.toggled > .toolbarButton.toggled,
 .secondaryToolbarButton.toggled {
   background-color: hsla(0,0%,0%,.3);
-  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
-  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.45) hsla(0,0%,0%,.5);
-  box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,
-              0 0 1px hsla(0,0%,0%,.2) inset,
-              0 1px 0 hsla(0,0%,100%,.05);
+  //background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  border-color: hsla(0,0%,0%,0) hsla(0,0%,0%,0) hsla(0,0%,0%,0);
+  //box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,
+  //            0 0 1px hsla(0,0%,0%,.2) inset,
+  //            0 1px 0 hsla(0,0%,100%,.05);
   -webkit-transition-property: background-color, border-color, box-shadow;
   -webkit-transition-duration: 10ms;
   -webkit-transition-timing-function: linear;
@@ -913,6 +914,7 @@ html[dir='rtl'] .dropdownToolbarButton {
 }
 html[dir='ltr'] .dropdownToolbarButton {
   background-position: 95%;
+  margin-top: 6px;
 }
 html[dir='rtl'] .dropdownToolbarButton {
   background-position: 5%;
@@ -1206,7 +1208,7 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   margin: 8px 4px;
   width: 1px;
   background-color: hsla(0,0%,0%,.5);
-  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
+  //box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);
 }
 html[dir='ltr'] .verticalToolbarSeparator {
   margin-left: 2px;
@@ -1870,6 +1872,10 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   .secondaryToolbarButton.documentProperties::before {
     content: url(images/secondaryToolbarButton-documentProperties@2x.png);
   }
+}
+
+#scaleSelectContainer.dropdownToolbarButton:hover {
+  box-shadow: none;
 }
 
 @media print {
