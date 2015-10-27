@@ -376,7 +376,7 @@
 }
 
 #sidebarContent {
-  top: 32px;
+  top: 0;
   bottom: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -423,11 +423,12 @@ html[dir='rtl'] #viewerContainer {
 }
 
 #toolbarSidebar {
+  display: none;
   width: 200px;
   height: 32px;
   background-color: #424242; /* fallback */
-  background-image: url(images/texture.png),
-                    linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));
+  //background-image: url(images/texture.png),
+  //                  linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));
 }
 html[dir='ltr'] #toolbarSidebar {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25),
@@ -579,6 +580,10 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   margin-bottom: -4px;
+}
+
+#secondaryToolbar {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .doorHanger,
@@ -995,11 +1000,13 @@ html[dir='rtl'] #findNext {
   content: url(images/toolbarButton-sidebarToggle.png);
 }
 .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
-  content: url(images/toolbarButton-sidebarToggle-rtl.png);
+  content: url(images/icon-sidebar.svg);
+  width: 16px;
 }
 
 html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
-  content: url(images/toolbarButton-secondaryToolbarToggle.png);
+  content: url(images/icon-tools.svg);
+  width: 16px;
 }
 html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/toolbarButton-secondaryToolbarToggle-rtl.png);
@@ -1020,25 +1027,29 @@ html[dir='rtl'] .toolbarButton.findNext::before {
 }
 
 html[dir='ltr'] .toolbarButton.pageUp::before {
-  content: url(images/toolbarButton-pageUp.png);
+  content: url(images/icon-previous.svg);
+  width: 16px;
 }
 html[dir='rtl'] .toolbarButton.pageUp::before {
   content: url(images/toolbarButton-pageUp-rtl.png);
 }
 
 html[dir='ltr'] .toolbarButton.pageDown::before {
-  content: url(images/toolbarButton-pageDown.png);
+  content: url(images/icon-next.svg);
+  width: 16px;
 }
 html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-pageDown-rtl.png);
 }
 
 .toolbarButton.zoomOut::before {
-  content: url(images/toolbarButton-zoomOut.png);
+  content: url(images/icon-minus.svg);
+  width: 14px;
 }
 
 .toolbarButton.zoomIn::before {
-  content: url(images/toolbarButton-zoomIn.png);
+  content: url(images/icon-plus.svg);
+  width: 14px;
 }
 
 .toolbarButton.presentationMode::before,
@@ -1048,7 +1059,8 @@ html[dir='rtl'] .toolbarButton.pageDown::before {
 
 .toolbarButton.print::before,
 .secondaryToolbarButton.print::before {
-  content: url(images/toolbarButton-print.png);
+  content: url(images/icon-print.svg);
+  width: 16px;
 }
 
 .toolbarButton.openFile::before,
@@ -1100,7 +1112,8 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
 }
 
 #viewFind.toolbarButton::before {
-  content: url(images/toolbarButton-search.png);
+  content: url(images/icon-search.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton {
@@ -1152,33 +1165,39 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
 
 
 .pdf-ui-wrappper .secondaryToolbarButton > span {
-  padding-right: 4px;
+  padding: 0 0.3em;
 }
 
 
 
 .secondaryToolbarButton.firstPage::before {
-  content: url(images/secondaryToolbarButton-firstPage.png);
+  content: url(images/icon-first.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton.lastPage::before {
-  content: url(images/secondaryToolbarButton-lastPage.png);
+  content: url(images/icon-last.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton.rotateCcw::before {
-  content: url(images/secondaryToolbarButton-rotateCcw.png);
+  content: url(images/icon-rotate-counter.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton.rotateCw::before {
-  content: url(images/secondaryToolbarButton-rotateCw.png);
+  content: url(images/icon-rotate-clock.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton.handTool::before {
-  content: url(images/secondaryToolbarButton-handTool.png);
+  content: url(images/icon-hand.svg);
+  width: 16px;
 }
 
 .secondaryToolbarButton.documentProperties::before {
-  content: url(images/secondaryToolbarButton-documentProperties.png);
+  content: url(images/icon-info.svg);
+  width: 16px;
 }
 
 .verticalToolbarSeparator {
@@ -1208,16 +1227,11 @@ html[dir='rtl'] .verticalToolbarSeparator {
 .toolbarField {
   padding: 3px 6px;
   margin: 4px 0 4px 0;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  background-color: hsla(0,0%,100%,.09);
-  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
-  background-clip: padding-box;
-  border: 1px solid hsla(0,0%,0%,.35);
-  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
-  box-shadow: 0 1px 0 hsla(0,0%,0%,.05) inset,
-              0 1px 0 hsla(0,0%,100%,.05);
-  color: hsl(0,0%,95%);
+  border: none;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff;
   font-size: 12px;
   line-height: 14px;
   outline-style: none;
@@ -1251,13 +1265,13 @@ html[dir='rtl'] .verticalToolbarSeparator {
 }
 
 .toolbarField:hover {
-  background-color: hsla(0,0%,100%,.11);
-  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.43) hsla(0,0%,0%,.45);
+  background-color: #fff;
+  color: #4d4d4d;
 }
 
 .toolbarField:focus {
-  background-color: hsla(0,0%,100%,.15);
-  border-color: hsla(204,100%,65%,.8) hsla(204,100%,65%,.85) hsla(204,100%,65%,.9);
+  //background-color: hsla(0,0%,100%,.15);
+  //border-color: hsla(204,100%,65%,.8) hsla(204,100%,65%,.85) hsla(204,100%,65%,.9);
 }
 
 .toolbarLabel {
@@ -1440,6 +1454,20 @@ html[dir='rtl'] .attachmentsItem > button {
   font-style: italic;
   cursor: default;
 }
+
+/*
+Disabled buttons
+*/
+#openFile,
+#download,
+#viewBookmark,
+#viewThumbnail,
+#viewOutline,
+#viewAttachments,
+#pageNumberLabel {
+  display: none;
+}
+
 
 /* TODO: file FF bug to support ::-moz-selection:window-inactive
    so we can override the opaque grey background when the window is inactive;
@@ -1727,14 +1755,16 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     content: url(images/toolbarButton-sidebarToggle@2x.png);
   }
   html[dir='rtl'] .toolbarButton#sidebarToggle::before {
-    content: url(images/toolbarButton-sidebarToggle-rtl@2x.png);
+    content: url(images/icon-sidebar.svg);
+    width: 16px;
   }
 
   .pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
   .pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
-    content: url(images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
+    content: url(images/icon-sidebar.svg);
+    width: 16px;
   }
 
   html[dir='ltr'] .toolbarButton.findPrevious::before {
