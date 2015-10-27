@@ -187,7 +187,7 @@
 .pdf-ui-wrappper input,
 .pdf-ui-wrappper button,
 .pdf-ui-wrappper select {
-  font: message-box;
+  font: "Open Sans", "Arial", sans-serif;
   outline: none;
 }
 
@@ -733,13 +733,13 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
 .splitToolbarButton.toggled > .toolbarButton,
 .toolbarButton.textButton {
   background-color: hsla(0,0%,0%,.12);
-  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
-  background-clip: padding-box;
-  border: 1px solid hsla(0,0%,0%,.35);
-  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
-  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
-              0 0 1px hsla(0,0%,100%,.15) inset,
-              0 1px 0 hsla(0,0%,100%,.05);
+  //background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));
+  //background-clip: padding-box;
+  border: 1px solid hsla(0,0%,0%,0);
+  //border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);
+  //box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+  //            0 0 1px hsla(0,0%,100%,.15) inset,
+  //            0 1px 0 hsla(0,0%,100%,.05);
   -webkit-transition-property: background-color, border-color, box-shadow;
   -webkit-transition-duration: 150ms;
   -webkit-transition-timing-function: ease;
@@ -754,10 +754,10 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
 .overlayButton:hover,
 .toolbarButton.textButton:hover,
 .toolbarButton.textButton:focus {
-  background-color: hsla(0,0%,0%,.2);
-  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
-              0 0 1px hsla(0,0%,100%,.15) inset,
-              0 0 1px hsla(0,0%,0%,.05);
+  background-color: hsla(0,0%,0%,.3);
+  //box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,
+  //            0 0 1px hsla(0,0%,100%,.15) inset,
+  //            0 0 1px hsla(0,0%,0%,.05);
   z-index: 199;
 }
 .splitToolbarButton > .toolbarButton {
@@ -1540,8 +1540,8 @@ Disabled buttons
   font-size: 12px;
   line-height: 14px;
   background-color: #474747; /* fallback */
-  background-image: url(images/texture.png),
-                    linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
+  //background-image: url(images/texture.png),
+  //                  linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
   box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),
               inset 0 1px 1px hsla(0,0%,0%,.15),
               inset 0 -1px 0 hsla(0,0%,100%,.05),
