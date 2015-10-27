@@ -259,11 +259,15 @@
 
 .object-media-nav{
     background-color: $media_bg;
-    a:not(.playable){
-        cursor: default;
-    }
-    a.loading{
-        cursor:progress
+    a{
+      cursor: default;
+      &.playable,
+      &.external-media{
+        cursor: pointer;
+      }
+      &.loading{
+          cursor:progress
+      }
     }
 }
 
@@ -299,7 +303,7 @@
     a{
       cursor: default;
       &.playable,
-      &.is-shown-by-or-at{
+      &.external-media{
         cursor: pointer;
       }
     }
