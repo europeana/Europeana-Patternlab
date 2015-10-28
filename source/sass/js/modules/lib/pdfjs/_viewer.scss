@@ -561,6 +561,10 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   background-position: left;
 }
 
+.findbar input {
+  width: inherit;
+}
+
 .secondaryToolbar {
   padding: 6px;
   height: auto;
@@ -639,7 +643,7 @@ html[dir='rtl'] #findInput[data-status="pending"] {
 
 #findMsg {
   font-style: italic;
-  color: #A6B7D0;
+  color: #1A8AC7;
 }
 
 #findInput.notFound {
