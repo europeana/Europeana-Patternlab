@@ -549,6 +549,11 @@
     padding-top: $space;
     padding-bottom: $space;
     border-top: 1px solid $gray-lighter;
+
+    &.object-title{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 }
 .data-section.no-border{
     border-top: none;

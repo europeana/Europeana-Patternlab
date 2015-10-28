@@ -217,13 +217,17 @@
   <div class="lc">
     <div class="object-overview">
       {{#object}}
-      <div class="object-info cf">
-        {{# title }}
-          <h2 class="object-title">{{title}}</h2>
-        {{/ title }}
-        {{# subtitle }}
-          <div class="subtitle">{{subtitle}}</div>
-        {{/ subtitle }}
+
+      <div class="data-section no-border object-title cf">
+         <h3 class="subsection-label"> {{i18n.site.object.meta-label.title}} </h3>
+         <div class="subsection-content">
+            {{# title }}
+              <h2 class="object-title">{{title}}</h2>
+            {{/ title }}
+            {{# subtitle }}
+              <div class="subtitle">{{subtitle}}</div>
+            {{/ subtitle }}
+         </div>
       </div>
 
       {{#description}}
@@ -311,13 +315,17 @@
         {{#logo}}
         <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
         {{/logo}}
-        <a class="original_context cap" href="{{url}}">
+        <a class="original_context cap" href="{{url}}" target="_blank">
           {{institution_name}}
           <svg class="icon icon-linkout">
             <use xlink:href="#icon-linkout"></use>
           </svg>
         </a>
         {{#url}}{{#institution_country}}
+          <a href="%{url}" target="_blank">{{institution_name}}
+          <svg class="icon icon-linkout">
+            <use xlink:href="#icon-linkout"></use>
+          </svg></a>
           {{{ i18n.site.object.meta-label.provided-by-detail }}}
         {{/institution_country}}{{/url}}
         <span class="cap original_context_country">{{institution_country}}</span>
