@@ -619,6 +619,11 @@
                     "attribute-plaintext": "Plain Text",
                     "attribute-html": "HTML"
                 },
+                "hierarchy": {
+                  "title": "Hierarchy",
+                  "view-items-above": "view items above",
+                  "view-items-below": "view items below"
+                },
                 "meta-label": {
                     "concepts": "Categories",
                     "place": "Place",
@@ -641,7 +646,10 @@
                     "provided-by": "Provided by",
                     "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
                 },
-                "show-more-similar-items": "Show more similar items"
+                "show-more-similar-items": "Show more similar items",
+                "named-entities": {
+                  "title": "Named Entities"
+                }
             },
             "results":{
                 "list":{

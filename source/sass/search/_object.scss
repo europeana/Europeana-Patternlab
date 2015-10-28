@@ -1,7 +1,7 @@
 @import 'mlt';
 
 .search-object{
-       margin-bottom: 0;
+     margin-bottom: 0;
 
     .js-img-frame{
       max-width:  100%;
@@ -611,10 +611,77 @@
     line-height: $thumbnail_max_dimension_media;
 }
 
-
 .subsection-content>ul{
     display: inline;
 }
+
+
+.agt .multi-val{
+  display: inline;
+}
+
+.agt-section{
+  width: 100%;
+  display: table-row;
+  table-layout: fixed;
+}
+
+.agt-title,
+.agt-data{
+  display: table-cell;
+}
+
+.agt-data{
+  padding-left: $space;
+}
+
+.agt-title{
+  &>a {
+    display: block;
+    margin-top: 1em;
+
+    position: relative;
+    padding-right: 1em;
+    &:after{
+      /* arrows closed */
+      content:' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      border-width: 5px; /* tweak size of the arrow */
+      margin-left:5px;
+
+      /* override these on opened */
+      bottom:auto;
+      top:50%;
+      margin-top:-5px;
+      border-style:dashed dashed dashed solid;
+      border-color:transparent transparent transparent #a4cde1;
+    }
+  }
+  &.opened>a{
+   &:after{
+      /* arrows opened */
+      border-color: #a4cde1 transparent transparent transparent;
+      bottom: 2px;
+      border-style: solid dashed dashed dashed;
+      top: auto;
+      margin-top: 0;
+   }
+  }
+  &.agt-top-level{
+    &>a{
+    margin-top: 0;
+    }
+  }
+}
+.agt-subtitle{
+  margin: 0;
+}
+
+
+
 
 @media all and (min-width: $bp-med) {
 

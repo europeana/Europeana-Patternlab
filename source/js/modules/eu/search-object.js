@@ -301,6 +301,15 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         initCarousel($('.more-like-this'), data);
     }
 
+    var setupAGT = function(){
+        $('.agt-title').on('click', function(){
+            $this = $(this);
+            $ul   = $this.next('ul');
+            $ul.toggleClass('is-hidden');
+            $this.toggleClass('opened');
+        });
+    };
+
     var channelCheck = function(){
         if(typeof(Storage) == "undefined") {
             console.log('no storage');
@@ -337,6 +346,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     function initPage(){
 
         channelCheck();
+        setupAGT();
         updateTechData({target:$('.single-item-thumb a')[0]});
 
         // event binding

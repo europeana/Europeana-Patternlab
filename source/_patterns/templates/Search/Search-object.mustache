@@ -264,13 +264,15 @@
 
       {{#meta_additional}}
       {{#geo.long_and_lat}}	{{! check both present }}
-      <a	class="scroll-trigger"
-        enabled="true"
-        data-fire-on-open="showMap"
-        data-fire-on-open-params='{
-        "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-        }'
+      <a class="scroll-trigger"
+         id="scroll-trigger-map"
+         enabled="true"
+         data-fire-on-open="showMap"
+         data-fire-on-open-params='{
+          "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+         }'
         ></a>
+
       <div class="map-section">
         <h3 class="subsection-label">
           {{i18n.site.object.meta-label.location}}
@@ -283,6 +285,11 @@
           </div>
         </div>
       </div>
+      <a class="scroll-trigger trigger-chain"
+        enabled="true"
+        data-disable-when-fired="showMap",
+        data-fire-on-open-params='{ "trigger": "scroll-trigger-map"}'></a>
+
       {{/geo.long_and_lat}}
       {{/meta_additional}}
       {{/object}}
@@ -356,10 +363,11 @@
         <div class="mlt cf">
           <div class="subsection-label">
             {{title}}
-            <a	class="scroll-trigger"
-              enabled="true"
-              data-fire-on-open="showMLT"
-              data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true}'
+            <a id="scroll-trigger-mlt"
+               class="scroll-trigger"
+               enabled="true"
+               data-fire-on-open="showMLT"
+               data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true}'
             ></a>
           </div>
           <div class="subsection-content">
@@ -377,12 +385,64 @@
                 {{/items}}
               </ul>
             </div>
+            <a class="scroll-trigger trigger-chain"
+               enabled="true"
+               data-disable-when-fired="showMLT",
+               data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
           </div>
         </div>
         <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}…</a></div>
       </div>
     {{/content.similar}}
     </div>
+
+   {{#content.named_entities.present}}
+   {{#content.named_entities}}
+    <div class="lc data-border">
+      <div class="data-section no-border">
+        <div class="cf">
+          <div class="subsection-label">
+            {{i18n.site.object.named-entities.title}}
+          </div>
+          <div class="subsection-content">
+            <span class="agt-title agt-top-level"><a>{{i18n.site.object.named-entities.title}}</a></span>
+            <ul class="agt is-hidden">
+               {{#data}}
+                 {{#present}}
+                   <li class="agt-section">
+                     {{#title}}<h4 class="agt-title"><a>{{.}}</a></h4>{{/title}}
+                      <ul class="agt-data is-hidden">
+                        {{#fields}}
+                          <li><h5 class="agt-subtitle">{{{key}}}</h5></li>
+                            {{#val}}
+                             {{^agt_link}}
+                               <li>{{val}}</li>
+                             {{/agt_link}}
+                             {{#agt_link}}
+                               <li><a href="{{val}}">{{val}}</a></li>
+                             {{/agt_link}}
+                            {{/val}}
+                            {{#multi}}
+                            <li>
+                              <ul>
+                              {{#vals}}
+                                <li class="multi-val">{{val}} ({{key}});</li>
+                              {{/vals}}
+                              </ul>
+                            </li>
+                            {{/multi}}
+                        {{/fields}}
+                      </ul>
+                   </li>
+                 {{/present}}
+               {{/data}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/content.named_entities}}
+   {{/content.named_entities.present}}
 
     <div class="lc data-border">
       {{#content.hierarchy}}
