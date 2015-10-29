@@ -5,7 +5,12 @@
 // Styleguide 1.0.0
 
 
-.filter, .filter-advanced{
+.filter,
+.filter-advanced{
+
+  position: relative;
+  padding-left: $space;
+
   border-top: 1px solid $gray87;
   margin-bottom: $space-half;
   @include fontSize(14px);
@@ -171,6 +176,8 @@
     border: none;
     cursor: pointer;
     background-position: 0 0;
+    position: absolute;
+    left: 0;
 }
 
 .radiobuttons > ul > li .filter-item:before{
