@@ -30,7 +30,7 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
     gallery.listen('close', function() {
-        $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image'});
+        $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image', current: gallery.currItem.src  });
     });
     gallery.listen('afterChange', function() {
         if(this.getCurrentIndex() + 1 == this.options.getNumItemsFn()){

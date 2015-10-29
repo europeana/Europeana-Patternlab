@@ -174,12 +174,12 @@
 
             <div class="info-secondary">
               <ul class="object-techdata-list">
-                <li {{^format}}class="is-disabled"{{/format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     {{format}}</li>
-                <li {{^file_size}}class="is-disabled"{{/file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  {{file_size}} {{file_unit}}</li>
-                <li {{^codec}}class="is-disabled"{{/codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      {{codec}}</li>
-                <li {{^fps}}class="is-disabled"{{/fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        {{fps}} {{fps_unit}}</li>
-                <li {{^width}}class="is-disabled"{{/width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-                <li {{^runtime}}class="is-disabled"{{/runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    {{runtime}} {{runtime_unit}}</li>
+                <li {{^format}}class="is-disabled"{{/format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{format}}</span></li>
+                <li {{^file_size}}class="is-disabled"{{/file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{file_size}} {{file_unit}}</span></li>
+                <li {{^codec}}class="is-disabled"{{/codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{codec}}</span></li>
+                <li {{^fps}}class="is-disabled"{{/fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{fps}} {{fps_unit}}</span></li>
+                <li {{^width}}class="is-disabled"{{/width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{width}} × {{height}} {{size_unit}}</span></li>
+                <li {{^runtime}}class="is-disabled"{{/runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{runtime}} {{runtime_unit}}</span></li>
               </ul>
             </div>
 

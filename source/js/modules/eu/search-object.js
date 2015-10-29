@@ -170,11 +170,9 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
             if(writeEl.length==0){
                 return false;
             }
-
             var allFound  = true;
             var anyFound  = false;
             var allConcat = '';
-
             for(var i=0; i<data.length; i++){
                 var val = tgt.data(data[i]['attr']) || data[i]['def'];
                 if(val){
@@ -188,11 +186,12 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                 }
             }
             if(allFound){
-                writeEl[0].nextSibling.nodeValue = allConcat.trim();
+                writeEl.next('.val').empty();
+                writeEl.next('.val').text(allConcat.trim());
                 writeEl.closest('li').removeClass('is-disabled');
             }
             else{
-                writeEl[0].nextSibling.nodeValue = '';
+                writeEl.next('.val').empty();
                 writeEl.closest('li').addClass('is-disabled');
             }
             return anyFound;
@@ -219,7 +218,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         }
         else{
             techData.removeClass('is-expanded')
-            $('.object-techdata').hide();
         }
 
         // download window
@@ -412,6 +410,10 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
         $(window).bind('showHierarchy', function(e, data){
             showHierarchy(data);
+        });
+
+        $(window).bind('updateTechData', function(e, data){
+            updateTechData({target:$(data.selector)[0]});
         });
 
         $('.media-viewer').trigger('media_init');

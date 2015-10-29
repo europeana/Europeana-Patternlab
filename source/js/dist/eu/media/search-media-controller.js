@@ -62,6 +62,11 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   function mediaClosed(evt, data){
       $('.media-viewer').removeClass('active');
       $('.media-viewer .multi-item-poster').removeClass('is-hidden');
+      if(data.type=='image'){
+          // update poster & tech metadata
+          $(window).trigger('updateTechData', {selector: '*[data-uri="' + data.current + '"]'});
+          $('.multi-item-poster img').attr('src', data.current);
+      }
   };
 
   function mediaOpened(evt, data){
@@ -69,8 +74,6 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
       // TODOL review this
       $(listSelector).addClass('open');
       $(singleSelector).addClass('open');
-
-      //log('hide thumb add class ' + singleSelector + ' and ' + listSelector);
     }
 
     $(listItemSelector).removeClass('loading');
