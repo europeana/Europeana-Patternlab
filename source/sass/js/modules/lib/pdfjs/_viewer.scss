@@ -1007,7 +1007,7 @@ html[dir='rtl'] #findNext {
 }
 .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
   content: url(images/icon-sidebar.svg);
-  width: 16px;
+  width: 32px;
 }
 
 html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
@@ -1762,15 +1762,15 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
   html[dir='rtl'] .toolbarButton#sidebarToggle::before {
     content: url(images/icon-sidebar.svg);
-    width: 16px;
+    width: 32px;
   }
 
   .pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
   .pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
-    content: url(images/icon-sidebar.svg);
-    width: 16px;
+    content: url(images/icon-tools.svg);
+    width: 32px;
   }
 
   html[dir='ltr'] .toolbarButton.findPrevious::before {
@@ -1791,32 +1791,38 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     content: url(images/toolbarButton-pageUp@2x.png);
   }
   html[dir='rtl'] .toolbarButton.pageUp::before {
-    content: url(images/toolbarButton-pageUp-rtl@2x.png);
+    content: url(images/icon-previous.svg);
+    width: 32px;
   }
 
   html[dir='ltr'] .toolbarButton.pageDown::before {
     content: url(images/toolbarButton-pageDown@2x.png);
   }
   html[dir='rtl'] .toolbarButton.pageDown::before {
-    content: url(images/toolbarButton-pageDown-rtl@2x.png);
+    content: url(images/icon-next.svg);
+    width: 32px;
   }
 
   .toolbarButton.zoomIn::before {
-    content: url(images/toolbarButton-zoomIn@2x.png);
+    content: url(images/icon-plus.svg);
+    width: 32px;
   }
 
   .toolbarButton.zoomOut::before {
-    content: url(images/toolbarButton-zoomOut@2x.png);
+    content: url(images/icon-minus.svg);
+    width: 32px;
   }
 
   .toolbarButton.presentationMode::before,
   .secondaryToolbarButton.presentationMode::before {
-    content: url(images/toolbarButton-presentationMode@2x.png);
+    content: url(images/icon-fullscreen.svg);
+    width: 32px;
   }
 
   .toolbarButton.print::before,
   .secondaryToolbarButton.print::before {
-    content: url(images/toolbarButton-print@2x.png);
+    content: url(images/icon-print.svg);
+    width: 32px;
   }
 
   .toolbarButton.openFile::before,
@@ -1850,31 +1856,38 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 
   #viewFind.toolbarButton::before {
-    content: url(images/toolbarButton-search@2x.png);
+    content: url(images/icon-search.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.firstPage::before {
-    content: url(images/secondaryToolbarButton-firstPage@2x.png);
+    content: url(images/icon-first.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.lastPage::before {
-    content: url(images/secondaryToolbarButton-lastPage@2x.png);
+    content: url(images/icon-last.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.rotateCcw::before {
-    content: url(images/secondaryToolbarButton-rotateCcw@2x.png);
+    content: url(images/icon-rotate-counter.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.rotateCw::before {
-    content: url(images/secondaryToolbarButton-rotateCw@2x.png);
+    content: url(images/icon-rotate-clock.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.handTool::before {
-    content: url(images/secondaryToolbarButton-handTool@2x.png);
+    content: url(images/icon-hand.svg);
+    width: 32px;
   }
 
   .secondaryToolbarButton.documentProperties::before {
-    content: url(images/secondaryToolbarButton-documentProperties@2x.png);
+    content: url(images/icon-info.svg);
+    width: 32px;
   }
 }
 
