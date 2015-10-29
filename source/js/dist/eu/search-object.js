@@ -343,11 +343,68 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         }
     }
 
+    var setBreadcrumbs = function(){
+
+        var url = window.location.href.split('.html')[0] + '/navigation.json';
+
+        $.getJSON( url, null)
+        .done(
+            function( data ) {
+
+              if(data.back_url){
+                  var crumb = $('.breadcrumbs li.js-return');
+                  var link  = crumb.find('a');
+                  link.attr('href', data.back_url);
+                  crumb.removeClass('js-return');
+              }
+              if(data.next_prev){
+                  if(data.next_prev.next_url){
+                      var crumb = $('.object-nav-lists li.js-next');
+                      var link  = crumb.find('a');
+                      link.attr('href', data.next_prev.next_url);
+                      crumb.removeClass('js-next');
+
+                      $(data.next_prev.next_link_attrs).each(function(i, ob){
+                          link.attr(ob.name, ob.value);
+                      });
+                  }
+                  if(data.next_prev.prev_url){
+                      var crumb = $('.object-nav-lists li.js-previous');
+                      var link  = crumb.find('a');
+                      link.attr('href', data.next_prev.prev_url);
+                      crumb.removeClass('js-previous');
+
+                      $(data.next_prev.prev_link_attrs).each(function(i, ob){
+                          link.attr(ob.name, ob.value);
+                      });
+                  }
+              }
+            }
+        )
+        .fail(function(msg){
+            log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
+        });
+
+/*
+        {
+            "back_url": "/portal/search?f%5BMEDIA%5D%5B%5D=true\u0026f%5BTYPE%5D%5B%5D=IMAGE\u0026page=1\u0026per_page=12",
+            "next_prev": {
+              "next_url": "/portal/record/92070/BibliographicResource_1000126223928.html",
+              "next_link_attrs": [{
+                "name": "data-context-href",
+                "value": "/portal/record/92070/BibliographicResource_1000126223928/track?counter=2\u0026search_id=35"
+              }]
+            }
+          }
+  */
+    }
+
     function initPage(){
 
         channelCheck();
         setupAGT();
         updateTechData({target:$('.single-item-thumb a')[0]});
+        setBreadcrumbs();
 
         // event binding
 

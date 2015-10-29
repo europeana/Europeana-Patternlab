@@ -48,9 +48,14 @@
 
 
     .object-nav-lists{
+      .js-next,
+      .js-previous{
+        display: none;
+      }
+
       @media all and (min-width: $bp-med) {
         @include span(first 18);
-    }
+      }
     }
 
     .next-previous, .breadcrumbs{
@@ -70,7 +75,8 @@
         }
     }
 
-    .breadcrumbs .js-channel{
+    .breadcrumbs .js-channel,
+    .breadcrumbs .js-return{
       display: none;
     }
 
