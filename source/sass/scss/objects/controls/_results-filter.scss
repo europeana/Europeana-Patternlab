@@ -8,9 +8,6 @@
 .filter,
 .filter-advanced{
 
-  position: relative;
-  padding-left: $space;
-
   border-top: 1px solid $gray87;
   margin-bottom: $space-half;
   @include fontSize(14px);
@@ -43,6 +40,9 @@
 
 .filter-list{
   margin-bottom: $space-half;
+  position: relative;
+  padding-left: $space;
+
 }
 
 .filter-list li{
