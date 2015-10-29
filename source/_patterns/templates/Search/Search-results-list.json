@@ -240,7 +240,7 @@
         },
         {
           "url": "http://europeana.eu",
-          "text": "Label here",
+          "text": "Another Label, this one long enough to line wrap",
           "num_results": 600
         },
         {
@@ -264,7 +264,7 @@
           },
           {
             "url": "http://europeana.eu",
-            "text": "Label here",
+            "text": "Another Label, this one long enough to line wrap",
             "num_results": 600,
             "is_checked": true
           },
@@ -293,7 +293,7 @@
         },
         {
           "url": "http://europeana.eu",
-          "text": "Label here",
+          "text": "Another Label, this one long enough to line wrap",
           "num_results": 600
         },
         {

@@ -346,17 +346,13 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
     var setBreadcrumbs = function(){
 
         var url = window.location.href.split('.html')[0] + '/navigation.json';
-
-
         $.ajax({
             beforeSend: function(xhr) {
-              log('setting X-CSRF-Token to ' + $('meta[name="csrf-token"]').attr('content'))
               xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
             },
             url:   url,
             type:  'GET',
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
             success: function(data) {
                 if(data.back_url){
                     var crumb = $('.breadcrumbs li.js-return');
@@ -370,7 +366,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         var link  = crumb.find('a');
                         link.attr('href', data.next_prev.next_url);
                         crumb.removeClass('js-next');
-
                         $(data.next_prev.next_link_attrs).each(function(i, ob){
                             link.attr(ob.name, ob.value);
                         });
@@ -386,25 +381,12 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                         });
                     }
                 }
+                Blacklight.activate();
             },
             error: function(msg){
                 log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
             }
         });
-
-
-/*
-        {
-            "back_url": "/portal/search?f%5BMEDIA%5D%5B%5D=true\u0026f%5BTYPE%5D%5B%5D=IMAGE\u0026page=1\u0026per_page=12",
-            "next_prev": {
-              "next_url": "/portal/record/92070/BibliographicResource_1000126223928.html",
-              "next_link_attrs": [{
-                "name": "data-context-href",
-                "value": "/portal/record/92070/BibliographicResource_1000126223928/track?counter=2\u0026search_id=35"
-              }]
-            }
-          }
-  */
     }
 
     function initPage(){
