@@ -347,43 +347,51 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
         var url = window.location.href.split('.html')[0] + '/navigation.json';
 
-        $.getJSON( url, null)
-        .done(
-            function( data ) {
 
-              if(data.back_url){
-                  var crumb = $('.breadcrumbs li.js-return');
-                  var link  = crumb.find('a');
-                  link.attr('href', data.back_url);
-                  crumb.removeClass('js-return');
-              }
-              if(data.next_prev){
-                  if(data.next_prev.next_url){
-                      var crumb = $('.object-nav-lists li.js-next');
-                      var link  = crumb.find('a');
-                      link.attr('href', data.next_prev.next_url);
-                      crumb.removeClass('js-next');
+        $.ajax({
+            beforeSend: function(xhr) {
+              log('setting X-CSRF-Token to ' + $('meta[name="csrf-token"]').attr('content'))
+              xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+            },
+            url:   url,
+            type:  'GET',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data) {
+                if(data.back_url){
+                    var crumb = $('.breadcrumbs li.js-return');
+                    var link  = crumb.find('a');
+                    link.attr('href', data.back_url);
+                    crumb.removeClass('js-return');
+                }
+                if(data.next_prev){
+                    if(data.next_prev.next_url){
+                        var crumb = $('.object-nav-lists li.js-next');
+                        var link  = crumb.find('a');
+                        link.attr('href', data.next_prev.next_url);
+                        crumb.removeClass('js-next');
 
-                      $(data.next_prev.next_link_attrs).each(function(i, ob){
-                          link.attr(ob.name, ob.value);
-                      });
-                  }
-                  if(data.next_prev.prev_url){
-                      var crumb = $('.object-nav-lists li.js-previous');
-                      var link  = crumb.find('a');
-                      link.attr('href', data.next_prev.prev_url);
-                      crumb.removeClass('js-previous');
+                        $(data.next_prev.next_link_attrs).each(function(i, ob){
+                            link.attr(ob.name, ob.value);
+                        });
+                    }
+                    if(data.next_prev.prev_url){
+                        var crumb = $('.object-nav-lists li.js-previous');
+                        var link  = crumb.find('a');
+                        link.attr('href', data.next_prev.prev_url);
+                        crumb.removeClass('js-previous');
 
-                      $(data.next_prev.prev_link_attrs).each(function(i, ob){
-                          link.attr(ob.name, ob.value);
-                      });
-                  }
-              }
+                        $(data.next_prev.prev_link_attrs).each(function(i, ob){
+                            link.attr(ob.name, ob.value);
+                        });
+                    }
+                }
+            },
+            error: function(msg){
+                log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
             }
-        )
-        .fail(function(msg){
-            log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
         });
+
 
 /*
         {
