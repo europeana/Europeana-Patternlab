@@ -644,6 +644,8 @@
   &>a {
     display: block;
     margin-top: 1em;
+    word-wrap: normal;
+    white-space: nowrap;
 
     position: relative;
     padding-right: 1em;
