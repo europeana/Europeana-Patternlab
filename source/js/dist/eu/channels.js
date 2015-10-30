@@ -38,7 +38,7 @@ define(['search_form', 'smartmenus'], function () {
     }
 
     switch(pageName){
-        case 'channels/show':
+        case 'collections/show':
             require(['search_results'], function(page){
                 page.initPage();
             });

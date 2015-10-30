@@ -29,6 +29,8 @@ Configuration options and content model:
   </li>
   {{/navigation.next_prev.next_url}}
 
+
+  {{^navigation.next_prev}}
   <li class="js-previous">
     <a class="btn btn2" href="{{navigation.next_prev.prev_url}}"{{#navigation.next_prev.prev_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.prev_link_attrs}}>
     <span aria-hidden="true"><svg class="icon icon-previous"><use xlink:href="#icon-previous"></use></svg></span>
@@ -37,5 +39,6 @@ Configuration options and content model:
   <li class="js-next">
     <a class="btn btn2" href="{{navigation.next_prev.next_url}}"{{#navigation.next_prev.next_link_attrs}} {{name}}="{{value}}"{{/navigation.next_prev.next_link_attrs}}><span aria-hidden="true"><svg class="icon icon-next"><use xlink:href="#icon-next"></use></svg></span></a>
   </li>
+  {{/navigation.next_prev}}
 
 </ul>

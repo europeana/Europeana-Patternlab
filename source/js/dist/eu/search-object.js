@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], function($, scrollEvents) {
 
     function log(msg){
         console.log(msg);
@@ -308,9 +308,9 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
         });
     };
 
-    var channelCheck = function(){
+    var channelCheck = function(searchResultsCrumb){
         if(typeof(Storage) == "undefined") {
-            console.log('no storage');
+            log('no storage');
         }
         if(typeof(Storage) !== "undefined") {
 
@@ -326,6 +326,10 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                 link.text(label);
                 link.attr('href', url);
                 crumb.removeClass('js-channel');
+
+                if(searchResultsCrumb){
+                    searchResultsCrumb.hide();
+                }
             }
 
             // menu styling
@@ -357,6 +361,7 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
                     var link  = crumb.find('a');
                     link.attr('href', data.back_url);
                     crumb.removeClass('js-return');
+                    channelCheck(crumb);
                 }
                 if(data.next_prev){
                     if(data.next_prev.next_url){
@@ -389,7 +394,6 @@ define(['jquery', 'util_scrollEvents', 'media_controller'], function($, scrollEv
 
     function initPage(){
 
-        channelCheck();
         setupAGT();
         updateTechData({target:$('.single-item-thumb a')[0]});
         setBreadcrumbs();
