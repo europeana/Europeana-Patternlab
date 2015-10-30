@@ -46,7 +46,7 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
 
             var mapId = 'map';
             var mapInfoId = 'map-info';
-            var placeName = $('#map-place-name').text();
+            var placeName = $('#js-map-place-name').text();
 
             require(['leaflet'], function(){
 

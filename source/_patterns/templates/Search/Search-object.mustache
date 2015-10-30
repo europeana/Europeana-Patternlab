@@ -283,7 +283,7 @@
           {{i18n.site.object.meta-label.location}}
         </h3>
         <div class="object-info">
-          <span id="map-place-name">{{geo.placeName}}</span>
+          <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
           <div id="map">
             <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
             <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
@@ -302,6 +302,22 @@
     {{! end of object info column }}
     <div class="object-actions cf">
       <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+      {{# object.origin }}
+      <div class="object-origin">
+        <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+        {{#logo}}
+        <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+        {{/logo}}
+        {{#url}}
+          <a class="cap" href="{{url}}" target="_blank">{{institution_name}}
+          <svg class="icon icon-linkout">
+            <use xlink:href="#icon-linkout"></use>
+          </svg></a>
+          {{{ i18n.site.object.meta-label.provided-by-detail }}}
+        {{/url}}
+      </div>
+      {{/ object.origin }}
+
       {{# object.rights }}
       <div class="object-rights">
         <h4>{{ i18n.global.facet.header.reusability }}</h4>
@@ -309,29 +325,6 @@
         <div class="object-license">{{> molecules/icons/licenses }}</div>
       </div>
       {{/ object.rights }}
-
-      {{# object.origin }}
-      <div class="object-origin">
-        <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
-        {{#logo}}
-        <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
-        {{/logo}}
-        <a class="original_context cap" href="{{url}}" target="_blank">
-          {{institution_name}}
-          <svg class="icon icon-linkout">
-            <use xlink:href="#icon-linkout"></use>
-          </svg>
-        </a>
-        {{#url}}{{#institution_country}}
-          <a href="{{url}}" target="_blank">{{institution_name}}
-          <svg class="icon icon-linkout">
-            <use xlink:href="#icon-linkout"></use>
-          </svg></a>
-          {{{ i18n.site.object.meta-label.provided-by-detail }}}
-        {{/institution_country}}{{/url}}
-        <span class="cap original_context_country">{{institution_country}}</span>
-      </div>
-      {{/ object.origin }}
 
       {{# object.tags }}
       <div class="object-tags">
