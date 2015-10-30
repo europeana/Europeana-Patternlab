@@ -1007,7 +1007,10 @@ html[dir='rtl'] #findNext {
 }
 .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
   content: url(images/icon-sidebar.svg);
-  width: 32px;
+  width: 16px;
+  @media screen and (min-resolution: 2dppx) {
+        width: 32px;
+    }
 }
 
 html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
@@ -1743,7 +1746,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     left: -2px;
   }
   .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
-    left: 186px;
+    left: -4px;
   }
 
   .toolbarField.pageNumber.visiblePageIsLoading,

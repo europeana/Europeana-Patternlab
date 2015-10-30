@@ -33,7 +33,10 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
         #secondaryToolbarToggle-copy{
           display: block;
           &::before{
-            content: url("images/toolbarButton-secondaryToolbarToggle-rtl.png")
+            content: url("images/toolbarButton-secondaryToolbarToggle-rtl.png");
+              @media screen and (min-resolution: 2dppx) {
+                content: url("images/toolbarButton-secondaryToolbarToggle-rtl@2x.png");
+            }
           }
         }
         #sidebarToggle{
@@ -47,6 +50,9 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
           display: block;
           &::before {
             content: url("images/toolbarButton-sidebarToggle.png");
+            @media screen and (min-resolution: 2dppx) {
+              content: url("images/toolbarButton-sidebarToggle-rtl@2x.png");
+            }
           }
         }
         #secondaryToolbarToggle{
