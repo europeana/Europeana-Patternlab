@@ -918,7 +918,9 @@ html[dir='rtl'] .dropdownToolbarButton {
 }
 html[dir='ltr'] .dropdownToolbarButton {
   background-position: 95%;
-  margin-top: 6px;
+  @media screen and (min-resolution: 2dppx) {
+    margin-top: 6px;
+  }
 }
 html[dir='rtl'] .dropdownToolbarButton {
   background-position: 5%;
@@ -1791,7 +1793,8 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 
   html[dir='ltr'] .toolbarButton.pageUp::before {
-    content: url(images/toolbarButton-pageUp@2x.png);
+    content: url(images/icon-previous.svg);
+    width: 32px;
   }
   html[dir='rtl'] .toolbarButton.pageUp::before {
     content: url(images/icon-previous.svg);
@@ -1799,7 +1802,8 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 
   html[dir='ltr'] .toolbarButton.pageDown::before {
-    content: url(images/toolbarButton-pageDown@2x.png);
+    content: url(images/icon-next.svg);
+    width: 32px;
   }
   html[dir='rtl'] .toolbarButton.pageDown::before {
     content: url(images/icon-next.svg);

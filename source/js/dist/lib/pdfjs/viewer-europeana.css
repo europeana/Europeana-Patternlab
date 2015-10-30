@@ -55,7 +55,7 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer {
 @media screen and (min-resolution: 2dppx) {
   /* line 51, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
   .pdf-ui-wrappper.ltr #toolbarViewerLeft #sidebarToggle-copy::before {
-    content: url("images/toolbarButton-sidebarToggle-rtl@2x.png");
+    content: url("images/toolbarButton-sidebarToggle@2x.png");
   }
 }
 /* line 58, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */

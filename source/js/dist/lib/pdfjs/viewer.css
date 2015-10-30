@@ -1054,15 +1054,20 @@ html[dir='rtl'] .dropdownToolbarButton {
 /* line 919, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .dropdownToolbarButton {
   background-position: 95%;
-  margin-top: 6px;
+}
+@media screen and (min-resolution: 2dppx) {
+  /* line 919, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  html[dir='ltr'] .dropdownToolbarButton {
+    margin-top: 6px;
+  }
 }
 
-/* line 923, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 925, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .dropdownToolbarButton {
   background-position: 5%;
 }
 
-/* line 927, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 929, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dropdownToolbarButton > select {
   min-width: 140px;
   font-size: 12px;
@@ -1074,22 +1079,22 @@ html[dir='rtl'] .dropdownToolbarButton {
   /* Opera does not support 'transparent' <select> background */
 }
 
-/* line 937, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 939, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dropdownToolbarButton > select > option {
   background: #3d3d3d;
 }
 
-/* line 941, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 943, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #customScaleOption {
   display: none;
 }
 
-/* line 945, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 947, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #pageWidthOption {
   border-bottom: 1px rgba(255, 255, 255, 0.5) solid;
 }
 
-/* line 949, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 951, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .splitToolbarButton:first-child,
 html[dir='ltr'] .toolbarButton:first-child,
 html[dir='rtl'] .splitToolbarButton:last-child,
@@ -1097,7 +1102,7 @@ html[dir='rtl'] .toolbarButton:last-child {
   margin-left: 4px;
 }
 
-/* line 955, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 957, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .splitToolbarButton:last-child,
 html[dir='ltr'] .toolbarButton:last-child,
 html[dir='rtl'] .splitToolbarButton:first-child,
@@ -1105,41 +1110,41 @@ html[dir='rtl'] .toolbarButton:first-child {
   margin-right: 4px;
 }
 
-/* line 962, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 964, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButtonSpacer {
   width: 30px;
   display: inline-block;
   height: 1px;
 }
 
-/* line 968, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 970, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButtonFlexibleSpacer {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   min-width: 30px;
 }
 
-/* line 974, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 976, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] #findPrevious {
   margin-left: 3px;
 }
 
-/* line 977, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 979, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] #findNext {
   margin-right: 3px;
 }
 
-/* line 981, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 983, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] #findPrevious {
   margin-right: 3px;
 }
 
-/* line 984, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 986, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] #findNext {
   margin-left: 3px;
 }
 
-/* line 988, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 990, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton::before,
 .secondaryToolbarButton::before {
   /* All matching images have a size of 16x16
@@ -1150,124 +1155,124 @@ html[dir='rtl'] #findNext {
   left: 7px;
 }
 
-/* line 998, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1000, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
   left: 4px;
 }
 
-/* line 1001, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1003, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
   right: 4px;
 }
 
-/* line 1005, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1007, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper.ltr .toolbarButton#sidebarToggle::before {
   content: url(images/toolbarButton-sidebarToggle.png);
 }
 
-/* line 1008, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1010, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
   content: url(images/icon-sidebar.svg);
   width: 16px;
 }
 @media screen and (min-resolution: 2dppx) {
-  /* line 1008, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1010, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
     width: 32px;
   }
 }
 
-/* line 1016, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1018, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/icon-tools.svg);
   width: 16px;
 }
 
-/* line 1020, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1022, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/toolbarButton-secondaryToolbarToggle-rtl.png);
 }
 
-/* line 1024, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1026, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous.png);
 }
 
-/* line 1027, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1029, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous-rtl.png);
 }
 
-/* line 1031, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1033, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .toolbarButton.findNext::before {
   content: url(images/findbarButton-next.png);
 }
 
-/* line 1034, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1036, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .toolbarButton.findNext::before {
   content: url(images/findbarButton-next-rtl.png);
 }
 
-/* line 1038, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1040, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .toolbarButton.pageUp::before {
   content: url(images/icon-previous.svg);
   width: 16px;
 }
 
-/* line 1042, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1044, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .toolbarButton.pageUp::before {
   content: url(images/toolbarButton-pageUp-rtl.png);
 }
 
-/* line 1046, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1048, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .toolbarButton.pageDown::before {
   content: url(images/icon-next.svg);
   width: 16px;
 }
 
-/* line 1050, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1052, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-pageDown-rtl.png);
 }
 
-/* line 1054, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1056, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.zoomOut::before {
   content: url(images/icon-minus.svg);
   width: 14px;
 }
 
-/* line 1059, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1061, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.zoomIn::before {
   content: url(images/icon-plus.svg);
   width: 14px;
 }
 
-/* line 1064, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1066, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.presentationMode::before,
 .secondaryToolbarButton.presentationMode::before {
   content: url(images/toolbarButton-presentationMode.png);
 }
 
-/* line 1069, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1071, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.print::before,
 .secondaryToolbarButton.print::before {
   content: url(images/icon-print.svg);
   width: 16px;
 }
 
-/* line 1075, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1077, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.openFile::before,
 .secondaryToolbarButton.openFile::before {
   content: url(images/toolbarButton-openFile.png);
 }
 
-/* line 1080, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1082, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.download::before,
 .secondaryToolbarButton.download::before {
   content: url(images/toolbarButton-download.png);
 }
 
-/* line 1085, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1087, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.bookmark,
 .secondaryToolbarButton.bookmark {
   -webkit-box-sizing: border-box;
@@ -1278,50 +1283,50 @@ html[dir='rtl'] .toolbarButton.pageDown::before {
   text-decoration: none;
 }
 
-/* line 1094, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1096, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.bookmark {
   padding-top: 5px;
 }
 
-/* line 1098, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1100, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .bookmark[href='#'] {
   opacity: .5;
   pointer-events: none;
 }
 
-/* line 1103, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1105, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarButton.bookmark::before,
 .secondaryToolbarButton.bookmark::before {
   content: url(images/toolbarButton-bookmark.png);
 }
 
-/* line 1108, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1110, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #viewThumbnail.toolbarButton::before {
   content: url(images/toolbarButton-viewThumbnail.png);
 }
 
-/* line 1112, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1114, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir="ltr"] #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline.png);
 }
 
-/* line 1115, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1117, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir="rtl"] #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline-rtl.png);
 }
 
-/* line 1119, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1121, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #viewAttachments.toolbarButton::before {
   content: url(images/toolbarButton-viewAttachments.png);
 }
 
-/* line 1123, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1125, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #viewFind.toolbarButton::before {
   content: url(images/icon-search.svg);
   width: 16px;
 }
 
-/* line 1128, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1130, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton {
   position: relative;
   margin: 0 0 4px 0;
@@ -1333,59 +1338,59 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   white-space: normal;
 }
 
-/* line 1149, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1151, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton {
   padding-left: 24px;
   text-align: left;
 }
 
-/* line 1163, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1165, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton.bookmark {
   padding-left: 27px;
 }
 
-/* line 1176, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1178, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton > span {
   padding: 0 0.3em;
 }
 
-/* line 1182, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1184, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.firstPage::before {
   content: url(images/icon-first.svg);
   width: 16px;
 }
 
-/* line 1187, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1189, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.lastPage::before {
   content: url(images/icon-last.svg);
   width: 16px;
 }
 
-/* line 1192, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1194, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.rotateCcw::before {
   content: url(images/icon-rotate-counter.svg);
   width: 16px;
 }
 
-/* line 1197, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1199, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.rotateCw::before {
   content: url(images/icon-rotate-clock.svg);
   width: 16px;
 }
 
-/* line 1202, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1204, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.handTool::before {
   content: url(images/icon-hand.svg);
   width: 16px;
 }
 
-/* line 1207, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1209, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .secondaryToolbarButton.documentProperties::before {
   content: url(images/icon-info.svg);
   width: 16px;
 }
 
-/* line 1212, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1214, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .verticalToolbarSeparator {
   display: block;
   padding: 8px 0;
@@ -1394,17 +1399,17 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 1220, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1222, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .verticalToolbarSeparator {
   margin-left: 2px;
 }
 
-/* line 1223, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1225, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .verticalToolbarSeparator {
   margin-right: 2px;
 }
 
-/* line 1227, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1229, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .horizontalToolbarSeparator {
   display: block;
   margin: 0 0 4px 0;
@@ -1414,7 +1419,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* line 1236, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1238, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField {
   padding: 3px 6px;
   margin: 4px 0 4px 0;
@@ -1431,13 +1436,13 @@ html[dir='rtl'] .verticalToolbarSeparator {
   transition-timing-function: ease;
 }
 
-/* line 1252, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1254, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField[type=checkbox] {
   display: inline-block;
   margin: 8px 0px;
 }
 
-/* line 1257, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1259, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField.pageNumber {
   -moz-appearance: textfield;
   /* hides the spinner in moz */
@@ -1446,27 +1451,27 @@ html[dir='rtl'] .verticalToolbarSeparator {
   width: 40px;
 }
 
-/* line 1264, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1266, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField.pageNumber.visiblePageIsLoading {
   background-image: url(images/loading-small.png);
   background-repeat: no-repeat;
   background-position: 1px;
 }
 
-/* line 1270, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1272, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField.pageNumber::-webkit-inner-spin-button,
 .toolbarField.pageNumber::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* line 1276, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1278, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarField:hover {
   background-color: #fff;
   color: #4d4d4d;
 }
 
-/* line 1286, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1288, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .toolbarLabel {
   min-width: 16px;
   padding: 3px 6px 3px 2px;
@@ -1482,7 +1487,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
   cursor: default;
 }
 
-/* line 1301, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1303, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #thumbnailView {
   position: absolute;
   width: 120px;
@@ -1493,29 +1498,29 @@ html[dir='rtl'] .verticalToolbarSeparator {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 1311, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1313, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnail {
   float: left;
   margin-bottom: 5px;
 }
 
-/* line 1316, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1318, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #thumbnailView > a:last-of-type > .thumbnail {
   margin-bottom: 10px;
 }
 
-/* line 1320, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1322, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #thumbnailView > a:last-of-type > .thumbnail:not([data-loaded]) {
   margin-bottom: 9px;
 }
 
-/* line 1324, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1326, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnail:not([data-loaded]) {
   border: 1px dashed rgba(255, 255, 255, 0.5);
   margin: -1px -1px 4px -1px;
 }
 
-/* line 1329, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1331, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnailImage {
   border: 1px solid transparent;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -1525,19 +1530,19 @@ html[dir='rtl'] .verticalToolbarSeparator {
   background-clip: content-box;
 }
 
-/* line 1338, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1340, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnailSelectionRing {
   border-radius: 2px;
   padding: 7px;
 }
 
-/* line 1343, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1345, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 a:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,
 .thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {
   opacity: .9;
 }
 
-/* line 1348, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1350, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 a:focus > .thumbnail > .thumbnailSelectionRing,
 .thumbnail:hover > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.15);
@@ -1547,13 +1552,13 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 1359, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1361, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 
-/* line 1364, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1366, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .thumbnail.selected > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.3);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -1562,7 +1567,7 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   color: white;
 }
 
-/* line 1374, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1376, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #outlineView,
 #attachmentsView {
   position: absolute;
@@ -1575,27 +1580,27 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   -moz-user-select: none;
 }
 
-/* line 1386, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1388, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #outlineView {
   padding: 4px 4px 0;
 }
 
-/* line 1389, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1391, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #attachmentsView {
   padding: 3px 4px 0;
 }
 
-/* line 1393, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1395, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .outlineItem > .outlineItems {
   margin-left: 20px;
 }
 
-/* line 1397, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1399, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .outlineItem > .outlineItems {
   margin-right: 20px;
 }
 
-/* line 1401, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1403, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .outlineItem > a,
 .attachmentsItem > button {
   text-decoration: none;
@@ -1611,7 +1616,7 @@ html[dir='rtl'] .outlineItem > .outlineItems {
   white-space: normal;
 }
 
-/* line 1416, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1418, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .attachmentsItem > button {
   border: 0 none;
   background: none;
@@ -1619,29 +1624,29 @@ html[dir='rtl'] .outlineItem > .outlineItems {
   width: 100%;
 }
 
-/* line 1423, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1425, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .outlineItem > a {
   padding: 2px 0 5px 10px;
 }
 
-/* line 1426, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1428, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] .attachmentsItem > button {
   padding: 2px 0 3px 7px;
   text-align: left;
 }
 
-/* line 1431, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1433, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .outlineItem > a {
   padding: 2px 10px 5px 0;
 }
 
-/* line 1434, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1436, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] .attachmentsItem > button {
   padding: 2px 7px 3px 0;
   text-align: right;
 }
 
-/* line 1439, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1441, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .outlineItem > a:hover,
 .attachmentsItem > button:hover {
   background-color: rgba(255, 255, 255, 0.02);
@@ -1651,7 +1656,7 @@ html[dir='rtl'] .attachmentsItem > button {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 1450, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1452, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .outlineItem.selected {
   background-color: rgba(255, 255, 255, 0.08);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -1660,7 +1665,7 @@ html[dir='rtl'] .attachmentsItem > button {
   color: white;
 }
 
-/* line 1460, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1462, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .noResults {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
@@ -1671,7 +1676,7 @@ html[dir='rtl'] .attachmentsItem > button {
 /*
 Disabled buttons
 */
-/* line 1470, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1472, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #openFile,
 #download,
 #viewBookmark,
@@ -1685,17 +1690,17 @@ Disabled buttons
 /* TODO: file FF bug to support ::-moz-selection:window-inactive
    so we can override the opaque grey background when the window is inactive;
    see https://bugzilla.mozilla.org/show_bug.cgi?id=706209 */
-/* line 1484, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1486, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 ::selection {
   background: rgba(0, 0, 255, 0.3);
 }
 
-/* line 1485, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1487, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 ::-moz-selection {
   background: rgba(0, 0, 255, 0.3);
 }
 
-/* line 1487, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1489, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #errorWrapper {
   background: none repeat scroll 0 0 #FF5555;
   color: white;
@@ -1707,22 +1712,22 @@ Disabled buttons
   font-size: 0.8em;
 }
 
-/* line 1497, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1499, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .loadingInProgress #errorWrapper {
   top: 37px;
 }
 
-/* line 1501, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1503, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #errorMessageLeft {
   float: left;
 }
 
-/* line 1505, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1507, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #errorMessageRight {
   float: right;
 }
 
-/* line 1509, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1511, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #errorMoreInfo {
   background-color: #FFFFFF;
   color: black;
@@ -1731,14 +1736,14 @@ Disabled buttons
   width: 98%;
 }
 
-/* line 1517, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1519, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .overlayButton {
   width: auto;
   margin: 3px 4px 2px 4px !important;
   padding: 2px 6px 3px 6px;
 }
 
-/* line 1523, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1525, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #overlayContainer {
   display: table;
   position: absolute;
@@ -1748,20 +1753,20 @@ Disabled buttons
   z-index: 40000;
 }
 
-/* line 1531, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1533, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #overlayContainer > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 1536, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1538, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #overlayContainer > .container {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
-/* line 1542, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1544, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #overlayContainer > .container > .dialog {
   display: inline-block;
   padding: 15px;
@@ -1777,22 +1782,22 @@ Disabled buttons
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* line 1562, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1564, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dialog > .row {
   display: table-row;
 }
 
-/* line 1566, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1568, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dialog > .row > * {
   display: table-cell;
 }
 
-/* line 1570, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1572, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dialog .toolbarField {
   margin: 5px 0;
 }
 
-/* line 1574, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1576, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dialog .separator {
   display: block;
   margin: 4px 0 4px 0;
@@ -1802,65 +1807,65 @@ Disabled buttons
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* line 1583, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1585, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .dialog .buttonRow {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 1588, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1590, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #passwordOverlay > .dialog {
   text-align: center;
 }
 
-/* line 1591, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1593, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #passwordOverlay .toolbarField {
   width: 200px;
 }
 
-/* line 1595, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1597, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #documentPropertiesOverlay > .dialog {
   text-align: left;
 }
 
-/* line 1598, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1600, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #documentPropertiesOverlay .row > * {
   min-width: 100px;
 }
 
-/* line 1601, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1603, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='ltr'] #documentPropertiesOverlay .row > * {
   text-align: left;
 }
 
-/* line 1604, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1606, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 html[dir='rtl'] #documentPropertiesOverlay .row > * {
   text-align: right;
 }
 
-/* line 1607, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1609, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #documentPropertiesOverlay .row > span {
   width: 125px;
   word-wrap: break-word;
 }
 
-/* line 1611, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1613, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #documentPropertiesOverlay .row > p {
   max-width: 225px;
   word-wrap: break-word;
 }
 
-/* line 1615, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1617, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #documentPropertiesOverlay .buttonRow {
   margin-top: 10px;
 }
 
-/* line 1619, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1621, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .clearBoth {
   clear: both;
 }
 
-/* line 1623, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1625, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .fileInput {
   background: white;
   color: black;
@@ -1871,7 +1876,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   top: 0;
 }
 
-/* line 1633, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1635, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug {
   background: none repeat scroll 0 0 white;
   border: 1px solid #666666;
@@ -1884,14 +1889,14 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   width: 300px;
 }
 
-/* line 1644, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1646, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug .controls {
   background: #EEEEEE;
   border-bottom: 1px solid #666666;
   padding: 3px;
 }
 
-/* line 1649, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1651, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug .panels {
   bottom: 0;
   left: 0;
@@ -1902,53 +1907,53 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   top: 27px;
 }
 
-/* line 1658, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1660, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug button.active {
   font-weight: bold;
 }
 
-/* line 1661, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1663, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .debuggerShowText {
   background: none repeat scroll 0 0 yellow;
   color: blue;
 }
 
-/* line 1665, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1667, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .debuggerHideText:hover {
   background: none repeat scroll 0 0 yellow;
 }
 
-/* line 1668, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1670, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug .stats {
   font-family: courier;
   font-size: 10px;
   white-space: pre;
 }
 
-/* line 1673, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1675, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug .stats .title {
   font-weight: bold;
 }
 
-/* line 1676, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1678, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #PDFBug table {
   font-size: 10px;
 }
 
-/* line 1680, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1682, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #viewer.textLayer-visible .textLayer > div,
 #viewer.textLayer-hover .textLayer > div:hover {
   background-color: white;
   color: black;
 }
 
-/* line 1686, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1688, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #viewer.textLayer-shadow .textLayer > div {
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
 }
 
-/* line 1691, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1693, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .grab-to-pan-grab {
   cursor: url("images/grab.cur"), move !important;
   cursor: -webkit-grab !important;
@@ -1956,12 +1961,12 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   cursor: grab !important;
 }
 
-/* line 1697, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1699, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {
   cursor: inherit !important;
 }
 
-/* line 1700, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1702, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .grab-to-pan-grab:active,
 .grab-to-pan-grabbing {
   cursor: url("images/grabbing.cur"), move !important;
@@ -1983,257 +1988,259 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 @page {
   margin: 0;
 }
-/* line 1722, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1724, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #printContainer {
   display: none;
 }
 
 @media screen and (min-resolution: 2dppx) {
   /* Rules for Retina screens */
-  /* line 1728, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1730, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -5px;
   }
 
-  /* line 1734, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1736, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -4px;
   }
 
-  /* line 1740, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1742, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton::before,
   html[dir='rtl'] .toolbarButton::before {
     left: -1px;
   }
 
-  /* line 1745, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1747, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
     left: -2px;
   }
 
-  /* line 1748, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1750, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
     left: -4px;
   }
 
-  /* line 1752, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1754, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarField.pageNumber.visiblePageIsLoading,
   #findInput[data-status="pending"] {
     background-image: url(images/loading-small@2x.png);
     background-size: 16px 17px;
   }
 
-  /* line 1758, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1760, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .dropdownToolbarButton {
     background: url(images/toolbarButton-menuArrows@2x.png) no-repeat;
     background-size: 7px 16px;
   }
 
-  /* line 1763, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1765, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton#sidebarToggle::before {
     content: url(images/toolbarButton-sidebarToggle@2x.png);
   }
 
-  /* line 1766, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1768, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .toolbarButton#sidebarToggle::before {
     content: url(images/icon-sidebar.svg);
     width: 32px;
   }
 
-  /* line 1771, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1773, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
 
-  /* line 1774, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1776, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/icon-tools.svg);
     width: 32px;
   }
 
-  /* line 1779, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1781, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous@2x.png);
   }
 
-  /* line 1782, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1784, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous-rtl@2x.png);
   }
 
-  /* line 1786, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1788, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton.findNext::before {
     content: url(images/findbarButton-next@2x.png);
   }
 
-  /* line 1789, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1791, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .toolbarButton.findNext::before {
     content: url(images/findbarButton-next-rtl@2x.png);
   }
 
-  /* line 1793, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1795, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton.pageUp::before {
-    content: url(images/toolbarButton-pageUp@2x.png);
+    content: url(images/icon-previous.svg);
+    width: 32px;
   }
 
-  /* line 1796, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1799, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .toolbarButton.pageUp::before {
     content: url(images/icon-previous.svg);
     width: 32px;
   }
 
-  /* line 1801, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1804, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .toolbarButton.pageDown::before {
-    content: url(images/toolbarButton-pageDown@2x.png);
+    content: url(images/icon-next.svg);
+    width: 32px;
   }
 
-  /* line 1804, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1808, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .toolbarButton.pageDown::before {
     content: url(images/icon-next.svg);
     width: 32px;
   }
 
-  /* line 1809, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1813, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.zoomIn::before {
     content: url(images/icon-plus.svg);
     width: 32px;
   }
 
-  /* line 1814, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1818, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.zoomOut::before {
     content: url(images/icon-minus.svg);
     width: 32px;
   }
 
-  /* line 1819, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1823, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.presentationMode::before,
   .secondaryToolbarButton.presentationMode::before {
     content: url(images/icon-fullscreen.svg);
     width: 32px;
   }
 
-  /* line 1825, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1829, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.print::before,
   .secondaryToolbarButton.print::before {
     content: url(images/icon-print.svg);
     width: 32px;
   }
 
-  /* line 1831, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1835, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.openFile::before,
   .secondaryToolbarButton.openFile::before {
     content: url(images/toolbarButton-openFile@2x.png);
   }
 
-  /* line 1836, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1840, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.download::before,
   .secondaryToolbarButton.download::before {
     content: url(images/toolbarButton-download@2x.png);
   }
 
-  /* line 1841, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1845, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButton.bookmark::before,
   .secondaryToolbarButton.bookmark::before {
     content: url(images/toolbarButton-bookmark@2x.png);
   }
 
-  /* line 1846, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1850, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #viewThumbnail.toolbarButton::before {
     content: url(images/toolbarButton-viewThumbnail@2x.png);
   }
 
-  /* line 1850, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1854, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir="ltr"] #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline@2x.png);
   }
 
-  /* line 1853, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1857, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir="rtl"] #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline-rtl@2x.png);
   }
 
-  /* line 1857, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1861, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #viewAttachments.toolbarButton::before {
     content: url(images/toolbarButton-viewAttachments@2x.png);
   }
 
-  /* line 1861, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1865, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #viewFind.toolbarButton::before {
     content: url(images/icon-search.svg);
     width: 32px;
   }
 
-  /* line 1866, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1870, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.firstPage::before {
     content: url(images/icon-first.svg);
     width: 32px;
   }
 
-  /* line 1871, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1875, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.lastPage::before {
     content: url(images/icon-last.svg);
     width: 32px;
   }
 
-  /* line 1876, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1880, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.rotateCcw::before {
     content: url(images/icon-rotate-counter.svg);
     width: 32px;
   }
 
-  /* line 1881, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1885, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.rotateCw::before {
     content: url(images/icon-rotate-clock.svg);
     width: 32px;
   }
 
-  /* line 1886, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1890, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.handTool::before {
     content: url(images/icon-hand.svg);
     width: 32px;
   }
 
-  /* line 1891, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1895, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .secondaryToolbarButton.documentProperties::before {
     content: url(images/icon-info.svg);
     width: 32px;
   }
 }
-/* line 1897, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1901, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 #scaleSelectContainer.dropdownToolbarButton:hover {
   box-shadow: none;
 }
 
 @media print {
   /* General rules for printing. */
-  /* line 1903, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1907, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper {
     background: transparent none;
   }
 
   /* Rules for browsers that don't support mozPrintCallback. */
-  /* line 1908, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1912, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #sidebarContainer, #secondaryToolbar, .toolbar, #loadingBox, #errorWrapper, .textLayer {
     display: none;
   }
 
-  /* line 1911, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1915, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #viewerContainer {
     overflow: visible;
   }
 
-  /* line 1915, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1919, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #main-container-pdf, #viewerContainer, .page, .page canvas {
     position: static;
     padding: 0;
     margin: 0;
   }
 
-  /* line 1921, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1925, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .page {
     float: left;
     display: none;
@@ -2243,29 +2250,29 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     background-color: white;
   }
 
-  /* line 1930, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1934, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .page[data-loaded] {
     display: block;
   }
 
-  /* line 1934, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1938, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .fileInput {
     display: none;
   }
 
   /* Rules for browsers that support mozPrintCallback */
-  /* line 1939, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1943, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper[data-mozPrintCallback] #outerContainer {
     display: none;
   }
 
-  /* line 1942, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1946, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .pdf-ui-wrappper[data-mozPrintCallback] #printContainer {
     display: block;
   }
 
   /* wrapper around (scaled) print canvas elements */
-  /* line 1946, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1950, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #printContainer > div {
     position: relative;
     top: 0;
@@ -2273,12 +2280,12 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     overflow: hidden;
   }
 
-  /* line 1952, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1956, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #printContainer canvas {
     display: block;
   }
 }
-/* line 1957, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+/* line 1961, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
 .visibleLargeView,
 .visibleMediumView,
 .visibleSmallView {
@@ -2286,14 +2293,14 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 }
 
 @media all and (max-width: 960px) {
-  /* line 1964, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1968, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter {
     float: left;
     left: 205px;
   }
 
-  /* line 1969, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1973, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter {
     float: right;
@@ -2301,133 +2308,133 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 }
 @media all and (max-width: 900px) {
-  /* line 1977, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1981, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .sidebarOpen .hiddenLargeView {
     display: none;
   }
 
-  /* line 1980, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1984, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .sidebarOpen .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 860px) {
-  /* line 1986, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1990, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .sidebarOpen .hiddenMediumView {
     display: none;
   }
 
-  /* line 1989, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1993, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .sidebarOpen .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 770px) {
-  /* line 1995, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 1999, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #sidebarContainer {
     top: 32px;
     z-index: 100;
   }
 
-  /* line 1999, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2003, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .loadingInProgress #sidebarContainer {
     top: 37px;
   }
 
-  /* line 2002, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2006, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #sidebarContent {
     top: 32px;
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  /* line 2007, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2011, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarOpen > #main-container-pdf {
     left: 0px;
   }
 
-  /* line 2010, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2014, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarOpen > #main-container-pdf {
     right: 0px;
   }
 
-  /* line 2014, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2018, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] .outerCenter {
     float: left;
     left: 205px;
   }
 
-  /* line 2018, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2022, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] .outerCenter {
     float: right;
     right: 205px;
   }
 
-  /* line 2023, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2027, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .hiddenLargeView,
   #outerContainer .hiddenMediumView {
     display: inherit;
   }
 
-  /* line 2027, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2031, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .visibleLargeView,
   #outerContainer .visibleMediumView {
     display: none;
   }
 }
 @media all and (max-width: 700px) {
-  /* line 2034, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2038, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .hiddenLargeView {
     display: none;
   }
 
-  /* line 2037, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2041, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 660px) {
-  /* line 2043, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2047, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .hiddenMediumView {
     display: none;
   }
 
-  /* line 2046, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2050, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #outerContainer .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 600px) {
-  /* line 2052, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2056, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .hiddenSmallView {
     display: none;
   }
 
-  /* line 2055, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2059, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .visibleSmallView {
     display: inherit;
   }
 
-  /* line 2058, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2062, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter,
   html[dir='ltr'] .outerCenter {
     left: 156px;
   }
 
-  /* line 2063, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2067, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter,
   html[dir='rtl'] .outerCenter {
     right: 156px;
   }
 
-  /* line 2068, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2072, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   .toolbarButtonSpacer {
     width: 0;
   }
 }
 @media all and (max-width: 510px) {
-  /* line 2074, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
+  /* line 2078, ../../../../sass/js/modules/lib/pdfjs/viewer.scss */
   #scaleSelectContainer, #pageNumberLabel {
     display: none;
   }

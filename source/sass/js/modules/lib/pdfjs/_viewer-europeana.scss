@@ -51,7 +51,7 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
           &::before {
             content: url("images/toolbarButton-sidebarToggle.png");
             @media screen and (min-resolution: 2dppx) {
-              content: url("images/toolbarButton-sidebarToggle-rtl@2x.png");
+              content: url("images/toolbarButton-sidebarToggle@2x.png");
             }
           }
         }
