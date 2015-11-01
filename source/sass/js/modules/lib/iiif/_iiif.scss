@@ -60,7 +60,6 @@
     text-decoration: underline;
   }
 
-
   a,
   a[disabled="disabled"]:hover{
     text-decoration: none;
@@ -93,40 +92,40 @@
     padding-right: 0.5em;
   }
 
-.first,
-.prev,
-.last,
-.next {
+  .first,
+  .prev,
+  .last,
+  .next {
     background-size: 14px 14px;
     color: transparent;
     top: 2px;
     background-repeat: no-repeat;
     position: relative;
     opacity: 0.8;
-}
+  }
 
-.first:hover,
-.prev:hover,
-.last:hover,
-.next:hover {
+  .first:hover,
+  .prev:hover,
+  .last:hover,
+  .next:hover {
     opacity: 1;
-}
+  }
 
-.first {
+  .first {
     background-image: url(icon-first.svg);
-}
+  }
 
-.prev {
+  .prev {
     background-image: url(icon-previous.svg);
-}
+  }
 
-.next {
+  .next {
     background-image: url(icon-next.svg);
-}
+  }
 
-.last {
+  .last {
     background-image: url(icon-last.svg);
-}
+  }
 
   a[disabled="disabled"]{
     color: #aaa;
@@ -145,7 +144,7 @@
     border-radius: 0;
   }
 
-  .jump-to-img:hover{
+  .jump-to-img:hover:enabled{
     color: #4d4d4d;
     background-color: #fff;
   }
@@ -170,9 +169,4 @@
 }
 
 
-// test overrides
-
-//.media-viewer .leaflet-container{
-//  background-color: red;
-//}
 

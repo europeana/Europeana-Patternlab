@@ -218,6 +218,7 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
         }
         else{
             techData.removeClass('is-expanded')
+            techData.hide();
         }
 
         // download window
@@ -284,7 +285,6 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
                     $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
                         carousel.loadMore(false, data.doAfterLoad);
                     });
-
                     $('.media-thumbs').on('click', 'a', updateTechData);
                     updateTechData({target:$('.media-thumbs a:first')[0]});
                 }

@@ -1,23 +1,16 @@
 define([], function() {
   'use strict';
 
-
-  var css_path_1 = require.toUrl('../css/map/application-map.css');
-  var css_path_2 = require.toUrl('../lib/iiif/iiif.css');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../css/map/application-map.css') + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/iiif/iiif.css')           + '" type="text/css"/>');
 
   var iiif;
-  //var html = $('.object-media-iiif #iiif')[0].outerHTML;
-  //var html = $('.object-media-iiif').html();
   var layerCtrl;
   var currentImg = 0;
   var totalImages;
 
-  var labelledData = {};  // JSON (entire manifest): data.label: data
-  var iiifLayers = {};    // Layers (loaded): label: layer
-
-
-  $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
-  $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+  var labelledData = {}; // JSON (entire manifest): data.label: data
+  var iiifLayers   = {}; // Map layers (loaded): label: layer
 
   function log(msg) {
     console.log(msg);
@@ -29,8 +22,15 @@ define([], function() {
    * Called on init and after navigation operations
    * */
 
-  var load = function(centreIndexIn){
+  var load = function(centreIndexIn, singleImageInfo){
 
+    if(singleImageInfo){
+        var layer = L.tileLayer.iiif(singleImageInfo);
+        iiifLayers['single'] = layer;
+        layer.addTo(iiif);
+        updateCtrls();
+        return;
+    }
     var noToLoad    = 5;
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
@@ -74,6 +74,7 @@ define([], function() {
     $('#iiif-ctrl .prev').attr('disabled', currentImg == 0);
     $('#iiif-ctrl .next').attr('disabled', currentImg == totalImages-1);
     $('#iiif-ctrl .last').attr('disabled', currentImg == totalImages-1);
+    $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages == 1);
   }
 
   var nav = function($el, index){
@@ -169,31 +170,41 @@ define([], function() {
     });
   }
 
+  var setTotalImages = function(total){
+      totalImages = total;
+      $('#iiif-ctrl .total-images').html('/ ' + totalImages);
+  }
 
   function initViewer(manifestUrl, $thumbnail) {
     initUI();
 
-    // Grab a IIIF manifest
-    $.getJSON(manifestUrl, function(data) {
+    if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
+        setTotalImages(1);
+        load(1, manifestUrl);
+        $('#iiif').removeClass('loading');
+    }
+    else{
+        // Grab a IIIF manifest
+        $.getJSON(manifestUrl, function(data) {
 
-      $.each(data.sequences[0].canvases, function(_, val) {
-        labelledData[val.label] = val;
-      });
+            $.each(data.sequences[0].canvases, function(_, val) {
+                labelledData[val.label] = val;
+            });
 
-      totalImages = Object.keys(labelledData).length;
-      $('#iiif-ctrl .total-images').html('/ ' + totalImages);
+            setTotalImages(Object.keys(labelledData).length)
+            load();
 
-      load();
-      $('#iiif').removeClass('loading');
+            $('#iiif').removeClass('loading');
 
-      iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
+            iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
 
-      $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
-      updateCtrls();
-    }).fail(function(jqxhr) {
-        log('error loading manifest: ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
-    });
+            $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
+            updateCtrls();
+        }).fail(function(jqxhr) {
+            log('error loading manifest: ' + JSON.stringify(jqxhr, null, 4));
+            $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
+        });
+    }
   }
 
   return {
