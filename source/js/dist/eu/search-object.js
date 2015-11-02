@@ -308,7 +308,7 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
         });
     };
 
-    var channelCheck = function(searchResultsCrumb){
+    var channelCheck = function(){
         if(typeof(Storage) == "undefined") {
             log('no storage');
         }
@@ -326,10 +326,6 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
                 link.text(label);
                 link.attr('href', url);
                 crumb.removeClass('js-channel');
-
-                if(searchResultsCrumb){
-                    searchResultsCrumb.hide();
-                }
             }
 
             // menu styling
@@ -361,7 +357,7 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
                     var link  = crumb.find('a');
                     link.attr('href', data.back_url);
                     crumb.removeClass('js-return');
-                    channelCheck(crumb);
+                    channelCheck();
                 }
                 if(data.next_prev){
                     if(data.next_prev.next_url){

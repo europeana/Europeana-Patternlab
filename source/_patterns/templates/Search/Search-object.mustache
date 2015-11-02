@@ -268,34 +268,66 @@
       {{/refs_rels}}
 
       {{#meta_additional}}
-      {{#geo.long_and_lat}}	{{! check both present }}
-      <a class="scroll-trigger"
-         id="scroll-trigger-map"
-         enabled="true"
-         data-fire-on-open="showMap"
-         data-fire-on-open-params='{
-          "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-         }'
-        ></a>
+      {{#present}}
 
       <div class="map-section">
         <h3 class="subsection-label">
           {{i18n.site.object.meta-label.location}}
         </h3>
         <div class="object-info">
+        {{#places}}
+          <ul class="data-group">
+            {{#sections}}
+              <li>
+                <section>
+                  <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+                  <ul class="comma-list data-group">
+                    {{# items }}
+                      <li>
+                        {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
+                          {{#life}}
+                            <span class="life-dates">
+                              ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
+                            </span>
+                          {{/life}}
+                          {{#biography}}
+                            <div class="biography">
+                              {{text}}
+                            </div>
+                          {{/biography}}
+                        {{/extra_info}}</li>
+                        </li>
+                    {{/ items}}
+                  </ul>
+                </section>
+              </li>
+            {{/sections}}
+          </ul>
+        {{/places}}
+
+        {{#geo.long_and_lat}}	{{! check both present }}
+          <a class="scroll-trigger"
+             id="scroll-trigger-map"
+             enabled="true"
+             data-fire-on-open="showMap"
+             data-fire-on-open-params='{
+              "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+             }'
+            ></a>
           <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
           <div id="map">
             <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
             <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
           </div>
+          <a class="scroll-trigger trigger-chain"
+            enabled="true"
+            data-disable-when-fired="showMap",
+            data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+        {{/geo.long_and_lat}}
         </div>
       </div>
-      <a class="scroll-trigger trigger-chain"
-        enabled="true"
-        data-disable-when-fired="showMap",
-        data-fire-on-open-params='{ "trigger": "scroll-trigger-map"}'></a>
 
-      {{/geo.long_and_lat}}
+      {{/present}}
       {{/meta_additional}}
       {{/object}}
     </div>
