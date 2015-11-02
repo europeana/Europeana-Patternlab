@@ -10,9 +10,6 @@
          {{# img.src }}
            <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
          {{/ img.src }}
-         {{^ img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="http://europeanastatic.eu/api/image?type=IMAGE" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
       {{/ thumbnail }}
     {{/ is_image }}
 
@@ -20,26 +17,17 @@
          {{# img.src }}
            <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
          {{/ img.src }}
-         {{^ img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="http://europeanastatic.eu/api/image?type=SOUND" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
     {{/ is_audio }}
 
     {{# is_text }}
          {{# img.src }}
            <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
          {{/ img.src }}
-         {{^ img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="http://europeanastatic.eu/api/image?type=TEXT" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
     {{/ is_text }}
 
     {{# is_video }}
          {{# img.src }}
            <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
-         {{^ img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="http://europeanastatic.eu/api/image?type=VIDEO" alt="{{ img.alt }}" /></a>
          {{/ img.src }}
     {{/ is_video }}
     </div>
