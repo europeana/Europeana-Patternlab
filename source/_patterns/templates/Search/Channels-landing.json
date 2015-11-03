@@ -16,7 +16,7 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main"
+      "data_main": "../../js/dist/main/main-collections"
     }
   ],
   "js_vars": [

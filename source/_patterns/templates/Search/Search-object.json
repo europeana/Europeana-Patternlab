@@ -26,8 +26,8 @@
   [
       {
         "path": "../../js/dist/require.js",
-        "data_main": "../../js/dist/main/main",
-        "Data_main": "../../js/min/main/main",
+        "data_main": "../../js/dist/main/main-collections",
+        "Data_main": "../../js/min/main/main-collections",
         "Data_main": "../../js/patternlab/site_js/scratchpad.js"
       }
 
