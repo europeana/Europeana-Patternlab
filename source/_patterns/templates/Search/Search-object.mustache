@@ -109,22 +109,22 @@
     </div>
   </section>
 
-  {{#items}}
-  {{#is_current}}
+  {{^empty_item}}
   <section>
 
     <div class="object-media-info section is-current">
 
-      {{#download}}
       <div class="object-downloads">
 
-        <a class="js-showhide download-button btn alt {{^downloadable}}is-disabled{{/downloadable}}" href="#">
+        <a class="js-showhide download-button btn alt {{^has_downloadable_media}}is-disabled{{/has_downloadable_media}}" href="#">
           <svg class="icon icon-download">
             <use xlink:href="#icon-download"></use>
           </svg>
           {{ i18n.site.object.actions.download }}
         </a>
 
+        {{#items}}
+        {{#is_current}}
         <div class="media-info-tab">
           <div class="lc">
 
@@ -145,18 +145,17 @@
             {{/ rights }}
 
 
-            {{# technical_metadata }}
             <div class="info-support">
                 {{> molecules/metadata/file-detail }}
             </div>
-            {{/ technical_metadata }}
 
-          </div> {{! end media-info}}
+          </div>
         </div>
+        {{/is_current}}
+        {{/items}}
       </div>
-      {{/download}}
 
-      {{#technical_metadata}}
+
       <div class="object-techdata">
         <a class="js-showhide show-button" href="#">
           <svg class="icon icon-info">
@@ -165,37 +164,33 @@
           {{ i18n.site.object.actions.technicalmetadata }}
         </a>
 
+        {{#items}}
+        {{#is_current}}
         <div class="media-info-tab">
           <div class="lc">
 
             <div class="info-primary">
               <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
             </div>
-
             <div class="info-secondary">
               <ul class="object-techdata-list">
-                <li {{^format}}class="is-disabled"{{/format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{format}}</span></li>
-                <li {{^file_size}}class="is-disabled"{{/file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{file_size}} {{file_unit}}</span></li>
-                <li {{^codec}}class="is-disabled"{{/codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{codec}}</span></li>
-                <li {{^fps}}class="is-disabled"{{/fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{fps}} {{fps_unit}}</span></li>
-                <li {{^width}}class="is-disabled"{{/width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{width}} × {{height}} {{size_unit}}</span></li>
-                <li {{^runtime}}class="is-disabled"{{/runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{runtime}} {{runtime_unit}}</span></li>
+                <li {{^technical_metadata.format}}class="is-disabled"{{/technical_metadata.format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{format}}</span></li>
+                <li {{^technical_metadata.file_size}}class="is-disabled"{{/technical_metadata.file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{file_size}} {{file_unit}}</span></li>
+                <li {{^technical_metadata.codec}}class="is-disabled"{{/technical_metadata.codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{codec}}</span></li>
+                <li {{^technical_metadata.fps}}class="is-disabled"{{/technical_metadata.fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{fps}} {{fps_unit}}</span></li>
+                <li {{^technical_metadata.width}}class="is-disabled"{{/technical_metadata.width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{width}} × {{height}} {{size_unit}}</span></li>
+                <li {{^technical_metadata.runtime}}class="is-disabled"{{/technical_metadata.runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{runtime}} {{runtime_unit}}</span></li>
               </ul>
             </div>
-
-            <div class="info-support">
-            </div>
-
           </div>
         </div>
+        {{/is_current}}
+        {{/items}}
       </div>
-      {{/technical_metadata}}
-
     </div>
-
   </section>
-  {{/is_current}}
-  {{/items}}
+  {{/empty_item}}
+
   {{^items}}
   <section>
     <div class="object-media-info section is-current">

@@ -1,28 +1,36 @@
 <div class="file-detail">
 <div class="inner">
 
-	<a class="file-icon" href="{{url}}" >
+  {{#download}}
+  <a class="file-icon" href="{{url}}" >
+  {{/download}}
 
-		<svg class="icon icon-file">
-			<use xlink:href="#icon-file"></use>
-		</svg>
+    <svg class="icon icon-file">
+      <use xlink:href="#icon-file"></use>
+    </svg>
 
-		<span class="file-type">
-			{{format}}
-		</span>
-	</a>
+    {{#technical_metadata}}
+    <span class="file-type">
+      {{#format}}{{.}}{{/format}}
+      {{^format}}?{{/format}}
+    </span>
+    {{/technical_metadata}}
+  </a>
 
-	<div class="file-info">
+  <div class="file-info">
 
-		<a href="{{url}}" class="file-title">
-			{{text}}
-		</a>
-
-		<ul class="file-meta">
-			<li>{{width}} × {{height}} {{size_unit}}</li>
-			<li>{{file_size}} {{file_unit}}</li>
-		</ul>
-	</div>
+    {{#download}}
+    <a href="{{url}}" class="file-title">
+      {{text}}
+    </a>
+    {{/download}}
+    {{#technical_metadata}}
+    <ul class="file-meta">
+      <li>{{width}} × {{height}} {{size_unit}}</li>
+      <li>{{file_size}} {{file_unit}}</li>
+    </ul>
+    {{/technical_metadata}}
+  </div>
 
 </div>
 </div>
