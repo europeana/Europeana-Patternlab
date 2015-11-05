@@ -273,6 +273,23 @@
   }
 
 
+/* map zoom controls */
+
+#map .leaflet-bar a,
+#map .leaflet-bar a:hover {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  color: #095F90;
+  opacity: 1;
+}
+
+
 /* layers control */
 
 .leaflet-control-layers {
