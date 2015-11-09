@@ -6,6 +6,11 @@
   background-image: url("../../images/europeana-logo-collections.png");
   .svg &{
     background-image: url("../../images/europeana-logo-collections.svg");
+      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        background-image: url("../../images/europeana-logo-symbol.svg");
+        min-width:50px;
+        max-width:50px;
+      }
   }
 }
 
@@ -184,8 +189,8 @@
 // Channel landing specific
 .above-hero {
   @media all and (min-width: $bp-small) {
-		margin-top: $globalnavheight;
-	}
+    margin-top: $globalnavheight;
+  }
 }
 
 .exhibitions-list .list-item{
