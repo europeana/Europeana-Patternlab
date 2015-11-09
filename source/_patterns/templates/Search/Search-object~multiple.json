@@ -672,6 +672,7 @@
       },
       "meta_additional":
       {
+        "present": true,
         "geo":
         {
           "long_and_lat": true,
