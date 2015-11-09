@@ -344,7 +344,7 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
     var setBreadcrumbs = function(){
 
         var url = window.location.href.split('.html')[0] + '/navigation.json';
-        if(url.indexOf('pattern-lab/patterns')>-1){
+        if(url.indexOf('/patterns/')>-1){
             return;
         }
 
