@@ -40,287 +40,344 @@
             {
                 "hex": "#696969",
                 "num_results": 5389689,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23696969&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23696969&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"carvagean blue"
             },
             {
                 "hex": "#2F4F4F",
                 "num_results": 5334231,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%232F4F4F&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%232F4F4F&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"labello gray"
             },
             {
                 "hex": "#A9A9A9",
                 "num_results": 4279897,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A9A9A9&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A9A9A9&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"yellow mellow"
             },
             {
                 "hex": "#808080",
                 "num_results": 4085926,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23808080&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23808080&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"gray worm"
             },
             {
                 "hex": "#000000",
                 "num_results": 3997194,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23000000&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23000000&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"gingerbread"
             },
             {
                 "hex": "#C0C0C0",
                 "num_results": 3492891,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23C0C0C0&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23C0C0C0&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"red beard"
             },
             {
                 "hex": "#DCDCDC",
                 "num_results": 2874634,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23DCDCDC&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23DCDCDC&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"flush light"
             },
             {
                 "hex": "#D3D3D3",
                 "num_results": 2559727,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D3D3D3&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D3D3D3&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"moongoose tree"
             },
             {
                 "hex": "#F5F5F5",
                 "num_results": 1331765,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5F5F5&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5F5F5&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"teryaki red"
             },
             {
                 "hex": "#FFFFFF",
                 "num_results": 1288566,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFFF&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFFF&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"musketeer green"
             },
             {
                 "hex": "#556B2F",
                 "num_results": 1267616,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23556B2F&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23556B2F&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"banshee ice cream"
             },
             {
                 "hex": "#800000",
                 "num_results": 1244056,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23800000&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23800000&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"turtleneck brown"
             },
             {
                 "hex": "#D2B48C",
                 "num_results": 1196978,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D2B48C&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D2B48C&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"grasshopper shade"
             },
             {
                 "hex": "#E6E6FA",
                 "num_results": 1089103,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23E6E6FA&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23E6E6FA&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"foxy fuchsia"
             },
             {
                 "hex": "#BDB76B",
                 "num_results": 1056097,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23BDB76B&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23BDB76B&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F5DEB3",
                 "num_results": 803504,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5DEB3&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5DEB3&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"peppermint sprint"
             },
             {
                 "hex": "#BC8F8F",
                 "num_results": 786719,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23BC8F8F&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23BC8F8F&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFFAFA",
                 "num_results": 766922,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFAFA&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFAFA&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#EEE8AA",
                 "num_results": 712167,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23EEE8AA&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23EEE8AA&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F5F5DC",
                 "num_results": 705605,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5F5DC&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5F5DC&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FAF0E6",
                 "num_results": 586857,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAF0E6&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAF0E6&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#8B4513",
                 "num_results": 450215,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%238B4513&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%238B4513&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#8FBC8F",
                 "num_results": 414505,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%238FBC8F&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%238FBC8F&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#A0522D",
                 "num_results": 368233,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A0522D&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A0522D&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F5FFFA",
                 "num_results": 338031,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5FFFA&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F5FFFA&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFE4C4",
                 "num_results": 320350,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFE4C4&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFE4C4&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F8F8FF",
                 "num_results": 305009,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F8F8FF&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F8F8FF&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FAEBD7",
                 "num_results": 302030,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAEBD7&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAEBD7&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#CD853F",
                 "num_results": 284996,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23CD853F&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23CD853F&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F0FFF0",
                 "num_results": 251116,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F0FFF0&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F0FFF0&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FAFAD2",
                 "num_results": 193877,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAFAD2&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FAFAD2&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#DEB887",
                 "num_results": 193764,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23DEB887&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23DEB887&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#A52A2A",
                 "num_results": 192952,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A52A2A&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23A52A2A&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#B0C4DE",
                 "num_results": 181770,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23B0C4DE&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23B0C4DE&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#ADD8E6",
                 "num_results": 140582,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23ADD8E6&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23ADD8E6&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#191970",
                 "num_results": 135440,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23191970&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23191970&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#778899",
                 "num_results": 126531,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23778899&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23778899&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#708090",
                 "num_results": 123674,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23708090&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23708090&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FDF5E6",
                 "num_results": 94374,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FDF5E6&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FDF5E6&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#CD5C5C",
                 "num_results": 93032,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23CD5C5C&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23CD5C5C&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFEBCD",
                 "num_results": 91655,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFEBCD&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFEBCD&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F0E68C",
                 "num_results": 89622,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F0E68C&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F0E68C&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#006400",
                 "num_results": 82438,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23006400&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23006400&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#6B8E23",
                 "num_results": 82400,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%236B8E23&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%236B8E23&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFFFF0",
                 "num_results": 81092,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFF0&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFF0&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#D8BFD8",
                 "num_results": 80383,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D8BFD8&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23D8BFD8&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#4682B4",
                 "num_results": 79701,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%234682B4&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%234682B4&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFFAF0",
                 "num_results": 78390,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFAF0&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFAF0&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#483D8B",
                 "num_results": 76709,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23483D8B&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23483D8B&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#6495ED",
                 "num_results": 60456,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%236495ED&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%236495ED&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFB6C1",
                 "num_results": 56303,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFB6C1&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFB6C1&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFF8DC",
                 "num_results": 51225,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFF8DC&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFF8DC&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#E9967A",
                 "num_results": 48542,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23E9967A&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23E9967A&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#F4A460",
                 "num_results": 46906,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F4A460&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23F4A460&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFE4B5",
                 "num_results": 44531,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFE4B5&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFE4B5&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#FFFFE0",
                 "num_results": 44441,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFE0&f%5BTYPE%5D%5B%5D=%239400D3&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%23FFFFE0&f%5BTYPE%5D%5B%5D=%239400D3&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             },
             {
                 "hex": "#7FFF00",
                 "num_results": 1,
-                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%237FFF00&f%5BTYPE%5D%5B%5D=IMAGE"
+                "url": "/portal/search?f%5BCOLOURPALETTE%5D%5B%5D=%237FFF00&f%5BTYPE%5D%5B%5D=IMAGE",
+                "label":"kryptonite haze"
             }
         ]
     }
