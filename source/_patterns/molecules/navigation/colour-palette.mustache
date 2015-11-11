@@ -1,6 +1,6 @@
 <div class="colour-palette">
 
-    {{# title }}<div class="filter-name">{{ . }}</div>{{/ title }}
+    <!--{{# title }}<div class="filter-name">{{ . }}</div>{{/ title }}-->
 
     <ul class="filter-list">
     {{#items}}
@@ -8,7 +8,7 @@
             <a href="{{url}}" class="" style="background-color:{{hex}}">
             <span class="">{{text}}</span>
             {{#num_results}}
-            <span class="">({{.}})</span>
+            <span class="colour-results">({{.}})</span>
             {{/num_results}}
             </a>
             <span class="colour-name">{{label}}</span>

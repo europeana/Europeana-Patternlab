@@ -329,6 +329,26 @@
 
   @media all and (min-width: $bp-med) {
     @include span(19 of 24);
+    .filter-list li {
+      width: 18%;
+    }
+    padding-left: $pad;
+  }
+
+  @media all and (min-width: $bp-small) and (max-width: $bp-med) {
+    @include span(24 of 24);
+    .filter-list li {
+      width: 25%;
+    }
+    padding-left: $pad;
+  }
+
+  @media all and (max-width: $bp-small) {
+    @include span(24 of 24);
+    .filter-list li {
+      width: 50%;
+    }
+    padding-left: $pad;
   }
 
   ul{
@@ -341,8 +361,9 @@
     display: table;
     width: 100%;
     //line-height: 1;
-    //margin-bottom: $space-half;
+    margin-bottom: $space-quarter;
     height: 4em;
+
   }
 
   span{
@@ -351,9 +372,8 @@
 
   .filter-list li {
     display: inline-block;
-    width: 18%;
     padding-right: 1em;
-    margin-bottom: $space-half;
+    margin-bottom: $space;
   }
 
   .link-text{
@@ -367,6 +387,15 @@
   .link-date{
     width: 30%;
   }
+
+  .colour-results{
+    position: absolute;
+    top: -999999em;
+    left: auto;
+    width: 1px;
+    height: 1px;
+    overflow:hidden;
+}
 
   .colour-name{
     font-size: $font-size-slightly-smaller;
