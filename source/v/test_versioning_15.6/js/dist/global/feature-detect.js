@@ -1,0 +1,1 @@
+var Site=window.Site||{};!function(a){Site.featuredetect=function(){var a={},b=document.documentElement;a.svg=document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),b.className+=a.svg?" svg":" no-svg"},a(function(){Site.featuredetect()})}(jQuery);
