@@ -672,6 +672,7 @@
                 "reusability": "Can I use this?"
               }
             },
+            "find-us-elsewhere": "Find us elsewhere",
             "header": {
               "discover": "Discover",
               "network": "Network",
@@ -681,6 +682,8 @@
             "home": "Home",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
+            "mission": "We transform the world....",
+            "mission-title": "Our mission",
             "more": {
                 "load-more": "Load more"
             },
