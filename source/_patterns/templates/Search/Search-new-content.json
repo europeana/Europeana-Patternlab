@@ -26,7 +26,8 @@
     }
   ],
   "content":{
-    "title":"New Content"
+    "title":"New Content",
+    "description": "Small text describing this page's features"
   }
 
 }
