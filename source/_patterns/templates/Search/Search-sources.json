@@ -27,6 +27,7 @@
   ],
   "content":{
     "title":"Sources",
+    "description": "Small text describing this page's features",
     "providers":{
         "items":[
           {
