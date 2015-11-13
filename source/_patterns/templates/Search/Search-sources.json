@@ -1,0 +1,55 @@
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/static"
+    }
+  ],
+  "content":{
+    "title":"Sources",
+    "providers":{
+        "items":[
+          {
+            "count": "21345",
+            "text": "Koninglijk biblioteke",
+            "url": "#"
+          },
+          {
+            "count": "552677",
+            "text": "den Kunst Institute",
+            "url": "#"
+          },
+          {
+            "count": "27964",
+            "text": "Rijksmuseum",
+            "url": "#"
+          },
+          {
+            "count": "21345",
+            "text": "Victoria & Albert Museum",
+            "url": "#"
+          }
+        ]
+      }
+  }
+}
