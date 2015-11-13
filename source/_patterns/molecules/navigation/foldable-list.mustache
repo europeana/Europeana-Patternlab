@@ -1,0 +1,18 @@
+<div class="lc">
+     <ul class="agt">
+       {{#content.providers}}
+          {{#items}}
+            <li class="agt-section">
+               <h4 class="agt-title"><a>{{text}} ({{count}})</a></h4>
+               {{#data_providers}}
+               <ul class="agt-data is-hidden">
+                 {{#items}}
+                   <li><h5 class="agt-subtitle"><a>{{text}} ({{count}})</a></h5></li>
+                 {{/items}}
+               </ul>
+               {{/data_providers}}
+            </li>
+          {{/items}}
+       {{/content.providers}}
+     </ul>
+  </div>
