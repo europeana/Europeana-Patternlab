@@ -39,6 +39,15 @@ define(['search_form', 'smartmenus'], function () {
     console.log('pageName ' + pageName);
 
     switch(pageName){
+        case 'browse/colours':
+            break;
+
+        case 'browse/new_content':
+            break;
+
+        case 'browse/sources':
+            break;
+
         case 'collections/show':
             require(['search_results'], function(page){
                 page.initPage();
