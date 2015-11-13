@@ -32,22 +32,87 @@
           {
             "count": "21345",
             "text": "Koninglijk biblioteke",
-            "url": "#"
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
           },
           {
             "count": "552677",
             "text": "den Kunst Institute",
-            "url": "#"
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
           },
           {
             "count": "27964",
             "text": "Rijksmuseum",
-            "url": "#"
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
           },
           {
             "count": "21345",
             "text": "Victoria & Albert Museum",
-            "url": "#"
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
+
           }
         ]
       }

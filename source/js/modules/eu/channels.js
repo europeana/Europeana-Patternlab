@@ -36,6 +36,7 @@ define(['search_form', 'smartmenus'], function () {
         console.warn('pageName not specified - cannot bootstrap app');
         return;
     }
+    console.log('pageName ' + pageName);
 
     switch(pageName){
         case 'collections/show':
@@ -54,6 +55,15 @@ define(['search_form', 'smartmenus'], function () {
             });
             break;
         case 'portal/static':
+            var setupAGT = function(){
+                $('.agt-title').on('click', function(){
+                    $this = $(this);
+                    $ul   = $this.next('ul');
+                    $ul.toggleClass('is-hidden');
+                    $this.toggleClass('opened');
+                });
+            };
+            setupAGT();
             break;
         case 'home/index':
             require(['search_home'], function(page){
