@@ -16,7 +16,7 @@
 
   {{#content.recent}}
     <div class="channel-newstuff">
-      {{> molecules/navigation/linklist-with-title }}
+      {{> molecules/navigation/linklist-table }}
     </div>
   {{/content.recent}}
 
@@ -30,4 +30,8 @@
 </section>
 
 </div>
+{{# version.is_alpha }}
+  {{> organisms/sections/phase-feedback }}
+{{/ version.is_alpha }}
+{{> organisms/global/footer }}
 
