@@ -1,5 +1,3 @@
-
-
 {
   "css_files": [
     {
@@ -10,7 +8,7 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-collections"
+      "data_main": "../../js/dist/main/main-foldable-molecule"
     }
   ],
   "js_vars": [

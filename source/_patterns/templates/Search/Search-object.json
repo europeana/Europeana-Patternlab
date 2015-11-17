@@ -424,72 +424,69 @@
       ]
     },
     "named_entities": {
-      "present": true,
-        "data": [
-        {
-          "present": true,
-          "title": "Who",
-          "fields": [
-            {
-                "key": "Agent Term",
-                "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
-                "agt_link": true
-            },
-            {
-                "key": "Agent Label",
-                "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
-                "multi": true
-            }
-          ]
-        },
-        {
-          "present": true,
-          "title": "What",
-          "fields": [
-            {
-                "key": "Concept Term",
-                "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
-                "agt_link": true
-            },
-            {
-                "key": "Concept Label",
-                "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
-                "multi": true
-            }
-          ]
-        },
-        {
-          "present": true,
-          "title": "Where",
-          "fields": [
-            {
-                "key": "Place Term",
-                "val": "https://www.google.co.uk/maps",
-                "agt_link": true
-            }
-          ]
-        },
-        {
-          "present": true,
-          "title": "When",
-          "fields": [
-            {
-                "key": "Period Term",
-                "val": "http://semium.org/time/17xx_4_quarter",
-                "agt_link": true
-            },
-            {
-                "key": "Period Term",
-                "vals": [
-                  {"key": "(fr)", "val": "[4e quart 18e siècle]"},
-                  {"key": "(en)", "val": "[4 quarter of the 18th century]"},
-                  {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
-                ],
-                "multi": true
-            }
-          ]
-        }
-      ]
+          "fold_title": "Named Entities",
+          "data": [
+          {
+            "title": "Who",
+            "fields": [
+              {
+                  "key": "Agent Term",
+                  "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Agent Label",
+                  "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
+                  "multi": true
+              }
+            ]
+          },
+          {
+            "title": "What",
+            "fields": [
+              {
+                  "key": "Concept Term",
+                  "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Concept Label",
+                  "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
+                  "multi": true
+              }
+            ]
+          },
+          {
+            "title": "Where",
+            "fields": [
+              {
+                  "key": "Place Term",
+                  "val": "https://www.google.co.uk/maps",
+                  "foldable_link": true
+              }
+            ]
+          },
+          {
+            "title": "When",
+            "fields": [
+              {
+                  "key": "Period Term",
+                  "val": "http://semium.org/time/17xx_4_quarter",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Period Term",
+                  "vals": [
+                    {"key": "(fr)", "val": "[4e quart 18e siècle]"},
+                    {"key": "(en)", "val": "[4 quarter of the 18th century]"},
+                    {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
+                  ],
+                  "multi": true
+              }
+            ]
+          }
+        ]
+
 
     }
   },

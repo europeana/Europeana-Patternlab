@@ -4,77 +4,35 @@
 
 <div role="main">
 
-<section class="">
-  <div class="object-nav cf">
-    <div class="object-nav-lists">
+  <section class="">
+    <div class="object-nav cf">
+      <div class="object-nav-lists">
 
-      <ul class="breadcrumbs">
-        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-        <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
-      </ul>
+        <ul class="breadcrumbs">
+          <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+          <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 
-</section>
-
-<section class="static-header">
-  <div class="lc">
-    <h1 class="title">{{ content.title }}</h1>
-    <p>{{ content.description }}</p>
-  </div>
-</section>
-
-<section class="static-content section">
-<div class="lc">
-
-  {{#content.providers}}
-    <div class="channel-newstuff">
-      <ol>
-        {{#items}}
-          <li>
-            <a href="{{url}}">{{text}} ({{count}})</a>
-            {{#data_providers}}
-              <ol style="font-size: 0.9em; margin-left: 2em; padding-top: 0;">
-                {{#items}}
-                  <li><a href="{{url}}">{{text}} ({{count}})</a></li>
-                {{/items}}
-              </ol>
-            {{/data_providers}}
-          </li>
-        {{/items}}
-      </ol>
+  <section class="static-header">
+    <div class="lc">
+      <h1 class="title">{{ content.title }}</h1>
+      <p>{{ content.description }}</p>
     </div>
-  {{/content.providers}}
+  </section>
 
-
-  <div class="prose">
-    {{{ content.text }}}
-  </div>
-
-
-</div>
-</section>
+  <section class="static-content section">
+    <div class="lc">
+      {{#content.providers}}
+        {{>molecules/navigation/foldable-list}}
+      {{/content.providers}}
+      <div class="prose">
+        {{{ content.text }}}
+      </div>
+    </div>
+  </section>
 
 </div>
 
-
-<section class="static-content section">
-  <div class="lc">
-     <ul class="agt">
-       {{#content.providers}}
-          {{#items}}
-            <li class="agt-section">
-               <h4 class="agt-title"><a>{{text}} ({{count}})</a></h4>
-               {{#data_providers}}
-               <ul class="agt-data is-hidden">
-                 {{#items}}
-                   <li><h5 class="agt-subtitle"><a>{{text}} ({{count}})</a></h5></li>
-                 {{/items}}
-               </ul>
-               {{/data_providers}}
-            </li>
-          {{/items}}
-       {{/content.providers}}
-     </ul>
-  </div>
-</section>

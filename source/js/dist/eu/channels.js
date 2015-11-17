@@ -46,6 +46,7 @@ define(['search_form', 'smartmenus'], function () {
             break;
 
         case 'browse/sources':
+            require(['util_foldable']);
             break;
 
         case 'collections/show':
@@ -64,15 +65,7 @@ define(['search_form', 'smartmenus'], function () {
             });
             break;
         case 'portal/static':
-            var setupAGT = function(){
-                $('.agt-title').on('click', function(){
-                    $this = $(this);
-                    $ul   = $this.next('ul');
-                    $ul.toggleClass('is-hidden');
-                    $this.toggleClass('opened');
-                });
-            };
-            setupAGT();
+            require(['util_foldable']);
             break;
         case 'home/index':
             require(['search_home'], function(page){

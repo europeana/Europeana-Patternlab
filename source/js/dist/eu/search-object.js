@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents) {
 
     function log(msg){
         console.log(msg);
@@ -299,15 +299,6 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
         initCarousel($('.more-like-this'), data);
     }
 
-    var setupAGT = function(){
-        $('.agt-title').on('click', function(){
-            $this = $(this);
-            $ul   = $this.next('ul');
-            $ul.toggleClass('is-hidden');
-            $this.toggleClass('opened');
-        });
-    };
-
     var channelCheck = function(){
         if(typeof(Storage) == "undefined") {
             log('no storage');
@@ -394,7 +385,6 @@ define(['jquery', 'util_scrollEvents', 'blacklight', 'media_controller'], functi
 
     function initPage(){
 
-        setupAGT();
         updateTechData({target:$('.single-item-thumb a')[0]});
         setBreadcrumbs();
 

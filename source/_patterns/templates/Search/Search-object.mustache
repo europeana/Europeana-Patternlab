@@ -425,7 +425,6 @@
     {{/content.similar}}
     </div>
 
-   {{#content.named_entities.present}}
    {{#content.named_entities}}
     <div class="lc data-border">
       <div class="data-section no-border">
@@ -434,49 +433,12 @@
             {{i18n.site.object.named-entities.title}}
           </div>
           <div class="subsection-content">
-            <span class="agt-title agt-top-level"><a>{{i18n.site.object.named-entities.title}}</a></span>
-            <ul class="agt is-hidden">
-               {{#data}}
-                 {{#present}}
-                   <li class="agt-section">
-                     {{#title}}<h4 class="agt-title"><a>{{.}}</a></h4>{{/title}}
-                      <ul class="agt-data is-hidden">
-                        {{#fields}}
-                          <li><h5 class="agt-subtitle">{{{key}}}</h5></li>
-                            {{#val}}
-                             {{^agt_link}}
-                               <li>{{val}}</li>
-                             {{/agt_link}}
-                             {{#agt_link}}
-                               <li><a href="{{val}}">{{val}}</a></li>
-                             {{/agt_link}}
-                            {{/val}}
-                            {{#multi}}
-                            <li>
-                              <ul>
-                              {{#vals}}
-                               {{^agt_link}}
-                                  <li class="multi-val">{{val}} {{#key}}({{.}}){{/key}};</li>
-                               {{/agt_link}}
-                               {{#agt_link}}
-                                  <li class="multi-val"><a href="{{val}}">{{val}}{{#key}} ({{.}}){{/key}}</a>;</li>
-                               {{/agt_link}}
-                              {{/vals}}
-                              </ul>
-                            </li>
-                            {{/multi}}
-                        {{/fields}}
-                      </ul>
-                   </li>
-                 {{/present}}
-               {{/data}}
-            </ul>
+              {{>molecules/navigation/foldable-list}}
           </div>
         </div>
       </div>
     </div>
     {{/content.named_entities}}
-   {{/content.named_entities.present}}
 
     <div class="lc data-border">
       {{#content.hierarchy}}

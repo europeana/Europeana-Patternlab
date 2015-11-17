@@ -64,6 +64,7 @@ require.config({
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
 
+    util_foldable:                 '../eu/util/foldable-list',
     util_resize:                   '../eu/util/resize',
     util_scrollEvents:             '../eu/util/scrollEvents',
 

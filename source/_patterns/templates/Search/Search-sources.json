@@ -28,8 +28,44 @@
   "content":{
     "title":"Sources",
     "description": "Small text describing this page's features",
+
+
     "providers":{
-        "items":[
+        "inline": true,
+        "data": [
+          {
+            "title": "Provider 1",
+            "fields": [
+              {
+                "val": "Data Provider 1",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              },
+              {
+                "val": "Data Provider 2",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              }
+            ]
+          },
+          {
+            "title": "Provider 2",
+            "fields": [
+              {
+                "val": "Data Provider 3",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              },
+              {
+                "val": "Data Provider 4",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              }
+            ]
+          }
+        ],
+
+        "XXX____items":[
           {
             "count": "21345",
             "text": "Koninglijk biblioteke",
