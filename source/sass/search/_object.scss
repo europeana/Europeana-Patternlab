@@ -29,6 +29,12 @@
     &>div{
         margin-bottom: $space;
     }
+
+    .object-origin{
+      .icon{
+        margin-right: 0;
+      }
+    }
 }
 
 .object-title{

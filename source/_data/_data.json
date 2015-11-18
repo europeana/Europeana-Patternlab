@@ -644,7 +644,7 @@
                     "runtime": "Run time",
                     "rights": "Can I use this?",
                     "provided-by": "Provided by",
-                    "provided-by-detail": "Go to [Rijksmuseum] where they may have more info and media on this object."
+                    "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
                 },
                 "show-more-similar-items": "Show more similar items",
                 "named-entities": {
