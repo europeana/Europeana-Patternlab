@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
     function log(msg){
         console.log(msg);
@@ -128,7 +128,6 @@ define(['jquery', 'util_scrollEvents', 'util_foldable', 'blacklight', 'media_con
     }
 
     var initCarousel = function(el, ops){
-
         var carousel = jQuery.Deferred();
 
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
@@ -383,8 +382,65 @@ define(['jquery', 'util_scrollEvents', 'util_foldable', 'blacklight', 'media_con
         });
     }
 
+    var bindGA = function(){
+
+      // Redirects
+
+      $('.object-origin a').on('click', function(){
+          var href =  $(this).attr('href');
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Redirect',
+            eventAction: href,
+            eventLabel: 'CTR Findoutmore'
+          });
+          log('GA: Redirect, Action = ' + href);
+      });
+
+
+      $('.media-viewer .external-media').not('.playable').on('click', function(){
+          var href =  $(this).attr('href');
+          ga('send', {
+              hitType: 'event',
+              eventCategory: 'Redirect',
+              eventAction: href,
+              eventLabel: 'CTR Thumbnail'
+          });
+          log('GA: Redirect, Action = ' + href);
+      });
+
+      // Downloads
+
+      $('.file-info a').on('click', function(){
+          var href =  $(this).attr('href');
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Download',
+            eventAction: href,
+            eventLabel: 'Media Download'
+          });
+          log('GA: Download, Action = ' + href);
+      });
+
+
+      // Media View
+      $('.media-thumbs, .single-item-thumb').on('click', 'a.playable', function(){
+          var href =  $(this).data('uri');
+          var type =  $(this).data('type');
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Media View',
+            eventAction: href,
+            eventLabel: 'Media ' + type
+          });
+          log('GA: Media View, Action = ' + href + ', Label = ' + type);
+      });
+    }
+
+
     function initPage(){
 
+        bindGA();
         updateTechData({target:$('.single-item-thumb a')[0]});
         setBreadcrumbs();
 
