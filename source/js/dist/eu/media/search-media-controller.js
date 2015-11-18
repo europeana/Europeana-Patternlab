@@ -255,6 +255,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
           var item = $(ob);
           if(item.data('uri')==uri){
               item.click();
+              return false;
           }
       });
   });
@@ -268,6 +269,7 @@ define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
   $('.media-viewer').on('object-media-open', mediaOpened);
   $('.media-viewer').on('object-media-close', mediaClosed);
   $('.media-viewer').on('remove-playability', removePlayability);
+
   $(listSelector).on('click', 'a', handleListItemSelectorClick);
   $(singleItemSelector).on('click', handleListItemSelectorClick);
 
