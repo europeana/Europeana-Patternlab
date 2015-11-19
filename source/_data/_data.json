@@ -6,7 +6,7 @@
     },
 
     "page_config": {
-        "newsletter": false
+        "newsletter": true
     },
     "globalnav_options": {
         "search": true,
