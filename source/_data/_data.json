@@ -564,6 +564,11 @@
         "last": "Way",
         "lasti": "W"
     },
+    "newsletter": {
+      "form": {
+        "action": "http://europeana.us3.list-manage.com/subscribe/post?u=ad318b7566f97eccc895e014e&amp;id=1d4f51a117"
+      }
+    },
     "email": "firsty.surnameson@europeana.eu",
     "year": {
         "long": "2013",
@@ -667,6 +672,7 @@
             }
         },
         "global": {
+            "email-address": "email address",
             "facet": {
               "header": {
                 "reusability": "Can I use this?"
@@ -682,10 +688,19 @@
             "home": "Home",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
+            "language-english": "English",
+            "language-french": "Français",
             "mission": "We transform the world....",
             "mission-title": "Our mission",
             "more": {
                 "load-more": "Load more"
+            },
+            "newsletter":
+            {
+              "signup": "Sign up for our newsletter",
+              "email-address-invalid": "Email must be a valid email address.",
+              "email-address-required": "Email must be specified",
+              "language-required": "A language must be specified."
             },
             "our-sites": "Our sites",
             "professional": "Professional",
