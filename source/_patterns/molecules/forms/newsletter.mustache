@@ -1,9 +1,50 @@
-<form action="#" method="post" class="inline-form newsletter-form">
+<form
+   method="post"
+   action="{{newsletter.form.action}}"
+   class="inline-form newsletter-form"
+   id="mc-embedded-subscribe-form"
+   name="mc-embedded-subscribe-form"
+   target="_blank"
+   onSubmit="return checkForm()">
 
-  <label for="newsletter-field" class="title">Sign up for our newsletter</label>
+   <script type="text/javascript">
+
+     // Inline javascript for simplicity in porting to externally developed sites.
+     //   Note: (there is dependency on jquery here that should be satisfied by whoever uses this molecule)
+
+     var checkForm = function(form_obj) {
+       var why = "";
+       var email = $('#mce-EMAIL');
+       var filter=/^[a-z0-9_\-\.\+]+@[a-z0-9_\-\.]+\.[a-z]{2,4}$/i;
+
+       if (email.val().length==0) {
+         why += "* {{i18n.global.newsletter.email-address-required}}\n";
+       }
+       else if (!filter.test(email.val())) {
+         why += "* {{i18n.global.newsletter.email-address-invalid}}\n";
+       }
+
+       if (!$('#mce-LANGUAGE-0').is(':checked') && !$('#mce-LANGUAGE-1').is(':checked')) {
+         why += "* {{i18n.global.newsletter.language-required}}\n";
+       }
+
+       if (why != "") {
+         alert(why);
+         return false;
+       }
+       return true;
+     };
+   </script>
+
+  <label for="newsletter-field" class="title">{{i18n.global.newsletter.signup}}</label>
 
   <div class="inline-container">
-    <input placeholder="E-mail address" id="newsletter-field" class="js-placeholder newsletter-field" />
+    <input placeholder="{{i18n.global.email-address}}"
+           type="email"
+           name="EMAIL"
+           value=""
+           id="mce-EMAIL"
+           class="js-placeholder newsletter-field" />
     <button class="newsletter-submit">
       <svg class="icon icon-check">
         <use xlink:href="#icon-check"></use>
@@ -13,12 +54,12 @@
 
   <div class="newsletter-options">
     <label>
-      <input type="radio" name="language" value="eng" />
-      English
+      <input type="radio" name="language" value="en" autocomplete="off" id="mce-LANGUAGE-0" />
+        {{i18n.global.language-english}}
     </label>
     <label>
-      <input type="radio" name="language" value="fr" />
-      Français
+      <input type="radio" name="language" value="fr" autocomplete="off" id="mce-LANGUAGE-1" />
+        {{i18n.global.language-french}}
     </label>
   </div>
 </form>
