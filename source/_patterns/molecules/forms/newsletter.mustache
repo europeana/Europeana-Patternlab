@@ -24,9 +24,11 @@
          why += "* {{i18n.global.newsletter.email-address-invalid}}\n";
        }
 
+       {{#newsletter.form.language_op}}
        if (!$('#mce-LANGUAGE-0').is(':checked') && !$('#mce-LANGUAGE-1').is(':checked')) {
          why += "* {{i18n.global.newsletter.language-required}}\n";
        }
+       {{/newsletter.form.language_op}}
 
        if (why != "") {
          alert(why);
@@ -52,6 +54,7 @@
     </button>
   </div>
 
+  {{#newsletter.form.language_op}}
   <div class="newsletter-options">
     <label>
       <input type="radio" name="language" value="en" autocomplete="off" id="mce-LANGUAGE-0" />
@@ -62,4 +65,7 @@
         {{i18n.global.language-french}}
     </label>
   </div>
+  {{/newsletter.form.language_op}}
+
 </form>
+
