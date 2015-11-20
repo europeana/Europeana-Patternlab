@@ -1,73 +1,79 @@
 {
-	"bodyclass": "europeana_labs",
-	"pagetitle": "Europeana Labs",
+  "bodyclass": "europeana_labs",
+  "pagetitle": "Europeana Labs",
 
-	"css_files": [
-		{
-			"path": "../../css/labs/screen.css",
-			"media": "all"
-		}
-	],
-	"content":{
-		"hero_config":{
-			"hero_image":"../../images/labs/hero_bg.jpg",
-			"brand_position" : "brand-bottomleft",
-			"brand_opacity" : "brand-opacity25",
-			"attribution_title" : "Insects and Fruit",
-			"attribution_creator" : "Jan van Kessel",
-			"attribution_institution" : "Rijksmuseum",
-			"attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
-			"license_CC-ND-NC-SA": false,
-			"license_public": true
-		},
-		"strapline":"A playground for remixing and using your cultural heritage. A place for inspiration, innovation and sharing. This is your code, this is your heritage, these are your labs",
-		"news":{
-			"title":"Latest Updates",
-			"more_link":{
-				"text":"More…",
-				"url":"http://europeana.eu"
-			},
-			"items": [
-				{
-					"url":"http://europeana.eu",
-					"image":"fpo_4x3.png",
-					"title":"VanGoYourself",
-					"excerpt": {
-						"short":"This engaging site allows you to recreate your favourite paintings. Learn how it was made and access the open source code."
-						},
-					"category": {
-						"text":"Apps",
-						"style": "category_1",
-						"url":"http://europeana.eu"
-					}
-				},
-				{
-					"url":"http://europeana.eu",
-					"image":"fpo_4x3.png",
-					"title":"images from the Circus Museum",
-					"excerpt": {
-						"short":"A colourful collection of more than 16,000 old posters, photographs and postcards showcasing the history of the circus."
-						},
-					"category": {
-						"text":"Dataset",
-						"style": "category_2",
-						"url":"http://europeana.eu"
-					}
-				},
-				{
-					"url":"http://europeana.eu",
-					"image":"fpo_4x3.png",
-					"title":"Our new multimedia discovery tools",
-					"excerpt": {
-						"short":"We've launched new technology which lets you get straight to the best quality, instantly available multimedia files."
-						},
-					"category": {
-						"text":"From the Blog",
-						"style": "category_3",
-						"url":"http://europeana.eu"
-					}
-				}
-			]
-		}
-	}
+  "css_files": [
+    {
+      "path": "../../css/labs/screen.css",
+      "media": "all"
+    }
+  ],
+  "content":{
+    "hero_config":{
+      "hero_image":"../../images/labs/hero_bg.jpg",
+      "brand_position" : "brand-bottomleft",
+      "brand_opacity" : "brand-opacity25",
+      "attribution_title" : "Insects and Fruit",
+      "attribution_creator" : "Jan van Kessel",
+      "attribution_institution" : "Rijksmuseum",
+      "attribution_url" : "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
+      "license_CC-ND-NC-SA": false,
+      "license_public": true
+    },
+    "strapline":"A playground for remixing and using your cultural heritage. A place for inspiration, innovation and sharing. This is your code, this is your heritage, these are your labs",
+    "news":{
+      "title":"Latest Updates",
+      "more_link":{
+        "text":"More…",
+        "url":"http://europeana.eu"
+      },
+      "items": [
+        {
+          "url":"http://europeana.eu",
+          "image":"fpo_4x3.png",
+          "title":"VanGoYourself",
+          "excerpt": {
+            "short":"This engaging site allows you to recreate your favourite paintings. Learn how it was made and access the open source code."
+            },
+          "category": {
+            "text":"Apps",
+            "style": "category_1",
+            "url":"http://europeana.eu"
+          }
+        },
+        {
+          "url":"http://europeana.eu",
+          "image":"fpo_4x3.png",
+          "title":"images from the Circus Museum",
+          "excerpt": {
+            "short":"A colourful collection of more than 16,000 old posters, photographs and postcards showcasing the history of the circus."
+            },
+          "category": {
+            "text":"Dataset",
+            "style": "category_2",
+            "url":"http://europeana.eu"
+          }
+        },
+        {
+          "url":"http://europeana.eu",
+          "image":"fpo_4x3.png",
+          "title":"Our new multimedia discovery tools",
+          "excerpt": {
+            "short":"We've launched new technology which lets you get straight to the best quality, instantly available multimedia files."
+            },
+          "category": {
+            "text":"From the Blog",
+            "style": "category_3",
+            "url":"http://europeana.eu"
+          }
+        }
+      ]
+    }
+  },
+  "newsletter": {
+    "form": {
+      "action": "http://europeana.us3.list-manage.com/subscribe?u=ad318b7566f97eccc895e014e&id=935d4e98eb",
+      "language_op": false
+    }
+  }
 }
