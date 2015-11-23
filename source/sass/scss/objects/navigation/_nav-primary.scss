@@ -38,6 +38,11 @@
     margin-top: 0.2em;
   }
 
+  .sm li{
+    white-space: nowrap;
+  }
+
+
   // primary nav in header
   .header & {
     display: none;
