@@ -35,12 +35,10 @@ Configuration options and content model:
 }}
 
 <fieldset class="control-group">
-
-	{{# title }}<legend class="title">{{ title }} {{#is_required}}<abbr title="Required">*</abbr>{{/is_required}}</legend>{{/ title }}
-
-    <ul class="group-checkbox">
+  {{# title }}<legend class="title">{{ title }} {{#is_required}}<abbr title="Required">*</abbr>{{/is_required}}</legend>{{/ title }}
+  <ul class="group-checkbox">
     {{#items}}
-        <li class="group-item"><label for="{{item_id}}"><input id="{{item_id}}" name="{{name}}" type="checkbox" value="{{value}}" {{#is_checked}} checked {{/is_checked}} {{#is_disabled}} checked {{/is_disabled}}> {{text}}</label></li>
+      <li class="group-item"><label for="{{item_id}}"><input id="{{item_id}}" name="{{name}}" type="checkbox" value="{{value}}" {{#is_checked}} checked {{/is_checked}} {{#is_disabled}} checked {{/is_disabled}} autocomplete="off"> {{text}}</label></li>
     {{/items}}
-    </ul>
+  </ul>
 </fieldset>

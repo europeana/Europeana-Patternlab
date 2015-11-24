@@ -2,24 +2,15 @@
 
 {{> organisms/global/header_v2}}
 
+<div role="main" class="page l-page">
 
-<div role="main">
+    <section class="language-selection">
+        <div class="container">
+            <div class="results-list cf">
 
-<section class="block-content-header section">
-	<div class="lc">
-		<h1 class="title">{{ settings.title }}</h1>
-	</div>
-</section>
-
-<section class="static-content section">
-<div class="lc">
-
-	<div class="prose">
-		<div class="cf">
-
-              <form id="settings-form" action="{{settings.language.form.action}}" method="PUT">
-
-                                  <input type="hidden" name="authenticity_token" value="{{settings.language.form.form_authenticity_token}}"/>
+              <form id="settings-form" action="{{settings.language.form.action}}" method="post">
+                  <input name="_method" type="hidden" value="{{settings.language.form.method}}" />
+                  <input type="hidden" name="authenticity_token" value="{{settings.language.form.form_authenticity_token}}"/>
 
                   <div class="item-language">
 
@@ -50,7 +41,6 @@
 
                         <input class="pushbutton" type="submit" value="{{i18n.site.settings.actions.clear-selection}}"/>
 
-
                       </div>
 
                       <div class="dropdown-divider"></div>
@@ -80,32 +70,29 @@
 
                         </div>
 
-                        <input type="submit" value="Save Settings"/>
+                        <input type="submit" value="{{i18n.site.settings.actions.save-settings}}"/>
 
                       </div>
                   </div>
                </form>
             </div>
-	</div>
 
-	<div class="sidebar settings-nav js-getstickywidth">
-	{{#navigation.secondary}}
- 		<div class="js-sticky">
-		{{> molecules/navigation/nav-secondary }}
-		</div>
-	{{/navigation.secondary}}
-	</div>
-
+            <div class="refine">
+                <h2>{{i18n.global.settings}}</h2>
+                <div class="filter">
+                  <a href="#languages-selection">{{i18n.global.facet.header.language}}</a>
+                  <div class="refine-advanced">
+                    <a href="#language-advanced">{{i18n.global.facet.more-refinements}}</a>
+                      {{! @TODO add advanced search }}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-</section>
-
-</div>
-<!-- End Main -->
 
 {{# version.is_alpha }}
 {{> organisms/sections/phase-feedback }}
 {{/ version.is_alpha }}
 
-
 {{> organisms/global/footer }}
-

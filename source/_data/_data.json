@@ -666,9 +666,17 @@
                 }
             },
             "settings":{
+              "title": "Settings",
               "actions":{
                 "clear-selection": "Clear Selection",
                 "save-settings": "Save settings"
+              },
+              "language": {
+                "default": "Default Language",
+                "available": "Available Languages",
+                "auto-translate-page" : "Automatically translate item pages into...",
+                "auto-translate-page-short" : "Auto-translate items into",
+                "auto-translate-limit": "A maximum of 6 can be selected"
               }
             }
         },

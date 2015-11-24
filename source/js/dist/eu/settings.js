@@ -4,6 +4,10 @@ define(['jquery'], function ($){
 
         var initialLocale = $('#locale').val();
 
+        $('.clear-auto-translate').on('click', function(){
+            $(this).parent().find(':checkbox').attr('checked', false);
+        });
+
         $('#settings-form').submit(function(e){
 
             e.preventDefault();

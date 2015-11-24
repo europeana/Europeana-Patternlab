@@ -1,11 +1,22 @@
 {
   "bodyclass": "europeana_language",
   "page_title": "Europeana Language Selection",
-  "version":{
-      "is_alpha": true
+  "version": {
+    "is_alpha": true
   },
   "page_config": {
     "newsletter": true
+  },
+  "i18n": {
+    "global": {
+      "settings": "Settings",
+      "facet": {
+        "more-refinements": "Advanced filters",
+        "header": {
+          "language": "Language"
+        }
+      }
+    }
   },
   "css_files": [
     {
@@ -20,12 +31,11 @@
     }
   ],
   "settings": {
-    "title": "Settings",
     "language" : {
       "form": {
-        "action": "portal/settings"
+        "action": "portal/settings",
+        "method": "put"
       },
-      "title": "Language Settings",
       "language_default": {
         "title": "Default Language",
         "group_id": "Available Languages",
@@ -80,83 +90,83 @@
             "item_id": "french"
           },
           {
-            "text": "Spanish",
-            "value": "spanish",
+            "text": "My option name",
+            "value": "Myoptionname",
             "item_id": "option2"
           },
           {
-            "text": "English",
-            "value": "english",
+            "text": "My option",
+            "value": "Myoptionname",
             "item_id": "option3"
           },
           {
-            "text": "Portuguese",
-            "value": "portuguese",
+            "text": "My optionalilili",
+            "value": "Myoptionname",
             "item_id": "option4",
             "is_checked": true
           },
           {
-            "text": "Russian",
-            "value": "russian",
-            "item_id": "option5"
+            "text": "Esperanto",
+            "value": "esperanto",
+            "item_id": "esperanto"
           },
           {
-            "text": "German",
-            "value": "german",
+            "text": "My language",
+            "value": "Myoptionname",
+            "item_id": "my_language"
+          },
+          {
+            "text": "La Langue",
+            "value": "Myoptionname",
+            "item_id": "lalangue",
+            "is_checked": true
+          },
+          {
+            "text": "Optionale Langue",
+            "value": "Myoptionname",
+            "item_id": "option-lang"
+          },
+          {
+            "text": "Karkov",
+            "value": "french",
+            "item_id": "karkov"
+          },
+          {
+            "text": "Arrakis",
+            "value": "Myoptionname",
+            "item_id": "arrakis",
+            "is_checked": true
+          },
+          {
+            "text": "Cthutulangue",
+            "value": "Myoptionname",
+            "item_id": "chtulu"
+          },
+          {
+            "text": "THX 1143",
+            "value": "Myoptionname",
+            "item_id": "thx1143"
+          },
+          {
+            "text": "My lkjhlkjhl kjhlkjh lkjhlkjhlkj hl",
+            "value": "Myoptionname",
+            "item_id": "option5",
+            "is_checked": true
+          },
+          {
+            "text": "My jkhkjhkjh kjhk jhkj h name",
+            "value": "Myoptionname",
             "item_id": "option6"
           },
           {
-            "text": "French",
-            "value": "french",
-            "item_id": "option7",
-            "is_checked": true
+            "text": "My iuyoiuyoiuyoiu name",
+            "value": "Myoptionname",
+            "item_id": "option7"
           },
           {
-            "text": "Italian",
-            "value": "italian",
-            "item_id": "option8"
-          },
-          {
-            "text": "Polish",
-            "value": "polish",
-            "item_id": "option9"
-          },
-          {
-            "text": "Ukrainian",
-            "value": "ukrainian",
-            "item_id": "option10",
-            "is_checked": true
-          },
-          {
-            "text": "Romanian",
-            "value": "romanian",
-            "item_id": "option11"
-          },
-          {
-            "text": "Dutch",
-            "value": "dutch",
-            "item_id": "option12"
-          },
-          {
-            "text": "Serbo-Croatian",
-            "value": "serbo_croatian",
-            "item_id": "option13",
-            "is_checked": true
-          },
-          {
-            "text": "Hungarian",
-            "value": "hungarian",
-            "item_id": "option14"
-          },
-          {
-            "text": "Greek",
-            "value": "greek",
-            "item_id": "option15"
-          },
-          {
-            "text": "Czech",
-            "value": "czech",
-            "item_id": "option16",
+            "text": "My kjhgkjh kjhgkjhgkjhgkj name",
+            "value": "Myoptionname",
+            "item_id": "option8",
             "is_checked": true,
             "is_disabled": true
           }
