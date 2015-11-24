@@ -335,7 +335,9 @@
         {{#logo}}
         <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
         {{/logo}}
-        {{{ i18n.site.object.meta-label.provided-by-detail }}}
+        {{#institution_name_and_link}}
+          {{{ i18n.site.object.meta-label.provided-by-detail }}}
+        {{/institution_name_and_link}}
       </div>
       {{/ object.origin }}
 
