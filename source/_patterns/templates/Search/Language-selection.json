@@ -47,10 +47,9 @@
           }
         ]
       },
-      "limit": "A maximum of 6 languages can be selected.",
 
       "language_itempages": {
-
+        "enabled": true,
         "title": "Automatically translate item pages into...",
         "label": "Auto translate items into",
         "value": "autotranslateitem",
@@ -73,8 +72,10 @@
         ]
       },
       "language_translations": {
+        "enabled": true,
         "title": "Automatically translate search keywords into...",
         "is_required": false,
+        "limit": "A maximum of 6 languages can be selected.",
         "name": "checkboxes[]",
         "items": [
           {
