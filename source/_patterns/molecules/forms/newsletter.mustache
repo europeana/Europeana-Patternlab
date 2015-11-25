@@ -56,14 +56,14 @@
 
   {{#newsletter.form.language_op}}
   <div class="newsletter-options">
-    <label>
-      <input type="radio" name="language" value="en" autocomplete="off" id="mce-LANGUAGE-0" />
-        {{i18n.global.language-english}}
-    </label>
-    <label>
-      <input type="radio" name="language" value="fr" autocomplete="off" id="mce-LANGUAGE-1" />
-        {{i18n.global.language-french}}
-    </label>
+      <input type="radio" name="LANGUAGE" value="English" autocomplete="off" id="mce-LANGUAGE-0" />
+      <label for="mce-LANGUAGE-0">
+          {{i18n.global.language-english}}
+      </label>
+      <input type="radio" name="LANGUAGE" value="French" autocomplete="off" id="mce-LANGUAGE-1" />
+      <label for="mce-LANGUAGE-1">
+          {{i18n.global.language-french}}
+      </label>
   </div>
   {{/newsletter.form.language_op}}
 </form>
