@@ -460,6 +460,11 @@
 
 // STATIC PAGES
 .static-content{
+  p{
+    @media all and (min-width: $bp-small-2) {
+		padding: 0 $space;
+	}
+  }
   .lc > .prose{
     @media all and (min-width: $bp-med) {
       @include span(18 of 24);
