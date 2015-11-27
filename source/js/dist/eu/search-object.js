@@ -422,7 +422,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
           log('GA: Download, Action = ' + href);
       });
 
-
       // Media View
       $('.media-thumbs, .single-item-thumb').on('click', 'a.playable', function(){
           var href =  $(this).data('uri');
@@ -437,10 +436,22 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
       });
     }
 
+    function bindAttributionToggle(){
+        $('.attribution-fmt').on('click', function(e){
+            e.preventDefault();
+            var btn = $(this);
+            var txt = btn.data('e-licence-content');
+            $('.input-attr').val(
+                btn.hasClass('html') ? $('<textarea>').html(txt).text() : txt
+            );
+        });
+    }
+
 
     function initPage(){
 
         bindGA();
+        bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
         setBreadcrumbs();
 
