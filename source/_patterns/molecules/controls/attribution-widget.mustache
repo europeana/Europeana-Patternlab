@@ -35,28 +35,26 @@ Configuration options and content model:
 
 <div class="js-attribution-widget widget-attribution">
 
-<div class="" aria-disabled="false">
-  <input class="input-attr is-active" type="text" tabindex="0" aria-disabled="false" value="{{ attribution_plain }}">
-</div>
+  <div class="" aria-disabled="false">
+    <input class="input-attr is-active" type="text" tabindex="0" aria-disabled="false" value="{{ attribution_plain }}">
+  </div>
 
-
-<ul class="button-bar button-bar-small">
- <li class="button-bar__item">
-   <a href="#" class="button-bar__button is-active attribution-fmt plain" data-e-licence-content='{{ attribution_plain }}'>
-      <svg class="icon icon-plaintext">
-        <use xlink:href="#icon-plaintext"></use>
-      </svg>
-     {{ i18n.site.object.actions.attribute-plaintext }}
-   </a>
- </li>
- <li class="button-bar__item">
-   <a href="#" class="button-bar__button attribution-fmt html" data-e-licence-content="{{ attribution_html }}">
-      <svg class="icon icon-html">
-        <use xlink:href="#icon-html"></use>
-      </svg>
-     {{ i18n.site.object.actions.attribute-html }}
-   </a>
- </li>
-</ul>
-
+  <ul class="button-bar button-bar-small">
+   <li class="button-bar__item">
+     <a href="#" class="button-bar__button is-active attribution-fmt plain" data-e-licence-content='{{ attribution_plain }}'>
+        <svg class="icon icon-plaintext">
+          <use xlink:href="#icon-plaintext"></use>
+        </svg>
+       {{ i18n.site.object.actions.attribute-plaintext }}
+     </a>
+   </li>
+   <li class="button-bar__item">
+     <a href="#" class="button-bar__button attribution-fmt html" data-e-licence-content="{{ attribution_html }}">
+        <svg class="icon icon-html">
+          <use xlink:href="#icon-html"></use>
+        </svg>
+       {{ i18n.site.object.actions.attribute-html }}
+     </a>
+   </li>
+  </ul>
 </div>
