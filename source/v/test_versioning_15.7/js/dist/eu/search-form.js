@@ -1,1 +1,0 @@
-define(["jquery"],function(a){function b(){var b=a(".search-multiterm"),c=b.find(".js-search-input");b.on("click",".js-hitarea",function(a){c.focus()}),b.on("submit",function(a){return"qf[]"==c.attr("name")&&0==c.val().length?!1:void 0})}b()});

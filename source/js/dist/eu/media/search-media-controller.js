@@ -1,4 +1,4 @@
-define(['jquery', 'imagesLoaded'], function($, imagesLoaded) {
+define(['jquery'], function($) {
 
   // main link between search page and the various players
   var posterSelector     = '.multi-item-poster a';

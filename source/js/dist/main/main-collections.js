@@ -34,7 +34,6 @@ require.config({
     leaflet:                       '../application-map',
     leaflet_iiif:                  '../lib/iiif/leaflet-iiif',
 
-    imagesLoaded:                  '../lib/jquery.imagesloaded.min',
     jqDropdown:                    '../lib/jquery.dropdown',
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
@@ -43,13 +42,7 @@ require.config({
     media_viewer_iiif:             '../eu/media/search-iiif-viewer',
     media_viewer_pdf:              '../eu/media/search-pdf-ui-viewer',
     media_viewer_image:            '../eu/media/search-image-viewer',
-
-
-
     media_viewer_videojs:          '../eu/media/search-videojs-viewer',
-
-
-
     menus:                         '../global/menus',
     mootools:                      '../lib/iipmooviewer/js/mootools-core-1.5.1-full-nocompat-yc',
 
