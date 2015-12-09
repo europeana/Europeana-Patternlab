@@ -1,9 +1,14 @@
-define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Default ) {
+define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default ) {
   'use strict';
 
+  function log(msg){
+      console.log('search-image-viewer: ' + msg);
+  }
+
   var
-    css_path_1 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/photoswipe.css' : js_path + 'lib/photoswipe/photoswipe.css',
-    css_path_2 = typeof(js_path) == 'undefined' ? '/js/dist/lib/photoswipe/default-skin/default-skin.css' : js_path + 'lib/photoswipe/default-skin/default-skin.css',
+    css_path_1 = require.toUrl('../lib/photoswipe/photoswipe.css'),
+    css_path_2 = require.toUrl('../lib/photoswipe/default-skin/default-skin.css'),
+
     min_width_pixels = 400,
     items = [],
     options = { index: 0 },
@@ -21,10 +26,36 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
       console.warn( 'initialiseGallery() - no images to add to the gallery' );
       return;
     }
-
-    $('.media-viewer').trigger("object-media-open", {hide_thumb:false});
+    $('.media-viewer').trigger("object-media-open", {hide_thumb:false, type:'image'});
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
+    gallery.listen('close', function() {
+        $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image', current: gallery.currItem.src  });
+    });
+    gallery.listen('afterChange', function() {
+        if(this.getCurrentIndex() + 1 == this.options.getNumItemsFn()){
+            $('.media-viewer').trigger("object-media-last-image-reached", {doAfterLoad: function(newItems){
+                var added = 0;
+                for(var i=0; i<newItems.length; i++){
+                    var newItem = {
+                        src: newItems[i].play_url,
+                        w:   newItems[i].technical_metadata.width,
+                        h:   newItems[i].technical_metadata.height
+                    };
+                    if(checkItem( newItem )){
+                        gallery.items.push(newItem);
+                        added += 1;
+                    }
+                }
+                if(added>0){
+                    gallery.invalidateCurrItems();
+                    gallery.updateSize(true);
+                    gallery.ui.update();
+                }
+            }});
+        }
+    });
+
 
     if(delay){
         /**  this delay is to mitigate a load issue - see here:
@@ -94,8 +125,12 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
    * @returns {bool}
    */
   function init( itemsIn, active ) {
+
     if ( gallery ) {
-      return false;
+        // TODO: handle this on close - see here:
+        //         http://photoswipe.com/documentation/api.html
+        // (or find how to add to existing gallery)
+        gallery.close();
     }
     if ( itemsIn ) {
       var valid_items = [];
@@ -118,6 +153,7 @@ define(['photoswipe', 'photoswipe_ui'], function( PhotoSwipe, PhotoSwipeUI_Defau
           }
       }
     }
+
     initialiseGallery(100);
 
     return true;

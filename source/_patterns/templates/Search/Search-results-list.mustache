@@ -1,15 +1,32 @@
 {{> atoms/iconography/svgicons-search }}
 
-{{> organisms/global/header}}
+{{> organisms/global/header_v2}}
 
 <div role="main" class="page l-page">
+
+    <section class="search-object">
+      <div class="object-nav cf">
+        <div class="object-nav-lists">
+          <ul class="breadcrumbs"
+            {{#channel_data}}
+                data-store-channel-label = "{{label}}"
+                data-store-channel-name  = "{{name}}"
+                data-store-channel-url   = "{{url}}"
+              {{/channel_data}}>
+            <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+            {{#channel_data}}<li><a href="{{url}}">{{label}}</a></li>{{/channel_data}}
+            <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.results_list}}</strong></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <section class="search-hero">
         <div class="searchbar">
         {{> molecules/components/search/search-form }}
 
         {{#facets_selected}}
-        <ul class="facets-selected">
+        <ul class="facets-selected cf">
             {{#items}}
                 <li class="search-tag">
                     {{#filter}}<span class="title">{{filter}}:</span>{{/filter}}
@@ -51,12 +68,13 @@
                     </div>
 
                     <div class="result-controls">
+
+                        {{# menus.viewoptions_disabled }}
                         {{! List and grid view buttons }}
                         <div class="result-viewtype">
-                            {{# menus.viewoptions }}
-                                {{> molecules/controls/buttonbar-viewtype }}
-                            {{/ menus.viewoptions }}
+                            {{> molecules/controls/buttonbar-viewtype }}
                         </div>
+                        {{/ menus.viewoptions_disabled }}
 
                         {{# menus.sort_disabled }}
                         <div class="result-sort">
@@ -107,12 +125,19 @@
                     {{#tabbed}}
                         {{> molecules/controls/filter-tabbed }}
                     {{/tabbed}}
+
+                    {{#boolean}}
+                      <div class="filter-wrap">
+                        {{> molecules/controls/filter-boolean }}
+                      </div>
+                    {{/boolean}}
+
+                    {{#advanced}}
+                        {{> molecules/controls/filter-advanced }}
+                    {{/advanced}}
+
                 {{/filters}}
 
-                <a href="#refine-advanced">{{i18n.global.facet.more-refinements}}</a>
-                <div class="refine-advanced">
-                    {{! @TODO add advanced search }}
-                </div>
             </div>
         </div>
     </section>

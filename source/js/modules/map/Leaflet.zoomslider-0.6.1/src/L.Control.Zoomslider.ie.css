@@ -1,0 +1,22 @@
+/* IE6-7 specific hacks */
+/* line 2, ../../../../../sass/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.scss */
+.leaflet-control-zoomslider-wrap {
+  *width: 26px;
+}
+
+/* Fix IE6-divs having a too large min height  */
+/* line 6, ../../../../../sass/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.scss */
+.leaflet-control-zoomslider-knob {
+  *overflow: hidden;
+}
+
+/* Support for element:after { content: 'text' }  */
+/* line 11, ../../../../../sass/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.scss */
+.leaflet-control-zoomslider-in {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '+');
+}
+
+/* line 14, ../../../../../sass/js/modules/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.scss */
+.leaflet-control-zoomslider-out {
+  *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '-');
+}

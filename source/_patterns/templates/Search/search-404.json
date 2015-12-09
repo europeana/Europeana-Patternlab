@@ -1,0 +1,59 @@
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-collections"
+    }
+  ],
+  "input_search": {
+    "title": "Search",
+    "input_name": "q",
+    "placeholder": "Search Europeana"
+  },
+  "content":{
+    "intro":"Sorry we can't find that page",
+    "text":"Unfortunately we couldn't find the page you were looking for. Try searching Europeana or you might like the selected items below.",
+    "channel_entry":{
+      "items":[
+        {
+          "title":"Spotlight on Botticelli",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+          "count": "76",
+          "media_type":"Images and videos",
+          "is_spotlight": true,
+          "image": "../../images/sample/entry-botticelli-square.jpg"
+        },
+        {
+          "title":"Spotlight on Alexander Roslin",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+          "count": "46",
+          "media_type":"Images and documents",
+          "is_spotlight": true,
+          "image": "../../images/sample/entry-roslin-square.jpg"
+        },
+        {
+          "title":"Spotlight on Hokusai",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+          "count": "240",
+          "media_type":"Images",
+          "is_spotlight": true,
+          "image": "../../images/sample/entry-hokusai-square.jpg"
+        }
+      ]
+    }
+  }
+}

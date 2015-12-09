@@ -2,6 +2,7 @@ config
 .DS_Store
 public
 source/css
+node_modules
 *-ck.js
 *.komodoproject
 *.project

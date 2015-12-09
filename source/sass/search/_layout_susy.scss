@@ -1,15 +1,5 @@
 
 
-// Global navigation
-.our-sites .l-linklist{
-	@media all and (min-width: $bp-med) {
-		@include span(6);
-		&:last-child{
-			margin-right: 0;
-		}
-	}
-}
-
 // Footer layout
 .footer{
 

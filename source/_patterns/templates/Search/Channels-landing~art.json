@@ -1,41 +1,41 @@
 {
   "bodyclass": "channel_landing",
-  "pagetitle": "Europeana Search",
-
-  "version":{
-      "is_alpha": true
+  "pagetitle": "Europeana - Art History",
+  "version": {
+    "is_alpha": true
   },
-
   "globalnav_options": {
     "search": false,
     "myeuropeana": true
   },
-
   "page_config": {
     "newsletter": true
   },
-
   "css_files": [
     {
       "path": "../../css/search/screen.css",
       "media": "all"
     }
   ],
-
-  "js_files":
-  [
-      {   "path": "../../js/dist/require.js",  "data_main": "../../js/dist/main/main"	 }
-
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-collections"
+    }
   ],
-
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "channels/show"
+    }
+  ],
   "input_search": {
     "title": "Search Europeana Art History",
     "input_name": "q",
     "placeholder": "Search Europeana Art History"
   },
-
-  "content":{
-    "channel_info":{
+  "content": {
+    "channel_info": {
       "name": "Europeana Art History",
       "description": "The <strong>Europeana Art History Channel</strong> brings you the lesser known as well as the famous pieces of European art combined with the books, letters, articles, videos and other material collated from our partner libraries, archives, and museums.",
       "stats": {
@@ -68,7 +68,7 @@
         ]
       },
       "recent": {
-        "title":"Added recently:",
+        "title": "Added recently:",
         "items": [
           {
             "text": "Prado Museum",
@@ -89,13 +89,13 @@
             "date": "May 2015"
           }
         ],
-        "more_link":{
+        "more_link": {
           "text": "Load more",
           "url": "#777"
         }
       },
-      "credits":{
-        "title":"Curated by:",
+      "credits": {
+        "title": "Curated by:",
         "items": [
           {
             "text": "National Gallery of Denmark",
@@ -108,285 +108,162 @@
         ]
       }
     },
-    "hero_config":{
-      "hero_image":"sample/channel_hero_art.jpg",
-      "attribution_title" : "Ships in a storm off a rocky coast",
-      "attribution_creator" : "Jan Porcellis",
-      "attribution_institution" : "Hallwylska museet",
-      "attribution_url" : "http://www.europeana.eu/portal/record/2048007/Athena_Plus_ProvidedCHO_Hallwylska_museet_14152.html",
+    "hero_config": {
+      "hero_image": "../../images/sample/channel_hero_art.jpg",
+      "attribution_title": "Ships in a storm off a rocky coast",
+      "attribution_creator": "Jan Porcellis",
+      "attribution_institution": "Hallwylska museet",
+      "attribution_url": "http://www.europeana.eu/portal/record/2048007/Athena_Plus_ProvidedCHO_Hallwylska_museet_14152.html",
       "license_public": true
     },
-    "channel_entry":{
+    "channel_entry": {
       "title": "Promoted title",
-      "items":[
+      "items": [
         {
-          "title":"All Paintings",
+          "title": "All Paintings",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=what:%20paintings",
           "count": "190,226",
-          "media_type":"Images",
+          "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-painting-square.jpg"
+          "image": "../../images/sample/entry-painting-square.jpg"
         },
         {
-          "title":"All Sculptures",
+          "title": "All Sculptures",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
           "count": "7,029",
-          "media_type":"Images and video",
+          "media_type": "Images and video",
           "is_search": true,
-          "image": "sample/entry-sculpture-square.jpg"
+          "image": "../../images/sample/entry-sculpture-square.jpg"
         },
         {
-          "title":"All Art history publications",
+          "title": "All Art history publications",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
           "count": "2,333",
-          "media_type":"Documents",
+          "media_type": "Documents",
           "is_search": true,
-          "image": "sample/entry-documents-square.jpg"
+          "image": "../../images/sample/entry-documents-square.jpg"
         },
         {
-          "title":"Spotlight on Botticelli",
+          "title": "Spotlight on Botticelli",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
           "count": "76",
-          "media_type":"Images and videos",
+          "media_type": "Images and videos",
           "is_spotlight": true,
-          "image": "sample/entry-botticelli-square.jpg"
+          "image": "../../images/sample/entry-botticelli-square.jpg"
         },
         {
-          "title":"Spotlight on Alexander Roslin",
+          "title": "Spotlight on Alexander Roslin",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
           "count": "46",
-          "media_type":"Images and documents",
+          "media_type": "Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-roslin-square.jpg"
+          "image": "../../images/sample/entry-roslin-square.jpg"
         },
         {
-          "title":"Spotlight on Hokusai",
+          "title": "Spotlight on Hokusai",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
           "count": "240",
-          "media_type":"Images",
+          "media_type": "Images",
           "is_spotlight": true,
-          "image": "sample/entry-hokusai-square.jpg"
+          "image": "../../images/sample/entry-hokusai-square.jpg"
         }
       ]
     },
-    "promoted":{
+    "promoted": {
       "title": "Promoted title",
-      "items":[
+      "items": [
         {
-          "title":"Royal Book Collections",
+          "title": "Royal Book Collections",
           "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-book.jpg"
+          "bg_image": "../../images/sample/thumb-book.jpg"
         },
         {
-          "title":"From Dada to Surrealism",
+          "title": "From Dada to Surrealism",
           "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
+          "bg_image": "../../images/sample/thumb-dada.jpg"
         },
         {
-          "title":"Art Nouveau",
+          "title": "Art Nouveau",
           "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-artnouveau.jpg"
+          "bg_image": "../../images/sample/thumb-artnouveau.jpg"
         },
         {
-          "title":"Explore the World of Musical Instruments",
+          "title": "Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-instruments.jpg"
+          "bg_image": "../../images/sample/thumb-instruments.jpg"
         },
         {
-          "title":"Pablo Picasso",
+          "title": "Pablo Picasso",
           "url": "http://dizbi.hazu.hr/picasso/",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-picasso.jpg"
+          "bg_image": "../../images/sample/thumb-picasso.jpg"
         },
         {
-          "title":"From Dada to Surrealism",
+          "title": "From Dada to Surrealism",
           "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
           "is_exhibition": true,
-          "bg_image":"sample/thumb-dada.jpg"
+          "bg_image": "../../images/sample/thumb-dada.jpg"
         }
       ]
     },
     "news": {
-      "items":[
-      {
-        "headline": {
-          "medium":  "The miniature magic of Japanese netsuke"
-        },
-        "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
-        "img": {
-          "rectangle": {
-            "src":"sample/netsuke.jpg",
-            "alt":"Japanese scroll with netsuke illustration"
-          }
-        },
-        "excerpt": {
-          "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
-        }
-      },
-      {
-        "headline":{
-          "medium":"Celebrating World Theatre Day 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/theatreday.jpg",
-            "alt":"Theatre Day"
-          }
-        },
-        "excerpt": {
-          "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
-        }
-      },
-      {
-        "headline":{
-          "medium":"Europeana takes part in #MuseumWeek 2015"
-        },
-        "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
-        "img": {
-          "rectangle": {
-            "src":"sample/Museumweek.jpg",
-            "alt":"Museum Week 2015"
-          }
-        },
-        "excerpt": {
-          "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
-        }
-      }
-      ]
-    }
-  },
-  "navigation":{
-    "global":{
-      "options": {
-        "search_active": false
-      },
-      "logo":{
-        "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-        "text": "Europeana Search"
-      },
-      "primary_nav":{
-        "items": [
-          {
-            "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-            "text": "Home"
+      "items": [
+        {
+          "headline": {
+            "medium": "The miniature magic of Japanese netsuke"
           },
-          {
-            "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Channels",
-            "is_current":true,
-            "submenu": {
-              "items": [
-                {
-                  "url":"../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-                  "text": "Art History",
-                  "is_current":true
-                },
-                {
-                  "url":"../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
-                  "text": "Music"
-                }
-              ]
+          "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+          "img": {
+            "rectangle": {
+              "src": "sample/netsuke.jpg",
+              "alt": "Japanese scroll with netsuke illustration"
             }
           },
-          {
-            "url": "",
-            "text": "Exhibitions"
-          },
-          {
-            "url": "",
-            "text": "Blog"
-          },
-          {
-            "url": "",
-            "text": "My Europeana"
+          "excerpt": {
+            "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
           }
-        ]
-      }
+        },
+        {
+          "headline": {
+            "medium": "Celebrating World Theatre Day 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/theatreday.jpg",
+              "alt": "Theatre Day"
+            }
+          },
+          "excerpt": {
+            "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+          }
+        },
+        {
+          "headline": {
+            "medium": "Europeana takes part in #MuseumWeek 2015"
+          },
+          "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/Museumweek.jpg",
+              "alt": "Museum Week 2015"
+            }
+          },
+          "excerpt": {
+            "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+          }
+        }
+      ]
     },
-    "footer":{
-      "linklist1":{
-        "title": "More info",
-        "items": [
-          {
-            "text": "New collections",
-            "url":"http://google.com"
-          },
-          {
-            "text": "All data providers",
-            "url":"http://google.com"
-          },
-          {
-            "text": "Become a data provider",
-            "url":"http://google.com"
-          }
-        ]
-      },
-      "linklist2":{
-        "title": "Help",
-        "items": [
-          {
-            "text": "Search tips",
-            "url":"http://google.com"
-          },
-          {
-            "text": "Using My Europeana",
-            "url":"http://google.com"
-          },
-          {
-            "text": "Copyright",
-            "url":"http://google.com"
-          }
-        ]
-      },
-      "othersites":{
-        "title": "Explore Europeana",
-        "styleModifier":"inline-list",
-        "items": [
-          {
-            "url":"http://google.com",
-            "text": "Europeana 1914-1918"
-          },
-          {
-            "url":"http://google.com",
-            "text": "Europeana Exhibitions"
-          },
-          {
-            "url":"http://google.com",
-            "text": "Europeana Blog"
-          }
-        ]
-      },
-      "social":{
-        "twitter": true,
-        "facebook": true,
-        "pinterest": true,
-        "linkedin": true
-      },
-      "subfooter": {
-        "items": [
-          {
-            "text": "Home",
-            "url": "./"
-          },
-          {
-            "text": "Terms of use & policies",
-            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
-          },
-          {
-            "text": "Contact us",
-            "url": "./"
-          },
-          {
-            "text": "Sitemap",
-            "url": "./"
-          }
-        ]
-      }
+    "phase_feedback": {
+      "title": "This is an Alpha release of our new collections search and Music Channel",
+      "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+      "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
+      "cta_text": "Help us improve the site"
     }
   }
 }

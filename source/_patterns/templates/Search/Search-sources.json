@@ -1,0 +1,157 @@
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/static"
+    }
+  ],
+  "content":{
+    "title":"Sources",
+    "description": "Small text describing this page's features",
+
+
+    "providers":{
+        "inline": true,
+        "data": [
+          {
+            "title": "Provider 1",
+            "fields": [
+              {
+                "val": "Data Provider 1",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              },
+              {
+                "val": "Data Provider 2",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              }
+            ]
+          },
+          {
+            "title": "Provider 2",
+            "fields": [
+              {
+                "val": "Data Provider 3",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              },
+              {
+                "val": "Data Provider 4",
+                "foldable_link": true,
+                "foldable_url": "http://www.google.com"
+              }
+            ]
+          }
+        ],
+
+        "XXX____items":[
+          {
+            "count": "21345",
+            "text": "Koninglijk biblioteke",
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
+          },
+          {
+            "count": "552677",
+            "text": "den Kunst Institute",
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
+          },
+          {
+            "count": "27964",
+            "text": "Rijksmuseum",
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
+          },
+          {
+            "count": "21345",
+            "text": "Victoria & Albert Museum",
+            "url": "#",
+            "data_providers": {
+              "items": [
+                 {
+                   "text":  "Data Provider 1",
+                   "count": "123"
+                 },
+                 {
+                   "text":  "Data Provider 2",
+                   "count": "21345"
+                 },
+                 {
+                   "text":  "Data Provider 3",
+                   "count": "567"
+                 }
+                ]
+              }
+
+          }
+        ]
+      }
+  }
+}

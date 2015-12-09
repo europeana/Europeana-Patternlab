@@ -1,26 +1,34 @@
 
-	</div>
-	<!-- End of pusher div - wraps the site to allow offcanvas menus-->
+  </div>
+  <!-- End of pusher div - wraps the site to allow offcanvas menus-->
 
-
+{{! deprecated: move to json formatted model for js variables }}
 {{# js_variables }}
     <script>{{{ . }}}</script>
 {{/ js_variables }}
 
+{{! new format for js variables }}
+<script>
+{{# js_vars }}
+   var {{ name }} = "{{ value }}";
+{{/ js_vars }}
+</script>
+
 
 {{# jQuery }}
-	<script src="{{src_CDN}}"></script>
-	<script>window.jQuery || document.write('<script src="{{src_fallback}}"><\/script>')</script>
+  <script src="{{src_CDN}}"></script>
+  <script>window.jQuery || document.write('<script src="{{src_fallback}}"><\/script>')</script>
 {{/ jQuery }}
 
 {{# js_files }}
-	<script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
+  <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
 {{/ js_files}}
 
 {{# patternlab }}
-	<!--DO NOT REMOVE-->
-	{% pattern-lab-foot %}
+  <script src="../../js/patternlab/site_js/scratchpad.js"></script>
+  <!--DO NOT REMOVE-->
+  {% pattern-lab-foot %}
 {{/ patternlab }}
 
-	</body>
+  </body>
 </html>

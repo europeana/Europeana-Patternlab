@@ -3,12 +3,6 @@
 	@extend %grid--full;
 }
 
-// Global nav - Our sites
-.our-sites .l-linklist{
-	@extend %grid__item;
-	@extend %lap--one-quarter;
-}
-
 // Home page module layout
 
 .l-primaryaction{
@@ -19,7 +13,7 @@
 .l-usefulinfo{
 	@extend %grid__item;
 	@extend %lap--two-thirds;
-	
+
 	.l-usefulinfo-item{
 		@extend %grid__item;
 		@extend %smallup--one-half;

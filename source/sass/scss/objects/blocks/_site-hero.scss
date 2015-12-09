@@ -1,4 +1,5 @@
-.site-hero{
+.site-hero,
+.hero-nopad {
 
 	height: 70%;
 	position: relative;
@@ -12,19 +13,9 @@
 	background-color: $grey2;
 	color: $gray97;
 
-	@media all and (min-width: $bp-small) {
-		margin-top: $globalnavheight;
-		height: 50%;
-	}
-
 	.lc{
 		position: relative;
 		height: 100%;
-	}
-
-	// this is a wrapper around the search field and title (used in channels, not used in pro)
-	.hero-contents{
-		width: 80%;
 	}
 
 	.hero-text{
@@ -57,12 +48,13 @@
 	}
 
 	.attribution{
+
 		position: absolute;
 		z-index: 10;
 		bottom: 4px;
+		right: 4px;
 
-		@media all and (min-width: $bp-small) {
-			display: inline-block;
+		@media all and (min-width: $bp-small-2) {
 			right: 0;
 		}
 	}
@@ -76,4 +68,11 @@
     	text-transform: uppercase;
 	}
 
+}
+
+.site-hero{
+  @media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
+		height: 50%;
+	}
 }

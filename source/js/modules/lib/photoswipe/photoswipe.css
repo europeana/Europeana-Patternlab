@@ -1,8 +1,9 @@
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 /*
-	Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
+  Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
 */
 /* pswp = photoswipe */
+/* line 6, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp {
   display: none;
   position: absolute;
@@ -17,47 +18,65 @@
   -webkit-text-size-adjust: 100%;
   /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
   -webkit-backface-visibility: hidden;
-  outline: none; }
-  .pswp * {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-  .pswp img {
-    max-width: none; }
+  outline: none;
+}
+
+/* line 21, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
+.pswp * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 24, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
+.pswp img {
+  max-width: none;
+}
 
 /* style is added when JS option showHideOpacity is set to true */
+/* line 28, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--animate_opacity {
   /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
   opacity: 0.001;
   will-change: opacity;
   /* for open/close transition */
   -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
-          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+  transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+}
 
+/* line 36, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--open {
-  display: block; }
+  display: block;
+}
 
+/* line 39, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--zoom-allowed .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
-  cursor: zoom-in; }
+  cursor: zoom-in;
+}
 
+/* line 45, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--zoomed-in .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-grab;
   cursor: -moz-grab;
-  cursor: grab; }
+  cursor: grab;
+}
 
+/* line 51, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--dragging .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
-  cursor: grabbing; }
+  cursor: grabbing;
+}
 
 /*
-	Background is added as a separate element.
-	As animating opacity is much faster than animating rgba() background-color.
+  Background is added as a separate element.
+  As animating opacity is much faster than animating rgba() background-color.
 */
+/* line 61, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__bg {
   position: absolute;
   left: 0;
@@ -67,16 +86,20 @@
   background: #000;
   opacity: 0;
   -webkit-backface-visibility: hidden;
-  will-change: opacity; }
+  will-change: opacity;
+}
 
+/* line 72, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__scroll-wrap {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+/* line 80, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__container,
 .pswp__zoom-wrap {
   -ms-touch-action: none;
@@ -85,18 +108,22 @@
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0; }
+  bottom: 0;
+}
 
 /* Prevent selection and tap highlights */
+/* line 91, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__container,
 .pswp__img {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-      user-select: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none; }
+  -webkit-touch-callout: none;
+}
 
+/* line 100, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__zoom-wrap {
   position: absolute;
   width: 100%;
@@ -105,32 +132,42 @@
   transform-origin: left top;
   /* for open/close transition */
   -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
-          transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+  transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+}
 
+/* line 110, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__bg {
   will-change: opacity;
   /* for open/close transition */
   -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
-          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+  transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+}
 
+/* line 116, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--animated-in .pswp__bg,
 .pswp--animated-in .pswp__zoom-wrap {
   -webkit-transition: none;
-  transition: none; }
+  transition: none;
+}
 
+/* line 121, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__container,
 .pswp__zoom-wrap {
   -webkit-backface-visibility: hidden;
-  will-change: transform; }
+  will-change: transform;
+}
 
+/* line 126, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__item {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
+/* line 134, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__img {
   position: absolute;
   width: auto;
@@ -138,32 +175,40 @@
   top: 0;
   left: 0;
   -webkit-transition: opacity 0.15s;
-          transition: opacity 0.15s; }
+  transition: opacity 0.15s;
+}
 
 /*
-	stretched thumbnail or div placeholder element (see below)
-	style is added to avoid flickering in webkit/blink when layers overlap
+  stretched thumbnail or div placeholder element (see below)
+  style is added to avoid flickering in webkit/blink when layers overlap
 */
+/* line 147, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__img--placeholder {
-  -webkit-backface-visibility: hidden; }
+  -webkit-backface-visibility: hidden;
+}
 
 /*
-	div element that matches size of large image
-	large image loads on top of it
+  div element that matches size of large image
+  large image loads on top of it
 */
+/* line 154, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__img--placeholder--blank {
-  background: #222; }
+  background: #222;
+}
 
+/* line 157, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp--ie .pswp__img {
   width: 100% !important;
   height: auto !important;
   left: 0;
-  top: 0; }
+  top: 0;
+}
 
 /*
-	Error message appears when image is not loaded
-	(JS option errorMsg controls markup)
+  Error message appears when image is not loaded
+  (JS option errorMsg controls markup)
 */
+/* line 167, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__error-msg {
   position: absolute;
   left: 0;
@@ -173,8 +218,11 @@
   font-size: 14px;
   line-height: 16px;
   margin-top: -8px;
-  color: #CCC; }
+  color: #CCC;
+}
 
+/* line 178, ../../../../sass/js/modules/lib/photoswipe/photoswipe.scss */
 .pswp__error-msg a {
   color: #CCC;
-  text-decoration: underline; }
+  text-decoration: underline;
+}

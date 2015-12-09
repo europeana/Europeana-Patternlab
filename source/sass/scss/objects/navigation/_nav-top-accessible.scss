@@ -1,0 +1,249 @@
+/* Mobile first layout SmartMenus Core CSS (it's not recommended editing these rules)
+   You need this once per page no matter how many menu trees or different themes you use.
+-------------------------------------------------------------------------------------------*/
+
+.sm,
+.sm ul,
+.sm li{
+  display:block;
+  list-style:none;
+  line-height:normal;
+  direction:ltr;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.sm-rtl,
+.sm-rtl ul,
+.sm-rtl li{
+  direction:rtl;
+  text-align:right;
+}
+
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  // Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430
+
+  .sm>li{
+    direction:rtl;
+  }
+
+  .sm>li *{
+    direction:ltr;
+  }
+
+}
+
+.sm-rtl,
+.sm-rtl ul,
+.sm-rtl li{
+   direction:rtl;
+}
+
+.sm>li>h1,
+.sm>li>h2,
+.sm>li>h3,
+.sm>li>h4,
+.sm>li>h5,
+.sm>li>h6{
+  margin:0;padding:0;
+}
+
+.sm ul{
+  display:none;
+}
+
+.sm li,
+.sm a{
+  position:relative;
+}
+
+.sm a{
+  display:block;
+}
+
+.sm a.disabled{
+  cursor:not-allowed;
+}
+
+/* Your rules to style the menu in mobile view (collapsible mode) here... */
+
+
+@media (min-width: $bp-med) {
+
+  /* Switch to desktop layout
+  -----------------------------------------------
+     These transform the menu tree from
+     collapsible to desktop (navbar + dropdowns)
+  -----------------------------------------------*/
+  /* start... (it's not recommended editing these rules) */
+  .nav-access ul{
+    position:absolute;
+  }
+
+  .nav-access > li{
+    float:left;
+  }
+
+  .nav-access.sm-rtl > li{
+    float:right;
+  }
+
+  .nav-access ul li,
+  .nav-access.sm-rtl ul li,
+  .nav-access.sm-vertical li{
+    float:none;
+  }
+
+  .nav-access > a{
+    white-space: nowrap;
+  }
+
+  .nav-access ul a,
+  .nav-access.sm-vertical a{
+    white-space: normal;
+  }
+
+  .nav-access .sm-nowrap > li > a,
+  .nav-access .sm-nowrap > li > :not(ul) a{
+    white-space: nowrap;
+  }
+  /* ...end */
+
+  /* Your rules to style the menu in desktop view here... */
+
+  .header .nav_primary .nav-access {
+    overflow: visible;
+  }
+}
+
+.sm{
+
+  // Toggle buttons (sub menu indicators)
+  .sub-arrow {
+    top: 50%;
+    float: right;
+    margin-top: 0.5em;
+    margin-left: $pad-quarter;
+    right: 12px;
+    width: 0;
+    height: 10px;
+    border-width: 4px;
+    border-style: solid dashed dashed dashed;
+    border-color: $gray-light transparent transparent transparent;
+    background: transparent;
+    overflow: hidden;
+  }
+  .highlighted .sub-arrow:before {
+    display: none;
+  }
+
+  .menu-subtitle{
+    margin: $pad-half;
+    margin-bottom: 0.1em;
+    font-size: $font-size-sm;
+    color: $gray-light;
+  }
+  .menu-message{
+    margin: $pad-half;
+    font-size: $font-size-sm;
+    color: $gray-med;
+  }
+
+  .menu-divider {
+    font-size: 0;
+    border-top: solid 1px $gray87;
+    margin: 5px 0;
+  }
+}
+
+.sm .menu-sublevel{
+
+    //to show all menus for easier styling
+    // display: block !important;
+
+    background: $white;
+    box-shadow: rgba(77, 77, 77, 0.3) 0 1px 4px;
+    padding: $pad-quarter;
+
+    word-wrap: normal;
+    word-break: normal;
+
+    min-width: 16em;
+    max-width: 20em;
+
+    li{
+      float: none;
+    }
+
+    a{
+      font-size: $font-size-slightly-smaller;
+      font-weight: normal;
+      color: $textcolour_body;
+      padding: 0.4em 0.6em;
+
+      &:hover{
+        background-color: $offwhite;
+      }
+
+      &:after {
+        border-bottom: none;
+      }
+
+      &.menu-more, &.is-current{
+        font-weight: bold;
+        color: $textcolour_link;
+      }
+      &.menu-more{
+        padding: 0.7em 0.6em;
+      }
+    }
+
+
+
+    // Sub menu carets
+    .sub-arrow {
+      margin-top: 5px;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      border-width: 5px;
+      border-style: dashed dashed dashed solid;
+      border-color: transparent transparent transparent $gray-light;
+    }
+}
+
+.menu-sublevel.caret{
+  // First sub level carets
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 9px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent $gray87 transparent;
+  }
+  &:after {
+    top: -16px;
+    left: 31px;
+    border-width: 8px;
+    border-color: transparent transparent $white transparent;
+  }
+
+  .caret-right &{
+      &:before,
+      &:after {
+        left: auto;
+        right: 30px;
+      }
+      &:after {
+        right: 31px;
+      }
+  }
+}

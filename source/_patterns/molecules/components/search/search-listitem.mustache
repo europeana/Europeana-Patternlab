@@ -1,119 +1,119 @@
 <article class="search-list-item cf">
 
-	<div class="item-preview">
-		{{# is_image }}
-			<div class="item-image">
-			{{# thumbnail }}
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" /></a>
-        	{{/ thumbnail }}
-			{{^ thumbnail }}
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
-        	{{/ thumbnail }}
-        	</div>
-    	{{/ is_image }}
+  <div class="item-preview">
+    <div class="item-image">
+    {{# is_image }}
+      {{# thumbnail }}
+          <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" /></a>
+      {{/ thumbnail }}
+      {{^ thumbnail }}
+         {{# img.src }}
+           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+         {{/ img.src }}
+      {{/ thumbnail }}
+    {{/ is_image }}
 
-   		{{# is_audio }}
-   			<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
-        	</div>
-    	{{/ is_audio }}
+     {{# is_audio }}
+         {{# img.src }}
+           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+         {{/ img.src }}
+    {{/ is_audio }}
 
-   		{{# is_text }}
-        	<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
-        	</div>
-    	{{/ is_text }}
+    {{# is_text }}
+         {{# img.src }}
+           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+         {{/ img.src }}
+    {{/ is_text }}
 
-    	{{# is_video }}
-        	<div class="item-image">
-        	<a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
-        	</div>
-    	{{/ is_video }}
+    {{# is_video }}
+         {{# img.src }}
+           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+         {{/ img.src }}
+    {{/ is_video }}
+    </div>
+  </div>
 
-	</div>
+  <div class="item-info">
 
-	<div class="item-info">
+    <h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a></h1>
 
-		<h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a></h1>
+    {{#text}}
+    <p class="excerpt">
+       {{text.medium}}
+    </p>
+    {{/text}}
 
-		{{#text}}
-		<p class="excerpt">
-			 {{text.medium}}
-		</p>
-		{{/text}}
+    {{#concepts}}
+    <ul class="item-concepts comma-list">
+      {{#items}}
+      <li>{{text}}</li>
+      {{/items}}
+    </ul>
+    {{/concepts}}
 
-		{{#concepts}}
-		<ul class="item-concepts comma-list">
-			{{#items}}
-			<li>{{text}}</li>
-			{{/items}}
-		</ul>
-		{{/concepts}}
+    {{#origin}}
+    <div class="item-origin">
+    <a href="{{origin.url}}" class="external" target="_blank">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
+    </div>
+    {{/origin}}
 
-		{{#origin}}
-		<a href="{{origin.url}}" class="item-origin external">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
-		{{/origin}}
+    <footer>
+      <div class="item-metadata">
 
-		<footer>
-			<div class="item-metadata">
+      {{# item_type }}
+            <span data-href="{{url}} " class="highlight item-type">
+          {{# is_image }}
+          <svg class="icon icon-image">
+            <use xlink:href="#icon-image"></use>
+          </svg>
+          {{/ is_image }}
+          {{# is_audio }}
+          <svg class="icon icon-music">
+            <use xlink:href="#icon-music"></use>
+          </svg>
+          {{/ is_audio }}
+          {{# is_text }}
+          <svg class="icon icon-book">
+            <use xlink:href="#icon-book"></use>
+          </svg>
+          {{/ is_text }}
+          {{# is_video }}
+          <svg class="icon icon-tv">
+            <use xlink:href="#icon-tv"></use>
+          </svg>
+          {{/ is_video }}
 
-			{{# item_type }}
-	        	<span data-href="{{url}} " class="highlight item-type">
-					{{# is_image }}
-					<svg class="icon icon-image">
-						<use xlink:href="#icon-image"></use>
-					</svg>
-					{{/ is_image }}
-					{{# is_audio }}
-					<svg class="icon icon-music">
-						<use xlink:href="#icon-music"></use>
-					</svg>
-					{{/ is_audio }}
-					{{# is_text }}
-					<svg class="icon icon-book">
-						<use xlink:href="#icon-book"></use>
-					</svg>
-					{{/ is_text }}
-					{{# is_video }}
-					<svg class="icon icon-tv">
-						<use xlink:href="#icon-tv"></use>
-					</svg>
-					{{/ is_video }}
-
-					{{item_type.name}}
-	        	</span>
-			{{/ item_type }}
-
-
-			{{# channels.disabled }}
-				<span class="item-themes">
-					{{i18n.site.results.list.in-channel}}:
-					{{# items }}
-					<a href="{{url}}" class="highlight">{{text}}</a>,
-					{{/ items }}
-				</span>
-			{{/ channels.disabled }}
+          {{item_type.name}}
+            </span>
+      {{/ item_type }}
 
 
+      {{# channels.disabled }}
+        <span class="item-themes">
+          {{i18n.site.results.list.in-channel}}:
+          {{# items }}
+          <a href="{{url}}" class="highlight">{{text}}</a>,
+          {{/ items }}
+        </span>
+      {{/ channels.disabled }}
 
-			</div>
+      </div>
 
+      {{# menus.actions_disabled }}
+      <div class="item-actions">
 
-			{{# menus.actions_disabled }}
-			<div class="item-actions">
+        <a href="path/to/save" class="action-save">
+          <svg class="icon icon-star">
+            <use xlink:href="#icon-star"></use>
+          </svg>{{i18n.site.results.actions.product-save}}
+        </a>
 
-				<a href="path/to/save" class="action-save">
-					<svg class="icon icon-star">
-						<use xlink:href="#icon-star"></use>
-					</svg>{{i18n.site.results.actions.product-save}}
-				</a>
+        <div class="action-select">
+          <input type="checkbox" name="selected[]" id="itemx">
+        </div>
+      </div>
+      {{/ menus.actions_disabled }}
 
-				<div class="action-select">
-					<input type="checkbox" name="selected[]" id="itemx">
-				</div>
-			</div>
-			{{/ menus.actions_disabled }}
-
-		</footer>
-	</div>
+    </footer>
+  </div>
 </article>

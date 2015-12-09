@@ -1,0 +1,45 @@
+{
+  "test": true,
+  "i18n": {
+    "global": {
+      "javascript_required": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content."
+    }
+  },
+  "css_files": [
+    {
+      "path": "/css/search/screen.css"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/main-videojs-molecule"
+    }
+  ],
+  "is_current": true,
+  "audio": true,
+
+  "thumbnail": "http://europeanastatic.eu/api/image?uri=http%3A%2F%2Fcharm.cchcdn.net%2Faudio%2Fflac%2FC_2336_2G_221-2.flac&size=LARGE&type=SOUND",
+
+  "xxxplay_url": "http://edm-is-shown-by.de.a9sapp.eu/2023601/oai_eu_dismarc_CHARM_DISC01SIDE02METSM583?disposition=inline",
+  "xxxplay_url": "http://charm.cchcdn.net/audio/flac/M_583_DR_9279-2.flac",
+
+  "play_url": "http://edm-is-shown-by.de.a9sapp.eu/2023601/oai_eu_dismarc_CHARM_DISC01SIDE02METSM583?disposition=inline",
+
+
+  "XXXplay_url": "/media/x-flac.flac?disposition=inline",
+  "xxxplay_url": "http://edm-is-shown-by.de.a9sapp.eu/2023601/oai_eu_dismarc_CHARM_DISC01SIDE01METS223A?disposition=inline",
+  "xxxplay_url": "x-flac.flac",
+
+  "download": {
+  },
+  "technical_metadata": {
+    "SOLUTION!!!":  "the player doesn't know what x-flac is: normalise model and present mime type audio/x-flac as just normal flac to the player",
+    "XXXmime_type": "audio/x-flac",
+    "mime_type": "audio/flac"
+  },
+  "rights": {
+    "license_public": true,
+    "license_human": "You can use this auudio file in any way you like"
+  }
+}

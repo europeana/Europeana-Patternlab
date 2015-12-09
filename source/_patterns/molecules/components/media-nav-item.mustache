@@ -1,0 +1,98 @@
+<div
+  {{^ single_item}}
+    class="mlt-img-div height-to-width"
+    style="background-image: url({{thumbnail}})"
+  {{/single_item}}>
+  <div class="inner"><a {{#external_media}}href="{{.}}" target="_blank"{{/external_media}}
+      {{#is_audio}}
+          data-type="audio"
+      {{/is_audio}}
+
+      {{#is_iiif}}
+          data-type="iiif"
+      {{/is_iiif}}
+
+      {{#is_image}}
+          data-type="image"
+      {{/is_image}}
+
+      {{#is_pdf}}
+          data-type="pdf"
+      {{/is_pdf}}
+
+      {{#is_text}}
+          data-type="text"
+      {{/is_text}}
+
+      {{#is_video}}
+          data-type="video"
+      {{/is_video}}
+
+      {{#play_url}}
+         data-uri="{{.}}"
+      {{/play_url}}
+
+      {{#thumbnail}}
+         data-thumbnail="{{.}}"
+      {{/thumbnail}}
+
+      {{#downloadable}}
+        {{#download}}
+          data-download-uri="{{url}}"
+        {{/download}}
+      {{/downloadable}}
+
+      {{#technical_metadata}}
+        {{#codec}}
+          data-codec="{{.}}"
+        {{/codec}}
+        {{#file_size}}
+          data-file-size="{{.}}"
+        {{/file_size}}
+        {{#file_unit}}
+          data-file-unit="{{.}}"
+        {{/file_unit}}
+        {{#format}}
+          data-format="{{.}}"
+        {{/format}}
+        {{#height}}
+          data-height="{{.}}"
+        {{/height}}
+        {{#language}}
+          data-language="{{.}}"
+        {{/language}}
+        {{#mime_type}}
+          data-mime-type="{{.}}"
+        {{/mime_type}}
+        {{#runtime}}
+          data-runtime="{{.}}"
+        {{/runtime}}
+        {{#runtime_unit}}
+          data-runtime-unit="{{.}}"
+        {{/runtime_unit}}
+        {{#size_unit}}
+          data-size-unit="{{.}}"
+        {{/size_unit}}
+        {{#width}}
+          data-width="{{.}}"
+        {{/width}}
+      {{/technical_metadata}}
+
+      class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}{{#external_media}} external-media{{/external_media}}"
+
+      >{{#single_item}}<img src="{{thumbnail}}"/>{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
+            {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
+            {{#is_iiif}}  class="media-clickable-indicator iiif"   {{/is_iiif}}
+            {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}
+            {{#is_pdf}}   class="media-clickable-indicator pdf"    {{/is_pdf}}
+            {{#is_text}}  class="media-clickable-indicator text"   {{/is_text}}
+            {{#is_video}} class="media-clickable-indicator video"  {{/is_video}}
+             >
+            {{#is_audio}} <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>  {{/is_audio}}
+            {{#is_iiif}}  <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>  {{/is_iiif}}
+            {{#is_image}} <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>  {{/is_image}}
+            {{#is_pdf}}   <svg class="icon icon-newspaper"><use xlink:href="#icon-newspaper"></use></svg>  {{/is_pdf}}
+            {{#is_text}}  <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg>  {{/is_text}}
+            {{#is_video}} <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>  {{/is_video}}
+             </span>{{/playable}}{{/single_item}}</a></div>
+       </div>

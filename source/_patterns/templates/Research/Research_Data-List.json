@@ -1,12 +1,11 @@
 {
-	"bodyclass": "europeana_research",
-	"pagetitle": "Europeana Research - Data Content",
+  "bodyclass": "europeana_research",
+  "pagetitle": "Europeana Research - Data Content",
 
-	"css_files": [
-		{
-			"path": "../../css/research/screen.css",
-			"media": "all"
-		}
-	],
-	"blog": true
+  "css_files": [
+    {
+      "path": "../../css/research/screen.css",
+      "media": "all"
+    }
+  ]
 }

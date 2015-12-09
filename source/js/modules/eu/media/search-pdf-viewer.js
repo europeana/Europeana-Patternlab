@@ -3,7 +3,9 @@ define(['jquery'], function($){
       'use strict';
 
       var
-      resource_path       = typeof(js_path) == 'undefined' ? '/js/dist/lib/pdfjs/' : js_path + 'lib/pdfjs/',
+      resource_path_css   = require.toUrl('../lib/pdfjs/viewer.css'),
+      resource_path_worker= require.toUrl('../lib/pdfjs/pdf.worker.js'),
+
       pdfjs_canvas        = null,//document.getElementById('pdfjs-canvas'),
       next                = null,//document.getElementById('pdfjs-next'),
       page_count_span     = null,//document.getElementById('pdfjs-page-count'),
@@ -126,8 +128,8 @@ define(['jquery'], function($){
         prev                = $el.find('#pdfjs-prev')[0];
         context             = pdfjs_canvas.getContext('2d');
 
-        PDFJS.workerSrc     = resource_path + 'pdf.worker.js';
-        $('head').append('<link rel="stylesheet" href="' + resource_path + 'viewer.css" type="text/css"/>');
+        PDFJS.workerSrc     = resource_path_woker;
+        $('head').append('<link rel="stylesheet" href="' + resource_path_css + '" type="text/css"/>');
 
         next.addEventListener( 'click', onNextPage );
         prev.addEventListener( 'click', onPrevPage );

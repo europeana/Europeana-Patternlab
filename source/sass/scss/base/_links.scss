@@ -6,32 +6,32 @@
 
 a {
 
-	color: $textcolour_link;
-	text-decoration: none;
+  color: $textcolour_link;
+  text-decoration: none;
 
-	&:hover{
-		color: darken($textcolour_link, 15%);
-		cursor: pointer;
-	}
+  &:hover{
+    color: darken($textcolour_link, 15%);
+    cursor: pointer;
+  }
 
-	&.highlight{
-		color: $icon_primary;
+  &.highlight{
+    color: $icon_primary;
 
-		&:hover{
-			$darker: darken($icon_primary, 15%);
-			color: $darker;
-			border-bottom: 1px dotted $darker;
-		}
-	}
+    &:hover{
+      $darker: darken($icon_primary, 15%);
+      color: $darker;
+      border-bottom: 1px dotted $darker;
+    }
+  }
 
-	&.external:after{
-		@extend %external_link_icon;
-		margin-left: 0.2em;
-	}
+  &.external:after{
+    @extend %external_link_icon;
+    margin-left: 0.2em;
+  }
 }
 
 .highlight{
-	color: $icon_primary;
+  color: $icon_primary;
 }
 
 // External link icon - indicates that a link is external to europeana
@@ -42,10 +42,31 @@ a {
 // Styleguide 1.0.0
 
 %external_link_icon{
-	content: '';
-	background: center right no-repeat;
+  content: '';
+  background: center right no-repeat;
     @include svg-bg-with-fallback("icons/link_external");
     background-size: contain;
     padding-right: 1.2em;
 }
 
+// Skip to main link (uses is-vishidden)
+a.skip-main {
+    left:99%;
+    position:absolute;
+    width:1px;
+    height:1px;
+    z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color: $black;
+    left: auto;
+    width: auto;
+    height: auto;
+    overflow:auto;
+    margin: 0 auto;
+    padding: $pad-half;
+    border:4px solid yellow;
+    text-align:center;
+    z-index:999;
+}

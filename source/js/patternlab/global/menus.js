@@ -21,12 +21,12 @@ var Site = window.Site || {};
     Site.resetMenu = function(){
         body.removeClass('is-open-menu-right is-open-globalsearch is-open-menu-top');
         document.removeEventListener( 'click', bodyClickFn );
-    };    
+    };
 
     Site.init_menu = function(){
+
                 //Navigation toggle
         $('.nav-toggle-menu').on("click", function(e) {
-
             if( body.hasClass( 'is-open-menu-right' ) ){
                 Site.resetMenu();
             }else{
@@ -48,7 +48,7 @@ var Site = window.Site || {};
                 document.addEventListener( 'click', bodyClickFn );
             }
 
-            $('input.js-global-search').focus();
+            //$('input.js-global-search').focus();
             e.preventDefault();
         });
 

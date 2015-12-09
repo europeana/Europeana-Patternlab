@@ -1,3 +1,4 @@
+
 {
   "bodyclass": "europeana_search",
   "page_title": "Europeana Search",
@@ -14,17 +15,20 @@
     }
   ],
 
-  "js_variables":
-  [
-    "var js_path= '../../js/dist/';"
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/show"
+    }
   ],
 
   "js_files":
   [
       {
         "path": "../../js/dist/require.js",
-        "data_main": "../../js/dist/main/main",
-        "Data_main": "../../js/min/main/main"
+        "data_main": "../../js/dist/main/main-collections",
+        "Data_main": "../../js/min/main/main-collections",
+        "Data_main": "../../js/patternlab/site_js/scratchpad.js"
       }
 
   ],
@@ -36,12 +40,9 @@
       "media":
       {
         "required_players": [
-          {"audio": true},
-          {"image": true},
-          {"pdf":   true},
-          {"text":  true},
-          {"video": true}
+          {"image": true}
         ],
+        "single_item": true,
         "items":
         [
           {
@@ -61,15 +62,15 @@
             {
               "license_CC0": true,
               "license_name": "CC0",
-              "license_human": "You can use this image in any way you like"
+              "license_human": "You can use this image in any way you like",
+              "attribution_html": "&lt;a href=&quot;http://www.europeana.eu/portal/record/xxx&quot;>dc:title&lt;/a>. dc:creator. &lt;a href=&quot;edm:isshownat&quot;&gt;edm:dataProvider&lt;/a&gt;. &lt;a href=&quot;edm:rights&quot; rel=&quot;xhv:license http://www.europeana.eu/schemas/edm/rights&quot;&gt;rightslabel&lt;/a&gt;&quot;",
+              "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ ."
             },
             "technical_metadata":
             {
-              "NOTE:": "width and height used for image viewer",
-
               "width": "2261",
               "height": "2548",
-
+              "width_or_height": true,
 
               "language":"English",
               "format": "jpg",
@@ -81,175 +82,6 @@
               "size_unit": "pixels",
               "runtime": "34",
               "runtime_unit": "minutes"
-            }
-          },
-          {
-            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
-            "is_pdf": true,
-            "download":{
-              "url":  "http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09",
-              "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            },
-            "technical_metadata":
-            {
-              "language":"English",
-              "format": "png",
-              "file_size": "23.2",
-              "file_unit": "MB"
-            }
-          },
-          {
-            "is_image": true,
-            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
-            "download":{
-              "url": "/images/sample/object_2_full.jpg",
-              "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like"
-            },
-            "technical_metadata":
-            {
-              "NOTE:": "width and height used for image viewer",
-
-              "width": "532",
-              "height": "768"
-            }
-          },
-
-          {
-            "is_audio": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
-            "download": {
-              "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
-              "text": "Original MP3 file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/mp3"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this audio clip in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
-              "text": "Original MP4 file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/mp4"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_audio": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
-            "download": {
-              "url": "/media/C_2336_2G_221-2.flac",
-              "text": "Original FLAC file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/flac"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this sound clip in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
-            "download": {
-              "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
-              "text": "Original FLV file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/x-flv"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-              "text": "Original MPG file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/mpeg"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
-              "text": "Original OGG file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/ogg"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=SOUND",
-            "download": {
-              "url": "/media/Kermis_Santpoort_120803_01.wav",
-              "text": "Original WMV file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/wav"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this sound clip in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?type=VIDEO",
-            "download": {
-              "url": "/media/I018102.wmv",
-              "text": "Original WMV file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/wmv"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
             }
           }
         ]
@@ -515,6 +347,7 @@
       },
       "meta_additional":
       {
+        "present": true,
         "geo":
         {
           "long_and_lat": true,
@@ -550,176 +383,113 @@
     {
       "title": "Similar items",
 
-      "more_items_query": "javascript:alert('loads a page of similar items')",
+      "more_items_query" : "javascript:alert('loads a page of similar items')",
+      "more_items_load"  : "url-for-extra-items",
+      "more_items_total" : 12,
 
-            "items": [
-              {
-                "url":  "?q=The+Lace+Maker",
-                "title": "The Lace Maker",
-                "img": {
-                   "alt": "The Lace Maker",
-                   "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
-                }
-              },
-              {
-                "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
-              "title": "Zittende jongeman bij ton met het hoofd naar links",
-                "img": {
-                    "alt": "Zittende jongeman bij ton met het hoofd naar links",
-                    "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
-                 }
-              },
-              {
-                "url": "?q=Delft",
-                "title": "Delft",
-                "img": {
-                    "alt": "Delft",
-                    "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
-                 }
-              },
-              {
-                "url": "?q=Girl+with+the+pearl+earring",
-                "title": "Girl with the pearl earring",
-                "img": {
-                    "alt": "Girl with the pearl earring",
-                    "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
-                 }
+      "items": [
+        {
+          "url":  "?q=The+Lace+Maker",
+          "title": "The Lace Maker",
+          "img": {
+             "alt": "The Lace Maker",
+             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+          }
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+        "title": "Zittende jongeman bij ton met het hoofd naar links",
+          "img": {
+              "alt": "Zittende jongeman bij ton met het hoofd naar links",
+              "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+           }
+        },
+        {
+          "url": "?q=Delft",
+          "title": "Delft",
+          "img": {
+              "alt": "Delft",
+              "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+           }
+        },
+        {
+          "url": "?q=Girl+with+the+pearl+earring",
+          "title": "Girl with the pearl earring",
+          "img": {
+              "alt": "Girl with the pearl earring",
+              "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+           }
 
+        }
+      ]
+    },
+    "named_entities": {
+          "fold_title": "Named Entities",
+          "data": [
+          {
+            "title": "Who",
+            "fields": [
+              {
+                  "key": "Agent Term",
+                  "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Agent Label",
+                  "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
+                  "multi": true
               }
-            ],
+            ]
+          },
+          {
+            "title": "What",
+            "fields": [
+              {
+                  "key": "Concept Term",
+                  "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Concept Label",
+                  "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
+                  "multi": true
+              }
+            ]
+          },
+          {
+            "title": "Where",
+            "fields": [
+              {
+                  "key": "Place Term",
+                  "val": "https://www.google.co.uk/maps",
+                  "foldable_link": true
+              }
+            ]
+          },
+          {
+            "title": "When",
+            "fields": [
+              {
+                  "key": "Period Term",
+                  "val": "http://semium.org/time/17xx_4_quarter",
+                  "foldable_link": true
+              },
+              {
+                  "key": "Period Term",
+                  "vals": [
+                    {"key": "(fr)", "val": "[4e quart 18e siècle]"},
+                    {"key": "(en)", "val": "[4 quarter of the 18th century]"},
+                    {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
+                  ],
+                  "multi": true
+              }
+            ]
+          }
+        ]
 
-      "more_url": "http://europeana.eu"
+
     }
   },
-
-  "navigation":
-  {
-    "next_prev":
-    {
-      "next_url": "next_url_here",
-      "next_text": "Next",
-      "prev_url": "prev_url_here",
-      "prev_text": "Previous",
-      "back_url": "back_url_here",
-      "back_text": "Your search results"
-    },
-
-    "global":
-    {
-      "options":
-      {
-        "search_active": false,
-        "settings_active": false
-      },
-
-      "primary_nav":
-      {
-        "items":
-        [
-          {
-            "url": "#",
-            "text": "Home",
-            "is_current": true
-          },
-
-          {
-            "url": "",
-            "text": "Channels",
-            "submenu":
-            {
-              "items":
-              [
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 1"
-                },
-
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 2",
-                  "is_current": true
-                },
-
-                {
-                  "url": "http://google.com",
-                  "text": "Channel 3"
-                }
-              ]
-            }
-          },
-
-          {
-            "url": "",
-            "text": "Exhibitions"
-          },
-
-          {
-            "url": "",
-            "text": "Blog"
-          },
-
-          {
-            "url": "",
-            "text": "My Europeana"
-          }
-        ]
-      }
-    },
-
-    "footer":
-    {
-      "linklist1":
-      {
-        "title": "More info",
-        "items":
-        [
-          {
-            "text": "New collections",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "All data providers",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Become a data provider",
-            "url": "http://google.com"
-          }
-        ]
-      },
-
-      "linklist2":
-      {
-        "title": "Help",
-        "items":
-        [
-          {
-            "text": "Search tips",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Using My Europeana",
-            "url": "http://google.com"
-          },
-
-          {
-            "text": "Copyright",
-            "url": "http://google.com"
-          }
-        ]
-      },
-
-      "social":
-      {
-        "linkedin": false,
-        "github": false
-      }
-    }
-  },
-
   "page_config":
   {
     "newsletter": true

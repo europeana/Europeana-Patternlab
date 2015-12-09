@@ -57,7 +57,7 @@ Configuration options and content model:
 
     <div class="filter-name">{{ title }}</div>
 
-    <ul class="filter-list">
+    <ul class="filter-list filter-wrap">
     {{#items}}
         <li>
             <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>{{text}}
@@ -87,17 +87,19 @@ Configuration options and content model:
     {{/items}}
 
     {{#extra_items}}
-        <div class="filter-extrafields js-showhide-panel is-jshidden">
-    {{#items}}
-        <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
-            {{#num_results}}
-            <span class="filter-num">{{num_results}}</span>
-            {{/num_results}}
-            </a>
-        </li>
-    {{/items}}
-    </div>
+      <li>
+        <ul class="filter-extrafields js-showhide-panel is-jshidden">
+        {{#items}}
+            <li>
+                <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
+                {{#num_results}}
+                <span class="filter-num">{{num_results}}</span>
+                {{/num_results}}
+                </a>
+            </li>
+        {{/items}}
+        </ul>
+      </li>
     {{/extra_items}}
 
     </ul>

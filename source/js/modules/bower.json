@@ -17,7 +17,6 @@
   "dependencies": {
     "jquery.scrollTo": "~2.1.1",
     "jquery-dropdown": "~1.0.5",
-    "requirejs": "~2.1.18",
-    "imagesloaded": "~3.1.8"
+    "requirejs": "~2.1.18"
   }
 }

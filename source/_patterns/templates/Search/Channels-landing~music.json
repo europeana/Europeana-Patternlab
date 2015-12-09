@@ -4,6 +4,10 @@
   "version": {
     "is_alpha": true
   },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
   "page_config": {
     "newsletter": true
   },
@@ -16,7 +20,7 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main"
+      "data_main": "../../js/dist/main/main-collections"
     }
   ],
   "input_search": {
@@ -90,7 +94,7 @@
       }
     },
     "hero_config": {
-      "hero_image": "sample/channel_hero_music.jpg",
+      "hero_image": "../../images/sample/channel_hero_music.jpg",
       "attribution_title": "Danse de trois faunes et trois bacchantes",
       "attribution_creator": "Hieronymus Hopfer",
       "attribution_institution": "Bibliothèque municipale de Lyon",
@@ -106,7 +110,7 @@
           "count": "190,226",
           "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-opera-square.jpg"
+          "image": "../../images/sample/entry-opera-square.jpg"
         },
         {
           "title": "Folk Music",
@@ -114,7 +118,7 @@
           "count": "7,029",
           "media_type": "Recordings",
           "is_search": true,
-          "image": "sample/entry-folk-square.jpg"
+          "image": "../../images/sample/entry-folk-square.jpg"
         },
         {
           "title": "Musical Instruments",
@@ -122,7 +126,7 @@
           "count": "46,843",
           "media_type": "Images",
           "is_search": true,
-          "image": "sample/entry-intruments-square.jpg"
+          "image": "../../images/sample/entry-intruments-square.jpg"
         },
         {
           "title": "Georges Bizet's Carmen",
@@ -130,7 +134,7 @@
           "count": "573",
           "media_type": "Recordings and Videos",
           "is_spotlight": true,
-          "image": "sample/entry-carmen-square.jpg"
+          "image": "../../images/sample/entry-carmen-square.jpg"
         },
         {
           "title": "Spotlight: The Lute",
@@ -138,7 +142,7 @@
           "count": "46",
           "media_type": "Images and documents",
           "is_spotlight": true,
-          "image": "sample/entry-lute-square.jpg"
+          "image": "../../images/sample/entry-lute-square.jpg"
         },
         {
           "title": "Spotlight: The Harpsichord",
@@ -146,7 +150,7 @@
           "count": "240",
           "media_type": "Texts and Recordings",
           "is_spotlight": true,
-          "image": "sample/entry-harpsichord-square.jpg"
+          "image": "../../images/sample/entry-harpsichord-square.jpg"
         }
       ]
     },
@@ -157,25 +161,25 @@
           "title": "Explore the World of Musical Instruments",
           "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-instruments.jpg"
+          "bg_image": "../../images/sample/thumb-instruments.jpg"
         },
         {
           "title": "Weddings in Eastern Europe",
           "url": "http://exhibitions.europeana.eu/exhibits/show/weddings-in-eastern-europe",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-wedding.jpg"
+          "bg_image": "../../images/sample/thumb-wedding.jpg"
         },
         {
           "title": "Recording and playing Machines",
           "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-machines.jpg"
+          "bg_image": "../../images/sample/thumb-machines.jpg"
         },
         {
           "title": "Find more from Europeana Music on Soundcloud",
           "url": "http://soundcloud.com",
           "wide": true,
-          "bg_image": "sample/sc_st_white_240x140.png",
+          "bg_image": "../../images/sample/sc_st_white_240x140.png",
           "class_custom": "soundcloud"
         }
       ]
@@ -242,135 +246,12 @@
           }
         }
       ]
-    }
-  },
-  "navigation": {
-    "global": {
-      "options": {
-        "search_active": false
-      },
-      "logo": {
-        "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-        "text": "Europeana Search"
-      },
-      "primary_nav": {
-        "items": [
-          {
-            "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-            "text": "Home"
-          },
-          {
-            "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Channels",
-            "is_current": true,
-            "submenu": {
-              "items": [
-                {
-                  "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-                  "text": "Art History",
-                  "is_current": true
-                },
-                {
-                  "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
-                  "text": "Music"
-                }
-              ]
-            }
-          },
-          {
-            "url": "",
-            "text": "Exhibitions"
-          },
-          {
-            "url": "",
-            "text": "Blog"
-          },
-          {
-            "url": "",
-            "text": "My Europeana"
-          }
-        ]
-      }
     },
-    "footer": {
-      "linklist1": {
-        "title": "More info",
-        "items": [
-          {
-            "text": "New collections",
-            "url": "http://google.com"
-          },
-          {
-            "text": "All data providers",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Become a data provider",
-            "url": "http://google.com"
-          }
-        ]
-      },
-      "linklist2": {
-        "title": "Help",
-        "items": [
-          {
-            "text": "Search tips",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Using My Europeana",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Copyright",
-            "url": "http://google.com"
-          }
-        ]
-      },
-      "othersites": {
-        "title": "Explore Europeana",
-        "styleModifier": "inline-list",
-        "items": [
-          {
-            "url": "http://google.com",
-            "text": "Europeana 1914-1918"
-          },
-          {
-            "url": "http://google.com",
-            "text": "Europeana Exhibitions"
-          },
-          {
-            "url": "http://google.com",
-            "text": "Europeana Blog"
-          }
-        ]
-      },
-      "social": {
-        "twitter": true,
-        "facebook": true,
-        "pinterest": true,
-        "linkedin": true
-      },
-      "subfooter": {
-        "items": [
-          {
-            "text": "Home",
-            "url": "./"
-          },
-          {
-            "text": "Terms of use & policies",
-            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
-          },
-          {
-            "text": "Contact us",
-            "url": "./"
-          },
-          {
-            "text": "Sitemap",
-            "url": "./"
-          }
-        ]
-      }
+    "phase_feedback": {
+      "title": "This is an Alpha release of our new collections search and Music Channel",
+      "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+      "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
+      "cta_text": "Help us improve the site"
     }
   }
 }

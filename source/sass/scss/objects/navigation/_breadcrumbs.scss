@@ -1,8 +1,8 @@
-.breadcrumbs { 
+.breadcrumbs {
 	list-style: none;
 
 	a, .lastitem {
-		display: inline-block;
+		display: inline;
 		position: relative;
 		padding-right: $space-half;
 		text-decoration: none;
@@ -18,7 +18,7 @@
 	}
 
 	>li{
-		display: inline-block;
+		display: inline;
 		margin-right: $space-half;
 
 		&:first-of-type a{
@@ -26,17 +26,17 @@
 		}
 
 		&:first-child a:before {
-			display: none; 
+			display: none;
 		}
 
 		&:last-child a:after {
-			display: none; 
+			display: none;
 		}
 	}
 
 	&.breadcrumbs-arrows{
 		a:after {
-			content: ""; 
+			content: "";
 			border-top: 0.3em solid transparent;
 			border-bottom: 0.3em solid transparent;
 			border-left: 0.3em solid $gray-light;
@@ -47,7 +47,7 @@
 
 		a:hover:after {
 			border-left-color: $textcolour_link;
-		}		
+		}
 	}
 
 	.page_header & {
@@ -55,7 +55,7 @@
 		vertical-align: middle;
 		width: 75%;
 	}
-	
+
 	//inside search result item
 	.item-details & {
 		font-size: $font-size-slightly-smaller;

@@ -1,15 +1,22 @@
 {{> atoms/iconography/svgicons-search }}
-{{> organisms/global/header}}
+{{> organisms/global/header_v2}}
 
 <div role="main" class="search-object">
 
-  <div class="object-nav">
-    {{>molecules/navigation/next-previous}}
+  <div class="object-nav cf">
+    <div class="object-nav-lists">
+      <ul class="breadcrumbs">
+        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+        <li class="js-channel"><a href=""></a></li>
+        {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>{{/navigation.back_url}}
+        <li class="js-return"><a href="">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>
+        <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.item_detail}}</strong></span></li>
+      </ul>
 
-    <ul class="breadcrumbs">
-      <li><a href="{{navigation.next_prev.back_url}}"><svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>{{navigation.next_prev.back_text}}</a></li>
-      <li><span class="lastitem"><strong>{{content.object.title}}</strong> {{#content.object.creator}} | {{ . }}{{/content.object.creator}}</span></li>
-    </ul>
+      {{>molecules/navigation/next-previous}}
+    </div>
+
+    {{>molecules/forms/search-item-navigation}}
   </div>
 
   {{#content}}
@@ -20,10 +27,43 @@
 
     <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
 
+      <a class="scroll-trigger trigger-chain"
+         enabled="true"
+         data-disable-when-fired="showMediaThumbs",
+         data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
+
       {{^empty_item}}
       <div class="media-viewer">
 
+        {{#single_item}}
+          {{#items}}
+            <div class="single-item-thumb">
+              {{> molecules/components/media-nav-item}}
+            </div>
+          {{/items}}
+        {{/single_item}}
+
+        {{^single_item}}
+          {{#items}}
+            {{#is_current}}
+              <div class="multi-item-poster{{#playable}} contains-playable{{/playable}}">
+                <a {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                    <img src="{{thumbnail}}"/>
+                    {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
+                    <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
+                </a>
+              </div>
+            {{/is_current}}
+          {{/items}}
+        {{/single_item}}
+
         {{#required_players}}
+
+        {{#iiif}}
+        <div class="object-media-iiif is-hidden">
+          {{> molecules/components/iiif/iiif }}
+        </div>
+        {{/iiif}}
 
         {{#image}}
         <div class="object-media-image is-hidden">
@@ -51,67 +91,71 @@
 
         {{#pdf}}
         <div class="object-media-pdf is-hidden">
-          {{> molecules/components/pdfjs/pdfjs-ui }}
+          {{> molecules/components/pdfjs/pdfjs-ui-thumbs-right }}
         </div>
         {{/pdf}}
 
         {{/required_players}}
       </div>
-      {{> molecules/components/media-nav}}
+
+      {{^single_item}}
+        {{> molecules/components/media-nav}}
+      {{/single_item}}
+
       {{/empty_item}}
       {{#empty_item}}
         <img src={{thumbnail}}>
       {{/empty_item}}
     </div>
+  </section>
 
-    {{#items}}
+  {{^empty_item}}
+  <section>
 
-    <div class="object-media-info section {{#is_current}}is-current{{/is_current}}">
+    <div class="object-media-info section is-current">
 
-      {{#download}}
       <div class="object-downloads">
 
-        <a class="js-showhide download-button btn alt {{^downloadable}}is-disabled{{/downloadable}}" href="#">
+        <a class="js-showhide download-button btn alt {{^has_downloadable_media}}is-disabled{{/has_downloadable_media}}" href="#">
           <svg class="icon icon-download">
             <use xlink:href="#icon-download"></use>
           </svg>
           {{ i18n.site.object.actions.download }}
         </a>
 
+        {{#items}}
+        {{#is_current}}
         <div class="media-info-tab">
           <div class="lc">
 
-            <div class="info-primary">
-              <h3>
-                {{ i18n.site.object.actions.download }}
-              </h3>
+            {{# rights }}
+            <div class="info-license">
+              <h4>
+                {{ i18n.global.facet.header.reusability }}
+              </h4>
+
+              <p>{{ license_human }}</p>
+              <div class="object-license">{{> molecules/icons/licenses }}</div>
             </div>
 
-            {{# technical_metadata }}
-            <div class="info-secondary">
-              {{> molecules/metadata/file-detail }}
+            <div class="info-attribute">
+                <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
+                {{> molecules/controls/attribution-widget }}
             </div>
-            {{/ technical_metadata }}
+            {{/ rights }}
+
 
             <div class="info-support">
-              {{# rights }}
-              <div class="object-rights">
-
-                <h4>{{ i18n.global.facet.header.reusability }}</h4>
-
-                {{license_human}}
-
-                <div class="object-license">{{> molecules/icons/licenses }}</div>
-              </div>
-              {{/ rights }}
+                {{> molecules/metadata/file-detail }}
             </div>
 
           </div>
-        </div> {{! end media-info}}
+        </div>
+        {{/is_current}}
+        {{/items}}
       </div>
-      {{/download}}
 
-      {{#technical_metadata}}
+
       <div class="object-techdata">
         <a class="js-showhide show-button" href="#">
           <svg class="icon icon-info">
@@ -120,35 +164,35 @@
           {{ i18n.site.object.actions.technicalmetadata }}
         </a>
 
+        {{#items}}
+        {{#is_current}}
         <div class="media-info-tab">
           <div class="lc">
+
             <div class="info-primary">
               <h3>{{ i18n.site.object.actions.technicalmetadata }}</h3>
             </div>
             <div class="info-secondary">
               <ul class="object-techdata-list">
-                <li><span class="label">{{i18n.site.object.meta-label.language}}</span> {{language}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.format}}</span> {{format}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.file-size}}</span> {{file_size}} {{file_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.codec}}</span> {{codec}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.fps}}</span> {{fps}} {{fps_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.dimensions}}</span> {{width}} × {{height}} {{size_unit}}</li>
-                <li><span class="label">{{i18n.site.object.meta-label.runtime}}</span> {{runtime}} {{runtime_unit}}</li>
+                <li {{^technical_metadata.format}}class="is-disabled"{{/technical_metadata.format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{format}}</span></li>
+                <li {{^technical_metadata.file_size}}class="is-disabled"{{/technical_metadata.file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{file_size}} {{file_unit}}</span></li>
+                <li {{^technical_metadata.codec}}class="is-disabled"{{/technical_metadata.codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{codec}}</span></li>
+                <li {{^technical_metadata.fps}}class="is-disabled"{{/technical_metadata.fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{fps}} {{fps_unit}}</span></li>
+                <li {{^technical_metadata.width}}class="is-disabled"{{/technical_metadata.width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{width}} × {{height}} {{size_unit}}</span></li>
+                <li {{^technical_metadata.runtime}}class="is-disabled"{{/technical_metadata.runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{runtime}} {{runtime_unit}}</span></li>
               </ul>
             </div>
-
-            <div class="info-support">
-            </div>
-
           </div>
         </div>
+        {{/is_current}}
+        {{/items}}
       </div>
-      {{/technical_metadata}}
-
     </div>
+  </section>
+  {{/empty_item}}
 
-    {{/items}}
-    {{^items}}
+  {{^items}}
+  <section>
     <div class="object-media-info section is-current">
       <div class="object-downloads">
         <a class="download-button btn alt is-disabled" href="#">
@@ -159,23 +203,27 @@
         </a>
       </div>
     </div>
-    {{/items}}
-
   </section>
+  {{/items}}
+
   {{/object.media}}
 
   {{! Main object text info section }}
-  <section class="section">
+  <section class="section object-details">
   <div class="lc">
     <div class="object-overview">
       {{#object}}
-      <div class="object-info cf">
-        {{# title }}
-          <h2 class="object-title">{{title}}</h2>
-        {{/ title }}
-        {{# subtitle }}
-          <div class="subtitle">{{subtitle}}</div>
-        {{/ subtitle }}
+
+      <div class="data-section no-border object-title cf">
+         <h3 class="subsection-label"> {{i18n.site.object.meta-label.title}} </h3>
+         <div class="subsection-content">
+            {{# title }}
+              <h2 class="object-title">{{title}}</h2>
+            {{/ title }}
+            {{# subtitle }}
+              <div class="subtitle">{{subtitle}}</div>
+            {{/ subtitle }}
+         </div>
       </div>
 
       {{#description}}
@@ -215,33 +263,84 @@
       {{/refs_rels}}
 
       {{#meta_additional}}
-      {{#geo.long_and_lat}}	{{! check both present }}
-      <a	class="scroll-trigger"
-        enabled="true"
-        data-fire-on-open="showMap"
-        data-fire-on-open-params='{
-        "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-        }'
-        ></a>
+      {{#present}}
+
       <div class="map-section">
         <h3 class="subsection-label">
           {{i18n.site.object.meta-label.location}}
         </h3>
         <div class="object-info">
-          <span id="map-place-name">{{geo.placeName}}</span>
+        {{#places}}
+          <ul class="data-group">
+            {{#sections}}
+              <li>
+                <section>
+                  <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+                  <ul class="comma-list data-group">
+                    {{# items }}
+                      <li>
+                        {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
+                          {{#life}}
+                            <span class="life-dates">
+                              ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
+                            </span>
+                          {{/life}}
+                          {{#biography}}
+                            <div class="biography">
+                              {{text}}
+                            </div>
+                          {{/biography}}
+                        {{/extra_info}}</li>
+                        </li>
+                    {{/ items}}
+                  </ul>
+                </section>
+              </li>
+            {{/sections}}
+          </ul>
+        {{/places}}
+
+        {{#geo.long_and_lat}}	{{! check both present }}
+          <a class="scroll-trigger"
+             id="scroll-trigger-map"
+             enabled="true"
+             data-fire-on-open="showMap"
+             data-fire-on-open-params='{
+              "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+             }'
+            ></a>
+          <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
           <div id="map">
             <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
             <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
           </div>
+          <a class="scroll-trigger trigger-chain"
+            enabled="true"
+            data-disable-when-fired="showMap",
+            data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+        {{/geo.long_and_lat}}
         </div>
       </div>
-      {{/geo.long_and_lat}}
+
+      {{/present}}
       {{/meta_additional}}
       {{/object}}
     </div>
     {{! end of object info column }}
     <div class="object-actions cf">
       <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+      {{# object.origin }}
+      <div class="object-origin">
+        <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+        {{#logo}}
+        <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+        {{/logo}}
+        {{#institution_name_and_link}}
+          {{{ i18n.site.object.meta-label.provided-by-detail }}}
+        {{/institution_name_and_link}}
+      </div>
+      {{/ object.origin }}
+
       {{# object.rights }}
       <div class="object-rights">
         <h4>{{ i18n.global.facet.header.reusability }}</h4>
@@ -249,25 +348,6 @@
         <div class="object-license">{{> molecules/icons/licenses }}</div>
       </div>
       {{/ object.rights }}
-
-      {{# object.origin }}
-      <div class="object-origin">
-        <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
-        {{#logo}}
-        <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
-        {{/logo}}
-        <a class="original_context cap" href="{{url}}">
-          {{institution_name}}
-          <svg class="icon icon-linkout">
-            <use xlink:href="#icon-linkout"></use>
-          </svg>
-        </a>
-        {{#url}}{{#institution_country}}
-          {{{ i18n.site.object.meta-label.provided-by-detail }}}
-        {{/institution_country}}{{/url}}
-        <span class="cap original_context_country">{{institution_country}}</span>
-      </div>
-      {{/ object.origin }}
 
       {{# object.tags }}
       <div class="object-tags">
@@ -308,32 +388,75 @@
         <div class="mlt cf">
           <div class="subsection-label">
             {{title}}
-            <a	class="scroll-trigger"
-              enabled="true"
-              data-fire-on-open="showMLT"
+            <a id="scroll-trigger-mlt"
+               class="scroll-trigger"
+               enabled="true"
+               data-fire-on-open="showMLT"
+               data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true}'
             ></a>
           </div>
           <div class="subsection-content">
-            <div class="js-mlt">
+            <div class="js-carousel more-like-this">
               <ul class="cf">
                 {{#items}}
-                  <li class="mlt-item">
+                  <li class="js-carousel-item">
                     <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
                       <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
                     </div>
-                    <span class="mlt-title">
+                    <span class="js-carousel-title">
                       <a href="{{url}}">{{title}}</a>
                     </span>
                   </li>
                 {{/items}}
               </ul>
             </div>
+            <a class="scroll-trigger trigger-chain"
+               enabled="true"
+               data-disable-when-fired="showMLT",
+               data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
           </div>
         </div>
         <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}…</a></div>
       </div>
     {{/content.similar}}
     </div>
+
+   {{#content.named_entities}}
+    <div class="lc data-border">
+      <div class="data-section no-border">
+        <div class="cf">
+          <div class="subsection-label">
+            {{i18n.site.object.named-entities.title}}
+          </div>
+          <div class="subsection-content">
+              {{>molecules/navigation/foldable-list}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/content.named_entities}}
+
+    <div class="lc data-border">
+      {{#content.hierarchy}}
+      <div class="data-section no-border">
+        <div class="hierarchy cf">
+
+          <div class="subsection-label">
+           {{i18n.site.object.hierarchy.title}}
+            <a	class="scroll-trigger"
+                enabled="true"
+                data-fire-on-open="showHierarchy"
+                data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
+            ></a>
+          </div>
+          <div class="subsection-content">
+            <div class="hierarchy-objects" style="display:none;">{{.}}</div>
+          </div>
+        </div>
+      </div>
+      {{/content.hierarchy}}
+    </div>
+
   </section>
   {{/content}}
 </div>
@@ -341,3 +464,4 @@
   {{> organisms/sections/phase-feedback }}
 {{/ version.is_alpha }}
 {{> organisms/global/footer }}
+

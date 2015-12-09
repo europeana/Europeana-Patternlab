@@ -35,6 +35,7 @@ $textcolour_highlight: $accent;
 @import "../scss/base/media";
 @import "../scss/base/forms";
 @import "../scss/base/utility";
+@import "../scss/base/tables";
 
 
 /*------------------------------------*\
@@ -91,7 +92,7 @@ $susy: (
 @import "../scss/objects/file-detail";
 @import "../scss/objects/attribution";
 @import "../scss/objects/social-share";
-@import "../scss/theme/hero-branding";
+@import "../scss/theme/hero-branding-v2";
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
@@ -106,6 +107,8 @@ $susy: (
 @import "../scss/objects/controls/results-filter";
 @import "../scss/objects/controls/sparkline";
 @import "../scss/objects/controls/search-multiterm";
+@import "../scss/objects/controls/attribution-widget";
+@import "../scss/objects/controls/form-control-groups";
 // @import "../scss/objects/controls/accordion-tabs";
 
 /*------------------------------------*\

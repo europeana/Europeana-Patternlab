@@ -44,18 +44,18 @@
 
 /* Floats */
 .right {
-	float: right;
-	padding: 0 0 $pad $pad;
+  float: right;
+  padding: 0 0 $pad $pad;
 }
 
 .right-search {
-	float: right;
-	padding: 0 0 $pad 0;
+  float: right;
+  padding: 0 0 $pad 0;
 }
 
 .left {
-	float: left;
-	padding: 0 $pad $pad 0;
+  float: left;
+  padding: 0 $pad $pad 0;
 }
 
 .centre{
@@ -67,15 +67,15 @@
 
 /* Text-Align */
 .align-right {
-	text-align: right;
+  text-align: right;
 }
 
 .align-center {
-	text-align: center;
+  text-align: center;
 }
 
 .align-left {
-	text-align: left;
+  text-align: left;
 }
 
 /* Display Classes */
@@ -99,12 +99,9 @@
 
 //
 .is-valid {
-	color: $valid;
+  color: $valid;
 }
 
 .is-error {
-	color: $error;
+  color: $error;
 }
-
-// .is-info {
-// }

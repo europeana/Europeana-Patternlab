@@ -67,24 +67,13 @@ define(['jquery'], function ($){
 
   function initSearchForm(){
      var form = $('.search-multiterm');
-     // new SearchTags(form);
+
      var input = form.find('.js-search-input');
-
-     if( $(document).width() > 640 ){
-          input.width(function(){
-               var tagswidth = $('.js-search-tags').width();
-               var parentWidth = $('.js-hitarea').width();
-               var margin = 10;
-               return parentWidth - (tagswidth + margin);
-           });
-     }
-
      form.on('click', '.js-hitarea', function(event) {
         input.focus();
      });
 
      form.on('submit', function(event) {
-
          if(input.attr('name')=='qf[]' && input.val().length==0){
              return false;
          }

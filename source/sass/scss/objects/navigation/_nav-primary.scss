@@ -1,81 +1,98 @@
-
 .nav_primary{
 
-	@include font-size(1);
+  @include font-size(1);
 
-	a {
-		display: block;
-		padding: 0.6em;
-		font-weight: bold;
+  word-break: normal;
 
-		&:after{
-			content: '';
-			display: block;
-			border-bottom: 5px solid transparent;
-			margin-top: 0.15em;
-		}
+  a {
+    display: block;
+    padding: 0.6em;
+    font-weight: bold;
 
-		&:hover{
-			text-decoration: none;
-		}
-		&:hover:after{
-			border-color: $textcolour_body;
-		}
+    &:after{
+      content: '';
+      display: block;
+      border-bottom: 5px solid transparent;
+      margin-top: 0.15em;
+    }
 
-	}
+    &:hover{
+      text-decoration: none;
+    }
+    &:hover:after{
+      border-color: $textcolour_body;
+    }
 
-	&.active {
-		max-height: 40em;
-	}
-
-	.current:after{
-		content: '';
-		display: block;
-		border-bottom: 5px solid $accent;
-		margin-top: 0.2em;
-	}
+  }
 
 
-	// Hide subnavs
-	li ul {
-		display: none;
-	}
+  &.active {
+    max-height: 40em;
+  }
 
-	// primary nav in header
-	.header & {
-		clear: both;
-		overflow: hidden;
-		max-height: 0;
+  .current:after, .is-current:after{
+    content: '';
+    display: block;
+    border-bottom: 5px solid $accent;
+    margin-top: 0.2em;
+  }
 
-		a{
-			color: $textcolour_body;
-			border-top: 1px solid $gray-light;
+  .sm li{
+    white-space: nowrap;
+  }
 
-			&:hover{
-				background-color: $offwhite;
-			}
-			.current:after{
-				border-color: $accent;
-			}
-		}
 
-		@media all and (min-width: $bp-med) {
-			max-height: none;
-			clear: none;
+  // primary nav in header
+  .header & {
+    display: none;
 
-			margin-top: 0.9em;
-			margin-left: $space-half;
+    a{
+      color: $textcolour_body;
+      border-top: 1px solid $gray-light;
 
-			li {
-				float: left;
-			}
+      &:hover{
+        background-color: $offwhite;
+      }
+      .current:after, .is-current:after{
+        border-color: $accent;
+      }
+    }
 
-			a {
-				border: 0;
-			}
+    @media all and (min-width: $bp-med) {
 
-		}
-	}
+      display: block;
+      float: left;
+
+      margin-top: 0.7em;
+      margin-left: $space-half;
+
+      li {
+        float: left;
+      }
+
+      a {
+        border: 0;
+      }
+
+    }
+  }
 
 
 }
+
+
+.nav-utility{
+
+  .sm .menu-sublevel{
+    min-width: 10em;
+  }
+
+  .sm > li > a{
+    color: $textcolour_body;
+
+    &:hover{
+      color: $black;
+    }
+  }
+}
+

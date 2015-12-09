@@ -82,7 +82,7 @@
 	}
 }
 
-.menu-title{
+.dropdown .menu-title{
 	border-bottom: 1px solid $gray87;
 	background-color: #FFF;
 	color: $textcolour_link;
@@ -90,7 +90,7 @@
 	padding: $space-quarter $space-half;
 }
 
-.menu-subtitle{
+.dropdown .menu-subtitle{
 	padding: $space-quarter $space-half;
 	padding-bottom: 0;
 	font-size: $font-size-slightly-smaller;

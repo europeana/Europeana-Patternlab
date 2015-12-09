@@ -1,0 +1,84 @@
+/* line 1, sass/iiif.scss */
+#iiif {
+  border: 1px solid #000;
+  height: 24em;
+  position: relative;
+  margin: 0 auto; }
+  /* line 7, sass/iiif.scss */
+  #iiif .leaflet-control-zoom {
+    display: none; }
+  /* line 11, sass/iiif.scss */
+  #iiif.loading {
+    cursor: progress; }
+
+/* line 16, sass/iiif.scss */
+#iiif,
+#iiif-ctrl {
+  font-size: 1em; }
+
+/* line 21, sass/iiif.scss */
+#iiif-ctrl {
+  background-color: #4d4d4d;
+  border: 1px solid #000;
+  padding: 0.5em 0;
+  position: relative;
+  margin: auto; }
+  /* line 28, sass/iiif.scss */
+  #iiif-ctrl .iiif-ctrl-group {
+    max-width: 40em;
+    margin: auto; }
+  /* line 33, sass/iiif.scss */
+  #iiif-ctrl a {
+    color: #fff;
+    text-align: center; }
+  /* line 38, sass/iiif.scss */
+  #iiif-ctrl a:hover {
+    text-decoration: underline; }
+  /* line 42, sass/iiif.scss */
+  #iiif-ctrl a,
+  #iiif-ctrl a[disabled="disabled"]:hover {
+    text-decoration: none; }
+  /* line 47, sass/iiif.scss */
+  #iiif-ctrl a,
+  #iiif-ctrl .jump-to-img,
+  #iiif-ctrl .total-images {
+    display: inline-block;
+    width: 15%;
+    max-width: 15%; }
+  /* line 55, sass/iiif.scss */
+  #iiif-ctrl .next,
+  #iiif-ctrl .last {
+    text-align: right; }
+  /* line 60, sass/iiif.scss */
+  #iiif-ctrl a[disabled="disabled"] {
+    color: #aaa;
+    cursor: not-allowed; }
+  /* line 65, sass/iiif.scss */
+  #iiif-ctrl .jump-to-img {
+    color: #fff;
+    background-color: #4d4d4d;
+    border: none;
+    box-shadow: none;
+    box-sizing: padding-box;
+    margin: none;
+    padding: 1px;
+    text-align: right; }
+  /* line 76, sass/iiif.scss */
+  #iiif-ctrl .jump-to-img:hover {
+    color: #4d4d4d;
+    background-color: #fff; }
+  /* line 81, sass/iiif.scss */
+  #iiif-ctrl .total-images {
+    text-align: left; }
+  /* line 85, sass/iiif.scss */
+  #iiif-ctrl .total-images,
+  #iiif-ctrl .title {
+    color: #fff; }
+  /* line 90, sass/iiif.scss */
+  #iiif-ctrl .title {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding-top: 0.5em;
+    font-style: italic;
+    font-weight: bold; }

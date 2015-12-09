@@ -16,7 +16,13 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main"
+      "data_main": "../../js/dist/main/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "channels/show"
     }
   ],
   "input_search": {
@@ -103,7 +109,7 @@
       }
     },
     "hero_config": {
-      "hero_image": "sample/channel_hero_music.jpg",
+      "hero_image": "../../images/sample/channel_hero_music.jpg",
       "attribution_text": "This is a placeholder image found somewhere",
       "attribution_url": "http://europeana.eu",
       "license_CC-ND-NC-SA": true
@@ -232,96 +238,6 @@
           }
         }
       ]
-    }
-  },
-  "navigation": {
-    "global": {
-      "options": {
-        "search_active": false,
-        "settings_active": false
-      },
-      "logo": {
-        "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-        "text": "Europeana Search"
-      },
-      "primary_nav": {
-        "items": [
-          {
-            "url": "../templates-Search-Search-home/templates-Search-Search-home.html",
-            "text": "Home",
-            "is_current": false
-          },
-          {
-            "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-            "text": "Channels",
-            "is_current": true,
-            "submenu": {
-              "items": [
-                {
-                  "url": "../templates-Search-Channels-landing-art/templates-Search-Channels-landing-art.html",
-                  "text": "Art History"
-                },
-                {
-                  "url": "../templates-Search-Channels-landing-music/templates-Search-Channels-landing-music.html",
-                  "text": "Music"
-                }
-              ]
-            }
-          },
-          {
-            "url": "",
-            "text": "Exhibitions"
-          },
-          {
-            "url": "",
-            "text": "Blog"
-          },
-          {
-            "url": "",
-            "text": "My Europeana"
-          }
-        ]
-      }
-    },
-    "footer": {
-      "linklist1": {
-        "title": "More info",
-        "items": [
-          {
-            "text": "New collections",
-            "url": "http://google.com"
-          },
-          {
-            "text": "All data providers",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Become a data provider",
-            "url": "http://google.com"
-          }
-        ]
-      },
-      "linklist2": {
-        "title": "Help",
-        "items": [
-          {
-            "text": "Search tips",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Using My Europeana",
-            "url": "http://google.com"
-          },
-          {
-            "text": "Copyright",
-            "url": "http://google.com"
-          }
-        ]
-      },
-      "social": {
-        "linkedin": false,
-        "github": false
-      }
     }
   }
 }

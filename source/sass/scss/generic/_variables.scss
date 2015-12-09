@@ -113,6 +113,8 @@ $offcanvas_bg: $blue-dark;
 $darkbg: $black;
 $block_bg: $offwhite;
 
+$media_bg: #726f6f; //graybrown
+
 
 // buttons
 $tag_primary: $accent;
@@ -182,7 +184,7 @@ $base-border-radius: 4px;
 $globalnavheight: $space-triple;
 
 // Global Off screen navigation
-$menuwidth_right: 300px;
+$menuwidth_right: 250px;
 $menu_top: 300px;
 
 //Breakpoints
@@ -193,4 +195,3 @@ $bp-med : 50em;
 $bp-large : 60em;
 $bp-xl : 70em;
 $bp-xxl : 90em;
-

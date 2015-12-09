@@ -1,0 +1,13 @@
+{
+  "js_files": [
+    {
+      "path": "../../bower_components/smartmenus/dist/jquery.smartmenus.js"
+    },
+    {
+      "path": "../../bower_components/smartmenus/dist/addons/keyboard/jquery.smartmenus.keyboard.js"
+    },
+    {
+      "path": "../../js/patternlab/global/menus.js"
+    }
+  ]
+}

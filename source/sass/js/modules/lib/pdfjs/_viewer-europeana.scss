@@ -1,0 +1,85 @@
+/* prevent pattern lab interference */
+
+#sidebarContent,
+#sidebarContent * {
+  box-sizing: unset;
+}
+
+/* assign some height */
+.pdf-ui-wrappper{
+  height:			480px;
+  width:			100%;
+}
+
+/* prevent toolbars appearing through the global header */
+
+.object-media-pdf{
+  position: relative;
+  z-index: 0;
+}
+
+/* prevent sidebar showing beyond the edge of the component dureing the open/close transition */
+
+html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
+  overflow: hidden;
+}
+
+/* show / hide duplicate buttons */
+
+.pdf-ui-wrappper.ltr{
+
+    #toolbarViewerRight{
+
+        #secondaryToolbarToggle-copy{
+          display: block;
+          &::before{
+            content: url("images/toolbarButton-secondaryToolbarToggle-rtl.png");
+              @media screen and (min-resolution: 2dppx) {
+                content: url("images/toolbarButton-secondaryToolbarToggle-rtl@2x.png");
+            }
+          }
+        }
+        #sidebarToggle{
+          display: none;
+        }
+    }
+
+    #toolbarViewerLeft{
+
+        #sidebarToggle-copy{
+          display: block;
+          &::before {
+            content: url("images/toolbarButton-sidebarToggle.png");
+            @media screen and (min-resolution: 2dppx) {
+              content: url("images/toolbarButton-sidebarToggle@2x.png");
+            }
+          }
+        }
+        #secondaryToolbarToggle{
+          display: none;
+        }
+        #sidebarToggle-copy{
+          display: block;
+        }
+    }
+}
+
+.pdf-ui-wrappper.rtl{
+
+    #toolbarViewerRight{
+        #secondaryToolbarToggle-copy{
+            display: none;
+        }
+        #sidebarToggle{
+            display: block;
+        }
+     }
+    #toolbarViewerLeft{
+        #secondaryToolbarToggle-copy{
+          display: block;
+        }
+        #sidebarToggle-copy{
+          display: none;
+        }
+    }
+}

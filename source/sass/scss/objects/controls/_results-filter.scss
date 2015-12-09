@@ -5,108 +5,146 @@
 // Styleguide 1.0.0
 
 
-.filter{
-	border-top: 1px solid $gray87;
-	margin-bottom: $space-half;
-	@include fontSize(14px);
+.filter,
+.filter-advanced{
 
-	.subfilters &{
-		border-top: none;
-	}
+  border-top: 1px solid $gray87;
+  margin-bottom: $space-half;
+  @include fontSize(14px);
+
+  .subfilters &{
+    border-top: none;
+  }
+}
+
+.filter-advanced{
+  .filter-moreless{
+    @include fontSize(16px);
+    top: 0.8rem;
+    position: relative;
+  }
 }
 
 .filter-name{
-	color: $textcolour_body;
-	margin: $space-half 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	width: 100%;
+  color: $textcolour_body;
+  margin: $space-half 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 100%;
 
-	.subfilters &{
-		@include fontSize(12px);
-		margin-bottom: $space-quarter;
-	}
+  .subfilters &{
+    @include fontSize(12px);
+    margin-bottom: $space-quarter;
+  }
 }
 
 .filter-list{
-	margin-bottom: $space-half;
+  margin-bottom: $space-half;
+}
+
+.filter-wrap{
+  position: relative;
+  padding-left: $space;
+
+}
+
+.filter-list li{
+  display: inline-block;
+
+  @media all and (min-width: $bp-med) {
+    display: block;
+  }
 }
 
 .filter-label{
-	padding: 0.2em 0;
+  padding: 0.2em 0;
 
-	input[type='checkbox']{
-		margin-right: $space-half;
-	}
+  input[type='checkbox']{
+    margin-right: $space-half;
+  }
 }
 
 .filter-num{
-	color: $gray-light;
+  color: $gray-light;
+}
+
+.filter-extrafields, .filter-adv{
+  margin-top: $space-half;
+  padding-top: $space-half;
 }
 
 .filter-extrafields{
-	margin-top: $space-half;
-	padding-top: $space-half;
-	border-top: 1px dashed $gray87;
+  border-top: 1px dashed $gray87;
+}
+
+.filter-extra-adv{
+
+  a{
+    color: $textcolour_body;
+  }
+
+  .filter-name{
+    margin-top: $space-half;
+  }
 }
 
 .subfilters{
-	border-left: 1px solid $gray87;
-	//background-color: rgba($gray87, 0.2);
-	padding: $space-half;
-	padding-bottom: $space-quarter;
-	margin-bottom: $space-half;
-	margin-top: $space-quarter;
-	margin-left: 10px;
+  border-left: 1px solid $gray87;
+  //background-color: rgba($gray87, 0.2);
+  padding: $space-half;
+  padding-bottom: $space-quarter;
+  margin-bottom: $space-half;
+  margin-top: $space-quarter;
+  margin-left: 10px;
 
-	.filter-name{
-		margin-top: 0;
-	}
+  .filter-name{
+    margin-top: 0;
+  }
 }
 
 
 // Date specific filter
 .filter-date .filter-controls{
 
-	& > .control-group{
-	float: left;
-	width: 50%;
+  & > .control-group{
+  float: left;
+  width: 50%;
 
-		&:first-of-type{
-			padding-right: 1em;
-		}
-	}
+    &:first-of-type{
+      padding-right: 1em;
+    }
+  }
 
-	label{
-		@include fontSize(11px);
-		padding-bottom: 0;
-		text-transform: capitalize;
-	}
+  label{
+    @include fontSize(11px);
+    padding-bottom: 0;
+    text-transform: capitalize;
+  }
 }
 
 // Colour filter
 .filter-colour{
-	.filter-list li{
-		display: inline-block;
-	}
+  .filter-list li{
+    display: inline-block;
+  }
 
-	.filter-item{
-		width: 40px;
-		height: 40px;
-		display: block;
-		position: relative;
-		border: 1px solid $gray87;
-	}
+  .filter-item{
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: relative;
+    border: 1px solid $gray87;
+  }
 
-	.filter-item:before{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		@include translate (-50%, -50%);
-		background-image: none;
-	}
+  .filter-item:before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate (-50%, -50%);
+    background-image: none;
+  }
 
-	.filter-item.is-checked:before {
+  .filter-item.is-checked:before {
         background: url(../../images/formcontrols.png) no-repeat;
     }
 }
@@ -114,8 +152,23 @@
 
 // Custom radio and checkboxes from links
 // js needed to switch on/off
+
+.filter-item{
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+
+  @media all and (min-width: $bp-med) {
+    padding: 5px;
+  }
+
+  &:hover, &:focus{
+    background-color: $white;
+  }
+}
+
 .filter-item:before{
-	content:'';
+  content:'';
     display: inline-block;
     *display: inline;
     vertical-align: middle;
@@ -126,14 +179,16 @@
     border: none;
     cursor: pointer;
     background-position: 0 0;
+    position: absolute;
+    left: 0;
 }
 
-.radiobuttons > ul > li > .filter-item:before{
+.radiobuttons > ul > li .filter-item:before{
     background-position: -88px 0;
 }
 
-
-.checkboxes > ul > li > .filter-item{
+.filter-boolean .filter-item,
+.checkboxes > ul > li .filter-item{
     &.is-checked:before {
         background-position: -22px 0;
     }
@@ -146,7 +201,7 @@
     }
 }
 
-.radiobuttons > ul > li > .filter-item{
+.radiobuttons > ul > li .filter-item{
     &.is-checked:before {
         background-position: -110px 0;
     }
@@ -157,4 +212,10 @@
     &.is-checked.is-disabled:before {
         background-position: -154px 0;
     }
+}
+
+
+.filter-hierarchical > .filter-list > li{
+  //only top level of hierarchical filters
+  display: block;
 }

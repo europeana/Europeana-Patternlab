@@ -1,10 +1,10 @@
 define(['jquery'], function ($) {
 
     function log(msg){
-
         console.log(msg);
     }
 
+    /*
     function Optimiser(initialVal, fnTest, jump){
 
         this.history = {}
@@ -255,13 +255,13 @@ define(['jquery'], function ($) {
                 self.styles.$test = self.get_style_tag(self.styleIds.test);
                 self.set_text(self.styles.$base, textBase);
                 self.set_text(self.styles.$test, textTest);
-                /*
-                 * var text = self.get_style_tag_text([ { sel: self.selCmpArray,
-                 * rules: [self.css.wwn] }, { sel: self.selCmpArray + ' ' +
-                 * self.selText, rules: [self.css.oa] } ]); self.styles.$test =
-                 * self.get_style_tag(self.styleIds.test);
-                 * self.set_text(self.styles.$test, text);
-                 */
+
+
+                // var text = self.get_style_tag_text([ { sel: self.selCmpArray,
+                // rules: [self.css.wwn] }, { sel: self.selCmpArray + ' ' +
+                // self.selText, rules: [self.css.oa] } ]); self.styles.$test =
+                // self.get_style_tag(self.styleIds.test);
+                // self.set_text(self.styles.$test, text);
             }
         },
 
@@ -349,9 +349,12 @@ define(['jquery'], function ($) {
             }
         }
     }
+    */
 
     function initHome(){
 
+        log('init home');
+        /*
         if(window.location.href.indexOf('wrapnice') > -1){
 
             var sel1 = '.home-promo > li';
@@ -366,10 +369,13 @@ define(['jquery'], function ($) {
             });
 
         }
-    }
+        */
+    };
 
-    if(typeof initHome != 'undefined'){
-        initHome();
+    return {
+        initPage: function(){
+            initHome();
+        }
     }
 
 });
