@@ -1472,7 +1472,9 @@ define(['jquery', 'jqScrollto'], function() {
                 var data    = null;
 
                 if(ob.self.index==1 && !ob.self.relBefore){
-                    nodeULOverrides.push(escapeId(ob.self.parent));
+                    if(ob.self.parent){
+                        nodeULOverrides.push(escapeId(ob.self.parent));
+                    }
                 }
 
                 if(ob.ancestors){
