@@ -647,6 +647,7 @@
   table-layout: fixed;
 }
 
+.eu-foldable-url:not(.inline),
 .eu-foldable-title:not(.inline),
 .eu-foldable-data:not(.inline){
   display: table-cell;
@@ -656,10 +657,14 @@
   padding-left: $space;
 }
 
+.eu-foldable-url,
+.eu-foldable-title{
+  margin-top: 1em;
+}
+
 .eu-foldable-title{
   &>a {
     display: block;
-    margin-top: 1em;
     word-wrap: normal;
     white-space: nowrap;
 

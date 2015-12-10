@@ -1,10 +1,11 @@
 
-
   {{#fold_title}}<span class="eu-foldable-title eu-foldable-top-level"><a>{{.}}</a></span>{{/fold_title}}
   <ul class="eu-foldable {{#fold_title}}is-hidden{{/fold_title}}">
      {{#data}}
          <li class="named-entity-section">
-           {{#title}}<h4 class="eu-foldable-title {{#inline}}inline{{/inline}}"><a>{{.}}</a></h4>{{/title}}
+
+           {{#title}}<h4 class="{{#title_url}}eu-foldable-url{{/title_url}}{{^title_url}}eu-foldable-title{{/title_url}} {{#inline}}inline{{/inline}}"><a {{#title_url}}href="{{.}}"{{/title_url}}>{{.}}</a></h4>{{/title}}
+
            <ul class="eu-foldable-data {{#inline}}inline{{/inline}} is-hidden">
               {{#fields}}
                   {{#key}}<li><h5 class="eu-foldable-subtitle">{{key}}</h5></li>{{/key}}
