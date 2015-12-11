@@ -110,8 +110,10 @@ define(['jquery', 'jqScrollto'], function() {
 
 
         var addCustomClasses = function(){
-           $(".jstree-node.ul").prev(".jstree-node.ol").removeClass('ol').addClass('ol-ul');
+           // disable relBefore
+           return;
 
+           $(".jstree-node.ul").prev(".jstree-node.ol").removeClass('ol').addClass('ol-ul');
            // nodes flagged for override get their custom class added here
            // this prevents the parent connector hanging over the first child in cases where
            // the child node is unordered
@@ -139,16 +141,25 @@ define(['jquery', 'jqScrollto'], function() {
          * */
         var formatNodeData = function(ob, wrapInfo){
             var newOb = null;
+
+            if(ob.self){
+                ob.self.relBefore = false;
+            }
+            if(ob.relBefore){
+                ob.relBefore = false;
+            }
+
+
             var normaliseText = function(id, title, type, childCount, index, parent, relBefore){
 
                 var text           = title.def[0];
                 var childCountText = (typeof childCount == 'undefined' || childCount == 0 ? '' : '<span> (' + childCount + ')<span>');
 
                 if(typeof hierarchyOriginalUrl != 'undefined' && id == hierarchyOriginalUrl){
-                     text = (parent ? (relBefore ? index + '. ' : '') : '') + text + childCountText;
+                     text = (parent ? (relBefore ? (index+1) + '. ' : '') : '') + text + childCountText;
                 }
                 else{
-                    text = (parent ? (index + '. ') : '')
+                    text = (parent ? ((index+1) + '. ') : '')
                     + '<a href="' + portalRecordRoot + id + '.html"'
                     +       ' onclick="var e = arguments[0] || window.event; followLink(e);">'
                     +   text
@@ -479,7 +490,6 @@ define(['jquery', 'jqScrollto'], function() {
                 }
                 else{
                     var url = apiServerRoot + node.data.id   + '/hierarchy/' + (backwards ? 'preceding' : 'following') + '-siblings.json?limit=' + leftToLoad;
-
                     loadData(url, function(data){
 
                         var origData = data;
@@ -705,9 +715,18 @@ define(['jquery', 'jqScrollto'], function() {
                 if( xNode.id != '#'){
                     var totalChildren = xNode.data.hasChildren ? xNode.data.childrenCount : 0;
                     if( $('#' + xNode.id + ' > .jstree-children').length ){
+
+
+                        var isLast = true;
+                        // added for /record/2048604/data_item_onb_abo__2BZ170840802.html
+                        // remove the "+1" from this condition if indexing from 1
+                        if(  (origIndex+1) < xNode.data.childrenCount  ){
+                            isLast = false;
+                        }
+
                         rightIndent ++;
-                        var createClass  = (origIndex == totalChildren ? 'arrow-spacer' : (unordered ? 'arrow bottom-ul' : 'arrow bottom') );
-                        var createString = '<div title="' + unordered + '" class="' + createClass + '" style="right:' + rightIndent + 'em">';
+                        var createClass  = (origIndex == totalChildren || isLast ? 'arrow-spacer' : (unordered ? 'arrow bottom-ul' : 'arrow bottom') );
+                        var createString = '<div class="' + createClass + '" style="right:' + rightIndent + 'em">';
 
                         bottomArrows.append(createString);
                         bottomArrows.css('width', rightIndent + 'em');
@@ -1165,7 +1184,8 @@ define(['jquery', 'jqScrollto'], function() {
 
             self.treeCmp.bind("create_node.jstree", function(event, nodeIn) {
                 node = self.treeCmp.jstree('get_node', nodeIn.node.id);
-                if(node.data.relBefore){
+                // short circuit relBefore
+                if(true || node.data.relBefore){
                     node.li_attr['class'] = 'ol';
                 }
                 else{
@@ -1546,7 +1566,8 @@ define(['jquery', 'jqScrollto'], function() {
     //return;
 
                 var addListTypeClasses = function(node){
-                    if(node.data.relBefore){
+                    // short circuit relBefore
+                    if(true || node.data.relBefore){
                         node.li_attr['class'] = 'ol';
                     }
                     else{
