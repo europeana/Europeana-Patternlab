@@ -40,6 +40,9 @@
 	.svg &{
 		background-image: url('../../images/europeana-logo-default.svg');
 	}
+  h1 {
+    padding-top: 5em;
+  }
 }
 
 // See objects/navigation/global-nav for offscreen menus and multi-site nav styles
