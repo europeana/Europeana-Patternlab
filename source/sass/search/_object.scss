@@ -429,6 +429,7 @@
     }
 
     .info-attribute{
+        display: none;
         @media all and (min-width: $bp-med) {
             @include span(11 of 24);
         }
