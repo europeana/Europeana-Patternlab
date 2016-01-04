@@ -1,4 +1,4 @@
-define(['jquery'], function ($){
+define(['jquery', 'util_resize'], function ($){
     /*
      * function SearchTags($form){ this.$form = $form; this.$input =
      * $form.find('.js-search-input'); this.$tags =
@@ -65,23 +65,49 @@ define(['jquery'], function ($){
      * if(self.$input.val().length==0){ self.$input.attr('name', null); } })); } }
      */
 
-  function initSearchForm(){
-     var form = $('.search-multiterm');
+  function sizeInput(){
+    var form = $('.search-multiterm');
+    var input = form.find('.js-search-input');
+    var hitAreaWidth = parseInt($('.js-hitarea').width());
+    hitAreaWidth -= 30;
+    var rowRemainder = hitAreaWidth;
 
-     var input = form.find('.js-search-input');
-     form.on('click', '.js-hitarea', function(event) {
-        input.focus();
-     });
+    $('.search-tag').each(function(i, ob){
+      var tagWidth = parseInt($(ob).outerWidth(true)) + 2;
+      if(rowRemainder > tagWidth){
+        rowRemainder -= tagWidth;
+      }
+      else{
+        rowRemainder = hitAreaWidth - tagWidth;
+      }
+    });
 
-     form.on('submit', function(event) {
-         if(input.attr('name')=='qf[]' && input.val().length==0){
-             return false;
-         }
-     });
-
+    if(rowRemainder < 218){ // width of Portugese placeholder
+      rowRemainder = hitAreaWidth;
+    }
+    input.width(rowRemainder + 'px');
   }
 
 
- initSearchForm();
+  function initSearchForm(){
+    var form = $('.search-multiterm');
+
+    var input = form.find('.js-search-input');
+    form.on('click', '.js-hitarea', function(event) {
+      input.focus();
+    });
+
+    form.on('submit', function(event) {
+      if(input.attr('name')=='qf[]' && input.val().length==0){
+        return false;
+      }
+    });
+  }
+
+  initSearchForm();
+
+  $(window).europeanaResize(function(){
+    sizeInput()
+  });
 
 });
