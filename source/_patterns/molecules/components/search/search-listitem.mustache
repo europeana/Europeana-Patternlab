@@ -52,9 +52,11 @@
     {{/concepts}}
 
     {{#origin}}
-    <div class="item-origin">
-    <a href="{{origin.url}}" class="external" target="_blank">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
-    </div>
+      {{#url}}
+      <div class="item-origin">
+      <a href="{{origin.url}}" class="external" target="_blank">{{ i18n.site.results.list.view-at-provider }} {{origin.text}}</a>
+      </div>
+      {{/url}}
     {{/origin}}
 
     <footer>

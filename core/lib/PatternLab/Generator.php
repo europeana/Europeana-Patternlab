@@ -147,13 +147,13 @@ class Generator extends Builder {
 	* Randomly prints a saying after the generate is complete
 	*/
 	public function printSaying() {
-		
+		/*
 		$randomNumber = rand(0,60);
 		$sayings = array("");
 		if (isset($sayings[$randomNumber])) {
 			print $sayings[$randomNumber]."...\n";
 		}
-		
+		*/
 	}
 	
 }

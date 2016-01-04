@@ -7,19 +7,19 @@
 // }
 
 form ol, form ul {
-	list-style: none;
-	margin-left: 0;
+  list-style: none;
+  margin-left: 0;
 }
 
 fieldset {
-	border: 0;
-	padding: 0;
-	margin: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 label {
-	display: block;
-	padding-bottom: $space-quarter;
+  display: block;
+  padding-bottom: $space-quarter;
 }
 
 button, input, select, textarea {
@@ -29,22 +29,22 @@ button, input, select, textarea {
 }
 
 input, textarea {
-	width: 100%;
-	border: 1px solid $gray-light;
-	padding: $pad-half 0.65rem;
-	box-shadow: inset 0 1px 3px #ddd;
-	border-radius: 4px;
-	-webkit-transition: 0.3s linear border;
-	-moz-transition: 0.3s linear border;
-	-ms-transition: 0.3s linear border;
-	-o-transition: 0.3s linear border;
-	transition: 0.3s linear border;
+  width: 100%;
+  border: 1px solid $gray-light;
+  padding: $pad-half 0.65rem;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-transition: 0.3s linear border;
+  -moz-transition: 0.3s linear border;
+  -ms-transition: 0.3s linear border;
+  -o-transition: 0.3s linear border;
+  transition: 0.3s linear border;
 
-	&:focus{
-		outline: 0;
-		outline: thin dotted \9; /* IE6-9 */
-		border-color: $textcolour_link;
-	}
+  &:focus{
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    border-color: $textcolour_link;
+  }
 }
 
 input[type="file"]:focus,
@@ -55,44 +55,44 @@ input[type="checkbox"]:focus {
 }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type=text]{
-	@include placeholder{
-		color: $textcolour_link;
-	}
+  @include placeholder{
+    color: $textcolour_link;
+  }
 }
 input[type=text]:focus{
-	@include placeholder{
-		color: $gray-light;
-	}
+  @include placeholder{
+    color: $gray-light;
+  }
 }
 
 button, input[type="submit"] {
-	width: auto;
-	padding: $pad-half $pad;
-	background: $accent;
-	border: none;
-	cursor: pointer;
-	color: $white;
-	border-radius: 4px;
+  width: auto;
+  padding: $pad-half $pad;
+  background: $accent;
+  border: none;
+  cursor: pointer;
+  color: $white;
+  border-radius: 4px;
 }
 
 button.pushbutton, input[type="submit"].pushbutton {
 
-	color: $gray-dark;
+  color: $gray-dark;
 
-	$grad-start: #FFFFFF;
-	$grad-end: #CCCCCC;
+  $grad-start: #FFFFFF;
+  $grad-end: #CCCCCC;
 
-	background: -moz-linear-gradient(top, $grad-start 0%, $grad-end 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad-start), color-stop(100%,$grad-end));
+  background: -moz-linear-gradient(top, $grad-start 0%, $grad-end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$grad-start), color-stop(100%,$grad-end));
 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end)";
-	background: -ms-linear-gradient(top, $grad-start 0%, $grad-end 100%);
-	border: 1px solid #ccc;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=$grad-start, endColorstr=$grad-end)";
+  background: -ms-linear-gradient(top, $grad-start 0%, $grad-end 100%);
+  border: 1px solid #ccc;
 }
 
 input[type="checkbox"],
@@ -112,86 +112,86 @@ input[type="search"]::-webkit-search-decoration {
 
 //Form Field Container
 .field-container, .control-group {
-	margin-bottom: $space;
+  margin-bottom: $space;
 }
 
 .form-inline{
-	input, button{
-		display: inline-block;
-	}
-	input[type="text"]{
-		width: 70%;
-	}
+  input, button{
+    display: inline-block;
+  }
+  input[type="text"]{
+    width: 70%;
+  }
 }
 
 .form-button-overlay, .inline-form {
 
-	fieldset, .inline-container {
-		position: relative;
-	}
+  fieldset, .inline-container {
+    position: relative;
+  }
 
-	input[type="submit"], button, .btn {
+  input[type="submit"], button, .btn {
 
-		height: 100%;
-		padding: 0 1.3rem;
-		position: absolute;
-		border: none;
-		top: 0;
-		right: 0;
-		z-index: 1;
-		width: auto;
+    height: 100%;
+    padding: 0 1.3rem;
+    position: absolute;
+    border: none;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: auto;
 
-		border-radius: 0;
-		border-top-right-radius: 4px;
-		border-bottom-right-radius: 4px;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 
-		&:hover, &:focus {
-			background: $gray-dark;
-		}
-	}
+    &:hover, &:focus {
+      background: $gray-dark;
+    }
+  }
 }
 
 
 // aligned form fields label to the left, field to the right
 .form-aligned{
 
-	input,
-	textarea,
-	select,
-	.form-message-inline {
-	    display: inline-block;
-	    width: auto;
-	    *display: inline;
-	    *zoom: 1;
-	    vertical-align: middle;
-	}
-	textarea {
-	    vertical-align: top;
-	}
+  input,
+  textarea,
+  select,
+  .form-message-inline {
+      display: inline-block;
+      width: auto;
+      *display: inline;
+      *zoom: 1;
+      vertical-align: middle;
+  }
+  textarea {
+      vertical-align: top;
+  }
 
-	/* Aligned Forms */
-	.control-group {
-	    margin-bottom: $space-half;
-	}
-	.control-group label, .field-container label{
-	    display: inline-block;
-	    width: 20%;
-	    margin-right: 1em;
-	    white-space: nowrap;
-	}
-	.controls {
-	    margin: 1.5em 0 0 11em;
-	}
+  /* Aligned Forms */
+  .control-group {
+      margin-bottom: $space-half;
+  }
+  .control-group label, .field-container label{
+      display: inline-block;
+      width: 20%;
+      margin-right: 1em;
+      white-space: nowrap;
+  }
+  .controls {
+      margin: 1.5em 0 0 11em;
+  }
 
 }
 
 
 /* Validation */
 .is-error {
-	border-color: $error;
+  border-color: $error;
 }
 .is-valid {
-	border-color: $valid;
+  border-color: $valid;
 }
 
 
@@ -203,7 +203,7 @@ input[type="search"]::-webkit-search-decoration {
 
 /* Search Form */
 .search-field {
-	padding-right: 3em;
+  padding-right: 3em;
 }
 
 /* Item Navigation Search */
@@ -299,9 +299,9 @@ input[type="search"]::-webkit-search-decoration {
 // Newsletter sign up form
 .newsletter-options{
 
-	label{
-		display: inline;
-		margin-right: $space-half;
-		padding: 0;
-	}
+  label{
+    display: inline;
+    margin-right: $space-half;
+    padding: 0;
+  }
 }
