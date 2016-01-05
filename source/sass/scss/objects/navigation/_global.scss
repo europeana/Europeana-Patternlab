@@ -307,3 +307,16 @@
     display: inline;
   }
 }
+
+// Remove focus & hover behaviour of menu button on mobile sizes
+
+@media all and (max-width: $bp-med) {
+  .nav-toggle-menu{
+    &:hover{
+      color: $white;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
