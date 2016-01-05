@@ -105,7 +105,7 @@ define(['jquery', 'util_resize'], function ($){
   }
 
   initSearchForm();
-
+  sizeInput();
   $(window).europeanaResize(function(){
     sizeInput()
   });
