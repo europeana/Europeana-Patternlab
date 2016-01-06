@@ -313,6 +313,12 @@
               {{#institution_name_and_link}}
                 {{{ i18n.site.object.meta-label.provided-by-detail }}}
               {{/institution_name_and_link}}
+              {{^institution_name_and_link}}
+                {{#institution_name}}
+                  {{{ i18n.site.object.meta-label.provided-by-detail-no-link }}}
+                  <a href="{{institution_canned_search}}">{{institution_name}}</a>
+                {{/institution_name}}
+              {{/institution_name_and_link}}
             </div>
           {{/ object.origin }}
           {{# object.rights }}
