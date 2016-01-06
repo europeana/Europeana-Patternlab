@@ -194,8 +194,23 @@
     }
   }
 
-  .primary{
-    font-weight: bold;
+  .sub-menu{
+    li a{
+      font-weight: normal;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      padding-right: 0;
+      &:after{
+        border: none;
+      }
+    }
+    .current{
+      color: $eu-lightblue;
+      font-weight: bold;
+      &:after{
+        border: none;
+      }
+    }
   }
 
   .secondary{
@@ -203,8 +218,8 @@
       border-bottom: 1px solid lighten($offcanvas_bg, 5);
     }
   }
-
 }
+
 
 .menu-top {
 
@@ -307,3 +322,17 @@
     display: inline;
   }
 }
+
+// Remove focus & hover behaviour of menu button on mobile sizes
+
+@media all and (max-width: $bp-med) {
+  .nav-toggle-menu{
+    &:hover{
+      color: $white;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+

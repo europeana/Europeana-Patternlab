@@ -611,7 +611,7 @@ to the .eot, .svg, .woff and .ttf in a filter or a local .htaccess file
 */
 @font-face {
   font-family: 'europeana';
-  src: url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/europeana-font-files/europeana.eot?#) format("eot"), url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/europeana-font-files/europeana.svg#europeana) format("svg"), url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/europeana-font-files/europeana.woff) format("woff"), url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/europeana-font-files/europeana.ttf) format("truetype");
+  src: url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/europeana.eot?#) format("eot"), url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/europeana.svg#europeana) format("svg"), url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/europeana.woff) format("woff"), url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/europeana.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
   color: red !important;
@@ -994,7 +994,6 @@ to the .eot, .svg, .woff and .ttf in a filter or a local .htaccess file
 }
 
 /* rights icons all have different image borders - corrective css margins added here */
-/* line 348, /data/jenkins/jobs/portal2-a9-delta-portal/workspace/portal/portal2/src/main/webapp/themes/sass/src/europeana-font-icons-widget.scss */
 span.rights-icon.icon-copyright {
   margin-top: .07em;
 }
@@ -1539,7 +1538,7 @@ span.rights-icon.icon-unknown {
 
 @media only screen and (min-width: 48em) {
   .footer {
-    background-image: url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/dust.png);
+    background-image: url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/dust.png);
     border: none;
   }
 
@@ -2073,7 +2072,6 @@ ul.menu {
 
 /*# sourceMappingURL=responsive-grid-sw.css.map */
 /* pagination for search results */
-/* line 5, /data/jenkins/jobs/portal2-a9-delta-portal/workspace/portal/portal2/src/main/webapp/themes/sass/src/search-pagination-sw.scss */
 .search-widget-container .search-results-navigation {
   clear: both;
   position: relative;
@@ -2827,13 +2825,13 @@ ul.menu {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: black url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/spinner.gif) center center no-repeat;
+  background: black url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/spinner.gif) center center no-repeat;
   opacity: .5;
   z-index: 12;
 }
 
 .search-widget-container.dark #overlay {
-  background: #555 url(http://delta-web.de.a9sapp.eu/portal/themes/default/images/spinner.gif) center center no-repeat;
+  background: #555 url(http://styleguide.europeana.eu/search-widget/themes/default/css-min/spinner.gif) center center no-repeat;
 }
 
 .search-widget-container {

@@ -331,6 +331,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         }
     }
 
+    /*
     var setBreadcrumbs = function(){
 
         var url = window.location.href.split('.html')[0] + '/navigation.json';
@@ -381,6 +382,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
             }
         });
     }
+    */
 
     var bindGA = function(){
 
@@ -453,7 +455,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         bindGA();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
-        setBreadcrumbs();
+        //setBreadcrumbs();
 
         // event binding
 

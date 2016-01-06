@@ -102,6 +102,7 @@
 	padding: $space;
 	background-color: $gray97;
 	border: 1px dashed $gray-lighter;
+  margin-bottom: $pad-double;
 
 	@media all and (min-width: $bp-small-3) {
 		@include push(1 of 18);
