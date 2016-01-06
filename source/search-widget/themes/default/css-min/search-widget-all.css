@@ -994,7 +994,6 @@ to the .eot, .svg, .woff and .ttf in a filter or a local .htaccess file
 }
 
 /* rights icons all have different image borders - corrective css margins added here */
-/* line 348, /data/jenkins/jobs/portal2-a9-delta-portal/workspace/portal/portal2/src/main/webapp/themes/sass/src/europeana-font-icons-widget.scss */
 span.rights-icon.icon-copyright {
   margin-top: .07em;
 }
@@ -2073,7 +2072,6 @@ ul.menu {
 
 /*# sourceMappingURL=responsive-grid-sw.css.map */
 /* pagination for search results */
-/* line 5, /data/jenkins/jobs/portal2-a9-delta-portal/workspace/portal/portal2/src/main/webapp/themes/sass/src/search-pagination-sw.scss */
 .search-widget-container .search-results-navigation {
   clear: both;
   position: relative;
