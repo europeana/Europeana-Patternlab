@@ -59,9 +59,9 @@ Configuration options and content model:
     <ul class="filter-list filter-wrap">
     {{#items}}
         <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>{{text}}
+            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}><div class="filter-text">{{text}}</div>
             {{#num_results}}
-            <span class="filter-num">({{num_results}})</span>
+            <div class="filter-num">({{num_results}})</div>
             {{/num_results}}
             </a>
         </li>
