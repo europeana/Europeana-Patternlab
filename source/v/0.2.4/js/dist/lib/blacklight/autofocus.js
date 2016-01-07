@@ -1,0 +1,1 @@
+!function(a){Blacklight.do_search_autofocus_fallback=function(){"undefined"!=typeof Modernizer&&Modernizr.autofocus||a("input[autofocus]").focus()},Blacklight.onLoad(function(){Blacklight.do_search_autofocus_fallback()})}(jQuery);
