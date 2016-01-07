@@ -185,13 +185,20 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
                 }
             }
             if(allFound){
-                writeEl.next('.val').empty();
-                writeEl.next('.val').text(allConcat.trim());
-                writeEl.closest('li').removeClass('is-disabled');
+                if(data[0].toDataAttr != null){
+                    writeEl.data(data[0].toDataAttr, allConcat);
+                }
+                else{
+                    writeEl.next('.val').empty();
+                    writeEl.next('.val').text(allConcat.trim());
+                    writeEl.closest('li').removeClass('is-disabled');
+                }
             }
             else{
-                writeEl.next('.val').empty();
-                writeEl.closest('li').addClass('is-disabled');
+                if(data[0].toDataAttr == null){
+                    writeEl.next('.val').empty();
+                    writeEl.closest('li').addClass('is-disabled');
+                }
             }
             return anyFound;
         }
@@ -210,10 +217,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
                 [{attr: 'width'},
                  {attr: 'use_def', def: 'x', label: true},
                  {attr: 'height'},
-                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions');
+                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions')
+        | setVal(
+                [{attr: 'attribution-plain', toDataAttr: 'e-licence-content'}], '.attribution-fmt.plain')
+        | setVal(
+                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html');
 
         if(somethingGotSet){
             techData.show();
+            $('.attribution-fmt.plain').click();
         }
         else{
             techData.removeClass('is-expanded')

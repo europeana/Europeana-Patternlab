@@ -76,6 +76,12 @@
         {{#width}}
           data-width="{{.}}"
         {{/width}}
+        {{#attribution_plain}}
+          data-attribution-plain="{{.}}"
+        {{/attribution_plain}}
+        {{#attribution_html}}
+          data-attribution-html="{{.}}"
+        {{/attribution_html}}
       {{/technical_metadata}}
 
       class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}{{#external_media}} external-media{{/external_media}}"

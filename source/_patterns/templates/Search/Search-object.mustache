@@ -120,12 +120,14 @@
                           <p>{{ license_human }}</p>
                           <div class="object-license">{{> molecules/icons/licenses }}</div>
                         </div>
-
-                        <div class="info-attribute">
-                          <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
-                          {{> molecules/controls/attribution-widget }}
-                        </div>
                       {{/ rights }}
+
+                      <div class="info-attribute">
+                        <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
+                        {{#technical_metadata}}
+                          {{> molecules/controls/attribution-widget }}
+                        {{/technical_metadata}}
+                      </div>
 
                       <div class="info-support">
                           {{> molecules/metadata/file-detail }}
