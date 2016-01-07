@@ -321,7 +321,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
             var label = sessionStorage.eu_portal_channel_label;
             var name  = sessionStorage.eu_portal_channel_name;
             var url   = sessionStorage.eu_portal_channel_url;
-
             if(typeof url != 'undefined' && url != 'undefined' ){
                 var crumb = $('.breadcrumbs li.js-channel');
                 var link  = crumb.find('a');
@@ -467,7 +466,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         bindGA();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
-        //setBreadcrumbs();
+        channelCheck();
 
         // event binding
 
