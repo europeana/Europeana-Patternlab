@@ -425,6 +425,7 @@
     },
     "named_entities": {
           "fold_title": "Named Entities",
+          "inline": true,
           "data": [
           {
             "title": "Who",
