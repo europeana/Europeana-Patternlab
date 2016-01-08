@@ -1,6 +1,7 @@
 {
   "bodyclass": "europeana_search",
   "pagetitle": "Europeana Search Home",
+  "page_locale": "en",
   "version": {
     "is_alpha": true
   },

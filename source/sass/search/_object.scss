@@ -206,7 +206,7 @@
       }
 
       .multi-item-poster > a > img{
-        max-width: 400px;
+        max-width: 120px;
       }
 
     }
@@ -429,7 +429,6 @@
     }
 
     .info-attribute{
-        display: none;
         @media all and (min-width: $bp-med) {
             @include span(11 of 24);
         }

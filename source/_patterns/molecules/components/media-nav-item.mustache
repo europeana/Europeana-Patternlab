@@ -76,11 +76,17 @@
         {{#width}}
           data-width="{{.}}"
         {{/width}}
+        {{#attribution_plain}}
+          data-attribution-plain="{{.}}"
+        {{/attribution_plain}}
+        {{#attribution_html}}
+          data-attribution-html="{{.}}"
+        {{/attribution_html}}
       {{/technical_metadata}}
 
       class="link {{#is_current}}is-current{{/is_current}}{{#playable}} playable{{/playable}}{{#external_media}} external-media{{/external_media}}"
 
-      >{{#single_item}}<img src="{{thumbnail}}"/>{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
+      >{{#single_item}}{{#thumbnail}}<img src="{{.}}"/>{{/thumbnail}}{{#playable}}<span title="{{i18n.site.object.actions.open-media}}"
             {{#is_audio}} class="media-clickable-indicator audio"  {{/is_audio}}
             {{#is_iiif}}  class="media-clickable-indicator iiif"   {{/is_iiif}}
             {{#is_image}} class="media-clickable-indicator image"  {{/is_image}}

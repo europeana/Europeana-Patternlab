@@ -38,9 +38,9 @@
                   {{#is_current}}
                     <div class="multi-item-poster{{#playable}} contains-playable{{/playable}}">
                       <a {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
-                        <img src="{{thumbnail}}"/>
-                          {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
-                          <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
+                        {{#thumbnail}}<img src="{{.}}"/>{{/thumbnail}}
+                        {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
+                        <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
                       </a>
                     </div>
                   {{/is_current}}
@@ -93,7 +93,8 @@
           {{/empty_item}}
 
           {{#empty_item}}
-            <img src={{thumbnail}}>
+            {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
+            {{^thumbnail}}<br/><br/>{{/thumbnail}}
           {{/empty_item}}
         </div>
       </section>
@@ -120,12 +121,14 @@
                           <p>{{ license_human }}</p>
                           <div class="object-license">{{> molecules/icons/licenses }}</div>
                         </div>
-
-                        <div class="info-attribute">
-                          <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
-                          {{> molecules/controls/attribution-widget }}
-                        </div>
                       {{/ rights }}
+
+                      <div class="info-attribute">
+                        <h4 class="title">{{ i18n.site.object.actions.attribute-author }}</h4>
+                        {{#technical_metadata}}
+                          {{> molecules/controls/attribution-widget }}
+                        {{/technical_metadata}}
+                      </div>
 
                       <div class="info-support">
                           {{> molecules/metadata/file-detail }}
@@ -312,6 +315,12 @@
               {{/logo}}
               {{#institution_name_and_link}}
                 {{{ i18n.site.object.meta-label.provided-by-detail }}}
+              {{/institution_name_and_link}}
+              {{^institution_name_and_link}}
+                {{#institution_name}}
+                  {{{ i18n.site.object.meta-label.provided-by-detail-no-link }}}
+                  <a href="{{institution_canned_search}}">{{institution_name}}</a>
+                {{/institution_name}}
               {{/institution_name_and_link}}
             </div>
           {{/ object.origin }}
