@@ -39,8 +39,8 @@
                     <div class="multi-item-poster{{#playable}} contains-playable{{/playable}}">
                       <a {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
                         {{#thumbnail}}<img src="{{.}}"/>{{/thumbnail}}
-                          {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
-                          <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
+                        {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
+                        <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
                       </a>
                     </div>
                   {{/is_current}}
@@ -93,7 +93,8 @@
           {{/empty_item}}
 
           {{#empty_item}}
-            <img src={{thumbnail}}>
+            {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
+            {{^thumbnail}}<br/><br/>{{/thumbnail}}
           {{/empty_item}}
         </div>
       </section>
