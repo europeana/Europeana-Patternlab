@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html class="{{ htmlclass }} no-js">
+<html class="{{ htmlclass }} no-js" {{#page_locale}}lang="{{.}}" xml:lang="{{.}}"{{/page_locale}}>
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{#page_locale}}
+      <meta http-equiv="Content-Language" content="{{.}}">
+    {{/page_locale}}
     {{# head_meta }}
       <meta {{#meta_property}}property="{{meta_property}}" {{/meta_property}}{{#meta_name}}name="{{meta_name}}" {{/meta_name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
     {{/ head_meta }}
