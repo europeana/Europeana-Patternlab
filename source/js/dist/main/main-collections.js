@@ -95,10 +95,16 @@ require.config({
 require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
-  require(['channels', 'hotjar', 'global'], function() {
-  //require(['channels', 'global'], function() {
-      $.holdReady(false);
 
+  // is this a test site?
+  var href = window.location.href;
+  var coreScripts = ['channels', 'global'];
+  if(href.indexOf('europeana.eu') > -1){
+      coreScripts.append('hotjar');
+  }
+
+  require(coreScripts, function() {
+      $.holdReady(false);
       require(["ga"], function(ga) {
           ga("send", "pageview");
       });
@@ -107,7 +113,6 @@ require(['jquery'], function( $ ) {
       require(['purl'], function() {
           require(['NOFlogger'], function(NOFlogger) {
               NOFlogger.init904();
-
               require(['NOFremote'], function() {
                  console.log('NOFlogger = ' + NOFlogger)
               });
