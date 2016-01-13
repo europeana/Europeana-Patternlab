@@ -1,0 +1,26 @@
+{
+  "bodyclass": "europeana_HIM",
+  "page_title": "Heritage in Motion",
+  "page_locale": "en",
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/heritage_in_motion/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/static"
+    }
+  ]
+}

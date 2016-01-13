@@ -1,0 +1,110 @@
+// Heritage in Motion Site specific styles
+
+
+//Logo for Search
+.logo {
+  background-image: url("../../images/europeana-logo-collections.png");
+  .svg &{
+    background-image: url("../../images/europeana-logo-collections.svg");
+      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        background-image: url("../../images/europeana-logo-symbol.svg");
+        min-width:50px;
+        max-width:50px;
+      }
+  }
+}
+
+
+
+// STATIC PAGES
+
+// Generic page layout
+.l-page{
+
+	position: relative;
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
+	}
+
+	.l-content{
+		background: $white;
+	}
+
+	.l-sidebar{
+		position: relative;
+		z-index: 10;
+		background: $offwhite;
+		padding: $space;
+		padding-top: $space * 6;
+	}
+
+
+	@media all and (min-width: $bp-med) {
+		//The coloured band that extends the breadcrumbs background colour to the left edge of the window
+		&:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: $globalnavheight + $space-triple;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #F8F8F8;
+			z-index: -1;
+		}
+	}
+
+}
+
+
+.maincontent{
+	@media all and (min-width: $bp-med) {
+	  max-width: 40em;
+	}
+	padding: $space-triple $space;
+}
+
+.maincontent .prose p:first-child{
+	font-size: 1.5625em;
+}
+
+.l-content{
+	@media all and (min-width: $bp-med) {
+	  @include span(18 of 24 wide no-gutter);
+	}
+}
+
+.l-sidebar{
+	@media all and (min-width: $bp-med) {
+	  @include span(last 6 of 24);
+	}
+}
+
+// breadcrumbs and sorting
+
+.page_header{
+    background-color: $gray97;
+    padding: $space;
+    display: table;
+    font-size: $font-size-slightly-smaller;
+    width: 100%;
+
+    @media all and (min-width: $bp-med) {
+        height: $space-triple;
+    }
+
+    .breadcrumbs{
+		display: table-cell;
+		vertical-align: middle;
+		width: 75%;
+	}
+}
