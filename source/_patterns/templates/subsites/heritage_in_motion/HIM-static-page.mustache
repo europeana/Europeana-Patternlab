@@ -14,17 +14,15 @@
     </div>
 
     <div class="maincontent">
+      <div class="textcontent">
 
-      <div class="prose">
-        <h1 class="title">{{ headline.medium }}</h1>
 
-        {{> organisms-article-body }}
+        <div class="prose">
+          <h1 class="title">{{ headline.medium }}</h1>
+          {{> organisms-article-body }}
+        </div>
+
       </div>
-
-      <div class="content-footer">
-        content footer
-      </div>
-
     </div>
 
 
@@ -35,6 +33,8 @@
 
 
   <div class="l-sidebar js-getstickywidth">
+
+  {{> molecules-help-contact(title: "Got more Questions?") }}
 
 
   {{#navigation.secondary}}
@@ -52,5 +52,5 @@
 <!-- End Main -->
 
 
-{{> organisms/global/footer }}
+{{> organisms/global/footer_subsite }}
 

@@ -1,0 +1,28 @@
+
+
+// Layout/positioning styles for the Blog list and detail pages based on the Susy grid system
+
+// Blog List page
+@media all and (min-width: $bp-med) {
+	.list-item{
+		.item-details{
+			@include span(12 of 18);
+		}
+
+		.item-supplementary{
+			@include span(last 6 of 18);
+		}
+	}
+}
+
+
+// Blog detail page
+
+.l-relatedlinks .related-item{
+	@media all and (min-width: $bp-med) {
+		@include span(6 of 18);
+		&:last-child{
+	      margin-right: 0;
+	    }
+	}
+}

@@ -3,13 +3,13 @@
 
 //Logo for Search
 .logo {
-  background-image: url("../../images/europeana-logo-collections.png");
+  background-image: url("../../images/fpo_avatar.png");
   .svg &{
-    background-image: url("../../images/europeana-logo-collections.svg");
+    background-image: url("../../images/fpo_avatar.png");
       @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        background-image: url("../../images/europeana-logo-symbol.svg");
-        min-width:50px;
-        max-width:50px;
+        //background-image: url("../../images/europeana-logo-symbol.svg");
+        //min-width:50px;
+        //max-width:50px;
       }
   }
 }
@@ -35,16 +35,34 @@
 
 	}
 
-	.l-content{
-		background: $white;
-	}
-
-	.l-sidebar{
+	.textcontent, .l-sidebar, .l-breadcrumbs{
 		position: relative;
 		z-index: 10;
-		background: $offwhite;
-		padding: $space;
-		padding-top: $space * 6;
+	}
+
+	.l-content{
+		background: $white;
+		@media all and (min-width: $bp-med) {
+		  @include span(18 of 24 wide no-gutter);
+		}
+	}
+
+	.maincontent{
+		background-color: $white;
+		padding: $space-triple $space;
+	}
+
+	.item-rss{
+		text-align: right;
+		margin-top: -3rem;
+		margin-bottom: 3.1rem;
+	}
+
+	.textcontent{
+		background-color: $white;
+		@media all and (min-width: $bp-med) {
+		  max-width: 40em;
+		}
 	}
 
 
@@ -65,46 +83,21 @@
 
 }
 
-
-.maincontent{
-	@media all and (min-width: $bp-med) {
-	  max-width: 40em;
-	}
-	padding: $space-triple $space;
-}
-
-.maincontent .prose p:first-child{
-	font-size: 1.5625em;
-}
-
-.l-content{
-	@media all and (min-width: $bp-med) {
-	  @include span(18 of 24 wide no-gutter);
-	}
-}
-
 .l-sidebar{
+	position: relative;
+	z-index: 10;
+	background: $offwhite;
+	padding: $space;
+
 	@media all and (min-width: $bp-med) {
 	  @include span(last 6 of 24);
+	  padding-top: $space * 6;
 	}
 }
 
-// breadcrumbs and sorting
-
-.page_header{
-    background-color: $gray97;
-    padding: $space;
-    display: table;
-    font-size: $font-size-slightly-smaller;
-    width: 100%;
-
-    @media all and (min-width: $bp-med) {
-        height: $space-triple;
-    }
-
-    .breadcrumbs{
-		display: table-cell;
-		vertical-align: middle;
-		width: 75%;
-	}
+.results-list,
+.page-intro,
+.articleheader{
+	margin-bottom: $space-double;
 }
+

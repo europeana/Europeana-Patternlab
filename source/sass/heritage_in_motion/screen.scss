@@ -52,7 +52,8 @@ $susy: (
   global-box-sizing: border-box
 );
 
-@import "./layout_common_susy";
+@import "../scss/layout/layout-common-susy";
+@import "../scss/layout/layout-blog-susy";
 
 
 /*------------------------------------*\
@@ -62,9 +63,14 @@ $susy: (
 @import "../scss/objects/footer";
 @import "../scss/objects/sections";
 @import "../scss/objects/blocks";
-@import "../scss/objects/blocks/promo-module";
-@import "../scss/objects/blocks/browse-entry";
-@import "../scss/objects/blocks/site-hero";
+@import "../scss/objects/media_grid";
+@import "../scss/objects/page_header";
+
+/*------------------------------------*\
+	PAGE/SECTION SPECIFIC
+\*------------------------------------*/
+@import "../scss/layout/layout-events";
+
 
 /*------------------------------------*\
 	$NAVIGATION
@@ -74,7 +80,6 @@ $susy: (
 
 //navigation types
 @import "../scss/objects/navigation/pagination";
-//@import "../scss/objects/navigation/next-previous";
 @import "../scss/objects/navigation/breadcrumbs";
 //@import "../scss/objects/navigation/phase-flags";
 
@@ -83,13 +88,13 @@ $susy: (
 \*------------------------------------*/
 @import "../scss/objects/buttons";
 @import "../scss/objects/tags";
-@import "../scss/objects/action-links";
-//@import "../scss/objects/corner-ribbon";
+@import "../scss/objects/metadata";
+@import "../scss/objects/dates";
 //@import "../scss/objects/category-flags";
 //@import "../scss/objects/file-detail";
 //@import "../scss/objects/attribution";
 //@import "../scss/objects/social-share";
-@import "../scss/theme/hero-branding-v2";
+//@import "../scss/theme/hero-branding-v2";
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
@@ -101,12 +106,14 @@ $susy: (
 \*------------------------------------*/
 @import "../scss/objects/controls/dropdown";
 @import "../scss/objects/controls/buttonbar";
+@import "../scss/objects/controls/sortby";
+@import "../scss/objects/lists/list-item";
 //@import "../scss/objects/controls/results-filter";
 //@import "../scss/objects/controls/sparkline";
 //@import "../scss/objects/controls/search-multiterm";
 //@import "../scss/objects/controls/attribution-widget";
 //@import "../scss/objects/controls/form-control-groups";
-// @import "../scss/objects/controls/accordion-tabs";
+//@import "../scss/objects/controls/accordion-tabs";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global

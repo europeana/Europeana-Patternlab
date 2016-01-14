@@ -3,9 +3,11 @@
 
 <header class="header">
 
+  {{^options.oursites_hidden}}
   <div class="menu-top">
     {{> molecules/navigation/global-topdrawer }}
   </div>
+  {{/options.oursites_hidden}}
 
   <!-- Off canvas search bar -->
   {{#options.search_active}}
@@ -31,10 +33,11 @@
 
 
     <div class="nav-global">
-
+      {{^options.oursites_hidden}}
       <a href="#" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false" aria-haspopup="true" aria-label="open Our Sites panel" aria-owns="oursites"  tabindex="2">
         <span class="link-text">{{i18n.global.our-sites}}</span>
       </a>
+      {{/options.oursites_hidden}}
 
       {{#options.search_active}}
       <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea"  tabindex="4">
