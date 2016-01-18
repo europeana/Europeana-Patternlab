@@ -111,6 +111,13 @@ module.exports = function(grunt) {
               expand:  true
           },
 
+          beeld_en_geluid: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/BenG',
+              dest:   'source/js/dist/lib/BenG',
+              expand:  true
+          },
+
           blacklight: {
               src:    '**',
               cwd:    'source/js/modules/lib/blacklight',
