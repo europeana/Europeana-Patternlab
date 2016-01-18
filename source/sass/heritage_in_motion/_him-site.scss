@@ -1,0 +1,114 @@
+// Heritage in Motion Site specific styles
+
+
+//Logo for Search
+.logo {
+  background-image: url("../../images/fpo_avatar.png");
+  .svg &{
+    background-image: url("../../images/fpo_avatar.png");
+      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        //background-image: url("../../images/europeana-logo-symbol.svg");
+        //min-width:50px;
+        //max-width:50px;
+      }
+  }
+}
+
+.header > .cf{
+	border-color: $white;
+}
+
+// STATIC PAGES
+
+// Generic page layout
+.l-page{
+
+	position: relative;
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
+	}
+
+	.textcontent, .l-sidebar, .l-breadcrumbs{
+		position: relative;
+		z-index: 10;
+	}
+
+	.l-content{
+		background: $white;
+		@media all and (min-width: $bp-med) {
+		  @include span(18 of 24 wide no-gutter);
+		}
+	}
+
+	.maincontent{
+		background-color: $white;
+		padding: $space-triple $space;
+	}
+
+	.item-rss{
+		text-align: right;
+		margin-top: -3rem;
+		margin-bottom: 3.1rem;
+	}
+
+	.textcontent{
+		background-color: $white;
+		padding-bottom: $space-triple;
+
+		@media all and (min-width: $bp-med) {
+		  max-width: 40em;
+		}
+	}
+
+
+	@media all and (min-width: $bp-med) {
+		//The coloured band that extends the breadcrumbs background colour to the left edge of the window
+		&:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: $globalnavheight + $space-triple;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #F8F8F8;
+			z-index: -1;
+		}
+	}
+
+}
+
+.l-sidebar{
+	position: relative;
+	z-index: 10;
+	background: $offwhite;
+	padding: $space;
+
+	@media all and (min-width: $bp-med) {
+	  @include span(last 6 of 24);
+	  padding-top: $space * 6;
+	}
+}
+
+.results-list,
+.page-intro,
+.articleheader{
+	margin-bottom: $space-double;
+}
+
+
+
+
+// HiM Video pages
+// Video list
+
+

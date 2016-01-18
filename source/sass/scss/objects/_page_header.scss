@@ -1,0 +1,19 @@
+// breadcrumbs and sorting
+
+.page_header{
+    background-color: $gray97;
+    padding: $space;
+    display: table;
+    font-size: $font-size-slightly-smaller;
+    width: 100%;
+
+    @media all and (min-width: $bp-med) {
+        height: $space-triple;
+    }
+
+    .breadcrumbs{
+		display: table-cell;
+		vertical-align: middle;
+		width: 75%;
+	}
+}

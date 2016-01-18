@@ -1,0 +1,44 @@
+{
+    "prev_url": "prevurl",
+    "next_url": "nexturl",
+    "is_first_page": false,
+    "is_last_page": false,
+    "pages": [
+        {
+            "url": "linkhere",
+            "index": "1"
+        },
+        {
+            "url": "linkhere",
+            "index": "2"
+        },
+        {
+            "url": "linkhere",
+            "index": "3"
+        },
+        {
+            "url": "linkhere",
+            "index": "4",
+            "is_current": true
+        },
+        {
+            "url": "linkhere",
+            "index": "5"
+        },
+        {
+            "url": "linkhere",
+            "index": "6"
+        },
+        {
+            "url": "linkhere",
+            "index": "7"
+        },
+        {
+            "separator": true
+        },
+        {
+            "url": "linkhere",
+            "index": "251"
+        }
+    ]
+}

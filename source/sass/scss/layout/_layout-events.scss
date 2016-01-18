@@ -1,0 +1,56 @@
+// All display styles for the events pages (Event detail and Listpage~events)
+
+@import "../objects/event_map";
+
+.event-detail{
+
+	.textcontent{
+		padding: $space-double $space 0;
+		margin-left: -$space;
+
+		@media all and (min-width: $bp-med) and (max-width: $bp-xl) {
+			margin-top: 10em;
+			min-height: 30em;
+		}
+	}
+
+	.maincontent{
+		@media all and (max-width: $bp-med) {
+			padding-top: 0;
+		}
+	}
+
+	.event-date{
+		float: right;
+		margin-top: -$space-half;
+		background-color: $white;
+		color: $textcolour_head;
+	}
+
+	.speakers{
+		p{
+			margin-bottom: $space-half;
+		}
+		.b-text{
+			padding-top: $space-half;
+		}
+	}
+
+	.speakers, .files{
+		border-top: 1px solid $grey2;
+		padding-top: $space;
+	}
+
+}
+
+
+.people-list {
+	li{
+		@media all and (min-width: $bp-med) {
+			@include gallery(9 of 18);
+		}
+	}
+	.l-person{
+		margin-bottom: $space;
+	}
+}
