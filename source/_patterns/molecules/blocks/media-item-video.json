@@ -1,0 +1,8 @@
+{
+  "title":"This is the video title",
+  "attribution": "Attribution name here",
+  "description":"Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental.",
+  "video": {
+  	"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+  }
+}

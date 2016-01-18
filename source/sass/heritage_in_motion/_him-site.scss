@@ -14,7 +14,9 @@
   }
 }
 
-
+.header > .cf{
+	border-color: $white;
+}
 
 // STATIC PAGES
 
@@ -60,6 +62,8 @@
 
 	.textcontent{
 		background-color: $white;
+		padding-bottom: $space-triple;
+
 		@media all and (min-width: $bp-med) {
 		  max-width: 40em;
 		}
@@ -100,4 +104,11 @@
 .articleheader{
 	margin-bottom: $space-double;
 }
+
+
+
+
+// HiM Video pages
+// Video list
+
 

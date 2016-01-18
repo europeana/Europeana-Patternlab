@@ -1,0 +1,55 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+
+
+<main role="main" class="l-page">
+<div class="lc">
+
+  <div class="l-content">
+
+    <div class="page_header">
+      {{> molecules/navigation/breadcrumbs}}
+    </div>
+
+    <div class="maincontent">
+
+
+    <div class="content-hero">
+      <h2>Eyecatcher of the year 2015</h2>
+      {{> molecules/blocks/media-item-video }}
+
+    </div>
+
+
+    <ul class="video-list">
+    {{#listItems.six}}
+      <li class="video-list-item">
+      {{> molecules/blocks/media-item-video }}
+      </li>
+    {{/listItems.six}}
+    </ul>
+
+    </div>
+  </div>
+  {{! END l-content }}
+
+
+  <div class="l-sidebar">
+
+  <h4>Filter by category:</h4>
+  {{> molecules-tags-large }}
+
+
+
+  </div>
+  {{! end sidebar }}
+
+</div>
+</main>
+<!-- End Main -->
+
+
+{{> organisms/global/footer_subsite }}
+
