@@ -96,18 +96,18 @@ require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
 
-  // is this a test site?
-  var href = window.location.href;
-  var coreScripts = ['channels', 'global'];
-  if(href.indexOf('europeana.eu') > -1){
-      coreScripts.append('hotjar');
-  }
 
-  require(coreScripts, function() {
+  require(['channels', 'global'], function() {
       $.holdReady(false);
       require(["ga"], function(ga) {
           ga("send", "pageview");
       });
+
+      // is this a test site?
+      var href = window.location.href;
+      if(href.indexOf('europeana.eu') > -1){
+          require(['hotjar'], function() {});
+      }
 
       /*
       require(['purl'], function() {
