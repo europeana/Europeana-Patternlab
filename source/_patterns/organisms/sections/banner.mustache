@@ -6,7 +6,8 @@
     </div>
 
     <div class="banner-link">
-      <a href="{{ content.banner.cta_url }}" class="btn btn-light pill">{{ content.banner.cta_text }}</a>
+      {{# content.banner.cta_url }}<a href="{{ . }}" class="btn btn-light pill">{{ content.banner.cta_text }}</a>{{/ content.banner.cta_url }}
+      {{^ content.banner.cta_url }}{{ content.banner.cta_text }}{{/ content.banner.cta_url }}
     </div>
 
   </div>
