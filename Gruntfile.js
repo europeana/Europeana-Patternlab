@@ -394,6 +394,7 @@ module.exports = function(grunt) {
        'copy:global_dependencies',
        'copy:jquery',
        'copy:jstree',
+       'copy:beeld_en_geluid',
        'copy:main',
        'copy:map_img',
        'copy:map_img_fs',
