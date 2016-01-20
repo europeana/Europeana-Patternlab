@@ -14,13 +14,13 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-collections"
+      "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
   "js_vars": [
     {
       "name": "pageName",
-      "value": "portal/static"
+      "value": "video-list"
     }
   ],
     "navigation":
