@@ -72,7 +72,7 @@ define(['jquery', 'util_resize'], function ($){
     hitAreaWidth -= 30;
     var rowRemainder = hitAreaWidth;
 
-    $('.search-tag').each(function(i, ob){
+    $('.search-tags .search-tag').each(function(i, ob){
       var tagWidth = parseInt($(ob).outerWidth(true)) + 2;
       if(rowRemainder > tagWidth){
         rowRemainder -= tagWidth;
