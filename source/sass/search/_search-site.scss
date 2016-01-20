@@ -225,7 +225,7 @@
   }
 }
 
-.prelaunch-feedback .lc{
+.banner .lc{
 
   text-align: center;
 
@@ -461,7 +461,7 @@
 // STATIC PAGES
 .static-content{
   p{
-		padding: 0 $space;
+    padding: 0 $space;
   }
   .lc > .prose{
     @media all and (min-width: $bp-med) {

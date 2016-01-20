@@ -1,127 +1,127 @@
 .section {
-	@extend .cf;
-	margin-bottom: $space-double;
+  @extend .cf;
+  margin-bottom: $space-double;
 }
 
 .section-title {
-	text-transform: uppercase;
-	margin-bottom: $space-half;
+  text-transform: uppercase;
+  margin-bottom: $space-half;
 }
 
 
 .strapline{
-	background-color: $blue-dark;
-	color: $white;
+  background-color: $blue-dark;
+  color: $white;
 
-	text-align: center;
-	line-height: 1.2;
+  text-align: center;
+  line-height: 1.2;
 
-	@media all and (min-width: $bp-small) {
-		@include fontSize(18px);
-	}
+  @media all and (min-width: $bp-small) {
+    @include fontSize(18px);
+  }
 
 
-	@media all and (min-width: $bp-med) {
-		@include fontSize(24px);
-	}
+  @media all and (min-width: $bp-med) {
+    @include fontSize(24px);
+  }
 
-	a{
-		color: $white;
-		border-bottom: 1px dotted $white;
-	}
+  a{
+    color: $white;
+    border-bottom: 1px dotted $white;
+  }
 }
 
 // Section "More" link
 
 .link-more{
-	font-weight: bold;
-	color: $textcolour_link;
-	.section-title &{
-		@include fontSize(14px);
-		margin-left: 1em;
-	}
+  font-weight: bold;
+  color: $textcolour_link;
+  .section-title &{
+    @include fontSize(14px);
+    margin-left: 1em;
+  }
 }
 
 
 .section.quickinfo{
 
-	background-color: $offwhite;
-	padding-top: $space;
+  background-color: $offwhite;
+  padding-top: $space;
 
-	h2{
-		margin-bottom: $space-double;
-		@include fontSize(24px);
-		color: $textcolour_head;
-	}
+  h2{
+    margin-bottom: $space-double;
+    @include fontSize(24px);
+    color: $textcolour_head;
+  }
 
-	.lc{
-		border-bottom: 1px solid $grey3;
-	}
+  .lc{
+    border-bottom: 1px solid $grey3;
+  }
 }
 
 .primaryaction{
-	padding: $space + $space-half $space;
-	background-color: $white;
-	margin-bottom: $space;
-	border: 1px solid $grey3;
-	@include fontSize(18px);
+  padding: $space + $space-half $space;
+  background-color: $white;
+  margin-bottom: $space;
+  border: 1px solid $grey3;
+  @include fontSize(18px);
 
-	ul{
-		margin-bottom: $space-double;
+  ul{
+    margin-bottom: $space-double;
 
-		a{
-			border-bottom: 1px dotted $eu-blue;
-		}
-	}
+    a{
+      border-bottom: 1px dotted $eu-blue;
+    }
+  }
 
-	li{
-		margin-bottom: $space-half;
-	}
+  li{
+    margin-bottom: $space-half;
+  }
 }
 
 .usefulinfo-links{
-	margin-bottom: $space;
-	@include fontSize(18px);
-	font-weight: bold;
-	padding-bottom: 1px;
+  margin-bottom: $space;
+  @include fontSize(18px);
+  font-weight: bold;
+  padding-bottom: 1px;
 
-	li{
-		margin-bottom: $space;
-	}
+  li{
+    margin-bottom: $space;
+  }
 
-	a{
-		border-bottom: 1px dotted $eu-blue;
-	}
+  a{
+    border-bottom: 1px dotted $eu-blue;
+  }
 }
 
 .usefulinfo{
-	padding-top: $space + $space-half;
+  padding-top: $space + $space-half;
 }
 .usefulinfo-item{
-	margin-bottom: $space;
+  margin-bottom: $space;
 
-	h3{
-		text-transform: uppercase;
-		margin-bottom: $space;
-	}
+  h3{
+    text-transform: uppercase;
+    margin-bottom: $space;
+  }
 }
 
 .usefulinfo-secondary{
-	.usefulinfo-item{
-		padding-top: $space;
-		border-top: 1px solid $grey3;
-	}
+  .usefulinfo-item{
+    padding-top: $space;
+    border-top: 1px solid $grey3;
+  }
 }
 
-.prelaunch-feedback{
-	@include fontSize(18px);
-	background-color: $accent;
-	padding: $space;
-	padding-top: $space-double;
-	color: $white;
+.banner{
+  @include fontSize(18px);
+  background-color: $accent;
+  padding: $space;
+  padding-top: $space-double;
+  color: $white;
 
-	.lc > div{
-		margin-bottom: $space;
-	}
+  .lc > div{
+    margin-bottom: $space;
+  }
 
 }
