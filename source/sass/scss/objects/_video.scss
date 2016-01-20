@@ -4,6 +4,11 @@
  * Usage:
  * <div class="video-fluid"><iframe src="..."/></div>
  */
+
+
+.video-wrapper{
+	background-color: $gray-dark;
+}
 .video-fluid {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */

@@ -13,34 +13,63 @@
       {{> molecules/navigation/breadcrumbs}}
     </div>
 
-    <div class="maincontent">
 
-
-    <div class="content-hero">
+    <div class="content-hero section">
       <h2>Eyecatcher of the year 2015</h2>
+
       {{> molecules/blocks/media-item-video }}
 
     </div>
 
 
-    <ul class="video-list">
-    {{#listItems.six}}
-      <li class="video-list-item">
-      {{> molecules/blocks/media-item-video }}
-      </li>
-    {{/listItems.six}}
-    </ul>
+    <div class="video-list video-winners section">
+      <h2>All Category Winners</h2>
 
+      <ul class="cf">
+      {{#listItems.six}}
+        <li class="video-list-item">
+          <h3>Category Title</h3>
+          {{> molecules/blocks/media-item-video }}
+        </li>
+      {{/listItems.six}}
+      </ul>
     </div>
+
+    <div class="video-list video-shortlist section">
+      <h2>Shortlist</h2>
+
+      <ul class="cf">
+      {{#listItems.six}}
+        <li class="video-list-item">
+        {{> molecules/blocks/media-item-video }}
+        </li>
+      {{/listItems.six}}
+      </ul>
+    </div>
+
+    <div class="video-list section">
+      <h2>All Submissions</h2>
+
+      <ul class="cf">
+      {{#listItems.six}}
+        <li class="video-list-item">
+        {{> molecules/blocks/media-item-video }}
+        </li>
+      {{/listItems.six}}
+      </ul>
+    </div>
+
+
   </div>
   {{! END l-content }}
 
 
   <div class="l-sidebar">
 
+  <div class="l-categories js-sticky">
   <h4>Filter by category:</h4>
   {{> molecules-tags-large }}
-
+  </div>
 
 
   </div>

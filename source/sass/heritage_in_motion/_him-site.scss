@@ -96,6 +96,7 @@
 	@media all and (min-width: $bp-med) {
 	  @include span(last 6 of 24);
 	  padding-top: $space * 6;
+	  min-height: 650px;
 	}
 }
 
@@ -106,9 +107,38 @@
 }
 
 
-
+.l-content > .section{
+	padding: $space;
+	margin-bottom: 0;
+}
 
 // HiM Video pages
 // Video list
 
+.video-list-item{
+	@media all and (min-width: $bp-med) {
+	  @include gallery(9 of 18);
+	}
+
+	.item-meta-secondary{
+		margin-bottom: 0;
+	}
+}
+
+.video-title{
+	font-weight: bold;
+}
+.video-list{
+	.video-description{
+		font-size: $font-size-sm;
+	}
+}
+
+.video-winners{
+	background-color: $grey2;
+}
+
+.video-shortlist{
+	background-color: $gray-lighter;
+}
 
