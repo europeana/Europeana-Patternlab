@@ -133,12 +133,22 @@
 		font-size: $font-size-sm;
 	}
 }
+.video-winner{
+	background-color: $accent;
 
+	h1, h2, p, div{
+		color: #FFF;
+		border-color: #FFF;
+	}
+}
 .video-winners{
-	background-color: $grey2;
+	background-color: #EFF1FB;
+	border-bottom: 2px solid $accent;
 }
 
 .video-shortlist{
-	background-color: $gray-lighter;
+	background-color: $gray-lightest;
+	border-bottom: 6px solid $black;
+	margin-bottom: $space;
 }
 
