@@ -42,11 +42,12 @@ $gray97			: #F8F8F8;
 $gray87			: #DEDEDE;
 $gray80			: #CCCCCC;
 $gray65			: #A6A6A6;
+$gray47			: #777777;
 $gray30			: #4D4D4D;
 
 $gray-lightest 	: $gray97;
 $gray-lighter 	: $gray80;
-$gray-light 	: $gray65;
+$gray-light 	: $gray47;
 $gray-med 		: $gray30;
 
 $gray-dark 		: #212121; //13
@@ -66,7 +67,7 @@ $eu-orange      : #E85217;
 $blue-dark		: #293745;
 $blue-grey		: #C8D5D7;
 
-$peachy			: #e96e62;
+$peachy			: #d12d1e; // previously #e96e62, replaced for WCAG AA compliance
 
 $linkblue		: #095F90; // WCAG AA All text + AAA for text > 18pt
 
