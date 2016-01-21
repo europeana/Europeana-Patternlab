@@ -97,10 +97,20 @@ require(['jquery'], function( $ ) {
   require(['blacklight'], function( blacklight ) {
 
 
-  require(['channels', 'global'], function() {
+  require(['channels', 'global'], function(channels) {
+
       $.holdReady(false);
+
       require(["ga"], function(ga) {
-          ga("send", "pageview");
+          channels.getPromisedPageJS().done(function(page){
+              if(page && typeof page.getAnalyticsData != 'undefined'){
+                  var analyticsData = page.getAnalyticsData();
+                  if(analyticsData.name != 'undefined'){
+                      ga('set', analyticsData.dimension, analyticsData.name);
+                  }
+              }
+              ga("send", "pageview");
+          });
       });
 
       // is this a test site?

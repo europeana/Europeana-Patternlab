@@ -1,5 +1,7 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
+    var themeData;
+
     function log(msg){
         console.log(msg);
     }
@@ -339,6 +341,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
                     }
                 });
             }
+            return {
+                label: label,
+                name: name,
+                url: url,
+                dimension: 'dimension1'
+            }
         }
     }
 
@@ -466,7 +474,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         bindGA();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
-        channelCheck();
+        themeData = channelCheck();
 
         // event binding
 
@@ -498,6 +506,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     return {
         initPage: function(){
             initPage();
+        },
+        getAnalyticsData: function(){
+            return themeData;
         }
     }
 });

@@ -1,4 +1,6 @@
-define(['search_form', 'smartmenus'], function () {
+define(['jquery', 'search_form', 'smartmenus'], function () {
+
+    var promisedPageJS = jQuery.Deferred();
 
     require(['smartmenus_keyboard'], function(){
 
@@ -40,45 +42,60 @@ define(['search_form', 'smartmenus'], function () {
 
     switch(pageName){
         case 'browse/colours':
+            promisedPageJS.resolve();
             break;
 
         case 'browse/new_content':
+            promisedPageJS.resolve();
             break;
 
         case 'browse/sources':
             require(['util_foldable']);
+            promisedPageJS.resolve();
             break;
 
         case 'collections/show':
             require(['search_results'], function(page){
                 page.initPage();
+                promisedPageJS.resolve(page);
             });
             break;
         case 'portal/show':
             require(['search_object'], function(page){
                 page.initPage();
+                promisedPageJS.resolve(page);
             });
             break;
         case 'portal/index':
             require(['search_results'], function(page){
                 page.initPage();
+                promisedPageJS.resolve(page);
             });
             break;
         case 'portal/static':
             require(['util_foldable']);
+            promisedPageJS.resolve();
             break;
         case 'home/index':
             require(['search_home'], function(page){
                 page.initPage();
+                promisedPageJS.resolve(page);
             });
             break;
         case 'settings/language':
             require(['settings'], function(page){
                 page.initPage();
+                promisedPageJS.resolve(page);
             });
             break;
         default:
             console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
+
      }
 
+    return {
+        getPromisedPageJS: function(){
+            return promisedPageJS.promise();
+        }
+    }
 });
