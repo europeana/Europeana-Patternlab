@@ -93,7 +93,7 @@ require.config({
 });
 
 
-require(['jquery', 'heritage_in_motion', 'global'], function() {
+require(['jquery', 'global', 'heritage_in_motion'], function() {
 
     require(["ga"], function(ga) {
         ga("send", "pageview");

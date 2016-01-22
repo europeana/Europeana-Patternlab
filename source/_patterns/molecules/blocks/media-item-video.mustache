@@ -1,18 +1,36 @@
 <div class="video-item block block-stacked">
     <div class="b-inner">
 		<div class="b-thumb">
-			<div class="video-wrapper video-fluid">
-	          <iframe src="{{video.src}}" frameborder="0" allowfullscreen></iframe>
-	        </div>
+			<a href="{{ url }}" aria-hidden="true">
+			<img src="{{video.thumb_url}}" >
+			</a>
 		</div>
 		<div class="b-text">
-			<div class="video-title">{{ title }}</div>
-			<div class="item-meta-secondary">
+			<div class="video-title"><a href="{{ url }}">{{ title }}</a></div>
+			<div class="item-meta-primary">
 				<span class="video-attribution">{{name.first}} {{name.last}}</span>
 			</div>
+			{{# description }}
 			<div class="video-description">
-			<p>{{ description }}</p>
+			<p>{{ . }}</p>
 			</div>
+			{{/ description }}
+
+			<div class="item-meta-secondary">
+			{{# tags }}
+			<span class="item-tags">
+			<svg class="icon icon-bookmark">
+				<use xlink:href="#icon-bookmark"></use>
+			</svg>
+			<ul class="inline-list">
+				{{# items }}
+				<li><a href="{{ url }}">{{ text }}</a></li>
+				{{/ items }}
+			</ul>
+			</span>
+			{{/ tags }}
+			</div>
+
 		</div>
 	</div>
 </div>

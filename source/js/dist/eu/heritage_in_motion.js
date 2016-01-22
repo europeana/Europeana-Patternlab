@@ -31,3 +31,61 @@ define(['smartmenus'], function () {
     });
 
 });
+
+
+// DOM based routing
+
+Site_HIM = {
+  common : {
+    init     : function(){
+
+    },
+    finalize : function(){
+
+    }
+  },
+  page_entry_list : {
+    init : function(){
+
+    }
+  },
+  page_user_profile : {
+    init : function(){
+
+    }
+  }
+}
+
+
+
+UTIL = {
+
+  fire : function(func,funcname, args){
+
+    var namespace = Site_HIM;  // indicate your obj literal namespace here
+
+    funcname = (funcname === undefined) ? 'init' : funcname;
+    if (func !== '' && namespace[func] && typeof namespace[func][funcname] == 'function'){
+      namespace[func][funcname](args);
+    }
+
+  },
+
+  loadEvents : function(){
+
+    // hit up common first.
+    UTIL.fire('common');
+
+    // do all the classes too.
+    $.each(document.body.className.split(/\s+/),function(i,classnm){
+      UTIL.fire(classnm);
+    });
+
+    UTIL.fire('common','finalize');
+
+  }
+
+};
+
+// kick it all off here
+UTIL.loadEvents();
