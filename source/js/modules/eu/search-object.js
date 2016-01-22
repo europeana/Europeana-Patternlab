@@ -227,7 +227,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
 
         if(somethingGotSet){
             techData.show();
-            $('.attribution-fmt.plain').click();
+            $('.attribution-fmt.plain').trigger('click');
         }
         else{
             techData.removeClass('is-expanded')
@@ -316,7 +316,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         if(typeof(Storage) == "undefined") {
             log('no storage');
         }
-        if(typeof(Storage) !== "undefined") {
+        else {
 
             // get channel data
 
@@ -403,9 +403,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     }
     */
 
-    var bindGA = function(){
+    var bindAnalyticsEvents = function(){
 
-      // Redirects
+      // Redirect
 
       $('.object-origin a').on('click', function(){
           var href =  $(this).attr('href');
@@ -418,6 +418,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
           log('GA: Redirect, Action = ' + href);
       });
 
+      // Redirect
 
       $('.media-viewer .external-media').not('.playable').on('click', function(){
           var href =  $(this).attr('href');
@@ -465,13 +466,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
             $('.input-attr').val(
                 btn.hasClass('html') ? $('<textarea>').html(txt).text() : txt
             );
+            $('.attribution-fmt').removeClass('is-active');
+            btn.addClass('is-active');
         });
     }
 
 
     function initPage(){
 
-        bindGA();
+        bindAnalyticsEvents();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
         themeData = channelCheck();
