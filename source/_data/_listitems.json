@@ -21,7 +21,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Lorizzlepimpin.pdf",
@@ -102,7 +119,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Veggies.pdf",
@@ -183,7 +217,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "pancetta.pdf",
@@ -264,7 +315,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Helvetica.pdf",
@@ -345,7 +413,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "DocumentCloud.pdf",
@@ -426,7 +511,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Phooey.pdf",
@@ -507,7 +609,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "contingency.pdf",
@@ -588,7 +707,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Chumby doostang.pdf",
@@ -669,7 +805,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "The Force.pdf",
@@ -750,7 +903,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "swallow.pdf",
@@ -831,7 +1001,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Cupcake.pdf",
@@ -912,7 +1099,24 @@
 			}
 		},
 		"video": {
+			"thumb_url":"/images/fpo_16x9.png",
 			"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
+		},
+		"tags": {
+			"items": [
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 1"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 2"
+				},
+				{
+					"url":"http://tagurl",
+					"text":"Tag text 3"
+				}
+			]
 		},
 		"file": {
 			"name": "Lancashire.pdf",

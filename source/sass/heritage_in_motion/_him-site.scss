@@ -114,7 +114,11 @@
 
 // HiM Video pages
 // Video list
-
+.video-item{
+	.item-meta-primary{
+		padding-top: 0;
+	}
+}
 .video-list-item{
 	@media all and (min-width: $bp-med) {
 	  @include gallery(9 of 18);
@@ -128,22 +132,65 @@
 .video-title{
 	font-weight: bold;
 }
-.video-list{
-	.video-description{
+
+.video-description{
+
+	margin-bottom: $space-half;
+
+	.video-list &{
 		font-size: $font-size-sm;
 	}
 }
+
+.video-attribution{
+	font-style: italic;
+}
+
 .video-winner{
 	background-color: $accent;
 
-	h1, h2, p, div{
+	h1, h2, p, div, a{
 		color: #FFF;
 		border-color: #FFF;
 	}
 }
+
 .video-winners{
 	background-color: #EFF1FB;
 	border-bottom: 2px solid $accent;
+
+	.video-list-item > h3{
+		font-size: $font-size-med;
+		margin-top: $space-half;
+		padding-bottom: $space-half;
+		border-bottom: 2px solid $gray80;
+	}
+}
+
+.video-winner, .video-winners{
+	.video-item{
+		position: relative;
+	}
+ 	.video-item:after{
+		content: '';
+		display: block;
+	  	background: center center no-repeat;
+	    @include svg-bg-with-fallback("icons/award_first");
+	    background-size: contain;
+
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		z-index: 50;
+		right: $space-half;
+		top: $space-half;
+	}
+}
+
+.video-winner .video-item:after{
+	width: 160px;
+	height: 160px;
+
 }
 
 .video-shortlist{
