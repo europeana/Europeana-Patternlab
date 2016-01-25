@@ -39,6 +39,8 @@ Site_HIM = {
   common : {
     init     : function(){
 
+
+
     },
     finalize : function(){
 
