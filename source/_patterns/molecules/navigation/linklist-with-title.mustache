@@ -10,9 +10,9 @@
     <ul>
     {{# items}}
     	<li class="cf">
-        <a href="{{url}}">
-            {{#text}}<span class="link-text">{{text}}</span> {{/text}}
-            {{#number}}<span class="link-number">{{number}}</span>{{/number}} 
+        <a href="{{url}}" class="item-line">
+            {{#text}}<div class="link-text">{{text}}</div> {{/text}}
+            {{#number}}<span class="link-number">{{number}}</span>{{/number}}
             {{#date}}<span class="link-date">{{date}}</span>{{/date}}
         </a>
         </li>
