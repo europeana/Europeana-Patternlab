@@ -90,11 +90,7 @@ $susy: (
 @import "../scss/objects/tags";
 @import "../scss/objects/metadata";
 @import "../scss/objects/dates";
-//@import "../scss/objects/category-flags";
-//@import "../scss/objects/file-detail";
-//@import "../scss/objects/attribution";
-//@import "../scss/objects/social-share";
-//@import "../scss/theme/hero-branding-v2";
+
 
 // Global icons (svg)
 @import "../scss/objects/icons/svgicons";
@@ -109,12 +105,8 @@ $susy: (
 @import "../scss/objects/controls/sortby";
 @import "../scss/objects/lists/list-item";
 @import "../scss/objects/video";
-//@import "../scss/objects/controls/sparkline";
-//@import "../scss/objects/controls/search-multiterm";
-//@import "../scss/objects/controls/attribution-widget";
-//@import "../scss/objects/controls/form-control-groups";
-//@import "../scss/objects/controls/accordion-tabs";
 @import "../scss/objects/lightbox";
+@import "../scss/objects/controls/star-rating";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global
