@@ -66,7 +66,8 @@ Site_HIM = {
         init : function(){
             require(["lightbox"], function() {
                 $('.video-item a').featherlight({
-                    targetAttr: 'href'
+                    targetAttr: 'href',
+                    type: "ajax"
                 });
             });
         }
