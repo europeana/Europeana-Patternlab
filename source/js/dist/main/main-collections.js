@@ -118,6 +118,8 @@ require(['jquery'], function( $ ) {
 
       $.holdReady(false);
 
+      $('html').addClass('styled');
+
       require(["ga"], function(ga) {
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){
