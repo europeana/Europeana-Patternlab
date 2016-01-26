@@ -1,0 +1,200 @@
+body {
+  font-family: Andada;
+  font-size: 1.2em;
+  line-height: 2em;
+  background: #fcfae9;
+  color: #907d62;
+  margin: 0 50px;
+}
+
+div.midi-player {
+  background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(66,66,66,1)),to(rgba(22,22,22,1)));
+  background-image: -webkit-linear-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
+  background-image: -moz-linear-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
+  background-image: -ms-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
+  background-image: -o-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
+  background-image: linear-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
+  padding: 15px 20px;
+  border: 1px solid #000;
+  box-shadow: 0 0 10px #fff;
+  -moz-box-shadow: 0 0 10px #fff;
+  -webkit-box-shadow: 0 0 10px #fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 2px #000;
+  -moz-text-shadow: 1px 1px 2px #000;
+  margin-bottom: 15px;
+
+  height: 42px;
+  box-shadow: 0 -1px #000;
+  margin-bottom: 0;
+}
+
+div.midi-player.is-hidden {
+  display: none;
+}
+
+div.midi-player #capsule {
+  border: 1px solid #000;
+  box-shadow: 0 0 10px #555;
+  -moz-box-shadow: 0 0 10px #555;
+  -webkit-box-shadow: 0 0 10px #555;
+  background: #000;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1, rgba(0,0,0,0.5)), color-stop(0, #333));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 1, #333 0);
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 1, #333 0);
+  background-image: -ms-gradient(top, rgba(0, 0, 0, 0.5) 1, #333 0);
+  background-image: -o-gradient(top, rgba(0, 0, 0, 0.5) 1, #333 0);
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.5) 1, #333 0);
+  overflow: hidden;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 500px;
+  display: inline-block;
+  height: 30px;
+}
+
+div.midi-player #capsule #cursor {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: #1a8ac7;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1, #1a8ac7), color-stop(0, #0088e9));
+  background-image: -webkit-linear-gradient(top, #1a8ac7 1, #0088e9 0);
+  background-image: -moz-linear-gradient(top, #1a8ac7 1, #0088e9 0);
+  background-image: -ms-gradient(top, #1a8ac7 1, #0088e9 0);
+  background-image: -o-gradient(top, #1a8ac7 1, #0088e9 0);
+  background-image: linear-gradient(top, #1a8ac7 1, #0088e9 0);
+  width: 0;
+  display: inline-block;
+  height: 100%;
+}
+div.midi-player span.time {
+  position: relative;
+  top: -9px;
+  padding: 0 10px;
+  width: 40px;
+  display: inline-block;
+  text-align: right;
+}
+div.midi-player div.time-controls {
+  margin: 10px auto 0;
+  float: left;
+  margin: 0;
+  position: relative;
+  top: 5px;
+}
+
+
+#stop-play-group{
+  float: right;
+}
+
+#pause-play-midi{
+  background-image: url(play.png);
+}
+#pause-play-midi.playing{
+  background-image: url(pause.png);
+}
+
+#stop-midi{
+  background-image: url(stop.png);
+}
+
+#pause-play-midi,
+#stop-midi{
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+#pause-play-midi:hover,
+#stop-midi:hover{
+  opacity: 1;
+}
+
+#midi-volume-wrap{
+  float: left;
+}
+
+/*
+  Volume reset
+*/
+#midi-volume{
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+}
+
+#midi-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+#midi-volume:focus {
+  outline: none;
+}
+
+#midi-volume::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/*
+  Volume styling
+*/
+
+#midi-volume::-webkit-slider-thumb {
+
+ -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #1a8ac7;
+  cursor: pointer;
+  margin-top: -16px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 0 0 10px #555;
+}
+
+#midi-volume::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+
+/* All the same stuff for Firefox */
+#midi-volume::-moz-range-thumb {
+  box-shadow: 0 0 10px #555;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #1a8ac7;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+#midi-volume::-ms-thumb {
+  box-shadow: 0 0 10px #555;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #1a8ac7;
+  cursor: pointer;
+}

@@ -14,6 +14,7 @@ define(['jquery'], function($) {
   var videoViewer        = null;
   var audioPlayer        = null;
   var iiifViewer         = null;
+  var midiPlayer         = null;
 
   function log(msg){
       console.log('search-media-controller: ' + msg);
@@ -28,7 +29,6 @@ define(['jquery'], function($) {
     $('.media-viewer .multi-item-poster').addClass('is-hidden');
 
     if(audioPlayer){
-        log('cleanup audio');
         audioPlayer.hide();
     }
     if(iiifViewer){
@@ -39,9 +39,19 @@ define(['jquery'], function($) {
         pdfViewer.hide();
     }
     if(videoViewer){
-        log('cleanup video');
         videoViewer.hide();
     }
+    if(midiPlayer){
+        midiPlayer.hide();
+    }
+
+    /*
+    $([audioPlayer, iiifViewer, pdfViewer, videoViewer, midiPlayer]).each(function(){
+        if(this){
+            this.hide();
+        }
+    })
+    */
   }
 
   function initMedia() {
@@ -178,6 +188,21 @@ define(['jquery'], function($) {
     });
   }
 
+  function initMediaMidi( evt, data ) {
+
+      hideAllViewers();
+
+      if(midiPlayer){
+          midiPlayer.show();
+          midiPlayer.init(data.url);
+      }
+      else{
+          require(['midi_player'], function(){
+              midiPlayer.init(data.url);
+          });
+      }
+  }
+
   function initMediaPdf( evt, data ) {
 
       log( 'initMediaPdf(): ' + data.url );
@@ -264,6 +289,7 @@ define(['jquery'], function($) {
   $('.media-viewer').on('object-media-audio', initMediaAudio);
   $('.media-viewer').on('object-media-iiif', initMediaIIIF);
   $('.media-viewer').on('object-media-image', initMediaImage);
+  $('.media-viewer').on('object-media-midi', initMediaMidi);
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
   $('.media-viewer').on('object-media-open', mediaOpened);
