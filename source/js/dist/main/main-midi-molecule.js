@@ -25,8 +25,8 @@ require.config({
 
 require(['jquery'], function($){
   require(['media_player_midi'], function(player){
-      if(media_item){
-          player.init(media_item);
+      if(typeof(play_url) != 'undefined'){
+          player.init(play_url);
       }
       else{
           console.log('main midi molecule expects media_item');

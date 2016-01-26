@@ -13,7 +13,7 @@ define([], function() {
     console.log('midi-player: ' + msg);
   }
 
-  var init = function(media_item){
+  var init = function(play_url){
       $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
       if(!player){
@@ -122,7 +122,7 @@ define([], function() {
                                      MIDI.loadPlugin(function () {
                                          player = MIDI.Player;
                                          player.timeWarp = 1.0;
-                                         player.loadFile(media_item.play_url, player.start);
+                                         player.loadFile(play_url, player.start);
                                          MIDIPlayerPercentage(player);
                                      });
                                  });
@@ -166,8 +166,8 @@ define([], function() {
   }
 
   return {
-    init: function(media_item) {
-        init(media_item);
+    init: function(play_url) {
+        init(play_url);
     },
     hide: function(){
         hide();

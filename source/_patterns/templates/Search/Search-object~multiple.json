@@ -44,7 +44,8 @@
           {"iiif":  true},
           {"pdf":   true},
           {"text":  true},
-          {"video": true}
+          {"video": true},
+          {"midi": true}
         ],
         "more_thumbs_total": 25,
         "more_thumbs_url": "url-to-more-thumbs",
@@ -211,6 +212,27 @@
               "license_human": "You can use this video in any way you like"
             }
           },
+
+          {
+            "is_midi": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_midi.png",
+            "play_url": "/media/imperial-march.mid",
+            "download": {
+              "url": "/media/imperial-march.mid",
+              "text": "Original MIDI file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/midi"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+
+
           {
             "is_video": true,
             "playable": true,

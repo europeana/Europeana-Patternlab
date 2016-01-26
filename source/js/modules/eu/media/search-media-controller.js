@@ -197,7 +197,9 @@ define(['jquery'], function($) {
           midiPlayer.init(data.url);
       }
       else{
-          require(['midi_player'], function(){
+          require(['media_player_midi'], function(viewer){
+              midiPlayer = viewer;
+              $('.media-viewer .object-media-midi').removeClass('is-hidden');
               midiPlayer.init(data.url);
           });
       }

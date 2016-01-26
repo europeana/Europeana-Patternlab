@@ -1,12 +1,3 @@
-body {
-  font-family: Andada;
-  font-size: 1.2em;
-  line-height: 2em;
-  background: #fcfae9;
-  color: #907d62;
-  margin: 0 50px;
-}
-
 div.midi-player {
   background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(66,66,66,1)),to(rgba(22,22,22,1)));
   background-image: -webkit-linear-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
@@ -28,7 +19,7 @@ div.midi-player {
   -moz-text-shadow: 1px 1px 2px #000;
   margin-bottom: 15px;
 
-  height: 42px;
+  height: 5em;
   box-shadow: 0 -1px #000;
   margin-bottom: 0;
 }
@@ -56,6 +47,8 @@ div.midi-player #capsule {
   width: 500px;
   display: inline-block;
   height: 30px;
+  text-align: left;
+  word-wrap: normal;
 }
 
 div.midi-player #capsule #cursor {
@@ -79,7 +72,6 @@ div.midi-player span.time {
   position: relative;
   top: -9px;
   padding: 0 10px;
-  width: 40px;
   display: inline-block;
   text-align: right;
 }
@@ -91,60 +83,67 @@ div.midi-player div.time-controls {
   top: 5px;
 }
 
-
-#stop-play-group{
+div.midi-player #stop-play-group{
   float: right;
+  position: relative;
+  padding: 5px;
 }
 
-#pause-play-midi{
+div.midi-player #pause-play-midi{
   background-image: url(play.png);
 }
-#pause-play-midi.playing{
+
+div.midi-player #pause-play-midi.playing{
   background-image: url(pause.png);
 }
 
-#stop-midi{
+div.midi-player #stop-midi{
   background-image: url(stop.png);
 }
 
-#pause-play-midi,
-#stop-midi{
+div.midi-player #pause-play-midi,
+div.midi-player #stop-midi{
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   border: 0;
+  box-shadow: 0;
+  box-shadow: none;
   height: 32px;
   width: 32px;
   cursor: pointer;
   opacity: 0.7;
 }
 
-#pause-play-midi:hover,
-#stop-midi:hover{
+div.midi-player #pause-play-midi:hover,
+div.midi-player #stop-midi:hover{
   opacity: 1;
 }
 
-#midi-volume-wrap{
+div.midi-player #midi-volume-wrap{
   float: left;
+  position: relative;
+  top: 0.6em;
 }
 
 /*
   Volume reset
 */
-#midi-volume{
+div.midi-player #midi-volume{
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
+  box-shadow: none;
 }
 
-#midi-volume::-webkit-slider-thumb {
+div.midi-player #midi-volume::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-#midi-volume:focus {
+div.midi-player #midi-volume:focus {
   outline: none;
 }
 
-#midi-volume::-ms-track {
+div.midi-player #midi-volume::-ms-track {
   width: 100%;
   cursor: pointer;
   background: transparent;
@@ -156,7 +155,7 @@ div.midi-player div.time-controls {
   Volume styling
 */
 
-#midi-volume::-webkit-slider-thumb {
+div.midi-player #midi-volume::-webkit-slider-thumb {
 
  -webkit-appearance: none;
   border: 1px solid #000000;
@@ -169,7 +168,7 @@ div.midi-player div.time-controls {
   box-shadow: 0 0 10px #555;
 }
 
-#midi-volume::-webkit-slider-runnable-track {
+div.midi-player #midi-volume::-webkit-slider-runnable-track {
     height: 5px;
     background: #ddd;
     border: none;
@@ -178,7 +177,7 @@ div.midi-player div.time-controls {
 
 
 /* All the same stuff for Firefox */
-#midi-volume::-moz-range-thumb {
+div.midi-player #midi-volume::-moz-range-thumb {
   box-shadow: 0 0 10px #555;
   border: 1px solid #000000;
   height: 36px;
@@ -189,7 +188,7 @@ div.midi-player div.time-controls {
 }
 
 /* All the same stuff for IE */
-#midi-volume::-ms-thumb {
+div.midi-player #midi-volume::-ms-thumb {
   box-shadow: 0 0 10px #555;
   border: 1px solid #000000;
   height: 36px;

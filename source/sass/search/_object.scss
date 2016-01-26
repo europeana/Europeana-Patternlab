@@ -204,6 +204,12 @@
         position: relative;
         z-index: 2;
       }
+      .object-media-midi{
+        .midi-player{
+          position: relative;
+          top: 3.5em;
+        }
+      }
 
       .multi-item-poster > a > img{
         max-width: 400px;

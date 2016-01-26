@@ -1,10 +1,7 @@
 {{# test }}
 <script>
-  var media_item = {
-     {{#play_url}}play_url: "{{play_url}}",{{/play_url}}
-     {{#technical_metadata.mime_type}}mime_type: "{{technical_metadata.mime_type}}"{{/technical_metadata.mime_type}}
-  }
-  console.log('Test midi item: ' + JSON.stringify(media_item));
+  var play_url = {{#play_url}}play_url = "{{play_url}}";{{/play_url}}
+  console.log('Test midi item: ' + play_url);
 </script>
 {{/ test }}
 

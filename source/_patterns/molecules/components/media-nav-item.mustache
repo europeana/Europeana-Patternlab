@@ -28,6 +28,10 @@
           data-type="video"
       {{/is_video}}
 
+      {{#is_midi}}
+          data-type="midi"
+      {{/is_midi}}
+
       {{#play_url}}
          data-uri="{{.}}"
       {{/play_url}}
