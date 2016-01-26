@@ -297,7 +297,7 @@ module.exports = function(grunt) {
           version_js: {
               cwd: 'source/js/dist',
               expand:  true,
-              src: ['**/*.js'],
+              src: ['**/*.js',  '!**/soundfont/*'],
               dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
           }
       },
