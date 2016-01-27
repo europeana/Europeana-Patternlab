@@ -73,6 +73,7 @@ require.config({
     purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
+    pinterest:                     '//assets.pinterest.com/js/pinit',
 
     util_foldable:                 '../eu/util/foldable-list',
     util_resize:                   '../eu/util/resize',
@@ -136,6 +137,25 @@ require(['jquery'], function( $ ) {
       var href = window.location.href;
       if(href.indexOf('europeana.eu') > -1){
           require(['hotjar'], function() {});
+      }
+
+      if($('.pinit').length > 0){
+          require(['pinterest'], function() {
+              channels.getPromisedPageJS().done(function(page){
+                  if(page && typeof page.getPinterestData != 'undefined'){
+                      var data = page.getPinterestData();
+                      if(data){
+                          var pinOneButton = $('.pinit');
+                          pinOneButton.on('click', function() {
+                              PinUtils.pinOne({
+                                  media: data.media,
+                                  description: data.desc
+                              });
+                          });
+                      }
+                  }
+              });
+          });
       }
 
       /*
