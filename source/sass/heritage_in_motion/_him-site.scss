@@ -107,7 +107,7 @@
 }
 
 
-.l-content > .section{
+.l-content .section{
 	padding: $space;
 	margin-bottom: 0;
 }
@@ -250,5 +250,26 @@
 
 	.rating{
 		display: inline-block;
+	}
+}
+
+.gallery_4 > li{
+	@include gallery(9 of 18);
+
+	@media all and (min-width: $bp-med) {
+		@include gallery(5 of 20);
+	}
+}
+
+.entry-detail{
+	.entry-data{
+		@include span(6 of 18);
+	}
+	.entry-text{
+		@include span(last 12 of 18);
+	}
+	.entry-info{
+		padding-top: $space;
+		margin-bottom: $space;
 	}
 }
