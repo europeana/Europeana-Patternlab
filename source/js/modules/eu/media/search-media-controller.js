@@ -208,7 +208,10 @@ define(['jquery'], function($) {
       hideAllViewers();
       $('.media-viewer .object-media-oembed').removeClass('is-hidden');
       $('.media-viewer .object-media-oembed').html(data.html);
+      $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
   }
+
+
 
   function initMediaPdf( evt, data ) {
 
