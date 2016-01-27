@@ -1,10 +1,10 @@
 /* Duplicate of _global class - but leave it here for molecule independence */
-/* line 2, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 2, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 .cf {
   *zoom: 1;
 }
 
-/* line 5, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 5, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 .cf:before, .cf:after {
   content: " ";
   /* 1 */
@@ -12,12 +12,12 @@
   /* 2 */
 }
 
-/* line 10, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 10, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 .cf:after {
   clear: both;
 }
 
-/* line 14, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 14, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#424242), to(#161616));
   background-image: -webkit-linear-gradient(top, #424242 0%, #161616 100%);
@@ -42,12 +42,12 @@ div.midi-player {
   margin-bottom: 0;
 }
 
-/* line 39, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 39, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player.is-hidden {
   display: none;
 }
 
-/* line 43, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 43, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #capsule {
   border: 1px solid #000;
   box-shadow: 0 0 10px #555;
@@ -72,10 +72,10 @@ div.midi-player #capsule {
   word-wrap: normal;
 }
 
-/* line 67, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 67, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #capsule #cursor {
   background: #1a8ac7;
-  background: red;
+  background: pink;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1, #1a8ac7), color-stop(0, #0088e9));
   background-image: -webkit-linear-gradient(top, #1a8ac7 1, #0088e9 0);
   background-image: -moz-linear-gradient(top, #1a8ac7 1, #0088e9 0);
@@ -89,7 +89,7 @@ div.midi-player #capsule #cursor {
   top: 0;
 }
 
-/* line 82, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 82, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player span.time {
   position: relative;
   padding: 0 1em;
@@ -97,7 +97,7 @@ div.midi-player span.time {
   text-align: right;
 }
 
-/* line 88, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 88, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player div.time-controls {
   float: left;
   display: table-row;
@@ -106,29 +106,29 @@ div.midi-player div.time-controls {
   top: 5px;
 }
 
-/* line 96, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 96, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #stop-play-group {
   float: left;
   position: relative;
   padding: 5px;
 }
 
-/* line 102, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 102, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #pause-play-midi {
   background-image: url(play.png);
 }
 
-/* line 106, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 106, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #pause-play-midi.playing {
   background-image: url(pause.png);
 }
 
-/* line 110, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 110, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #stop-midi {
   background-image: url(stop.png);
 }
 
-/* line 114, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 114, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #pause-play-midi,
 div.midi-player #stop-midi {
   background-color: transparent;
@@ -143,13 +143,13 @@ div.midi-player #stop-midi {
   opacity: 0.7;
 }
 
-/* line 128, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 128, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #pause-play-midi:hover,
 div.midi-player #stop-midi:hover {
   opacity: 1;
 }
 
-/* line 133, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 133, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume-wrap {
   float: right;
   position: relative;
@@ -159,7 +159,7 @@ div.midi-player #midi-volume-wrap {
 /*
   Volume reset
 */
-/* line 142, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 142, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */
@@ -168,17 +168,17 @@ div.midi-player #midi-volume {
   box-shadow: none;
 }
 
-/* line 148, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 148, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-/* line 152, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 152, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume:focus {
   outline: none;
 }
 
-/* line 156, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 156, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-ms-track {
   width: 100%;
   cursor: pointer;
@@ -190,7 +190,7 @@ div.midi-player #midi-volume::-ms-track {
 /*
   Volume styling
 */
-/* line 168, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 168, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #000000;
@@ -204,7 +204,7 @@ div.midi-player #midi-volume::-webkit-slider-thumb {
   box-shadow: 0 0 10px #555;
 }
 
-/* line 181, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 181, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-webkit-slider-runnable-track {
   height: 5px;
   background: #ddd;
@@ -213,7 +213,7 @@ div.midi-player #midi-volume::-webkit-slider-runnable-track {
 }
 
 /* All the same stuff for Firefox */
-/* line 190, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 190, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-moz-range-thumb {
   box-shadow: 0 0 10px #555;
   border: 1px solid #000000;
@@ -225,7 +225,7 @@ div.midi-player #midi-volume::-moz-range-thumb {
 }
 
 /* All the same stuff for IE */
-/* line 201, ../../../../../sass/js/modules/lib/midijs/css/MIDIPlayer.scss */
+/* line 201, ../../../../../sass/js/modules/lib/midijs/style/MIDIPlayer.scss */
 div.midi-player #midi-volume::-ms-thumb {
   box-shadow: 0 0 10px #555;
   border: 1px solid #000000;

@@ -228,7 +228,26 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this video in any way you like"
+              "license_human": "You can use the force any way you like"
+            }
+          },
+
+          {
+            "is_midi": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_midi.png",
+            "play_url": "/media/time.mid",
+            "download": {
+              "url": "/media/time.mid",
+              "text": "Original MIDI file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/midi"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
             }
           },
 

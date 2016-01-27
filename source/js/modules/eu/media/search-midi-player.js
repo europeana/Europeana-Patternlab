@@ -2,7 +2,7 @@ define([], function() {
   'use strict';
 
   var player;
-  var css_path   = require.toUrl('../lib/midijs/css/MIDIPlayer.css');
+  var css_path   = require.toUrl('../lib/midijs/style/MIDIPlayer.css');
   var capsule    = $('#capsule');
   var cursor     = $('#capsule #cursor');
   var time1      = $('#time1');
@@ -16,7 +16,10 @@ define([], function() {
   var init = function(play_url){
       $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-      if(!player){
+      if(player){
+          player.loadFile(play_url, player.start);
+      }
+      else {
           require(['touch_move', 'touch_swipe'], function(){
               require(['midi_dom_load_xmlhttp', 'midi_dom_load_script'], function(){
                    require(['midi_audio_detect', 'midi_load_plugin', 'midi_plugin', 'midi_player', 'midi_widget_loader'], function(){
@@ -151,9 +154,6 @@ define([], function() {
                    });
               });
           });
-      }
-      else{
-          log('midi player already exists');
       }
   }
 

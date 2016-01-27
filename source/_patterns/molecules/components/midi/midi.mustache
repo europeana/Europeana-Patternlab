@@ -5,11 +5,12 @@
 </script>
 {{/ test }}
 
-<div class="midi-player is-hidden">
+<div class="midi-player is-hidden cf">
   <div id="stop-play-group">
     <input value="" id="pause-play-midi" type="submit">
-    <input value="" id="stop-midi"       type="submit">
+    <input value="" id="stop-midi"       type="submit" class="is-hidden">
   </div>
+  <div id="midi-volume-wrap"><input id="midi-volume" type="range" min="0" max="100" step="2" value="100" autocomplete="off"/></div>
   <div class="time-controls">
     <span id="time1" class="time"></span>
     <div id="capsule">
@@ -17,7 +18,6 @@
     </div>
     <span id="time2" class="time"></span>
   </div>
-  <div id="midi-volume-wrap"><input id="midi-volume" type="range" min="0" max="100" step="2" value="100" autocomplete="off"/></div>
 </div>
 <div>
   <canvas id="loader"></canvas>

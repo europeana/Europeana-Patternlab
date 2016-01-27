@@ -1,3 +1,16 @@
+/* Duplicate of _global class - but leave it here for molecule independence */
+.cf {
+    *zoom: 1;
+}
+.cf:before, .cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
 div.midi-player {
   background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(66,66,66,1)),to(rgba(22,22,22,1)));
   background-image: -webkit-linear-gradient(top, rgba(66, 66, 66, 1) 0%, rgba(22, 22, 22, 1) 100%);
@@ -19,7 +32,6 @@ div.midi-player {
   -moz-text-shadow: 1px 1px 2px #000;
   margin-bottom: 15px;
 
-  height: 5em;
   box-shadow: 0 -1px #000;
   margin-bottom: 0;
 }
@@ -44,19 +56,15 @@ div.midi-player #capsule {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  width: 500px;
-  display: inline-block;
-  height: 30px;
+  width: 400px;
+  min-width: 170px;
+  display: table-cell;
+  position: relative;
   text-align: left;
   word-wrap: normal;
 }
 
 div.midi-player #capsule #cursor {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   background: #1a8ac7;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1, #1a8ac7), color-stop(0, #0088e9));
   background-image: -webkit-linear-gradient(top, #1a8ac7 1, #0088e9 0);
@@ -66,25 +74,26 @@ div.midi-player #capsule #cursor {
   background-image: linear-gradient(top, #1a8ac7 1, #0088e9 0);
   width: 0;
   display: inline-block;
-  height: 100%;
+  height: 2em;
+  position: absolute;
+  top: 0;
 }
 div.midi-player span.time {
   position: relative;
-  top: -9px;
-  padding: 0 10px;
-  display: inline-block;
+  padding: 0 1em;
+  display: table-cell;
   text-align: right;
 }
 div.midi-player div.time-controls {
-  margin: 10px auto 0;
   float: left;
+  display: table-row;
   margin: 0;
   position: relative;
   top: 5px;
 }
 
 div.midi-player #stop-play-group{
-  float: right;
+  float: left;
   position: relative;
   padding: 5px;
 }
@@ -121,7 +130,7 @@ div.midi-player #stop-midi:hover{
 }
 
 div.midi-player #midi-volume-wrap{
-  float: left;
+  float: right;
   position: relative;
   top: 0.6em;
 }

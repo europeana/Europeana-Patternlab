@@ -27,6 +27,7 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
     $('.media-viewer .multi-item-poster').addClass('is-hidden');
+    $('.media-viewer .object-media-midi').addClass('is-hidden');
 
     if(audioPlayer){
         audioPlayer.hide();
@@ -40,9 +41,6 @@ define(['jquery'], function($) {
     }
     if(videoViewer){
         videoViewer.hide();
-    }
-    if(midiPlayer){
-        midiPlayer.hide();
     }
 
     /*
@@ -193,7 +191,7 @@ define(['jquery'], function($) {
       hideAllViewers();
 
       if(midiPlayer){
-          midiPlayer.show();
+          $('.media-viewer .object-media-midi').removeClass('is-hidden');
           midiPlayer.init(data.url);
       }
       else{
