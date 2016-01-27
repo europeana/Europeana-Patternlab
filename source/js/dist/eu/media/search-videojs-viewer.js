@@ -112,6 +112,7 @@ define([], function() {
       });
       log('added fs 2');
       */
+
   }
 
   /**
@@ -163,6 +164,10 @@ define([], function() {
             player = videojs( $viewer[0], {
                 height: media_item.thumbnail ? 340 : 150
             });
+
+            //player.on('error', function() {
+            //    alert('player.dispose();\netc;');
+            //});
 
             // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
             // see:

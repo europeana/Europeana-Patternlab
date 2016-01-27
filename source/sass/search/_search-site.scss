@@ -225,7 +225,7 @@
   }
 }
 
-.prelaunch-feedback .lc{
+.banner .lc{
 
   text-align: center;
 
@@ -281,6 +281,40 @@
   & > div{
     margin-bottom: $space;
   }
+
+  .item-line{
+    display: flex;
+    .link-text{
+
+      @media all and (min-width: $bp-large) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 11em;
+      }
+      @media all and (min-width: $bp-xl){
+        width: 13em;
+      }
+      @media all and (min-width: $bp-xxl){
+        width: 16em;
+      }
+    }
+    .link-date{
+        margin-left: $pad-half;
+    }
+
+    .link-number{
+        margin-left: $pad-half;
+      }
+
+    @media all and (min-width: $bp-med) {
+      display: inline-flex;
+    }
+    @media all and (max-width: $bp-small-3) {
+      display: block;
+    }
+  }
+
 }
 
 .channel-description{
@@ -461,7 +495,7 @@
 // STATIC PAGES
 .static-content{
   p{
-		padding: 0 $space;
+    padding: 0 $space;
   }
   .lc > .prose{
     @media all and (min-width: $bp-med) {

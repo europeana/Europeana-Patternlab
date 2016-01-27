@@ -16,7 +16,7 @@ module.exports = function(grunt) {
             files: {
                 'source/js/modules/lib/blacklight/blacklight_all.js': [
                   'source/js/modules/lib/blacklight/core.js',
-                  'source/js/modules/lib/blacklight/search_context.js',
+                  'source/js/modules/lib/blacklight/search_context.js'
                   //'source/js/modules/lib/blacklight/checkbox_submit.js',
                   //'source/js/modules/lib/blacklight/bookmark_toggle.js',
                   //'source/js/modules/lib/blacklight/ajax_modal.js',
@@ -169,6 +169,27 @@ module.exports = function(grunt) {
               expand:  true
           },
 
+          midi: {
+              src:    '**.js',
+              cwd:    'source/js/modules/lib/midijs',
+              dest:   'source/js/dist/lib/midijs',
+              expand:  true
+          },
+
+          midi_css: {
+              src:    '**/*.css',
+              cwd:    'source/js/modules/lib/midijs/css',
+              dest:   'source/js/dist/lib/midijs/css',
+              expand:  true
+          },
+
+          midi_img: {
+              src:    '**/*.png',
+              cwd:    'source/js/modules/lib/midijs/css',
+              dest:   'source/js/dist/lib/midijs/css',
+              expand:  true
+          },
+
           NOF: {
             src:    '*.js',
             cwd:    'source/js/modules/lib/904Labs',
@@ -222,18 +243,9 @@ module.exports = function(grunt) {
               cwd: 'source/js/dist',
               expand:  true,
               src: ['**/*.*',  '!**/*.js'],
-//              dest: 'source/js/min'
               dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
           },
 
-/*
-          version_css: {
-              src:    ['1914-1918/*', 'blog/*', 'labs/*', 'pro/*', 'research/*', 'search/*'],
-              cwd:    'source/v',
-              dest:   'source/v/' + grunt.option('styleguide-version') + '/css',
-              expand: true
-          },
-*/
           videojs: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs',
@@ -247,6 +259,7 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/lib/videojs-aurora',
             expand:  true
           },
+
           videojs_silverlight: {
             src:    '**',
             cwd:    'source/js/modules/lib/videojs-silverlight',
@@ -284,7 +297,7 @@ module.exports = function(grunt) {
           version_js: {
               cwd: 'source/js/dist',
               expand:  true,
-              src: ['**/*.js'],
+              src: ['**/*.js',  '!**/soundfont/*'],
               dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
           }
       },
@@ -332,11 +345,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mkdir');
-
-  //grunt.registerTask('prod', [
-  //    'uglify:min_js',
-  //    'copy:non_js'
-  //]);
 
   grunt.registerTask('freeze-version', function(){
 
@@ -394,9 +402,13 @@ module.exports = function(grunt) {
        'copy:global_dependencies',
        'copy:jquery',
        'copy:jstree',
+       'copy:beeld_en_geluid',
        'copy:main',
        'copy:map_img',
        'copy:map_img_fs',
+       'copy:midi',
+       'copy:midi_css',
+       'copy:midi_img',
        'copy:NOF',
        'copy:pdfjs',
        'copy:pdfjs_img',
@@ -409,5 +421,4 @@ module.exports = function(grunt) {
        'copy:photoswipe',
        'copy:iif_viewer'
   ]);
-
 }

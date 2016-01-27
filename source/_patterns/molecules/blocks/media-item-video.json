@@ -3,6 +3,23 @@
   "attribution": "Attribution name here",
   "description":"Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental.",
   "video": {
+  	"thumb_url": "fpo_16x9.png",
   	"src":"https://www.youtube.com/embed/qKfiNKAUbr4"
-  }
+  },
+  "tags": {
+	"items": [
+		{
+			"url":"http://tagurl",
+			"text":"Tag text 1"
+		},
+		{
+			"url":"http://tagurl",
+			"text":"Tag text 2"
+		},
+		{
+			"url":"http://tagurl",
+			"text":"Tag text 3"
+		}
+	]
+}
 }

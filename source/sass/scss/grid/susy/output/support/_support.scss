@@ -66,7 +66,7 @@
 
     @each $_type, $_req in $requirements {
       @each $_i in $_req {
-        $_pass: call(#{$_type}-exists, $_i);
+        $_pass: call("#{$_type}-exists", $_i);
 
         @if not $_pass {
           $_fail: true;

@@ -1,0 +1,69 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{# user_judge }}
+<div class="user-banner">
+  <span class="user-label">Judge Mode</span>
+</div>
+{{/ user_judge }}
+
+{{> organisms/global/header_v2}}
+
+
+
+<main role="main" class="l-page">
+<div class="lc">
+
+  <div class="l-content">
+
+    <div class="page_header">
+      {{> molecules/navigation/breadcrumbs}}
+    </div>
+
+
+    <div class="video-list section">
+      <h2>Category name</h2>
+
+      <ul class="cf">
+      {{#listItems.six}}
+        <li class="video-list-item">
+        {{> molecules/blocks/media-item-video }}
+        </li>
+      {{/listItems.six}}
+      </ul>
+    </div>
+
+    <div class="video-list section">
+      <h2>Category name</h2>
+
+      <ul class="cf">
+      {{#listItems.six}}
+        <li class="video-list-item">
+        {{> molecules/blocks/media-item-video }}
+        </li>
+      {{/listItems.six}}
+      </ul>
+    </div>
+
+
+  </div>
+  {{! END l-content }}
+
+
+  <div class="l-sidebar js-getstickywidth">
+
+  <div class="l-categories js-sticky">
+  <h4>Filter by category:</h4>
+  {{> molecules-tags-large }}
+  </div>
+
+
+  </div>
+  {{! end sidebar }}
+
+</div>
+</main>
+<!-- End Main -->
+
+
+{{> organisms/global/footer_subsite }}
+

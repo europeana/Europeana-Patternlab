@@ -1,5 +1,5 @@
 {
-  "bodyclass": "europeana_HIM",
+  "bodyclass": "europeana_HIM page_entry_list",
   "page_title": "Heritage in Motion",
   "page_locale": "en",
   "page_config": {
@@ -13,14 +13,14 @@
   ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-collections"
+      "path": "../../js/modules/bower_components/requirejs/require.js",
+      "data_main": "../../js/modules/main/main-heritageinmotion"
     }
   ],
   "js_vars": [
     {
       "name": "pageName",
-      "value": "portal/static"
+      "value": "video-list"
     }
   ],
     "navigation":
