@@ -28,6 +28,7 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-text').addClass('is-hidden');
     $('.media-viewer .multi-item-poster').addClass('is-hidden');
     $('.media-viewer .object-media-midi').addClass('is-hidden');
+    $('.media-viewer .object-media-oembed').addClass('is-hidden');
 
     if(audioPlayer){
         audioPlayer.hide();
@@ -203,6 +204,12 @@ define(['jquery'], function($) {
       }
   }
 
+  function initMediaOembed( evt, data ) {
+      hideAllViewers();
+      $('.media-viewer .object-media-oembed').removeClass('is-hidden');
+      $('.media-viewer .object-media-oembed').html(data.html);
+  }
+
   function initMediaPdf( evt, data ) {
 
       log( 'initMediaPdf(): ' + data.url );
@@ -265,7 +272,7 @@ define(['jquery'], function($) {
 
           console.log('media controller will trigger event' + "object-media-" + data_type);
 
-          $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), target:$(this)});
+          $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), html:$(this).data('html'), target:$(this)});
           evt.preventDefault();
       }
       else{
@@ -290,6 +297,7 @@ define(['jquery'], function($) {
   $('.media-viewer').on('object-media-iiif', initMediaIIIF);
   $('.media-viewer').on('object-media-image', initMediaImage);
   $('.media-viewer').on('object-media-midi', initMediaMidi);
+  $('.media-viewer').on('object-media-oembed', initMediaOembed);
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
   $('.media-viewer').on('object-media-open', mediaOpened);

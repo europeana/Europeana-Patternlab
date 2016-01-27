@@ -42,6 +42,7 @@
           {"audio": true},
           {"image": true},
           {"iiif":  true},
+          {"oembed": true},
           {"pdf":   true},
           {"text":  true},
           {"video": true},
@@ -251,6 +252,21 @@
             }
           },
 
+          {
+            "is_oembed": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_oembed.png",
+            "play_html": "This is markup",
+            "download": {
+            },
+            "technical_metadata": {
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
 
           {
             "is_video": true,
