@@ -1,5 +1,5 @@
 .rating {
-    //float:left;
+
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
@@ -18,8 +18,8 @@
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:160%;
-    line-height:1.2;
+    font-size:120%;
+    line-height:1;
     color:#ddd;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .rating > input:checked ~ label {
-    color: #f70;
+    color: gold;
 }
 
 .rating:not(:checked) > label:hover,

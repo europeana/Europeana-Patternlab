@@ -229,3 +229,26 @@
 	}
 }
 
+.user-banner-inline{
+	padding: $space;
+	background-color: $eu-red;
+	color: white;
+	font-weight: bold;
+}
+
+//Comment modal
+.lightbox-addcomment{
+	background-color: #d6e2f1;
+	padding: $space;
+	display: none;
+
+	.intro{
+		background-color: #FFF;
+		padding: 5px;
+		margin-bottom: $space-half;
+	}
+
+	.rating{
+		display: inline-block;
+	}
+}
