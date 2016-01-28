@@ -515,30 +515,30 @@
     },
     "img": {
         "landscape-4x3": {
-            "src": "../../images/fpo_4x3.png",
+            "src": "fpo_4x3.png",
             "alt": "4x3 Image"
         },
         "rectangle": {
-            "src": "../../images/fpo_4x3.png",
+            "src": "fpo_4x3.png",
             "alt": "4x3 Image"
         },
         "landscape-16x9": {
-            "src": "../../images/fpo_16x9.png",
+            "src": "fpo_16x9.png",
             "alt": "16x9 Image"
         },
         "square": {
-            "src": "../../images/fpo_square.png",
+            "src": "fpo_square.png",
             "alt": "Square Thumbnail"
         },
         "avatar": {
-            "src": "../../images/fpo_avatar.png",
+            "src": "fpo_avatar.png",
             "alt": "Person Name"
         },
         "portrait": {
-            "src": "../../images/fpo_3x4.png",
+            "src": "fpo_3x4.png",
             "alt": "Person Name"
         },
-        "src": "../../images/fpo_4x3.png",
+        "src": "fpo_4x3.png",
         "alt": "4x3 Image"
     },
     "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
