@@ -1,17 +1,18 @@
+.filterby,
 .sortby{
 
-	.page_header &, .l-breadcrumbs & {
-		display: table-cell;
-		width: 25%;
-		text-align: right;
-	}
+  .page_header &, .l-breadcrumbs & {
+    display: table-cell;
+    width: 25%;
+    text-align: right;
+  }
 
-	label{
-		font-size: $font-size-sm;
-	}
+  label{
+    font-size: $font-size-sm;
+  }
 
-	label, select{
-		display: inline;
-		padding:0;
-	}
+  label, select{
+    display: inline;
+    padding:0;
+  }
 }

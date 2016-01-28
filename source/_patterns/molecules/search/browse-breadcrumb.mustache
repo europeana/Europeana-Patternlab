@@ -6,5 +6,8 @@
         <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
       </ul>
     </div>
+    {{#collection_filter_options}}
+      {{>molecules/forms/filterby}}
+    {{/collection_filter_options}}
   </div>
 </section>

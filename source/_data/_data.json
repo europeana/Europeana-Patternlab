@@ -681,6 +681,10 @@
             }
         },
         "global": {
+            "actions": {
+              "filter-by": "Filter by"
+              "filter-all": "All"
+            },
             "email-address": "email address",
             "facet": {
               "header": {
