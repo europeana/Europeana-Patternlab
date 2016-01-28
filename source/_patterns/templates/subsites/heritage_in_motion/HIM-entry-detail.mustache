@@ -26,12 +26,18 @@
           <!-- Entry meta data -->
           <div class="entry-data">
 
-            {{> molecules/controls/star-rating }}
+            {{# user_judge }}
+            {{> molecules/components/star-rating-display(rating:4) }}
+            {{/ user_judge }}
 
             <img src="/images/fpo_16x9.png" >
 
             <div class="entry-data-inner">
-
+              <ul>
+                <li class="submitter-name">{{ name.first }} {{ name.last }}</li>
+                <li>Creative commons</li>
+                <li><a href="{{ url }}">{{ url }}</a></li>
+              </ul>
             </div>
 
           </div>
@@ -74,33 +80,34 @@
       </div>
 
 
-      <div class="cf prose section">
+      <div class="submitter-wrapper cf section">
         <h3>Submitted by:</h3>
 
         <h2 class="submitter-name">{{name.first}} {{name.last}}</h2>
 
         <div class="submitter-bio">
-          {{ excerpt.vshort }}
+          {{ excerpt.short }}
         </div>
 
-        <div class="submitter-contact">
+        <div class="submitter-meta">
           {{> molecules-meta-email }}
           {{> molecules-meta-phone-work }}
         </div>
       </div>
 
-
+      {{# user_judge }}
       <div class="cf entry-comments section">
         <h3>Comments from the Judges</h3>
 
-        <ul class="">
-        {{# listItems.eight }}
+        <ul class="comments-list">
+        {{# listItems.five }}
           <li>
-            coment here
+            {{> molecules/components/comment( rating: true ) }}
           </li>
-        {{/ listItems.eight }}
+        {{/ listItems.five }}
         </ul>
       </div>
+      {{/ user_judge }}
 
 
 
