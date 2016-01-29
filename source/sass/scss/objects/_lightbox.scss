@@ -78,23 +78,22 @@
 	}
 
 	.featherlight .featherlight-close-icon {
-		/* position: centering vertical and horizontal */
-		position: absolute;
+		position: fixed;
 		z-index: 9999;
 		top: 0;
 		right: 0;
-
-		/* dimensions: 25px x 25px */
-		line-height: 25px;
-		width: 25px;
+		line-height: 50px;
+		width: 50px;
 
 		/* styling */
 		cursor: pointer;
 		text-align: center;
-		font-family: Arial, sans-serif;
+		font-weight: bold;
+		font-size: 24px;
 		background: #fff; /* Set the background in case it overlaps the content */
-		background: rgba(255, 255, 255, 0.3);
-		color: #000;
+		background: rgba(255, 255, 255, 0.5);
+		background-color: $accent;
+		color: white;
 	}
 
 

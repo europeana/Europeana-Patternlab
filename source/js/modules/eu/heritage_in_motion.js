@@ -65,16 +65,14 @@ Site_HIM = {
     page_entry_list : {
         init : function(){
             require(["lightbox"], function() {
-                //show entry in lightbox
-                $('.video-item a').featherlight({
-                    targetAttr: 'href',
-                    type: "ajax"
-                });
+
+                //show entry in lightbox only on desktop width
+                if($(window).width() > 800){
+                    $('.video-item a').featherlight();
+                }
 
                 //judge mode - add rating and comment
-                $('.video-item .rating label').featherlight('.js-lightbox-addcomment', {
-
-                });
+                $('.video-item .rating label').featherlight('.js-lightbox-addcomment');
 
                 $('.js-lightbox-addcomment .js-cancel').on("click", function(){
                     $.featherlight.close();
