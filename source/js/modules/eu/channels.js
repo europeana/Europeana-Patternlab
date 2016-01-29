@@ -63,7 +63,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             promisedPageJS.resolve();
             break;
 
-        case 'browse/newcontent':
+        case 'browse/new_content':
             initCollectionsFilter();
             promisedPageJS.resolve();
             break;
