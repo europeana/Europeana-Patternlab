@@ -1,6 +1,8 @@
 .filterby,
 .sortby{
 
+   display: inline-block;
+
   .page_header &, .l-breadcrumbs & {
     display: table-cell;
     width: 25%;
