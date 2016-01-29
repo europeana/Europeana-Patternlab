@@ -1,0 +1,24 @@
+{
+  "test": true,
+  "i18n": {
+    "global": {
+      "javascript_required": "To view this video please enable JavaScript"
+    }
+  },
+  "is_current": true,
+  "js_files": [
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/main-oembed-molecule.js"
+    }
+  ],
+  "css_files": [
+    {
+      "path": ""
+    }
+  ],
+  "thumbnail": "",
+  "play_html": "<iframe height=\"270\" frameborder=\"0\" width=\"480\" allowfullscreen=\"\" src=\"https://www.youtube.com/embed/J26QY8t4nzc?feature=oembed\"></iframe>",
+  "download": {},
+  "technical_metadata": {}
+}

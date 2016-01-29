@@ -45,6 +45,7 @@ require.config({
     media_viewer_image:            '../eu/media/search-image-viewer',
     media_viewer_videojs:          '../eu/media/search-videojs-viewer',
     media_player_midi:             '../eu/media/search-midi-player',
+    media_player_oembed:           '../eu/media/search-oembed-viewer',
 
     menus:                         '../global/menus',
 

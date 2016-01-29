@@ -15,6 +15,7 @@ define(['jquery'], function($) {
   var audioPlayer        = null;
   var iiifViewer         = null;
   var midiPlayer         = null;
+  var oembedPlayer       = null;
 
   function log(msg){
       console.log('search-media-controller: ' + msg);
@@ -206,12 +207,21 @@ define(['jquery'], function($) {
 
   function initMediaOembed( evt, data ) {
       hideAllViewers();
-      $('.media-viewer .object-media-oembed').removeClass('is-hidden');
-      $('.media-viewer .object-media-oembed').html(data.html);
-      $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
+
+      var container = $('.media-viewer .object-media-oembed');
+
+      if(oembedPlayer){
+          container.removeClass('is-hidden');
+          oembedPlayer.init(container, data.html);
+      }
+      else{
+          require(['media_player_oembed'], function(viewer){
+              oembedPlayer = viewer;
+              container.removeClass('is-hidden');
+              oembedPlayer.init(container, data.html);
+          });
+      }
   }
-
-
 
   function initMediaPdf( evt, data ) {
 
