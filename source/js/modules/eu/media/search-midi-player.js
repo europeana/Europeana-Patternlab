@@ -158,7 +158,10 @@ define([], function() {
   }
 
   var hide = function(){
-      log('hide (TODO)');
+      if(player){
+          player.stop();
+          $('#pause-play-midi').removeClass('playing');
+      }
   }
 
   var show = function(){

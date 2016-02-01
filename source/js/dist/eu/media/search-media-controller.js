@@ -44,6 +44,9 @@ define(['jquery'], function($) {
     if(videoViewer){
         videoViewer.hide();
     }
+    if(midiPlayer){
+        midiPlayer.hide();
+    }
 
     /*
     $([audioPlayer, iiifViewer, pdfViewer, videoViewer, midiPlayer]).each(function(){
