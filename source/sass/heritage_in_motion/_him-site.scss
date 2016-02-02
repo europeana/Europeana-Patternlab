@@ -21,6 +21,7 @@
 // STATIC PAGES
 
 // Generic page layout
+
 .l-page{
 
 	position: relative;
@@ -34,6 +35,11 @@
 		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
 		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
+	}
+
+	&.no-sidebar{
+		background: $white;
 
 	}
 
@@ -112,187 +118,8 @@
 	margin-bottom: 0;
 }
 
-// HiM Video pages
-// Video list
-.video-item{
-	.item-meta-primary{
-		padding-top: 0;
-	}
-}
-.video-list-item{
-	@media all and (min-width: $bp-med) {
-	  @include gallery(9 of 18);
-	}
 
-	.item-meta-secondary{
-		margin-bottom: 0;
-	}
-}
 
-.video-title{
-	font-weight: bold;
-}
 
-.video-description{
 
-	margin-bottom: $space-half;
 
-	.video-list &{
-		font-size: $font-size-sm;
-	}
-}
-
-.video-attribution{
-	font-style: italic;
-}
-
-.video-winner{
-	background-color: $accent;
-
-	h1, h2, p, div, a{
-		color: #FFF;
-		border-color: #FFF;
-	}
-}
-
-.video-winners{
-	background-color: #EFF1FB;
-	border-bottom: 2px solid $accent;
-
-	.video-list-item > h3{
-		font-size: $font-size-med;
-		margin-top: $space-half;
-		padding-bottom: $space-half;
-		border-bottom: 2px solid $gray80;
-	}
-}
-
-.video-winner, .video-winners{
-	.video-item{
-		position: relative;
-	}
- 	.video-item:after{
-		content: '';
-		display: block;
-	  	background: center center no-repeat;
-	    @include svg-bg-with-fallback("icons/award_first");
-	    background-size: contain;
-
-		width: 80px;
-		height: 80px;
-		position: absolute;
-		z-index: 50;
-		right: $space-half;
-		top: $space-half;
-	}
-}
-
-.video-winner .video-item:after{
-	width: 160px;
-	height: 160px;
-
-}
-
-.video-shortlist{
-	background-color: $gray-lightest;
-	border-bottom: 6px solid $black;
-	margin-bottom: $space;
-}
-
-.video-judge-controls{
-	.rating {
-	    float: left;
-	}
-	.link-comments{
-		float: right;
-	}
-}
-
-.user-banner{
-	background-color: $eu-red;
-	display: block;
-	position: fixed;
-	z-index: 500;
-	top: 0;
-	width: 100%;
-	height: 4px;
-
-	.user-label{
-		display: block;
-		position: absolute;
-		right: 0;
-		padding: 4px 8px;
-		font-size: $font-size-sm;
-		font-weight: bold;
-		background-color: $eu-red;
-		color: white;
-	}
-}
-
-.user-banner-inline{
-	padding: $space;
-	background-color: $eu-red;
-	color: white;
-	font-weight: bold;
-}
-
-//Comment modal
-.lightbox-addcomment{
-	background-color: #d6e2f1;
-	padding: $space;
-	display: none;
-
-	.intro{
-		background-color: #FFF;
-		padding: 5px;
-		margin-bottom: $space-half;
-	}
-
-	.rating{
-		display: inline-block;
-	}
-}
-
-.gallery_4 > li{
-	@include gallery(9 of 18);
-
-	@media all and (min-width: $bp-med) {
-		@include gallery(5 of 20);
-	}
-}
-
-.entry-detail{
-	.entry-data{
-		@include span(6 of 18);
-	}
-	.entry-text{
-		@include span(last 12 of 18);
-	}
-	.entry-info{
-		padding-top: $space;
-		margin-bottom: $space;
-	}
-
-	.entry-data-inner{
-		font-size: $font-size-slightly-smaller;
-		padding: $space-half;
-		background-color: $gray-lightest;
-		border-top: 4px solid $accent;
-	}
-
-	.submitter-bio{
-		margin-bottom: $space-half;
-	}
-
-	.submitter-wrapper{
-		background-color: $gray-lightest;
-	}
-	.submitter-meta > div{
-		display: inline-block;
-		margin-right: $space-half;
-	}
-
-	.submitter-name{
-		font-weight: bold;
-	}
-}
