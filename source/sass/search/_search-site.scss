@@ -317,20 +317,36 @@
 
 }
 
-.channel-description{
-  @media all and (min-width: $bp-med) {
-    @include span(10 of 24);
-    padding: $space;
-  }
-}
-
 .channel-credits{
   @include fontSize(14px);
 }
 
-.channel-description-text{
-  margin-bottom: $space-half;
+.channel-newstuff{
+  background-color: red;
+  @media all and (min-width: $bp-med) {
+    @include span(first 24 of 24);
+  }
+  @media all and (min-width: $bp-large) {
+    @include span(first 9 of 24);
+  }
 }
+
+
+.channel-description{
+  @media all and (min-width: $bp-med) {
+    @include span(14 of 24);
+    padding: $space 0;
+
+  }
+  @media all and (min-width: $bp-large) {
+    @include span(11 of 24);
+  }
+  .channel-description-text{
+    margin-bottom: $space-half;
+  }
+}
+
+
 
 .channel-stats{
 
@@ -340,9 +356,12 @@
   }
 
   @media all and (min-width: $bp-med) {
-    @include span(last 5 of 24);
+    @include span(last 10 of 24);
     padding: $space;
     border-left: 1px solid $gray-lighter;
+  }
+  @media all and (min-width: $bp-large) {
+    @include span(last 4 of 24);
   }
 
 
