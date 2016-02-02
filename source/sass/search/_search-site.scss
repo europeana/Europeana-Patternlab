@@ -269,9 +269,6 @@
     @include flexbox();
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-
-    -webkit-align-items: center;
-    align-items: center;
   }
 
   .title{
@@ -280,6 +277,7 @@
 
   & > div{
     margin-bottom: $space;
+    padding-top: $space;
   }
 
   .item-line{
@@ -322,7 +320,6 @@
 }
 
 .channel-newstuff{
-  background-color: red;
   @media all and (min-width: $bp-med) {
     @include span(first 24 of 24);
   }
