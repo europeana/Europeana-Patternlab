@@ -107,7 +107,7 @@
 }
 
 
-.l-content > .section{
+.l-content .section, .entry-detail .section {
 	padding: $space;
 	margin-bottom: 0;
 }
@@ -199,3 +199,100 @@
 	margin-bottom: $space;
 }
 
+.video-judge-controls{
+	.rating {
+	    float: left;
+	}
+	.link-comments{
+		float: right;
+	}
+}
+
+.user-banner{
+	background-color: $eu-red;
+	display: block;
+	position: fixed;
+	z-index: 500;
+	top: 0;
+	width: 100%;
+	height: 4px;
+
+	.user-label{
+		display: block;
+		position: absolute;
+		right: 0;
+		padding: 4px 8px;
+		font-size: $font-size-sm;
+		font-weight: bold;
+		background-color: $eu-red;
+		color: white;
+	}
+}
+
+.user-banner-inline{
+	padding: $space;
+	background-color: $eu-red;
+	color: white;
+	font-weight: bold;
+}
+
+//Comment modal
+.lightbox-addcomment{
+	background-color: #d6e2f1;
+	padding: $space;
+	display: none;
+
+	.intro{
+		background-color: #FFF;
+		padding: 5px;
+		margin-bottom: $space-half;
+	}
+
+	.rating{
+		display: inline-block;
+	}
+}
+
+.gallery_4 > li{
+	@include gallery(9 of 18);
+
+	@media all and (min-width: $bp-med) {
+		@include gallery(5 of 20);
+	}
+}
+
+.entry-detail{
+	.entry-data{
+		@include span(6 of 18);
+	}
+	.entry-text{
+		@include span(last 12 of 18);
+	}
+	.entry-info{
+		padding-top: $space;
+		margin-bottom: $space;
+	}
+
+	.entry-data-inner{
+		font-size: $font-size-slightly-smaller;
+		padding: $space-half;
+		background-color: $gray-lightest;
+		border-top: 4px solid $accent;
+	}
+
+	.submitter-bio{
+		margin-bottom: $space-half;
+	}
+
+	.submitter-wrapper{
+		background-color: $gray-lightest;
+	}
+	.submitter-meta > div{
+		display: inline-block;
+		margin-right: $space-half;
+	}
+
+	.submitter-name{
+		font-weight: bold;
+	}
+}

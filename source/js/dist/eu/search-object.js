@@ -512,6 +512,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         },
         getAnalyticsData: function(){
             return themeData;
+        },
+        getPinterestData: function(){
+            var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
+            var media = $('.single-item-thumb .external-media.playable').attr('href')
+              || $('.single-item-thumb .external-media img').attr('src')
+              || $('.external-media:first').data('uri')
+            return {
+                media: media,
+                desc: desc
+            };
         }
     }
 });

@@ -38,13 +38,31 @@ require.config({
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
     jsTree:                        '../lib/jstree/jstree',
+
     media_controller:              '../eu/media/search-media-controller',
     media_viewer_iiif:             '../eu/media/search-iiif-viewer',
     media_viewer_pdf:              '../eu/media/search-pdf-ui-viewer',
     media_viewer_image:            '../eu/media/search-image-viewer',
     media_viewer_videojs:          '../eu/media/search-videojs-viewer',
+    media_player_midi:             '../eu/media/search-midi-player',
+    media_player_oembed:           '../eu/media/search-oembed-viewer',
+
     menus:                         '../global/menus',
-    mootools:                      '../lib/iipmooviewer/js/mootools-core-1.5.1-full-nocompat-yc',
+
+    midi_dom_load_xmlhttp:         '../lib/midijs/DOMLoader.XMLHttp',
+    midi_dom_load_script:          '../lib/midijs/DOMLoader.script',
+
+    midi_audio_detect:             '../lib/midijs/MIDI.audioDetect',
+    midi_load_plugin:              '../lib/midijs/MIDI.loadPlugin',
+    midi_plugin:                   '../lib/midijs/MIDI.Plugin',
+    midi_player:                   '../lib/midijs/MIDI.Player',
+
+    midi_widget_loader:            '../lib/midijs/Widgets.Loader',
+    midi_stream:                   '../lib/midijs/stream',
+    midi_file:                     '../lib/midijs/midifile',
+    midi_replayer:                 '../lib/midijs/replayer',
+    midi_vc_base64:                '../lib/midijs/VersionControl.Base64',
+    midi_base64:                   '../lib/midijs/base64binary',
 
     NOFlogger:                     '../lib/904Labs/904-logger',
     NOFremote:                     '../lib/904Labs/noflogging-0.2.min',
@@ -56,6 +74,7 @@ require.config({
     purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
+    pinterest:                     '//assets.pinterest.com/js/pinit',
 
     util_foldable:                 '../eu/util/foldable-list',
     util_resize:                   '../eu/util/resize',
@@ -101,6 +120,8 @@ require(['jquery'], function( $ ) {
 
       $.holdReady(false);
 
+      $('html').addClass('styled');
+
       require(["ga"], function(ga) {
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){
@@ -117,6 +138,25 @@ require(['jquery'], function( $ ) {
       var href = window.location.href;
       if(href.indexOf('europeana.eu') > -1){
           require(['hotjar'], function() {});
+      }
+
+      if($('.pinit').length > 0){
+          require(['pinterest'], function() {
+              channels.getPromisedPageJS().done(function(page){
+                  if(page && typeof page.getPinterestData != 'undefined'){
+                      var data = page.getPinterestData();
+                      if(data){
+                          var pinOneButton = $('.pinit');
+                          pinOneButton.on('click', function() {
+                              PinUtils.pinOne({
+                                  media: data.media,
+                                  description: data.desc
+                              });
+                          });
+                      }
+                  }
+              });
+          });
       }
 
       /*

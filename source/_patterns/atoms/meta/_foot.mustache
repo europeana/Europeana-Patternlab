@@ -24,6 +24,12 @@
   <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
 {{/ js_files}}
 
+{{# js_slsb_ld }}
+  <script type="application/ld+json">
+    {{ . }}
+  </script>
+{{/ js_slsb_ld }}
+
 {{# patternlab }}
   <script src="../../js/patternlab/site_js/scratchpad.js"></script>
   <!--DO NOT REMOVE-->

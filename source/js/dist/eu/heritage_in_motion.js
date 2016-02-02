@@ -1,61 +1,90 @@
-define(['smartmenus'], function () {
 
-    require(['smartmenus_keyboard'], function(){
 
-        $('.nav_primary>ul').smartmenus({
-            mainMenuSubOffsetX: -1,
-            mainMenuSubOffsetY: 4,
-            subMenusSubOffsetX: 6,
-            subMenusSubOffsetY: -6,
-            subMenusMaxWidth: null,
-            subMenusMinWidth: null
-        });
-        $('#settings-menu').smartmenus({
-            mainMenuSubOffsetX: -62,
-            mainMenuSubOffsetY: 4,
-            subMenusSubOffsetX: 0,
-            subMenusSubOffsetY: -6,
-            subMenusMaxWidth: null,
-            subMenusMinWidth: null
-        });
-        $('.js-hack-smartmenu a').click(function(){
-            var href = $(this).attr('href');
-            if(href != '#'){
-                window.location = $(this).attr('href');
-            }
-        });
 
-        $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-        $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-
-    });
-
-});
 
 
 // DOM based routing
 
 Site_HIM = {
-  common : {
-    init     : function(){
+    // All pages
+    common : {
+        init     : function(){
 
+            //Global menus
+            require(['smartmenus'], function() {
+                require(['smartmenus_keyboard'], function(){
 
+                    $('.nav_primary>ul').smartmenus({
+                        mainMenuSubOffsetX: -1,
+                        mainMenuSubOffsetY: 4,
+                        subMenusSubOffsetX: 6,
+                        subMenusSubOffsetY: -6,
+                        subMenusMaxWidth: null,
+                        subMenusMinWidth: null
+                    });
+                    $('#settings-menu').smartmenus({
+                        mainMenuSubOffsetX: -62,
+                        mainMenuSubOffsetY: 4,
+                        subMenusSubOffsetX: 0,
+                        subMenusSubOffsetY: -6,
+                        subMenusMaxWidth: null,
+                        subMenusMinWidth: null
+                    });
+                    $('.js-hack-smartmenu a').click(function(){
+                        var href = $(this).attr('href');
+                        if(href != '#'){
+                            window.location = $(this).attr('href');
+                        }
+                    });
 
+                    $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+                    $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+
+                });
+            });
+
+            // Sticky menu - right hand column fixed on scroll
+            require(["sticky"], function() {
+                if($(window).width() > 800){
+                    var footerheight = $(".footer").outerHeight( true ) + 75;
+
+                    $(".js-sticky").sticky({
+                        topSpacing:100,
+                        bottomSpacing: footerheight,
+                        responsiveWidth: true,
+                        getWidthFrom: ".js-getstickywidth"
+                    });
+                }
+            });
+
+        },
+        finalize : function(){
+
+        }
     },
-    finalize : function(){
+    page_entry_list : {
+        init : function(){
+            require(["lightbox"], function() {
 
-    }
-  },
-  page_entry_list : {
-    init : function(){
+                //show entry in lightbox only on desktop width
+                if($(window).width() > 800){
+                    $('.video-item a').featherlight();
+                }
 
-    }
-  },
-  page_user_profile : {
-    init : function(){
+                //judge mode - add rating and comment
+                $('.video-item .rating label').featherlight('.js-lightbox-addcomment');
 
+                $('.js-lightbox-addcomment .js-cancel').on("click", function(){
+                    $.featherlight.close();
+                });
+            });
+        }
+    },
+    page_user_profile : {
+        init : function(){
+
+        }
     }
-  }
 }
 
 

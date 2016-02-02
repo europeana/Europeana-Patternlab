@@ -32,7 +32,14 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
 
     });
 
-    // TODO: finish implementing this improved load strategy (done for settings only)
+    var initCollectionsFilter = function(){
+        $('#list_filterby').on('change', function(){
+            var val = $(this).val();
+            var param = (val == '*') ? '' : '?theme=' + val;
+            window.location.href = window.location.href.split('?')[0] + param;
+        })
+    }
+
 
     if(typeof pageName == 'undefined' || !pageName){
         console.warn('pageName not specified - cannot bootstrap app');
@@ -41,16 +48,29 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
     console.log('pageName ' + pageName);
 
     switch(pageName){
+        case 'browse/agents':
+            initCollectionsFilter();
+            promisedPageJS.resolve();
+            break;
+
         case 'browse/colours':
+            initCollectionsFilter();
+            promisedPageJS.resolve();
+            break;
+
+        case 'browse/concepts':
+            initCollectionsFilter();
             promisedPageJS.resolve();
             break;
 
         case 'browse/new_content':
+            initCollectionsFilter();
             promisedPageJS.resolve();
             break;
 
         case 'browse/sources':
             require(['util_foldable']);
+            initCollectionsFilter();
             promisedPageJS.resolve();
             break;
 
