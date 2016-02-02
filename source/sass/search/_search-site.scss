@@ -336,7 +336,7 @@
 
   }
   @media all and (min-width: $bp-large) {
-    @include span(11 of 24);
+    @include span(10 of 24);
   }
   .channel-description-text{
     margin-bottom: $space-half;
@@ -358,7 +358,7 @@
     border-left: 1px solid $gray-lighter;
   }
   @media all and (min-width: $bp-large) {
-    @include span(last 4 of 24);
+    @include span(last 5 of 24);
   }
 
 
