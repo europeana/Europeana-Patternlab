@@ -26,7 +26,21 @@
 
 {{# js_slsb_ld }}
   <script type="application/ld+json">
-    {{ . }}
+  {
+    {{# context}}
+      "@context": "{{.}}",
+    {{/ context}}
+    {{# type}}
+      "@type": "{{.}}",
+    {{/ type}}
+    {{# potentialAction}}
+      "potentialAction": {
+        {{# type}}"@type": "{{ . }}",{{/ type}}
+        {{# target}} "target": "{{ . }}", {{/ target}}
+        {{# query_input}} "query-input": "{{ . }}" {{/ query_input }}
+      }
+    {{/ potentialAction}}
+  }
   </script>
 {{/ js_slsb_ld }}
 
