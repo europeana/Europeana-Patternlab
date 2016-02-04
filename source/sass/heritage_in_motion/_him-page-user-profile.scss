@@ -1,0 +1,50 @@
+
+.social-logins{
+	font-size: 2em;
+
+	.icon-social{
+		display: block;
+		float: left;
+	}
+
+	.icon-social[data-connected='true']{
+		color: $valid;
+	}
+}
+
+.account-header{
+	border-bottom: 6px solid $gray-light;
+}
+
+.submission-list-item{
+	margin-bottom: $space;
+	background-color: $gray-lightest;
+	padding: $space;
+}
+.submission-detail{
+	margin-bottom: $space-half;
+}
+.submission-status{
+	display: block;
+	float: left;
+
+	border: none;
+
+	&.pending{
+		background-color: $eu-orange;
+		color: #FFF;
+	}
+
+	&.approved{
+		background-color: $eu-jade;
+		color: #FFF;
+	}
+}
+.submission-meta{
+	border: solid $gray-lighter;
+	border-width: 1px 0;
+	padding: $space-half 0;
+}
+.submission-actions{
+	float: right;
+}

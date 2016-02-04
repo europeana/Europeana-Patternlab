@@ -1,0 +1,134 @@
+{{> atoms/iconography/svgicons-search }}
+{{> atoms/iconography/svgicons-editing }}
+
+{{> organisms/global/header_v2}}
+
+
+
+<main role="main" class="l-page">
+<div class="lc">
+
+  <div class="l-content">
+
+    <div class="page_header">
+      {{> molecules/navigation/breadcrumbs}}
+    </div>
+
+
+
+
+    <div class="account-header section">
+      <h2>Account info</h2>
+      <a href="TODO: add new submissio url" class="btn cta">Add a new Submission</a>
+    </div>
+
+    <div class="section">
+
+      <ul class="cf">
+      {{#listItems.four}}
+        <li class="submission-list-item list-item cf">
+
+          <h3>Submission 01</h3>
+
+          <div class="cf">
+            <div class="item-supplementary">
+              <div class="item-image">
+                <a href="{{ VIEW URL HERE }}"><img src="{{ image_root }}{{ img.rectangle.src }}" alt="{{ img.rectangle.alt }}" /></a>
+              </div>
+            </div>
+
+            <div class="item-details">
+              <h4>{{ title }}</h4>
+              <div class="description">
+                {{ description }}
+              </div>
+            </div>
+          </div>
+
+          <div class="submission-meta cf">
+
+            {{#boolean}}
+            <a href="" class="submission-status btn pill pending">Pending approval</a>
+            {{/boolean}}
+            {{^boolean}}
+            <a href="" class="submission-status btn pill approved">Approved</a>
+            {{/boolean}}
+
+            <div class="submission-actions">
+            <ul class="button-bar button-bar-small">
+              <li class="button-bar__item">
+                <a href="TODO: edit url here" class="button-bar__button">
+                  <svg class="icon icon-edit">
+                    <use xlink:href="#icon-edit"></use>
+                  </svg>
+                  Edit
+                </a>
+              </li>
+              <li class="button-bar__item">
+                <a href="TODO: view url here" class="button-bar__button">
+                  <svg class="icon icon-view">
+                    <use xlink:href="#icon-view"></use>
+                  </svg>
+                  View
+                </a>
+              </li>
+            </ul>
+            </div>
+          </div>
+
+        </li>
+      {{/listItems.four}}
+      </ul>
+    </div>
+
+
+  </div>
+  {{! END l-content }}
+
+
+  <div class="l-sidebar js-getstickywidth">
+
+  <div class="js-sticky">
+
+    <div class="section account-detail">
+      <h4>Username</h4>
+      <a href="#">Bigsweatyafro69</a>
+    </div>
+
+
+  <div class="social-logins cf">
+    <h4>Your account is connected with:</h4>
+
+      <a class="icon-social" data-connected="true" href="https://www.facebook.com/Europeana" title="Facebook">
+        <svg class="icon icon-facebook">
+          <use xlink:href="#icon-facebook"></use>
+        </svg>
+      </a>
+
+      <a class="icon-social" href="https://twitter.com/europeanaeu" title="Twitter">
+        <svg class="icon icon-twitter">
+          <use xlink:href="#icon-twitter"></use>
+        </svg>
+      </a>
+
+      <a class="icon-social" href="https://plus.google.com/+europeana">
+        <svg class="icon icon-googleplus">
+          <use xlink:href="#icon-googleplus"></use>
+        </svg>
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  </div>
+  {{! end sidebar }}
+
+</div>
+</main>
+<!-- End Main -->
+
+
+{{> organisms/global/footer_subsite }}
