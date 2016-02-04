@@ -5,6 +5,11 @@
 	.icon-social{
 		display: block;
 		float: left;
+		color: $gray-light;
+
+		&:hover{
+			color: $gray-dark;
+		}
 	}
 
 	.icon-social[data-connected='true']{
@@ -47,4 +52,12 @@
 }
 .submission-actions{
 	float: right;
+}
+.l-sidebar {
+	h4{
+		margin-bottom: $space-quarter;
+	}
+}
+.account-item{
+	margin-bottom: $space;
 }
