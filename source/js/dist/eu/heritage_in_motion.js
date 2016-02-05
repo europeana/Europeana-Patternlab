@@ -77,12 +77,18 @@ Site_HIM = {
                 $('.js-lightbox-addcomment .js-cancel').on("click", function(){
                     $.featherlight.close();
                 });
+
             });
         }
     },
     page_user_profile : {
         init : function(){
-
+            require(["xeditable"], function() {
+                $.fn.editable.defaults.mode = 'inline';
+                $('.editable').editable({
+                    url: '/post'
+                });
+            });
         }
     }
 }

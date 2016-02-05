@@ -57,6 +57,7 @@ require.config({
 
     touch_move:                     '../lib/jquery.event.move',
     touch_swipe:                    '../lib/jquery.event.swipe',
+    xeditable:                     '../bower_components/x-editable/dist/jquery-editable/js/jquery-editable-poshytip',
   },
   shim: {
     blacklight:     ['jquery'],
@@ -66,6 +67,7 @@ require.config({
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     sticky:         ['jquery'],
+    xeditable:      ['jquery'],
     ga: {
       exports: "__ga__"
     }
