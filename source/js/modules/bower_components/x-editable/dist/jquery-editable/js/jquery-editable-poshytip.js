@@ -4636,6 +4636,9 @@ $(function(){
     "use strict";
 
     //extend methods
+    if($.Poshytip) {  //need this check, because in inline mode poshytip may not be loaded!
+
+
     $.extend($.fn.editableContainer.Popup.prototype, {
         containerName: 'poshytip',
         innerCss: 'div.tip-inner',
@@ -4736,7 +4739,7 @@ $(function(){
     * see https://github.com/vadikom/poshytip/issues/7
     */
     /*jshint eqeqeq:false, curly: false*/
-    if($.Poshytip) {  //need this check, because in inline mode poshytip may not be loaded!
+
       var tips = [],
       reBgImage = /^url\(["']?([^"'\)]*)["']?\);?$/i,
       rePNG = /\.png$/i,

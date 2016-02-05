@@ -65,6 +65,7 @@ $susy: (
 @import "../scss/objects/blocks";
 @import "../scss/objects/media_grid";
 @import "../scss/objects/page_header";
+@import "../scss/objects/blocks/site-hero";
 
 /*------------------------------------*\
 	PAGE/SECTION SPECIFIC
@@ -109,6 +110,7 @@ $susy: (
 @import "../scss/objects/controls/star-rating";
 @import "../scss/objects/comments";
 @import "../js/modules/lib/x-editable/_xeditable.scss";
+@import "../scss/objects/cart-small";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global
