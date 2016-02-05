@@ -25,7 +25,7 @@
     <div class="section">
 
       <ul class="cf">
-      {{#listItems.four}}
+        {{#listItems.four}}
         <li class="submission-list-item list-item cf">
 
           <h3>Submission 01</h3>
@@ -55,29 +55,29 @@
             {{/boolean}}
 
             <div class="submission-actions">
-            <ul class="button-bar button-bar-small">
-              <li class="button-bar__item">
-                <a href="TODO: edit url here" class="button-bar__button">
-                  <svg class="icon icon-edit">
-                    <use xlink:href="#icon-edit"></use>
-                  </svg>
-                  Edit
-                </a>
-              </li>
-              <li class="button-bar__item">
-                <a href="TODO: view url here" class="button-bar__button">
-                  <svg class="icon icon-view">
-                    <use xlink:href="#icon-view"></use>
-                  </svg>
-                  View
-                </a>
-              </li>
-            </ul>
+              <ul class="button-bar button-bar-small">
+                <li class="button-bar__item">
+                  <a href="TODO: edit url here" class="button-bar__button">
+                    <svg class="icon icon-edit">
+                      <use xlink:href="#icon-edit"></use>
+                    </svg>
+                    Edit
+                  </a>
+                </li>
+                <li class="button-bar__item">
+                  <a href="TODO: view url here" class="button-bar__button">
+                    <svg class="icon icon-view">
+                      <use xlink:href="#icon-view"></use>
+                    </svg>
+                    View
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
         </li>
-      {{/listItems.four}}
+        {{/listItems.four}}
       </ul>
     </div>
 
@@ -86,9 +86,8 @@
   {{! END l-content }}
 
 
-  <div class="l-sidebar js-getstickywidth">
+  <div class="l-sidebar">
 
-  <div class="js-sticky">
 
     <div class="account-detail cf">
       <div class="account-item">
@@ -97,49 +96,95 @@
       </div>
 
       <div class="account-item">
-      <h4>Password</h4>
-      <a href="#" class="editable" data-name="password" data-type="text" data-pk="1" data-title="Enter password">**********</a>
+        <h4>Password</h4>
+        <a href="#" class="editable" data-name="password" data-type="text" data-pk="1" data-title="Enter password">**********</a>
       </div>
 
       <div class="account-item">
-      <h4>E-mail</h4>
-      <a href="#" class="editable" data-name="email" data-type="text" data-pk="1" data-title="Enter your email">aaron@testuser.com</a>
+        <h4>E-mail</h4>
+        <a href="#" class="editable" data-name="email" data-type="text" data-pk="1" data-title="Enter your email">aaron@testuser.com</a>
       </div>
     </div>
 
 
-    <div class="social-logins cf">
+    <div class="section social-logins cf">
       <h4>Your account is connected with:</h4>
 
-        <a class="icon-social" data-connected="true" href="#" title="Facebook">
-          <svg class="icon icon-facebook">
-            <use xlink:href="#icon-facebook"></use>
-          </svg>
-        </a>
+      <a class="icon-social" data-connected="true" href="#" title="Facebook">
+        <svg class="icon icon-facebook">
+          <use xlink:href="#icon-facebook"></use>
+        </svg>
+      </a>
 
-        <a class="icon-social" href="#" title="Twitter">
-          <svg class="icon icon-twitter">
-            <use xlink:href="#icon-twitter"></use>
-          </svg>
-        </a>
+      <a class="icon-social" href="#" title="Twitter">
+        <svg class="icon icon-twitter">
+          <use xlink:href="#icon-twitter"></use>
+        </svg>
+      </a>
 
-        <a class="icon-social" href="#">
-          <svg class="icon icon-googleplus">
-            <use xlink:href="#icon-googleplus"></use>
-          </svg>
-        </a>
+      <a class="icon-social" href="#">
+        <svg class="icon icon-googleplus">
+          <use xlink:href="#icon-googleplus"></use>
+        </svg>
+      </a>
 
-        <a class="icon-social" href="#">
-          <svg class="icon icon-linkedin">
-            <use xlink:href="#icon-linkedin"></use>
-          </svg>
-        </a>
+      <a class="icon-social" href="#">
+        <svg class="icon icon-linkedin">
+          <use xlink:href="#icon-linkedin"></use>
+        </svg>
+      </a>
+
+    </div>
+
+    <div class="account-payments">
+      <h4>Pending Payments</h4>
+
+      <div class="cart">
+        <ul class="cart-list">
+          {{#listItems.two}}
+          <li class="cart-item cf">
+
+            <div class="cart-item-details">
+
+              <a class="cart-item-name" href="{{ url }}">{{ title }}</a>
+
+              {{# attributes }}
+              <ul class="cart-item-attributes">
+                {{# items }}
+                <li>
+                  {{ name }}
+                </li>
+                {{/ items }}
+              </ul>
+              {{/ attributes }}
+            </div>
+
+            {{# quantity }}
+            <div class="cart-details-quantity">
+              <input class="cart-item-quantity" data-cart-idx="0" name="quantity_{{id}}" type="text" pattern="[0-9]*" value="{{ quantity }}" autocomplete="off">
+            </div>
+            {{/ quantity }}
+
+            <div class="cart-details-price">
+              <span class="cart-price">{{ product.price }}</span>
+            </div>
+
+            <div class="cart-details-remove">
+              <button type="button" class="cart-remove">×</button>
+            </div>
+
+          </li>
+          {{/listItems.two}}
+        </ul>
+
+        <div class="cart-footer">
+          <a href="TODO: checkout url here" class="cart-btn-checkout btn-small btn pill alt">Pay now</a>
+        </div>
 
       </div>
 
 
-  </div>
-
+    </div>
 
   </div>
   {{! end sidebar }}
