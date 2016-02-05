@@ -74,7 +74,8 @@ require.config({
     purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
-    pinterest:                     '//assets.pinterest.com/js/pinit',
+//    pinterest:                     '//assets.pinterest.com/js/pinit',
+    pinterest:                     'http://assets.pinterest.com/js/pinit_main',
 
     util_foldable:                 '../eu/util/foldable-list',
     util_resize:                   '../eu/util/resize',
