@@ -19,7 +19,74 @@
 }
 
 .site-hero{
-	height: 80%;
+	height: auto;
+	text-align: center;
+	background-image: none !important;
+	background-color: $accent;
+
+	.hero-content{
+		padding: $space;
+	}
+
+	h2.subtitle{
+		font-weight: normal;
+		text-transform: initial;
+		margin-bottom: $space;
+	}
+}
+
+.competition-benefits{
+	margin-top: $space;
+	margin-bottom: $space;
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.maker-types{
+	margin-bottom: $space;
+
+	li{
+		display: inline-block;
+		vertical-align: top;
+		width: 100%;
+		margin-bottom: 20px;
+		font-weight: bold;
+
+		&:before{
+			content: "";
+			display: block;
+			width: 120px;
+			height: 120px;
+			margin: 0 auto 1em;
+			background-color: #FFF;
+			border-radius: 200px;
+		}
+
+		@media all and (min-width: $bp-small) {
+			width: 49%;
+		}
+		@media all and (min-width: $bp-small-3) {
+			width: 27%;
+		}
+		@media all and (min-width: $bp-large) {
+			width: 15%;
+		}
+	}
+}
+
+@media all and (min-width: $bp-med) {
+	.site-hero{
+		height: 80%;
+	}
+
+	.hero-content{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    @include translate (-50%, -50%);
+	    width: 80%;
+		max-width: $max-width;
+	}
 }
 
 // STATIC PAGES
