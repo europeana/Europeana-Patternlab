@@ -149,10 +149,24 @@ require(['jquery'], function( $ ) {
                       if(data){
                           var pinOneButton = $('.pinit');
                           pinOneButton.on('click', function() {
-                              PinUtils.pinOne({
-                                  media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
-                                  description: data.desc ? data.desc : 'Europeana Record'
-                              });
+                              if($('.tmp-pinterest').size()==0){
+                                  $('body').append('<div id="tmp-pinterest-container" style="width:0px; overflow:hidden;">');
+                                  $('.object-media-nav .mlt-img-div').each(function(i, ob){
+                                      var url = $(ob).css('background-image').replace('url(','').replace(')','');
+                                      if(url != 'none'){
+                                          $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
+                                      }
+                                  });
+                              }
+                              if($('.tmp-pinterest').size()==0){
+                                  PinUtils.pinOne({
+                                     media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
+                                     description: data.desc ? data.desc : 'Europeana Record'
+                                  });
+                              }
+                              else{
+                                  PinUtils.pinAny();
+                              }
                           });
                       }
                   }
