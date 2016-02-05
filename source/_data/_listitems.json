@@ -69,6 +69,9 @@
 			"lasti": "R"
 		},
 		"email": "Junius.Koolen@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "1637",
 			"short": "1637"
@@ -169,6 +172,9 @@
 			"lasti": "H"
 		},
 		"email": "Siguror.Hanigan@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -269,6 +275,9 @@
 			"lasti": "R"
 		},
 		"email": "Teun.Richard@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -369,6 +378,9 @@
 			"lasti": "W"
 		},
 		"email": "Duane.Wilms@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -469,6 +481,9 @@
 			"lasti": "K"
 		},
 		"email": "Frans.Keegan@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -569,6 +584,9 @@
 			"lasti": "A"
 		},
 		"email": "Fergus.Althuis@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -669,6 +687,9 @@
 			"lasti": "A"
 		},
 		"email": "Bertil.Aaij@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -769,6 +790,9 @@
 			"lasti": "H"
 		},
 		"email": "Freyr.Hines@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -869,6 +893,9 @@
 			"lasti": "R"
 		},
 		"email": "Jacobus.Domitianus@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "1642",
 			"short": "1642"
@@ -969,6 +996,9 @@
 			"lasti": "S"
 		},
 		"email": "Plinius.Sloane@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -1069,6 +1099,9 @@
 			"lasti": "M"
 		},
 		"email": "Matthias.Macguinness@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
@@ -1169,6 +1202,9 @@
 			"lasti": "A"
 		},
 		"email": "Aquila.Achterkamp@europeana.eu",
+		"product":{
+			"price":"€200"
+		},
 		"year": {
 			"long": "2013",
 			"short": "13"
