@@ -150,8 +150,8 @@ require(['jquery'], function( $ ) {
                           var pinOneButton = $('.pinit');
                           pinOneButton.on('click', function() {
                               PinUtils.pinOne({
-                                  media: data.media,
-                                  description: data.desc
+                                  media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
+                                  description: data.desc ? data.desc : 'Europeana Record'
                               });
                           });
                       }
