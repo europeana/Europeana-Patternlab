@@ -21,23 +21,26 @@
 .site-hero{
 	height: auto;
 	text-align: center;
-	background-image: none !important;
 	background-color: $accent;
 
 	.hero-content{
 		padding: $space;
 	}
 
+	.title{
+		font-weight: bold;
+	}
+
 	h2.subtitle{
-		font-weight: normal;
 		text-transform: initial;
-		margin-bottom: $space;
+		font-size: 1.4em;
+		margin-bottom: $space-double;
 	}
 }
 
 .competition-benefits{
 	margin-top: $space;
-	margin-bottom: $space;
+	margin-bottom: $space-double;
 	list-style-type: disc;
 	list-style-position: inside;
 }
