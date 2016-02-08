@@ -61,8 +61,11 @@
 			width: 120px;
 			height: 120px;
 			margin: 0 auto 1em;
-			background-color: #FFF;
+			background-color: rgba(255, 255, 255, 0.27);
+			border: 4px solid #FFF;
 			border-radius: 200px;
+			background-position: 50% 10px;
+			background-size: contain;
 		}
 
 		@media all and (min-width: $bp-small) {
@@ -74,6 +77,22 @@
 		@media all and (min-width: $bp-large) {
 			width: 15%;
 		}
+	}
+
+	.maker1:before{
+		@include svg-bg-with-fallback("heritage-in-motion/laptop");
+	}
+	.maker2:before{
+		@include svg-bg-with-fallback("heritage-in-motion/clapperboard");
+	}
+	.maker3:before{
+		@include svg-bg-with-fallback("heritage-in-motion/masks");
+	}
+	.maker4:before{
+		@include svg-bg-with-fallback("heritage-in-motion/easel");
+	}
+	.maker5:before{
+		@include svg-bg-with-fallback("heritage-in-motion/gallery");
 	}
 }
 
