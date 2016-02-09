@@ -74,9 +74,11 @@
 	.item-preview{
 
 		text-align: center;
+
 		a{
-			display: inline-block;
+			display: block;
 		}
+
 		@media all and (min-width: $bp-small) {
 			@include span(last 6 of 18);
 		}

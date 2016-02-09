@@ -156,10 +156,10 @@ define(['jquery', 'jqScrollto'], function() {
                 var childCountText = (typeof childCount == 'undefined' || childCount == 0 ? '' : '<span> (' + childCount + ')<span>');
 
                 if(typeof hierarchyOriginalUrl != 'undefined' && id == hierarchyOriginalUrl){
-                     text = (parent ? (relBefore ? (index+1) + '. ' : '') : '') + text + childCountText;
+                     text = (parent ? (relBefore ? (index) + '. ' : '') : '') + text + childCountText;
                 }
                 else{
-                    text = (parent ? ((index+1) + '. ') : '')
+                    text = (parent ? ((index) + '. ') : '')
                     + '<a href="' + portalRecordRoot + id + '.html"'
                     +       ' onclick="var e = arguments[0] || window.event; followLink(e);">'
                     +   text
@@ -719,8 +719,7 @@ define(['jquery', 'jqScrollto'], function() {
 
                         var isLast = true;
                         // added for /record/2048604/data_item_onb_abo__2BZ170840802.html
-                        // remove the "+1" from this condition if indexing from 1
-                        if(  (origIndex+1) < xNode.data.childrenCount  ){
+                        if(  (origIndex) < xNode.data.childrenCount  ){
                             isLast = false;
                         }
 

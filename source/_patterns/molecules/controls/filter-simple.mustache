@@ -70,6 +70,7 @@ Configuration options and content model:
     {{#extra_items}}
         <div class="filter-extrafields js-showhide-panel is-jshidden">
     {{#items}}
+        {{#text}}
         <li>
             <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
             {{#num_results}}
@@ -77,6 +78,7 @@ Configuration options and content model:
             {{/num_results}}
             </a>
         </li>
+       {{/text}}
     {{/items}}
     </div>
     {{/extra_items}}

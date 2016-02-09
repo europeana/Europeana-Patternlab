@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hierarchical Objects Test Page</title>
+
+  <link rel="stylesheet" href="http://test.portal2.eanadev.org/portal/themes/default/css/europeana-font-icons.css"/>
+  <link rel="stylesheet" href="http://test.portal2.eanadev.org/portal/themes/default/css/europeana-font-face.css"/>
+<!--
+  <link rel="stylesheet" href="../../../../css/europeana-font-icons.css"/>
+  <link rel="stylesheet" href="../../../../css/europeana-font-face.css"/>
+ -->
+
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style-overrides.css" />
+  <script type="text/javascript" src="../../../../jquery/jquery-1.8.1.js"></script>
+  <script type="text/javascript" src="../jstree.js"></script>
+  <script type="text/javascript" src="../../../../jquery/jquery.scrollTo-1.4.3.1.js"></script>
+
+  <style>
+    .loadPoint>a{
+      background-color: orange !important;
+    }
+
+    .debug-area{
+      word-wrap:			break-word;
+      width:      		100%;
+      height:				10em;
+      overflow-y:			auto;
+      overflow-x:			hidden;
+      margin-bottom:		2em;
+      background-color:	#ededed;
+      margin-top:			1em;
+    }
+
+    @media only screen and ( min-width:48em ){
+      .debug-area{
+        max-width:  		48%;
+        width:     		 	48%;
+        float:     			left;
+        margin-top:			0;
+        margin-left:		2%;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+  <div>
+    <a class="lock"          style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[unlock]</a>
+    <a class="scroll-top"    style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[scroll-top]</a>
+    <!-- a class="load-more">load more...</a-->
+    <a class="visible-nodes" style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[visible]</a>
+    <a class="tba"           style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[arrows]</a>
+    <a class="expand"        style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[expand]</a>
+    <a class="collapse"      style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[collapse]</a>
+    <a class="delay"         style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[delay]</a>
+    <a class="t-start"       style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[t-start]</a>
+    <a class="t-stop"        style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[t-stop]</a>
+
+    <a class="gcp"           style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[gcp]</a>
+
+    <br/>
+    <input id="chunk" type="number" tab-index="1" style="float:right; margin-bottom: 0.75em; margin-top: 0.75em;">
+    <br/>
+
+    <div class="hierarchy-objects">
+      <div class="hierarchy-top-panel">
+        <div class="hierarchy-prev"><a>view items above</a><span class="count"></span></div>
+        <div class="hierarchy-title"><a></a><span class="count"></span></div>
+      </div>
+      <div class="hierarchy-container">
+        <div id="hierarchy"></div>
+      </div>
+      <div class="hierarchy-bottom-panel">
+        <div class="hierarchy-next"><a>view items below</a><span class="count"></span></div>
+        <div class="expand-collapse">
+          <a class="expand-all">expand all items</a><a class="collapse-all">collapse all items</a>
+          <br>
+          <a class="load-all">load all items</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="debug-area">
+    </div>
+
+    <!--
+     -->
+    <img src="https://bigfiles.assembla.com/spaces/europeana/documents/download/dRFgfOLv0r44oGacwqjQYw"/>
+
+
+    <script type="text/javascript">
+
+      var waitMessages = [
+               {
+                 "time" : 5,
+                 "msg"  : "taking a while...."
+               },
+               {
+                 "time" : 10,
+                 "msg"  : "taking ages...."
+               },
+               {
+                 "time" : 20,
+                 "msg"  : "taking forever...."
+               }
+           ];
+
+      $(document).ready(function(){
+
+        var href = window.location.href;
+        var param = href.indexOf('?base=') > -1 ? href.split('?base=')[1].replace('%28', '(').replace('%29', ')') : false;
+
+        console.log('param = ' + param)
+
+        if(window.location.href.indexOf('localhost:3000') > -1){
+          window.hierarchicalObjectServer = 'http://localhost:3000/?requestData=';
+        }
+
+        window.hierarchy = new EuHierarchy($('#hierarchy'), 8, $('.hierarchy-objects'));
+
+
+        // regression test old errors:
+        /*
+        hierarchy.init("dataGen.parentTop()")
+        hierarchy.init("dataGen.apocalypse_vol_1()")
+        */
+
+        hierarchy.init("dataGen.base()");
+        //hierarchy.init(param ? param : "dataGen.flatChildren()[0]");
+        //hierarchy.init(param ? param : "dataGen.j1_13");
+        //hierarchy.init(param ? param : "dataGen.apocalypse_vol_1()");
+
+        new EuHierarchyTools(hierarchy);
+      });
+    </script>
+  </div>
+  <script src="EuHierarchyData.js"></script>
+  <script src="../eu-hierarchy.js"></script>
+  <script src="EuHierarchyTools.js"></script>
+
+</body>
+</html>
+
+

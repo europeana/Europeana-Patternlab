@@ -65,6 +65,7 @@ $susy: (
 @import "../scss/objects/blocks";
 @import "../scss/objects/media_grid";
 @import "../scss/objects/page_header";
+@import "../scss/objects/blocks/site-hero";
 
 /*------------------------------------*\
 	PAGE/SECTION SPECIFIC
@@ -107,6 +108,9 @@ $susy: (
 @import "../scss/objects/video";
 @import "../scss/objects/lightbox";
 @import "../scss/objects/controls/star-rating";
+@import "../scss/objects/comments";
+@import "../js/modules/lib/x-editable/_xeditable.scss";
+@import "../scss/objects/cart-small";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global
@@ -123,5 +127,8 @@ $susy: (
 /*------------------------------------*\
 	Page specific
 \*------------------------------------*/
-//@import "./results-list";
+@import "./him-page-entry-list";
+@import "./him-page-entry-detail";
+@import "./him-page-login";
+@import "./him-page-user-profile";
 

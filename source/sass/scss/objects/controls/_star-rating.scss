@@ -1,5 +1,5 @@
 .rating {
-    //float:left;
+    display: inline-block;
 }
 
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
@@ -12,25 +12,22 @@
 }
 
 .rating:not(:checked) > label {
-    float:right;
+    float: right;
     width:1em;
     padding:0 .1em;
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:160%;
-    line-height:1.2;
-    color:#ddd;
+    font-size:120%;
+    line-height:1;
+    color:#c5c5c5;
 }
 
 .rating:not(:checked) > label:before {
     content: '★ ';
 }
 
-.rating > input:checked ~ label {
-    color: #f70;
-}
-
+.rating > input:checked ~ label,
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
     color: gold;
@@ -48,4 +45,49 @@
     position:relative;
     top:2px;
     left:2px;
+}
+
+// Display star rating
+
+.star-rating-display {
+    unicode-bidi: bidi-override;
+    color: #c5c5c5;
+    display: inline-block;
+    position: relative;
+
+    &:before, &:after{
+        content: "★★★★★";
+        display: block;
+        white-space: nowrap;
+    }
+
+    &:before{
+        color: gold;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        overflow: hidden;
+    }
+
+    &:after{
+        z-index: 0;
+    }
+    &[data-rating]:before {
+        width: 0;
+    }
+    &[data-rating="1"]:before {
+        width: 20%;
+    }
+    &[data-rating="2"]:before {
+        width: 40%;
+    }
+    &[data-rating="3"]:before {
+        width: 60%;
+    }
+    &[data-rating="4"]:before {
+        width: 80%;
+    }
+    &[data-rating="5"]:before {
+        width: 100%;
+    }
 }

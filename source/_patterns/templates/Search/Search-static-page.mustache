@@ -1,7 +1,5 @@
 {{> atoms/iconography/svgicons-search }}
-
 {{> organisms/global/header_v2}}
-
 
 <div role="main">
 
@@ -25,22 +23,26 @@
   </div>
 </section>
 
-<section class="static-content">
-<div class="lc">
+<section class="static-content section">
+  <div class="lc">
 
-  <div class="prose">
-    {{{ content.text }}}
-  </div>
-
-  <div class="sidebar js-getstickywidth">
-  {{#navigation.secondary}}
-     <div class="js-sticky">
-    {{> molecules/navigation/nav-secondary }}
+    {{# content.text }}
+    <div class="prose">
+      {{{ . }}}
     </div>
-  {{/navigation.secondary}}
-  </div>
+    {{/ content.text }}
 
-</div>
+    {{{ content.text_full_width }}}
+
+    {{#navigation.secondary}}
+      <div class="sidebar js-getstickywidth">
+         <div class="js-sticky">
+        {{> molecules/navigation/nav-secondary }}
+        </div>
+      </div>
+    {{/navigation.secondary}}
+
+  </div>
 </section>
 
 </div>
@@ -49,4 +51,3 @@
 {{> organisms/sections/banner }}
 
 {{> organisms/global/footer }}
-

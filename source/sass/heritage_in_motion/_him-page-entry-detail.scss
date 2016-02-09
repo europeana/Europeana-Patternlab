@@ -1,0 +1,36 @@
+// Entry detail page
+.entry-detail{
+	.entry-data{
+		@include span(6 of 18);
+	}
+	.entry-text{
+		@include span(last 12 of 18);
+	}
+	.entry-info{
+		padding-top: $space;
+		margin-bottom: $space;
+	}
+
+	.entry-data-inner{
+		font-size: $font-size-slightly-smaller;
+		padding: $space-half;
+		background-color: $gray-lightest;
+		border-top: 4px solid $accent;
+	}
+
+	.submitter-bio{
+		margin-bottom: $space-half;
+	}
+
+	.submitter-wrapper{
+		background-color: $gray-lightest;
+	}
+	.submitter-meta > div{
+		display: inline-block;
+		margin-right: $space-half;
+	}
+
+	.submitter-name{
+		font-weight: bold;
+	}
+}

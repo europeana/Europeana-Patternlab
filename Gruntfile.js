@@ -178,15 +178,15 @@ module.exports = function(grunt) {
 
           midi_css: {
               src:    '**/*.css',
-              cwd:    'source/js/modules/lib/midijs/css',
-              dest:   'source/js/dist/lib/midijs/css',
+              cwd:    'source/js/modules/lib/midijs/style',
+              dest:   'source/js/dist/lib/midijs/style',
               expand:  true
           },
 
           midi_img: {
               src:    '**/*.png',
-              cwd:    'source/js/modules/lib/midijs/css',
-              dest:   'source/js/dist/lib/midijs/css',
+              cwd:    'source/js/modules/lib/midijs/style',
+              dest:   'source/js/dist/lib/midijs/style',
               expand:  true
           },
 

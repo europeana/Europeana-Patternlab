@@ -45,6 +45,7 @@ require.config({
     media_viewer_image:            '../eu/media/search-image-viewer',
     media_viewer_videojs:          '../eu/media/search-videojs-viewer',
     media_player_midi:             '../eu/media/search-midi-player',
+    media_player_oembed:           '../eu/media/search-oembed-viewer',
 
     menus:                         '../global/menus',
 
@@ -73,6 +74,8 @@ require.config({
     purl:                          '../lib/purl/purl',
     photoswipe:                    '../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../lib/photoswipe/photoswipe-ui-default',
+//    pinterest:                     '//assets.pinterest.com/js/pinit',
+    pinterest:                     'http://assets.pinterest.com/js/pinit_main',
 
     util_foldable:                 '../eu/util/foldable-list',
     util_resize:                   '../eu/util/resize',
@@ -136,6 +139,39 @@ require(['jquery'], function( $ ) {
       var href = window.location.href;
       if(href.indexOf('europeana.eu') > -1){
           require(['hotjar'], function() {});
+      }
+
+      if($('.pinit').length > 0){
+          require(['pinterest'], function() {
+              channels.getPromisedPageJS().done(function(page){
+                  if(page && typeof page.getPinterestData != 'undefined'){
+                      var data = page.getPinterestData();
+                      if(data){
+                          var pinOneButton = $('.pinit');
+                          pinOneButton.on('click', function() {
+                              if($('.tmp-pinterest').size()==0){
+                                  $('body').append('<div id="tmp-pinterest-container" style="width:0px; overflow:hidden;">');
+                                  $('.object-media-nav .mlt-img-div').each(function(i, ob){
+                                      var url = $(ob).css('background-image').replace('url(','').replace(')','');
+                                      if(url != 'none'){
+                                          $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
+                                      }
+                                  });
+                              }
+                              if($('.tmp-pinterest').size()==0){
+                                  PinUtils.pinOne({
+                                     media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
+                                     description: data.desc ? data.desc : 'Europeana Record'
+                                  });
+                              }
+                              else{
+                                  PinUtils.pinAny();
+                              }
+                          });
+                      }
+                  }
+              });
+          });
       }
 
       /*

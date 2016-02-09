@@ -42,6 +42,7 @@
           {"audio": true},
           {"image": true},
           {"iiif":  true},
+          {"oembed": true},
           {"pdf":   true},
           {"text":  true},
           {"video": true},
@@ -228,11 +229,88 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this video in any way you like"
+              "license_human": "You can use the force any way you like"
             }
           },
 
-
+          {
+            "is_midi": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_midi.png",
+            "play_url": "/media/time.mid",
+            "download": {
+              "url": "/media/time.mid",
+              "text": "Original MIDI file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/midi"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
+          {
+            "is_oembed": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_oembed.png",
+            "play_html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F87091018&show_artwork=true\"></iframe>",
+            "download": {
+            },
+            "technical_metadata": {
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
+          {
+            "is_oembed": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_oembed.png",
+            "play_html": "<iframe height=\"270\" frameborder=\"0\" width=\"480\" allowfullscreen=\"\" src=\"https://www.youtube.com/embed/J26QY8t4nzc?feature=oembed\"></iframe>",
+            "download": {
+            },
+            "technical_metadata": {
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
+          {
+            "is_oembed": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_oembed.png",
+            "play_html": "<iframe src=\"https://player.vimeo.com/video/85149968\" width=\"614\" height=\"480\"frameborder=\"0\" title=\"La paura degli aeromobili nemici (Itala Film, 1915)\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+            "download": {
+            },
+            "technical_metadata": {
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
+          {
+            "is_oembed": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_oembed.png",
+            "play_html": "<iframe width=\"640\" height=\"480\" src=\"https://sketchfab.com/models/fb5512361fed45bea0ebb88f755e4636/embed\" frameborder=\"0\" allowfullscreen mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" onmousewheel=\"\"></iframe> <p style=\"font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;\"> <a href=\"https://sketchfab.com/models/fb5512361fed45bea0ebb88f755e4636?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">Saint Laurentius church of Ename around 1780</a> by <a href=\"https://sketchfab.com/visualdimension?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">visualdimension</a> on <a href=\"https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">Sketchfab</a> </p>",
+            "download": {
+            },
+            "technical_metadata": {
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this MIDI in any way you like"
+            }
+          },
           {
             "is_video": true,
             "playable": true,

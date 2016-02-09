@@ -15,6 +15,7 @@ define(['jquery'], function($) {
   var audioPlayer        = null;
   var iiifViewer         = null;
   var midiPlayer         = null;
+  var oembedPlayer       = null;
 
   function log(msg){
       console.log('search-media-controller: ' + msg);
@@ -27,6 +28,8 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
     $('.media-viewer .multi-item-poster').addClass('is-hidden');
+    $('.media-viewer .object-media-midi').addClass('is-hidden');
+    $('.media-viewer .object-media-oembed').addClass('is-hidden');
 
     if(audioPlayer){
         audioPlayer.hide();
@@ -193,7 +196,7 @@ define(['jquery'], function($) {
       hideAllViewers();
 
       if(midiPlayer){
-          midiPlayer.show();
+          $('.media-viewer .object-media-midi').removeClass('is-hidden');
           midiPlayer.init(data.url);
       }
       else{
@@ -201,6 +204,24 @@ define(['jquery'], function($) {
               midiPlayer = viewer;
               $('.media-viewer .object-media-midi').removeClass('is-hidden');
               midiPlayer.init(data.url);
+          });
+      }
+  }
+
+  function initMediaOembed( evt, data ) {
+      hideAllViewers();
+
+      var container = $('.media-viewer .object-media-oembed');
+
+      if(oembedPlayer){
+          container.removeClass('is-hidden');
+          oembedPlayer.init(container, data.html);
+      }
+      else{
+          require(['media_player_oembed'], function(viewer){
+              oembedPlayer = viewer;
+              container.removeClass('is-hidden');
+              oembedPlayer.init(container, data.html);
           });
       }
   }
@@ -267,7 +288,7 @@ define(['jquery'], function($) {
 
           console.log('media controller will trigger event' + "object-media-" + data_type);
 
-          $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), target:$(this)});
+          $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), html:$(this).data('html'), target:$(this)});
           evt.preventDefault();
       }
       else{
@@ -292,6 +313,7 @@ define(['jquery'], function($) {
   $('.media-viewer').on('object-media-iiif', initMediaIIIF);
   $('.media-viewer').on('object-media-image', initMediaImage);
   $('.media-viewer').on('object-media-midi', initMediaMidi);
+  $('.media-viewer').on('object-media-oembed', initMediaOembed);
   $('.media-viewer').on('object-media-pdf', initMediaPdf);
   $('.media-viewer').on('object-media-video', initMediaVideo);
   $('.media-viewer').on('object-media-open', mediaOpened);

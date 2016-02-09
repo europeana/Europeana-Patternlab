@@ -1,0 +1,1 @@
+define([],function(){"use strict";function a(a){console.log("Oembed viewer: "+a)}return{init:function(b){a("init oembed: "+JSON.stringify(b))}}});

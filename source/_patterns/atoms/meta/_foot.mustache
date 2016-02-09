@@ -24,6 +24,29 @@
   <script {{# data_main }}data-main="{{.}}"{{/ data_main }} src="{{ path }}{{# cacheBuster }}?{{ cacheBuster }}{{/ cacheBuster }}"></script>
 {{/ js_files}}
 
+{{# js_slsb_ld }}
+  <script type="application/ld+json">
+  {
+    {{# context}}
+      "@context": "{{.}}",
+    {{/ context}}
+    {{# type}}
+      "@type": "{{.}}",
+    {{/ type}}
+    {{# url}}
+      "url": "{{.}}",
+    {{/ url}}
+    {{# potentialAction}}
+      "potentialAction": {
+        {{# type}}"@type": "{{ . }}",{{/ type}}
+        {{# target}} "target": "{{ . }}", {{/ target}}
+        {{# query_input}} "query-input": "{{ . }}" {{/ query_input }}
+      }
+    {{/ potentialAction}}
+  }
+  </script>
+{{/ js_slsb_ld }}
+
 {{# patternlab }}
   <script src="../../js/patternlab/site_js/scratchpad.js"></script>
   <!--DO NOT REMOVE-->

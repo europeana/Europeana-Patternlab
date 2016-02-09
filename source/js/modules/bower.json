@@ -17,6 +17,7 @@
   "dependencies": {
     "jquery.scrollTo": "~2.1.1",
     "jquery-dropdown": "~1.0.5",
-    "requirejs": "~2.1.18"
+    "requirejs": "~2.1.18",
+    "x-editable": "~1.5.1"
   }
 }
