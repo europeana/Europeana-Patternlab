@@ -8,29 +8,29 @@ define(['jquery', 'ga'], function ($, ga){
 
     var handleEllipsis = function(){
 
-    var texts = results.find('h1:not(.js-ellipsis)');
-    var toFix = [];
+      var texts = results.find('h1:not(.js-ellipsis)');
+      var toFix = [];
 
-    texts.css('overflow-y', 'auto');
-    texts.each(function(){
-      if($(this).find('a')[0].offsetHeight > $(this).height()){
-        $(this).addClass('js-ellipsis');
-        toFix.push($(this));
-      }
-    });
-    texts.css('overflow-y', 'hidden');
-
-    if(toFix.length>0){
-      require(['util_ellipsis'], function(EllipsisUtil){
-        EllipsisUtil.create($(toFix));
+      texts.css('overflow-y', 'auto');
+      texts.each(function(){
+        if($(this).find('a')[0].offsetHeight > $(this).height()){
+          $(this).addClass('js-ellipsis');
+          toFix.push($(this));
+        }
       });
-    }
+      texts.css('overflow-y', 'hidden');
 
-    var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
+      if(toFix.length>0){
+        require(['util_ellipsis'], function(EllipsisUtil){
+          EllipsisUtil.create($(toFix));
+        });
+      }
 
-    if(noImageTexts.size()>0){
-      require(['util_ellipsis'], function(EllipsisUtil){
-        EllipsisUtil.create(noImageTexts, { 'fixed': '<span class="fixed"></span>'});
+      var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
+
+      if(noImageTexts.size()>0){
+        require(['util_ellipsis'], function(EllipsisUtil){
+          EllipsisUtil.create(noImageTexts, { 'fixed': '<span class="fixed"></span>'});
           $('.search-list-item.missing-image .fixed').each(function(){
             var icon = $(this).closest('.item-preview').next('.item-info').find('.icon');
             if(icon){
@@ -43,8 +43,11 @@ define(['jquery', 'ga'], function ($, ga){
             }
           });
         });
+        noImageTexts.addClass('js-ellipsis');
       }
-    };
+
+    }
+
 
     var bindViewButtons = function(){
       var btnGrid = $('.icon-view-grid').closest('a');
