@@ -56,6 +56,7 @@
       "value": "portal/index"
     }
   ],
+  "img": false,
   "input_search": {
     "title": "Search",
     "input_name": "supersearch",
@@ -513,21 +514,16 @@
   "has_multiple_results": true,
   "search_results": [
     {
-      "title": "Rembrant van Rijn, An Elephant, a drawing",
+      "agent": "The Elephant Scribbler",
+      "title": "An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap",
       "is_image": true,
       "item_type": {
         "name": "Painting",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
+      "img": {
         "src": "http://placeimg.com/400/300/people",
         "alt": "Rectangle"
-      },
-      "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/people",
-          "alt": "Rectangle"
-        }
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -565,21 +561,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
       "is_audio": true,
       "item_type": {
         "name": "Recording",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
+      "REMOVED_img": {
         "src": "http://placeimg.com/400/300/nature",
         "alt": "Rectangle"
-      },
-      "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/nature",
-          "alt": "Rectangle"
-        }
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -610,28 +601,23 @@
         ]
       },
       "text": {
-        "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch."
+        "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting."
       },
       "year": {
         "long": "1642"
       }
     },
     {
+      "agent": "Nicolaes Tulp",
       "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
       "is_audio": true,
       "item_type": {
         "name": "Song",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
+      "img": {
         "src": "http://placeimg.com/400/300/tech",
         "alt": "Rectangle"
-      },
-      "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/tech",
-          "alt": "Rectangle"
-        }
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -669,21 +655,16 @@
       }
     },
     {
+      "agent": "Me",
       "title": "Self portrait",
       "is_text": true,
       "item_type": {
         "name": "Poem",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/people",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/people",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/people",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -721,21 +702,16 @@
       }
     },
     {
+      "agent": "Rembrandt, in association with Belshazzar",
       "title": "Belshazzars Feast",
       "is_text": true,
       "item_type": {
         "name": "Book",
         "url": "http://europeana.eu/search/books"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/nature",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/nature",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/nature",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -773,22 +749,21 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "The Stoning of Saint Stephen",
+
+            "xxximg": {
+              "src": "http://placeimg.com/400/300/nature",
+              "alt": "Rectangle"
+            },
+
+
       "is_image": true,
       "item_type": {
         "name": "Photograph",
         "url": "http://europeana.eu/search/photograph"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/300/tech",
-        "alt": "Rectangle"
-      },
-      "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/tech",
-          "alt": "Rectangle"
-        }
-      },
+
       "origin": {
         "url": "http://urlhere.com",
         "text": "Providerhere"
@@ -825,21 +800,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "Balaam and the Ass",
       "is_image": true,
       "item_type": {
         "name": "Drawing",
         "url": "http://europeana.eu/search/drawing"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/people",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/people",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/people",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -877,21 +847,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "The Artist in his Studio",
       "is_image": true,
       "item_type": {
         "name": "Print",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/nature",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/nature",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/nature",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -929,21 +894,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "The Storm on the Sea of Galilee",
       "is_video": true,
       "item_type": {
         "name": "TV programme",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/300/tech",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/tech",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/tech",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -981,21 +941,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "Jacob de Gheyn III",
       "is_image": true,
       "item_type": {
         "name": "Painting",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/people",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/people",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/people",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -1033,21 +988,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "Philosopher in Meditation",
       "is_video": true,
       "item_type": {
         "name": "Music video",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/300/nature",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/nature",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/nature",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
@@ -1085,21 +1035,16 @@
       }
     },
     {
+      "agent": "Rembrandt van Rijn",
       "title": "The Abduction of Europa",
       "is_image": true,
       "item_type": {
         "name": "Painting",
         "url": "http://europeana.eu/search/paintings"
       },
-      "thumbnail": {
-        "src": "http://placeimg.com/300/400/tech",
-        "alt": "Rectangle"
-      },
       "img": {
-        "rectangle": {
-          "src": "http://placeimg.com/400/300/tech",
-          "alt": "Rectangle"
-        }
+        "src": "http://placeimg.com/400/300/tech",
+        "alt": "Rectangle"
       },
       "origin": {
         "url": "http://urlhere.com",
