@@ -1,16 +1,11 @@
-<article class="search-list-item cf">
+<article class="search-list-item cf {{^ img.src }}missing-image{{/ img.src }}">
 
   <div class="item-preview">
     <div class="item-image">
     {{# is_image }}
-      {{# thumbnail }}
-          <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ thumbnail.src }}" alt="{{ thumbnail.alt }}" /></a>
-      {{/ thumbnail }}
-      {{^ thumbnail }}
-         {{# img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
-      {{/ thumbnail }}
+        {{# img.src }}
+          <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+        {{/ img.src }}
     {{/ is_image }}
 
      {{# is_audio }}
@@ -30,12 +25,18 @@
            <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
          {{/ img.src }}
     {{/ is_video }}
+
+    {{^ img.src }}
+      <a class="show-with-grid" href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{text.medium}}</a>
+    {{/ img.src }}
+
     </div>
   </div>
 
-  <div class="item-info">
 
-    <h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a></h1>
+  <div class="item-info {{^ img.src }}hide-with-grid{{/ img.src }}">
+
+    <h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}&nbsp;&nbsp;</a>&nbsp;&nbsp;</h1>
 
     {{#text}}
     <p class="excerpt">
@@ -98,7 +99,6 @@
           {{/ items }}
         </span>
       {{/ channels.disabled }}
-
       </div>
 
       {{# menus.actions_disabled }}
@@ -117,5 +117,8 @@
       {{/ menus.actions_disabled }}
 
     </footer>
+  </div>
+  <div class="item-agent-data show-with-grid">
+      <div class="item-agent">{{#agent}}{{.}}{{/agent}}{{^agent}}<br/>{{/agent}}</div>
   </div>
 </article>
