@@ -90,6 +90,17 @@ Site_HIM = {
                 });
             });
         }
+    },
+    page_entry_submit : {
+        init : function(){
+            require(["xeditable"], function() {
+                $.fn.editable.defaults.mode = 'inline';
+                $('.editable').editable({
+                    url: '/post'
+                });
+            });
+
+        }
     }
 }
 

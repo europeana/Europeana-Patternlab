@@ -1,0 +1,136 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+
+
+<main role="main" class="l-page">
+<div class="lc">
+
+  <div class="l-content">
+
+    <div class="page_header">
+      {{> molecules/navigation/breadcrumbs}}
+    </div>
+
+    <div id="entry-detail" class="entry-detail">
+
+      <div class="section">
+
+        <h2>Add a New Project</h2>
+
+        <div class="video-fluid">
+          <img src="/images/fpo_16x9.png">
+        </div>
+
+        <div class="cf entry-info">
+          <!-- Entry meta data -->
+          <div class="entry-data">
+
+            <img src="/images/fpo_16x9.png" >
+
+            <div class="entry-data-inner">
+              <ul>
+                <li class="submitter-name">{{ name.first }} {{ name.last }}</li>
+                <li>Creative commons</li>
+                <li><a href="{{ url }}">{{ url }}</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+
+          <div class="entry-text prose">
+
+            <h2 class="editable" data-name="title" data-type="text" data-pk="1">Add a title here</h2>
+            <div class="editable" data-name="description" data-type="textarea" data-pk="1">Add a description here</div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item-meta-secondary section">
+        <span class="item-tags">
+
+        <svg class="icon icon-bookmark">
+          <use xlink:href="#icon-bookmark"></use>
+        </svg>
+
+        <ul class="inline-list">
+          {{# listItems.four }}
+          <li><a href="{{ url }}">{{ name.first }}</a></li>
+          {{/ listItems.four }}
+          <li><a href="#" class="btn2 tag-add">Add a tag</a></li>
+        </ul>
+
+        </span>
+      </div>
+
+
+      <div class="extra-media section">
+        <h3>Extra media</h3>
+        <ul class="gallery_4">
+          <li><a class="add-media" href="#"> + </a></li>
+        </ul>
+      </div>
+
+
+      <div class="submitter-wrapper cf section">
+        <h3>Submitted by:</h3>
+
+        <h2 class="submitter-name">{{name.first}} {{name.last}}</h2>
+
+        <div class="submitter-bio">
+          {{ excerpt.short }}
+        </div>
+
+        <div class="submitter-meta">
+          {{> molecules-meta-email }}
+          {{> molecules-meta-phone-work }}
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+  {{! END l-content }}
+
+
+  <div class="l-sidebar">
+
+    <div class="submit-buttons cf js-sticky">
+      <div class="group1">
+        <button class="save">
+          <svg class="icon icon-check">
+            <use xlink:href="#icon-check"></use>
+          </svg>
+          Save Draft</button>
+      </div>
+
+      <div class="group2">
+        <button class="submit">Submit</button>
+        <button class="cancel">Cancel</button>
+      </div>
+    </div>
+
+    <div class="account-payments">
+      <h4>Pending Payments</h4>
+
+      {{> molecules/components/cart-mini }}
+
+    </div>
+
+  </div>
+  {{! end sidebar }}
+
+</div>
+</main>
+<!-- End Main -->
+
+
+{{> organisms/global/footer_subsite }}
+

@@ -34,3 +34,40 @@
 		font-weight: bold;
 	}
 }
+
+.extra-media .add-media{
+	display: block;
+	background-color: $gray-lightest;
+	width: 100%;
+	line-height: 2em;
+	text-align: center;
+	font-size: 4em;
+	border: 4px dashed $gray-lighter;
+	color: $gray-lighter;
+
+	&:hover{
+		color: $gray-light;
+	}
+}
+
+a.tag-add{
+	border: 1px solid $gray87;
+}
+
+.submit-buttons{
+	padding: $space 0;
+	margin-top: -$space;
+	background-color: $offwhite;
+	z-index: 100;
+	.group1{
+		margin-bottom: $space-quarter;
+	}
+
+	.save{
+		background-color: $eu_jade;
+	}
+	.submit{
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
