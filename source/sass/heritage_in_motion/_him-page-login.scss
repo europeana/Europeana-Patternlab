@@ -16,20 +16,16 @@
 .login-register{
 	max-width: 800px;
 	margin: 0 auto;
-	margin-bottom: $space-double;
 	position: relative;
 
 	& form{
 		background-color: $accent;
 		color: $white;
 		padding: 2.4em;
-		margin-bottom: $space;
 
 		p{
 			margin-bottom: 0;
 		}
-
-
 	}
 
 	input{
@@ -43,6 +39,10 @@
 		font-size: x-large;
 		vertical-align: top;
 		margin-top: 3px;
+	}
+
+	.form-login{
+		margin-bottom: $space;
 	}
 
 	.form-register{
@@ -87,11 +87,18 @@
 	}
 }
 
+.social-login{
+	padding: $space;
+	padding-top: 0;
+	font-size: 2em;
+	text-align: center;
+}
+
 @media all and (min-width: $bp-med) {
 	.login-register{
 		display: table;
 
-		& .inner{
+		> *{
 			display: table-row;
 		}
 

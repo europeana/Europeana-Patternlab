@@ -75,7 +75,7 @@
 			width: 27%;
 		}
 		@media all and (min-width: $bp-large) {
-			width: 15%;
+			width: 18%;
 		}
 	}
 
@@ -96,7 +96,7 @@
 	}
 }
 
-@media all and (min-width: $bp-med) {
+@media all and (min-width: $bp-med) and (min-height: 850px) {
 	.site-hero{
 		height: 80%;
 	}
