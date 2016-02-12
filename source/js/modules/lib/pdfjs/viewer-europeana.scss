@@ -1,3 +1,5 @@
+@import "../../../../sass/search/variables";
+
 /* prevent pattern lab interference */
 
 #sidebarContent,
@@ -82,4 +84,9 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer{
           display: none;
         }
     }
+}
+
+#toolbarViewer{
+  background-color: orange;
+  width: $thumbnail_max_dimension_result_grid;
 }

@@ -1,85 +1,91 @@
 /* prevent pattern lab interference */
-/* line 3, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 5, viewer-europeana.scss */
 #sidebarContent,
 #sidebarContent * {
   box-sizing: unset;
 }
 
 /* assign some height */
-/* line 9, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 11, viewer-europeana.scss */
 .pdf-ui-wrappper {
   height: 480px;
   width: 100%;
 }
 
 /* prevent toolbars appearing through the global header */
-/* line 16, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 18, viewer-europeana.scss */
 .object-media-pdf {
   position: relative;
   z-index: 0;
 }
 
 /* prevent sidebar showing beyond the edge of the component dureing the open/close transition */
-/* line 23, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 25, viewer-europeana.scss */
 html[dir="ltr"] .pdf-ui-wrappper #outerContainer {
   overflow: hidden;
 }
 
 /* show / hide duplicate buttons */
-/* line 33, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 35, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerRight #secondaryToolbarToggle-copy {
   display: block;
 }
-/* line 35, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 37, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerRight #secondaryToolbarToggle-copy::before {
   content: url("images/toolbarButton-secondaryToolbarToggle-rtl.png");
 }
 @media screen and (min-resolution: 2dppx) {
-  /* line 35, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+  /* line 37, viewer-europeana.scss */
   .pdf-ui-wrappper.ltr #toolbarViewerRight #secondaryToolbarToggle-copy::before {
     content: url("images/toolbarButton-secondaryToolbarToggle-rtl@2x.png");
   }
 }
-/* line 42, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 44, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerRight #sidebarToggle {
   display: none;
 }
-/* line 49, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 51, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerLeft #sidebarToggle-copy {
   display: block;
 }
-/* line 51, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 53, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerLeft #sidebarToggle-copy::before {
   content: url("images/toolbarButton-sidebarToggle.png");
 }
 @media screen and (min-resolution: 2dppx) {
-  /* line 51, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+  /* line 53, viewer-europeana.scss */
   .pdf-ui-wrappper.ltr #toolbarViewerLeft #sidebarToggle-copy::before {
     content: url("images/toolbarButton-sidebarToggle@2x.png");
   }
 }
-/* line 58, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 60, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerLeft #secondaryToolbarToggle {
   display: none;
 }
-/* line 61, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 63, viewer-europeana.scss */
 .pdf-ui-wrappper.ltr #toolbarViewerLeft #sidebarToggle-copy {
   display: block;
 }
 
-/* line 70, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 72, viewer-europeana.scss */
 .pdf-ui-wrappper.rtl #toolbarViewerRight #secondaryToolbarToggle-copy {
   display: none;
 }
-/* line 73, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 75, viewer-europeana.scss */
 .pdf-ui-wrappper.rtl #toolbarViewerRight #sidebarToggle {
   display: block;
 }
-/* line 78, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 80, viewer-europeana.scss */
 .pdf-ui-wrappper.rtl #toolbarViewerLeft #secondaryToolbarToggle-copy {
   display: block;
 }
-/* line 81, ../../../../sass/js/modules/lib/pdfjs/viewer-europeana.scss */
+/* line 83, viewer-europeana.scss */
 .pdf-ui-wrappper.rtl #toolbarViewerLeft #sidebarToggle-copy {
   display: none;
+}
+
+/* line 89, viewer-europeana.scss */
+#toolbarViewer {
+  background-color: orange;
+  width: 200px;
 }
