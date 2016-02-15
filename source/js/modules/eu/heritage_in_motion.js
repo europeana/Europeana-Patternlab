@@ -100,6 +100,10 @@ Site_HIM = {
                 });
             });
 
+            require(["dropzone"], function() {
+
+            });
+
         }
     }
 }
