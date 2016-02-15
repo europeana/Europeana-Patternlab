@@ -1,0 +1,41 @@
+.payment-method{
+	li{
+		width: 15%;
+		display: inline-block;
+		margin-right: 1%;
+
+		@media all and (min-width: $bp-med) {
+			width: 30%;
+		}
+	}
+	input[type=radio] {
+		display:none;
+	}
+
+	input[type=radio] + label
+	{
+		width: 100%;
+		padding-top: 52.5%;
+		display:inline-block;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: 4px solid transparent;
+		border-radius: 4px;
+		line-height: 0;
+
+	}
+	input[type=radio]:checked + label
+	{
+		border-color: $eu_jade;
+		background-color: $eu_jade;
+	}
+}
+
+$paymentmethods: amazon, amex, androidpay, applepay, bitcoin, citi, contactless, dinersclub, directdebit, discover, jcb, maestro, mastercard, paypal, reverse, sagepay, square, stripe, visa, wallet;
+
+@each $method in $paymentmethods {
+	.payment-method .payment-#{$method} {
+		background-image: url("../../images/icons/payment_methods/#{$method}.png");
+	}
+}
