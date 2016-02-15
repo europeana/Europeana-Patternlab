@@ -57,6 +57,7 @@
     display: inline-block; /* should be inline to take effect of parent's white-space: nowrap */
     width: auto; /* bootstrap-responsive has width: 100% that breakes layout */
     white-space: normal; /* reset white-space decalred in parent*/
+    word-break: normal;
    /* display-inline emulation for IE7*/
    zoom: 1;
    *display: inline;
@@ -186,7 +187,7 @@
    z-index: 9990; /* should be less than select2 dropdown z-index to close dropdown first when click */
 }
 
-.editable-click:after{
+.editable-click:after {
   content: '';
   position: absolute;
   right: -22px;
@@ -194,9 +195,13 @@
   width: 15px;
   height: 100%;
   background: center right no-repeat;
-  @include svg-bg-with-fallback("icons/edit");
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg\+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIzIDMyIj4KPHBhdGggZD0iTTIzLjEzOCA0Ljk4M2wtMS4zMiAxLjMyLTMuMzk0LTMuMzk0IDEuMzItMS4zMnEwLjM1LTAuMzUgMC42NzMgMGwyLjcyMSAyLjcyMXEwLjM1IDAuMzIzIDAgMC42NzN6TTE2IDE1LjAzMHY2Ljc4OGgtMTMuMDkxdi0xNC41NDVoOC4yNDJsMi45MDktMi45MDloLTExLjE1MnEtMS4xODUgMC0yLjA0NyAwLjg2MnQtMC44NjIgMi4wNDd2MTQuNTQ1cTAgMS4xODUgMC44NjIgMi4wNDd0Mi4wNDcgMC44NjJoMTMuMDkxcTEuMTg1IDAgMi4wNDctMC44NjJ0MC44NjItMi4wNDd2LTkuNjk3ek0xNi45NyA0LjM2NGwtMTAuMTI4IDEwLjEyOHEtMC4wODEgMC4wODEtMC4wODEgMC4xMzVsLTEuOTM5IDQuNjYtMC4wMjcgMC4wMjdxLTAuMDgxIDAuMjY5IDAuMTM1IDAuNDg1IDAuMTM1IDAuMTYyIDAuMzIzIDAuMTYyIDAuMDI3IDAgMC4wODEtMC4wMTN0MC4wODEtMC4wMTNsMC4wMjctMC4wMjcgNC42Ni0xLjkzOXEwLjA1NCAwIDAuMTM1LTAuMDgxbDEwLjEyOC0xMC4xMjh6Ij48L3BhdGg+Cjwvc3ZnPgo=');
   background-size: contain;
 }
+  html.no-svg .editable-click:after {
+    background-image: url('/images/icons/edit.png?1454597572');
+  }
 
 .editable-click,
 a.editable-click,
