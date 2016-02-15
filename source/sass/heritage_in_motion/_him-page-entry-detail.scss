@@ -55,19 +55,67 @@ a.tag-add{
 }
 
 .submit-buttons{
-	padding: $space 0;
-	margin-top: -$space;
-	background-color: $offwhite;
-	z-index: 100;
-	.group1{
-		margin-bottom: $space-quarter;
+
+	button{
+		margin-bottom: $space-half;
 	}
 
 	.save{
 		background-color: $eu_jade;
+
+		&.draft{
+			background-color: $eu_yellow;
+		}
 	}
 	.submit{
 		text-transform: uppercase;
 		font-weight: bold;
+	}
+	.cancel{
+		font-size: $font-size-slightly-smaller;
+		background-color: $gray-lighter;
+		color: $textcolour_link;
+	}
+}
+
+.entry-upload{
+	background-color: $gray-lighter;
+	background: repeating-linear-gradient(
+	  45deg,
+	  $grey2,
+	  $grey2 10px,
+	  $grey3 10px,
+	  $grey3 20px
+	);
+	border: 4px dashed $gray-lighter;
+	padding-top: 52.5%;
+	position: relative;
+	text-align: center;
+	line-height: 1.2;
+
+	.icon{
+		display: block;
+		margin: 0 auto;
+	}
+
+	.dropzone{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+}
+.entry-primary-upload{
+	.icon{
+		width: 100px;
+		height: 100px;
+	}
+}
+.entry-secondary-upload{
+	.icon{
+		width: 50px;
+		height: 50px;
 	}
 }
