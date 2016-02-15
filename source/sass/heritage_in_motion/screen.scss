@@ -63,7 +63,6 @@ $susy: (
 @import "../scss/objects/footer";
 @import "../scss/objects/sections";
 @import "../scss/objects/blocks";
-@import "../scss/objects/media_grid";
 @import "../scss/objects/page_header";
 @import "../scss/objects/blocks/site-hero";
 
@@ -101,16 +100,22 @@ $susy: (
 /*------------------------------------*\
 	Components
 \*------------------------------------*/
-@import "../scss/objects/controls/dropdown";
 @import "../scss/objects/controls/buttonbar";
 @import "../scss/objects/controls/sortby";
 @import "../scss/objects/lists/list-item";
 @import "../scss/objects/video";
-@import "../scss/objects/lightbox";
 @import "../scss/objects/controls/star-rating";
 @import "../scss/objects/comments";
-@import "../js/modules/lib/x-editable/_xeditable.scss";
 @import "../scss/objects/cart-small";
+@import "../scss/objects/controls/paymentmethods";
+
+/*------------------------------------*\
+	JavaScript Components
+\*------------------------------------*/
+@import "../scss/objects/controls/dropdown";
+@import "../scss/objects/lightbox";
+@import "../js/modules/lib/x-editable/_xeditable.scss";
+@import "../js/modules/lib/dropzone/_dropzone.scss";
 
 /*------------------------------------*\
 	SITE SPECIFIC - global
