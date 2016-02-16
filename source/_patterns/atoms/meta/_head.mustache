@@ -47,18 +47,57 @@
     ]
 }}
 
-{{# css_files }}
-    <link rel="stylesheet" href="{{ path }}?{{ cacheBuster }}" media="{{ media }}" />
-{{/ css_files}}
 
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
-    <noscript>
-      <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
-    </noscript>
 
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
+<noscript>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+</noscript>
+
+<script type="text/javascript">
+  var stylesheets = [];
+  {{# head_links }}
+    stylesheets.push ({
+      {{#title}} "title" : "{{.}}",{{/title}}
+      {{#rel}}   "rel"   : "{{.}}",{{/rel}}
+      {{#type}}  "type"  : "{{.}}",{{/type}}
+      {{#href}}  "href"  : "{{.}}",{{/href}}
+      {{#media}} "media" : "{{.}}",{{/media}}
+      {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
+      "json_close":"0"
+    });
+  {{/ head_links}}
+
+  var cb = function(){
+    for(var i=0; i<stylesheets.length; i++){
+
+        var l   = document.createElement('link');
+
+        l.rel   = stylesheets[0].rel;
+        l.href  = stylesheets[0].href;
+        l.title = stylesheets[0].title;
+        l.media = stylesheets[0].media;
+        l.sizes = stylesheets[0].sizes;
+
+        var h = document.getElementsByTagName('head')[0];
+        h.parentNode.insertBefore(l, h);
+    }
+  };
+
+  var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if(raf){
+    raf(cb);
+  }
+  else{
+    window.addEventListener('load', cb);
+  }
+</script>
+
+<noscript>
 {{# head_links }}
-    <link {{#title}}title="{{title}}" {{/title}}{{#rel}}rel="{{rel}}" {{/rel}}{{#type}}type="{{type}}" {{/type}}{{#href}}href="{{href}}" {{/href}}{{#media}}media="{{media}}" {{/media}}{{#sizes}}sizes="{{sizes}}" {{/sizes}} />
+    <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
 {{/ head_links}}
+</noscript>
 
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{image_root}}favicons/apple-touch-icon-57x57.png?ver=alpha">
