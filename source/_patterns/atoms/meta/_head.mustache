@@ -55,9 +55,9 @@
 </noscript>
 
 <script type="text/javascript">
-  var stylesheets = [];
+  var headLinks = [];
   {{# head_links }}
-    stylesheets.push ({
+    headLinks.push ({
       {{#title}} "title" : "{{.}}",{{/title}}
       {{#rel}}   "rel"   : "{{.}}",{{/rel}}
       {{#type}}  "type"  : "{{.}}",{{/type}}
@@ -69,15 +69,15 @@
   {{/ head_links}}
 
   var cb = function(){
-    for(var i=0; i<stylesheets.length; i++){
+    for(var i=0; i<headLinks.length; i++){
 
         var l   = document.createElement('link');
 
-        l.rel   = stylesheets[0].rel;
-        l.href  = stylesheets[0].href;
-        l.title = stylesheets[0].title;
-        l.media = stylesheets[0].media;
-        l.sizes = stylesheets[0].sizes;
+        l.rel   = headLinks[i].rel;
+        l.href  = headLinks[i].href;
+        l.title = headLinks[i].title;
+        l.media = headLinks[i].media;
+        l.sizes = headLinks[i].sizes;
 
         var h = document.getElementsByTagName('head')[0];
         h.parentNode.insertBefore(l, h);
