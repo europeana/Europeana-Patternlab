@@ -7,14 +7,14 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": [
-    {
+  "head_links": {
+    "items": [{
       "rel": "stylesheet",
       "href": "../../css/search/screen.css",
       "media": "all",
       "css": "true"
-    }
-  ],
+    }]
+  },
   "css_files": false,
 
   "js_files": [
@@ -166,31 +166,31 @@
           "title": "The legacy of Punk",
           "url": "urlhere",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-music.jpg"
+          "bg_image": "/images/sample/thumb-music.jpg"
         },
         {
           "title": "Russian conductors in the EU",
           "url": "urlhere",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-music.jpg"
+          "bg_image": "/images/sample/thumb-music.jpg"
         },
         {
           "title": "Famous Concert halls",
           "url": "urlhere",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-music.jpg"
+          "bg_image": "/images/sample/thumb-music.jpg"
         },
         {
           "title": "Pop Music in 1980's Berlin",
           "url": "urlhere",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-music.jpg"
+          "bg_image": "/images/sample/thumb-music.jpg"
         },
         {
           "title": "Music piracy",
           "url": "urlhere",
           "is_exhibition": true,
-          "bg_image": "sample/thumb-music.jpg"
+          "bg_image": "/images/sample/thumb-music.jpg"
         }
       ]
     },

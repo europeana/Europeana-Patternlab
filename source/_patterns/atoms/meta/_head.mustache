@@ -56,17 +56,19 @@
 <script type="text/javascript">
   var headLinks = [];
   {{# head_links }}
-    {{# css }}
-      headLinks.push ({
-        {{#title}} "title" : "{{.}}",{{/title}}
-        {{#rel}}   "rel"   : "{{.}}",{{/rel}}
-        {{#type}}  "type"  : "{{.}}",{{/type}}
-        {{#href}}  "href"  : "{{.}}",{{/href}}
-        {{#media}} "media" : "{{.}}",{{/media}}
-        {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
-        "json_close":"0"
-      });
-    {{/ css }}
+    {{# items }}
+      {{# css }}
+        headLinks.push ({
+          {{#title}} "title" : "{{.}}",{{/title}}
+          {{#rel}}   "rel"   : "{{.}}",{{/rel}}
+          {{#type}}  "type"  : "{{.}}",{{/type}}
+          {{#href}}  "href"  : "{{.}}",{{/href}}
+          {{#media}} "media" : "{{.}}",{{/media}}
+          {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
+          "json_close":"0"
+        });
+      {{/ css }}
+    {{/ items }}
   {{/ head_links}}
 
   var cb = function(){
@@ -96,15 +98,19 @@
 
 {{# head_links }}
 <noscript>
-  {{# css }}
-    <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
-  {{/ css }}
+ {{# items }}
+    {{# css }}
+      <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
+    {{/ css }}
+  {{/ items }}
 </noscript>
 {{/ head_links}}
 {{# head_links }}
-  {{^ css }}
-    <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
-  {{/ css }}
+  {{# items }}
+    {{^ css }}
+      <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
+    {{/ css }}
+  {{/ items }}
 {{/ head_links}}
 
 
