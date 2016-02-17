@@ -125,6 +125,13 @@ module.exports = function(grunt) {
               expand:  true
           },
 
+          dropzone: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/dropzone',
+              dest:   'source/js/dist/lib/dropzone',
+              expand:  true
+          },
+
           iif_viewer: {
               src: ['**',  '!*.scss'],
               cwd:    'source/js/modules/lib/iiif',
@@ -442,6 +449,7 @@ module.exports = function(grunt) {
        'concat:mlt',
 
        'copy:blacklight',
+       'copy:dropzone',
        'copy:eu',
        'copy:global_dependencies',
        'copy:jquery',

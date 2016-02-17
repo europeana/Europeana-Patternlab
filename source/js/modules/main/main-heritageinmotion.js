@@ -28,7 +28,7 @@ require.config({
     // jquery:                        '../lib/jquery',
     // jqScrollto:                    '../lib/jquery.scrollTo',
 
-    dropzone:                       '../bower_components/dropzone/dist/dropzone-amd-module',
+    dropzone:                       '../lib/dropzone/dist/dropzone-amd-module',
 
     featureDetect:                 '../../patternlab/global/feature-detect',
 
@@ -59,7 +59,6 @@ require.config({
 
     touch_move:                     '../lib/jquery.event.move',
     touch_swipe:                    '../lib/jquery.event.swipe',
-    //xeditable:                     '../bower_components/x-editable/dist/jquery-editable/js/jquery-editable-poshytip',
     xeditable:                      '../lib/x-editable/jquery-editable-poshytip',
   },
   shim: {
