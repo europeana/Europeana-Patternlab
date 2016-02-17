@@ -13,6 +13,7 @@
       "css": "true"
     }
   ],
+  "css_files": false,
   "js_vars": [
     {
       "name": "pageName",

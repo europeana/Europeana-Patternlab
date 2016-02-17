@@ -46,6 +46,7 @@
       "css": "true"
     }
   ],
+  "css_files": false,
   "js_files": [
     {
       "path": "../../js/dist/require.js",
