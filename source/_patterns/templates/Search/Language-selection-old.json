@@ -18,10 +18,12 @@
       }
     }
   },
-  "css_files": [
+  "head_links": [
     {
-      "path": "../../css/search/screen.css",
-      "media": "all"
+      "rel": "stylesheet",
+      "href": "../../css/search/screen.css",
+      "media": "all",
+      "css": "true"
     }
   ],
   "js_files": [

@@ -1,12 +1,12 @@
 {
-	"bodyclass": "europeana_pro",
-	"pagetitle": "Europeana Pro",
-	"search": true,
+  "bodyclass": "europeana_pro",
+  "pagetitle": "Europeana Pro",
+  "search": true,
 
-	"css_files": [
-		{
-			"path": "../../css/pro/screen.css",
-			"media": "all"
-		}
-	]
+  "css_files": [
+    {
+      "path": "../../css/pro/screen.css",
+      "media": "all"
+    }
+  ]
 }

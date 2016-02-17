@@ -94,13 +94,13 @@
   }
 </script>
 
-<noscript>
 {{# head_links }}
+<noscript>
   {{# css }}
     <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
   {{/ css }}
-{{/ head_links}}
 </noscript>
+{{/ head_links}}
 {{# head_links }}
   {{^ css }}
     <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />

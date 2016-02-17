@@ -18,13 +18,6 @@
             "content": "stuff"
         }
     ],
-    "head_links": [
-      {
-        "rel": "stylesheet",
-        "href": "/css/search/screen.css",
-        "media": "all"
-      }
-    ],
     "image_root": "../../images/",
     "css_files": [
         {
