@@ -24,7 +24,7 @@ require.config({
 
     // featureDetect:                 '../global/feature-detect',
     // menus:                         '../global/menus',
-    // jqDropdown:                    '../lib/jquery.dropdown',
+    jqDropdown:                    '../lib/jquery.dropdown',
     // jquery:                        '../lib/jquery',
     // jqScrollto:                    '../lib/jquery.scrollTo',
 
@@ -38,8 +38,9 @@ require.config({
 
     global:                        '../eu/global',
     heritage_in_motion:            '../eu/heritage_in_motion',
-    jqDropdown:                    '../bower_components/jquery-dropdown/jquery.dropdown',
-    jquery:                        '../bower_components/jquery/dist/jquery',
+
+    jquery:                        '../lib/jquery',
+
     jqScrollto:                    '../bower_components/jquery.scrollTo/jquery.scrollTo',
 
     menus:                         '../../patternlab/global/menus',
@@ -54,11 +55,12 @@ require.config({
     smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
 
-    sticky:                         '../bower_components/sticky/jquery.sticky',
+    sticky:                         '../lib/sticky/jquery.sticky',
 
     touch_move:                     '../lib/jquery.event.move',
     touch_swipe:                    '../lib/jquery.event.swipe',
-    xeditable:                     '../bower_components/x-editable/dist/jquery-editable/js/jquery-editable-poshytip',
+    //xeditable:                     '../bower_components/x-editable/dist/jquery-editable/js/jquery-editable-poshytip',
+    xeditable:                      '../lib/x-editable/jquery-editable-poshytip',
   },
   shim: {
     blacklight:     ['jquery'],

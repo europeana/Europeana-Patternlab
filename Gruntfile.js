@@ -124,6 +124,14 @@ module.exports = function(grunt) {
               dest:   'source/js/dist/lib/blacklight',
               expand:  true
           },
+
+          iif_viewer: {
+              src: ['**',  '!*.scss'],
+              cwd:    'source/js/modules/lib/iiif',
+              dest:   'source/js/dist/lib/iiif',
+              expand:  true
+          },
+
           global_dependencies: {
               src:    '**',
               cwd:    'source/js/patternlab/global',
@@ -232,6 +240,13 @@ module.exports = function(grunt) {
               expand: true
           },
 
+          sticky: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/sticky/',
+              dest:   'source/js/dist/lib/sticky',
+              expand: true
+          },
+
           version_images: {
               src:    '**',
               cwd:    'source/images',
@@ -266,17 +281,19 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/lib/videojs-silverlight',
             expand:  true
           },
+
           photoswipe: {
             src:    ['**/*.*',  '!**/*.scss'],
             cwd:    'source/js/modules/lib/photoswipe',
             dest:   'source/js/dist/lib/photoswipe',
             expand:  true
           },
-          iif_viewer: {
-            src: ['**',  '!*.scss'],
-            cwd:    'source/js/modules/lib/iiif',
-            dest:   'source/js/dist/lib/iiif',
-            expand:  true
+
+          xeditable: {
+              src: ['**',  '!*.scss',  '!**/*.scss'],
+              cwd:    'source/js/modules/lib/x-editable',
+              dest:   'source/js/dist/lib/x-editable',
+              expand:  true
           }
           //,
           //non_js: {
@@ -442,10 +459,12 @@ module.exports = function(grunt) {
        'copy:purl',
        'copy:require',
        'copy:smartmenus',
+       'copy:sticky',
        'copy:videojs',
        'copy:videojs_aurora',
        'copy:videojs_silverlight',
        'copy:photoswipe',
-       'copy:iif_viewer'
+       'copy:iif_viewer',
+       'copy:xeditable'
   ]);
 }
