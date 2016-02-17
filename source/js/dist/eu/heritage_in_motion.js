@@ -1,8 +1,5 @@
 
 
-
-
-
 // DOM based routing
 
 Site_HIM = {
@@ -98,6 +95,10 @@ Site_HIM = {
                 $('.editable').editable({
                     url: '/post'
                 });
+            });
+
+            require(["dropzone"], function() {
+
             });
 
         }

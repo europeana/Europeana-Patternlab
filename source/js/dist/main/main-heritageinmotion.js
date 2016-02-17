@@ -28,6 +28,7 @@ require.config({
     // jquery:                        '../lib/jquery',
     // jqScrollto:                    '../lib/jquery.scrollTo',
 
+    dropzone:                       '../bower_components/dropzone/dist/dropzone-amd-module',
 
     featureDetect:                 '../../patternlab/global/feature-detect',
 

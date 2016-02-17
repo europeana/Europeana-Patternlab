@@ -302,6 +302,13 @@ module.exports = function(grunt) {
           }
       },
 
+      watch: {
+        scripts: {
+          files: ['source/**/*.js'],
+          tasks: ['default']
+        }
+      },
+
       mkdir: {
           version:{
               options:{
@@ -345,6 +352,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mkdir');
 
   grunt.registerTask('freeze-version', function(){
