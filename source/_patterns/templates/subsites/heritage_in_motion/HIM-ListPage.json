@@ -13,8 +13,8 @@
   ],
   "js_files": [
     {
-      "path": "../../js/modules/bower_components/requirejs/require.js",
-      "data_main": "../../js/modules/main/main-heritageinmotion"
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
   "js_vars": [
