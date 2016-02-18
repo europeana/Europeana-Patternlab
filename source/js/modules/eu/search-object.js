@@ -504,6 +504,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         $('.media-viewer').trigger('media_init');
 
         $('.single-item-thumb [data-type="oembed"]').trigger('click');
+        $('.multi-item a[data-type="oembed"]').first().trigger('click');
 
         scrollEvents.fireAllVisible();
     };
