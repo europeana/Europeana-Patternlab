@@ -92,6 +92,8 @@ Site_HIM = {
     page_entry_submit : {
         init : function(){
             require(["xeditable"], function() {
+                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/x-editable/style/xeditable.css') + '" type="text/css"/>');
+
                 $.fn.editable.defaults.mode = 'inline';
                 $('.editable').editable({
                     url: '/post'
@@ -139,3 +141,4 @@ UTIL = {
 
 // kick it all off here
 UTIL.loadEvents();
+
