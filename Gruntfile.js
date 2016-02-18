@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+      pkg: grunt.file.readJSON('package.json'),
 
       clean:{
           //js_assets_disable:{
@@ -156,6 +156,13 @@ module.exports = function(grunt) {
               src:    '**',
               cwd:    'source/js/modules/eu/util',
               dest:   'source/js/dist/eu/util',
+              expand: true
+          },
+
+          featherlight: {
+              src:    '**',
+              cwd:    'source/js/modules/bower_components/featherlight/src',
+              dest:   'source/js/dist/lib/featherlight/src',
               expand: true
           },
 
@@ -327,9 +334,24 @@ module.exports = function(grunt) {
       },
 
       watch: {
+        // Trigger compass to compile the sass
+        compass: {
+            files: ['source/**/*.{scss,sass}', '!source/js/dist/**'],
+            tasks: ['compass:dev']
+        },
+        // Move the JavaScript to dist using the default grunt task
         scripts: {
-          files: ['source/**/*.js'],
+          files: ['source/js/**/*.js', '!**/dist/**'],
           tasks: ['default']
+        },
+        // Fire the patternlab build process
+        patternlab: {
+          files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json', 'source/js/dist/**/*.js', 'source/css/**/*.css'],
+          tasks: ['shell:patternlab'],
+          options: {
+            spawn: false,
+            livereload: true
+          }
         }
       },
 
@@ -341,7 +363,19 @@ module.exports = function(grunt) {
           }
       },
 
+      shell: {
+        patternlab: {
+          command: "php core/builder.php -g"
+        }
+      },
+
       compass: {
+
+          dev: {
+            options: {
+                basePath: 'source'
+            }
+          },
 
           js_components: {
               options: {
@@ -378,6 +412,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('freeze-version', function(){
 
@@ -451,6 +486,7 @@ module.exports = function(grunt) {
        'copy:blacklight',
        'copy:dropzone',
        'copy:eu',
+       'copy:featherlight',
        'copy:global_dependencies',
        'copy:jquery',
        'copy:jstree',
