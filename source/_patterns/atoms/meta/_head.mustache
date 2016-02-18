@@ -51,65 +51,76 @@
     <link rel="stylesheet" href="{{ path }}?{{ cacheBuster }}" media="{{ media }}" />
 {{/ css_files}}
 
-<script type="text/javascript">
-  var headLinks = [];
-  {{# head_links }}
-    {{# items }}
+{{# head_links }}
+  <script type="text/javascript">
+
+    var headLinks = [{
+        rel: 'stylesheet',
+        href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic',
+        media: 'all',
+        css: 'true'
+      }];
+
+      {{# items }}
+        {{# css }}
+          headLinks.push ({
+            {{#title}} "title" : "{{.}}",{{/title}}
+            {{#rel}}   "rel"   : "{{.}}",{{/rel}}
+            {{#type}}  "type"  : "{{.}}",{{/type}}
+            {{#href}}  "href"  : "{{.}}",{{/href}}
+            {{#media}} "media" : "{{.}}",{{/media}}
+            {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
+            "json_close":"0"
+          });
+        {{/ css }}
+      {{/ items }}
+
+    var cb = function(){
+      for(var i=0; i<headLinks.length; i++){
+          var l   = document.createElement('link');
+
+          l.rel   = headLinks[i].rel;
+          l.href  = headLinks[i].href;
+          l.media = headLinks[i].media;
+
+          if(typeof headLinks[i].sizes != 'undefined'){
+            l.sizes = headLinks[i].sizes;
+          }
+          if(typeof headLinks[i].title != 'undefined'){
+            l.title = headLinks[i].title;
+          }
+
+          var h = document.getElementsByTagName('head')[0];
+          h.appendChild(l);
+      }
+    };
+
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if(raf){
+      raf(cb);
+    }
+    else{
+      window.addEventListener('load', cb);
+    }
+  </script>
+  <noscript>
+   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+   {{# items }}
       {{# css }}
-        headLinks.push ({
-          {{#title}} "title" : "{{.}}",{{/title}}
-          {{#rel}}   "rel"   : "{{.}}",{{/rel}}
-          {{#type}}  "type"  : "{{.}}",{{/type}}
-          {{#href}}  "href"  : "{{.}}",{{/href}}
-          {{#media}} "media" : "{{.}}",{{/media}}
-          {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
-          "json_close":"0"
-        });
+        <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
       {{/ css }}
     {{/ items }}
-  {{/ head_links}}
-
-  var cb = function(){
-    for(var i=0; i<headLinks.length; i++){
-
-        var l   = document.createElement('link');
-
-        l.rel   = headLinks[i].rel;
-        l.href  = headLinks[i].href;
-        l.title = headLinks[i].title;
-        l.media = headLinks[i].media;
-        l.sizes = headLinks[i].sizes;
-
-        var h = document.getElementsByTagName('head')[0];
-        h.parentNode.insertBefore(l, h);
-    }
-  };
-
-  var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-  if(raf){
-    raf(cb);
-  }
-  else{
-    window.addEventListener('load', cb);
-  }
-</script>
-
-{{# head_links }}
-<noscript>
- {{# items }}
-    {{# css }}
-      <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
-    {{/ css }}
-  {{/ items }}
-</noscript>
-{{/ head_links}}
-{{# head_links }}
+  </noscript>
   {{# items }}
     {{^ css }}
       <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
     {{/ css }}
   {{/ items }}
 {{/ head_links}}
+{{^ head_links}}
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+{{/ head_links}}
+
 
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{image_root}}favicons/apple-touch-icon-57x57.png?ver=alpha">
