@@ -114,7 +114,7 @@
   .search-list-item{
 
     border:     none;
-    height:     24.5em;
+    height:     22.5em;
     float:      left;
     overflow:   hidden;
     position:   relative;
@@ -171,7 +171,12 @@
 
     .item-agent-data{
 
-      background-color: #f1f1ee;
+      display: none;
+
+      //background-color: #f1f1ee;
+
+      border: 1px solid #dedede;
+
       height:           100%;
       margin:           0 1em;
       padding:          0 1em 1em 1em;
@@ -190,8 +195,11 @@
 
     .item-preview{
 
-      background-color: #f1f1ee;
-      border-radius:    3px;
+//      background-color: #f1f1ee;
+
+      border:           1px solid #dedede;
+      border-bottom:    0;
+
       float:            none;
       margin:           1em 1em 0 1em;
       padding:          2em;
@@ -214,6 +222,7 @@
       .item-preview{
 
          text-align: left;
+         border-bottom: solid 1px #dedede;
 
         .item-image{
 
@@ -236,7 +245,10 @@
 
     .item-info{
 
-      background-color: #f1f1ee;
+      border:         1px solid #dedede;
+      // border-bottom:  0;
+      border-top:     0;
+
       padding: 0 1em 1em 1em;
 
       footer{
