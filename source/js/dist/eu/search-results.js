@@ -1,4 +1,4 @@
-define(['jquery', 'ga'], function ($, ga){
+define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var results = $('.result-items');
 
@@ -45,11 +45,12 @@ define(['jquery', 'ga'], function ($, ga){
         });
         noImageTexts.addClass('js-ellipsis');
       }
-
     }
 
 
     var bindViewButtons = function(){
+
+      var $url    = $.url();
       var btnGrid = $('.icon-view-grid').closest('a');
       var btnList = $('.icon-view-list').closest('a');
 
@@ -82,21 +83,46 @@ define(['jquery', 'ga'], function ($, ga){
         }
       };
 
+      var simulateUrlChange = function(param, newVal){
+          var state         = {};
+              state[param]  = newVal;
+          var params        = $url.param();
+              params[param] = newVal;
+          var newParams     = $.param(params);
+
+          window.history.pushState(state, '', '?' + newParams);
+      };
+
+      window.onpopstate = function(e){
+          if(e.state){
+              if(e.state.view == 'grid'){
+                  showGrid(true);
+              }
+              else if(e.state.view == 'list'){
+                  showList(true);
+              }
+          }
+      };
+
       btnGrid.on('click', function(e){
         e.preventDefault();
+        simulateUrlChange('view', 'grid');
         showGrid(true);
       });
 
       btnList.on('click', function(e){
         e.preventDefault();
+        simulateUrlChange('view', 'list');
         showList(true);
       });
 
-      if(loadView()=="grid"){
-        showGrid();
+      var urlView = $url.param('view');
+
+      if(urlView){
+          urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
-        showList();
+          loadView() == 'grid' ? showGrid() : showList();
       }
     }
 
