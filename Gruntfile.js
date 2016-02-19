@@ -350,7 +350,7 @@ module.exports = function(grunt) {
           tasks: ['shell:patternlab'],
           options: {
             spawn: false,
-            livereload: true
+            livereload: 8002
           }
         }
       },
