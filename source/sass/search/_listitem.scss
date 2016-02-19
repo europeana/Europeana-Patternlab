@@ -3,7 +3,6 @@
 // Single List item in search results
 .search-list-item{
 
-  margin-bottom: $space;
   border-bottom: 1px solid $gray87;
 
   .item-info{
@@ -114,7 +113,7 @@
   .search-list-item{
 
     border:     none;
-    height:     22.5em;
+    height:     24.5em;
     float:      left;
     overflow:   hidden;
     position:   relative;
@@ -172,9 +171,6 @@
     .item-agent-data{
 
       display: none;
-
-      //background-color: #f1f1ee;
-
       border: 1px solid #dedede;
 
       height:           100%;
@@ -194,25 +190,22 @@
     }
 
     .item-preview{
-
-//      background-color: #f1f1ee;
-
       border:           1px solid #dedede;
       border-bottom:    0;
 
       float:            none;
       margin:           1em 1em 0 1em;
-      padding:          2em;
       width:            auto;
+      height:           290px;
 
       .item-image{
 
-        height:       $thumbnail_max_dimension_result_grid;
-
         a img{
 
-          height:     $thumbnail_max_dimension_result_grid;
-          width:      $thumbnail_max_dimension_result_grid;
+          height:     290px;
+          width:      290px;
+          max-width:  100%;
+          max-height: 100%;
           object-fit: cover;
         }
       }
@@ -221,14 +214,16 @@
     &.missing-image{
       .item-preview{
 
-         text-align: left;
          border-bottom: solid 1px #dedede;
+         height:        362px;
+         padding:       1em;
+         text-align:    left;
 
         .item-image{
 
-          height:        17.6em;
+          height:        24.5em;
+          max-height:    100%;
           overflow:      hidden;
-          margin-bottom: -0.8em;
 
           .ellipsis-inner{
             display: inline;
@@ -246,16 +241,14 @@
     .item-info{
 
       border:         1px solid #dedede;
-      // border-bottom:  0;
       border-top:     0;
-
-      padding: 0 1em 1em 1em;
+      padding:        0.5em;
 
       footer{
         margin:   0;
         position: absolute;
-        bottom:   1.55em;
-        right:    $space/2;
+        bottom:   .9em;
+        right:    1em;
       }
 
       footer .item-metadata{

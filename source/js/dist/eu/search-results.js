@@ -30,7 +30,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
       if(noImageTexts.size()>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create(noImageTexts, { 'fixed': '<span class="fixed"></span>'});
+          EllipsisUtil.create(noImageTexts,
+            {
+              'fixed': '<span class="fixed"></span>',
+              'fixed_pos': 'static'
+            });
+
           $('.search-list-item.missing-image .fixed').each(function(){
             var icon = $(this).closest('.item-preview').next('.item-info').find('.icon');
             if(icon){
@@ -42,6 +47,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
               $(this).remove();
             }
           });
+
         });
         noImageTexts.addClass('js-ellipsis');
       }

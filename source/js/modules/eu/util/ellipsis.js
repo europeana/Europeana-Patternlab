@@ -60,21 +60,30 @@ define(['jquery', 'util_resize'], function($){
 
       var respond = function(){
 
-        $cmp   = $(cmp);
-        $inner = $cmp.find('.ellipsis-inner');
+        $cmp      = $(cmp);
+        $inner    = $cmp.find('.ellipsis-inner');
+        fixedHTML = $cmp.find('.fixed').html();
 
         // start new
 
         var max = locateMax(20, 16, false);
 
         var theText = totalText.substr(0, max);
+
+
+        // var fixedHtml = fixed ? fixed.htm() : '';
         $inner.html(theText + (max < totalText.length ? totalText.length>0 ? tail : '' : '') + (fixed ? fixed : ""));
 
         if(fixed){
           var $fixed = $cmp.find('.fixed');
-          $fixed.css("position", "absolute");
-          $fixed.css("right",    ops.fixed_right ? ops.fixed_right : "0px");
-          $fixed.css("bottom",   ops.fixed_bottom ? ops.fixed_bottom : "0px");
+          $fixed.css('position', ops.fixed_pos ? ops.fixed_pos : 'absolute');
+          $fixed.css('right',    ops.fixed_right ? ops.fixed_right : '0px');
+          $fixed.css('bottom',   ops.fixed_bottom ? ops.fixed_bottom : '0px');
+
+          if(totalText.length > max){
+              $fixed.html(fixedHTML);
+          }
+
         }
         if(typeof(onShow)!='undefined'){
           onShow($cmp);
