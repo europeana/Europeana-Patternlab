@@ -73,7 +73,7 @@
 // Contents of Results list
 // Results list header containing controls that affect the list
 .results-header{
-	padding: $space-half $space-quarter;
+	padding: $space-quarter + $pad-quarter $space-quarter;
 	border-bottom: 1px solid $gray87;
 	margin-bottom: $space;
 	overflow: hidden;
