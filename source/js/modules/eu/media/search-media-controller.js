@@ -29,7 +29,7 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-text').addClass('is-hidden');
     $('.media-viewer .multi-item-poster').addClass('is-hidden');
     $('.media-viewer .object-media-midi').addClass('is-hidden');
-    $('.media-viewer .object-media-oembed').addClass('is-hidden');
+    $('.media-viewer .object-media-oembed').empty();
 
     if(audioPlayer){
         audioPlayer.hide();
