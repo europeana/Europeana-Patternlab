@@ -71,7 +71,7 @@
                 "submenu": false
               },
               {
-                "text": "Channels",
+                "text": "Collections",
                 "url": "#",
                 "submenu": {
                   "items": [
