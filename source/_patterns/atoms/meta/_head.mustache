@@ -12,6 +12,21 @@
     {{/ head_meta }}
 
     <title>{{ page_title }}</title>
+    {{# fb_campaigns_on }}
+        <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','//connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1985534038337549');
+        fbq('track', "PageView");
+        {{#fb_campaigns}}
+        fbq('track', '{{.}}');
+        {{/fb_campaigns}}</script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1985534038337549&ev=PageView&noscript=1"/></noscript>
+    {{/ fb_campaigns_on }}
 
     <!--  js detect -->
     <script>(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)</script>
