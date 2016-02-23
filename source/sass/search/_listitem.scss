@@ -2,7 +2,7 @@
 
 // Single List item in search results
 .search-list-item{
-
+  margin-bottom: $space;
   border-bottom: 1px solid $gray87;
 
   .item-info{
@@ -137,6 +137,11 @@
     @media all and (min-width: $bp-xl) {
 
       width:    33.33%;
+    }
+
+    h1{
+      font-size: $font-size-norm;
+      line-height: 1.4;
     }
 
     .show-with-grid{

@@ -2,29 +2,10 @@
 
   <div class="item-preview">
     <div class="item-image">
-    {{# is_image }}
-        {{# img.src }}
-          <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-        {{/ img.src }}
-    {{/ is_image }}
 
-     {{# is_audio }}
-         {{# img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
-    {{/ is_audio }}
-
-    {{# is_text }}
-         {{# img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
-    {{/ is_text }}
-
-    {{# is_video }}
-         {{# img.src }}
-           <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
-         {{/ img.src }}
-    {{/ is_video }}
+    {{# img.src }}
+      <a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}><img src="{{ img.src }}" alt="{{ img.alt }}" /></a>
+    {{/ img.src }}
 
     {{^ img.src }}
       <a class="show-with-grid" href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{text.medium}}</a>
