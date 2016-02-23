@@ -126,7 +126,7 @@ module.exports = function(grunt) {
           },
 
           dropzone: {
-              src:    '**',
+              src:    ['**',  '!*.scss'],
               cwd:    'source/js/modules/lib/dropzone',
               dest:   'source/js/dist/lib/dropzone',
               expand:  true
