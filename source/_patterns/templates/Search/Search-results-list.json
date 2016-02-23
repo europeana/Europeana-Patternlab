@@ -516,6 +516,158 @@
   "has_results": true,
   "has_multiple_results": true,
   "search_results": [
+      {
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/serach-result-thumb-1.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1895"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/serach-result-thumb-2.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Interior, stained glass (rose motif) | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/serach-result-thumb-3.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, stained glass (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/serach-result-thumb-4.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1895"
+      }
+    },
     {
       "agent": "The Elephant Scribbler",
       "title": "An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap",
