@@ -516,6 +516,7 @@
   "has_results": true,
   "has_multiple_results": true,
   "results_menu": {
+    "menu_id": "results_menu",
     "menu_title": "Results per page",
     "items": [
       {
