@@ -111,7 +111,6 @@
 
 .result-info{
   @media all and (min-width: $bp-med) {
-    //text-align: center;
     margin-left: span(1 of 18 wide);
     @include span(8 of 18);
   }
@@ -126,6 +125,132 @@
     margin-left: 0;
   }
 }
+
+
+// BEGIN TEMPORARY OVERRIDE (ends with "END TEMPORARY OVERRIDE")
+// (reset the previous rules - can be deleted once the previous rules targets are prefixed with "display-list")
+// (do this only in conjunction with the back end integration, to not compromise production)
+
+.display-grid{
+
+  .result-actions{
+    margin-left:  0;
+    margin-right: 0;
+    width:        auto;
+
+    @media all and (min-width: $bp-small-3) {
+      margin-left:  0;
+      margin-right: 0;
+      width:        auto;
+    }
+  }
+
+  .result-info{
+    @media all and (min-width: $bp-med) {
+      margin-left:  0;
+      margin-right: 0;
+      width:        auto;
+    }
+  }
+
+  .result-controls{
+    margin-left:  0;
+    margin-right: 0;
+    width:        auto;
+
+    @media all and (min-width: $bp-small-3) {
+      margin-left:  0;
+      margin-right: 0;
+      width:        auto;
+    }
+  }
+}
+
+// END TEMPORARY OVERRIDE
+
+.display-grid{
+
+  .result-actions{
+    float:      right;
+    margin-top: -4.5em;
+
+    @media all and (min-width: $bp-small-2) {
+      margin-right: 1em;
+      margin-top:   -3.6em;
+    }
+
+    @media all and (min-width: $bp-small-3) {
+      margin-top: -1.8em;
+    }
+
+    @media all and (min-width: $bp-med) {
+      margin-top: -4.5em;
+    }
+
+    @media all and (min-width: $bp-xl) {
+      margin-top: 0.4em;
+    }
+
+  }
+
+  .result-controls{
+    float:    right;
+    position: relative;
+    top:      -5em;
+
+    @media all and (min-width: $bp-small-2) {
+      top:  -4em;
+    }
+
+    @media all and (min-width: $bp-small-3) {
+      top: -2.2em;
+    }
+
+    @media all and (min-width: $bp-med) {
+      top: -5em;
+    }
+
+    @media all and (min-width: $bp-xl) {
+      top: 0;
+    }
+
+    .result-viewtype a{
+      width: 2.8em;
+      @media all and (min-width: $bp-small-3) {
+        width: auto;
+      }
+    }
+  }
+
+  .result-info{
+    position:         relative;
+    top:              3em;
+    margin-top:       3em;
+
+    @media all and (min-width: $bp-small) {
+      top:        1em;
+    }
+
+    @media all and (min-width: $bp-small-3) {
+      top: 2em;
+      margin-top: 2em;
+    }
+
+    @media all and (min-width: $bp-med) {
+      margin-left: 5.66038%;
+      margin-top:  3em;
+      top: 1em;
+      width: 100%;
+    }
+    @media all and (min-width: $bp-xl) {
+      margin-top: 0;
+      top: 0.4em;
+      width: auto;
+    }
+  }
+}
+
+
 
 .result-viewtype{
   float: right;

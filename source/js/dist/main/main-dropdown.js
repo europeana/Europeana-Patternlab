@@ -14,10 +14,6 @@ require.config({
 });
 
 require(['jquery'], function( $ ) {
-  //$.holdReady( true );
-
   require(['global'], function() {
-   //   $.holdReady(false);
-   //   $('html').addClass('styled');
   });
 });

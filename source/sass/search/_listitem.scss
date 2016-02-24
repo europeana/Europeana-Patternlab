@@ -1,4 +1,6 @@
-
+.show-with-grid{
+   display: none;
+}
 
 // Single List item in search results
 .search-list-item{
@@ -97,22 +99,23 @@
     margin-right: -4px;
   }
 
-  .show-with-grid{
-     display: none;
-  }
-
 }
 
 
 // Single List item in search result grid
 
-.grid{
+.display-grid{
 
-  @media all and (min-width: $bp-large) {
-    margin-left: 1em;
-    margin-right: -1em;
+  .show-with-grid{
+    display: block;
   }
 
+  .result-items{
+    @media all and (min-width: $bp-large) {
+      margin-left: 1em;
+      margin-right: -1em;
+    }
+  }
 
   .search-list-item{
 
@@ -186,10 +189,6 @@
         padding-top:    0;
         padding-bottom: 0;
       }
-    }
-
-    .show-with-grid{
-      display:    block;
     }
 
     a.show-with-grid{

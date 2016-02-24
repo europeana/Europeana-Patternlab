@@ -54,12 +54,6 @@
                     </div>
                     {{/ menus.actions_disabled }}
 
-                    {{#results_menu}}
-                      <div class="result-actions">
-                        {{> molecules/controls/dropdown-menu }}
-                      </div>
-                    {{/results_menu}}
-
                     <div class="result-info">
                         {{# has_single_result }}
                           {{{ i18n.site.results.list.single-result }}}
@@ -83,6 +77,11 @@
                         </div>
                         {{/ menus.sort_disabled }}
                     </div>
+                    {{#results_menu}}
+                      <div class="result-actions show-with-grid">
+                        {{> molecules/controls/dropdown-menu }}
+                      </div>
+                    {{/results_menu}}
                 </div>
                 <!-- End of results header -->
 

@@ -1,6 +1,7 @@
 define(['jquery', 'ga', 'purl'], function ($, ga){
 
-    var results = $('.result-items');
+    var $url    = $.url();
+    var results = $('.search-results');
 
     function log(msg){
       console.log(msg);
@@ -8,7 +9,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var handleEllipsis = function(){
 
-      var texts = results.find('h1:not(.js-ellipsis)');
+      var texts = results.find('.result-items h1:not(.js-ellipsis)');
       var toFix = [];
 
       texts.css('overflow-y', 'auto');
@@ -38,10 +39,46 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     }
 
+    // binding
+
+    var simulateUrlChange = function(param, newVal){
+        var state         = {};
+            state[param]  = newVal;
+        var params        = $url.param();
+            params[param] = newVal;
+        var newParams     = $.param(params);
+
+        window.history.pushState(state, '', '?' + newParams);
+    };
+
+    window.onpopstate = function(e){
+        if(e.state){
+            if(e.state.view == 'grid'){
+                showGrid(true);
+            }
+            else if(e.state.view == 'list'){
+                showList(true);
+            }
+            if(typeof e.state.results != 'undefined'){
+                log('restore grid to ' + e.state.results + ' per page');
+            }
+        }
+    };
+
+
+    var bindResultMenu = function(e){
+      $('#results_menu .dropdown-menu a').on('click', function(e){
+         e.preventDefault();
+         var perPage = parseInt($(this).text());
+
+         log('show ' + perPage + ' results');
+
+         simulateUrlChange('results', perPage);
+      });
+    }
 
     var bindViewButtons = function(){
 
-      var $url    = $.url();
       var btnGrid = $('.icon-view-grid').closest('a');
       var btnList = $('.icon-view-list').closest('a');
 
@@ -56,7 +93,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       };
 
       var showGrid = function(save){
-        results.addClass('grid');
+        $('body').addClass('display-grid');
         btnGrid.addClass('is-active');
         btnList.removeClass('is-active');
         if(save){
@@ -66,33 +103,15 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       };
 
       var showList = function(save){
-        results.removeClass('grid');
+        $('body').removeClass('display-grid');
+
+        log('TODO: remove the (js-added) truncate');
+
         btnList.addClass('is-active');
         btnGrid.removeClass('is-active');
         if(save){
           saveView('list');
         }
-      };
-
-      var simulateUrlChange = function(param, newVal){
-          var state         = {};
-              state[param]  = newVal;
-          var params        = $url.param();
-              params[param] = newVal;
-          var newParams     = $.param(params);
-
-          window.history.pushState(state, '', '?' + newParams);
-      };
-
-      window.onpopstate = function(e){
-          if(e.state){
-              if(e.state.view == 'grid'){
-                  showGrid(true);
-              }
-              else if(e.state.view == 'list'){
-                  showList(true);
-              }
-          }
       };
 
       btnGrid.on('click', function(e){
@@ -133,6 +152,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     var initPage = function(){
       bindViewButtons();
       bindGA();
+      bindResultMenu();
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
