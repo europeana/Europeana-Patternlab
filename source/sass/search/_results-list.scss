@@ -1,171 +1,166 @@
 
 // Search hero bar
 .search-hero{
-	padding: $space-double $space;
-	background-color: #DDEBEE;
-	border-bottom: 1px solid $gray87;
+  padding: $space-double $space;
+  background-color: #DDEBEE;
+  border-bottom: 1px solid $gray87;
 }
 
 .searchbar{
-	@include container(50em);
+  @include container(50em);
 }
 
 // Search results container
 .search-results{
-	padding: 0 $space;
+  padding: 0 $space;
 
-	background: $white; // fallback
+  background: $white; // fallback
 
-	@media all and (min-width: $bp-med) {
-		background: $offwhite; // fallback
-		@include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
-	}
+  @media all and (min-width: $bp-med) {
+    background: $offwhite; // fallback
+    @include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+  }
 
-	.container{
-		@include container($max-width);
-		@media all and (min-width: $bp-med) {
-			overflow:hidden;
-		}
-	}
+  .container{
+    @include container($max-width);
+    @media all and (min-width: $bp-med) {
+      overflow:hidden;
+    }
+  }
 }
 
 
 // Base 2 columns
 // List of results
 .results-list{
-	background-color: rgba(255,255,255,1);
-	padding-bottom: $space;
+  background-color: rgba(255,255,255,1);
+  padding-bottom: $space;
 
-	@media all and (min-width: $bp-med) {
-		@include span(last 18);
+  @media all and (min-width: $bp-med) {
+    @include span(last 18);
 
-		/* keep column height as high as facet column when result list empty */
-		padding-bottom: 100em;
-		margin-bottom: -100em;
-	}
-
-  .grid {
-    padding-left: 1em;
+    /* keep column height as high as facet column when result list empty */
+    padding-bottom: 100em;
+    margin-bottom: -100em;
   }
-
 }
 
 // Filters and secondary content
 .refine{
-	background: $offwhite;
-	padding: $space;
-	margin-left: -$space;
-	margin-right: -$space;
+  background: $offwhite;
+  padding: $space;
+  margin-left: -$space;
+  margin-right: -$space;
 
-	@media all and (min-width: $bp-med) {
-		@include span(6);
-		margin: 0;
-		padding: $space-half + $space-quarter 0 $space-double 0;
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(6);
+    margin: 0;
+    padding: $space-half + $space-quarter 0 $space-double 0;
+  }
 
 
 
-	&>h2{
-		text-transform: uppercase;
-		font-weight: bold;
-		@include fontSize(16px);
-		color: $textcolour_body;
-		margin-bottom: $pad;
-	}
+  &>h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    @include fontSize(16px);
+    color: $textcolour_body;
+    margin-bottom: $pad;
+  }
 }
 
 // Contents of Results list
 // Results list header containing controls that affect the list
 .results-header{
-	padding: $space-quarter + $pad-quarter $space-quarter;
-	border-bottom: 1px solid $gray87;
-	margin-bottom: $space;
-	overflow: hidden;
-	@include fontSize(14px);
+  padding: $space-quarter + $pad-quarter $space-quarter;
+  border-bottom: 1px solid $gray87;
+  margin-bottom: $space;
+  overflow: hidden;
+  @include fontSize(14px);
 }
 
 .action-select,
 .result-actions,
 .result-info,
 .result-sort{
-	margin-top: $space-quarter;
+  margin-top: $space-quarter;
 }
 
 .result-actions{
-	@include span(3 of 12);
+  @include span(3 of 12);
 
-	@media all and (min-width: $bp-small-3) {
-		@include span(2 of 18);
-	}
+  @media all and (min-width: $bp-small-3) {
+    @include span(2 of 18);
+  }
 }
 
 .no-results{
-	@include push(1 of 12);
-	@include span(10 of 12);
+  @include push(1 of 12);
+  @include span(10 of 12);
 
-	padding: $space;
-	background-color: $gray97;
-	border: 1px dashed $gray-lighter;
+  padding: $space;
+  background-color: $gray97;
+  border: 1px dashed $gray-lighter;
   margin-bottom: $pad-double;
 
-	@media all and (min-width: $bp-small-3) {
-		@include push(1 of 18);
-		@include span(16 of 18);
-	}
+  @media all and (min-width: $bp-small-3) {
+    @include push(1 of 18);
+    @include span(16 of 18);
+  }
 }
 
 .result-info{
-	@media all and (min-width: $bp-med) {
-		//text-align: center;
-		margin-left: span(1 of 18 wide);
-		@include span(8 of 18);
-	}
+  @media all and (min-width: $bp-med) {
+    //text-align: center;
+    margin-left: span(1 of 18 wide);
+    @include span(8 of 18);
+  }
 }
 
 .result-controls{
-	@include span(11 of 12);
-	margin-left: span(1 of 12 wide);
+  @include span(11 of 12);
+  margin-left: span(1 of 12 wide);
 
-	@media all and (min-width: $bp-small-3) {
-		@include span(last 7 of 18);
-		margin-left: 0;
-	}
+  @media all and (min-width: $bp-small-3) {
+    @include span(last 7 of 18);
+    margin-left: 0;
+  }
 }
 
 .result-viewtype{
-	float: right;
-	margin-left: $space-half;
+  float: right;
+  margin-left: $space-half;
 }
 
 .result-sort{
-	float: left;
-	@media all and (min-width: $bp-small-3) {
-		float: right;
-	}
+  float: left;
+  @media all and (min-width: $bp-small-3) {
+    float: right;
+  }
 }
 
 
 .action-select{
 
-	text-align: center;
+  text-align: center;
 
-	.search-list-item &{
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
+  .search-list-item &{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-	input{
-		display: inline-block;
-		margin: 0;
-	}
+  input{
+    display: inline-block;
+    margin: 0;
+  }
 
 
-	@include span(1 of 12 wide no-gutters);
+  @include span(1 of 12 wide no-gutters);
 
-	@media all and (min-width: $bp-small-3) {
-		@include span(1 of 18 wide no-gutters);
-	}
+  @media all and (min-width: $bp-small-3) {
+    @include span(1 of 18 wide no-gutters);
+  }
 
 }
 

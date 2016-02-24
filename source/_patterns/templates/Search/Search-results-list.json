@@ -524,7 +524,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "/images/search/serach-result-thumb-1.jpg",
+        "src": "/images/search/search-result-thumb-1.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -562,7 +562,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "/images/search/serach-result-thumb-2.jpg",
+        "src": "/images/search/search-result-thumb-2.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -593,14 +593,14 @@
       }
     },
     {
-      "title": "Glasgow School of Art - Interior, stained glass (rose motif) | Mackintosh, Charles Rennie",
+      "title": "Glasgow",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "/images/search/serach-result-thumb-3.jpg",
+        "src": "/images/search/search-result-thumb-3.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -638,7 +638,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "/images/search/serach-result-thumb-4.jpg",
+        "src": "/images/search/search-result-thumb-4.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -666,6 +666,82 @@
       },
       "year": {
         "long": "1895"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-5.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Interior, alcove for mosaic | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-6.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, alcove for mosaic, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
       }
     },
     {

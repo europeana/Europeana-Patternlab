@@ -12,12 +12,14 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       var toFix = [];
 
       texts.css('overflow-y', 'auto');
+
       texts.each(function(){
         if($(this).find('a')[0].offsetHeight > $(this).height()){
           $(this).addClass('js-ellipsis');
           toFix.push($(this));
         }
       });
+
       texts.css('overflow-y', 'hidden');
 
       if(toFix.length>0){
@@ -26,16 +28,20 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         });
       }
 
-      var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
+      // var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
+      var noImageTexts = results.find('.search-list-item.missing-image .item-image .missing-image-text:not(.js-ellipsis)');
 
       if(noImageTexts.size()>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create(noImageTexts,
-            {
-              'fixed': '<span class="fixed"></span>',
-              'fixed_pos': 'static'
-            });
+          EllipsisUtil.create(noImageTexts);
 
+//          EllipsisUtil.create(noImageTexts,
+  //          {
+   //           'fixed': '<span class="fixed"></span>',
+    //          'fixed_pos': 'static'
+     //       });
+
+          /*
           $('.search-list-item.missing-image .fixed').each(function(){
             var icon = $(this).closest('.item-preview').next('.item-info').find('.icon');
             if(icon){
@@ -47,8 +53,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
               $(this).remove();
             }
           });
-
+          */
         });
+
         noImageTexts.addClass('js-ellipsis');
       }
     }
