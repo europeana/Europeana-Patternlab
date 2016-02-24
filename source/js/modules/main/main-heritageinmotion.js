@@ -57,10 +57,14 @@ require.config({
 });
 
 
-require(['jquery', 'global', 'smartmenus', 'heritage_in_motion'], function() {
+require(['jquery'], function( $ ) {
 
-    require(["ga"], function(ga) {
-        ga("send", "pageview");
+    require(['global', 'smartmenus', 'heritage_in_motion'], function() {
+
+        require(["ga"], function(ga) {
+            ga("send", "pageview");
+        });
     });
 
 });
+

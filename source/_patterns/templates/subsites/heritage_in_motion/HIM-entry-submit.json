@@ -32,7 +32,7 @@
           "options":
           {
             "search_active": false,
-            "settings_active": false,
+            "settings_active": true,
             "oursites_hidden": true
           },
           "logo":
@@ -53,7 +53,7 @@
                 "submenu": false
               },
               {
-                "text": "Submit and Log-in",
+                "text": "Enter the Contest",
                 "submenu": false
               },
               {
@@ -88,6 +88,45 @@
                       "text": "All Entries",
                       "is_morelink": true
                     }
+                  ]
+                }
+              }
+            ]
+          },
+          "utility_nav": {
+            "menu_id": "profile-menu",
+            "style_modifier": "caret-right",
+            "tabindex": "6",
+            "items": [
+              {
+                "url": "#",
+                "text": "Hi Dasha",
+                "icon": "users",
+                "submenu": {
+                  "items": [
+                    {
+                      "text": "Profile",
+                      "url": "url to profile page",
+                      "subtitle": false
+                    },
+                    {
+                      "is_divider": true
+                    },
+                    {
+                      "text": "Log Out",
+                      "url": "#url to logout page",
+                      "subtitle": false
+                    },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false }
                   ]
                 }
               }
