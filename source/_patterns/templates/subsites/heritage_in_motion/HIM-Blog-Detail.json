@@ -17,6 +17,7 @@
       "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
+  "jQuery": false,
   "js_vars": [
     {
       "name": "pageName",
@@ -32,7 +33,7 @@
           "options":
           {
             "search_active": false,
-            "settings_active": false,
+            "settings_active": true,
             "oursites_hidden": true
           },
           "logo":
@@ -53,7 +54,7 @@
                 "submenu": false
               },
               {
-                "text": "Submit and Log-in",
+                "text": "Enter the Contest",
                 "submenu": false
               },
               {
@@ -90,6 +91,19 @@
                     }
                   ]
                 }
+              }
+            ]
+          },
+          "utility_nav": {
+            "menu_id": "profile-menu",
+            "style_modifier": "caret-right",
+            "tabindex": "6",
+            "items": [
+              {
+                "url": "#",
+                "text": "Sign in",
+                "icon": "users",
+                "submenu": false
               }
             ]
           }

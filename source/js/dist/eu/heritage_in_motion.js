@@ -19,7 +19,8 @@ Site_HIM = {
                         subMenusMaxWidth: null,
                         subMenusMinWidth: null
                     });
-                    $('#settings-menu').smartmenus({
+
+                    $('#profile-menu').smartmenus({
                         mainMenuSubOffsetX: -62,
                         mainMenuSubOffsetY: 4,
                         subMenusSubOffsetX: 0,
@@ -27,15 +28,16 @@ Site_HIM = {
                         subMenusMaxWidth: null,
                         subMenusMinWidth: null
                     });
+
                     $('.js-hack-smartmenu a').click(function(){
                         var href = $(this).attr('href');
                         if(href != '#'){
-                            window.location = $(this).attr('href');
+                            window.location = href;
                         }
                     });
 
                     $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-                    $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+                    $('#profile-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
                 });
             });
@@ -95,7 +97,7 @@ Site_HIM = {
                 $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/x-editable/style/xeditable.css') + '" type="text/css"/>');
 
                 $.fn.editable.defaults.mode = 'inline';
-                $('.editable').editable({
+                $('.editable, .js-editable').editable({
                     url: '/post'
                 });
             });
