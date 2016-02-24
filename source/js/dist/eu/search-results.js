@@ -28,34 +28,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         });
       }
 
-      // var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
       var noImageTexts = results.find('.search-list-item.missing-image .item-image .missing-image-text:not(.js-ellipsis)');
 
       if(noImageTexts.size()>0){
         require(['util_ellipsis'], function(EllipsisUtil){
           EllipsisUtil.create(noImageTexts);
-
-//          EllipsisUtil.create(noImageTexts,
-  //          {
-   //           'fixed': '<span class="fixed"></span>',
-    //          'fixed_pos': 'static'
-     //       });
-
-          /*
-          $('.search-list-item.missing-image .fixed').each(function(){
-            var icon = $(this).closest('.item-preview').next('.item-info').find('.icon');
-            if(icon){
-              $(this).parent().after($(this));
-              $(this).html(icon);
-              $(this).css('position', 'static');
-            }
-            else{
-              $(this).remove();
-            }
-          });
-          */
         });
-
         noImageTexts.addClass('js-ellipsis');
       }
     }

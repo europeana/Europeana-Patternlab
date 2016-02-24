@@ -52,11 +52,13 @@
                     <div class="action-select">
                         <input type="checkbox" name="allselected" id="action_select_all">
                     </div>
-
-                    <div class="result-actions">
-                            {{> molecules/controls/dropdown-menu }}
-                    </div>
                     {{/ menus.actions_disabled }}
+
+                    {{#results_menu}}
+                      <div class="result-actions">
+                        {{> molecules/controls/dropdown-menu }}
+                      </div>
+                    {{/results_menu}}
 
                     <div class="result-info">
                         {{# has_single_result }}
