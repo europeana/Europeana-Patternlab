@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{#page_locale}}
-      <meta http-equiv="Content-Language" content="{{.}}">
-    {{/page_locale}}
+
     {{# head_meta }}
       <meta {{#meta_property}}property="{{meta_property}}" {{/meta_property}}{{#meta_name}}name="{{meta_name}}" {{/meta_name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
     {{/ head_meta }}
@@ -71,7 +69,7 @@
 
     var headLinks = [{
         rel: 'stylesheet',
-        href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic',
+        href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic',
         media: 'all',
         css: 'true'
       }];
@@ -119,7 +117,7 @@
     }
   </script>
   <noscript>
-   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
    {{# items }}
       {{# css }}
         <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} />
@@ -133,7 +131,7 @@
   {{/ items }}
 {{/ head_links}}
 {{^ head_links}}
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
 {{/ head_links}}
 
 
