@@ -211,8 +211,13 @@
         }
       }
 
+      .multi-item-poster {
+        max-width: 100%;
+        width:     400px;
+      }
+
       .multi-item-poster > a > img{
-        max-width: 400px;
+        max-width: 100%;
       }
 
     }
@@ -676,7 +681,7 @@
   &>a {
     display: block;
     word-wrap: normal;
-    white-space: nowrap;
+    white-space: normal;
 
     position: relative;
     padding-right: 1em;
