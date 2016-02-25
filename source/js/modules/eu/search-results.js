@@ -1,7 +1,10 @@
 define(['jquery', 'ga', 'purl'], function ($, ga){
 
-    var $url    = $.url();
-    var results = $('.search-results');
+    var $url            = $.url();
+    var results         = $('.search-results');
+    var ellipsisObjects = [];
+    var btnGrid         = $('.icon-view-grid').closest('a');
+    var btnList         = $('.icon-view-list').closest('a');
 
     function log(msg){
       console.log(msg);
@@ -25,7 +28,10 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
       if(toFix.length>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create($(toFix));
+          var ellipsis = EllipsisUtil.create($(toFix));
+          for(var i = 0; i < ellipsis.length; i++){
+              ellipsisObjects.push(ellipsis[i]);
+          }
         });
       }
 
@@ -33,13 +39,14 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
       if(noImageTexts.size()>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create(noImageTexts);
+          var ellipsis = EllipsisUtil.create(noImageTexts);
+            for(var i = 0; i < ellipsis.length; i++){
+                ellipsisObjects.push(ellipsis[i]);
+            }
         });
         noImageTexts.addClass('js-ellipsis');
       }
     }
-
-    // binding
 
     var simulateUrlChange = function(param, newVal){
         var state         = {};
@@ -60,7 +67,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
                 showList(true);
             }
             if(typeof e.state.results != 'undefined'){
-                log('restore grid to ' + e.state.results + ' per page');
+                loadResults(e.state.results);
             }
         }
     };
@@ -89,15 +96,15 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var styleResultsMenu = function(count){
 
-        var text = $('.result-actions a.dropdown-trigger').text();
-        var int  = text.match(/\d+/)[0];
+        if($('.result-actions a.dropdown-trigger').size() > 0){
+            var text = $('.result-actions a.dropdown-trigger').text();
+            var int  = text.match(/\d+/)[0];
 
-        count = count ? count : int;
-        text = text.replace(int, '');
+            count = count ? count : int;
+            text = text.replace(int, '');
 
-        log('text = ' + text + ', int = ' + int + ', count ' + count);
-
-        $('.result-actions a.dropdown-trigger').html(text + '<span>' + count + '</span>');
+            $('.result-actions a.dropdown-trigger').html(text + '<span class="active">' + count + '</span>');
+        }
     }
 
     var bindResultMenu = function(e){
@@ -105,50 +112,51 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       $('#results_menu .dropdown-menu a').on('click', function(e){
          e.preventDefault();
          var perPage = parseInt($(this).text());
-
-         log('show ' + perPage + ' results');
-
          simulateUrlChange('results', perPage);
          loadResults(perPage);
       });
     }
 
+    var loadView = function(){
+      return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
+    };
+
+    var saveView = function(view){
+      if(typeof(Storage) != 'undefined') {
+        localStorage.setItem('eu_portal_results_view', view);
+      }
+    };
+
+    var showGrid = function(save){
+      $('body').addClass('display-grid');
+      btnGrid.addClass('is-active');
+      btnList.removeClass('is-active');
+      if(save){
+        saveView('grid');
+      }
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].enable();
+      }
+
+      handleEllipsis();
+    };
+
+    var showList = function(save){
+      $('body').removeClass('display-grid');
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].disable();
+      }
+
+      btnList.addClass('is-active');
+      btnGrid.removeClass('is-active');
+      if(save){
+        saveView('list');
+      }
+    };
+
     var bindViewButtons = function(){
-
-      var btnGrid = $('.icon-view-grid').closest('a');
-      var btnList = $('.icon-view-list').closest('a');
-
-      var loadView = function(){
-        return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
-      };
-
-      var saveView = function(view){
-        if(typeof(Storage) != 'undefined') {
-          localStorage.setItem('eu_portal_results_view', view);
-        }
-      };
-
-      var showGrid = function(save){
-        $('body').addClass('display-grid');
-        btnGrid.addClass('is-active');
-        btnList.removeClass('is-active');
-        if(save){
-          saveView('grid');
-        }
-        handleEllipsis();
-      };
-
-      var showList = function(save){
-        $('body').removeClass('display-grid');
-
-        log('TODO: remove the (js-added) truncate');
-
-        btnList.addClass('is-active');
-        btnGrid.removeClass('is-active');
-        if(save){
-          saveView('list');
-        }
-      };
 
       btnGrid.on('click', function(e){
         e.preventDefault();
@@ -189,6 +197,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       bindViewButtons();
       bindGA();
       bindResultMenu();
+
+      simulateUrlChange('results', $('.result-items>li').size());
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');

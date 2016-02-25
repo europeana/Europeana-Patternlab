@@ -87,21 +87,36 @@
 }
 
 .result-actions{
+
+  .results-menu-prefix,
+  .menu_dropdown{
+    float: left;
+  }
+  .results-menu-prefix{
+
+    margin-right: 0.5em;
+  }
+
   @include span(3 of 12);
 
   @media all and (min-width: $bp-small-3) {
     @include span(2 of 18);
   }
 
+  .dropdown{
+    min-width:   3.5em;
+    margin-left: -1.2em;
+  }
   .dropdown-trigger{
     text-transform: inherit;
   }
   .dropdown-trigger:after{
     display: none;
   }
-  .dropdown-trigger span{
+  .dropdown-trigger .active{
     color: #1a8ac7;
     border-bottom: 1px dotted #1a8ac7;
+    font-weight: normal;
   }
 }
 

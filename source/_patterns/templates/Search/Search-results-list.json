@@ -517,7 +517,8 @@
   "has_multiple_results": true,
   "results_menu": {
     "menu_id": "results_menu",
-    "button_title": "Per page 12",
+    "button_title_prefix": "Per page:",
+    "button_title": "12",
     "items": [
       {
         "url": "12",
