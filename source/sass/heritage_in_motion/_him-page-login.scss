@@ -157,7 +157,7 @@
 		@include svg-bg-with-fallback("icons/key");
 	}
 
-	> input[type="text"], > input[type="password"]{
+	> input[type="text"], > input[type="password"], > input[type="email"]{
 		text-indent: 25px;
 	}
 }
