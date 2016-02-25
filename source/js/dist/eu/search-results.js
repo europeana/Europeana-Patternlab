@@ -48,8 +48,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     }
 
-    // binding
-
     var simulateUrlChange = function(param, newVal){
         var state         = {};
             state[param]  = newVal;
@@ -57,30 +55,22 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             params[param] = newVal;
         var newParams     = $.param(params);
 
-        log('push state ' + newParams)
+//        log('push state ' + newParams)
+        log('push state ' + JSON.stringify(state))
         window.history.pushState(state, '', '?' + newParams);
     };
 
     window.onpopstate = function(e){
-
-        log('pop state...')
-
         if(e.state){
             if(e.state.view == 'grid'){
                 showGrid(true);
-                log('restore grid')
             }
             else if(e.state.view == 'list'){
                 showList(true);
-                log('restore list')
             }
             if(typeof e.state.results != 'undefined'){
-                log('restore grid to ' + e.state.results + ' per page');
+                loadResults(e.state.results);
             }
-            log('state ' + JSON.stringify(e.state)  );
-        }
-        else{
-            log('e.state is null')
         }
     };
 
@@ -202,6 +192,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       bindViewButtons();
       bindGA();
       bindResultMenu();
+
+      simulateUrlChange('results', $('.result-items>li').size());
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
