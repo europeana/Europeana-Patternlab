@@ -103,7 +103,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             count = count ? count : int;
             text = text.replace(int, '');
 
-            $('.result-actions a.dropdown-trigger').html(text + '<span>' + count + '</span>');
+            $('.result-actions a.dropdown-trigger').html(text + '<span class="active">' + count + '</span>');
         }
     }
 
