@@ -55,8 +55,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             params[param] = newVal;
         var newParams     = $.param(params);
 
-//        log('push state ' + newParams)
-        log('push state ' + JSON.stringify(state))
         window.history.pushState(state, '', '?' + newParams);
     };
 
@@ -136,13 +134,20 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       if(save){
         saveView('grid');
       }
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].enable();
+      }
+
       handleEllipsis();
     };
 
     var showList = function(save){
       $('body').removeClass('display-grid');
 
-      log('TODO: remove the (js-added) truncate');
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].disable();
+      }
 
       btnList.addClass('is-active');
       btnGrid.removeClass('is-active');

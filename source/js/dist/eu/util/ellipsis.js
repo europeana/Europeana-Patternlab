@@ -2,13 +2,14 @@ define(['jquery', 'util_resize'], function($){
 
   var Ellipsis = function(cmp, ops, onShow) {
 
-      var $cmp   = $(cmp);
-      var $inner = $cmp.find('.ellipsis-inner');
-      var text   = [];
-      var sub    = '... XXX';
+      var $cmp     = $(cmp);
+      var $inner   = $cmp.find('.ellipsis-inner');
+      var text     = [];
+      var sub      = '... XXX';
+      var disabled = false;
 
-      var tail   = ops && ops.tail ? ops.tail : '...&nbsp;&nbsp;';
-      var fixed  = false;
+      var tail     = ops && ops.tail ? ops.tail : '...&nbsp;&nbsp;';
+      var fixed    = false;
 
       var totalText = '';
 
@@ -18,10 +19,8 @@ define(['jquery', 'util_resize'], function($){
 
       var fn = function(){
         if(typeof $inner[0] == 'undefined'){
-
           return;
         }
-
         return ( $inner[0].offsetHeight > $cmp.height()+3 );/* chrome +3 for border */
       };
 
@@ -59,6 +58,10 @@ define(['jquery', 'util_resize'], function($){
       };
 
       var respond = function(){
+
+        if(disabled){
+          return;
+        }
 
         $cmp      = $(cmp);
         $inner    = $cmp.find('.ellipsis-inner');
@@ -119,6 +122,14 @@ define(['jquery', 'util_resize'], function($){
       return {
           getText: function(){
               return totalText;
+          },
+          disable: function(){
+              disabled = true;
+              $inner.html(totalText + (fixed ? fixed : ""));
+          },
+          enable: function(){
+              disabled = false;
+              respond();
           }
       }
   };
