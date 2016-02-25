@@ -115,6 +115,12 @@ define(['jquery', 'util_resize'], function($){
         });
       };
       init();
+
+      return {
+          getText: function(){
+              return totalText;
+          }
+      }
   };
 
   return {
