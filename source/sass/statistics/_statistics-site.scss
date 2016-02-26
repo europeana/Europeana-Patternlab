@@ -1,0 +1,133 @@
+// Statistics specific styles
+
+
+
+.logo {
+  background-image: url("../../images/statistics/europeana-logo-statistics.png");
+  .svg &{
+    background-image: url("../../images/statistics/europeana-logo-statistics.svg");
+  }
+}
+
+.site-hero{
+	height: auto;
+	text-align: center;
+	background-color: $accent;
+
+	.hero-content{
+		padding: $space;
+	}
+
+	.title{
+		font-weight: bold;
+	}
+
+	h2.subtitle{
+		text-transform: initial;
+		font-size: 1.4em;
+		margin-bottom: $space-double;
+	}
+}
+
+
+@media all and (min-width: $bp-med) and (min-height: 850px) {
+	.site-hero{
+		height: 80%;
+	}
+
+	.hero-content{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    @include translate (-50%, -50%);
+	    width: 80%;
+		max-width: $max-width;
+	}
+}
+
+// STATIC PAGES
+
+// Generic page layout
+
+.l-page{
+
+	position: relative;
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
+	}
+
+	&.no-sidebar{
+		background: $white;
+
+	}
+
+	.textcontent, .l-sidebar, .l-breadcrumbs{
+		position: relative;
+		z-index: 10;
+	}
+
+	.l-content{
+		background: $white;
+		@media all and (min-width: $bp-med) {
+		  @include span(18 of 24 wide no-gutter);
+		}
+	}
+
+	.maincontent{
+		background-color: $white;
+		padding: $space-triple $space;
+	}
+
+	.item-rss{
+		text-align: right;
+		margin-top: -3rem;
+		margin-bottom: 3.1rem;
+	}
+
+	.textcontent{
+		background-color: $white;
+		padding-bottom: $space-triple;
+
+		@media all and (min-width: $bp-med) {
+		  max-width: 40em;
+		}
+	}
+
+}
+
+.l-sidebar{
+	position: relative;
+	z-index: 10;
+	background: $offwhite;
+	padding: $space;
+
+	@media all and (min-width: $bp-med) {
+	  @include span(last 6 of 24);
+	  padding-top: $space * 6;
+	  min-height: 650px;
+	}
+}
+
+.results-list,
+.page-intro,
+.articleheader{
+	margin-bottom: $space-double;
+}
+
+
+.l-content .section, .entry-detail .section {
+	padding: $space;
+	margin-bottom: 0;
+}
+
+
+
