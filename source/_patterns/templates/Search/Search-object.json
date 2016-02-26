@@ -1,4 +1,3 @@
-
 {
   "bodyclass": "europeana_search",
   "page_title": "Europeana Search",
@@ -6,15 +5,17 @@
   "version":{
       "is_alpha": true
   },
-
-  "css_files":
-  [
-    {
-      "path": "../../css/search/screen.css",
-      "media": "all"
-    }
-  ],
-
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/search/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "css_files": false,
+  "fb_campaigns_on": true,
+  "fb_campaigns": ["test", "these", "campaigns"],
   "js_vars": [
     {
       "name": "pageName",
@@ -62,7 +63,8 @@
             {
               "license_CC0": true,
               "license_name": "CC0",
-              "license_human": "You can use this image in any way you like"
+              "license_human": "You can use this image in any way you like",
+              "expiry": "until 2028-10-09"
             },
             "technical_metadata":
             {

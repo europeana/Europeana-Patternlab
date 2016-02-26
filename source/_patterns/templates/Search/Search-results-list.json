@@ -38,12 +38,15 @@
       }
     }
   },
-  "css_files": [
-    {
-      "path": "../../css/search/screen.css",
-      "media": "all"
-    }
-  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/search/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "css_files": false,
   "js_files": [
     {
       "path": "../../js/dist/require.js",
@@ -512,7 +515,258 @@
   },
   "has_results": true,
   "has_multiple_results": true,
+  "results_menu": {
+    "menu_id": "results_menu",
+    "button_title_prefix": "Per page:",
+    "button_title": "12",
+    "items": [
+      {
+        "url": "12",
+        "text": "12"
+      },
+      {
+        "url": "24",
+        "text": "24"
+      },
+      {
+        "url": "36",
+        "text": "36"
+      },
+      {
+        "url": "48",
+        "text": "48"
+      }
+    ]
+  },
   "search_results": [
+      {
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-1.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1895"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-2.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "Glasgow",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-3.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, stained glass (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-4.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1895"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-5.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
+    {
+      "title": "Glasgow School of Art - Interior, alcove for mosaic | Mackintosh, Charles Rennie",
+      "is_image": true,
+      "item_type": {
+        "name": "Photograph",
+        "url": "http://europeana.eu/search/paintings"
+      },
+      "img": {
+        "src": "/images/search/search-result-thumb-6.jpg",
+        "alt": "Rectangle"
+      },
+      "origin": {
+        "url": "http://urlhere.com",
+        "text": "Glasgow School of Art"
+      },
+      "concepts": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "prints (visual works)"
+          }
+        ]
+      },
+      "channels": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Art History"
+          }
+        ]
+      },
+      "text": {
+        "medium": "Interior, alcove for mosaic, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+      },
+      "year": {
+        "long": "1896/1909"
+      }
+    },
     {
       "agent": "The Elephant Scribbler",
       "title": "An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap",
@@ -601,7 +855,7 @@
         ]
       },
       "text": {
-        "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting."
+        "medium": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century."
       },
       "year": {
         "long": "1642"
@@ -797,288 +1051,6 @@
       },
       "year": {
         "long": "1625"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "Balaam and the Ass",
-      "is_image": true,
-      "item_type": {
-        "name": "Drawing",
-        "url": "http://europeana.eu/search/drawing"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/people",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "Balaam and the Ass is a 1626 painting by the Dutch artist Rembrandt, dating from his time in Leiden and now in the Musée Cognacq-Jay in Paris."
-      },
-      "year": {
-        "long": "1626"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "The Artist in his Studio",
-      "is_image": true,
-      "item_type": {
-        "name": "Print",
-        "url": "http://europeana.eu/search/paintings"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/nature",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "The Artist in his Studio is an 1628 oil painting made by Rembrandt. The painting shows an artist' studio in realist style. It is held by the Museum of Fine Arts in Boston, Massachusetts."
-      },
-      "year": {
-        "long": "1628"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "The Storm on the Sea of Galilee",
-      "is_video": true,
-      "item_type": {
-        "name": "TV programme",
-        "url": "http://europeana.eu/search/paintings"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/tech",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "The Storm on the Sea of Galilee is a painting from 1633 by the Dutch Golden Agepainter Rembrandt van Rijn that was in the Isabella Stewart Gardner Museum of Boston, Massachusetts, United States, prior to being stolen on March 18, 1990. The painting depicts the miracle of..."
-      },
-      "year": {
-        "long": "1633"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "Jacob de Gheyn III",
-      "is_image": true,
-      "item_type": {
-        "name": "Painting",
-        "url": "http://europeana.eu/search/paintings"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/people",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "Huygens and de Gheyn had commissioned Rembrandt to paint them in identical formats and he did so upon the same oak panel. The friends had agreed that the first of them to die would receive the painting owned by the other, as evidenced by inscriptions on the their reverse. They w..."
-      },
-      "year": {
-        "long": "1632"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "Philosopher in Meditation",
-      "is_video": true,
-      "item_type": {
-        "name": "Music video",
-        "url": "http://europeana.eu/search/paintings"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/nature",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "Philosopher in Meditation (Bredius 431) is the traditional title of an oil painting in the Musée du Louvre, Paris, that has long been attributed to the 17th-century Dutch artist Rembrandt."
-      },
-      "year": {
-        "long": "1632"
-      }
-    },
-    {
-      "agent": "Rembrandt van Rijn",
-      "title": "The Abduction of Europa",
-      "is_image": true,
-      "item_type": {
-        "name": "Painting",
-        "url": "http://europeana.eu/search/paintings"
-      },
-      "img": {
-        "src": "http://placeimg.com/400/300/tech",
-        "alt": "Rectangle"
-      },
-      "origin": {
-        "url": "http://urlhere.com",
-        "text": "Rijksmuseum"
-      },
-      "concepts": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "prints (visual works)"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "paper (fiber product)"
-          }
-        ]
-      },
-      "channels": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Art History"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Military History"
-          }
-        ]
-      },
-      "text": {
-        "medium": "Rembrandt Harmenszoon van Rijn’s The Abduction of Europa (1632) is one of his rare mythological subject paintings. The piece is oil on canvas and now located in the J. Paul Getty Museum. The inspiration for the painting is Ovid’s Metamorphoses, part of which tells the tale..."
-      },
-      "year": {
-        "long": "1632"
       }
     }
   ],

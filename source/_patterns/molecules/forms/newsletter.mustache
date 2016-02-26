@@ -38,7 +38,7 @@
      };
    </script>
 
-  <label for="newsletter-field" class="title">{{i18n.global.newsletter.signup}}</label>
+  <label for="mce-EMAIL" class="title">{{i18n.global.newsletter.signup}}</label>
 
   <div class="inline-container">
     <input placeholder="{{i18n.global.email-address}}"
@@ -56,11 +56,11 @@
 
   {{#newsletter.form.language_op}}
   <div class="newsletter-options">
-      <input type="radio" name="LANGUAGE" value="English" autocomplete="off" id="mce-LANGUAGE-0" />
+      <input type="radio" name="LANGUAGE" value="English" id="mce-LANGUAGE-0" />
       <label for="mce-LANGUAGE-0">
           {{i18n.global.language-english}}
       </label>
-      <input type="radio" name="LANGUAGE" value="French" autocomplete="off" id="mce-LANGUAGE-1" />
+      <input type="radio" name="LANGUAGE" value="French" id="mce-LANGUAGE-1" />
       <label for="mce-LANGUAGE-1">
           {{i18n.global.language-french}}
       </label>

@@ -61,11 +61,13 @@
 		content: '';
 		display: block;
 	  	background: center center no-repeat;
-	    @include svg-bg-with-fallback("icons/award_first");
-	    background-size: contain;
+	    background-image: url('../../images/heritage-in-motion/HiM_logo_symbol.png');
+	    background-size: 60%;
 
 		width: 80px;
 		height: 80px;
+		background-color: rgba(255,255,255,0.2);
+		border-radius: 200px;
 		position: absolute;
 		z-index: 50;
 		right: $space-half;
@@ -74,8 +76,8 @@
 }
 
 .video-winner .video-item:after{
-	width: 160px;
-	height: 160px;
+	width: 140px;
+	height: 140px;
 
 }
 

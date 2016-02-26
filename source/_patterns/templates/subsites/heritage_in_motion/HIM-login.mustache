@@ -1,4 +1,5 @@
-{{> atoms/iconography/svgicons-search }}
+{{> atoms/iconography/svgicons-user }}
+
 
 {{> organisms/global/header_v2}}
 
@@ -13,14 +14,19 @@
   </section>
 
   <section class="login-register section">
-  <div class="inner">
+    <div class="inner">
 
     <form class="form-login" action="login url">
       <p>See, edit or complete your submission</p>
       <h2>Log in here</h2>
 
-      <input class="icon-bg icon-user" id="username" type="text" placeholder="Username" />
-      <input class="icon-bg icon-password" id="password" type="password" placeholder="Password" />
+      <div class="input-wrapper-icon icon-user">
+        <input id="username" type="text" placeholder="Username" />
+      </div>
+
+      <div class="input-wrapper-icon icon-password">
+        <input id="password" type="password" placeholder="Password" />
+      </div>
 
       <div class="form-controls cf">
 
@@ -42,9 +48,17 @@
       <p>Don't have an account?</p>
       <h2>Register now</h2>
 
-      <input class="icon-bg icon-user" id="username" type="text" placeholder="Username" />
-      <input class="icon-bg icon-password" id="password" type="password" placeholder="Password" />
-      <input class="icon-bg icon-password" id="password_confirm" type="password" placeholder="Confirm Password" />
+      <div class="input-wrapper-icon icon-user">
+      <input id="username" type="text" placeholder="Username" />
+      </div>
+
+      <div class="input-wrapper-icon icon-password">
+      <input id="password" type="password" placeholder="Password" />
+      </div>
+
+      <div class="input-wrapper-icon icon-password">
+      <input id="password_confirm" type="password" placeholder="Confirm Password" />
+      </div>
 
       <div class="form-controls cf">
 
@@ -56,6 +70,36 @@
     </form>
     </div>
   </section>
+
+
+  <div class="social-login lc">
+      <h4>Log in using:</h4>
+
+      <a class="icon-social" href="#" title="Facebook">
+        <svg class="icon icon-facebook">
+          <use xlink:href="#icon-facebook"></use>
+        </svg>
+      </a>
+
+      <a class="icon-social" href="#" title="Twitter">
+        <svg class="icon icon-twitter">
+          <use xlink:href="#icon-twitter"></use>
+        </svg>
+      </a>
+
+      <a class="icon-social" href="#">
+        <svg class="icon icon-googleplus">
+          <use xlink:href="#icon-googleplus"></use>
+        </svg>
+      </a>
+
+      <a class="icon-social" href="#">
+        <svg class="icon icon-linkedin">
+          <use xlink:href="#icon-linkedin"></use>
+        </svg>
+      </a>
+  </div>
+
 
 
 

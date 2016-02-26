@@ -20,8 +20,8 @@
       <section class="object-display">
         <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
           <a class="scroll-trigger trigger-chain"
-             enabled="true"
-             data-disable-when-fired="showMediaThumbs",
+             data-enabled="true"
+             data-disable-when-fired="showMediaThumbs"
              data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
           {{^empty_item}}
             <div class="media-viewer">
@@ -293,7 +293,7 @@
                     {{#geo.long_and_lat}}	{{! check both present }}
                       <a class="scroll-trigger"
                          id="scroll-trigger-map"
-                         enabled="true"
+                         data-enabled="true"
                          data-fire-on-open="showMap"
                          data-fire-on-open-params='{
                           "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
@@ -305,8 +305,8 @@
                         <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
                       </div>
                       <a class="scroll-trigger trigger-chain"
-                        enabled="true"
-                        data-disable-when-fired="showMap",
+                        data-enabled="true"
+                        data-disable-when-fired="showMap"
                         data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
                     {{/geo.long_and_lat}}
                   </div>
@@ -383,7 +383,7 @@
               <div class="subsection-label">
                {{i18n.site.object.hierarchy.title}}
                 <a	class="scroll-trigger"
-                    enabled="true"
+                    data-enabled="true"
                     data-fire-on-open="showHierarchy"
                     data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
                 ></a>
@@ -402,7 +402,7 @@
                 {{title}}
                 <a id="scroll-trigger-mlt"
                    class="scroll-trigger"
-                   enabled="true"
+                   data-enabled="true"
                    data-fire-on-open="showMLT"
                    data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true}'
                 ></a>
@@ -423,8 +423,8 @@
                   </ul>
                 </div>
                 <a class="scroll-trigger trigger-chain"
-                   enabled="true"
-                   data-disable-when-fired="showMLT",
+                   data-enabled="true"
+                   data-disable-when-fired="showMLT"
                    data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
               </div>
             </div>

@@ -1,8 +1,9 @@
-
+.show-with-grid{
+   display: none;
+}
 
 // Single List item in search results
 .search-list-item{
-
   margin-bottom: $space;
   border-bottom: 1px solid $gray87;
 
@@ -98,50 +99,96 @@
     margin-right: -4px;
   }
 
-  .show-with-grid{
-     display: none;
-  }
-
 }
 
 
 // Single List item in search result grid
 
-.grid{
+.display-grid{
 
-  margin-right: -1em;
+  .show-with-grid{
+    display: block;
+  }
+
+  .result-items{
+    @media all and (min-width: $bp-large) {
+      margin-left: 1em;
+      margin-right: -1em;
+    }
+  }
 
   .search-list-item{
 
     border:     none;
-    height:     24.5em;
     float:      left;
     overflow:   hidden;
     position:   relative;
     width:      100%;
 
     @media all and (min-width: $bp-small-3) {
-
       width:    50%;
     }
 
     @media all and (min-width: $bp-med) {
-
       width:    100%;
     }
 
     @media all and (min-width: $bp-large) {
-
       width:    50%;
     }
 
     @media all and (min-width: $bp-xl) {
-
       width:    33.33%;
     }
 
-    .show-with-grid{
-      display:    block;
+    h1{
+      font-size: $font-size-norm;
+      line-height: 1.4;
+    }
+
+    .thumb-square{
+      height:   auto;
+      position: relative;
+
+      img,
+      .inner {
+          position:  absolute;
+          top:     0;
+          bottom:  0;
+          left:    0;
+          right:   0;
+      }
+
+      img{
+        object-fit: cover;
+        width:      100%;
+        height:     100%;
+      }
+
+      .link{
+        height: 100%;
+      }
+
+    }
+
+    .thumb-square:before{
+      content:     "";
+      display:     block;
+      padding-top: 100%;
+    }
+
+    .thumb-square.text-only{
+      // equivalent of 2-line caption less the border on items with images
+      padding-bottom: 3.6em;
+      margin-bottom:  -1px;
+    }
+
+    @media all and (min-width: 0)       and (max-width: $bp-small-3),
+                   (min-width: $bp-med) and (max-width: $bp-large) {
+      .thumb-square.text-only:before{
+        padding-top:    0;
+        padding-bottom: 0;
+      }
     }
 
     a.show-with-grid{
@@ -153,6 +200,14 @@
       display: none;
     }
 
+    .item-type{
+      visibility: collapse;
+    }
+    .icon{
+      visibility: visible;
+      margin:     0;
+    }
+
     .item-info{
 
       float:      none;
@@ -162,7 +217,6 @@
       width:      auto;
 
       h1{
-
         max-height:    2.8em;
         margin-bottom: 0;
         overflow-y:    hidden;
@@ -171,7 +225,9 @@
 
     .item-agent-data{
 
-      background-color: #f1f1ee;
+      display: none;
+      border: 1px solid #dedede;
+
       height:           100%;
       margin:           0 1em;
       padding:          0 1em 1em 1em;
@@ -184,42 +240,50 @@
         text-overflow:    ellipsis;
         white-space:      nowrap;
         width:            100%;
-
       }
     }
 
     .item-preview{
+      border:           1px solid #dedede;
+      border-bottom:    0;
 
-      background-color: #f1f1ee;
-      border-radius:    3px;
       float:            none;
       margin:           1em 1em 0 1em;
-      padding:          2em;
+      min-height:       unset;
+
       width:            auto;
 
       .item-image{
-
-        height:       $thumbnail_max_dimension_result_grid;
-
         a img{
-
-          height:     $thumbnail_max_dimension_result_grid;
-          width:      $thumbnail_max_dimension_result_grid;
+          max-width:  100%;
+          max-height: 100%;
           object-fit: cover;
         }
       }
     }
 
     &.missing-image{
+
+      .item-info{
+        border:     0;
+        bottom:     1.56em;
+        font-size:  0.9em;
+        height:     1em;
+        position:   absolute;
+        right:      1.56em;
+        width:      1em;
+      }
+
       .item-preview{
 
-         text-align: left;
+         border-bottom: solid 1px #dedede;
+         padding:       0.5em;
+         text-align:    left;
 
         .item-image{
 
-          height:        17.6em;
+          max-height:    100%;
           overflow:      hidden;
-          margin-bottom: -0.8em;
 
           .ellipsis-inner{
             display: inline;
@@ -232,18 +296,24 @@
           }
         }
       }
+
+      .missing-image-text{
+        max-height: 100%;
+      }
     }
 
     .item-info{
 
-      background-color: #f1f1ee;
-      padding: 0 1em 1em 1em;
+      border:         1px solid #dedede;
+      border-top:     0;
+      height:         3.6em;
+      padding:        0.5em;
 
       footer{
         margin:   0;
         position: absolute;
-        bottom:   1.55em;
-        right:    $space/2;
+        bottom:   .9em;
+        right:    1em;
       }
 
       footer .item-metadata{
@@ -252,17 +322,6 @@
         height:     1em;
         margin:     0;
         width:      1em;
-      }
-
-      footer .item-metadata .item-type{
-
-        visibility: collapse;
-      }
-
-      footer .item-metadata .item-type .icon{
-
-        visibility: visible;
-        margin:     0;
       }
 
       .excerpt,

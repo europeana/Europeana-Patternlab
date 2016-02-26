@@ -52,10 +52,6 @@
                     <div class="action-select">
                         <input type="checkbox" name="allselected" id="action_select_all">
                     </div>
-
-                    <div class="result-actions">
-                            {{> molecules/controls/dropdown-menu }}
-                    </div>
                     {{/ menus.actions_disabled }}
 
                     <div class="result-info">
@@ -81,6 +77,12 @@
                         </div>
                         {{/ menus.sort_disabled }}
                     </div>
+                    {{#results_menu}}
+                      <div class="result-actions show-with-grid">
+                        <span class="results-menu-prefix">{{button_title_prefix}}</span>
+                        {{> molecules/controls/dropdown-menu }}
+                      </div>
+                    {{/results_menu}}
                 </div>
                 <!-- End of results header -->
 
@@ -131,6 +133,10 @@
                         {{> molecules/controls/filter-boolean }}
                       </div>
                     {{/boolean}}
+
+                    {{#date}}
+                        {{> molecules/controls/filter-date }}
+                    {{/date}}
 
                     {{#advanced}}
                         {{> molecules/controls/filter-advanced }}

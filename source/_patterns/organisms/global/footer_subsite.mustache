@@ -9,22 +9,23 @@
         <div class="grid">
 
             <div class="l-contact">
+                <h4 class="title">Empowered by:</h4>
                 <div class="footer_logo">
-                    <a href="/"><img src="{{image_root}}footer_logo.svg" alt="Europeana - think culture" /></a>
+                    <a href="http://europeana.eu"><img src="{{image_root}}europeana-logo-symbol.png" alt="Europeana - think culture" /></a>
                 </div>
 
-            </div><!--
+            </div>
 
-         --><div class="l-content">
+            <div class="l-content">
 
                 <div class="l-sitemap cf grid">
-                {{# navigation.footer.linklist1 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer.linklist1 }}<!--
-             -->{{# navigation.footer.linklist2 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer.linklist2 }}
+                {{# navigation.footer.linklist1 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer.linklist1 }}
+                {{# navigation.footer.linklist2 }}{{> molecules/navigation/linklist-with-title }}{{/ navigation.footer.linklist2 }}
                 </div>
 
-            </div><!--
+            </div>
 
-         --><div class="l-nextsteps">
+            <div class="l-nextsteps">
                 {{# page_config.newsletter }}
                 <div class="signup">
                     {{> molecules/forms/newsletter }}
@@ -39,8 +40,8 @@
     </div>
 
     <div class="lc">
-        <h4 class="title">Powered by:</h4>
-        <div class="l-grid-media fivecols">
+        <h4 class="title">Founded by:</h4>
+        <div class="l-supportedby">
         {{#listItems.three}}
             <div class="gi">
                 {{> molecules-block-thumb }}

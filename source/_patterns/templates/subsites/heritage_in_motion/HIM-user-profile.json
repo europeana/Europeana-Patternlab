@@ -13,8 +13,8 @@
   ],
   "js_files": [
     {
-      "path": "../../js/modules/bower_components/requirejs/require.js",
-      "data_main": "../../js/modules/main/main-heritageinmotion"
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
   "js_vars": [
@@ -32,7 +32,7 @@
           "options":
           {
             "search_active": false,
-            "settings_active": false,
+            "settings_active": true,
             "oursites_hidden": true
           },
           "logo":
@@ -52,7 +52,7 @@
                 "submenu": false
               },
               {
-                "text": "Submit and Log-in",
+                "text": "Enter the Contest",
                 "is_current": true,
                 "submenu": false
               },
@@ -88,6 +88,45 @@
                       "text": "All Entries",
                       "is_morelink": true
                     }
+                  ]
+                }
+              }
+            ]
+          },
+          "utility_nav": {
+            "menu_id": "profile-menu",
+            "style_modifier": "caret-right",
+            "tabindex": "6",
+            "items": [
+              {
+                "url": "#",
+                "text": "Hi Dasha",
+                "icon": "users",
+                "submenu": {
+                  "items": [
+                    {
+                      "text": "Profile",
+                      "url": "url to profile page",
+                      "subtitle": false
+                    },
+                    {
+                      "is_divider": true
+                    },
+                    {
+                      "text": "Log Out",
+                      "url": "#url to logout page",
+                      "subtitle": false
+                    },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
+                    { "subtitle":false, "is_divider": false, "text": false, "url": false }
                   ]
                 }
               }

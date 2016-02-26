@@ -1,0 +1,1 @@
+define(function(){!function(a,b,c,d,e,f){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:54631,hjsv:5},e=b.getElementsByTagName("head")[0],f=b.createElement("script"),f.async=1,f.src=c+a._hjSettings.hjid+d+a._hjSettings.hjsv,e.appendChild(f)}(window,document,"//static.hotjar.com/c/hotjar-",".js?sv=")});

@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+      pkg: grunt.file.readJSON('package.json'),
 
       clean:{
-          js_assets_disable:{
-              src : [ "source/sass/js/**/*.scss", "!source/sass/js/**/_*.scss"]
-          }
+          //js_assets_disable:{
+          //    src : [ "source/sass/js/**/*.scss", "!source/sass/js/**/_*.scss"]
+          //}
       },
       concat: {
         blacklight: {
@@ -86,6 +86,7 @@ module.exports = function(grunt) {
               flatten: true
           },
 
+          /*
           js_assets_enable: {
               files: [{
                   expand: true,
@@ -95,14 +96,13 @@ module.exports = function(grunt) {
                     '**'
                   ],
                   rename: function(dest, src) {
-
                     // this exploits an undocumented feature - see here:
                     //   - http://fettblog.eu/blog/2014/05/27/undocumented-features-rename/
-
                     return dest + src.replace('/_', '/');
                   }
                 }]
           },
+          */
 
           jstree: {
               src:    '**',
@@ -124,6 +124,21 @@ module.exports = function(grunt) {
               dest:   'source/js/dist/lib/blacklight',
               expand:  true
           },
+
+          dropzone: {
+              src:    ['**',  '!*.scss'],
+              cwd:    'source/js/modules/lib/dropzone',
+              dest:   'source/js/dist/lib/dropzone',
+              expand:  true
+          },
+
+          iif_viewer: {
+              src: ['**',  '!*.scss'],
+              cwd:    'source/js/modules/lib/iiif',
+              dest:   'source/js/dist/lib/iiif',
+              expand:  true
+          },
+
           global_dependencies: {
               src:    '**',
               cwd:    'source/js/patternlab/global',
@@ -141,6 +156,13 @@ module.exports = function(grunt) {
               src:    '**',
               cwd:    'source/js/modules/eu/util',
               dest:   'source/js/dist/eu/util',
+              expand: true
+          },
+
+          featherlight: {
+              src:    '**',
+              cwd:    'source/js/modules/bower_components/featherlight/src',
+              dest:   'source/js/dist/lib/featherlight/src',
               expand: true
           },
 
@@ -198,7 +220,7 @@ module.exports = function(grunt) {
           },
 
           pdfjs: {
-            src:    '**',
+            src:    ['**',  '!*.scss'],
             cwd:    'source/js/modules/lib/pdfjs',
             dest:   'source/js/dist/lib/pdfjs',
             expand:  true
@@ -232,6 +254,13 @@ module.exports = function(grunt) {
               expand: true
           },
 
+          sticky: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/sticky/',
+              dest:   'source/js/dist/lib/sticky',
+              expand: true
+          },
+
           version_images: {
               src:    '**',
               cwd:    'source/images',
@@ -247,7 +276,7 @@ module.exports = function(grunt) {
           },
 
           videojs: {
-            src:    '**',
+            src:    ['**',  '!*.scss'],
             cwd:    'source/js/modules/lib/videojs',
             dest:   'source/js/dist/lib/videojs',
             expand:  true
@@ -266,17 +295,19 @@ module.exports = function(grunt) {
             dest:   'source/js/dist/lib/videojs-silverlight',
             expand:  true
           },
+
           photoswipe: {
-            src:    '**',
+            src:    ['**/*.*',  '!**/*.scss'],
             cwd:    'source/js/modules/lib/photoswipe',
             dest:   'source/js/dist/lib/photoswipe',
             expand:  true
           },
-          iif_viewer: {
-            src:    '**',
-            cwd:    'source/js/modules/lib/iiif',
-            dest:   'source/js/dist/lib/iiif',
-            expand:  true
+
+          xeditable: {
+              src: ['**',  '!*.scss',  '!**/*.scss'],
+              cwd:    'source/js/modules/lib/x-editable',
+              dest:   'source/js/dist/lib/x-editable',
+              expand:  true
           }
           //,
           //non_js: {
@@ -302,6 +333,28 @@ module.exports = function(grunt) {
           }
       },
 
+      watch: {
+        // Trigger compass to compile the sass
+        compass: {
+            files: ['source/**/*.{scss,sass}', '!source/js/dist/**'],
+            tasks: ['compass:dev']
+        },
+        // Move the JavaScript to dist using the default grunt task
+        scripts: {
+          files: ['source/js/**/*.js', '!**/dist/**'],
+          tasks: ['default']
+        },
+        // Fire the patternlab build process
+        patternlab: {
+          files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json', 'source/js/dist/**/*.js', 'source/css/**/*.css'],
+          tasks: ['shell:patternlab'],
+          options: {
+            spawn: false,
+            livereload: 8002
+          }
+        }
+      },
+
       mkdir: {
           version:{
               options:{
@@ -310,15 +363,28 @@ module.exports = function(grunt) {
           }
       },
 
+      shell: {
+        patternlab: {
+          command: "php core/builder.php -g"
+        }
+      },
+
       compass: {
-          js_assets: {
+
+          dev: {
+            options: {
+                basePath: 'source'
+            }
+          },
+
+          js_components: {
               options: {
-                  cssDir: 'source/js',
-                  sassDir: 'source/sass/js'
+                  cssDir:  'source/js' + (grunt.option('component') ? '/' + grunt.option('component') : ''),
+                  sassDir: 'source/js' + (grunt.option('component') ? '/' + grunt.option('component') : '')
               },
               files: [{
                   expand: true,
-                  src: ['**.scss'],
+                  src: ['**/*.scss']
               }]
           },
 
@@ -344,11 +410,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('freeze-version', function(){
-
-      // # grunt freeze-version --styleguide-version=0.2
 
       var version = grunt.option('styleguide-version');
 
@@ -374,21 +440,41 @@ module.exports = function(grunt) {
       grunt.task.run('copy:version_images');
   });
 
+  grunt.registerTask('help', function(){
+      console.log('Europeana Styleguide (js) Help');
+      console.log('\ntasks of interest:');
+      console.log('\n\tgrunt js-component-styles');
+      console.log('\n\t\t(compiles js-component scss in the js directory)');
+      console.log('\n\tgrunt js-component-styles --component=modules/lib/midijs');
+      console.log('\n\t\t(targets a specific component)');
+      console.log('\n\tgrunt freeze-version --styleguide-version=1.5');
+      console.log('\n\t\t(creates version)');
+  });
 
   grunt.registerTask('js-component-styles', function(){
 
-      // remove leading underscore in filename
-      grunt.task.run('copy:js_assets_enable');
+      var component = grunt.option('component');
+      var done = function(){
+          grunt.task.run('default');
+          console.log('Regenerate the styleguide to see the changes');
+      };
 
-      // compile pattern-lab css
-      grunt.task.run('compass:js_assets');
+      if(typeof component != 'undefined'){
 
-      // replace leading underscore in filename
-      grunt.task.run('clean:js_assets_disable');
-
-      // push restyled js
-      grunt.task.run('default');
-
+        if(grunt.file.exists('source/js/' + component)){
+            console.log('styling js component at ' + component);
+            grunt.task.run('compass:js_components');
+            done();
+        }
+        else{
+            console.log('Error: no component found at ' + component);
+        }
+      }
+      else{
+          console.log('styling all js components... ');
+          grunt.task.run('compass:js_components');
+          done();
+      }
   }),
 
   grunt.registerTask('default', [
@@ -398,7 +484,9 @@ module.exports = function(grunt) {
        'concat:mlt',
 
        'copy:blacklight',
+       'copy:dropzone',
        'copy:eu',
+       'copy:featherlight',
        'copy:global_dependencies',
        'copy:jquery',
        'copy:jstree',
@@ -415,10 +503,12 @@ module.exports = function(grunt) {
        'copy:purl',
        'copy:require',
        'copy:smartmenus',
+       'copy:sticky',
        'copy:videojs',
        'copy:videojs_aurora',
        'copy:videojs_silverlight',
        'copy:photoswipe',
-       'copy:iif_viewer'
+       'copy:iif_viewer',
+       'copy:xeditable'
   ]);
 }

@@ -12,6 +12,7 @@
         "search": true,
         "myeuropeana": false
     },
+    "page_title": "Europeana",
     "head_meta": [
         {
             "meta_name": "test",
@@ -71,7 +72,7 @@
                 "submenu": false
               },
               {
-                "text": "Channels",
+                "text": "Collections",
                 "url": "#",
                 "submenu": {
                   "items": [

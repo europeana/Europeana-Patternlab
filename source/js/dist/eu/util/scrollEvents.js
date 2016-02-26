@@ -24,8 +24,8 @@ define([], function(){
                 var eEvent  = $trigger.data('fire-on-open');
                 var eParams = $trigger.data('fire-on-open-params');
 
-                $trigger.attr('enabled', false);
-                $('*[data-disable-when-fired="' + eEvent + '"]').attr('enabled', false);
+                $trigger.attr('data-enabled', false);
+                $('*[data-disable-when-fired="' + eEvent + '"]').attr('data-enabled', false);
 
                 // extra params from the "before"
                 var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
@@ -45,11 +45,11 @@ define([], function(){
             if(trigger.hasClass('trigger-chain')){
                 var target = $('#' + trigger.data('fire-on-open-params').trigger + '.scroll-trigger');
                 if(target.length > 0){
-                  trigger.attr('enabled', false);
+                  trigger.attr('data-enabled', false);
                   pullTrigger(target, false);
                 }
                 else{
-                    trigger.attr('enabled', false);
+                    trigger.attr('data-enabled', false);
                     console.warn('scroll-trigger chaining must reference a valid target trigger in the fire-on-open-params');
                 }
             }
@@ -66,7 +66,7 @@ define([], function(){
     };
 
     $(window).on('scroll', function(){
-        $('.scroll-trigger[enabled=true]').each(function(){
+        $('.scroll-trigger[data-enabled="true"]').each(function(){
             triggerIfInView($(this));
         });
     });

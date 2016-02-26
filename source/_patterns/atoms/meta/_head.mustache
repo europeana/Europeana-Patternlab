@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{#page_locale}}
-      <meta http-equiv="Content-Language" content="{{.}}">
-    {{/page_locale}}
     {{# head_meta }}
       <meta {{#meta_property}}property="{{meta_property}}" {{/meta_property}}{{#meta_name}}name="{{meta_name}}" {{/meta_name}}{{#httpequiv}}http-equiv="{{httpequiv}}" {{/httpequiv}}{{#content}}content="{{content}}"{{/content}}>
     {{/ head_meta }}
 
     <title>{{ page_title }}</title>
+    {{# fb_campaigns_on }}
+        <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','//connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1985534038337549');
+        fbq('track', "PageView");
+        {{#fb_campaigns}}
+        fbq('track', '{{.}}');
+        {{/fb_campaigns}}</script>
+    {{/ fb_campaigns_on }}
 
     <!--  js detect -->
     <script>(function(h){h.className = h.className.replace('no-js', 'js')})(document.documentElement)</script>
@@ -51,14 +61,68 @@
     <link rel="stylesheet" href="{{ path }}?{{ cacheBuster }}" media="{{ media }}" />
 {{/ css_files}}
 
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css' media="none" onload="if(media!='all')media='all'">
-    <noscript>
-      <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
-    </noscript>
-
 {{# head_links }}
-    <link {{#title}}title="{{title}}" {{/title}}{{#rel}}rel="{{rel}}" {{/rel}}{{#type}}type="{{type}}" {{/type}}{{#href}}href="{{href}}" {{/href}}{{#media}}media="{{media}}" {{/media}}{{#sizes}}sizes="{{sizes}}" {{/sizes}} />
+  <script type="text/javascript">
+
+    var headLinks = [{
+        rel: 'stylesheet',
+        href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic',
+        media: 'all',
+        css: 'true'
+      }];
+
+      {{# items }}
+        {{# css }}
+          headLinks.push ({
+            {{#title}} "title" : "{{.}}",{{/title}}
+            {{#rel}}   "rel"   : "{{.}}",{{/rel}}
+            {{#type}}  "type"  : "{{.}}",{{/type}}
+            {{#href}}  "href"  : "{{.}}",{{/href}}
+            {{#media}} "media" : "{{.}}",{{/media}}
+            {{#sizes}} "sizes" : "{{.}}",{{/sizes}}
+            "json_close":"0"
+          });
+        {{/ css }}
+      {{/ items }}
+
+    var cb = function(){
+      for(var i=0; i<headLinks.length; i++){
+          var l   = document.createElement('link');
+
+          l.rel   = headLinks[i].rel;
+          l.href  = headLinks[i].href;
+          l.media = headLinks[i].media;
+
+          if(typeof headLinks[i].sizes != 'undefined'){
+            l.sizes = headLinks[i].sizes;
+          }
+          if(typeof headLinks[i].title != 'undefined'){
+            l.title = headLinks[i].title;
+          }
+
+          var h = document.getElementsByTagName('head')[0];
+          h.appendChild(l);
+      }
+    };
+
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if(raf){
+      raf(cb);
+    }
+    else{
+      window.addEventListener('load', cb);
+    }
+  </script>
+  {{# items }}
+    {{^ css }}
+      <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} >
+    {{/ css }}
+  {{/ items }}
 {{/ head_links}}
+{{^ head_links}}
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+{{/ head_links}}
+
 
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{image_root}}favicons/apple-touch-icon-57x57.png?ver=alpha">
@@ -91,6 +155,22 @@
 
   </head>
   <body class="{{ bodyclass }}">
+
+      {{# fb_campaigns_on }}
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1985534038337549&ev=PageView&noscript=1"/></noscript>
+      {{/ fb_campaigns_on }}
+
+      {{# head_links }}
+        <noscript>
+         <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700%7COpen+Sans:400italic,700italic,400,700&amp;subset=latin,greek,cyrillic' rel='stylesheet' type='text/css'>
+         {{# items }}
+            {{# css }}
+              <link {{#title}}title="{{.}}" {{/title}}{{#rel}}rel="{{.}}" {{/rel}}{{#type}}type="{{.}}" {{/type}}{{#href}}href="{{.}}" {{/href}}{{#media}}media="{{.}}" {{/media}}{{#sizes}}sizes="{{.}}" {{/sizes}} >
+            {{/ css }}
+          {{/ items }}
+        </noscript>
+      {{/ head_links}}
 
       <!-- Global svg icons 'use' method see: http://css-tricks.com/svg-sprites-use-better-icon-fonts/ also: http://ianfeather.co.uk/ten-reasons-we-switched-from-an-icon-font-to-svg/  -->
       <svg display="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,3 +227,4 @@
         <path d="M18.99 13.535l2.096 1.818q0.253 0.177 0.126 0.48-0.631 1.944-2.071 3.586-0.202 0.253-0.48 0.126l-2.626-0.909q-1.010 0.808-2.172 1.263l-0.53 2.727q-0.051 0.303-0.354 0.354-1.086 0.202-2.071 0.202t-2.071-0.202q-0.303-0.051-0.354-0.354l-0.53-2.727q-1.237-0.48-2.172-1.263l-2.626 0.909q-0.278 0.126-0.48-0.126-1.439-1.641-2.071-3.586-0.126-0.303 0.126-0.48l2.096-1.818q-0.101-0.53-0.101-1.263t0.101-1.263l-2.096-1.818q-0.253-0.177-0.126-0.48 0.631-1.944 2.071-3.586 0.202-0.253 0.48-0.126l2.626 0.909q0.934-0.783 2.172-1.263l0.53-2.727q0.051-0.303 0.354-0.354 2.071-0.429 4.141 0 0.303 0.051 0.354 0.354l0.53 2.727q1.162 0.455 2.172 1.263l2.626-0.909q0.278-0.126 0.48 0.126 1.439 1.641 2.071 3.586 0.126 0.303-0.126 0.48l-2.096 1.818q0.101 0.53 0.101 1.263t-0.101 1.263zM10.909 16.364q1.692 0 2.891-1.2t1.2-2.891-1.2-2.891-2.891-1.2-2.891 1.2-1.2 2.891q0 1.717 1.187 2.904t2.904 1.187z"></path>
       </symbol>
     </svg>
+

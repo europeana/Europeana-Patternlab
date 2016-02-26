@@ -6,14 +6,15 @@
   "version":{
       "is_alpha": true
   },
-
-  "css_files":
-  [
-    {
-      "path": "../../css/search/screen.css",
-      "media": "all"
-    }
-  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/search/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "css_files": false,
 
   "js_vars": [
     {

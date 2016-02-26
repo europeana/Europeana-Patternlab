@@ -8,12 +8,15 @@
   "page_config": {
     "newsletter": true
   },
-  "css_files": [
-    {
-      "path": "../../css/search/screen.css",
-      "media": "all"
-    }
-  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/search/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "css_files": false,
   "js_files": [
     {
       "path": "../../js/dist/require.js",

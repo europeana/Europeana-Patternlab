@@ -1,6 +1,10 @@
-define(['jquery', 'ga'], function ($, ga){
+define(['jquery', 'ga', 'purl'], function ($, ga){
 
-    var results = $('.result-items');
+    var $url            = $.url();
+    var results         = $('.search-results');
+    var ellipsisObjects = [];
+    var btnGrid         = $('.icon-view-grid').closest('a');
+    var btnList         = $('.icon-view-list').closest('a');
 
     function log(msg){
       console.log(msg);
@@ -8,95 +12,171 @@ define(['jquery', 'ga'], function ($, ga){
 
     var handleEllipsis = function(){
 
-      var texts = results.find('h1:not(.js-ellipsis)');
+      var texts = results.find('.result-items h1:not(.js-ellipsis)');
       var toFix = [];
 
       texts.css('overflow-y', 'auto');
+
       texts.each(function(){
         if($(this).find('a')[0].offsetHeight > $(this).height()){
           $(this).addClass('js-ellipsis');
           toFix.push($(this));
         }
       });
+
       texts.css('overflow-y', 'hidden');
 
       if(toFix.length>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create($(toFix));
+          var ellipsis = EllipsisUtil.create($(toFix));
+          for(var i = 0; i < ellipsis.length; i++){
+              ellipsisObjects.push(ellipsis[i]);
+          }
         });
       }
 
-      var noImageTexts = results.find('.search-list-item.missing-image .item-image:not(.js-ellipsis)');
+      var noImageTexts = results.find('.search-list-item.missing-image .item-image .missing-image-text:not(.js-ellipsis)');
 
       if(noImageTexts.size()>0){
         require(['util_ellipsis'], function(EllipsisUtil){
-          EllipsisUtil.create(noImageTexts, { 'fixed': '<span class="fixed"></span>'});
-          $('.search-list-item.missing-image .fixed').each(function(){
-            var icon = $(this).closest('.item-preview').next('.item-info').find('.icon');
-            if(icon){
-              $(this).parent().after($(this));
-              $(this).html(icon);
-              $(this).css('position', 'static');
+          var ellipsis = EllipsisUtil.create(noImageTexts);
+            for(var i = 0; i < ellipsis.length; i++){
+                ellipsisObjects.push(ellipsis[i]);
             }
-            else{
-              $(this).remove();
-            }
-          });
         });
         noImageTexts.addClass('js-ellipsis');
       }
-
     }
 
+    var simulateUrlChange = function(param, newVal){
+        var state         = {};
+            state[param]  = newVal;
+        var params        = $url.param();
+            params[param] = newVal;
+        var newParams     = $.param(params);
+
+        window.history.pushState(state, '', '?' + newParams);
+    };
+
+    window.onpopstate = function(e){
+        if(e.state){
+            if(e.state.view == 'grid'){
+                showGrid(true);
+            }
+            else if(e.state.view == 'list'){
+                showList(true);
+            }
+            if(typeof e.state.results != 'undefined'){
+                loadResults(e.state.results);
+            }
+        }
+    };
+
+    // fake ajax to assist design
+    var loadResults = function(count){
+        var items      = $('.result-items>li');
+        var itemsCount = items.size();
+
+        if(itemsCount < count){
+            var toCopy = $('.result-items>li').slice(0, count - itemsCount);
+            toCopy.each(function(i, ob){
+              $(ob).parent().append($(ob).clone());
+            });
+
+            if($('.result-items>li').size() < count){
+                loadResults(count);
+            }
+        }
+        else if(itemsCount > count){
+            var toRemove = $('.result-items>li').slice(count, itemsCount);
+            toRemove.remove()
+        }
+        styleResultsMenu(count);
+    }
+
+    var styleResultsMenu = function(count){
+
+        if($('.result-actions a.dropdown-trigger').size() > 0){
+            var text = $('.result-actions a.dropdown-trigger').text();
+            var int  = text.match(/\d+/)[0];
+
+            count = count ? count : int;
+            text = text.replace(int, '');
+
+            $('.result-actions a.dropdown-trigger').html(text + '<span class="active">' + count + '</span>');
+        }
+    }
+
+    var bindResultMenu = function(e){
+      styleResultsMenu();
+      $('#results_menu .dropdown-menu a').on('click', function(e){
+         e.preventDefault();
+         var perPage = parseInt($(this).text());
+         simulateUrlChange('results', perPage);
+         loadResults(perPage);
+      });
+    }
+
+    var loadView = function(){
+      return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
+    };
+
+    var saveView = function(view){
+      if(typeof(Storage) != 'undefined') {
+        localStorage.setItem('eu_portal_results_view', view);
+      }
+    };
+
+    var showGrid = function(save){
+      $('body').addClass('display-grid');
+      btnGrid.addClass('is-active');
+      btnList.removeClass('is-active');
+      if(save){
+        saveView('grid');
+      }
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].enable();
+      }
+
+      handleEllipsis();
+    };
+
+    var showList = function(save){
+      $('body').removeClass('display-grid');
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].disable();
+      }
+
+      btnList.addClass('is-active');
+      btnGrid.removeClass('is-active');
+      if(save){
+        saveView('list');
+      }
+    };
 
     var bindViewButtons = function(){
-      var btnGrid = $('.icon-view-grid').closest('a');
-      var btnList = $('.icon-view-list').closest('a');
-
-      var loadView = function(){
-        return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
-      };
-
-      var saveView = function(view){
-        if(typeof(Storage) != 'undefined') {
-          localStorage.setItem('eu_portal_results_view', view);
-        }
-      };
-
-      var showGrid = function(save){
-        results.addClass('grid');
-        btnGrid.addClass('is-active');
-        btnList.removeClass('is-active');
-        if(save){
-          saveView('grid');
-        }
-        handleEllipsis();
-      };
-
-      var showList = function(save){
-        results.removeClass('grid');
-        btnList.addClass('is-active');
-        btnGrid.removeClass('is-active');
-        if(save){
-          saveView('list');
-        }
-      };
 
       btnGrid.on('click', function(e){
         e.preventDefault();
+        simulateUrlChange('view', 'grid');
         showGrid(true);
       });
 
       btnList.on('click', function(e){
         e.preventDefault();
+        simulateUrlChange('view', 'list');
         showList(true);
       });
 
-      if(loadView()=="grid"){
-        showGrid();
+      var urlView = $url.param('view');
+
+      if(urlView){
+          urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
-        showList();
+          loadView() == 'grid' ? showGrid() : showList();
       }
     }
 
@@ -114,8 +194,11 @@ define(['jquery', 'ga'], function ($, ga){
     }
 
     var initPage = function(){
-      bindViewButtons();
+      //bindViewButtons();
       bindGA();
+      //bindResultMenu();
+
+      //simulateUrlChange('results', $('.result-items>li').size());
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');

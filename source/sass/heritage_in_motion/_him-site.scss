@@ -3,14 +3,9 @@
 
 //Logo for Search
 .logo {
-  background-image: url("../../images/fpo_avatar.png");
+  background-image: url("../../images/heritage-in-motion/HiM_logo_landscape.png");
   .svg &{
-    background-image: url("../../images/fpo_avatar.png");
-      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        //background-image: url("../../images/europeana-logo-symbol.svg");
-        //min-width:50px;
-        //max-width:50px;
-      }
+    background-image: url("../../images/heritage-in-motion/HiM_logo_landscape.svg");
   }
 }
 
@@ -75,7 +70,7 @@
 			width: 27%;
 		}
 		@media all and (min-width: $bp-large) {
-			width: 15%;
+			width: 18%;
 		}
 	}
 
@@ -96,7 +91,7 @@
 	}
 }
 
-@media all and (min-width: $bp-med) {
+@media all and (min-width: $bp-med) and (min-height: 850px) {
 	.site-hero{
 		height: 80%;
 	}
@@ -211,8 +206,23 @@
 	margin-bottom: 0;
 }
 
+.footer_logo {
+    max-width: 120px;
+}
 
+.l-supportedby .gi{
 
+	@include span(8 of 24);
+
+	@media all and (min-width: $bp-med) {
+	  @include span(4 of 24);
+	}
+
+	&:last-child{
+		margin-right: 0;
+	}
+
+}
 
 
 
