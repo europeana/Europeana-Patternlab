@@ -194,11 +194,11 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var initPage = function(){
-      bindViewButtons();
+      //bindViewButtons();
       bindGA();
-      bindResultMenu();
+      //bindResultMenu();
 
-      simulateUrlChange('results', $('.result-items>li').size());
+      //simulateUrlChange('results', $('.result-items>li').size());
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
