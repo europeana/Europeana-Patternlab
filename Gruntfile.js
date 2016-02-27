@@ -344,10 +344,19 @@ module.exports = function(grunt) {
           files: ['source/js/**/*.js', '!**/dist/**'],
           tasks: ['default']
         },
+        // Fire the patternlab markup build process
+        patternlab_markup: {
+          files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json'],
+          tasks: ['shell:patternlab_markup'],
+          options: {
+            spawn: false,
+            livereload: 8002
+          }
+        },
         // Fire the patternlab build process
-        patternlab: {
-          files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json', 'source/js/dist/**/*.js', 'source/css/**/*.css'],
-          tasks: ['shell:patternlab'],
+        patternlab_full: {
+          files: ['source/js/dist/**/*.js', 'source/css/**/*.css'],
+          tasks: ['shell:patternlab_full'],
           options: {
             spawn: false,
             livereload: 8002
@@ -364,8 +373,11 @@ module.exports = function(grunt) {
       },
 
       shell: {
-        patternlab: {
-          command: "php core/builder.php -g"
+        patternlab_full: {
+          command: "php core/builder.php --generate"
+        },
+        patternlab_markup: {
+          command: "php core/builder.php --generate --patternsonly"
         }
       },
 

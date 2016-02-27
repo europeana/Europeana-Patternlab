@@ -67,15 +67,17 @@
   </div>
 </header>
 
+
+
+
+<!-- Collapsed drawer menu -->
+<nav class="drawer menu-right nav_primary">
+
 {{#options.search_active}}
   <div class="search">
     {{> molecules/forms/search }}
   </div>
 {{/options.search_active}}
-
-
-<!-- Collapsed drawer menu -->
-<nav class="drawer menu-right nav_primary">
 
   <ul class="js-hack-smartmenu sm nav-access {{style_modifier}}">
     {{#options.settings_active}}
@@ -97,6 +99,7 @@
       {{/items}}
       {{/utility_nav}}
     {{/options.settings_active}}
+
     {{#primary_nav}}
       {{#items}}
       {{^subtitle}}
