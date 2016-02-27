@@ -48,14 +48,18 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     }
 
-    var simulateUrlChange = function(param, newVal){
+    var simulateUrlChange = function(param, newVal, replace){
         var state         = {};
             state[param]  = newVal;
         var params        = $url.param();
             params[param] = newVal;
         var newParams     = $.param(params);
-
-        window.history.pushState(state, '', '?' + newParams);
+        if(replace){
+            window.history.replaceState(state, '', '?' + newParams);
+        }
+        else{
+            window.history.pushState(state, '', '?' + newParams);
+        }
     };
 
     window.onpopstate = function(e){
@@ -198,7 +202,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       bindGA();
       bindResultMenu();
 
-      simulateUrlChange('results', $('.result-items>li').size());
+      simulateUrlChange('results', $('.result-items>li').size(), true);
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
