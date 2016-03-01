@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="Firefox_440_Linux.ResponsivePageTest" errors="0" failures="0" tests="1" time="4.524">
+<testcase classname="Firefox_440_Linux.ResponsivePageTest" name="testNoScrollSearchObject" time="4.524"/>
+<system-out><![CDATA[[LOG] jquery = function]]></system-out>
+</testsuite>
