@@ -11,6 +11,35 @@
   <div class="l-content">
     <div class="maincontent">
 
+
+    <div class="h4">Statistics dashboard</div>
+    <h1>Provider name here</h1>
+
+    <div class="section prototype-image">
+      <br>
+      <br>
+      <br>
+      <br>
+      Large line graph goes here
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <div class="section prototype-image">
+      <br>
+      <br>
+      <br>
+      <br>
+      Large line graph goes here
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
     </div>
   </div>
   {{! END l-content }}
@@ -18,7 +47,10 @@
 
   <div class="l-sidebar">
 
-  {{> molecules-help-contact(title: "Got more Questions?") }}
+  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
+  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
+  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
+  {{> molecules/charts/chart-pie(title: "Example Pie chart") }}
 
   </div>
   {{! end sidebar }}

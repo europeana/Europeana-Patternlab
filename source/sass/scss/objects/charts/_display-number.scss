@@ -1,0 +1,30 @@
+
+
+.stat-display{
+
+	margin-bottom: $space;
+	border-bottom: 1px solid $gray-lighter;
+
+	figcaption{
+		text-transform: uppercase;
+		font-weight: bold;
+		font-style: normal;
+		text-align: left;
+	}
+}
+
+.stat-wrapper{
+	text-align: center;
+}
+
+.stat-number{
+	margin: $space 0;
+	padding: 1em;
+	line-height: 1;
+	display: inline-block;
+	border-radius: 300px;
+	background-color: $accent;
+	color: $white;
+	font-size: 2em;
+	font-weight: bold;
+}
