@@ -5,8 +5,8 @@ require.config({
     global:                        '../eu/global',
     jquery:                        '../lib/jquery',
     jqDropdown:                    '../lib/jquery.dropdown',
-    menus:                         '../global/menus'
-
+    menus:                         '../global/menus',
+    util_scrollEvents:             '../eu/util/scrollEvents'
   }
 });
 
