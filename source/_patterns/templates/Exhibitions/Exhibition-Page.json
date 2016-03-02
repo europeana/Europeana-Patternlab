@@ -1,0 +1,45 @@
+{
+  "js_files":
+  [
+      {
+        "path": "../../js/dist/require.js",
+        "data_main": "../../js/dist/main/main-virtual-exhibitions"
+      }
+
+  ],
+  "page": {
+
+    "elements": {
+      "present": true,
+      "items": [
+        {
+          "type": "exhibition type",
+
+          "essences": {
+
+            "present": "true",
+
+            "items": [
+              {
+                "url": "http://xxx.yz",
+                "is_text": "true"
+              },
+              {
+                "url": "http://xxx.yz",
+                "is_video": "true"
+              },
+              {
+                "url": "http://xxx.yz",
+                "is_image": "true"
+              },
+              {
+                "url": "http://xxx.yz",
+                "is_captioned_image": "true"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

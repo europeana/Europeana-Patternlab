@@ -1,0 +1,36 @@
+{{> atoms/iconography/svgicons-pro}}
+{{> atoms/iconography/svgicons-user }}
+
+{{> organisms/global/header_v2}}
+
+
+<!-- Start content -->
+<main role="main" class="l-page">
+  <div class="lc">
+
+    <div class="l-content">
+
+      <div class="page_header">
+        {{> molecules/navigation/breadcrumbs}}
+      </div>
+
+      {{# page }}
+      <div id="maincontent" class="maincontent">
+          <h1>Exhibit</h1>
+
+          {{#elements.present}}
+            {{#elements.items}}
+              {{> organisms/exhibit/element}}
+            {{/elements.items}}
+          {{/elements.present}}
+      </div>
+      {{/ page }}
+    </div>
+
+  </div>
+</main>
+<!-- End Content -->
+
+
+{{> organisms/global/footer }}
+
