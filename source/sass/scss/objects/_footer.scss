@@ -66,6 +66,10 @@
 
 .footer_logo{
 	margin-left: -$space;
+
+  @media all and (min-width: $bp-med) {
+		margin-right: $pad-double;
+	}
 }
 
 
