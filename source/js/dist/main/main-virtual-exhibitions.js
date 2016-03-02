@@ -1,8 +1,11 @@
 require.config({
   paths: {
     exhibitions:                   '../eu/exhibitions',
-    jquery:                        '../lib/jquery',
+    featureDetect:                 '../global/feature-detect',
     global:                        '../eu/global'
+    jquery:                        '../lib/jquery',
+    jqDropdown:                    '../lib/jquery.dropdown',
+    menus:                         '../global/menus'
 
   }
 });
