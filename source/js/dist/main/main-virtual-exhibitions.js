@@ -2,6 +2,7 @@ require.config({
   paths: {
     exhibitions:                   '../eu/exhibitions',
     jquery:                        '../lib/jquery',
+    global:                        '../eu/global'
 
   }
 });
@@ -9,7 +10,7 @@ require.config({
 require(['jquery'], function( $ ) {
   $.holdReady( true );
 
-  require(['exhibitions'], function( exhibitions ) {
+  require(['exhibitions', 'global'], function( exhibitions ) {
 
       console.log('got exhibitions ' + exhibitions.initPage )
   });
