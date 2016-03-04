@@ -11,7 +11,6 @@ require.config({
 });
 
 require(['jquery'], function( $ ) {
-  $.holdReady( true );
 
   require(['exhibitions', 'global'], function( exhibitions ) {
 

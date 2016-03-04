@@ -1,0 +1,21 @@
+<section class="ve-slide {{#is_first}}first{{/is_first}}" >
+
+   {{#is_text}}
+      <div class="text-element exhibition-description">
+        {{{body}}}
+      </div>
+   {{/is_text}}
+
+   {{#is_image}}
+     {{#image}}
+       <img srcset="{{#versions}}{{#large}}{{url}}{{/large}} 1200w, {{/versions}}
+                    {{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}"
+            src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
+     {{/image}}
+
+     {{#caption}}
+       <h2 class="ve-image-caption">{{.}}</h2>
+     {{/caption}}
+
+   {{/is_image}}
+</section>

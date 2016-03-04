@@ -1,45 +1,81 @@
 {
-  "js_files":
-  [
-      {
-        "path": "../../js/dist/require.js",
-        "data_main": "../../js/dist/main/main-virtual-exhibitions"
-      }
+  "js_files": [{
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+    }
 
   ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/virtual-exhibitions/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "css_files": false,
+
+  "bg_imaged_texts":{
+    "present": "true",
+    "items": [
+      {
+        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-1.jpg",
+        "text": "Some text..."
+      },
+      {
+        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-2.jpg",
+        "text": "Some more text..."
+      },
+      {
+        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-3.jpg",
+        "text": "Yet more text ..."
+      },
+      {
+        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-4.jpg",
+        "text": "Even more text still..."
+      }
+    ]
+  },
+
   "page": {
-
-    "elements": {
-      "present": true,
-      "items": [
-        {
-          "type": "exhibition type",
-
-          "essences": {
-
+        "title": "Page title",
+        "url": "/example-page",
+        "elements": {
             "present": "true",
-
-            "items": [
+            "items":[
               {
-                "url": "http://xxx.yz",
-                "is_text": "true"
+                  "is_first": true,
+                  "is_text": true,
+                  "is_image": false,
+                  "type": "text",
+                  "body": "Long and winding <strong>body</string> text",
+                  "body_striped": "Long and winding body text"
               },
               {
-                "url": "http://xxx.yz",
-                "is_video": "true"
-              },
-              {
-                "url": "http://xxx.yz",
-                "is_image": "true"
-              },
-              {
-                "url": "http://xxx.yz",
-                "is_captioned_image": "true"
+                  "type": "image",
+                  "is_text": false,
+                  "is_image": true,
+                  "image":
+                  {
+                      "versions":
+                      {
+                          "thumbnail": {
+                              "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+                              "width": 200,
+                              "height": 213,
+                              "orientation": "portrait"
+                          },
+                          "large": {
+                              "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png",
+                              "width": 16000,
+                              "height": 1698,
+                              "orientation": "landscape"
+                          }
+                      }
+                  },
+                  "caption": "Short description"
               }
             ]
-          }
         }
-      ]
-    }
   }
 }

@@ -1,0 +1,176 @@
+<!-- EXPERIMENTAL -->
+
+<style>
+
+.foyer-card{
+  float: left;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.foyer-card img{
+  width: 100%;
+  border: 0;
+  margin: 0;
+}
+
+.foyer-card .card-nav{
+  color:             #fff;
+  cursor:            pointer;
+  font-size:         2em;
+  font-weight:       bold;
+  position:          absolute;
+  top:               50%;
+  transform:         translateY(-50%);
+}
+
+.foyer-card .card-nav-left{
+  left: 0.5em;
+}
+
+.foyer-card .card-nav-right{
+  right: 0.5em;
+}
+
+.foyer-card .text-box{
+  left:              0;
+  padding:           0.2em 3em;
+  position:          absolute;
+  top:               50%;
+  transform:         translateY(-50%);
+  width:             100%;
+}
+.foyer-card .text-box.hide-left{
+  left: -100%;
+}
+.foyer-card .text-box.hide-right{
+  left: 100%;
+}
+.foyer-card .text-box.animating{
+  transition: left 1s;
+  webkit-transition: left 1s;
+}
+
+.foyer-card .text-box.title{
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+.foyer-card .text-box.credits{
+  height: 100%;
+}
+.foyer-card .text-box.description{
+  height: 100%;
+}
+
+
+</style>
+
+<figure class="foyer-card" data-state="title">
+  <img srcset="/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png 1600w,
+                /images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png 1200w,
+                /images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-quarter.png 800w"
+       src="/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png" />
+
+  <div class="text-box text-element title">
+    Wiki Loves Art Nouveau
+  </div>
+  <div class="text-box text-element description hide-right">
+    Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces
+  </div>
+  <div class="text-box text-element text-element credit hide-right">
+    Credits...
+  </div>
+  <span class="card-nav card-nav-left">
+    &lt;
+  </span>
+  <span class="card-nav card-nav-right">
+    &gt;
+  </span>
+</figure>
+
+<script>
+  $(document).ready(function(){
+
+      function Card($el){
+          var self  = this;
+          self.state = 0;
+          self.texts = $el.find('.text-box');
+          $el.find('.card-nav-left').on('click', function(){
+              self.left();
+          });
+          $el.find('.card-nav-right').on('click', function(){
+              self.right();
+          });
+      };
+
+      Card.prototype.shiftState = function(shift){
+
+          // hide the current
+          var text = $(this.texts.get(this.state));
+
+          text.addClass('animating');
+          text.addClass(shift > 0 ? 'hide-left' : 'hide-right');
+
+          // show the next
+
+          var stateIndex = this.state + shift;
+          if(stateIndex == this.states.length){
+              stateIndex = 0;
+          }
+          else if(stateIndex < 0){
+              stateIndex = this.states.length -1;
+          }
+          this.state = stateIndex;
+          var next   = $(this.texts.get(this.state));
+
+          next.removeClass('animating');
+          if(shift > 0){
+              next.addClass('hide-right')
+              next.removeClass('hide-left')
+              next.addClass('animating')
+              next.removeClass('hide-right')
+          }
+          else{
+              next.addClass('hide-left')
+              next.removeClass('hide-right')
+              next.addClass('animating')
+              next.removeClass('hide-left')
+          }
+
+          // prep the next animation
+          var next = this.state == this.states.length -1 ? 0 : this.state + 1;
+          var prev = this.state == 0 ? this.states.length -1 : this.state - 1;
+
+          next = $(this.texts.get(next));
+          prev = $(this.texts.get(prev));
+
+          if(next.hasClass('hide-left')){
+            next.removeClass('animating');
+            next.removeClass('hide-left');
+            next.addClass('hide-right');
+          }
+          if(prev.hasClass('hide-right')){
+            prev.removeClass('animating');
+            prev.removeClass('hide-right');
+            prev.addClass('hide-left');
+          }
+      }
+
+      Card.prototype.left = function(){
+          this.shiftState(-1);
+      }
+
+      Card.prototype.right = function(){
+          this.shiftState(1);
+      }
+
+      Card.prototype.states = ['title', 'description', 'credits'];
+
+      $('.foyer-card').each(function(){
+          new Card($(this));
+      });
+  })
+</script>
