@@ -1,16 +1,44 @@
-<section class="ve-slide {{#is_first}}first{{/is_first}}" >
+<section class="ve-slide {{#is_first}}first{{/is_first}}">
+
+   {{#is_intro}}
+     <div class="ve-intro" style="background-image:url({{background_image_url}})">
+
+       <div class="ve-title-group">
+         {{#title}}
+         <span class="ve-title">
+            {{.}}
+          </span>
+         {{/title}}
+
+         {{#subtitle}}
+         <span class="ve-subtitle">
+            {{{.}}}
+          </span>
+         {{/subtitle}}
+       </div>
+
+       {{#background_image_credit}}
+          <span class="ve-image-credit">
+            {{.}}
+          </span>
+       {{/background_image_credit}}
+
+     </div>
+   {{/is_intro}}
 
    {{#is_text}}
-      <div class="text-element exhibition-description">
+      <div class="text-element ve-description">
         {{{body}}}
       </div>
    {{/is_text}}
 
    {{#is_image}}
      {{#image}}
-       <img srcset="{{#versions}}{{#large}}{{url}}{{/large}} 1200w, {{/versions}}
-                    {{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}} 800w{{/versions}}"
-            src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
+       <div class="ve-image">
+         <img srcset="{{#versions}}{{#large}}{{url}}{{/large}} 1200w, {{/versions}}
+                      {{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}} 800w{{/versions}}"
+              src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
+       </div>
      {{/image}}
 
      {{#caption}}
@@ -18,4 +46,25 @@
      {{/caption}}
 
    {{/is_image}}
+
+   {{#is_title_image_text}}
+      <div class="ve-title-image-text cf" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}}>
+        {{#title}}<h2>{{.}}</h2>{{/title}}
+        <div class="ve-col-50-left">
+         {{#image}}
+           <div class="ve-image">
+             <!-- srcset stretches the image here -->
+             <img src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
+             {{#caption}}
+               <h2 class="ve-image-caption">{{.}}</h2>
+             {{/caption}}
+           </div>
+         {{/image}}
+        </div>
+        <div class="ve-col-50-right">
+          {{{body}}}
+        </div>
+      </div>
+   {{/is_title_image_text}}
+
 </section>

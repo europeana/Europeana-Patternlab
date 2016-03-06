@@ -2,191 +2,46 @@
 {{> atoms/iconography/svgicons-user }}
 {{> organisms/global/header_v2}}
 
-
-<style>
-
-.ve-slide-container {
-  height:   100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.ve-slide{
-  poistion: relative;
-}
-
-.ve-slide.hide-above{
-  top:      -100%;
-  position: absolute;
-}
-.ve-slide.hide-below{
-  top:      100%;
-  position: absolute;
-}
-.ve-slide.animating{
-  transition: margin-top 1s;
-  transition: margin-bottom 1s;
-  webkit-transition: margin-top 1s;
-  webkit-transition: margin-bottom 1s;
-}
-
-
-
-
-
-.ve-slide-container .slide-nav{
-  color:             #fff;
-  cursor:            pointer;
-  font-size:         2em;
-  font-weight:       bold;
-  position:          absolute;
-  left:              50%;
-
-  text-shadow:       0 0 1px #000;
-
-  transform:         translateX(-50%);
-}
-
-.ve-slide-container .slide-nav-next{
-  bottom: 0.5em;
-}
-
-.ve-slide-container .slide-nav-prev{
-  top: 0.5em;
-}
-
-
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script>
-/*
-  $(document).ready(function(){
-
-      function SlideSet($el){
-          var index  = 0;
-          var slides = $el.find('.ve-slide');
-
-          var next = function(){
-
-              // move current out the way
-              var current = $(slides.get(index))
-              current.addClass('animating');
-              current.addClass('hide-above');
-
-              index ++;
-          };
-          var prev = function(){
-
-              slides.get(index).addClass('animating');
-              slides.get(index).addClass('hide-above');
-              // move current out the way
-
-              index --;
-          };
-          $el.find('.slide-nav-next').on('click', function(){
-              next();
-          });
-          $el.find('.slide-nav-prev').on('click', function(){
-              prev();
-          });
-      };
-
-      new SlideSet($('.ve-slide-container'));
-
-  });
-*/
-</script>
-
-
 <!-- Start content -->
 <main role="main" class="l-page">
 
-    <div class="page_header">
-      {{> molecules/navigation/breadcrumbs}}
+  <div class="page_header">
+    {{>molecules/virtual-exhibitions/browse-breadcrumb.mustache}}
+  </div>
+
+  <div id="maincontent" class="maincontent">
+
+  {{# page }}
+    <div class="ve-slide-container">
+      <span class="slide-nav slide-nav-prev">^</span>
+      {{# elements.present }}
+        <h4 class="ve-progress-nav">
+          {{# elements.items }}
+            <span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span>
+          {{/ elements.items }}
+        </h4>
+        {{# elements.items }}
+          {{> organisms/virtual-exhibitions/main-slide}}
+        {{/ elements.items }}
+      {{/ elements.present }}
+      <span class="slide-nav slide-nav-next">v</span>
+      <a id="ve-end"/>
     </div>
+  {{/ page }}
 
-    <div id="maincontent" class="maincontent">
+  <div class="lc">
+    <h1>Foyer</h1>
+    {{> organisms/virtual-exhibitions/foyer-card}}
 
-    <!--
-      {{# pages.present }}
-        <div class="ve-slide-container">
-          <span class="slide-nav slide-nav-prev">^</span>
-          {{# pages.items }}
-            {{> organisms/virtual-exhibitions/main-slide}}
-          {{/ pages.items }}
-          <span class="slide-nav slide-nav-next">v</span>
-        </div>
-      {{/ pages.present }}
-     -->
+    {{> organisms/virtual-exhibitions/foyer-card}}
 
-      {{# page }}
-        <div class="ve-slide-container">
-          <span class="slide-nav slide-nav-prev">^</span>
-          {{# elements.present }}
-            {{# elements.items }}
-              {{> organisms/virtual-exhibitions/main-slide}}
-            {{/ elements.items }}
-          {{/ elements.present }}
-          <span class="slide-nav slide-nav-next">v</span>
-        </div>
-      {{/ page }}
+    {{> organisms/virtual-exhibitions/foyer-card}}
 
-
-
-
-<!--
-      <style>
-      .ve-parallax-container{
-        height: 80vh;
-        overflow-y: auto;
-        perspective: 1px;
-        position: relative;
-        width: 100%;
-      }
-
-      .ve-parallax-item{
-        background-attachment:fixed;
-        background-repeat:no-repeat;
-        background-size:100% 100%;
-        height:700px;
-        position: relative;
-        width: 100%;
-        z-index: 1;
-      }
-      </style>
-
-      <div class="ve-parallax-container">
-        {{# bg_imaged_texts.present }}
-          {{# bg_imaged_texts.items }}
-            <div class="ve-parallax-item" style="background-image:url({{bg}});">
-              <div class="text-element" style="height: 4em; z-index: 2;">{{text}}</div>
-            </div>
-          {{/ bg_imaged_texts.items }}
-        {{/ bg_imaged_texts.present }}
-      </div>
--->
-
-      <h1>Foyer</h1>
-
-      <div style="width: 20%; float: left; margin-right: 5%;">
-        {{> organisms/virtual-exhibitions/captioned-image}}
-      </div>
-      <div style="width: 20%; float: left; margin-right: 5%;">
-        {{> organisms/virtual-exhibitions/captioned-image}}
-      </div>
-      <div style="width: 20%; float: left; margin-right: 5%;">
-        {{> organisms/virtual-exhibitions/captioned-image}}
-      </div>
-      <div style="width: 20%; float: left; margin-right: 5%;">
-        {{> organisms/virtual-exhibitions/captioned-image}}
-      </div>
-
-    </div>
+    {{> organisms/virtual-exhibitions/foyer-card}}
+  </div>
+</div>
 
 </main>
 <!-- End Content -->
 
 {{> organisms/global/footer }}
-

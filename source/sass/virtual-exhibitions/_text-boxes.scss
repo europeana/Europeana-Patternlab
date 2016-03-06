@@ -1,0 +1,360 @@
+@import "../scss/generic/variables";
+@import "../scss/grid/susy";
+@import "variables";
+
+//$susy: (
+//  columns: 24,
+//  gutters: 1/2,
+//  math: fluid,
+//  use-custom: (
+//    box-sizing: false,
+//  ),
+//  global-box-sizing: border-box
+//);
+
+// @import "../scss/layout/layout-common-susy";
+
+
+.ve-nav-lists{
+  margin-left: 2%;
+}
+
+.text-element{
+  padding:           1.5em;
+  margin:            1em auto;
+}
+
+.ve-state-buttons{
+  bottom:     1em;
+  position:   absolute;
+  text-align: center;
+  width:      100%;
+  z-index:    2;
+}
+.ve-state-button-on,
+.ve-state-button-off{
+  background-image: url(../../images/formcontrols.png);
+  display:          inline-block;
+  width:            20px;
+  height:           20px;
+}
+
+.ve-state-button-off{
+  background-position: -88px 0;
+}
+.ve-state-button-on{
+  background-position: -110px 0;
+}
+
+.ve-progress-nav{
+  position:    fixed;
+  right:       3.5em;
+  top:         50%;
+  transform:   translateY(-50%);
+  width:       0;
+  z-index:     3;
+}
+
+.ve-progress-nav .ve-state-button-on,
+.ve-progress-nav .ve-state-button-off{
+  display:       block;
+  margin-bottom: 1em;
+}
+
+.ve-progress-nav .ve-state-button-on:not(.ve-first):before,
+.ve-progress-nav .ve-state-button-off:not(.ve-first):before{
+  background-color: #ddebee;
+  content:          "";
+  display:          block;
+  height:           1em;
+  left:             10px;
+  position:         relative;
+  margin-bottom:    1em;
+  top:              -1em;
+  width:            1px;
+}
+
+
+@media all and (min-width: $bp-small-2) {
+
+  .ve-title-group,
+  .text-element.ve-description{
+      width: 100%;
+  }
+
+}
+
+@media all and (min-width: $bp-small-3) {
+}
+
+@media all and (min-width: $bp-med) {
+
+  .ve-title-group,
+  .text-element.ve-description{
+      width: 50%;
+  }
+}
+
+@media all and (min-width: $bp-xl) {
+}
+
+
+.ve-intro{
+  background-repeat: no-repeat;
+  background-size:   100% auto;
+  height:            80vh;
+  max-height:        80vh;
+  position:          relative;
+}
+
+
+.ve-title-group,
+.ve-image-credit{
+  color: $colour_overlaid_text;
+  display: block;
+  position: absolute;
+}
+
+.ve-title-group{
+  font-weight:    bold;
+  left:           1em;
+  padding-right:  2em;
+  padding-bottom: 4em;
+  top:            2em;
+}
+
+.ve-title{
+  display: block;
+  font-size: 1.6em;
+  margin-bottom: 1.2em;
+}
+
+.ve-subtitle{
+  display: block;
+  font-weight: 1.2em;
+}
+
+.ve-slide-container {
+
+  height:   100%;
+  overflow: hidden;
+  position: relative;
+
+  .ve-slide{
+
+    poistion: relative;
+
+    .ve-image{
+
+      height:     100%;
+      text-align: center;
+
+      img{
+        max-height: 100%;
+      }
+    }
+
+    .ve-col-50-left{
+      height:     100%;
+
+      // to limit image height adjust for header
+      padding-top:  4em;
+      position:     relative;
+      top:         -4em;
+
+
+      @media all and (min-width: $bp-med) {
+        @include span(12 of 24);
+      }
+    }
+
+    .ve-col-50-right{
+
+      @media all and (min-width: $bp-med) {
+        @include span(last 12 of 24);
+      }
+    }
+
+  }
+
+  .slide-nav{
+    color:             #fff;
+    cursor:            pointer;
+    font-size:         2em;
+    font-weight:       bold;
+    position:          absolute;
+    left:              50%;
+    text-shadow:       0 0 1px #000;
+    transform:         translateX(-50%);
+  }
+
+  .slide-nav-next{
+    bottom: 0.5em;
+  }
+
+  .slide-nav-prev{
+    top: 0.5em;
+  }
+}
+
+.ve-image-credit{
+  background-color:  rgba(0,0,0,0.5);
+  bottom: 1em;
+  font-weight: bold;
+  padding: 1em;
+  right:  1em;
+  font-size: 0.9em;
+}
+
+.ve-image-caption{
+  text-align: center;
+}
+
+.ve-image-caption:before{
+  content: "“";
+  display: block;
+}
+
+.ve-image-caption:after{
+  content: "”";
+  display: block;
+}
+
+.ve-title-image-text{
+  background-color: $bg_colour_title_image_text;
+  // min-height: 80vh;
+  height: 80vh;
+  padding: 1em 2%;
+}
+
+.ve-foyer-card{
+  position: relative;
+  margin:   0;
+  overflow: hidden;
+  padding:  0;
+  height:   auto;
+  float:    left;
+  width:    20%;
+  margin:   1em 2em;
+
+  &:before{
+    content:     "";
+    display:     block;
+    padding-top: 100%;
+  }
+
+  .inner,
+  img{
+     position:  absolute;
+     top:       0;
+     bottom:    0;
+     left:      0;
+     right:     0;
+  }
+
+  img{
+    width:      100%;
+    height:     100%;
+    max-width:  100%;
+    max-height: 100%;
+    border:     0;
+    margin:     0;
+    object-fit: cover;
+  }
+
+  .no-js .ve-foyer-card .ve-card-nav{
+    display: none;
+  }
+
+  .ve-card-nav{
+    color:          #fff;
+    cursor:         pointer;
+    font-size:      2em;
+    font-weight:    bold;
+    position:       absolute;
+    top:            50%;
+    transform:      translateY(-50%);
+    z-index:        2;
+  }
+
+
+  .ve-card-nav-left{
+    left: 0.5em;
+  }
+
+  .ve-card-nav-right{
+    right: 0.5em;
+  }
+  .ve-foyer-card-state{
+    position: absolute;
+    width:    100%;
+    height:   100%;
+    left:     0;
+
+    &.hide-left{
+      left: -100%;
+    }
+    &.hide-right{
+      left: 100%;
+    }
+    &.animating{
+      transition: left 1s;
+      webkit-transition: left 1s;
+    }
+  }
+
+  .text-box{
+    color:          #fff;
+    left:           0;
+    padding:        0.2em 2.1em;
+    position:       absolute;
+    width:          100%;
+  }
+
+  .text-box.title{
+    font-weight:    bold;
+    text-align:     center;
+    text-transform: capitalize;
+  }
+
+  .text-box.credits,
+  .ve-foyer-card-state.shaded:before,
+  .text-box.title{
+    background-color:  rgba(0,0,0,0.5);
+  }
+
+  .text-box a,
+  .text-box a:hover{
+    color:          #fff;
+  }
+  .text-box a:hover{
+    text-decoration: underline;
+  }
+
+  .ve-foyer-card-state.shaded:before{
+    content:  "";
+    display:  block;
+    height:   100%;
+    left:     0;
+    position: absolute;
+    top:      0;
+    width:    100%;
+    z-index:  1;
+  }
+
+  .text-box.credits,
+  .text-box.description{
+    max-height: 75%;
+    text-align: center;
+  }
+
+  .text-box.description{
+    position: relative;
+    z-index:  1;
+  }
+
+  .text-box.title{
+    top:           50%;
+    transform:     translateY(-50%);
+  }
+}
