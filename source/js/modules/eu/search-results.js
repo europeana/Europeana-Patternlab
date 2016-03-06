@@ -111,6 +111,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         }
     }
 
+    /*
     var bindResultMenu = function(e){
       styleResultsMenu();
       $('#results_menu .dropdown-menu a').on('click', function(e){
@@ -120,6 +121,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
          loadResults(perPage);
       });
     }
+    */
 
     var loadView = function(){
       return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
@@ -200,9 +202,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     var initPage = function(){
       bindViewButtons();
       bindGA();
-      bindResultMenu();
 
-      simulateUrlChange('results', $('.result-items>li').size(), true);
+      //bindResultMenu();
+      //simulateUrlChange('results', $('.result-items>li').size(), true);
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');

@@ -1,0 +1,282 @@
+/*! X-editable - v1.5.1
+* In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
+* http://github.com/vitalets/x-editable
+* Copyright (c) 2013 Vitaliy Potapov; Licensed MIT */
+/* line 9, xeditable.scss */
+.editableform .control-group {
+  white-space: nowrap;
+  /* prevent wrapping buttons on new line */
+}
+
+/*
+  BS3 width:1005 for inputs breaks editable form in popup
+  See: https://github.com/vitalets/x-editable/issues/393
+*/
+/* line 19, xeditable.scss */
+.editableform .form-control {
+  width: auto;
+}
+
+/* line 23, xeditable.scss */
+.editable-buttons {
+  display: inline-block;
+  /* should be inline to take effect of parent's white-space: nowrap */
+  vertical-align: top;
+  margin-left: 7px;
+  /* inline-block emulation for IE7*/
+  zoom: 1;
+  *display: inline;
+  /*for jquery-ui buttons need set height to look more pretty*/
+}
+/* line 32, xeditable.scss */
+.editable-buttons.editable-buttons-bottom {
+  display: block;
+  margin-top: 7px;
+  margin-left: 0;
+}
+/* line 38, xeditable.scss */
+.editable-buttons .editable-cancel {
+  margin-left: 7px;
+}
+/* line 42, xeditable.scss */
+.editable-buttons button {
+  padding: 2px 6px 3px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+/* line 49, xeditable.scss */
+.editable-buttons button.ui-button-icon-only {
+  height: 24px;
+  width: 30px;
+}
+
+/* line 55, xeditable.scss */
+.editable-input {
+  vertical-align: top;
+  display: inline-block;
+  /* should be inline to take effect of parent's white-space: nowrap */
+  width: auto;
+  /* bootstrap-responsive has width: 100% that breakes layout */
+  white-space: normal;
+  /* reset white-space decalred in parent*/
+  word-break: normal;
+  /* display-inline emulation for IE7*/
+  zoom: 1;
+  *display: inline;
+}
+/* line 65, xeditable.scss */
+.editable-input input {
+  padding: 3px 5px;
+}
+
+/* line 71, xeditable.scss */
+.editableform-loading {
+  background: url("/images/icons/loading.gif") center center no-repeat;
+  height: 25px;
+  width: auto;
+  min-width: 25px;
+}
+
+/* line 77, xeditable.scss */
+.editable-inline {
+  margin-top: -3px;
+  margin-left: -6px;
+}
+/* line 81, xeditable.scss */
+.editable-inline .control-group {
+  margin-bottom: 0;
+}
+
+/* line 85, xeditable.scss */
+.editable-inline .editableform-loading {
+  background-position: left 5px;
+}
+
+/* line 89, xeditable.scss */
+.editable-error-block {
+  max-width: 300px;
+  margin: 5px 0 0 0;
+  width: auto;
+  white-space: normal;
+}
+
+/*add padding for jquery ui*/
+/* line 97, xeditable.scss */
+.editable-error-block.ui-state-error {
+  padding: 3px;
+}
+
+/* line 101, xeditable.scss */
+.editable-error {
+  color: red;
+}
+
+/* ---- For specific types ---- */
+/* line 107, xeditable.scss */
+.editableform .editable-date {
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+/* move datepicker icon to center of add-on button. See https://github.com/vitalets/x-editable/issues/183 */
+/* line 114, xeditable.scss */
+.editable-inline .add-on .icon-th {
+  margin-top: 3px;
+  margin-left: 1px;
+}
+
+/* checklist vertical alignment */
+/* line 121, xeditable.scss */
+.editable-checklist label input[type="checkbox"],
+.editable-checklist label span {
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* line 127, xeditable.scss */
+.editable-checklist label {
+  white-space: nowrap;
+}
+
+/* set exact width of textarea to fit buttons toolbar */
+/* line 132, xeditable.scss */
+.editable-wysihtml5 {
+  width: 566px;
+  height: 250px;
+}
+
+/* clear button shown as link in date inputs */
+/* line 138, xeditable.scss */
+.editable-clear {
+  clear: both;
+  font-size: 0.9em;
+  text-decoration: none;
+  text-align: right;
+}
+
+/* IOS-style clear button for text inputs */
+/* line 146, xeditable.scss */
+.editable-clear-x {
+  background: url("/images/icons/clear.png") center center no-repeat;
+  display: block;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  opacity: 0.6;
+  z-index: 100;
+  top: 50%;
+  right: 6px;
+  margin-top: -6px;
+}
+
+/* line 161, xeditable.scss */
+.editable-clear-x:hover {
+  opacity: 1;
+}
+
+/* line 165, xeditable.scss */
+.editable-pre-wrapped {
+  white-space: pre-wrap;
+}
+
+/* line 168, xeditable.scss */
+.editable-container.editable-popup {
+  max-width: none !important;
+  /* without this rule poshytip/tooltip does not stretch */
+}
+
+/* line 172, xeditable.scss */
+.editable-container.popover {
+  width: auto;
+  /* without this rule popover does not stretch */
+}
+
+/* line 176, xeditable.scss */
+.editable-container.editable-inline {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  /* inline-block emulation for IE7*/
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 185, xeditable.scss */
+.editable-container.ui-widget {
+  font-size: inherit;
+  /* jqueryui widget font 1.1em too big, overwrite it */
+  z-index: 9990;
+  /* should be less than select2 dropdown z-index to close dropdown first when click */
+}
+
+/* line 190, xeditable.scss */
+.editable-click:after {
+  content: '';
+  position: absolute;
+  right: -22px;
+  top: -5px;
+  width: 15px;
+  height: 100%;
+  background: center right no-repeat;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMyIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIzIDMyIj4KPHBhdGggZD0iTTIzLjEzOCA0Ljk4M2wtMS4zMiAxLjMyLTMuMzk0LTMuMzk0IDEuMzItMS4zMnEwLjM1LTAuMzUgMC42NzMgMGwyLjcyMSAyLjcyMXEwLjM1IDAuMzIzIDAgMC42NzN6TTE2IDE1LjAzMHY2Ljc4OGgtMTMuMDkxdi0xNC41NDVoOC4yNDJsMi45MDktMi45MDloLTExLjE1MnEtMS4xODUgMC0yLjA0NyAwLjg2MnQtMC44NjIgMi4wNDd2MTQuNTQ1cTAgMS4xODUgMC44NjIgMi4wNDd0Mi4wNDcgMC44NjJoMTMuMDkxcTEuMTg1IDAgMi4wNDctMC44NjJ0MC44NjItMi4wNDd2LTkuNjk3ek0xNi45NyA0LjM2NGwtMTAuMTI4IDEwLjEyOHEtMC4wODEgMC4wODEtMC4wODEgMC4xMzVsLTEuOTM5IDQuNjYtMC4wMjcgMC4wMjdxLTAuMDgxIDAuMjY5IDAuMTM1IDAuNDg1IDAuMTM1IDAuMTYyIDAuMzIzIDAuMTYyIDAuMDI3IDAgMC4wODEtMC4wMTN0MC4wODEtMC4wMTNsMC4wMjctMC4wMjcgNC42Ni0xLjkzOXEwLjA1NCAwIDAuMTM1LTAuMDgxbDEwLjEyOC0xMC4xMjh6Ij48L3BhdGg+Cjwvc3ZnPgo=");
+  background-size: contain;
+}
+
+/* line 202, xeditable.scss */
+html.no-svg .editable-click:after {
+  background-image: url("/images/icons/edit.png?1454597572");
+}
+
+/* line 206, xeditable.scss */
+.editable-click,
+a.editable-click,
+a.editable-click:hover {
+  position: relative;
+  text-decoration: none;
+  border-bottom: dashed 1px #0088cc;
+}
+
+/* line 214, xeditable.scss */
+.editable-click.editable-disabled,
+a.editable-click.editable-disabled,
+a.editable-click.editable-disabled:hover {
+  color: #585858;
+  cursor: default;
+  border-bottom: none;
+}
+
+/* line 222, xeditable.scss */
+.editable-empty, .editable-empty:hover, .editable-empty:focus {
+  font-style: italic;
+  color: #DD1144;
+  /* border-bottom: none; */
+  text-decoration: none;
+}
+
+/* line 229, xeditable.scss */
+.editable-unsaved {
+  font-weight: bold;
+}
+
+/* line 233, xeditable.scss */
+.editable-unsaved:after {
+  /*    content: '*'*/
+}
+
+/* line 237, xeditable.scss */
+.editable-bg-transition {
+  -webkit-transition: background-color 1400ms ease-out;
+  -moz-transition: background-color 1400ms ease-out;
+  -o-transition: background-color 1400ms ease-out;
+  -ms-transition: background-color 1400ms ease-out;
+  transition: background-color 1400ms ease-out;
+}
+
+/*see https://github.com/vitalets/x-editable/issues/139 */
+/* line 246, xeditable.scss */
+.form-horizontal .editable {
+  padding-top: 5px;
+  display: inline-block;
+}
