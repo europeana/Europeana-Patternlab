@@ -6,38 +6,68 @@
 
 
 <main role="main" class="l-page">
-<div class="lc">
 
+<div class="page_header">
+  <div class="lc">
+
+    <div class="dashboard-title">
+      <h1 class="project-title">Provider name here</h1>
+      <h2 class="graph-title">Big Graph title here</h2>
+    </div>
+
+    <div class="big-graph prototype-image">
+
+      Large line graph goes here
+
+    </div>
+  </div>
+</div>
+
+<div class="stats-header">
+  <ul class="lc">
+    <li>
+      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
+    </li>
+    <li>
+      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014", trend:true) }}
+    </li>
+    <li>
+      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
+    </li>
+    <li>
+      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
+    </li>
+  </ul>
+</div>
+
+
+<div class="lc">
   <div class="l-content">
     <div class="maincontent">
 
+    <div class="section top25">
 
-    <div class="h4">Statistics dashboard</div>
-    <h1>Provider name here</h1>
+      <h4>Top 25 objects</h4>
 
-    <div class="section prototype-image">
-      <br>
-      <br>
-      <br>
-      <br>
-      Large line graph goes here
-      <br>
-      <br>
-      <br>
-      <br>
+      <ol class="results-list numbered numberstyle1 cf is-shortened js-showmore-panel">
+        {{#listItems.twelve}}<li>{{> molecules-listitem-simple(extra:true) }}</li>{{/listItems.twelve}}
+      </ol>
+
+      <a class="show-all h4 js-showmore" href="#" data-text-swap="▲ Show less">
+        ▼ Show all
+      </a>
+
     </div>
 
-    <div class="section prototype-image">
-      <br>
-      <br>
-      <br>
-      <br>
-      Large line graph goes here
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+
+    <div class="section">
+
+      <h4>Top 25 Countries</h4>
+
+      <div class="prototype-image" style="height: 300px;">
+        MAP HERE
+      </div>
+
     </div>
 
     </div>
@@ -45,7 +75,8 @@
   {{! END l-content }}
 
 
-  <div class="l-sidebar">
+  <div class="l-sidebar sidebar cf">
+
 
   {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
   {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}

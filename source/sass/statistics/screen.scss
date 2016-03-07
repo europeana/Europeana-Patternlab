@@ -65,6 +65,7 @@ $susy: (
 @import "../scss/objects/blocks";
 @import "../scss/objects/page_header";
 @import "../scss/objects/blocks/site-hero";
+@import "../scss/objects/blocks/media-object";
 
 /*------------------------------------*\
 	PAGE/SECTION SPECIFIC
@@ -98,6 +99,9 @@ $susy: (
 @import "../scss/objects/controls/buttonbar";
 @import "../scss/objects/lists/list-item";
 @import "../scss/objects/charts/display-number";
+@import "../scss/objects/tooltip";
+@import "../scss/objects/lists-numbered";
+
 
 
 
