@@ -32,9 +32,9 @@ Site_DASHBOARD = {
     },
     page_dashboard : {
         init : function(){
-            require(["graphs"], function() {
-                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/graphs/style/graphs.css') + '" type="text/css"/>');
-            });
+            // require(["graphs"], function() {
+            //     $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/graphs/style/graphs.css') + '" type="text/css"/>');
+            // });
 
 
             $('.js-showmore').on('click', function(event){

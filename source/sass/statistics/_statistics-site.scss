@@ -150,33 +150,41 @@
 	color: $white;
 
 	li{
-		width: 50%;
 		display: block;
-		float: left;
-		padding: $space-half;
+		padding: $space-quarter;
+		margin: 1%;
+		border-bottom: 2px solid lighten($blue-dark, 10%);
+
+		@media all and (min-width: $bp-small) {
+			width: 48%;
+			float: left;
+		}
 
 		@media all and (min-width: $bp-med) {
-		  width: 25%;
-		}
-	}
+		  width: 23%;
+		  border-bottom: 0;
+		  border-right: 3px solid lighten($blue-dark, 10%);
 
-	.stat-display{
-		border-right: 3px solid white;
-	}
+		  &:last-child{
+				border: none;
 
-	li:last-child{
-		.stat-display{
-			border: none;
-		}
-
-		.tooltip{
-			left: auto;
-			right: -2em;
+				.tooltip{
+					left: auto;
+					right: -2em;
+				}
+			}
 		}
 	}
 
 	.tooltip-container{
 		float: right;
+		color: rgba(255,255,255,0.6);
+		&:hover, &:focus {
+			color: rgba(255,255,255,1);
+		}
+		.icon{
+			margin-right: 0;
+		}
 	}
 
 	.stat-title{
@@ -250,8 +258,9 @@
 	}
 }
 
-.madlib-prompt{
-	margin: 0 0.6em;
+.madlib{
+	display: inline;
+	margin-right: 0.6em;
 }
 
 .results-list{
