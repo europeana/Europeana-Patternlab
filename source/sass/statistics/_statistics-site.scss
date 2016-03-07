@@ -234,6 +234,24 @@
 			display: block;
 		}
 	}
+
+	.section-header{
+		margin-bottom: $space;
+	}
+	.section-title{
+		@media all and (min-width: $bp-med) {
+		  float: left;
+		}
+	}
+	.results-filter{
+		@media all and (min-width: $bp-med) {
+		  float: right;
+		}
+	}
+}
+
+.madlib-prompt{
+	margin: 0 0.6em;
 }
 
 .results-list{

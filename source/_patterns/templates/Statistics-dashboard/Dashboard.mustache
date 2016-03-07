@@ -47,7 +47,43 @@
 
     <div class="section top25">
 
-      <h4>Top 25 objects</h4>
+      <div class="section-header cf">
+        <h4 class="section-title">Top 25 objects</h4>
+
+        <div class="results-filter h4">
+
+          <span class="madlib-prompt">Show results for</span>
+
+          <select id="filter-month-select" class="filter_top_digital_objects">
+            <option value="">Full year</option>
+            <option value="" disabled="disabled">- - - - - - - -</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+
+          <span class="madlib-prompt">of</span>
+
+          <select id="filter-year-select" class="filter_top_digital_objects">
+            <option value="2014">2014</option>
+            <option value="2015" selected="">2015</option>
+            <option value="2016">2016</option>
+          </select>
+        </div>
+      </div>
+
+
+
+
 
       <ol class="results-list numbered numberstyle1 cf is-shortened js-showmore-panel">
         {{#listItems.twelve}}<li>{{> molecules-listitem-simple(extra:true) }}</li>{{/listItems.twelve}}
