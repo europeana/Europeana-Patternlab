@@ -1,0 +1,30 @@
+.media {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1em;
+}
+
+.media-figure {
+  margin-right: 1em;
+}
+
+.media-body {
+  flex: 1;
+}
+.media-body,
+.media-body :last-child {
+  margin-bottom: 0;
+}
+
+.media-title {
+  margin: 0 0 .5em;
+}
+
+.media--center {
+  align-items: center;
+}
+
+.media--reverse > .media-figure {
+  order: 1;
+  margin: 0 0 0 1em;
+}
