@@ -132,6 +132,13 @@ module.exports = function(grunt) {
               expand:  true
           },
 
+          dev_css: {
+              cwd:    'source/css',
+              src:    ['**/*.css'],
+              dest:   'public/css',
+              expand:  true
+          },
+
           iif_viewer: {
               src: ['**',  '!*.scss'],
               cwd:    'source/js/modules/lib/iiif',
@@ -337,7 +344,7 @@ module.exports = function(grunt) {
         // Trigger compass to compile the sass
         compass: {
             files: ['source/**/*.{scss,sass}', '!source/js/dist/**'],
-            tasks: ['compass:dev']
+            tasks: ['compass:dev', 'copy:dev_css']
         },
         // Move the JavaScript to dist using the default grunt task
         scripts: {
@@ -347,20 +354,19 @@ module.exports = function(grunt) {
         // Fire the patternlab markup build process
         patternlab_markup: {
           files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json'],
-          tasks: ['shell:patternlab_markup'],
-          options: {
-            spawn: false,
-            livereload: 8002
-          }
+          tasks: ['shell:patternlab_markup']
         },
         // Fire the patternlab build process
         patternlab_full: {
-          files: ['source/js/dist/**/*.js', 'source/css/**/*.css'],
-          tasks: ['shell:patternlab_full'],
+          files: ['source/js/dist/**/*.js'],
+          tasks: ['shell:patternlab_full']
+        },
+        //reload the browser
+        livereload: {
           options: {
-            spawn: false,
             livereload: 8002
-          }
+          },
+          files: ['public/css/**/*.css', 'public/patterns/**/*.html']
         }
       },
 
@@ -497,6 +503,7 @@ module.exports = function(grunt) {
 
        'copy:blacklight',
        'copy:dropzone',
+       'copy:dev_css',
        'copy:eu',
        'copy:featherlight',
        'copy:global_dependencies',
