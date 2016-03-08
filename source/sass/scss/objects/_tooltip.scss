@@ -2,7 +2,8 @@
 	display: inline-block;
 	position: relative;
 
-	&:hover {
+	&:hover, &:focus {
+		cursor: help;
 		.tooltip {
 			display: block;
 		}
@@ -17,12 +18,15 @@
 	display: none;
 	position: absolute;
 	top: 1.5em;
-	left: 0;
+	left: -2em;
 	width: 18em;
 	padding: $pad;
 	background: $white;
-	border: 1px solid $gray-dark;
-	box-shadow: 0.3em 0.3em 1em 0 rgba(0,0,0,0.2);
+	color: $textcolour_body;
+	font-size: $font-size-sm;
+	border: 1px solid $gray-lighter;
+	box-shadow: 0.1em 0.1em 0.3em 0 rgba(0,0,0,0.2);
+	z-index: 98;
 
 	h2 {
 		margin-top: 0;
@@ -31,12 +35,9 @@
 	@media all and (min-width: $bp-small) {
 		width: 22em;
 	}
+}
 
-	@media all and (min-width: $bp-small-2) {
-		width: 27em;
-	}
-
-	@media all and (min-width: $bp-small-3) {
-		width: 30em;
-	}
+.tooltip--right{
+	left: auto;
+	right: -2em;
 }

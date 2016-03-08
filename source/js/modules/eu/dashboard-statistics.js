@@ -32,8 +32,24 @@ Site_DASHBOARD = {
     },
     page_dashboard : {
         init : function(){
-            require(["graphs"], function() {
-                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/graphs/style/graphs.css') + '" type="text/css"/>');
+            // require(["graphs"], function() {
+            //     $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/graphs/style/graphs.css') + '" type="text/css"/>');
+            // });
+
+
+            $('.js-showmore').on('click', function(event){
+              var self = $(this);
+              var parent = $(this).parent();
+              parent.find(".js-showmore-panel").toggleClass("is-shortened");  // apply the toggle to the panel
+
+              // Swap the text for the value in data-text-original and back again
+              if (self.text() === self.data("text-swap")) {
+                self.text(self.data("text-original"));
+              } else {
+                self.data("text-original", self.text());
+                self.text(self.data("text-swap"));
+              }
+              event.preventDefault();
             });
         }
     }

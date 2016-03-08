@@ -1,0 +1,25 @@
+
+// Numbering things - show the numbers
+.numbered {
+    counter-reset: numbering;
+}
+.numbered > *{
+    position: relative;
+}
+.numbered > *:before {
+    content: counter(numbering);
+    counter-increment: numbering;
+}
+
+.numbered.numberstyle1 > *:before {
+    background-color: $blue-dark;
+    padding: 4px;
+    font-size: $font-size-slightly-smaller;
+    color: $white;
+    min-width: 20px;
+    line-height: 1;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 0;
+}

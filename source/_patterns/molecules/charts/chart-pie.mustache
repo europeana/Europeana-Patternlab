@@ -1,6 +1,18 @@
 <figure class="stat-display chart {{style_modifier}}">
 
-	<figcaption class="chart-title">{{ title }}</figcaption>
+	<figcaption>
+		<span class="stat-title">{{ title }}</span>
+{{#description}}
+		<span class="tooltip-container">
+			<svg class="icon icon-help">
+				<use xlink:href="#icon-help"></use>
+			</svg>
+			<div class="tooltip">
+				{{ description }}
+			</div>
+		</span>
+{{/description}}
+	</figcaption>
 
 	<div id="bhl_europe_-_reusables" data-api="PykCharts.oneD.pie" data-datacast_identifier="4d32a0172ae3dbb4e9b08788ddaf5e3825535186b4805d5bb5147988fed71f0bea" class="d3-pykcharts" data-filter_present="false" data-filter_column_name="" style="position: relative; background-color: transparent;">
 
@@ -9,7 +21,4 @@
 		<svg width="252.656" height="252.656" preserveAspectRatio="xMinYMin" viewBox="0 0 600 600" id="bhl_europe_-_reusables_svg" class="svgcontainer PykCharts-oneD" style="overflow: visible;"><g transform="translate(300,300)" id="pieGroup"><path class="pie" fill="rgb(-25,92,140)" fill-opacity="1" data-fill-opacity="1" stroke="white" stroke-width="1px" stroke-dasharray="0" data-id="permission" d="M1.2858791391047208e-14,-210A210,210 0 1,1 -67.5451256353192,-198.84078053283974L0,0Z"></path><path class="pie" fill="rgb(75,192,240)" fill-opacity="1" data-fill-opacity="1" stroke="white" stroke-width="1px" stroke-dasharray="0" data-id="restricted" d="M-67.5451256353192,-198.84078053283974A210,210 0 0,1 -67.17229208340923,-198.96704042695404L0,0Z"></path><path class="pie" fill="rgb(25,142,190)" fill-opacity="1" data-fill-opacity="1" stroke="white" stroke-width="1px" stroke-dasharray="0" data-id="open" d="M-67.17229208340923,-198.96704042695404A210,210 0 0,1 1.4794109396388468e-13,-210L0,0Z"></path><text class="pie-label" transform="translate(17.115183639475102,103.5957069042296)" text-anchor="middle" pointer-events="none" dy="5" fill="white" style="font-weight: normal; font-size: 11px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">94.8%</text><text class="pie-label" transform="translate(-33.67936922134535,-99.45199891833394)" text-anchor="middle" pointer-events="none" dy="5" fill="black" style="font-weight: normal; font-size: 11px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;"></text><text class="pie-label" transform="translate(-17.01808416927286,-103.61170209589042)" text-anchor="middle" pointer-events="none" dy="5" fill="white" style="font-weight: normal; font-size: 11px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">5.2%</text><text x="0" y="0" transform="translate(37.81640575579261,230.87043252942595)" text-anchor="middle" dy="5" pointer-events="none" style="fill: rgb(29, 29, 29); font-size: 11px; font-weight: normal; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">permission</text><text x="0" y="0" transform="translate(-76.98141536307509,-217.84723572587436)" text-anchor="end" dy="5" pointer-events="none" style="fill: rgb(29, 29, 29); font-size: 11px; font-weight: normal; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">restricted</text><text x="0" y="0" transform="translate(-37.6018621644886,-230.9060789565558)" text-anchor="middle" dy="5" pointer-events="none" style="fill: rgb(29, 29, 29); font-size: 11px; font-weight: normal; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">open</text><line class="ticks" x1="-207.1914138084592" y1="34.23036727895022" x2="-219.0309231689426" y2="36.18638826631881" transform="rotate(-90)" stroke-width="1px" stroke="#1D1D1D"></line><line class="ticks" x1="198.90399783666788" y1="-67.35873844269071" x2="210.26994057019178" y2="-71.20780921084446" transform="rotate(-90)" stroke-width="1px" stroke="#1D1D1D"></line><line class="ticks" x1="207.22340419178084" y1="-34.036168338545735" x2="219.06474157416832" y2="-35.981092243605495" transform="rotate(-90)" stroke-width="1px" stroke="#1D1D1D"></line></g></svg>
 
 	</div>
-
-	<div class="chart-description">{{ excerpt.short }}</div>
-
 </figure>
