@@ -65,6 +65,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
         var newParams     = $.param(params);
 
+        log('set state (replace): ' + JSON.stringify(state));
 
         if(replace){
             window.history.replaceState(state, '', '?' + newParams);
@@ -76,6 +77,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     window.onpopstate = function(e){
         if(e.state){
+            log('state present, view = ' + e.state.view)
             if(e.state.view == 'grid'){
                 showGrid(true);
             }
@@ -85,6 +87,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             if(typeof e.state.results != 'undefined'){
                 loadResults(e.state.results);
             }
+        }
+        else{
+            showList();
         }
     };
 
@@ -208,12 +213,13 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
-          log('loading saved view....' + loadView());
           if(loadView() == 'grid'){
               simulateUrlChange('view', 'grid', true);
               showGrid();
           }
           else{
+              // fixes history but rewrites url...
+              //simulateUrlChange('view', 'list', true);
               showList();
           }
       }
