@@ -2,6 +2,8 @@
 {{> atoms/iconography/svgicons-user }}
 {{> organisms/global/header_v2}}
 
+
+
 <!-- Start content -->
 <main role="main" class="l-page">
 
@@ -11,23 +13,21 @@
 
   <div id="maincontent" class="maincontent">
 
-  {{# page }}
+  {{# page_data }}
     <div class="ve-slide-container">
-      <span class="slide-nav slide-nav-prev">^</span>
       {{# elements.present }}
         <h4 class="ve-progress-nav">
           {{# elements.items }}
-            <span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span>
+            <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
           {{/ elements.items }}
         </h4>
         {{# elements.items }}
           {{> organisms/virtual-exhibitions/main-slide}}
         {{/ elements.items }}
       {{/ elements.present }}
-      <span class="slide-nav slide-nav-next">v</span>
-      <a id="ve-end"/>
+      <a id="ve-end"></a>
     </div>
-  {{/ page }}
+  {{/ page_data }}
 
   <div class="lc">
     <h1>Foyer</h1>

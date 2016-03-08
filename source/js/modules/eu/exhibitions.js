@@ -6,19 +6,76 @@ define(['jquery'], function ($) {
   var smCtrl;
 
   function log(msg){
-    console.log('Exhibitions: ' + msg);
+    console.log('Virtual-Exhibitions: ' + msg);
   }
 
   function initExhibitions(){
-    log('init');
-
-    //if($url.param('sfx')){
-      initSFX();
-    //}
+    initProgressState();
+    initFoyerCards();
+    initArrowNav();
 
     handleEllipsis();
-    initFoyerCards();
   };
+
+  // Special effects
+  function initSFX(ScrollMagic){
+    require(['purl'], function(){
+      if(!$.url().param('sfx'))
+      {
+        return;
+      }
+      var $firstSlide = $('.ve-slide.first');
+
+      // pin and add text fade
+
+      new ScrollMagic.Scene({
+          triggerElement:  $firstSlide,
+          triggerHook:     'onLeave',
+          duration:        '1000'
+      })
+      .setPin($firstSlide[0])
+      .setTween(TweenMax.to($firstSlide.find('.ve-title-group'), 1, {
+          opacity: 0,
+          ease: Cubic.easeOut
+      }))
+      .addTo(smCtrl);
+
+      // chrome can't handle background size (converts auto to null)
+
+      if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+          log('chrome sucks');
+          return;
+      }
+      else{
+          // shrink bg
+          new ScrollMagic.Scene({
+              triggerElement:  $firstSlide,
+              triggerHook:     'onLeave',
+              duration:        '1000'
+          })
+          .setTween(TweenMax.to($firstSlide.find('.ve-base-intro'), 1, {
+              backgroundSize: '50% auto',
+              ease: Cubic.easeOut
+          }))
+          .addTo(smCtrl);
+      }
+    });
+  }
+
+  function initArrowNav(){
+    $('.slide-nav-next').not(':first').hide();
+    $('.slide-nav-next:first').css('position', 'fixed');
+
+    $('.slide-nav-next:first').on('click', function(e){
+      if(smCtrl){
+        var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
+        var nextA  = curr.next('a')
+        var anchor = nextA.attr('href');
+        $(window).scrollTo(anchor, 1400);
+        e.preventDefault();
+      }
+    });
+  }
 
   function handleEllipsis(){
       var ellipsisObjects = [];
@@ -99,16 +156,16 @@ define(['jquery'], function ($) {
 
           next.removeClass('animating');
           if(shift > 0){
-              next.addClass('hide-right')
-              next.removeClass('hide-left')
-              next.addClass('animating')
-              next.removeClass('hide-right')
+              next.addClass('hide-right');
+              next.removeClass('hide-left');
+              next.addClass('animating');
+              next.removeClass('hide-right');
           }
           else{
-              next.addClass('hide-left')
-              next.removeClass('hide-right')
-              next.addClass('animating')
-              next.removeClass('hide-left')
+              next.addClass('hide-left');
+              next.removeClass('hide-right');
+              next.addClass('animating');
+              next.removeClass('hide-left');
           }
           this.prepNextShift();
           this.updateButton(this.stateIndex);
@@ -129,69 +186,82 @@ define(['jquery'], function ($) {
       });
   }
 
-  function initSFX(){
+  function initProgressState(){
 
-      log('TODO: background-attachment:fixed on intro images');
+    //    log('TODO: background-attachment:fixed on intro images');
 
-      if ($(window).width() > minViewportWidth) {
+    if ($(window).width() > minViewportWidth) {
 
-          require(['ScrollMagic', 'TweenMax', 'util_resize'], function(ScrollMagic){
-              require(['gsap'], function(){
+      require(['ScrollMagic', 'TweenMax', 'util_resize', 'jqScrollto'], function(ScrollMagic){
+        require(['gsap'], function(){
 
-                smCtrl = new ScrollMagic.Controller();
+          smCtrl = new ScrollMagic.Controller();
 
-                $(window).europeanaResize(function(){
-                    if ($(window).width() <= minViewportWidth && !smIsDestroyed) {
-                        smCtrl.destroy(true)
-                        smCtrl = null;
-                        smIsDestroyed = true;
-                        log('removed scroll-magic');
-                    }
-                });
-
-                //$('.logo').css('backface-visibility', 'hidden')
-                //TweenMax.to('.logo', 1.5,  { rotationX: "-=360_cw"} );
-
-                function setNavPosition(index) {
-
-                    $('.ve-progress-nav .ve-state-button-on')
-                       .removeClass('ve-state-button-on')
-                       .addClass('ve-state-button-off');
-
-                    var active = $('.ve-progress-nav .ve-state-button').get(index)
-
-                    $(active).addClass('ve-state-button-on').removeClass('ve-state-button-off');
-                }
-
-                $('.ve-slide-container section').each(function(i, ob) {
-                    new ScrollMagic.Scene({
-                        triggerElement: this,
-
-                        triggerHook: 'onCenter',
-                        offset: $(this).height()/2,
-                    })
-                    //.on('enter leave', function(){
-                    .on('progress', function(){
-                        setNavPosition(i);
-                    })
-                    .addTo(smCtrl);
-                });
-
-                new ScrollMagic.Scene({
-                    triggerElement: '#ve-end',
-                    triggerHook: 'onEnter'
-                })
-                .addTo(smCtrl)
-                .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
-
-                // SEE EXAMPLE 4 FOR SCROLL-CONTROLLED ANIMATION:
-                //   https://ihatetomatoes.net/svg-scrolling-animation-triggered-scrollmagic/
-              });
+          /*
+          $(window).europeanaResize(function(){
+            if ($(window).width() <= minViewportWidth && !smIsDestroyed) {
+              smCtrl.destroy(true)
+              smCtrl        = null;
+              smIsDestroyed = true;
+              log('removed scroll-magic');
+            }
           });
-        }
-        else {
-          log('too small for scroll-magic');
-        }
+          */
+          //$('.logo').css('backface-visibility', 'hidden')
+          //TweenMax.to('.logo', 1.5,  { rotationX: "-=360_cw"} );
+
+
+          function setProgressState(index) {
+            $('.ve-progress-nav .ve-state-button-on')
+              .removeClass('ve-state-button-on')
+              .addClass('ve-state-button-off');
+
+            var active = $('.ve-progress-nav .ve-state-button').get(index)
+            $(active).addClass('ve-state-button-on').removeClass('ve-state-button-off');
+          }
+
+          $('.ve-slide-container section').each(function(i, ob) {
+            new ScrollMagic.Scene({
+              triggerElement: this,
+              triggerHook:    'onCenter'
+            })
+            .on('progress', function(e){
+              if(e.scrollDirection === 'FORWARD'){
+                setProgressState(i);
+              }
+            })
+            .addTo(smCtrl);
+
+            new ScrollMagic.Scene({
+              triggerElement: this,
+              triggerHook:    'onLeave'
+            })
+            .on('progress', function(e){
+              if(e.scrollDirection === 'REVERSE'){
+                setProgressState(i);
+              }
+            })
+            .addTo(smCtrl);
+          });
+
+          new ScrollMagic.Scene({
+              triggerElement: '#ve-end',
+              triggerHook:    'onEnter'
+          }).addTo(smCtrl)
+            .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
+
+          $('.ve-progress-nav a').on('click', function(){
+            $(window).scrollTo($(this).attr('href'), 1400);
+          });
+
+          initSFX(ScrollMagic);
+
+        });
+      });
+    }
+    else {
+      log('too small for scroll-magic');
+    }
   }
 
   return {

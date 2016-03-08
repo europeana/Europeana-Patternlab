@@ -1,7 +1,28 @@
 <section class="ve-slide {{#is_first}}first{{/is_first}}">
+  <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
+   {{#is_text}}
+      <div class="ve-base-text">
+        {{{body}}}
+      </div>
+   {{/is_text}}
+
+   {{#is_image}}
+     {{#image}}
+       <div class="ve-base-image">
+         <img srcset="{{#large}}{{url}}{{/large}} 1200w,
+                      {{#thumbnail}}{{url}}{{/thumbnail}} 800w"
+              src="{{#thumbnail}}{{url}}{{/thumbnail}}">
+       </div>
+     {{/image}}
+
+     {{#caption}}
+       <h2 class="ve-image-caption">{{.}}</h2>
+     {{/caption}}
+
+   {{/is_image}}
 
    {{#is_intro}}
-     <div class="ve-intro" style="background-image:url({{background_image_url}})">
+     <div class="ve-base-intro" style="background-image:url({{background_image_url}})">
 
        <div class="ve-title-group">
          {{#title}}
@@ -26,35 +47,14 @@
      </div>
    {{/is_intro}}
 
-   {{#is_text}}
-      <div class="text-element ve-description">
-        {{{body}}}
-      </div>
-   {{/is_text}}
-
-   {{#is_image}}
-     {{#image}}
-       <div class="ve-image">
-         <img srcset="{{#versions}}{{#large}}{{url}}{{/large}} 1200w, {{/versions}}
-                      {{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}} 800w{{/versions}}"
-              src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
-       </div>
-     {{/image}}
-
-     {{#caption}}
-       <h2 class="ve-image-caption">{{.}}</h2>
-     {{/caption}}
-
-   {{/is_image}}
-
    {{#is_title_image_text}}
-      <div class="ve-title-image-text cf" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}}>
+      <div class="ve-base-title-image-text cf" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}}>
         {{#title}}<h2>{{.}}</h2>{{/title}}
         <div class="ve-col-50-left">
          {{#image}}
            <div class="ve-image">
              <!-- srcset stretches the image here -->
-             <img src="{{#versions}}{{#thumbnail}}{{url}}{{/thumbnail}}{{/versions}}">
+             <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
              {{#caption}}
                <h2 class="ve-image-caption">{{.}}</h2>
              {{/caption}}
@@ -66,5 +66,8 @@
         </div>
       </div>
    {{/is_title_image_text}}
-
+   {{^is_last}}<span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}">v</a></span>{{/is_last}}
 </section>
+<noscript>
+  <a class="ve-anchor" id="ve-anchor-{{id}}"></a>
+</noscript>

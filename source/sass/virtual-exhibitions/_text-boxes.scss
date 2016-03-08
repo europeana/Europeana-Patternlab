@@ -2,18 +2,26 @@
 @import "../scss/grid/susy";
 @import "variables";
 
-//$susy: (
-//  columns: 24,
-//  gutters: 1/2,
-//  math: fluid,
-//  use-custom: (
-//    box-sizing: false,
-//  ),
-//  global-box-sizing: border-box
-//);
+.no-js{
+  ve-progress-nav{
+    display: none;
+  }
 
-// @import "../scss/layout/layout-common-susy";
+  .ve-state-button-off,
+  .ve-state-button-on{
+    background-position: -110px 0;
+  }
 
+  .ve-foyer-card .ve-card-nav{
+    display: none;
+  }
+}
+
+// breadcrumb
+
+.ve-nav{
+  padding: 0.7rem 0.8rem;
+}
 
 .ve-nav-lists{
   margin-left: 2%;
@@ -77,8 +85,8 @@
 
 @media all and (min-width: $bp-small-2) {
 
-  .ve-title-group,
-  .text-element.ve-description{
+  .ve-base-text,
+  .ve-title-group{
       width: 100%;
   }
 
@@ -90,23 +98,13 @@
 @media all and (min-width: $bp-med) {
 
   .ve-title-group,
-  .text-element.ve-description{
-      width: 50%;
+  .ve-base-text{
+      width: $ve_text_column_width;
   }
 }
 
 @media all and (min-width: $bp-xl) {
 }
-
-
-.ve-intro{
-  background-repeat: no-repeat;
-  background-size:   100% auto;
-  height:            80vh;
-  max-height:        80vh;
-  position:          relative;
-}
-
 
 .ve-title-group,
 .ve-image-credit{
@@ -140,18 +138,63 @@
   overflow: hidden;
   position: relative;
 
-  .ve-slide{
+  .ve-anchor{
+    position: relative;
+    top:      -3.88em;
+  }
 
-    poistion: relative;
+
+  .ve-slide{
+    position:    relative;
+
+    &.first .ve-anchor{
+      // 10em enough to pull back beyond header
+      // top:      -10em;
+      // 10em more needed to keep nav working after 1000px pin
+      top:      -100em;
+    }
+
+    // layout: compensate for header
+    //.ve-base-text,
+    //.ve-base-image,
+    //.ve-base-title-image-text,
+    //.ve-base-intro
+    div{
+       min-height: -webkit-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+       min-height:    -moz-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+       min-height:         calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+    }
+
+    &:not(first) div{
+       min-height: -webkit-calc(100vh - 5rem);
+       min-height:    -moz-calc(100vh - 5rem);
+       min-height:         calc(100vh - 5rem);
+    }
+
+
+    .ve-base-text{
+      text-align: center;
+      position: relative;
+      margin: auto;
+    }
 
     .ve-image{
-
-      height:     100%;
       text-align: center;
-
       img{
         max-height: 100%;
       }
+    }
+
+    .ve-base-intro{
+      background-position: center top;
+      background-repeat:   no-repeat;
+      background-size:     100% auto;
+      position:            relative;
+    }
+
+    .ve-base-title-image-text{
+      background-color: $bg_colour_title_image_text;
+      padding: 1em 2%;
     }
 
     .ve-col-50-left{
@@ -178,18 +221,21 @@
   }
 
   .slide-nav{
-    color:             #fff;
     cursor:            pointer;
     font-size:         2em;
     font-weight:       bold;
     position:          absolute;
     left:              50%;
-    text-shadow:       0 0 1px #000;
     transform:         translateX(-50%);
+    z-index:           1;
+    a{
+      color:           #fff;
+      text-shadow:     0 0 1px #000;
+    }
   }
 
   .slide-nav-next{
-    bottom: 0.5em;
+    bottom: -10px;
   }
 
   .slide-nav-prev{
@@ -218,13 +264,6 @@
 .ve-image-caption:after{
   content: "”";
   display: block;
-}
-
-.ve-title-image-text{
-  background-color: $bg_colour_title_image_text;
-  // min-height: 80vh;
-  height: 80vh;
-  padding: 1em 2%;
 }
 
 .ve-foyer-card{
@@ -260,10 +299,6 @@
     border:     0;
     margin:     0;
     object-fit: cover;
-  }
-
-  .no-js .ve-foyer-card .ve-card-nav{
-    display: none;
   }
 
   .ve-card-nav{

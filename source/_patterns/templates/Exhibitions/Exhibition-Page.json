@@ -14,112 +14,93 @@
     }]
   },
   "css_files": false,
+  "page_data": {
+    "title": "Page title",
+    "url": "/example-page",
+    "elements": {
+      "present": "true",
+      "items":[
+        {
+            "id": "1",
+            "type": "image",
+            "is_first": true,
+            "is_intro": true,
+            "background_image_credit": "sfsdfs",
+            "background_image_url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png",
+            "title": "Art Nouveau",
+            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. Art was to become a part of daily life and the work of the artist was to be embraced not only by the elite, but by the general public as a whole. </p><p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+        },
+        {
+            "id": "2",
+            "is_text": true,
+            "is_image": false,
+            "type": "text",
+            "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "0",
+            "type": "title_image_text",
+            "is_title_image_text": true,
+            "title": "ZURICH - Arthur Segal",
+            "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
+            "body": "Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success. In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.",
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 200,
+                    "height": 213,
+                    "orientation": "portrait"
+                },
+                "large": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 16000,
+                    "height": 1698,
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Arthur Segal with his son Walter, Berlin"
 
-  "bg_imaged_texts":{
-    "present": "true",
-    "items": [
+        },
+        {
+            "id": "3",
+            "is_text": true,
+            "is_image": false,
+            "type": "text",
+            "body": "Artists and architects also used the two-dimensional undulating and curvilinear lines in the design of Art Nouveau interiors in order to create movement and dynamism. The Catalan architect Antoni Gaudi, for example, was famous for his “leaning columns” that were not at right angles to the ceiling. Designed to resemble the shape of a tree, these columns branch out towards the ceiling reinforcing the grandeur of the interior."
+        },
+        {
+            "id": "4",
+            "type": "image",
+            "is_text": false,
+            "is_image": true,
+            "is_last": true,
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+                    "width": 200,
+                    "height": 213,
+                    "orientation": "portrait"
+                },
+                "large": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
+                    "width": 16000,
+                    "height": 1698,
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "SagradaFamilia Sostre"
+        }
+      ]
+    }
+  },
+  "foyer": {
+    "present": true,
+    "items":
+    [
       {
-        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-1.jpg",
-        "text": "Some text..."
-      },
-      {
-        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-2.jpg",
-        "text": "Some more text..."
-      },
-      {
-        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-3.jpg",
-        "text": "Yet more text ..."
-      },
-      {
-        "bg": "/images/virtual-exhibitions/photography/photography-on-a-silver-plate-4.jpg",
-        "text": "Even more text still..."
       }
     ]
-  },
-
-  "page": {
-        "title": "Page title",
-        "url": "/example-page",
-        "elements": {
-            "present": "true",
-            "items":[
-              {
-                  "type": "title_image_text",
-                  "is_first": true,
-                  "is_title_image_text": true,
-                  "background_colour": "#ddebee",
-                  "title": "ZURICH - Arthur Segal",
-                  "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
-                  "body": "Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success. In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.",
-                  "image":
-                  {
-                      "versions":
-                      {
-                          "thumbnail": {
-                              "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                              "width": 200,
-                              "height": 213,
-                              "orientation": "portrait"
-                          },
-                          "large": {
-                              "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                              "width": 16000,
-                              "height": 1698,
-                              "orientation": "landscape"
-                          }
-                      }
-                  },
-                  "XXXcaption": "Arthur Segal with his son Walter, Berlin"
-
-              },
-              {
-                  "is_text": true,
-                  "is_image": false,
-                  "type": "text",
-                  "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings.",
-                  "body_striped": "Long and winding body text"
-
-              },
-              {
-                  "type": "image",
-                  "is_intro": true,
-                  "background_image_credit": "sfsdfs",
-                  "background_image_url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png",
-                  "title": "Art Nouveau",
-                  "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. Art was to become a part of daily life and the work of the artist was to be embraced not only by the elite, but by the general public as a whole. </p><p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
-              },
-              {
-                  "is_text": true,
-                  "is_image": false,
-                  "type": "text",
-                  "body": "Artists and architects also used the two-dimensional undulating and curvilinear lines in the design of Art Nouveau interiors in order to create movement and dynamism. The Catalan architect Antoni Gaudi, for example, was famous for his “leaning columns” that were not at right angles to the ceiling. Designed to resemble the shape of a tree, these columns branch out towards the ceiling reinforcing the grandeur of the interior.",
-                  "body_striped": "Long and winding body text"
-              },
-              {
-                  "type": "image",
-                  "is_text": false,
-                  "is_image": true,
-                  "image":
-                  {
-                      "versions":
-                      {
-                          "thumbnail": {
-                              "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
-                              "width": 200,
-                              "height": 213,
-                              "orientation": "portrait"
-                          },
-                          "large": {
-                              "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
-                              "width": 16000,
-                              "height": 1698,
-                              "orientation": "landscape"
-                          }
-                      }
-                  },
-                  "caption": "SagradaFamilia Sostre"
-              }
-            ]
-        }
   }
 }
