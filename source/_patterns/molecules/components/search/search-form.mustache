@@ -1,6 +1,10 @@
 <form action="{{form_search.action}}" class="search-multiterm">
   <div class="inputarea js-hitarea">
 
+    {{#is_grid}}
+        <input type="hidden" name="view" value="grid"/>
+    {{/is_grid}}
+
     {{#input_search}}
 
       {{#has_original}}
