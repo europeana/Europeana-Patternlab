@@ -358,7 +358,7 @@ module.exports = function(grunt) {
         },
         // Fire the patternlab build process
         patternlab_full: {
-          files: ['source/js/dist/**/*.js'],
+          files: ['source/js/dist/**/*.js', 'source/images/**/*.{jpg,jpeg,png,gif}'],
           tasks: ['shell:patternlab_full']
         },
         //reload the browser
