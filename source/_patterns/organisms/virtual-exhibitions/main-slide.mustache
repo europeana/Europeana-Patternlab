@@ -19,7 +19,7 @@
   {{/is_text}}
 
   {{#is_image}}
-    <div id="{{id}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
      <figure>
         {{#image}}
         <img srcset="{{#large}}{{url}}{{/large}} 1200w,
@@ -34,7 +34,7 @@
   {{/is_image}}
 
   {{#is_intro}}
-    <div id="{{id}" class="ve-base ve-base-intro {{type}}" style="background-image:url({{background_image_url}})" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-intro {{type}}" style="background-image:url({{background_image_url}})" data-alchemy-element="{{alchemy_id}}">
       <div class="ve-title-group">
         {{#title}}
           <span class="ve-title">
@@ -61,7 +61,7 @@
   {{/is_intro}}
 
   {{#is_title_image_text}}
-    <div id="{{id}" class="ve-base ve-base-title-image-text cf {{type}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} data-alchemy-element="{{alchemy_id}}">
       {{#title}}<h2>{{.}}</h2>{{/title}}
       <div class="ve-col-50-left">
         {{#image}}
