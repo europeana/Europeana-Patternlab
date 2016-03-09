@@ -111,14 +111,19 @@
   }
   .dropdown-trigger{
     text-transform: inherit;
+    font-weight: normal;
+    color: $linkblue;
+    border-bottom: 1px dotted #1a8ac7;
+    padding-right: 0;
   }
   .dropdown-trigger:after{
     display: none;
   }
-  .dropdown-trigger .active{
-    color: #1a8ac7;
-    border-bottom: 1px dotted #1a8ac7;
-    font-weight: normal;
+  .active{
+    font-weight: bold;
+    a{
+      color: $linkblue;
+    }
   }
 }
 
