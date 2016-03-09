@@ -6,6 +6,8 @@
 	figcaption{
 		font-style: normal;
 		text-align: left;
+		line-height: 1;
+		margin-bottom: $space-half;
 	}
 }
 
@@ -26,7 +28,7 @@
 
 .sidebar{
 	.stat-number{
-		margin: $space-half 0;
+		margin-bottom: $space-half;
 		padding: 0.8em;
 		display: inline-block;
 		background-color: white;
