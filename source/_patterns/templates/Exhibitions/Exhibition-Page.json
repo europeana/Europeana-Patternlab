@@ -28,7 +28,8 @@
             "background_image_credit": "sfsdfs",
             "background_image_url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png",
             "title": "Art Nouveau",
-            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. Art was to become a part of daily life and the work of the artist was to be embraced not only by the elite, but by the general public as a whole. </p><p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. Art was to become a part of daily life and the work of the artist was to be embraced not only by the elite, but by the general public as a whole. </p>",
+            "intro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
         },
         {
             "id": "2",

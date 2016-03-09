@@ -12,6 +12,7 @@
                {{/ img.src }}
                {{^ img.src }}
                  <span class="show-with-grid missing-image-text">
+                   {{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}
                    {{text.medium}}
                  </span>
                {{/ img.src }}
@@ -31,7 +32,7 @@
 
   <div class="item-info {{^ img.src }}hide-with-grid{{/ img.src }}">
 
-    <h1><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}&nbsp;&nbsp;</a>&nbsp;&nbsp;</h1>
+    <h2><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}&nbsp;&nbsp;</a>&nbsp;&nbsp;</h2>
 
     {{#text}}
     <p class="excerpt">

@@ -34,7 +34,18 @@ define(['jquery'], function ($) {
           duration:        '1000'
       })
       .setPin($firstSlide[0])
-      .setTween(TweenMax.to($firstSlide.find('.ve-title-group'), 1, {
+      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-title-group'), 1, {
+          opacity: 0,
+          ease: Cubic.easeOut
+      }))
+      .addTo(smCtrl);
+
+      new ScrollMagic.Scene({
+          triggerElement:  $firstSlide,
+          triggerHook:     'onLeave',
+          duration:        '1000'
+      })
+      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-description'), 1, {
           opacity: 0,
           ease: Cubic.easeOut
       }))

@@ -22,7 +22,9 @@
           {{/ elements.items }}
         </h4>
         {{# elements.items }}
+          <section class="ve-slide {{#is_first}}first{{/is_first}}">
           {{> organisms/virtual-exhibitions/main-slide}}
+          </section>
         {{/ elements.items }}
       {{/ elements.present }}
       <a id="ve-end"></a>
