@@ -68,14 +68,14 @@
     margin-left: -0.3em;
   }
   background-color: #FFF;
-  color: $textcolour_link;
+  color: $textcolour_body;
 
 }
 
 .button-bar__item > input:checked + label,
 .button-bar__button:active,
 .button-bar__button.is-active {
-  color: $textcolour_body;
+  color: $textcolour_link;
   background-color: $gray-lightest;
 
 }

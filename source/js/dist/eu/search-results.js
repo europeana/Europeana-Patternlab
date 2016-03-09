@@ -12,7 +12,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var handleEllipsis = function(){
 
-      var texts = results.find('.result-items h1:not(.js-ellipsis)');
+      var texts = results.find('.result-items h2:not(.js-ellipsis)');
       var toFix = [];
 
       texts.css('overflow-y', 'auto');
