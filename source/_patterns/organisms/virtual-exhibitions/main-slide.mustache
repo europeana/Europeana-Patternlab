@@ -2,7 +2,11 @@
   <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
    {{#is_text}}
       <div class="ve-base-text">
-        {{{body}}}
+        <div style="position: absolute; top: 50%;">
+          <div style="display: table-cell; transform: translateY(-50%); ">
+            {{{body}}}
+          </div>
+        </div>
       </div>
    {{/is_text}}
 
