@@ -1,0 +1,21 @@
+<figure class="stat-display chart {{style_modifier}}">
+	{{# title }}
+	<figcaption>
+		<span class="stat-title">{{ title }}</span>
+{{#description}}
+		<span class="tooltip-container">
+			<svg class="icon icon-help">
+				<use xlink:href="#icon-help"></use>
+			</svg>
+			<div class="tooltip">
+				{{ description }}
+			</div>
+		</span>
+{{/description}}
+	</figcaption>
+	{{/ title }}
+
+	<div id="{{ id }}" data-api="{{ api }}" data-datacast_identifier="{{ datacast_identifier }}" class="{{ class }}" data-filter_present="{{ filter_present }}" data-filter_column_name="{{ filter_column_name }}">
+
+	</div>
+</figure>
