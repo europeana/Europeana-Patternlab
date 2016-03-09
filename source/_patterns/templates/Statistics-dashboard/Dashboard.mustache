@@ -17,7 +17,7 @@
 
     {{! Main line chart }}
     {{# content.charts.main_chart }}
-    <div class="big-graph prototype-image">
+    <div class="big-graph">
       {{> molecules/charts/pykchart }}
     </div>
     {{/ content.charts.main_chart }}
@@ -103,16 +103,25 @@
 
   <div class="l-sidebar sidebar cf">
 
-
-  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
-
-  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
-
-  {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
-
-  {{# content.charts.item_distribution }}
+  {{# content.charts.total_items }}
     {{> molecules/charts/pykchart }}
-  {{/ content.charts.item_distribution }}
+  {{/ content.charts.total_items }}
+
+  {{# content.total_countries }}
+  {{> molecules/charts/display-number }}
+  {{/ content.total_countries }}
+
+  {{# content.total_providers }}
+  {{> molecules/charts/display-number }}
+  {{/ content.total_providers }}
+
+  {{# content.data_providers }}
+  {{> molecules/charts/display-number }}
+  {{/ content.data_providers }}
+
+  {{# content.charts.open_for_reuse }}
+    {{> molecules/charts/pykchart }}
+  {{/ content.charts.open_for_reuse }}
 
   </div>
   {{! end sidebar }}

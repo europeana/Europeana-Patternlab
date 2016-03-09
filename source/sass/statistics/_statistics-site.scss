@@ -129,12 +129,13 @@
 
 
 
-.big-graph{
-	height: 250px;
+.big-graph figcaption{
+	display: none;
+}
 
-	figcaption{
-		display: none;
-	}
+.chart-wrapper{
+	min-height: 10em;
+	background-color: $gray-lighter;
 }
 
 .dashboard-title{

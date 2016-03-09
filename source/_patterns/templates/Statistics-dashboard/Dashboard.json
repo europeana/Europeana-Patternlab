@@ -219,6 +219,21 @@
         }
       ]
     },
+    "total_countries": {
+      "title": "Countries working with Europeana",
+      "value": "39",
+      "description": "The number of Countries working with Europeana"
+    },
+    "total_providers": {
+      "title": "Aggregators working with Europeana",
+      "value": "151",
+      "description": "The total number of Aggregators working with Europeana."
+    },
+    "data_providers": {
+      "title": "Institutions working with Europeana",
+      "value": "3521",
+      "description": "The total number of institutions working with Europeana."
+    },
     "charts":{
       "main_chart":{
         "title": "Main chart title here",
@@ -242,6 +257,16 @@
       },
       "total_items":{
         "title": "Total number of items",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
+        "id":"id_for_chart_here",
+        "api":"api here",
+        "datacast_identifier": "datacast_identifier here",
+        "class": "chart class here",
+        "filter_present": "filter_present here",
+        "filter_column_name": "filter_column_name here"
+      },
+      "open_for_reuse":{
+        "title": "Open for Re-use",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
         "id":"id_for_chart_here",
         "api":"api here",
