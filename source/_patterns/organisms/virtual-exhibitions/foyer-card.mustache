@@ -14,33 +14,31 @@
      <span class="ve-state-2 ve-state-button-off"></span>
     </div>
 
+    {{#state1}}
     <div class="ve-foyer-card-state">
-      <img srcset="/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png 1600w,
-                    /images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png 1200w,
-                    /images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-quarter.png 800w"
-           src="/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png" />
+      <img src="{{image}}" />
       <div class="text-box title">
-        <a href="javascript:alert('open this exhibition');">Wiki Loves Art Nouveau</a>
+        <a href="{{link}}">{{title}}</a>
       </div>
     </div>
-    <div class="ve-foyer-card-state hide-right shaded">
-      <img srcset="/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png 1600w,
-                    /images/virtual-exhibitions/art-nouveau/sagrada-familia-half.png 1200w,
-                    /images/virtual-exhibitions/art-nouveau/sagrada-familia-quarter.png 800w"
-           src="/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png" />
-      <div class="text-box description">
-        <a href="javascript:alert('open this exhibition');">Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces</a>
-      </div>
-    </div>
+    {{/state1}}
 
-    <div class="ve-foyer-card-state hide-right">
-      <img srcset="/images/virtual-exhibitions/art-nouveau/stairs-full.png 1600w,
-                    /images/virtual-exhibitions/art-nouveau/stairs-half.png 1200w,
-                    /images/virtual-exhibitions/art-nouveau/stairs-quarter.png 800w"
-           src="/images/virtual-exhibitions/art-nouveau/stairs.png" />
-      <div class="text-box credits">
-        <a href="javascript:alert('open this exhibition');">Credits...</a>
+    {{#state2}}
+    <div class="ve-foyer-card-state hide-right shaded">
+      <img src="{{image}}" />
+      <div class="text-box description">
+        <a href="{{link}}">{{title}}</a>
       </div>
     </div>
+    {{/state2}}
+
+    {{#state3}}
+    <div class="ve-foyer-card-state hide-right">
+      <img src="{{image}}" />
+      <div class="text-box credits">
+        <a href="javascript:alert('open this exhibition');">{{title}}</a>
+      </div>
+    </div>
+    {{/state3}}
   </div>
 </figure>

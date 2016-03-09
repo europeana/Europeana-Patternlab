@@ -33,13 +33,14 @@
 
   <div class="lc">
     <h1>Foyer</h1>
-    {{> organisms/virtual-exhibitions/foyer-card}}
+    {{#foyer_items}}
+      {{#present}}
+        {{#items}}
+          {{> organisms/virtual-exhibitions/foyer-card}}
+        {{/items}}
+      {{/present}}
+    {{/foyer_items}}
 
-    {{> organisms/virtual-exhibitions/foyer-card}}
-
-    {{> organisms/virtual-exhibitions/foyer-card}}
-
-    {{> organisms/virtual-exhibitions/foyer-card}}
   </div>
 </div>
 

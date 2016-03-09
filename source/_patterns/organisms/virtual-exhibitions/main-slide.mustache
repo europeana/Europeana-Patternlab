@@ -9,7 +9,7 @@
   {{/is_section}}
 
   {{#is_text}}
-    <div class="ve-base-text">
+    <div id="{{id}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
       <div style="position: absolute; top: 50%;">
         <div style="display: table-cell; transform: translateY(-50%); ">
           {{{body}}}
@@ -19,7 +19,7 @@
   {{/is_text}}
 
   {{#is_image}}
-    <div class="ve-base-image">
+    <div id="{{id}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
      <figure>
         {{#image}}
         <img srcset="{{#large}}{{url}}{{/large}} 1200w,
@@ -34,7 +34,7 @@
   {{/is_image}}
 
   {{#is_intro}}
-    <div class="ve-base-intro" style="background-image:url({{background_image_url}})">
+    <div id="{{id}" class="ve-base ve-base-intro {{type}}" style="background-image:url({{background_image_url}})" data-alchemy-element="{{alchemy_id}}">
       <div class="ve-title-group">
         {{#title}}
           <span class="ve-title">
@@ -61,7 +61,7 @@
   {{/is_intro}}
 
   {{#is_title_image_text}}
-    <div class="ve-base-title-image-text cf" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}}>
+    <div id="{{id}" class="ve-base ve-base-title-image-text cf {{type}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} data-alchemy-element="{{alchemy_id}}">
       {{#title}}<h2>{{.}}</h2>{{/title}}
       <div class="ve-col-50-left">
         {{#image}}

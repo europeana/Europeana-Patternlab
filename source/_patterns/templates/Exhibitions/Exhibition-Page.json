@@ -96,11 +96,77 @@
       ]
     }
   },
-  "foyer": {
+  "foyer_items": {
     "present": true,
     "items":
     [
       {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
       }
     ]
   }
