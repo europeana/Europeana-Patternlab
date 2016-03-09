@@ -11,51 +11,42 @@
   <div class="lc">
 
     <div class="dashboard-title">
-      <h1 class="project-title">Provider name here</h1>
-      <h2 class="graph-title">Big Graph title here</h2>
+      <h1 class="project-title">{{ content.stats_source }}</h1>
+      <h2 class="graph-title">{{ content.charts.main_chart.title }}</h2>
     </div>
 
+    {{! Main line chart }}
+    {{# content.charts.main_chart }}
     <div class="big-graph prototype-image">
-
-      Large line graph goes here
-
+      {{> molecules/charts/pykchart }}
     </div>
+    {{/ content.charts.main_chart }}
+
   </div>
 </div>
 
-<div class="stats-header">
-  <ul class="lc">
-    <li>
-      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
-    </li>
-    <li>
-      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014", trend:true) }}
-    </li>
-    <li>
-      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
-    </li>
-    <li>
-      {{> molecules/charts/display-number(title: "Total Visits in 2014", value:"17,060,879", description:"The total number of visits (user sessions) in 2014") }}
-    </li>
-  </ul>
-</div>
+
+{{# content.stats_bar }}
+{{> organisms/sections/stats-bar }}
+{{/ content.stats_bar }}
 
 
 <div class="lc">
   <div class="l-content">
     <div class="maincontent">
 
+{{# content.numberedlist }}
     <div class="section top25">
 
       <div class="section-header cf">
-        <h4 class="section-title">Top 25 objects</h4>
+        <h4 class="section-title">{{ title }}</h4>
 
-        <div class="results-filter h4">
+        <div class="results-filter">
 
-          <span class="madlib">Show results for</span>
+          <span class="madlib h4">Show results for</span>
 
-
-          <span class="madlib"><select id="filter-month-select" class="filter_top_digital_objects">
+          <span class="madlib">
+            <select id="filter-month-select">
               <option value="">Full year</option>
               <option value="" disabled="disabled">- - - - - - - -</option>
               <option value="January">January</option>
@@ -70,24 +61,25 @@
               <option value="October">October</option>
               <option value="November">November</option>
               <option value="December">December</option>
-            </select></span>
+            </select>
+          </span>
 
-          <span class="madlib">of</span>
+          <span class="madlib h4">of</span>
 
-          <span class="madlib"><select id="filter-year-select" class="filter_top_digital_objects">
+          <span class="madlib">
+            <select id="filter-year-select">
               <option value="2014">2014</option>
               <option value="2015" selected="">2015</option>
               <option value="2016">2016</option>
-            </select></span>
+            </select>
+          </span>
         </div>
       </div>
 
-
-
-
-
       <ol class="results-list numbered numberstyle1 cf is-shortened js-showmore-panel">
-        {{#listItems.twelve}}<li>{{> molecules-listitem-simple(extra:true) }}</li>{{/listItems.twelve}}
+        {{#items}}
+        <li>{{> molecules-listitem-simple }}</li>
+        {{/items}}
       </ol>
 
       <a class="show-all h4 js-showmore" href="#" data-text-swap="▲ Show less">
@@ -95,17 +87,14 @@
       </a>
 
     </div>
+{{/ content.numberedlist }}
 
 
-    <div class="section">
-
-      <h4>Top 25 Countries</h4>
-
-      <div class="prototype-image" style="height: 300px;">
-        MAP HERE
-      </div>
-
+{{# content.charts.topcountries }}
+    <div class="section chart-map">
+      {{> molecules/charts/pykchart }}
     </div>
+{{/ content.charts.topcountries }}
 
     </div>
   </div>
@@ -116,9 +105,14 @@
 
 
   {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
+
   {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
+
   {{> molecules/charts/display-number(title: "Total Countries", value:"39") }}
-  {{> molecules/charts/chart-pie(title: "Example Pie chart") }}
+
+  {{# content.charts.item_distribution }}
+    {{> molecules/charts/pykchart }}
+  {{/ content.charts.item_distribution }}
 
   </div>
   {{! end sidebar }}

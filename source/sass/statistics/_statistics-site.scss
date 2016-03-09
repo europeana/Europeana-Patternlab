@@ -25,14 +25,14 @@
 	h2.subtitle{
 		text-transform: initial;
 		font-size: 1.4em;
-		margin-bottom: $space-double;
+		margin-bottom: 0;
 	}
 }
 
 
 @media all and (min-width: $bp-med) and (min-height: 850px) {
 	.site-hero{
-		height: 80%;
+		height: 50%;
 	}
 
 	.hero-content{
@@ -131,6 +131,10 @@
 
 .big-graph{
 	height: 250px;
+
+	figcaption{
+		display: none;
+	}
 }
 
 .dashboard-title{
@@ -142,66 +146,6 @@
 
 	.project-title{
 		margin-right: $space-half;
-	}
-}
-
-.stats-header{
-	background-color: $blue-dark;
-	color: $white;
-
-	li{
-		display: block;
-		padding: $space-quarter;
-		margin: 1%;
-		border-bottom: 2px solid lighten($blue-dark, 10%);
-
-		@media all and (min-width: $bp-small) {
-			width: 48%;
-			float: left;
-		}
-
-		@media all and (min-width: $bp-med) {
-		  width: 23%;
-		  border-bottom: 0;
-		  border-right: 3px solid lighten($blue-dark, 10%);
-
-		  &:last-child{
-				border: none;
-
-				.tooltip{
-					left: auto;
-					right: -2em;
-				}
-			}
-		}
-	}
-
-	.tooltip-container{
-		float: right;
-		color: rgba(255,255,255,0.6);
-		&:hover, &:focus {
-			color: rgba(255,255,255,1);
-		}
-		.icon{
-			margin-right: 0;
-		}
-	}
-
-	.stat-title{
-		font-weight: normal;
-		text-transform: none;
-		font-size: $font-size-slightly-smaller;
-	}
-	.stat-wrapper{
-		text-align: left;
-	}
-	.stat-display figcaption{
-		margin-bottom: $space-quarter;
-		color: $gray-lightest;
-	}
-
-	.stat-trend{
-		float: right;
 	}
 }
 

@@ -2,17 +2,20 @@
   <img class="listitem-image media-figure" src="{{ image_root }}{{ image }}" alt="{{ title }}">
   <div class="media-body">
 
-  	{{# title }}
-  	<a href="{{url}}"><h3>{{ title }}</h3></a>
-  	{{/ title }}
+  	{{# url }}
+  	<a href="{{ url }}"><h3>{{ title }}</h3></a>
+  	{{/ url }}
+    {{^ url }}
+    <h3>{{ title }}</h3>
+    {{/ url }}
 
   	<div class="listitem-text">
-  		{{ excerpt.vshort }}
+  		{{ description }}
   	</div>
 
-  	{{# extra}}
+  	{{# extra }}
   	<div class="listitem-extra">
-  		Views: {{ year.long }}
+  		{{ . }}
   	</div>
   	{{/extra}}
   </div>
