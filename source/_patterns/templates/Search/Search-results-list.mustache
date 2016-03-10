@@ -60,7 +60,10 @@
                         {{/ has_single_result }}
 
                         {{# has_multiple_results }}
-                            {{{ i18n.site.results.list.count-and-terms }}}
+                            {{! i18n.site.results.list.count-and-terms }}
+
+                            {{ i18n.site.results.list.count-and-terms-with-range }}
+
                         {{/ has_multiple_results }}
                     </div>
                     <div class="result-controls">
