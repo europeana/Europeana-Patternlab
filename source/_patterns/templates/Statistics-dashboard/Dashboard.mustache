@@ -90,22 +90,21 @@
             <img class="listitem-image media-figure" src="{{ image_root }}{{ image }}" alt="{{ title }}">
             <div class="media-body">
 
-              {{# url }}
+              {{#if url}}
               <a href="{{ url }}"><h3>{{ title }}</h3></a>
-              {{/ url }}
-              {{^ url }}
+              {{else}}
               <h3>{{ title }}</h3>
-              {{/ url }}
+              {{/if}}
 
               <div class="listitem-text">
                 {{ description }}
               </div>
 
-              {{# extra }}
+              {{#if extra }}
               <div class="listitem-extra">
-                {{ . }}
+                {{ extra }}
               </div>
-              {{/extra}}
+              {{/if}}
             </div>
           </div>
         </li>
