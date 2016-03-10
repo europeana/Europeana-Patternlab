@@ -208,6 +208,12 @@
       background-repeat:   no-repeat;
       background-size:     100% auto;
       position:            relative;
+      .attribution{
+        position: absolute;
+        z-index: 10;
+        bottom: 4px;
+        right: 0;
+      }
     }
 
     .ve-base-title-image-text{
