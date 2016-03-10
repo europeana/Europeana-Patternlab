@@ -1,7 +1,7 @@
 {{> atoms/iconography/svgicons-search }}
 {{> atoms/iconography/svgicons-user }}
 
-{{ gon }}
+{{{ gon }}}
 
 {{> organisms/global/header_v2}}
 
@@ -47,7 +47,7 @@
           <span class="madlib h4">Show results for</span>
 
           <span class="madlib">
-            <select id="filter-month-select">
+            <select id="filter-month-select" class="js-filter_top_digital_objects">
               <option value="">Full year</option>
               <option value="" disabled="disabled">- - - - - - - -</option>
               <option value="January">January</option>
@@ -68,7 +68,7 @@
           <span class="madlib h4">of</span>
 
           <span class="madlib">
-            <select id="filter-year-select">
+            <select id="filter-year-select" class="js-filter_top_digital_objects">
               <option value="2014">2014</option>
               <option value="2015" selected="">2015</option>
               <option value="2016">2016</option>
