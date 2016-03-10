@@ -1,8 +1,9 @@
 {{> atoms/iconography/svgicons-search }}
 {{> atoms/iconography/svgicons-user }}
 
-{{> organisms/global/header_v2}}
+{{ gon }}
 
+{{> organisms/global/header_v2}}
 
 
 <main role="main" class="l-page">
@@ -78,9 +79,38 @@
 
       <ol class="results-list numbered numberstyle1 cf is-shortened js-showmore-panel">
         {{#items}}
-        <li>{{> molecules-listitem-simple }}</li>
+        <li>{{> molecules/blocks/listitem-simple }}</li>
         {{/items}}
       </ol>
+
+      {{=<% %>=}}
+      <script id="top25-template" type="text/x-handlebars-template">
+        <li>
+          <div class="listitem media">
+            <img class="listitem-image media-figure" src="{{ image_root }}{{ image }}" alt="{{ title }}">
+            <div class="media-body">
+
+              {{# url }}
+              <a href="{{ url }}"><h3>{{ title }}</h3></a>
+              {{/ url }}
+              {{^ url }}
+              <h3>{{ title }}</h3>
+              {{/ url }}
+
+              <div class="listitem-text">
+                {{ description }}
+              </div>
+
+              {{# extra }}
+              <div class="listitem-extra">
+                {{ . }}
+              </div>
+              {{/extra}}
+            </div>
+          </div>
+        </li>
+      </script>
+      <%={{ }}=%>
 
       <a class="show-all h4 js-showmore" href="#" data-text-swap="▲ Show less">
         ▼ Show all
