@@ -1,8 +1,10 @@
 define(['jquery'], function ($) {
 
   //var $url             = $.url();
-  var minViewportWidth = 768;
-  var smIsDestroyed    = false;
+  var minViewportWidthFX  = 768;
+  var smIsDestroyed       = false;
+  var introEffectDuration = 200;
+  var scrollDuration      = 1400;
   var smCtrl;
 
   function log(msg){
@@ -31,21 +33,10 @@ define(['jquery'], function ($) {
       new ScrollMagic.Scene({
           triggerElement:  $firstSlide,
           triggerHook:     'onLeave',
-          duration:        '1000'
+          duration:        introEffectDuration
       })
       .setPin($firstSlide[0])
-      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-title-group'), 1, {
-          opacity: 0,
-          ease: Cubic.easeOut
-      }))
-      .addTo(smCtrl);
-
-      new ScrollMagic.Scene({
-          triggerElement:  $firstSlide,
-          triggerHook:     'onLeave',
-          duration:        '1000'
-      })
-      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-description'), 1, {
+      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit'), 1, {
           opacity: 0,
           ease: Cubic.easeOut
       }))
@@ -62,10 +53,10 @@ define(['jquery'], function ($) {
           new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        '1000'
+              duration:        introEffectDuration
           })
           .setTween(TweenMax.to($firstSlide.find('.ve-base-intro'), 1, {
-              backgroundSize: '50% auto',
+              backgroundSize: '65% auto',
               ease: Cubic.easeOut
           }))
           .addTo(smCtrl);
@@ -82,7 +73,7 @@ define(['jquery'], function ($) {
         var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
         var nextA  = curr.next('a')
         var anchor = nextA.attr('href');
-        $(window).scrollTo(anchor, 1400);
+        $(window).scrollTo(anchor, scrollDuration);
         e.preventDefault();
       }
     });
@@ -201,7 +192,7 @@ define(['jquery'], function ($) {
 
     //    log('TODO: background-attachment:fixed on intro images');
 
-    if ($(window).width() > minViewportWidth) {
+    if ($(window).width() > minViewportWidthFX) {
 
       require(['ScrollMagic', 'TweenMax', 'util_resize', 'jqScrollto'], function(ScrollMagic){
         require(['gsap'], function(){
@@ -210,7 +201,7 @@ define(['jquery'], function ($) {
 
           /*
           $(window).europeanaResize(function(){
-            if ($(window).width() <= minViewportWidth && !smIsDestroyed) {
+            if ($(window).width() <= minViewportWidthFX && !smIsDestroyed) {
               smCtrl.destroy(true)
               smCtrl        = null;
               smIsDestroyed = true;
@@ -262,7 +253,7 @@ define(['jquery'], function ($) {
             .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
 
           $('.ve-progress-nav a').on('click', function(){
-            $(window).scrollTo($(this).attr('href'), 1400);
+            $(window).scrollTo($(this).attr('href'), scrollDuration);
           });
 
           initSFX(ScrollMagic);

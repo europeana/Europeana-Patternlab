@@ -2,9 +2,6 @@
 {{> atoms/iconography/svgicons-user }}
 {{> organisms/global/header_v2}}
 
-
-
-<!-- Start content -->
 <main role="main" class="l-page">
 
   <div class="page_header">
@@ -12,39 +9,36 @@
   </div>
 
   <div id="maincontent" class="maincontent">
-
-  {{# page_data }}
-    <div class="ve-slide-container">
-      {{# elements.present }}
-        <h4 class="ve-progress-nav">
+    {{# page_data }}
+      <div class="ve-slide-container">
+        {{# elements.present }}
+          <h4 class="ve-progress-nav">
+            {{# elements.items }}
+              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+            {{/ elements.items }}
+          </h4>
           {{# elements.items }}
-            <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+            <section class="ve-slide {{#is_first}}first{{/is_first}}">
+            {{> organisms/virtual-exhibitions/main-slide}}
+            </section>
           {{/ elements.items }}
-        </h4>
-        {{# elements.items }}
-          <section class="ve-slide {{#is_first}}first{{/is_first}}">
-          {{> organisms/virtual-exhibitions/main-slide}}
-          </section>
-        {{/ elements.items }}
-      {{/ elements.present }}
-      <a id="ve-end"></a>
+        {{/ elements.present }}
+        <a id="ve-end"></a>
+      </div>
+    {{/ page_data }}
+
+    <div class="lc">
+      <h1>Foyer</h1>
+      {{#foyer_items}}
+        {{#present}}
+          {{#items}}
+            {{> organisms/virtual-exhibitions/foyer-card}}
+          {{/items}}
+        {{/present}}
+      {{/foyer_items}}
     </div>
-  {{/ page_data }}
-
-  <div class="lc">
-    <h1>Foyer</h1>
-    {{#foyer_items}}
-      {{#present}}
-        {{#items}}
-          {{> organisms/virtual-exhibitions/foyer-card}}
-        {{/items}}
-      {{/present}}
-    {{/foyer_items}}
-
   </div>
-</div>
 
 </main>
-<!-- End Content -->
 
 {{> organisms/global/footer }}

@@ -3,7 +3,7 @@
 @import "variables";
 
 .no-js{
-  ve-progress-nav{
+  .ve-progress-nav{
     display: none;
   }
 
@@ -23,8 +23,8 @@
   padding: 0.7rem 0.8rem;
 }
 
-.ve-nav-lists{
-  margin-left: 2%;
+.slide-nav{
+  display:     none;
 }
 
 .text-element{
@@ -55,6 +55,7 @@
 }
 
 .ve-progress-nav{
+  display:     none;
   position:    fixed;
   right:       3.5em;
   top:         50%;
@@ -85,6 +86,7 @@
 
 @media all and (min-width: $bp-small-2) {
 
+  .ve-base-quote,
   .ve-base-text,
   .ve-title-group{
       width: 100%;
@@ -97,18 +99,60 @@
 
 @media all and (min-width: $bp-med) {
 
+  .ve-nav-lists{
+    margin-left: 2%;
+  }
+
+  .slide-nav,
+  .ve-progress-nav{
+    display: block;
+  }
+
+  .ve-title-group{
+    padding-left:   2%;
+  }
+
   .ve-title-group,
+  .ve-base-quote,
   .ve-base-text{
       width: $ve_text_column_width;
   }
 
+  .ve-title-group,
   .ve-description{
-      width: calc(#{$ve_text_column_width} - 2%);
+    font-size: 0.9em;
+  }
+
+  .ve-description{
+    width: calc(#{$ve_text_column_width} - 2%);
+    left:  2%;
+  }
+
+  .ve-base-title-image-text{
+    padding: 1em 2%;
   }
 
 }
 
 @media all and (min-width: $bp-xl) {
+}
+
+
+.ve-base{
+
+  figcaption{
+    text-align: center;
+  }
+
+  .centered-text{
+    transform: translateY(-50%);
+  }
+
+  .centered-v-text{
+    position: absolute;
+    top:      50%;
+    width:    100%;
+  }
 }
 
 .ve-title-group,
@@ -120,21 +164,19 @@
 
 .ve-title-group{
 
-  background-color:  rgba(0,0,0,0.5);
+  background-color:  $bg_colour_overlaid_text;
 
   font-weight:    bold;
   left:           0;
   padding:        1em;
-  padding-left:   2%;
   top:            2em;
 }
 
 .ve-description{
 
-  background-color:  rgba(0,0,0,0.5);
+  background-color:  $bg_colour_overlaid_text;
   bottom:            4em;
   color:             white;
-  left:              2%;
   padding:           1em;
   position:          absolute;
 }
@@ -167,16 +209,10 @@
 
     &.first .ve-anchor{
       // 10em enough to pull back beyond header
-      // top:      -10em;
-      // 10em more needed to keep nav working after 1000px pin
       top:      -100em;
     }
 
     // layout: compensate for header
-    //.ve-base-text,
-    //.ve-base-image,
-    //.ve-base-title-image-text,
-    //.ve-base-intro
     & > div{
        min-height: -webkit-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
        min-height:    -moz-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
@@ -190,6 +226,7 @@
     }
 
 
+    .ve-base-quote,
     .ve-base-text{
       text-align: center;
       position: relative;
@@ -208,17 +245,10 @@
       background-repeat:   no-repeat;
       background-size:     100% auto;
       position:            relative;
-      .attribution{
-        position: absolute;
-        z-index: 10;
-        bottom: 4px;
-        right: 0;
-      }
     }
 
     .ve-base-title-image-text{
-      background-color: $bg_colour_title_image_text;
-      padding: 1em 2%;
+      background-color: $colour_overlaid_text;
     }
 
     .ve-col-50-left{
@@ -268,7 +298,6 @@
 }
 
 .ve-image-credit{
-  background-color:  rgba(0,0,0,0.5);
   bottom: 1em;
   font-weight: bold;
   padding: 1em;
@@ -280,14 +309,32 @@
   text-align: center;
 }
 
-.ve-quote:before{
-  content: "“";
-  display: block;
-}
+.ve-base-quote{
 
-.ve-quote:after{
-  content: "”";
-  display: block;
+  .quote{
+    font-weight:   bold;
+    margin-bottom: 1em;
+  }
+
+  .quotee{
+    font-style:  italic;
+    margin-left: 50%;
+  }
+
+  .quote,
+  .quotee{
+    display: block;
+  }
+
+  .quote:before{
+    content: "“";
+    display: block;
+  }
+
+  .quote:after{
+    content: "”";
+    display: block;
+  }
 }
 
 .ve-foyer-card{
@@ -326,7 +373,7 @@
   }
 
   .ve-card-nav{
-    color:          #fff;
+    color:          $colour_overlaid_text;
     cursor:         pointer;
     font-size:      2em;
     font-weight:    bold;
@@ -363,7 +410,7 @@
   }
 
   .text-box{
-    color:          #fff;
+    color:          $colour_overlaid_text;
     left:           0;
     padding:        0.2em 2.1em;
     position:       absolute;
@@ -379,12 +426,12 @@
   .text-box.credits,
   .ve-foyer-card-state.shaded:before,
   .text-box.title{
-    background-color:  rgba(0,0,0,0.5);
+    background-color:  $bg_colour_overlaid_text;
   }
 
   .text-box a,
   .text-box a:hover{
-    color:          #fff;
+    color: $colour_overlaid_text;
   }
   .text-box a:hover{
     text-decoration: underline;
