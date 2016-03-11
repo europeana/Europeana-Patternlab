@@ -23,6 +23,7 @@ require.config({
     featureDetect:                 '../global/feature-detect',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
+    handlebars:                    '//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min',
     dashboardstatistics:            '../eu/dashboard-statistics',
     jqDropdown:                    '../lib/jquery.dropdown',
     jquery:                        '../lib/jquery',
