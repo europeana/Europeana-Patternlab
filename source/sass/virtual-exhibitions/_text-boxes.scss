@@ -113,29 +113,35 @@
     }
 
     // layout: compensate for header
-    & > div{
-       min-height: -webkit-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
-       min-height:    -moz-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
-       min-height:         calc(100vh - 5rem - 1rem - 2 * 0.7rem);
-    }
+    min-height: -webkit-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+    min-height:    -moz-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+    min-height:         calc(100vh - 5rem - 1rem - 2 * 0.7rem);
 
-    &:not(first) > div{
+    &:not(first){
        min-height: -webkit-calc(100vh - 5rem);
        min-height:    -moz-calc(100vh - 5rem);
        min-height:         calc(100vh - 5rem);
     }
+
+   .ve-base-intro{
+       min-height: -webkit-calc(100vh - 5rem);
+       min-height:    -moz-calc(100vh - 5rem);
+       min-height:         calc(100vh - 5rem);
+   }
+
   }
 
   .ve-base{
-    .centered-text{
-      transform: translateY(-50%);
-    }
 
-    .centered-v-text{
-      position: absolute;
-      top:      50%;
-      width:    100%;
-    }
+    //.centered-text{
+    //  transform: translateY(-50%);
+    //}
+    //.centered-v-text{
+    //  position: absolute;
+    //  top:      50%;
+    //  width:    100%;
+    //}
+
   }
 
   .ve-base-intro{
@@ -198,6 +204,11 @@
 
 
 .ve-base{
+
+  picture{
+    display:    block;
+    text-align: center;
+  }
 
   figcaption{
     text-align: center;

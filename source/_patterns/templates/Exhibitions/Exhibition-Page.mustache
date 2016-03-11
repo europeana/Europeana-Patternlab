@@ -14,14 +14,30 @@
         {{# elements.present }}
           <h4 class="ve-progress-nav">
             {{# elements.items }}
-              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{#is_first}}ve-state-button-on ve-first{{/is_first}}{{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+              {{^ is_section }}
+                {{#is_first}}
+                  <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span></a>
+                {{/is_first}}
+              {{/ is_section }}
+            {{/ elements.items }}
+            {{# elements.items }}
+              {{# is_section }}
+              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+              {{/ is_section }}
             {{/ elements.items }}
           </h4>
-          {{# elements.items }}
-            <section class="ve-slide {{#is_first}}first{{/is_first}}">
-            {{> organisms/virtual-exhibitions/main-slide}}
-            </section>
-          {{/ elements.items }}
+
+          <section class="ve-slide {{#is_first}}first{{/is_first}}">
+            {{# elements.items }}
+              {{#is_first}}
+                <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
+              {{/is_first}}
+            {{/ elements.items }}
+            {{# elements.items }}
+              {{> organisms/virtual-exhibitions/main-slide}}
+            {{/ elements.items }}
+          </section>
+
         {{/ elements.present }}
         <a id="ve-end"></a>
       </div>

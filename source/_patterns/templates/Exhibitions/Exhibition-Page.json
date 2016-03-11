@@ -13,7 +13,7 @@
       "css": "true"
     }]
   },
-  "bp_px":{
+  "breakpoint_pixels":{
     "img":{
       "show_thumbnail": "1px",
       "show_small": "200px",
@@ -85,10 +85,18 @@
             "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe bringing a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit. It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict. Dürer was one of the first great sightseers in European painting creating one the most renowned self-portraits in art.</p>"
         },
         {
+            "id": "2",
+            "is_section": true
+        },
+        {
             "id": "3",
             "is_quote": true,
             "quote": "She'll make point five past light speed",
             "quotee": "Han Solo - captain of the millennium falcon."
+        },
+        {
+            "id": "4",
+            "is_section": true
         },
         {
             "id": "5",
@@ -133,16 +141,44 @@
             "intro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
         },
         {
+            "id": "6",
+            "is_section": true
+        },
+        {
             "id": "7",
             "is_text": true,
             "type": "text",
             "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
         },
+
         {
             "id": "9",
             "is_text": true,
             "type": "text",
             "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+
+        {
+            "id": "9.1",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "9.2",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "9.3",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "10",
+            "is_section": true
         },
         {
             "id": "11",
@@ -182,10 +218,18 @@
 
         },
         {
+            "id": "12",
+            "is_section": true
+        },
+        {
             "id": "13",
             "is_text": true,
             "type": "text",
             "body": "Artists and architects also used the two-dimensional undulating and curvilinear lines in the design of Art Nouveau interiors in order to create movement and dynamism. The Catalan architect Antoni Gaudi, for example, was famous for his “leaning columns” that were not at right angles to the ceiling. Designed to resemble the shape of a tree, these columns branch out towards the ceiling reinforcing the grandeur of the interior."
+        },
+        {
+            "id": "14",
+            "is_section": true
         },
         {
             "id": "15",
