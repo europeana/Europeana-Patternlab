@@ -55,6 +55,22 @@ Site_DASHBOARD = {
               event.preventDefault();
             });
         }
+    },
+    page_static : {
+      init : function(){
+        require(["sticky"], function() {
+            if($(window).width() > 800){
+                var footerheight = $(".footer").outerHeight( true ) + 75;
+
+                $(".js-sticky").sticky({
+                    topSpacing:100,
+                    bottomSpacing: footerheight,
+                    responsiveWidth: true,
+                    getWidthFrom: ".js-getstickywidth"
+                });
+            }
+        });
+      }
     }
 }
 

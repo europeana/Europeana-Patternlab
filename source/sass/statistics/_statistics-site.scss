@@ -86,12 +86,6 @@
 		background-color: $white;
 	}
 
-	.item-rss{
-		text-align: right;
-		margin-top: -3rem;
-		margin-bottom: 3.1rem;
-	}
-
 	.textcontent{
 		background-color: $white;
 		padding-bottom: $space-triple;
@@ -237,4 +231,20 @@
 
 .PykCharts-credits {
   display: none;
+}
+
+
+
+
+// Page specific
+.page_static {
+	.maincontent{
+		padding: $space-triple $space;
+	}
+
+	@media all and (min-width: $bp-med) {
+		.l-sidebar{
+			padding-top: $space * 3;
+		}
+	}
 }
