@@ -1,4 +1,3 @@
-
   <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
 
   {{#is_section}}
@@ -34,17 +33,15 @@
     <div id="{{id}}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
      <figure>
 
-      {{#image}}
-        {{#image}}
-          <picture>
-              <source srcset="{{thumbnail.url}}"     media="(min-width: {{bp_px.img.show_thumbnail}}) and (max-width: {{bp_px.img.show_small}})">
-              <source srcset="{{small.url}}"         media="(min-width: {{bp_px.img.show_small}})     and (max-width: {{bp_px.img.show_half}})">
-              <source srcset="{{half.url}}"          media="(min-width: {{bp_px.img.show_half}})      and (max-width: {{bp_px.img.show_full}})">
-              <source srcset="{{full.url}}"          media="(min-width: {{bp_px.img.show_full}})">
-              <img src="{{full.url}}" alt="xxx">
-          </picture>
-        {{/image}}
-      {{/image}}
+       {{#image}}
+         <picture>
+           <source srcset="{{thumbnail.url}}"     media="(min-width: {{bp_px.img.show_thumbnail}}) and (max-width: {{bp_px.img.show_small}})">
+           <source srcset="{{small.url}}"         media="(min-width: {{bp_px.img.show_small}})     and (max-width: {{bp_px.img.show_half}})">
+           <source srcset="{{half.url}}"          media="(min-width: {{bp_px.img.show_half}})      and (max-width: {{bp_px.img.show_full}})">
+           <source srcset="{{full.url}}"          media="(min-width: {{bp_px.img.show_full}})">
+           <img src="{{full.url}}" alt="xxx">
+         </picture>
+       {{/image}}
 
        {{#caption}}
           <figcaption>{{.}}</figcaption>
@@ -58,7 +55,7 @@
   {{#is_intro}}
     <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}" data-alchemy-element="{{alchemy_id}}">
 
-      {{#background_image}}
+      {{#image}}
         <style scoped>
           {{#bp_px}}
             {{#bg}}
@@ -110,7 +107,7 @@
             {{/bg-hr}}
           {{/bp_px}}
         </style>
-      {{/background_image}}
+      {{/image}}
 
       <div class="ve-title-group">
         {{#title}}
@@ -124,16 +121,28 @@
           </span>
         {{/subtitle}}
       </div>
+
+      {{#image}}
+        <picture class="ve-intro-image">
+          <source srcset="{{thumbnail.url}}"     media="(min-width: {{bp_px.img.show_thumbnail}}) and (max-width: {{bp_px.img.show_small}})">
+          <source srcset="{{small.url}}"         media="(min-width: {{bp_px.img.show_small}})     and (max-width: {{bp_px.img.show_half}})">
+          <source srcset="{{half.url}}"          media="(min-width: {{bp_px.img.show_half}})      and (max-width: {{bp_px.img.show_full}})">
+          <source srcset="{{full.url}}"          media="(min-width: {{bp_px.img.show_full}})">
+          <img class="ve-intro-image" src="{{full.url}}" alt="xxx">
+        </picture>
+      {{/image}}
+
+      {{#image_credit}}
+        <div class="ve-image-credit">
+         {{>molecules/text/attribution}}
+        </div>
+      {{/image_credit}}
+
       {{#intro_description}}
         <div class="ve-description">
           {{{.}}}
         </div>
       {{/intro_description}}
-      {{#background_image_credit}}
-        <div class="ve-image-credit">
-         {{>molecules/text/attribution}}
-        </div>
-      {{/background_image_credit}}
     </div>
   {{/is_intro}}
 
