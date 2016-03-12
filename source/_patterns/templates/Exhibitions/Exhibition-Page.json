@@ -1,0 +1,430 @@
+{
+  "js_files": [{
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+    }
+
+  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/virtual-exhibitions/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "breakpoint_pixels":{
+    "img":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "800px"
+    },
+    "bg":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "800px"
+    },
+    "bg-hr":{
+      "dpr": "2",
+      "dpr_fraction": "2/1",
+      "show_thumbnail": "1",
+      "show_small": "400px",
+      "show_half":  "800px",
+      "show_full":  "1600px"
+    }
+  },
+  "page_data": {
+    "title": "Page title",
+    "url": "/example-page",
+    "elements": {
+      "present": "true",
+      "items":[
+        {
+            "id": "1",
+            "type": "ve-intro",
+            "is_first": true,
+            "is_intro": true,
+            "image_credit": {
+              "attribution_title": "Painéis de S. Vicente de Fora",
+              "attribution_creator": "Nuno Gonçalves",
+              "attribution_institution": "Museu Nacional De Arte Antiga",
+              "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-halfx2.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-small.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
+              }
+            },
+            "title": "The sacred and divine to the age of discovery",
+            "subtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
+            "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe bringing a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit. It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict. Dürer was one of the first great sightseers in European painting creating one the most renowned self-portraits in art.</p>"
+        },
+        {
+            "id": "2",
+            "is_section": true
+        },
+        {
+            "id": "2.1",
+            "is_text": true,
+            "type": "text",
+            "body": "<p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>"
+        },
+        {
+            "id": "3",
+            "type": "image",
+            "is_image": true,
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumb.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Le Japon artistique, n° 3"
+        },
+        {
+            "id":      "3.1",
+            "is_text": true,
+            "type":    "text",
+            "body":    "<p>Woodblock prints, porcelain, textiles and lacquer work had a profound impact on many western art movements, including Art Nouveau. Bamboo, carp, wisteria and cherry blossom became part of the decorative repertoire.</p>"
+        },
+        {
+            "id": "3.2",
+            "is_quote": true,
+            "type": "quote",
+            "quote": "She'll make point five past light speed",
+            "quotee": "Han Solo - captain of the millennium falcon."
+        },
+        {
+            "id":      "3.3",
+            "is_text": true,
+            "type":    "text",
+            "body":    "<p>Siegfried Bing (1838-1905), a naturalized Frenchman from Hamburg, ran an import-export business from the 1870s and edited the influential monthly journal Le Japon Artistique.</p>"
+        },
+        {
+            "id": "4",
+            "is_section": true
+        },
+        {
+            "id": "5",
+            "type": "ve-intro",
+            "is_intro": true,
+            "image_credit": {
+              "attribution_title": "Iparművészeti Múzeum (1070. számú műemlék)",
+              "attribution_creator": "Kontiki",
+              "attribution_institution": "Wikimedia Commons",
+              "attribution_url": "https://commons.wikimedia.org/wiki/File:Iparm%C5%B1v%C3%A9szeti_M%C3%BAzeum_%281070._sz%C3%A1m%C3%BA_m%C5%B1eml%C3%A9k%29_22.jpg",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+              }
+            },
+            "title": "Art Nouveau",
+            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>",
+            "intro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+        },
+        {
+            "id": "6",
+            "is_section": true
+        },
+        {
+            "id": "7",
+            "is_text": true,
+            "type": "text",
+            "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+
+        {
+            "id": "9",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+
+        {
+            "id": "9.1",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "9.2",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "9.3",
+            "is_text": true,
+            "type": "text",
+            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "10",
+            "is_section": true
+        },
+        {
+            "id": "11",
+            "type": "title_image_text",
+            "is_title_image_text": true,
+            "title": "ZURICH - Arthur Segal",
+            "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
+            "body": "Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success. In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.",
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 200,
+                    "height": 213,
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 200,
+                    "height": 213,
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 200,
+                    "height": 213,
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "width": 16000,
+                    "height": 1698,
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Arthur Segal with his son Walter, Berlin"
+
+        },
+        {
+            "id": "12",
+            "is_section": true
+        },
+        {
+            "id": "13",
+            "is_quote_full_height": true,
+            "type": "quote",
+            "quote": "She's fast enough for you old man.  What's the cargo?",
+            "quotee": "Han Solo - captain of the millennium falcon."
+        },
+        {
+            "id": "14",
+            "is_section": true
+        },
+        {
+            "id": "15",
+            "type": "image",
+            "is_image": true,
+            "is_last": true,
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "SagradaFamilia Sostre"
+        }
+      ]
+    }
+  },
+  "foyer_items": {
+    "present": true,
+    "items":
+    [
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (1)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
+      },
+      {
+        "state1": {
+          "title": "Wiki Loves Art Nouveau",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state2": {
+          "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        },
+        "state3": {
+          "title": "Credits",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "link": "javascript:alert('open this exhibition (2)');"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+
+
+.stat-display{
+	margin-bottom: 0;
+	position: relative;
+	figcaption{
+		font-style: normal;
+		text-align: left;
+		line-height: 1;
+		margin-bottom: $space-half;
+	}
+}
+
+.stat-title{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.stat-number{
+	font-size: 2em;
+	line-height: 1;
+}
+
+.stat-wrapper{
+	text-align: center;
+}
+
+.sidebar{
+	.stat-number{
+		margin-bottom: $space-half;
+		padding: 0.8em;
+		display: inline-block;
+		background-color: white;
+		color: $eu-blue;
+		font-size: 2em;
+		border-radius: 8px;
+	}
+
+	.stat-display{
+		margin-bottom: $space;
+		border-bottom: 1px solid $gray-lighter;
+	}
+}
+
+.stat-trend{
+	display: inline-block;
+	padding: 0.4em;
+	line-height: 1;
+
+	&.up{
+		background-color: $eu-jade;
+		color: $white;
+	}
+	&.down{
+		background-color: $eu-red;
+		color: $black;
+	}
+
+}

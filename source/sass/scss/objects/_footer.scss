@@ -65,7 +65,15 @@
 }
 
 .footer_logo{
-	margin-left: -$space;
+	//margin-left: -$space;
+
+  @media all and (min-width: $bp-xl) {
+		margin-right: $pad-double*2 ;
+	}
+
+  @media all and (max-width: $bp-med) {
+		width: $pad-double*8;
+	}
 }
 
 

@@ -1,0 +1,44 @@
+<figure class="ve-foyer-card" data-state="title">
+
+  <div class="inner">
+
+    <span class="ve-card-nav ve-card-nav-left">
+      &lt;
+    </span>
+    <span class="ve-card-nav ve-card-nav-right">
+      &gt;
+    </span>
+    <div class="ve-state-buttons">
+     <span class="ve-state-0 ve-state-button-on"></span>
+     <span class="ve-state-1 ve-state-button-off"></span>
+     <span class="ve-state-2 ve-state-button-off"></span>
+    </div>
+
+    {{#state1}}
+    <div class="ve-foyer-card-state">
+      <img src="{{image}}" />
+      <div class="text-box title">
+        <a href="{{link}}">{{title}}</a>
+      </div>
+    </div>
+    {{/state1}}
+
+    {{#state2}}
+    <div class="ve-foyer-card-state hide-right shaded">
+      <img src="{{image}}" />
+      <div class="text-box description">
+        <a href="{{link}}">{{title}}</a>
+      </div>
+    </div>
+    {{/state2}}
+
+    {{#state3}}
+    <div class="ve-foyer-card-state hide-right">
+      <img src="{{image}}" />
+      <div class="text-box credits">
+        <a href="javascript:alert('open this exhibition');">{{title}}</a>
+      </div>
+    </div>
+    {{/state3}}
+  </div>
+</figure>

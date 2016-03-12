@@ -1,0 +1,60 @@
+{{> atoms/iconography/svgicons-pro}}
+{{> atoms/iconography/svgicons-user }}
+{{> organisms/global/header_v2}}
+
+<main role="main" class="l-page">
+
+  <div class="page_header">
+    {{>molecules/virtual-exhibitions/browse-breadcrumb.mustache}}
+  </div>
+
+  <div id="maincontent" class="maincontent">
+    {{# page_data }}
+      <div class="ve-slide-container">
+        {{# elements.present }}
+          <h4 class="ve-progress-nav">
+            {{# elements.items }}
+              {{^ is_section }}
+                {{#is_first}}
+                  <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span></a>
+                {{/is_first}}
+              {{/ is_section }}
+            {{/ elements.items }}
+            {{# elements.items }}
+              {{# is_section }}
+              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+              {{/ is_section }}
+            {{/ elements.items }}
+          </h4>
+
+          <section class="ve-slide first">
+            {{# elements.items }}
+              {{#is_first}}
+                <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
+              {{/is_first}}
+            {{/ elements.items }}
+            {{# elements.items }}
+              {{> organisms/virtual-exhibitions/main-slide}}
+            {{/ elements.items }}
+          </section>
+
+        {{/ elements.present }}
+        <a id="ve-end"></a>
+      </div>
+    {{/ page_data }}
+
+    <div class="lc">
+      <h1>Foyer</h1>
+      {{#foyer_items}}
+        {{#present}}
+          {{#items}}
+            {{> organisms/virtual-exhibitions/foyer-card}}
+          {{/items}}
+        {{/present}}
+      {{/foyer_items}}
+    </div>
+  </div>
+
+</main>
+
+{{> organisms/global/footer }}

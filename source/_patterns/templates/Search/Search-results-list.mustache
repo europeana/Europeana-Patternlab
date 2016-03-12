@@ -60,7 +60,10 @@
                         {{/ has_single_result }}
 
                         {{# has_multiple_results }}
-                            {{{ i18n.site.results.list.count-and-terms }}}
+                            {{! i18n.site.results.list.count-and-terms }}
+
+                            {{ i18n.site.results.list.count-and-terms-with-range }}
+
                         {{/ has_multiple_results }}
                     </div>
                     <div class="result-controls">
@@ -78,7 +81,7 @@
                         {{/ menus.sort_disabled }}
                     </div>
                     {{#results_menu}}
-                      <div class="result-actions show-with-grid">
+                      <div class="result-actions">
                         <span class="results-menu-prefix">{{button_title_prefix}}</span>
                         {{> molecules/controls/dropdown-menu }}
                       </div>

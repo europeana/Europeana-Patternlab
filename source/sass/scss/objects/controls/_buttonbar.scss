@@ -55,26 +55,29 @@
   @include fontSize(13px);
   font-weight: bold;
   text-transform: uppercase;
-  color: $textcolour_body;
 
   padding: 0 1rem;
   border: 1px solid $gray87;
   /* Important inheritance to manipulate border radius from parent */
   border-radius: inherit;
-  background-color: $gray-lightest;
+
+
   line-height: 2rem;
 
   svg {
     margin-left: -0.3em;
   }
+  background-color: #FFF;
+  color: $textcolour_body;
 
 }
 
 .button-bar__item > input:checked + label,
 .button-bar__button:active,
 .button-bar__button.is-active {
-  background-color: #FFF;
   color: $textcolour_link;
+  background-color: $gray-lightest;
+
 }
 
 

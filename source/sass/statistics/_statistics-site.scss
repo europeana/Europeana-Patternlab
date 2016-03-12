@@ -1,0 +1,250 @@
+// Statistics specific styles
+
+
+
+.logo {
+  background-image: url("../../images/statistics/europeana-logo-statistics.png");
+  .svg &{
+    background-image: url("../../images/statistics/europeana-logo-statistics.svg");
+  }
+}
+
+.site-hero{
+	height: auto;
+	text-align: center;
+	background-color: $accent;
+
+	.hero-content{
+		padding: $space;
+	}
+
+	.title{
+		font-weight: bold;
+	}
+
+	h2.subtitle{
+		text-transform: initial;
+		font-size: 1.4em;
+		margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: $bp-med) and (min-height: 850px) {
+	.site-hero{
+		height: 50%;
+	}
+
+	.hero-content{
+		position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    @include translate (-50%, -50%);
+	    width: 80%;
+		max-width: $max-width;
+	}
+}
+
+// STATIC PAGES
+
+// Generic page layout
+
+.l-page{
+
+	position: relative;
+	background: $white; // fallback
+
+	@media all and (min-width: $bp-med) {
+		background: $offwhite; // fallback
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+
+	}
+
+	&.no-sidebar{
+		background: $white;
+
+	}
+
+	.textcontent, .l-sidebar, .l-breadcrumbs{
+		position: relative;
+		z-index: 10;
+	}
+
+	.l-content{
+		background: $white;
+		@media all and (min-width: $bp-med) {
+		  @include span(18 of 24 wide no-gutter);
+		}
+	}
+
+	.maincontent{
+		background-color: $white;
+	}
+
+	.textcontent{
+		background-color: $white;
+		padding-bottom: $space-triple;
+
+		@media all and (min-width: $bp-med) {
+		  max-width: 40em;
+		}
+	}
+
+}
+
+.l-sidebar{
+	position: relative;
+	z-index: 10;
+	background: $offwhite;
+	padding: $space;
+
+	@media all and (min-width: $bp-med) {
+	  @include span(last 6 of 24);
+	  min-height: 650px;
+	}
+}
+
+.results-list,
+.page-intro,
+.articleheader{
+	margin-bottom: $space-double;
+}
+
+
+.l-content .section {
+	padding: $space;
+	//margin-bottom: 0;
+}
+
+
+
+.big-graph figcaption{
+	display: none;
+}
+
+.chart-wrapper{
+	min-height: 10em;
+	background-color: $gray-lighter;
+}
+
+.dashboard-title{
+	margin-bottom: $space-half;
+
+	* {
+		display: inline;
+	}
+
+	.project-title{
+		margin-right: $space-half;
+	}
+}
+
+.sidebar{
+	.tooltip-container{
+		float: right;
+	}
+	.tooltip{
+		left: auto;
+		right: -2em;
+	}
+
+	.stat-display{
+
+		@media all and (min-width: $bp-small) {
+			@include span(12 of 24);
+
+			&:nth-child(even){
+				margin-right: 0;
+			}
+		}
+
+		@media all and (min-width: $bp-med) {
+		  width: 100%;
+		}
+	}
+}
+
+.top25{
+	margin-bottom: 0;
+
+	a.show-all{
+		display: block;
+		text-align: center;
+		margin-top: -2em;
+
+		> span{
+			display: block;
+		}
+	}
+
+	.section-header{
+		margin-bottom: $space;
+	}
+	.section-title{
+		@media all and (min-width: $bp-med) {
+		  float: left;
+		}
+	}
+	.results-filter{
+		@media all and (min-width: $bp-med) {
+		  float: right;
+		}
+	}
+}
+
+.madlib{
+	display: inline;
+	margin-right: 0.6em;
+}
+
+.results-list{
+
+	border-bottom: 6px solid $black;
+
+	li{
+		@media all and (min-width: $bp-med) {
+		  @include gallery(9 of 18);
+		}
+	}
+	.listitem-image{
+		width: span(3 of 9);
+	}
+
+	.listitem-text, .listitem-extra{
+		font-size: $font-size-slightly-smaller;
+	}
+	.listitem-extra{
+		color: $gray-light;
+		font-weight: bold;
+	}
+}
+
+.is-shortened{
+	max-height: 30em;
+	overflow: hidden;
+}
+
+.PykCharts-credits {
+  display: none;
+}
+
+
+
+
+// Page specific
+.page_static {
+	.maincontent{
+		padding: $space-triple $space;
+	}
+
+	@media all and (min-width: $bp-med) {
+		.l-sidebar{
+			padding-top: $space * 3;
+		}
+	}
+}

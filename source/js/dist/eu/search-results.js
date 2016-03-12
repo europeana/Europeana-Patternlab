@@ -12,7 +12,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var handleEllipsis = function(){
 
-      var texts = results.find('.result-items h1:not(.js-ellipsis)');
+      var texts = results.find('.result-items h2:not(.js-ellipsis)');
       var toFix = [];
 
       texts.css('overflow-y', 'auto');
@@ -48,18 +48,36 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     }
 
-    var simulateUrlChange = function(param, newVal){
+    var simulateUrlChange = function(param, newVal, replace){
         var state         = {};
             state[param]  = newVal;
+
+        if(!newVal){
+            delete state[param];
+        }
+
         var params        = $url.param();
             params[param] = newVal;
+
+        if(!newVal){
+            delete params[param];
+        }
+
         var newParams     = $.param(params);
 
-        window.history.pushState(state, '', '?' + newParams);
+        log('set state (replace): ' + JSON.stringify(state));
+
+        if(replace){
+            window.history.replaceState(state, '', '?' + newParams);
+        }
+        else{
+            window.history.pushState(state, '', '?' + newParams);
+        }
     };
 
     window.onpopstate = function(e){
         if(e.state){
+            log('state present, view = ' + e.state.view)
             if(e.state.view == 'grid'){
                 showGrid(true);
             }
@@ -69,6 +87,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             if(typeof e.state.results != 'undefined'){
                 loadResults(e.state.results);
             }
+        }
+        else{
+            showList();
         }
     };
 
@@ -107,16 +128,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         }
     }
 
-    var bindResultMenu = function(e){
-      styleResultsMenu();
-      $('#results_menu .dropdown-menu a').on('click', function(e){
-         e.preventDefault();
-         var perPage = parseInt($(this).text());
-         simulateUrlChange('results', perPage);
-         loadResults(perPage);
-      });
-    }
-
     var loadView = function(){
       return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
     };
@@ -126,6 +137,29 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         localStorage.setItem('eu_portal_results_view', view);
       }
     };
+
+    var updateViewParamInLinks = function(param){
+
+      var updateUrl = function($anchor){
+          var $linkurl  = $.url($anchor.attr('href'));
+          var currParam = $linkurl.param('view');
+          if(currParam != param){
+              if(typeof currParam == 'undefined'){
+                  if(param == 'grid'){
+                      $anchor.attr('href', $anchor.attr('href') + '&view=' + param);
+                  }
+              }
+              else{
+                  $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
+              }
+          }
+      };
+
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').each(function(){
+          updateUrl($(this));
+      });
+
+    }
 
     var showGrid = function(save){
       $('body').addClass('display-grid');
@@ -139,20 +173,23 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           ellipsisObjects[i].enable();
       }
 
+      updateViewParamInLinks('grid');
+
       handleEllipsis();
     };
 
     var showList = function(save){
       $('body').removeClass('display-grid');
-
-      for(var i=0; i<ellipsisObjects.length; i++){
-          ellipsisObjects[i].disable();
-      }
-
       btnList.addClass('is-active');
       btnGrid.removeClass('is-active');
       if(save){
         saveView('list');
+      }
+
+      updateViewParamInLinks('list');
+
+      for(var i=0; i<ellipsisObjects.length; i++){
+          ellipsisObjects[i].disable();
       }
     };
 
@@ -176,7 +213,15 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
-          loadView() == 'grid' ? showGrid() : showList();
+          if(loadView() == 'grid'){
+              simulateUrlChange('view', 'grid', true);
+              showGrid();
+          }
+          else{
+              // fixes history but rewrites url...
+              //simulateUrlChange('view', 'list', true);
+              showList();
+          }
       }
     }
 
@@ -194,11 +239,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var initPage = function(){
-      //bindViewButtons();
+      bindViewButtons();
       bindGA();
-      //bindResultMenu();
-
-      //simulateUrlChange('results', $('.result-items>li').size());
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');

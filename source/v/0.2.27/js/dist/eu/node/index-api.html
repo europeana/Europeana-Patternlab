@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hierarchical Objects Test Page</title>
+
+  <!--
+  <link rel="stylesheet" href="http://test.portal2.eanadev.org/portal/themes/default/css/europeana-font-icons.css"/>
+  <link rel="stylesheet" href="http://test.portal2.eanadev.org/portal/themes/default/css/europeana-font-face.css"/>
+
+  <link rel="stylesheet" href="../../../../../css/europeana-font-icons.css"/>
+  <link rel="stylesheet" href="../../../../../css/europeana-font-face.css"/>
+
+  <link rel="stylesheet" href="../style.css" />
+
+  <link rel="stylesheet" href="../../../source/js/modules/lib/jstree/css/style.css" />
+  -->
+  <link rel="stylesheet" href="style.css" />
+
+
+  <link rel="stylesheet" href="../style-overrides.css" />
+  <script type="text/javascript" src="../../../../jquery/jquery-1.8.1.js"></script>
+  <script type="text/javascript" src="../jstree.js"></script>
+  <script type="text/javascript" src="../../../../jquery/jquery.scrollTo-1.4.3.1.js"></script>
+
+  <style>
+    .loadPoint>a{
+      background-color: orange !important;
+    }
+
+    .debug-area{
+      word-wrap:			break-word;
+      width:      		100%;
+      height:				10em;
+      overflow-y:			auto;
+      overflow-x:			hidden;
+      margin-bottom:		2em;
+      background-color:	#ededed;
+      margin-top:			1em;
+    }
+
+    @media only screen and ( min-width:48em ){
+      .debug-area{
+        max-width:  		48%;
+        width:     		 	48%;
+        float:     			left;
+        margin-top:			0;
+        margin-left:		2%;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+  <div>
+    <a class="lock"          style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[unlock]</a>
+    <a class="scroll-top"    style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[scroll-top]</a>
+    <!-- a class="load-more">load more...</a-->
+    <a class="visible-nodes" style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[visible]</a>
+    <a class="tba"           style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[arrows]</a>
+    <a class="expand"        style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[expand]</a>
+    <a class="collapse"      style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[collapse]</a>
+    <a class="delay"         style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[delay]</a>
+    <a class="t-start"       style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[t-start]</a>
+    <a class="t-stop"        style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[t-stop]</a>
+
+    <a class="gcp"           style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[gcp]</a>
+    <a class="gtd"           style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[gtd]</a>
+    <a class="tr-ul"         style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[trul]</a>
+    <a class="off-bel"       style="font-weight:bold; cursor:pointer; float:right; margin-left: 1em;">[offscreen below]</a>
+
+    <br/>
+    <input id="chunk" type="number" tab-index="1" style="float:right; margin-bottom: 0.75em; margin-top: 0.75em;">
+    <br/>
+
+    <div class="hierarchy-objects">
+      <div class="hierarchy-top-panel uninitialised">
+        <div class="hierarchy-prev"><a>view items above</a><span class="count"></span></div>
+        <div class="hierarchy-title"></div>
+      </div>
+      <div class="hierarchy-container uninitialised">
+        <div id="hierarchy"></div>
+      </div>
+      <div class="hierarchy-bottom-panel">
+        <div class="hierarchy-next"><a>view items below</a><span class="count"></span></div>
+        <!--
+        <div class="expand-collapse">
+          <a class="expand-all">expand all items</a><a class="collapse-all">collapse all items</a>
+          <br>
+          <a class="load-all">load all items</a>
+        </div>
+         -->
+      </div>
+    </div>
+
+    <div class="debug-area">
+    </div>
+
+    <!--
+    <img src="https://bigfiles.assembla.com/spaces/europeana/documents/download/dRFgfOLv0r44oGacwqjQYw"/>
+     -->
+
+
+    <script type="text/javascript">
+
+      var waitMessages = [
+               {
+                 "time" : 5,
+                 "msg"  : "taking a while...."
+               },
+               {
+                 "time" : 10,
+                 "msg"  : "taking ages...."
+               },
+               {
+                 "time" : 20,
+                 "msg"  : "taking forever...."
+               }
+           ];
+
+      $(document).ready(function(){
+
+          //		/2022002/10796_76FC2677_F914_46F1_9A1B_D19450FE141E/self.json?wskey=api2demo&limit=1600
+
+        var href = window.location.href;
+        var param = href.indexOf('?base=') > -1 ? href.split('?base=')[1].replace('%28', '(').replace('%29', ')') : false;
+
+        console.log('param = ' + param);
+
+
+        //http://delta-api.de.a9sapp.eu/v2/record//2022002/10796_76FC2677_F914_46F1_9A1B_D19450FE141E/self.json?wskey=api2demo&limit=1600
+
+        if(true){
+               window.apiKey        = 'api2demo';
+            window.apiServerRoot = 'http://delta-api.de.a9sapp.eu/v2/record';
+
+          window.hierarchy = new EuHierarchy($('#hierarchy'), 16, $('.hierarchy-objects'));
+
+          $.getJSON('http://delta-api.de.a9sapp.eu/v2/record/2022002/10796_76FC2677_F914_46F1_9A1B_D19450FE141E/ancestor-self-siblings.json?wskey=api2demo', null, function( data ) {
+            hierarchy.init(data, true);
+          });
+        }
+        else{
+          window.hierarchy = new EuHierarchy($('#hierarchy'), 16, $('.hierarchy-objects'));
+
+
+          /*
+          $.getJSON('http://localhost:3000/1-15-14-14-14/ancestor-self-siblings.json', null, function( data ) {
+            hierarchy.init(data, true);
+          });
+          $.getJSON('http://localhost:3000/1-3-4-9/ancestor-self-siblings.json', null, function( data ) {
+            hierarchy.init(data, true);
+          });
+          */
+          $.getJSON('http://localhost:3000/1-1-2-1/ancestor-self-siblings.json', null, function( data ) {
+            hierarchy.init(data, true);
+          });
+
+        }
+
+
+        /*
+        $.getJSON('http://localhost:3000/1-3-4-9/ancestor-self-siblings.json', null, function( data ) {
+          hierarchy.init(data, true);
+        });
+
+        $.getJSON('http://localhost:3000/1-1-2-1/ancestor-self-siblings.json', null, function( data ) {
+          hierarchy.init(data, true);
+        });
+        */
+
+        /*
+
+        $.getJSON('http://localhost:3000/1-3-6/ancestor-self-siblings.json', null, function( data ) {
+          hierarchy.init(data, true);
+        });
+
+        // fails to load 1st child of several siblings
+
+        $.getJSON('http://localhost:3000/1-2-2/ancestor-self-siblings.json', null, function( data ) {
+          hierarchy.init(data, true);
+        });
+        */
+
+
+
+        /*
+        hierarchy.init(param ? param : 'http://localhost:3000/1-1-2-2/self.json?wskey=api2demo');
+        hierarchy.init(
+            {"action":"self.json","self":{"id":"1-4","title":{"def":["Volume 4 (b1)"]},"type":"text","index":4,"hasChildren":true,"childrenCount":14,"hasParent":true},"parent":{"id":"1","title":{"def":["Book 1"]},"type":"TEXT","index":"1","hasChildren":true},"success":true}
+
+        */
+
+
+
+//				hierarchy.init(param ? param : 'http://localhost:3000/1-2-3-4/self.json?wskey=api2demo');
+        //hierarchy.init((param ? param : 'http://localhost:3000/1/self.json?wskey=api2demo'));
+        //hierarchy.init((param ? param : 'http://localhost:3000/1/self.json?wskey=api2demo'));
+
+        new EuHierarchyTools(hierarchy);
+      });
+    </script>
+  </div>
+
+  <!--
+  <script src="EuHierarchyData2.js"></script>
+   -->
+
+  <script src="../EuHierarchy2.js"></script>
+  <script src="EuHierarchyTools.js"></script>
+
+</body>
+</html>
+
+
+

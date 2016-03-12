@@ -1,0 +1,182 @@
+{{#is_section}}
+  </section>
+  <noscript>
+    <a class="ve-anchor" id="ve-anchor-{{id}}"></a>
+  </noscript>
+  <section class="ve-slide {{#is_first}}first{{/is_first}}">
+    <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
+{{/is_section}}
+{{^is_section}}
+
+
+  {{#is_quote}}
+    <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+      <span class="quote">{{{quote}}}</span>
+      <span class="quotee">{{{quotee}}}</span>
+    </div>
+  {{/is_quote}}
+
+  {{#is_quote_full_height}}
+    <div id="{{id}}" class="ve-base ve-base-quote-full-height {{type}}" data-alchemy-element="{{alchemy_id}}">
+      <div class="centered-v-text">
+        <div class="centered-text">
+          <span class="quote">{{{quote}}}</span>
+          <span class="quotee">{{{quotee}}}</span>
+        </div>
+      </div>
+    </div>
+  {{/is_quote_full_height}}
+
+  {{#is_text}}
+    <div id="{{id}}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
+       {{{body}}}
+    </div>
+  {{/is_text}}
+
+  {{#is_image}}
+    <div id="{{id}}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
+     <figure>
+
+       {{#image}}
+         <picture>
+           <source srcset="{{thumbnail.url}}"     media="(min-width: {{breakpoint_pixels.img.show_thumbnail}}) and (max-width: {{breakpoint_pixels.img.show_small}})">
+           <source srcset="{{small.url}}"         media="(min-width: {{breakpoint_pixels.img.show_small}})     and (max-width: {{breakpoint_pixels.img.show_half}})">
+           <source srcset="{{half.url}}"          media="(min-width: {{breakpoint_pixels.img.show_half}})      and (max-width: {{breakpoint_pixels.img.show_full}})">
+           <source srcset="{{full.url}}"          media="(min-width: {{breakpoint_pixels.img.show_full}})">
+           <img src="{{full.url}}" alt="xxx">
+         </picture>
+       {{/image}}
+
+       {{#caption}}
+          <figcaption>{{.}}</figcaption>
+       {{/caption}}
+
+     </figure>
+    </div>
+  {{/is_image}}
+
+
+  {{#is_intro}}
+    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}" data-alchemy-element="{{alchemy_id}}">
+
+      {{#image}}
+        <style scoped>
+          {{#breakpoint_pixels}}
+            {{#bg}}
+              @media only screen and (min-width: {{show_small}}) {
+                .ve-{{id}}{
+                  background-image: url({{small.url}})
+                }
+              }
+              @media only screen and (min-width: {{show_half}}) {
+                .ve-{{id}}{
+                  background-image: url({{half.url}})
+                }
+              }
+              @media only screen and (min-width: {{show_full}}) {
+                .ve-{{id}}{
+                  background-image: url({{full.url}})
+                }
+              }
+            {{/bg}}
+            {{#bg-hr}}
+
+              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
+                                 and (min--moz-device-pixel-ratio: {{dpr}})
+                                 and (-o-min-device-pixel-ratio: {{2/1}})
+                                 and (min-device-pixel-ratio: {{dpr}})
+                                 and (min-width: {{show_small}}) {
+                .ve-{{id}}{
+                  background-image: url({{smallx2.url}})
+                }
+              }
+              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
+                                 and (min--moz-device-pixel-ratio: {{dpr}})
+                                 and (-o-min-device-pixel-ratio: {{2/1}})
+                                 and (min-device-pixel-ratio: {{dpr}})
+                                 and (min-width: {{show_half}}) {
+                .ve-{{id}}{
+                  background-image: url({{halfx2.url}})
+                }
+              }
+              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
+                                 and (min--moz-device-pixel-ratio: {{dpr}})
+                                 and (-o-min-device-pixel-ratio: {{2/1}})
+                                 and (min-device-pixel-ratio: {{dpr}})
+                                 and (min-width: {{show_full}}) {
+                .ve-{{id}}{
+                  background-image: url({{fullx2.url}})
+                }
+              }
+            {{/bg-hr}}
+          {{/breakpoint_pixels}}
+        </style>
+      {{/image}}
+
+      <div class="ve-title-group">
+        {{#title}}
+          <span class="ve-title">
+            {{.}}
+          </span>
+        {{/title}}
+        {{#subtitle}}
+          <span class="ve-subtitle">
+            {{{.}}}
+          </span>
+        {{/subtitle}}
+      </div>
+
+      {{#image}}
+        <picture class="ve-intro-image">
+          <source srcset="{{thumbnail.url}}"     media="(min-width: {{breakpoint_pixels.img.show_thumbnail}}) and (max-width: {{breakpoint_pixels.img.show_small}})">
+          <source srcset="{{small.url}}"         media="(min-width: {{breakpoint_pixels.img.show_small}})     and (max-width: {{breakpoint_pixels.img.show_half}})">
+          <source srcset="{{half.url}}"          media="(min-width: {{breakpoint_pixels.img.show_half}})      and (max-width: {{breakpoint_pixels.img.show_full}})">
+          <source srcset="{{full.url}}"          media="(min-width: {{breakpoint_pixels.img.show_full}})">
+          <img class="ve-intro-image" src="{{full.url}}" alt="xxx">
+        </picture>
+      {{/image}}
+
+      {{#image_credit}}
+        <div class="ve-image-credit">
+         {{>molecules/text/attribution}}
+        </div>
+      {{/image_credit}}
+
+      {{#intro_description}}
+        <div class="ve-description">
+          {{{.}}}
+        </div>
+      {{/intro_description}}
+    </div>
+  {{/is_intro}}
+
+  {{#is_title_image_text}}
+    <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}" data-alchemy-element="{{alchemy_id}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
+      {{#title}}<h2>{{.}}</h2>{{/title}}
+      <div class="ve-col-50-left">
+        {{#image}}
+          <div class="ve-image">
+            <!-- srcset stretches the image here -->
+            <figure>
+              {{#image}}
+                <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
+              {{/image}}
+              {{#caption}}
+                <figcaption>{{.}}</figcaption>
+              {{/caption}}
+            </figure>
+          </div>
+        {{/image}}
+       </div>
+       <div class="ve-col-50-right">
+         {{{body}}}
+       </div>
+     </div>
+  {{/is_title_image_text}}
+  {{^is_last}}
+    <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}">v</a></span>
+    <noscript>
+      <a class="ve-anchor" id="ve-anchor-{{id}}"></a>
+    </noscript>
+  {{/is_last}}
+{{/is_section}}
