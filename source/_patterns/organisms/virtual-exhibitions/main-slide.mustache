@@ -11,6 +11,13 @@
 
   {{#is_quote}}
     <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+      <span class="quote">{{{quote}}}</span>
+      <span class="quotee">{{{quotee}}}</span>
+    </div>
+  {{/is_quote}}
+
+  {{#is_quote_full_height}}
+    <div id="{{id}}" class="ve-base ve-base-quote-full-height {{type}}" data-alchemy-element="{{alchemy_id}}">
       <div class="centered-v-text">
         <div class="centered-text">
           <span class="quote">{{{quote}}}</span>
@@ -18,15 +25,11 @@
         </div>
       </div>
     </div>
-  {{/is_quote}}
+  {{/is_quote_full_height}}
 
   {{#is_text}}
     <div id="{{id}}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
-      <div class="centered-v-text">
-        <div class="centered-text">
-          {{{body}}}
-        </div>
-      </div>
+       {{{body}}}
     </div>
   {{/is_text}}
 

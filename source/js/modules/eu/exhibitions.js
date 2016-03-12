@@ -1,9 +1,9 @@
-define(['jquery'], function ($) {
+define(['jquery', 'util_resize'], function ($) {
 
-  //var $url             = $.url();
   var minViewportWidthFX  = 768;
   var smIsDestroyed       = false;
-  var introEffectDuration = 200;
+  var disableNarrowScenes = [];
+  var introEffectDuration = 500;
   var scrollDuration      = 1400;
   var smCtrl;
 
@@ -13,55 +13,101 @@ define(['jquery'], function ($) {
 
   function initExhibitions(){
     initProgressState();
+    initSFX();
     initFoyerCards();
     initArrowNav();
-
+    initNavCorrection();
     handleEllipsis();
+
+    $(window).europeanaResize(function(){
+        if ($(window).width() < minViewportWidthFX) {
+          if(smCtrl){
+            $.each(disableNarrowScenes, function(i, ob){
+              ob.enabled(false);
+            });
+          }
+        }
+        else{
+          if(smCtrl){
+            $.each(disableNarrowScenes, function(i, ob){
+              ob.enabled(true);
+            });
+          }
+          else{
+            initProgressState();
+            initSFX()
+          }
+        }
+    });
   };
 
   // Special effects
-  function initSFX(ScrollMagic){
-    require(['purl'], function(){
-      if(!$.url().param('sfx'))
-      {
-        return;
-      }
-      var $firstSlide = $('.ve-slide.first');
+  function initSFX(){
 
-      // pin and add text fade
+    if($(window).width() < minViewportWidthFX) {
+      log('too small for scroll-magic');
+      return;
+    }
 
-      new ScrollMagic.Scene({
-          triggerElement:  $firstSlide,
-          triggerHook:     'onLeave',
-          duration:        introEffectDuration
-      })
-      .setPin($firstSlide[0])
-      .setTween(TweenMax.to($firstSlide.find('.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit'), 1, {
-          opacity: 0,
-          ease: Cubic.easeOut
-      }))
-      .addTo(smCtrl);
+    require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
+      require(['gsap'], function(){
 
-      // chrome can't handle background size (converts auto to null)
+        var $firstSlide      = $('.ve-slide.first');
+        var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit';
 
-      if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
-          log('chrome sucks');
-          return;
-      }
-      else{
-          // shrink bg
+        $(textTweenTargets).css('backface-visibility', 'hidden');
+        // pin and add text fade
+
+        disableNarrowScenes.push(
           new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
               duration:        introEffectDuration
           })
-          .setTween(TweenMax.to($firstSlide.find('.ve-base-intro'), 1, {
-              backgroundSize: '65% auto',
-              ease: Cubic.easeOut
-          }))
-          .addTo(smCtrl);
-      }
+          .setTween(
+                TweenMax.to(
+                  $firstSlide.find(textTweenTargets),
+                  1,
+                  {
+                      delay:     0.25,
+                      opacity:   0,
+                      rotationX: "+=90_cw",
+                      ease:      Cubic.easeOut
+                  }
+                )
+          )
+          .addTo(smCtrl)
+        );
+
+        disableNarrowScenes.push(
+          new ScrollMagic.Scene({
+              triggerElement:  $firstSlide,
+              triggerHook:     'onLeave',
+              duration:        introEffectDuration
+          })
+          .setPin($firstSlide[0])
+          .setTween(
+              TweenMax.to(
+                $firstSlide.find('.ve-base-intro'),
+                1.25,
+                {
+                   width:     '70%',
+                   ease:       Cubic.easeOut,
+                   minHeight: '60vh'
+                }
+              )
+          )
+          .addTo(smCtrl)
+        );
+      });
     });
+  }
+
+  function initNavCorrection(){
+    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+      $('.ve-anchor').not(':first').css('top', 0-$('.header').height());
+      return;
+    }
   }
 
   function initArrowNav(){
@@ -192,78 +238,75 @@ define(['jquery'], function ($) {
 
     //    log('TODO: background-attachment:fixed on intro images');
 
-    if ($(window).width() > minViewportWidthFX) {
+    if($(window).width() < minViewportWidthFX) {
+      log('too small for scroll-magic');
+      return;
+    }
+    require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
+      require(['gsap'], function(){
 
-      require(['ScrollMagic', 'TweenMax', 'util_resize', 'jqScrollto'], function(ScrollMagic){
-        require(['gsap'], function(){
+        smCtrl = new ScrollMagic.Controller();
 
-          smCtrl = new ScrollMagic.Controller();
-
-          /*
-          $(window).europeanaResize(function(){
-            if ($(window).width() <= minViewportWidthFX && !smIsDestroyed) {
-              smCtrl.destroy(true)
-              smCtrl        = null;
-              smIsDestroyed = true;
-              log('removed scroll-magic');
-            }
-          });
-          */
-          //$('.logo').css('backface-visibility', 'hidden')
-          //TweenMax.to('.logo', 1.5,  { rotationX: "-=360_cw"} );
-
-
-          function setProgressState(index) {
-            $('.ve-progress-nav .ve-state-button-on')
-              .removeClass('ve-state-button-on')
-              .addClass('ve-state-button-off');
-
-            var active = $('.ve-progress-nav .ve-state-button').get(index)
-            $(active).addClass('ve-state-button-on').removeClass('ve-state-button-off');
+        /*
+        $(window).europeanaResize(function(){
+          if ($(window).width() <= minViewportWidthFX && !smIsDestroyed) {
+            smCtrl.destroy(true)
+            smCtrl        = null;
+            smIsDestroyed = true;
+            log('removed scroll-magic');
           }
+        });
+        */
+        //$('.logo').css('backface-visibility', 'hidden')
+        //TweenMax.to('.logo', 1.5,  { rotationX: "-=360_cw"} );
 
-          $('.ve-slide-container section').each(function(i, ob) {
-            new ScrollMagic.Scene({
-              triggerElement: this,
-              triggerHook:    'onCenter'
-            })
-            .on('progress', function(e){
-              if(e.scrollDirection === 'FORWARD'){
-                setProgressState(i);
-              }
-            })
-            .addTo(smCtrl);
 
-            new ScrollMagic.Scene({
-              triggerElement: this,
-              triggerHook:    'onLeave'
-            })
-            .on('progress', function(e){
-              if(e.scrollDirection === 'REVERSE'){
-                setProgressState(i);
-              }
-            })
-            .addTo(smCtrl);
-          });
+        function setProgressState(index) {
+          $('.ve-progress-nav .ve-state-button-on')
+            .removeClass('ve-state-button-on')
+            .addClass('ve-state-button-off');
+
+          var active = $('.ve-progress-nav .ve-state-button').get(index)
+          $(active).addClass('ve-state-button-on').removeClass('ve-state-button-off');
+        }
+
+        $('.ve-slide-container section').each(function(i, ob) {
+          new ScrollMagic.Scene({
+            triggerElement: this,
+            triggerHook:    'onCenter'
+          })
+          .on('progress', function(e){
+            if(e.scrollDirection === 'FORWARD'){
+              setProgressState(i);
+            }
+          })
+          .addTo(smCtrl);
 
           new ScrollMagic.Scene({
-              triggerElement: '#ve-end',
-              triggerHook:    'onEnter'
-          }).addTo(smCtrl)
-            .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
-
-          $('.ve-progress-nav a').on('click', function(){
-            $(window).scrollTo($(this).attr('href'), scrollDuration);
-          });
-
-          initSFX(ScrollMagic);
-
+            triggerElement: this,
+            triggerHook:    'onLeave'
+          })
+          .on('progress', function(e){
+            if(e.scrollDirection === 'REVERSE'){
+              setProgressState(i);
+            }
+          })
+          .addTo(smCtrl);
         });
+
+        new ScrollMagic.Scene({
+          triggerElement: '#ve-end',
+          triggerHook:    'onEnter'
+        }).addTo(smCtrl)
+          .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
+
+        $('.ve-progress-nav a').on('click', function(e){
+           e.preventDefault();
+           $(window).scrollTo($(this).attr('href'), scrollDuration);
+        });
+
       });
-    }
-    else {
-      log('too small for scroll-magic');
-    }
+    });
   }
 
   return {

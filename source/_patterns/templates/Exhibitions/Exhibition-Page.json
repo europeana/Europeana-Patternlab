@@ -89,10 +89,78 @@
             "is_section": true
         },
         {
+            "id": "2.1",
+            "is_text": true,
+            "type": "text",
+            "body": "<p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>"
+        },
+        {
             "id": "3",
+            "type": "image",
+            "is_image": true,
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumb.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Le Japon artistique, n° 3"
+        },
+        {
+            "id":      "3.1",
+            "is_text": true,
+            "type":    "text",
+            "body":    "<p>Woodblock prints, porcelain, textiles and lacquer work had a profound impact on many western art movements, including Art Nouveau. Bamboo, carp, wisteria and cherry blossom became part of the decorative repertoire.</p>"
+        },
+        {
+            "id": "3.2",
             "is_quote": true,
+            "type": "quote",
             "quote": "She'll make point five past light speed",
             "quotee": "Han Solo - captain of the millennium falcon."
+        },
+        {
+            "id":      "3.3",
+            "is_text": true,
+            "type":    "text",
+            "body":    "<p>Siegfried Bing (1838-1905), a naturalized Frenchman from Hamburg, ran an import-export business from the 1870s and edited the influential monthly journal Le Japon Artistique.</p>"
         },
         {
             "id": "4",
@@ -223,9 +291,10 @@
         },
         {
             "id": "13",
-            "is_text": true,
-            "type": "text",
-            "body": "Artists and architects also used the two-dimensional undulating and curvilinear lines in the design of Art Nouveau interiors in order to create movement and dynamism. The Catalan architect Antoni Gaudi, for example, was famous for his “leaning columns” that were not at right angles to the ceiling. Designed to resemble the shape of a tree, these columns branch out towards the ceiling reinforcing the grandeur of the interior."
+            "is_quote_full_height": true,
+            "type": "quote",
+            "quote": "She's fast enough for you old man.  What's the cargo?",
+            "quotee": "Han Solo - captain of the millennium falcon."
         },
         {
             "id": "14",
