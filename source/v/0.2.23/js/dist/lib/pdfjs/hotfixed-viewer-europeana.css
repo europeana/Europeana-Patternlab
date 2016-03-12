@@ -83,3 +83,9 @@ html[dir="ltr"] .pdf-ui-wrappper #outerContainer {
 .pdf-ui-wrappper.rtl #toolbarViewerLeft #sidebarToggle-copy {
   display: none;
 }
+
+/* line 89, viewer-europeana.scss */
+#toolbarViewer {
+  background-color: orange;
+  width: 200px;
+}
