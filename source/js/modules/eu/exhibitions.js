@@ -1,5 +1,6 @@
-define(['jquery', 'util_resize'], function ($) {
+define(['jquery', 'util_resize', 'purl'], function ($) {
 
+  var $url                = $.url();
   var minViewportWidthFX  = 768;
   var smIsDestroyed       = false;
   var disableNarrowScenes = [];
@@ -12,6 +13,9 @@ define(['jquery', 'util_resize'], function ($) {
   }
 
   function initExhibitions(){
+    if($url.param('show-sections')){
+        $('.ve-slide').css('border', '2px dotted red');
+    }
     initProgressState();
     initSFX();
     initFoyerCards();
