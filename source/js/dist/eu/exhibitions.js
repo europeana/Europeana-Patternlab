@@ -75,7 +75,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
                   {
                       delay:     0.25,
                       opacity:   0,
-                      rotationX: "+=90_cw",
+                      //rotationX: "+=90_cw",
                       ease:      Cubic.easeOut
                   }
                 )

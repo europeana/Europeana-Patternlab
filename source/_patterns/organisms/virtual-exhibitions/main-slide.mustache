@@ -150,7 +150,7 @@
     </div>
   {{/is_intro}}
 
-  {{#is_title_image_text}}
+  {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}" data-alchemy-element="{{alchemy_id}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
       {{#title}}<h2>{{.}}</h2>{{/title}}
       <div class="ve-col-50-left">
@@ -168,11 +168,20 @@
           </div>
         {{/image}}
        </div>
-       <div class="ve-col-50-right">
-         {{{body}}}
-       </div>
+       {{#quote}}
+          <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+            <span class="quote">{{{quote}}}</span>
+            <span class="quotee">{{{quotee}}}</span>
+          </div>
+       {{/quote}}
+       {{#body}}
+         <div class="ve-col-50-right">
+           {{{.}}}
+         </div>
+       {{/body}}
      </div>
-  {{/is_title_image_text}}
+  {{/is_rich_image}}
+
   {{^is_last}}
     <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}">v</a></span>
     <noscript>
