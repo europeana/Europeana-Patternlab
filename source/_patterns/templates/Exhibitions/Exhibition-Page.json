@@ -93,7 +93,8 @@
         },
         {
             "id": "2",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Japan"
         },
         {
             "id": "3",
@@ -169,7 +170,8 @@
         },
         {
             "id": "4",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Arcimboldo"
         },
         {
             "id": "4_1",
@@ -229,7 +231,8 @@
         },
         {
             "id": "4_9",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Wiki Loves Art Nouveau"
         },
         {
             "id": "5",
@@ -275,7 +278,8 @@
         },
         {
             "id": "6",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Texts about glass"
         },
         {
             "id": "7",
@@ -311,7 +315,8 @@
         },
         {
             "id": "10",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Zurich"
         },
         {
             "id": "11",
@@ -354,7 +359,8 @@
         },
         {
             "id": "12",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Big Quote"
         },
         {
             "id": "13",
@@ -366,7 +372,8 @@
         },
         {
             "id": "14",
-            "is_section": true
+            "is_section": true,
+            "section_title": "Sagrada Familia"
         },
         {
             "id": "15",

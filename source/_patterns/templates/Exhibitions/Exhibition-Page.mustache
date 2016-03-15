@@ -22,7 +22,7 @@
             {{/ elements.items }}
             {{# elements.items }}
               {{# is_section }}
-              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+              <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
               {{/ is_section }}
             {{/ elements.items }}
           </h4>
