@@ -139,12 +139,12 @@
                 "full": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
                     "alt": "Japan",
-                    "orientation": "landscape"
+                    "orientation": "portrait"
                 },
                 "fullx2": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
                     "alt": "Japan",
-                    "orientation": "landscape"
+                    "orientation": "portrait"
                 }
             },
             "caption": "Le Japon artistique, n° 3"
@@ -286,6 +286,59 @@
             "is_text": true,
             "type": "text",
             "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+        },
+        {
+            "id": "8",
+            "type": "rich_image",
+            "is_align_image_right": "true",
+            "is_rich_image": true,
+            "title": "Adam and Eve",
+            "subtitle": "Victor Brauner (Piatra-Neamţ, 15 June 1903 – Paris, 12 March 1966)",
+            "body": "<p>Victor Brauner was a major representative of Surrealism, the art movement that focuses on the world between dreams and reality. He was born in the East Carpathians, in a town where half the population was Jewish. After an anti-Semitic peasants’ revolt in 1907, the family moved to Germany and later to Austria. In 1919, five years after returning to Bucharest, they were granted Romanian citizenship. That same year, Brauner enrolled at the National School of Fine Arts in Bucharest.</p>",
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnail.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnailx2.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-small.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-smallx2.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-half.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/dada/adameve-halfx2.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/dada/japan-full.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/dada/japan-fullx2.png",
+                    "alt": "Adam and Eve",
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Adam and Eve - Victor Brauner"
         },
 
         {
