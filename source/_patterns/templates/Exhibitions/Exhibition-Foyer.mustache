@@ -1,0 +1,31 @@
+{{> atoms/iconography/svgicons-virtual-exhibitions}}
+{{> atoms/iconography/svgicons-user }}
+{{> organisms/global/header_v2}}
+
+<main role="main" class="l-page">
+
+  <div class="page_header">
+    {{>molecules/virtual-exhibitions/browse-breadcrumb.mustache}}
+  </div>
+
+  <div id="maincontent" class="maincontent">
+
+    <h1 style="width: 100%; text-align:center; background-color: #000; color: #fff;">FEATURED EXHIBITION MAIN FOYER CARD GOES HERE</h1>
+
+    <div class="lc">
+      <h2>The rest...</h2>
+      {{#page}}
+        {{#elements}}
+          {{#present}}
+            {{#items}}
+              {{> organisms/virtual-exhibitions/foyer-card}}
+            {{/items}}
+          {{/present}}
+        {{/elements}}
+      {{/page}}
+    </div>
+  </div>
+
+</main>
+
+{{> organisms/global/footer }}
