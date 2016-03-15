@@ -89,24 +89,22 @@
             "is_section": true
         },
         {
-            "id": "2.1",
-            "is_text": true,
-            "type": "text",
-            "body": "<p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>"
-        },
-        {
             "id": "3",
-            "type": "image",
-            "is_image": true,
+            "type": "rich_image",
+            "align_image_right": "true",
+            "is_rich_image": true,
+            "title": "Japonism",
+            "subtitle": "(from the French Japonisme, first used in 1872)",
+            "body": "<p>In France the term Japonisme refers to a specific French style which mainly found expression in the fine arts from 1864,[5] while in England it initially had an impact on the decorative arts, with the first documented pieces of furniture in the Anglo-Japanese style completed in 1862, even if the term Anglo-Japanese was used as early as 1851.</p><p>From the 1860s, ukiyo-e, Japanese wood-block prints, became a source of inspiration for many European impressionist painters in France and elsewhere, and eventually for Art Nouveau and Cubism. Artists were especially affected by the lack of perspective and shadow, the flat areas of strong color, and the compositional freedom gained by placing the subject off-centre, mostly with a low diagonal axis to the background.</p><p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>",
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumb.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
@@ -164,6 +162,61 @@
         },
         {
             "id": "4",
+            "is_section": true
+        },
+        {
+            "id": "4_1",
+            "type": "image",
+            "is_image": true,
+            "is_portrait": true,
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnail.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-small.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-smallx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-half.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-halfx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-full.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-fullx2.png",
+                    "alt": "SagradaFamilia Sostre",
+                    "orientation": "landscape"
+                }
+            },
+            "caption": "Arcimboldo"
+
+        },
+        {
+            "id": "4_9",
             "is_section": true
         },
         {
@@ -252,6 +305,7 @@
             "id": "11",
             "type": "rich_image",
             "is_rich_image": true,
+            "align_image_left": true,
             "title": "ZURICH - Arthur Segal",
             "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
             "body": "Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success. In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.",
@@ -291,7 +345,8 @@
         },
         {
             "id": "13",
-            "is_quote_full_height": true,
+            "is_quote": true,
+            "full_section_element": true,
             "type": "quote",
             "quote": "She's fast enough for you old man.  What's the cargo?",
             "quotee": "Han Solo - captain of the millennium falcon."
@@ -308,12 +363,12 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
@@ -360,68 +415,68 @@
       {
         "state1": {
           "title": "Wiki Loves Art Nouveau",
-          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png",
           "link": "javascript:alert('open this exhibition (1)');"
         },
         "state2": {
           "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
           "link": "javascript:alert('open this exhibition (1)');"
         },
         "state3": {
           "title": "Credits",
-          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png",
           "link": "javascript:alert('open this exhibition (1)');"
         }
       },
       {
         "state1": {
           "title": "Wiki Loves Art Nouveau",
-          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state2": {
           "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state3": {
           "title": "Credits",
-          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         }
       },
       {
         "state1": {
           "title": "Wiki Loves Art Nouveau",
-          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state2": {
           "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state3": {
           "title": "Credits",
-          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         }
       },
       {
         "state1": {
           "title": "Wiki Loves Art Nouveau",
-          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state2": {
           "title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         },
         "state3": {
           "title": "Credits",
-          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumb.png",
+          "image": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png",
           "link": "javascript:alert('open this exhibition (2)');"
         }
       }

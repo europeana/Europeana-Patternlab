@@ -10,12 +10,23 @@
 
 
   {{#is_quote}}
-    <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#full_section_element}}ve-full-height{{/full_section_element}}" data-alchemy-element="{{alchemy_id}}">
+      {{#full_section_element}}
+        <div class="centered-v-text">
+          <div class="centered-text">
+      {{/full_section_element}}
+
       <span class="quote">{{{quote}}}</span>
       <span class="quotee">{{{quotee}}}</span>
+
+      {{#full_section_element}}
+          </div>
+        </div>
+      {{/full_section_element}}
     </div>
   {{/is_quote}}
 
+<!--
   {{#is_quote_full_height}}
     <div id="{{id}}" class="ve-base ve-base-quote-full-height {{type}}" data-alchemy-element="{{alchemy_id}}">
       <div class="centered-v-text">
@@ -26,6 +37,7 @@
       </div>
     </div>
   {{/is_quote_full_height}}
+-->
 
   {{#is_text}}
     <div id="{{id}}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
@@ -34,7 +46,7 @@
   {{/is_text}}
 
   {{#is_image}}
-    <div id="{{id}}" class="ve-base ve-base-image {{type}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}}landscape{{/is_landscape}}" data-alchemy-element="{{alchemy_id}}">
      <figure>
 
        {{#image}}
@@ -152,34 +164,75 @@
 
   {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}" data-alchemy-element="{{alchemy_id}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
-      {{#title}}<h2>{{.}}</h2>{{/title}}
+
+      <div class="ve-title-group">
+        {{#title}}
+          <span class="ve-title">
+            {{.}}
+          </span>
+        {{/title}}
+        {{#subtitle}}
+          <span class="ve-subtitle">
+            {{{.}}}
+          </span>
+        {{/subtitle}}
+      </div>
+
       <div class="ve-col-50-left">
-        {{#image}}
-          <div class="ve-image">
-            <!-- srcset stretches the image here -->
-            <figure>
-              {{#image}}
-                <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
-              {{/image}}
-              {{#caption}}
-                <figcaption>{{.}}</figcaption>
-              {{/caption}}
-            </figure>
-          </div>
-        {{/image}}
-       </div>
-       {{#quote}}
-          <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
-            <span class="quote">{{{quote}}}</span>
-            <span class="quotee">{{{quotee}}}</span>
-          </div>
-       {{/quote}}
-       {{#body}}
-         <div class="ve-col-50-right">
-           {{{.}}}
-         </div>
-       {{/body}}
-     </div>
+        {{#align_image_left}}
+          {{#image}}
+            <div class="ve-image">
+              <figure>
+                {{#image}}
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
+                {{/image}}
+                {{#caption}}
+                  <figcaption>{{.}}</figcaption>
+                {{/caption}}
+              </figure>
+            </div>
+          {{/image}}
+        {{/align_image_left}}
+
+        {{#align_image_right}}
+           {{{body}}}
+            {{#quote}}
+              <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+                <span class="quote">{{{quote}}}</span>
+                <span class="quotee">{{{quotee}}}</span>
+              </div>
+           {{/quote}}
+        {{/align_image_right}}
+      </div>
+
+      <div class="ve-col-50-right">
+
+        {{#align_image_left}}
+          {{{body}}}
+            {{#quote}}
+              <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
+                <span class="quote">{{{quote}}}</span>
+                <span class="quotee">{{{quotee}}}</span>
+              </div>
+           {{/quote}}
+        {{/align_image_left}}
+
+        {{#align_image_right}}
+          {{#image}}
+            <div class="ve-image">
+              <figure>
+                {{#image}}
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
+                {{/image}}
+                {{#caption}}
+                  <figcaption>{{.}}</figcaption>
+                {{/caption}}
+              </figure>
+            </div>
+          {{/image}}
+        {{/align_image_right}}
+      </div>
+    </div>
   {{/is_rich_image}}
 
   {{^is_last}}

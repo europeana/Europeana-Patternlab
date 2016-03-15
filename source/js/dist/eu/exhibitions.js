@@ -59,7 +59,8 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         var $firstSlide      = $('.ve-slide.first');
         var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit';
 
-        $(textTweenTargets).css('backface-visibility', 'hidden');
+        //$(textTweenTargets).css('backface-visibility', 'hidden');
+
         // pin and add text fade
 
         disableNarrowScenes.push(
@@ -306,6 +307,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         $('.ve-progress-nav a').on('click', function(e){
            e.preventDefault();
+           log('scroll to element ' + $(this).attr('href'));
            $(window).scrollTo($(this).attr('href'), scrollDuration);
         });
 

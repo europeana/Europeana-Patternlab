@@ -43,7 +43,6 @@
 }
 
 .ve-base-quote,
-.ve-base-quote-full-height,
 .ve-base-text,
 .ve-title-group{
     padding:  1em;
@@ -131,7 +130,7 @@
     }
 
    .ve-base-intro,
-   .ve-base-quote-full-height{
+   .ve-full-height{
        min-height: -webkit-calc(100vh - 5rem);
        min-height:    -moz-calc(100vh - 5rem);
        min-height:         calc(100vh - 5rem);
@@ -149,28 +148,42 @@
       top:      50%;
       width:    100%;
     }
+  }
 
+  .ve-base-image{
+    margin: auto;
+    &.portrait{
+      max-width: $ve_text_column_width;
+    }
+    &.landscape{
+      max-width: $ve_image_column_width;
+    }
   }
 
   .ve-base-intro{
     background-size: cover;
     margin:          auto;
+
+    .ve-intro-image{
+      display: none;
+    }
+
+    .ve-title-group,
+    .ve-image-credit,
+    .ve-description{
+      position:         absolute;
+    }
+
+    .ve-title-group,
+    .ve-description{
+      color:            $colour_overlaid_text;
+      background-color: $bg_colour_overlaid_text;
+    }
+
   }
 
-  .ve-intro-image{
-    display: none;
-  }
-
-  .ve-title-group,
-  .ve-image-credit,
-  .ve-description{
-    position:         absolute;
-  }
-
-  .ve-title-group,
-  .ve-description{
-    color:            $colour_overlaid_text;
-    background-color: $bg_colour_overlaid_text;
+  .ve-base-text{
+    padding: 1em 0;
   }
 
   .ve-nav-lists{
@@ -188,7 +201,6 @@
 
   .ve-title-group,
   .ve-base-quote,
-  .ve-base-quote-full-height,
   .ve-base-text{
       max-width: $ve_text_column_width;
       width:     auto;
@@ -206,7 +218,8 @@
   }
 
   .ve-base-title-image-text{
-    padding: 1em 2%;
+//    padding: 1em 2%;
+    padding: 1em 0;
   }
 
 }
@@ -230,7 +243,6 @@
 
 
 .ve-title-group{
-
   font-weight:    bold;
   left:           0;
   top:            2em;
@@ -267,8 +279,7 @@
   .ve-slide{
     position:    relative;
 
-    .ve-base-quote,
-    .ve-base-quote-full-height{
+    .ve-base-quote{
       text-align: center;
       position: relative;
       margin: auto;
@@ -291,17 +302,16 @@
       background-color: $colour_overlaid_text;
     }
 
+    .ve-col-50-left,
+    .ve-col-50-right{
+      padding:      1em;
+    }
+
     .ve-col-50-left{
-      height:     100%;
-
-      // to limit image height adjust for header
-      padding-top:  4em;
-      position:     relative;
-      top:         -4em;
-
 
       @media all and (min-width: $bp-med) {
         @include span(12 of 24);
+        padding-left:  4em;
       }
     }
 
@@ -309,6 +319,7 @@
 
       @media all and (min-width: $bp-med) {
         @include span(last 12 of 24);
+        padding-right: 4em;
       }
     }
 
@@ -345,8 +356,7 @@
   font-size:   0.9em;
 }
 
-.ve-base-quote,
-.ve-base-quote-full-height{
+.ve-base-quote{
 
   .quote{
     font-size:     1.6em;

@@ -307,6 +307,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         $('.ve-progress-nav a').on('click', function(e){
            e.preventDefault();
+           log('scroll to element ' + $(this).attr('href'));
            $(window).scrollTo($(this).attr('href'), scrollDuration);
         });
 
