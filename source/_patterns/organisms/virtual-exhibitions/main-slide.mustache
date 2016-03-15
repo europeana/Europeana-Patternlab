@@ -10,19 +10,19 @@
 
 
   {{#is_quote}}
-    <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#full_section_element}}ve-full-height{{/full_section_element}}" data-alchemy-element="{{alchemy_id}}">
-      {{#full_section_element}}
+    <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}" data-alchemy-element="{{alchemy_id}}">
+      {{#is_full_section_element}}
         <div class="centered-v-text">
           <div class="centered-text">
-      {{/full_section_element}}
+      {{/is_full_section_element}}
 
       <span class="quote">{{{quote}}}</span>
       <span class="quotee">{{{quotee}}}</span>
 
-      {{#full_section_element}}
+      {{#is_full_section_element}}
           </div>
         </div>
-      {{/full_section_element}}
+      {{/is_full_section_element}}
     </div>
   {{/is_quote}}
 
@@ -179,7 +179,7 @@
       </div>
 
       <div class="ve-col-50-left">
-        {{#align_image_left}}
+        {{#is_align_image_left}}
           {{#image}}
             <div class="ve-image">
               <figure>
@@ -192,9 +192,9 @@
               </figure>
             </div>
           {{/image}}
-        {{/align_image_left}}
+        {{/is_align_image_left}}
 
-        {{#align_image_right}}
+        {{#is_align_image_right}}
            {{{body}}}
             {{#quote}}
               <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
@@ -202,12 +202,12 @@
                 <span class="quotee">{{{quotee}}}</span>
               </div>
            {{/quote}}
-        {{/align_image_right}}
+        {{/is_align_image_right}}
       </div>
 
       <div class="ve-col-50-right">
 
-        {{#align_image_left}}
+        {{#is_align_image_left}}
           {{{body}}}
             {{#quote}}
               <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
@@ -215,9 +215,9 @@
                 <span class="quotee">{{{quotee}}}</span>
               </div>
            {{/quote}}
-        {{/align_image_left}}
+        {{/is_align_image_left}}
 
-        {{#align_image_right}}
+        {{#is_align_image_right}}
           {{#image}}
             <div class="ve-image">
               <figure>
@@ -230,13 +230,13 @@
               </figure>
             </div>
           {{/image}}
-        {{/align_image_right}}
+        {{/is_align_image_right}}
       </div>
     </div>
   {{/is_rich_image}}
 
   {{^is_last}}
-    <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}">v</a></span>
+    <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}"><svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg></a></span>
     <noscript>
       <a class="ve-anchor" id="ve-anchor-{{id}}"></a>
     </noscript>

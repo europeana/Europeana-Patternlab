@@ -91,7 +91,7 @@
         {
             "id": "3",
             "type": "rich_image",
-            "align_image_right": "true",
+            "is_align_image_right": "true",
             "is_rich_image": true,
             "title": "Japonism",
             "subtitle": "(from the French Japonisme, first used in 1872)",
@@ -212,8 +212,13 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arcimboldo"
-
+            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor"
+        },
+        {
+            "id": "4_2",
+            "is_text": true,
+            "type": "text",
+            "body": "<p>Arcimboldo's conventional work, on traditional religious subjects, has fallen into oblivion, but his portraits of human heads made up of vegetables, plants, fruits, sea creatures and tree roots, were greatly admired by his contemporaries and remain a source of fascination today.</p><p>At a distance, his portraits looked like normal human portraits. However, individual objects in each portrait were actually overlapped together to make various anatomical shapes of a human.</p>"
         },
         {
             "id": "4_9",
@@ -305,9 +310,10 @@
             "id": "11",
             "type": "rich_image",
             "is_rich_image": true,
-            "align_image_left": true,
+            "is_align_image_left": true,
             "title": "ZURICH - Arthur Segal",
             "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
+            "quote": "Arthur's father wanted his son to become a banker and discouraged his early interest in art, but without success",
             "body": "Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success. In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.",
             "image":
             {
@@ -346,7 +352,7 @@
         {
             "id": "13",
             "is_quote": true,
-            "full_section_element": true,
+            "is_full_section_element": true,
             "type": "quote",
             "quote": "She's fast enough for you old man.  What's the cargo?",
             "quotee": "Han Solo - captain of the millennium falcon."
