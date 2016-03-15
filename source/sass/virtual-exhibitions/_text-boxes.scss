@@ -20,7 +20,9 @@
 // breadcrumb
 
 .ve-nav{
-  padding: 0.7rem 0.8rem;
+  background-color: #f1f1ee;
+  font-size:        0.875rem;
+  padding:          0.7rem 0.8rem;
 }
 
 .slide-nav{
@@ -34,6 +36,10 @@
 .text-element{
   padding:           1.5em;
   margin:            1em auto;
+}
+
+.ve-base-text{
+  margin: auto;
 }
 
 .ve-base-quote,
@@ -168,7 +174,7 @@
   }
 
   .ve-nav-lists{
-    margin-left: 2%;
+    // margin-left: 2%;
   }
 
   .slide-nav,
@@ -184,7 +190,8 @@
   .ve-base-quote,
   .ve-base-quote-full-height,
   .ve-base-text{
-      width: $ve_text_column_width;
+      max-width: $ve_text_column_width;
+      width:     auto;
   }
 
   .ve-title-group,
@@ -194,7 +201,8 @@
 
   .ve-description{
     width: calc(#{$ve_text_column_width} - 2%);
-    left:  2%;
+    left:         2%;
+    margin-left: -1%;
   }
 
   .ve-base-title-image-text{
@@ -230,7 +238,7 @@
 
 .ve-description{
   bottom:            4em;
-  padding:           1em;
+  padding:           0.8em;
 }
 
 .ve-title{
@@ -260,8 +268,7 @@
     position:    relative;
 
     .ve-base-quote,
-    .ve-base-quote-full-height,
-    .ve-base-text{
+    .ve-base-quote-full-height{
       text-align: center;
       position: relative;
       margin: auto;
