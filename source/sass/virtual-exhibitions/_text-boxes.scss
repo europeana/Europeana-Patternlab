@@ -387,10 +387,10 @@
     display: block;
   }
 
-  .quote:before {
+  .quote span:before {
       content: open-quote;
   }
-  .quote:after {
+  .quote span:after {
       content: close-quote;
   }
 
