@@ -108,42 +108,42 @@
             {
                 "thumbnail": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan (thumbnail)",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "small": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "smallx2": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "half": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "halfx2": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "full": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "landscape"
                 },
                 "fullx2": {
                     "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Japan",
                     "orientation": "landscape"
                 }
             },
@@ -182,42 +182,42 @@
             {
                 "thumbnail": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnail.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "small": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-small.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "smallx2": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-smallx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "half": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-half.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "halfx2": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-halfx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "full": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-full.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "landscape"
                 },
                 "fullx2": {
                     "url" : "/images/virtual-exhibitions/280/fruit-face-fullx2.png",
-                    "alt": "SagradaFamilia Sostre",
+                    "alt": "Arcimboldo",
                     "orientation": "landscape"
                 }
             },
@@ -380,6 +380,7 @@
             "type": "image",
             "is_image": true,
             "is_last": true,
+            "is_landscape": true,
             "image":
             {
                 "thumbnail": {

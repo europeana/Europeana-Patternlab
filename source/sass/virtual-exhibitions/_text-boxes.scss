@@ -85,6 +85,10 @@
   transform:   translateY(-50%);
   width:       0;
   z-index:     3;
+
+  a{
+    outline: none;
+  }
 }
 
 .ve-progress-nav .ve-state-button-on,
@@ -363,6 +367,10 @@
 
 .ve-base-quote{
 
+  blockquote {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+  }
+
   .quote{
     font-size:     1.6em;
     font-weight:   bold;
@@ -379,15 +387,13 @@
     display: block;
   }
 
-  .quote:before{
-    content: "“";
-    display: block;
+  .quote:before {
+      content: open-quote;
+  }
+  .quote:after {
+      content: close-quote;
   }
 
-  .quote:after{
-    content: "”";
-    display: block;
-  }
 }
 
 .ve-foyer-card{

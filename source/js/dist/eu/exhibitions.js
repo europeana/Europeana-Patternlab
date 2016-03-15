@@ -53,10 +53,16 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
       return;
     }
 
+    var $firstSlide      = $('.ve-slide.first');
+
+    if($firstSlide.find('> .ve-base-intro').size()==0){
+      log('first slide is not an intro');
+      return;
+    }
+
     require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
       require(['gsap'], function(){
 
-        var $firstSlide      = $('.ve-slide.first');
         var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit';
 
         //$(textTweenTargets).css('backface-visibility', 'hidden');

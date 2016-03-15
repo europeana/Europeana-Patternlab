@@ -16,7 +16,7 @@
           <div class="centered-text">
       {{/is_full_section_element}}
 
-      <span class="quote">{{{quote}}}</span>
+      <blockquote class="quote">{{{quote}}}</blockquote>
       <span class="quotee">{{{quotee}}}</span>
 
       {{#is_full_section_element}}
@@ -26,19 +26,6 @@
     </div>
   {{/is_quote}}
 
-<!--
-  {{#is_quote_full_height}}
-    <div id="{{id}}" class="ve-base ve-base-quote-full-height {{type}}" data-alchemy-element="{{alchemy_id}}">
-      <div class="centered-v-text">
-        <div class="centered-text">
-          <span class="quote">{{{quote}}}</span>
-          <span class="quotee">{{{quotee}}}</span>
-        </div>
-      </div>
-    </div>
-  {{/is_quote_full_height}}
--->
-
   {{#is_text}}
     <div id="{{id}}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
        {{{body}}}
@@ -46,7 +33,7 @@
   {{/is_text}}
 
   {{#is_image}}
-    <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}}landscape{{/is_landscape}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}" data-alchemy-element="{{alchemy_id}}">
      <figure>
 
        {{#image}}
@@ -198,7 +185,7 @@
            {{{body}}}
             {{#quote}}
               <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
-                <span class="quote">{{{quote}}}</span>
+                <blockquote class="quote">{{{quote}}}</blockquote>
                 <span class="quotee">{{{quotee}}}</span>
               </div>
            {{/quote}}
@@ -211,7 +198,7 @@
           {{{body}}}
             {{#quote}}
               <div id="{{id}}" class="ve-base ve-base-quote {{type}}" data-alchemy-element="{{alchemy_id}}">
-                <span class="quote">{{{quote}}}</span>
+                <blockquote class="quote">{{{quote}}}</blockquote>
                 <span class="quotee">{{{quotee}}}</span>
               </div>
            {{/quote}}
