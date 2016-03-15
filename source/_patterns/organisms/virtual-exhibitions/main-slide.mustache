@@ -125,18 +125,18 @@
         </style>
       {{/image}}
 
+      {{#title}}
       <div class="ve-title-group">
-        {{#title}}
           <span class="ve-title">
             {{.}}
           </span>
-        {{/title}}
         {{#subtitle}}
           <span class="ve-subtitle">
             {{{.}}}
           </span>
         {{/subtitle}}
       </div>
+      {{/title}}
 
       {{#image}}
         <picture class="ve-intro-image">
@@ -236,7 +236,7 @@
   {{/is_rich_image}}
 
   {{^is_last}}
-    <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}"><svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg></a></span>
+    <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}"><svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg></a></span>
     <noscript>
       <a class="ve-anchor" id="ve-anchor-{{id}}"></a>
     </noscript>
