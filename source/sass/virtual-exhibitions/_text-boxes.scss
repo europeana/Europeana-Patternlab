@@ -367,9 +367,9 @@
 
 .ve-base-quote{
 
-  blockquote {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-  }
+  //blockquote {
+  //  quotes: "\201C" "\201D" "\2018" "\2019";
+  //}
 
   .quote{
     font-size:     1.6em;
@@ -387,12 +387,12 @@
     display: block;
   }
 
-  .quote>span:before {
-      content: open-quote;
-  }
-  .quote>span:after {
-      content: close-quote;
-  }
+  //.quote>span:before {
+  //    content: open-quote;
+  //}
+  //.quote>span:after {
+  //    content: close-quote;
+  //}
 
 }
 
