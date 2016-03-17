@@ -128,30 +128,46 @@
 
 @media all and (min-width: $bp-med) {
 
-  .ve-slide{
-    &.first .ve-anchor{
-      // 10em enough to pull back beyond header
-      top:      -100em;
+  .ve-slide-container{
+
+    .ve-anchor.no-js{
+      bottom:   0;
+      position: relative;
     }
 
-    // layout: compensate for header
-    min-height: -webkit-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
-    min-height:    -moz-calc(100vh - 5rem - 1rem - 2 * 0.7rem);
-    min-height:         calc(100vh - 5rem - 1rem - 2 * 0.7rem);
+    .ve-slide{
+      &.first .ve-anchor:not(.no-js){
+        // 10em enough to pull back beyond header
+        top: -100em;
+      }
 
-    &:not(first){
-       min-height: -webkit-calc(100vh - 5rem);
-       min-height:    -moz-calc(100vh - 5rem);
-       min-height:         calc(100vh - 5rem);
+      // layout: compensate for header
+      &.first{
+        min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+
+        .ve-base-intro,
+        .ve-full-height{
+          min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+          min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+          min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        }
+      }
+
+      &:not(.first){
+        min-height: -webkit-calc(100vh - 4.8rem);
+        min-height:    -moz-calc(100vh - 4.8rem);
+        min-height:         calc(100vh - 4.8rem);
+
+       .ve-base-intro,
+       .ve-full-height{
+           min-height: -webkit-calc(100vh - 4.8rem);
+           min-height:    -moz-calc(100vh - 4.8rem);
+           min-height:         calc(100vh - 4.8rem);
+       }
+      }
     }
-
-   .ve-base-intro,
-   .ve-full-height{
-       min-height: -webkit-calc(100vh - 5rem);
-       min-height:    -moz-calc(100vh - 5rem);
-       min-height:         calc(100vh - 5rem);
-   }
-
   }
 
   .ve-base{
