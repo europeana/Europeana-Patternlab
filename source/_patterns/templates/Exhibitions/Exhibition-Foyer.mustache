@@ -10,19 +10,27 @@
 
   <div id="maincontent" class="maincontent">
 
-    <h1 style="width: 100%; text-align:center; background-color: #000; color: #fff;">FEATURED EXHIBITION MAIN FOYER CARD GOES HERE</h1>
+    {{#page.featured-item}}
+      <div class="ve-slide-container">
+        <section class="ve-slide first">
+          {{> organisms/virtual-exhibitions/main-slide}}
+        </section>
+      </div>
+    {{/page.featured-item}}
 
     <div class="lc">
       <h2>The rest...</h2>
-      {{#page}}
-        {{#elements}}
-          {{#present}}
-            {{#items}}
-              {{> organisms/virtual-exhibitions/foyer-card}}
-            {{/items}}
-          {{/present}}
-        {{/elements}}
-      {{/page}}
+      <div style="margin-left: -1em; margin-right: -1em">
+        {{#page}}
+          {{#elements}}
+            {{#present}}
+              {{#items}}
+                {{> organisms/virtual-exhibitions/foyer-card}}
+              {{/items}}
+            {{/present}}
+          {{/elements}}
+        {{/page}}
+      </div>
     </div>
   </div>
 

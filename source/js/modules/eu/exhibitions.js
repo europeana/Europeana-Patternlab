@@ -39,7 +39,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
           }
           else{
             initProgressState();
-            initSFX()
+            initSFX();
           }
         }
     });
@@ -55,7 +55,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
     var $firstSlide      = $('.ve-slide.first');
 
-    if($firstSlide.find('> .ve-base-intro').size()==0){
+    if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()==0){
       log('first slide is not an intro');
       return;
     }
@@ -161,6 +161,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
           var self        = this;
           self.stateIndex = 0;
           self.cardStates = $el.find('.ve-foyer-card-state');
+          self.label      = $el.find('.ve-label');
           self.$el        = $el;
 
           $el.find('.ve-card-nav-left').on('click', function(){
@@ -211,6 +212,12 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
               newStateIndex = this.states.length -1;
           }
           this.stateIndex = newStateIndex;
+          if(this.stateIndex==0){
+              this.label.show();
+          }
+          else{
+              this.label.hide();
+          }
           var next   = $(this.cardStates.get(this.stateIndex));
 
           next.removeClass('animating');

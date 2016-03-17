@@ -43,14 +43,52 @@
     }
   },
   "page": {
+    "featured-item":{
+      "is_intro": "true",
+      "is_foyer": "true",
+      "id": "featured-item",
+      "image":
+      {
+        "full": {
+          "url" : "/images/virtual-exhibitions/dada/red-full.png"
+        },
+        "fullx2": {
+          "url" : "/images/virtual-exhibitions/dada/red-fullx2.png"
+        },
+        "half": {
+          "url" : "/images/virtual-exhibitions/dada/red-half.png"
+        },
+        "halfx2": {
+          "url" : "/images/virtual-exhibitions/dada/red-halfx2.png"
+        },
+        "small": {
+          "url" : "/images/virtual-exhibitions/dada/red-small.png"
+        },
+        "smallx2": {
+          "url" : "/images/virtual-exhibitions/dada/red-smallx2.png"
+        },
+        "thumbnail": {
+          "url" : "/images/virtual-exhibitions/dada/red-thumbnail.png"
+        },
+        "thumbnailx2": {
+          "url" : "/images/virtual-exhibitions/dada/red-thumbnailx2.png"
+        }
+      },
+      "label": "From Europeana Art History",
+      "title": "Title",
+      "subtitle": "Subtitle"
+    },
+
     "elements": {
       "present": true,
       "items":
       [
         {
-          "state_1_title": "a Wiki Loves Art Nouveau",
-          "state_2_title": "b Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "state_3_title": "c Credits",
+          "state_1_title": "Wiki Loves Art Nouveau",
+          "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "state_3_title": "Credits",
+
+          "state_1_label": "Collection",
 
           "state_1_link": "javascript:alert('open this exhibition (1)",
           "state_2_link": "javascript:alert('open this exhibition (2)",
@@ -70,9 +108,9 @@
 
         },
         {
-          "state_1_title": "a Wiki Loves Art Nouveau",
-          "state_2_title": "b Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "state_3_title": "c Credits",
+          "state_1_title": "Wiki Loves Art Nouveau",
+          "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "state_3_title": "Credits",
 
           "state_1_link": "javascript:alert('open this exhibition (1)",
           "state_2_link": "javascript:alert('open this exhibition (2)",
@@ -92,9 +130,9 @@
 
         },
         {
-          "state_1_title": "a Wiki Loves Art Nouveau",
-          "state_2_title": "b Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "state_3_title": "c Credits",
+          "state_1_title": "Wiki Loves Art Nouveau",
+          "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+          "state_3_title": "Credits",
 
           "state_1_link": "javascript:alert('open this exhibition (1)",
           "state_2_link": "javascript:alert('open this exhibition (2)",
@@ -111,29 +149,6 @@
           "state_3_image": {
             "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
-
-        },
-        {
-          "state_1_title": "a Wiki Loves Art Nouveau",
-          "state_2_title": "b Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-          "state_3_title": "c Credits",
-
-          "state_1_link": "javascript:alert('open this exhibition (1)",
-          "state_2_link": "javascript:alert('open this exhibition (2)",
-          "state_3_link": "javascript:alert('open this exhibition (3)",
-
-          "state_1_image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
-          },
-
-          "state_2_image": {
-            "thumbnail": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
-          },
-
-          "state_3_image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
-          }
-
         }
       ]
     }

@@ -6,7 +6,9 @@
   <section class="ve-slide {{#is_first}}first{{/is_first}}">
     <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
 {{/is_section}}
+
 {{^is_section}}
+
   {{#is_quote}}
     <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
       {{#is_full_section_element}}
@@ -44,10 +46,8 @@
     </div>
   {{/is_image}}
 
-
   {{#is_intro}}
-    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
-
+    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}{{#is_foyer}} ve-base-foyer-main{{/is_foyer}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
       {{#image}}
         {{>organisms/virtual-exhibitions/main-slide-bg-style }}
       {{/image}}
