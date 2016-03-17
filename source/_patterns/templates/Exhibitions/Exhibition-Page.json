@@ -25,20 +25,20 @@
       "show_thumbnail": "1px",
       "show_small": "200px",
       "show_half":  "400px",
-      "show_full":  "800px"
+      "show_full":  "801px"
     },
     "bg":{
       "show_thumbnail": "1px",
       "show_small": "200px",
       "show_half":  "400px",
-      "show_full":  "800px"
+      "show_full":  "801px"
     },
     "bg-hr":{
       "dpr": "2",
       "dpr_fraction": "2/1",
       "show_thumbnail": "1",
       "show_small": "400px",
-      "show_half":  "800px",
+      "show_half":  "801px",
       "show_full":  "1600px"
     }
   },

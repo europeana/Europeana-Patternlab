@@ -7,10 +7,8 @@
     <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
 {{/is_section}}
 {{^is_section}}
-
-
   {{#is_quote}}
-    <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
       {{#is_full_section_element}}
         <div class="centered-v-text">
           <div class="centered-text">
@@ -26,13 +24,13 @@
   {{/is_quote}}
 
   {{#is_text}}
-    <div id="{{id}}" class="ve-base ve-base-text {{type}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-text {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
        {{{body}}}
     </div>
   {{/is_text}}
 
   {{#is_image}}
-    <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
      <figure>
        {{#image}}
          <picture>
@@ -48,60 +46,10 @@
 
 
   {{#is_intro}}
-    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}" data-alchemy-element="{{alchemy_id}}">
+    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
 
       {{#image}}
-        <style scoped>
-          {{#breakpoint_pixels}}
-            {{#bg}}
-              @media only screen and (min-width: {{show_small}}) {
-                .ve-{{id}}{
-                  background-image: url({{small.url}})
-                }
-              }
-              @media only screen and (min-width: {{show_half}}) {
-                .ve-{{id}}{
-                  background-image: url({{half.url}})
-                }
-              }
-              @media only screen and (min-width: {{show_full}}) {
-                .ve-{{id}}{
-                  background-image: url({{full.url}})
-                }
-              }
-            {{/bg}}
-            {{#bg-hr}}
-
-              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
-                                 and (min--moz-device-pixel-ratio: {{dpr}})
-                                 and (-o-min-device-pixel-ratio: {{2/1}})
-                                 and (min-device-pixel-ratio: {{dpr}})
-                                 and (min-width: {{show_small}}) {
-                .ve-{{id}}{
-                  background-image: url({{smallx2.url}})
-                }
-              }
-              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
-                                 and (min--moz-device-pixel-ratio: {{dpr}})
-                                 and (-o-min-device-pixel-ratio: {{2/1}})
-                                 and (min-device-pixel-ratio: {{dpr}})
-                                 and (min-width: {{show_half}}) {
-                .ve-{{id}}{
-                  background-image: url({{halfx2.url}})
-                }
-              }
-              @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
-                                 and (min--moz-device-pixel-ratio: {{dpr}})
-                                 and (-o-min-device-pixel-ratio: {{2/1}})
-                                 and (min-device-pixel-ratio: {{dpr}})
-                                 and (min-width: {{show_full}}) {
-                .ve-{{id}}{
-                  background-image: url({{fullx2.url}})
-                }
-              }
-            {{/bg-hr}}
-          {{/breakpoint_pixels}}
-        </style>
+        {{>organisms/virtual-exhibitions/main-slide-bg-style }}
       {{/image}}
 
       {{#title}}
@@ -116,6 +64,10 @@
         {{/subtitle}}
       </div>
       {{/title}}
+
+      {{#label}}
+         <span class="ve-label">{{.}}</span>
+      {{/label}}
 
       {{#image}}
         <picture class="ve-intro-image">
@@ -138,7 +90,7 @@
   {{/is_intro}}
 
   {{#is_rich_image}}
-    <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}" data-alchemy-element="{{alchemy_id}}" {{#background_colour}}style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
+    <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#background_colour}} style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
 
       <div class="ve-title-group">
         {{#title}}
