@@ -251,7 +251,7 @@ ve-base-foyer-main,
   }
 
   .ve-description{
-    width:       58%;
+    width:       59%;
     left:         2%;
     margin-left: -1%;
   }
@@ -306,12 +306,26 @@ ve-base-foyer-main,
 .ve-title{
   display: block;
   font-size: 1.6em;
-  margin-bottom: 1.2em;
+}
+
+.ve-partner-logo{
+  background-color: #fff;
+  padding:  0.5em;
+  position: absolute;
+  right:    1em;
+  top:      4em;
 }
 
 .ve-subtitle{
   display: block;
   font-weight: 1.2em;
+  margin-top: 1.2em;
+}
+
+.ve-foyer-card-container{
+  margin-left:  -1em;
+  margin-right: -1em;
+  margin-top:    2em;
 }
 
 .ve-slide-container {

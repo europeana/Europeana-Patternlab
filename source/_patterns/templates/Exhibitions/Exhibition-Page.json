@@ -42,6 +42,22 @@
       "show_full":  "1600px"
     }
   },
+  "breadcrumbs": [
+    {
+      "url": "javascript:alert('breadcrumb 1')",
+      "title": "Home",
+      "is_home": "true"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 2')",
+      "title": "trial exhibition"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 3')",
+      "title": "trial exhibition 2nd page",
+      "is_last": "true"
+    }
+  ],
   "page_data": {
     "title": "Page title",
     "url": "/example-page",

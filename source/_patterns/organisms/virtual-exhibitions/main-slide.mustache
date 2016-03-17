@@ -69,6 +69,10 @@
          <span class="ve-label">{{.}}</span>
       {{/label}}
 
+      {{#partner_image}}
+         <a class="ve-partner-logo" href="{{partner_url}}"><img src="{{thumbnail.url}}"></a>
+      {{/partner_image}}
+
       {{#image}}
         <picture class="ve-intro-image">
           {{>atoms/images/responsive-srcset-picture}}
