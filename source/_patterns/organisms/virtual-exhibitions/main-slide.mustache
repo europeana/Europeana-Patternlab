@@ -47,51 +47,12 @@
   {{/is_image}}
 
   {{#is_intro}}
-    <div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}{{#is_foyer}} ve-base-foyer-main{{/is_foyer}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
-      {{#image}}
-        {{>organisms/virtual-exhibitions/main-slide-bg-style }}
-      {{/image}}
-
-      {{#title}}
-      <div class="ve-title-group">
-          <span class="ve-title">
-            {{.}}
-          </span>
-        {{#subtitle}}
-          <span class="ve-subtitle">
-            {{{.}}}
-          </span>
-        {{/subtitle}}
-      </div>
-      {{/title}}
-
-      {{#label}}
-         <span class="ve-label">{{.}}</span>
-      {{/label}}
-
-      {{#partner_image}}
-         <a class="ve-partner-logo" href="{{partner_url}}"><img src="{{thumbnail.url}}"></a>
-      {{/partner_image}}
-
-      {{#image}}
-        <picture class="ve-intro-image">
-          {{>atoms/images/responsive-srcset-picture}}
-        </picture>
-      {{/image}}
-
-      {{#image_credit}}
-        <div class="ve-image-credit">
-         {{>molecules/text/attribution}}
-        </div>
-      {{/image_credit}}
-
-      {{#intro_description}}
-        <div class="ve-description">
-          {{{.}}}
-        </div>
-      {{/intro_description}}
-    </div>
+    {{> organisms/virtual-exhibitions/intro-slide}}
   {{/is_intro}}
+
+  {{#is_foyer}}
+    {{> organisms/virtual-exhibitions/intro-slide}}
+  {{/is_foyer}}
 
   {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#background_colour}} style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
@@ -110,6 +71,7 @@
       </div>
 
       <div class="ve-col-50-left">
+        <div class="inner">
         {{#is_align_image_left}}
           {{#image}}
             <div class="ve-image">
@@ -133,33 +95,35 @@
               </div>
            {{/quote}}
         {{/is_align_image_right}}
+        </div>
       </div>
 
       <div class="ve-col-50-right">
+        <div class="inner">
+          {{#is_align_image_left}}
+            {{{body}}}
+              {{#quote}}
+                <div id="{{id}}" class="ve-base ve-base-quote {{type}}">
+                  {{>atoms/text/quote}}
+                </div>
+             {{/quote}}
+          {{/is_align_image_left}}
 
-        {{#is_align_image_left}}
-          {{{body}}}
-            {{#quote}}
-              <div id="{{id}}" class="ve-base ve-base-quote {{type}}">
-                {{>atoms/text/quote}}
+          {{#is_align_image_right}}
+            {{#image}}
+              <div class="ve-image">
+                <figure>
+                  {{#image}}
+                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
+                  {{/image}}
+                  {{#caption}}
+                    <figcaption>{{.}}</figcaption>
+                  {{/caption}}
+                </figure>
               </div>
-           {{/quote}}
-        {{/is_align_image_left}}
-
-        {{#is_align_image_right}}
-          {{#image}}
-            <div class="ve-image">
-              <figure>
-                {{#image}}
-                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}">
-                {{/image}}
-                {{#caption}}
-                  <figcaption>{{.}}</figcaption>
-                {{/caption}}
-              </figure>
-            </div>
-          {{/image}}
-        {{/is_align_image_right}}
+            {{/image}}
+          {{/is_align_image_right}}
+        </div>
       </div>
     </div>
   {{/is_rich_image}}

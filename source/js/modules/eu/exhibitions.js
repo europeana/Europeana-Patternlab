@@ -16,6 +16,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     if($url.param('show-sections')){
         $('.ve-slide').css('border', '2px dotted red');
     }
+    initSmartMenus();
     initProgressState();
     initSFX();
     initFoyerCards();
@@ -44,6 +45,37 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         }
     });
   };
+
+  function initSmartMenus(){
+    require(['smartmenus'], function(){
+      require(['smartmenus_keyboard'], function(){
+        $('.nav_primary>ul').smartmenus({
+          mainMenuSubOffsetX: -1,
+          mainMenuSubOffsetY: 4,
+          subMenusSubOffsetX: 6,
+          subMenusSubOffsetY: -6,
+          subMenusMaxWidth: null,
+          subMenusMinWidth: null
+        });
+        $('#settings-menu').smartmenus({
+          mainMenuSubOffsetX: -62,
+          mainMenuSubOffsetY: 4,
+          subMenusSubOffsetX: 0,
+          subMenusSubOffsetY: -6,
+          subMenusMaxWidth: null,
+          subMenusMinWidth: null
+        });
+        $('.js-hack-smartmenu a').click(function(){
+          var href = $(this).attr('href');
+          if(href != '#'){
+            window.location = $(this).attr('href');
+          }
+        });
+        $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+      });
+    });
+  }
 
   // Special effects
   function initSFX(){

@@ -46,7 +46,7 @@
     {
       "url": "javascript:alert('breadcrumb 1')",
       "title": "Home",
-      "is_home": "true"
+      "is_first": "true"
     },
     {
       "url": "javascript:alert('breadcrumb 2')",

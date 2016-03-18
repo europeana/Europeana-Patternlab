@@ -1,0 +1,209 @@
+@import "../scss/generic/variables";
+@import "variables";
+
+.no-js{
+  .ve-foyer-card .ve-card-nav{
+    display: none;
+  }
+}
+
+.ve-foyer-card{
+  padding:  0 1em;
+  position: relative;
+  width:    100%;
+
+  .ve-label{
+    position: absolute;
+  }
+}
+
+.ve-foyer-card-container{
+  margin-top:    2em;
+}
+
+.ve-partner-logo{
+  background-color: #fff;
+  padding:          0.5em;
+}
+
+@media all and (min-width: $bp-small-2) {
+}
+
+@media all and (min-width: $bp-small-3) {
+  .ve-foyer-card{
+    width:    50%;
+  }
+}
+
+@media all and (min-width: $bp-med) {
+  .ve-foyer-card{
+    float:    left;
+    width:    33.33%;
+  }
+
+  .ve-foyer-card-container{
+    margin-left:  -1em;
+    margin-right: -1em;
+  }
+
+  .ve-label,
+  .ve-partner-logo{
+    display:  block;
+    position: relative;
+    right:    0;
+    width:    auto;
+  }
+  .ve-partner-logo{
+    float:    right;
+  }
+}
+
+@media all and (min-width: $bp-xl) {
+}
+
+@media all and (min-width: $bp-xxl) {
+  .ve-foyer-card{
+    width:    25%;
+  }
+}
+
+.ve-foyer-card{
+
+  float:    left;
+  padding:  0 1em;
+  position: relative;
+
+  .ve-label{
+    left:    0.6em;
+    right:   auto;
+    top:     12px;
+    z-index: 1;
+  }
+
+  .ve-foyer-card-content{
+    position: relative;
+    margin:   0;
+    overflow: hidden;
+    padding:  0;
+    height:   auto;
+    width:    100%;
+
+    &:before{
+      content:     "";
+      display:     block;
+      padding-top: 100%;
+    }
+
+    .inner,
+    img{
+      position:  absolute;
+      top:       0;
+      bottom:    0;
+      left:      0;
+      right:     0;
+    }
+
+    img{
+      width:      100%;
+      height:     100%;
+      max-width:  100%;
+      max-height: 100%;
+      border:     0;
+      margin:     0;
+      object-fit: cover;
+    }
+
+    .ve-card-nav{
+      color:          $colour_overlaid_text;
+      cursor:         pointer;
+      font-size:      2em;
+      font-weight:    bold;
+      position:       absolute;
+      top:            50%;
+      transform:      translateY(-50%);
+      z-index:        2;
+    }
+
+    .ve-card-nav-left{
+      left: 0.5em;
+    }
+
+    .ve-card-nav-right{
+      right: 0.5em;
+    }
+
+    .ve-foyer-card-state{
+      position: absolute;
+      width:    100%;
+      height:   100%;
+      left:     0;
+
+      &.hide-left{
+        left: -100%;
+      }
+      &.hide-right{
+        left: 100%;
+      }
+      &.animating{
+        transition: left 1s;
+        webkit-transition: left 1s;
+      }
+    }
+
+    .text-box{
+      color:          $colour_overlaid_text;
+      left:           0;
+      padding:        0.2em 2.1em;
+      position:       absolute;
+      width:          100%;
+    }
+
+    .text-box.title{
+      font-weight:    bold;
+      text-align:     center;
+      text-transform: capitalize;
+    }
+
+    .text-box.credits,
+    .ve-foyer-card-state.shaded:before,
+    .text-box.title{
+      background-color:  $bg_colour_overlaid_text;
+    }
+
+    .text-box a,
+    .text-box a:hover{
+      color: $colour_overlaid_text;
+    }
+
+    .text-box a:hover{
+      text-decoration: underline;
+    }
+
+    .ve-foyer-card-state.shaded:before{
+      content:  "";
+      display:  block;
+      height:   100%;
+      left:     0;
+      position: absolute;
+      top:      0;
+      width:    100%;
+      z-index:  1;
+    }
+
+    .text-box.credits,
+    .text-box.description{
+      max-height: 75%;
+      text-align: center;
+    }
+
+    .text-box.description{
+      position: relative;
+      z-index:  1;
+    }
+
+    .text-box.title{
+      top:           50%;
+      transform:     translateY(-50%);
+    }
+  }
+}

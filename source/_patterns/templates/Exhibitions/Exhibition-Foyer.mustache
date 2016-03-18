@@ -10,16 +10,16 @@
 
   <div id="maincontent" class="maincontent">
 
-    {{#page.featured-item}}
+    {{#page_data.featured-item}}
       <div class="ve-slide-container">
         <section class="ve-slide first">
           {{> organisms/virtual-exhibitions/main-slide}}
         </section>
       </div>
-    {{/page.featured-item}}
+    {{/page_data.featured-item}}
     <div class="lc">
       <div class="ve-foyer-card-container">
-        {{#page}}
+        {{#page_data}}
           {{#elements}}
             {{#present}}
               {{#items}}
@@ -27,7 +27,7 @@
               {{/items}}
             {{/present}}
           {{/elements}}
-        {{/page}}
+        {{/page_data}}
       </div>
     </div>
   </div>

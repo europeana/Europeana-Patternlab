@@ -9,6 +9,10 @@ require.config({
     jqScrollto:             '../lib/jquery.scrollTo',
     menus:                  '../global/menus',
     purl:                   '../lib/purl/purl',
+
+    smartmenus:             '../lib/smartmenus/jquery.smartmenus',
+    smartmenus_keyboard:    '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
+
     ScrollMagic:            '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min',
     TweenMax:               '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min',
     TimelineMax:            '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min',

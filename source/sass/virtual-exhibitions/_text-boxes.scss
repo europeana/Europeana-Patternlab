@@ -1,5 +1,4 @@
 @import "../scss/generic/variables";
-@import "../scss/grid/susy";
 @import "variables";
 
 .no-js{
@@ -12,9 +11,6 @@
     background-position: -110px 0;
   }
 
-  .ve-foyer-card .ve-card-nav{
-    display: none;
-  }
 }
 
 // breadcrumb
@@ -60,6 +56,17 @@ ve-base-foyer-main,
 .ve-title-group{
     padding:  1em;
     width:    100%;
+}
+
+.ve-branding{
+
+  text-align: center;
+
+  .ve-label{
+    display: block;
+    margin:  1em auto;
+    width:   80%;
+  }
 }
 
 .ve-state-buttons{
@@ -118,60 +125,160 @@ ve-base-foyer-main,
   width:            1px;
 }
 
+.ve-base{
+
+  text-align: left;
+
+  picture{
+    display:    block;
+    text-align: center;
+  }
+
+  figcaption{
+    text-align: center;
+  }
+
+}
+
+
+.ve-title-group{
+  font-weight:    bold;
+  left:           0;
+  top:            2em;
+}
+
+.ve-description{
+  bottom:            1em;
+  padding:           0.8em;
+}
+
+.ve-title{
+  display: block;
+  font-size: 1.6em;
+}
+
+.ve-subtitle{
+  display: block;
+  font-weight: 1.2em;
+  margin-top: 1.2em;
+}
+
+.ve-slide-container {
+
+  height:     100%;
+  overflow:   hidden;
+  position:   relative;
+  text-align: center;
+
+  .ve-anchor{
+    position: relative;
+    top:      -3.88em;
+  }
+
+
+  .ve-slide{
+    position:    relative;
+
+    .ve-base-quote{
+      text-align: center;
+      position: relative;
+      margin: auto;
+    }
+
+    .ve-image{
+      text-align: center;
+      img{
+        max-height: 100%;
+      }
+    }
+
+    .ve-base-foyer-main,
+    .ve-base-intro{
+      background-position: center top;
+      background-repeat:   no-repeat;
+    }
+
+    .ve-base-title-image-text{
+      background-color: $colour_overlaid_text;
+    }
+
+    .ve-col-50-left,
+    .ve-col-50-right{
+      padding:      1em;
+    }
+
+  }
+
+  .slide-nav{
+    cursor:            pointer;
+    font-size:         2em;
+    font-weight:       bold;
+    position:          absolute;
+    left:              50%;
+    transform:         translateX(-50%);
+    z-index:           1;
+    a{
+      color:           $offwhite;
+      text-shadow:     0 0 1px #000;
+    }
+  }
+
+  .slide-nav-next{
+    bottom: -10px;
+  }
+
+  .slide-nav-prev{
+    top: 0.5em;
+  }
+}
+
+.ve-image-credit{
+  bottom:      0em;
+  font-weight: bold;
+  padding:     1em;
+  right:       -1.25em;
+  font-size:   0.9em;
+}
+
+.ve-base-quote{
+  .quote{
+    font-size:     1.6em;
+    font-weight:   bold;
+    margin-bottom: 1em;
+  }
+
+  .quotee{
+    font-style:  italic;
+    margin-left: 50%;
+  }
+
+  .quote,
+  .quotee{
+    display: block;
+  }
+}
+
+.ve-label{
+  background-color: $eu-blue;
+  color:            #fff;
+  font-weight:      bold;
+  padding:          0.5em 1em;
+}
 
 @media all and (min-width: $bp-small-2) {
 
 }
 
 @media all and (min-width: $bp-small-3) {
+
+  .ve-label{
+    width:   70%;
+  }
+
 }
 
 
 @media all and (min-width: $bp-med) {
-
-  .ve-slide-container{
-
-    .ve-anchor.no-js{
-      bottom:   0;
-      position: relative;
-    }
-
-    .ve-slide{
-      &.first .ve-anchor:not(.no-js){
-        // 10em enough to pull back beyond header
-        top: -100em;
-      }
-
-      // layout: compensate for header
-      &.first{
-        min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-        min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-        min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-
-        .ve-base-foyer-main,
-        .ve-base-intro,
-        .ve-full-height{
-          min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-        }
-      }
-
-      &:not(.first){
-        min-height: -webkit-calc(100vh - 4.8rem);
-        min-height:    -moz-calc(100vh - 4.8rem);
-        min-height:         calc(100vh - 4.8rem);
-
-       .ve-base-foyer-main,
-       .ve-base-intro,
-       .ve-full-height{
-           min-height: -webkit-calc(100vh - 4.8rem);
-           min-height:    -moz-calc(100vh - 4.8rem);
-           min-height:         calc(100vh - 4.8rem);
-       }
-      }
-    }
-  }
 
   .ve-base{
 
@@ -182,6 +289,16 @@ ve-base-foyer-main,
       position: absolute;
       top:      50%;
       width:    100%;
+    }
+    .ve-branding{
+      position: absolute;
+      right:    0;
+      top:      1em;
+      z-index:  1;
+
+      .ve-label{
+        width:   auto;
+      }
     }
   }
 
@@ -222,9 +339,38 @@ ve-base-foyer-main,
     padding: 1em 0;
   }
 
-  .ve-nav-lists{
-    // margin-left: 2%;
+  .ve-slide-container{
+    .ve-slide{
+
+      .ve-col-50-left,
+      .ve-col-50-right{
+
+        padding: 1em 0;
+        width: 50%;
+
+        .inner{
+          max-width: 100%;
+          //width: calc(#{$ve_image_column_width} / 2);
+          width: $ve_image_column_width;
+        }
+      }
+
+      .ve-col-50-left{
+        float: left;
+        .inner{
+          float: right;
+        }
+      }
+    }
   }
+
+  .ve-col-50-right{
+    float: right;
+    .inner{
+      float: left;
+    }
+  }
+
 
   .slide-nav,
   .ve-progress-nav{
@@ -277,317 +423,3 @@ ve-base-foyer-main,
 
 }
 
-
-.ve-base{
-
-  picture{
-    display:    block;
-    text-align: center;
-  }
-
-  figcaption{
-    text-align: center;
-  }
-
-}
-
-
-.ve-title-group{
-  font-weight:    bold;
-  left:           0;
-  top:            2em;
-}
-
-.ve-description{
-  bottom:            1em;
-  padding:           0.8em;
-}
-
-.ve-title{
-  display: block;
-  font-size: 1.6em;
-}
-
-.ve-partner-logo{
-  background-color: #fff;
-  padding:  0.5em;
-  position: absolute;
-  right:    1em;
-  top:      4em;
-}
-
-.ve-subtitle{
-  display: block;
-  font-weight: 1.2em;
-  margin-top: 1.2em;
-}
-
-.ve-foyer-card-container{
-  margin-left:  -1em;
-  margin-right: -1em;
-  margin-top:    2em;
-}
-
-.ve-slide-container {
-
-  height:   100%;
-  overflow: hidden;
-  position: relative;
-
-  .ve-anchor{
-    position: relative;
-    top:      -3.88em;
-  }
-
-
-  .ve-slide{
-    position:    relative;
-
-    .ve-base-quote{
-      text-align: center;
-      position: relative;
-      margin: auto;
-    }
-
-    .ve-image{
-      text-align: center;
-      img{
-        max-height: 100%;
-      }
-    }
-
-    .ve-base-foyer-main,
-    .ve-base-intro{
-      background-position: center top;
-      background-repeat:   no-repeat;
-    }
-
-    .ve-base-title-image-text{
-      background-color: $colour_overlaid_text;
-    }
-
-    .ve-col-50-left,
-    .ve-col-50-right{
-      padding:      1em;
-    }
-
-    .ve-col-50-left{
-
-      @media all and (min-width: $bp-med) {
-        @include span(12 of 24);
-        padding-left:  4em;
-      }
-    }
-
-    .ve-col-50-right{
-
-      @media all and (min-width: $bp-med) {
-        @include span(last 12 of 24);
-        padding-right: 4em;
-      }
-    }
-
-  }
-
-  .slide-nav{
-    cursor:            pointer;
-    font-size:         2em;
-    font-weight:       bold;
-    position:          absolute;
-    left:              50%;
-    transform:         translateX(-50%);
-    z-index:           1;
-    a{
-      color:           $offwhite;
-      text-shadow:     0 0 1px #000;
-    }
-  }
-
-  .slide-nav-next{
-    bottom: -10px;
-  }
-
-  .slide-nav-prev{
-    top: 0.5em;
-  }
-}
-
-.ve-image-credit{
-  bottom:      0em;
-  font-weight: bold;
-  padding:     1em;
-  right:       -1.25em;
-  font-size:   0.9em;
-}
-
-.ve-base-quote{
-
-  .quote{
-    font-size:     1.6em;
-    font-weight:   bold;
-    margin-bottom: 1em;
-  }
-
-  .quotee{
-    font-style:  italic;
-    margin-left: 50%;
-  }
-
-  .quote,
-  .quotee{
-    display: block;
-  }
-
-}
-
-
-.ve-label{
-  background-color: $eu-blue;
-  color:            #fff;
-  font-weight:      bold;
-  padding:          0.5em 1em;
-  position:         absolute;
-  right:            0;
-  top: 12px;        z-index: 1;
-}
-
-
-.ve-foyer-card{
-
-  float:    left;
-  padding:  0 1em;
-  position: relative;
-  width:    33.33%;
-
-  .ve-label{
-    left:   0.6em;
-    right:  auto;
-  }
-
-  .ve-foyer-card-content{
-    position: relative;
-    margin:   0;
-    overflow: hidden;
-    padding:  0;
-    height:   auto;
-    width:    100%;
-
-    &:before{
-      content:     "";
-      display:     block;
-      padding-top: 100%;
-    }
-
-    .inner,
-    img{
-      position:  absolute;
-      top:       0;
-      bottom:    0;
-      left:      0;
-      right:     0;
-    }
-
-    img{
-      width:      100%;
-      height:     100%;
-      max-width:  100%;
-      max-height: 100%;
-      border:     0;
-      margin:     0;
-      object-fit: cover;
-    }
-
-    .ve-card-nav{
-      color:          $colour_overlaid_text;
-      cursor:         pointer;
-      font-size:      2em;
-      font-weight:    bold;
-      position:       absolute;
-      top:            50%;
-      transform:      translateY(-50%);
-      z-index:        2;
-    }
-
-    .ve-card-nav-left{
-      left: 0.5em;
-    }
-
-    .ve-card-nav-right{
-      right: 0.5em;
-    }
-
-    .ve-foyer-card-state{
-      position: absolute;
-      width:    100%;
-      height:   100%;
-      left:     0;
-
-      &.hide-left{
-        left: -100%;
-      }
-      &.hide-right{
-        left: 100%;
-      }
-      &.animating{
-        transition: left 1s;
-        webkit-transition: left 1s;
-      }
-    }
-
-    .text-box{
-      color:          $colour_overlaid_text;
-      left:           0;
-      padding:        0.2em 2.1em;
-      position:       absolute;
-      width:          100%;
-    }
-
-    .text-box.title{
-      font-weight:    bold;
-      text-align:     center;
-      text-transform: capitalize;
-    }
-
-    .text-box.credits,
-    .ve-foyer-card-state.shaded:before,
-    .text-box.title{
-      background-color:  $bg_colour_overlaid_text;
-    }
-
-    .text-box a,
-    .text-box a:hover{
-      color: $colour_overlaid_text;
-    }
-
-    .text-box a:hover{
-      text-decoration: underline;
-    }
-
-    .ve-foyer-card-state.shaded:before{
-      content:  "";
-      display:  block;
-      height:   100%;
-      left:     0;
-      position: absolute;
-      top:      0;
-      width:    100%;
-      z-index:  1;
-    }
-
-    .text-box.credits,
-    .text-box.description{
-      max-height: 75%;
-      text-align: center;
-    }
-
-    .text-box.description{
-      position: relative;
-      z-index:  1;
-    }
-
-    .text-box.title{
-      top:           50%;
-      transform:     translateY(-50%);
-    }
-  }
-}
