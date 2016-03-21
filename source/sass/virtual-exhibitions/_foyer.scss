@@ -68,9 +68,6 @@
 }
 
 @media all and (min-width: $bp-xxl) {
-  .ve-foyer-card{
-    // width:    25%;
-  }
 }
 
 .ve-foyer-card{
@@ -131,11 +128,11 @@
     }
 
     .ve-card-nav-left{
-      left: 0.5em;
+      left: -0.25em;
     }
 
     .ve-card-nav-right{
-      right: 0.5em;
+      right: -0.25em;
     }
 
     .ve-foyer-card-state{
@@ -159,7 +156,7 @@
     .text-box{
       color:          $colour_overlaid_text;
       left:           0;
-      padding:        0.2em 2.1em;
+      padding:        0.75em 2.1em;
       position:       absolute;
       width:          100%;
     }

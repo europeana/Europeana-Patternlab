@@ -262,6 +262,19 @@ ve-base-foyer-main,
   font-size:   0.9em;
 }
 
+.ve-intro-image{
+  .ve-image-credit{
+    position: absolute;
+  }
+}
+
+.ve-base-intro-texts{
+  .ve-image-credit{
+    display: none;
+  }
+}
+
+
 .ve-intro-full-description{
   text-align: left;
 }

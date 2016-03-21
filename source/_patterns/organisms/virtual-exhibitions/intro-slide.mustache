@@ -6,12 +6,26 @@
   {{#image}}
     <picture class="ve-intro-image">
       {{>atoms/images/responsive-srcset-picture}}
+
+      {{#image_credit}}
+        <div class="ve-image-credit">
+         {{>molecules/text/attribution}}
+        </div>
+      {{/image_credit}}
+
     </picture>
   {{/image}}
 
 </div>
 
 <div class="ve-base ve-base-intro-texts">
+
+  {{#image_credit}}
+    <div class="ve-image-credit">
+     {{>molecules/text/attribution}}
+    </div>
+  {{/image_credit}}
+
   {{#title}}
   <div class="ve-title-group">
       <span class="ve-title">
@@ -24,12 +38,6 @@
     {{/subtitle}}
   </div>
   {{/title}}
-
-  {{#image_credit}}
-    <div class="ve-image-credit">
-     {{>molecules/text/attribution}}
-    </div>
-  {{/image_credit}}
 
   {{#intro_description}}
     <div class="ve-description">
