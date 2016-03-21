@@ -59,62 +59,59 @@
     }
   ],
   "page_data": {
-    "featured_item":{
-      "is_foyer": "true",
-      "id": "featured_item",
-      "image_credit": {
-        "attribution_title": "Painéis de S. Vicente de Fora",
-        "attribution_creator": "Nuno Gonçalves",
-        "attribution_institution": "Museu Nacional De Arte Antiga",
-        "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
-        "license_public": true
-      },
-      "image":
-      {
-        "full": {
-          "url" : "/images/virtual-exhibitions/dada/red-full.png"
-        },
-        "fullx2": {
-          "url" : "/images/virtual-exhibitions/dada/red-fullx2.png"
-        },
-        "half": {
-          "url" : "/images/virtual-exhibitions/dada/red-half.png"
-        },
-        "halfx2": {
-          "url" : "/images/virtual-exhibitions/dada/red-halfx2.png"
-        },
-        "small": {
-          "url" : "/images/virtual-exhibitions/dada/red-small.png"
-        },
-        "smallx2": {
-          "url" : "/images/virtual-exhibitions/dada/red-smallx2.png"
-        },
-        "thumbnail": {
-          "url" : "/images/virtual-exhibitions/dada/red-thumbnail.png"
-        },
-        "thumbnailx2": {
-          "url" : "/images/virtual-exhibitions/dada/red-thumbnailx2.png"
-        }
-      },
-      "label": "From Europeana Art History",
-      "title": "Dada and Surrealism",
-      "subtitle": false,
-      "partner_image": {
-        "thumbnail": {
-          "url": "/images/virtual-exhibitions/dada/logo.png"
-        }
-      },
-      "partner_url": "javascript:alert('link to curator site')",
-      "intro_description": "<p>Victor Brauner was a major representative of Surrealism, the art movement that focuses on the world between dreams and reality.</p><p>He was born in the East Carpathians, in a town where half the population was Jewish. After an anti-Semitic peasants’ revolt in 1907, the family moved to Germany and later to Austria.</p><p>In 1919, five years after returning to Bucharest, they were granted Romanian citizenship.</p><p>That same year, Brauner enrolled at the National School of Fine Arts in Bucharest.</p>"
-    }
   },
-
-
-
   "elements": {
     "present": true,
     "items":
     [
+      {
+        "is_featured_exhibition": true,
+        "id": "featured_item",
+        "image_credit": {
+          "attribution_title": "Painéis de S. Vicente de Fora",
+          "attribution_creator": "Nuno Gonçalves",
+          "attribution_institution": "Museu Nacional De Arte Antiga",
+          "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+          "license_public": true
+        },
+        "image":
+        {
+          "full": {
+            "url" : "/images/virtual-exhibitions/dada/red-full.png"
+          },
+          "fullx2": {
+            "url" : "/images/virtual-exhibitions/dada/red-fullx2.png"
+          },
+          "half": {
+            "url" : "/images/virtual-exhibitions/dada/red-half.png"
+          },
+          "halfx2": {
+            "url" : "/images/virtual-exhibitions/dada/red-halfx2.png"
+          },
+          "small": {
+            "url" : "/images/virtual-exhibitions/dada/red-small.png"
+          },
+          "smallx2": {
+            "url" : "/images/virtual-exhibitions/dada/red-smallx2.png"
+          },
+          "thumbnail": {
+            "url" : "/images/virtual-exhibitions/dada/red-thumbnail.png"
+          },
+          "thumbnailx2": {
+            "url" : "/images/virtual-exhibitions/dada/red-thumbnailx2.png"
+          }
+        },
+        "label": "From Europeana Art History",
+        "title": "Dada and Surrealism",
+        "subtitle": false,
+        "partner_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/dada/logo.png"
+          }
+        },
+        "partner_url": "javascript:alert('link to curator site')",
+        "intro_description": "<p>Victor Brauner was a major representative of Surrealism, the art movement that focuses on the world between dreams and reality.</p><p>He was born in the East Carpathians, in a town where half the population was Jewish. After an anti-Semitic peasants’ revolt in 1907, the family moved to Germany and later to Austria.</p><p>In 1919, five years after returning to Bucharest, they were granted Romanian citizenship.</p><p>That same year, Brauner enrolled at the National School of Fine Arts in Bucharest.</p>"
+      },
       {
         "is_foyer_card": true,
         "state_1_title": "Wiki Loves Art Nouveau",
@@ -144,6 +141,9 @@
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
         "state_3_title": "Credits",
+
+        "state_1_label": "Art history collection",
+
         "state_1_link": "javascript:alert('open this exhibition (1)",
         "state_2_link": "javascript:alert('open this exhibition (2)",
         "state_3_link": "javascript:alert('open this exhibition (3)",
@@ -165,6 +165,8 @@
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
         "state_3_title": "Credits",
+
+        "state_1_label": "Art history collection",
 
         "state_1_link": "javascript:alert('open this exhibition (1)",
         "state_2_link": "javascript:alert('open this exhibition (2)",

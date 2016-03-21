@@ -50,10 +50,6 @@
     {{> organisms/virtual-exhibitions/intro-slide}}
   {{/is_intro}}
 
-  {{#is_foyer}}
-    {{> organisms/virtual-exhibitions/intro-slide}}
-  {{/is_foyer}}
-
   {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#background_colour}} style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
 
