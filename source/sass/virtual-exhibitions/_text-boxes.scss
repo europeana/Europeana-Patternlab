@@ -171,7 +171,7 @@ ve-base-foyer-main,
 }
 
 .ve-title{
-  display: block;
+  display: inline-block;
   font-size: 1.6em;
 }
 
@@ -352,7 +352,7 @@ ve-base-foyer-main,
     .ve-title-group,
     .ve-image-credit,
     .ve-description{
-      display:  block;
+      display:  inline-block;
       position: absolute;
     }
 
@@ -415,6 +415,7 @@ ve-base-foyer-main,
 
   .ve-title-group{
       max-width: 60%;
+      width:     auto;
   }
 
   .ve-base-quote,
