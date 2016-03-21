@@ -140,6 +140,23 @@ ve-base-foyer-main,
 
 }
 
+.ve-base-quote{
+  .quote{
+    font-size:     1.6em;
+    font-weight:   bold;
+    margin-bottom: 1em;
+  }
+
+  .quotee{
+    font-style:  italic;
+    margin-left: 50%;
+  }
+
+  .quote,
+  .quotee{
+    display: block;
+  }
+}
 
 .ve-title-group{
   font-weight:    bold;
@@ -148,8 +165,9 @@ ve-base-foyer-main,
 }
 
 .ve-description{
-  bottom:            1em;
-  padding:           0.8em;
+  bottom:        1em;
+  display:       none;
+  padding:       0.8em;
 }
 
 .ve-title{
@@ -178,6 +196,10 @@ ve-base-foyer-main,
 
   .ve-slide{
     position:    relative;
+
+    .ve-base-intro{
+      position: relative;
+    }
 
     .ve-base-quote{
       text-align: center;
@@ -236,33 +258,19 @@ ve-base-foyer-main,
   bottom:      0em;
   font-weight: bold;
   padding:     1em;
-  right:       -1.25em;
+  right:       0;
   font-size:   0.9em;
 }
 
-.ve-base-quote{
-  .quote{
-    font-size:     1.6em;
-    font-weight:   bold;
-    margin-bottom: 1em;
-  }
-
-  .quotee{
-    font-style:  italic;
-    margin-left: 50%;
-  }
-
-  .quote,
-  .quotee{
-    display: block;
-  }
+.ve-intro-full-description{
+  text-align: left;
 }
 
 .ve-label{
   background-color: $eu-blue;
   color:            #fff;
   font-weight:      bold;
-  padding:          0.5em 1em;
+  padding:          0.5em 0.7em;
 }
 
 @media all and (min-width: $bp-small-2) {
@@ -320,11 +328,23 @@ ve-base-foyer-main,
     .ve-intro-image{
       display: none;
     }
+  }
+
+  .ve-base-intro-texts{
+    left:     0;
+    position: absolute;
+    right:    0;
+    top:      0;
 
     .ve-title-group,
     .ve-image-credit,
     .ve-description{
-      position:         absolute;
+      display:  block;
+      position: absolute;
+    }
+
+    .ve-image-credit{
+      padding: 1em 0 1em 1em;
     }
 
     .ve-title-group,
@@ -332,7 +352,6 @@ ve-base-foyer-main,
       color:            $colour_overlaid_text;
       background-color: $bg_colour_overlaid_text;
     }
-
   }
 
   .ve-base-text{

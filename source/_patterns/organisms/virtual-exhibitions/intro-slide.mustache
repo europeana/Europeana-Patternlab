@@ -3,6 +3,15 @@
     {{>organisms/virtual-exhibitions/main-slide-bg-style }}
   {{/image}}
 
+  {{#image}}
+    <picture class="ve-intro-image">
+      {{>atoms/images/responsive-srcset-picture}}
+    </picture>
+  {{/image}}
+
+</div>
+
+<div class="ve-base ve-base-intro-texts">
   {{#title}}
   <div class="ve-title-group">
       <span class="ve-title">
@@ -15,12 +24,6 @@
     {{/subtitle}}
   </div>
   {{/title}}
-
-  {{#image}}
-    <picture class="ve-intro-image">
-      {{>atoms/images/responsive-srcset-picture}}
-    </picture>
-  {{/image}}
 
   {{#image_credit}}
     <div class="ve-image-credit">
@@ -43,5 +46,10 @@
       <a class="ve-partner-logo" href="{{partner_url}}"><img src="{{thumbnail.url}}"></a>
     {{/partner_image}}
   </div>
-
 </div>
+
+{{#full_description}}
+  <div class="ve-base-text ve-intro-full-description">
+    {{{.}}}
+  </div>
+{{/full_description}}

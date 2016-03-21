@@ -85,7 +85,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
       return;
     }
 
-    var $firstSlide      = $('.ve-slide.first');
+    var $firstSlide = $('.ve-slide.first');
 
     if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()==0){
       log('first slide is not an intro');
@@ -95,50 +95,78 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
       require(['gsap'], function(){
 
-        var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-image-credit';
+        //var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-base-intro .ve-image-credit';
+        var textTweenTargets = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
 
-        //$(textTweenTargets).css('backface-visibility', 'hidden');
+//        $(textTweenTargets).css('backface-visibility', 'hidden');
 
         // pin and add text fade
 
+
         disableNarrowScenes.push(
           new ScrollMagic.Scene({
-              triggerElement:  $firstSlide,
-              triggerHook:     'onLeave',
-              duration:        introEffectDuration
+            triggerElement:  $firstSlide,
+            triggerHook:     'onLeave',
+            duration:        introEffectDuration
           })
           .setTween(
-                TweenMax.to(
-                  $firstSlide.find(textTweenTargets),
-                  1,
-                  {
-                      delay:     0.25,
-                      opacity:   0,
-                      //rotationX: "+=90_cw",
-                      ease:      Cubic.easeOut
-                  }
-                )
+            TweenMax.to(
+              $firstSlide.find(textTweenTargets),
+              1,
+              {
+                opacity:   0,
+//                rotationX: "+=90_cw",
+                ease:      Cubic.easeOut
+              }
+            )
+          )
+          .addTo(smCtrl)
+        );
+        disableNarrowScenes.push(
+          new ScrollMagic.Scene({
+            triggerElement:  $firstSlide,
+            triggerHook:     'onLeave',
+            duration:        introEffectDuration
+          })
+          .setPin($firstSlide[0])
+          .setTween(
+            TweenMax.to(
+              $firstSlide.find('.ve-base-intro'),
+              1.25,
+              {
+                delay:      0.25,
+                width:     '75%',
+                ease:       Cubic.easeOut,
+                minHeight: '60vh'
+              }
+            )
           )
           .addTo(smCtrl)
         );
 
         disableNarrowScenes.push(
           new ScrollMagic.Scene({
-              triggerElement:  $firstSlide,
-              triggerHook:     'onLeave',
-              duration:        introEffectDuration
+            triggerElement:  $firstSlide,
+            triggerHook:     'onLeave',
+            duration:        introEffectDuration * 2
           })
-          .setPin($firstSlide[0])
           .setTween(
-              TweenMax.to(
-                $firstSlide.find('.ve-base-intro'),
-                1.25,
-                {
-                   width:     '70%',
-                   ease:       Cubic.easeOut,
-                   minHeight: '60vh'
+            TweenMax.fromTo(
+              $firstSlide.find('.ve-intro-full-description'),
+              1,
+              {
+                css:{
+                  opacity:    0,
+                  ease:       Cubic.easeOut
                 }
-              )
+              },
+              {
+                css:{
+                  opacity:    1,
+                  ease:       Cubic.easeOut
+                }
+              }
+            )
           )
           .addTo(smCtrl)
         );

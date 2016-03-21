@@ -13,7 +13,9 @@
   width:    100%;
 
   .ve-label{
-    position: absolute;
+    position:       absolute;
+    text-transform: uppercase;
+    font-weight:    normal;
   }
 }
 
@@ -42,8 +44,12 @@
   }
 
   .ve-foyer-card-container{
+    left:         50%;
     margin-left:  -1em;
     margin-right: -1em;
+    position:     relative;
+    transform:    translateX(-50%);
+    width:        $ve_image_column_width;
   }
 
   .ve-label,

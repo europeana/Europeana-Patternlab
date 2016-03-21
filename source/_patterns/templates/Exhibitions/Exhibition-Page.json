@@ -103,9 +103,10 @@
                 "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
               }
             },
-            "title": "The sacred and divine to the age of discovery",
+            "title": "The sacred and divine in the age of discovery",
             "subtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
-            "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe bringing a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit. It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict. Dürer was one of the first great sightseers in European painting creating one the most renowned self-portraits in art.</p>"
+            "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
+            "full_description": "<p>Actually, there's evidence that the Renaissance began in Belgium, though the term was first used in Italy (\"il rinascimento\" - the rebirth)</p><p>This is the main text that fades in / out on scroll</p><p>It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict.</p>"
         },
         {
             "id": "2",
