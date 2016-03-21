@@ -380,8 +380,29 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         $('.ve-progress-nav a').on('click', function(e){
            e.preventDefault();
-           log('scroll to element ' + $(this).attr('href'));
-           $(window).scrollTo($(this).attr('href'), scrollDuration);
+           var target = $(this).attr('href');
+           target = $(target);
+
+           /*
+
+            What is the current scroll position?
+
+            If it is zero then scroll down 25% with an easeOut, then scroll to the target wit an easeIn
+
+            Otherwise just scroll to target
+
+            TODO: remove hard-coded offset - measure the viewport height (and half it)
+            */
+           log('current scroll offset: ' +  window.scrollY);
+           if(  $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
+               $(window).scrollTo(target.parent(), scrollDuration, {axis:'y', easing:'linear', offset: -200, onAfter:function(){
+                   $(window).scrollTo(target, scrollDuration);
+               }});
+           }
+           else{
+               $(window).scrollTo(target, scrollDuration);
+           }
+
         });
 
       });
