@@ -36,10 +36,17 @@ ve-base-foyer-main,
   background-size: 0;
 }
 
+.ve-base-embed,
 .ve-base-text,
 .ve-base-image,
 .ve-base-title-image-text{
   font-size: 1.06em;
+}
+
+.ve-base-embed{
+  iframe{
+    width: auto;
+  }
 }
 
 .text-element{
@@ -174,6 +181,14 @@ ve-base-foyer-main,
   display: inline-block;
   font-size: 1.6em;
 }
+
+
+.ve-base-intro-texts{
+  .ve-title{
+    text-transform: uppercase;
+  }
+}
+
 
 .ve-subtitle{
   display: block;

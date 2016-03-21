@@ -31,6 +31,12 @@
     </div>
   {{/is_text}}
 
+  {{#is_embed}}
+    <div id="{{id}}" class="ve-base ve-base-embed {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
+      {{{ html }}}
+    </div>
+  {{/is_embed}}
+
   {{#is_image}}
     <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
      <figure>

@@ -65,9 +65,68 @@
       "present": "true",
       "items":[
         {
-            "id": "1",
+            "id": "x0_1",
             "type": "ve-intro",
             "is_first": true,
+            "is_intro": true,
+            "image_credit": {
+              "attribution_title": "Battle of Grunweald",
+              "attribution_creator": "Jan Matejko",
+              "attribution_institution": "Muzeum Narodowe W Warszawie",
+              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
+              }
+            },
+            "title": "Faces of Europe",
+            "subtitle": "The first chapter of this amazing virtual exhibition",
+            "intro_description": "The Battle of Grunwald, First Battle of Tannenberg or Battle of Žalgiris, was fought on 15 July 1410 during the Polish–Lithuanian–Teutonic War.",
+            "full_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>Most of the Teutonic Knights' leadership were killed or taken prisoner. Although defeated, the Teutonic Knights withstood the siege of their fortress in Marienburg (Malbork) and suffered minimal territorial losses at the Peace of Thorn (1411) (Toruń), with other territorial disputes continuing until the Peace of Melno in 1422.</p>"
+        },
+        {
+            "id": "x0_2",
+            "is_section": true,
+            "section_title": "Grunwaldem Intro"
+        },
+        {
+            "id": "x0_3",
+            "is_embed": true,
+            "html": "<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
+            "XXXhtml": "<iframe src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>"
+        },
+        {
+            "id": "x0_4",
+            "is_section": true,
+            "section_title": "Grunwaldem Video"
+        },
+        {
+            "id": "1",
+            "type": "ve-intro",
             "is_intro": true,
             "image_credit": {
               "attribution_title": "Painéis de S. Vicente de Fora",

@@ -64,6 +64,55 @@
     "present": true,
     "items":
     [
+        {
+            "id": "x0_1",
+            "type": "ve-intro",
+            "is_featured_exhibition": true,
+
+            "image_credit": {
+              "attribution_title": "Painéis de S. Vicente de Fora",
+              "attribution_creator": "Nuno Gonçalves",
+              "attribution_institution": "Museu Nacional De Arte Antiga",
+              "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+              "license_public": true
+            },
+            "image":
+            {
+            "full": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-full.png"
+            },
+            "fullx2": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-fullx2.png"
+            },
+            "half": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-half.png"
+            },
+            "halfx2": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-halfx2.png"
+             },
+             "small": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-small.png"
+            },
+            "smallx2": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-smallx2.png"
+            },
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnail.png"
+            },
+            "thumbnailx2": {
+              "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnailx2.png"
+            }
+          },
+          "title": "The sacred and divine in the age of discovery",
+          "subtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
+          "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
+          "full_description": "<p>Actually, there's evidence that the Renaissance began in Belgium, though the term was first used in Italy (\"il rinascimento\" - the rebirth)</p><p>This is the main text that fades in / out on scroll</p><p>It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict.</p>"
+      },
+      {
+          "id": "x0_2",
+          "is_section": true,
+          "section_title": "Arcimboldo Intro"
+      },
       {
         "is_featured_exhibition": true,
         "id": "featured_item",
