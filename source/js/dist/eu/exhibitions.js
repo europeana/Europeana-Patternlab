@@ -22,6 +22,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     initFoyerCards();
     initArrowNav();
     initNavCorrection();
+    sizeVideos();
     handleEllipsis();
 
     $(window).europeanaResize(function(){
@@ -45,6 +46,24 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         }
     });
   };
+
+  function sizeVideos(){
+    $('.ve-base-embed iframe').each(function(i, ob){
+
+        ob = $(ob);
+        var h = ob.attr('height');
+        var w = ob.attr('width');
+
+        if(w=='100%'){
+            w = '75%';
+        }
+        log('got video ' + ob.attr('src') + ', w = ' + w + ', h = ' + h);
+
+        ob.css('width',  w ? w : 'auto');
+        ob.css('height', h ? h : 'auto');
+
+    })
+  }
 
   function initSmartMenus(){
     require(['smartmenus'], function(){
