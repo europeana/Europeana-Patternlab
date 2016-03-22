@@ -89,7 +89,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
                 showGrid(true);
             }
             else if(e.state.view == 'list'){
-                log('popstate calls show list (1)');
+                log('popstate calls show list (1), e.state.europeana = ' + e.state.europeana);
                 showList(true);
             }
             if(typeof e.state.results != 'undefined'){
