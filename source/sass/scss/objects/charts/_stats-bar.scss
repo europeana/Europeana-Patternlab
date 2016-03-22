@@ -4,17 +4,21 @@
 
 	li{
 		display: block;
-		padding: $space-quarter;
-		margin: 1%;
+		padding: $space-half;
+		margin: $space-half 0;
 		border-bottom: 2px solid lighten($blue-dark, 10%);
 
 		@media all and (min-width: $bp-small) {
-			width: 48%;
+			width: 50%;
 			float: left;
 		}
 
 		@media all and (min-width: $bp-med) {
-		  width: 23%;
+			width: 33%;
+		}
+
+		@media all and (min-width: $bp-xl) {
+		  width: 16.6666%;
 		  border-bottom: 0;
 		  border-right: 3px solid lighten($blue-dark, 10%);
 
