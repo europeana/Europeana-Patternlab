@@ -49,7 +49,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var simulateUrlChange = function(param, newVal, replace){
-        var state         = { 'europeana': true };
+        var state         = {};
             state[param]  = newVal;
 
         if(!newVal){
@@ -76,32 +76,23 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     };
 
     window.onpopstate = function(e){
-
         if(e.state){
-
-            if(!e.state.europeana){
-                log('not a real state');
-                return;
-            }
-
             log('state present, view = ' + e.state.view)
             if(e.state.view == 'grid'){
                 showGrid(true);
             }
             else if(e.state.view == 'list'){
-                log('popstate calls show list (1), e.state.europeana = ' + e.state.europeana);
                 showList(true);
             }
             if(typeof e.state.results != 'undefined'){
                 loadResults(e.state.results);
             }
-
         }
         else{
-
-            log('popstate calls show list (2)');
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
+              return;
+            }
             showList();
-
         }
     };
 
@@ -141,17 +132,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var loadView = function(){
-      log('load view: typeof(Storage) = ' + typeof(Storage));
       return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
     };
 
     var saveView = function(view){
       if(typeof(Storage) != 'undefined') {
         localStorage.setItem('eu_portal_results_view', view);
-        log('saved view preference: ' + view);
-      }
-      else{
-          log('no local storage');
       }
     };
 
@@ -179,7 +165,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var showGrid = function(save){
-      log('showing grid');
       $('body').addClass('display-grid');
       btnGrid.addClass('is-active');
       btnList.removeClass('is-active');
@@ -197,9 +182,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     };
 
     var showList = function(save){
-
-      log('in showList()');
-
       $('body').removeClass('display-grid');
       btnList.addClass('is-active');
       btnGrid.removeClass('is-active');
@@ -225,14 +207,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       btnList.on('click', function(e){
         e.preventDefault();
         simulateUrlChange('view', 'list');
-        log('click showList --> call showList');
         showList(true);
       });
 
       var urlView = $url.param('view');
 
       if(urlView){
-          log('view set by url: ' + urlView + ', is grid == ' + (urlView == 'grid') );
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
@@ -243,7 +223,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           else{
               // fixes history but rewrites url...
               //simulateUrlChange('view', 'list', true);
-              log('call show list');
               showList();
           }
       }
