@@ -58,6 +58,7 @@ Site_DASHBOARD = {
     },
     page_static : {
       init : function(){
+
         require(["sticky"], function() {
             if($(window).width() > 800){
                 var footerheight = $(".footer").outerHeight( true ) + 75;
@@ -70,6 +71,17 @@ Site_DASHBOARD = {
                 });
             }
         });
+
+        // http://www.listjs.com/
+        require(["list"], function() {
+          var options = {
+              listClass: 'linklist-simple',
+              searchClass: 'list-search',
+              valueNames: [ 'list-item']
+          };
+            var itemList = new List('linklist', options);
+        });
+
       }
     }
 }
