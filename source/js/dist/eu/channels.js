@@ -48,7 +48,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
     console.log('pageName ' + pageName);
 
     switch(pageName){
-        case 'browse/agents':
+        case 'browse/people':
             initCollectionsFilter();
             promisedPageJS.resolve();
             break;
@@ -58,7 +58,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             promisedPageJS.resolve();
             break;
 
-        case 'browse/concepts':
+        case 'browse/topics':
             initCollectionsFilter();
             promisedPageJS.resolve();
             break;
