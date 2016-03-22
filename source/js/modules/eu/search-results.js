@@ -82,6 +82,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
                 showGrid(true);
             }
             else if(e.state.view == 'list'){
+                log('popstate calls show list (1)');
                 showList(true);
             }
             if(typeof e.state.results != 'undefined'){
@@ -89,6 +90,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             }
         }
         else{
+            log('popstate calls show list (2)');
             showList();
         }
     };
@@ -185,6 +187,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     };
 
     var showList = function(save){
+
+      log('in showList()');
+
       $('body').removeClass('display-grid');
       btnList.addClass('is-active');
       btnGrid.removeClass('is-active');
@@ -210,13 +215,14 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       btnList.on('click', function(e){
         e.preventDefault();
         simulateUrlChange('view', 'list');
+        log('click showList --> call showList');
         showList(true);
       });
 
       var urlView = $url.param('view');
 
       if(urlView){
-          log('view set by url: ' + urlView);
+          log('view set by url: ' + urlView + ', is grid == ' + (urlView == 'grid') );
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
@@ -227,6 +233,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           else{
               // fixes history but rewrites url...
               //simulateUrlChange('view', 'list', true);
+              log('call show list');
               showList();
           }
       }
