@@ -216,6 +216,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       var urlView = $url.param('view');
 
       if(urlView){
+          log('view set by url: ' + urlView);
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{

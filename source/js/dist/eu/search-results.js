@@ -129,12 +129,17 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var loadView = function(){
+      log('load view: typeof(Storage) = ' + typeof(Storage));
       return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
     };
 
     var saveView = function(view){
       if(typeof(Storage) != 'undefined') {
         localStorage.setItem('eu_portal_results_view', view);
+        log('saved view preference: ' + view);
+      }
+      else{
+          log('no local storage');
       }
     };
 
@@ -162,6 +167,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var showGrid = function(save){
+      log('showing grid');
       $('body').addClass('display-grid');
       btnGrid.addClass('is-active');
       btnList.removeClass('is-active');
@@ -210,6 +216,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       var urlView = $url.param('view');
 
       if(urlView){
+          log('view set by url: ' + urlView);
           urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
