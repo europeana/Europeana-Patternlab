@@ -3,14 +3,7 @@
 	<figcaption>
 		<span class="stat-title">{{ title }}</span>
 {{#description}}
-		<span class="tooltip-container">
-			<svg class="icon icon-help">
-				<use xlink:href="#icon-help"></use>
-			</svg>
-			<div class="tooltip">
-				{{ description }}
-			</div>
-		</span>
+		{{>molecules/components/tooltip-icon}}
 {{/description}}
 	</figcaption>
 	{{/ title }}

@@ -14,6 +14,9 @@
     <div class="dashboard-title">
       <h1 class="project-title">{{ content.stats_source }}</h1>
       <h2 class="graph-title">{{ content.charts.main_chart.title }}</h2>
+      {{# content.charts.main_chart.description }}
+          {{>molecules/components/tooltip-icon}}
+      {{/ content.charts.main_chart.description }}
     </div>
 
     {{! Main line chart }}
@@ -40,7 +43,10 @@
     <div class="section top25">
 
       <div class="section-header cf">
-        <h4 class="section-title">{{ title }}</h4>
+        <h3 class="section-title">{{ title }}
+        {{# description }}{{>molecules/components/tooltip-icon}}{{/ description }}
+        </h3>
+
 
         <div class="results-filter">
 

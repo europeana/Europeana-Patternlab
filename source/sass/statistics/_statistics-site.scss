@@ -135,12 +135,16 @@
 .dashboard-title{
 	margin-bottom: $space-half;
 
-	* {
+	h1,h2{
 		display: inline;
 	}
 
 	.project-title{
 		margin-right: $space-half;
+	}
+
+	.tooltip-container{
+		vertical-align: top;
 	}
 }
 
@@ -186,6 +190,8 @@
 		margin-bottom: $space;
 	}
 	.section-title{
+		margin-bottom: 0;
+		line-height: 2;
 		@media all and (min-width: $bp-med) {
 		  float: left;
 		}

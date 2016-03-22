@@ -121,6 +121,7 @@
     },
     "numberedlist":{
       "title":"Top 25 Objects",
+      "description": "Consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae",
       "items": [
         {
           "image":"sample/thumb-dancers.jpg",
@@ -247,7 +248,7 @@
     "charts":{
       "main_chart":{
         "title": "Main chart title here",
-        "description": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
         "id":"add_id_for_main_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",
@@ -257,7 +258,7 @@
       },
       "topcountries":{
         "title": "Top 25 Countries",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
+        "description": "neep Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
         "id":"id_for_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",
