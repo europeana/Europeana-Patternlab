@@ -49,7 +49,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     var simulateUrlChange = function(param, newVal, replace){
-        var state         = {};
+        var state         = { 'europeana': true };
             state[param]  = newVal;
 
         if(!newVal){
@@ -76,7 +76,14 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     };
 
     window.onpopstate = function(e){
+
         if(e.state){
+
+            if(!e.state.europeana){
+                log('not a real state');
+                return;
+            }
+
             log('state present, view = ' + e.state.view)
             if(e.state.view == 'grid'){
                 showGrid(true);
@@ -88,10 +95,13 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             if(typeof e.state.results != 'undefined'){
                 loadResults(e.state.results);
             }
+
         }
         else{
+
             log('popstate calls show list (2)');
             showList();
+
         }
     };
 
