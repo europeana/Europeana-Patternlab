@@ -1,9 +1,12 @@
 .speech-bubble{
   position:  absolute;
   img{
-    min-height: 9em;
+    height:     9em;
     object-fit: cover;
     width:      9em;
+    max-height: 9em;
+    max-width:  9em;
+    min-height: 9em;
     min-width:  9em;
   }
 }
