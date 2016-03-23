@@ -1,0 +1,17 @@
+/*Pykcharts Custom CSS*/
+.PykCharts-credits {
+	display: none;
+}
+.d3-pykcharts {
+	padding-left: 10px;
+}
+.pyk-tooltip {
+	width: 17em;
+}
+#digital_objects_filter_field span {
+	cursor: pointer;
+}
+#digital_objects_filter_field span.active {
+	cursor: default;
+	text-decoration: underline;
+}

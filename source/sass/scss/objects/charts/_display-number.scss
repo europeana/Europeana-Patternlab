@@ -45,7 +45,7 @@
 
 .stat-trend{
 	display: inline-block;
-	padding: 0.4em;
+	padding: 0.4em 0.3em;
 	line-height: 1;
 
 	&.up{
@@ -54,7 +54,7 @@
 	}
 	&.down{
 		background-color: $eu-red;
-		color: $black;
+		color: $white;
 	}
 
 }

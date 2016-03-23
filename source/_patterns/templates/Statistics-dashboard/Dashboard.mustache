@@ -14,9 +14,9 @@
     <div class="dashboard-title">
       <h1 class="project-title">{{ content.stats_source }}</h1>
       <h2 class="graph-title">{{ content.charts.main_chart.title }}</h2>
-      {{# content.charts.main_chart.description }}
+      {{# content.charts.main_chart }}
           {{>molecules/components/tooltip-icon}}
-      {{/ content.charts.main_chart.description }}
+      {{/ content.charts.main_chart }}
     </div>
 
     {{! Main line chart }}

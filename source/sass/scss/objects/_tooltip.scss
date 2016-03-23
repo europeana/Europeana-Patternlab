@@ -4,7 +4,8 @@
 
 	&:hover, &:focus {
 		cursor: help;
-		.tooltip {
+
+		.tooltip:not(:empty) {
 			display: block;
 		}
 	}
