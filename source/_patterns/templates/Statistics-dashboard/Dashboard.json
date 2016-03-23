@@ -268,7 +268,7 @@
       },
       "total_items":{
         "title": "Total number of items",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at. <a href='#alinkhere'>This is a link</a>",
         "id":"id_for_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",
