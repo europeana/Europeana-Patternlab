@@ -1,19 +1,10 @@
 .speech-bubble{
-  display:   none;
-  margin:    -1.65em 0 0 -1.1em;
   position:  absolute;
-  transform: translate(-100%, -50%);
-  z-index:   1;
-
   img{
     height:     9em;
     object-fit: cover;
     width:      9em;
   }
-}
-
-.qualify-this a:hover .speech-bubble{
-  display: block;
 }
 
 .speech-bubble-inner

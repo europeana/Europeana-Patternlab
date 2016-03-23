@@ -18,6 +18,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     }
     initSmartMenus();
     initProgressState();
+    initNavTooltips();
     initSFX();
     initFoyerCards();
     initArrowNav();
@@ -57,8 +58,6 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         if(w=='100%'){
             w = '75%';
         }
-        log('got video ' + ob.attr('src') + ', w = ' + w + ', h = ' + h);
-
         ob.css('width',  w ? w : 'auto');
         ob.css('height', h ? h : 'auto');
 
@@ -329,6 +328,57 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
       $('.ve-foyer-card').each(function(){
           new Card($(this));
       });
+  }
+
+  function initNavTooltips(){
+
+    $('.ve-progress-nav a').each(function(i, ob){
+
+        ob                = $(ob);
+        var target        = $(ob.attr('href'));
+        var section       = target.closest('.ve-slide');
+        var bubbleContent = ob.find('.speech-bubble .speech-bubble-inner');
+
+        var baseImage = section.find('.ve-base-image');
+        var baseIntro = section.find('.ve-base-intro');
+        var richImage = section.find('.ve-base-title-image-text');
+        var baseQuote = section.find('.ve-base-quote');
+        var baseEmbed = section.find('.ve-base-embed');
+
+        if(baseIntro.size() > 0){
+
+            var imgUrl = baseIntro.css('background-image');
+
+            imgUrl = imgUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+
+            bubbleContent.html('<img src="' + imgUrl + '">');
+        }
+        else if(baseImage.size() > 0){
+
+            var imgUrl = baseImage.find('img').attr('src');
+
+            bubbleContent.html('<img src="' + imgUrl + '">');
+        }
+        else if(richImage.size() > 0){
+
+            var imgUrl = richImage.find('img').attr('src');
+
+            bubbleContent.html('<img src="' + imgUrl + '">');
+        }
+        else if(baseQuote.size() > 0){
+
+            bubbleContent.html('"Quote..."');
+        }
+        else if(baseEmbed.size() > 0){
+
+            bubbleContent.html('"Embed..."');
+        }
+
+
+
+
+    });
+
   }
 
   function initProgressState(){

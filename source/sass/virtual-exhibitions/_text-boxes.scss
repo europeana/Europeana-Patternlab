@@ -135,6 +135,18 @@
   a{
     outline: none;
   }
+
+  .speech-bubble{
+    display:   none;
+    margin:    -1.65em 0 0 -1.1em;
+    transform: translate(-100%, -50%);
+    z-index:   1;
+  }
+
+  a:hover .speech-bubble{
+    display: block;
+  }
+
 }
 
 .ve-progress-nav .ve-state-button-on,
