@@ -11,7 +11,7 @@
 
 .site-hero{
 	height: auto;
-	text-align: center;
+	//text-align: center;
 	background-color: $accent;
 
 	.hero-content{
@@ -84,6 +84,7 @@
 
 	.maincontent{
 		background-color: $white;
+		padding: $space-triple $space;
 	}
 
 	.textcontent{
@@ -105,7 +106,7 @@
 
 	@media all and (min-width: $bp-med) {
 	  @include span(last 6 of 24);
-	  min-height: 650px;
+	  //min-height: 650px;
 	}
 }
 
@@ -240,12 +241,16 @@
 }
 
 
-
-
 // Page specific
+
+.page_dashboard{
+	.maincontent{
+		padding-top: 0;
+	}
+}
+
 .page_static {
 	.maincontent{
-		padding: $space-triple $space;
 		min-height: 42em;
 	}
 
@@ -304,4 +309,62 @@
 	border-color: $gray-lighter;
 	width: auto;
 	margin-right: $space-half;
+}
+
+
+.page_countries {
+ 	main{
+		padding-top: 0;
+	}
+
+	.hero-text{
+
+	}
+}
+
+.map-hero{
+
+	position: relative;
+	background-color: $gray-lightest;
+
+	.chart-wrapper{
+		min-height: 500px;
+	}
+
+
+	.hero-text{
+		padding: $space;
+		background-color: $black;
+		color: $white;
+
+		@media all and (min-width: $bp-med) {
+			width: 60%;
+			position: absolute;
+			z-index: 5;
+			bottom: 2em;
+			right: 2em;
+			background-color: rgba($black, 0.7);
+			border-radius: 4px;
+		}
+
+		@media all and (min-width: $bp-large) {
+			width: 35%;
+		}
+
+	   a{
+			color: $white;
+			border-bottom: 1px dotted $white;
+
+			&:hover, &:focus{
+				color: $accent;
+				border-color: $accent;
+			}
+		}
+	}
+
+
+    @media all and (min-width: $bp-small) {
+		margin-top: $globalnavheight;
+	}
+
 }
