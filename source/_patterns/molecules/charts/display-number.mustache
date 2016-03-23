@@ -4,14 +4,7 @@
 		<span class="stat-title">{{ title }}</span>
 
 {{#description}}
-		<span class="tooltip-container">
-			<svg class="icon icon-help">
-				<use xlink:href="#icon-help"></use>
-			</svg>
-			<div class="tooltip">
-				{{ description }}
-			</div>
-		</span>
+	{{>molecules/components/tooltip-icon}}
 {{/description}}
 
 	</figcaption>
@@ -21,10 +14,18 @@
 			{{ value }}
 		</span>
 
-		{{#trend}}
+{{#trend}}
+		{{#positive}}
 		<div class="stat-trend up">
-			▲ 32%
+			▲ {{value}}
 		</div>
-		{{/trend}}
+		{{/positive}}
+
+		{{#negative}}
+		<div class="stat-trend down">
+			▼ {{value}}
+		</div>
+		{{/negative}}
+{{/trend}}
 	</div>
 </figure>
