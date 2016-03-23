@@ -570,6 +570,18 @@
                 }
             },
             "caption": "SagradaFamilia Sostre"
+        },
+        {
+          "id": "navigation",
+          "is_last": true,
+          "is_navigation": true,
+          "type": "navigation",
+          "previous": {
+            "url": "javascript:alert('nav prev')"
+          },
+          "next": {
+            "url": "javascript:alert('nav next')"
+          }
         }
       ]
     }

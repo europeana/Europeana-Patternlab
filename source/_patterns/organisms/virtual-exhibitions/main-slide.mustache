@@ -130,6 +130,20 @@
     </div>
   {{/is_rich_image}}
 
+  {{#is_navigation}}
+
+    <div class="ve-base-chapter-nav">
+      {{#previous}}
+        <a class="ve-chapter-nav-prev" href="{{url}}"><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg></a>
+      {{/previous}}
+
+      {{#next}}
+        <a class="ve-chapter-nav-next" href="{{url}}"><svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
+      {{/next}}
+
+    </div>
+  {{/is_navigation}}
+
   {{^is_last}}
     <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}"><svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg></a></span>
     <noscript>

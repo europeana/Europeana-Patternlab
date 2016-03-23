@@ -1,0 +1,54 @@
+.speech-bubble{
+  display:   none;
+  margin:    -1.65em 0 0 -1.1em;
+  position:  absolute;
+  transform: translate(-100%, -50%);
+  z-index:   1;
+
+  img{
+    height:     9em;
+    object-fit: cover;
+    width:      9em;
+  }
+}
+
+.qualify-this a:hover .speech-bubble{
+  display: block;
+}
+
+.speech-bubble-inner
+{
+  background-color: #fff;
+  border:           1px solid $gray80;
+  border-radius:    4px;
+  display:          table-cell;
+
+  padding:          1em 1em;
+
+  position:         relative;
+  text-align:       center;
+  vertical-align:   middle;
+}
+
+.speech-bubble-inner:before,
+.speech-bubble-inner:after
+{
+  border-color: transparent $gray80;
+  border-width: 12px 0 12px 15px;
+  border-style: solid;
+  content: ' ';
+
+  position:  absolute;
+  height:    0;
+  left:      auto;
+  top:       50%;
+  right:     -15px;
+  transform: translate(0, -50%);
+  width:    0;
+}
+
+.speech-bubble-inner:after
+{
+  transform: translate(-2px, -50%);
+  border-color: transparent #fff;
+}
