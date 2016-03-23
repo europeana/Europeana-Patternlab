@@ -134,13 +134,11 @@
 
     <div class="ve-base-chapter-nav">
       {{#previous}}
-        <a class="ve-chapter-nav-prev" href="{{url}}"><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg></a>
+        <a class="ve-chapter-nav-prev" href="{{url}}"><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg>{{#title}}{{.}}{{/title}}</a>
       {{/previous}}
-
       {{#next}}
-        <a class="ve-chapter-nav-next" href="{{url}}"><svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
+        <a class="ve-chapter-nav-next" href="{{url}}"><svg class="icon icon-next"><use xlink:href="#icon-next"/></svg>{{#title}}{{.}}{{/title}}</a>
       {{/next}}
-
     </div>
   {{/is_navigation}}
 
