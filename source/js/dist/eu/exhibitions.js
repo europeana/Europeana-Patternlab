@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize', 'purl'], function ($) {
+define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   var $url                = $.url();
   var minViewportWidthFX  = 768;
@@ -6,6 +6,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
   var disableNarrowScenes = [];
   var introEffectDuration = 500;
   var scrollDuration      = 1400;
+  var scrollExecuting     = false;
   var smCtrl;
   var textTweenTargets    = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
 
@@ -26,6 +27,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     initNavCorrection();
     sizeVideos();
     handleEllipsis();
+    gotoAnchor(true);
 
     $(window).europeanaResize(function(){
       if ($(window).width() < minViewportWidthFX) {
@@ -58,6 +60,36 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
       }
     });
   };
+
+  function gotoAnchor(pageInit){
+
+    // call scroll function if valid hash available
+
+    var hash = window.location.hash;
+
+    if(hash){
+      var $hash = $(hash);
+      if($hash.size()>0){
+        scrollToAdaptedForPin($hash);
+      }
+    }
+    else if(!pageInit){
+      scrollToAdaptedForPin($('.ve-slide.first .ve-anchor:not(.no-js)'));
+    }
+
+    // set up handler to call self on popstate and hashchange
+
+    if(pageInit){
+      $(window).on('hashchange', function() {
+        if(!scrollExecuting){
+          gotoAnchor();
+        }
+      });
+      window.onpopstate = function(e){
+        gotoAnchor();
+      }
+    }
+  }
 
   function sizeVideos(){
     $('.ve-base-embed iframe').each(function(i, ob){
@@ -121,7 +153,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
       return;
     }
 
-    require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
+    require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
       require(['gsap'], function(){
 
         //$(textTweenTargets).css('backface-visibility', 'hidden');
@@ -202,13 +234,31 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
   var scrollToAdaptedForPin = function($target){
 
+    scrollExecuting = true;
+
+    var finalScroll = function(){
+      $(window).scrollTo($target, scrollDuration, {
+        onAfter: function(){
+          scrollExecuting = false;
+        }
+      });
+    };
+
     if($('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
-      $(window).scrollTo($target.parent(), scrollDuration, {axis:'y', easing:'linear', offset: 0 - $(window).height()/2, onAfter:function(){
-        $(window).scrollTo($target, scrollDuration);
-      }});
+      $(window).scrollTo($target.parent(),
+        scrollDuration,
+        {
+          axis:    'y',
+          easing:  'linear',
+          offset:  0 - $(window).height() / 2,
+          onAfter: function(){
+            finalScroll();
+          }
+        }
+      );
     }
     else{
-      $(window).scrollTo($target, scrollDuration);
+      finalScroll();
     }
   }
 
@@ -403,8 +453,15 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
             .removeClass('ve-state-button-on')
             .addClass('ve-state-button-off');
 
-          var active = $('.ve-progress-nav .ve-state-button').get(index)
-          $(active).addClass('ve-state-button-on').removeClass('ve-state-button-off');
+          var active = $('.ve-progress-nav .ve-state-button').get(index);
+              active = $(active);
+          active.addClass('ve-state-button-on')
+                .removeClass('ve-state-button-off');
+
+          if(!scrollExecuting){
+            var anchor = active.closest('a').attr('href');
+            window.history.pushState({}, '', anchor);
+          }
         }
 
         $('.ve-slide-container section').each(function(i, ob) {
@@ -439,7 +496,11 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         $('.ve-progress-nav a').on('click', function(e){
            e.preventDefault();
-           scrollToAdaptedForPin($( $(this).attr('href') ));
+
+           var anchor = $(this).attr('href');
+           window.history.pushState({}, '', anchor);
+
+           scrollToAdaptedForPin($( anchor ));
         });
 
       });
