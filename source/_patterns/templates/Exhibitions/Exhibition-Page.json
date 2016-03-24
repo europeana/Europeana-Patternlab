@@ -606,10 +606,12 @@
           "is_navigation": true,
           "type": "navigation",
           "previous": {
-            "url": "javascript:alert('nav prev')"
+            "url": "javascript:alert('nav prev')",
+            "title": "Previous Chapter"
           },
           "next": {
-            "url": "javascript:alert('nav next')"
+            "url": "javascript:alert('nav next')",
+            "title": "Next Chapter"
           }
         }
       ]
