@@ -7,6 +7,7 @@
   }
 }
 
+.ve-chapter-selection,
 .ve-foyer-card{
   padding:  0 1em;
   position: relative;
@@ -19,6 +20,13 @@
   }
 }
 
+.ve-chapter-selection{
+  .ve-label{
+    background-color: orange;
+  }
+}
+
+.ve-chapter-selection-container,
 .ve-foyer-card-container{
   margin-top:    2em;
 }
@@ -38,11 +46,13 @@
 }
 
 @media all and (min-width: $bp-med) {
+  .ve-chapter-selection,
   .ve-foyer-card{
     float:    left;
     width:    33.33%;
   }
 
+  .ve-chapter-selection-container,
   .ve-foyer-card-container{
     left:         50%;
     margin-left:  -1em;
@@ -70,6 +80,7 @@
 @media all and (min-width: $bp-xxl) {
 }
 
+.ve-chapter-selection,
 .ve-foyer-card{
 
   float:    left;
@@ -83,6 +94,7 @@
     z-index: 1;
   }
 
+  .ve-chapter-selection-content,
   .ve-foyer-card-content{
     position: relative;
     margin:   0;
@@ -135,6 +147,7 @@
       right: -0.25em;
     }
 
+    .ve-chapter-selection-state,
     .ve-foyer-card-state{
       position: absolute;
       width:    100%;

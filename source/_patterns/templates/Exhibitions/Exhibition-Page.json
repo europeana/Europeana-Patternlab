@@ -571,9 +571,38 @@
             },
             "caption": "SagradaFamilia Sostre"
         },
+
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+
+        {
+          "is_chapter_nav": true,
+          "title": "But Isn't Keen on Art Deco",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+
         {
           "id": "navigation",
-          "is_last": true,
           "is_navigation": true,
           "type": "navigation",
           "previous": {

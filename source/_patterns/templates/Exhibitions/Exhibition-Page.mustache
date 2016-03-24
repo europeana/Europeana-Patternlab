@@ -44,6 +44,22 @@
       </div>
     {{/ page_data }}
 
+    {{# page_data }}
+      <div class="lc">
+        <div class="ve-chapter-selection-container">
+          {{#elements}}
+            {{#present}}
+              {{#items}}
+                {{#is_chapter_nav}}
+                  {{> organisms/virtual-exhibitions/chapter-selection}}
+                {{/is_chapter_nav}}
+              {{/items}}
+            {{/present}}
+          {{/elements}}
+        </div>
+      </div>
+    {{/ page_data }}
+
   </div>
 
 </main>
