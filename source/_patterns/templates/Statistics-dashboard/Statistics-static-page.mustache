@@ -11,6 +11,12 @@
       <div class="textcontent">
           <h1 class="title">{{ title }}</h1>
 
+          {{# content.prose }}
+          <div class="prose">
+            {{{ html }}}
+          </div>
+          {{/ content.prose }}
+
 
           {{# content.links }}
 
