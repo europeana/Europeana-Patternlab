@@ -10,7 +10,7 @@
 }
 
 .site-hero{
-	height: auto;
+	height: 30%;
 	//text-align: center;
 	background-color: $accent;
 
@@ -117,12 +117,25 @@
 }
 
 
-.l-content .section {
+.section {
 	padding: $space;
-	//margin-bottom: 0;
 }
-
-
+@media all and (min-width: $bp-med) {
+	.l-primaryaction{
+		@include span(8 of 24);
+	}
+	.l-usefulinfo{
+		@include span(last 16 of 24);
+	}
+}
+@media all and (min-width: $bp-small) {
+	.l-usefulinfo-item{
+		@include span(8 of 16);
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
 
 .big-graph figcaption{
 	display: none;
@@ -249,6 +262,12 @@
 	}
 }
 
+.page_home{
+	.strapline{
+		margin-bottom: 0;
+	}
+}
+
 .page_static {
 	.maincontent{
 		min-height: 42em;
@@ -316,10 +335,6 @@
  	main{
 		padding-top: 0;
 	}
-
-	.hero-text{
-
-	}
 }
 
 .map-hero{
@@ -330,7 +345,6 @@
 	.chart-wrapper{
 		min-height: 500px;
 	}
-
 
 	.hero-text{
 		padding: $space;
