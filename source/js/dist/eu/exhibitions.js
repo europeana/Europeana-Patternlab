@@ -7,6 +7,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
   var introEffectDuration = 500;
   var scrollDuration      = 1400;
   var smCtrl;
+  var textTweenTargets    = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
 
   function log(msg){
     console.log('Virtual-Exhibitions: ' + msg);
@@ -27,24 +28,34 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     handleEllipsis();
 
     $(window).europeanaResize(function(){
-        if ($(window).width() < minViewportWidthFX) {
-          if(smCtrl){
-            $.each(disableNarrowScenes, function(i, ob){
-              ob.enabled(false);
-            });
-          }
+      if ($(window).width() < minViewportWidthFX) {
+        if(smCtrl){
+          window.scrollTo(0, 0);
+          $.each(disableNarrowScenes, function(i, ob){
+            ob.enabled(false);
+          });
+
+          $('.ve-slide.first').closest('.scrollmagic-pin-spacer')
+            .removeAttr('style')
+            .css('box-sizing', 'content-box');
+
+          $('.ve-slide.first .ve-base-intro')
+            .removeAttr('style');
+
+          $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description').removeAttr('style');
+        }
+      }
+      else{
+        if(smCtrl){
+          $.each(disableNarrowScenes, function(i, ob){
+            ob.enabled(true);
+          });
         }
         else{
-          if(smCtrl){
-            $.each(disableNarrowScenes, function(i, ob){
-              ob.enabled(true);
-            });
-          }
-          else{
-            initProgressState();
-            initSFX();
-          }
+          initProgressState();
+          initSFX();
         }
+      }
     });
   };
 
@@ -113,13 +124,9 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
       require(['gsap'], function(){
 
-        //var textTweenTargets = '.ve-base-intro .ve-title-group, .ve-base-intro .ve-description, .ve-base-intro .ve-image-credit';
-        var textTweenTargets = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
-
-//        $(textTweenTargets).css('backface-visibility', 'hidden');
+        //$(textTweenTargets).css('backface-visibility', 'hidden');
 
         // pin and add text fade
-
 
         disableNarrowScenes.push(
           new ScrollMagic.Scene({
@@ -133,7 +140,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
               1,
               {
                 opacity:   0,
-//                rotationX: "+=90_cw",
+                XXXXXrotationX: "+=90_cw",
                 ease:      Cubic.easeOut
               }
             )
@@ -172,17 +179,11 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
             TweenMax.fromTo(
               $firstSlide.find('.ve-intro-full-description'),
               1,
+              { opacity:    0 },
               {
-                css:{
-                  opacity:    0,
-                  ease:       Cubic.easeOut
-                }
-              },
-              {
-                css:{
-                  opacity:    1,
-                  ease:       Cubic.easeOut
-                }
+                opacity:    1,
+                delay:      0.25,
+                ease:       Cubic.easeOut
               }
             )
           )
@@ -199,6 +200,18 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
     }
   }
 
+  var scrollToAdaptedForPin = function($target){
+
+    if($('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
+      $(window).scrollTo($target.parent(), scrollDuration, {axis:'y', easing:'linear', offset: 0 - $(window).height()/2, onAfter:function(){
+        $(window).scrollTo($target, scrollDuration);
+      }});
+    }
+    else{
+      $(window).scrollTo($target, scrollDuration);
+    }
+  }
+
   function initArrowNav(){
     $('.slide-nav-next').not(':first').hide();
     $('.slide-nav-next:first').css('position', 'fixed');
@@ -208,7 +221,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
         var nextA  = curr.next('a')
         var anchor = nextA.attr('href');
-        $(window).scrollTo(anchor, scrollDuration);
+        scrollToAdaptedForPin($(anchor));
         e.preventDefault();
       }
     });
@@ -346,37 +359,24 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
         var baseEmbed = section.find('.ve-base-embed');
 
         if(baseIntro.size() > 0){
-
             var imgUrl = baseIntro.css('background-image');
-
             imgUrl = imgUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-
             bubbleContent.html('<img src="' + imgUrl + '">');
         }
         else if(baseImage.size() > 0){
-
             var imgUrl = baseImage.find('img').attr('src');
-
             bubbleContent.html('<img src="' + imgUrl + '">');
         }
         else if(richImage.size() > 0){
-
             var imgUrl = richImage.find('img').attr('src');
-
             bubbleContent.html('<img src="' + imgUrl + '">');
         }
         else if(baseQuote.size() > 0){
-
-            bubbleContent.html('"Quote..."');
+            bubbleContent.html('<span style="white-space:nowrap">"Quote..."</span>');
         }
         else if(baseEmbed.size() > 0){
-
-            bubbleContent.html('"Embed..."');
+            bubbleContent.html('<span style="white-space:nowrap">Embed</span>');
         }
-
-
-
-
     });
 
   }
@@ -394,16 +394,6 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         smCtrl = new ScrollMagic.Controller();
 
-        /*
-        $(window).europeanaResize(function(){
-          if ($(window).width() <= minViewportWidthFX && !smIsDestroyed) {
-            smCtrl.destroy(true)
-            smCtrl        = null;
-            smIsDestroyed = true;
-            log('removed scroll-magic');
-          }
-        });
-        */
         //$('.logo').css('backface-visibility', 'hidden')
         //TweenMax.to('.logo', 1.5,  { rotationX: "-=360_cw"} );
 
@@ -449,29 +439,7 @@ define(['jquery', 'util_resize', 'purl'], function ($) {
 
         $('.ve-progress-nav a').on('click', function(e){
            e.preventDefault();
-           var target = $(this).attr('href');
-           target = $(target);
-
-           /*
-
-            What is the current scroll position?
-
-            If it is zero then scroll down 25% with an easeOut, then scroll to the target wit an easeIn
-
-            Otherwise just scroll to target
-
-            TODO: remove hard-coded offset - measure the viewport height (and half it)
-            */
-           log('current scroll offset: ' +  window.scrollY);
-           if(  $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
-               $(window).scrollTo(target.parent(), scrollDuration, {axis:'y', easing:'linear', offset: -200, onAfter:function(){
-                   $(window).scrollTo(target, scrollDuration);
-               }});
-           }
-           else{
-               $(window).scrollTo(target, scrollDuration);
-           }
-
+           scrollToAdaptedForPin($( $(this).attr('href') ));
         });
 
       });
