@@ -24,21 +24,19 @@
       </section>
     </div>
 
-    <div class="lc">
-      <div class="ve-foyer-card-container">
-        {{#elements}}
-          {{#present}}
-            {{#items}}
-              {{#is_foyer_card}}
-                {{> organisms/virtual-exhibitions/foyer-card}}
-              {{/is_foyer_card}}
-            {{/items}}
-          {{/present}}
-        {{/elements}}
-      </div>
+    <div class="ve-foyer-card-container">
+      {{#elements}}
+        {{#present}}
+          {{#items}}
+            {{#is_foyer_card}}
+              {{> organisms/virtual-exhibitions/foyer-card}}
+            {{/is_foyer_card}}
+          {{/items}}
+        {{/present}}
+      {{/elements}}
     </div>
-  </div>
 
+  </div>
 </main>
 
 {{> organisms/global/footer }}

@@ -1,13 +1,13 @@
 define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   var $url                = $.url();
-  var minViewportWidthFX  = 768;
   var smIsDestroyed       = false;
   var sfxScenes           = [];
   var introEffectDuration = 500;
   var lightboxOpen        = false;
   var scrollDuration      = 1400;
   var scrollExecuting     = false;
+  var progNavActive       = true;
   var smCtrl              = null;
   var textTweenTargets    = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
   var sassVars            = {
@@ -35,10 +35,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     initLightbox();
 
     $(window).europeanaResize(function(){
-
-      // TODO: this condition isn't zoom-proof
-
-      if ($(window).width() < minViewportWidthFX){
+      if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
           $.each(sfxScenes, function(i, ob){
@@ -73,37 +70,29 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
   };
 
+  function isDesktop(){
+    return $('#desktop_detect').width()>0;
+  }
+
   function initKeyCtrl(){
     $(document).on( "keydown", function(e) {
 
       if([33, 34, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
           /* pgUp, pgDn, left, up, right, down */
 
-        e.preventDefault();
-
         if(scrollExecuting){
           $(window).stop(true);
         }
 
-        if(e.keyCode == 33){
-          scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
-        }
-        if(e.keyCode == 34){
-          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
+        var goBack = [33, 37, 38].indexOf(e.keyCode)>-1;
+        var anchor = $(getAnchorRelativeToCurrent(goBack));
+
+        if(progNavActive){
+          if(scrollToAdaptedForPin(anchor)){
+            e.preventDefault();
+          }
         }
 
-        if(e.keyCode == 37){
-            scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
-        }
-        if(e.keyCode == 38){
-          scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
-        }
-        if(e.keyCode == 39){
-          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
-        }
-        if(e.keyCode == 40){
-          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
-        }
       }
     });
   }
@@ -260,19 +249,14 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initSFX(){
-
-    // TODO: this condition isn't zoom-proof
-    if($(window).width() < minViewportWidthFX) {
-      return;
+    if(!isDesktop()) {
+        return;
     }
-
     var $firstSlide = $('.ve-slide.first');
-
     if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()==0){
       log('first slide is not an intro!');
       return;
     }
-
     require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
       require(['gsap'], function(){
 
@@ -356,7 +340,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var scrollToAdaptedForPin = function($target){
 
     if($target.size()==0){
-      return;
+      return false;
     }
 
     scrollExecuting = true;
@@ -385,6 +369,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     else{
       finalScroll();
     }
+    return true;
   }
 
   function getAnchorRelativeToCurrent(getPrev){
@@ -399,9 +384,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     $('.slide-nav-next:first').on('click', function(e){
       if(smCtrl){
-        //var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
-        //var nextA  = curr.next('a')
-        //var anchor = nextA.attr('href');
         var anchor = getAnchorRelativeToCurrent();
         scrollToAdaptedForPin($(anchor));
         e.preventDefault();
@@ -556,7 +538,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function initProgressState(){
 
-    if($(window).width() < minViewportWidthFX) {
+    if(!isDesktop()) {
       log('too small for scroll-magic');
       return;
     }
@@ -608,7 +590,16 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerElement: '#ve-end',
             triggerHook:    'onEnter'
           }
-        ).addTo(smCtrl).setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
+        ).addTo(smCtrl)
+        .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}))
+        .on('enter', function(){
+            progNavActive = false;
+            log('!   controls showing')
+        })
+        .on('leave', function(){
+            progNavActive = true;
+            log('controls showing')
+        });
 
         $('.ve-progress-nav a').on('click', function(e){
 

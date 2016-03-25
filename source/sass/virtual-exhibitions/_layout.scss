@@ -1,7 +1,17 @@
 @import "../scss/generic/variables";
 @import "variables";
 
+#desktop_detect{
+  position: absolute;
+  top:      -100em;
+  width:    0;
+}
+
 @media all and (min-width: $bp-med) {
+
+  #desktop_detect{
+    width:1px;
+  }
 
   .ve-slide-container{
 
