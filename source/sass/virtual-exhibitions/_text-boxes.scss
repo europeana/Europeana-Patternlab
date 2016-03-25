@@ -275,6 +275,11 @@
       background-color: $colour_overlaid_text;
     }
 
+    .rich_image .ve-image,
+    .ve-base-image img{
+      cursor: pointer;
+    }
+
     .ve-col-50-left,
     .ve-col-50-right{
       padding:      1em;
