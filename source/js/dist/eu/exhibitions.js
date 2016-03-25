@@ -73,6 +73,23 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
   };
 
+  function initKeyCtrl(){
+    $(document).on( "keydown", function(e) {
+      if(e.keyCode == 37){
+          scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
+      }
+      if(e.keyCode == 38){
+          scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
+      }
+      if(e.keyCode == 39){
+          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
+      }
+      if(e.keyCode == 40){
+          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
+      }
+    });
+  }
+
   function showLightbox(imgUrl){
     var imgUrls = [imgUrl];
     var imgData = [];
@@ -348,15 +365,22 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     }
   }
 
+  function getAnchorRelativeToCurrent(getPrev){
+      var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
+      var anchor = getPrev ? curr.prev('a') : curr.next('a');
+      return anchor.attr('href');
+  }
+
   function initArrowNav(){
     $('.slide-nav-next').not(':first').hide();
     $('.slide-nav-next:first').css('position', 'fixed');
 
     $('.slide-nav-next:first').on('click', function(e){
       if(smCtrl){
-        var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
-        var nextA  = curr.next('a')
-        var anchor = nextA.attr('href');
+        //var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
+        //var nextA  = curr.next('a')
+        //var anchor = nextA.attr('href');
+        var anchor = getAnchorRelativeToCurrent();
         scrollToAdaptedForPin($(anchor));
         e.preventDefault();
       }
@@ -562,16 +586,19 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerElement: '#ve-end',
             triggerHook:    'onEnter'
           }
-        ).addTo(smCtrl)
-          .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
+        ).addTo(smCtrl).setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}));
 
         $('.ve-progress-nav a').on('click', function(e){
 
            e.preventDefault();
+
            var anchor = $(this).attr('href');
            window.history.pushState({}, '', anchor);
            scrollToAdaptedForPin($(anchor));
         });
+
+        initKeyCtrl();
+
       });
     });
   }
