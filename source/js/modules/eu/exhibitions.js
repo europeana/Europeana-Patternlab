@@ -76,14 +76,24 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function initKeyCtrl(){
     $(document).on( "keydown", function(e) {
 
-      if([8, 46, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
+      if([33, 34, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
+          /* pgUp, pgDn, left, up, right, down */
+
+        e.preventDefault();
 
         if(scrollExecuting){
           $(window).stop(true);
         }
 
-        if(e.keyCode == 37){
+        if(e.keyCode == 33){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
+        }
+        if(e.keyCode == 34){
+          scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
+        }
+
+        if(e.keyCode == 37){
+            scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
         }
         if(e.keyCode == 38){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
