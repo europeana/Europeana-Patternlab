@@ -75,17 +75,25 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function initKeyCtrl(){
     $(document).on( "keydown", function(e) {
-      if(e.keyCode == 37){
+
+      if([8, 46, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
+
+        if(scrollExecuting){
+          $(window).stop(true);
+        }
+
+        if(e.keyCode == 37){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
-      }
-      if(e.keyCode == 38){
+        }
+        if(e.keyCode == 38){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent(true)));
-      }
-      if(e.keyCode == 39){
+        }
+        if(e.keyCode == 39){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
-      }
-      if(e.keyCode == 40){
+        }
+        if(e.keyCode == 40){
           scrollToAdaptedForPin($(getAnchorRelativeToCurrent()));
+        }
       }
     });
   }
@@ -336,6 +344,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   var scrollToAdaptedForPin = function($target){
+
+    if($target.size()==0){
+      return;
+    }
 
     scrollExecuting = true;
 
@@ -598,7 +610,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         });
 
         initKeyCtrl();
-
       });
     });
   }
