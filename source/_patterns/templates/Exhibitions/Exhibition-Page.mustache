@@ -42,49 +42,34 @@
         {{/ elements.present }}
         <a id="ve-end"></a>
       </div>
-    {{/ page_data }}
 
-    {{# page_data }}
-      <div class="lc">
-        <div class="ve-chapter-selection-container">
-          {{#elements}}
-            {{#present}}
-              {{#items}}
-                {{#is_chapter_nav}}
-                  {{> organisms/virtual-exhibitions/chapter-selection}}
-                {{/is_chapter_nav}}
-              {{/items}}
-            {{/present}}
-          {{/elements}}
-        </div>
+      <div class="ve-chapter-selection-container cf">
+        {{#chapter_elements}}
+          {{#present}}
+            {{#items}}
+              {{#is_chapter_nav}}
+                {{> organisms/virtual-exhibitions/chapter-selection}}
+              {{/is_chapter_nav}}
+            {{/items}}
+          {{/present}}
+        {{/chapter_elements}}
       </div>
     {{/ page_data }}
 
-    {{# page_data }}
-      <div class="lc">
-        <div class="ve-chapter-selection-container">
-          {{#elements}}
-            {{#present}}
-              {{#items}}
-                {{#is_navigation}}
-                  <div class="ve-base-chapter-nav">
-                    {{#previous}}
-                      <a class="ve-chapter-nav-prev" href="{{url}}"><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg>{{#title}}{{.}}{{/title}}</a>
-                    {{/previous}}
-                    {{#next}}
-                      <a class="ve-chapter-nav-next" href="{{url}}">{{#title}}{{.}}{{/title}}<svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
-                    {{/next}}
-                  </div>
-                {{/is_navigation}}
-              {{/items}}
-            {{/present}}
-          {{/elements}}
-        </div>
+
+      <div class="ve-base-chapter-nav">
+        {{# previous_page }}
+          <a class="ve-chapter-nav-prev" {{#url}}href="{{.}}"{{/url}}><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg>{{#title}}{{.}}{{/title}}</a>
+        {{/ previous_page }}
+        {{# next_page }}
+          <a class="ve-chapter-nav-next" {{#url}}href="{{.}}"{{/url}}>{{#title}}{{.}}{{/title}}<svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
+        {{/ next_page }}
       </div>
-    {{/ page_data }}
+
 
   </div>
 
 </main>
+{{> molecules/components/photoswipe/photoswipe }}
 
 {{> organisms/global/footer }}

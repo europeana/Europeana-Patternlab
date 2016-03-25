@@ -55,11 +55,13 @@
   .ve-chapter-selection-container,
   .ve-foyer-card-container{
     left:         50%;
-    margin-left:  -1em;
-    margin-right: -1em;
     position:     relative;
     transform:    translateX(-50%);
     width:        $ve_image_column_width;
+  }
+  .ve-foyer-card-container{
+    margin-left:  -1em;
+    margin-right: -1em;
   }
 
   .ve-label,

@@ -58,6 +58,14 @@
       "is_last": "true"
     }
   ],
+  "next_page": {
+    "title": "Faces Of Europe (next)",
+    "url": "javascript:alert('nav next');"
+  },
+  "previous_page": {
+    "title": "Faces Of Europe (prev)",
+    "url": "javascript:alert('nav previous');"
+  },
   "page_data": {
     "title": "Page title",
     "url": "/example-page",
@@ -570,8 +578,12 @@
                 }
             },
             "caption": "SagradaFamilia Sostre"
-        },
-
+        }
+      ]
+    },
+    "chapter_elements": {
+      "present": "true",
+      "items":[
         {
           "is_chapter_nav": true,
           "title": "Wiki Loves Art Nouveau",
@@ -599,22 +611,9 @@
             "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
-        },
-
-        {
-          "id": "navigation",
-          "is_navigation": true,
-          "type": "navigation",
-          "previous": {
-            "url": "javascript:alert('nav prev')",
-            "title": "Previous Chapter"
-          },
-          "next": {
-            "url": "javascript:alert('nav next')",
-            "title": "Next Chapter"
-          }
         }
       ]
     }
+
   }
 }
