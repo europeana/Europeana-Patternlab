@@ -29,7 +29,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     initFoyerCards();
     initArrowNav();
     initNavCorrection();
-    sizeVideos();
+    sizeEmbeds();
     handleEllipsis();
     gotoAnchor(true);
     initLightbox();
@@ -200,9 +200,18 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     }
   }
 
-  function sizeVideos(){
+  function sizeEmbeds(){
     $('.ve-base-embed iframe').each(function(i, ob){
 
+      ob = $(ob);
+
+      if(ob.is('.ve-base-small, .ve-base-medium, .ve-base-large')){
+          return;
+      }
+      else{
+          ob.addClass('ve-base-medium');
+      }
+      /*
       ob = $(ob);
       var h = ob.attr('height');
       var w = ob.attr('width');
@@ -212,6 +221,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       }
       ob.css('width',  w ? w : 'auto');
       ob.css('height', h ? h : 'auto');
+      */
+
+
     });
   }
 

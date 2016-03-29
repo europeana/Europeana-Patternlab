@@ -125,7 +125,7 @@
         {
             "id": "x0_3",
             "is_embed": true,
-            "html": "<iframe width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
+            "html": "<iframe class=\"ve-base-small\"  width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
             "XXXhtml": "<iframe src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>"
         },
         {
@@ -141,7 +141,7 @@
         {
             "id": "x0_7",
             "is_embed": true,
-            "html": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
+            "html": "<iframe class=\"ve-base-large\" height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
         },
         {
             "id": "x0_8",

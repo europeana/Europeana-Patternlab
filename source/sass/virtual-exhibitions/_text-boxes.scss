@@ -67,9 +67,47 @@
 
 .ve-base-embed{
   iframe{
-    width:      auto;
-    display:    block;
-    margin:     1em auto;
+    display:  block;
+    margin:   1em auto;
+    width:    100%;
+    height:   26em;
+
+    &.ve-base-small{
+
+      @media all and (min-width: $bp-med) {
+        height:    30em;
+        max-width: $ve_text_column_width;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        max-width: $ve_text_column_width_XL;
+        height:    30em;
+      }
+    }
+
+    &.ve-base-medium{
+
+      @media all and (min-width: $bp-med) {
+        height:    30em;
+        max-width: $ve_image_column_width;
+      }
+
+    }
+
+    &.ve-base-large{
+
+      padding: 0;
+
+      @media all and (min-width: $bp-med) {
+        height:    30em;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        height:    30em;
+      }
+
+    }
+
   }
 }
 
@@ -81,6 +119,7 @@
 .ve-base-text{
   margin: auto;
 }
+
 
 .ve-base-quote,
 .ve-base-text,
@@ -484,6 +523,14 @@ a:hover > .ve-state-button-off,
   .ve-base-text{
       max-width: $ve_text_column_width;
       width:     auto;
+  }
+
+  .ve-base-small{
+    height: auto;
+  }
+
+  .ve-base-medium{
+    width:  $ve_image_column_width;
   }
 
   .ve-description{
