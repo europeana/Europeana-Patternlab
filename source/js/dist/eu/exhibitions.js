@@ -56,11 +56,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       else{
         if(smCtrl){
           var $firstSlide = $('.ve-slide.first');
-          if($firstSlide.closest('.scrollmagic-pin-spacer').size()>0){
-            $('.ve-slide.first').unwrap();
-            $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro').removeAttr('style');
-            initSFX();
-          }
+          $('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style').unwrap();
+          $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro').removeAttr('style');
+          initSFX();
         }
         else{
           initProgressState();
@@ -327,6 +325,77 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           )
           .addTo(smCtrl)
         );
+
+
+        // Pin (rich) images
+        //if($url.param('sfx')){
+
+        $('.ve-base-title-image-text').each(function(i, ob){
+
+          ob = $(ob);
+
+          var img    = $(ob).find('.ve-image');
+          var qte    = $(ob).find('.ve-base-quote');
+          var l      = $(ob).find('.ve-col-50-left').height();
+          var r      = $(ob).find('.ve-col-50-right').height();
+          var diff   = Math.abs(l-r);
+          var alignL = img.closest('.ve-col-50-left').size() > 0;
+
+          if((alignL && l < r) || (!alignL && r < l)){
+
+            // pin image if smaller than text
+
+            if(diff > 100){
+              sfxScenes.push(
+                new ScrollMagic.Scene({
+                  triggerElement: ob[0],
+                  triggerHook: 0,
+                  duration: diff + 30,
+                  reverse: true
+                })
+                .setPin(img[0])
+                .addTo(smCtrl)
+              );
+            }
+          }
+          else{
+            if(qte.size() > 0 && qte.height() < diff){
+
+              // pin quote if text and quote are smaller than image
+
+              if((alignL && r < l) || (!alignL && l < r)){
+
+                sfxScenes.push(
+                  new ScrollMagic.Scene({
+                    triggerElement: ob[0],
+                    triggerHook:    0,
+                    reverse:        true,
+                    duration:       diff
+                  })
+                  .setPin(qte[0])
+                  .setTween(
+
+                    TweenMax.fromTo(
+                      qte[0],
+                      1,
+                      {
+                        opacity: 0
+                      },
+                      {
+                          opacity: 1,
+                          ease:    Cubic.easeIn
+                      }
+                    )
+                  )
+                  .addTo(smCtrl)
+                );
+              }
+            }
+          }
+        });
+
+        //}// end if ?sfx
+
       });
     });
   }

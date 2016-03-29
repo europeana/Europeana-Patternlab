@@ -119,6 +119,8 @@
 .ve-state-button-off{
   background-position: -88px 0;
 }
+
+a:hover > .ve-state-button-off,
 .ve-state-button-on{
   background-position: -110px 0;
 }
@@ -446,18 +448,22 @@
       .ve-col-50-left{
         float: left;
         .inner{
-          float: right;
+          float:         right;
+          padding-right: 1em;
         }
       }
+
+      .ve-col-50-right{
+        float: right;
+        .inner{
+          float:        left;
+          padding-left: 1em;
+        }
+      }
+
     }
   }
 
-  .ve-col-50-right{
-    float: right;
-    .inner{
-      float: left;
-    }
-  }
 
 
   .slide-nav,
@@ -474,15 +480,10 @@
       width:     auto;
   }
 
-  .ve-base-quote,
+  .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width;
       width:     auto;
-  }
-
-  .ve-title-group,
-  .ve-description{
-    font-size: 0.9em;
   }
 
   .ve-description{
@@ -497,6 +498,19 @@
 
 }
 
+@media all and (min-width: $bp-med) and (max-width: $bp-xl){
+
+  .ve-title-group,
+  .ve-description{
+    font-size: 0.9em;
+  }
+
+  .ve-base-chapter-nav{
+    font-size: 1.5em;
+  }
+
+}
+
 @media all and (min-width: $bp-xl) {
 
   .ve-base-image{
@@ -505,10 +519,12 @@
     }
   }
 
-  .ve-base-quote,
+  .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;
   }
 
 }
 
+@media all and (min-width: $bp-xl) {
+}

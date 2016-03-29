@@ -40,17 +40,13 @@
 }
 
 @media all and (min-width: $bp-small-3) {
+  .ve-chapter-selection,
   .ve-foyer-card{
     width:    50%;
   }
 }
 
 @media all and (min-width: $bp-med) {
-  .ve-chapter-selection,
-  .ve-foyer-card{
-    float:    left;
-    width:    33.33%;
-  }
 
   .ve-chapter-selection-container,
   .ve-foyer-card-container{
@@ -72,10 +68,20 @@
   }
 }
 
+
 @media all and (min-width: $bp-xl) {
+  .ve-chapter-selection,
+  .ve-foyer-card{
+    float:    left;
+    width:    33.33%;
+  }
 }
 
 @media all and (min-width: $bp-xxl) {
+  .ve-chapter-selection,
+  .ve-foyer-card{
+    width:    25%;
+  }
 }
 
 .ve-chapter-selection,
