@@ -4,9 +4,15 @@
 
 	&:hover, &:focus {
 		cursor: help;
-		.tooltip {
+
+		.tooltip:not(:empty) {
 			display: block;
 		}
+	}
+
+	.icon{
+		vertical-align: super;
+		font-size: 0.825em;
 	}
 }
 
@@ -20,10 +26,12 @@
 	top: 1.5em;
 	left: -2em;
 	width: 18em;
-	padding: $pad;
+	padding: 0.6em;
 	background: $white;
 	color: $textcolour_body;
-	font-size: $font-size-sm;
+	font-size: 0.75rem;
+	text-transform: none;
+	font-weight: normal;
 	border: 1px solid $gray-lighter;
 	box-shadow: 0.1em 0.1em 0.3em 0 rgba(0,0,0,0.2);
 	z-index: 98;

@@ -89,6 +89,9 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
             }
         }
         else{
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
+              return;
+            }
             showList();
         }
     };

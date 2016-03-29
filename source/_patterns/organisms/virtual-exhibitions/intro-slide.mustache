@@ -1,0 +1,63 @@
+<div id="{{id}}" class="ve-base ve-base-intro ve-{{id}} {{type}}{{#is_featured_exhibition}} ve-base-foyer-main{{/is_featured_exhibition}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
+  {{#image}}
+    {{>organisms/virtual-exhibitions/main-slide-bg-style }}
+  {{/image}}
+
+  {{#image}}
+    <picture class="ve-intro-image">
+      {{>atoms/images/responsive-srcset-picture}}
+
+      {{#image_credit}}
+        <div class="ve-image-credit">
+         {{>molecules/text/attribution}}
+        </div>
+      {{/image_credit}}
+
+    </picture>
+  {{/image}}
+
+</div>
+
+<div class="ve-base ve-base-intro-texts">
+
+  {{#image_credit}}
+    <div class="ve-image-credit">
+     {{>molecules/text/attribution}}
+    </div>
+  {{/image_credit}}
+
+  {{#title}}
+  <div class="ve-title-group">
+      <span class="ve-title">
+        {{.}}
+      </span>
+    {{#subtitle}}
+      <span class="ve-subtitle">
+        {{{.}}}
+      </span>
+    {{/subtitle}}
+  </div>
+  {{/title}}
+
+  {{#intro_description}}
+    <div class="ve-description">
+      {{{.}}}
+    </div>
+  {{/intro_description}}
+
+  <div class="ve-branding">
+    {{#label}}
+      <span class="ve-label">{{.}}</span>
+    {{/label}}
+
+    {{#partner_image}}
+      <a class="ve-partner-logo" href="{{partner_url}}"><img src="{{thumbnail.url}}"></a>
+    {{/partner_image}}
+  </div>
+</div>
+
+{{#full_description}}
+  <div class="ve-base-text ve-intro-full-description">
+    {{{.}}}
+  </div>
+{{/full_description}}

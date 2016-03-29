@@ -1,0 +1,42 @@
+{{> atoms/iconography/svgicons-virtual-exhibitions}}
+{{> atoms/iconography/svgicons-user }}
+{{> organisms/global/header_v2}}
+
+<main role="main" class="l-page">
+
+  <div class="page_header">
+    {{>molecules/virtual-exhibitions/browse-breadcrumb.mustache}}
+  </div>
+
+  <div id="maincontent" class="maincontent">
+    <div class="ve-slide-container">
+      <section class="ve-slide first">
+
+        {{#elements}}
+          {{#present}}
+            {{#items}}
+              {{#is_featured_exhibition}}
+                {{> organisms/virtual-exhibitions/intro-slide}}
+              {{/is_featured_exhibition}}
+            {{/items}}
+          {{/present}}
+        {{/elements}}
+      </section>
+    </div>
+
+    <div class="ve-foyer-card-container">
+      {{#elements}}
+        {{#present}}
+          {{#items}}
+            {{#is_foyer_card}}
+              {{> organisms/virtual-exhibitions/foyer-card}}
+            {{/is_foyer_card}}
+          {{/items}}
+        {{/present}}
+      {{/elements}}
+    </div>
+
+  </div>
+</main>
+
+{{> organisms/global/footer }}

@@ -1,0 +1,62 @@
+@import "../scss/generic/variables";
+@import "variables";
+
+#desktop_detect{
+  position: absolute;
+  top:      -100em;
+  width:    0;
+}
+
+@media all and (min-width: $bp-med) {
+
+  #desktop_detect{
+    width:1px;
+  }
+
+  .ve-slide-container{
+
+    .ve-anchor.no-js{
+      bottom:   0;
+      position: relative;
+    }
+
+    .ve-slide{
+      &.first .ve-anchor:not(.no-js){
+        // 10em enough to pull back beyond header
+        top: -100em;
+      }
+
+      // layout: compensate for header
+      &.first{
+        min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+
+        .ve-base-foyer-main,
+        .ve-base-intro,
+        .ve-base-intro-texts,
+        .ve-full-height{
+          min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+          min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+          min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        }
+      }
+
+      &:not(.first){
+        min-height: -webkit-calc(100vh - 4.8rem);
+        min-height:    -moz-calc(100vh - 4.8rem);
+        min-height:         calc(100vh - 4.8rem);
+
+        .ve-base-foyer-main,
+        .ve-base-intro,
+        .ve-base-intro-texts,
+        .ve-full-height{
+           min-height: -webkit-calc(100vh - 4.8rem);
+           min-height:    -moz-calc(100vh - 4.8rem);
+           min-height:         calc(100vh - 4.8rem);
+        }
+      }
+    }
+  }
+}
+

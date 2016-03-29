@@ -1,11 +1,18 @@
-This is the simplified, single-state card (the 3rd slide of the exhibition-specific foyer).
-<br>
-<br>
-See the bottom of this page:
-<br>
-  <a href="https://projects.invisionapp.com/share/HU637K6XE#/screens/132835116">here</a>
-<br>
-<br>
-<br>
-(ticket complete when this appears in the styleguide)
+<figure class="ve-chapter-selection">
 
+  {{#label}}<span class="ve-label">{{.}}</span>{{/label}}
+
+  <div class="ve-chapter-selection-content">
+
+    <div class="inner">
+
+      <div class="ve-chapter-selection-state">
+        <img src="{{image.thumbnail}}" />
+        <div class="text-box title">
+          <a href="{{url}}">{{title}}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</figure>

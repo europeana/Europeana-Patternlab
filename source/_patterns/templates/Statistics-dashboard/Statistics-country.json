@@ -1,0 +1,98 @@
+{
+  "bodyclass": "europeana_statsdashboard page_countries",
+  "page_title": "Europeana Statistics",
+  "page_locale": "en",
+  "page_config": {
+    "newsletter": false
+  },
+  "css_files": [
+    {
+      "path": "../../css/statistics/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-statistics"
+    }
+  ],
+  "navigation": {
+    "home_url": "www.europeana.eu",
+    "home_text": "Return to Home",
+    "global": {
+      "options": {
+        "search_active": true,
+        "settings_active": false
+      },
+      "logo": {
+        "url": "http://europeana.eu",
+        "text": "Europeana statistics"
+      },
+      "primary_nav": {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Overall Statistics",
+            "is_current": true
+          },
+          {
+            "text": "By Country",
+            "submenu": false
+          },
+          false,
+          false
+        ]
+      }
+    },
+    "footer": {
+      "linklist1": {
+        "title": "More info",
+        "items": [
+          {
+            "text": "News",
+            "url": "http://google.com"
+          },
+          {
+            "text": "Contact",
+            "url": "http://google.com"
+          },
+          false
+        ]
+      },
+      "linklist2": false,
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "About us",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
+      }
+    }
+  },
+  "content": {
+    "charts": {
+      "main_chart": {
+        "id": "add_id_for_main_chart_here",
+        "api": "api here",
+        "datacast_identifier": "datacast_identifier here",
+        "class": "chart class here",
+        "filter_present": "filter_present here",
+        "filter_column_name": "filter_column_name here"
+      }
+    }
+  }
+}

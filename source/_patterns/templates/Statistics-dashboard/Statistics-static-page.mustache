@@ -11,9 +11,27 @@
       <div class="textcontent">
           <h1 class="title">{{ title }}</h1>
 
+          {{# content.prose }}
+          <div class="prose">
+            {{{ html }}}
+          </div>
+          {{/ content.prose }}
+
+
           {{# content.links }}
+
+          <div id="linklist">
+            <div class="search-controls">
+              <input class="list-search" placeholder="Search" />
+              <span class="sort btn btn2" data-sort="list-item">A → Z</span>
+            </div>
+
             {{> molecules/navigation/linklist-simple }}
+
+          </div>
+
           {{/ content.links }}
+
       </div>
     </div>
 

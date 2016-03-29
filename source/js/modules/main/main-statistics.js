@@ -28,6 +28,7 @@ require.config({
     jqDropdown:                    '../lib/jquery.dropdown',
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
+    list:                          '//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min',
     menus:                         '../global/menus',
     mootools:                      '../lib/iipmooviewer/js/mootools-core-1.5.1-full-nocompat-yc',
     util_foldable:                 '../eu/util/foldable-list',

@@ -90,7 +90,7 @@
         {
           "title": "Total Visits in 2014",
           "value": "17,060,879",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+          "description": "Oorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
         },
         {
           "title": "Total Visits in 2015",
@@ -106,11 +106,22 @@
           "title": "Total Visits in 2011",
           "value": "1,060,879",
           "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+        },
+        {
+          "title": "Total Visits in 2011",
+          "value": "1,060,879",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+        },
+        {
+          "title": "Total Visits in 2011",
+          "value": "1,060,879",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum ."
         }
       ]
     },
     "numberedlist":{
       "title":"Top 25 Objects",
+      "description": "Consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae",
       "items": [
         {
           "image":"sample/thumb-dancers.jpg",
@@ -237,7 +248,7 @@
     "charts":{
       "main_chart":{
         "title": "Main chart title here",
-        "description": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
         "id":"add_id_for_main_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",
@@ -247,7 +258,7 @@
       },
       "topcountries":{
         "title": "Top 25 Countries",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
+        "description": "neep Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
         "id":"id_for_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",
@@ -257,7 +268,7 @@
       },
       "total_items":{
         "title": "Total number of items",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at. <a href='#alinkhere'>This is a link</a>",
         "id":"id_for_chart_here",
         "api":"api here",
         "datacast_identifier": "datacast_identifier here",

@@ -2,9 +2,18 @@
   <div class="ve-nav cf">
     <div class="ve-nav-lists">
       <ul class="breadcrumbs">
-        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-        <li><a href="#">Exhibitions</a></li>
-        <li><span class="lastitem"><strong>Exhibition Name</strong></span></li>
+        {{#breadcrumbs}}
+          {{^is_last}}
+            <li>
+              <a href="{{url}}">{{#is_first}}<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{/is_first}}{{title}}</a>
+            </li>
+          {{/is_last}}
+          {{#is_last}}
+            <li>
+              <span class="lastitem"><strong>{{title}}</strong></span>
+            </li>
+          {{/is_last}}
+        {{/breadcrumbs}}
       </ul>
     </div>
   </div>

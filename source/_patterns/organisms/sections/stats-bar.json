@@ -13,7 +13,25 @@
     {
       "title": "Total Visits in 2012",
       "value": "11,060,879",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum.",
+      "trend":{
+        "value": "35%",
+        "positive": true
+      }
+    },
+    {
+      "title": "Total Visits in 2011",
+      "value": "1,060,879",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+    },
+    {
+      "title": "Total Visits in 2011",
+      "value": "1,060,879",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum.",
+      "trend":{
+        "value": "25%",
+        "negative": true
+      }
     },
     {
       "title": "Total Visits in 2011",

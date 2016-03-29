@@ -1,44 +1,45 @@
-<figure class="ve-foyer-card" data-state="title">
+<figure class="ve-foyer-card">
 
-  <div class="inner">
+  {{#state_1_label}}<span class="ve-label">{{.}}</span>{{/state_1_label}}
 
-    <span class="ve-card-nav ve-card-nav-left">
-      &lt;
-    </span>
-    <span class="ve-card-nav ve-card-nav-right">
-      &gt;
-    </span>
-    <div class="ve-state-buttons">
-     <span class="ve-state-0 ve-state-button-on"></span>
-     <span class="ve-state-1 ve-state-button-off"></span>
-     <span class="ve-state-2 ve-state-button-off"></span>
-    </div>
+  <div class="ve-foyer-card-content">
 
-    {{#state1}}
-    <div class="ve-foyer-card-state">
-      <img src="{{image}}" />
-      <div class="text-box title">
-        <a href="{{link}}">{{title}}</a>
+    <div class="inner">
+
+      <span class="ve-card-nav ve-card-nav-left">
+        <svg class="icon icon-previous"><use xlink:href="#icon-previous"></use></svg>
+      </span>
+      <span class="ve-card-nav ve-card-nav-right">
+        <svg class="icon icon-next"><use xlink:href="#icon-next"></use></svg>
+      </span>
+
+      <div class="ve-state-buttons">
+        <span class="ve-state-0 ve-state-button-on"></span>
+        <span class="ve-state-1 ve-state-button-off"></span>
+        <span class="ve-state-2 ve-state-button-off"></span>
+      </div>
+
+      <div class="ve-foyer-card-state">
+        <img src="{{state_1_image.thumbnail}}" />
+        <div class="text-box title">
+          <a href="{{state_1_link}}">{{state_1_title}}</a>
+        </div>
+      </div>
+
+      <div class="ve-foyer-card-state hide-right shaded">
+        <img src="{{state_2_image.thumbnail}}" />
+        <div class="text-box description">
+          <a href="{{state_2_link}}">{{state_2_title}}</a>
+        </div>
+      </div>
+
+      <div class="ve-foyer-card-state hide-right">
+        <img src="{{state_3_image.thumbnail}}" />
+        <div class="text-box credits">
+          <a href="{{state_3_link}}">{{state_3_title}}</a>
+        </div>
       </div>
     </div>
-    {{/state1}}
-
-    {{#state2}}
-    <div class="ve-foyer-card-state hide-right shaded">
-      <img src="{{image}}" />
-      <div class="text-box description">
-        <a href="{{link}}">{{title}}</a>
-      </div>
-    </div>
-    {{/state2}}
-
-    {{#state3}}
-    <div class="ve-foyer-card-state hide-right">
-      <img src="{{image}}" />
-      <div class="text-box credits">
-        <a href="javascript:alert('open this exhibition');">{{title}}</a>
-      </div>
-    </div>
-    {{/state3}}
   </div>
+
 </figure>

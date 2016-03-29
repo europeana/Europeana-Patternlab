@@ -1,6 +1,8 @@
-{{> atoms/iconography/svgicons-pro}}
+{{> atoms/iconography/svgicons-virtual-exhibitions}}
 {{> atoms/iconography/svgicons-user }}
 {{> organisms/global/header_v2}}
+
+<div id="desktop_detect"></div>
 
 <main role="main" class="l-page">
 
@@ -12,17 +14,18 @@
     {{# page_data }}
       <div class="ve-slide-container">
         {{# elements.present }}
+
           <h4 class="ve-progress-nav">
             {{# elements.items }}
               {{^ is_section }}
                 {{#is_first}}
-                  <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span></a>
+                  <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
                 {{/is_first}}
               {{/ is_section }}
             {{/ elements.items }}
             {{# elements.items }}
               {{# is_section }}
-              <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span></a>
+              <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
               {{/ is_section }}
             {{/ elements.items }}
           </h4>
@@ -41,20 +44,34 @@
         {{/ elements.present }}
         <a id="ve-end"></a>
       </div>
+
+      <div class="ve-chapter-selection-container cf">
+        {{#chapter_elements}}
+          {{#present}}
+            {{#items}}
+              {{#is_chapter_nav}}
+                {{> organisms/virtual-exhibitions/chapter-selection}}
+              {{/is_chapter_nav}}
+            {{/items}}
+          {{/present}}
+        {{/chapter_elements}}
+      </div>
     {{/ page_data }}
 
-    <div class="lc">
-      <h1>Foyer</h1>
-      {{#foyer_items}}
-        {{#present}}
-          {{#items}}
-            {{> organisms/virtual-exhibitions/foyer-card}}
-          {{/items}}
-        {{/present}}
-      {{/foyer_items}}
-    </div>
+
+      <div class="ve-base-chapter-nav">
+        {{# previous_page }}
+          <a class="ve-chapter-nav-prev" {{#url}}href="{{.}}"{{/url}}><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg>{{#title}}{{.}}{{/title}}</a>
+        {{/ previous_page }}
+        {{# next_page }}
+          <a class="ve-chapter-nav-next" {{#url}}href="{{.}}"{{/url}}>{{#title}}{{.}}{{/title}}<svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
+        {{/ next_page }}
+      </div>
+
+
   </div>
 
 </main>
+{{> molecules/components/photoswipe/photoswipe }}
 
 {{> organisms/global/footer }}
