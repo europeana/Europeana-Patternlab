@@ -1,5 +1,6 @@
 define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
+  var inEditor            = false;
   var $url                = $.url();
   var smIsDestroyed       = false;
   var sfxScenes           = [];
@@ -19,19 +20,35 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initExhibitions(){
-    if($url.param('show-sections')){
-        $('.ve-slide').css('border', '2px dotted red');
+
+    inEditor = false;
+
+    if($(document).closest('iframe').size() > 0 ){
+      inEditor = true;
     }
+
+    if(inEditor){
+      $('.ve-slide').css('border', '2px dotted red');
+    }
+
     initSmartMenus();
     initProgressState();
     initNavTooltips();
-    initSFX();
+
+    if(!inEditor){
+      initSFX();
+    }
+
     initFoyerCards();
     initArrowNav();
     initNavCorrection();
     sizeEmbeds();
     handleEllipsis();
-    gotoAnchor(true);
+
+    if(!inEditor){
+      gotoAnchor(true);
+    }
+
     initLightbox();
 
     $(window).europeanaResize(function(){
