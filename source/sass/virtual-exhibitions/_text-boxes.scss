@@ -54,7 +54,8 @@
   }
 }
 
-.ve-base-intro{
+.ve-base-intro,
+.ve-base-ripples{
   background-size: 0;
 }
 
@@ -88,7 +89,7 @@
     &.ve-base-medium{
 
       @media all and (min-width: $bp-med) {
-        height:    30em;
+        height:    38em;
         max-width: $ve_image_column_width;
       }
 
@@ -99,7 +100,7 @@
       padding: 0;
 
       @media all and (min-width: $bp-med) {
-        height:    30em;
+        height:    42em;
       }
 
       @media all and (min-width: $bp-xl) {
@@ -431,7 +432,8 @@ a:hover > .ve-state-button-off,
   }
 
   .ve-base-foyer-main,
-  .ve-base-intro{
+  .ve-base-intro,
+  .ve-base-ripples{
     background-size: cover;
     margin:          auto;
 
@@ -476,7 +478,7 @@ a:hover > .ve-state-button-off,
       .ve-col-50-right{
 
         padding: 1em 0;
-        width: 50%;
+        width:   50%;
 
         .inner{
           max-width: 100%;
