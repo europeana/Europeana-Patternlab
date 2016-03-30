@@ -1,1 +1,0 @@
-require.config({baseUrl:"/js/dist",paths:{jquery:"lib/jquery",pdf:"lib/pdfjs/pdf",pdf_viewer:"eu/media/search-pdf-viewer"},shim:{pdf_viewer:["jquery"]}}),require(["jquery"],function(a){require(["pdf"],function(){require(["pdf_viewer"],function(b){b.init(a(".pdf-viewer"),"http://edm-is-shown-by.de.a9sapp.eu/09336/72B195E7174360280218AE261368B22242AC4E09")})})});

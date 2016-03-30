@@ -1,1 +1,0 @@
-Blacklight=function(){var a=new Array;return{onLoad:function(b){a.push(b)},activate:function(){for(var b=0;b<a.length;b++)a[b].call()}}}(),$(document).on("page:load",function(){Blacklight.activate()}),$(document).ready(function(){Blacklight.activate()});
