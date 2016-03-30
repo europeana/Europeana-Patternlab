@@ -112,7 +112,7 @@
             }
           },
           "partner_url": "javascript:alert('link to curator site')",
-          "label": "From Europeana Art History"
+          "label": "Art history collection"
       },
       {
           "id": "x0_2",
@@ -156,7 +156,7 @@
             "url" : "/images/virtual-exhibitions/dada/red-thumbnailx2.png"
           }
         },
-        "label": "From Europeana Art History",
+        "label": "Art history collection",
         "title": "Dada and Surrealism",
         "subtitle": false,
         "partner_image": {

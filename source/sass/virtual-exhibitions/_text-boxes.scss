@@ -418,8 +418,9 @@ a:hover > .ve-state-button-off,
 .ve-label{
   background-color: $eu-blue;
   color:            #fff;
-  font-weight:      bold;
-  padding:          0.5em 0.7em;
+  font-weight:      normal;
+  padding:          0.3em 0.7em;
+  text-transform:   uppercase;
 }
 
 @media all and (min-width: $bp-small-2) {
