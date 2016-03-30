@@ -479,7 +479,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       // TODO: uses css classes for this
       var nextAnchor = $('.ve-slide.first').next('noscript').next('.ve-slide').find('.ve-anchor');
       log('move the anchor ' + nextAnchor.size() )
-      nextAnchor.css('top', chrome ? '-5.7em' : '-4.75em');
+      nextAnchor.css('top', chrome ? '-5.7em' : '-4.65em');
     }
   }
 

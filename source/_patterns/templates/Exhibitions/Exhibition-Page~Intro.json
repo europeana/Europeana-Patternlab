@@ -30,7 +30,7 @@
       },
       "options": {
         "search_active": false,
-        "oursites_hidden": true
+        "oursites_hidden": false
       },
      "primary_nav":
       {
