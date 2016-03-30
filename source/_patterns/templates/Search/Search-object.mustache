@@ -214,6 +214,7 @@
             </div>
             {{#description}}
               {{> organisms/sections/object-data-section }}
+              <span style="display:none" property="http://purl.org/dc/elements/1.1/description">{{#sections}}{{#items}}{{text}} {{/ items }}{{/sections}}</span>
             {{/description}}
 
             {{#people}}
