@@ -41,7 +41,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     initFoyerCards();
     initArrowNav();
-    initNavCorrection();
+    navCorrections();
     sizeEmbeds();
     handleEllipsis();
 
@@ -52,13 +52,31 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     initLightbox();
 
     $(window).europeanaResize(function(){
+
+      var cleanup = function(){
+        $.each(sfxScenes, function(i, ob){
+          ob.destroy(true);
+          log('destroy scene...');
+        });
+        scrollExecuting = true;
+
+        //if( $('.ve-base-intro:not(.ve-base-foyer-main)').size()>0){
+        $('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style');
+        $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro, .ve-slide.first .ve-base-ripples').removeAttr('style');
+        //}
+
+        $('.scrollmagic-pin-spacer').remove();
+      }
+
       if( !isDesktop() ){
         if(smCtrl){
+
           window.scrollTo(0, 0);
-          $.each(sfxScenes, function(i, ob){
-            ob.enabled(false);
-          });
-          smCtrl.removeScene(sfxScenes);
+          //$.each(sfxScenes, function(i, ob){
+          //  ob.destroy(true);
+          //});
+          //smCtrl.removeScene(sfxScenes);
+
           $('.ve-slide.first')
             .closest('.scrollmagic-pin-spacer')
             .removeAttr('style')
@@ -67,15 +85,41 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 'box-sizing': 'content-box',
                 'min-height': '100vh'
               });
-          $('.ve-slide.first .ve-base-intro, .ve-slide.first .ve-intro-full-description, ' + textTweenTargets).removeAttr('style');
+          cleanup();
+          //$('.ve-slide.first .ve-base-intro, .ve-slide.first .ve-intro-full-description, ' + textTweenTargets).removeAttr('style');
+          //$('.ve-slide.first .ve-base-intro, .ve-slide.first .ve-intro-full-description, ' + textTweenTargets).attr('style', '');
         }
       }
       else{
         if(smCtrl){
+
+            var hash = window.location.hash;
+            cleanup();
+            initSFX();
+            if(hash){
+              var $hash = $(hash);
+              if($hash.size()>0){
+                scrollToAdaptedForPin($hash, true);
+              }
+            }
+            else{
+                scrollExecuting = false;
+            }
+
+/*
           var $firstSlide = $('.ve-slide.first');
-          $('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style').unwrap();
-          $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro').removeAttr('style');
-          initSFX();
+          //$('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style').unwrap();
+          $('.scrollmagic-pin-spacer > .ve-slide,'
+              + ' .scrollmagic-pin-spacer > .ve-image,'
+              + ' .scrollmagic-pin-spacer > .ve-base-quote, '
+              + ' .scrollmagic-pin-spacer > .ve-base-ripples').removeAttr('style').unwrap();
+
+          $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro, .ve-slide.first .ve-base-ripples').removeAttr('style');
+*/
+
+          //$('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').attr('style', '').unwrap();
+          //$(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro').attr('style', '');
+  //        initSFX();
         }
         else{
           initProgressState();
@@ -221,6 +265,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     $('.ve-base-embed iframe').each(function(i, ob){
 
       ob = $(ob);
+      ob.removeAttr('height style width');
 
       if(ob.is('.ve-base-small, .ve-base-medium, .ve-base-large')){
           return;
@@ -282,7 +327,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     var $firstSlide = $('.ve-slide.first');
     if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()==0){
       log('first slide is not an intro!');
-      return;
+      //return;
     }
     require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
       require(['gsap'], function(){
@@ -290,71 +335,110 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         smCtrl.removeScene(sfxScenes);
         sfxScenes = [];
 
-        // add text fade
-        sfxScenes.push(
-          new ScrollMagic.Scene({
-            triggerElement:  $firstSlide,
-            triggerHook:     'onLeave',
-            duration:        introEffectDuration
-          })
-          .setTween(
-            TweenMax.to(
-              $firstSlide.find(textTweenTargets),
-              1,
-              {
-                opacity: 0,
-                ease:    Cubic.easeOut
-              }
-            )
-          )
-          .addTo(smCtrl)
-        );
+        if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()>0){
 
-        // add pin and resize
-        sfxScenes.push(
-          new ScrollMagic.Scene({
-            triggerElement:  $firstSlide,
-            triggerHook:     'onLeave',
-            duration:        introEffectDuration
-          })
-          .setPin($firstSlide[0])
-          .setTween(
-            TweenMax.to(
-              $firstSlide.find('.ve-base-intro'),
-              1.25,
-              {
-                delay:      0.25,
-                width:      sassVars.ve_image_column_width,
-                ease:       Cubic.easeOut,
-                minHeight: '60vh'
-              }
+          // add text fade
+          sfxScenes.push(
+            new ScrollMagic.Scene({
+              triggerElement:  $firstSlide,
+              triggerHook:     'onLeave',
+              duration:        introEffectDuration
+            })
+            .setTween(
+              TweenMax.to(
+                $firstSlide.find(textTweenTargets),
+                1,
+                {
+                  opacity: 0,
+                  ease:    Cubic.easeOut
+                }
+              )
             )
-          )
-          .addTo(smCtrl)
-        );
+            .addTo(smCtrl)
+          );
 
-        // fade in new text
-        sfxScenes.push(
-          new ScrollMagic.Scene({
-            triggerElement: $firstSlide,
-            triggerHook:    'onLeave',
-            duration:       introEffectDuration * 2
-          })
-          .setTween(
-            TweenMax.fromTo(
-              $firstSlide.find('.ve-intro-full-description'),
-              1,
-              { opacity:    0 },
-              {
-                opacity:    1,
-                delay:      0.25,
-                ease:       Cubic.easeOut
-              }
+          // add pin and resize
+          sfxScenes.push(
+            new ScrollMagic.Scene({
+              triggerElement:  $firstSlide,
+              triggerHook:     'onLeave',
+              duration:        introEffectDuration
+            })
+            .setPin($firstSlide[0])
+            .setTween(
+              TweenMax.to(
+                $firstSlide.find('.ve-base-intro'),
+                1.25,
+                {
+                  delay:      0.25,
+                  width:      sassVars.ve_image_column_width,
+                  ease:       Cubic.easeOut,
+                  minHeight: '60vh'
+                }
+              )
             )
-          )
-          .addTo(smCtrl)
-        );
+            .addTo(smCtrl)
+          );
 
+          // fade in new text
+          sfxScenes.push(
+            new ScrollMagic.Scene({
+              triggerElement: $firstSlide,
+              triggerHook:    'onLeave',
+              duration:       introEffectDuration * 2
+            })
+            .setTween(
+              TweenMax.fromTo(
+                $firstSlide.find('.ve-intro-full-description'),
+                1,
+                { opacity:    0 },
+                {
+                  opacity:    1,
+                  delay:      0.25,
+                  ease:       Cubic.easeOut
+                }
+              )
+            )
+            .addTo(smCtrl)
+          );
+        }
+        else if($firstSlide.find('> .ve-base-ripples').size()>0){
+
+          // Ripples
+          var ripples = $('.ve-base-ripples');
+          var pin     = ripples.find('.ve-ripples-pin');
+          var circles = ripples.find('.brand-circles');
+
+          sfxScenes.push(
+            new ScrollMagic.Scene({
+              triggerElement: ripples,
+              triggerHook: 0,
+              duration: introEffectDuration * 2,
+              reverse: true,
+              offset: $('.page_header').height()
+            })
+            .setTween(
+              TweenMax.fromTo(
+                circles,
+                1,
+                {
+                  transform: "scale(1)",
+                  opacity:   0.7
+                },
+                {
+                  transform: "scale(10)",
+                  opacity:   0,
+                  ease:    Cubic.easeIn
+                }
+              )
+            )
+            .setPin(ripples[0])
+            .addTo(smCtrl)
+          );
+        }
+        else{
+          log('first slide is not an intro!');
+        }
 
         // Pin (rich) images
         //if($url.param('sfx')){
@@ -429,13 +513,23 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
   }
 
-  function initNavCorrection(){
-    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+  function navCorrections(){
+    var chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    if(chrome){
       $('.ve-anchor').not(':first').css('top', 0-$('.header').height());
+    }
+
+    var rippleIntro = $('.first .ve-base-ripples');
+
+    if(rippleIntro.size()>0){
+      // TODO: uses css classes for this
+      var nextAnchor = $('.ve-slide.first').next('noscript').next('.ve-slide').find('.ve-anchor');
+      log('move the anchor ' + nextAnchor.size() )
+      nextAnchor.css('top', chrome ? '-5.7em' : '-4.75em');
     }
   }
 
-  var scrollToAdaptedForPin = function($target){
+  function scrollToAdaptedForPin($target, afterResize){
 
     if($target.size()==0){
       return false;
@@ -444,16 +538,17 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     scrollExecuting = true;
 
     var finalScroll = function(){
-      $(window).scrollTo($target, scrollDuration, {
+      $(window).scrollTo($target,
+        afterResize ? scrollDuration / 2 : scrollDuration,  {
         onAfter: function(){
           scrollExecuting = false;
         }
       });
     };
 
-    if($('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
-      $(window).scrollTo($target.parent(),
-        scrollDuration,
+    if(afterResize || $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
+      $(window).scrollTo($target,
+        afterResize ? scrollDuration / 2 : scrollDuration,
         {
           axis:    'y',
           easing:  'linear',
