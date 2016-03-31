@@ -45,7 +45,7 @@
     <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
      <figure>
        {{#image}}
-         <picture>
+         <picture data-hi-res="{{#full}}{{url}}{{/full}}">
           {{>atoms/images/responsive-srcset-picture}}
          </picture>
        {{/image}}
@@ -79,7 +79,7 @@
             <div class="ve-image">
               <figure>
                 {{#image}}
-                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#caption}}alt="{{.}}"{{/caption}}>
                 {{/image}}
                 {{#caption}}
                   <figcaption>{{{.}}}</figcaption>
@@ -124,7 +124,7 @@
               <div class="ve-image">
                 <figure>
                   {{#image}}
-                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#caption}}alt="{{.}}"{{/caption}}>
                   {{/image}}
                   {{#caption}}
                     <figcaption>{{{.}}}</figcaption>

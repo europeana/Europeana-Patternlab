@@ -547,12 +547,12 @@
                     "orientation": "landscape"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/dada/japan-full.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-full.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/dada/japan-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-fullx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 }

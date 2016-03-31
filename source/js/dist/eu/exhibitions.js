@@ -196,8 +196,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
     $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
-    $('.rich_image .ve-image, .ve-base-image img').click(function(e){
-      showLightbox($(e.target).attr('src').replace('-thumbnail', '-full'));
+    $('.rich_image .ve-image img, .ve-base-image picture').click(function(e){
+      var tgt = $(e.target);
+      showLightbox(tgt.data('hi-res') || tgt.closest('picture').data('hi-res'));
     });
   }
 
