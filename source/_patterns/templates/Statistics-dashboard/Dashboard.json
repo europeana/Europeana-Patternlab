@@ -34,11 +34,39 @@
         "items": [
           {
             "text": "Overall Statistics",
-            "is_current": true
+            "is_current": false
           },
           {
-            "text": "By Country",
-            "submenu": false
+            "text": "Find a dashboard",
+            "submenu": {
+              "items": [
+                {
+                  "url": false,
+                  "text": "Browse Statistics:",
+                  "subtitle": true
+                },
+                {
+                  "url": "http://statistics.europeana.eu/countries",
+                  "text": "By Country"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": false,
+                  "text": "Find statistics for an organisation:",
+                  "subtitle": true
+                },
+                {
+                  "url": "http://statistics.europeana.eu/dataproviders",
+                  "text": "Find an Aggregator"
+                },
+                {
+                  "url": "http://statistics.europeana.eu/providers",
+                  "text": "Find an Institution"
+                }
+              ]
+            }
           },
           false,
           false
@@ -86,7 +114,7 @@
   "content": {
     "stats_source": "Stats Source",
     "stats_bar": {
-      "items":[
+      "items": [
         {
           "title": "Total Visits in 2014",
           "value": "17,060,879",
@@ -119,114 +147,114 @@
         }
       ]
     },
-    "numberedlist":{
-      "title":"Top 25 Objects",
+    "numberedlist": {
+      "title": "Top 25 Objects",
       "description": "Consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae",
       "items": [
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/thumb-dancers.jpg",
+          "image": "sample/thumb-dancers.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         },
         {
-          "image":"sample/entry-hokusai-square.jpg",
+          "image": "sample/entry-hokusai-square.jpg",
           "title": "Lorem ipsum dolor sit amet",
           "url": "http://europeana.eu",
-          "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
-          "extra":"Views: 275"
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, reprehenderit maiores mollitia! Qui eaque hic molestiae, sit eum soluta eveniet?",
+          "extra": "Views: 275"
         }
       ]
     },
@@ -245,42 +273,42 @@
       "value": "3521",
       "description": "The total number of institutions working with Europeana."
     },
-    "charts":{
-      "main_chart":{
+    "charts": {
+      "main_chart": {
         "title": "Main chart title here",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
-        "id":"add_id_for_main_chart_here",
-        "api":"api here",
+        "id": "add_id_for_main_chart_here",
+        "api": "api here",
         "datacast_identifier": "datacast_identifier here",
         "class": "chart class here",
         "filter_present": "filter_present here",
         "filter_column_name": "filter_column_name here"
       },
-      "topcountries":{
+      "topcountries": {
         "title": "Top 25 Countries",
         "description": "neep Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
-        "id":"id_for_chart_here",
-        "api":"api here",
+        "id": "id_for_chart_here",
+        "api": "api here",
         "datacast_identifier": "datacast_identifier here",
         "class": "chart class here",
         "filter_present": "filter_present here",
         "filter_column_name": "filter_column_name here"
       },
-      "total_items":{
+      "total_items": {
         "title": "Total number of items",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at. <a href='#alinkhere'>This is a link</a>",
-        "id":"id_for_chart_here",
-        "api":"api here",
+        "id": "id_for_chart_here",
+        "api": "api here",
         "datacast_identifier": "datacast_identifier here",
         "class": "chart class here",
         "filter_present": "filter_present here",
         "filter_column_name": "filter_column_name here"
       },
-      "open_for_reuse":{
+      "open_for_reuse": {
         "title": "Open for Re-use",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quasi aliquam nemo eos explicabo expedita nam obcaecati, voluptas quae, at.",
-        "id":"id_for_chart_here",
-        "api":"api here",
+        "id": "id_for_chart_here",
+        "api": "api here",
         "datacast_identifier": "datacast_identifier here",
         "class": "chart class here",
         "filter_present": "filter_present here",
