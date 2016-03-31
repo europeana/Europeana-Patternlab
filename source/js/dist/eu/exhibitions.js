@@ -1,8 +1,12 @@
 define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   var inEditor            = false;
+
+  var $firstSlide         = $('.ve-slide.first');
+  var $introE             = $('.ve-exhibition .ve-slide.first .ve-intro');
+  var $introC             = $('.ve-chapter .ve-slide.first .ve-intro');
   var $url                = $.url();
-  var smIsDestroyed       = false;
+
   var sfxScenes           = [];
   var introEffectDuration = 500;
   var lightboxOpen        = false;
@@ -53,18 +57,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     $(window).europeanaResize(function(){
 
-      var cleanup = function(){
-        $.each(sfxScenes, function(i, ob){
-          ob.destroy(true);
-          log('destroy scene...');
-        });
-        scrollExecuting = true;
-
-        $('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style');
-        $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-base-intro, .ve-slide.first .ve-base-ripples').removeAttr('style');
-        $('.scrollmagic-pin-spacer').remove();
-      }
-
       if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
@@ -76,13 +68,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 'box-sizing': 'content-box',
                 'min-height': '100vh'
               });
-          cleanup();
+          smCleanup();
         }
       }
       else{
         if(smCtrl){
             var hash = window.location.hash;
-            cleanup();
+            smCleanup();
             initSFX();
             if(hash){
               var $hash = $(hash);
@@ -106,8 +98,25 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     return $('#desktop_detect').width()>0;
   }
 
+  var smCleanup = function(){
+    scrollExecuting = true;
+
+    $.each(sfxScenes, function(i, ob){
+      ob.destroy(true);
+    });
+
+    $('.scrollmagic-pin-spacer > .ve-slide, .scrollmagic-pin-spacer > .ve-image, .scrollmagic-pin-spacer > .ve-base-quote').removeAttr('style');
+    $(textTweenTargets + ', .ve-slide.first .ve-intro-full-description, .ve-slide.first, .ve-slide.first .ve-intro, .ve-slide.first').removeAttr('style');
+    $('.scrollmagic-pin-spacer').remove();
+  }
+
   function initKeyCtrl(){
     $(document).on( "keydown", function(e) {
+
+      if(e.ctrlKey){
+        log('ctrl held');
+        return;
+      }
 
       if([33, 34, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
           /* pgUp, pgDn, left, up, right, down */
@@ -284,22 +293,24 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(!isDesktop()) {
         return;
     }
-    var $firstSlide = $('.ve-slide.first');
 
     require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
       require(['gsap'], function(){
 
         smCtrl.removeScene(sfxScenes);
-        sfxScenes = [];
+        sfxScenes    = [];
 
-        if($firstSlide.find('> .ve-base-intro:not(.ve-base-foyer-main)').size()>0){
+        var isIntroE = $introE.size() > 0;
+        var isIntroC = $introC.size() > 0;
+
+        if(isIntroC || isIntroE){
 
           // add text fade
           sfxScenes.push(
             new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        introEffectDuration
+              duration:        isIntroE ? introEffectDuration * 2 : introEffectDuration
             })
             .setTween(
               TweenMax.to(
@@ -313,6 +324,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             )
             .addTo(smCtrl)
           );
+        }
+
+        if(isIntroC){
 
           // add pin and resize
           sfxScenes.push(
@@ -324,7 +338,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             .setPin($firstSlide[0])
             .setTween(
               TweenMax.to(
-                $firstSlide.find('.ve-base-intro'),
+                $firstSlide.find('.ve-intro'),
                 1.25,
                 {
                   delay:      0.25,
@@ -359,16 +373,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             .addTo(smCtrl)
           );
         }
-        else if($firstSlide.find('> .ve-base-ripples').size()>0){
+        else if(isIntroE){
 
-          // Ripples
-          var ripples = $('.ve-base-ripples');
-          var pin     = ripples.find('.ve-ripples-pin');
-          var circles = ripples.find('.brand-circles');
+          var circles = $introE.find('.brand-circles');
 
           sfxScenes.push(
             new ScrollMagic.Scene({
-              triggerElement: ripples,
+              triggerElement: $introE,
               triggerHook: 0,
               duration: introEffectDuration * 2,
               reverse: true,
@@ -389,7 +400,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 }
               )
             )
-            .setPin(ripples[0])
+            .setPin($introE[0])
             .addTo(smCtrl)
           );
         }
@@ -473,14 +484,16 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       $('.ve-anchor').not(':first').css('top', 0-$('.header').height());
     }
 
-    var rippleIntro = $('.first .ve-base-ripples');
+    // TODO: uses css classes for this
+    var nextAnchor = $('.ve-slide.first').next('noscript').next('.ve-slide').find('.ve-anchor');
+    log('move the anchor ' + nextAnchor.size() )
 
-    if(rippleIntro.size()>0){
-      // TODO: uses css classes for this
-      var nextAnchor = $('.ve-slide.first').next('noscript').next('.ve-slide').find('.ve-anchor');
-      log('move the anchor ' + nextAnchor.size() )
-      nextAnchor.css('top', chrome ? '-5.7em' : '-4.65em');
+    if($introE.size()>0){
+      nextAnchor.css('top', chrome ? '-4.76em' : '-3.68em');
     }
+    //else if(isIntro){
+    //  nextAnchor.css('top', chrome ? '-5.7em' : '-3.69em');
+    //}
   }
 
   function scrollToAdaptedForPin($target, afterResize){
@@ -650,35 +663,37 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     $('.ve-progress-nav a').each(function(i, ob){
 
-      ob                = $(ob);
+      ob = $(ob);
+
+      var imgUrl;
       var target        = $(ob.attr('href'));
       var section       = target.closest('.ve-slide');
       var bubbleContent = ob.find('.speech-bubble .speech-bubble-inner');
 
-      var baseImage = section.find('.ve-base-image');
-      var baseIntro = section.find('.ve-base-intro');
-      var richImage = section.find('.ve-base-title-image-text');
-      var baseQuote = section.find('.ve-base-quote');
-      var baseEmbed = section.find('.ve-base-embed');
+      var baseImage   = section.find('.ve-base-image');
+      var baseIntro   = section.find('.ve-intro');
+      var richImage   = section.find('.ve-base-title-image-text');
+      var baseQuote   = section.find('.ve-base-quote');
+      var baseEmbed   = section.find('.ve-base-embed');
 
       if(baseIntro.size() > 0){
-        var imgUrl = baseIntro.css('background-image');
+        imgUrl = baseIntro.css('background-image');
         imgUrl = imgUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-        bubbleContent.html('<img src="' + imgUrl + '">');
       }
       else if(baseImage.size() > 0){
-        var imgUrl = baseImage.find('img').attr('src');
-        bubbleContent.html('<img src="' + imgUrl + '">');
+        imgUrl = baseImage.find('img').attr('src');
       }
       else if(richImage.size() > 0){
-        var imgUrl = richImage.find('img').attr('src');
-        bubbleContent.html('<img src="' + imgUrl + '">');
+        imgUrl = richImage.find('img').attr('src');
       }
       else if(baseQuote.size() > 0){
         bubbleContent.html('<span style="white-space:nowrap">"Quote..."</span>');
       }
       else if(baseEmbed.size() > 0){
         bubbleContent.html('<span style="white-space:nowrap">Embed</span>');
+      }
+      if(imgUrl){
+        bubbleContent.html('<img src="' + imgUrl + '">');
       }
     });
   }

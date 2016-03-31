@@ -1,10 +1,13 @@
 {
   "pattern_lab_reset": "start",
 
-  "title": "Exhibitions Foyer Page",
+  "title":             "Exhibitions Foyer Page",
+  "is_exhibition":     false,
+  "is_chapter":        false,
 
   "pattern_lab_reset": "end",
 
+  "is_foyer": true,
 
   "js_files": [{
       "path": "../../js/dist/require.js",

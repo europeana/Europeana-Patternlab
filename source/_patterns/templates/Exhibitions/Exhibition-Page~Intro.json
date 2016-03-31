@@ -1,10 +1,12 @@
 {
   "pattern_lab_reset": "start",
 
-  "title": false,
+  "title":             false,
+  "is_chapter":        false,
 
   "pattern_lab_reset": "end",
 
+  "is_exhibition": true,
 
   "js_files": [{
       "path": "../../js/dist/require.js",
@@ -189,9 +191,18 @@
       "items":[
         {
             "id": "x1_2",
-            "is_ripple": true,
+            "is_intro": true,
             "is_first": true,
             "section_title": "Another intro type",
+            "title": "Faces of Europe",
+            "subtitle": "The first chapter of this amazing virtual exhibition",
+            "image_credit": {
+              "attribution_title": "Battle of Grunweald",
+              "attribution_creator": "Jan Matejko",
+              "attribution_institution": "Muzeum Narodowe W Warszawie",
+              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+              "license_public": true
+            },
             "image":
             {
               "full": {
@@ -277,7 +288,7 @@
                     "orientation": "portrait"
                 }
             },
-            "caption": "Le Japon artistique, n° 3"
+            "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0"
         },
         {
             "id":      "3.1",
@@ -351,7 +362,7 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor"
+            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0"
         },
         {
             "id": "4_2",
@@ -404,7 +415,7 @@
             },
             "title": "Art Nouveau",
             "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>",
-            "intro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+            "XXXintro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
         },
         {
             "id": "6",
@@ -468,7 +479,7 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Adam and Eve - Victor Brauner"
+            "caption": "Adam and Eve - Victor Brauner. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0"
         },
 
         {
@@ -538,8 +549,7 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arthur Segal with his son Walter, Berlin"
-
+            "caption": "Arthur Segal with his son Walter, Berlin. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0"
         },
         {
             "id": "12",
@@ -553,62 +563,6 @@
             "type": "quote",
             "quote": "She's fast enough for you old man.  What's the cargo?",
             "quotee": "Han Solo - captain of the millennium falcon."
-        },
-        {
-            "id": "14",
-            "is_section": true,
-            "section_title": "Sagrada Familia"
-        },
-        {
-            "id": "15",
-            "type": "image",
-            "is_image": true,
-            "is_last": true,
-            "is_landscape": true,
-            "image":
-            {
-                "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "small": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "smallx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "half": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "halfx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "portrait"
-                },
-                "full": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "landscape"
-                },
-                "fullx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
-                    "alt": "SagradaFamilia Sostre",
-                    "orientation": "landscape"
-                }
-            },
-            "caption": "SagradaFamilia Sostre"
         }
       ]
     },
