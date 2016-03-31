@@ -34,11 +34,39 @@
         "items": [
           {
             "text": "Overall Statistics",
-            "is_current": true
+            "is_current": false
           },
           {
-            "text": "By Country",
-            "submenu": false
+            "text": "Find a dashboard",
+            "submenu": {
+              "items": [
+                  {
+                    "url": false,
+                    "text": "Browse Statistics:",
+                    "subtitle": true
+                  },
+                  {
+                    "url": "http://statistics.europeana.eu/countries",
+                    "text": "By Country"
+                  },
+                  {
+                      "is_divider": true
+                  },
+                  {
+                    "url": false,
+                    "text": "Find statistics for an organisation:",
+                    "subtitle": true
+                  },
+                  {
+                    "url": "http://statistics.europeana.eu/dataproviders",
+                    "text": "Find an Aggregator"
+                  },
+                  {
+                    "url": "http://statistics.europeana.eu/providers",
+                    "text": "Find an Institution"
+                  }
+              ]
+            }
           },
           false,
           false
