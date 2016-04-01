@@ -69,16 +69,16 @@
     overflow:          hidden;
     position:          relative;
 
-    .brand-circles{
-      display: none;
-      width: 40%;
-      top: auto;
-      bottom: 0;
-    }
+    //.brand-circles{
+    //  display: none;
+    //  width: 40%;
+    //  top: auto;
+    //  bottom: 0;
+    //}
 
-    .brand-circles .scaling-svg-container{
-      transform: rotate(270deg);
-    }
+    //.brand-circles .scaling-svg-container{
+    //  transform: rotate(270deg);
+    //}
   }
 }
 
@@ -370,9 +370,9 @@ a:hover > .ve-state-button-off,
     overflow:          hidden;
     position:          relative;
 
-    .brand-circles{
-      display: block;
-    }
+    //.brand-circles{
+    //  display: block;
+    //}
   }
 }
 

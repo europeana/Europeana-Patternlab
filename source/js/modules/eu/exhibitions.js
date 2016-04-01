@@ -392,19 +392,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         }
         else if(isIntroE){
 
-          var circles = $introE.find('.brand-circles');
 
           sfxScenes.push(
             new ScrollMagic.Scene({
               triggerElement: $introE,
               triggerHook: 0,
-              duration: introEffectDuration * 2,
+              duration: introEffectDuration,
               reverse: true,
               offset: $('.page_header').height()
             })
+            .setPin($introE[0])
+            .addTo(smCtrl)
+            /*
             .setTween(
               TweenMax.fromTo(
-                circles,
+                $introE.find('.brand-circles'),
                 1,
                 {
                   transform: "scale(1)",
@@ -417,8 +419,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 }
               )
             )
-            .setPin($introE[0])
-            .addTo(smCtrl)
+            */
           );
         }
         else{
