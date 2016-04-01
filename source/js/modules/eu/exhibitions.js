@@ -403,23 +403,12 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             })
             .setPin($introE[0])
             .addTo(smCtrl)
-            /*
-            .setTween(
-              TweenMax.fromTo(
-                $introE.find('.brand-circles'),
-                1,
-                {
-                  transform: "scale(1)",
-                  opacity:   0.7
-                },
-                {
-                  transform: "scale(10)",
-                  opacity:   0,
-                  ease:    Cubic.easeIn
-                }
-              )
-            )
-            */
+            .on('progress', function(e){
+
+                //var val = 1-e.progress;
+                var val = e.progress;
+                $introE.css('filter', 'grayScale(' + val + ')');
+            })
           );
         }
         else{

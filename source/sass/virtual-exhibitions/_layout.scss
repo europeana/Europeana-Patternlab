@@ -13,71 +13,67 @@
     width:1px;
   }
 
+  .ve-anchor.no-js{
+    bottom:   0;
+    position: relative;
+  }
 
-    .ve-anchor.no-js{
-      bottom:   0;
-      position: relative;
+  .ve-slide{
+    &.first .ve-anchor:not(.no-js){
+      // 10em enough to pull back beyond header
+      top: -100em;
     }
 
-    .ve-slide{
-      &.first .ve-anchor:not(.no-js){
-        // 10em enough to pull back beyond header
-        top: -100em;
-      }
-
       // layout: compensate for header
-      &.first{
+    &.first{
+      min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+      min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+      min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+
+      .ve-base-foyer-main,
+      .ve-base-intro-texts,
+      .ve-full-height{
         min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
         min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
         min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-
-        .ve-base-foyer-main,
-        .ve-base-intro-texts,
-        .ve-full-height{
-          min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-        }
-      }
-
-      &:not(.first){
-        min-height: -webkit-calc(100vh - 4.8rem);
-        min-height:    -moz-calc(100vh - 4.8rem);
-        min-height:         calc(100vh - 4.8rem);
-
-        .ve-base-foyer-main,
-        .ve-base-intro-texts,
-        .ve-full-height,
-        .ve-intro{
-           min-height: -webkit-calc(100vh - 4.8rem);
-           min-height:    -moz-calc(100vh - 4.8rem);
-           min-height:         calc(100vh - 4.8rem);
-        }
       }
     }
 
+    &:not(.first){
+      min-height: -webkit-calc(100vh - 4.8rem);
+      min-height:    -moz-calc(100vh - 4.8rem);
+      min-height:         calc(100vh - 4.8rem);
 
-  .ve-chapter{
-    .ve-slide{
-      &.first{
-        .ve-intro{
-          min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-          min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
-        }
+      .ve-base-foyer-main,
+      .ve-base-intro-texts,
+      .ve-full-height,
+      .ve-intro{
+         min-height: -webkit-calc(100vh - 4.8rem);
+         min-height:    -moz-calc(100vh - 4.8rem);
+         min-height:         calc(100vh - 4.8rem);
       }
     }
   }
-  .ve-exhibition{
-    .ve-slide{
-      &.first{
-        .ve-intro{
-          min-height: -webkit-calc(100vh - 4.8rem);
-          min-height:    -moz-calc(100vh - 4.8rem);
-          min-height:         calc(100vh - 4.8rem);
-        }
+
+  .ve-chapter{
+    .ve-slide.first{
+      .ve-intro{
+        min-height: -webkit-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:    -moz-calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
+        min-height:         calc(100vh - 4.8rem - 1.8rem - 2 * 0.5rem);
       }
     }
+  }
+
+  .ve-exhibition{
+    .ve-slide.first{
+      .ve-intro{
+        min-height: -webkit-calc(100vh + 2px - 4.8rem);
+        min-height:    -moz-calc(100vh + 2px - 4.8rem);
+        min-height:         calc(100vh + 2px - 4.8rem);
+      }
+    }
+
   }
 
 
