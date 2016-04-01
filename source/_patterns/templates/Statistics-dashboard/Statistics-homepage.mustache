@@ -31,31 +31,27 @@
 	</div>
 
 
+{{# content.quicklinks }}
 	<div class="l-usefulinfo usefulinfo">
 
-		<h2>Quick links</h2>
+		<h2>{{ title }}</h2>
 
+		{{# items }}
 		<div class="l-usefulinfo-item">
 			<div class="usefulinfo-item">
 
-				<h3>Find your Dashboard</h3>
+				<h3>{{ title }}</h3>
 
 				<ul class="usefulinfo-links">
-				<li><a href="">Find an Aggregator</a></li>
-				<li><a href="">Find an Institution</a></li>
+				{{# items }}
+				<li><a href="{{ url }}">{{ text }}</a></li>
+				{{/ items }}
 				</ul>
 			</div>
 		</div>
-		<div class="l-usefulinfo-item">
-			<div class="usefulinfo-item">
-				<h3>Browse Statistics:</h3>
-
-				<ul class="usefulinfo-links">
-					<li><a href="">By Country</a></li>
-				</ul>
-			</div>
-		</div>
+		{{/ items }}
 	</div>
+{{/ content.quicklinks }}
 
 </div>
 </div>

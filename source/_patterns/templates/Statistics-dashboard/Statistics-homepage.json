@@ -110,5 +110,34 @@
         ]
       }
     }
+  },
+  "content":{
+    "quicklinks":{
+      "title":"Quick Links",
+      "items":[
+        {
+          "title":"Find your Dashboard",
+          "items":[
+            {
+              "text": "Find an Aggregator",
+              "url": "http://statistics.europeana.eu/dataproviders"
+            },
+            {
+              "text": "Find an Institution",
+              "url": "http://statistics.europeana.eu/providers"
+            }
+          ]
+        },
+        {
+          "title":"Browse Statistics:",
+          "items":[
+            {
+              "text": "By Country",
+              "url": "http://statistics.europeana.eu/countries"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
