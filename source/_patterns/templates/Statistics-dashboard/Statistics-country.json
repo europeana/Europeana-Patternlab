@@ -33,7 +33,7 @@
         "menu_id": "main-menu",
         "items": [
           {
-            "text": "Overall Statistics",
+            "text": "Europeana Stats",
             "is_current": false
           },
           {

@@ -33,7 +33,7 @@
         "menu_id": "main-menu",
         "items": [
           {
-            "text": "Overall Statistics",
+            "text": "Europeana Stats",
             "is_current": false
           },
           {
@@ -109,6 +109,35 @@
           }
         ]
       }
+    }
+  },
+  "content":{
+    "quicklinks":{
+      "title":"Quick Links",
+      "items":[
+        {
+          "title":"Find your Dashboard",
+          "items":[
+            {
+              "text": "Find an Aggregator",
+              "url": "http://statistics.europeana.eu/dataproviders"
+            },
+            {
+              "text": "Find an Institution",
+              "url": "http://statistics.europeana.eu/providers"
+            }
+          ]
+        },
+        {
+          "title":"Browse Statistics:",
+          "items":[
+            {
+              "text": "By Country",
+              "url": "http://statistics.europeana.eu/countries"
+            }
+          ]
+        }
+      ]
     }
   }
 }
