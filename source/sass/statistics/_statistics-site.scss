@@ -11,11 +11,10 @@
 
 .site-hero{
 	height: 30%;
-	//text-align: center;
-	background-color: $accent;
 
 	.hero-content{
 		padding: $space;
+		color: $textcolour_heavy;
 	}
 
 	.title{
