@@ -39,7 +39,7 @@
       linking back to data in the referring document.
     </div>
     <div>
-      This link works, but only because of an attribute on the <a href="#test-link">test link</a> below, and other data on this page described below.
+      The above link works, but only because of an attribute on the <a href="#test-link">test link</a> below, and other data embedded in this page.
     </div>
 
     <h3>The Data Needed</h3>
@@ -75,7 +75,7 @@
           href="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963">
           the work's origin
        </a>
-      that generates the content of the "cite" box.  These attributes are necessary:
+      that generates the content of the "cite" box.  These attributes are necessary on the &lt;a&gt; element:
       <ul>
         <li>property="cc:attributionName"</li>
         <li>rel="cc:attributionURL"</li>
@@ -85,9 +85,9 @@
 
     <h4>a guidelines referencing element</h4>
     <div>
-      We have an element - like
+      An element - like
       <span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/">this span</span> -
-      with attributes referencing the guidelines document:
+      has to be present, with attributes referencing the guidelines document:
       <ul>
         <li>rel="cc:useGuidelines"</li>
         <li>resource="http://www.europeana.eu/rights/pd-usage-guide/"</li>
@@ -101,6 +101,7 @@
       <ul>
         <li>rel="xhv:license http://www.europeana.eu/schemas/edm/rights"</li>
       </ul>
+      Nothing works without xhv:license.
     </div>
 
     <h3>Test</h3>
@@ -113,7 +114,7 @@
     <h4>link</h4>
     <a id="test-link"></a>
     <div>
-      Here's the working
+      Here's a working
       <a href="http://creativecommons.org/publicdomain/mark/1.0/"
          target="_blank"
          rel="xhv:license http://www.europeana.eu/schemas/edm/rights">
@@ -121,9 +122,8 @@
       </a>
       to a rights page.  If this is being read from a publicly available server then the above link will contain the text
       "<span class=highlight>Non-binding use guidelines apply to this work.</span>"
-      and other data scraped from its referrer, i.e. this page.
+      and other data scraped from this page.
     </div>
-
 
     <h4>other</h4>
     <div>
@@ -133,7 +133,7 @@
          <li>cc:morePermissions</li>
          <li>TODO: find them all</li>
        </ul>
-       but that is are not used here.
+       but that is not used here.
     </div>
 
   </body>
