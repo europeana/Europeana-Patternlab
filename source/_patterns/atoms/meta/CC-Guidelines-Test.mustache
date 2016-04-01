@@ -13,17 +13,32 @@
     <h1>Test Guidelines</h1>
 
     <div>
-      <h3>The thing being tested</h3>
-      <a href="http://creativecommons.org/publicdomain/mark/1.0/">CC guidelines page</a>
-    </div>
-    <div>
-      <span property="http://purl.org/dc/elements/1.1/title dc:title">Test Title</span>
-    </div>
+      The head of the document has an "about" attribute referencing the document url
+      <br/>
+      <h3>The thing being tested...</h3>
 
-    <div>
-      <a href="http://www.google.co.uk" rel="xhv:license http://www.europeana.eu/schemas/edm/rights">Some link</a>
+      <a href="http://creativecommons.org/publicdomain/mark/1.0/"
+         title="Public Domain marked"
+         target="_blank"
+         rel="xhv:license http://www.europeana.eu/schemas/edm/rights">
+         Link to CC guidelines page - has xhv rel
+      </a>
+      <br/>
+      <br/>
+      <h3>A link to a resource:</h3>
 
-      <span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/"></span>
+      <a about="http://www.europeana.eu/resolve/record/9200397/BibliographicResource_3000126264590"
+         id="urlRefIsShownAt"
+         href="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963"
+         target="_blank"
+         rel="nofollow rdfs:seeAlso cc:attributionURL cc:morePermissions"
+         resource="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963">The British Library</a>
+      <br/>
+      <br/>
+      title property:<span property="http://purl.org/dc/elements/1.1/title dc:title">Test Title</span>
+      <br/>
+      enpty span with ref to guidelines: <span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/"></span>
+      <br/>
     </div>
 
   </body>
