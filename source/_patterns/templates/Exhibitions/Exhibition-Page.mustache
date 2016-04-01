@@ -45,17 +45,20 @@
         <a id="ve-end"></a>
       </div>
 
-      <div class="ve-chapter-selection-container cf">
-        {{#chapter_elements}}
-          {{#present}}
-            {{#items}}
-              {{#is_chapter_nav}}
-                {{> organisms/virtual-exhibitions/chapter-selection}}
-              {{/is_chapter_nav}}
-            {{/items}}
-          {{/present}}
-        {{/chapter_elements}}
-      </div>
+      {{#is_exhibition}}
+        <div class="ve-chapter-selection-container cf">
+          {{#chapter_elements}}
+            {{#present}}
+              {{#items}}
+                {{#is_chapter_nav}}
+                  {{> organisms/virtual-exhibitions/chapter-selection}}
+                {{/is_chapter_nav}}
+              {{/items}}
+            {{/present}}
+          {{/chapter_elements}}
+        </div>
+      {{/is_exhibition}}
+
     {{/ page_data }}
 
 
