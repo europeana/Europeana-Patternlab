@@ -25,6 +25,22 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function initExhibitions(){
 
+    $('.logo').click(function(e){
+
+
+        log('Assess anchor offsets...');
+
+        var hh  = $('header').height();
+        var phh = $('.page_header').height();
+
+        var css = $('header').css('height');
+
+        log('hh = ' + hh + ', phh = ' + phh + ', total = ' + (hh + phh) + '   css: ' + css);
+
+        e.preventDefault()
+
+    });
+
     inEditor = false;
 
     if($(document).closest('iframe').size() > 0 ){
@@ -481,20 +497,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function navCorrections(){
     var chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-    if(chrome){
-      $('.ve-anchor').not(':first').css('top', 0-$('.header').height());
-    }
-
-    // TODO: uses css classes for this
-    var nextAnchor = $('.ve-slide.first').next('noscript').next('.ve-slide').find('.ve-anchor');
-    log('move the anchor ' + nextAnchor.size() )
-
-    if($introE.size()>0){
-      nextAnchor.css('top', chrome ? '-4.76em' : '-3.68em');
-    }
-    //else if(isIntro){
-    //  nextAnchor.css('top', chrome ? '-5.7em' : '-3.69em');
-    //}
+    var hh     = $('header').height();
+    var ah     =  $($('.ve-anchor').get(0)).height();
+    var offset = chrome ? -1 : 4;
+    var total  = (0-hh) + (ah - offset);
+    $('.ve-anchor').not(':first').css('top', total);
   }
 
   function scrollToAdaptedForPin($target, afterResize){
