@@ -9,47 +9,73 @@
     <h1>Test Guidelines</h1>
 
     <div>
+      <h3>Description</h3>
+
+      This is the simplest working setup to get links to
+      <a href="http://creativecommons.org/publicdomain/mark/1.0/">http://creativecommons.org/publicdomain/mark/1.0/</a>
+      linking back to data the referring document.
       <br/>
-      <h3>The thing being tested...</h3>
       <br/>
+
+      <h3>Warning</h3>
+      Keep an eye on the net tab when you open the link - it can time out contacting scraper.creativecommons.org...
+      <br/>
+      <br/>
+
+      <h3>The Test</h3>
 
       <div xmlns:cc="http://creativecommons.org/ns#"
            xmlns:dc="http://purl.org/dc/elements/1.1/"
            xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
 
-        The head of the document has an "about" attribute referencing the document url
+        No metadata is needed in the head of the document,
+        but this text's containg div has some xml namespace attributes
+        <ul>
+          <li>xmlns:cc="http://creativecommons.org/ns#"</li>
+          <li>xmlns:dc="http://purl.org/dc/elements/1.1/"</li>
+          <li>xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#"</li>
+        </ul>
+        <br/>
+        <br/>
+        The rights link below has rel attribute of "xhv:license http://www.europeana.eu/schemas/edm/rights"
         <br/>
         <a href="http://creativecommons.org/publicdomain/mark/1.0/"
-           title="Public Domain marked"
            target="_blank"
            rel="xhv:license http://www.europeana.eu/schemas/edm/rights">
-           Link to CC guidelines page - has xhv rel and a property 'cc:attributionName'
+           Link to CC rights page
         </a>
         <br/>
         <br/>
+        Here in the document we have the bit that generates the content of the "cite" box.
+        <ul>
+          <li>property="cc:attributionName"</li>
+          <li>rel="cc:attributionURL"</li>
+          <li>href="the edm isShownAt"</li>
+        </ul>
         <a property="cc:attributionName"
            rel="cc:attributionURL"
            href="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963">
            Link to the origin
         </a>
+
+        Other metadata used in the old portal included:
+        <ul>
+          <li>rdfs:seeAlso</li>
+          <li>cc:morePermissions</li>
+        </ul>
+        but they are not used here.
       </div>
 
       <br/>
       <br/>
-<!--
-      <h3>A link to a resource:</h3>
-      <a about="http://www.europeana.eu/resolve/record/9200397/BibliographicResource_3000126264590"
-         id="urlRefIsShownAt"
-         href="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963"
-         target="_blank"
-         rel="nofollow rdfs:seeAlso cc:attributionURL cc:morePermissions"
-         resource="http://www.bl.uk/catalogues/illuminatedmanuscripts/ILLUMIN.ASP?Size=mid&IllID=22963">The British Library</a>
- -->
+      The "Work Details" label comes from this span:
+      <br/>
+      <span property="http://purl.org/dc/elements/1.1/title dc:title">Test Title</span>
       <br/>
       <br/>
-      title property:<span property="http://purl.org/dc/elements/1.1/title dc:title">Test Title</span>
+      Finally we have an empty span rel/resource attributes referencing the guidelines:
       <br/>
-      enpty span with ref to guidelines: <span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/"></span>
+      <span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/"></span>
       <br/>
     </div>
 
