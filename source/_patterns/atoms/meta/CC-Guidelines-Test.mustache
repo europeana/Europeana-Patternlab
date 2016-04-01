@@ -36,8 +36,10 @@
           <a target="_new" href="http://creativecommons.org/publicdomain/mark/1.0/">http://creativecommons.org/publicdomain/mark/1.0/</a>
         </li>
       </ul>
-      linking back to data in the referring document. (jump to <a href="#test-link">test link</a>)
-
+      linking back to data in the referring document.
+    </div>
+    <div>
+      This link works, but only because of an attribute on the <a href="#test-link">test link</a> below, and other data on this page described below.
     </div>
 
     <h3>The Data Needed</h3>
@@ -90,7 +92,7 @@
         <li>rel="cc:useGuidelines"</li>
         <li>resource="http://www.europeana.eu/rights/pd-usage-guide/"</li>
       </ul>
-      This becomes the href of the "<span class=highlight>Non-binding use guidelines apply to this work</span>" text
+      This becomes the href of the "<span class=highlight>Non-binding use guidelines apply to this work</span>" text.
     </div>
 
     <h4>license rel (url)</h4>
@@ -113,7 +115,8 @@
     <div>
       Here's the working
       <a href="http://creativecommons.org/publicdomain/mark/1.0/"
-         target="_blank">
+         target="_blank"
+         rel="xhv:license http://www.europeana.eu/schemas/edm/rights">
          test link
       </a>
       to a rights page.  If this is being read from a publicly available server then the above link will contain the text
