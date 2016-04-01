@@ -71,9 +71,25 @@
       {{/ next_page }}
     </div>
 
+    {{#social}}
+      <div class="ve-social">
+        {{#text}}<h2 class="text">{{.}}</h2>{{/text}}
+        {{> molecules/controls/share-social }}
+      </div>
+    {{/social}}
+
   </div>
 
 </main>
 {{> molecules/components/photoswipe/photoswipe }}
 
-{{> organisms/global/footer }}
+{{#is_exhibition}}
+  {{> organisms/global/footer }}
+{{/is_exhibition}}
+{{#is_chapter}}
+  {{#footer}}
+    <footer class="ve-footer footer" role="contentinfo">
+      {{> molecules/navigation/linklist-simple}}
+    </footer>
+  {{/footer}}
+{{/is_chapter}}

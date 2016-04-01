@@ -426,6 +426,7 @@ a:hover > .ve-state-button-off,
 
 
 .ve-intro-full-description{
+  margin-top: 1em;
   text-align: left;
 }
 
@@ -435,6 +436,36 @@ a:hover > .ve-state-button-off,
   font-weight:      normal;
   padding:          0.3em 0.7em;
   text-transform:   uppercase;
+}
+
+.ve-social{
+  float:     left;
+  left:      50%;
+  transform: translateX(-50%);
+  position:  relative;
+  text-align: center;
+}
+
+.ve-footer{
+  @media all and (min-width: $bp-med) {
+    .linklist-simple{
+      margin: auto;
+      width:  80%;
+    }
+  }
+  li{
+    font-size:   1.2rem;
+    font-weight: bold;
+    text-align:  center;
+    width:       100%;
+    a{
+      color: $gray-dark;
+    }
+    @media all and (min-width: $bp-med) {
+      float: left;
+      width: 25%;
+    }
+  }
 }
 
 @media all and (min-width: $bp-small-2) {

@@ -33,7 +33,10 @@
 
 .ve-partner-logo{
   background-color: #fff;
-  padding:          0.5em;
+  padding:          1 0.5em 0.5em;
+  img{
+    max-height: 3.8em;
+  }
 }
 
 @media all and (min-width: $bp-small-2) {
