@@ -25,6 +25,9 @@
     background-color: orange;
   }
   a{
+    height:   100%;
+    position: absolute;
+    width:    100%;
     &:hover, &:focus{
       background-color: rgba($accent, .8);
     }

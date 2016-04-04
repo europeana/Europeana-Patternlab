@@ -1,15 +1,15 @@
 <figure class="ve-chapter-selection">
-  <a href="{{url}}">
-    {{#label}}<span class="ve-label">{{.}}</span>{{/label}}
-    <div class="ve-chapter-selection-content">
-      <div class="inner">
-        <div class="ve-chapter-selection-state">
-          <img src="{{image.thumbnail}}" />
+  {{#label}}<span class="ve-label">{{.}}</span>{{/label}}
+  <div class="ve-chapter-selection-content">
+    <div class="inner">
+      <div class="ve-chapter-selection-state">
+        <img src="{{image.thumbnail}}" />
+        <a href="{{url}}">
           <div class="text-box title">
             {{title}}
           </div>
-        </div>
+        </a>
       </div>
     </div>
-  </a>
+  </div>
 </figure>
