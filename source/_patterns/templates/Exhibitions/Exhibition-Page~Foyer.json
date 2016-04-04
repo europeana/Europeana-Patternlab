@@ -62,25 +62,23 @@
     }
   ],
   "page_data": {
-  },
-  "elements": {
-    "present": true,
-    "items":
-    [
+    "elements": {
+      "present": true,
+      "items":
+      [
         {
-            "id": "x0_1",
-            "type": "ve-intro",
-            "is_featured_exhibition": true,
+          "id": "x0_1",
+          "type": "ve-intro",
+          "is_featured_exhibition": true,
 
-            "image_credit": {
-              "attribution_title": "Rudolph II as Vertumnus",
-              "attribution_creator": "Giuseppe Arcimboldo",
-              "attribution_institution": "Skoklosters Slott",
-              "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
-              "license_public": true
-            },
-            "image":
-            {
+          "image_credit": {
+            "attribution_title": "Rudolph II as Vertumnus",
+            "attribution_creator": "Giuseppe Arcimboldo",
+            "attribution_institution": "Skoklosters Slott",
+            "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+            "license_public": true
+          },
+          "image":{
             "full": {
               "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-full.png"
             },
@@ -92,8 +90,8 @@
             },
             "halfx2": {
               "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-halfx2.png"
-             },
-             "small": {
+            },
+            "small": {
               "url" : "/images/virtual-exhibitions/280/fruit-face-landscape-small.png"
             },
             "smallx2": {
@@ -116,24 +114,22 @@
           },
           "partner_url": "javascript:alert('link to curator site')",
           "label": "Art history collection"
-      },
-      {
+        },
+        {
           "id": "x0_2",
           "is_section": true,
           "section_title": "Arcimboldo Intro"
-      },
-      {
-        "id": "featured_item",
-        "is_featured_exhibition": false,
-        "image_credit": {
-          "attribution_title": "Painéis de S. Vicente de Fora",
-          "attribution_creator": "Nuno Gonçalves",
-          "attribution_institution": "Museu Nacional De Arte Antiga",
-          "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
-          "license_public": true
         },
-        "image":
         {
+          "id": "featured_item",
+          "image_credit": {
+            "attribution_title": "Painéis de S. Vicente de Fora",
+            "attribution_creator": "Nuno Gonçalves",
+            "attribution_institution": "Museu Nacional De Arte Antiga",
+            "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+            "license_public": true
+        },
+        "image":{
           "full": {
             "url" : "/images/virtual-exhibitions/dada/red-full.png"
           },
@@ -244,6 +240,6 @@
       }
     ]
   }
-
+  }
 
 }

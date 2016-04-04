@@ -13,54 +13,68 @@
   <div id="maincontent" class="maincontent">
     {{# page_data }}
       <div class="ve-slide-container{{#is_chapter}} ve-chapter{{/is_chapter}}{{#is_exhibition}} ve-exhibition{{/is_exhibition}}">
-        {{# elements.present }}
 
-          <h4 class="ve-progress-nav">
-            {{# elements.items }}
-              {{^ is_section }}
-                {{#is_first}}
-                  <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
-                {{/is_first}}
-              {{/ is_section }}
-            {{/ elements.items }}
-            {{# elements.items }}
-              {{# is_section }}
-              <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
-              {{/ is_section }}
-            {{/ elements.items }}
-          </h4>
-
+        {{#is_foyer}}
           <section class="ve-slide first">
-            {{# elements.items }}
-              {{#is_first}}
-                <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
-              {{/is_first}}
-            {{/ elements.items }}
-            {{# elements.items }}
-              {{> organisms/virtual-exhibitions/main-slide}}
-            {{/ elements.items }}
+            {{#elements}}
+              {{#present}}
+                {{#items}}
+                  {{#is_featured_exhibition}}
+                    {{> organisms/virtual-exhibitions/intro-slide}}
+                  {{/is_featured_exhibition}}
+                {{/items}}
+              {{/present}}
+            {{/elements}}
           </section>
+        {{/is_foyer}}
 
-        {{/ elements.present }}
-        <a id="ve-end"></a>
-      </div>
+        {{^is_foyer}}
+          {{# elements.present }}
+            <h4 class="ve-progress-nav">
+              {{# elements.items }}
+                {{^ is_section }}
+                  {{#is_first}}
+                    <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                  {{/is_first}}
+                {{/ is_section }}
+              {{/ elements.items }}
+              {{# elements.items }}
+                {{# is_section }}
+                  <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                {{/ is_section }}
+              {{/ elements.items }}
+            </h4>
 
-      {{#is_exhibition}}
-        <div class="ve-chapter-selection-container cf">
-          {{#chapter_elements}}
-            {{#present}}
-              {{#items}}
-                {{#is_chapter_nav}}
-                  {{> organisms/virtual-exhibitions/chapter-selection}}
-                {{/is_chapter_nav}}
-              {{/items}}
-            {{/present}}
-          {{/chapter_elements}}
+            <section class="ve-slide first">
+              {{# elements.items }}
+                {{#is_first}}
+                  <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
+                {{/is_first}}
+              {{/ elements.items }}
+              {{# elements.items }}
+                {{> organisms/virtual-exhibitions/main-slide}}
+              {{/ elements.items }}
+            </section>
+
+          {{/ elements.present }}
+          <a id="ve-end"></a>
         </div>
-      {{/is_exhibition}}
 
+        {{#is_exhibition}}
+          <div class="ve-chapter-selection-container cf">
+            {{#chapter_elements}}
+              {{#present}}
+                {{#items}}
+                  {{#is_chapter_nav}}
+                    {{> organisms/virtual-exhibitions/chapter-selection}}
+                  {{/is_chapter_nav}}
+                {{/items}}
+              {{/present}}
+            {{/chapter_elements}}
+          </div>
+        {{/is_exhibition}}
+      {{/is_foyer}}
     {{/ page_data }}
-
 
     <div class="ve-base-chapter-nav">
       {{# previous_page }}
