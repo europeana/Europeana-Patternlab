@@ -289,7 +289,8 @@
                     "orientation": "portrait"
                 }
             },
-            "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0"
+            "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
+            "stripped_caption": "Le Japon artistique, n° 3. CC0"
         },
         {
             "id": "4_9",
