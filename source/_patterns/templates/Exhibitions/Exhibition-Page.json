@@ -230,7 +230,7 @@
             },
             "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
-            "full_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
         },
         {
             "id": "x0_2",
@@ -301,11 +301,7 @@
                 "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
               }
             },
-            "title": false,
-            "XXXtitle": "The sacred and divine in the age of discovery",
-            "XXXsubtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
-            "XXXintro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
-            "XXXfull_description": "<p>Actually, there's evidence that the Renaissance began in Belgium, though the term was first used in Italy (\"il rinascimento\" - the rebirth)</p><p>This is the main text that fades in / out on scroll</p><p>It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict.</p>"
+            "title": false
         },
         {
             "id": "2",
@@ -492,8 +488,7 @@
               }
             },
             "title": "Art Nouveau",
-            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>",
-            "XXXintro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
         },
         {
             "id": "6",
