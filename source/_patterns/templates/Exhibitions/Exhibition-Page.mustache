@@ -61,8 +61,8 @@
         </div>
 
         {{#is_exhibition}}
-          <div class="ve-chapter-selection-container cf">
-            <div class="ve-chapter-selection-container-inner">
+          <div class="ve-chapter-selection-container">
+            <div class="ve-chapter-selection-container-inner cf">
               {{#chapter_elements}}
                 {{#present}}
                   {{#items}}
@@ -73,26 +73,42 @@
                 {{/present}}
               {{/chapter_elements}}
             </div>
+            {{> templates/Exhibitions/Next-Prev-Chapter }}
           </div>
         {{/is_exhibition}}
+        {{#is_chapter}}
+          <div class="ve-chapter-selection-container cf">
+            {{> templates/Exhibitions/Next-Prev-Chapter }}
+          </div>
+        {{/is_chapter}}
       {{/is_foyer}}
+
+
+      {{#is_foyer}}
+        <div class="ve-foyer-card-container cf">
+          {{#elements}}
+            {{#present}}
+              {{#items}}
+                {{#is_foyer_card}}
+                  {{> organisms/virtual-exhibitions/foyer-card}}
+                {{/is_foyer_card}}
+              {{/items}}
+            {{/present}}
+          {{/elements}}
+        </div>
+      {{/is_foyer}}
+
     {{/ page_data }}
 
-    <div class="ve-base-chapter-nav">
-      {{# previous_page }}
-        <a class="ve-chapter-nav-prev" {{#url}}href="{{.}}"{{/url}}><svg class="icon icon-previous"><use xlink:href="#icon-previous"/></svg>{{#title}}{{.}}{{/title}}</a>
-      {{/ previous_page }}
-      {{# next_page }}
-        <a class="ve-chapter-nav-next" {{#url}}href="{{.}}"{{/url}}>{{#title}}{{.}}{{/title}}<svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
-      {{/ next_page }}
-    </div>
 
-    {{#social}}
-      <div class="ve-social">
-        {{#text}}<h2 class="text">{{.}}</h2>{{/text}}
-        {{> molecules/controls/share-social }}
-      </div>
-    {{/social}}
+    {{^is_foyer}}
+      {{#social}}
+        <div class="ve-social">
+          {{#text}}<h2 class="text">{{.}}</h2>{{/text}}
+          {{> molecules/controls/share-social }}
+        </div>
+      {{/social}}
+    {{/is_foyer}}
 
   </div>
 

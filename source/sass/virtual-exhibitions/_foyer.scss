@@ -16,7 +16,7 @@
   .ve-label{
     position:       absolute;
     text-transform: uppercase;
-    font-weight:    normal;
+    font-weight:    bold;
   }
 }
 
@@ -158,6 +158,7 @@
 
     .ve-card-nav-left{
       // left: -0.25em;
+      left: 0;
     }
 
     .ve-card-nav-right{

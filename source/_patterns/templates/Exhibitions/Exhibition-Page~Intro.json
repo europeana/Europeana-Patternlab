@@ -397,6 +397,28 @@
       ]
     }
   },
+  "footer":{
+    "items":
+    [
+      {
+        "text": "Contacts",
+        "url": "javascript:alert('Contacts');"
+      },
+
+      {
+        "text": "Credits",
+        "url": "javascript:alert('Credits');"
+      },
+      {
+        "text": "About Europeana",
+        "url": "javascript:alert('About Europeana');"
+      },
+      {
+        "text": "Europeana Collections",
+        "url": "javascript:alert('Europeana Collections');"
+      }
+    ]
+  },
   "social": {
     "url": "http://this-page-url.com",
     "twitter": true,

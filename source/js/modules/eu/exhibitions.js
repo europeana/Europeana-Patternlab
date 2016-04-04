@@ -422,21 +422,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             .addTo(smCtrl)
             .on('progress', function(e){
                 var val = e.progress;
-                $introE.css('filter', 'grayScale(' + val + ')');
+                $introE.css('filter',         'grayScale(' + val + ')');
+                $introE.css('-webkit-filter', 'grayScale(' + val + ')');
             })
-             /*
-            .setTween(TweenMax.staggerTo([
-                                          $firstSlide.find('.ve-title-group'),
-                                          $firstSlide.find('.ve-image-credit')
-                                         ],
-              1,
-              {
-                marginBottom: 0-introHeight / 2,
-                ease:      Cubic.easeOut
-              },
-              0.2
-            ))
-            */
           );
 
           // description

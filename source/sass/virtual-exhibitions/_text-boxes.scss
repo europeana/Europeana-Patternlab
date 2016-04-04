@@ -38,7 +38,7 @@
 
 .ve-base-chapter-nav{
   font-size: 2em;
-  height:    5em;
+  height:    2em;
   position:  relative;
   margin:    auto;
   width:     $ve_image_column_width;
@@ -439,11 +439,12 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-social{
-  float:     left;
-  left:      50%;
-  transform: translateX(-50%);
-  position:  relative;
+  float:      left;
+  left:       50%;
+  margin:     2.5em 0;
+  position:   relative;
   text-align: center;
+  transform:  translateX(-50%);
 }
 
 .ve-footer{
