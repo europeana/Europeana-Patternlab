@@ -79,9 +79,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     if(!inEditor){
       gotoAnchor(true);
+      initLightbox();
     }
-
-    initLightbox();
 
     $(window).europeanaResize(function(){
 

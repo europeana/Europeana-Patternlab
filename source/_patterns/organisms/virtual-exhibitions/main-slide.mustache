@@ -49,9 +49,11 @@
           {{>atoms/images/responsive-srcset-picture}}
          </picture>
        {{/image}}
-       {{#caption}}
-          <figcaption>{{{.}}}</figcaption>
-       {{/caption}}
+       {{#image_credit}}
+         {{#caption}}
+            <figcaption>{{{.}}}</figcaption>
+         {{/caption}}
+       {{/image_credit}}
      </figure>
     </div>
   {{/is_image}}
@@ -79,11 +81,13 @@
             <div class="ve-image">
               <figure>
                 {{#image}}
-                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}>
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>
                 {{/image}}
-                {{#caption}}
-                  <figcaption>{{{.}}}</figcaption>
-                {{/caption}}
+                {{#image_credit}}
+                  {{#caption}}
+                    <figcaption>{{{.}}}</figcaption>
+                  {{/caption}}
+                {{/image_credit}}
               </figure>
             </div>
           {{/image}}
@@ -124,11 +128,13 @@
               <div class="ve-image">
                 <figure>
                   {{#image}}
-                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}>
+                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>
                   {{/image}}
-                  {{#caption}}
-                    <figcaption>{{{.}}}</figcaption>
-                  {{/caption}}
+                  {{#image_credit}}
+                    {{#caption}}
+                      <figcaption>{{{.}}}</figcaption>
+                    {{/caption}}
+                  {{/image_credit}}
                 </figure>
               </div>
             {{/image}}

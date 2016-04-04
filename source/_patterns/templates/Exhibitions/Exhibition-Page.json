@@ -360,8 +360,10 @@
                     "orientation": "portrait"
                 }
             },
-            "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
-            "stripped_caption": "Le Japon artistique, n° 3."
+            "image_credit":{
+              "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
+              "stripped_caption": "Le Japon artistique, n° 3."
+            }
         },
         {
             "id":      "3.1",
@@ -435,8 +437,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0",
-            "stripped_caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor."
+            "image_credit":{
+              "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0",
+              "stripped_caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor."
+            }
         },
         {
             "id": "4_2",
@@ -552,8 +556,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Adam and Eve - Victor Brauner.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
-            "stripped_caption": "Adam and Eve - Victor Brauner."
+            "image_credit":{
+              "caption": "Adam and Eve - Victor Brauner.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "stripped_caption": "Adam and Eve - Victor Brauner."
+            }
         },
 
         {
@@ -623,8 +629,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arthur Segal with his son Walter, Berlin.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
-            "stripped_caption": "Arthur Segal with his son Walter, Berlin. CC0"
+            "image_credit":{
+              "caption": "Arthur Segal with his son Walter, Berlin.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "stripped_caption": "Arthur Segal with his son Walter, Berlin. CC0"
+            }
         },
         {
             "id": "12",
@@ -693,8 +701,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "SagradaFamilia Sostre.  <a href=\"javascript:(alert('link to gallery'))\">Barcelona Gallery</a> CC0",
-            "stripped_caption": "SagradaFamilia Sostre. CC0"
+            "image_credit":{
+              "caption": "SagradaFamilia Sostre.  <a href=\"javascript:(alert('link to gallery'))\">Barcelona Gallery</a> CC0",
+              "stripped_caption": "SagradaFamilia Sostre. CC0"
+            }
         }
       ]
     },

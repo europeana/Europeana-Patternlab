@@ -24,9 +24,19 @@
   .ve-label{
     background-color: orange;
   }
+  a{
+    &:hover, &:focus{
+      background-color: rgba($accent, .8);
+    }
+  }
 }
 
-.ve-chapter-selection-container,
+.ve-chapter-selection-container{
+  background-color: $offwhite;
+  padding: 2em 0;
+}
+
+.ve-chapter-selection-container-inner,
 .ve-foyer-card-container{
   margin-top:    2em;
 }
@@ -51,7 +61,7 @@
 
 @media all and (min-width: $bp-med) {
 
-  .ve-chapter-selection-container,
+  .ve-chapter-selection-container-inner,
   .ve-foyer-card-container{
     left:         50%;
     position:     relative;
@@ -184,7 +194,7 @@
     .text-box.title{
       font-weight:    bold;
       text-align:     center;
-      text-transform: capitalize;
+      text-transform: uppercase;
     }
 
     .text-box.credits,

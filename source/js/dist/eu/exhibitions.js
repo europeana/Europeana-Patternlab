@@ -16,7 +16,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   if($url.param('scrollDuration')){
       if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
           scrollDuration = parseInt($url.param('scrollDuration'));
-          alert('scrollDuration set to ' + parseInt(scrollDuration));
       }
       else{
           alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
@@ -80,9 +79,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     if(!inEditor){
       gotoAnchor(true);
+      initLightbox();
     }
-
-    initLightbox();
 
     $(window).europeanaResize(function(){
 
