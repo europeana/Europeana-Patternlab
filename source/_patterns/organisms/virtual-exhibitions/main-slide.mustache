@@ -79,7 +79,7 @@
             <div class="ve-image">
               <figure>
                 {{#image}}
-                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}>
                 {{/image}}
                 {{#caption}}
                   <figcaption>{{{.}}}</figcaption>
@@ -124,7 +124,7 @@
               <div class="ve-image">
                 <figure>
                   {{#image}}
-                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}>
                   {{/image}}
                   {{#caption}}
                     <figcaption>{{{.}}}</figcaption>
