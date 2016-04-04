@@ -115,13 +115,13 @@
 </main>
 {{> molecules/components/photoswipe/photoswipe }}
 
-{{#is_exhibition}}
+{{#is_foyer}}
   {{> organisms/global/footer }}
-{{/is_exhibition}}
-{{#is_chapter}}
+{{/is_foyer}}
+{{^is_foyer}}
   {{#footer}}
     <footer class="ve-footer footer" role="contentinfo">
       {{> molecules/navigation/linklist-simple}}
     </footer>
   {{/footer}}
-{{/is_chapter}}
+{{/is_foyer}}

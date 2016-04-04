@@ -232,5 +232,99 @@
         }
       }]
     }
-  }
+  },
+  "footer": {
+    "linklist1":
+    {
+      "title": "More info",
+      "items":
+      [
+        {
+          "text": "New collections",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "All data providers",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Become a data provider",
+          "url": "http://google.com"
+        }
+      ]
+    },
+
+    "linklist2":
+    {
+      "title": "Help",
+      "items":
+      [
+        {
+          "text": "Search tips",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Using My Europeana",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Copyright",
+          "url": "http://google.com"
+        }
+      ]
+    },
+
+    "social":
+    {
+      "linkedin": false,
+      "github": false,
+      "twitter": true,
+      "facebook": true,
+      "pinterest": true,
+      "googleplus": true
+    },
+    "othersites": {
+        "title": "Explore Europeana",
+        "styleModifier": "inline-list",
+        "items": [
+            {
+                "url": "http://google.com",
+                "text": "Europeana 1914-1918"
+            },
+            {
+                "url": "http://google.com",
+                "text": "Europeana Exhibitions"
+            },
+            {
+                "url": "http://google.com",
+                "text": "Europeana Blog"
+            }
+        ]
+    },
+    "subfooter": {
+        "items": [
+            {
+                "text": "Home",
+                "url": "./"
+            },
+            {
+                "text": "Terms of use & policies",
+                "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+            },
+            {
+                "text": "Contact us",
+                "url": "./"
+            },
+            {
+                "text": "Sitemap",
+                "url": "./"
+            }
+        ]
+    }
+}
+
 }
