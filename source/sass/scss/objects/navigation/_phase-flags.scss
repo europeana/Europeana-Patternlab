@@ -11,6 +11,10 @@
     	background-color: $eu-yellow;
     	color: $white;
     }
+    &.beta{
+        background-color: $eu-blue;
+        color: $white;
+    }
 
     &:hover{
         cursor: help;
