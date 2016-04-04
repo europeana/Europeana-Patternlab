@@ -10,7 +10,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var sfxScenes           = [];
   var introEffectDuration = 500;
   var lightboxOpen        = false;
+
   var scrollDuration      = 1400;
+
+  if($url.param('scrollDuration')){
+      if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
+          scrollDuration = parseInt($url.param('scrollDuration'));
+          alert('scrollDuration set to ' + parseInt(scrollDuration));
+      }
+      else{
+          alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
+      }
+  }
+
+
   var scrollExecuting     = false;
   var progNavActive       = true;
   var smCtrl              = null;
@@ -327,7 +340,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        isIntroE ? introEffectDuration * 2 : introEffectDuration
+              duration:        isIntroE ? introEffectDuration * 1.2 : introEffectDuration
             })
             .setTween(
               TweenMax.to(
@@ -392,24 +405,68 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         }
         else if(isIntroE){
 
+          var fullDescription = $firstSlide.find('.ve-intro-full-description');
+          var headerHeight    = $('.page_header').height();
+          var introHeight     = $introE.height();
+
+
+          // greyscale, texts up, pin
 
           sfxScenes.push(
             new ScrollMagic.Scene({
               triggerElement: $introE,
-              triggerHook: 0,
-              duration: introEffectDuration,
-              reverse: true,
-              offset: $('.page_header').height()
+              triggerHook:    0,
+              duration:       introEffectDuration / 1.1,
+              reverse:        true,
+              offset:         headerHeight
             })
             .setPin($introE[0])
             .addTo(smCtrl)
             .on('progress', function(e){
-
-                //var val = 1-e.progress;
                 var val = e.progress;
                 $introE.css('filter', 'grayScale(' + val + ')');
             })
+             /*
+            .setTween(TweenMax.staggerTo([
+                                          $firstSlide.find('.ve-title-group'),
+                                          $firstSlide.find('.ve-image-credit')
+                                         ],
+              1,
+              {
+                marginBottom: 0-introHeight / 2,
+                ease:      Cubic.easeOut
+              },
+              0.2
+            ))
+            */
           );
+
+          // description
+
+          sfxScenes.push(
+              new ScrollMagic.Scene({
+                  triggerElement: $introE,
+                  triggerHook:    0,
+                  duration:       introEffectDuration / 1.1,
+                  reverse:        true
+              })
+              .addTo(smCtrl)
+              .setTween(
+                  TweenMax.fromTo(
+                      fullDescription,
+                      1,
+                      {
+                          top:    introHeight,
+                      },
+                      {
+                          top:    (introEffectDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
+                          ease:   Cubic.easeIn
+                      }
+                  )
+              )
+          );
+
+
         }
         else{
           log('first slide is not an intro!');

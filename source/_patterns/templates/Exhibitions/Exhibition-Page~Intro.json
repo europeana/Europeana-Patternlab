@@ -196,6 +196,7 @@
             "section_title": "Another intro type",
             "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
+            "full_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
             "image_credit": {
               "attribution_title": "Battle of Grunweald",
               "attribution_creator": "Jan Matejko",
@@ -291,86 +292,6 @@
             "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0"
         },
         {
-            "id":      "3.1",
-            "is_text": true,
-            "type":    "text",
-            "body":    "<p>Woodblock prints, porcelain, textiles and lacquer work had a profound impact on many western art movements, including Art Nouveau. Bamboo, carp, wisteria and cherry blossom became part of the decorative repertoire.</p>"
-        },
-        {
-            "id": "3.2",
-            "is_quote": true,
-            "type": "quote",
-            "quote": "She'll make point five past light speed",
-            "quotee": "Han Solo - captain of the millennium falcon."
-        },
-        {
-            "id":      "3.3",
-            "is_text": true,
-            "type":    "text",
-            "body":    "<p>Siegfried Bing (1838-1905), a naturalized Frenchman from Hamburg, ran an import-export business from the 1870s and edited the influential monthly journal Le Japon Artistique.</p>"
-        },
-        {
-            "id": "4",
-            "is_section": true,
-            "section_title": "Arcimboldo"
-        },
-        {
-            "id": "4_1",
-            "type": "image",
-            "is_image": true,
-            "is_portrait": true,
-            "image":
-            {
-                "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnail.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "small": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-small.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "smallx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-smallx2.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "half": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-half.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "halfx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-halfx2.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "portrait"
-                },
-                "full": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-full.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "landscape"
-                },
-                "fullx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-fullx2.png",
-                    "alt": "Arcimboldo",
-                    "orientation": "landscape"
-                }
-            },
-            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0"
-        },
-        {
-            "id": "4_2",
-            "is_text": true,
-            "type": "text",
-            "body": "<p>Arcimboldo's conventional work, on traditional religious subjects, has fallen into oblivion, but his portraits of human heads made up of vegetables, plants, fruits, sea creatures and tree roots, were greatly admired by his contemporaries and remain a source of fascination today.</p><p>At a distance, his portraits looked like normal human portraits. However, individual objects in each portrait were actually overlapped together to make various anatomical shapes of a human.</p>"
-        },
-        {
             "id": "4_9",
             "is_section": true,
             "section_title": "Wiki Loves Art Nouveau"
@@ -378,6 +299,7 @@
         {
             "id": "5",
             "type": "ve-intro",
+            "title": false,
             "is_intro": true,
             "image_credit": {
               "attribution_title": "Iparművészeti Múzeum (1070. számú műemlék)",
@@ -412,152 +334,15 @@
               "thumbnailx2": {
                 "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
-            },
-            "title": "Art Nouveau",
-            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>",
-            "XXXintro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
-        },
-        {
-            "id": "6",
-            "is_section": true,
-            "section_title": "Texts about glass, followed by Adam and Eve"
-        },
-        {
-            "id": "7",
-            "is_text": true,
-            "type": "text",
-            "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "8",
-            "type": "rich_image",
-            "is_align_image_right": "true",
-            "is_rich_image": true,
-            "title": "Adam and Eve",
-            "subtitle": "Victor Brauner (Piatra-Neamţ, 15 June 1903 – Paris, 12 March 1966)",
-            "body": "<p>Victor Brauner was a major representative of Surrealism, the art movement that focuses on the world between dreams and reality. He was born in the East Carpathians, in a town where half the population was Jewish. After an anti-Semitic peasants’ revolt in 1907, the family moved to Germany and later to Austria. In 1919, five years after returning to Bucharest, they were granted Romanian citizenship. That same year, Brauner enrolled at the National School of Fine Arts in Bucharest.</p><p>Adam, meanwhile, was the first human on God's earth and so didn't need a surname.  He was followed by Eve, pictured here recounting to Adam where that fruit they just ate was picked from.  He's still absorbing the news.</p><p><strong>If this text</strong> is higher than the image to its side then the image will pin when you scroll past it.  Not working?  Try reloading with the url param <strong>?sfx=true</strong> in the url.</p>",
-            "image":
-            {
-                "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnail.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnailx2.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "small": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-small.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "smallx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-smallx2.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "half": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-half.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "halfx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-halfx2.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "full": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-full.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                },
-                "fullx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-fullx2.png",
-                    "alt": "Adam and Eve",
-                    "orientation": "landscape"
-                }
-            },
-            "caption": "Adam and Eve - Victor Brauner. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0"
-        },
-
-        {
-            "id": "9",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-
-        {
-            "id": "9.1",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "9.2",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "9.3",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
+            }
         },
         {
             "id": "10",
             "is_section": true,
-            "section_title": "Zurich"
-        },
-        {
-            "id": "11",
-            "type": "rich_image",
-            "is_rich_image": true,
-            "is_align_image_left": true,
-            "title": "ZURICH - Arthur Segal",
-            "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
-            "quote": "Never mind that art nonsense, become a banker!",
-            "quotee": "Arthur's father",
-            "body": "<p>Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success.</p><p>In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.</p>",
-            "image":
-            {
-                "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                    "width": 200,
-                    "height": 213,
-                    "orientation": "portrait"
-                },
-                "small": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                    "width": 200,
-                    "height": 213,
-                    "orientation": "portrait"
-                },
-                "half": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                    "width": 200,
-                    "height": 213,
-                    "orientation": "portrait"
-                },
-                "full": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
-                    "width": 16000,
-                    "height": 1698,
-                    "orientation": "landscape"
-                }
-            },
-            "caption": "Arthur Segal with his son Walter, Berlin. <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0"
-        },
-        {
-            "id": "12",
-            "is_section": true,
             "section_title": "Big Quote"
         },
         {
-            "id": "13",
+            "id": "10_1",
             "is_quote": true,
             "is_full_section_element": true,
             "type": "quote",

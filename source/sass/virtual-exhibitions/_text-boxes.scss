@@ -553,6 +553,19 @@ a:hover > .ve-state-button-off,
     padding: 1em 0;
   }
 
+  .ve-exhibition{
+    .ve-intro-full-description{
+      background-color: white;
+      opacity:          0.85;
+      left:             50%;
+      margin:           0;
+      position:         absolute;
+      text-align:       center;
+      transform:        translateX(-50%);
+      z-index:          1;
+    }
+  }
+
   .ve-slide-container{
 
     .ve-slide{
