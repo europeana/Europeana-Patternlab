@@ -5,6 +5,9 @@
   "page_config": {
     "newsletter": false
   },
+  "version":{
+      "is_beta": true
+  },
   "css_files": [
     {
       "path": "../../css/statistics/screen.css",
