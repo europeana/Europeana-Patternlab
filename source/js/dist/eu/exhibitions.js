@@ -37,22 +37,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function initExhibitions(){
 
-    $('.logo').click(function(e){
-
-
-        log('Assess anchor offsets...');
-
-        var hh  = $('header').height();
-        var phh = $('.page_header').height();
-
-        var css = $('header').css('height');
-
-        log('hh = ' + hh + ', phh = ' + phh + ', total = ' + (hh + phh) + '   css: ' + css);
-
-        e.preventDefault()
-
-    });
-
     inEditor = false;
 
     if($(document).closest('iframe').size() > 0 ){
@@ -62,6 +46,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(inEditor){
       $('.ve-slide').css('border', '2px dotted red');
     }
+
+    $(document).on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+        log('force stop of scroll');
+        $(window).stop(true);
+    });
 
     initSmartMenus();
     initProgressState();
