@@ -1,12 +1,8 @@
 {
   "pattern_lab_reset": "start",
-
   "title":             false,
   "is_chapter":        false,
-
   "pattern_lab_reset": "end",
-
-  "is_exhibition": true,
 
   "js_files": [{
       "path": "../../js/dist/require.js",
@@ -185,6 +181,7 @@
   },
   "page_data": {
     "title": "Page title",
+    "is_exhibition": true,
     "url": "/example-page",
     "elements": {
       "present": "true",

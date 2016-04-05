@@ -5,7 +5,6 @@
   "is_exhibition": false,
   "is_chapter": false,
   "pattern_lab_reset": "end",
-  "is_foyer": true,
 
   "js_files": [{
       "path": "../../js/dist/require.js",
@@ -57,6 +56,7 @@
     "is_last": "true"
   }],
   "page_data": {
+    "is_foyer": true,
     "elements": {
       "present": true,
       "items": [{

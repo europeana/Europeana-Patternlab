@@ -1,7 +1,12 @@
 {
   "pattern_lab_reset": "start",
-  "is_exhibition":     false,
-  "title":             false,
+
+  "is_exhibition": false,
+  "is_foyer":      false,
+  "is_chapter":    false,
+
+  "title": false,
+
   "pattern_lab_reset": "end",
 
 
@@ -171,19 +176,9 @@
       "is_last": "true"
     }
   ],
-  "next_page": {
-    "title": "Faces Of Europe (next)",
-    "url": "javascript:alert('nav next');"
-  },
-  "previous_page": {
-    "title": "Faces Of Europe (prev)",
-    "url": "javascript:alert('nav previous');"
-  },
   "page_data": {
-    "is_chapter": true,
-    "title": "Page title",
-    "url": "/example-page",
-    "elements": {
+    "title": "Credits Page Title",
+    "credit_elements": {
       "present": "true",
       "items":[
         {

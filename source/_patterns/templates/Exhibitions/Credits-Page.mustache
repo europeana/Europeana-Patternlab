@@ -1,0 +1,98 @@
+{{> atoms/iconography/svgicons-virtual-exhibitions}}
+{{> atoms/iconography/svgicons-user }}
+{{> organisms/global/header_v2}}
+
+<style>
+  .ve-field-label{
+    font-weight: bold;
+  }
+  .ve-field-label:after{
+    content: ':';
+  }
+
+  .ve-col-50-right .inner{
+    text-align: left;
+  }
+</style>
+
+<div id="desktop_detect"></div>
+
+<main role="main" class="l-page">
+  <div class="page_header">
+    {{>molecules/virtual-exhibitions/browse-breadcrumb.mustache}}
+  </div>
+
+  <div id="maincontent" class="maincontent">
+  <div class="ve-slide-container">
+    {{# page_data }}
+      {{# credit_elements.present }}
+        {{# credit_elements.items }}
+
+         <div class="cf">
+            <div class="ve-col-50-left">
+              <div class="inner">
+                <figure>
+                  {{#image}}
+                    <picture data-hi-res="{{#full}}{{url}}{{/full}}">
+                      {{>atoms/images/responsive-srcset-picture}}
+                    </picture>
+                  {{/image}}
+                  {{#image_credit}}
+                    {{#caption}}
+                      <figcaption>{{{.}}}</figcaption>
+                    {{/caption}}
+                  {{/image_credit}}
+                </figure>
+              </div>
+            </div>
+            <div class="ve-col-50-right">
+              <div class="inner">
+                {{#title}}
+                  <span class="ve-field-label">Title</span> {{.}}
+                {{/title}}
+                {{#date}}
+                  <span class="ve-field-label">Date</span> {{.}}
+                {{/date}}
+                {{#source}}
+                  <span class="ve-field-label">Source</span> {{.}}
+                {{/source}}
+                {{#rights}}
+                  <span class="ve-field-label">Rights</span> {{.}}
+                {{/rights}}
+                {{#license}}
+                  <span class="ve-field-label">License</span> {{.}}
+                {{/license}}
+                {{#cite}}
+                  <span class="ve-field-label">Cite</span> {{.}}
+                {{/cite}}
+                {{#embed}}
+                  <span class="ve-field-label">Embed</span> {{.}}
+                {{/embed}}
+              </div>
+            </div>
+          </div>
+        {{/ credit_elements.items }}
+      {{/ credit_elements.present }}
+    {{/ page_data }}
+  </div>
+  </div>
+
+  {{^is_foyer}}
+    {{#social}}
+      <div class="ve-social">
+        {{#text}}<h2 class="text">{{.}}</h2>{{/text}}
+        {{> molecules/controls/share-social }}
+      </div>
+    {{/social}}
+  {{/is_foyer}}
+
+</main>
+{{> molecules/components/photoswipe/photoswipe }}
+
+{{^is_foyer}}
+  {{#footer}}
+    <footer class="ve-footer footer" role="contentinfo">
+      {{> molecules/navigation/linklist-simple}}
+    </footer>
+  {{/footer}}
+{{/is_foyer}}

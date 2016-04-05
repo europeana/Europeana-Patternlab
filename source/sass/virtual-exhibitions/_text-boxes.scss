@@ -567,42 +567,33 @@ a:hover > .ve-state-button-off,
     }
   }
 
-  .ve-slide-container{
+  .ve-col-50-left,
+  .ve-col-50-right{
 
-    .ve-slide{
+    padding: 1em 0;
+    width:   50%;
 
-      .ve-col-50-left,
-      .ve-col-50-right{
-
-        padding: 1em 0;
-        width:   50%;
-
-        .inner{
-          max-width: 100%;
-          width: $ve_image_column_width;
-        }
-      }
-
-      .ve-col-50-left{
-        float: left;
-        .inner{
-          float:         right;
-          padding-right: 1em;
-        }
-      }
-
-      .ve-col-50-right{
-        float: right;
-        .inner{
-          float:        left;
-          padding-left: 1em;
-        }
-      }
-
+    .inner{
+      max-width: 100%;
+      width: $ve_image_column_width;
     }
   }
 
+  .ve-col-50-left{
+    float: left;
+    .inner{
+      float:         right;
+      padding-right: 1em;
+    }
+  }
 
+  .ve-col-50-right{
+    float: right;
+    .inner{
+      float:        left;
+      padding-left: 1em;
+    }
+  }
 
   .slide-nav,
   .ve-progress-nav{
