@@ -43,6 +43,7 @@
 
   {{#is_image}}
     <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
+     <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
      <figure>
        {{#image}}
          <picture data-hi-res="{{#full}}{{url}}{{/full}}">
@@ -79,6 +80,7 @@
         {{#is_align_image_left}}
           {{#image}}
             <div class="ve-image">
+              <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
               <figure>
                 {{#image}}
                   <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>
@@ -126,6 +128,7 @@
           {{#is_align_image_right}}
             {{#image}}
               <div class="ve-image">
+                <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
                 <figure>
                   {{#image}}
                     <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>

@@ -10,6 +10,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var sfxScenes           = [];
   var introEffectDuration = 500;
   var lightboxOpen        = false;
+  var pageInitComplete    = false;
 
   var scrollDuration      = 1400;
 
@@ -36,38 +37,47 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initExhibitions(){
-
-    inEditor = false;
+    var doneSfx, doneProgressState;
 
     if($(document).closest('iframe').size() > 0 ){
       inEditor = true;
     }
-
     if(inEditor){
       $('.ve-slide').css('border', '2px dotted red');
     }
 
-    $(document).on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
-        log('force stop of scroll');
-        $(window).stop(true);
-    });
-
     initSmartMenus();
-    initProgressState();
-    initNavTooltips();
+    doneProgressState = initProgressState();
 
-    if(!inEditor){
-      initSFX();
-    }
+    initNavTooltips();
+    navCorrections();
 
     initFoyerCards();
     initArrowNav();
-    navCorrections();
     sizeEmbeds();
     handleEllipsis();
 
+    bindAnchors();
+
+    if(inEditor){
+      pageInitComplete = true;
+    }
+    else{
+      doneSfx = initSFX();
+      $.when(doneProgressState, doneSfx).done(function(){
+        if(!inEditor){
+          var $hash = gotoAnchor(true);
+          if($hash){
+            $(window).scrollTo($hash, 0);
+          }
+          setTimeout(function(){
+            pageInitComplete = true;
+          }, 200);
+        }
+      });
+    }
+
     if(!inEditor){
-      gotoAnchor(true);
       initLightbox();
     }
 
@@ -189,7 +199,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           gallery.listen('close', function() {
               setTimeout(function(){
                   lightboxOpen = false;
-                  log('lightboxOpen set to false');
               }, 500);
           });
 
@@ -218,7 +227,29 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
   }
 
-  function gotoAnchor(pageInit){
+  function bindAnchors(){
+    // set up handler to call self on popstate and hashchange
+    $(window).on('hashchange', function() {
+
+      if(lightboxOpen){
+        return;
+      }
+      if(!scrollExecuting){
+        gotoAnchor();
+      }
+    });
+    window.onpopstate = function(){
+      if(lightboxOpen){
+        return;
+      }
+      if(scrollExecuting){
+        $(window).stop(true);
+      }
+      gotoAnchor();
+    }
+  }
+
+  function gotoAnchor(getHashOnly){
 
     // call scroll function if valid hash available
 
@@ -227,36 +258,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(hash){
       var $hash = $(hash);
       if($hash.size()>0){
+        if($hash.hasClass("ve-element-anchor")){
+          hash  = $hash.closest('.ve-slide').find('.ve-anchor').attr('id');
+          $hash = $('#' + hash);
+        }
+        if(getHashOnly){
+          return $hash;
+        }
         scrollToAdaptedForPin($hash);
       }
     }
-    else if(!pageInit){
-      scrollToAdaptedForPin($('.ve-slide.first .ve-anchor:not(.no-js)'));
-    }
-
-    // set up handler to call self on popstate and hashchange
-
-    if(pageInit){
-      $(window).on('hashchange', function() {
-
-        if(lightboxOpen){
-          return;
-        }
-        if(!scrollExecuting){
-          gotoAnchor();
-        }
-
-      });
-      window.onpopstate = function(){
-        if(lightboxOpen){
-          return;
-        }
-        if(scrollExecuting){
-          $(window).stop(true);
-        }
-
-        gotoAnchor();
+    else{
+      if(getHashOnly){
+        return null;
       }
+      scrollToAdaptedForPin($('.ve-slide.first .ve-anchor:not(.no-js)'));
     }
   }
 
@@ -307,8 +323,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initSFX(){
+    var def = $.Deferred();
     if(!isDesktop()) {
-        return;
+        def.resolve();
+        return def;
     }
 
     require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
@@ -440,8 +458,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   )
               )
           );
-
-
         }
         else{
           log('first slide is not an intro!');
@@ -512,9 +528,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             }
           }
         });
-
+        def.resolve();
       });
     });
+    return def;
   }
 
   function navCorrections(){
@@ -730,9 +747,12 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function initProgressState(){
 
+    var def = $.Deferred();
+
     if(!isDesktop()) {
       log('too small for scroll-magic');
-      return;
+      def.resolve();
+      return def;
     }
     require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
       require(['gsap'], function(){
@@ -747,9 +767,12 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               active = $(active);
           active.addClass('ve-state-button-on').removeClass('ve-state-button-off');
 
-          if(!scrollExecuting){
-            var anchor = active.closest('a').attr('href');
-            window.history.pushState({}, '', anchor);
+          if(pageInitComplete){
+            if(!scrollExecuting){
+              log('pushing state...  not scrolling and pageInitComplete ');
+              var anchor = active.closest('a').attr('href');
+              window.history.pushState({}, '', anchor);
+            }
           }
         }
 
@@ -803,8 +826,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         });
 
         initKeyCtrl();
+        def.resolve();
       });
     });
+    return def;
   }
 
   return {

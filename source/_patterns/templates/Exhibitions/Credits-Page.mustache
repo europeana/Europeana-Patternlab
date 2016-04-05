@@ -37,37 +37,61 @@
                       {{>atoms/images/responsive-srcset-picture}}
                     </picture>
                   {{/image}}
-                  {{#image_credit}}
-                    {{#caption}}
-                      <figcaption>{{{.}}}</figcaption>
-                    {{/caption}}
-                  {{/image_credit}}
                 </figure>
               </div>
             </div>
             <div class="ve-col-50-right">
               <div class="inner">
-                {{#title}}
-                  <span class="ve-field-label">Title</span> {{.}}
-                {{/title}}
-                {{#date}}
-                  <span class="ve-field-label">Date</span> {{.}}
-                {{/date}}
-                {{#source}}
-                  <span class="ve-field-label">Source</span> {{.}}
-                {{/source}}
-                {{#rights}}
-                  <span class="ve-field-label">Rights</span> {{.}}
-                {{/rights}}
-                {{#license}}
-                  <span class="ve-field-label">License</span> {{.}}
-                {{/license}}
-                {{#cite}}
-                  <span class="ve-field-label">Cite</span> {{.}}
-                {{/cite}}
-                {{#embed}}
-                  <span class="ve-field-label">Embed</span> {{.}}
-                {{/embed}}
+                {{#image_credit}}
+                  <ul>
+                    {{#attribution_title}}
+                      <li>
+                        <span class="ve-field-label">Title</span> {{.}}{{#attribution_creator}}; {{.}}{{/attribution_creator}}
+                      </li>
+                    {{/attribution_title}}
+
+                    {{^attribution_title}}
+                      {{#attribution_creator}}
+                      <li>
+                        <span class="ve-field-label">Title</span> {{.}}
+                      </li>
+                      {{/attribution_creator}}
+                    {{/attribution_title}}
+
+                    {{#attribution_institution}}
+                      <li>
+                        <span class="ve-field-label">Source</span>
+                        {{#attribution_url}}
+                          <a href="{{.}}" target="_new">{{attribution_institution}}</a>
+                        {{/attribution_url}}
+                        {{^attribution_url}}
+                          {{attribution_institution}}
+                        {{/attribution_url}}
+                      </li>
+                    {{/attribution_institution}}
+
+                    {{#page_url}}
+                      <li>
+                        <a href="{{.}}#ve-element-anchor-{{id}}">view in exhibition
+                          <svg class="icon icon-external-link">
+                            <use xlink:href="#icon-external-link"></use>
+                          </svg></a>
+                      </li>
+                    {{/page_url}}
+
+                    <!--
+                    <span class="ve-field-label">License</span> {{#license_public}}Public{{/license_public}}
+
+                    {{#cite}}
+                      <span class="ve-field-label">Cite</span> {{.}}
+                    {{/cite}}
+
+                    {{#embed}}
+                      <span class="ve-field-label">Embed</span> {{.}}
+                    {{/embed}}
+                     -->
+                  </ul>
+                {{/image_credit}}
               </div>
             </div>
           </div>

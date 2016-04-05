@@ -178,6 +178,7 @@
   ],
   "page_data": {
     "title": "Credits Page Title",
+    "page_url": "../templates-Exhibitions-Exhibition-Page/templates-Exhibitions-Exhibition-Page.html",
     "credit_elements": {
       "present": "true",
       "items":[
@@ -226,37 +227,6 @@
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
         },
         {
-            "id": "x0_2",
-            "is_section": true,
-            "section_title": "Youtube embed"
-        },
-        {
-            "id": "x0_3",
-            "is_embed": true,
-            "html": "<iframe class=\"ve-base-small\"  width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
-            "XXXhtml": "<iframe src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>"
-        },
-        {
-            "id": "x0_5",
-            "is_text": true,
-            "body": "<p>The battle was one of the largest in Medieval Europe and is regarded as the most important victory in the histories of Poland, Belarus and Lithuania.  It has been used as a source of romantic legends and national pride, becoming a larger symbol of struggle against foreign invaders.</p><p>If there's a gap below here it's because the slide is smaller than the viewport height.</p>"
-        },
-        {
-            "id": "x0_6",
-            "is_section": true,
-            "section_title": "Another Embed"
-        },
-        {
-            "id": "x0_7",
-            "is_embed": true,
-            "html": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
-        },
-        {
-            "id": "x0_8",
-            "is_section": true,
-            "section_title": "Another Intro"
-        },
-        {
             "id": "1",
             "type": "ve-intro",
             "is_intro": true,
@@ -297,11 +267,6 @@
             "title": false
         },
         {
-            "id": "2",
-            "is_section": true,
-            "section_title": "Japan"
-        },
-        {
             "id": "3",
             "type": "rich_image",
             "is_align_image_right": "true",
@@ -310,6 +275,15 @@
             "subtitle": "(from the French Japonisme, first used in 1872)",
             "quote": "Japonisme refers to a specific French style",
             "body": "<p>In France the term Japonisme refers to a specific French style in the fine arts from 1864, while in England its impact on the decorative arts was first documented 1862.</p><p>From the 1860s, ukiyo-e, Japanese wood-block prints became a source of inspiration for many European impressionist painters, Art Nouveau and Cubism. Artists were especially affected by the lack of perspective and shadow, the flat areas of strong color, and the compositional freedom gained by placing the subject off-centre, mostly with a low diagonal axis to the background.</p><p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>",
+            "image_credit": {
+              "attribution_title": "Attribution Title Japonism",
+              "attribution_creator": "Attribution Creator Japonism",
+              "attribution_institution": "Attribution Institution Japonism",
+              "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+              "license_public": true,
+              "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
+              "stripped_caption": "Le Japon artistique, n° 3."
+            },
             "image":
             {
                 "thumbnail": {
@@ -352,35 +326,7 @@
                     "alt": "Japan",
                     "orientation": "portrait"
                 }
-            },
-            "image_credit":{
-              "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
-              "stripped_caption": "Le Japon artistique, n° 3."
             }
-        },
-        {
-            "id":      "3.1",
-            "is_text": true,
-            "type":    "text",
-            "body":    "<p>Woodblock prints, porcelain, textiles and lacquer work had a profound impact on many western art movements, including Art Nouveau. Bamboo, carp, wisteria and cherry blossom became part of the decorative repertoire.</p>"
-        },
-        {
-            "id": "3.2",
-            "is_quote": true,
-            "type": "quote",
-            "quote": "She'll make point five past light speed",
-            "quotee": "Han Solo - captain of the millennium falcon."
-        },
-        {
-            "id":      "3.3",
-            "is_text": true,
-            "type":    "text",
-            "body":    "<p>Siegfried Bing (1838-1905), a naturalized Frenchman from Hamburg, ran an import-export business from the 1870s and edited the influential monthly journal Le Japon Artistique.</p>"
-        },
-        {
-            "id": "4",
-            "is_section": true,
-            "section_title": "Arcimboldo"
         },
         {
             "id": "4_1",
@@ -436,17 +382,6 @@
             }
         },
         {
-            "id": "4_2",
-            "is_text": true,
-            "type": "text",
-            "body": "<p>Arcimboldo's conventional work, on traditional religious subjects, has fallen into oblivion, but his portraits of human heads made up of vegetables, plants, fruits, sea creatures and tree roots, were greatly admired by his contemporaries and remain a source of fascination today.</p><p>At a distance, his portraits looked like normal human portraits. However, individual objects in each portrait were actually overlapped together to make various anatomical shapes of a human.</p>"
-        },
-        {
-            "id": "4_9",
-            "is_section": true,
-            "section_title": "Wiki Loves Art Nouveau"
-        },
-        {
             "id": "5",
             "type": "ve-intro",
             "is_intro": true,
@@ -486,17 +421,6 @@
             },
             "title": "Art Nouveau",
             "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
-        },
-        {
-            "id": "6",
-            "is_section": true,
-            "section_title": "Texts about glass, followed by Adam and Eve"
-        },
-        {
-            "id": "7",
-            "is_text": true,
-            "type": "text",
-            "body": "Glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
         },
         {
             "id": "8",
@@ -554,37 +478,6 @@
               "stripped_caption": "Adam and Eve - Victor Brauner."
             }
         },
-
-        {
-            "id": "9",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-
-        {
-            "id": "9.1",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "9.2",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "9.3",
-            "is_text": true,
-            "type": "text",
-            "body": "MORE TEXT: glass was one of the materials that could now be made more cheaply and in new forms using processes introduced by the Industrial Revolution in the 19th century. Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces. Large windows and glass roofs helped experiment with dimensions and brightened ambience in Art Nouveau buildings."
-        },
-        {
-            "id": "10",
-            "is_section": true,
-            "section_title": "Zurich"
-        },
         {
             "id": "11",
             "type": "rich_image",
@@ -626,24 +519,6 @@
               "caption": "Arthur Segal with his son Walter, Berlin.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
               "stripped_caption": "Arthur Segal with his son Walter, Berlin. CC0"
             }
-        },
-        {
-            "id": "12",
-            "is_section": true,
-            "section_title": "Big Quote"
-        },
-        {
-            "id": "13",
-            "is_quote": true,
-            "is_full_section_element": true,
-            "type": "quote",
-            "quote": "She's fast enough for you old man.  What's the cargo?",
-            "quotee": "Han Solo - captain of the millennium falcon."
-        },
-        {
-            "id": "14",
-            "is_section": true,
-            "section_title": "Sagrada Familia"
         },
         {
             "id": "15",
