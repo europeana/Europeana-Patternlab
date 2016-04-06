@@ -39,7 +39,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function initExhibitions(){
     var doneSfx, doneProgressState;
 
-    if($(document).closest('iframe').size() > 0 ){
+    if($(document).closest('.editor').size() > 0 ){
       inEditor = true;
     }
     if(inEditor){
