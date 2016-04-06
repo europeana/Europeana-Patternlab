@@ -187,7 +187,7 @@
         "is_first": true,
         "is_full_section_element": true,
         "title": "Faces of Europe - Credits",
-        "body": "<p>Really long text, really long text, really long text, really long text, really long text, really long text</p>",
+        "body": "<p>Really long text, really long text, really long text, really long text, really long text, really long text</p><p>More really long text, more really long text, more really long text, more really long text, more really long text, more really long text</p>",
         "stripped_body": "Really long text",
         "is_credit_intro": true,
         "type": "credit_intro",

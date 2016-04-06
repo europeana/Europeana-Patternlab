@@ -44,6 +44,7 @@
           {"image": true}
         ],
         "single_item": true,
+        "has_downloadable_media": true,
         "items":
         [
           {

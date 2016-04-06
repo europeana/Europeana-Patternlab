@@ -17,6 +17,8 @@
     position:       absolute;
     text-transform: uppercase;
     font-weight:    bold;
+    font-size:      0.8em;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -151,12 +153,13 @@
     .ve-card-nav{
       color:          $colour_overlaid_text;
       cursor:         pointer;
-      font-size:      2em;
+      font-size:      1em;
       font-weight:    bold;
       position:       absolute;
       top:            50%;
       transform:      translateY(-50%);
       z-index:        2;
+      padding:        0.25em;
     }
 
     .ve-card-nav-left{
@@ -242,5 +245,13 @@
       top:           50%;
       transform:     translateY(-50%);
     }
+  }
+
+  .ve-state-button-off{
+    margin: 0 0.25em;
+  }
+  a:hover > .ve-state-button-off,
+  .ve-state-button-on{
+    margin: 0 0.25em;
   }
 }

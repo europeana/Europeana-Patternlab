@@ -157,9 +157,12 @@
   text-align: center;
 
   .ve-label{
-    display: block;
-    margin:  1em auto;
-    width:   80%;
+    display:        block;
+    font-size:      0.85em;
+    font-weight:    bold;
+    letter-spacing: 0.1em;
+    margin:         1em auto;
+    max-width:      80%;
   }
 }
 
@@ -174,18 +177,19 @@
 .ve-state-button-on,
 .ve-state-button-off{
   background-image: url(../../images/formcontrols.png);
+  background-size:  155px 19px;
   display:          inline-block;
   width:            20px;
-  height:           20px;
+  height:           19px;
 }
 
 .ve-state-button-off{
-  background-position: -88px 0;
+  background-position: -76px 0;
 }
 
 a:hover > .ve-state-button-off,
 .ve-state-button-on{
-  background-position: -110px 0;
+  background-position: -96px 0;
 }
 
 .ve-progress-nav{
@@ -217,7 +221,7 @@ a:hover > .ve-state-button-off,
 .ve-progress-nav .ve-state-button-on,
 .ve-progress-nav .ve-state-button-off{
   display:       block;
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
 }
 
 .ve-progress-nav .ve-state-button-on:not(.ve-first):before,
@@ -228,7 +232,7 @@ a:hover > .ve-state-button-off,
   height:           1em;
   left:             10px;
   position:         relative;
-  margin-bottom:    1em;
+  margin-bottom:    0.9em;
   top:              -1em;
   width:            1px;
 }
@@ -433,9 +437,10 @@ a:hover > .ve-state-button-off,
 .ve-label{
   background-color: $eu-blue;
   color:            #fff;
-  font-weight:      normal;
-  padding:          0.3em 0.7em;
+  font-weight:      bold;
+  padding:          0.4em 0.8em;
   text-transform:   uppercase;
+  letter-spacing:   0.1em;
 }
 
 .ve-social{
