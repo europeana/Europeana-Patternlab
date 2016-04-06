@@ -172,15 +172,21 @@
         "state_3_link": "javascript:alert('open this exhibition (3)",
 
         "state_1_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
         },
 
         "state_2_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
         },
 
         "state_3_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
         }
       },
       {
@@ -196,15 +202,21 @@
         "state_3_link": "javascript:alert('open this exhibition (3)",
 
         "state_1_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
         },
 
         "state_2_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
         },
 
         "state_3_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
         }
       },
       {
@@ -220,15 +232,21 @@
         "state_3_link": "javascript:alert('open this exhibition (3)",
 
         "state_1_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
         },
 
         "state_2_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
         },
 
         "state_3_image": {
-          "thumbnail": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
         }
       }]
     }
