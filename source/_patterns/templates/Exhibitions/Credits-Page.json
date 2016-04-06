@@ -179,6 +179,52 @@
   "page_data": {
     "title": "Credits Page Title",
     "page_url": "../templates-Exhibitions-Exhibition-Page/templates-Exhibitions-Exhibition-Page.html",
+    "elements": {
+      "present": "true",
+      "items":[
+        {
+        "is_last": true,
+        "is_first": true,
+        "is_full_section_element": true,
+        "title": "Faces of Europe - Credits",
+        "body": "<p>Really long text, really long text, really long text, really long text, really long text, really long text</p>",
+        "stripped_body": "Really long text",
+        "is_credit_intro": true,
+        "type": "credit_intro",
+        "alchemy_id": 152,
+        "id": "credit_intro_152",
+        "image":{
+            "original": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "full": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "fullx2": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "half": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "halfx2": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "small": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "smallx2": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "thumbnail": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            },
+            "thumbnailx2": {
+              "url": "/images/virtual-exhibitions/dada/logo.png"
+            }
+          }
+        }
+      ]
+    },
     "credit_elements": {
       "present": "true",
       "items":[
