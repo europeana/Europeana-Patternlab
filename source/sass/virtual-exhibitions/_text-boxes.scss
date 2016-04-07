@@ -231,11 +231,11 @@ a:hover > .ve-state-button-off,
   background-color: #ddebee;
   content:          "";
   display:          block;
-  height:           1em;
+  height:           1.3em;
   left:             10px;
   position:         relative;
   margin-bottom:    0.9em;
-  top:              -1em;
+  top:              -1.3em;
   width:            1px;
 }
 
@@ -287,7 +287,7 @@ a:hover > .ve-state-button-off,
 .ve-title-group{
   font-weight:    bold;
   left:           0;
-  top:            2em;
+  top:            1em;
 }
 
 .ve-chapter{
@@ -504,12 +504,12 @@ a:hover > .ve-state-button-off,
     .ve-branding{
       position: absolute;
       right:    0;
-      top:      1em;
       z-index:  1;
 
       .ve-partner-logo{
         filter:         grayScale(100);
         -webkit-filter: grayScale(100);
+        border:         6px solid #fff;
       }
 
       .ve-label{
@@ -675,6 +675,7 @@ a:hover > .ve-state-button-off,
   }
   .ve-base-text.ve-intro-full-description{
       max-width: $ve_text_column_width_XL_padded;
+      width:     $ve_text_column_width_XL_padded;
   }
 
 }
