@@ -818,11 +818,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}))
         .on('enter', function(){
             progNavActive = false;
-            log('!   controls showing')
+            $('.slide-nav-next:first').hide();
         })
         .on('leave', function(){
             progNavActive = true;
-            log('controls showing')
+            $('.slide-nav-next:first').show();
         });
 
         $('.ve-progress-nav a').on('click', function(e){
