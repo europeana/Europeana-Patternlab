@@ -92,6 +92,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     $(window).europeanaResize(function(){
 
+log('resize event');
       if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
@@ -239,6 +240,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function bindAnchors(){
     // set up handler to call self on popstate and hashchange
     $(window).on('hashchange', function() {
+
 log('hash changed');
       if(lightboxOpen){
         return;
