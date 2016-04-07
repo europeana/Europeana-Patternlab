@@ -190,9 +190,16 @@
             "id": "x1_2",
             "is_intro": true,
             "is_first": true,
+            "label": "Art history collection",
+            "partner_image": {
+              "thumbnail": {
+                "url": "/images/virtual-exhibitions/dada/logo.png"
+              }
+            },
+            "partner_url": "javascript:alert('link to curator site')",
             "section_title": "Another intro type",
-            "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
+            "title": "Faces of Europe",
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
             "image_credit": {
               "attribution_title": "Battle of Grunweald",

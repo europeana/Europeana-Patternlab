@@ -191,7 +191,13 @@
             "type": "ve-intro",
             "is_first": true,
             "is_intro": true,
-
+            "label": "Art history collection",
+            "partner_image": {
+              "thumbnail": {
+                "url": "/images/virtual-exhibitions/dada/logo.png"
+              }
+            },
+            "partner_url": "javascript:alert('link to curator site')",
             "image_credit": {
               "attribution_title": "Battle of Grunweald",
               "attribution_creator": "Jan Matejko",

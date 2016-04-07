@@ -239,7 +239,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function bindAnchors(){
     // set up handler to call self on popstate and hashchange
     $(window).on('hashchange', function() {
-
+log('hash changed');
       if(lightboxOpen){
         return;
       }
