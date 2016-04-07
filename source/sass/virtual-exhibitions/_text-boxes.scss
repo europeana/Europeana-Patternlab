@@ -162,7 +162,9 @@
     font-weight:    bold;
     letter-spacing: 0.1em;
     margin:         1em auto;
-    max-width:      80%;
+
+    // FAO Carlos: this can stop it being tight to the edge of the main intro image - disabled
+    // max-width:      80%;
   }
 }
 

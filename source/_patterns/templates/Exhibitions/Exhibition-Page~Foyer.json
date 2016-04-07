@@ -167,9 +167,9 @@
 
         "state_1_label": "Art history collection",
 
-        "state_1_link": "javascript:alert('open this exhibition (1)",
-        "state_2_link": "javascript:alert('open this exhibition (2)",
-        "state_3_link": "javascript:alert('open this exhibition (3)",
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
 
         "state_1_image": {
           "thumbnail": {
@@ -197,9 +197,9 @@
 
         "state_1_label": "Art history collection",
 
-        "state_1_link": "javascript:alert('open this exhibition (1)",
-        "state_2_link": "javascript:alert('open this exhibition (2)",
-        "state_3_link": "javascript:alert('open this exhibition (3)",
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
 
         "state_1_image": {
           "thumbnail":{
@@ -227,9 +227,9 @@
 
         "state_1_label": "Art history collection",
 
-        "state_1_link": "javascript:alert('open this exhibition (1)",
-        "state_2_link": "javascript:alert('open this exhibition (2)",
-        "state_3_link": "javascript:alert('open this exhibition (3)",
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
 
         "state_1_image": {
           "thumbnail":{

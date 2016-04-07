@@ -2,17 +2,27 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   var inEditor            = false;
 
-  var $firstSlide         = $('.ve-slide.first');
-  var $introE             = $('.ve-exhibition .ve-slide.first .ve-intro');
-  var $introC             = $('.ve-chapter .ve-slide.first .ve-intro');
-  var $url                = $.url();
+  var $firstSlide       = $('.ve-slide.first');
+  var $introE           = $('.ve-exhibition .ve-slide.first .ve-intro');
+  var $introC           = $('.ve-chapter .ve-slide.first .ve-intro');
+  var $url              = $.url();
 
-  var sfxScenes           = [];
-  var introEffectDuration = 500;
-  var lightboxOpen        = false;
-  var pageInitComplete    = false;
+  var sfxScenes         = [];
+  var introDuration     = 100;
 
-  var scrollDuration      = 1400;
+  if($url.param('introDuration')){
+    if($url.param('introDuration') == parseInt($url.param('introDuration')) + ''){
+      introDuration = parseInt($url.param('introDuration'));
+    }
+    else{
+      alert('introDuration has to be an int - using default (' + introDuration + ')');
+    }
+  }
+
+  var lightboxOpen     = false;
+  var pageInitComplete = false;
+
+  var scrollDuration   = 1400;
 
   if($url.param('scrollDuration')){
       if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
@@ -22,7 +32,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
       }
   }
-
 
   var scrollExecuting     = false;
   var progNavActive       = true;
@@ -345,7 +354,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        isIntroE ? introEffectDuration * 1.2 : introEffectDuration
+              duration:        isIntroE ? introDuration * 1.2 : introDuration
             })
             .setTween(
               TweenMax.to(
@@ -368,7 +377,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        introEffectDuration
+              duration:        introDuration
             })
             .setPin($firstSlide[0])
             .setTween(
@@ -391,7 +400,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene({
               triggerElement: $firstSlide,
               triggerHook:    'onLeave',
-              duration:       introEffectDuration * 2
+              duration:       introDuration * 2
             })
             .setTween(
               TweenMax.fromTo(
@@ -421,7 +430,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene({
               triggerElement: $introE,
               triggerHook:    0,
-              duration:       introEffectDuration / 1.1,
+              duration:       introDuration / 1.1,
               reverse:        true,
               offset:         headerHeight
             })
@@ -440,7 +449,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               new ScrollMagic.Scene({
                   triggerElement: $introE,
                   triggerHook:    0,
-                  duration:       introEffectDuration / 1.1,
+                  duration:       introDuration / 1.1,
                   reverse:        true
               })
               .addTo(smCtrl)
@@ -452,7 +461,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                           top:    introHeight,
                       },
                       {
-                          top:    (introEffectDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
+                          top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
                           ease:   Cubic.easeIn
                       }
                   )

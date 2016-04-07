@@ -359,7 +359,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -369,7 +371,9 @@
           "title": "But Isn't Keen on Art Deco",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -378,7 +382,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "thumbnail" : {
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -387,7 +393,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         }

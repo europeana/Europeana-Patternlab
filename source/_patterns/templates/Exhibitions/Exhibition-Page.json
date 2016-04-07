@@ -490,7 +490,7 @@
               }
             },
             "title": "Art Nouveau",
-            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
+            "XXXsubtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
         },
         {
             "id": "6",
@@ -714,7 +714,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail": {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -724,7 +726,9 @@
           "title": "But Isn't Keen on Art Deco",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "thumbnail": {
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -733,7 +737,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -742,7 +748,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         }
