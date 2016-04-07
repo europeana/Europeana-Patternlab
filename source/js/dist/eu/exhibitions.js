@@ -90,13 +90,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       initLightbox();
     }
 
-    $(window).on('orientationchange', function(){
-        log('ORIENTATION CHANGE');
-    });
-
-    $(window).europeanaResize(function(){
-
-log('resize event');
+    var resizeFunction(){
       if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
@@ -113,25 +107,40 @@ log('resize event');
       }
       else{
         if(smCtrl){
-            var hash = window.location.hash;
-            smCleanup();
-            initSFX();
-            if(hash){
-              var $hash = $(hash);
-              if($hash.size()>0){
-                scrollToAdaptedForPin($hash, true);
-              }
+          var hash = window.location.hash;
+          smCleanup();
+          initSFX();
+          if(hash){
+            var $hash = $(hash);
+            if($hash.size()>0){
+              scrollToAdaptedForPin($hash, true);
             }
-            else{
-                scrollExecuting = false;
-            }
+          }
+          else{
+            scrollExecuting = false;
+          }
         }
         else{
           initProgressState();
           initSFX();
         }
       }
+    }
+
+    $(window).on('orientationchange', function(){
+      log('ORIENTATION CHANGE');
+      resizeFunction();
     });
+
+    $(window).europeanaResize(function(){
+      log('SIZE CHANGE');
+      if(/Android/i.test(navigator.userAgent)){
+        log('SIZE CHANGE IGNORED');
+        return;
+      }
+      resizeFunction();
+    });
+
   };
 
   function isDesktop(){
