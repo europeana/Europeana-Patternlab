@@ -133,7 +133,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
 
     $(window).europeanaResize(function(){
-      log('SIZE CHANGE');
+      log('SIZE CHANGE - navigator.userAgent = ' + navigator.userAgent);
       if(/Android/i.test(navigator.userAgent)){
         log('SIZE CHANGE IGNORED');
         return;
