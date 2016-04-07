@@ -237,6 +237,18 @@
             }
         },
         {
+            "id": "2A",
+            "is_section": true,
+            "section_title": "Text"
+        },
+
+        {
+            "id": "2B",
+            "is_text": true,
+            "body": "<p>The battle was one of the largest in Medieval Europe and is regarded as the most important victory in the histories of Poland, Belarus and Lithuania.  It has been used as a source of romantic legends and national pride, becoming a larger symbol of struggle against foreign invaders.</p><p>If there's a gap below here it's because the slide is smaller than the viewport height.</p>"
+        },
+
+        {
             "id": "2",
             "is_section": true,
             "section_title": "Japan"

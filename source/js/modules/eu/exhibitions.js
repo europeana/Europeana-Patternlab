@@ -128,29 +128,22 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     }
 
     $(window).on('orientationchange', function(){
-      log('ORIENTATION CHANGE');
       resizeFunction();
     });
 
     $(window).europeanaResize(function(){
-      log('SIZE CHANGE - navigator.userAgent = ' + navigator.userAgent);
       var ua = navigator.userAgent;
       if(/Android/i.test(ua)){
-        log('SIZE CHANGE IGNORED');
         return;
       }
-
       var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
       var webkit = !!ua.match(/WebKit/i);
       var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-
       if(iOSSafari){
-          log('SIZE CHANGE IGNORED - SAFARI on IPAD');
           return;
       }
       resizeFunction();
     });
-
   };
 
   function isDesktop(){
@@ -393,6 +386,24 @@ log('hash changed');
             )
             .addTo(smCtrl)
           );
+          sfxScenes.push(
+            new ScrollMagic.Scene({
+              triggerElement:  $firstSlide,
+              triggerHook:     'onLeave',
+              duration:        1
+            })
+            .setTween(
+              TweenMax.to(
+                $('.ve-base-intro-texts .ve-branding'),
+                1,
+                {
+                  opacity: 0,
+                  ease:    Cubic.easeOut
+                }
+              )
+            )
+            .addTo(smCtrl)
+          );
         }
 
         if(isIntroC){
@@ -471,26 +482,26 @@ log('hash changed');
           // description
 
           sfxScenes.push(
-              new ScrollMagic.Scene({
-                  triggerElement: $introE,
-                  triggerHook:    0,
-                  duration:       introDuration / 1.1,
-                  reverse:        true
-              })
-              .addTo(smCtrl)
-              .setTween(
-                  TweenMax.fromTo(
-                      fullDescription,
-                      1,
-                      {
-                          top:    introHeight,
-                      },
-                      {
-                          top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
-                          ease:   Cubic.easeIn
-                      }
-                  )
+            new ScrollMagic.Scene({
+              triggerElement: $introE,
+              triggerHook:    0,
+              duration:       introDuration / 1.1,
+              reverse:        true
+            })
+            .addTo(smCtrl)
+            .setTween(
+              TweenMax.fromTo(
+                fullDescription,
+                1,
+                {
+                  top:    introHeight,
+                },
+                {
+                  top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
+                  ease:   Cubic.easeIn
+                }
               )
+            )
           );
         }
         else{

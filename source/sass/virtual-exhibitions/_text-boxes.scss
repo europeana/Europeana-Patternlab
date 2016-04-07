@@ -198,7 +198,7 @@ a:hover > .ve-state-button-off,
   display:     none;
   position:    fixed;
   right:       3.5em;
-  top:         50%;
+  top:         60%;
   transform:   translateY(-50%);
   width:       0;
   z-index:     3;
@@ -507,6 +507,11 @@ a:hover > .ve-state-button-off,
       top:      1em;
       z-index:  1;
 
+      .ve-partner-logo{
+        filter:         grayScale(100);
+        -webkit-filter: grayScale(100);
+      }
+
       .ve-label{
         width:   auto;
       }
@@ -567,8 +572,9 @@ a:hover > .ve-state-button-off,
       opacity:          0.85;
       left:             50%;
       margin:           0;
+      padding:          1em;
       position:         absolute;
-      text-align:       center;
+      text-align:       left;
       transform:        translateX(-50%);
       z-index:          1;
     }
@@ -666,6 +672,9 @@ a:hover > .ve-state-button-off,
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;
+  }
+  .ve-base-text.ve-intro-full-description{
+      max-width: $ve_text_column_width_XL_padded;
   }
 
 }
