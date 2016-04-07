@@ -90,6 +90,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       initLightbox();
     }
 
+    $(window).on('orientationchange', function(){
+        log('ORIENTATION CHANGE');
+    });
+
     $(window).europeanaResize(function(){
 
 log('resize event');
