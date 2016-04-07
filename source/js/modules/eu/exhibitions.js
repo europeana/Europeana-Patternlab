@@ -390,7 +390,7 @@ log('hash changed');
             new ScrollMagic.Scene({
               triggerElement:  $firstSlide,
               triggerHook:     'onLeave',
-              duration:        1
+              duration:        isIntroE ? introDuration * 1.2 : introDuration
             })
             .setTween(
               TweenMax.to(
