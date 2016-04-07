@@ -90,7 +90,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       initLightbox();
     }
 
-    var resizeFunction(){
+    var resizeFunction = function(){
       if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
