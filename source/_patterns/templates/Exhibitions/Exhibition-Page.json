@@ -5,6 +5,7 @@
   "is_credit":         false,
   "pattern_lab_reset": "end",
 
+  "google_analytics_code": "123",
 
   "js_files": [{
       "path": "../../js/dist/require.js",

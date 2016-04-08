@@ -1,7 +1,10 @@
+window.GoogleAnalyticsObject = '__ga__';
+
 require.config({
   paths: {
     exhibitions:            '../eu/exhibitions',
     featureDetect:          '../global/feature-detect',
+    ga:                     '//www.google-analytics.com/analytics',
     global:                 '../eu/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
@@ -22,17 +25,37 @@ require.config({
     TweenMax:               '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min',
     TimelineMax:            '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min',
 
-    ScrollMagicIndicators:  '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min',
-
-
     util_ellipsis:          '../eu/util/ellipsis',
     util_resize:            '../eu/util/resize',
     util_scrollEvents:      '../eu/util/scrollEvents'
+  },
+  shim: {
+    featureDetect:  ['jquery'],
+    jqDropdown:     ['jquery'],
+    menus:          ['jquery'],
+    smartmenus:     ['jquery'],
+    ga: {
+      exports: "__ga__"
+    }
   }
 });
 
 require(['jquery'], function( $ ) {
+
+  var gaCode = $('main').data('ga-code');
+
+  if(gaCode){
+    window.__ga__ = {
+      q: [['create', gaCode, 'auto']],
+      l: Date.now()
+    };
+    require(["ga"], function(ga) {
+      ga("send", "pageview");
+    });
+  }
+
   require(['exhibitions', 'global'], function( exhibitions ) {
-      exhibitions.initPage();
+    exhibitions.initPage();
   });
+
 });
