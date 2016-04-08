@@ -1,6 +1,18 @@
 @import "../scss/generic/variables";
 @import "variables";
 
+.logo {
+  background-image: url("../../images/europeana-logo-collections.png");
+  .svg &{
+    background-image: url("../../images/europeana-logo-collections.svg");
+      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        background-image: url("../../images/europeana-logo-symbol.svg");
+        min-width:50px;
+        max-width:50px;
+      }
+  }
+}
+
 .no-js{
   .ve-progress-nav{
     display: none;
