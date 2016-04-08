@@ -68,10 +68,12 @@
 
   .ve-chapter-selection-container-inner,
   .ve-foyer-card-container{
-    left:         50%;
-    position:     relative;
-    transform:    translateX(-50%);
-    width:        $ve_image_column_width;
+    left:              50%;
+    position:          relative;
+    transform:         translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform:     translateX(-50%);
+    width:             $ve_image_column_width;
   }
 
   .ve-label,
@@ -151,15 +153,17 @@
     }
 
     .ve-card-nav{
-      color:          $colour_overlaid_text;
-      cursor:         pointer;
-      font-size:      1em;
-      font-weight:    bold;
-      position:       absolute;
-      top:            50%;
-      transform:      translateY(-50%);
-      z-index:        2;
-      padding:        0.25em;
+      color:             $colour_overlaid_text;
+      cursor:            pointer;
+      font-size:         1em;
+      font-weight:       bold;
+      position:          absolute;
+      top:               50%;
+      transform:         translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform:     translateY(-50%);
+      z-index:           2;
+      padding:           0.25em;
     }
 
     .ve-card-nav-left{
@@ -242,8 +246,10 @@
     }
 
     .text-box.title{
-      top:           50%;
-      transform:     translateY(-50%);
+      top:               50%;
+      transform:         translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform:     translateY(-50%);
     }
   }
 

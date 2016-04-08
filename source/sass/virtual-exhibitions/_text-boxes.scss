@@ -195,13 +195,15 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-progress-nav{
-  display:     none;
-  position:    fixed;
-  right:       3.5em;
-  top:         60%;
-  transform:   translateY(-50%);
-  width:       0;
-  z-index:     3;
+  display:           none;
+  position:          fixed;
+  right:             3.5em;
+  top:               60%;
+  transform:         translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  width:             0;
+  z-index:           3;
 
   a{
     outline: none;
@@ -231,11 +233,12 @@ a:hover > .ve-state-button-off,
   background-color: #ddebee;
   content:          "";
   display:          block;
-  height:           1.3em;
+  height:           18px;
   left:             10px;
   position:         relative;
-  margin-bottom:    0.9em;
-  top:              -1.3em;
+  //margin-bottom:    0.9em;
+  margin-top:       1.15em;
+  top:              -18px;
   width:            1px;
 }
 
@@ -395,6 +398,9 @@ a:hover > .ve-state-button-off,
   position:          absolute;
   left:              50%;
   transform:         translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform:     translateX(-50%);
+
   z-index:           1;
   a{
     color:           $offwhite;
@@ -446,12 +452,14 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-social{
-  float:      left;
-  left:       50%;
-  margin:     2.5em 0;
-  position:   relative;
-  text-align: center;
-  transform:  translateX(-50%);
+  float:             left;
+  left:              50%;
+  margin:            2.5em 0;
+  position:          relative;
+  text-align:        center;
+  transform:         translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform:     translateX(-50%);
 }
 
 .ve-footer{
@@ -494,7 +502,9 @@ a:hover > .ve-state-button-off,
   .ve-base{
 
     .centered-text{
-      transform: translateY(-50%);
+      transform:         translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform:     translateY(-50%);
     }
     .centered-v-text{
       position: absolute;
@@ -569,17 +579,20 @@ a:hover > .ve-state-button-off,
   .ve-exhibition{
     .ve-intro-full-description{
       background-color: white;
-      opacity:          0.85;
-      left:             50%;
-      margin:           0;
-      padding:          1em;
-      position:         absolute;
-      text-align:       left;
-      transform:        translateX(-50%);
-      z-index:          1;
+      opacity:           0.85;
+      left:              50%;
+      margin:            0;
+      padding:           1em;
+      position:          absolute;
+      text-align:        left;
+      transform:         translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform:     translateX(-50%);
+      z-index:           1;
 
       &.intro-disabled{
         position: relative;
+        padding:  0;
       }
     }
   }
