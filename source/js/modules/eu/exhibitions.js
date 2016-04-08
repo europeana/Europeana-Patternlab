@@ -129,9 +129,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       }
     }
 
-    $(window).on('orientationchange', function(){
-      resizeFunction();
-    });
+    //$(window).on('orientationchange', function(){
+    //  resizeFunction();
+    //});
 
     $(window).europeanaResize(function(){
       if(!tabletOrPhone){
