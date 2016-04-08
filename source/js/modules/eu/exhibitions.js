@@ -375,10 +375,9 @@ log('hash changed');
 
         if(isIntroC || isIntroE){
 
-          if(tabletOrPhone) {
-            $('.ve-intro-full-description').addClass('intro-disabled');
-          }
-          else{
+          if(!tabletOrPhone) {
+            $('.ve-intro-full-description').removeClass('intro-disabled');
+
             // add text fade
             sfxScenes.push(
               new ScrollMagic.Scene({
