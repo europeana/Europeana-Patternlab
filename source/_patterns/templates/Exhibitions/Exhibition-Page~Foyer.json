@@ -4,6 +4,8 @@
   "title": "Exhibitions Foyer Page",
   "is_exhibition": false,
   "is_chapter": false,
+  "is_credit": false,
+
   "pattern_lab_reset": "end",
 
   "js_files": [{

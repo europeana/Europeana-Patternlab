@@ -2,6 +2,8 @@
   "pattern_lab_reset": "start",
   "title":             false,
   "is_chapter":        false,
+  "is_credit":         false,
+
   "pattern_lab_reset": "end",
 
   "js_files": [{

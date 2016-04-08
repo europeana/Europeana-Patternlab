@@ -29,60 +29,70 @@
         {{/is_foyer}}
 
         {{^is_foyer}}
-          {{# elements.present }}
-            <h4 class="ve-progress-nav">
-              {{# elements.items }}
-                {{^ is_section }}
+          {{^is_credit}}
+            {{# elements.present }}
+
+              {{! PROGRESS NAV }}
+
+              <h4 class="ve-progress-nav">
+                {{# elements.items }}
+                  {{^ is_section }}
+                    {{#is_first}}
+                      <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                    {{/is_first}}
+                  {{/ is_section }}
+                {{/ elements.items }}
+                {{# elements.items }}
+                  {{# is_section }}
+                    <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                  {{/ is_section }}
+                {{/ elements.items }}
+              </h4>
+
+              {{! SECTIONS }}
+
+              <section class="ve-slide first">
+                {{# elements.items }}
                   {{#is_first}}
-                    <a href="#ve-anchor-{{id}}-js"><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                    <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
                   {{/is_first}}
-                {{/ is_section }}
-              {{/ elements.items }}
-              {{# elements.items }}
-                {{# is_section }}
-                  <a href="#ve-anchor-{{id}}-js"{{#section_title}} title="{{.}}"{{/section_title}}><span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
-                {{/ is_section }}
-              {{/ elements.items }}
-            </h4>
+                {{/ elements.items }}
+                {{# elements.items }}
+                  {{> organisms/virtual-exhibitions/main-slide}}
+                {{/ elements.items }}
+              </section>
 
-            <section class="ve-slide first">
-              {{# elements.items }}
-                {{#is_first}}
-                  <a class="ve-anchor" id="ve-anchor-{{id}}-js"></a>
-                {{/is_first}}
-              {{/ elements.items }}
-              {{# elements.items }}
-                {{> organisms/virtual-exhibitions/main-slide}}
-              {{/ elements.items }}
-            </section>
+            {{/ elements.present }}
+            <a id="ve-end"></a>
+          </div>
 
-          {{/ elements.present }}
-          <a id="ve-end"></a>
-        </div>
+          {{! NAV ELEMENTS }}
 
-        {{#is_exhibition}}
-          <div class="ve-chapter-selection-container">
-            <div class="ve-chapter-selection-container-inner cf">
-              {{#chapter_elements}}
-                {{#present}}
-                  {{#items}}
-                    {{#is_chapter_nav}}
-                      {{> organisms/virtual-exhibitions/chapter-selection}}
-                    {{/is_chapter_nav}}
-                  {{/items}}
-                {{/present}}
-              {{/chapter_elements}}
+          {{#is_exhibition}}
+            <div class="ve-chapter-selection-container">
+              <div class="ve-chapter-selection-container-inner cf">
+                {{#chapter_elements}}
+                  {{#present}}
+                    {{#items}}
+                      {{#is_chapter_nav}}
+                        {{> organisms/virtual-exhibitions/chapter-selection}}
+                      {{/is_chapter_nav}}
+                    {{/items}}
+                  {{/present}}
+                {{/chapter_elements}}
+              </div>
+              {{> templates/Exhibitions/Next-Prev-Chapter }}
             </div>
-            {{> templates/Exhibitions/Next-Prev-Chapter }}
-          </div>
-        {{/is_exhibition}}
-        {{#is_chapter}}
-          <div class="ve-chapter-selection-container cf">
-            {{> templates/Exhibitions/Next-Prev-Chapter }}
-          </div>
-        {{/is_chapter}}
+          {{/is_exhibition}}
+          {{#is_chapter}}
+            <div class="ve-chapter-selection-container cf">
+              {{> templates/Exhibitions/Next-Prev-Chapter }}
+            </div>
+          {{/is_chapter}}
+        {{/is_credit}}
       {{/is_foyer}}
 
+      {{! FOYER CARDS }}
 
       {{#is_foyer}}
         <div class="ve-foyer-card-container cf">
@@ -97,6 +107,112 @@
           {{/elements}}
         </div>
       {{/is_foyer}}
+
+      {{#is_credit}}
+
+        <div class="ve-credit-wrapper">
+        {{# elements }}
+          {{# present }}
+            {{# items }}
+              {{# is_credit_intro }}
+                  <div class="ve-credit-intro cf">
+                    <div class="ve-credit-title">
+                      <h1>{{title}}</h1>
+                    </div>
+                    <div class="ve-col-credit-left">
+                      <div class="inner">
+                        {{{body}}}
+                      </div>
+                    </div>
+                    <div class="ve-col-credit-right">
+                      <div class="inner">
+                        <figure>
+                          {{#image}}
+                            <picture data-hi-res="{{#full}}{{url}}{{/full}}">
+                              {{>atoms/images/responsive-srcset-picture}}
+                            </picture>
+                          {{/image}}
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+              {{/ is_credit_intro }}
+            {{/ items }}
+          {{/ present }}
+        {{/ elements }}
+
+        {{# credit_elements.present }}
+          {{# credit_elements.items }}
+
+           <div class="cf">
+              <div class="ve-col-credit-left">
+                <div class="inner">
+                  <figure>
+                    {{#image}}
+                      <picture data-hi-res="{{#full}}{{url}}{{/full}}">
+                        {{>atoms/images/responsive-srcset-picture}}
+                      </picture>
+                    {{/image}}
+                  </figure>
+                </div>
+              </div>
+              <div class="ve-col-credit-right">
+                <div class="inner">
+                  {{#image_credit}}
+                    <ul>
+                      {{#attribution_title}}
+                        <li class="ve-field">
+                          <h4 class="ve-field-label">Title</h4> {{.}}
+                        </li>
+                      {{/attribution_title}}
+
+                      {{#attribution_creator}}
+                        <li class="ve-field">
+                          <h4 class="ve-field-label">Creator</h4> {{.}}
+                        </li>
+                      {{/attribution_creator}}
+
+                      {{#attribution_institution}}
+                        <li class="ve-field">
+                          <h4 class="ve-field-label">Source</h4>
+                          {{#attribution_url}}
+                            <a href="{{.}}" target="_new">{{attribution_institution}}</a>
+                          {{/attribution_url}}
+                          {{^attribution_url}}
+                            {{attribution_institution}}
+                          {{/attribution_url}}
+                        </li>
+                      {{/attribution_institution}}
+
+                      {{#page_url}}
+                        <li class="ve-field">
+                          <a href="{{.}}#ve-element-anchor-{{id}}" target="_new">view in exhibition
+                            <svg class="icon icon-external-link">
+                              <use xlink:href="#icon-external-link"></use>
+                            </svg></a>
+                        </li>
+                      {{/page_url}}
+
+                      {{#image}}
+                        <li class="ve-field">
+                          <a class="btn" download="Europeana-Exhibition-Image" href="{{#full}}{{url}}{{/full}}">
+                            <svg class="icon icon-download">
+                              <use xlink:href="#icon-download"></use>
+                            </svg>Download</a>
+                        </li>
+                      {{/image}}
+
+                    </ul>
+                  {{/image_credit}}
+                </div>
+              </div>
+            </div>
+          {{/ credit_elements.items }}
+        {{/ credit_elements.present }}
+
+        </div>
+
+      {{/is_credit}}
 
     {{/ page_data }}
 

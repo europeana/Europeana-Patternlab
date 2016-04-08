@@ -2,6 +2,7 @@
   "pattern_lab_reset": "start",
   "is_exhibition":     false,
   "title":             false,
+  "is_credit":         false,
   "pattern_lab_reset": "end",
 
 
