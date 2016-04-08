@@ -7,6 +7,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var $introC           = $('.ve-chapter .ve-slide.first .ve-intro');
   var $url              = $.url();
 
+  var tabletOrPhone     = 'ontouchstart' in document.documentElement && window.orientation;
+
   var sfxScenes         = [];
   var introDuration     = 100;
 
@@ -351,6 +353,7 @@ log('hash changed');
 
   function initSFX(){
     var def = $.Deferred();
+
     if(!isDesktop()) {
         def.resolve();
         return def;
@@ -367,46 +370,50 @@ log('hash changed');
 
         if(isIntroC || isIntroE){
 
-          // add text fade
-          sfxScenes.push(
-            new ScrollMagic.Scene({
-              triggerElement:  $firstSlide,
-              triggerHook:     'onLeave',
-              duration:        isIntroE ? introDuration * 1.2 : introDuration
-            })
-            .setTween(
-              TweenMax.to(
-                $firstSlide.find(textTweenTargets),
-                1,
-                {
-                  opacity: 0,
-                  ease:    Cubic.easeOut
-                }
+          if(tabletOrPhone) {
+            $('.ve-intro-full-description').addClass('intro-disabled');
+          }
+          else{
+            // add text fade
+            sfxScenes.push(
+              new ScrollMagic.Scene({
+                triggerElement:  $firstSlide,
+                triggerHook:     'onLeave',
+                duration:        isIntroE ? introDuration * 1.2 : introDuration
+              })
+              .setTween(
+                TweenMax.to(
+                  $firstSlide.find(textTweenTargets),
+                  1,
+                  {
+                    opacity: 0,
+                    ease:    Cubic.easeOut
+                  }
+                )
               )
-            )
-            .addTo(smCtrl)
-          );
-          sfxScenes.push(
-            new ScrollMagic.Scene({
-              triggerElement:  $firstSlide,
-              triggerHook:     'onLeave',
-              duration:        isIntroE ? introDuration * 1.2 : introDuration
-            })
-            .setTween(
-              TweenMax.to(
-                $('.ve-base-intro-texts .ve-branding'),
-                1,
-                {
-                  opacity: 0,
-                  ease:    Cubic.easeOut
-                }
+              .addTo(smCtrl)
+            );
+            sfxScenes.push(
+              new ScrollMagic.Scene({
+                triggerElement:  $firstSlide,
+                triggerHook:     'onLeave',
+                duration:        isIntroE ? introDuration * 1.2 : introDuration
+              })
+              .setTween(
+                TweenMax.to(
+                  $('.ve-base-intro-texts .ve-branding'),
+                  1,
+                  {
+                    opacity: 0,
+                    ease:    Cubic.easeOut
+                  }
+                )
               )
-            )
-            .addTo(smCtrl)
-          );
+              .addTo(smCtrl)
+            );
+          }
         }
-
-        if(isIntroC){
+        if(!tabletOrPhone && isIntroC){
 
           // add pin and resize
           sfxScenes.push(
@@ -453,7 +460,7 @@ log('hash changed');
             .addTo(smCtrl)
           );
         }
-        else if(isIntroE){
+        else if(!tabletOrPhone && isIntroE){
 
           var fullDescription = $firstSlide.find('.ve-intro-full-description');
           var headerHeight    = $('.page_header').height();
