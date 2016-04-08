@@ -10,7 +10,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var tabletOrPhone     = 'ontouchstart' in document.documentElement && window.orientation;
 
   var sfxScenes         = [];
-  var introDuration     = 100;
+  var introDuration     = 130;
 
   if($url.param('introDuration')){
     if($url.param('introDuration') == parseInt($url.param('introDuration')) + ''){
@@ -134,6 +134,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     });
 
     $(window).europeanaResize(function(){
+      if(!tabletOrPhone){
+        resizeFunction();
+      }
+      /*
       var ua = navigator.userAgent;
       if(/Android/i.test(ua)){
         return;
@@ -145,6 +149,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           return;
       }
       resizeFunction();
+      */
     });
   };
 

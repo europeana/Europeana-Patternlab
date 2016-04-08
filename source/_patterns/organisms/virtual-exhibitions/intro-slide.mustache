@@ -68,7 +68,7 @@
     {{/label}}
 
     {{#partner_image}}
-      <a class="ve-partner-logo" href="{{partner_url}}"><img src="{{thumbnail.url}}"></a>
+      {{#partner_url}}<a class="ve-partner-logo" href="{{.}}">{{/partner_url}}{{#thumbnail.url}}<img src="{{.}}">{{/thumbnail.url}}{{#partner_url}}</a>{{/partner_url}}
     {{/partner_image}}
   </div>
 </div>
