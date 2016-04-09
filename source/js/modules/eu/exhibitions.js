@@ -129,35 +129,48 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       }
     }
 
-    //$(window).on('orientationchange', function(){
-    //  resizeFunction();
-    //});
-
     $(window).europeanaResize(function(){
       if(!tabletOrPhone){
         resizeFunction();
       }
-      /*
-      var ua = navigator.userAgent;
-      if(/Android/i.test(ua)){
-        return;
-      }
-      var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-      var webkit = !!ua.match(/WebKit/i);
-      var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-      if(iOSSafari){
-          return;
-      }
-      resizeFunction();
-      */
     });
+
+    var growlMsg = $('.ve-intro').data('growl-msg');
+    if(growlMsg){
+      growl(growlMsg);
+    }
   };
 
   function isDesktop(){
     return $('#desktop_detect').width()>0;
   }
 
-  var smCleanup = function(){
+  function growl(msg){
+
+    var key = 'eu_exhibitions_oneoff_scroll_instruction';
+
+    if($url.param('clearGrowl')){
+      localStorage.removeItem(key);
+    }
+
+    if($(document).scrollTop() == 0){
+      var doShow = false;
+      if(typeof(Storage) == 'undefined') {
+        doShow = true;
+      }
+      else{
+        if(!localStorage.getItem(key)){
+          localStorage.setItem(key, true);
+          doShow = true;
+        }
+      }
+      if(doShow){
+        $('body').append('<div class="growl">' + msg + '</div>');
+      }
+    }
+  }
+
+  function smCleanup(){
     scrollExecuting = true;
 
     $.each(sfxScenes, function(i, ob){

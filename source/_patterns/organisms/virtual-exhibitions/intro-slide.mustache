@@ -1,4 +1,4 @@
-<div id="{{id}}" class="ve-intro ve-base ve-{{id}} {{type}}{{#is_featured_exhibition}} ve-base-foyer-main{{/is_featured_exhibition}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
+<div id="{{id}}" class="ve-intro ve-base ve-{{id}} {{type}}{{#is_featured_exhibition}} ve-base-foyer-main{{/is_featured_exhibition}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#growl_message}} data-growl-msg="{{.}}"{{/growl_message}}{{^growl_message}} data-growl-msg="Scroll down to continue"{{/growl_message}}>
 
   {{#image}}
     {{>organisms/virtual-exhibitions/main-slide-bg-style }}

@@ -1,0 +1,32 @@
+@import "../scss/generic/variables";
+@import "variables";
+
+.growl{
+  background-color: $bg_colour_overlaid_text;
+
+  border:           1px solid rgba(150,150,150,0.7);
+  border-radius:    1em;
+
+  color:            #fff;
+  font-weight:      1em;
+  left:             50%;
+  padding:          1em;
+  position:         fixed;
+  top:              50%;
+  transform:        translate(-50%, -50%);
+  z-index:          3;
+
+  -webkit-animation: fadeinout 7s ease-in forwards;
+  animation:         fadeinout 7s ease-in forwards;
+}
+
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  20%,90% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  20%,90% { opacity: 1; }
+}
