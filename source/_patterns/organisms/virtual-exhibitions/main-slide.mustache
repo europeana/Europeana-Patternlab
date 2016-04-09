@@ -147,30 +147,6 @@
     </div>
   {{/is_rich_image}}
 
-  {{# is_credit_intro }}
-    <div class="ve-credit-intro cf">
-      <div class="ve-credit-title">
-        <h1>{{title}}</h1>
-      </div>
-      <div class="ve-col-credit-left">
-        <div class="inner">
-          {{{body}}}
-        </div>
-      </div>
-      <div class="ve-col-credit-right">
-        <div class="inner">
-          <figure>
-            {{#image}}
-              <picture data-hi-res="{{#full}}{{url}}{{/full}}">
-                {{>atoms/images/responsive-srcset-picture}}
-              </picture>
-            {{/image}}
-          </figure>
-        </div>
-      </div>
-    </div>
-  {{/ is_credit_intro }}
-
   {{^is_last}}
     <span class="slide-nav slide-nav-next"><a class="ve-anchor-link" href="#ve-anchor-{{id}}"><svg class="icon icon-down"><use xlink:href="#icon-down"></use></svg></a></span>
     <noscript>

@@ -195,6 +195,7 @@
         "type": "credit_intro",
         "alchemy_id": 152,
         "id": "credit_intro_152",
+        "partner_url": "javascript:alert('go to (optional) partner url')",
         "image":{
             "original": {
               "url": "/images/virtual-exhibitions/dada/logo.png"

@@ -127,11 +127,13 @@
                     <div class="ve-col-credit-right">
                       <div class="inner">
                         <figure>
+                        {{#partner_url}}<a href="{{.}}">{{/partner_url}}
                           {{#image}}
                             <picture data-hi-res="{{#full}}{{url}}{{/full}}">
                               {{>atoms/images/responsive-srcset-picture}}
                             </picture>
                           {{/image}}
+                        {{#partner_url}}</a>{{/partner_url}}
                         </figure>
                       </div>
                     </div>
