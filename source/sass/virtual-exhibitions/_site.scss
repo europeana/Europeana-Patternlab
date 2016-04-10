@@ -594,6 +594,7 @@ a:hover > .ve-state-button-off,
       opacity:           0.85;
       left:              50%;
       margin:            0;
+      max-width:         $ve_text_column_width_XL_padded;
       padding:           1em;
       position:          absolute;
       text-align:        left;
@@ -603,8 +604,9 @@ a:hover > .ve-state-button-off,
       z-index:           1;
 
       &.intro-disabled{
-        position: relative;
-        padding:  0;
+        max-width: $ve_text_column_width_XL;
+        position:  relative;
+        padding:   1em 0;
       }
     }
   }
@@ -701,10 +703,6 @@ a:hover > .ve-state-button-off,
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;
-  }
-  .ve-base-text.ve-intro-full-description{
-      max-width: $ve_text_column_width_XL_padded;
-      width:     $ve_text_column_width_XL_padded;
   }
 
 }

@@ -159,7 +159,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         doShow = true;
       }
       else{
-//        if(localStorage.getItem(key) == "false"){
         if(!localStorage.getItem(key)){
           localStorage.setItem(key, true);
           doShow = true;
