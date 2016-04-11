@@ -658,6 +658,14 @@ a:hover > .ve-state-button-off,
     display: block;
   }
 
+  .rich_image{
+    >.ve-title-group{
+      padding: 0;
+      width:   $ve_image_column_width;
+      margin: auto;
+    }
+  }
+
   .ve-title-group{
     padding-left:   2%;
   }
@@ -722,6 +730,13 @@ a:hover > .ve-state-button-off,
   .ve-base-image{
     &.portrait{
       max-width: $ve_text_column_width_XL;
+    }
+
+  }
+
+  .rich_image{
+    >.ve-title-group{
+      max-width: $ve_image_column_width;
     }
   }
 
