@@ -315,7 +315,7 @@
         <div class="object-actions cf">
           <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
           {{# object.origin }}
-            <div class="object-origin">
+            <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
               <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
               {{#logo}}
                 <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
@@ -326,7 +326,11 @@
               {{^institution_name_and_link}}
                 {{#institution_name}}
                   {{{ i18n.site.object.meta-label.provided-by-detail-no-link }}}
-                  <a href="{{institution_canned_search}}">{{institution_name}}</a>
+                  <a href="{{institution_canned_search}}"
+                     property="cc:attributionName"
+                     rel="cc:attributionURL"
+                     href="the edm isShownAt">{{institution_name}}</a>
+                  <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
                 {{/institution_name}}
               {{/institution_name_and_link}}
             </div>
