@@ -44,7 +44,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function log(msg){
-    console.log('Virtual-Exhibitions: ' + msg);
+    //console.log('Virtual-Exhibitions: ' + msg);
   }
 
   function initExhibitions(){
@@ -163,6 +163,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           localStorage.setItem(key, true);
           doShow = true;
         }
+      }
+      if(!isDesktop() || inEditor){
+        doShow = false;
       }
       if(doShow){
         $('body').append('<div class="growl">' + msg + '</div>');
