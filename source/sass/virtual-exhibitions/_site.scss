@@ -608,7 +608,7 @@ a:hover > .ve-state-button-off,
       opacity:           0.85;
       left:              50%;
       margin:            0;
-      max-width:         $ve_text_column_width_XL_padded;
+      //max-width:         $ve_text_column_width_XL_padded;
       padding:           1em;
       position:          absolute;
       text-align:        left;
@@ -616,8 +616,7 @@ a:hover > .ve-state-button-off,
       -webkit-transform: translateX(-50%);
       -ms-transform:     translateX(-50%);
 
-      width:             $ve_text_column_width_XL_padded;
-
+      max-width: calc(#{$ve_text_column_width} + 2em);
 
       z-index:           1;
 
@@ -682,7 +681,7 @@ a:hover > .ve-state-button-off,
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width;
-      width:     auto;
+      //width:     auto;
   }
 
   .ve-base-small{
@@ -747,6 +746,10 @@ a:hover > .ve-state-button-off,
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;
+  }
+
+  .ve-exhibition .ve-intro-full-description{
+      max-width: $ve_text_column_width_XL_padded;
   }
 
 }
