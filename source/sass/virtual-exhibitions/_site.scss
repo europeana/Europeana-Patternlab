@@ -49,17 +49,23 @@
 }
 
 .ve-base-chapter-nav{
-  font-size: 2em;
-  height:    2em;
-  position:  relative;
-  margin:    auto;
-  width:     $ve_image_column_width;
+  font-size:   1.5em;
+  font-weight: bold;
+  height:      2em;
+  position:    relative;
+  margin:      auto;
+  width:       100%;
 
   .ve-chapter-nav-next,
   .ve-chapter-nav-prev{
+    display:    block;
 
-    position: absolute;
-
+    .icon{
+      height:        1.5em;
+      margin-bottom: -0.35em;
+      width:         1.5em;
+    }
+    text-align: center;
   }
 
   .ve-chapter-nav-next{
@@ -475,6 +481,9 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-footer{
+
+  padding: 1.6rem;
+
   @media all and (min-width: $bp-med) {
     .linklist-simple{
       margin: auto;
@@ -482,7 +491,7 @@ a:hover > .ve-state-button-off,
     }
   }
   li{
-    font-size:   1.2rem;
+    font-size:   1rem;
     font-weight: bold;
     text-align:  center;
     width:       100%;
@@ -661,6 +670,17 @@ a:hover > .ve-state-button-off,
 
   .ve-base-small{
     height: auto;
+  }
+
+  .ve-base-chapter-nav{
+    width: $ve_image_column_width;
+
+    .ve-chapter-nav-next,
+    .ve-chapter-nav-prev{
+      text-align: left;
+      position:   absolute;
+    }
+
   }
 
   .ve-base-medium{
