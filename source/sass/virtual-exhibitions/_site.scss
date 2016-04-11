@@ -615,6 +615,10 @@ a:hover > .ve-state-button-off,
       transform:         translateX(-50%);
       -webkit-transform: translateX(-50%);
       -ms-transform:     translateX(-50%);
+
+      width:             $ve_text_column_width_XL_padded;
+
+
       z-index:           1;
 
       &.intro-disabled{
