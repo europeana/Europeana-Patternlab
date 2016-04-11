@@ -267,6 +267,11 @@ a:hover > .ve-state-button-off,
   picture{
     display:    block;
     text-align: center;
+
+    .attribution {
+      text-align: left;
+    }
+
   }
 
   figcaption{
