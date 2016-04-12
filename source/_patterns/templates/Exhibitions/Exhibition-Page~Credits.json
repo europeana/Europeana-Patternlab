@@ -178,6 +178,13 @@
       "is_last": "true"
     }
   ],
+
+  "next_page": false,
+  "previous_page": {
+    "title": "Faces Of Europe (prev)",
+    "url": "javascript:alert('nav previous');"
+  },
+
   "page_data": {
     "title": "Credits Page Title",
     "page_url": "../templates-Exhibitions-Exhibition-Page/templates-Exhibitions-Exhibition-Page.html",

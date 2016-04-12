@@ -109,7 +109,6 @@
       {{/is_foyer}}
 
       {{#is_credit}}
-
         <div class="ve-credit-wrapper">
         {{# elements }}
           {{# present }}
@@ -213,8 +212,11 @@
             </div>
           {{/ credit_elements.items }}
         {{/ credit_elements.present }}
-
         </div>
+      <div class="ve-chapter-selection-container cf">
+        {{> templates/Exhibitions/Next-Prev-Chapter }}
+      </div>
+
 
       {{/is_credit}}
 
