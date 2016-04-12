@@ -51,7 +51,6 @@
 .ve-base-chapter-nav{
   font-size:   1.5em;
   font-weight: bold;
-  height:      2em;
   position:    relative;
   margin:      auto;
   width:       100%;
@@ -68,12 +67,14 @@
     text-align: center;
   }
 
-  .ve-chapter-nav-next{
-    right: 0;
-  }
+  &.has-next.has-previous{
+    .ve-chapter-nav-next{
+      margin-top: 1em;
+    }
 
-  .ve-chapter-nav-prev{
-    left: 0;
+    .ve-chapter-nav-prev{
+      margin-bottom: 1em;
+    }
   }
 }
 
@@ -689,12 +690,23 @@ a:hover > .ve-state-button-off,
   }
 
   .ve-base-chapter-nav{
-    width: $ve_image_column_width;
-
-    .ve-chapter-nav-next,
+    height: 2em;
+    width:  $ve_image_column_width;
+    .ve-chapter-nav-next{
+      right:      0;
+    }
     .ve-chapter-nav-prev{
-      text-align: left;
-      position:   absolute;
+      left:       0;
+    }
+
+    &.has-next.has-previous{
+      .ve-chapter-nav-next,
+      .ve-chapter-nav-prev{
+        margin-bottom: 0;
+        margin-top:    0;
+        text-align:    left;
+        position:      absolute;
+      }
     }
 
   }
