@@ -3,6 +3,9 @@
 
 .ve-field{
   margin-bottom: 2em;
+  &.bold{
+    font-weight: bold;
+  }
 }
 
 .ve-field-label{
