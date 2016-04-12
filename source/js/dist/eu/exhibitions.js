@@ -93,6 +93,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     }
 
     var resizeFunction = function(){
+      $(window).stop(true);
       if( !isDesktop() ){
         if(smCtrl){
           window.scrollTo(0, 0);
