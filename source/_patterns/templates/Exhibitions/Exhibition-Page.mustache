@@ -151,7 +151,7 @@
                 <div class="inner">
                   <figure>
                     {{#image}}
-                      <picture data-hi-res="{{#full}}{{url}}{{/full}}">
+                      <picture data-hi-res="{{#half}}{{url}}{{/half}}">
                         {{>atoms/images/responsive-srcset-picture}}
                       </picture>
                     {{/image}}
@@ -186,14 +186,14 @@
                         </li>
                       {{/attribution_institution}}
 
+                      <li class="ve-field">
+                        <h4 class="ve-field-label">License</h4>
+                        {{>molecules/icons/licenses}}
+                      </li>
+
                       {{#page_url}}
                         <li class="ve-field bold">
                           <a href="{{.}}#ve-element-anchor-{{id}}" target="_new">view in exhibition
-                            <!--
-                            <svg class="icon icon-external-link">
-                              <use xlink:href="#icon-external-link"></use>
-                            </svg></a>
-                            -->
                         </li>
                       {{/page_url}}
 
