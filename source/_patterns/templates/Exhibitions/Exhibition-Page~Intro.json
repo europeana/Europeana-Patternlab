@@ -179,10 +179,7 @@
     "title": "Faces Of Europe (next)",
     "url": "javascript:alert('nav next');"
   },
-  "previous_page": {
-    "title": "Faces Of Europe (prev)",
-    "url": "javascript:alert('nav previous');"
-  },
+  "previous_page": false,
   "page_data": {
     "title": "Page title",
     "is_exhibition": true,
