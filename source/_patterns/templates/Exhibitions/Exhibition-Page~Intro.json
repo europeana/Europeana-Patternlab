@@ -1,0 +1,455 @@
+{
+  "pattern_lab_reset": "start",
+  "title":             false,
+  "is_chapter":        false,
+  "is_credit":         false,
+
+  "pattern_lab_reset": "end",
+
+  "google_analytics_code": "123",
+
+  "js_files": [{
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+    }
+
+  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/virtual-exhibitions/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "navigation": {
+    "global":
+    {
+      "logo":
+      {
+        "url": "javascript:alert('go home')",
+        "text": "Heritage in Motion"
+      },
+      "options": {
+        "search_active": false,
+        "oursites_hidden": false
+      },
+     "primary_nav":
+      {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Exhibitions",
+            "url": "#",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 1"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 2"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 3"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 4"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 5"
+                },
+                {
+                  "url": "url to foyer",
+                  "text": "All Exhibitions…",
+                  "is_morelink": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Faces of Europe",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 1"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 2"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 3"
+                }
+              ]
+            }
+          },
+          {
+            "text": false,
+            "submenu": false
+          },
+          {
+            "text": false,
+            "submenu": false,
+            "Explanation": "(override data.json in styleguide)"
+          }
+        ]
+      },
+      "utility_nav": {
+        "menu_id": "settings-menu",
+        "style_modifier": "caret-right",
+        "tabindex": "6",
+        "items": [
+          {
+            "url": "#",
+            "text": "Language",
+            "icon": "settings",
+            "submenu": {
+              "items": [
+                {
+                  "text": "English",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "French",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "German",
+                  "url": "javascript:alert('set language')"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+
+
+  "breakpoint_pixels":{
+    "img":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "801px"
+    },
+    "bg":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "801px"
+    },
+    "bg-hr":{
+      "dpr": "2",
+      "dpr_fraction": "2/1",
+      "show_thumbnail": "1",
+      "show_small": "400px",
+      "show_half":  "801px",
+      "show_full":  "1600px"
+    }
+  },
+  "breadcrumbs": [
+    {
+      "url": "javascript:alert('breadcrumb 1')",
+      "title": "Home",
+      "is_first": "true"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 2')",
+      "title": "trial exhibition"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 3')",
+      "title": "trial exhibition 2nd page",
+      "is_last": "true"
+    }
+  ],
+  "next_page": {
+    "title": "Faces Of Europe (next)",
+    "url": "javascript:alert('nav next');"
+  },
+  "previous_page": false,
+  "page_data": {
+    "title": "Page title",
+    "is_exhibition": true,
+    "url": "/example-page",
+    "elements": {
+      "present": "true",
+      "items":[
+        {
+            "id": "x1_2",
+            "is_intro": true,
+            "is_first": true,
+            "label": "Art history collection",
+            "partner_image": {
+              "thumbnail": {
+                "url": "/images/virtual-exhibitions/dada/logo.png"
+              }
+            },
+            "partner_url": "javascript:alert('link to curator site')",
+            "section_title": "Another intro type",
+            "subtitle": "The first chapter of this amazing virtual exhibition",
+            "title": "Faces of Europe",
+            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
+            "image_credit": {
+              "attribution_title": "Battle of Grunweald",
+              "attribution_creator": "Jan Matejko",
+              "attribution_institution": "Muzeum Narodowe W Warszawie",
+              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
+              }
+            }
+        },
+        {
+            "id": "2A",
+            "is_section": true,
+            "section_title": "Text"
+        },
+
+        {
+            "id": "2B",
+            "is_text": true,
+            "body": "<p>The battle was one of the largest in Medieval Europe and is regarded as the most important victory in the histories of Poland, Belarus and Lithuania.  It has been used as a source of romantic legends and national pride, becoming a larger symbol of struggle against foreign invaders.</p><p>If there's a gap below here it's because the slide is smaller than the viewport height.</p>"
+        },
+
+        {
+            "id": "2",
+            "is_section": true,
+            "section_title": "Japan"
+        },
+        {
+            "id": "3",
+            "type": "rich_image",
+            "is_align_image_right": "true",
+            "is_rich_image": true,
+            "title": "Japonism",
+            "subtitle": "(from the French Japonisme, first used in 1872)",
+            "quote": "Japonisme refers to a specific French style",
+            "body": "<p>In France the term Japonisme refers to a specific French style in the fine arts from 1864, while in England its impact on the decorative arts was first documented 1862.</p><p>From the 1860s, ukiyo-e, Japanese wood-block prints became a source of inspiration for many European impressionist painters, Art Nouveau and Cubism. Artists were especially affected by the lack of perspective and shadow, the flat areas of strong color, and the compositional freedom gained by placing the subject off-centre, mostly with a low diagonal axis to the background.</p><p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>",
+            "image":
+            {
+                "thumbnail": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
+                    "alt": "Japan (thumbnail)",
+                    "orientation": "portrait"
+                },
+                "thumbnailx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "small": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "smallx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "half": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "halfx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "full": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                },
+                "fullx2": {
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "alt": "Japan",
+                    "orientation": "portrait"
+                }
+            },
+            "image_credit":{
+              "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
+              "stripped_caption": "Le Japon artistique, n° 3. CC0"
+            }
+        },
+        {
+            "id": "4_9",
+            "is_section": true,
+            "section_title": "Wiki Loves Art Nouveau"
+        },
+        {
+            "id": "5",
+            "type": "ve-intro",
+            "title": false,
+            "is_intro": true,
+            "image_credit": {
+              "attribution_title": "Iparművészeti Múzeum (1070. számú műemlék)",
+              "attribution_creator": "Kontiki",
+              "attribution_institution": "Wikimedia Commons",
+              "attribution_url": "https://commons.wikimedia.org/wiki/File:Iparm%C5%B1v%C3%A9szeti_M%C3%BAzeum_%281070._sz%C3%A1m%C3%BA_m%C5%B1eml%C3%A9k%29_22.jpg",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+              }
+            }
+        },
+        {
+            "id": "10",
+            "is_section": true,
+            "section_title": "Big Quote"
+        },
+        {
+            "id": "10_1",
+            "is_quote": true,
+            "is_full_section_element": true,
+            "type": "quote",
+            "quote": "She's fast enough for you old man.  What's the cargo?",
+            "quotee": "Han Solo - captain of the millennium falcon."
+        }
+      ]
+    },
+    "chapter_elements": {
+      "present": "true",
+      "items":[
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+
+        {
+          "is_chapter_nav": true,
+          "title": "But Isn't Keen on Art Deco",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        }
+      ]
+    }
+  },
+  "footer":{
+    "items":
+    [
+      {
+        "text": "Contacts",
+        "url": "javascript:alert('Contacts');"
+      },
+
+      {
+        "text": "Credits",
+        "url": "javascript:alert('Credits');"
+      },
+      {
+        "text": "About Europeana",
+        "url": "javascript:alert('About Europeana');"
+      },
+      {
+        "text": "Europeana Collections",
+        "url": "javascript:alert('Europeana Collections');"
+      }
+    ]
+  },
+  "social": {
+    "url": "http://this-page-url.com",
+    "twitter": true,
+    "facebook": true,
+    "pinterest": true,
+    "googleplus": true,
+    "text": "Share this Exhibition"
+  }
+}

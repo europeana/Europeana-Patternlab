@@ -1,6 +1,6 @@
 window.GoogleAnalyticsObject = '__ga__';
 window.__ga__ = {
-    q: [['create', '**** ANALYTICS CODE HERE ****', 'auto']],
+    q: [['create', 'UA-12776629-12', 'auto']],
     l: Date.now()
 };
 
@@ -19,12 +19,11 @@ for (var i=0; i<scripts.length; i++){
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),
   paths: {
-    dropzone:                      '../lib/dropzone/dist/dropzone-amd-module',
+    dashboardstatistics:           '../eu/dashboard-statistics',
     featureDetect:                 '../global/feature-detect',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
     handlebars:                    '//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min',
-    dashboardstatistics:            '../eu/dashboard-statistics',
     jqDropdown:                    '../lib/jquery.dropdown',
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
@@ -61,9 +60,23 @@ require(['jquery'], function( $ ) {
 
     require(['global', 'smartmenus', 'dashboardstatistics'], function() {
 
-        require(["ga"], function(ga) {
-            ga("send", "pageview");
-        });
+        // is this a test site?
+        if(window.location.href.indexOf('europeana.eu') > -1){
+
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:176844,hjsv:5};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+            require(["ga"], function(ga) {
+                ga("send", "pageview");
+            });
+
+        }
     });
 
 });

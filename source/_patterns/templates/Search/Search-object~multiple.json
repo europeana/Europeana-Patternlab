@@ -51,9 +51,8 @@
         "more_thumbs_total": 25,
         "more_thumbs_url": "url-to-more-thumbs",
         "more_thumbs_page": "url-to-page-with-thumbs",
-
         "external_media": "#",
-
+        "has_downloadable_media": true,
         "items":
         [
           {

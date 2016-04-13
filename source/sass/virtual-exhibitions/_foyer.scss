@@ -16,7 +16,9 @@
   .ve-label{
     position:       absolute;
     text-transform: uppercase;
-    font-weight:    normal;
+    font-weight:    bold;
+    font-size:      0.8em;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -24,16 +26,32 @@
   .ve-label{
     background-color: orange;
   }
+  a{
+    height:   100%;
+    position: absolute;
+    width:    100%;
+    &:hover, &:focus{
+      background-color: rgba($accent, .8);
+    }
+  }
 }
 
-.ve-chapter-selection-container,
+.ve-chapter-selection-container{
+  background-color: $offwhite;
+  padding: 2em 0;
+}
+
+.ve-chapter-selection-container-inner,
 .ve-foyer-card-container{
   margin-top:    2em;
 }
 
 .ve-partner-logo{
   background-color: #fff;
-  padding:          0.5em;
+  padding:          1 0.5em 0.5em;
+  img{
+    max-height: 3.8em;
+  }
 }
 
 @media all and (min-width: $bp-small-2) {
@@ -48,12 +66,14 @@
 
 @media all and (min-width: $bp-med) {
 
-  .ve-chapter-selection-container,
+  .ve-chapter-selection-container-inner,
   .ve-foyer-card-container{
-    left:         50%;
-    position:     relative;
-    transform:    translateX(-50%);
-    width:        $ve_image_column_width;
+    left:              50%;
+    position:          relative;
+    transform:         translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform:     translateX(-50%);
+    width:             $ve_image_column_width;
   }
 
   .ve-label,
@@ -98,6 +118,10 @@
     z-index: 1;
   }
 
+  .ve-chapter-selection-content{
+    background-color: $eu-blue;
+  }
+
   .ve-chapter-selection-content,
   .ve-foyer-card-content{
     position: relative;
@@ -133,18 +157,22 @@
     }
 
     .ve-card-nav{
-      color:          $colour_overlaid_text;
-      cursor:         pointer;
-      font-size:      2em;
-      font-weight:    bold;
-      position:       absolute;
-      top:            50%;
-      transform:      translateY(-50%);
-      z-index:        2;
+      color:             $colour_overlaid_text;
+      cursor:            pointer;
+      font-size:         1em;
+      font-weight:       bold;
+      position:          absolute;
+      top:               50%;
+      transform:         translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform:     translateY(-50%);
+      z-index:           2;
+      padding:           0.25em;
     }
 
     .ve-card-nav-left{
-      left: -0.25em;
+      // left: -0.25em;
+      left: 0;
     }
 
     .ve-card-nav-right{
@@ -181,7 +209,7 @@
     .text-box.title{
       font-weight:    bold;
       text-align:     center;
-      text-transform: capitalize;
+      text-transform: uppercase;
     }
 
     .text-box.credits,
@@ -222,8 +250,15 @@
     }
 
     .text-box.title{
-      top:           50%;
-      transform:     translateY(-50%);
+      top:               50%;
+      transform:         translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform:     translateY(-50%);
     }
+  }
+
+  .ve-state-button-off,
+  .ve-state-button-on{
+    margin: 0 0.25em;
   }
 }

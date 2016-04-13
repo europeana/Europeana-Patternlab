@@ -1,0 +1,334 @@
+{
+  "pattern_lab_reset": "start",
+
+  "title": "Exhibitions Foyer Page",
+  "is_exhibition": false,
+  "is_chapter": false,
+  "is_credit": false,
+
+  "pattern_lab_reset": "end",
+
+  "google_analytics_code": "123",
+
+  "js_files": [{
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+    }
+  ],
+  "head_links": {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/virtual-exhibitions/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "breakpoint_pixels": {
+    "img": {
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half": "400px",
+      "show_full": "800px"
+    },
+    "bg": {
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half": "400px",
+      "show_full": "800px"
+    },
+    "bg-hr": {
+      "dpr": "2",
+      "dpr_fraction": "2/1",
+      "show_thumbnail": "1",
+      "show_small": "400px",
+      "show_half": "800px",
+      "show_full": "1600px"
+    }
+  },
+  "breadcrumbs": [{
+    "url": "javascript:alert('breadcrumb 1')",
+    "title": "Home",
+    "is_first": "true"
+  },
+  {
+    "url": "javascript:alert('breadcrumb 2')",
+    "title": "trial exhibition"
+  },
+  {
+    "url": "javascript:alert('breadcrumb 3')",
+    "title": "trial exhibition 2nd page",
+    "is_last": "true"
+  }],
+  "page_data": {
+    "is_foyer": true,
+    "elements": {
+      "present": true,
+      "items": [{
+        "id": "x0_1",
+        "type": "ve-intro",
+        "is_featured_exhibition": true,
+
+        "image_credit": {
+          "attribution_title": "Rudolph II as Vertumnus",
+          "attribution_creator": "Giuseppe Arcimboldo",
+          "attribution_institution": "Skoklosters Slott",
+          "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+          "license_public": true
+        },
+        "image": {
+          "full": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-full.png"
+          },
+          "fullx2": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-fullx2.png"
+          },
+          "half": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-half.png"
+          },
+          "halfx2": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-halfx2.png"
+          },
+          "small": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-small.png"
+          },
+          "smallx2": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-smallx2.png"
+          },
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnail.png"
+          },
+          "thumbnailx2": {
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnailx2.png"
+          }
+        },
+        "title": "The sacred and divine in the age of discovery",
+        "subtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
+        "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
+        "partner_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/dada/logo.png"
+          }
+        },
+        "partner_url": "javascript:alert('link to curator site')",
+        "label": "Art history collection"
+      },
+      {
+        "id": "x0_2",
+        "is_section": true,
+        "section_title": "Arcimboldo Intro"
+      },
+      {
+        "id": "featured_item",
+        "image_credit": {
+          "attribution_title": "Painéis de S. Vicente de Fora",
+          "attribution_creator": "Nuno Gonçalves",
+          "attribution_institution": "Museu Nacional De Arte Antiga",
+          "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+          "license_public": true
+        },
+        "image": {
+          "full": {
+            "url": "/images/virtual-exhibitions/dada/red-full.png"
+          },
+          "fullx2": {
+            "url": "/images/virtual-exhibitions/dada/red-fullx2.png"
+          },
+          "half": {
+            "url": "/images/virtual-exhibitions/dada/red-half.png"
+          },
+          "halfx2": {
+            "url": "/images/virtual-exhibitions/dada/red-halfx2.png"
+          },
+          "small": {
+            "url": "/images/virtual-exhibitions/dada/red-small.png"
+          },
+          "smallx2": {
+            "url": "/images/virtual-exhibitions/dada/red-smallx2.png"
+          },
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/dada/red-thumbnail.png"
+          },
+          "thumbnailx2": {
+            "url": "/images/virtual-exhibitions/dada/red-thumbnailx2.png"
+          }
+        },
+        "label": "Art history collection",
+        "title": "Dada and Surrealism",
+        "subtitle": false,
+        "partner_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/dada/logo.png"
+          }
+        },
+        "partner_url": "javascript:alert('link to curator site')",
+        "intro_description": "<p>Victor Brauner was a major representative of Surrealism, the art movement that focuses on the world between dreams and reality.</p><p>He was born in the East Carpathians, in a town where half the population was Jewish. After an anti-Semitic peasants’ revolt in 1907, the family moved to Germany and later to Austria.</p><p>In 1919, five years after returning to Bucharest, they were granted Romanian citizenship.</p><p>That same year, Brauner enrolled at the National School of Fine Arts in Bucharest.</p>"
+      },
+      {
+        "is_foyer_card": true,
+        "state_1_title": "Wiki Loves Art Nouveau",
+        "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+        "state_3_title": "Credits",
+
+        "state_1_label": "Art history collection",
+
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
+
+        "state_1_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
+        },
+
+        "state_2_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
+        },
+
+        "state_3_image": {
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
+        }
+      },
+      {
+        "is_foyer_card": true,
+        "state_1_title": "Wiki Loves Art Nouveau",
+        "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+        "state_3_title": "Credits",
+
+        "state_1_label": "Art history collection",
+
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
+
+        "state_1_image": {
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
+        },
+
+        "state_2_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
+        },
+
+        "state_3_image": {
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
+        }
+      },
+      {
+        "is_foyer_card": true,
+        "state_1_title": "Wiki Loves Art Nouveau",
+        "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+        "state_3_title": "Credits",
+
+        "state_1_label": "Art history collection",
+
+        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "state_2_link": "javascript:alert('open this exhibition (2)')",
+        "state_3_link": "javascript:alert('open this exhibition (3)')",
+
+        "state_1_image": {
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
+        },
+
+        "state_2_image": {
+          "thumbnail":{
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
+        },
+
+        "state_3_image": {
+          "thumbnail": {
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
+        }
+      }]
+    }
+  },
+  "footer": {
+    "linklist1":
+    {
+      "title": "More info",
+      "items":
+      [
+        {
+          "text": "New collections",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "All data providers",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Become a data provider",
+          "url": "http://google.com"
+        }
+      ]
+    },
+
+    "linklist2":
+    {
+      "title": "Help",
+      "items":
+      [
+        {
+          "text": "Search tips",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Using My Europeana",
+          "url": "http://google.com"
+        },
+
+        {
+          "text": "Copyright",
+          "url": "http://google.com"
+        }
+      ]
+    },
+
+    "social":
+    {
+      "linkedin": false,
+      "github": false,
+      "twitter": true,
+      "facebook": true,
+      "pinterest": true,
+      "googleplus": true
+    },
+    "subfooter": {
+        "items": [
+            {
+                "text": "Home",
+                "url": "./"
+            },
+            {
+                "text": "Terms of use & policies",
+                "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+            },
+            {
+                "text": "Contact us",
+                "url": "./"
+            },
+            {
+                "text": "Sitemap",
+                "url": "./"
+            }
+        ]
+    }
+}
+
+}

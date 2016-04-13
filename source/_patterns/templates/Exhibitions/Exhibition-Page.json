@@ -1,10 +1,11 @@
 {
   "pattern_lab_reset": "start",
-
-  "title": false,
-
+  "is_exhibition":     false,
+  "title":             false,
+  "is_credit":         false,
   "pattern_lab_reset": "end",
 
+  "google_analytics_code": "123",
 
   "js_files": [{
       "path": "../../js/dist/require.js",
@@ -20,6 +21,120 @@
       "css": "true"
     }]
   },
+  "navigation": {
+    "global":
+    {
+      "logo":
+      {
+        "url": "javascript:alert('go home')",
+        "text": "Heritage in Motion"
+      },
+      "options": {
+        "search_active": false
+      },
+     "primary_nav":
+      {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Exhibitions",
+            "url": "#",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 1"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 2"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 3"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 4"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 5"
+                },
+                {
+                  "url": "url to foyer",
+                  "text": "All Exhibitions…",
+                  "is_morelink": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Faces of Europe",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 1"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 2"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 3"
+                }
+              ]
+            }
+          },
+          {
+            "text": false,
+            "submenu": false
+          },
+          {
+            "text": false,
+            "submenu": false,
+            "Explanation": "(override data.json in styleguide)"
+          }
+        ]
+      },
+      "utility_nav": {
+        "menu_id": "settings-menu",
+        "style_modifier": "caret-right",
+        "tabindex": "6",
+        "items": [
+          {
+            "url": "#",
+            "text": "Language",
+            "icon": "settings",
+            "submenu": {
+              "items": [
+                {
+                  "text": "English",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "French",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "German",
+                  "url": "javascript:alert('set language')"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+
+
   "breakpoint_pixels":{
     "img":{
       "show_thumbnail": "1px",
@@ -67,6 +182,7 @@
     "url": "javascript:alert('nav previous');"
   },
   "page_data": {
+    "is_chapter": true,
     "title": "Page title",
     "url": "/example-page",
     "elements": {
@@ -77,6 +193,13 @@
             "type": "ve-intro",
             "is_first": true,
             "is_intro": true,
+            "label": "Art history collection",
+            "partner_image": {
+              "thumbnail": {
+                "url": "/images/virtual-exhibitions/dada/logo.png"
+              }
+            },
+            "partner_url": "javascript:alert('link to curator site')",
             "image_credit": {
               "attribution_title": "Battle of Grunweald",
               "attribution_creator": "Jan Matejko",
@@ -113,9 +236,7 @@
             },
             "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
-            "intro_description": "The Battle of Grunwald, First Battle of Tannenberg or Battle of Žalgiris, was fought on 15 July 1410 during the Polish–Lithuanian–Teutonic War.",
-            "full_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
-            "full_description2": "<p>Most of the Teutonic Knights' leadership were killed or taken prisoner. Although defeated, the Teutonic Knights withstood the siege of their fortress in Marienburg (Malbork) and suffered minimal territorial losses at the Peace of Thorn (1411) (Toruń), with other territorial disputes continuing until the Peace of Melno in 1422.</p>"
+            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
         },
         {
             "id": "x0_2",
@@ -125,7 +246,7 @@
         {
             "id": "x0_3",
             "is_embed": true,
-            "html": "<iframe width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
+            "html": "<iframe class=\"ve-base-small\"  width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
             "XXXhtml": "<iframe src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>"
         },
         {
@@ -186,11 +307,7 @@
                 "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
               }
             },
-            "title": false,
-            "XXXtitle": "The sacred and divine in the age of discovery",
-            "XXXsubtitle": "<p>Medieval and Gothic art showed many different influences that were seen at differing times across Europe.</p>",
-            "XXXintro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
-            "XXXfull_description": "<p>Actually, there's evidence that the Renaissance began in Belgium, though the term was first used in Italy (\"il rinascimento\" - the rebirth)</p><p>This is the main text that fades in / out on scroll</p><p>It was the age of discovery. Portuguese and Spanish fleets explored the globe and artists were commissioned by royal patrons who wanted to show off their wealth and sophisticated ideas. Inventions in printing technology led to new ways of sharing art and influenced the subjects that artists chose to depict.</p>"
+            "title": false
         },
         {
             "id": "2",
@@ -249,7 +366,10 @@
                     "orientation": "portrait"
                 }
             },
-            "caption": "Le Japon artistique, n° 3"
+            "image_credit":{
+              "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
+              "stripped_caption": "Le Japon artistique, n° 3."
+            }
         },
         {
             "id":      "3.1",
@@ -323,7 +443,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor"
+            "image_credit":{
+              "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0",
+              "stripped_caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor."
+            }
         },
         {
             "id": "4_2",
@@ -375,8 +498,7 @@
               }
             },
             "title": "Art Nouveau",
-            "subtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>",
-            "intro_description": "<p>Art Nouveau interiors were often painted in smooth light colours. Furniture and decorations tended to be dark in order to create contrast with the walls. Influenced by Japanese craft works, the interiors also exhibited elements from this culture which was still new to Europe.</p>"
+            "XXXsubtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
         },
         {
             "id": "6",
@@ -430,17 +552,20 @@
                     "orientation": "landscape"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/dada/japan-full.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-full.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/dada/japan-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-fullx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 }
             },
-            "caption": "Adam and Eve - Victor Brauner"
+            "image_credit":{
+              "caption": "Adam and Eve - Victor Brauner.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "stripped_caption": "Adam and Eve - Victor Brauner."
+            }
         },
 
         {
@@ -510,8 +635,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "Arthur Segal with his son Walter, Berlin"
-
+            "image_credit":{
+              "caption": "Arthur Segal with his son Walter, Berlin.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "stripped_caption": "Arthur Segal with his son Walter, Berlin. CC0"
+            }
         },
         {
             "id": "12",
@@ -580,7 +707,10 @@
                     "orientation": "landscape"
                 }
             },
-            "caption": "SagradaFamilia Sostre"
+            "image_credit":{
+              "caption": "SagradaFamilia Sostre.  <a href=\"javascript:(alert('link to gallery'))\">Barcelona Gallery</a> CC0",
+              "stripped_caption": "SagradaFamilia Sostre. CC0"
+            }
         }
       ]
     },
@@ -592,7 +722,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail": {
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -602,7 +734,9 @@
           "title": "But Isn't Keen on Art Deco",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "thumbnail": {
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -611,7 +745,9 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -620,12 +756,43 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
           },
           "url": "javascript:alert('navigate to chapter')"
         }
       ]
     }
+  },
+  "social": {
+    "url": "http://this-page-url.com",
+    "twitter": true,
+    "facebook": true,
+    "pinterest": true,
+    "googleplus": true,
+    "text": "Share this Exhibition"
+  },
+  "footer":{
+    "items":
+    [
+      {
+        "text": "Contacts",
+        "url": "javascript:alert('Contacts');"
+      },
 
+      {
+        "text": "Credits",
+        "url": "javascript:alert('Credits');"
+      },
+      {
+        "text": "About Europeana",
+        "url": "javascript:alert('About Europeana');"
+      },
+      {
+        "text": "Europeana Collections",
+        "url": "javascript:alert('Europeana Collections');"
+      }
+    ]
   }
 }

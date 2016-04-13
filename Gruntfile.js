@@ -125,13 +125,6 @@ module.exports = function(grunt) {
               expand:  true
           },
 
-          dropzone: {
-              src:    ['**',  '!*.scss'],
-              cwd:    'source/js/modules/lib/dropzone',
-              dest:   'source/js/dist/lib/dropzone',
-              expand:  true
-          },
-
           dev_css: {
               cwd:    'source/css',
               src:    ['**/*.css'],
@@ -502,7 +495,6 @@ module.exports = function(grunt) {
        'concat:mlt',
 
        'copy:blacklight',
-       'copy:dropzone',
        'copy:dev_css',
        'copy:eu',
        'copy:featherlight',

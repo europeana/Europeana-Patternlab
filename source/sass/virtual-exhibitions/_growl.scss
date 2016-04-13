@@ -1,0 +1,42 @@
+@import "../scss/generic/variables";
+@import "variables";
+
+.growl{
+  background-color: $bg_colour_overlaid_text;
+
+  //border:           1px solid rgba(150,150,150,0.7);
+  border-radius:    0.3em;
+
+  color:            #fff;
+  font-weight:      1em;
+  left:             50%;
+  padding:          1.6em;
+  position:         fixed;
+  bottom:           1.2em;
+  margin-top:       29.3em;
+  text-transform:   uppercase;
+  font-size:        0.6em;
+  font-weight:      bold;
+  letter-spacing:   0.05em;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform:    translate(-50%, -50%);
+  -ms-transform:     translate(-50%, -50%);
+  -o-transform:      translate(-50%, -50%);
+  transform:         translate(-50%, -50%);
+  z-index:           3;
+
+  -webkit-animation: fadeinout 4s ease-in forwards;
+  animation:         fadeinout 4s ease-in forwards;
+}
+
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  20%,90% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  20%,90% { opacity: 1; }
+}

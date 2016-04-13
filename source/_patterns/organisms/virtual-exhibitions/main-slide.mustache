@@ -9,6 +9,10 @@
 
 {{^is_section}}
 
+  {{#is_intro}}
+    {{> organisms/virtual-exhibitions/intro-slide}}
+  {{/is_intro}}
+
   {{#is_quote}}
     <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
       {{#is_full_section_element}}
@@ -39,22 +43,21 @@
 
   {{#is_image}}
     <div id="{{id}}" class="ve-base ve-base-image {{type}}{{#is_portrait}} portrait{{/is_portrait}}{{#is_landscape}} landscape{{/is_landscape}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
+     <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
      <figure>
        {{#image}}
-         <picture>
+         <picture data-hi-res="{{#full}}{{url}}{{/full}}">
           {{>atoms/images/responsive-srcset-picture}}
          </picture>
        {{/image}}
-       {{#caption}}
-          <figcaption>{{.}}</figcaption>
-       {{/caption}}
+       {{#image_credit}}
+         {{#caption}}
+            <figcaption>{{{.}}}</figcaption>
+         {{/caption}}
+       {{/image_credit}}
      </figure>
     </div>
   {{/is_image}}
-
-  {{#is_intro}}
-    {{> organisms/virtual-exhibitions/intro-slide}}
-  {{/is_intro}}
 
   {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#background_colour}} style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
@@ -77,13 +80,16 @@
         {{#is_align_image_left}}
           {{#image}}
             <div class="ve-image">
+              <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
               <figure>
                 {{#image}}
-                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                  <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>
                 {{/image}}
-                {{#caption}}
-                  <figcaption>{{.}}</figcaption>
-                {{/caption}}
+                {{#image_credit}}
+                  {{#caption}}
+                    <figcaption>{{{.}}}</figcaption>
+                  {{/caption}}
+                {{/image_credit}}
               </figure>
             </div>
           {{/image}}
@@ -122,13 +128,16 @@
           {{#is_align_image_right}}
             {{#image}}
               <div class="ve-image">
+                <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
                 <figure>
                   {{#image}}
-                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" {{#caption}}alt="{{.}}"{{/caption}}>
+                    <img src="{{#thumbnail}}{{url}}{{/thumbnail}}" data-hi-res="{{#full}}{{url}}{{/full}}" {{#image_credit}}{{#stripped_caption}}alt="{{.}}"{{/stripped_caption}}{{/image_credit}}>
                   {{/image}}
-                  {{#caption}}
-                    <figcaption>{{.}}</figcaption>
-                  {{/caption}}
+                  {{#image_credit}}
+                    {{#caption}}
+                      <figcaption>{{{.}}}</figcaption>
+                    {{/caption}}
+                  {{/image_credit}}
                 </figure>
               </div>
             {{/image}}

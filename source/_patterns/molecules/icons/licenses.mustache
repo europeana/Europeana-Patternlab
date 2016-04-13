@@ -52,90 +52,91 @@ license options: ONLY ONE should be active
 }}
 
 {{#license_CC0}}
-  <a href="{{license_url}}" class="license icon-license-zero">{{license_name}}
+  <a href="{{license_url}}" class="license icon-license-zero" {{>molecules/icons/rel_attribute}}>{{license_name}}
   {{^license_name}} CC0 {{/license_name}}</a>
 {{/license_CC0}}
 
 {{#license_CC_BY}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span>
   {{license_name}}
   {{^license_name}} CC-BY {{/license_name}}</a>
 {{/license_CC_BY}}
 
 {{#license_CC_BY_SA}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-sa"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-sa"></span>
   {{license_name}}
   {{^license_name}} CC-BY-SA {{/license_name}}</a>
 {{/license_CC_BY_SA}}
 
 {{#license_CC_BY_ND}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nd"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nd"></span>
   {{license_name}}
   {{^license_name}} CC-BY-ND {{/license_name}}</a>
 {{/license_CC_BY_ND}}
 
 {{#license_CC_BY_NC}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span>
   {{license_name}}
   {{^license_name}} CC-BY-NC {{/license_name}}</a>
 {{/license_CC_BY_NC}}
 
 {{#license_CC_BY_NC_SA}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-sa"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-sa"></span>
   {{license_name}}
   {{^license_name}} CC-BY-NC-SA{{/license_name}}</a>
 {{/license_CC_BY_NC_SA}}
 
 {{#license_CC_BY_NC_ND}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-cc"></span><span class="icon-license-by"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>
   {{license_name}}
   {{^license_name}} CC-BY-NC-ND{{/license_name}}</a>
 {{/license_CC_BY_NC_ND}}
 
 {{#license_OOC}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-ooc"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-ooc"></span>
   {{license_name}}
   {{^license_name}} Out of Copyright {{/license_name}} {{ expiry }}</a>
 {{/license_OOC}}
 
 {{#license_PD_NC}}
-  <a href="{{license_url}}" class="license"><span class="icon-license-pd"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-pd"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>
   {{license_name}}
   {{^license_name}} Public Domain - non commercial re-use{{/license_name}}</a>
 {{/license_PD_NC}}
 
 {{#license_public}}
-  <a href="{{license_url}}" class="license icon-license-pd">
+  <a href="{{license_url}}" class="license icon-license-pd" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Public Domain {{/license_name}}</a>
 {{/license_public}}
 
 {{#license_RR_free}}
-  <a href="{{license_url}}" class="license icon-license-rr">
+  <a href="{{license_url}}" class="license icon-license-rr" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Rights Reserved - Free Access {{/license_name}}</a>
 {{/license_RR_free}}
 
 {{#license_RR_paid}}
-  <a href="{{license_url}}" class="license icon-license-rr">
+  <a href="{{license_url}}" class="license icon-license-rr" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Rights Reserved - Paid Access {{/license_name}}</a>
 {{/license_RR_paid}}
 
 {{#license_RR_restricted}}
-  <a href="{{license_url}}" class="license icon-license-rr">
+  <a href="{{license_url}}" class="license icon-license-rr" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Rights Reserved - Restricted Access {{/license_name}}</a>
 {{/license_RR_restricted}}
 
 {{#license_unknown}}
-  <a href="{{license_url}}" class="license">
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Unknown copyright status {{/license_name}}</a>
 {{/license_unknown}}
 
 {{#license_orphan}}
-  <a href="{{license_url}}" class="license">
+  <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
   {{^license_name}} Orphan work {{/license_name}}</a>
 {{/license_orphan}}
+<span rel="cc:useGuidelines" resource="http://www.europeana.eu/rights/pd-usage-guide/"></span>

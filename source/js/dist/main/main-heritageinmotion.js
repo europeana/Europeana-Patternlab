@@ -19,7 +19,6 @@ for (var i=0; i<scripts.length; i++){
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),
   paths: {
-    dropzone:                      '../lib/dropzone/dist/dropzone-amd-module',
     featureDetect:                 '../global/feature-detect',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
