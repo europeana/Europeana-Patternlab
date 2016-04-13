@@ -461,10 +461,6 @@ a:hover > .ve-state-button-off,
   }
 }
 
-.first .ve-base-intro-texts .ve-image-credit{
-  display:     block;
-}
-
 .ve-intro-full-description{
   margin-top: 1em;
   text-align: left;
@@ -579,6 +575,12 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .first .ve-base-intro-texts .ve-image-credit{
+    display:   inline-block;
+    max-width: 25%;
+    position:  absolute;
+  }
+
   .ve-base-intro-texts{
     left:     0;
     position: absolute;
@@ -586,7 +588,6 @@ a:hover > .ve-state-button-off,
     top:      0;
 
     .ve-title-group,
-    .first .ve-image-credit,
     .ve-description{
       display:  inline-block;
       position: absolute;
