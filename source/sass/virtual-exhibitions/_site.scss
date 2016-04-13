@@ -449,10 +449,6 @@ a:hover > .ve-state-button-off,
   font-size:   0.9em;
 }
 
-.first .ve-image-credit{
-  display:     block;
-}
-
 .ve-intro-image{
   .ve-image-credit{
     position: absolute;
@@ -465,6 +461,9 @@ a:hover > .ve-state-button-off,
   }
 }
 
+.first .ve-base-intro-texts .ve-image-credit{
+  display:     block;
+}
 
 .ve-intro-full-description{
   margin-top: 1em;
