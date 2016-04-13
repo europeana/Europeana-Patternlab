@@ -115,9 +115,11 @@
             {{# items }}
               {{# is_credit_intro }}
                   <div class="ve-credit-intro cf">
+                    {{#title}}
                     <div class="ve-credit-title">
-                      <h1>{{title}}</h1>
+                      <h1>{{.}}</h1>
                     </div>
+                    {{/title}}
                     <div class="ve-col-credit-left">
                       <div class="inner">
                         {{{body}}}

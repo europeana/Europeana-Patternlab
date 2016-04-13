@@ -10,7 +10,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var tabletOrPhone     = 'ontouchstart' in document.documentElement && window.orientation;
 
   var sfxScenes         = [];
-  var introDuration     = 130;
+  var introDuration     = 400;
 
   if($url.param('introDuration')){
     if($url.param('introDuration') == parseInt($url.param('introDuration')) + ''){
