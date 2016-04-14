@@ -63,6 +63,7 @@
             "rights":
             {
               "license_CC0": true,
+              "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
               "license_name": "CC0",
               "license_human": "You can use this image in any way you like",
               "expiry": "until 2028-10-09"
@@ -92,6 +93,7 @@
       "rights":
       {
         "license_CC0": true,
+        "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like"
       },
