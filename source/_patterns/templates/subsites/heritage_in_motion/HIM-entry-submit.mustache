@@ -23,18 +23,13 @@
         <h2>Add a New Project</h2>
 
         <div class="entry-upload entry-primary-upload">
-        <form action="/file-upload" class="dropzone">
+        <form action="/file-upload">
           <div class="inner centre">
-            <a href="#">
-              <svg class="icon icon-upload">
-                <use xlink:href="#icon-upload"></use>
-              </svg>
-              Upload Video/Image
-            </a>
 
-            <div class="fallback">
-                <input name="upload-main" type="file" />
-            </div>
+            <label for="heritagenew_videolink" class="required"><h3>Add the link to your entry.</h3> (enter a youTube, Vimeo, Slideshare or flickr link)</label>
+
+            <input type="text" id="heritagenew_videolink" name="heritagenew[videolink]" required="required" placeholder="https://youtu.be/dQw4w9WgXcQ">
+
           </div>
         </form>
         </div>
@@ -47,16 +42,8 @@
             <form action="/file-upload" class="dropzone">
               <div class="inner centre">
 
-                <a href="#">
-                <svg class="icon icon-upload">
-                  <use xlink:href="#icon-upload"></use>
-                </svg>
-                Add an image
-                </a>
-
-                <div class="fallback">
-                  <input name="upload-placeholder" type="file" multiple />
-                </div>
+              <h3>Add a thumbnail image</h3>
+              <input name="upload-placeholder" type="file" />
 
               </div>
             </form>
