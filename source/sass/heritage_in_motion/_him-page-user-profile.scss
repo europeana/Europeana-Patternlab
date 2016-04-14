@@ -1,20 +1,27 @@
 
-.social-logins{
+.provider-association-list{
 	font-size: 2em;
 
-	.icon-social{
+	button{
 		display: block;
 		float: left;
 		color: $gray-light;
+		background-color: transparent;
+		padding: 0;
 
 		&:hover{
 			color: $gray-dark;
 		}
 	}
 
-	.icon-social[data-connected='true']{
+	button.connected, button[data-connected='true'] {
 		color: $valid;
 	}
+}
+
+.members-oauth-provider{
+	display: block;
+	float: left;
 }
 
 .account-header{
