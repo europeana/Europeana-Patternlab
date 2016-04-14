@@ -68,6 +68,9 @@ define(['jquery', 'util_resize'], function ($){
   function sizeInput(){
     var form = $('.search-multiterm');
     var input = form.find('.js-search-input');
+
+    input.width('auto');
+
     var hitAreaWidth = parseInt($('.js-hitarea').width());
     hitAreaWidth -= 30;
     var rowRemainder = hitAreaWidth;
@@ -105,7 +108,28 @@ define(['jquery', 'util_resize'], function ($){
   }
 
   initSearchForm();
-  sizeInput();
+
+  /**
+   * Added in response to #1137
+   * This can be replaced with (restored to) a single call:
+   *   sizeInput();
+   * if / when we stop loading stylesheets asynchronously
+   * */
+  var cssnum = document.styleSheets.length;
+  var ti = setInterval(function() {
+    if (document.styleSheets.length > cssnum) {
+      for(var i=0; i<document.styleSheets.length; i++){
+        if(document.styleSheets[i].href.indexOf('screen.css')>-1){
+          clearInterval(ti);
+          // additional timeout to allow rendering
+          setTimeout(function(){
+            sizeInput();
+          }, 100);
+        }
+      }
+    }
+  }, 100);
+
   $(window).europeanaResize(function(){
     sizeInput()
   });
