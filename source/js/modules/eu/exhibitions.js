@@ -912,3 +912,4 @@ log('hash changed');
   }
 
 });
+
