@@ -83,7 +83,8 @@
                 },
                 {
                   "url": "javascript:alert('open chapter')",
-                  "text": "Chaper 2"
+                  "text": "Chaper 2",
+                  "is_current": true
                 },
                 {
                   "url": "javascript:alert('open chapter')",
@@ -183,7 +184,7 @@
   },
   "page_data": {
     "is_chapter": true,
-    "title": "Page title",
+    "title": false,
     "url": "/example-page",
     "elements": {
       "present": "true",
@@ -501,7 +502,8 @@
                 "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             },
-            "title": "Art Nouveau",
+            "subtitle": "Art Nouveau",
+            "XXXtitle": "Art Nouveau",
             "XXXsubtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
         },
         {
