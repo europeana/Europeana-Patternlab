@@ -115,20 +115,22 @@ define(['jquery', 'util_resize'], function ($){
    *   sizeInput();
    * if / when we stop loading stylesheets asynchronously
    * */
-  var cssnum = document.styleSheets.length;
-  var ti = setInterval(function() {
-    if (document.styleSheets.length > cssnum) {
-      for(var i=0; i<document.styleSheets.length; i++){
-        if(document.styleSheets[i].href.indexOf('screen.css')>-1){
-          clearInterval(ti);
-          // additional timeout to allow rendering
-          setTimeout(function(){
-            sizeInput();
-          }, 100);
+  if($('.search-tag').size()>0){
+    var cssnum = document.styleSheets.length;
+    var ti = setInterval(function() {
+      if (document.styleSheets.length > cssnum) {
+        for(var i=0; i<document.styleSheets.length; i++){
+          if(document.styleSheets[i].href && document.styleSheets[i].href.indexOf('screen.css')>-1){
+            clearInterval(ti);
+            // additional timeout to allow rendering
+            setTimeout(function(){
+              sizeInput();
+            }, 100);
+          }
         }
       }
-    }
-  }, 100);
+    }, 100);
+  }
 
   $(window).europeanaResize(function(){
     sizeInput()
