@@ -35,7 +35,7 @@ $grey3 			: #dedede;
 
 // Neutrals
 $white 			: #FFFFFF;
-$offwhite 		: #F1F1EE;
+$offwhite 	: #F1F1EE;
 $paper 			: #D9D4CA;
 
 $gray97			: #F8F8F8;
@@ -47,29 +47,29 @@ $gray30			: #4D4D4D;
 
 $gray-lightest 	: $gray97;
 $gray-lighter 	: $gray80;
-$gray-light 	: $gray47;
-$gray-med 		: $gray30;
+$gray-light 	  : $gray47;
+$gray-med 		  : $gray30;
 
 $gray-dark 		: #212121; //13
-$black 			: #1A1A1A;
+$black 			  : #1A1A1A;
 
 //Europeana brand colours
-$eu-yellow 		: #FFAE00;
-$eu-red 		: #F22F24;
+$eu-yellow 		  : #FFAE00;
+$eu-red 		    : #F22F24;
 $eu-lightblue 	: #4BC0F0;
-$eu-blue 		: #1A8AC7;
-$eu-jade 		: #37B98B;
+$eu-blue 		    : #1676aa;  // previously #1A8AC7, replaced for WCAG AA compliance
+$eu-jade 		    : #37B98B;
 $eu-raspberry 	: #E11D53;
-$eu-purple 		: #7F3978;
+$eu-purple 		  : #7F3978;
 $eu-pink        : #FE2D67;
-$eu-orange      : #E85217;
+$eu-orange      : #d43900; // previously #E85217, replaced for WCAG AA compliance
 
-$blue-dark		: #293745;
-$blue-grey		: #C8D5D7;
+$blue-dark		  : #293745;
+$blue-grey		  : #C8D5D7;
 
-$peachy			: #d12d1e; // previously #e96e62, replaced for WCAG AA compliance
+$peachy			    : #d12d1e; // previously #e96e62, replaced for WCAG AA compliance
 
-$linkblue		: #095F90; // WCAG AA All text + AAA for text > 18pt
+$linkblue		    : #095F90; // WCAG AA All text + AAA for text > 18pt
 
 
 /////////////////////////////////////////////////////////

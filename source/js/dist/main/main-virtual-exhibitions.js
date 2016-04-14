@@ -16,8 +16,8 @@ require.config({
     menus:                  '../global/menus',
     photoswipe:             '../lib/photoswipe/photoswipe',
     photoswipe_ui:          '../lib/photoswipe/photoswipe-ui-default',
+    pinterest:              'http://assets.pinterest.com/js/pinit_main',
     purl:                   '../lib/purl/purl',
-
     smartmenus:             '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:    '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
 
@@ -56,6 +56,7 @@ require(['jquery'], function( $ ) {
 
   require(['exhibitions', 'global'], function( exhibitions ) {
     exhibitions.initPage();
+    require(['pinterest']);
   });
 
 });

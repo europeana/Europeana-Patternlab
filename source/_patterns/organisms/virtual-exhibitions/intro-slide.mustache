@@ -41,18 +41,18 @@
     </div>
   {{/image_credit}}
 
-  {{#title}}
-  <div class="ve-title-group">
+  <div class="ve-title-group{{#title}} has-title{{/title}}{{#subtitle}} has-subtitle{{/subtitle}}">
+    {{#title}}
       <span class="ve-title">
         {{.}}
       </span>
+    {{/title}}
     {{#subtitle}}
       <span class="ve-subtitle">
         {{{.}}}
       </span>
     {{/subtitle}}
   </div>
-  {{/title}}
 
   {{#intro_description}}
     <!--

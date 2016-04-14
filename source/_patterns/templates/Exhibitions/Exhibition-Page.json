@@ -83,7 +83,8 @@
                 },
                 {
                   "url": "javascript:alert('open chapter')",
-                  "text": "Chaper 2"
+                  "text": "Chaper 2",
+                  "is_current": true
                 },
                 {
                   "url": "javascript:alert('open chapter')",
@@ -183,7 +184,7 @@
   },
   "page_data": {
     "is_chapter": true,
-    "title": "Page title",
+    "title": false,
     "url": "/example-page",
     "elements": {
       "present": "true",
@@ -322,7 +323,10 @@
             "title": "Japonism",
             "subtitle": "(from the French Japonisme, first used in 1872)",
             "quote": "Japonisme refers to a specific French style",
+            "stripped_quote": "Japonisme refers to a specific French style",
+            "quotee": false,
             "body": "<p>In France the term Japonisme refers to a specific French style in the fine arts from 1864, while in England its impact on the decorative arts was first documented 1862.</p><p>From the 1860s, ukiyo-e, Japanese wood-block prints became a source of inspiration for many European impressionist painters, Art Nouveau and Cubism. Artists were especially affected by the lack of perspective and shadow, the flat areas of strong color, and the compositional freedom gained by placing the subject off-centre, mostly with a low diagonal axis to the background.</p><p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>",
+            "stripped_body": "<p>In France the term Japonisme refers to a specific French style in the fine arts from 1864, while in England its impact on the decorative arts was first documented 1862.</p><p>From the 1860s, ukiyo-e, Japanese wood-block prints became a source of inspiration for many European impressionist painters, Art Nouveau and Cubism. Artists were especially affected by the lack of perspective and shadow, the flat areas of strong color, and the compositional freedom gained by placing the subject off-centre, mostly with a low diagonal axis to the background.</p><p>Japan’s long period of exclusion from the west ended in the mid 19th century, and from 1862 the work of Japanese craftsmen could be seen at world trade fairs.</p>",
             "image":
             {
                 "thumbnail": {
@@ -382,6 +386,7 @@
             "is_quote": true,
             "type": "quote",
             "quote": "She'll make point five past light speed",
+            "stripped_quote": "She'll make point five past light speed",
             "quotee": "Han Solo - captain of the millennium falcon."
         },
         {
@@ -497,7 +502,8 @@
                 "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             },
-            "title": "Art Nouveau",
+            "subtitle": "Art Nouveau",
+            "XXXtitle": "Art Nouveau",
             "XXXsubtitle": "<p>Art Nouveau means \"new art\" in French. Its novelty was in breaking away from the older classical tradition and challenging conventions. </p>"
         },
         {
@@ -606,6 +612,7 @@
             "title": "ZURICH - Arthur Segal",
             "subtitle": "Arthur Segal (13 July 1875 - Jassy, June 1944, London)",
             "quote": "Never mind that art nonsense, become a banker!",
+            "stripped_quote": "Never mind that art nonsense, become a banker!",
             "quotee": "Arthur's father",
             "body": "<p>Arthur Segal is seen as the father of the Jewish avant-garde art scene in Romania. He spent the first years of his life in a town in the northeast of the country. He took no interest in schoolwork and felt excluded because he was Jewish. Arthur’s father wanted his son to become a banker and discouraged his early interest in art, but without success.</p><p>In 1892 Segal went to Berlin to study painting at the city’s fine arts academy.</p>",
             "image":
@@ -651,6 +658,7 @@
             "is_full_section_element": true,
             "type": "quote",
             "quote": "She's fast enough for you old man.  What's the cargo?",
+            "stripped_quote": "She's fast enough for you old man.  What's the cargo?",
             "quotee": "Han Solo - captain of the millennium falcon."
         },
         {
