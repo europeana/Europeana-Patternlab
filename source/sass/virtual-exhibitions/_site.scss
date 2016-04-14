@@ -347,7 +347,12 @@ a:hover > .ve-state-button-off,
 .ve-subtitle{
   display: block;
   font-weight: 1.2em;
-  margin-top: 1.2em;
+}
+
+.has-title{
+  .ve-subtitle{
+    margin-top: 1.2em;
+  }
 }
 
 .ve-slide-container{
