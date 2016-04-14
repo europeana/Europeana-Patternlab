@@ -344,16 +344,26 @@ a:hover > .ve-state-button-off,
   }
 }
 
-.ve-subtitle{
-  display: block;
-  font-weight: 1.2em;
+.ve-title-group:not(.has-title):not(.has-subtitle){
+  display: none;
 }
 
-.has-title{
+.ve-title-group{
+
   .ve-subtitle{
-    margin-top: 1.2em;
+    display: block;
+    font-weight: 1.2em;
+  }
+
+  &.has-title{
+    .ve-subtitle{
+      margin-top: 1.2em;
+    }
   }
 }
+
+
+
 
 .ve-slide-container{
   height:     100%;
