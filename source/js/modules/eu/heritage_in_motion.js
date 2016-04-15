@@ -87,6 +87,9 @@ Site_HIM = {
     },
     page_entry_submit : {
         init : function(){
+            require(["tagsinput"], function() {
+                $('.js-tagsinput').tagsInput({'width': '100%', 'height': 'auto'});
+            });
         }
     }
 }

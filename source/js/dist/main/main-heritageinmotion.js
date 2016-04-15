@@ -36,6 +36,7 @@ require.config({
     smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     sticky:                        '../lib/sticky/jquery.sticky',
+    tagsinput:                     '../lib/tagsinput/jquery.tagsinput.min',
     touch_move:                    '../lib/jquery.event.move',
     touch_swipe:                   '../lib/jquery.event.swipe',
     xeditable:                     '../lib/x-editable/jquery-editable-poshytip',

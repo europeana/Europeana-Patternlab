@@ -261,6 +261,13 @@ module.exports = function(grunt) {
               expand: true
           },
 
+          tagsinput: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/tagsinput/',
+              dest:   'source/js/dist/lib/tagsinput',
+              expand: true
+          },
+
           version_images: {
               src:    '**',
               cwd:    'source/images',
@@ -515,6 +522,7 @@ module.exports = function(grunt) {
        'copy:require',
        'copy:smartmenus',
        'copy:sticky',
+       'copy:tagsinput',
        'copy:videojs',
        'copy:videojs_aurora',
        'copy:videojs_silverlight',
