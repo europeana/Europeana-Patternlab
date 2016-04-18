@@ -31,7 +31,7 @@
         {
           "options":
           {
-            "search_active": false,
+            "search_active": true,
             "settings_active": true,
             "oursites_hidden": true
           },
