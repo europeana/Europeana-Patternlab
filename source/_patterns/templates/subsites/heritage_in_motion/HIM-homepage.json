@@ -17,6 +17,7 @@
       "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
+  "jQuery": false,
   "navigation": {
     "home_url": "www.europeana.eu",
     "home_text": "Return to Home",

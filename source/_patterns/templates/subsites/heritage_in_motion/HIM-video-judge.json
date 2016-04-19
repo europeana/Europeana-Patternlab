@@ -18,6 +18,7 @@
       "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
+  "jQuery": false,
   "js_vars": [
     {
       "name": "pageName",
