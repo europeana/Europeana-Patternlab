@@ -17,12 +17,14 @@
 	button.connected, button[data-connected='true'] {
 		color: $valid;
 	}
+
+	.members-oauth-provider{
+		display: block;
+		float: left;
+	}
 }
 
-.members-oauth-provider{
-	display: block;
-	float: left;
-}
+
 
 .account-header{
 	border-bottom: 6px solid $gray-light;
