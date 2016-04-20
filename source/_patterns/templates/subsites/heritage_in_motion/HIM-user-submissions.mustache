@@ -49,6 +49,9 @@
           <div class="submission-meta cf">
 
             {{#boolean}}
+            <button class="submission-status btn pill payment">Payment needed</button>
+            {{/boolean}}
+            {{#boolean}}
             <a href="" class="submission-status btn pill pending">Pending approval</a>
             {{/boolean}}
             {{^boolean}}
@@ -89,57 +92,8 @@
 
   <div class="l-sidebar">
 
-
-    <div class="account-detail cf">
-      <div class="account-item">
-        <h4>Username</h4>
-        <a href="#" class="editable" data-name="username" data-type="text" data-pk="1" data-title="Enter username">aaronaaaronson</a>
-      </div>
-
-      <div class="account-item">
-        <h4>Password</h4>
-        <a href="#" class="editable" data-name="password" data-type="text" data-pk="1" data-title="Enter password">**********</a>
-      </div>
-
-      <div class="account-item">
-        <h4>E-mail</h4>
-        <a href="#" class="editable" data-name="email" data-type="text" data-pk="1" data-title="Enter your email">aaron@testuser.com</a>
-      </div>
-    </div>
-
-
-    <div class="section social-logins cf">
-      <h4>Your account is connected with:</h4>
-
-      <a class="icon-social" data-connected="true" href="#" title="Facebook">
-        <svg class="icon icon-facebook">
-          <use xlink:href="#icon-facebook"></use>
-        </svg>
-      </a>
-
-      <a class="icon-social" href="#" title="Twitter">
-        <svg class="icon icon-twitter">
-          <use xlink:href="#icon-twitter"></use>
-        </svg>
-      </a>
-
-      <a class="icon-social" href="#">
-        <svg class="icon icon-googleplus">
-          <use xlink:href="#icon-googleplus"></use>
-        </svg>
-      </a>
-
-      <a class="icon-social" href="#">
-        <svg class="icon icon-linkedin">
-          <use xlink:href="#icon-linkedin"></use>
-        </svg>
-      </a>
-
-    </div>
-
-    <div class="account-payments">
-      <h4>Pending Payments</h4>
-      {{> molecules/components/cart-mini }}
+    <div class="section">
+        <a href="/profile" class="btn pill">Submissions</a>
     </div>
 
   </div>
