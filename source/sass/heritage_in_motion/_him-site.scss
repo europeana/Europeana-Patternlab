@@ -32,9 +32,10 @@
 		margin-bottom: $space-double;
 	}
 
-	.cta-primary{
+	.cta-primary, .cta-primar{
 		background-color: $eu-jade;
 		font-size: 1.4em;
+		border-color: $white;
 	}
 }
 
