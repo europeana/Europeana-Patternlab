@@ -111,6 +111,11 @@
                       "subtitle": false
                     },
                     {
+                      "text": "Entries",
+                      "url": "url to profile page",
+                      "subtitle": false
+                    },
+                    {
                       "is_divider": true
                     },
                     {
