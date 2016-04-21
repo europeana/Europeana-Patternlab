@@ -44,14 +44,17 @@
 
 	border: none;
 
-	&.pending{
-		background-color: $eu-orange;
+	&.pending, &.payment, &.approved{
 		color: #FFF;
+		margin-right: $space-quarter;
+	}
+
+	&.pending, &.payment{
+		background-color: $eu-orange;
 	}
 
 	&.approved{
 		background-color: $eu-jade;
-		color: #FFF;
 	}
 }
 .submission-meta{
