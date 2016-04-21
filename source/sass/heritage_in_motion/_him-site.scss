@@ -234,5 +234,8 @@
 
 }
 
-
+// Secondary navigation over-ride
+.nav_secondary .level1 > li > a.is-current{
+	color: $white;
+}
 
