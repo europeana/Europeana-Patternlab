@@ -19,6 +19,7 @@ for (var i=0; i<scripts.length; i++){
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),
   paths: {
+    embedly:                       '//cdn.embedly.com/widgets/platform',
     featureDetect:                 '../global/feature-detect',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
