@@ -44,6 +44,7 @@
 	vertical-align: bottom;
 	color: #FFF;
 	margin-right: $space-quarter;
+	margin-bottom: $space-quarter;
 
 	.l-sidebar &{
 		margin-bottom: $space-quarter;
@@ -55,6 +56,10 @@
 
 	&.pending{
 		background-color: $gray-lighter;
+	}
+
+	&.draft{
+		background-color: $eu-yellow;
 	}
 
 	&.action{
@@ -77,9 +82,22 @@
 	border-width: 1px 0;
 	padding: $space-half 0;
 }
-.submission-actions{
-	float: right;
+
+.submission-progress{
+	margin-bottom: $space-quarter;
+
+	@media all and (min-width: $bp-large) {
+		display: inline;
+	}
 }
+
+@media all and (min-width: $bp-large) {
+	.submission-actions{
+		float: right;
+	}
+}
+
+
 .l-sidebar {
 	h4{
 		margin-bottom: $space-quarter;
@@ -88,3 +106,4 @@
 .account-item{
 	margin-bottom: $space;
 }
+
