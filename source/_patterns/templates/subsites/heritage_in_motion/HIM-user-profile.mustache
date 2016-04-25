@@ -143,6 +143,19 @@
 
   <div class="l-sidebar">
 
+      <div class="section">
+          <nav class="nav_secondary" role="navigation">
+            <ul class="level1">
+              <li>
+                <a href="#">Entries</a>
+              </li>
+              <li>
+                <a href="#" class="is-current">Profile</a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+
           <div class="section cf">
 
           <h4>Connect your account with:</h4>
@@ -153,7 +166,7 @@
 
               <li class="members-oauth-provider local"></li>
 
-              <li class="members-oauth-provider google">
+              <li class="members-oauth-provider">
                 <button type="submit" name="associate[google]" data-connected="false" id="associate_google" class="not-connected" title="Add your Google account">
                     <svg class="icon icon-googleplus">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-googleplus"></use>
@@ -161,10 +174,18 @@
                 </button>
               </li>
 
-              <li class="members-oauth-provider linkedin">
+              <li class="members-oauth-provider">
                 <button type="submit" name="associate[linkedin]" data-connected="true" id="associate_linkedin" class="connected" title="Add your LinkedIn account">
                   <svg class="icon icon-linkedin">
                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use>
+                  </svg>
+                </button>
+              </li>
+
+              <li class="members-oauth-provider">
+                <button type="submit" name="associate[facebook]" data-connected="false" id="associate_facebook" title="Add your facebook account">
+                  <svg class="icon icon-facebook">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
                   </svg>
                 </button>
               </li>
@@ -173,11 +194,6 @@
 
             </form>
         </div>
-
-        <div class="section">
-            <a href="/profile" class="btn pill">Submissions »</a>
-        </div>
-
 
   </div>
   {{! end sidebar }}

@@ -38,23 +38,38 @@
 .submission-detail{
 	margin-bottom: $space-half;
 }
+
 .submission-status{
-	display: block;
-	float: left;
-
 	border: none;
+	vertical-align: bottom;
+	color: #FFF;
+	margin-right: $space-quarter;
 
-	&.pending, &.payment, &.approved{
-		color: #FFF;
-		margin-right: $space-quarter;
+	.l-sidebar &{
+		margin-bottom: $space-quarter;
 	}
 
-	&.pending, &.payment{
+	&:hover{
+		color: #FFF;
+	}
+
+	&.pending{
+		background-color: $gray-lighter;
+	}
+
+	&.action{
 		background-color: $eu-orange;
+		&:hover{
+			opacity: 0.9;
+		}
 	}
 
 	&.approved{
 		background-color: $eu-jade;
+	}
+
+	&.rejected{
+		background-color: $black;
 	}
 }
 .submission-meta{
