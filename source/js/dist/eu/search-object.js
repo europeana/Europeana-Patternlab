@@ -479,6 +479,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         updateTechData({target:$('.single-item-thumb a')[0]});
         themeData = channelCheck();
 
+        // set preferred search
+
+        var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
+        if(preferredResultCount){
+            $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
+        }
+
         // event binding
 
         $(window).bind('showMLT', function(e, data){
