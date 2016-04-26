@@ -8,6 +8,8 @@ require.config({
     global:                 '../eu/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
+    hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
+
     imagesloaded:           '../lib/jquery.imagesloaded.min',
 
     jquery:                 '../lib/jquery',
@@ -52,6 +54,16 @@ require(['jquery'], function( $ ) {
     require(["ga"], function(ga) {
       ga("send", "pageview");
     });
+  }
+
+  // is this a test site?
+  var href = window.location.href;
+  if(true || href.indexOf('europeana.eu') > -1){
+    window.hj = function(){
+      (window.hj.q = window.hj.q || []).push(arguments)
+    };
+    window._hjSettings = { hjid:54631, hjsv:5};
+    require(['hotjar'], function(hj) {});
   }
 
   require(['exhibitions', 'global'], function( exhibitions ) {

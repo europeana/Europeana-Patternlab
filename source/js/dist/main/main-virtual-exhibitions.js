@@ -8,6 +8,8 @@ require.config({
     global:                 '../eu/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
+    hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
+
     imagesloaded:           '../lib/jquery.imagesloaded.min',
 
     jquery:                 '../lib/jquery',
@@ -53,6 +55,34 @@ require(['jquery'], function( $ ) {
       ga("send", "pageview");
     });
   }
+
+  // is this a test site?
+  var href = window.location.href;
+  if(true || href.indexOf('europeana.eu') > -1){
+
+      window.hj = function(){
+        (window.hj.q = window.hj.q || []).push(arguments)
+      };
+      window._hjSettings = { hjid:54631, hjsv:5};
+
+      require(['hotjar'], function(hj) {
+          console.log('hotjar loaded = ' + hj);
+      });
+      return
+
+      // POST http://insights.hotjar.com/api/v1/client/sites/54631/visit-data?sv=5
+
+      (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:54631,hjsv:5};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+      })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+
+  }
+
 
   require(['exhibitions', 'global'], function( exhibitions ) {
     exhibitions.initPage();
