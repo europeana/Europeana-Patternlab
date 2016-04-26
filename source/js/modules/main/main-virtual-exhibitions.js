@@ -58,7 +58,7 @@ require(['jquery'], function( $ ) {
 
   // is this a test site?
   var href = window.location.href;
-  if(true || href.indexOf('europeana.eu') > -1){
+  if(href.indexOf('europeana.eu') > -1){
     window.hj = function(){
       (window.hj.q = window.hj.q || []).push(arguments)
     };
