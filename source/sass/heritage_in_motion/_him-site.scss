@@ -1,11 +1,11 @@
 // Heritage in Motion Site specific styles
 
 
-//Logo for Search
+//Logo for Heritage in Motion
 .logo {
-  background-image: url("../../images/heritage-in-motion/HiM_logo_landscape.png");
+  background-image: url("../../images/heritage-in-motion/HiM_logo_landscape_delay.gif");
   .svg &{
-    background-image: url("../../images/heritage-in-motion/HiM_logo_landscape.svg");
+    background-image: url("../../images/heritage-in-motion/HiM_logo_landscape_delay.gif");
   }
 }
 
@@ -31,6 +31,12 @@
 		font-size: 1.4em;
 		margin-bottom: $space-double;
 	}
+
+	.cta-primary, .cta-primar{
+		background-color: $eu-jade;
+		font-size: 1.4em;
+		border-color: $white;
+	}
 }
 
 .competition-benefits{
@@ -38,6 +44,10 @@
 	margin-bottom: $space-double;
 	list-style-type: disc;
 	list-style-position: inside;
+}
+
+.hero-content{
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .maker-types{
@@ -56,7 +66,7 @@
 			width: 120px;
 			height: 120px;
 			margin: 0 auto 1em;
-			background-color: rgba(255, 255, 255, 0.27);
+			background-color: rgba(255, 255, 255, 1);
 			border: 4px solid #FFF;
 			border-radius: 200px;
 			background-position: 50% 10px;
@@ -224,5 +234,8 @@
 
 }
 
-
+// Secondary navigation over-ride
+.nav_secondary .level1 > li > a.is-current{
+	color: $white;
+}
 

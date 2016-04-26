@@ -19,6 +19,7 @@ for (var i=0; i<scripts.length; i++){
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),
   paths: {
+    embedly:                       '//cdn.embedly.com/widgets/platform',
     featureDetect:                 '../global/feature-detect',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
@@ -36,6 +37,7 @@ require.config({
     smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     sticky:                        '../lib/sticky/jquery.sticky',
+    tagsinput:                     '../lib/tagsinput/jquery.tagsinput.min',
     touch_move:                    '../lib/jquery.event.move',
     touch_swipe:                   '../lib/jquery.event.swipe',
     xeditable:                     '../lib/x-editable/jquery-editable-poshytip',

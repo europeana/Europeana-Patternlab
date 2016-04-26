@@ -63,6 +63,9 @@ Site_HIM = {
     },
     page_entry_list : {
         init : function(){
+
+            require(["embedly"]);
+
             require(["lightbox"], function() {
 
                 //show entry in lightbox only on desktop width
@@ -80,6 +83,11 @@ Site_HIM = {
             });
         }
     },
+    page_entry_detail : {
+        init : function(){
+            require(["embedly"]);
+        }
+    },
     page_user_profile : {
         init : function(){
 
@@ -87,6 +95,11 @@ Site_HIM = {
     },
     page_entry_submit : {
         init : function(){
+            require(["embedly"]);
+
+            require(["tagsinput"], function() {
+                $('.js-tagsinput').tagsInput({'width': '100%', 'height': 'auto'});
+            });
         }
     }
 }

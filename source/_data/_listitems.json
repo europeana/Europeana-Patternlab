@@ -3,6 +3,13 @@
 		"id": "571f6b6f-5d67-4391-a523-0a19a65af558",
 		"title": "Rembrant van Rijn, An Elephant, a drawing.",
 		"boolean":true,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -106,6 +113,13 @@
 		"id": "c6276f87-4b47-4ce5-8472-9f63680aa93f",
 		"title": "Veggies sunt bona vobis, proinde vos postulo",
 		"boolean":false,
+		"states": {
+			"one": false,
+			"two": true,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -209,6 +223,13 @@
 		"id": "06dd1218-9f30-46dc-8535-61cfff24733c",
 		"title": "Bacon ipsum dolor sit amet turducken strip steak beef ribs shank",
 		"boolean":true,
+		"states": {
+			"one": false,
+			"two": true,
+			"three": false,
+			"four": true,
+			"five": false
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -312,6 +333,13 @@
 		"id": "5d16bf58-d84e-4c84-866f-525afc5fde3b",
 		"title": "Whatever swag accusamus occupy, gentrify butcher tote bag",
 		"boolean":true,
+		"states": {
+			"one": false,
+			"two": false,
+			"three": false,
+			"four": true,
+			"five": false
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -415,6 +443,13 @@
 		"id": "1a7ef7ec-2924-480b-9cdb-5fc9b109ef23",
 		"title": "Marshall McLuhan Colbert bump backpack journalist vast wasteland Romenesko CPM",
 		"boolean":false,
+		"states": {
+			"one": true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -518,6 +553,13 @@
 		"id": "9f80af8c-0b76-4749-bbec-ccb8d1cfe6d9",
 		"title": "Thunder, thunder, thundercats, Ho!",
 		"boolean":false,
+		"states": {
+			"one": false,
+			"two": true,
+			"three": false,
+			"four": true,
+			"five": false
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -621,6 +663,13 @@
 		"id": "c6aa9750-490a-467e-8ee1-87a004a9c8ec",
 		"title": "Yeah, I like animals better than people sometimes",
 		"boolean":true,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -724,6 +773,13 @@
 		"id": "9c192adb-5e43-4433-a929-3dcce7c221cf",
 		"title": "Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo",
 		"boolean":false,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -827,6 +883,13 @@
 		"id": "d39b0576-622b-40e6-b187-e05b57076ea9",
 		"title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de 'Night Watch'",
 		"boolean":true,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -930,6 +993,13 @@
 		"id": "369a9be7-803f-451a-be0f-0fa27ff1d5d1",
 		"title": "Help, help, I'm being repressed!",
 		"boolean":false,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -1033,6 +1103,13 @@
 		"id": "18dfc897-cd01-43f6-bfae-aed45eb659e9",
 		"title": "Danish danish candy canes bonbon cheesecake danish marzipan",
 		"boolean":false,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {
@@ -1136,6 +1213,13 @@
 		"id": "20ab8579-d7da-46b6-b4b1-def33afb8a98",
 		"title": "Cottage cheese brie lancashire. Boursin when the cheese comes out.",
 		"boolean":true,
+		"states": {
+			"one":true,
+			"two": false,
+			"three": true,
+			"four": false,
+			"five": true
+		},
 		"image":"fpo_4x3.png",
 		"img": {
 			"avatar": {

@@ -354,6 +354,12 @@ define(['jquery'], function ($) {
     function initHome(){
 
         log('init home');
+
+        var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
+        if(preferredResultCount){
+            $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
+        }
+
         /*
         if(window.location.href.indexOf('wrapnice') > -1){
 

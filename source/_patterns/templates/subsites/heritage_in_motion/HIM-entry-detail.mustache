@@ -19,8 +19,8 @@
 
       <div class="section">
 
-        <div class="video-fluid">
-          <iframe src="https://www.youtube.com/embed/qKfiNKAUbr4" frameborder="0" allowfullscreen></iframe>
+        <div>
+          <a class="embedly-card" href="https://www.youtube.com/embed/qKfiNKAUbr4" data-card-width="100%"  data-card-controls="0" data-card-theme="dark" data-card-chrome="0">Title here</a>
         </div>
 
         <div class="cf entry-info">
@@ -78,22 +78,6 @@
           <li><img src="/images/fpo_16x9.png" alt="entry extra media"></li>
         {{/ listItems.eight }}
         </ul>
-      </div>
-
-
-      <div class="submitter-wrapper cf section">
-        <h3>Submitted by:</h3>
-
-        <h2 class="submitter-name">{{name.first}} {{name.last}}</h2>
-
-        <div class="submitter-bio">
-          {{ excerpt.short }}
-        </div>
-
-        <div class="submitter-meta">
-          {{> molecules-meta-email }}
-          {{> molecules-meta-phone-work }}
-        </div>
       </div>
 
       {{# user_judge }}

@@ -86,11 +86,19 @@
 	}
 }
 
-.social-login{
+.page_login .social-login{
 	padding: $space;
 	padding-top: 0;
 	font-size: 2em;
 	text-align: center;
+
+
+	button{
+		background-color: transparent;
+		color: $accent;
+		display: inline-block;
+		padding: 0;
+	}
 }
 
 @media all and (min-width: $bp-med) {

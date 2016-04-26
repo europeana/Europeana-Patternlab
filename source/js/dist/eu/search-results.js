@@ -6,6 +6,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     var btnGrid         = $('.icon-view-grid').closest('a');
     var btnList         = $('.icon-view-list').closest('a');
 
+    var resultSizeLinks = $('#results_menu a');
+
     function log(msg){
       console.log(msg);
     }
@@ -141,6 +143,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     };
 
+    var saveResultCount = function(resultCount){
+        if(typeof(Storage) != 'undefined') {
+            localStorage.setItem('eu_portal_results_count', resultCount);
+        }
+    };
+
     var updateViewParamInLinks = function(param){
 
       var updateUrl = function($anchor){
@@ -196,6 +204,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     };
 
+    var bindResultSizeLinks = function(){
+      resultSizeLinks.on('click', function(e){
+        saveResultCount(parseInt($(e.target).text()));
+      });
+    }
+
     var bindViewButtons = function(){
 
       btnGrid.on('click', function(e){
@@ -243,6 +257,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var initPage = function(){
       bindViewButtons();
+      bindResultSizeLinks();
       bindGA();
 
       if(typeof(Storage) !== "undefined") {
@@ -253,6 +268,13 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
          sessionStorage.eu_portal_channel_label = label;
          sessionStorage.eu_portal_channel_name  = name;
          sessionStorage.eu_portal_channel_url   = url;
+
+
+         var preferredResultCount = localStorage.getItem('eu_portal_results_count');
+         if(preferredResultCount){
+             $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
+         }
+
       }
     };
 

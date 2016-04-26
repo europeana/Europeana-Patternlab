@@ -17,6 +17,7 @@
       "data_main": "../../js/dist/main/main-heritageinmotion"
     }
   ],
+  "jQuery": false,
   "js_vars": [
     {
       "name": "pageName",
@@ -31,7 +32,7 @@
         {
           "options":
           {
-            "search_active": false,
+            "search_active": true,
             "settings_active": true,
             "oursites_hidden": true
           },
@@ -110,6 +111,11 @@
                       "subtitle": false
                     },
                     {
+                      "text": "Entries",
+                      "url": "url to entries list page",
+                      "subtitle": false
+                    },
+                    {
                       "is_divider": true
                     },
                     {
@@ -137,41 +143,13 @@
             "items": [
                 {
                     "url": "#",
-                    "text": "Parent #1",
-                    "submenu": {
-                        "items": [
-                            {
-                                "url": "#",
-                                "text": "Child #1",
-                                "submenu": false,
-                                "is_current": true
-                            },
-                            {
-                                "url": "#",
-                                "text": "Child #2",
-                                "submenu": false
-                            },
-                            {
-                                "url": "#",
-                                "text": "Child #3",
-                                "submenu": false
-                            }
-                        ]
-                    }
+                    "text": "Submissions",
+                    "submenu": false,
+                    "is_current": true
                 },
                 {
                     "url": "#",
-                    "text": "Parent #2",
-                    "submenu": false
-                },
-                {
-                    "url": "#",
-                    "text": "Parent #3",
-                    "submenu": false
-                },
-                {
-                    "url": "#",
-                    "text": "Parent #4",
+                    "text": "Profile",
                     "submenu": false
                 }
             ]
