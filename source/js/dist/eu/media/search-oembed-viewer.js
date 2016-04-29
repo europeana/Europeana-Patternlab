@@ -5,13 +5,14 @@ define([], function() {
     console.log('OembedViewer: ' + msg);
   }
 
-  var init = function(container, play_html){
+  function init(container, play_html){
 
       var oembed;
       var oembedId;
       var dependencies = [];
-      var scripts = [];
-      var wrapped = $('<div>' + play_html + '</div>');
+      var scripts      = [];
+      var wrapped      = $('<div>' + play_html + '</div>');
+      var isNewspaper  = false;
 
       if(wrapped.children().length > 1){
           wrapped.children().each(function(){
@@ -58,7 +59,12 @@ define([], function() {
       };
 
       loadDependencies(dependencies.reverse(), function(){
-          if(oembed.attr('width')){
+
+          if(oembed.attr('src').indexOf('theeuropeanlibrary') > -1 && oembed.attr('src').indexOf('newspapers') > -1){
+              container.css('width', '100%');
+              isNewspaper = true;
+          }
+          else if(oembed.attr('width')){
               var w = oembed.attr('width')
 
               if(w && w === parseInt(w) + ''){
@@ -83,7 +89,21 @@ define([], function() {
           $('#' + oembedId).parent().css('margin', 'auto');
           container.find('object').css('height', '100%');
 
+          if(isNewspaper){
+            container.css('margin-bottom', '1em');
+            oembed.css('margin-bottom',    '1em');
+
+            $('.object-media-oembed iframe').on('load', function(){
+                alert(JSON.stringify( $(this).contents() ))
+                alert("$('.object-media-oembed iframe').contents().find('#exit-fs-link')  " + $('.object-media-oembed iframe').contents().find('#exit-fs-link').size()   )
+                $('.object-media-oembed iframe').contents().find('#exit-fs-link').hide();
+            });
+
+
+          }
+
           $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
+
       });
 
   }
