@@ -132,6 +132,12 @@
   // display: none;
 }
 
+.object-media-oembed.fullscreen{
+  height: 100%;
+  iframe{
+    height: 100%;
+  }
+}
 
 .object-display{
     overflow-y: auto;

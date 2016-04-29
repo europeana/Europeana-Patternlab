@@ -89,14 +89,111 @@ define([], function() {
           $('#' + oembedId).parent().css('margin', 'auto');
           container.find('object').css('height', '100%');
 
+
           if(isNewspaper){
             container.css('margin-bottom', '1em');
             oembed.css('margin-bottom',    '1em');
 
             $('.object-media-oembed iframe').on('load', function(){
-              //alert(JSON.stringify( $(this).contents() ))
-              //alert("$('.object-media-oembed iframe').contents().find('#exit-fs-link')  " + $('.object-media-oembed iframe').contents().find('#exit-fs-link').size()   )
-              //$('.object-media-oembed iframe').contents().find('#exit-fs-link').hide();
+
+              var iframe             = $(this);
+              var txtFullScreenEnter = $('.object-media-oembed').data('fullscreen-enter');
+              var txtFullScreenExit  = $('.object-media-oembed').data('fullscreen-exit');
+              var imgFullScreenEnter = 'http://www.theeuropeanlibrary.org/tel4/img/full-scr-transparent.png';
+              var imgFullScreenExit  = 'http://www.theeuropeanlibrary.org/tel4/img/exit-full-scr-transparent.png';
+
+              iframe.before('<div style="background-color: black; color: white; left: 1px; position: absolute; text-align: left; top: 1px; width: 15em;">'
+                      + '<a id="newspaper-full-screen" style="display: table-cell; height: 2.6em; vertical-align: middle;">'
+                      +   '<img  class="fullscreen-icon" src="' + imgFullScreenEnter + '" style="margin: 0 0.5em;  vertical-align: middle; width: 24px;">'
+                      +   '<span class="fullscreen-text">' + txtFullScreenEnter + '</span>'
+                      + '</a>'
+                      + '</div>');
+
+              var fsEvent = function(){
+                if(document.fullscreenElement ||
+                  document.webkitFullscreenElement ||
+                  document.mozFullScreenElement ||
+                  document.msFullscreenElement){
+                }
+                else{
+                  iframe.removeClass('fullscreen');
+                  var origHeight = iframe.find('iframe').data('orig-height');
+
+                  iframe.find('iframe').attr('height', origHeight );
+                  iframe.find('iframe').css ('height', origHeight );
+                  //iframe               .css ('height', origHeight );
+
+                  $('.fullscreen-text').text(txtFullScreenEnter);
+                  $('.fullscreen-icon').attr('src', imgFullScreenEnter);
+                }
+              }
+
+              var exitFullscreen = function() {
+                iframe.removeClass('fullscreen');
+
+                var origHeight = iframe.find('iframe').data('orig-height');
+
+                iframe.find('iframe').attr('height', origHeight );
+                iframe.find('iframe').css ('height', origHeight );
+
+                $('.fullscreen-text').text(txtFullScreenEnter);
+                $('.fullscreen-icon').attr('src', imgFullScreenEnter);
+
+                if(document.exitFullscreen) {
+                  document.exitFullscreen();
+                }
+                else if(document.mozCancelFullScreen) {
+                  document.mozCancelFullScreen();
+                }
+                else if(document.webkitExitFullscreen) {
+                  document.webkitExitFullscreen();
+                }
+              }
+
+              if(document.addEventListener)
+              {
+                document.addEventListener('webkitfullscreenchange', fsEvent);
+                document.addEventListener('mozfullscreenchange',    fsEvent);
+                document.addEventListener('fullscreenchange',       fsEvent);
+                document.addEventListener('MSFullscreenChange',     fsEvent);
+              }
+
+              iframe = $('.object-media-oembed');
+
+              $('#newspaper-full-screen').on('click', function(){
+
+                if(iframe.hasClass('fullscreen')){
+                  exitFullscreen();
+                }
+                else{
+                  iframe.addClass('fullscreen');
+
+                  var origHeight = iframe.find('iframe').data('orig-height');
+
+                  if(!origHeight){
+                    iframe.find('iframe').data('orig-height', iframe.find('iframe').attr('height') );
+                  }
+                  iframe.find('iframe').attr('height', $(window).height() + 'px');
+                  iframe.find('iframe').css ('height', $(window).height() + 'px');
+
+
+                  $('.fullscreen-text').text(txtFullScreenExit);
+                  $('.fullscreen-icon').attr('src', imgFullScreenExit);
+
+                  if (iframe[0].requestFullscreen) {
+                    iframe[0].requestFullscreen();
+                  }
+                  else if (iframe[0].msRequestFullscreen) {
+                    iframe[0].msRequestFullscreen();
+                  }
+                  else if (iframe[0].mozRequestFullScreen) {
+                    iframe[0].mozRequestFullScreen();
+                  }
+                  else if (iframe[0].webkitRequestFullscreen) {
+                    iframe[0].webkitRequestFullscreen();
+                  }
+                }
+              });
             });
           }
 
