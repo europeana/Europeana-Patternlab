@@ -685,7 +685,9 @@
         "global": {
             "actions": {
               "filter-by": "Filter by",
-              "filter-all": "All"
+              "filter-all": "All",
+              "fullscreen-enter": "full screen",
+              "fullscreen-exit":  "exit full screen"
             },
             "email-address": "email address",
             "facet": {
