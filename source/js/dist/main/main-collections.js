@@ -126,10 +126,12 @@ require(['jquery'], function( $ ) {
       require(["ga"], function(ga) {
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){
-                  var analyticsData = page.getAnalyticsData();
-                  if(analyticsData.name != 'undefined'){
-                      ga('set', analyticsData.dimension, analyticsData.name);
+                var analyticsData = page.getAnalyticsData();
+                for(var i=0; i<analyticsData.length; i++){
+                  if(analyticsData[i].name != 'undefined'){
+                    ga('set', analyticsData[i].dimension, analyticsData[i].name);
                   }
+                }
               }
               ga("send", "pageview");
           });

@@ -1,7 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
-    var themeData;
-
     function log(msg){
         console.log(msg);
     }
@@ -403,6 +401,43 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     }
     */
 
+    var getAnalyticsData = function(){
+
+      var gaData           = [channelCheck()];
+      var gaDimensions     = $('.ga-data');
+      var dimensions       = [];
+      var allDimensionData = {};
+
+      gaDimensions.each(function(i, ob){
+        var dimensionName       = $(ob).data('ga-metric');
+        var dimensionData       = [];
+
+        if(!allDimensionData[dimensionName]){
+          gaDimensions.each(function(j, ob){
+            if( $(ob).data('ga-metric') == dimensionName ){
+              var value = $(ob).text();
+              if(dimensionName == 'dimension5'){
+                if(value.indexOf('http') == 0 ){
+                  dimensionData.push( value );
+                }
+              }
+              else{
+                dimensionData.push( value );
+              }
+            }
+          });
+          dimensionData.sort();
+          allDimensionData[dimensionName] = dimensionData.join(',');
+        }
+      });
+
+      var keys = Object.keys(allDimensionData);
+      for(var j=0; j<keys.length; j++){
+        dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] })
+      }
+      return dimensions;
+    }
+
     var bindAnalyticsEvents = function(){
 
       // Redirect
@@ -477,7 +512,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         bindAnalyticsEvents();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
-        themeData = channelCheck();
+
 
         // set preferred search
 
@@ -521,7 +556,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
             initPage();
         },
         getAnalyticsData: function(){
-            return themeData;
+            return getAnalyticsData();
         },
         getPinterestData: function(){
             var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
