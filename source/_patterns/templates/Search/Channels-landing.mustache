@@ -41,6 +41,8 @@
     {{#items}}
     <li class="list-item">
       {{> molecules/blocks/browse-entry }}
+      <a href="{{more_link_1}}" class="browse-entries-more upper-row">{{i18n.global.navigation.more.topics}}</a>
+      <a href="{{more_link_2}}" class="browse-entries-more lower-row">{{i18n.global.navigation.more.agents}}</a>
     </li>
     {{/items}}
   </ul>
@@ -48,7 +50,6 @@
 
 </section>
 {{/content.channel_info}}
-
 
 
 {{# content.promoted }}
