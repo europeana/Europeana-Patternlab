@@ -712,6 +712,12 @@
             "more": {
                 "load-more": "Load more"
             },
+            "navigation":{
+              "more":{
+                "agents": "more people",
+                "topics": "more topics"
+              }
+            },
             "newsletter":
             {
               "signup": "Sign up for our newsletter",
