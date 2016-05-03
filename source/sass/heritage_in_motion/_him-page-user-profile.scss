@@ -81,6 +81,10 @@
 	border: solid $gray-lighter;
 	border-width: 1px 0;
 	padding: $space-half 0;
+
+	.cartform{
+		display: inline-block;
+	}
 }
 
 .submission-progress{
