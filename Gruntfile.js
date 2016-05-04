@@ -104,6 +104,13 @@ module.exports = function(grunt) {
           },
           */
 
+          imgCompare: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/image-compare',
+              dest:   'source/js/dist/lib/image-compare',
+              expand:  true
+          },
+
           jstree: {
               src:    '**',
               cwd:    'source/js/modules/lib/jstree',
@@ -506,6 +513,7 @@ module.exports = function(grunt) {
        'copy:eu',
        'copy:featherlight',
        'copy:global_dependencies',
+       'copy:imgCompare',
        'copy:jquery',
        'copy:jstree',
        'copy:beeld_en_geluid',

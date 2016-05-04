@@ -240,6 +240,17 @@
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
         },
         {
+            "id": "image_compare_section",
+            "is_section": true,
+            "section_title": "Image Comparison"
+        },
+        {
+            "id": "image_compare_1",
+            "is_image_compare": true,
+            "image_1": "/images/virtual-exhibitions/280/Grunwaldem-half.png",
+            "image_2": "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+        },
+        {
             "id": "x0_2",
             "is_section": true,
             "section_title": "Youtube embed"

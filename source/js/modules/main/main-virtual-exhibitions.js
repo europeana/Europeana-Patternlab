@@ -10,6 +10,7 @@ require.config({
 
     hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
 
+    imageCompare:           '../lib/image-compare/image-compare',
     imagesloaded:           '../lib/jquery.imagesloaded.min',
 
     jquery:                 '../lib/jquery',
@@ -69,6 +70,13 @@ require(['jquery'], function( $ ) {
   require(['exhibitions', 'global'], function( exhibitions ) {
     exhibitions.initPage();
     require(['pinterest']);
+
+    if($('.image-compare').size() > 0){
+      require(['imageCompare'], function(imageCompare){
+        imageCompare.init();
+      });
+    }
+
   });
 
 });
