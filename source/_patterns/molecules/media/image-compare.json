@@ -1,0 +1,10 @@
+{
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-image-compare"
+    }
+  ],
+  "image_1": "/images/virtual-exhibitions/280/Grunwaldem-half.png",
+  "image_2": "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+}
