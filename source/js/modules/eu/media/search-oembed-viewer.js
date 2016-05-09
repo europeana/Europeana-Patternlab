@@ -96,6 +96,10 @@ define([], function() {
 
             $('.object-media-oembed iframe').on('load', function(){
 
+              if($('#newspaper-full-screen').size() > 0){
+                return;
+              }
+
               var iframe             = $(this);
               var txtFullScreenEnter = $('.object-media-oembed').data('fullscreen-enter');
               var txtFullScreenExit  = $('.object-media-oembed').data('fullscreen-exit');
