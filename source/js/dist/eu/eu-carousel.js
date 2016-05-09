@@ -65,8 +65,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                         "content" : {
                             // "back" : "◂",
                             // "fwd"  : "▸",
-                            "back"  : ops.svg ? "<svg class=\"icon icon-caret-left\"><use xlink:href=\"#icon-caret-left\"/></svg>" : "&lt;",
-                            "fwd"   : ops.svg ? "<svg class=\"icon icon-caret-right\"><use xlink:href=\"#icon-caret-right\"/></svg>" : "&gt;",
+                            "back"  : ops.svg ? "<svg class=\"icon icon-previous\"><use xlink:href=\"#icon-previous\"/></svg>" : "&lt;",
+                            "fwd"   : ops.svg ? "<svg class=\"icon icon-next\"><use xlink:href=\"#icon-next\"/></svg>" : "&gt;",
                             "up"    : ops.svg ? "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>" : "^",
                             "down"  : ops.svg ? "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>" : "^"
                         }
