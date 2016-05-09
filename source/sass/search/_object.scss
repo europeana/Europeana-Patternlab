@@ -629,7 +629,7 @@
         &.h{
             .left{
                 @media all and (min-width: $bp-med) {
-                  left: -1em;
+                  left: 0;
                 }
             }
         }
