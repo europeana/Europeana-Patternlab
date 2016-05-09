@@ -143,7 +143,14 @@
   }
 }
 
-
+.mlt .js-carousel-arrows.h{
+  .left,.right{
+    background-color: rgba(255,255,255,0.74);
+    &:hover{
+      background-color: rgba(255,255,255,0.9);
+    }
+  }
+}
 
 .js-carousel.loading ul:after {
   content: " ";
@@ -181,10 +188,6 @@
     float: none;
     position: absolute;
     z-index: 1;
-    background-color: rgba(255,255,255,0.74);
-    &:hover{
-        background-color: rgba(255,255,255,0.9);
-      }
   }
 
   &.h{
