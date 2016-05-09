@@ -120,6 +120,7 @@
     float: left;
 
     width:  auto;  // no override needed
+
   }
 
   .h{
@@ -155,7 +156,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(22, 118, 170, 0.4);
   cursor: progress;
 }
 
@@ -179,6 +180,10 @@
     float: none;
     position: absolute;
     z-index: 1;
+    background-color: rgba(255,255,255,0.74);
+    &:hover{
+        background-color: rgba(255,255,255,0.9);
+      }
   }
 
   &.h{
@@ -192,12 +197,16 @@
       right: 0;
     }
 
-    .icon icon-caret-left{
+    .icon-caret-left,
+    .icon-caret-right{
       // fix arrows
-    }
-
-    .icon icon-caret-right{
-      // fix arrows
+      display: inline-block;
+      width: 0.5em;
+      height: 0.5em;
+      margin-bottom: 0;
+      margin-right: 0.25em;
+      margin-left: 0.25em;
+      fill: currentColor;
     }
 
   }
