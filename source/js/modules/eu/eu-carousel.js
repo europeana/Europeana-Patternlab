@@ -27,7 +27,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
         var edge     = 'left';
 
-        var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing, comfortableFit;
+        var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing, comfortableFit, alwaysAfterLoad;
         var animating      = false;
         var cmp            = $(cmp); // the viewport
         var appender       = appender;
@@ -78,8 +78,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     "titleClass" : "js-carousel-title"
                 };
 
-            dynamic    = typeof ops.bpVertical != 'undefined';
-            bpVertical = ops.bpVertical;
+            dynamic         = typeof ops.bpVertical != 'undefined';
+            bpVertical      = ops.bpVertical;
+            alwaysAfterLoad = ops.alwaysAfterLoad;
 
             if(dynamic){
                 ascertainVerticality();
@@ -502,7 +503,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
                 if(added.length){
                     resize();
-                    log('added > resize > scroll ' + scroll);
                     if(scroll){
                         scrollForward();
                     }
@@ -527,6 +527,10 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                 if(doAfter){
                     doAfter(added);
                 }
+                if(alwaysAfterLoad){
+                    alwaysAfterLoad(added);
+                }
+
             }, inView);
         };
 

@@ -307,7 +307,24 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     }
 
     var showMLT = function(data){
-        initCarousel($('.more-like-this'), data);
+      var addEllipsis = function(added){
+        require(['util_ellipsis'], function(EllipsisUtil){
+            if(added){
+              EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
+            }
+            else{
+              EllipsisUtil.create($('.more-like-this .js-carousel-title'));
+            }
+        });
+      }
+      data.alwaysAfterLoad = function(added){addEllipsis(added);};
+      var promisedCarousel = initCarousel($('.more-like-this'), data);
+
+      promisedCarousel.done(function(carousel){
+        addEllipsis();
+        bindAnalyticsEventsMLT();
+      });
+
     }
 
     var channelCheck = function(){
@@ -437,6 +454,18 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
       }
       return dimensions;
     }
+
+    var bindAnalyticsEventsMLT = function(){
+      $('.mlt .left').add($('.mlt .right')).on('click', function(){
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Browse',
+          eventAction: 'Similar items scroll',
+          eventLabel: 'Similar items scroll'
+        });
+        log('GA: Browse');
+      });
+    };
 
     var bindAnalyticsEvents = function(){
 
