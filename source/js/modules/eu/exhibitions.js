@@ -793,6 +793,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       var richImage   = section.find('.ve-base-title-image-text');
       var baseQuote   = section.find('.ve-base-quote');
       var baseEmbed   = section.find('.ve-base-embed');
+      var imgCompare  = section.find('.image-compare');
 
       if(baseIntro.size() > 0){
         imgUrl = baseIntro.css('background-image');
@@ -803,6 +804,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       }
       else if(richImage.size() > 0){
         imgUrl = richImage.find('img').attr('src');
+      }
+      else if(imgCompare.size() > 0){
+        imgUrl = imgCompare.find('>img').attr('src');
       }
       else if(baseQuote.size() > 0){
         bubbleContent.html('<span style="white-space:nowrap">"Quote..."</span>');
