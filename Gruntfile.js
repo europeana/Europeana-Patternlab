@@ -105,7 +105,7 @@ module.exports = function(grunt) {
           */
 
           imgCompare: {
-              src:    '**',
+              src:    ['**',  '!*.scss'],
               cwd:    'source/js/modules/lib/image-compare',
               dest:   'source/js/dist/lib/image-compare',
               expand:  true
@@ -404,8 +404,8 @@ module.exports = function(grunt) {
 
           js_components: {
               options: {
-                  cssDir:  'source/js' + (grunt.option('component') ? '/' + grunt.option('component') : ''),
-                  sassDir: 'source/js' + (grunt.option('component') ? '/' + grunt.option('component') : '')
+                  cssDir:  'source/js' + ((grunt.option('component') ? '/' + grunt.option('component') : '')),
+                  sassDir: 'source/js' + ((grunt.option('component') ? '/' + grunt.option('component') : ''))
               },
               files: [{
                   expand: true,

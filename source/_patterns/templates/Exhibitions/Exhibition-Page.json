@@ -247,8 +247,60 @@
         {
             "id": "image_compare_1",
             "is_image_compare": true,
-            "image_1": "/images/virtual-exhibitions/280/Grunwaldem-half.png",
-            "image_2": "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+            "image_1": {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              }
+            },
+            "image_2":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              }
+            }
+
         },
         {
             "id": "x0_2",
