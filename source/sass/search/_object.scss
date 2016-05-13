@@ -316,7 +316,19 @@
 .single-item-thumb svg.icon.icon-plus,
 .multi-item-poster svg.icon.icon-plus,
 .object-media-nav svg.icon.icon-plus{
-    margin: 0.31em 0 0 0;
+    margin: 0.35em 0 0 0;
+}
+
+.single-item-thumb svg.icon.icon-eye,
+.multi-item-poster svg.icon.icon-eye,
+.object-media-nav svg.icon.icon-eye{
+    margin: 0.35em 0 0 0;
+}
+
+.single-item-thumb svg.icon.icon-zoomin,
+.multi-item-poster svg.icon.icon-zoomin,
+.object-media-nav svg.icon.icon-zoomin{
+    margin: 0.27em 0 0 0;
 }
 
 .single-item-thumb svg.icon.icon-newspaper,
@@ -375,20 +387,19 @@
 }
 
 .media-clickable-indicator{
-    bottom: -0.8rem;
-    left:   -0.8rem;
+    bottom: -0.9rem;
+    left:   -1.3rem;
     color: white;
     position: absolute;
     font-weight: bolder;
     box-sizing: content-box;
     border-radius: 2em;
-    background-color: rgb(26, 138, 199);
-    box-shadow: 0px 0px 3px;
+    background-color: $accent;
     border: 2px solid white;
-    font-size: 1em;
-    height: 1.6rem;
-    line-height: 1.6em;
-    width: 1.6em;
+    font-size: 1.5em;
+    height: 2.5rem;
+    //line-height: 1.6em;
+    width: 2.5rem;
 }
 
 
