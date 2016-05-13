@@ -4,57 +4,40 @@ define(['jquery'], function ($){
 
   $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/image-compare/style.css') + '" type="text/css"/>');
 
-  var dragging = false,
-      scrolling = false,
-      resizing = false;
-  //cache jQuery objects
+  var dragging  = false;
+  var scrolling = false;
+
   var imageComparisonContainers = $('.image-compare');
 
   function log(msg){
     console.log(msg);
   }
 
-
-  function checkPosition(container) {
-      container.each(function(){
-          var actualContainer = $(this);
-          if( $(window).scrollTop() + $(window).height()*0.5 > actualContainer.offset().top) {
-              actualContainer.addClass('is-visible');
-          }
-      });
-
-      scrolling = false;
-  }
-
-  function checkLabel(container) {
-      container.each(function(){
-          var actual = $(this);
-          updateLabel(actual.find('.cd-image-label[data-type="modified"]'), actual.find('.cd-resize-img'), 'left');
-          updateLabel(actual.find('.cd-image-label[data-type="original"]'), actual.find('.cd-resize-img'), 'right');
-      });
-
-      resizing = false;
+  function removeDrags(dragElement) {
+      dragElement.off("mousedown vmousedown mouseup vmouseup");
   }
 
   //draggable funtionality - credits to http://css-tricks.com/snippets/jquery/draggable-without-jquery-ui/
-  function drags(dragElement, resizeElement, container, labelContainer, labelResizeElement) {
+  function drags(dragElement, resizeElement, container) {
       dragElement.on("mousedown vmousedown", function(e) {
           dragElement.addClass('draggable');
           resizeElement.addClass('resizable');
 
+          log('dragElement.outerWidth() = ' + dragElement.outerWidth())
+
           var dragWidth = dragElement.outerWidth(),
               xPosition = dragElement.offset().left + dragWidth - e.pageX,
               containerOffset = container.offset().left,
-              containerWidth = container.outerWidth(),
-              minLeft = containerOffset + 10,
-              maxLeft = containerOffset + containerWidth - dragWidth - 10;
+              containerWidth = container.outerWidth(false),
+              minLeft = containerOffset - (dragWidth / 2),
+              maxLeft = containerOffset + containerWidth - (dragWidth / 2);
 
           dragElement.parents().on("mousemove vmousemove", function(e) {
               if( !dragging) {
                   dragging =  true;
                   ( !window.requestAnimationFrame )
-                      ? setTimeout(function(){animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement, labelContainer, labelResizeElement);}, 100)
-                      : requestAnimationFrame(function(){animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement, labelContainer, labelResizeElement);});
+                      ? setTimeout(function(){animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement);}, 100)
+                      : requestAnimationFrame(function(){animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement);});
               }
           }).on("mouseup vmouseup", function(e){
               dragElement.removeClass('draggable');
@@ -67,7 +50,7 @@ define(['jquery'], function ($){
       });
   }
 
-  function animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement, labelContainer, labelResizeElement) {
+  function animateDraggedHandle(e, xPosition, dragWidth, minLeft, maxLeft, containerOffset, containerWidth, resizeElement) {
       var leftValue = e.pageX + xPosition - dragWidth;
       //constrain the draggable element to move inside his container
       if(leftValue < minLeft ) {
@@ -85,52 +68,41 @@ define(['jquery'], function ($){
 
       $('.resizable').css('width', widthValue);
 
-      updateLabel(labelResizeElement, resizeElement, 'left');
-      updateLabel(labelContainer, resizeElement, 'right');
       dragging =  false;
-  }
-
-  function updateLabel(label, resizeElement, position) {
-    if(position == 'left') {
-      ( label.offset().left + label.outerWidth() < resizeElement.offset().left + resizeElement.outerWidth() ) ? label.removeClass('is-hidden') : label.addClass('is-hidden') ;
-    }
-    else{
-      ( label.offset().left > resizeElement.offset().left + resizeElement.outerWidth() ) ? label.removeClass('is-hidden') : label.addClass('is-hidden') ;
-    }
   }
 
   function init(){
     log('init image compare');
 
-    checkPosition(imageComparisonContainers);
-    $(window).on('scroll', function(){
-        if( !scrolling) {
-            scrolling =  true;
-            ( !window.requestAnimationFrame )
-                ? setTimeout(function(){checkPosition(imageComparisonContainers);}, 100)
-                : requestAnimationFrame(function(){checkPosition(imageComparisonContainers);});
-        }
-    });
-
-    //make the .cd-handle element draggable and modify .cd-resize-img width according to its position
+    //make the .handle element draggable and modify .cd-resize-img width according to its position
     imageComparisonContainers.each(function(){
-        var actual = $(this);
-        drags(actual.find('.cd-handle'), actual.find('.cd-resize-img'), actual, actual.find('.cd-image-label[data-type="original"]'), actual.find('.cd-image-label[data-type="modified"]'));
+      var actual = $(this);
+      drags(
+        actual.find('.handle'),
+        actual.find('.resize-img'),
+        actual
+        );
     });
 
-    //upadate images label visibility
+    /*
     $(window).on('resize', function(){
-        if( !resizing) {
-            resizing =  true;
-            ( !window.requestAnimationFrame )
-                ? setTimeout(function(){checkLabel(imageComparisonContainers);}, 100)
-                : requestAnimationFrame(function(){checkLabel(imageComparisonContainers);});
-        }
+      setTimeout(function(){
+          dragging  = false;
+          scrolling = false;
+          imageComparisonContainers = $('.image-compare');
+          imageComparisonContainers.each(function(){
+              var actual = $(this);
+              var handle = actual.find('.handle');
+              var resize = actual.find('.resize-img');
+              handle.removeAttr('style');
+              resize.removeAttr('style');
+              removeDrags(handle);
+              init();
+            });
+      }, 30000);
     });
-
+    */
   }
-
-
 
   return {
     init: function(){
