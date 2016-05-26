@@ -1,7 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
-    var themeData;
-
     function log(msg){
         console.log(msg);
     }
@@ -309,7 +307,24 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     }
 
     var showMLT = function(data){
-        initCarousel($('.more-like-this'), data);
+      var addEllipsis = function(added){
+        require(['util_ellipsis'], function(EllipsisUtil){
+            if(added){
+              EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
+            }
+            else{
+              EllipsisUtil.create($('.more-like-this .js-carousel-title'));
+            }
+        });
+      }
+      data.alwaysAfterLoad = function(added){addEllipsis(added);};
+      var promisedCarousel = initCarousel($('.more-like-this'), data);
+
+      promisedCarousel.done(function(carousel){
+        addEllipsis();
+        bindAnalyticsEventsMLT();
+      });
+
     }
 
     var channelCheck = function(){
@@ -403,6 +418,55 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     }
     */
 
+    var getAnalyticsData = function(){
+
+      var gaData           = [channelCheck()];
+      var gaDimensions     = $('.ga-data');
+      var dimensions       = [];
+      var allDimensionData = {};
+
+      gaDimensions.each(function(i, ob){
+        var dimensionName       = $(ob).data('ga-metric');
+        var dimensionData       = [];
+
+        if(!allDimensionData[dimensionName]){
+          gaDimensions.each(function(j, ob){
+            if( $(ob).data('ga-metric') == dimensionName ){
+              var value = $(ob).text();
+              if(dimensionName == 'dimension5'){
+                if(value.indexOf('http') == 0 ){
+                  dimensionData.push( value );
+                }
+              }
+              else{
+                dimensionData.push( value );
+              }
+            }
+          });
+          dimensionData.sort();
+          allDimensionData[dimensionName] = dimensionData.join(',');
+        }
+      });
+
+      var keys = Object.keys(allDimensionData);
+      for(var j=0; j<keys.length; j++){
+        dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] })
+      }
+      return dimensions;
+    }
+
+    var bindAnalyticsEventsMLT = function(){
+      $('.mlt .left').add($('.mlt .right')).on('click', function(){
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Browse',
+          eventAction: 'Similar items scroll',
+          eventLabel: 'Similar items scroll'
+        });
+        log('GA: Browse');
+      });
+    };
+
     var bindAnalyticsEvents = function(){
 
       // Redirect
@@ -477,7 +541,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         bindAnalyticsEvents();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
-        themeData = channelCheck();
+
 
         // set preferred search
 
@@ -521,7 +585,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
             initPage();
         },
         getAnalyticsData: function(){
-            return themeData;
+            return getAnalyticsData();
         },
         getPinterestData: function(){
             var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');

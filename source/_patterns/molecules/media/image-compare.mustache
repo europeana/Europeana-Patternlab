@@ -1,0 +1,15 @@
+<div class="image-compare-center cf">
+  <figure class="image-compare">
+    {{#image_1}}
+      {{>atoms/images/responsive-srcset-picture}}
+    {{/image_1}}
+
+    {{#image_2}}
+      <div class="resize-img">
+      {{>atoms/images/responsive-srcset-picture}}
+      </div>
+    {{/image_2}}
+    <span class="handle"></span>
+  </figure>
+</div>
+

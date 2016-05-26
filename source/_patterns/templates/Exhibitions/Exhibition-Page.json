@@ -240,6 +240,69 @@
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
         },
         {
+            "id": "image_compare_section",
+            "is_section": true,
+            "section_title": "Image Comparison"
+        },
+        {
+            "id": "image_compare_1",
+            "is_image_compare": true,
+            "image_1": {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+              }
+            },
+            "image_2":
+            {
+              "full": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "fullx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "half": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "halfx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "small": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "smallx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "thumbnail": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half-bw.png"
+              }
+            }
+
+        },
+        {
             "id": "x0_2",
             "is_section": true,
             "section_title": "Youtube embed"

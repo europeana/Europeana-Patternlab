@@ -144,7 +144,7 @@ define(['jquery'], function($){
         var cmp         = conf.cmp;
         var loadUrl     = conf.loadUrl;
         var template    = conf.template;
-        var totalLoaded = cmp.find('li').length;
+        var totalLoaded = cmp.find('li').size();
 
         if(!templates[template]){
           warn('no valid template found (' + template + ')');
@@ -153,8 +153,9 @@ define(['jquery'], function($){
 
         var append = function(data){
           var appendData = templates[template](data);
-          totalLoaded += appendData.added.length;
+          //totalLoaded += appendData.added.length;
           cmp.append(appendData.markup);
+          totalLoaded = cmp.find('li').size();
           return appendData.added;
         };
 

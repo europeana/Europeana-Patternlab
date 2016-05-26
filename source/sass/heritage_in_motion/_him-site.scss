@@ -33,9 +33,14 @@
 	}
 
 	.cta-primary, .cta-primar{
-		background-color: $eu-jade;
+		background-color: $white;
 		font-size: 1.4em;
-		border-color: $white;
+		border-color: $accent;
+		color: $black;
+
+		&:hover{
+			color: $white;
+		}
 	}
 }
 
@@ -200,6 +205,11 @@
 	@media all and (min-width: $bp-med) {
 	  @include span(last 6 of 24);
 	  padding-top: $space * 6;
+	}
+}
+
+.page_event .l-sidebar{
+	@media all and (min-width: $bp-med) {
 	  min-height: 650px;
 	}
 }

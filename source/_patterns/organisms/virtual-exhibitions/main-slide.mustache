@@ -59,6 +59,10 @@
     </div>
   {{/is_image}}
 
+  {{#is_image_compare}}
+    {{> molecules/media/image-compare}}
+  {{/is_image_compare}}
+
   {{#is_rich_image}}
     <div id="{{id}}" class="ve-base ve-base-title-image-text cf {{type}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#background_colour}} style="background-color:{{.}}"{{/background_colour}} {{^background_colour}}style="background-color:#ddebee"{{/background_colour}}>
 

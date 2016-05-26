@@ -38,9 +38,7 @@
                   {{#is_current}}
                     <div class="multi-item-poster{{#playable}} contains-playable{{/playable}}">
                       <a {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
-                        {{#thumbnail}}<img src="{{.}}"/>{{/thumbnail}}
-                        {{#playable}}<span class="media-clickable-indicator image" title="{{ i18n.site.object.actions.open-media }}">
-                        <svg class="icon icon-plus"><use xlink:href="#icon-plus"/></svg></span>{{/playable}}
+                        {{>molecules/components/thumb-icon}}
                       </a>
                     </div>
                   {{/is_current}}
@@ -73,7 +71,7 @@
                 {{/midi}}
 
                 {{#oembed}}
-                  <div class="object-media-oembed is-hidden">
+                  <div class="object-media-oembed is-hidden" data-fullscreen-enter="{{i18n.global.actions.fullscreen-enter}}" data-fullscreen-exit="{{i18n.global.actions.fullscreen-exit}}">
                     {{> molecules/components/oembed/oembed }}
                   </div>
                 {{/oembed}}

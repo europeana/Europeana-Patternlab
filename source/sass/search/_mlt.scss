@@ -71,10 +71,14 @@
 }
 
 .js-carousel-title{
-  display:		block;
-  line-height:	1.6em;
-  height:			  3.2em;
-  overflow:		hidden;
+  display:		 block;
+  //height:			 3.2em;
+  overflow:		 hidden;
+  //line-height: 1.6em;
+
+  height:			 3.1em;
+  margin-top:  0.5em;
+  line-height: 1.3em;
 }
 
 .js-carousel.v .js-carousel-title{
@@ -120,6 +124,7 @@
     float: left;
 
     width:  auto;  // no override needed
+
   }
 
   .h{
@@ -141,7 +146,14 @@
   }
 }
 
-
+.mlt .js-carousel-arrows.h{
+  .left,.right{
+    background-color: rgba(255,255,255,0.74);
+    &:hover{
+      background-color: rgba(255,255,255,0.9);
+    }
+  }
+}
 
 .js-carousel.loading ul:after {
   content: " ";
@@ -155,7 +167,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(22, 118, 170, 0.4);
   cursor: progress;
 }
 
@@ -192,12 +204,16 @@
       right: 0;
     }
 
-    .icon icon-caret-left{
+    .icon-next,
+    .icon-previous{
       // fix arrows
-    }
-
-    .icon icon-caret-right{
-      // fix arrows
+      display: inline-block;
+      width: 0.5em;
+      height: 0.5em;
+      margin-bottom: 0;
+      margin-right: 0.25em;
+      margin-left: 0.25em;
+      fill: currentColor;
     }
 
   }

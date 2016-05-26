@@ -110,14 +110,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       }
       else{
         if(smCtrl){
-          var hash = window.location.hash;
+          var hash = gotoAnchor(true);
           smCleanup();
           initSFX();
           if(hash){
-            var $hash = $(hash);
-            if($hash.size()>0){
-              scrollToAdaptedForPin($hash, true);
-            }
+            scrollToAdaptedForPin(hash, true);
           }
           else{
             scrollExecuting = false;
@@ -241,7 +238,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           $('#img-measure').remove();
 
           var options  = {index: 0};
-          var hash     = window.location.hash;
+          var hash     = gotoAnchor(true);
 
           lightboxOpen = true;
           var gallery  = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, options);
@@ -270,6 +267,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
     $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+    $('head').append('<style>.pswp__button--share{ display: none; }</style>');
 
     $('.rich_image .ve-image img, .ve-base-image picture').click(function(e){
       var tgt = $(e.target);
@@ -280,8 +278,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   function bindAnchors(){
     // set up handler to call self on popstate and hashchange
     $(window).on('hashchange', function() {
-
-log('hash changed');
       if(lightboxOpen){
         return;
       }
@@ -305,6 +301,8 @@ log('hash changed');
     // call scroll function if valid hash available
 
     var hash = window.location.hash;
+
+    hash = hash.indexOf('&') > -1 ? hash.substr(0, hash.indexOf('&')) : hash;
 
     if(hash){
       var $hash = $(hash);
@@ -795,6 +793,7 @@ log('hash changed');
       var richImage   = section.find('.ve-base-title-image-text');
       var baseQuote   = section.find('.ve-base-quote');
       var baseEmbed   = section.find('.ve-base-embed');
+      var imgCompare  = section.find('.image-compare');
 
       if(baseIntro.size() > 0){
         imgUrl = baseIntro.css('background-image');
@@ -805,6 +804,9 @@ log('hash changed');
       }
       else if(richImage.size() > 0){
         imgUrl = richImage.find('img').attr('src');
+      }
+      else if(imgCompare.size() > 0){
+        imgUrl = imgCompare.find('>img').attr('src');
       }
       else if(baseQuote.size() > 0){
         bubbleContent.html('<span style="white-space:nowrap">"Quote..."</span>');
