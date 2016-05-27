@@ -2,10 +2,9 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-collections"
+      "data_main": "../../js/dist/main/molecules/main-filter-rights"
     }
   ],
-
   "title": "Channels",
   "hierarchical": true,
   "select_one": true,
@@ -25,16 +24,19 @@
             {
               "url": "http://europeana.eu",
               "text": "Portrait",
+              "num_results": "5000",
               "is_checked": false
             },
             {
               "url": "http://europeana.eu",
               "text": "Landscape",
+              "num_results": "8000",
               "is_checked": false
             },
             {
               "url": "http://europeana.eu",
               "text": "Square",
+              "num_results": "2000",
               "is_checked": false
             }
           ],
