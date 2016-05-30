@@ -12,6 +12,22 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       console.log(msg);
     }
 
+    /* Older browsers that can't handle object-fit on images can still handle background-size on div elements */
+    var handleIE = function(){
+      var test = $('<img style="object-fit: cover"/>');
+      var cs = window.getComputedStyle(test[0]);
+
+      if(!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 )){
+        $('.search-list-item').each(function(i, ob){
+          $ob = $(ob);
+          var src = $ob.find('img').attr('src');
+          $ob.find('img').css('visibility', 'hidden');
+          $ob.find('.inner').css('background-image', 'url(' + src + ')');
+          $ob.find('.inner').css('background-size', 'cover');
+        });
+      }
+    }
+
     var handleEllipsis = function(){
 
       var texts = results.find('.result-items h2:not(.js-ellipsis)');
@@ -186,6 +202,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
       updateViewParamInLinks('grid');
 
+      handleIE();
       handleEllipsis();
     };
 
