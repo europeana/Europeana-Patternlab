@@ -41,7 +41,6 @@ define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'util_scrollEvents'], 
             toShowHide.addClass('is-jshidden');
           }
           else{
-              console.log('showing');
             toShowHide.removeClass('is-jshidden');
           }
 
