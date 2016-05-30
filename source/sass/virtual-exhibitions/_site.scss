@@ -52,6 +52,25 @@
   display:     none;
 }
 
+.nav-to-full{
+  text-align: center;
+  margin-top: 1em;
+
+  button{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  span{
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0.5em 0 1em 0;
+  }
+  img{
+    margin: 1em 0;
+  }
+}
+
 .ve-base-chapter-nav{
   font-size:   1.5em;
   font-weight: bold;

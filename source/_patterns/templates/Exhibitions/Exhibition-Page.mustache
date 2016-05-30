@@ -68,6 +68,25 @@
 
           {{! NAV ELEMENTS }}
 
+          {{#navigation}}
+            {{#view_full}}
+              <div class="nav-to-full">
+                <a href="{{link}}">
+                  <img src="{{image.full.url}}"/>
+                </a>
+                <span>{{text1}}{{#text2}}<br/>{{.}}{{/text2}}</span>
+                <a href="{{link}}">
+                  <button>
+                    <svg class="icon icon-eye">
+                      <use xlink:href="#icon-eye"/>
+                    </svg>
+                    {{button_text}}
+                  </button>
+                </a>
+              </div>
+            {{/view_full}}
+          {{/navigation}}
+
           {{#is_exhibition}}
             <div class="ve-chapter-selection-container">
               <div class="ve-chapter-selection-container-inner cf">
