@@ -51,6 +51,39 @@
 </section>
 {{/content.channel_info}}
 
+{{#content.carousel}}
+<section class="tumblr-feed-section">
+
+  <div class="mlt cf">
+    <a id="scroll-trigger-carousel"
+       class="scroll-trigger"
+       data-enabled="true"
+       data-fire-on-open="showCarousel"
+       data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true, "minSpacingPx": 30}'
+    ></a>
+    <div class="js-carousel tumblr-feed">
+      <ul class="cf">
+        {{#items}}
+          <li class="js-carousel-item">
+            <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+              <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+            </div>
+            {{#title}}
+            <span class="js-carousel-title">
+              <a href="{{url}}">{{.}}</a>
+            </span>
+            {{/title}}
+          </li>
+        {{/items}}
+      </ul>
+    </div>
+    <a class="scroll-trigger trigger-chain"
+       data-enabled="true"
+       data-disable-when-fired="showCarousel"
+       data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
+  </div>
+</section>
+{{/content.carousel}}
 
 {{# content.promoted }}
 <section class="exhibitions-list cf">

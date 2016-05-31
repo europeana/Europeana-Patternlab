@@ -61,7 +61,9 @@ define([], function(){
 
     var fireAllVisible = function(){
         $('.scroll-trigger').each(function(){
+          if($(this).data('enabled')){
             triggerIfInView($(this));
+          }
         });
     };
 
