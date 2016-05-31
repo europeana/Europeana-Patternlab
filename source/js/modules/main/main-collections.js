@@ -83,6 +83,7 @@ require.config({
 
     settings:                      '../eu/settings',
 
+    search_landing:                '../eu/channel-landing',
     search_form:                   '../eu/search-form',
     search_home:                   '../eu/search-home',
     search_object:                 '../eu/search-object',

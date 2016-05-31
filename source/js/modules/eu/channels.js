@@ -75,7 +75,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             break;
 
         case 'collections/show':
-            require(['search_results'], function(page){
+            require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
             });

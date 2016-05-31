@@ -27,12 +27,68 @@
       "data_main": "../../js/dist/main/main-collections"
     }
   ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "collections/show"
+    }
+  ],
   "input_search": {
     "title": "Search Europeana for Music",
     "input_name": "q",
     "placeholder": "Search Europeana for Music"
   },
   "content": {
+    "carousel": {
+    "title": false,
+    "more_items_load"  : "url-for-extra-items",
+    "more_items_total" : 12,
+    "items": [
+      {
+        "url":  "?q=The+Lace+Maker",
+        "img": {
+          "alt": "The Lace Maker",
+          "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+        }
+      },
+      {
+        "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+        "img": {
+          "alt": "Zittende jongeman bij ton met het hoofd naar links",
+          "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+        }
+      },
+      {
+        "url": "?q=Delft",
+        "img": {
+          "alt": "Delft",
+          "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+         }
+      },
+      {
+        "url": "?q=Girl+with+the+pearl+earring",
+        "img": {
+          "alt": "Girl with the pearl earring",
+          "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+         }
+      },
+      {
+        "url":  "?q=The+Lace+Maker",
+        "title": "The Lace Maker",
+        "img": {
+           "alt": "The Lace Maker",
+           "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+        }
+      },
+      {
+        "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+        "img": {
+          "alt": "Zittende jongeman bij ton met het hoofd naar links",
+          "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+        }
+      }
+      ]
+    },
     "channel_info": {
       "name": "Europeana Music",
       "description": "The <strong>Europeana Music Channel</strong> brings together the best music recordings, sheet music, and other music related collections from Europeana's audio-visual archives, libraries, archives and museums. <a href='./portal/channels/music/about/'>Find out more about the Music Channel</a>.",
