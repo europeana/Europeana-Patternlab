@@ -105,6 +105,8 @@ define(['jquery', 'util_resize'], function ($){
         return false;
       }
     });
+
+    input.focus();
   }
 
   initSearchForm();
