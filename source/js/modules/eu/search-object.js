@@ -577,6 +577,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
         $('.single-item-thumb [data-type="oembed"]').trigger('click');
         $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
 
+        $('.single-item-thumb [data-type="iiif"]').trigger('click');
+        $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
+
         scrollEvents.fireAllVisible();
     };
 
