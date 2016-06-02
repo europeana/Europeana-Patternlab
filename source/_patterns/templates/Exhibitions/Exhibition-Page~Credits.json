@@ -249,6 +249,7 @@
               "attribution_creator": "Jan Matejko",
               "attribution_institution": "Muzeum Narodowe W Warszawie",
               "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+              "country": "Brasil",
               "license_public": true
             },
             "image":
@@ -291,6 +292,7 @@
               "attribution_creator": "Nuno Gonçalves",
               "attribution_institution": "Museu Nacional De Arte Antiga",
               "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
+              "country": "Brasil",
               "license_public": true
             },
             "image":
@@ -337,6 +339,7 @@
               "attribution_institution": "Attribution Institution Japonism",
               "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
               "license_public": true,
+              "country": "Brasil",
               "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
               "stripped_caption": "Le Japon artistique, n° 3."
             },
@@ -434,6 +437,7 @@
             },
             "image_credit":{
               "caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Sweden</a> CC0",
+              "country": "Brasil",
               "stripped_caption": "Arcimboldo's Vertumnus, a portrait depicting Rudolf II, Holy Roman Emperor."
             }
         },
@@ -446,6 +450,7 @@
               "attribution_creator": "Kontiki",
               "attribution_institution": "Wikimedia Commons",
               "attribution_url": "https://commons.wikimedia.org/wiki/File:Iparm%C5%B1v%C3%A9szeti_M%C3%BAzeum_%281070._sz%C3%A1m%C3%BA_m%C5%B1eml%C3%A9k%29_22.jpg",
+              "country": "Brasil",
               "license_public": true
             },
             "image":
@@ -531,6 +536,7 @@
             },
             "image_credit":{
               "caption": "Adam and Eve - Victor Brauner.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "country": "Brasil",
               "stripped_caption": "Adam and Eve - Victor Brauner."
             }
         },
@@ -574,6 +580,7 @@
             },
             "image_credit":{
               "caption": "Arthur Segal with his son Walter, Berlin.  <a href=\"javascript:(alert('link to gallery'))\">National Gallery of Romania</a> CC0",
+              "country": "Brasil",
               "stripped_caption": "Arthur Segal with his son Walter, Berlin. CC0"
             }
         },
@@ -628,6 +635,7 @@
             },
             "image_credit":{
               "caption": "SagradaFamilia Sostre.  <a href=\"javascript:(alert('link to gallery'))\">Barcelona Gallery</a> CC0",
+              "country": "Brasil",
               "stripped_caption": "SagradaFamilia Sostre. CC0"
             }
         }
