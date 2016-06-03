@@ -10,10 +10,10 @@
 	],
 
   "partners": true,
-  "title": "Partners | Members",
-  "subtitle": "Organisation | Department",
+  "title": "Partners or Members",
+  "subtitle": "Organisation or Department",
   "institution": {
-		"title": "Organisation | Institute Name",
+		"title": "Organisation or Institute Name",
 		"role": "Job Title"
   },
   "position": "Europeana Foundation Board Position"
