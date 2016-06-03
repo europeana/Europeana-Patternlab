@@ -22,39 +22,6 @@
     }]
   },
   "navigation": {
-    "view_full": {
-      "button_text": "View full exhibition",
-      "link": "javascript:alert('go to full exhibition')",
-      "text1": "Like what you see?  Curious about this topic and want to learn more?",
-      "text2": "Then check out the full exhibition.",
-      "image": {
-        "full": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "fullx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "half": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "halfx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "small": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "smallx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "thumbnail": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "thumbnailx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        }
-      }
-    },
-
     "global":
     {
       "logo":
@@ -815,6 +782,40 @@
               "caption": "SagradaFamilia Sostre.  <a href=\"javascript:(alert('link to gallery'))\">Barcelona Gallery</a> CC0",
               "stripped_caption": "SagradaFamilia Sostre. CC0"
             }
+        },
+        {
+          "is_promo": true,
+          "type": "promo",
+          "button_text": "View full exhibition",
+          "link": "javascript:alert('go to full exhibition')",
+          "text1": "Like what you see?  Curious about this topic and want to learn more?",
+          "text2": "Then check out the full exhibition.",
+          "image": {
+            "full": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "fullx2": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "half": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "halfx2": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "small": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "smallx2": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "thumbnail": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "thumbnailx2": {
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
+            }
+          }
         }
       ]
     },
