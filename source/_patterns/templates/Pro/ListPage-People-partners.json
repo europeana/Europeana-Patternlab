@@ -1,0 +1,21 @@
+{
+	"bodyclass": "europeana_pro",
+	"pagetitle": "Europeana Pro",
+
+	"css_files": [
+		{
+			"path": "../../css/pro/screen.css",
+			"media": "all"
+		}
+	],
+
+  "partners": true,
+  "title": "Partners | Members",
+  "subtitle": "Organisation | Department",
+  "institution": {
+		"title": "Organisation | Institute Name",
+		"role": "Job Title"
+  },
+  "position": "Europeana Foundation Board Position"
+
+}

@@ -184,7 +184,7 @@ $icon_primary: lighten($accent, 10);
 }
 
 .bkg-white{
-  background: $white;  
+  background: $white;
 }
 
 .page_header{
@@ -370,6 +370,19 @@ $icon_primary: lighten($accent, 10);
 	.job-title {
 		font-weight: bold;
 	}
+}
+
+.b-text.partners {
+  .jobdetails {
+      margin-bottom: $pad;
+  }
+}
+
+.eu-position{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: $font-size-sm;
+  margin-bottom: $pad;
 }
 
 .contact-detail {
