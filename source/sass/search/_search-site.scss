@@ -53,6 +53,13 @@
   }
 }
 
+.tumblr-feed-section{
+  @include pad(1/3);
+  .tumblr-feed{
+    margin: $space 0;
+  }
+}
+
 .section, .promo-list, .promo-topcontent{
   @include pad(1/4);
 }

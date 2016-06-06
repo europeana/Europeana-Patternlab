@@ -6,6 +6,18 @@ Behaviour:
 Should display a list of properties that the search results can be filterable by, eg: Type
 When one of them is selected, the search results will update to filter by the selected facet. eg: Paintings
 
+If the top level element:
+   is_checked
+is true then sub-items become visible unless:
+   hidden_item_data
+is present.
+
+For sub-items to become automatically visible when
+   hidden_item_data
+is present then
+  has_subselection
+has to be present ()and true)
+
 On selection:
 Other top level options in the hierarchical filter are hidden.
 The selected facet is highlighted as selected.
@@ -67,7 +79,7 @@ Configuration options and content model:
             </a>
 
             {{#has_subfilters}}
-            <ul class="subfilters js-extrafilters {{^is_checked}} is-jshidden {{/is_checked}}">
+            <ul class="subfilters js-nested-filters {{^hidden_item_data}}{{^is_checked}} is-jshidden {{/is_checked}}{{/hidden_item_data}}{{#hidden_item_data}}{{^has_subselection}} is-jshidden {{/has_subselection}}{{/hidden_item_data}}  ">
                 {{#filters}}
                     {{#simple}}
                         {{> molecules/controls/filter-simple }}
@@ -107,5 +119,9 @@ Configuration options and content model:
     {{#extra_items}}
         <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.site.results.list.less}}">{{i18n.site.results.list.more}}</a>
     {{/extra_items}}
+
+    {{#hidden_item_data}}
+        <a class="js-showhide-nested filter-moreless" href="#" data-text-swap="{{label_hide_specific}}" data-text-original="{{label_show_specific}}">{{#has_subselection}}{{label_hide_specific}}{{/has_subselection}}{{^has_subselection}}{{label_show_specific}}{{/has_subselection}}</a>
+    {{/hidden_item_data}}
 
 </div>

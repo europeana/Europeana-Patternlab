@@ -334,7 +334,121 @@
     },
     {
       "title": "Can I use it?",
-      "tabbed": true
+      "hierarchical": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Yes With Attribution",
+          "num_results": "15K",
+          "is_checked": true,
+          "has_subfilters": true,
+          "filters": [
+            {
+              "title": false,
+              "simple": true,
+              "select_one": false,
+              "items": [
+                {
+                  "text": "Creative Commons Public Domain",
+                  "num_results": 230,
+                  "url": "http://europeana.eu",
+                  "is_checked": false
+                },
+                {
+                  "text": "Creative Commons BY",
+                  "num_results": 224,
+                  "is_checked": false
+                },
+                {
+                  "text": "Creative Commons BY-SA",
+                  "num_results": 40,
+                  "is_checked": false
+                }
+              ],
+              "extra_items": false
+            }
+          ]
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Yes With Restrictions",
+          "num_results": 300,
+          "is_checked": true,
+          "has_subfilters": true,
+
+          "filters": [
+            {
+              "title": false,
+              "simple": true,
+              "select_one": false,
+              "items": [
+                {
+                  "text": "Creative Commons BY-NC-ND",
+                  "num_results": 230,
+                  "is_checked": false,
+                  "url": "http://europeana.eu"
+                },
+                {
+                  "text": "Unknown copyright status",
+                  "num_results": 224,
+                  "is_checked": false
+                },
+                {
+                  "text": "Out of copyright",
+                  "num_results": 40,
+                  "is_checked": false
+                },
+                {
+                  "text": "Creative Commons BY-NC-SA",
+                  "num_results": 40,
+                  "is_checked": false
+                },
+                {
+                  "text": "Creative Commons BY-NC",
+                  "num_results": 40,
+                  "is_checked": false
+                },
+                {
+                  "text": "Creative Commons BY-ND",
+                  "num_results": 40,
+                  "is_checked": false
+                }
+              ],
+              "extra_items": false
+            }
+          ]
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Only With Permission",
+          "num_results": "17,308",
+          "is_checked": false,
+          "has_subfilters": true,
+          "filters": [
+            {
+              "title": false,
+              "simple": true,
+              "select_one": false,
+              "items": [
+                {
+                  "text": "Rights Reserved",
+                  "num_results": 230,
+                  "is_checked": false,
+                  "url": "http://europeana.eu"
+                }
+              ],
+              "extra_items": false
+            }
+          ]
+        }
+      ],
+
+      "extra_items": false,
+      "has_subselection": false,
+      "hidden_item_data": {
+        "label_show_specific": "Show specific licenses",
+        "label_hide_specific": "Hide specific licenses"
+      }
     },
     {
       "title": "Language",
