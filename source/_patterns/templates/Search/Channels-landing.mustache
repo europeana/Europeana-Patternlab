@@ -24,9 +24,11 @@
     {{> molecules/components/search/search-form }}
     </div>
 
+    {{#content.strapline}}
     <div class="strapline">
-      {{content.strapline}}
+      {{.}}
     </div>
+    {{/content.strapline}}
   </div>
 
   {{#content.hero_config}}
