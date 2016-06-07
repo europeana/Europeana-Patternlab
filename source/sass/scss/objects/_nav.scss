@@ -14,13 +14,14 @@
     }
 
 .subnav{
-	padding: 0 $pad;
+  padding: 0 $pad;
 
-	.tags{
-		margin-bottom: $space;
-	}
+  .tags{
+    margin-bottom: $space;
+  }
 }
 
+@import "./navigation/browse-menu";
 @import "./navigation/global";
 @import "./navigation/nav-primary";
 @import "./navigation/nav-secondary";
