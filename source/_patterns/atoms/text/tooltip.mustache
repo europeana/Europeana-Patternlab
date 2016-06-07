@@ -3,7 +3,10 @@
     <use xlink:href="#icon-help"></use>
   </svg>
   {{tooltipped_text}}
-  <div class="tooltip" id="tooltip">
+  <div class="tooltip">
     {{tooltip_text}}
+    <a href="{{remove}}" data-role="remove"></a>
+    <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-tooltip"/>
   </div>
 </a>
+
