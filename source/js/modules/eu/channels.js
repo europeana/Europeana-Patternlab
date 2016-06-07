@@ -12,6 +12,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             subMenusMaxWidth: null,
             subMenusMinWidth: null
         });
+
         $('#settings-menu').smartmenus({
             mainMenuSubOffsetX: -62,
             mainMenuSubOffsetY: 4,
@@ -20,6 +21,18 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             subMenusMaxWidth: null,
             subMenusMinWidth: null
         });
+
+        $('#browse-menu').smartmenus({
+            mainMenuSubOffsetX: 15,
+            mainMenuSubOffsetY: 4,
+            subMenusSubOffsetX: 0,
+            subMenusSubOffsetY: -6,
+            subMenusMaxWidth: 100,
+            subMenusMinWidth: 100
+        });
+
+
+
         $('.js-hack-smartmenu a').click(function(){
             var href = $(this).attr('href');
             if(href != '#'){

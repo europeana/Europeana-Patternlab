@@ -58,7 +58,33 @@
     </button>
   </div>
 
+  {{#browse_menu}}
+    <nav role="navigation">
+      {{> molecules/navigation/smartmenu }}
+    </nav>
+  {{/browse_menu}}
+
   {{# form_search.hidden }}
   <input type="hidden" name="{{ hidden_name }}" value="{{ hidden_value }}" />
   {{/ form_search.hidden }}
 </form>
+
+{{#browse_menu}}
+  <div class="browse-menu-mobile">
+    {{#items}}
+      <span class="text-mobile">{{text_mobile}}</span>
+      <div class="browse-options">
+        {{#submenu}}
+          {{#items}}
+            <div class="browse-option">
+              <svg class="icon {{icon}}">
+                <use xlink:href="#{{icon}}"></use>
+              </svg>
+              <a class="browse-option-text" href="{{url}}">{{text}}</a>
+            </div>
+          {{/items}}
+        {{/submenu}}
+      </div>
+    {{/items}}
+  </div>
+{{/browse_menu}}
