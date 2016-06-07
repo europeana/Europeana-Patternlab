@@ -1,12 +1,30 @@
-<a class="tooltip-container" href="#tooltip">
-  <svg class="icon icon-help">
-    <use xlink:href="#icon-help"></use>
-  </svg>
-  {{tooltipped_text}}
-  <div class="tooltip">
-    {{tooltip_text}}
-    <a href="{{remove}}" data-role="remove"></a>
-    <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-tooltip"/>
-  </div>
-</a>
+{{#tooltip}}
+  {{#persistent}}
+    <script>
+      // Inline script expects jquery
+      function closeTooltip(el){
+        $(el).parent().hide();
+      }
+     function openTooltip(el){
+         $(el).next('.tooltip').show();
+      }
+    </script>
+  {{/persistent}}
 
+  <div class="tooltip-container">
+    <a onclick="openTooltip(this)" {{#link_class}}class="{{.}}"{{/link_class}} {{#link_url}}href="{{.}}" target="_new"{{/link_url}}>
+      {{^icon_first}}
+        {{tooltipped_text}}
+      {{/icon_first}}{{#icon}}
+      <svg class="icon {{.}}">
+        <use xlink:href="#{{.}}"></use>
+      </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
+    </a>
+    <div class="tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}} right-aligned{{/icon_first}}">
+      {{tooltip_text}}
+      {{#persistent}}
+        <a data-role="remove" onclick="closeTooltip(this)"></a>
+      {{/persistent}}
+    </div>
+  </div>
+{{/tooltip}}

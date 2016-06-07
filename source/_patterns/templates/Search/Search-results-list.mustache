@@ -69,11 +69,10 @@
                     <div class="result-controls">
                         {{! List and grid view buttons }}
                         {{# menus.viewoptions }}
-                        <div class="result-viewtype">
-                           {{> molecules/controls/buttonbar-viewtype }}
-                        </div>
+                          <div class="result-viewtype">
+                            {{> molecules/controls/buttonbar-viewtype }}
+                          </div>
                         {{/ menus.viewoptions }}
-
                         {{# menus.sort_disabled }}
                         <div class="result-sort">
                             {{> molecules/controls/dropdown-menu }}
@@ -86,6 +85,15 @@
                         {{> molecules/controls/dropdown-menu }}
                       </div>
                     {{/results_menu}}
+
+                    {{#menus.viewoptions}}
+                      {{#tooltip}}
+                        <div class="tooltip-wrapper-grid">
+                          {{> atoms/text/tooltip }}
+                        </div>
+                      {{/tooltip}}
+                    {{/menus.viewoptions}}
+
                 </div>
                 <!-- End of results header -->
 

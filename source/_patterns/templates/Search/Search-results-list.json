@@ -333,7 +333,16 @@
       }
     },
     {
-      "title": "Can I use it?",
+      "title": false,
+      "tooltip":{
+        "tooltipped_text": "Can I use it?",
+        "tooltip_text": "New",
+        "persistent": true,
+        "icon": "icon-help",
+        "icon_first": false,
+        "link_class": "filter-name",
+        "link_url": "http://www.google.co.uk"
+      },
       "hierarchical": true,
       "items": [
         {
@@ -624,7 +633,13 @@
           "url": "url to list view",
           "icon_list": true
         }
-      ]
+      ],
+      "tooltip":{
+        "tooltipped_text": false,
+        "tooltip_text": "Have you seen the new grid layout?",
+        "persistent": true,
+        "link_class": "filter-name"
+      }
     }
   },
   "has_results": true,

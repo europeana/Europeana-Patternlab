@@ -664,7 +664,8 @@
                     "more":"More",
                     "less":"Less",
                     "more_adv":"Advanced Filters",
-                    "less_adv":"Less Refinements"
+                    "less_adv":"Less Refinements",
+                    "count-and-terms-with-range": "1 - X of 2,283,391 results"
                 }
             },
             "settings":{

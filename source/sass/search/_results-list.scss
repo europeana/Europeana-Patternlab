@@ -79,6 +79,22 @@
   @include fontSize(14px);
 }
 
+.tooltip-wrapper-grid{
+
+  display: none;
+  @media all and (min-width: $bp-med) {
+    display: block;
+  }
+  margin-top: 1em;
+  position: absolute;
+  right: 125px;
+
+  .tooltip-container{
+    height: 3em;
+    width: 300px;
+  }
+}
+
 .action-select,
 .result-actions,
 .result-info,

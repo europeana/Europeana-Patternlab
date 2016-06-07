@@ -1,48 +1,56 @@
 .tooltip-container {
-	display: inline-block;
-	position: relative;
+  display: inline-block;
+  position: relative;
 
-	&:hover, &:focus {
-		cursor: default;
+  &:hover, &:focus {
+    cursor: default;
 
-		.tooltip:not(:empty) {
-			display: block;
-		}
-	}
+    .tooltip:not(:empty) {
+      display: block;
+    }
+  }
 
-	.icon{
-		vertical-align: super;
-		font-size: 0.825em;
-	}
+  .icon{
+    vertical-align: baseline;
+    font-size: 0.825em;
+    position: relative;
+    top: -2px;
+  }
 }
 
 .tooltip-link {
-	background: $gray-light;
+  background: $gray-light;
 }
 
 .tooltip {
-	display: block; //this is a persistent tooltip so it needs to be always visible
-	position: absolute;
-	top: 2.5em;
-	//width: 18em;
-	padding: 0.6em;
-	background: $accent;
-	color: $white;
-	font-size: 0.75rem;
-	text-transform: none;
-	font-weight: normal;
-	//border: 1px solid $gray-lighter;
-	//box-shadow: 0.1em 0.1em 0.3em 0 rgba(0,0,0,0.2);
-	z-index: 98;
-	line-height: 1.6;
 
-	h2 {
-		margin-top: 0;
-	}
+  display: none;
 
-	@media all and (min-width: $bp-small) {
-		//width: 22em;
-	}
+  &.persistent{
+    display: block;
+  }
+
+  position: absolute;
+  top: 2.5em;
+  //width: 18em;
+  padding: 0.6em 1.8em 0.6em 0.6em;
+  background: $accent;
+  color: $white;
+  font-size: 0.75rem;
+  text-transform: none;
+  font-weight: normal;
+  //border: 1px solid $gray-lighter;
+  //box-shadow: 0.1em 0.1em 0.3em 0 rgba(0,0,0,0.2);
+  z-index: 98;
+  line-height: 1.6;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  @media all and (min-width: $bp-small) {
+    //width: 22em;
+  }
 
   a{
     color: $white;
@@ -50,9 +58,13 @@
   }
 
   & a[data-role="remove"] {
-      margin-left: 4px;
+
       cursor: pointer;
       color: white;
+
+      position: absolute;
+      top: 0.6em;
+      right: 2px;
 
       &:after {
           content: "✕";
@@ -72,6 +84,13 @@
     border-bottom-color: #1676AA;
     border-width: 7px;
   }
+  &.right-aligned{
+    right: 0;
+    &:after {
+      left: auto;
+      right: 4%;
+    }
+  }
 }
 
 .tooltip.right{
@@ -82,6 +101,6 @@
 }
 
 .tooltip--right{
-	left: auto;
-	right: -2em;
+  left: auto;
+  right: -2em;
 }
