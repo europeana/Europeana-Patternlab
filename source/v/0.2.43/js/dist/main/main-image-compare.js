@@ -1,0 +1,1 @@
+require.config({paths:{jquery:"../lib/jquery",imageCompare:"../lib/image-compare/image-compare"}}),require(["jquery"],function(a){require(["imageCompare"],function(a){a.init()})});
