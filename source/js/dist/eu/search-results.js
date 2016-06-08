@@ -268,7 +268,20 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           eventAction: href,
           eventLabel: 'CTR List'
         });
-        log('GA: Redirect, Action = ' + href);
+      });
+
+      $('.refine .js-showhide-nested').on('click', function(){
+
+        if($('.refine .js-showhide-nested').data('ga-sent')){
+          return;
+        }
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Licenses',
+          eventAction: 'Showing specific licenses to users',
+          eventLabel: 'Specific licenses'
+        });
+        $('.refine .js-showhide-nested').data('ga-sent', true);
       });
     }
 
