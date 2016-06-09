@@ -15,17 +15,11 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     /* Older browsers that can't handle object-fit on images can still handle background-size on div elements */
     var handleIE = function(){
 
-      log('handle IE....');
-
       var test = $('<img style="object-fit: cover"/>');
       var cs = window.getComputedStyle(test[0]);
 
-      log('cs = ' + JSON.stringify(cs, null, 4));
-
       if(typeof cs.objectFit == 'undefined' ||
          (!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 ))){
-
-        log('no object fit - fix needed');
 
         $('.search-list-item').each(function(i, ob){
           $ob = $(ob);
@@ -33,9 +27,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           $ob.find('img').css('visibility', 'hidden');
           $ob.find('.inner').css('background-image', 'url(' + src + ')');
           $ob.find('.inner').css('background-size', 'cover');
-
-          log('fixed ' + i);
-
         });
       }
     }
