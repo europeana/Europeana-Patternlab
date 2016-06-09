@@ -6,6 +6,16 @@
 
   >li{
     padding: 0.75rem;
+    ul.menu-sublevel.caret.sm-nowrap{
+        //border-color: 293745;
+        &:after{
+          top: -15px;
+          //border-width: 9px;
+        }
+        &:before{
+          top: -17px;
+        }
+      }
   }
   li{
     background-color: #293745;
@@ -20,9 +30,16 @@
       border-color: #fff transparent transparent;
     }
     .menu-sublevel{
-      background-color: #4d4d4d;
-      .caret{
-        border-color: 293745;
+      background-color: $white;
+      li{
+        background-color: #293745;
+        a{
+          background-color: $white;
+          color: $textcolour_body;
+          &:hover{
+            background-color: $offwhite;
+          }
+        }
       }
     }
   }
