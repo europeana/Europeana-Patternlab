@@ -35,6 +35,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var inView         = 0; // num items currently visible in viewport
         var position       = 1; // index of currently viewed item
 
+        var perPage        = appender.getDataCount();
+
         var totalLoaded    = appender.getDataCount();
         var totalAvailable = 100;
 
@@ -372,11 +374,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             spacing = parseInt(spacing);
             inView  = maxFit;
 
-//log('resize: vertical = ' + vertical + ', cmpD = ' + cmpD + ', itemdD = ' + itemD + ', maxFit = ' + maxFit +  ', spacing = ' + spacing);
-
             items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
-
-//log('resize: apply (' + edge + ') margin of ' + spacing + ' to ' + items.find('.' + classData.itemClass + '').length + ' components');
 
             if(maxFit != 1){
                 items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
@@ -531,7 +529,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     alwaysAfterLoad(added);
                 }
 
-            }, inView);
+            },  perPage);
         };
 
         var getItemMarkup = function(data){
