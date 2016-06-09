@@ -22,7 +22,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
       log('cs = ' + JSON.stringify(cs, null, 4));
 
-      if(!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 )){
+      if(typeof cs.objectFit == 'undefined' ||
+         (!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 ))){
 
         log('no object fit - fix needed');
 
