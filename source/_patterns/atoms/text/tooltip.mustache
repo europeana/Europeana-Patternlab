@@ -20,7 +20,7 @@
         <use xlink:href="#{{.}}"></use>
       </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
     </a>
-    <div class="tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}} right-aligned{{/icon_first}}">
+    <div class="tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}}{{^trailing}} right-aligned{{/trailing}}{{/icon_first}}{{#trailing}} trailing{{/trailing}}">
       {{tooltip_text}}
       {{#persistent}}
         <a data-role="remove" onclick="closeTooltip(this)"></a>
