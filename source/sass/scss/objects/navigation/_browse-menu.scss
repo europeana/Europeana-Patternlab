@@ -74,6 +74,13 @@
     .browse-option{
       display: inline-block;
       width:   25%;
+
+      &:last-of-type{
+        .browse-option-text{
+          display: none;
+        }
+      }
+
       .icon-ellipsis{
         position: relative;
         left: 0-$space;

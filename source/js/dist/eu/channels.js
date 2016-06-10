@@ -27,11 +27,8 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             mainMenuSubOffsetY: 4,
             subMenusSubOffsetX: 0,
             subMenusSubOffsetY: -6,
-            subMenusMaxWidth: 100,
             subMenusMinWidth: 100
         });
-
-
 
         $('.js-hack-smartmenu a').click(function(){
             var href = $(this).attr('href');

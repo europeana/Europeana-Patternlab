@@ -78,7 +78,7 @@
               "icon": "icon-book"
             },
             {
-              "text": false,
+              "text": "All",
               "url": "javascript:alert('all')",
               "icon": "icon-ellipsis"
             }
