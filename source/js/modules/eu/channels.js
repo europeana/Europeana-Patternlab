@@ -23,11 +23,12 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
         });
 
         $('#browse-menu').smartmenus({
-            mainMenuSubOffsetX: 15,
+            mainMenuSubOffsetX: -25,
             mainMenuSubOffsetY: 4,
             subMenusSubOffsetX: 0,
             subMenusSubOffsetY: -6,
-            subMenusMinWidth: 100
+            subMenusMaxWidth: null,
+            subMenusMinWidth: null
         });
 
         $('.js-hack-smartmenu a').click(function(){

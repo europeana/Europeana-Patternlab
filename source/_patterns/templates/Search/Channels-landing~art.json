@@ -68,7 +68,7 @@
               "icon": "icon-tv"
             },
             {
-              "text": "Sound",
+              "text": "Sound recordings",
               "url": "javascript:alert('sounds')",
               "icon": "icon-music"
             },
@@ -76,6 +76,11 @@
               "text": "Text",
               "url": "javascript:alert('texts')",
               "icon": "icon-book"
+            },
+            {
+              "text": "3D Objects",
+              "url": "javascript:alert('3d')",
+              "icon": "icon-image"
             },
             {
               "text": "All",
