@@ -80,11 +80,6 @@
                       "subtitle": true
                     },
                     {
-                      "url": false,
-                      "text": "This is some text for a message",
-                      "message": true
-                    },
-                    {
                       "url": "www.exhibitions.eu",
                       "text": "We know this war by heart"
                     },

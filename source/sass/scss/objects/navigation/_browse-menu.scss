@@ -1,4 +1,3 @@
-
 #browse-menu{
   @media all and (max-width: $bp-med) {
     display: none;
@@ -7,10 +6,8 @@
   >li{
     padding: 0.75rem;
     ul.menu-sublevel.caret.sm-nowrap{
-        //border-color: 293745;
         &:after{
           top: -15px;
-          //border-width: 9px;
         }
         &:before{
           top: -17px;
@@ -26,12 +23,17 @@
     }
   }
 
+
   span.sub-arrow{
     border-color: #fff transparent transparent;
     margin-left:  4em;
   }
   .menu-sublevel{
     background-color: $white;
+
+    min-width: unset;
+    max-width: unset;
+
     li{
       background-color: #293745;
       a{
@@ -64,32 +66,18 @@
   .browse-options{
     color: $eu-blue;
     display: table-cell;
+    width: 100%;
     white-space: nowrap;
-
-    @media all and (min-width: $bp-small-2) and (max-width: $bp-small-3) {
-      position: relative;
-      left: -2.5em;
-    }
 
     .browse-option{
       display: inline-block;
-      width:   25%;
+      width:   20%;
 
-      &:last-of-type{
-        .browse-option-text{
-          display: none;
-        }
+      @media all and (max-width: $bp-small-3) {
+        width:   18%;
       }
-
-      .icon-ellipsis{
-        position: relative;
-        left: 0-$space;
-      }
-      .browse-option-text{
-        display: none;
-        @media all and (min-width: $bp-small-3) {
-          display: inline;
-        }
+      @media all and (max-width: $bp-small-2) {
+        width:   15%;
       }
     }
   }

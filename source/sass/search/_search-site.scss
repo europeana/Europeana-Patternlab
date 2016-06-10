@@ -17,7 +17,11 @@
 .hero-contents{
 
   position: relative;
-  z-index: 5;
+
+  //z-index: 5;
+  // updated to stop smart menu going under attribution
+  z-index: 11;
+
   top: 50%;
   @include translate (0, -50%);
 
