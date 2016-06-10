@@ -33,6 +33,7 @@
   }
 
   .strapline{
+    display: none;
     max-width: 50em;
     margin: 0 auto;
     word-wrap: normal;
@@ -41,6 +42,7 @@
 
     @media all and (min-width: $bp-med) {
       padding: $space;
+      display: block;
     }
   }
 }
