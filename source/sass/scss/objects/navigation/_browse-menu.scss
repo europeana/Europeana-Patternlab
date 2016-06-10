@@ -22,27 +22,28 @@
     a{
       background-color: #293745;
       color: #fff;
+      white-space: nowrap;
     }
   }
 
-  &.sm{
-    span.sub-arrow{
-      border-color: #fff transparent transparent;
-    }
-    .menu-sublevel{
-      background-color: $white;
-      li{
-        background-color: #293745;
-        a{
-          background-color: $white;
-          color: $textcolour_body;
-          &:hover{
-            background-color: $offwhite;
-          }
+  span.sub-arrow{
+    border-color: #fff transparent transparent;
+    margin-left:  4em;
+  }
+  .menu-sublevel{
+    background-color: $white;
+    li{
+      background-color: #293745;
+      a{
+        background-color: $white;
+        color: $textcolour_body;
+        &:hover{
+          background-color: $offwhite;
         }
       }
     }
   }
+
   margin-left: 1rem;
 }
 
