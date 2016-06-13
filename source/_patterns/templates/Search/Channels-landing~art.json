@@ -80,7 +80,7 @@
             {
               "text": "3D Objects",
               "url": "javascript:alert('3d')",
-              "icon": "icon-image"
+              "icon": "icon-3d"
             },
             {
               "text": "All",
