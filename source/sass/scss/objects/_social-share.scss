@@ -51,5 +51,19 @@
 			cursor: pointer;
 		}
 	}
+  .icon-tumblr{
+		color: $brand-tumblr;
+		&:hover{
+			color: darken($brand-tumblr, 15%);
+			cursor: pointer;
+		}
+	}
+  .icon-instagram{
+		color: $brand-instagram;
+		&:hover{
+			color: darken($brand-instagram, 15%);
+			cursor: pointer;
+		}
+	}
 
 }
