@@ -294,6 +294,24 @@
         }
       ]
     },
+    "social": {
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Europeana sounds on twitter (@eu_sounds)"
+      },
+      "facebook": {
+        "url": "Europeana Sounds on facebook",
+        "text": "https://www.facebook.com/soundseuropeana"
+      },
+      "instagram": {
+        "url": "http://instagram.com/europeanafashionofficial",
+        "text": "Europeana Sounds on instagram"
+      },
+      "tumblr": {
+        "url": "http://europeanafashion.tumblr.com/",
+        "text": "Europeana Fashion on Tumblr"
+      }
+    },
     "news": {
       "items": [
         {
