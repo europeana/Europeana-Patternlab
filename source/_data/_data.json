@@ -82,6 +82,10 @@
                       "text": "Music"
                     },
                     {
+                      "url": "fashion",
+                      "text": "Fashion"
+                    },
+                    {
                       "url": "art-history",
                       "text": "Art History"
                     }

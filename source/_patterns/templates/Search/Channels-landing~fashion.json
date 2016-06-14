@@ -43,9 +43,9 @@
     }
   ],
   "input_search": {
-    "title": "Search Europeana Art History",
+    "title": "Search Europeana Fashion",
     "input_name": "q",
-    "placeholder": "Search Europeana Art History"
+    "placeholder": "Search Europeana Fashion"
   },
   "browse_menu": {
     "menu_id": "browse-menu",
@@ -94,7 +94,7 @@
   },
   "content": {
     "carousel": {
-      "title": "Europeana Fashion Tumblr",
+      "title": "Tumblr",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
       "items": [
@@ -143,33 +143,23 @@
       ]
     },
     "channel_info": {
-      "name": "Europeana Art History",
-      "description": "The <strong>Europeana Art History Channel</strong> brings you the lesser known as well as the famous pieces of European art combined with the books, letters, articles, videos and other material collated from our partner libraries, archives, and museums.",
+      "name": "Europeana Fashion",
+      "description": "The <strong>Europeana Fashion</strong> brings together more than 30 public and private archives and museums from across Europe in order give public access to high quality digital fashion content, ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos, and fashion catalogues.",
       "stats": {
         "items": [
           {
-            "count": "1,459,423",
+            "count": "662,296",
             "text": "Images",
             "url": "#"
           },
           {
-            "count": "393,117",
+            "count": "11,014",
             "text": "Texts",
             "url": "#"
           },
           {
-            "count": "1417",
-            "text": "Moving images",
-            "url": "#"
-          },
-          {
-            "count": "1001",
-            "text": "3D objects",
-            "url": "#"
-          },
-          {
-            "count": "300",
-            "text": "Sound recordings",
+            "count": "416",
+            "text": "Videos",
             "url": "#"
           }
         ]
@@ -178,21 +168,21 @@
         "title": "Added recently:",
         "items": [
           {
-            "text": "Prado Museum",
+            "text": "Victoria and Albert Museum",
             "url": "#",
-            "number": "100 items",
+            "number": "2,747 items",
             "date": "May 2015"
           },
           {
-            "text": "Royal Armouries",
+            "text": "Catwalkpictures",
             "url": "#",
-            "number": "6480 items",
+            "number": "29,611 items",
             "date": "May 2015"
           },
           {
-            "text": "British Library",
+            "text": "Stiftelsen Nordiska Museet",
             "url": "#",
-            "number": "33,326 items",
+            "number": "10,949 items",
             "date": "May 2015"
           }
         ],
@@ -200,79 +190,66 @@
           "text": "Load more",
           "url": "#777"
         }
-      },
-      "credits": {
-        "title": "Curated by:",
-        "items": [
-          {
-            "text": "National Gallery of Denmark",
-            "url": "#777"
-          },
-          {
-            "text": "Rijksmuseum",
-            "url": "#777"
-          }
-        ]
       }
     },
     "hero_config": {
-      "hero_image": "../../images/sample/channel_hero_art.jpg",
-      "attribution_title": "Ships in a storm off a rocky coast",
-      "attribution_creator": "Jan Porcellis",
-      "attribution_institution": "Hallwylska museet",
-      "attribution_url": "http://www.europeana.eu/portal/record/2048007/Athena_Plus_ProvidedCHO_Hallwylska_museet_14152.html",
+      "hero_image": "../../images/sample/channel_hero_fashion.jpg",
+      "attribution_title": "Stockholms mode-journal: Tidskrift för den eleganta werlden 1851,",
+      "attribution_creator": "",
+      "attribution_institution": "Stiftelsen Nordiska Museet",
+      "attribution_url": "http://www.europeana.eu/portal/record/2048211/449.html",
       "license_public": true
     },
     "channel_entry": {
       "title": "Promoted title",
       "items": [
         {
-          "title": "All Paintings",
-          "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=what:%20paintings",
+          "title": "Human Hair",
+          "url": "http://europeana-npc-test.de.a9sapp.eu/portal/collections/fashion?q=hair",
           "count": "190,226",
           "media_type": "Images",
           "is_search": true,
-          "image": "../../images/sample/entry-painting-square.jpg"
+          "image": "../../images/sample/entry_fashion_1.png"
         },
         {
-          "title": "All Sculptures",
+          "title": "Smokings",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
           "count": "7,029",
           "media_type": "Images and video",
           "is_search": true,
-          "image": "../../images/sample/entry-sculpture-square.jpg"
+          "image": "../../images/sample/entry_fashion_2.png"
         },
         {
-          "title": "All Art history publications",
+          "title": "Bikinis",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
           "count": "2,333",
           "media_type": "Documents",
           "is_search": true,
-          "image": "../../images/sample/entry-documents-square.jpg"
+          "image": "../../images/sample/entry_fashion_3.png"
         },
         {
-          "title": "Spotlight on Botticelli",
+          "title": "Damir Doma",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
           "count": "76",
           "media_type": "Images and videos",
           "is_spotlight": true,
-          "image": "../../images/sample/entry-botticelli-square.jpg"
+          "image": "../../images/sample/entry_fashion_4.png"
         },
         {
-          "title": "Spotlight on Alexander Roslin",
+          "title": "Betty Jackson",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
           "count": "46",
           "media_type": "Images and documents",
           "is_spotlight": true,
-          "image": "../../images/sample/entry-roslin-square.jpg"
+          "image": "../../images/sample/entry_fashion_5.png"
         },
         {
-          "title": "Spotlight on Hokusai",
+          "title": "Addy van den Krommenacker",
           "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
           "count": "240",
           "media_type": "Images",
           "is_spotlight": true,
-          "image": "../../images/sample/entry-hokusai-square.jpg"
+          "image": "../../images/sample/entry_fashion_6.png"
         }
       ]
     },
@@ -336,7 +313,7 @@
         },
         {
           "headline": {
-            "medium": "Celebrating World Theatre Day 2015"
+            "medium": "Vintage fashion drawings from the Late 1930s"
           },
           "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
           "img": {
@@ -346,14 +323,14 @@
             }
           },
           "excerpt": {
-            "short": "Today we celebrate World Theatre Day, an annual celebration where all International Theatre Institutes and the international theatre community organises theatre events."
+            "short": "The years between 1900 and 1939 represent an extremely turbulent time in history with two World Wars and the rise of the suffrage movement. These unstable times clearly had an impact on women’s fashion, this was seen in the rise ..."
           }
         },
         {
           "headline": {
-            "medium": "Europeana takes part in #MuseumWeek 2015"
+            "medium": "Pitti Archive: “The Fourth Sex. Adolescent Extremes”"
           },
-          "url": "http://blog.europeana.eu/2015/03/europeana-takes-part-in-museumweek-2015/",
+          "url": "http://www.europeanafashion.eu/portal/blogdetail.html?post=pitti-archive-the-fourth-sex-adolescent-extremes",
           "img": {
             "rectangle": {
               "src": "sample/Museumweek.jpg",
@@ -361,7 +338,7 @@
             }
           },
           "excerpt": {
-            "short": "Today marks the beginning of #MuseumWeek, an event to celebrate culture on Twitter. Museums from all over the world will be tweeting about their collections or sharing fun facts with their followers."
+            "short": "The 2003 exhibition gives a meaningful insight in Simons’ world. Co-curated by Francesco Bonami and Simons himself, the exhibit reflected upon a central figure in the work of Simons, the teenager."
           }
         }
       ]
@@ -372,6 +349,6 @@
       "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
       "cta_text": "Help us improve the site"
     },
-    "strapline": "Explore 3 million paintings, prints, sculptures and historical publications"
+    "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."
   }
 }
