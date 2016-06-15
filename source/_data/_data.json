@@ -462,7 +462,7 @@
               "pinterest": true,
               "googleplus": true
             },
-            "othersites": {
+            "XXXX_othersites": {
                 "title": "Explore Europeana",
                 "styleModifier": "inline-list",
                 "items": [
