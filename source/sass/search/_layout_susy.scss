@@ -3,17 +3,20 @@
 // Footer layout
 .footer{
 
+
+
 	.l-contact{
 		@media all and (min-width: $bp-med) {
-			@include span(6);
+			@include span(9);
 		}
 	}
 
 	.l-content{
 		@media all and (min-width: $bp-med) {
-			@include span(9);
-		}
-	}
+			@include span(6);
+		}		
+	}	
+
 
 	.l-sitemap .l-linklist{
 		width: 50%;
