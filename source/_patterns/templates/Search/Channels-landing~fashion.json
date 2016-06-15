@@ -295,23 +295,40 @@
       ]
     },
     "social": {
-      "twitter": {
-        "url": "https://twitter.com/eu_sounds",
-        "text": "Europeana sounds on twitter (@eu_sounds)"
-      },
-      "facebook": {
-        "url": "Europeana Sounds on facebook",
-        "text": "https://www.facebook.com/soundseuropeana"
-      },
-      "instagram": {
-        "url": "http://instagram.com/europeanafashionofficial",
-        "text": "Europeana Sounds on instagram"
-      },
-      "tumblr": {
-        "url": "http://europeanafashion.tumblr.com/",
-        "text": "Europeana Fashion on Tumblr"
-      }
-    },
+      "present": true,
+      "items": [
+        {
+          "url": "https://twitter.com/eu_sounds",
+          "text": "Europeana sounds on twitter (@eu_sounds)",
+          "icon": "icon-twitter"
+        },
+        {
+          "text": "Europeana Sounds on facebook",
+          "url": "https://www.facebook.com/soundseuropeana",
+          "icon": "icon-facebook"
+        },
+        {
+          "text": "Europeana Sounds on googleplus",
+          "url": "https://www.facebook.com/soundseuropeana",
+          "icon": "icon-googleplus"
+        },
+        {
+          "text": "Europeana Sounds on instagram",
+          "url": "https://www.facebook.com/soundseuropeana",
+          "icon": "icon-instagram"
+        },
+        {
+          "text": "Europeana on Soundcloud",
+          "url": "https://soundcloud.com/europeana",
+          "icon": "icon-soundcloud"
+        },
+        {
+          "text": "Europeana on Soundcloud",
+          "url": "https://tumblr/europeana",
+          "icon": "icon-tumblr"
+        }
+	    ]
+	  },
     "news": {
       "items": [
         {

@@ -333,7 +333,8 @@
   @include fontSize(14px);
 }
 
-.channel-newstuff{
+.channel-newstuff,
+.about-collection{
   @media all and (min-width: $bp-med) {
     @include span(first 24 of 24);
   }
@@ -343,7 +344,8 @@
 }
 
 
-.channel-description{
+.channel-description,
+.collection-social{
   @media all and (min-width: $bp-med) {
     @include span(14 of 24);
     padding: $space 0;

@@ -1,20 +1,38 @@
 {
   "social": {
-      "twitter": {
+    "present": true,
+    "items": [
+      {
         "url": "https://twitter.com/eu_sounds",
-        "text": "Europeana sounds on twitter (@eu_sounds)"
+        "text": "Europeana sounds on twitter (@eu_sounds)",
+        "icon": "icon-twitter"
       },
-      "facebook": {
-        "url": "Europeana Sounds on facebook",
-        "text": "https://www.facebook.com/soundseuropeana"
+      {
+        "text": "Europeana Sounds on facebook",
+        "url": "https://www.facebook.com/soundseuropeana",
+        "icon": "icon-facebook"
       },
-      "instagram": {
-        "url": "Europeana Sounds on instagram",
-        "text": "https://www.facebook.com/soundseuropeana"
+      {
+        "text": "Europeana Sounds on googleplus",
+        "url": "https://www.facebook.com/soundseuropeana",
+        "icon": "icon-googleplus"
       },
-      "soundcloud": {
+      {
+        "text": "Europeana Sounds on instagram",
+        "url": "https://www.facebook.com/soundseuropeana",
+        "icon": "icon-instagram"
+      },
+      {
+        "text": "Europeana on Soundcloud",
         "url": "https://soundcloud.com/europeana",
-        "text": "Europeana on Soundcloud"
+        "icon": "icon-soundcloud"
+      },
+      {
+        "text": "Europeana on Soundcloud",
+        "url": "https://tumblr/europeana",
+        "icon": "icon-tumblr"
       }
-    }
+      
+    ]
+  }
 }
