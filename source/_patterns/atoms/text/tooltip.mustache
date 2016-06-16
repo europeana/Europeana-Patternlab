@@ -3,14 +3,15 @@
     <script>
       // Inline script expects jquery
       function closeTooltip(el){
-        $(el).parent().hide();
+//        $(el).parent().hide();
       }
      function openTooltip(el){
-         $(el).next('.tooltip').show();
+//         $(el).next('.tooltip').show();
       }
     </script>
   {{/persistent}}
 
+  {{#disabled}}
   <div class="tooltip-container">
     <a onclick="openTooltip(this)" {{#link_class}}class="{{.}}"{{/link_class}} {{#link_url}}href="{{.}}" target="_new"{{/link_url}}>
       {{^icon_first}}
@@ -27,4 +28,15 @@
       {{/persistent}}
     </div>
   </div>
+  {{/disabled}}
+
+  <a onclick="openTooltip(this)" {{#link_class}}class="{{.}}"{{/link_class}} {{#link_url}}href="{{.}}" target="_new"{{/link_url}}>
+    {{^icon_first}}
+      {{tooltipped_text}}
+    {{/icon_first}}{{#icon}}
+    <svg class="icon {{.}}">
+      <use xlink:href="#{{.}}"></use>
+    </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
+  </a>
+  
 {{/tooltip}}
