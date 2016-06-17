@@ -95,6 +95,7 @@
   "content": {
     "carousel": {
       "title": "Tumblr",
+      "tumblr_url": "javascript:alert('open tumblr page')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
       "items": [
