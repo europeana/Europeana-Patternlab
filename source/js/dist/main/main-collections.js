@@ -113,17 +113,17 @@ require.config({
   }
 });
 
+// stop the ghostery browser plugin breaking the site
 window.fixGA = function(ga){
   var gaType = (typeof ga).toUpperCase();
-  console.log('gaType' + gaType);
   if(gaType != 'FUNCTION'){
     console.log('make fake ga');
-    window.ga = function(){
-      log('ga disabled on this machine');
+    return function(){
+      console.log('ga disabled on this machine');
     }
   }
+  return ga;
 }
-
 
 require(['jquery'], function( $ ) {
   $.holdReady( true );

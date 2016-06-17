@@ -1,6 +1,6 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
-	window.fixGA(ga);
+    ga = window.fixGA(ga);
 
     function log(msg){
         console.log(msg);
@@ -539,7 +539,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
 
 
     function initPage(){
-
         bindAnalyticsEvents();
         bindAttributionToggle();
         updateTechData({target:$('.single-item-thumb a')[0]});
