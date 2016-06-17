@@ -124,13 +124,14 @@ require(['jquery'], function( $ ) {
 
       $('html').addClass('styled');
 
-	  console.log('going to get ga....')
-
       require(["ga"], function(ga) {
     	  
-    	  console.log('got ga')
-    	  console.log('ga = ' + ga)
-    	  console.log('typeof ' + typeof ga)
+          var gaType = (typeof ga).toUpperCase();
+          if(gaType != 'FUNCTION'){
+            ga = function(){
+              log('ga disabled on this machine');
+            }
+          }
     	  
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){

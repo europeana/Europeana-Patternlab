@@ -125,6 +125,14 @@ require(['jquery'], function( $ ) {
       $('html').addClass('styled');
 
       require(["ga"], function(ga) {
+    	  
+          var gaType = (typeof ga).toUpperCase();
+          if(gaType != 'FUNCTION'){
+            ga = function(){
+              log('ga disabled on this machine');
+            }
+          }
+    	  
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){
                 var analyticsData = page.getAnalyticsData();
