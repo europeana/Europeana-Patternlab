@@ -1,5 +1,7 @@
 define(['jquery', 'ga', 'purl'], function ($, ga){
 
+    window.fixGA(ga);
+	
     var $url            = $.url();
     var results         = $('.search-results');
     var ellipsisObjects = [];

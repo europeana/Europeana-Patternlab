@@ -113,6 +113,18 @@ require.config({
   }
 });
 
+window.fixGA = function(ga){
+  var gaType = (typeof ga).toUpperCase();
+  console.log('gaType' + gaType);
+  if(gaType != 'FUNCTION'){
+    console.log('make fake ga');
+    window.ga = function(){
+      log('ga disabled on this machine');
+    }
+  }
+}
+
+
 require(['jquery'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
@@ -125,14 +137,7 @@ require(['jquery'], function( $ ) {
       $('html').addClass('styled');
 
       require(["ga"], function(ga) {
-    	  
-          var gaType = (typeof ga).toUpperCase();
-          if(gaType != 'FUNCTION'){
-            ga = function(){
-              log('ga disabled on this machine');
-            }
-          }
-    	  
+    	  fixGA(ga);
           channels.getPromisedPageJS().done(function(page){
               if(page && typeof page.getAnalyticsData != 'undefined'){
                 var analyticsData = page.getAnalyticsData();
