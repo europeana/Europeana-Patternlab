@@ -3,7 +3,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     ga = window.fixGA(ga);
 
     function log(msg){
-        console.log(msg);
+      console.log('search-object: ' + msg);
     }
 
     function showHierarchy(params){
@@ -132,6 +132,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
     var initCarousel = function(el, ops){
         var carousel = jQuery.Deferred();
 
+        log('search -object')
+        
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
             var appender = CarouselAppender.create({
                 'cmp':             el.find('ul'),

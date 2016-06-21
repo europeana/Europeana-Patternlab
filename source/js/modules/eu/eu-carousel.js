@@ -20,6 +20,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
      */
     var EuCarousel = function(cmp, appender, opsIn){
 
+    	log('carousel ops in: ' + JSON.stringify(opsIn, null, 4));
+    	
+    	
         var dynamic    = null;
         var vertical   = null;
         var bpVertical = null;
@@ -58,6 +61,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
             var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
             var ops = mergeHashes(opsIn, opsDef);
+
+        	log('carousel merged ops: ' + JSON.stringify(ops, null, 4));
 
             classData = {
                     "arrowClasses" : {
