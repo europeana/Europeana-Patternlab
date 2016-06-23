@@ -1,0 +1,54 @@
+@import "../search/search-site";
+@import "../scss/generic/variables";
+@import "variables";
+
+.logo {
+  background-image: url("../../images/europeana-logo-collections.png");
+  .svg &{
+    background-image: url("../../images/europeana-logo-collections.svg");
+      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        background-image: url("../../images/europeana-logo-symbol.svg");
+        min-width:50px;
+        max-width:50px;
+      }
+  }
+}
+
+.no-js{
+}
+
+.page_header{
+  position: relative;
+  z-index: 1;
+}
+
+.section-divider,
+.mosaic-main-header,
+.mosaic-form,
+.mosaic-gallery{
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 80rem;
+}
+
+.mosaic-form{
+  label{
+    margin-top: $space;    
+  }
+  
+  #submit{
+    display:    block;
+    margin: 2 * $space 0 $space 0;
+  }
+}
+
+
+.mosaic-gallery{
+  margin-bottom: 2* $space;
+  margin-top: $space;
+  .mosaic-gallery-item{
+    cursor: pointer;
+    width: 200px;
+  }
+}
