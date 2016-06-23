@@ -17,6 +17,11 @@
 .no-js{
 }
 
+.svg .logo{
+  background-image: url(../../images/europeana-logo-inspire.png);
+  max-width: 300px;
+}
+
 .page_header{
   position: relative;
   z-index: 1;
@@ -30,6 +35,10 @@
   margin-right: auto;
   position: relative;
   width: 80rem;
+}
+
+.mosaic-main-header{
+  top: $space;
 }
 
 .mosaic-form{
