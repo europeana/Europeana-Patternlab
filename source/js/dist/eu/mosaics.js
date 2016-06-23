@@ -2,6 +2,9 @@ define(
     [ 'jquery', 'search_form', 'smartmenus' ],
     function() {
 
+      var boardListUrl = 'http://chaos.eanadev.org:8080/inspire/boards/europeana/';
+      var serviceUrl   = 'http://chaos.eanadev.org:8080/inspire/mosaic/europeana/';
+      
       function log(msg) {
         console.log('Mosaic: ' + msg);
       }
@@ -92,7 +95,20 @@ define(
       }
 
       function getBoards() {
-        log('todo - getBoards');
+        var boardListUrl = 'http://chaos.eanadev.org:8080/inspire/boards/europeana';
+        
+        $.get(boardListUrl, function(data) {
+          log('got board data:\n\n' + JSON.stringify(data));
+          
+          $.each(data.names, function (i, item) {
+            $('#board').append($('<option>', { 
+                value: item,
+                text : item 
+            }));
+          });
+        });
+        
+        
       }
       
       function makePost() {
@@ -106,7 +122,7 @@ define(
         var size      = $('#size').val();
         var data      = $('.mosaic-form').serialize();
 
-        var url       = 'http://chaos.eanadev.org:8080/inspire/mosaic/europeana/' + boardName + '?scale=' + scale + '&size=' + size
+        var url       = serviceUrl + boardName + '?scale=' + scale + '&size=' + size
         
         log(url);
         log(data);
