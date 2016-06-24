@@ -107,8 +107,6 @@ define(
             }));
           });
         });
-        
-        
       }
       
       function makePost() {
@@ -140,6 +138,11 @@ define(
 
       function init() {
         getBoards();
+        
+        $('#target_image').on('change', function() {
+          $('#file_name').val(this.value);
+        });
+        
         $('.mosaic-form').on('submit', function(e){
           makePost();
           e.preventDefault();
