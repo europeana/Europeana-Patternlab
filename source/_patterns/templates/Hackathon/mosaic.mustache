@@ -14,39 +14,29 @@
     {{#heading}}<h1 class="mosaic-main-header">{{.}}</h1>{{/heading}}
     
     {{#form}}
-    <form class="mosaic-form" {{#action}}action="{{.}}"{{/action}}>
-        <label for="target_image">Target</label><input type="file" name="target_image" id="target_image"/>
+    <form class="mosaic-form" {{#action}}action="{{.}}"{{/action}} enctype="multipart/form-data">
+        
+        <label for="target_image">Target</label>
+        <input type="file"   name="file" id="target_image"/>
+        <input type="hidden" name="fileName" id="file_name"/>
+
         
         <label for="board">Source</label>
         <select name="board" id="board"/>
-          <option value="board_0">All</option>
-          <option value="board_1">board 1</option>
-          <option value="board_2">board 2</option>
-          <option value="board_3">board 3</option>
+          <option value="all-boards">All</option>
         </select>
 
         <label for="size">Tile Size</label>
         <select name="size" id="size"/>
           <option value="20">20</option>
           <option value="30">30</option>
-          <option value="40">40</option>
+          <option value="40" selected="selected">40</option>
           <option value="60">60</option>
           <option value"100">100</option>
         </select>
 
         <label for="scale">Scale</label>
-        <select name="scale" id="scale"/>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+        <input type="number" min="1" max="20" value="4"/>
         
         <input id="submit" type="submit" value="Make my mosaic"/>
     </form>
