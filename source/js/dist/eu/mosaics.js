@@ -110,6 +110,9 @@ define(
       
       function makePost() {
 
+        $('body').addClass('loading');
+        $('#result-link').html('');
+        
         var boardName = 'heroes';
         var scale     = '4';
         var size      = '60';
@@ -137,6 +140,7 @@ define(
           success : function(data){
             
             $('#result-link').html('<a href="' + data.link + '" target="_new">view result</a>');
+            $('body').removeClass('loading');
             
           }
         });
@@ -144,6 +148,15 @@ define(
 
       function init() {
         getBoards();
+
+        
+        $('.mosaic-gallery-item').each(function(i, ob){
+          if(i>2){
+            $(ob).addClass('push-up');
+          }
+        });
+        
+        
         
         $('#target_image').on('change', function() {
           $('#file_name').val(this.value.replace('C:\\fakepath\\', ''));
