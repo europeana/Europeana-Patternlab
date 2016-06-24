@@ -135,7 +135,9 @@ define(
           processData: false,
           contentType: false,
           success : function(data){
-            window.open(data.link);
+            
+            $('#result-link').html('<a href="' + data.link + '" target="_new">view result</a>');
+            
           }
         });
       }
@@ -144,7 +146,7 @@ define(
         getBoards();
         
         $('#target_image').on('change', function() {
-          $('#file_name').val(this.value);
+          $('#file_name').val(this.value.replace('C:\\fakepath\\', ''));
         });
         
         $('.mosaic-form').on('submit', function(e){
