@@ -187,7 +187,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           }
       };
 
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').each(function(){
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('[target="_new"]').each(function(){
           updateUrl($(this));
       });
 
