@@ -205,31 +205,31 @@
         "partner_url": "javascript:alert('go to (optional) partner url')",
         "image":{
             "original": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "full": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "fullx2": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "half": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "halfx2": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "small": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "smallx2": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "thumbnail": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             },
             "thumbnailx2": {
-              "url": "/images/virtual-exhibitions/dada/logo.png"
+              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
             }
           }
         }
@@ -255,28 +255,28 @@
             "image":
             {
               "full": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
               },
               "fullx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
               },
               "half": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "halfx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
               },
               "small": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
               },
               "smallx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
               }
             },
             "title": "Faces of Europe",
@@ -298,28 +298,28 @@
             "image":
             {
               "full": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-full.png"
               },
               "fullx2": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-fullx2.png"
               },
               "half": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-half.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-half.png"
               },
               "halfx2": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-halfx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-halfx2.png"
               },
               "small": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-small.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-small.png"
               },
               "smallx2": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-smallx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnail.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
               }
             },
             "title": false
@@ -346,42 +346,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
                     "alt": "Japan (thumbnail)",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-small.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-smallx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-half.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-halfx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-full.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-fullx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 }
@@ -395,42 +395,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnail.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-thumbnail.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-small.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-small.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-smallx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-smallx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-half.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-half.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-halfx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-halfx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-full.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-full.png",
                     "alt": "Arcimboldo",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/280/fruit-face-fullx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-fullx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "landscape"
                 }
@@ -456,28 +456,28 @@
             "image":
             {
               "full": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
               },
               "fullx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
               },
               "half": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
               },
               "halfx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
               },
               "small": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
               },
               "smallx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             },
             "title": "Art Nouveau",
@@ -494,42 +494,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnail.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-thumbnail.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnailx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-thumbnailx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-small.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-small.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "smallx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-smallx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-smallx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-half.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-half.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "halfx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-halfx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-halfx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-full.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-full.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/dada/adameve-fullx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-fullx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 }
@@ -554,25 +554,25 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 16000,
                     "height": 1698,
                     "orientation": "landscape"
@@ -593,42 +593,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "landscape"
                 }
@@ -649,7 +649,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -659,7 +659,7 @@
           "title": "But Isn't Keen on Art Deco",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -668,7 +668,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -677,7 +677,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         }

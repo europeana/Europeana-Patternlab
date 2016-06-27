@@ -62,22 +62,22 @@
     "heading": "Gallery",
     "items": [
       {
-        "url": "/images/mosaic/output_liberty.png"
+        "url": "/images_versionless/mosaic/output_liberty.png"
       },
       {
-        "url": "/images/mosaic/output_manet_2500.png"
+        "url": "/images_versionless/mosaic/output_manet_2500.png"
       },
       {
-        "url": "/images/mosaic/output_vader.png"
+        "url": "/images_versionless/mosaic/output_vader.png"
       },
       {
-        "url": "/images/mosaic/output_monalisa.png"
+        "url": "/images_versionless/mosaic/output_monalisa.png"
       },
       {
-        "url": "/images/mosaic/output_milkmaid.png"
+        "url": "/images_versionless/mosaic/output_milkmaid.png"
       },
       {
-        "url": "/images/mosaic/output_adameve.png"
+        "url": "/images_versionless/mosaic/output_adameve.png"
       }
     ]
   }
