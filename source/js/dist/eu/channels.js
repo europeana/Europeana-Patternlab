@@ -85,11 +85,19 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             promisedPageJS.resolve();
             break;
 
-        case 'collections/show':
-            require(['search_landing'], function(page){
+        case 'collections/show':          
+            if(window.location.href.indexOf('?q=') == -1){
+              require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
-            });
+              });
+            }
+            else{
+              require(['search_results'], function(page){
+                page.initPage();
+                promisedPageJS.resolve(page);
+              });
+            }
             break;
         case 'portal/show':
             require(['search_object'], function(page){
