@@ -21,23 +21,44 @@
 
       <div class="ve-foyer-card-state">
         <img src="{{state_1_image.thumbnail.url}}" />
-        <div class="text-box title">
-          <a href="{{url}}">{{state_1_title}}</a>
-        </div>
+        {{#state_1_title}}
+          <div class="text-box title">
+          {{#state_1_link}}
+              <a href="{{state_1_link}}">{{state_1_title}}</a>
+          {{/state_1_link}}
+          {{^state_1_link}}
+              {{state_1_title}}
+          {{/state_1_link}}
+          </div>
+        {{/state_1_title}}
       </div>
 
-      <div class="ve-foyer-card-state hide-right shaded">
+      <div class="ve-foyer-card-state hide-right{{#state_2_title}} shaded{{/state_2_title}}">
         <img src="{{state_2_image.thumbnail.url}}" />
-        <div class="text-box description">
-          <a href="{{state_2_link}}">{{state_2_title}}</a>
-        </div>
+        {{#state_2_title}}
+          <div class="text-box description">
+          {{#state_2_link}}
+              <a href="{{state_2_link}}">{{state_2_title}}</a>
+          {{/state_2_link}}
+          {{^state_2_link}}
+              {{state_2_title}}
+          {{/state_2_link}}
+          </div>
+        {{/state_2_title}}
       </div>
 
       <div class="ve-foyer-card-state hide-right">
         <img src="{{state_3_image.thumbnail.url}}" />
-        <div class="text-box credits">
-          <a href="{{state_3_link}}">{{state_3_title}}</a>
-        </div>
+        {{#state_3_title}}
+          <div class="text-box credits">
+          {{#state_3_link}}
+              <a href="{{state_3_link}}">{{state_3_title}}</a>
+          {{/state_3_link}}
+          {{^state_3_link}}
+              {{state_3_title}}
+          {{/state_3_link}}
+          </div>
+        {{/state_3_title}}
       </div>
     </div>
   </div>
