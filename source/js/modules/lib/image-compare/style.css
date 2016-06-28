@@ -5,22 +5,29 @@
 .image-compare-center {
   margin-left: 50%;
 }
+/* line 5, style.scss */
+.image-compare-center .attribution-text {
+  display: block;
+  bottom: 0;
+  position: absolute;
+  transform: translateY(3em);
+}
 
-/* line 7, style.scss */
+/* line 13, style.scss */
 figure.image-compare {
   float: left;
   margin: 0em auto;
   position: relative;
   transform: translateX(-50%);
 }
-/* line 14, style.scss */
+/* line 20, style.scss */
 figure.image-compare > img {
   display: block;
   margin-bottom: 0;
   max-width: 100%;
 }
 
-/* line 20, style.scss */
+/* line 26, style.scss */
 .resize-img {
   position: absolute;
   top: 0;
@@ -38,7 +45,7 @@ figure.image-compare > img {
   backface-visibility: hidden;
 }
 
-/* line 37, style.scss */
+/* line 43, style.scss */
 .resize-img {
   width: 50%;
   /* bounce in animation of the modified image */
@@ -46,7 +53,7 @@ figure.image-compare > img {
   -moz-animation: cd-bounce-in 0.7s;
   animation: cd-bounce-in 0.7s;
 }
-/* line 44, style.scss */
+/* line 50, style.scss */
 .resize-img img {
   position: absolute;
   left: 0;
@@ -90,7 +97,7 @@ figure.image-compare > img {
     width: 50%;
   }
 }
-/* line 88, style.scss */
+/* line 94, style.scss */
 .handle {
   position: absolute;
   height: 44px;
@@ -105,7 +112,7 @@ figure.image-compare > img {
   cursor: move;
   box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
-/* line 103, style.scss */
+/* line 109, style.scss */
 .handle.draggable {
   background-color: red;
 }
