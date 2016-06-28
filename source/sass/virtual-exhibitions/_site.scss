@@ -192,8 +192,19 @@
 .ve-base-quote,
 .ve-base-text,
 .ve-title-group{
-    padding:  1em;
-    width:    100%;
+  padding:  1em;
+  width:    100%;
+}
+
+.ve-title-group{
+  a,
+  a:hover{
+    color: #fff;
+  }
+  a:hover .ve-subtitle,
+  a:hover .ve-title{
+    text-decoration: underline;
+  }
 }
 
 .ve-branding{
@@ -420,6 +431,10 @@ a:hover > .ve-state-button-off,
   img{
     max-height: 100%;
   }
+}
+
+.clickable{
+  cursor: pointer;
 }
 
 .ve-base-foyer-main,
