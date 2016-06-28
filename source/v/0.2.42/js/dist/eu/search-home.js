@@ -1,0 +1,1 @@
+define(["jquery"],function(a){function b(a){console.log(a)}function c(){b("init home");var c="undefined"==typeof Storage?null:localStorage.getItem("eu_portal_results_count");c&&a(".search-multiterm").append('<input type="hidden" name="per_page" value="'+c+'" />')}return{initPage:function(){c()}}});
