@@ -1,52 +1,102 @@
 .tooltip-container {
-	display: inline-block;
-	position: relative;
 
-	&:hover, &:focus {
-		cursor: help;
+  display:  inline-block;
+  position: relative;
 
-		.tooltip:not(:empty) {
-			display: block;
-		}
-	}
+  &:hover, &:focus {
+    cursor: default;
 
-	.icon{
-		vertical-align: super;
-		font-size: 0.825em;
-	}
+    .tooltip:not(:empty) {
+      display: block;
+    }
+  }
+
+  .icon{
+
+    vertical-align: baseline;
+    font-size:      0.825em;
+    position:       relative;
+    top:            -2px;
+  }
 }
 
 .tooltip-link {
-	background: $gray-light;
+
+  background: $gray-light;
 }
 
 .tooltip {
-	display: none;
-	position: absolute;
-	top: 1.5em;
-	left: -2em;
-	width: 18em;
-	padding: 0.6em;
-	background: $white;
-	color: $textcolour_body;
-	font-size: 0.75rem;
-	text-transform: none;
-	font-weight: normal;
-	border: 1px solid $gray-lighter;
-	box-shadow: 0.1em 0.1em 0.3em 0 rgba(0,0,0,0.2);
-	z-index: 98;
-	line-height: 1.6;
 
-	h2 {
-		margin-top: 0;
-	}
+  background:     $accent;
+  color:          $white;
+  display:        none;
+  font-size:      0.75rem;
+  font-weight:    normal;
+  line-height:    1.6;
+  padding:        0.6em;
+  position:       absolute;
+  text-transform: none;
+  top:            2.5em;
+  z-index:        1;
 
-	@media all and (min-width: $bp-small) {
-		width: 22em;
-	}
+  &.persistent{
+    display: block;
+    padding-right: 1.8em;
+  }
+
+  a{
+    color: $white;
+    letter-spacing: 0.1em;
+  }
+
+  & a[data-role="remove"] {
+
+      cursor: pointer;
+      color: white;
+
+      position: absolute;
+      top: 0.6em;
+      right: 2px;
+
+      &:after {
+          content: "✕";
+          vertical-align: baseline;
+          padding: 0px 2px;
+      }
+  }
+
+  &:after {
+    bottom: 100%;
+    left: 5%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-bottom-color: #1676AA;
+    border-width: 7px;
+  }
+  &.right-aligned{
+    right: 0;
+    &:after {
+      left: auto;
+      right: 4%;
+    }
+  }
+  &.trailing{
+    left:        40%;
+    white-space: nowrap;
+  }
+}
+
+.tooltip.right{
+  &:after {
+    left: inherit;
+    right: 5%;
+  }
 }
 
 .tooltip--right{
-	left: auto;
-	right: -2em;
+  left: auto;
+  right: -2em;
 }

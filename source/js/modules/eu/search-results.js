@@ -1,5 +1,7 @@
 define(['jquery', 'ga', 'purl'], function ($, ga){
 
+    ga = window.fixGA(ga);
+    
     var $url            = $.url();
     var results         = $('.search-results');
     var ellipsisObjects = [];
@@ -14,10 +16,13 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     /* Older browsers that can't handle object-fit on images can still handle background-size on div elements */
     var handleIE = function(){
+
       var test = $('<img style="object-fit: cover"/>');
       var cs = window.getComputedStyle(test[0]);
 
-      if(!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 )){
+      if(typeof cs.objectFit == 'undefined' ||
+         (!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 ))){
+
         $('.search-list-item').each(function(i, ob){
           $ob = $(ob);
           var src = $ob.find('img').attr('src');
@@ -182,7 +187,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           }
       };
 
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').each(function(){
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.tooltip-anchor').each(function(){
           updateUrl($(this));
       });
 
@@ -268,7 +273,20 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           eventAction: href,
           eventLabel: 'CTR List'
         });
-        log('GA: Redirect, Action = ' + href);
+      });
+
+      $('.refine .js-showhide-nested').on('click', function(){
+
+        if($('.refine .js-showhide-nested').data('ga-sent')){
+          return;
+        }
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Licenses',
+          eventAction: 'Showing specific licenses to users',
+          eventLabel: 'Specific licenses'
+        });
+        $('.refine .js-showhide-nested').data('ga-sent', true);
       });
     }
 

@@ -2,6 +2,12 @@
 
 .image-compare-center{
   margin-left: 50%;
+  .attribution-text {
+    display: block;
+    bottom: 0;
+    position: absolute;
+    transform: translateY(3em);
+  }
 }
 
 figure.image-compare {

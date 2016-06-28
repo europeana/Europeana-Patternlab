@@ -23,38 +23,6 @@
     }]
   },
   "navigation": {
-    "view_full": {
-      "button_text": "View full exhibition",
-      "link": "javascript:alert('go to full exhibition')",
-      "text1": "Like what you see?  Curious about this topic and want to learn more?",
-      "text2": "Then check out the full exhibition.",
-      "image": {
-        "full": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "fullx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "half": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "halfx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "small": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "smallx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "thumbnail": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        },
-        "thumbnailx2": {
-          "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
-        }
-      }
-    },
     "global":
     {
       "logo":
@@ -226,14 +194,14 @@
             "label": "Art history collection",
             "partner_image": {
               "thumbnail": {
-                "url": "/images/virtual-exhibitions/dada/logo.png"
+                "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
               }
             },
             "partner_url": "javascript:alert('link to curator site')",
             "section_title": "Another intro type",
             "subtitle": "The first chapter of this amazing virtual exhibition",
             "title": "Faces of Europe",
-            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
+            "intro_description": "<p>The alliance of the Kingdom of <a href=\"www.google.com\">Poland</a> and the Grand Duchy of <a href=\"www.google.com\">Lithuania</a>, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
             "image_credit": {
               "attribution_title": "Battle of Grunweald",
               "attribution_creator": "Jan Matejko",
@@ -244,28 +212,28 @@
             "image":
             {
               "full": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
               },
               "fullx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
               },
               "half": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "halfx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
               },
               "small": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
               },
               "smallx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
               }
             }
         },
@@ -299,42 +267,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
                     "alt": "Japan (thumbnail)",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-small.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-smallx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-half.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-halfx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-full.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "fullx2": {
-                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-fullx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 }
@@ -364,28 +332,28 @@
             "image":
             {
               "full": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
               },
               "fullx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
               },
               "half": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
               },
               "halfx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
               },
               "small": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
               },
               "smallx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             }
         },
@@ -402,6 +370,40 @@
             "quote": "She's fast enough for you old man.  What's the cargo?",
             "stripped_quote": "She's fast enough for you old man.  What's the cargo?",
             "quotee": "Han Solo - captain of the millennium falcon."
+        },
+        {
+          "is_promo": true,
+          "type": "promo",
+          "button_text": "View full exhibition",
+          "link": "javascript:alert('go to full exhibition')",
+          "text1": "Like what you see?  Curious about this topic and want to learn more?",
+          "text2": "Then check out the full exhibition.",
+          "image": {
+            "full": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "fullx2": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "half": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "halfx2": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "small": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "smallx2": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "thumbnail": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            },
+            "thumbnailx2": {
+              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+            }
+          }
         }
       ]
     },
@@ -414,7 +416,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -426,7 +428,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -437,7 +439,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+              "url" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -448,7 +450,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"

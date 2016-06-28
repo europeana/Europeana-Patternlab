@@ -1,0 +1,33 @@
+{
+  "social": {
+    "social_title": "Find Europeana Fashion on social media",
+    "twitter": {
+      "url": "https://twitter.com/eu_sounds",
+      "text": "Twiiter"
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/EuropeanaFashion",
+      "text": "FB"
+    },
+    "soundcloud": {
+      "url": "https://soundcloud.com/europeana",
+      "text": "Soundcloud"
+    },
+    "pinterest": {
+      "url": "https://uk.pinterest.com/europeana/",
+      "text": "Pinterest"
+    },
+    "googleplus": {
+      "url": "https://plus.google.com/+europeana/posts",
+      "text": "Google Plus"
+    },
+    "instagram": {
+      "url": "http://www.instagram.com/europeanafashionofficial/",
+      "text": "Instagram"
+    },
+    "tumblr": {
+      "url": "http://www.europeanafashion.tumblr.com",
+      "text": "Tumblr"
+    }
+  }
+}

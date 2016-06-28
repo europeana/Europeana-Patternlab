@@ -1,0 +1,8 @@
+{
+  "tooltip":{
+    "tooltipped_text": "This is the text",
+    "tooltip_text": "This is the tooltip",
+    "icon": "icon-help",
+    "icon_first": true
+  }
+}

@@ -17,12 +17,12 @@
   line-height: 1.2;
 
   @media all and (min-width: $bp-small) {
-    @include fontSize(18px);
+    @include fontSize(10px);
   }
 
 
   @media all and (min-width: $bp-med) {
-    @include fontSize(24px);
+    @include fontSize(16px);
   }
 
   a{

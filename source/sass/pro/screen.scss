@@ -184,7 +184,7 @@ $icon_primary: lighten($accent, 10);
 }
 
 .bkg-white{
-  background: $white;  
+  background: $white;
 }
 
 .page_header{
@@ -372,6 +372,19 @@ $icon_primary: lighten($accent, 10);
 	}
 }
 
+.b-text.partners {
+  .jobdetails {
+      margin-bottom: $pad;
+  }
+}
+
+.eu-position{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: $font-size-sm;
+  margin-bottom: $pad;
+}
+
 .contact-detail {
   .candidacy-intro {
     padding-top: $pad;
@@ -400,3 +413,61 @@ $icon_primary: lighten($accent, 10);
 		padding-top: $space;
 	}
 
+//Detail pages
+
+.contact-detail .contact-internal {
+  float: right;
+}
+
+.contact-detail .contact-external {
+  float: left;
+}
+
+.eu-roles,.work-details {
+  list-style: none;
+
+  p, .lastitem {
+		display: inline;
+		position: relative;
+		padding-right: $space-half;
+		text-decoration: none;
+	}
+
+  p:after {
+		content: "|";
+		position: relative;
+    right: -2.5%;
+    font-weight: normal;
+	}
+
+  >li{
+		display: inline;
+		margin-right: $space-half;
+
+		&:first-of-type p{
+			padding-left: 0;
+		}
+
+		&:first-child p:before {
+			display: none;
+		}
+
+		&:last-child p:after {
+			display: none;
+		}
+  }
+}
+
+.eu-roles, .position {
+  font-weight: bold;
+  margin-bottom: $pad;
+}
+
+.eu-roles, .work-details {
+  margin-bottom: $space-half;
+}
+
+.work-details {
+  font-size: $font-size-slightly-smaller;
+  line-height: 1.4;
+}

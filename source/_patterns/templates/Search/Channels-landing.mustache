@@ -24,9 +24,11 @@
     {{> molecules/components/search/search-form }}
     </div>
 
+    {{#content.strapline}}
     <div class="strapline">
-      {{content.strapline}}
+      {{.}}
     </div>
+    {{/content.strapline}}
   </div>
 
   {{#content.hero_config}}
@@ -107,17 +109,33 @@
 
   </div>
 </section>
+
+<section class="channel-info section">
+  {{# content }}
+    <div class="channel-intro section-divider lc">
+      <div class="about-collection" style="visibility:hidden;">
+        &nbsp;
+      </div>
+      <div class="collection-social">
+        {{> organisms/sections/social-share }}
+      </div>
+    </div>
+  {{/ content }}
+</section>
+
 {{/content.channel_info}}
 
 {{#content.carousel}}
-<section class="tumblr-feed-section">
-  <h4 class="title">{{title}}</h4>
-  <div class="mlt cf">
+<section class="tumblr-feed-section section">
+  <div class="lc">
+    <h2 class="section-title">{{title}} <a class="link-more" href="{{ tumblr_url }}">{{i18n.site.more}}</a></h2>
+  </div>
+  <div class="mlt cf lc">
     <a id="scroll-trigger-carousel"
        class="scroll-trigger"
        data-enabled="true"
        data-fire-on-open="showCarousel"
-       data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true, "minSpacingPx": 30}'
+       data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "tumblr", "svg": true, "minSpacingPx": 30}'
     ></a>
     <div class="js-carousel tumblr-feed">
       <ul class="cf">
@@ -147,7 +165,7 @@
 <div class="section news">
   <div class="lc">
 
-  <h2 class="section-title">{{content.channel_info.name}} {{i18n.site.news}} <a class="link-more" href="{{ blogurl }}">{{i18n.site.more}}</a></h2>
+  <h2 class="section-title">{{i18n.site.news}} <a class="link-more" href="{{ blogurl }}">{{i18n.site.more}}</a></h2>
 
   <ul class="cf">
     {{#items}}<li class="news-item">{{> molecules/blocks/link-block-image}}</li>{{/items}}
@@ -156,11 +174,6 @@
 </div>
 {{/content.news}}
 
-
-{{# content.social }}
-{{> organisms/sections/social-share }}
-{{/ content.social }}
-
 {{> organisms/sections/banner }}
 
-{{> organisms/global/footer }}
+{{> organisms/global/footer_v2 }}

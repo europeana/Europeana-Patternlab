@@ -82,6 +82,10 @@
                       "text": "Music"
                     },
                     {
+                      "url": "fashion",
+                      "text": "Fashion"
+                    },
+                    {
                       "url": "art-history",
                       "text": "Art History"
                     }
@@ -458,7 +462,7 @@
               "pinterest": true,
               "googleplus": true
             },
-            "othersites": {
+            "XXXX_othersites": {
                 "title": "Explore Europeana",
                 "styleModifier": "inline-list",
                 "items": [
@@ -664,7 +668,8 @@
                     "more":"More",
                     "less":"Less",
                     "more_adv":"Advanced Filters",
-                    "less_adv":"Less Refinements"
+                    "less_adv":"Less Refinements",
+                    "count-and-terms-with-range": "1 - X of 2,283,391 results"
                 }
             },
             "settings":{

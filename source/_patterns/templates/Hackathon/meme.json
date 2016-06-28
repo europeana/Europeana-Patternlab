@@ -1,0 +1,53 @@
+{
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-hackathon"
+    }
+  ],
+  "head_links":
+  {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/mosaic/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "navigation":
+  {
+    "home_url": "www.europeana.eu",
+    "home_text": "Return to Home",
+    "global":
+    {
+      "logo":
+      {
+        "url": "http://europeana.eu",
+        "text": "Europeana Collections"
+      },
+      "primary_nav":
+      {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Mosaic",
+            "url": "../templates-Hackathon-mosaic/templates-Hackathon-mosaic.html",
+            "submenu": false
+          },
+          {
+            "text": "Meme",
+            "url":  "../templates-Hackathon-meme/templates-Hackathon-meme.html",
+            "submenu": false
+          },
+          {
+            "text": "Gif",
+            "url": "../templates-Hackathon-gif/templates-Hackathon-gif.html",
+            "submenu": false
+          },
+          false
+        ]
+      },
+      "utility_nav": false
+    }
+  }
+}

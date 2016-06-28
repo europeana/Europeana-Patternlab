@@ -1,29 +1,42 @@
+{{#tooltip}}
+  {{#persistent}}
+    <script>
+      // Inline script expects jquery
+      function closeTooltip(el){
+//        $(el).parent().hide();
+      }
+     function openTooltip(el){
+//         $(el).next('.tooltip').show();
+      }
+    </script>
+  {{/persistent}}
 
+  {{#disabled}}
+  <div class="tooltip-container">
+    <a onclick="openTooltip(this)" {{#link_class}}class="{{.}}"{{/link_class}} {{#link_url}}href="{{.}}" target="_new"{{/link_url}}>
+      {{^icon_first}}
+        {{tooltipped_text}}
+      {{/icon_first}}{{#icon}}
+      <svg class="icon {{.}}">
+        <use xlink:href="#{{.}}"></use>
+      </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
+    </a>
+    <div class="tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}}{{^trailing}} right-aligned{{/trailing}}{{/icon_first}}{{#trailing}} trailing{{/trailing}}">
+      {{tooltip_text}}
+      {{#persistent}}
+        <a data-role="remove" onclick="closeTooltip(this)"></a>
+      {{/persistent}}
+    </div>
+  </div>
+  {{/disabled}}
 
-<a class="tooltip-container" href="#tooltip">
-
-	<svg class="icon icon-help">
-		<use xlink:href="#icon-help"></use>
-	</svg>
-
-	Tool tipped text here
-
-	<div class="tooltip" id="tooltip">
-		This is the tooltip contents > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
-	</div>
-</a>
-
-<br>
-<br>
-<br>
-
-<div class="tooltip-container">
-
-	<svg class="icon icon-help">
-		<use xlink:href="#icon-help"></use>
-	</svg>
-
-	<div class="tooltip" id="tooltip2">
-		This is the tooltip contents > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
-	</div>
-</div>
+  <a onclick="openTooltip(this)" {{#link_class}}class="tooltip-anchor {{.}}"{{/link_class}} {{^link_class}}class="tooltip-anchor"{{/link_class}} {{#link_url}}href="{{.}}"{{/link_url}}>
+    {{^icon_first}}
+      {{tooltipped_text}}
+    {{/icon_first}}{{#icon}}
+    <svg class="icon {{.}}">
+      <use xlink:href="#{{.}}"></use>
+    </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
+  </a>
+  
+{{/tooltip}}

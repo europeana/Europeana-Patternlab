@@ -13,6 +13,23 @@
     {{> organisms/virtual-exhibitions/intro-slide}}
   {{/is_intro}}
 
+  {{#is_promo}}
+    <div class="nav-to-full">
+      <a href="{{link}}">
+        <img src="{{image.full.url}}"/>
+      </a>
+      <span>{{text1}}{{#text2}}<br/>{{.}}{{/text2}}</span>
+      <a href="{{link}}">
+        <button>
+          <svg class="icon icon-eye">
+            <use xlink:href="#icon-eye"/>
+          </svg>
+          {{button_text}}
+        </button>
+      </a>
+    </div>
+  {{/is_promo}}
+
   {{#is_quote}}
     <div id="{{id}}" class="ve-base ve-base-quote {{type}} {{#is_full_section_element}}ve-full-height{{/is_full_section_element}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}>
       {{#is_full_section_element}}

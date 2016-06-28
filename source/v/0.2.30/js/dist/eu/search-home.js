@@ -1,1 +1,0 @@
-define(["jquery"],function(a){function b(a){console.log(a)}function c(){b("init home")}return{initPage:function(){c()}}});

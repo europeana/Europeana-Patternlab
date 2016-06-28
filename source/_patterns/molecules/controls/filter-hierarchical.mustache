@@ -67,7 +67,7 @@ Configuration options and content model:
 }}
 <div class="filter filter-hierarchical js-filter-hierarchical {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
-    <div class="filter-name">{{ title }}</div>
+    <div class="filter-name">{{#title}}{{.}}{{/title}}{{#tooltip}}{{>atoms/text/tooltip}}{{/tooltip}}</div>
 
     <ul class="filter-list filter-wrap">
     {{#items}}

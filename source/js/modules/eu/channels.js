@@ -12,6 +12,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             subMenusMaxWidth: null,
             subMenusMinWidth: null
         });
+
         $('#settings-menu').smartmenus({
             mainMenuSubOffsetX: -62,
             mainMenuSubOffsetY: 4,
@@ -20,6 +21,16 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             subMenusMaxWidth: null,
             subMenusMinWidth: null
         });
+
+        $('#browse-menu').smartmenus({
+            mainMenuSubOffsetX: -25,
+            mainMenuSubOffsetY: 4,
+            subMenusSubOffsetX: 0,
+            subMenusSubOffsetY: -6,
+            subMenusMaxWidth: null,
+            subMenusMinWidth: null
+        });
+
         $('.js-hack-smartmenu a').click(function(){
             var href = $(this).attr('href');
             if(href != '#'){
@@ -74,11 +85,19 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             promisedPageJS.resolve();
             break;
 
-        case 'collections/show':
-            require(['search_landing'], function(page){
+        case 'collections/show':          
+            if(window.location.href.indexOf('?q=') == -1){
+              require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
-            });
+              });
+            }
+            else{
+              require(['search_results'], function(page){
+                page.initPage();
+                promisedPageJS.resolve(page);
+              });
+            }
             break;
         case 'portal/show':
             require(['search_object'], function(page){

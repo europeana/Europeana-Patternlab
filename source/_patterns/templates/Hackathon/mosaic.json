@@ -1,0 +1,84 @@
+{
+  "js_files": [
+    {
+      "path": "../../js/dist/require.js",
+      "data_main": "../../js/dist/main/main-hackathon"
+    }
+  ],
+  "head_links":
+  {
+    "items": [{
+      "rel": "stylesheet",
+      "href": "../../css/mosaic/screen.css",
+      "media": "all",
+      "css": "true"
+    }]
+  },
+  "page_title": "Europeana Inspire",
+  "navigation":
+  {
+    "home_url": "www.europeana.eu",
+    "home_text": "Return to Home",
+    "global":
+    {
+      "logo":
+      {
+        "url": "http://europeana.eu",
+        "text": "Europeana Collections"
+      },
+      "primary_nav":
+      {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Mosaic",
+            "xxx_url": "../templates-Hackathon-mosaic/templates-Hackathon-mosaic.html",
+            "url": "#",
+            "submenu": false
+          },
+          {
+            "text": "Meme",
+            "xxx_url":  "../templates-Hackathon-meme/templates-Hackathon-meme.html",
+            "url":  "javascript:alert('we decided not to do this')",
+            "submenu": false
+          },
+          {
+            "text": "Gif",
+            "xxx_url": "../templates-Hackathon-gif/templates-Hackathon-gif.html",
+            "url":  "javascript:alert('we decided not to do this')",
+            "submenu": false
+          },
+          false
+        ]
+      },
+      "utility_nav": false
+    }
+  },
+  "heading": "Make your Mosaic",
+  "form": {
+    "XXXaction": "path/to/mosaic/rest/endpoint"
+  },
+  "gallery": {
+    "heading": "Gallery",
+    "items": [
+      {
+        "url": "/images_versionless/mosaic/output_liberty.png"
+      },
+      {
+        "url": "/images_versionless/mosaic/output_manet_2500.png"
+      },
+      {
+        "url": "/images_versionless/mosaic/output_vader.png"
+      },
+      {
+        "url": "/images_versionless/mosaic/output_monalisa.png"
+      },
+      {
+        "url": "/images_versionless/mosaic/output_milkmaid.png"
+      },
+      {
+        "url": "/images_versionless/mosaic/output_adameve.png"
+      }
+    ]
+  }
+}

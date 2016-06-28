@@ -47,9 +47,55 @@
     "input_name": "q",
     "placeholder": "Search Europeana Art History"
   },
+  "browse_menu": {
+    "menu_id": "browse-menu",
+    "style_modifier": "caret-right",
+    "items": [
+      {
+        "url": "#",
+        "text": "Browse",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "Images",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Videos",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            },
+            {
+              "text": "Sound recordings",
+              "url": "javascript:alert('sounds')",
+              "icon": "icon-music"
+            },
+            {
+              "text": "Text",
+              "url": "javascript:alert('texts')",
+              "icon": "icon-openbook"
+            },
+            {
+              "text": "3D Objects",
+              "url": "javascript:alert('3d')",
+              "icon": "icon-3d"
+            },
+            {
+              "text": "All",
+              "url": "javascript:alert('all')",
+              "icon": "icon-ellipsis"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "content": {
     "carousel": {
-      "title": "Europeana Fashion Tumblr",
+      "title": "Tumblr",
+      "tumblr_url": "javascript:alert('open tumblr page')",    
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
       "items": [

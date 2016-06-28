@@ -14,6 +14,33 @@ define(['jquery'], function($){
 
     var templates = {
 
+      "tumblr": function(data){
+
+        log('tumblr template: ' + data);
+
+        var markup = '';
+
+        $.each(data.items, function(i, item){
+
+          markup += ''
+            + '<li class="js-carousel-item">'
+            +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
+            +     '<div class="inner">'
+            +         '<a title="' + item.img.alt + '"'
+            +             ' class="link"'
+            +             ' href="'  + item.url
+            +         '">&nbsp;</a>'
+            +     '</div>'
+            +   '</div>'
+            + '</li>';
+        });
+
+        return {
+          "markup": markup,
+          "added":  data.items
+        }
+      },
+
       "mlt": function(data){
 
           log('mlt template: ' + data);
