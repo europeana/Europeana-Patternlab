@@ -1,29 +1,25 @@
 <div id="{{id}}" class="ve-intro ve-base ve-{{id}} {{type}}{{#is_featured_exhibition}} ve-base-foyer-main{{/is_featured_exhibition}}"{{#alchemy_id}} data-alchemy-element="{{.}}"{{/alchemy_id}}{{#growl_message}} data-growl-msg="{{.}}"{{/growl_message}}{{^growl_message}} data-growl-msg="Scroll down to continue"{{/growl_message}}>
+
   {{#image}}
     {{>organisms/virtual-exhibitions/main-slide-bg-style }}
     <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
-      {{#is_featured_exhibition}}
-        {{#link}}
-          <a href="{{.}}">
-        {{/link}}
-      {{/is_featured_exhibition}}
-      <picture class="ve-intro-image">
+    
+    <picture class="ve-intro-image">
+      {{#is_featured_exhibition}}{{#link}}<a href="{{.}}">{{/link}}{{/is_featured_exhibition}}
         {{>atoms/images/responsive-srcset-picture}}
-        {{#image_credit}}
-          <div class="ve-image-credit">
-           {{>molecules/text/attribution}}
-          </div>
-        {{/image_credit}}
-      </picture>
-      {{#is_featured_exhibition}}
-        {{#link}}
-          </a>
-        {{/link}}
-      {{/is_featured_exhibition}}
+      {{#is_featured_exhibition}}{{#link}}</a>{{/link}}{{/is_featured_exhibition}}
+
+      {{#image_credit}}
+        <div class="ve-image-credit">
+         {{>molecules/text/attribution}}
+        </div>
+      {{/image_credit}}
+    </picture>
+    
   {{/image}}
 </div>
+<div class="ve-base ve-base-intro-texts">
 
-<div class="ve-base ve-base-intro-texts{{#is_featured_exhibition}}{{#link}} clickable{{/link}}{{/is_featured_exhibition}}"{{#is_featured_exhibition}}{{#link}} onclick="javascript:window.location='{{.}}'"{{/link}}{{/is_featured_exhibition}}>
   {{#image_credit}}
     <div class="ve-image-credit">
      {{>molecules/text/attribution}}
@@ -32,14 +28,18 @@
 
   <div class="ve-title-group{{#title}} has-title{{/title}}{{#subtitle}} has-subtitle{{/subtitle}}">
     {{#title}}
-      <span class="ve-title">
-        {{.}}
-      </span>
+      {{#is_featured_exhibition}}{{#link}}<a href="{{.}}">{{/link}}{{/is_featured_exhibition}}
+        <span class="ve-title">
+          {{.}}
+        </span>
+      {{#is_featured_exhibition}}{{#link}}</a>{{/link}}{{/is_featured_exhibition}}
     {{/title}}
     {{#subtitle}}
-      <span class="ve-subtitle">
-        {{{.}}}
-      </span>
+      {{#is_featured_exhibition}}{{#link}}<a href="{{.}}">{{/link}}{{/is_featured_exhibition}}
+        <span class="ve-subtitle">
+          {{{.}}}
+        </span>
+      {{#is_featured_exhibition}}{{#link}}</a>{{/link}}{{/is_featured_exhibition}}
     {{/subtitle}}
   </div>
 
