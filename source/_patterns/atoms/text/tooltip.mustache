@@ -30,7 +30,7 @@
   </div>
   {{/disabled}}
 
-  <a onclick="openTooltip(this)" {{#link_class}}class="{{.}}"{{/link_class}} {{#link_url}}href="{{.}}" target="_new"{{/link_url}}>
+  <a onclick="openTooltip(this)" {{#link_class}}class="tooltip-anchor {{.}}"{{/link_class}} {{^link_class}}class="tooltip-anchor"{{/link_class}} {{#link_url}}href="{{.}}"{{/link_url}}>
     {{^icon_first}}
       {{tooltipped_text}}
     {{/icon_first}}{{#icon}}
