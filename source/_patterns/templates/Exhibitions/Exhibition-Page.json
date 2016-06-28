@@ -273,6 +273,17 @@
                 "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               }
             },
+            "image_1_credit": {
+              "attribution_title": "Two people",
+              "attribution_creator": "Vermeer",
+              "attribution_institution": "Rijksmuseum",
+              "attribution_url": "rijksmuseum.nl",
+              "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "license_text": "CC BY-SA",
+              
+              "country_code": "NL",
+              "country": "Netherlands"
+            },
             "image_2":
             {
               "full": {
@@ -299,8 +310,18 @@
               "thumbnailx2": {
                 "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half-bw.png"
               }
+            },
+            "image_2_credit": {
+              "attribution_title": "Three people",
+              "attribution_creator": "Vermeer",
+              "attribution_institution": "Rijksmuseum",
+              "attribution_url": "rijksmuseum.nl",
+              "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "license_text": "CC BY-SA",
+              
+              "country_code": "NL",
+              "country": "Netherlands"
             }
-
         },
         {
             "id": "x0_2",

@@ -10,6 +10,14 @@
       </div>
     {{/image_2}}
     <span class="handle"></span>
+    <span class="attribution-text">
+      {{#image_1_credit}}
+        (left) {{#attribution_title}}{{.}}, {{/attribution_title}}{{#attribution_creator}}{{.}}, {{/attribution_creator}}{{#attribution_url}}<a href="{{.}}">{{/attribution_url}}{{attribution_institution}}{{#attribution_url}}</a>, {{/attribution_url}}{{#attribution_institution}}{{^attribution_url}}, {{/attribution_url}}{{/attribution_institution}}{{license_text}}
+      {{/image_1_credit}}
+      |
+      {{#image_2_credit}}
+        (right) {{#attribution_title}}{{.}}, {{/attribution_title}}{{#attribution_creator}}{{.}}, {{/attribution_creator}}{{#attribution_url}}<a href="{{.}}">{{/attribution_url}}{{attribution_institution}}{{#attribution_url}}</a>, {{/attribution_url}}{{#attribution_institution}}{{^attribution_url}}, {{/attribution_url}}{{/attribution_institution}}{{license_text}}
+      {{/image_2_credit}}
+    </span>
   </figure>
 </div>
-
