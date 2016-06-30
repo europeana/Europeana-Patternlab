@@ -170,6 +170,21 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         }
     };
 
+    var loadClosedTooltips = function(){
+      return (typeof(Storage) == 'undefined') ? null : JSON.parse(localStorage.getItem('eu_portal_closed_tooltips'));
+    };
+
+    var saveClosedTooltips = function(tooltip){
+      if(typeof(Storage) != 'undefined') {
+        var current = loadClosedTooltips();
+        if(!current){
+          current = { "tooltips": {} };
+        }
+        current['tooltips'][tooltip] = true;
+        localStorage.setItem('eu_portal_closed_tooltips', JSON.stringify(current));
+      }
+    };
+
     var updateViewParamInLinks = function(param){
 
       var updateUrl = function($anchor){
@@ -290,11 +305,34 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
     }
 
+    var configureTooltips = function(){
+
+      // hide anything previously seen and closed
+      var closedTooltips = loadClosedTooltips();
+      if(closedTooltips){
+        for (var tooltip_id in closedTooltips['tooltips']) {
+          $("[data-tooltip-id='" + tooltip_id + "']").closest('.tooltip-container').remove();
+        }
+      }
+
+      // bind close event to local storage
+      $('.tooltip-container [data-role="remove"]').on('click', function(){
+        var id = $(this).closest('.tooltip-container').find('.tooltip-anchor').data('tooltip-id');
+        $(this).parent().hide();
+        saveClosedTooltips(id);
+      });
+
+      $('.tooltip-container .tooltip-anchor').on('click', function(){
+        $(this).next('.tooltip').show();
+      });
+    }
+
     var initPage = function(){
       bindViewButtons();
       bindResultSizeLinks();
       bindGA();
-
+      configureTooltips();
+      
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
          var name  = $('.breadcrumbs').data('store-channel-name');

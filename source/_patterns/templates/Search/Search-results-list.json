@@ -337,6 +337,7 @@
       "tooltip":{
         "tooltipped_text": "Can I use it?",
         "tooltip_text": "You can now filter your search on specific license",
+        "tooltip_id": "license-filter",
         "persistent": true,
         "icon": "icon-help",
         "icon_first": false,
@@ -638,6 +639,7 @@
       "tooltip":{
         "tooltipped_text": false,
         "tooltip_text": "Have you seen the new grid layout?",
+        "tooltip_id": "new-grid-layout",
         "persistent": true,
         "link_class": "filter-name"
       }
