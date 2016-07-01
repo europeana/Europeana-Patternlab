@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
+define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
 
     ga = window.fixGA(ga);
 
@@ -541,49 +541,54 @@ define(['jquery', 'util_scrollEvents', 'ga', 'util_foldable', 'blacklight', 'med
 
 
     function initPage(){
-        bindAnalyticsEvents();
-        bindAttributionToggle();
-        updateTechData({target:$('.single-item-thumb a')[0]});
+      bindAnalyticsEvents();
+      bindAttributionToggle();
+      updateTechData({target:$('.single-item-thumb a')[0]});
 
 
-        // set preferred search
+      // set preferred search
+      var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
+      if(preferredResultCount){
+        $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
+      }
 
-        var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
-        if(preferredResultCount){
-            $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
-        }
+      // event binding
 
-        // event binding
+      $(window).bind('showMLT', function(e, data){
+        showMLT(data);
+      });
 
-        $(window).bind('showMLT', function(e, data){
-            showMLT(data);
+      $(window).bind('showMediaThumbs', function(e, data){
+        showMediaThumbs(data);
+      });
+
+      $(window).bind('showMap', function(e, data){
+        showMap(data);
+      });
+
+      $(window).bind('showHierarchy', function(e, data){
+        showHierarchy(data);
+      });
+
+      $(window).bind('updateTechData', function(e, data){
+        updateTechData({target:$(data.selector)[0]});
+      });
+
+      $('.media-viewer').trigger('media_init');
+
+      $('.single-item-thumb [data-type="oembed"]').trigger('click');
+      $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
+
+      $('.single-item-thumb [data-type="iiif"]').trigger('click');
+      $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
+
+      if($('#feedback').size()>0){
+        require(['feedback'], function(fb){
+          fb.init($('#feedback'));
         });
+      }
 
-        $(window).bind('showMediaThumbs', function(e, data){
-            showMediaThumbs(data);
-        });
-
-        $(window).bind('showMap', function(e, data){
-            showMap(data);
-        });
-
-        $(window).bind('showHierarchy', function(e, data){
-            showHierarchy(data);
-        });
-
-        $(window).bind('updateTechData', function(e, data){
-            updateTechData({target:$(data.selector)[0]});
-        });
-
-        $('.media-viewer').trigger('media_init');
-
-        $('.single-item-thumb [data-type="oembed"]').trigger('click');
-        $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
-
-        $('.single-item-thumb [data-type="iiif"]').trigger('click');
-        $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
-
-        scrollEvents.fireAllVisible();
+      scrollEvents.fireAllVisible();
     };
 
     return {

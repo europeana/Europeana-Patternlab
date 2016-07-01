@@ -700,6 +700,24 @@
                 "reusability": "Can I use this?"
               }
             },
+            "feedback":{
+    
+              "open": "feedback",
+              "close": "close",              
+              "title": "feedback",
+              "placeholder": "We want to hear from you! Enter your feedback here.",
+              "submit": "send",
+              "thanks": {
+                "short": "Thank You!",
+                "long": "Thank you for helping the Library."
+              },
+              "type": {
+                "comment": "comment",
+                "correction": "correction",
+                "bug": "bug"
+              }
+              
+            },
             "find-us-elsewhere": "Find us elsewhere",
             "header": {
               "discover": "Discover",
