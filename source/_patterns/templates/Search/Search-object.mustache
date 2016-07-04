@@ -283,7 +283,7 @@
                       </ul>
                     {{/places}}
 
-                    {{#geo.long_and_lat}}	{{! check both present }}
+                    {{#geo.long_and_lat}} {{! check both present }}
                       <a class="scroll-trigger"
                          id="scroll-trigger-map"
                          data-enabled="true"
@@ -324,10 +324,12 @@
               {{^institution_name_and_link}}
                 {{#institution_name}}
                   {{{ i18n.site.object.meta-label.provided-by-detail-no-link }}}
-                  <a href="{{institution_canned_search}}"
-                     property="cc:attributionName"
-                     rel="cc:attributionURL"
-                     href="the edm isShownAt">{{institution_name}}</a>
+                  {{#disabled}}
+                    <a href="{{institution_canned_search}}"
+                       property="cc:attributionName"
+                       rel="cc:attributionURL">{{institution_name}}</a>
+                  {{/disabled}}
+                  {{institution_name}}
                   <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
                 {{/institution_name}}
               {{/institution_name_and_link}}
@@ -379,7 +381,7 @@
             <div class="hierarchy cf">
               <div class="subsection-label">
                {{i18n.site.object.hierarchy.title}}
-                <a	class="scroll-trigger"
+                <a class="scroll-trigger"
                     data-enabled="true"
                     data-fire-on-open="showHierarchy"
                     data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
