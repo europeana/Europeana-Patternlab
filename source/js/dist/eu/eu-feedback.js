@@ -47,9 +47,7 @@ define(['jquery'], function($){
         "text": text.val(),
         "page": window.location.href
       }
-      
-      alert('url = ' + url)
-      
+
       $.ajax({
         //headers: {"Content-Type": undefined },
         url : url,
