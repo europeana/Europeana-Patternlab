@@ -69,6 +69,9 @@ require.config({
     NOFremote:                     '../lib/904Labs/noflogging-0.2.min',
 //    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',
 
+    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
+
+
     pdfjs:                         '../lib/pdfjs/pdf',
     pdf_ui:                        '../lib/pdfjs/pdf-ui',
     pdf_lang:                      '../lib/pdfjs/l10n',
@@ -106,6 +109,7 @@ require.config({
     featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
+    optimizely:     ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
@@ -126,70 +130,65 @@ window.fixGA = function(ga){
   return ga;
 }
 
-require(['jquery'], function( $ ) {
+require(['jquery', 'optimizely'], function( $ ) {
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
-
-
-  require(['channels', 'global'], function(channels) {
-
+    require(['channels', 'global'], function(channels) {
       $.holdReady(false);
-
       $('html').addClass('styled');
 
       require(["ga"], function(ga) {
-    	  ga = window.fixGA(ga);
-
-          channels.getPromisedPageJS().done(function(page){
-              if(page && typeof page.getAnalyticsData != 'undefined'){
-                var analyticsData = page.getAnalyticsData();
-                for(var i=0; i<analyticsData.length; i++){
-                  if(analyticsData[i].name != 'undefined'){
-                    ga('set', analyticsData[i].dimension, analyticsData[i].name);
-                  }
-                }
+        ga = window.fixGA(ga);
+        channels.getPromisedPageJS().done(function(page){
+          if(page && typeof page.getAnalyticsData != 'undefined'){
+            var analyticsData = page.getAnalyticsData();
+            for(var i=0; i<analyticsData.length; i++){
+              if(analyticsData[i].name != 'undefined'){
+                ga('set', analyticsData[i].dimension, analyticsData[i].name);
               }
-              ga("send", "pageview");
-          });
+            }
+          }
+          ga("send", "pageview");
+        });
       });
 
       // is this a test site?
       var href = window.location.href;
       if(href.indexOf('europeana.eu') > -1){
-          require(['hotjar'], function() {});
+        require(['hotjar'], function() {});
       }
 
       if($('.pinit').length > 0){
-          require(['pinterest'], function() {
-              channels.getPromisedPageJS().done(function(page){
-                  if(page && typeof page.getPinterestData != 'undefined'){
-                      var data = page.getPinterestData();
-                      if(data){
-                          var pinOneButton = $('.pinit');
-                          pinOneButton.on('click', function() {
-                              if($('.tmp-pinterest').size()==0){
-                                  $('body').append('<div id="tmp-pinterest-container" style="width:0px; overflow:hidden;">');
-                                  $('.object-media-nav .mlt-img-div').each(function(i, ob){
-                                      var url = $(ob).css('background-image').replace('url(','').replace(')','');
-                                      if(url != 'none'){
-                                          $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
-                                      }
-                                  });
-                              }
-                              if($('.tmp-pinterest').size()==0){
-                                  PinUtils.pinOne({
-                                     media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
-                                     description: data.desc ? data.desc : 'Europeana Record'
-                                  });
-                              }
-                              else{
-                                  PinUtils.pinAny();
-                              }
-                          });
+        require(['pinterest'], function() {
+          channels.getPromisedPageJS().done(function(page){
+            if(page && typeof page.getPinterestData != 'undefined'){
+              var data = page.getPinterestData();
+              if(data){
+                var pinOneButton = $('.pinit');
+                pinOneButton.on('click', function() {
+                  if($('.tmp-pinterest').size()==0){
+                    $('body').append('<div id="tmp-pinterest-container" style="width:0px; overflow:hidden;">');
+                    $('.object-media-nav .mlt-img-div').each(function(i, ob){
+                      var url = $(ob).css('background-image').replace('url(','').replace(')','');
+                      if(url != 'none'){
+                        $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
                       }
+                    });
                   }
-              });
+                  if($('.tmp-pinterest').size()==0){
+                    PinUtils.pinOne({
+                      media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
+                      description: data.desc ? data.desc : 'Europeana Record'
+                    });
+                  }
+                  else{
+                    PinUtils.pinAny();
+                  }
+                });
+              }
+            }
           });
+        });
       }
 
       /*
