@@ -1,12 +1,12 @@
 @import "../../../../sass/scss/generic/variables";
 
-#feedback {
+.feedback {
   background: white none repeat scroll 0 0;
   bottom: 0;
   font-size: 16px;
   position: fixed;
   transition: all 0.2s ease-out 0s; 
-  z-index: 1;
+  z-index: 2;
 
   @media all and (max-width: $bp-med) {
     top: 100%;
@@ -17,7 +17,7 @@
   }
   
   @media all and (min-width: $bp-med) {
-    border-color: #514e49 -moz-use-text-color #514e49 #514e49;
+    border-color: $gray-med transparent $gray-med $gray-med;
     border-style: solid none solid solid;
     border-width: 1px medium 1px 1px;
     right: 0;
@@ -34,7 +34,12 @@
     }
   }
 
+  .feedback-title{
+    text-transform: capitalize;
+  }
+
   .feedback-toggle {
+    box-shadow: 0 0 3px #fff;
     color: #fff;
     position: absolute;
     left: 0;
@@ -55,15 +60,10 @@
     a {
       border: 0 none;
       cursor: pointer;
-      
       display: none;
-    
       position: relative;
-      
       text-align: center;
-      text-decoration: none;
-      
-      transition: background-color 0.1s ease-in-out 0s;
+      text-decoration: none;      
       vertical-align: middle;
   
       &.visible {
@@ -86,7 +86,14 @@
     margin: 1em;
     .controls.step1{
       text-align: right;
-    }  
+    }
+    
+    .step2,
+    .feedback-error{
+      display: none;
+      margin-top: $space;
+    }
+
     .feedback-counter {
       border-color:  #908b85 #908b85;
       border-style:  none solid solid;
@@ -100,6 +107,9 @@
       top:           -2px;
     }
 
+    .feedback-error{
+      color: red;
+    }
     .feedback-counter,
     .feedback-text{
        &.error{

@@ -701,9 +701,9 @@
               }
             },
             "feedback":{
-    
               "open": "feedback",
-              "close": "close",              
+              "close": "close",
+              "error": "An error occurred - please try again later",
               "title": "feedback",
               "placeholder": "We want to hear from you! Enter your feedback here.",
               "submit": "send",

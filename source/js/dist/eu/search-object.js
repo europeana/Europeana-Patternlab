@@ -582,9 +582,9 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       $('.single-item-thumb [data-type="iiif"]').trigger('click');
       $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
 
-      if($('#feedback').size()>0){
+      if($('.feedback').size()>0){
         require(['feedback'], function(fb){
-          fb.init($('#feedback'));
+          fb.init($('.feedback'));
         });
       }
 

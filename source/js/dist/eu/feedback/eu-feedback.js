@@ -20,16 +20,17 @@ define(['jquery'], function($){
     open.on('click', function(){
       el.addClass('open');
       close.addClass('visible');
-      open.removeClass('visible');      
+      open.removeClass('visible');
     });
     
     close.on('click', function(){
       el.removeClass('open');
-      open.addClass('visible');      
+      open.addClass('visible');
       close.removeClass('visible');
-      
-      el.find('.step1').show();
-      el.find('.step2').hide();
+      log('delay');
+      el.find('.step1').delay(200).show(0);
+      el.find('.step2').delay(200).hide(0);
+      el.find('.feedback-error').delay(200).hide(0);
     });
 
     submit.on('click', function(){
@@ -62,10 +63,22 @@ define(['jquery'], function($){
           text.val('');
         },
         error : function(data){
-          log('how to handle errors???');
+          /*
+          spinner.hide();
+          el.find('.step1').hide();
+          el.find('.step2').show();
+          text.val('');
+return;     
+*/     
+          
+          
           setTimeout(function(){
+            el.find('.feedback-error').show();
+            el.find('.step1').hide();
             spinner.hide();
           }, 2000);
+          
+          
         }
       });
     });
