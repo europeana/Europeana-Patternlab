@@ -26,7 +26,7 @@ require.config({
     eu_carousel_appender:          '../eu/eu-carousel-appender',
     eu_hierarchy:                  '../eu/eu-hierarchy',
     featureDetect:                 '../global/feature-detect',
-    feedback:                      '../eu/eu-feedback',
+    feedback:                      '../eu/feedback/eu-feedback',
     flac:                          '../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
