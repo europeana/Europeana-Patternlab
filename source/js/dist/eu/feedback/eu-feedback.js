@@ -6,7 +6,7 @@ define(['jquery'], function($){
     console.log('eu-feedback: ' + msg);
   };
 
-  var EuFeedback = function(el){
+  var EuFeedback = function(el, ops){
     
     var open      = el.find('.feedback-toggle .open');
     var close     = el.find('.feedback-toggle .close'); 
@@ -14,8 +14,9 @@ define(['jquery'], function($){
     var spinner   = el.find('.feedback-spinner'); 
     var submit    = el.find('.feedback-send'); 
     var text      = el.find('.feedback-text');
-    
     var maxlength = 0;
+    
+    ops = ops ? ops : {};
 
     open.on('click', function(){
       el.addClass('open');
@@ -49,8 +50,10 @@ define(['jquery'], function($){
         "page": window.location.href
       }
 
+      alert($('meta[name="csrf-token"]').attr('content'));
       $.ajax({
         //headers: {"Content-Type": undefined },
+        beforeSend: ops.beforeSend ? ops.beforeSend : null,
         url : url,
         type : 'POST',
         data: data,
@@ -94,8 +97,8 @@ return;
     })
   }
   return {
-    init : function(el){
-      new EuFeedback(el);
+    init : function(el, ops){
+      new EuFeedback(el, ops);
     }
   }
 });
