@@ -584,7 +584,9 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
 
       if($('.feedback').size()>0){
         require(['feedback'], function(fb){
-          fb.init($('.feedback'));
+          fb.init($('.feedback'), { beforeSend: function(xhr) {
+            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+          }});
         });
       }
 
