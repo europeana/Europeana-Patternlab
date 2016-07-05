@@ -1,0 +1,1 @@
+require.config({paths:{feedback:"../eu/feedback/eu-feedback",jquery:"../lib/jquery"}}),require(["jquery"],function(a){require(["feedback"],function(b){b.init(a(".feedback"))})});

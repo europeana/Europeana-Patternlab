@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hierarchy API Dummy Server Test</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('#submit').click(function(){
+
+        var id  = $('#id').val();
+
+        if(!id.length){
+          $('#id').css('border', '1px solid red');
+          return;
+        }
+        $('#id').css('border', '1px solid #999');
+
+        var act = $("input[type='radio'][name='action']:checked").val();
+        var url = id + '/' + act;
+
+        $.getJSON( url, null, function( data ) {
+          $('#result').html('<pre>' + JSON.stringify(data, undefined, 2) + '</pre>');
+        })
+        .fail(function(msg){
+          console.log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+        });
+      });
+
+      $('#id').on('keypress', function(e) {
+
+          if (e.which == 13) {
+              e.preventDefault();
+              $('#submit').click();
+          }
+      });
+
+      $('#id').focus();
+    });
+  </script>
+
+  <input type="text"   id="id"/>
+  <input type="button" id="submit"/>
+
+  <br/>
+  <input type="radio" id="r1" name="action" value="self.json" checked="checked"><label for="r1">self</label>
+  <br>
+  <input type="radio" id="r2" name="action" value="children.json"><label for="r2">children</label>
+  <br>
+  <input type="radio" id="r3" name="action" value="following-siblings.json"><label for="r3">following</label>
+  <br>
+  <input type="radio" id="r4" name="action" value="preceeding-siblings.json"><label for="r4">preceding</label>
+  <br>
+  <input type="radio" id="r5" name="action" value="ancestor-self-siblings.json"><label for="r5">startup</label>
+
+  <div id="result" style="display:block; width:100%; border:1px solid #000; margin-top:1em;"></div>
+
+</body>
+
+</html>
+
+
+
