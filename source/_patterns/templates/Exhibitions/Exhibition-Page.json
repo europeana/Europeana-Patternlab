@@ -249,10 +249,10 @@
             "is_image_compare": true,
             "image_1": {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "half": {
                 "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
@@ -280,7 +280,6 @@
               "attribution_url": "rijksmuseum.nl",
               "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
               "license_text": "CC BY-SA",
-              
               "country_code": "NL",
               "country": "Netherlands"
             },
@@ -318,7 +317,7 @@
               "attribution_url": "rijksmuseum.nl",
               "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
               "license_text": "CC BY-SA",
-              
+
               "country_code": "NL",
               "country": "Netherlands"
             }

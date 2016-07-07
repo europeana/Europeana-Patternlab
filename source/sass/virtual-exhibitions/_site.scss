@@ -189,6 +189,10 @@
 }
 
 
+.ve-base-compare{
+  width:    100%;
+}
+
 .ve-base-quote,
 .ve-base-text,
 .ve-title-group{
@@ -610,6 +614,9 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .ve-base-compare{
+    margin: auto;
+  }
   .ve-base-image{
     margin: auto;
     &.portrait{
@@ -739,6 +746,9 @@ a:hover > .ve-state-button-off,
       width:     auto;
   }
 
+  .ve-base-compare{
+      max-width: $ve_text_column_width_XL_padded;
+  }
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width;
@@ -815,6 +825,9 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .ve-base-compare{
+    max-width: $ve_text_column_width_XL_padded;
+  }
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;
