@@ -55,13 +55,10 @@ define(['jquery'], function($){
 
 
       $.ajax({
-        //headers: {"Content-Type": undefined },
         beforeSend: ops.beforeSend ? ops.beforeSend : null,
         url : url,
         type : 'POST',
         data: data,
-        //processData: false,
-        //contentType: false,
         success : function(data){
           spinner.hide();
           el.find('.step1').hide();
@@ -69,22 +66,11 @@ define(['jquery'], function($){
           text.val('');
         },
         error : function(data){
-          /*
-          spinner.hide();
-          el.find('.step1').hide();
-          el.find('.step2').show();
-          text.val('');
-return;
-*/
-
-
           setTimeout(function(){
             el.find('.feedback-error').show();
             el.find('.step1').hide();
             spinner.hide();
           }, 2000);
-
-
         }
       });
     });
