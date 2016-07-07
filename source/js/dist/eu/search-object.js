@@ -582,14 +582,6 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       $('.single-item-thumb [data-type="iiif"]').trigger('click');
       $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
 
-      if($('.feedback').size()>0){
-        require(['feedback'], function(fb){
-          fb.init($('.feedback'), { beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
-          }});
-        });
-      }
-
       scrollEvents.fireAllVisible();
     };
 

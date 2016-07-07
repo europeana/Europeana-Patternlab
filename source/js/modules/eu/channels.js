@@ -50,7 +50,59 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             window.location.href = window.location.href.split('?')[0] + param;
         })
     }
+    
+    var loadClosedTooltips = function(){
+      return (typeof(Storage) == 'undefined') ? null : JSON.parse(localStorage.getItem('eu_portal_closed_tooltips'));
+    };
 
+    var saveClosedTooltips = function(tooltip){
+      if(typeof(Storage) != 'undefined') {
+        var current = loadClosedTooltips();
+        if(!current){
+          current = { "tooltips": {} };
+        }
+        current['tooltips'][tooltip] = true;
+        localStorage.setItem('eu_portal_closed_tooltips', JSON.stringify(current));
+      }
+    };
+
+    var configureTooltips = function(){
+      
+      // hide anything previously seen and closed
+      var closedTooltips = loadClosedTooltips();
+      if(closedTooltips){
+        for (var tooltip_id in closedTooltips['tooltips']) {
+          $("[data-tooltip-id='" + tooltip_id + "']").closest('.tooltip-container').remove();
+        }
+      }
+
+      // bind close event to local storage
+      $('.tooltip-container [data-role="remove"]').on('click', function(){
+        var id = $(this).closest('.tooltip-container').find('.tooltip-anchor').data('tooltip-id');
+        $(this).parent().hide();
+        saveClosedTooltips(id);
+      });
+
+      $('.tooltip-container .tooltip-anchor').on('click', function(){
+        $(this).next('.tooltip').show();
+      });
+    }
+    
+    var initFeedback = function(){
+      if($('.feedback').size()>0){
+        require(['feedback'], function(fb){
+          fb.init($('.feedback'), { beforeSend: function(xhr) {
+            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+          }});
+        });
+      }  
+    }
+    
+    var doForAllPages = function(){
+      initCollectionsFilter();
+      configureTooltips();
+      initFeedback();
+    }
 
     if(typeof pageName == 'undefined' || !pageName){
         console.warn('pageName not specified - cannot bootstrap app');
@@ -60,29 +112,29 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
 
     switch(pageName){
         case 'browse/people':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/colours':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/topics':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/new_content':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/sources':
             require(['util_foldable']);
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'collections/show':          
@@ -90,12 +142,14 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
               require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
               });
             }
             else{
               require(['search_results'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
               });
             }
             break;
@@ -103,28 +157,33 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             require(['search_object'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'portal/index':
             require(['search_results'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'portal/static':
             require(['util_foldable']);
             promisedPageJS.resolve();
+            doForAllPages();
             break;
         case 'home/index':
             require(['search_home'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'settings/language':
             require(['settings'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         default:
