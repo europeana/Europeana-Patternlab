@@ -55,7 +55,10 @@
   
     a{
       color: $white;
-      letter-spacing: 0.1em;
+      &:hover{
+        border-bottom: 1px dotted #fff;
+      }
+      //letter-spacing: 0.1em;
     }
   
     & a[data-role="remove"] {
@@ -70,7 +73,7 @@
         &:after {
             content: "✕";
             vertical-align: baseline;
-            padding: 0px 2px;
+            padding: 0px 3px;
         }
     }
   
