@@ -5,7 +5,6 @@
   bottom: 0;
   font-size: 16px;
   position: fixed;
-  transition: all 0.2s ease-out 0s; 
   z-index: 2;
 
   @media all and (max-width: $bp-med) {
@@ -23,7 +22,9 @@
     right: 0;
     transform: translateX(100%);
   }
-  
+  &.loaded{
+    transition: all 0.2s ease-out 0s;
+  }
   &.open{
     @media all and (max-width: $bp-med) {
       top: auto;
@@ -66,7 +67,7 @@
       text-decoration: none;      
       vertical-align: middle;
   
-      &.visible {
+      &.open {
         display: block;
       }
       @media all and (max-width: $bp-med) {

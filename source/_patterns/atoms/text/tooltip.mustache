@@ -1,6 +1,6 @@
 {{#tooltip}}
-  <div class="persistent-tooltip-container">
-    <a {{#link_class}}class="tooltip-anchor {{.}}"{{/link_class}}{{^link_class}} class="tooltip-anchor" {{/link_class}}{{#link_url}}href="{{.}}" {{/link_url}}{{#tooltip_id}}data-tooltip-id="{{.}}"{{/tooltip_id}}>
+  <div class="eu-tooltip-container">
+    <a {{#link_class}}class="eu-tooltip-anchor {{.}}"{{/link_class}}{{^link_class}} class="eu-tooltip-anchor" {{/link_class}}{{#link_url}}href="{{.}}" {{/link_url}}{{#tooltip_id}}data-tooltip-id="{{.}}"{{/tooltip_id}}>
       {{^icon_first}}
         {{tooltipped_text}}
       {{/icon_first}}{{#icon}}
@@ -8,7 +8,7 @@
         <use xlink:href="#{{.}}"></use>
       </svg>{{/icon}}{{#icon_first}}{{tooltipped_text}}{{/icon_first}}
     </a>
-    <div class="tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}}{{^trailing}} right-aligned{{/trailing}}{{/icon_first}}{{#trailing}} trailing{{/trailing}}">
+    <div class="eu-tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}}{{^trailing}} right-aligned{{/trailing}}{{/icon_first}}{{#trailing}} trailing{{/trailing}}">
       {{tooltip_text}}
       {{#persistent}}
         <a data-role="remove"></a>

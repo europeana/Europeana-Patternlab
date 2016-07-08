@@ -1,13 +1,8 @@
 {
-  "XXXXXXXXi18n": {
-    "global": {
-      "javascript_required": "To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video"
-    }
-  },
   "js_files": [
     {
       "path": "/js/dist/require.js",
-      "data_main": "/js/dist/main/main-feedback-molecule.js"
+      "data_main": "/js/dist/main/molecules/main-feedback-molecule.js"
     }],
   "feedback":{
     "form_action": "should-be-present",

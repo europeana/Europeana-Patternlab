@@ -1,6 +1,9 @@
 define(['jquery', 'search_form', 'smartmenus'], function () {
 
     var promisedPageJS = jQuery.Deferred();
+    var log = function(msg){
+      console.log('Channels: ' + msg);
+    }
 
     require(['smartmenus_keyboard'], function(){
 
@@ -50,44 +53,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             window.location.href = window.location.href.split('?')[0] + param;
         })
     }
-    
-    var loadClosedTooltips = function(){
-      return (typeof(Storage) == 'undefined') ? null : JSON.parse(localStorage.getItem('eu_portal_closed_tooltips'));
-    };
 
-    var saveClosedTooltips = function(tooltip){
-      if(typeof(Storage) != 'undefined') {
-        var current = loadClosedTooltips();
-        if(!current){
-          current = { "tooltips": {} };
-        }
-        current['tooltips'][tooltip] = true;
-        localStorage.setItem('eu_portal_closed_tooltips', JSON.stringify(current));
-      }
-    };
-
-    var configureTooltips = function(){
-      
-      // hide anything previously seen and closed
-      var closedTooltips = loadClosedTooltips();
-      if(closedTooltips){
-        for (var tooltip_id in closedTooltips['tooltips']) {
-          $("[data-tooltip-id='" + tooltip_id + "']").closest('.tooltip-container').remove();
-        }
-      }
-
-      // bind close event to local storage
-      $('.tooltip-container [data-role="remove"]').on('click', function(){
-        var id = $(this).closest('.tooltip-container').find('.tooltip-anchor').data('tooltip-id');
-        $(this).parent().hide();
-        saveClosedTooltips(id);
-      });
-
-      $('.tooltip-container .tooltip-anchor').on('click', function(){
-        $(this).next('.tooltip').show();
-      });
-    }
-    
     var initFeedback = function(){
       if($('.feedback').size()>0){
         require(['feedback'], function(fb){
@@ -100,7 +66,12 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
     
     var doForAllPages = function(){
       initCollectionsFilter();
-      configureTooltips();
+      
+      if($('.eu-tooltip').size()>0){
+        require(['eu_tooltip'], function(euTooltip){
+          euTooltip.configure();
+        });
+      }
       initFeedback();
     }
 

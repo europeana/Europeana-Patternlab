@@ -90,14 +90,14 @@
   right:      125px;
   top:        4em;
 
-  .tooltip-container{
+  .eu-tooltip-container{
     top:   -3.5em;
     width: 300px;
   }
 }
 
-.refine .tooltip{
-  transform: translateX(-2.2em);
+.refine .eu-tooltip{
+  transform: translate(-0.8em, -1.1em);
 }
 
 .action-select,

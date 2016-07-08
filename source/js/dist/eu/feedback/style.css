@@ -7,7 +7,6 @@
   bottom: 0;
   font-size: 16px;
   position: fixed;
-  transition: all 0.2s ease-out 0s;
   z-index: 2;
 }
 @media all and (max-width: 50em) {
@@ -16,7 +15,7 @@
     top: 100%;
     width: 100%;
   }
-  /* line 14, style.scss */
+  /* line 13, style.scss */
   .feedback .icon-next {
     display: none;
   }
@@ -31,23 +30,27 @@
     transform: translateX(100%);
   }
 }
+/* line 25, style.scss */
+.feedback.loaded {
+  transition: all 0.2s ease-out 0s;
+}
 @media all and (max-width: 50em) {
-  /* line 27, style.scss */
+  /* line 28, style.scss */
   .feedback.open {
     top: auto;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 27, style.scss */
+  /* line 28, style.scss */
   .feedback.open {
     transform: translateX(0);
   }
 }
-/* line 37, style.scss */
+/* line 38, style.scss */
 .feedback .feedback-title {
   text-transform: capitalize;
 }
-/* line 41, style.scss */
+/* line 42, style.scss */
 .feedback .feedback-toggle {
   box-shadow: 0 0 3px #fff;
   color: #fff;
@@ -55,25 +58,25 @@
   left: 0;
 }
 @media all and (max-width: 50em) {
-  /* line 41, style.scss */
+  /* line 42, style.scss */
   .feedback .feedback-toggle {
     width: 100%;
     top: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 41, style.scss */
+  /* line 42, style.scss */
   .feedback .feedback-toggle {
     bottom: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 41, style.scss */
+  /* line 42, style.scss */
   .feedback .feedback-toggle {
     transform: translateX(-100%);
   }
 }
-/* line 60, style.scss */
+/* line 61, style.scss */
 .feedback .feedback-toggle a {
   border: 0 none;
   cursor: pointer;
@@ -83,38 +86,38 @@
   text-decoration: none;
   vertical-align: middle;
 }
-/* line 69, style.scss */
-.feedback .feedback-toggle a.visible {
+/* line 70, style.scss */
+.feedback .feedback-toggle a.open {
   display: block;
 }
 @media all and (max-width: 50em) {
-  /* line 60, style.scss */
+  /* line 61, style.scss */
   .feedback .feedback-toggle a {
     transform: translateY(-100%);
   }
 }
-/* line 78, style.scss */
+/* line 79, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-send {
   background-color: #1676aa;
   color: #fff;
   padding: 0.5em;
 }
-/* line 85, style.scss */
+/* line 86, style.scss */
 .feedback #feedback-form {
   margin: 1em;
 }
-/* line 87, style.scss */
+/* line 88, style.scss */
 .feedback #feedback-form .controls.step1 {
   text-align: right;
 }
-/* line 91, style.scss */
+/* line 92, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   display: none;
   margin-top: 1.6rem;
 }
-/* line 97, style.scss */
+/* line 98, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-style: none solid solid;
@@ -126,16 +129,16 @@
   text-align: right;
   top: -2px;
 }
-/* line 110, style.scss */
+/* line 111, style.scss */
 .feedback #feedback-form .feedback-error {
   color: red;
 }
-/* line 115, style.scss */
+/* line 116, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: red;
 }
-/* line 120, style.scss */
+/* line 121, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -149,28 +152,28 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 134, style.scss */
+/* line 135, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 138, style.scss */
+/* line 139, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
   top: 0.25em;
 }
-/* line 142, style.scss */
+/* line 143, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 149, style.scss */
+/* line 150, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 156, style.scss */
+/* line 157, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url(spinner.gif);

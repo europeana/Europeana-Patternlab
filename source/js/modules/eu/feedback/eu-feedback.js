@@ -1,6 +1,6 @@
 define(['jquery'], function($){
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../eu/feedback/style.css') + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/feedback/style.css') + '" type="text/css"/>');
 
   var log = function(msg){
     console.log('eu-feedback: ' + msg);
@@ -20,15 +20,15 @@ define(['jquery'], function($){
 
     open.on('click', function(){
       el.addClass('open');
-      close.addClass('visible');
-      open.removeClass('visible');
+      close.show();
+      open.hide();
     });
 
     close.on('click', function(){
       el.removeClass('open');
-      open.addClass('visible');
-      close.removeClass('visible');
-      log('delay');
+      open.show();
+      close.hide();
+
       el.find('.step1').delay(200).show(0);
       el.find('.step2').delay(200).hide(0);
       el.find('.feedback-error').delay(200).hide(0);
@@ -64,6 +64,7 @@ define(['jquery'], function($){
           el.find('.step1').hide();
           el.find('.step2').show();
           text.val('');
+          counter.html(maxlength);
         },
         error : function(data){
           setTimeout(function(){
@@ -83,7 +84,10 @@ define(['jquery'], function($){
       counter.html(maxlength - text.val().length);
       text.removeClass('error');
       counter.removeClass('error');
-    })
+    });
+    el.fadeIn(function(){
+      el.addClass('loaded');
+    });
   }
   return {
     init : function(el, ops){
