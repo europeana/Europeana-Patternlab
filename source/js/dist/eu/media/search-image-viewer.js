@@ -6,8 +6,8 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
   }
 
   var
-    css_path_1 = require.toUrl('../lib/photoswipe/photoswipe.css'),
-    css_path_2 = require.toUrl('../lib/photoswipe/default-skin/default-skin.css'),
+    css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css'),
+    css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
 
     min_width_pixels = 400,
     items = [],

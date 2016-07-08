@@ -1,9 +1,8 @@
 require.config({
-    baseUrl: '/js/dist',
     paths: {
-        jquery:             'lib/jquery',
-        pdf:                'lib/pdfjs/pdf',
-        pdf_viewer:         'eu/media/search-pdf-viewer'
+        jquery:             '../../lib/jquery',
+        pdf:                '../../lib/pdfjs/pdf',
+        pdf_viewer:         '../../eu/media/search-pdf-viewer'
     },
     shim: {
         pdf_viewer: ['jquery']

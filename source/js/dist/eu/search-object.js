@@ -86,7 +86,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
 
                 $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
 
-                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../css/map/application-map.css') + '" type="text/css"/>');
+                $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../css/map/application-map.css') + '" type="text/css"/>');
             });
         }
 

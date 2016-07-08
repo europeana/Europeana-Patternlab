@@ -1,7 +1,7 @@
 require.config({
   paths: {
-    jquery:       '../lib/jquery',
-    imageCompare: '../lib/image-compare/image-compare'
+    jquery:       '../../lib/jquery',
+    imageCompare: '../../lib/image-compare/image-compare'
   }
 });
 

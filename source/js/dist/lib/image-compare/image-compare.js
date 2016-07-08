@@ -2,7 +2,7 @@ define(['jquery'], function ($){
 
   'use strict';
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/image-compare/style.css') + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/image-compare/style.css') + '" type="text/css"/>');
 
   var dragging  = false;
   var scrolling = false;

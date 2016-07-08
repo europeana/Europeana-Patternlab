@@ -1,10 +1,10 @@
 require.config({
     paths: {
-        jquery:                        '../lib/jquery',
-        pdfjs:                         '../lib/pdfjs/pdf',
-        pdf_ui:                        '../lib/pdfjs/pdf-ui',
-        pdf_lang:                      '../lib/pdfjs/l10n',
-        media_viewer_pdf:              '../eu/media/search-pdf-ui-viewer'
+        jquery:                        '../../lib/jquery',
+        pdfjs:                         '../../lib/pdfjs/pdf',
+        pdf_ui:                        '../../lib/pdfjs/pdf-ui',
+        pdf_lang:                      '../../lib/pdfjs/l10n',
+        media_viewer_pdf:              '../../eu/media/search-pdf-ui-viewer'
     },
     shim: {
         pdf_viewer: ['jquery']

@@ -2,35 +2,35 @@ window.GoogleAnalyticsObject = '__ga__';
 
 require.config({
   paths: {
-    exhibitions:            '../eu/exhibitions',
-    featureDetect:          '../global/feature-detect',
+    exhibitions:            '../../eu/exhibitions',
+    featureDetect:          '../../global/feature-detect',
     ga:                     '//www.google-analytics.com/analytics',
-    global:                 '../eu/global',
+    global:                 '../../eu/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
     hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
 
-    imageCompare:           '../lib/image-compare/image-compare',
-    imagesloaded:           '../lib/jquery.imagesloaded.min',
+    imageCompare:           '../../lib/image-compare/image-compare',
+    imagesloaded:           '../../lib/jquery.imagesloaded.min',
 
-    jquery:                 '../lib/jquery',
-    jqDropdown:             '../lib/jquery.dropdown',
-    jqScrollto:             '../lib/jquery.scrollTo',
-    menus:                  '../global/menus',
-    photoswipe:             '../lib/photoswipe/photoswipe',
-    photoswipe_ui:          '../lib/photoswipe/photoswipe-ui-default',
+    jquery:                 '../../lib/jquery',
+    jqDropdown:             '../../lib/jquery.dropdown',
+    jqScrollto:             '../../lib/jquery.scrollTo',
+    menus:                  '../../global/menus',
+    photoswipe:             '../../lib/photoswipe/photoswipe',
+    photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',
     pinterest:              'http://assets.pinterest.com/js/pinit_main',
-    purl:                   '../lib/purl/purl',
-    smartmenus:             '../lib/smartmenus/jquery.smartmenus',
-    smartmenus_keyboard:    '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
+    purl:                   '../../lib/purl/purl',
+    smartmenus:             '../../lib/smartmenus/jquery.smartmenus',
+    smartmenus_keyboard:    '../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
 
     ScrollMagic:            '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min',
     TweenMax:               '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min',
     TimelineMax:            '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min',
 
-    util_ellipsis:          '../eu/util/ellipsis',
-    util_resize:            '../eu/util/resize',
-    util_scrollEvents:      '../eu/util/scrollEvents'
+    util_ellipsis:          '../../eu/util/ellipsis',
+    util_resize:            '../../eu/util/resize',
+    util_scrollEvents:      '../../eu/util/scrollEvents'
   },
   shim: {
     featureDetect:  ['jquery'],

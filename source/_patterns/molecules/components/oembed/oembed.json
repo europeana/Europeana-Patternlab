@@ -9,7 +9,7 @@
   "js_files": [
     {
       "path": "/js/dist/require.js",
-      "data_main": "/js/dist/main/main-oembed-molecule.js"
+      "data_main": "/js/dist/main/molecules/main-oembed-molecule.js"
     }
   ],
   "css_files": [
