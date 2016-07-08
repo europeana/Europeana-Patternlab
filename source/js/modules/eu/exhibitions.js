@@ -259,8 +259,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initLightbox(){
-    var css_path_1 = require.toUrl('../lib/photoswipe/photoswipe.css'),
-        css_path_2 = require.toUrl('../lib/photoswipe/default-skin/default-skin.css'),
+    var css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css'),
+        css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
         min_width_pixels = 400,
         gallery = null,
         $poster = $('.photoswipe-wrapper > img');

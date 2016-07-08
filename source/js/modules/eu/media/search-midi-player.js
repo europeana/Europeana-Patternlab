@@ -2,7 +2,7 @@ define([], function() {
   'use strict';
 
   var player;
-  var css_path   = require.toUrl('../lib/midijs/style/MIDIPlayer.css');
+  var css_path   = require.toUrl('../../lib/midijs/style/MIDIPlayer.css');
   var capsule    = $('#capsule');
   var cursor     = $('#capsule #cursor');
   var time1      = $('#time1');
@@ -118,8 +118,8 @@ define([], function() {
                                          swiping = false;
                                      });
 
-                                     MIDI.soundfont_mp3_url = require.toUrl('../lib/midijs/soundfont/soundfont-mp3.js');
-                                     MIDI.soundfont_ogg_url = require.toUrl('../lib/midijs/soundfont/soundfont-ogg.js');
+                                     MIDI.soundfont_mp3_url = require.toUrl('../../lib/midijs/soundfont/soundfont-mp3.js');
+                                     MIDI.soundfont_ogg_url = require.toUrl('../../lib/midijs/soundfont/soundfont-ogg.js');
                                      MIDI.volume_scheme     = 'normal';
 
                                      MIDI.loadPlugin(function () {

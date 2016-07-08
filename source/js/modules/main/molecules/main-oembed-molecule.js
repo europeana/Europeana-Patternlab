@@ -1,7 +1,7 @@
 require.config({
   paths: {
-      jquery:                        '../lib/jquery',
-      media_player_oembed:           '../eu/media/search-oembed-viewer'
+      jquery:                        '../../lib/jquery',
+      media_player_oembed:           '../../eu/media/search-oembed-viewer'
   }
 });
 

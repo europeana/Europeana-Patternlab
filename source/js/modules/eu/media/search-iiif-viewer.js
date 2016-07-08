@@ -1,8 +1,8 @@
 define([], function() {
   'use strict';
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../css/map/application-map.css') + '" type="text/css"/>');
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../lib/iiif/iiif.css')           + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../css/map/application-map.css') + '" type="text/css"/>');
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/iiif/iiif.css')           + '" type="text/css"/>');
 
   var iiif;
   var layerCtrl;

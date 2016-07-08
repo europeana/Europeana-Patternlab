@@ -2,7 +2,7 @@
   "js_files": [
     {
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-dropdown"
+      "data_main": "../../js/dist/main/molecules/main-dropdown"
     }
   ],
   "button_title": "Choose Action",
