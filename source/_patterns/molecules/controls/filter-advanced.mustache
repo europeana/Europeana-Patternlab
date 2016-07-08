@@ -57,7 +57,7 @@ Configuration options and content model:
 
     {{#advanced_items}}
     <div class="filter-extra-adv js-showhide-panel is-jshidden">
-        {{# title }}<div class="filter-name">{{ title }}</div>{{/ title }}
+        {{# title }}<div class="filter-name">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>{{/ title }}
 
         <ul class="filter-list filter-wrap">
         {{#items}}
