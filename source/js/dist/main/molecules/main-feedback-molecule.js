@@ -1,7 +1,7 @@
 require.config({
   paths: {
-    feedback: '../eu/feedback/eu-feedback',
-    jquery: '../lib/jquery',
+    feedback: '../../eu/feedback/eu-feedback',
+    jquery: '../../lib/jquery',
   }
 });
 
