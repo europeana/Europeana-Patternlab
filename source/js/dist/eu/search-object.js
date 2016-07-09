@@ -70,7 +70,11 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                     zoom : 8
                 });
 
-                L.Icon.Default.imagePath = require.toUrl('../../css/map/images');
+                var imagePath = require.toUrl('').split('/');
+                imagePath.pop();
+                imagePath.pop();
+                imagePath.pop();
+                L.Icon.Default.imagePath = imagePath.join('/') + '/css/map/images';
 
                 map.addLayer(mq);
                 map.invalidateSize();
@@ -85,7 +89,6 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
                 $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-
                 $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../css/map/application-map.css') + '" type="text/css"/>');
             });
         }
