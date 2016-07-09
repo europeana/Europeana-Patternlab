@@ -11,8 +11,8 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
             var data       = JSON.parse( $('.hierarchy-objects').text() );
 
-            var css_path_1 = require.toUrl('../lib/jstree/css/style.css');
-            var css_path_2 = require.toUrl('../lib/jstree/css/style-overrides.css');
+            var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
+            var css_path_2 = require.toUrl('../../lib/jstree/css/style-overrides.css');
 
             $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
             $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
@@ -70,7 +70,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                     zoom : 8
                 });
 
-                L.Icon.Default.imagePath = require.toUrl('../css/map/images');
+                L.Icon.Default.imagePath = require.toUrl('../../css/map/images');
 
                 map.addLayer(mq);
                 map.invalidateSize();

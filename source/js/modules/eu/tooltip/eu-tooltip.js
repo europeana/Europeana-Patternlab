@@ -33,7 +33,7 @@ define(['jquery'], function($){
 
     // bind close event to local storage
     $('.eu-tooltip-container [data-role="remove"]').on('click', function(){
-      var id = $(this).closest('.eu-tooltip-container').find('.eu-tooltip-anchor').data('tooltip-id');
+      var id = $(this).closest('.eu-tooltip-container').find('.eu-tooltip').data('tooltip-id');
       $(this).closest('.eu-tooltip-container').remove();
       saveClosedTooltips(id);
     });

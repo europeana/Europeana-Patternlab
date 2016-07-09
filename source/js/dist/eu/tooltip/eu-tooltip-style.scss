@@ -13,7 +13,6 @@
 }
 
 .eu-tooltip-container{
-//  display: none;
   display:  inline-block;
   opacity: 0;
     -webkit-transition: opacity 0.4s ease-in;
@@ -55,26 +54,33 @@
   
     a{
       color: $white;
-      &:hover{
+      &[href]{
         border-bottom: 1px dotted #fff;
+        &:hover{
+          border-bottom: 1px solid #fff;
+        }
       }
       //letter-spacing: 0.1em;
     }
   
     & a[data-role="remove"] {
+      cursor: pointer;
+      color: white;
   
-        cursor: pointer;
-        color: white;
+      position: absolute;
+      top: 0.6em;
+      right: 2px;
   
-        position: absolute;
-        top: 0.6em;
-        right: 2px;
-  
+      &:after {
+        content: "✕";
+        padding: 0px 3px;
+        vertical-align: baseline;
+      }
+      &:hover{
         &:after {
-            content: "✕";
-            vertical-align: baseline;
-            padding: 0px 3px;
+          font-size: 105%;
         }
+      }
     }
   
     &:after {
