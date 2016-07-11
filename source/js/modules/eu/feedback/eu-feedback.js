@@ -10,6 +10,7 @@ define(['jquery'], function($){
 
     var open      = el.find('.feedback-toggle .open');
     var close     = el.find('.feedback-toggle .close');
+    var cancel    = el.find('.feedback-cancel');
     var counter   = el.find('.feedback-counter');
     var spinner   = el.find('.feedback-spinner');
     var submit    = el.find('.feedback-send');
@@ -33,6 +34,16 @@ define(['jquery'], function($){
       el.find('.step2').delay(200).hide(0);
       el.find('.feedback-error').delay(200).hide(0);
     });
+    
+    cancel.on('click', function(){
+      el.removeClass('open');
+      open.show();
+      close.hide();
+      el.find('.step1').delay(200).show(0);
+      el.find('.step2').delay(200).hide(0);
+      el.find('.feedback-error').delay(200).hide(0);
+    });
+
 
     submit.on('click', function(){
 

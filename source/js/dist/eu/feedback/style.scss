@@ -77,16 +77,43 @@
   }
 
   .feedback-toggle a,
+  .feedback-cancel,
   .feedback-send{
     background-color: $eu-blue;
     color:            #fff;
     padding:          0.5em;
+    
+    
+    &.close{
+      @media all and (max-width: $bp-med) {
+        width:  100%;
+        top:     0;
+        display: block;
+      }
+    }
+  }
+
+  .feedback-cancel,
+  .feedback-send{
+    color: #fff;
+    position: absolute;
+    width: 2.45em;
+    height: 2.45em;
+  }
+
+  .feedback-cancel{
+    background-color: $gray-lighter;  
+  }
+
+  .feedback-send{
+    right: 0;
   }
 
   #feedback-form {
     margin: 1em;
+    padding-bottom: 3em;
     .controls.step1{
-      text-align: right;
+      position: relative;
     }
     
     .step2,
