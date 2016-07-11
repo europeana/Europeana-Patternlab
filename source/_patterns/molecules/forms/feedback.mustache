@@ -2,7 +2,7 @@
   <div class="feedback">
     <div class="feedback-toggle">
       <a class="open">{{ i18n.global.feedback.open }}</a>
-      <a class="close">{{ i18n.global.feedback.close }} <svg class="icon icon-next"><use xlink:href="#icon-next"/></svg></a>
+      <a class="close">{{ i18n.global.feedback.close }}</a>
     </div>
     <form id="feedback-form" method="post" action="{{form_action}}">
 
@@ -30,7 +30,8 @@
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
       <div class="controls step1">
-        <a class="feedback-send">{{ i18n.global.feedback.submit }}</a>
+        <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
+        <a class="feedback-send"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
       </div>
 
       <div class="feedback-spinner" aria-role="progressbar">
