@@ -160,6 +160,18 @@
 
     }
 
+    &.ve-base-medium-tall{
+
+      @media all and (min-width: $bp-med) {
+        //height:    48em;
+        max-width: $ve_image_column_width;
+        min-height: -webkit-calc(100vh - 4.8rem);
+        min-height:    -moz-calc(100vh - 4.8rem);
+        min-height:         calc(100vh - 4.8rem);
+      }
+
+    }
+    
     &.ve-base-large{
 
       padding: 0;
