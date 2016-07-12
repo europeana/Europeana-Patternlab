@@ -81,20 +81,23 @@
       cursor: pointer;
       position: relative;
       
-      transform: rotate(270deg);
       
       text-align: center;
       text-decoration: none;
       vertical-align: middle;
   
-      &.open {
-        left: 20px;
-        top: -21px;
+      @media all and (min-width: $bp-med) {
+        transform: rotate(270deg);
+        &.open {
+          left: 20px;
+          top: -21px;
+        }
+        &.close {
+          left: 6px;
+          top: -5px;
+        }
       }
-      &.close {
-        left: 6px;
-        top: -5px;
-      }
+        
       @media all and (max-width: $bp-med) {
         transform: translateY(-100%);
       }
@@ -113,7 +116,6 @@
       @media all and (max-width: $bp-med) {
         width:  100%;
         top:     0;
-        //display: block;
       }
     }
   }
