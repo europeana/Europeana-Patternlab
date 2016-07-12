@@ -25,7 +25,25 @@
   &.loaded{
     transition: all 0.2s ease-out 0s;
   }
+  
+  a.open {
+    display: block;
+  }
+  
+  a.close {
+    display: none;
+  }
+
   &.open{
+  
+    a.open {
+      display: none;
+    }
+    a.close {
+      display: block;
+    }
+    
+  
     @media all and (max-width: $bp-med) {
       top: auto;
     }
@@ -43,7 +61,7 @@
     box-shadow: 0 0 3px #fff;
     color: #fff;
     position: absolute;
-    left: 0;
+    left: 0; 
     
     @media all and (max-width: $bp-med) {
       width:  100%;
@@ -61,14 +79,21 @@
     a {
       border: 0 none;
       cursor: pointer;
-      display: none;
       position: relative;
+      
+      transform: rotate(270deg);
+      
       text-align: center;
-      text-decoration: none;      
+      text-decoration: none;
       vertical-align: middle;
   
       &.open {
-        display: block;
+        left: 20px;
+        top: -21px;
+      }
+      &.close {
+        left: 6px;
+        top: -5px;
       }
       @media all and (max-width: $bp-med) {
         transform: translateY(-100%);
@@ -88,7 +113,7 @@
       @media all and (max-width: $bp-med) {
         width:  100%;
         top:     0;
-        display: block;
+        //display: block;
       }
     }
   }
