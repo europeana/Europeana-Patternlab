@@ -497,10 +497,5 @@
   {
     "newsletter": true
   },
-  "feedback":{
-    "form_action": "should-be-present",
-    "maxlength": 20
-  },
-
   "debug": ""
 }

@@ -26,12 +26,28 @@
     transition: all 0.2s ease-out 0s;
   }
   
-  a.open {
+  .open {
     display: block;
   }
   
-  a.close {
+  .close {
     display: none;
+  }
+
+  .open,
+  .close {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    padding: 0.75em 1em
+  }
+
+  .feedback-text{
+    border-radius: 0.5em 0.5em 0 0;
+   }
+  .feedback-cancel,
+  .feedback-send{
+      border-radius: 0.5em;
   }
 
   &.open{
@@ -58,7 +74,6 @@
   }
 
   .feedback-toggle {
-    box-shadow: 0 0 3px #fff;
     color: #fff;
     position: absolute;
     left: 0; 
@@ -89,12 +104,12 @@
       @media all and (min-width: $bp-med) {
         transform: rotate(270deg);
         &.open {
-          left: 20px;
-          top: -21px;
+          left: 23px;
+          top: -24px;
         }
         &.close {
-          left: 6px;
-          top: -5px;
+          left: 10px;
+          top: -11px;
         }
       }
         
@@ -151,15 +166,15 @@
 
     .feedback-counter {
       border-color:  #908b85 #908b85;
+      border-radius: 0 0 0.5em 0.5em;
       border-style:  none solid solid;
       border-width:  medium 1px 1px;
-      
       color:         #908b85;
       margin-bottom: 0.5em;
       padding:       0 0.5em 0.5em;
       position:      relative;
       text-align:    right;
-      top:           -2px;
+      top:           -7px;
     }
 
     .feedback-error{
@@ -175,9 +190,9 @@
     .feedback-text {
       border-color: #908b85 #908b85 -moz-use-text-color;
       border-image: none;
-      border-radius: 0;
       border-style: solid solid none;
       border-width: 1px 1px medium;
+      box-shadow: none;
       font-size: 14px;
       height: 90px;
       margin-bottom: 0;
