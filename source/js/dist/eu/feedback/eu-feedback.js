@@ -21,14 +21,14 @@ define(['jquery'], function($){
 
     open.on('click', function(){
       el.addClass('open');
-      close.show();
-      open.hide();
+      //close.show();
+      //open.hide();
     });
 
     close.on('click', function(){
       el.removeClass('open');
-      open.show();
-      close.hide();
+      //open.show();
+      //close.hide();
 
       el.find('.step1').delay(200).show(0);
       el.find('.step2').delay(200).hide(0);
