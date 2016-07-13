@@ -1,78 +1,78 @@
 .site-hero,
 .hero-nopad {
 
-	height: 70%;
-	position: relative;
-	overflow: hidden;
+  height: 70%;
+  position: relative;
+  overflow: hidden;
 
-	background-image: url("../../images/sample/pro-background.jpg");
-	background-position: 50% 50%;
-	-webkit-background-size: cover;
-	background-size: cover;
+  background-image: url("../../images/sample/pro-background.jpg");
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
 
-	background-color: $grey2;
-	color: $gray97;
+  background-color: $grey2;
+  color: $gray97;
 
-	.lc{
-		position: relative;
-		height: 100%;
-	}
+  .lc{
+    position: relative;
+    height: 100%;
+  }
 
-	.hero-text{
-		position: absolute;
-		z-index: 5;
-		bottom: 2em;
-		background-color: rgba(#000, 0.7);
-		border-radius: 4px;
+  .hero-text{
+    position: absolute;
+    z-index: 5;
+    bottom: 2em;
+    background-color: rgba(#000, 0.7);
+    border-radius: 4px;
 
-		padding: $space;
-		width: 100%;
+    padding: $space;
+    width: 100%;
 
-		@media all and (min-width: $bp-small) {
-			width: 60%;
-		}
+    @media all and (min-width: $bp-small) {
+      width: 60%;
+    }
 
-		@media all and (min-width: $bp-large) {
-			width: 35%;
-		}
+    @media all and (min-width: $bp-large) {
+      width: 35%;
+    }
 
-	   a{
-			color: $white;
-			border-bottom: 1px dotted $white;
+     a{
+      color: $white;
+      border-bottom: 1px dotted $white;
 
-			&:hover, &:focus{
-				color: $accent;
-				border-color: $accent;
-			}
-		}
-	}
+      &:hover, &:focus{
+        color: $accent;
+        border-color: $accent;
+      }
+    }
+  }
 
-	.attribution{
+  .attribution{
 
-		position: absolute;
-		z-index: 10;
-		bottom: 4px;
-		right: 4px;
+    position: absolute;
+    z-index: 11;
+    bottom: 4px;
+    right: 4px;
 
-		@media all and (min-width: $bp-small-2) {
-			right: 0;
-		}
-	}
+    @media all and (min-width: $bp-small-2) {
+      right: 0;
+    }
+  }
 
-	h2, h1{
-		font-family: $font-secondary;
-		font-weight: normal;
-    	line-height: 1.1;
-    	margin-bottom: $space-half;
-    	font-size: 2em;
-    	text-transform: uppercase;
-	}
+  h2, h1{
+    font-family: $font-secondary;
+    font-weight: normal;
+      line-height: 1.1;
+      margin-bottom: $space-half;
+      font-size: 2em;
+      text-transform: uppercase;
+  }
 
 }
 
 .site-hero{
   @media all and (min-width: $bp-small) {
-		margin-top: $globalnavheight;
-		height: 50%;
-	}
+    margin-top: $globalnavheight;
+    height: 50%;
+  }
 }
