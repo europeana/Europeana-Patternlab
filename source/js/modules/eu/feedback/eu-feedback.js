@@ -90,18 +90,14 @@ define(['jquery'], function($){
 
           hideStep1();
           showStep2();
-          //el.find('.step1').hide();
-          //el.find('.step2').show();
+
           text.val('');
           counter.html(maxlength);
         },
         error : function(data){
           setTimeout(function(){
             showError();
-
-            //el.find('.step1').hide();
             hideStep1();
-
             spinner.hide();
           }, 2000);
         }

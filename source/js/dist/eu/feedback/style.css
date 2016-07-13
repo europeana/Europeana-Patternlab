@@ -200,14 +200,24 @@
 }
 /* line 174, style.scss */
 .feedback #feedback-form .step2 {
-  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
 }
-/* line 178, style.scss */
+/* line 180, style.scss */
+.feedback #feedback-form h2 .step2 {
+  color: #1676aa;
+}
+/* line 184, style.scss */
+.feedback #feedback-form p.step2 {
+  top: 4em;
+}
+/* line 188, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   margin-top: 1.6rem;
 }
-/* line 183, style.scss */
+/* line 193, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -221,19 +231,19 @@
   text-align: right;
   top: -7px;
 }
-/* line 197, style.scss */
+/* line 207, style.scss */
 .feedback #feedback-form .feedback-error {
   color: red;
   position: absolute;
   visibility: hidden;
   top: 0;
 }
-/* line 205, style.scss */
+/* line 215, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: red;
 }
-/* line 210, style.scss */
+/* line 220, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -247,27 +257,27 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 224, style.scss */
+/* line 234, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 228, style.scss */
+/* line 238, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 232, style.scss */
+/* line 242, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 239, style.scss */
+/* line 249, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 246, style.scss */
+/* line 256, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url(spinner.gif);

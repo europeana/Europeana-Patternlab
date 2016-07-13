@@ -172,7 +172,17 @@
     }
 
     .step2{
-      display: none;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+    }
+
+    h2 .step2{
+      color: $eu-blue;
+    }
+
+    p.step2{
+      top: 4em;
     }
 
     .step2,
