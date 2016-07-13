@@ -9,7 +9,6 @@
       <input type="hidden" name="pageurl" class="pageurl">
 
       <h2 class="feedback-title">
-        <span class="step1">{{ i18n.global.feedback.title }}</span>
         <span class="step2"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg>{{ i18n.global.feedback.thanks.short }}</span>
       </h2>
       <ul class="step1">
@@ -30,10 +29,10 @@
       <textarea class="step1 feedback-text" maxlength="{{maxlength}}" placeholder="{{ i18n.global.feedback.placeholder }}" name="feedback_text"></textarea>
       <div class="step1 feedback-counter" data-maxlength="{{maxlength}}">{{maxlength}}</div>
       <div class="controls step1">
-        <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
         <a class="feedback-send"><svg class="icon icon-check"><use xlink:href="#icon-check"/></svg></a>
       </div>
 
+      <a class="feedback-cancel"><svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></a>
       <div class="feedback-spinner" aria-role="progressbar">
       </div>
 

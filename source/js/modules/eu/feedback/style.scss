@@ -68,10 +68,6 @@
     }
   }
 
-  .feedback-title{
-    text-transform: capitalize;
-  }
-
   .feedback-toggle {
     color: #fff;
     position: absolute;
@@ -182,6 +178,7 @@
     }
 
     p.step2{
+      position: absolute;
       top: 4em;
     }
 
