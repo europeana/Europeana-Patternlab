@@ -21,29 +21,43 @@ define(['jquery'], function($){
 
     open.on('click', function(){
       el.addClass('open');
-      //close.show();
-      //open.hide();
     });
 
     close.on('click', function(){
       el.removeClass('open');
-      //open.show();
-      //close.hide();
 
       el.find('.step1').delay(200).show(0);
       el.find('.step2').delay(200).hide(0);
       el.find('.feedback-error').delay(200).hide(0);
     });
-    
+
     cancel.on('click', function(){
       el.removeClass('open');
       open.show();
       close.hide();
       el.find('.step1').delay(200).show(0);
       el.find('.step2').delay(200).hide(0);
-      el.find('.feedback-error').delay(200).hide(0);
+      hideError();
     });
 
+    var hideError = function(){
+        el.find('.feedback-error').css('visibility', 'hidden');
+    }
+    var showError = function(){
+        el.find('.feedback-error').css('visibility', 'visible');
+    }
+    var hideStep1 = function(){
+        el.find('.step1').css('visibility', 'hidden');
+    }
+    var showStep1 = function(){
+        el.find('.step1').css('visibility', 'visible');
+    }
+    var hideStep2 = function(){
+        el.find('.step2').css('visibility', 'hidden');
+    }
+    var showStep2 = function(){
+        el.find('.step2').css('visibility', 'visible');
+    }
 
     submit.on('click', function(){
 
@@ -65,6 +79,7 @@ define(['jquery'], function($){
       log('beforeSend = ' + beforeSend);
 
 
+
       $.ajax({
         beforeSend: ops.beforeSend ? ops.beforeSend : null,
         url : url,
@@ -72,15 +87,21 @@ define(['jquery'], function($){
         data: data,
         success : function(data){
           spinner.hide();
-          el.find('.step1').hide();
-          el.find('.step2').show();
+
+          hideStep1();
+          showStep2();
+          //el.find('.step1').hide();
+          //el.find('.step2').show();
           text.val('');
           counter.html(maxlength);
         },
         error : function(data){
           setTimeout(function(){
-            el.find('.feedback-error').show();
-            el.find('.step1').hide();
+            showError();
+
+            //el.find('.step1').hide();
+            hideStep1();
+
             spinner.hide();
           }, 2000);
         }

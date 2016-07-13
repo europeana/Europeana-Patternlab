@@ -5,7 +5,7 @@
   bottom: 0;
   font-size: 16px;
   position: fixed;
-  z-index: 2;
+  z-index: 12;
 
   @media all and (max-width: $bp-med) {
     top: 100%;
@@ -167,9 +167,16 @@
       position: relative;
     }
 
+    .step1{
+      font-size: $font-size-slightly-smaller;
+    }
+
+    .step2{
+      display: none;
+    }
+
     .step2,
     .feedback-error{
-      display: none;
       margin-top: $space;
     }
 
@@ -189,6 +196,9 @@
 
     .feedback-error{
       color: red;
+      position: absolute;
+      visibility: hidden;
+      top: 0;
     }
     .feedback-counter,
     .feedback-text{
