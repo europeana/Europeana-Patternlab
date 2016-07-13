@@ -141,10 +141,11 @@
   .feedback-send{
     color: #fff;
     position: absolute;
-    width: 3.45em;
+    width: 2.45em;
     height: 2.45em;
     svg.icon{
-      width: 2.5em;
+      width: 1.4em;
+      height: 1.4em;
     }
   }
 
@@ -161,10 +162,6 @@
     padding-bottom: 3em;
     .controls.step1{
       position: relative;
-    }
-
-    .step1{
-      font-size: $font-size-slightly-smaller;
     }
 
     .step2{
