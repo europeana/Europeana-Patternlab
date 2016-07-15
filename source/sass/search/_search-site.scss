@@ -422,6 +422,15 @@
     border-bottom: 1px dotted $textcolour_link_hover;
   }
 }
+.portal-down-social{
+  padding-top: 2em;
+  .channel-social{
+    padding-left: 0;
+  }
+  .social-share{
+    margin-left: 0;
+  }
+}
 
 .colour-palette{
   //background-color: $offwhite;
