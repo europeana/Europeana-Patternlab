@@ -61,6 +61,7 @@
   }],
   "page_data": {
     "is_foyer": true,
+    "is_chapter": false,
     "elements": {
       "present": true,
       "items": [{
@@ -169,7 +170,11 @@
         "url": "javascript:alert('open this exhibition (1)')",
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_body": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-        "state_3_logo": { "thumbnail": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"},
+        "state_3_logo": {
+          "thumbnail": {
+            "url": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"
+          }
+        },
 
         "state_1_label": "Art history collection",
 
@@ -194,10 +199,14 @@
       {
         "is_foyer_card": true,
         "url": "javascript:alert('open this exhibition (1)')",
-        
+
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_body": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-        "state_3_logo": { "thumbnail": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"},
+        "state_3_logo": {
+          "thumbnail": {
+            "url": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"
+          }
+        },
 
         "state_1_label": "Art history collection",
 
@@ -222,10 +231,14 @@
       {
         "is_foyer_card": true,
         "url": "javascript:alert('open this exhibition (1)')",
-        
+
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_body": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-        "state_3_logo": { "thumbnail": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"},
+        "state_3_logo": {
+          "thumbnail": {
+             "url": "http://develop.styleguide.eanadev.org/images/europeana-logo-collections.svg"
+          }
+        },
 
         "state_1_label": "Art history collection",
 
