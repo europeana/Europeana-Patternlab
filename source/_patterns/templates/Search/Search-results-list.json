@@ -333,13 +333,15 @@
       }
     },
     {
-      "title": false,
+      "title": "Can I use it?",
+      "icon_link": {
+        "icon": "icon-help",
+        "link": "javascript:alert('open link...')"
+      },
       "tooltip":{
-        "tooltipped_text": "Can I use it?",
         "tooltip_text": "You can now filter your search on specific license",
         "tooltip_id": "license-filter",
         "persistent": true,
-        "icon": "icon-help",
         "icon_first": false,
         "link_class": "filter-name",
         "link_url": "http://www.google.co.uk",

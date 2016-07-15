@@ -16,7 +16,9 @@
   {{#is_promo}}
     <div class="nav-to-full">
       <a href="{{link}}">
-        <img src="{{image.full.url}}"/>
+        {{#image}}
+          <img src="{{full.url}}"/>
+        {{/image}}
       </a>
       <span>{{text1}}{{#text2}}<br/>{{.}}{{/text2}}</span>
       <a href="{{link}}">
