@@ -1,22 +1,22 @@
 define(['jquery'], function ($) {
-
-    function log(msg){
+    function log(msg) {
         console.log(msg);
     }
 
-    function pageInit(){
-    	
+	function pageInit() {
     	log('in page init');
-    	
-      $(window).on('scroll', function(){
+    	$(window).on('scroll', function() {
     	log('close open menus here...')
      });
     }
     
-   return{
-	  pageInit: function(){
-		  pageInit();
-	  }
-   } 
-    
+	function selectView() {
+		
+	}
+	
+	return {
+		pageInit: function() {
+			pageInit();
+		}
+	}    
 });

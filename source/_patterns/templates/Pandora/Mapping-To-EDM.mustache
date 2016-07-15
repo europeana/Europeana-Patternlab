@@ -1,8 +1,8 @@
 {{> organisms/global/header}}
-	<div style="height:123px;">
+<!-- 	<div style="height:123px;">
 		<header class="pandora-header header">
 		{{#navigation}}
-			<div class="cf pandora-header  container_large">
+			<div class="cf pandora-header  container-large">
 				<a href="#" class="logo ir" tabindex="1"><h1>Pandora Mapping Tool</h1></a>
 			  <nav id="nav" class="nav_primary nav">			  
 			    {{#menu}}
@@ -12,9 +12,9 @@
 			       {{/items}}
 			    </ul>
 			    {{/menu}}
-			  </nav><!--end .nav-->
+			  </nav>end .nav
 			</div>
-			<div class="container_large">
+			<div class="container-large">
 				{{#breadcrumbs}}
 			    <ul class="breadcrumbs">
 			      {{#items}}
@@ -30,62 +30,29 @@
 		  <div style="clear:both"></div>	
 		}}
 		<div class="cf"></div>	
-	</div>
-	<div class="container_large">
+	</div> -->
+	<div class="ve-anchor"><span>&nbsp;</span></div>
+	<div class="container-large">
 	    {{#action_menu}}
 	      {{#sections}}
-            <div class="menu_dropdown theme_select container_menu">
+            <div class="container-menu">
               {{#menu}}
                 {{>molecules/controls/dropdown-menu}}
               {{/menu}}
+              <div class="container-search-box">
+	            {{#search_box}}
+	            	{{>molecules/forms/search}}
+	            {{/search_box}}
+              </div>
             </div>
 	      {{/sections}}
 	    {{/action_menu}}
 	</div>
 	
-	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	
-		<div class="menu_dropdown theme_select container_menu">
-			<!--<a class="dropdown-trigger" href="javascript:dropDownMenu('#object_furtheractions1')" data-dropdown="#object_furtheractions1">Per Item</a>
-			<div id="object_furtheractions1" class="dropdown dropdown-relative">
- 				<div class="menu-title">Show:</div>
-				<ul class="dropdown-menu">
-					<li><a href="#" class="menu-more">Per Item</a></li>
-					<li><a href="#" class="menu-more">Original</a></li>
-					<li><a href="#" class="menu-more">EDM Schema</a></li>
-				</ul> 
-			</div> -->
-			{{! molecules/controls/dropdown-menu}}
-		</div>
-		<div class="menu_dropdown theme_select container_menu">
-			<a class="dropdown-trigger" href="javascript:dropDownMenu('#object_furtheractions2')" data-dropdown="#object_furtheractions2">Navigation</a>
-			<div id="object_furtheractions2" class="dropdown dropdown-relative">
-				<div class="menu-title">Save to:</div>
-				<ul class="dropdown-menu">
-					<li><a href="#">My Europeana2</a></li>
-					<li class="dropdown-divider"></li>
-					<li><div class="menu-subtitle">Share:</div></li>
-					<li><a href="#" class="menu-more">Pin to Pinterest2</a></li>
-					<li class="dropdown-divider"></li>
-					<li><a href="#">Print</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="menu_dropdown theme_select container_menu">
-			<a class="dropdown-trigger" href="javascript:dropDownMenu('#object_furtheractions3')" data-dropdown="#object_furtheractions3">Alphabetical</a>
-			<div id="object_furtheractions3" class="dropdown dropdown-relative">
-				<div class="menu-title">Save to:</div>
-				<ul class="dropdown-menu">
-					<li><a href="#">My Europeana3</a></li>
-					<li class="dropdown-divider"></li>
-					<li><div class="menu-subtitle">Share:</div></li>
-					<li><a href="#" class="menu-more">Share on Facebook3</a></li>
-					<li class="dropdown-divider"></li>
-					<li><a href="#">Print</a></li>
-				</ul>
-			</div>
-		</div>
-	<div class="container_large" style="padding-top:20px;">
+	<div class="menu_dropdown theme_select container_menu">
+		{{! molecules/controls/dropdown-menu}}
+	</div>
+	<div class="container-large" style="padding-top:20px;">
 		<table class="mapping-widget">
 			<tr class="mapping-widget-collapsed">
 				<td width="25%">
@@ -110,13 +77,13 @@
 					<table class="mapping-widget-values">
 						<tr>
 							<td id="test-item">
-								<div class="first-line tooltip-container">
+<!-- 								<div class="first-line tooltip-container">
 									<div>http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF</div>
 									<div class="tooltip" role="tooltip">http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF</div>
 								</div>
 								<div class="second-line">123</div>
 								<div class="flag">
-									<a class="flag-link" href="javascript:dropDownMenu('#object_furtheractions')" data-dropdown="#object_furtheractions"><i class="fa fa-flag-o"></i></a>
+									<a class="flag-link" data-dropdown="#object_furtheractions"><i class="fa fa-flag-o"></i></a>
 								</div>
 								<div id="object_furtheractions4" class="dropdown">
 									<div class="menu-title">Set item as:</div>
@@ -125,7 +92,8 @@
 										<li><a href="#" class="item-erroneous">Erroneous</a></li>
 										<li><a href="#" class="item-normal">Normal</a></li>
 									</ul>
-								</div>
+								</div> -->
+								{{>molecules/pandora/field-value}}
 							</td>
 							<td><div>Random Value</div></td>
 							<td><div>Random Value</div></td>
@@ -196,5 +164,3 @@
 			</tr>
 		</table>
 	</div>
-
-{{> organisms/global/footer}}

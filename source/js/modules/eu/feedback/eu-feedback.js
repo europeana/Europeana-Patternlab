@@ -25,38 +25,31 @@ define(['jquery'], function($){
 
     close.on('click', function(){
       el.removeClass('open');
-
-      el.find('.step1').delay(200).show(0);
-      el.find('.step2').delay(200).hide(0);
-      el.find('.feedback-error').delay(200).hide(0);
+      fbShow(el.find('.step1'), 200);
+      fbHide(el.find('.step2'), 200);
+      fbHide(el.find('.feedback-error'), 200);
     });
 
     cancel.on('click', function(){
       el.removeClass('open');
-      open.show();
-      close.hide();
-      el.find('.step1').delay(200).show(0);
-      el.find('.step2').delay(200).hide(0);
-      hideError();
+      fbShow(el.find('.step1'), 200);
+      fbHide(el.find('.step2'), 200);
+      fbHide(el.find('.feedback-error'), 200);
     });
 
-    var hideError = function(){
-        el.find('.feedback-error').css('visibility', 'hidden');
+    var delayed = function(el, rule, delay){
+      el.delay(delay)
+        .queue(function(next){
+          $(this).css(rule);
+          next();
+        });
     }
-    var showError = function(){
-        el.find('.feedback-error').css('visibility', 'visible');
+
+    var fbHide = function(el, delay){
+      delayed(el, {'visibility': 'hidden'}, delay);
     }
-    var hideStep1 = function(){
-        el.find('.step1').css('visibility', 'hidden');
-    }
-    var showStep1 = function(){
-        el.find('.step1').css('visibility', 'visible');
-    }
-    var hideStep2 = function(){
-        el.find('.step2').css('visibility', 'hidden');
-    }
-    var showStep2 = function(){
-        el.find('.step2').css('visibility', 'visible');
+    var fbShow = function(el, delay){
+      delayed(el, {'visibility': 'visible'}, delay);
     }
 
     submit.on('click', function(){
@@ -76,9 +69,6 @@ define(['jquery'], function($){
       }
 
       var beforeSend = ops.beforeSend ? ops.beforeSend : null;
-      log('beforeSend = ' + beforeSend);
-
-
 
       $.ajax({
         beforeSend: ops.beforeSend ? ops.beforeSend : null,
@@ -88,18 +78,18 @@ define(['jquery'], function($){
         success : function(data){
           spinner.hide();
 
-          hideStep1();
-          showStep2();
+          fbHide(el.find('.step1'));
+          fbShow(el.find('.step2'));
 
           text.val('');
           counter.html(maxlength);
         },
         error : function(data){
           setTimeout(function(){
-            showError();
-            hideStep1();
+            fbShow(el.find('.feedback-error'));
+            fbHide(el.find('.step1'));
             spinner.hide();
-          }, 2000);
+          }, 200);
         }
       });
     });

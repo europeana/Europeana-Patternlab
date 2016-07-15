@@ -1,15 +1,15 @@
 @import "../scss/generic/variables";
 
 .logo {
-  background-image: url("../../images/europeana-logo-collections.png");
-  .svg &{
-    background-image: url("../../images/europeana-logo-collections.svg");
-      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        background-image: url("../../images/europeana-logo-symbol.svg");
-        min-width:50px;
-        max-width:50px;
-      }
-  }
+	background-image: url("../../images/europeana-logo-pandora.png");
+	.svg &{
+	  background-image: url("../../images/europeana-logo-collections.svg");
+	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+	      background-image: url("../../images/europeana-logo-symbol.svg");
+	      min-width:50px;
+	      max-width:50px;
+	    }
+	}
 }
 
 .no-js{
@@ -18,7 +18,7 @@
 
 }
 
-body{
+body {
 
   @media all and (max-width: $bp-med){
     background-color: red;  
@@ -29,8 +29,8 @@ body{
   }
 }
 
-.pandora-header {
-	background-color: #4BC0F0;
+.ve-anchor {
+	margin-top:3.5em;
 }
 
 .header .nav_primary a {
@@ -43,19 +43,20 @@ body{
 
 .header {
 	display: block;
+	background-color: #4BC0F0;
 }
 
 .nav_primary a:hover:after {
 	border-color: #FFFFFF;
 }
 
-.container_large {
+.container-large {
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
 }
 
-.container_menu {
+.container-menu {
 	width: 180px !important;
 	padding-left: 0px;
 	margin-left: 0px;
@@ -63,6 +64,24 @@ body{
 	font-size: 12px;
 	float: left;
 	padding-bottom: 10px;
+}
+
+.container-search-box {
+	width: 280px;
+	padding-left: 2px;
+	margin-left: 0px;
+	display: inline-block;
+	font-size: 12px;
+	float: left;
+	padding-bottom: 10px;
+}
+
+.container-search-box .inline-form .search-submit {
+	height:32px;
+}
+
+.container-search-box .inline-form .search-field {
+	height:32px;
 }
 
 .dropdown-trigger {
@@ -104,6 +123,7 @@ body{
 
 .mapping-widget-values td,  mapping-widget-values-expanded td {
 	height: 75px;
+	color: #1676aa;
 }
 
 .mapping-widget-values td:hover,mapping-widget-values-expanded td:hover {
@@ -114,6 +134,24 @@ body{
 
 .mapping-widget-values tr, mapping-widget-values-expanded tr {
 	height: 100%;
+}
+
+.mapping-widget-values {
+  td {
+     color: #1676aa;
+     &.selected{
+		background-color: #37B98B;
+		color: #FFFFFF;
+     }
+     &.suspicious{
+		background-color: #FFAE00;
+		color: #FFFFFF;
+     }
+     &.erroneous{
+		background-color: #F22F24;
+		color: #FFFFFF;
+     }
+  }
 }
 
 .normal-colored {
@@ -139,28 +177,6 @@ body{
 .erroneous-colored-dark {
 	background-color: #293745;
 }
-
-
-
-
-.mapping-widget-values{
-  td{
-     color: #FFFFFF;
-     &.selected{
-		background-color: #37B98B;
-     }
-     &.suspicious{
-		background-color: #FFAE00;
-     }
-     &.erroneous{
-		background-color: #F22F24;
-     }
-  }
-}
-
-
-
-
 
 td.mapping-widget-paging:hover {
 	background-color: #FFFFFF !important;

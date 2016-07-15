@@ -1,17 +1,17 @@
+<div>
+  {{#tooltip}}
+      {{>atoms/text/tooltip}}
+  {{/tooltip}}
+</div>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
-<div class="first-line tooltip-container">
-	<div>Some Text or URL</div>
-	<div class="tooltip" role="tooltip">Some Text or URL</div>
-</div>
-<div class="second-line">123</div>
+
+<div class="second-line">{{value_number}}</div>
 <div class="flag">
-	<a class="flag-link" href="javascript:dropDownMenu('#object_furtheractions')" data-dropdown="#object_furtheractions">
-		<i class="fa fa-flag-o"></i> <!-- to be replaced by the Europeana icon "flag", TODO: ask Carlos -->
-	</a>
+  <a class="flag-link"  data-dropdown="#object_furtheractions_test">
+    <i class="fa fa-flag-o"></i>
+  </a>
 </div>
-<!-- <div id="object_furtheractions" class="dropdown">
-	<div class="menu-title">Set item as:</div> -->
-	{{#dropdown}}
-		{{>molecules/controls/dropdown-menu}}
-	{{/dropdown}}
-</div>
+  {{#dropdown}}
+    {{>molecules/controls/dropdown-menu}}
+  {{/dropdown}}

@@ -1,0 +1,200 @@
+{
+	"css_files": [
+		{
+			"path": "../../css/pandora/screen.css",
+			"media": "all"
+		},
+		{
+			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+			"media": "all"
+		}
+	],
+	"js_files": [
+		{
+			"path": "../../js/dist/require.js",
+			"data_main": "../../js/dist/main/main-pandora"
+		}
+	],
+	"js_vars": [
+		{
+			"name": "pageName",
+			"value": "portal/index"
+		}
+	],
+	"navigation":
+    {
+        "home_url": "#",
+        "home_text": "Return to Home",
+        "next_prev":
+        {
+          "next_url": "next_url_here",
+          "prev_url": "prev_url_here",
+          "results_url": "results_url_here"
+        },
+        "footer": false,
+        "global":
+        {
+          "options":
+          {
+            "search_active": false,
+            "settings_active": true
+          },
+          "logo":
+          {
+            "url": "#",
+            "text": "Europeana Pandora"
+          },
+          "primary_nav":
+          {
+            "menu_id": "main-menu",
+            "items": [
+              {
+                "text": "Home",
+                "url": "#",
+                "is_current": false,
+                "submenu": false
+              },
+              {
+                "text": "Menu Item 1",
+                "url": "javascript:alert('Hello')",
+                "submenu": {
+                  "items": [
+                    {
+                      "url": "#",
+                      "text": "Submenu Item 11"
+                    },
+                    {
+                      "url": "#",
+                      "text": "Submenu Item 12"
+                    },
+                    {
+                      "url": "Menu Item 2",
+                      "text": "Submenu Item 13"
+                    }
+                  ]
+                }
+              },
+              {
+                "text": "Menu Item 2",
+                "url": "#",
+                "submenu": {
+                  "items": [
+                    {
+                      "url": false,
+                      "text": "Submenu Item 21",
+                      "subtitle": true
+                    },
+                    {
+                      "url": false,
+                      "text": "Submenu Item 22",
+                      "message": true
+                    },
+                    {
+                      "url": "www.exhibitions.eu",
+                      "text": "Submenu Item 23"
+                    },
+                    {
+                      "is_divider": true
+                    },
+                    {
+                      "url": "#",
+                      "text": "Submenu Item 24"
+                    }
+                  ]
+                }
+              },
+              {
+                "text": "",
+                "url": "#",
+                "is_current": false,
+                "submenu": false
+              }
+            ]
+          }
+		}
+	},
+
+	"action_menu": {
+		"sections": [
+			{
+				"menu": {
+					"button_title": "View",
+					"menu_title": "Show:",
+					"menu_id": "object_furtheractions",
+					"style_modifier": "theme_select",
+					"items": [
+						{
+							"text": "Mapping to EDM",
+							"url": "javascript:$('.dropdown-trigger').innerHTML = 'Mapping to EDM'"
+						},
+						{
+							"text": "Source Schema",
+							"url": "#"
+						},
+						{
+							"text": "Per Item",
+							"url": "#"
+						},
+						{
+							"text": "XSLT Editor",
+							"url": "#"
+						}
+					]
+				}
+			},
+			{
+				"menu": {
+					"button_title": "Browse",
+					"menu_title": "Filter by:",
+					"menu_id": "object_furtheractions2",
+					"style_modifier": "theme_select",
+					"items": [
+						{
+							"text": "dc:title",
+							"url": "#"
+						},
+						{
+							"text": "@xml:lang",
+							"url": "#"
+						},
+						{
+							"text": "dc:creator",
+							"url": "#"
+						},
+						{
+							"text": "@xml:lang",
+							"url": "#"
+						},
+						{
+							"text": "dc:language",
+							"url": "#"
+						},
+						{
+							"text": "@xml:lang",
+							"url": "#"
+						},
+						{
+							"text": "dc:subject",
+							"url": "#"
+						},
+						{
+							"text": "@xml:lang",
+							"url": "#"
+						},
+						{
+							"text": "dc:identifier",
+							"url": "#"
+						}
+					]	
+				}
+			},
+			{
+				"search_box": {
+					"search_box_legend": "Search",
+					"search_box_label": "Search Label",
+					"search_box_hidden": "Search Hidden"
+				}
+			}
+		]
+	}
+}

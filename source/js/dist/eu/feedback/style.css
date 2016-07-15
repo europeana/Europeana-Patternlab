@@ -79,35 +79,31 @@
   }
 }
 /* line 71, style.scss */
-.feedback .feedback-title {
-  text-transform: capitalize;
-}
-/* line 75, style.scss */
 .feedback .feedback-toggle {
   color: #fff;
   position: absolute;
   left: 0;
 }
 @media all and (max-width: 50em) {
-  /* line 75, style.scss */
+  /* line 71, style.scss */
   .feedback .feedback-toggle {
     width: 100%;
     top: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 75, style.scss */
+  /* line 71, style.scss */
   .feedback .feedback-toggle {
     bottom: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 75, style.scss */
+  /* line 71, style.scss */
   .feedback .feedback-toggle {
     transform: translateX(-100%);
   }
 }
-/* line 93, style.scss */
+/* line 89, style.scss */
 .feedback .feedback-toggle a {
   border: 0 none;
   cursor: pointer;
@@ -117,20 +113,20 @@
   vertical-align: middle;
 }
 @media all and (min-width: 50em) {
-  /* line 93, style.scss */
+  /* line 89, style.scss */
   .feedback .feedback-toggle a {
     transform: rotate(270deg);
   }
-  /* line 105, style.scss */
+  /* line 101, style.scss */
   .feedback .feedback-toggle a.open {
     left: 23px;
     top: -23px;
   }
-  /* line 108, style.scss */
+  /* line 104, style.scss */
   .feedback .feedback-toggle a.open:hover, .feedback .feedback-toggle a.open:focus {
     background: #212121;
   }
-  /* line 112, style.scss */
+  /* line 108, style.scss */
   .feedback .feedback-toggle a.close {
     left: 23px;
     top: -23px;
@@ -138,12 +134,12 @@
   }
 }
 @media all and (max-width: 50em) {
-  /* line 93, style.scss */
+  /* line 89, style.scss */
   .feedback .feedback-toggle a {
     transform: translateY(-100%);
   }
 }
-/* line 125, style.scss */
+/* line 121, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-cancel,
 .feedback .feedback-send {
@@ -152,7 +148,7 @@
   padding: 0.5em;
 }
 @media all and (max-width: 50em) {
-  /* line 132, style.scss */
+  /* line 128, style.scss */
   .feedback .feedback-toggle a.close,
   .feedback .feedback-cancel.close,
   .feedback .feedback-send.close {
@@ -160,64 +156,62 @@
     top: 0;
   }
 }
-/* line 140, style.scss */
+/* line 136, style.scss */
 .feedback .feedback-toggle a {
   padding: 0.75em 1em;
 }
-/* line 144, style.scss */
+/* line 140, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   color: #fff;
   position: absolute;
-  width: 3.45em;
+  width: 2.45em;
   height: 2.45em;
 }
-/* line 150, style.scss */
+/* line 146, style.scss */
 .feedback .feedback-cancel svg.icon,
 .feedback .feedback-send svg.icon {
-  width: 2.5em;
+  width: 1.4em;
+  height: 1.4em;
 }
-/* line 155, style.scss */
+/* line 152, style.scss */
 .feedback .feedback-cancel {
   background-color: #CCCCCC;
 }
-/* line 159, style.scss */
+/* line 156, style.scss */
 .feedback .feedback-send {
   right: 0;
 }
-/* line 163, style.scss */
+/* line 160, style.scss */
 .feedback #feedback-form {
   margin: 1em;
   padding-bottom: 3em;
 }
-/* line 166, style.scss */
+/* line 163, style.scss */
 .feedback #feedback-form .controls.step1 {
   position: relative;
 }
-/* line 170, style.scss */
-.feedback #feedback-form .step1 {
-  font-size: 0.875em;
-}
-/* line 174, style.scss */
+/* line 167, style.scss */
 .feedback #feedback-form .step2 {
   visibility: hidden;
   position: absolute;
   top: 0;
 }
-/* line 180, style.scss */
+/* line 173, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 184, style.scss */
+/* line 177, style.scss */
 .feedback #feedback-form p.step2 {
+  position: absolute;
   top: 4em;
 }
-/* line 188, style.scss */
+/* line 182, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   margin-top: 1.6rem;
 }
-/* line 193, style.scss */
+/* line 187, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -231,19 +225,19 @@
   text-align: right;
   top: -7px;
 }
-/* line 207, style.scss */
+/* line 201, style.scss */
 .feedback #feedback-form .feedback-error {
   color: red;
   position: absolute;
   visibility: hidden;
   top: 0;
 }
-/* line 215, style.scss */
+/* line 209, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: red;
 }
-/* line 220, style.scss */
+/* line 214, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -257,27 +251,27 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 234, style.scss */
+/* line 228, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 238, style.scss */
+/* line 232, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 242, style.scss */
+/* line 236, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 249, style.scss */
+/* line 243, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 256, style.scss */
+/* line 250, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url(spinner.gif);

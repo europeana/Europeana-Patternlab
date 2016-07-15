@@ -7,31 +7,40 @@
         {
       "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
       "media": "all"
-    }  
+    }
   ],
-   
+
   "js_files": [
     {
       "path": "../../js/dist/require.js",
       "data_main": "../../js/dist/main/molecules/main-pandora-field-value"
     }
   ],
-  "menu-title": "Set item as:",
-  "button_title": " ",
-  "menu_id": "object_furtheractions",
-  "style_modifier": "theme_select",
-  "items": [
-  {
-    "text": "Valid",
-    "url": "#"
+  "tooltip":{
+    "tooltipped_text": "Some Text or URL",
+    "tooltip_text": "The Tooltip for Text or URL",
+    "icon": "icon-help",
+      "icon_first": true
   },
-  {
-    "text": "Suspicious",
-    "url": "#"
-  },
-  {
-    "text": "Invalid",
-    "url": "#"
+  "value_number": "123",
+  "dropdown": {
+    "menu-title": "Set item as:",
+    "button_title": " ",
+    "menu_id": "object_furtheractions_test",
+    "style_modifier": "theme_select",
+    "items": [
+    {
+      "text": "Valid",
+      "url": "#"
+    },
+    {
+      "text": "Suspicious",
+      "url": "#"
+    },
+    {
+      "text": "Invalid",
+      "url": "#"
+    }
+    ]
   }
-  ]
 }

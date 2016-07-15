@@ -12,14 +12,12 @@
     {{/tooltipped_text}}
     <div {{#tooltip_id}}data-tooltip-id="{{.}}"{{/tooltip_id}}
          class="eu-tooltip{{#persistent}} persistent{{/persistent}}{{^icon_first}}{{^trailing}} right-aligned{{/trailing}}{{/icon_first}}{{#trailing}} trailing{{/trailing}}">
-      {{^tooltipped_text}}
         {{#link_url}}
           <a href="{{.}}">{{tooltip_text}}</a>
         {{/link_url}}
         {{^link_url}}
           {{tooltip_text}}
         {{/link_url}}
-      {{/tooltipped_text}}
       {{#persistent}}
         <a data-role="remove"></a>
       {{/persistent}}

@@ -68,10 +68,6 @@
     }
   }
 
-  .feedback-title{
-    text-transform: capitalize;
-  }
-
   .feedback-toggle {
     color: #fff;
     position: absolute;
@@ -145,10 +141,11 @@
   .feedback-send{
     color: #fff;
     position: absolute;
-    width: 3.45em;
+    width: 2.45em;
     height: 2.45em;
     svg.icon{
-      width: 2.5em;
+      width: 1.4em;
+      height: 1.4em;
     }
   }
 
@@ -167,10 +164,6 @@
       position: relative;
     }
 
-    .step1{
-      font-size: $font-size-slightly-smaller;
-    }
-
     .step2{
       visibility: hidden;
       position: absolute;
@@ -182,6 +175,7 @@
     }
 
     p.step2{
+      position: absolute;
       top: 4em;
     }
 
