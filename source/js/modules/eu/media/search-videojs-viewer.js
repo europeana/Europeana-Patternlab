@@ -4,8 +4,8 @@ define([], function() {
   var player          = null;
   var $viewer         = null;
 
-  var css_path        = require.toUrl('../lib/videojs/videojs.css');
-  var silverlight_xap = require.toUrl('../lib/videojs-silverlight/video-js.xap');
+  var css_path        = require.toUrl('../../lib/videojs/videojs.css');
+  var silverlight_xap = require.toUrl('../../lib/videojs-silverlight/video-js.xap');
 
   var html = {
       "audio": $('.object-media-audio').length > 0 ? $('.object-media-audio audio')[0].outerHTML : '',

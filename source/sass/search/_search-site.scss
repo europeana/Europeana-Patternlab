@@ -29,7 +29,7 @@
     position: absolute;
     left: 50%;
     @include translate (-50%, -50%);
-    width: 80%;
+    width: 50em;
   }
 
   .searchbar{
@@ -801,4 +801,9 @@
       border-left: none;
     }
   }
+}
+
+.eu-tooltip-container,
+.feedback{
+  display: none;
 }

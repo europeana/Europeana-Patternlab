@@ -160,6 +160,18 @@
 
     }
 
+    &.ve-base-medium-tall{
+
+      @media all and (min-width: $bp-med) {
+        //height:    48em;
+        max-width: $ve_image_column_width;
+        min-height: -webkit-calc(100vh - 4.8rem);
+        min-height:    -moz-calc(100vh - 4.8rem);
+        min-height:         calc(100vh - 4.8rem);
+      }
+
+    }
+    
     &.ve-base-large{
 
       padding: 0;
@@ -189,11 +201,26 @@
 }
 
 
+.ve-base-compare{
+  width:    100%;
+}
+
 .ve-base-quote,
 .ve-base-text,
 .ve-title-group{
-    padding:  1em;
-    width:    100%;
+  padding:  1em;
+  width:    100%;
+}
+
+.ve-title-group{
+  a,
+  a:hover{
+    color: #fff;
+  }
+  a:hover .ve-subtitle,
+  a:hover .ve-title{
+    text-decoration: underline;
+  }
 }
 
 .ve-branding{
@@ -422,6 +449,10 @@ a:hover > .ve-state-button-off,
   }
 }
 
+.clickable{
+  cursor: pointer;
+}
+
 .ve-base-foyer-main,
 .ve-intro{
   background-position: center top;
@@ -595,6 +626,9 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .ve-base-compare{
+    margin: auto;
+  }
   .ve-base-image{
     margin: auto;
     &.portrait{
@@ -724,6 +758,9 @@ a:hover > .ve-state-button-off,
       width:     auto;
   }
 
+  .ve-base-compare{
+      max-width: $ve_text_column_width_XL_padded;
+  }
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width;
@@ -800,6 +837,9 @@ a:hover > .ve-state-button-off,
     }
   }
 
+  .ve-base-compare{
+    max-width: $ve_text_column_width_XL_padded;
+  }
   .ve-base.ve-base-quote,
   .ve-base-text{
       max-width: $ve_text_column_width_XL;

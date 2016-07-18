@@ -3,15 +3,15 @@ define(['jquery'], function($){
       'use strict';
 
       var
-      resource_path_css   = require.toUrl('../lib/pdfjs/viewer.css'),
-      resource_path_worker= require.toUrl('../lib/pdfjs/pdf.worker.js'),
+      resource_path_css   = require.toUrl('../../lib/pdfjs/viewer.css'),
+      resource_path_worker= require.toUrl('../../lib/pdfjs/pdf.worker.js'),
 
-      pdfjs_canvas        = null,//document.getElementById('pdfjs-canvas'),
-      next                = null,//document.getElementById('pdfjs-next'),
-      page_count_span     = null,//document.getElementById('pdfjs-page-count'),
-      page_number_span    = null,//document.getElementById('pdfjs-page-number'),
-      prev                = null,//document.getElementById('pdfjs-prev'),
-      context             = null,//pdfjs_canvas.getContext('2d'),
+      pdfjs_canvas        = null,
+      next                = null,
+      page_count_span     = null,
+      page_number_span    = null,
+      prev                = null,
+      context             = null,
       page_number         = 1,
       scale               = 1,
       page_number_pending = null,
@@ -128,7 +128,7 @@ define(['jquery'], function($){
         prev                = $el.find('#pdfjs-prev')[0];
         context             = pdfjs_canvas.getContext('2d');
 
-        PDFJS.workerSrc     = resource_path_woker;
+        PDFJS.workerSrc     = resource_path_worker;
         $('head').append('<link rel="stylesheet" href="' + resource_path_css + '" type="text/css"/>');
 
         next.addEventListener( 'click', onNextPage );

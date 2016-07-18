@@ -1,8 +1,14 @@
 {
+  "js_files": [
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/atoms/main-tooltip-atom.js"
+    }
+  ],
   "tooltip":{
-    "tooltipped_text": "This is the text",
-    "tooltip_text": "This is the tooltip",
-    "icon": "icon-help",
-    "icon_first": true
+  "tooltipped_text": "This is the text",
+  "tooltip_text": "This is the tooltip",
+  "icon": "icon-help",
+  "icon_first": true
   }
 }

@@ -14,7 +14,7 @@
 
   "js_files": [{
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+      "data_main": "../../js/dist/main/templates/main-virtual-exhibitions"
     }
 
   ],

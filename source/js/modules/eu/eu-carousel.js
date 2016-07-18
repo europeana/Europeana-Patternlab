@@ -4,11 +4,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         console.log('carousel: ' + msg);
     };
 
-    var mergeHashes = function(array1,array2) {
-      for(item in array1) {
-        array2[item] = array1[item];
-      }
-      return array2;
+    var mergeHashes = function(array1, array2){
+      //for(item in array1) {
+      //  array2[item] = array1[item];
+      //}
+      //return array2;
+      return $.extend({}, array1, array2);
     };
 
     /**

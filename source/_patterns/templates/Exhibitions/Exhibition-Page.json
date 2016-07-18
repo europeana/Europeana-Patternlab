@@ -9,7 +9,7 @@
 
   "js_files": [{
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+      "data_main": "../../js/dist/main/templates/main-virtual-exhibitions"
     }
 
   ],
@@ -249,10 +249,10 @@
             "is_image_compare": true,
             "image_1": {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "half": {
                 "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
@@ -280,7 +280,6 @@
               "attribution_url": "rijksmuseum.nl",
               "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
               "license_text": "CC BY-SA",
-              
               "country_code": "NL",
               "country": "Netherlands"
             },
@@ -318,7 +317,7 @@
               "attribution_url": "rijksmuseum.nl",
               "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
               "license_text": "CC BY-SA",
-              
+
               "country_code": "NL",
               "country": "Netherlands"
             }
@@ -331,8 +330,8 @@
         {
             "id": "x0_3",
             "is_embed": true,
-            "html": "<iframe class=\"ve-base-small\"  width=\"500\" height=\"315\" src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>",
-            "XXXhtml": "<iframe src=\"https://www.youtube.com/embed/_As4LsPaMjg\" frameborder=\"0\" allowfullscreen></iframe>"
+            "html": "<iframe class=\"ve-base-medium-tall\" width=\"50%\" height=\"800\" frameborder=\"0\" src=\"https://s3.amazonaws.com/uploads.knightlab.com/storymapjs/f9d7b44e8575c73185fd5fdfc9c55494/the-danse-macabre-by-bernt-notke/index.html?x=1\"></iframe>",
+            "XXX_html" : "<iframe height=\"650\" frameborder=\"0\" width=\"100%\"  class=\"ve-base-med\" src=\"https://s3.amazonaws.com/uploads.knightlab.com/storymapjs/f9d7b44e8575c73185fd5fdfc9c55494/the-danse-macabre-by-bernt-notke/index.html\"></iframe>"
         },
         {
             "id": "x0_5",
@@ -346,8 +345,8 @@
         },
         {
             "id": "x0_7",
-            "is_embed": true,
-            "html": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
+            "XXX_is_embed": true,
+            "XXX_html": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
         },
         {
             "id": "x0_8",

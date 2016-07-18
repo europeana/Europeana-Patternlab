@@ -1,6 +1,9 @@
 define(['jquery', 'search_form', 'smartmenus'], function () {
 
     var promisedPageJS = jQuery.Deferred();
+    var log = function(msg){
+      console.log('Channels: ' + msg);
+    }
 
     require(['smartmenus_keyboard'], function(){
 
@@ -51,6 +54,26 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
         })
     }
 
+    var initFeedback = function(){
+      if($('.feedback').size()>0){
+        require(['feedback'], function(fb){
+          fb.init($('.feedback'), { beforeSend: function(xhr) {
+            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+          }});
+        });
+      }  
+    }
+    
+    var doForAllPages = function(){
+      initCollectionsFilter();
+      
+      if($('.eu-tooltip').size()>0){
+        require(['eu_tooltip'], function(euTooltip){
+          euTooltip.configure();
+        });
+      }
+      initFeedback();
+    }
 
     if(typeof pageName == 'undefined' || !pageName){
         console.warn('pageName not specified - cannot bootstrap app');
@@ -60,29 +83,29 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
 
     switch(pageName){
         case 'browse/people':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/colours':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/topics':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/new_content':
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'browse/sources':
             require(['util_foldable']);
-            initCollectionsFilter();
             promisedPageJS.resolve();
+            doForAllPages();
             break;
 
         case 'collections/show':          
@@ -90,12 +113,14 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
               require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
               });
             }
             else{
               require(['search_results'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
               });
             }
             break;
@@ -103,28 +128,33 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             require(['search_object'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'portal/index':
             require(['search_results'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'portal/static':
             require(['util_foldable']);
             promisedPageJS.resolve();
+            doForAllPages();
             break;
         case 'home/index':
             require(['search_home'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         case 'settings/language':
             require(['settings'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
+                doForAllPages();
             });
             break;
         default:

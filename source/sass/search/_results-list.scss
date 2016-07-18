@@ -87,13 +87,17 @@
     display: block;
   }
   position:   absolute;
-  right:      125px;
+  right:      133px;
   top:        4em;
 
-  .tooltip-container{
+  .eu-tooltip-container{
     top:   -3.5em;
     width: 300px;
   }
+}
+
+.refine .eu-tooltip{
+  transform: translate(-0.8em, -1.1em);
 }
 
 .action-select,

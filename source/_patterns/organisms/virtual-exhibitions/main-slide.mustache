@@ -77,7 +77,9 @@
   {{/is_image}}
 
   {{#is_image_compare}}
-    {{> molecules/media/image-compare}}
+    <div id="{{id}}" class="ve-base ve-base-compare">
+      {{> molecules/media/image-compare}}
+    </div>
   {{/is_image_compare}}
 
   {{#is_rich_image}}

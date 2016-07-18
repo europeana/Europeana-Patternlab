@@ -187,7 +187,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           }
       };
 
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.tooltip-anchor').each(function(){
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.eu-tooltip-anchor').each(function(){
           updateUrl($(this));
       });
 
@@ -289,6 +289,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         $('.refine .js-showhide-nested').data('ga-sent', true);
       });
     }
+
+   
 
     var initPage = function(){
       bindViewButtons();

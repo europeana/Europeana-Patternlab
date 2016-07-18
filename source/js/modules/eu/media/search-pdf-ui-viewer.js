@@ -4,9 +4,9 @@ define(['jquery'], function($){
 
         'use strict';
 
-        var resource_path_1 = require.toUrl('../lib/pdfjs/viewer.css');
-        var resource_path_2 = require.toUrl('../lib/pdfjs/viewer-europeana.css');
-        var resource_path_3 = require.toUrl('../lib/pdfjs/pdf.worker.js');
+        var resource_path_1 = require.toUrl('../../lib/pdfjs/viewer.css');
+        var resource_path_2 = require.toUrl('../../lib/pdfjs/viewer-europeana.css');
+        var resource_path_3 = require.toUrl('../../lib/pdfjs/pdf.worker.js');
 
         var error_server = 'Unexpected server response';
         var error_corrupt = 'Invalid or corrupted PDF file';

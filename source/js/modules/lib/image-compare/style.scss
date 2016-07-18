@@ -1,26 +1,20 @@
 @import "../../../../sass/scss/generic/variables";
 
-.image-compare-center{
-  margin-left: 50%;
-  .attribution-text {
-    display: block;
-    bottom: 0;
-    position: absolute;
-    transform: translateY(3em);
+.attribution-text {
+  text-align: left;
+  @media all and (max-width: $bp-med) {
+    padding: 0.5em 1em;
   }
 }
 
-figure.image-compare {
+.image-compare {
+  float:     left;	// constrain size to content
+  max-width: 100%;
+  position:  relative;
 
-  float:      left;
-  margin:     0em auto;
-  position:   relative;
-  transform:  translateX(-50%);
-
-  > img {
+  img {
     display:       block;
     margin-bottom: 0;
-    max-width:     100%;
   }
 }
 .resize-img {
@@ -30,14 +24,6 @@ figure.image-compare {
   width: 0;
   height: 100%;
   overflow: hidden;
-  /* Force Hardware Acceleration in WebKit */
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .resize-img {
@@ -92,19 +78,18 @@ figure.image-compare {
   }
 }
 .handle {
-  position: absolute;
+  background: $eu-blue url("arrows.svg") no-repeat center center;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  cursor: move;
   height: 44px;
-  width: 44px;
-  /* center the element */
   left: 50%;
   top: 50%;
   margin-left: -22px;
   margin-top: -22px;
-  border-radius: 50%;
-  background: $eu-blue url("arrows.svg") no-repeat center center;
-  cursor: move;
-  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-
+  position: absolute;
+  width: 44px;
+  z-index: 1;
 
   &.draggable {
     background-color: red;

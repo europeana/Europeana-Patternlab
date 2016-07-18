@@ -12,7 +12,7 @@
 
   "js_files": [{
       "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-virtual-exhibitions"
+      "data_main": "../../js/dist/main/templates/main-virtual-exhibitions"
     }
   ],
   "head_links": {
@@ -67,6 +67,7 @@
         "id": "x0_1",
         "type": "ve-intro",
         "is_featured_exhibition": true,
+        "link": "http://www.youtube.com",
 
         "image_credit": {
           "attribution_title": "Rudolph II as Vertumnus",
@@ -196,12 +197,12 @@
       {
         "is_foyer_card": true,
         "state_1_title": "Wiki Loves Art Nouveau",
-        "state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
-        "state_3_title": "Credits",
+        "XXX___state_2_title": "Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces",
+        "XXX___state_3_title": "Credits",
 
         "state_1_label": "Art history collection",
 
-        "state_1_link": "javascript:alert('open this exhibition (1)')",
+        "XXX___state_1_link": "javascript:alert('open this exhibition (1)')",
         "state_2_link": "javascript:alert('open this exhibition (2)')",
         "state_3_link": "javascript:alert('open this exhibition (3)')",
 
