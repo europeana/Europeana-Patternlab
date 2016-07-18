@@ -16,11 +16,10 @@
       "data_main": "../../js/dist/main/molecules/main-pandora-field-value"
     }
   ],
+  "field_value_id": "field_value_id1",
   "tooltip":{
     "tooltipped_text": "Some Text or URL",
-    "tooltip_text": "The Tooltip for Text or URL",
-    "icon": "icon-help",
-      "icon_first": true
+    "tooltip_text": "The Tooltip for Text or URL"
   },
   "value_number": "123",
   "dropdown": {
@@ -39,6 +38,14 @@
     },
     {
       "text": "Invalid",
+      "url": "#"
+    },
+    {
+      "divider": true,
+      "url": false
+    },
+    {
+      "text": "Remove all marks",
       "url": "#"
     }
     ]

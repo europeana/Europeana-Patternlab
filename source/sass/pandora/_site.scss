@@ -42,8 +42,11 @@ body {
 }
 
 .header {
-	display: block;
+/* 	display: block; */
 	background-color: #4BC0F0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
 }
 
 .nav_primary a:hover:after {
@@ -63,7 +66,7 @@ body {
 	display: inline-block;
 	font-size: 12px;
 	float: left;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
 }
 
 .container-search-box {
@@ -73,7 +76,7 @@ body {
 	display: inline-block;
 	font-size: 12px;
 	float: left;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
 }
 
 .container-search-box .inline-form .search-submit {
@@ -92,6 +95,8 @@ body {
 	margin-top:20px;
 	padding-left:10px;
 	border-top: 0.1em solid #FFFFFF;
+	background-color: #4BC0F0;
+	padding-top: 60px;
 }
 
 .breadcrumbs a{
@@ -195,7 +200,7 @@ td.mapping-widget-paging:hover {
 }
 
 .second-line {
-	vertical-align: bottom;
+	vertical-align: baseline;
 	color: #777777;
 	font-size: 16px;
 	display: inline-block;
@@ -207,8 +212,8 @@ td.mapping-widget-paging:hover {
 
 
 .flag {
-	vertical-align: bottom;
-	/* float: right; */
+	vertical-align: baseline;
+	float: right;
 	color: #777777;
 	font-size: 16px;
 	padding-right: 3px;
@@ -234,12 +239,12 @@ td.mapping-widget-paging:hover {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
 }
 
 .first-line-expand {
     display: block;
-    display: -webkit-box;
+    width: 240px;
     max-width: 240px;
     height: 50px;
     margin: 5px 5px;
@@ -266,4 +271,32 @@ td.mapping-widget-paging:hover {
 .dropdown {
 	margin-top:10px;
 	margin-left: -1em;
+}
+
+.field_value_valid {
+	background-color: #37B98B;
+	color: #FFFFFF;
+}
+
+.field_value_suspicious {
+	background-color: #FFAE00;
+	color: #FFFFFF;
+}
+
+.field_value_invalid {
+	background-color: #F22F24;
+	color: #FFFFFF;
+}
+
+.field-value-cell .dropdown-trigger {
+	display: none !important;
+}
+
+.field-value-cell {
+	height: 100%;
+	max-width: 600px;
+}
+
+.action_menu {
+	padding-bottom: 30px;
 }

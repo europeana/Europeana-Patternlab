@@ -1,4 +1,3 @@
-{{> organisms/global/header}}
 <!-- 	<div style="height:123px;">
 		<header class="pandora-header header">
 		{{#navigation}}
@@ -31,8 +30,17 @@
 		}}
 		<div class="cf"></div>	
 	</div> -->
-	<div class="ve-anchor"><span>&nbsp;</span></div>
 	<div class="container-large">
+		{{> organisms/global/header}}
+		{{#breadcrumbs}}
+	    <ul class="breadcrumbs">
+	      {{#items}}
+        		<li><a href="{{url}}">{{text}}</a></li>
+	       {{/items}}
+	    </ul>
+	    {{/breadcrumbs}}
+	</div>
+	<div class="container-large action_menu">
 	    {{#action_menu}}
 	      {{#sections}}
             <div class="container-menu">
@@ -52,7 +60,7 @@
 	<div class="menu_dropdown theme_select container_menu">
 		{{! molecules/controls/dropdown-menu}}
 	</div>
-	<div class="container-large" style="padding-top:20px;">
+	<div class="container-large">
 		<table class="mapping-widget">
 			<tr class="mapping-widget-collapsed">
 				<td width="25%">
@@ -93,7 +101,9 @@
 										<li><a href="#" class="item-normal">Normal</a></li>
 									</ul>
 								</div> -->
-								{{>molecules/pandora/field-value}}
+								{{#field_value_cell}}
+									{{>molecules/pandora/field-value}}
+								{{/field_value_cell}}
 							</td>
 							<td><div>Random Value</div></td>
 							<td><div>Random Value</div></td>

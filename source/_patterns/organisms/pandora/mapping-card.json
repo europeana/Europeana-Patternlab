@@ -1,0 +1,511 @@
+{
+	"css_files": 
+	[
+		{
+			"path": "../../css/pandora/screen.css",
+			"media": "all"
+		},
+
+		{
+			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+			"media": "all"
+		}
+	],
+
+	"js_files": 
+	[
+		{
+			"path": "../../js/dist/require.js",
+			"data_main": "../../js/dist/main/templates/main-pandora"
+		}
+	],
+
+	"field_value_cells": 
+	{
+		"items_line_1": 
+		[
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id00",
+					"tooltip": 
+					{
+						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF",
+						"tooltip_text": "The Tooltip for Text or URL 1"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_00",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id01",
+					"tooltip": 
+					{
+						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF",
+						"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_01",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id02",
+					"tooltip": 
+					{
+						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF",
+						"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_02",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id03",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 4",
+						"tooltip_text": "The Tooltip for Text or URL 4"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_03",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id04",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 5",
+						"tooltip_text": "The Tooltip for Text or URL 5"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_04",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			}
+		],
+
+		"items_line_2": 
+		[
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id10",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 6",
+						"tooltip_text": "The Tooltip for Text or URL 6"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_10",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id11",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 7",
+						"tooltip_text": "The Tooltip for Text or URL 7"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_11",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id12",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 8",
+						"tooltip_text": "The Tooltip for Text or URL 8"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_12",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id13",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 9",
+						"tooltip_text": "The Tooltip for Text or URL 9"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_13",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			},
+
+			{
+				"field_value_cell": 
+				{
+					"field_value_id": "field_value_id14",
+					"tooltip": 
+					{
+						"tooltipped_text": "Some Text or URL 10",
+						"tooltip_text": "The Tooltip for Text or URL 10"
+					},
+
+					"value_number": "123",
+					"dropdown": 
+					{
+						"menu-title": "Set item as:",
+						"button_title": " ",
+						"menu_id": "object_furtheractions_14",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Valid",
+								"url": "#"
+							},
+
+							{
+								"text": "Suspicious",
+								"url": "#"
+							},
+
+							{
+								"text": "Invalid",
+								"url": "#"
+							},
+
+							{
+								"divider": true,
+								"url": false
+							},
+
+							{
+								"text": "Remove all marks",
+								"url": "#"
+							}
+						]
+					}
+				}
+			}
+		]
+	}
+}

@@ -12,7 +12,7 @@
 	"js_files": [
 		{
 			"path": "../../js/dist/require.js",
-			"data_main": "../../js/dist/main/main-pandora"
+			"data_main": "../../js/dist/main/templates/main-pandora"
 		}
 	],
 	"js_vars": [
@@ -21,6 +21,28 @@
 			"value": "portal/index"
 		}
 	],
+	"breadcrumbs":
+	{
+		"items": [
+			{
+				"text": "Grandparent",
+				"url": "#"
+			},
+			{
+				"text": "Parent",
+				"url": "#"
+			},
+			{
+				"text": "Child",
+				"url": "#"
+			},
+			{
+				"text": "Grandchild",
+				"url": "#"
+			}
+		] 
+	},
+	
 	"navigation":
     {
         "home_url": "#",
@@ -196,5 +218,48 @@
 				}
 			}
 		]
+	},
+	"field_value_cell": {
+		"field_value_id": "field_value_id1",
+		"tooltip":{
+	    	"tooltipped_text": "Some Text or URL",
+	    	"tooltip_text": "The Tooltip for Text or URL"
+	  	},
+		"value_number": "123",
+		"dropdown": {
+	    "menu-title": "Set item as:",
+	    "button_title": " ",
+	    "menu_id": "object_furtheractions_test",
+	    "style_modifier": "theme_select",
+	    "items": [
+	    {
+	      "text": "Valid",
+	      "url": "#"
+	    },
+	    {
+	      "text": "Suspicious",
+	      "url": "#"
+	    },
+	    {
+	      "text": "Invalid",
+	      "url": "#"
+	    },
+	    {
+	      "divider": true,
+	      "url": false
+	    },
+	    {
+	      "text": "Remove all marks",
+	      "url": "#"
+	    }
+	    ]
+	  }
+	},
+	"i18n": 
+	{
+		"global": 
+		{
+			"our-sites": "Our sites"
+		}
 	}
 }
