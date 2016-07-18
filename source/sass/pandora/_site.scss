@@ -200,6 +200,7 @@ td.mapping-widget-paging:hover {
 }
 
 .second-line {
+	
 	vertical-align: baseline;
 	color: #777777;
 	font-size: 16px;
@@ -230,21 +231,18 @@ td.mapping-widget-paging:hover {
 
 .first-line {
     display: block;
-    display: -webkit-box;
     max-width: 144px;
     height: 50px;
-    margin: 5px 5px;;
     font-size: 12px;
     line-height: 1.4;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis !important;
+    text-overflow: ellipsis;
 }
 
 .first-line-expand {
     display: block;
-    width: 240px;
     max-width: 240px;
     height: 50px;
     margin: 5px 5px;
@@ -254,6 +252,7 @@ td.mapping-widget-paging:hover {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .indent {
@@ -266,6 +265,17 @@ td.mapping-widget-paging:hover {
 
 .pagination {
 	margin-bottom: 0px !important;
+	padding-top: 1rem;
+}
+
+.pagination a {
+	color: #1676aa;
+}
+
+.pagination .current a, .pagination .is-current a {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #1676aa;
 }
 
 .dropdown {
@@ -298,5 +308,5 @@ td.mapping-widget-paging:hover {
 }
 
 .action_menu {
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 }

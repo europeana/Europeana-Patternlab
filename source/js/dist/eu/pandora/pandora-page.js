@@ -34,6 +34,19 @@ define(['jquery'], function ($) {
     	
     }
     
+    function expandCollapseMappingCard() {
+        $('.mapping-widget-expanded').hide();
+    	$('.values-expand').click(function() {
+    		$('.mapping-widget-expanded').slideToggle('1000');
+    		$('.mapping-widget-collapsed').hide();
+    	});
+    	
+    	$('.values-collapse').click(function() {
+    		$('.mapping-widget-expanded').hide();
+    		$('.mapping-widget-collapsed').show();
+    	});
+    }
+    
 	function pageInit() {
       
 	  log('in page init');
@@ -49,11 +62,11 @@ define(['jquery'], function ($) {
         euTooltip.configure();
       });
 
+      require(['util_ellipsis'], function(EllipsisUtil){
+        var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
+      });
       
-      //require(['util_ellipsis'], function(EllipsisUtil){
-      //  var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
-      //});
-      
+      expandCollapseMappingCard();
     }
     
 	function selectView() {
