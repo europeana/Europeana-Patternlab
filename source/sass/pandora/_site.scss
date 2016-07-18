@@ -1,15 +1,15 @@
 @import "../scss/generic/variables";
 
 .logo {
-  background-image: url("../../images/europeana-logo-collections.png");
-  .svg &{
-    background-image: url("../../images/europeana-logo-collections.svg");
-      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        background-image: url("../../images/europeana-logo-symbol.svg");
-        min-width:50px;
-        max-width:50px;
-      }
-  }
+	background-image: url("../../images/europeana-logo-pandora.png");
+	.svg &{
+	  background-image: url("../../images/europeana-logo-collections.svg");
+	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+	      background-image: url("../../images/europeana-logo-symbol.svg");
+	      min-width:50px;
+	      max-width:50px;
+	    }
+	}
 }
 
 .no-js{
@@ -18,7 +18,7 @@
 
 }
 
-body{
+body {
 
   @media all and (max-width: $bp-med){
     background-color: red;  
@@ -29,8 +29,8 @@ body{
   }
 }
 
-.pandora-header {
-	background-color: #4BC0F0;
+.ve-anchor {
+	margin-top:3.5em;
 }
 
 .header .nav_primary a {
@@ -42,27 +42,49 @@ body{
 }
 
 .header {
-	display: block;
+/* 	display: block; */
+	background-color: #4BC0F0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
 }
 
 .nav_primary a:hover:after {
 	border-color: #FFFFFF;
 }
 
-.container_large {
+.container-large {
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
 }
 
-.container_menu {
+.container-menu {
 	width: 180px !important;
 	padding-left: 0px;
 	margin-left: 0px;
 	display: inline-block;
 	font-size: 12px;
 	float: left;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
+}
+
+.container-search-box {
+	width: 280px;
+	padding-left: 2px;
+	margin-left: 0px;
+	display: inline-block;
+	font-size: 12px;
+	float: left;
+	padding-bottom: 0px;
+}
+
+.container-search-box .inline-form .search-submit {
+	height:32px;
+}
+
+.container-search-box .inline-form .search-field {
+	height:32px;
 }
 
 .dropdown-trigger {
@@ -73,6 +95,8 @@ body{
 	margin-top:20px;
 	padding-left:10px;
 	border-top: 0.1em solid #FFFFFF;
+	background-color: #4BC0F0;
+	padding-top: 60px;
 }
 
 .breadcrumbs a{
@@ -104,6 +128,7 @@ body{
 
 .mapping-widget-values td,  mapping-widget-values-expanded td {
 	height: 75px;
+	color: #1676aa;
 }
 
 .mapping-widget-values td:hover,mapping-widget-values-expanded td:hover {
@@ -114,6 +139,24 @@ body{
 
 .mapping-widget-values tr, mapping-widget-values-expanded tr {
 	height: 100%;
+}
+
+.mapping-widget-values {
+  td {
+     color: #1676aa;
+     &.selected{
+		background-color: #37B98B;
+		color: #FFFFFF;
+     }
+     &.suspicious{
+		background-color: #FFAE00;
+		color: #FFFFFF;
+     }
+     &.erroneous{
+		background-color: #F22F24;
+		color: #FFFFFF;
+     }
+  }
 }
 
 .normal-colored {
@@ -140,28 +183,6 @@ body{
 	background-color: #293745;
 }
 
-
-
-
-.mapping-widget-values{
-  td{
-     color: #FFFFFF;
-     &.selected{
-		background-color: #37B98B;
-     }
-     &.suspicious{
-		background-color: #FFAE00;
-     }
-     &.erroneous{
-		background-color: #F22F24;
-     }
-  }
-}
-
-
-
-
-
 td.mapping-widget-paging:hover {
 	background-color: #FFFFFF !important;
 }
@@ -179,7 +200,7 @@ td.mapping-widget-paging:hover {
 }
 
 .second-line {
-	vertical-align: bottom;
+	vertical-align: baseline;
 	color: #777777;
 	font-size: 16px;
 	display: inline-block;
@@ -191,8 +212,8 @@ td.mapping-widget-paging:hover {
 
 
 .flag {
-	vertical-align: bottom;
-	/* float: right; */
+	vertical-align: baseline;
+	float: right;
 	color: #777777;
 	font-size: 16px;
 	padding-right: 3px;
@@ -218,12 +239,12 @@ td.mapping-widget-paging:hover {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
 }
 
 .first-line-expand {
     display: block;
-    display: -webkit-box;
+    width: 240px;
     max-width: 240px;
     height: 50px;
     margin: 5px 5px;
@@ -250,4 +271,32 @@ td.mapping-widget-paging:hover {
 .dropdown {
 	margin-top:10px;
 	margin-left: -1em;
+}
+
+.field_value_valid {
+	background-color: #37B98B;
+	color: #FFFFFF;
+}
+
+.field_value_suspicious {
+	background-color: #FFAE00;
+	color: #FFFFFF;
+}
+
+.field_value_invalid {
+	background-color: #F22F24;
+	color: #FFFFFF;
+}
+
+.field-value-cell .dropdown-trigger {
+	display: none !important;
+}
+
+.field-value-cell {
+	height: 100%;
+	max-width: 600px;
+}
+
+.action_menu {
+	padding-bottom: 30px;
 }

@@ -5,7 +5,7 @@
   bottom: 0;
   font-size: 16px;
   position: fixed;
-  z-index: 2;
+  z-index: 12;
 
   @media all and (max-width: $bp-med) {
     top: 100%;
@@ -66,10 +66,6 @@
     @media all and (min-width: $bp-med) {
       transform: translateX(0);
     }
-  }
-
-  .feedback-title{
-    text-transform: capitalize;
   }
 
   .feedback-toggle {
@@ -145,10 +141,11 @@
   .feedback-send{
     color: #fff;
     position: absolute;
-    width: 3.45em;
+    width: 2.45em;
     height: 2.45em;
     svg.icon{
-      width: 2.5em;
+      width: 1.4em;
+      height: 1.4em;
     }
   }
 
@@ -167,13 +164,23 @@
       position: relative;
     }
 
-    .step1{
-      font-size: $font-size-slightly-smaller;
+    .step2{
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+    }
+
+    h2 .step2{
+      color: $eu-blue;
+    }
+
+    p.step2{
+      position: absolute;
+      top: 4em;
     }
 
     .step2,
     .feedback-error{
-      display: none;
       margin-top: $space;
     }
 
@@ -193,6 +200,9 @@
 
     .feedback-error{
       color: red;
+      position: absolute;
+      visibility: hidden;
+      top: 0;
     }
     .feedback-counter,
     .feedback-text{

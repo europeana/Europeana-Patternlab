@@ -8,7 +8,6 @@ require.config({
 
 require(['jquery'], function() {
   require(['jqDropdown', 'pandora'], function(x, pandora) {
-    //alert('Hello, I\'ve got a drop-down!' + x);
 	  pandora.pageInit();
   });
 });

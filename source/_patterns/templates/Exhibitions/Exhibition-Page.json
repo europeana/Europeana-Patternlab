@@ -330,8 +330,7 @@
         {
             "id": "x0_3",
             "is_embed": true,
-            "html": "<iframe class=\"ve-base-medium-tall\" width=\"50%\" height=\"800\" frameborder=\"0\" src=\"https://s3.amazonaws.com/uploads.knightlab.com/storymapjs/f9d7b44e8575c73185fd5fdfc9c55494/the-danse-macabre-by-bernt-notke/index.html?x=1\"></iframe>",
-            "XXX_html" : "<iframe height=\"650\" frameborder=\"0\" width=\"100%\"  class=\"ve-base-med\" src=\"https://s3.amazonaws.com/uploads.knightlab.com/storymapjs/f9d7b44e8575c73185fd5fdfc9c55494/the-danse-macabre-by-bernt-notke/index.html\"></iframe>"
+            "html": "<iframe class=\"ve-base-medium-tall\" width=\"50%\" height=\"800\" frameborder=\"0\" src=\"https://s3.amazonaws.com/uploads.knightlab.com/storymapjs/f9d7b44e8575c73185fd5fdfc9c55494/the-danse-macabre-by-bernt-notke/index.html\"></iframe>"
         },
         {
             "id": "x0_5",

@@ -1,7 +1,7 @@
 define(['jquery', 'ga', 'purl'], function ($, ga){
 
     ga = window.fixGA(ga);
-    
+
     var $url            = $.url();
     var results         = $('.search-results');
     var ellipsisObjects = [];
@@ -290,7 +290,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
     }
 
-   
+
 
     var initPage = function(){
       bindViewButtons();
