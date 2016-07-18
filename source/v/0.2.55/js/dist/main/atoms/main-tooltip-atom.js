@@ -1,0 +1,1 @@
+require.config({paths:{eu_tooltip:"../../eu/tooltip/eu-tooltip",jquery:"../../lib/jquery"}}),require(["jquery"],function(a){require(["eu_tooltip"],function(a){a.configure()})});

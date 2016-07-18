@@ -1,0 +1,107 @@
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 3, style.scss */
+.attribution-text {
+  text-align: left;
+}
+@media all and (max-width: 50em) {
+  /* line 3, style.scss */
+  .attribution-text {
+    padding: 0.5em 1em;
+  }
+}
+
+/* line 10, style.scss */
+.image-compare {
+  float: left;
+  max-width: 100%;
+  position: relative;
+}
+/* line 15, style.scss */
+.image-compare img {
+  display: block;
+  margin-bottom: 0;
+}
+
+/* line 20, style.scss */
+.resize-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 29, style.scss */
+.resize-img {
+  width: 50%;
+  /* bounce in animation of the modified image */
+  -webkit-animation: cd-bounce-in 0.7s;
+  -moz-animation: cd-bounce-in 0.7s;
+  animation: cd-bounce-in 0.7s;
+}
+/* line 36, style.scss */
+.resize-img img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+@-webkit-keyframes cd-bounce-in {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 55%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@-moz-keyframes cd-bounce-in {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 55%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@keyframes cd-bounce-in {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 55%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+/* line 80, style.scss */
+.handle {
+  background: #1676aa url("arrows.svg") no-repeat center center;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  cursor: move;
+  height: 44px;
+  left: 50%;
+  top: 50%;
+  margin-left: -22px;
+  margin-top: -22px;
+  position: absolute;
+  width: 44px;
+  z-index: 1;
+}
+/* line 94, style.scss */
+.handle.draggable {
+  background-color: red;
+}
