@@ -28,9 +28,15 @@
 .nav-toggle-search:hover, .nav-toggle-search:focus,
 .nav-toggle-sites:hover, .nav-toggle-sites:focus,
 .is-open-globalsearch .nav-toggle-search,
-.is-open-menu-right .nav-toggle-menu{
+.is-open-menu-right{
   background-color: $offcanvas_bg;
   color: $white;
+  outline: none;
+}
+
+.nav-toggle-menu{
+  background-color: $white;
+  color: $offcanvas_bg;
   outline: none;
 }
 
@@ -64,8 +70,8 @@
 
 //hover + toggled item is open
 .nav-toggle-menu{
-  background-color: $textcolour_head;
-  color: $white;
+  background-color: $white;
+  color: $textcolour_head;
 }
 
 // OFF CANVAS MENUS
@@ -329,6 +335,7 @@
   .nav-toggle-menu{
     &:hover{
       color: $white;
+      background-color: $textcolour_head;
     }
     &:focus {
       outline: none;
