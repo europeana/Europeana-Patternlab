@@ -352,11 +352,18 @@
             </div>
           {{/ object.tags }}
 
-          {{# object.colours }}
-            <div class="object-colours">
-              {{> molecules/controls/colour-search }}
-            </div>
-          {{/ object.colours }}
+          {{#object.media}}
+            {{#items}}
+              {{#is_current}}
+                {{#technical_metadata.colours}}
+                  <h4>{{{i18n.site.object.actions.explore-by-colour}}}</h4>
+                  <div class="object-colours">
+                    {{> molecules/controls/colour-search }}
+                  </div>
+                {{/technical_metadata.colours}}
+              {{/is_current}}
+            {{/items}}
+          {{/object.media}}
 
           {{# object.further_actions }}
             <div class="object-furtheractions">

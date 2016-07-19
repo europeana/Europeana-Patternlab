@@ -629,7 +629,8 @@
                     "open-media": "Open this media item",
                     "attribute-author":"Attribute the author",
                     "attribute-plaintext": "Plain Text",
-                    "attribute-html": "HTML"
+                    "attribute-html": "HTML",
+                    "explore-by-colour": "Explore by colour"
                 },
                 "hierarchy": {
                   "title": "Hierarchy",
@@ -716,7 +717,7 @@
                 "correction": "correction",
                 "bug": "bug"
               }
-              
+
             },
             "find-us-elsewhere": "Find us elsewhere",
             "header": {
