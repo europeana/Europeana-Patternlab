@@ -136,7 +136,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         var carousel = jQuery.Deferred();
 
         log('search -object')
-        
+
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
             var appender = CarouselAppender.create({
                 'cmp':             el.find('ul'),
@@ -462,6 +462,18 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       return dimensions;
     }
 
+    var bindAnalyticsEventsSocial = function(){
+      $('.object-social .social-share a').on('click', function(){
+        var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+        ga('send', {
+          hitType: 'social',
+          socialNetwork: socialNetwork,
+          socialAction: 'share',
+          socialTarget: window.location.href
+        });
+      });
+    };
+
     var bindAnalyticsEventsMLT = function(){
       $('.mlt .left').add($('.mlt .right')).on('click', function(){
         ga('send', {
@@ -545,6 +557,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
 
     function initPage(){
       bindAnalyticsEvents();
+      bindAnalyticsEventsSocial();
       bindAttributionToggle();
       updateTechData({target:$('.single-item-thumb a')[0]});
 
