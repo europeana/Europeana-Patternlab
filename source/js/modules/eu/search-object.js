@@ -158,11 +158,10 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
 
         // colour browse
         var clickedThumb = tgt.data('thumbnail');
-        if(clickedThumb){
-          var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
-          $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
-          $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
-        }
+
+        var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
+        $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
+        $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
 
         // download section
         var setFileInfoData = function(href, meta, fmt){
@@ -595,7 +594,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       });
 
       $(window).bind('updateTechData', function(e, data){
-        updateTechData({target:$(data.selector)[0]});
+        updateTechData(data);
       });
 
       $('.media-viewer').trigger('media_init');
