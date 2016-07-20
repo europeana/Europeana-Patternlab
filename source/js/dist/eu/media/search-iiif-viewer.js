@@ -115,6 +115,15 @@ define([], function() {
       forcePseudoFullscreen: false
     }).addTo(iiif);
 
+
+    iiif.on('enterFullscreen', function(){
+      $('.leaflet-container').css('background-color', '#000');
+    });
+
+    iiif.on('exitFullscreen', function(){
+      $('.leaflet-container').removeAttr('style');
+    });
+
     $('#iiif-ctrl .first').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), 0);
