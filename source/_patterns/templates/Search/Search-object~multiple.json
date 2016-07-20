@@ -90,7 +90,35 @@
               "fps_unit": "fps",
               "size_unit": "pixels",
               "runtime": "34",
-              "runtime_unit": "minutes"
+              "runtime_unit": "minutes",
+              "colours": {
+                "items": [
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#800000",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#696969",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#8B4513",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#556B2F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  }
+                ]
+              }
             }
           },
           {
@@ -170,7 +198,35 @@
               "NOTE:": "width and height used for image viewer",
 
               "width": "532",
-              "height": "768"
+              "height": "768",
+              "colours": {
+                "items": [
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#556B2F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#8B4513",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#696969",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#800000",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  }
+                ]
+              }
             }
           },
           {

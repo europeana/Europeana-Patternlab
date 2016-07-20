@@ -156,6 +156,14 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         var tgt          = $(e.target);
         var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
+        // colour browse
+        var clickedThumb = tgt.data('thumbnail');
+        if(clickedThumb){
+          var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
+          $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
+          $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
+        }
+
         // download section
         var setFileInfoData = function(href, meta, fmt){
             $('.file-info .file-title').attr('href', href);
