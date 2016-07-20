@@ -76,9 +76,9 @@ define(['jquery'], function($) {
       $('.media-viewer').removeClass('active');
       $('.media-viewer .multi-item-poster').removeClass('is-hidden');
       if(data.type=='image'){
-          // update poster & tech metadata
-          $(window).trigger('updateTechData', {selector: '*[data-uri="' + data.current + '"]'});
-          $('.multi-item-poster img').attr('src', data.current);
+        // update poster & tech metadata
+        $(window).trigger('updateTechData', {target: listSelector + ' [data-uri="' + data.current + '"]'});
+        $('.multi-item-poster img').attr('src', data.current);
       }
   };
 
