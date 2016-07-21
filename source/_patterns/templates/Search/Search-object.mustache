@@ -355,7 +355,9 @@
           {{#object.media}}
             {{#items}}
               {{#technical_metadata.colours}}
-                {{> molecules/controls/colour-search }}
+                {{#present}}
+                  {{> molecules/controls/colour-search }}
+                {{/present}}
               {{/technical_metadata.colours}}
             {{/items}}
           {{/object.media}}
