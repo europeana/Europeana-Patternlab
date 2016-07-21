@@ -1,0 +1,12 @@
+<style>
+  #no-fullscreen{
+    display: none;
+  }
+</style>
+<h1>Full screen is <span id="no-fullscreen">NOT</span> enabled</h1>
+
+<script type="javascript">
+  if(!document.fullscreenEnabled){
+    document.getElementById('no-fullscreen').className = '';
+  }
+</script>
