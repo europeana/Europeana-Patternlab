@@ -20,6 +20,17 @@ define(['jquery'], function($) {
   function log(msg){
       console.log('search-media-controller: ' + msg);
   }
+  
+  var fsAvailable = function(){
+    db = document.body;
+    return db.requestFullScreen 
+    || db.webkitRequestFullscreen 
+    || db.webkitRequestFullscreen 
+    || db.mozRequestFullScreen 
+    || db.mozRequestFullScreen 
+    || db.msRequestFullscreen
+    || db.msRequestFullscreen
+  }
 
   function hideAllViewers() {
 
@@ -131,7 +142,7 @@ define(['jquery'], function($) {
     require(['leaflet'], function(viewer) {
       require(['media_viewer_iiif'], function(viewer) {
           iiifViewer = viewer;
-          iiifViewer.init(data.url, data.target)
+          iiifViewer.init(data.url, data.target, fsAvailable());
       });
     });
   }

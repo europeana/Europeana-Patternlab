@@ -97,7 +97,7 @@ define([], function() {
     updateCtrls();
   }
 
-  var initUI = function(){
+  var initUI = function(fullScreenAvailable){
 
     $('#iiif').addClass('loading');
 
@@ -109,11 +109,13 @@ define([], function() {
       zoomsliderControl: true
     });
 
-    L.control.fullscreen({
-      position: 'topright',
-      forceSeparateButton: true,
-      forcePseudoFullscreen: false
-    }).addTo(iiif);
+    if(fullScreenAvailable){
+      L.control.fullscreen({
+        position: 'topright',
+        forceSeparateButton: true,
+        forcePseudoFullscreen: false
+      }).addTo(iiif);
+    }
 
 
     iiif.on('enterFullscreen', function(){
@@ -184,8 +186,8 @@ define([], function() {
       $('#iiif-ctrl .total-images').html('/ ' + totalImages);
   }
 
-  function initViewer(manifestUrl, $thumbnail) {
-    initUI();
+  function initViewer(manifestUrl, $thumbnail, fullScreenAvailable) {
+    initUI(fullScreenAvailable);
 
     if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
         setTotalImages(1);
@@ -217,9 +219,9 @@ define([], function() {
   }
 
   return {
-    init: function(manifestUrl, $thumbnail) {
+    init: function(manifestUrl, $thumbnail, fullScreenAvailable) {
       require(['leaflet_iiif'], function(){
-        initViewer(manifestUrl, $thumbnail);
+        initViewer(manifestUrl, $thumbnail, fullScreenAvailable);
       });
     },
     hide: function(){
