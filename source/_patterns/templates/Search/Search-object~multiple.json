@@ -92,6 +92,7 @@
               "runtime": "34",
               "runtime_unit": "minutes",
               "colours": {
+                "present": true,
                 "items": [
                   {
                     "hex": "#2F4F4F",
@@ -200,6 +201,7 @@
               "width": "532",
               "height": "768",
               "colours": {
+                "present": true,
                 "items": [
                   {
                     "hex": "#2F4F4F",
