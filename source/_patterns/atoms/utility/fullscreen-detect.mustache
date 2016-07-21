@@ -6,7 +6,10 @@
 <h1>Full screen is <span id="no-fullscreen">NOT</span> enabled</h1>
 
 <script type="javascript">
-  if(!document.fullscreenEnabled){
+  if(!(document.fullscreenEnabled || 
+       document.webkitFullscreenEnabled || 
+       document.mozFullScreenEnabled ||
+       document.msFullscreenEnabled)){
     document.getElementById('no-fullscreen').className = '';
   }
 </script>
