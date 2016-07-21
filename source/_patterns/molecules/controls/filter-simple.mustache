@@ -31,7 +31,7 @@ Configuration options and content model:
                 "is_checked": true,                     // checked/selected state of the option
                 "is_disabled": true                     // enabled/disabled state of the option
             },
-            ...Add more visible items here
+            ...Add more visible items here //caret should change direction depending on state
         ],
         "extra_items": {        // Extra items - hidden on initial load
             "items": [          // Array of options as above
@@ -59,11 +59,19 @@ Configuration options and content model:
     <ul class="filter-list filter-wrap">
     {{#items}}
         <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}><div class="filter-text">{{text}}</div>
+
+            <a href="{{url}}" class="filter-item has-submenu {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}>
+              <div class="filter-text">{{text}}</div>
             {{#num_results}}
-            <div class="filter-num">({{num_results}})</div>
+              <div class="filter-num">({{num_results}})</div>
             {{/num_results}}
+
+
+
+
+
             </a>
+
         </li>
     {{/items}}
 
@@ -85,8 +93,15 @@ Configuration options and content model:
 
     </ul>
 
-    {{#extra_items}}
-        <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.site.results.list.less}}">{{i18n.site.results.list.more}}</a>
-    {{/extra_items}}
+    <ul class="sm cf nav-access caret-right">
 
+      <li>
+    {{#extra_items}}
+        <a class="js-showhide filter-moreless has-submenu" href="#" data-text-swap="{{i18n.site.results.list.less}}">
+          <span class="sub-arrow">+</span>
+          <span class="link-text"> {{i18n.site.results.list.more}} </span>
+        </a>
+    {{/extra_items}}
+      </li>
+    </ul>
 </div>
