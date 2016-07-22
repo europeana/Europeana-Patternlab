@@ -1,0 +1,12 @@
+{
+  "js_files": [
+    {
+      "path": "/js/dist/require.js",
+      "data_main": "/js/dist/main/molecules/main-cookie-disclaimer.js"
+    }],
+
+  "cookie_disclaimer": {
+    "more_link": "javascript:alert('open more info')"
+  },
+  "test_mode": true
+}
