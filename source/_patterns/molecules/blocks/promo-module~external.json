@@ -1,0 +1,9 @@
+{
+  "title":"Promo Module {{title}}",
+  "subtitle":"This is the Promo Module {{subtitle}}",
+  "url": "this the url for the promo module",
+  "is_external": true,
+  "is_featured_site": true,
+  "comingsoon": true,
+  "image": "../../images/sample/entry-opera-square.jpg"
+}

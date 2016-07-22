@@ -65,18 +65,19 @@
         "title": "Recording and Playing Machines",
         "url": "http://exhibitions.europeana.eu//exhibits/show/recording-and-playing-machines",
         "is_exhibition": true,
+        "is_external": true,
         "bg_image": "../../images/sample/thumb-machines.jpg"
       },
       {
         "title": "Photography on a Silver Plate",
         "url": "urlhere",
-        "is_exhibition": true,
+        "is_collection": true,
         "bg_image": "../../images/sample/thumb-photography.jpg"
       },
       {
         "title": "European Film and the First World War",
         "url": "urlhere",
-        "is_exhibition": true,
+        "is_new": true,
         "bg_image": "../../images/sample/thumb-expo-film.jpg"
       },
       {
