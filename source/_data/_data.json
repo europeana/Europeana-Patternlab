@@ -695,6 +695,10 @@
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen"
             },
+            "cookie_disclaimer": {
+              "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
+              "more_info": "More info"
+            },
             "email-address": "email address",
             "facet": {
               "header": {
