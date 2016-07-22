@@ -1,6 +1,5 @@
 <div class="promo-block promo-block-image {{#is_channel}}item-channel {{/is_channel}}{{#is_exhibition}}item-exhibition {{/is_exhibition}}{{#is_new}}item-new {{/is_new}}{{#is_partner}}item-partner {{/is_partner}}{{#is_featured_site}}item-featuredsite {{/is_featured_site}} {{class_custom}} contrast" {{#bg_image}}style="background-image: url({{bg_image}}); "{{/bg_image}}>
-
-  <a href="{{url}}">
+  <a href="{{url}}" {{#is_external}}target="_new"{{/is_external}}>
     {{#comingsoon}}
     <div class="corner-ribbon alternate">Coming Soon</div>
     {{/comingsoon}}
@@ -11,32 +10,11 @@
       {{/subtitle}}
     </div>
   </a>
-
-{{#is_collection}}
-  <div class="category-flag">Thematic collections</div>
-{{/is_collection}}
-{{#is_exhibition}}
-  <div class="category-flag">Exhibition</div>
-{{/is_exhibition}}
-{{#is_new}}
-  <div class="category-flag">What's New</div>
-{{/is_new}}
-{{#is_partner}}
-  <div class="category-flag">Our Partners</div>
-{{/is_partner}}
-{{#is_featured_site}}
-  <div class="category-flag">Featured Site</div>
-{{/is_featured_site}}
-{{#is_app}}
-  <div class="category-flag">App</div>
-{{/is_app}}
-{{#is_timeline}}
-  <div class="category-flag">Timeline</div>
-{{/is_timeline}}
-{{#is_playlist}}
-  <div class="category-flag">Playlist</div>
-{{/is_playlist}}
-{{#is_gallery}}
-  <div class="category-flag">Gallery</div>
-{{/is_gallery}}
+  <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}
+    {{#is_external}}
+      <div class="tail">
+        <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg>
+      </div>
+    {{/is_external}}
+  </div>
 </div>
