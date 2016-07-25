@@ -53,6 +53,7 @@ define(['jquery'], function ($){
       $('#cookie-disclaimer').remove();
     });
 
+    /*
     var scroll = function(){
         log('scroll...')
        setCookie(cookieName, true);
@@ -60,6 +61,7 @@ define(['jquery'], function ($){
        $('#cookie-disclaimer').remove();
     }
     $(window).on('scroll', scroll);
+    */
   }
 
   return {

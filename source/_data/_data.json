@@ -767,6 +767,9 @@
             }
         }
     },
+    "cookie_disclaimer": {
+      "more_link": "javascript:alert('open more info')"
+    },
     "feedback":{
       "form_action": "should-be-present",
       "maxlength": 20
