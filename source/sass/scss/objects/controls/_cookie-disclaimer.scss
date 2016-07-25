@@ -40,6 +40,11 @@
     }
   }
 
+  box-shadow: inset 0px -5px 10px -4px $blue-dark;
+  -webkit-box-shadow: inset 0px -5px 10px -4px $blue-dark;
+  -moz-box-shadow: inset 0px -5px 10px -4px $blue-dark;
+  -o-box-shadow: inset 0px -5px 10px -4px $blue-dark;
+
   a[data-role="remove"] {
     cursor: pointer;
     color: white;
