@@ -149,7 +149,11 @@
 .object-media-wrap{
 
     text-align: center;
-    padding: $pad;
+    
+    &:not(.empty){
+      padding: $pad;
+    }
+    
     position: relative;
 
     .media-thumb-section{

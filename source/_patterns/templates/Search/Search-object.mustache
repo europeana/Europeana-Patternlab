@@ -18,7 +18,7 @@
   {{#content}}
     {{#object.media}}
       <section class="object-display">
-        <div class="object-media-wrap {{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
+        <div class="object-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
           <a class="scroll-trigger trigger-chain"
              data-enabled="true"
              data-disable-when-fired="showMediaThumbs"
@@ -114,7 +114,14 @@
           <div class="object-media-info section is-current">
             <div class="object-downloads">
               {{#has_downloadable_media}}
-              <a class="js-showhide download-button btn alt {{^has_downloadable_media}}is-disabled{{/has_downloadable_media}}" href="#">
+              <a class="download-button btn alt {{^has_downloadable_media}}is-disabled{{/has_downloadable_media}}"
+                {{#items}}
+                  {{#is_current}}
+                    {{#download}}
+                      href="{{url}}"
+                    {{/download}}
+                  {{/is_current}}
+                {{/items}}>
                 <svg class="icon icon-download">
                   <use xlink:href="#icon-download"></use>
                 </svg>

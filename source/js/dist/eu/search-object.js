@@ -560,12 +560,23 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             btn.addClass('is-active');
         });
     }
+    
+    function bindDownloadButton(){
+      
+      $('.download-button').on('click', function(e){
+        //e.preventDefault();
+
+        $(this).parent().toggleClass('is-expanded');
+
+      });
+    }
 
 
     function initPage(){
       bindAnalyticsEvents();
       bindAnalyticsEventsSocial();
       bindAttributionToggle();
+      bindDownloadButton();
       updateTechData({target:$('.single-item-thumb a')[0]});
 
 
