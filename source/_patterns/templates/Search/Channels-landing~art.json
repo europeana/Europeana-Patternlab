@@ -222,7 +222,10 @@
       "attribution_creator": "Jan Porcellis",
       "attribution_institution": "Hallwylska museet",
       "attribution_url": "http://www.europeana.eu/portal/record/2048007/Athena_Plus_ProvidedCHO_Hallwylska_museet_14152.html",
-      "license_public": true
+      "license_public": true,
+      "ripple_size_thin" : false,
+      "ripple_size_medium" : true,
+      "ripple_size_thick" : false
     },
     "channel_entry": {
       "title": "Promoted title",

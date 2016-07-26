@@ -199,7 +199,10 @@
       "attribution_creator": "",
       "attribution_institution": "Stiftelsen Nordiska Museet",
       "attribution_url": "http://www.europeana.eu/portal/record/2048211/449.html",
-      "license_public": true
+      "license_public": true,
+      "ripple_size_thin" : true,
+      "ripple_size_medium" : false,
+      "ripple_size_thick" : false
     },
     "channel_entry": {
       "title": "Promoted title",
