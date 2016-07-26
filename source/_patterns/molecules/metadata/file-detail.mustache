@@ -15,15 +15,22 @@
       {{^format}}?{{/format}}
     </span>
     {{/technical_metadata}}
+
+  {{#download}}
   </a>
+  {{/download}}
 
   <div class="file-info">
 
     {{#download}}
-    <a href="{{url}}" class="file-title">
-      {{text}}
-    </a>
+    
+      {{i18n.site.object.actions.download-started}}
+      <a href="{{url}}" class="file-title">
+        {{site.object.actions.download-retry}}
+      </a>
     {{/download}}
+    
+    
     {{#technical_metadata}}
     <ul class="file-meta">
       <li>{{width}} × {{height}} {{size_unit}}</li>

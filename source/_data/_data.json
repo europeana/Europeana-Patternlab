@@ -625,6 +625,8 @@
             "object": {
                 "actions": {
                     "download": "Download",
+                    "download-started": "The download has started",
+                    "download-started": "Retry",
                     "technicalmetadata": "Technical Metadata",
                     "open-media": "Open this media item",
                     "attribute-author":"Attribute the author",
