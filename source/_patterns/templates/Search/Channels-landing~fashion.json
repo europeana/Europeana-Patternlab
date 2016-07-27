@@ -288,7 +288,8 @@
           "title": "Pablo Picasso",
           "url": "http://dizbi.hazu.hr/picasso/",
           "is_exhibition": true,
-          "bg_image": "../../images/sample/thumb-picasso.jpg"
+          "bg_image": "../../images/sample/thumb-picasso.jpg",
+          "wide": true
         },
         {
           "title": "From Dada to Surrealism",

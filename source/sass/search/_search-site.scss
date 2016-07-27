@@ -67,7 +67,7 @@
   }
 }
 
-.section, .promo-list, .promo-topcontent{
+.section, .promo-topcontent{
   @include pad(1/4);
 }
 .section-box{
@@ -132,12 +132,11 @@
   font-size: 5vw;
 
   @media all and (min-width: $bp-small) {
-    @include span(12 of 24 split);
     font-size: 3.5vw;
+    width: 100%;
   }
 
   @media all and (min-width: $bp-small-3) {
-    @include span(8 of 24 split);
     min-height: 32vw;
     margin-bottom: $space-half; //fallback
     margin-bottom: 1.05634vw;
@@ -214,11 +213,27 @@
 
 .exhibitions-list .list-item{
 
-  @media all and (min-width: $bp-large) {
-    width: span(4 of 24 split);
-    min-height: 15vw;
+  width: 100%;
+  min-height: 39vw;
+  margin-left: 0;
+  margin-right: 0;
+
+  @media all and (min-width: $bp-med) {
+    float: left;
+    min-height: 39vw;
+    margin-left: 0;
+    margin-right: 1%;
+    width: 49%;
   }
 
+  @media all and (min-width: $bp-large) {
+    float: left;
+    min-height: 15vw;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 23%;
+  }
+  
   &.list-item-wide {
     @media all and (min-width: $bp-small) {
       width: span(24 of 24 split);
