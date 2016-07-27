@@ -266,7 +266,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             fileInfoData["fmt"]  = '';
         }
         setFileInfoData(fileInfoData["href"], fileInfoData["meta"], fileInfoData["fmt"]);
-        alert('fileInfoData["href"] = ' + fileInfoData["href"])
+        $('.download-button').attr('href', fileInfoData["href"]);
     }
 
     var showMediaThumbs = function(data){
