@@ -524,7 +524,9 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
 
       // Downloads
 
-      $('.file-info a').on('click', function(){
+      //$('.file-info a').on('click', function(){
+      $('.download-button').on('click', function(){
+        if(!$(this).hasClass('ga-sent')){
           var href =  $(this).attr('href');
           ga('send', {
             hitType: 'event',
@@ -532,7 +534,9 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             eventAction: href,
             eventLabel: 'Media Download'
           });
+          $(this).addClass('ga-sent');
           log('GA: Download, Action = ' + href);
+        }
       });
 
       // Media View
@@ -563,12 +567,11 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
     }
 
     function bindDownloadButton(){
-
       $('.download-button').on('click', function(e){
-        //e.preventDefault();
-
+        if($(this).parent().hasClass('is-expanded')){
+          e.preventDefault();
+        }
         $(this).parent().toggleClass('is-expanded');
-
       });
     }
 
