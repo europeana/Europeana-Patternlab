@@ -502,7 +502,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       for(var j=0; j<keys.length; j++){
         dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] })
       }
-      return dimensions;
+      return dimensions.concat(gaData);;
     }
 
     var bindAnalyticsEventsSocial = function(){
