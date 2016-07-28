@@ -135,14 +135,48 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
     var initCarousel = function(el, ops){
         var carousel = jQuery.Deferred();
 
-        log('search -object')
-
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
             var appender = CarouselAppender.create({
                 'cmp':             el.find('ul'),
                 'loadUrl':         ops.loadUrl,
                 'template':        ops.template,
-                'total_available': ops.total_available
+                'total_available': ops.total_available,
+                'doAfter': function(data){
+
+                  var addToDom = [];
+                  var template = $('.colour-navigation.js-template');
+
+                  $.each(data, function(i, item){
+
+                    var newEntry = template.before(template.clone());
+
+                    addToDom.push(newEntry)
+
+                    newEntry.removeClass('js-template');
+                    newEntry.removeAttr('style');
+                    newEntry.attr('data-thumbnail', item.thumbnail);
+
+                    var tm = item.technical_metadata;
+
+                    if(tm && tm.colours && tm.colours.present){
+                      $.each(tm.colours.items, function(i, item){
+                        
+                        var itemTemplate = newEntry.find('li.js-template');
+                        var newItem = itemTemplate.clone();
+                        
+                        itemTemplate.before(newItem);
+                        
+                        newItem.removeAttr('style');
+                        newItem.removeClass('js-template');
+                        newItem.find('a').css('background-color', item.hex);
+                        newItem.find('a').attr('href', item.url);
+                      });
+                    }
+                  });
+                  for(var i=0; i<addToDom.length; i++){
+                    template.before(addToDom[i]);
+                  }
+                }
             });
             carousel.resolve(Carousel.create(el, appender, ops));
         });
@@ -160,6 +194,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         var clickedThumb = tgt.data('thumbnail');
 
         var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
+
         $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
         $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
 

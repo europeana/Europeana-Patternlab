@@ -77,7 +77,7 @@ define(['jquery'], function($){
 
             //log('single item:\n\t' + stringify(item) + '\n');
 
-            var codec = null, download = null, format = null, fileSize = null, fileUnit = null, height = null, mimeType = null, language = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
+            var codec = null, thumbnail = null, download = null, format = null, fileSize = null, fileUnit = null, height = null, mimeType = null, language = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
 
 
             if(item.downloadable && item.download && item.download.url){
@@ -118,8 +118,9 @@ define(['jquery'], function($){
                     runtimeUnit = tm.runtime_unit;
                 }
                 if(tm.size_unit){
-                    sizeUnit = tm.size_unit;
+                  sizeUnit = tm.size_unit;
                 }
+                
             }
 
             markup += ''
@@ -129,29 +130,30 @@ define(['jquery'], function($){
               +         '<a class="link' + (item.playable ? ' playable' : '') + '"'
               +            ' href="#"'
 
-              +            (item.play_url ?     ' data-uri="'          + item.play_url + '"' : '')
-              +            (download      ?     ' data-download-uri="' + download      + '"' : '')
+              +            (item.play_url  ?     ' data-uri="'          + item.play_url  + '"' : '')
+              +            (download       ?     ' data-download-uri="' + download       + '"' : '')
 
-              +            (language      ?     ' data-language="'     + language      + '"' : '')
+              +            (language       ?     ' data-language="'     + language       + '"' : '')
 
-              +            (mimeType      ?     ' data-mime-type="'    + mimeType      + '"' : '')
-              +            (codec         ?     ' data-codec="'        + codec         + '"' : '')
+              +            (mimeType       ?     ' data-mime-type="'    + mimeType       + '"' : '')
+              +            (codec          ?     ' data-codec="'        + codec          + '"' : '')
 
-              +            (format        ?     ' data-format="'       + format        + '"' : '')
-              +            (fileSize      ?     ' data-file-size="'    + fileSize      + '"' : '')
-              +            (fileUnit      ?     ' data-file-unit="'    + fileUnit      + '"' : '')
+              +            (format         ?     ' data-format="'       + format         + '"' : '')
+              +            (fileSize       ?     ' data-file-size="'    + fileSize       + '"' : '')
+              +            (fileUnit       ?     ' data-file-unit="'    + fileUnit       + '"' : '')
 
-              +            (width         ?     ' data-width="'        + width         + '"' : '')
-              +            (height        ?     ' data-height="'       + height        + '"' : '')
+              +            (width          ?     ' data-width="'        + width          + '"' : '')
+              +            (height         ?     ' data-height="'       + height         + '"' : '')
 
-              +            (runtime       ?     ' data-runtime="'      + runtime       + '"' : '')
-              +            (runtimeUnit   ?     ' data-runtime-unit="' + runtimeUnit   + '"' : '')
-              +            (sizeUnit      ?     ' data-size-unit="'    + sizeUnit      + '"' : '')
+              +            (runtime        ?     ' data-runtime="'      + runtime        + '"' : '')
+              +            (runtimeUnit    ?     ' data-runtime-unit="' + runtimeUnit    + '"' : '')
+              +            (sizeUnit       ?     ' data-size-unit="'    + sizeUnit       + '"' : '')
+              +            (item.thumbnail ?     ' data-thumbnail="'    + item.thumbnail + '"' : '')
 
-              +            (item.is_audio ?     ' data-type="audio"' : '')
-              +            (item.is_iiif  ?     ' data-type="iiif"'  : '')
-              +            (item.is_image ?     ' data-type="image"' : '')
-              +            (item.is_video ?     ' data-type="video"' : '')
+              +            (item.is_audio  ?     ' data-type="audio"' : '')
+              +            (item.is_iiif   ?     ' data-type="iiif"'  : '')
+              +            (item.is_image  ?     ' data-type="image"' : '')
+              +            (item.is_video  ?     ' data-type="video"' : '')
 
               +         '>&nbsp;</a>'
               +     '</div>'
@@ -172,6 +174,7 @@ define(['jquery'], function($){
         var loadUrl     = conf.loadUrl;
         var template    = conf.template;
         var totalLoaded = cmp.find('li').size();
+        var doAfter     = conf.doAfter ? conf.doAfter : false;
 
         if(!templates[template]){
           warn('no valid template found (' + template + ')');
@@ -180,9 +183,12 @@ define(['jquery'], function($){
 
         var append = function(data){
           var appendData = templates[template](data);
-          //totalLoaded += appendData.added.length;
           cmp.append(appendData.markup);
           totalLoaded = cmp.find('li').size();
+          
+          if(doAfter){
+            doAfter(appendData.added);
+          }
           return appendData.added;
         };
 

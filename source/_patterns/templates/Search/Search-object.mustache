@@ -363,11 +363,10 @@
           {{#object.media}}
             {{#items}}
               {{#technical_metadata.colours}}
-                {{#present}}
-                  {{> molecules/controls/colour-search }}
-                {{/present}}
+                {{> molecules/controls/colour-search }}
               {{/technical_metadata.colours}}
             {{/items}}
+            {{> molecules/controls/colour-search }}
           {{/object.media}}
 
           {{# object.further_actions }}
