@@ -23,14 +23,14 @@
   <div class="file-info">
 
     {{#download}}
-    
+
       {{i18n.site.object.actions.download-started}}
-      <a href="{{url}}" class="file-title">
-        {{i18n.site.object.actions.download-retry}}
+      <a href="{{url}}" class="file-title" download="Europeana-Media">
+        {{i18n.site.object.actions.download-retry}}.
       </a>
     {{/download}}
-    
-    
+
+
     {{#technical_metadata}}
     <ul class="file-meta">
       <li>{{width}} × {{height}} {{size_unit}}</li>
