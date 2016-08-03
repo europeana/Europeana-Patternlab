@@ -42,15 +42,21 @@
 <section class="channel-info section">
 
   {{#content.channel_entry}}
+   {{#grouped_items}}
   <ul class="browse-entry-list lc">
-    {{#items}}
-    <li class="list-item">
-      {{> molecules/blocks/browse-entry }}
-      <a href="{{more_link_1}}" class="browse-entries-more upper-row">{{i18n.global.navigation.more.topics}}</a>
-      <a href="{{more_link_2}}" class="browse-entries-more lower-row">{{i18n.global.navigation.more.agents}}</a>
-    </li>
-    {{/items}}
+      {{#items}}
+      <li class="list-item">
+        {{> molecules/blocks/browse-entry }}
+        <a href="{{more_link}}" class="browse-entries-more">{{more_text}}</a>
+      </li>
+      {{/items}}
+
+      <li class="list-item-more">
+        {{> molecules/blocks/browse-entry-more }}
+      </li>
+
   </ul>
+   {{/grouped_items}}
   {{/content.channel_entry}}
 
 </section>
