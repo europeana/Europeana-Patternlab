@@ -601,53 +601,9 @@
     }
   }
 
-
-  @media all and (min-width: $bp-small){
-
+  @media all and (min-width: $bp-small) and (max-width: $bp-med){
     .list-item-more{
       display: block;
-      .browse-entry-more{
-        transform: translateY(8%);
-        .img{
-          font-size: 1.5em;
-
-          svg{
-            background-color: #ccc;
-            border: 6px solid #ccc;
-            box-sizing: content-box;
-            color: #999;
-            margin-bottom: 0;
-          }
-
-
-        }
-      }
-    }
-  }
-
-  @media all and (min-width: $bp-small-2) and (max-width: $bp-small-3){
-
-    .list-item-more{
-      .browse-entry-more{
-         transform: translateY(10%);
-        .img{
-          font-size: 2em;
-        }
-      }
-    }
-  }
-
-  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
-
-    .list-item-more{
-      display: block;
-
-      .browse-entry-more{
-         transform: translateY(7%);
-        .img{
-          font-size: 2.5em;
-        }
-      }
     }
   }
 
