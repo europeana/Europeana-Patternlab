@@ -82,7 +82,36 @@
               "runtime": "34",
               "runtime_unit": "minutes",
               "attribution_html": "&lt;a href=&quot;http://www.europeana.eu/portal/record/xxx&quot;>dc:title&lt;/a>. dc:creator. &lt;a href=&quot;edm:isshownat&quot;&gt;edm:dataProvider&lt;/a&gt;. &lt;a href=&quot;edm:rights&quot; rel=&quot;xhv:license http://www.europeana.eu/schemas/edm/rights&quot;&gt;rightslabel&lt;/a&gt;&quot;",
-              "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ ."
+              "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ .",
+              "colours": {
+                "present": true,
+                "items": [
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#800000",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#696969",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#8B4513",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#556B2F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  }
+                ]
+              }
             }
           }
         ]
@@ -315,37 +344,6 @@
         ],
 
         "add_url": "add_new_tag_url_here"
-      },
-
-      "colours":
-      {
-        "items":
-        [
-          {
-            "hex": "#2F4F4F",
-            "url": "http://europeana.eu"
-          },
-
-          {
-            "hex": "#800000",
-            "url": "http://europeana.eu"
-          },
-
-          {
-            "hex": "#696969",
-            "url": "http://europeana.eu"
-          },
-
-          {
-            "hex": "#8B4513",
-            "url": "http://europeana.eu"
-          },
-
-          {
-            "hex": "#556B2F",
-            "url": "http://europeana.eu"
-          }
-        ]
       },
       "meta_additional":
       {

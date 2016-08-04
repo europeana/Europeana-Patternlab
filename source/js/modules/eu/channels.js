@@ -5,6 +5,10 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
       console.log('Channels: ' + msg);
     }
 
+    require(['cookie_disclaimer'], function(cd){
+      cd.init();
+    });
+
     require(['smartmenus_keyboard'], function(){
 
         $('.nav_primary>ul').smartmenus({
@@ -61,12 +65,12 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
           }});
         });
-      }  
+      }
     }
-    
+
     var doForAllPages = function(){
       initCollectionsFilter();
-      
+
       if($('.eu-tooltip').size()>0){
         require(['eu_tooltip'], function(euTooltip){
           euTooltip.configure();
@@ -108,7 +112,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             doForAllPages();
             break;
 
-        case 'collections/show':          
+        case 'collections/show':
             if(window.location.href.indexOf('?q=') == -1){
               require(['search_landing'], function(page){
                 page.initPage();

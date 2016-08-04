@@ -1,83 +1,84 @@
+.browse-entry-more,
 .browse-entry{
 
-	border-top: 3px solid $accent;
-	overflow: visible;
-	padding-top: $space-half;
-	margin-bottom: $space-half;
+  border-top: 3px solid $accent;
+  overflow: visible;
+  padding-top: $space-half;
+  margin-bottom: $space-half;
 
-	display: table;
-	table-layout: fixed;
-	width: 100%;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 
-	& > a{
-		display: table-row;
+  & > a{
+    display: table-row;
 
-		& > div{
-			display: table-cell;
-			vertical-align: middle;
-		}
-	}
+    & > div{
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
 
-	.img{
-		width: 30%;
-	}
+  .img{
+    width: 30%;
+  }
 
-	.bd{
-		padding-left: 5%;
-		width: 70%;
-	}
+  .bd{
+    padding-left: 5%;
+    width: 70%;
+  }
 
-	@media all and (min-width: $bp-small) {
-		border-top: none;
+  @media all and (min-width: $bp-small) {
+    border-top: none;
 
-		.img{
-			width: 25%;
-		}
-		.bd{
-			width: 75%;
-		}
-	}
+    .img{
+      width: 25%;
+    }
+    .bd{
+      width: 75%;
+    }
+  }
 
-	@media all and (min-width: $bp-small-2) {
-		.title{
-			font-size: $font-size-med;
-		}
-	}
+  @media all and (min-width: $bp-small-2) {
+    .title{
+      font-size: $font-size-med;
+    }
+  }
 
-	a{
-		line-height: 1.2;
+  a{
+    line-height: 1.2;
 
-		&:hover .title, &:focus .title{
-			text-decoration: underline;
-		}
-	}
+    &:hover .title, &:focus .title{
+      text-decoration: underline;
+    }
+  }
 
-	.icon{
-		margin-right: 0;
-	}
+  .icon{
+    margin-right: 0;
+  }
 
-	.l-upper{
-		margin-bottom: $space-half;
-	}
+  .l-upper{
+    margin-bottom: $space-half;
+  }
 
-	.title{
-		font-weight: bold;
-	}
+  .title{
+    font-weight: bold;
+  }
 
-	.media_type{
-		opacity: 0.75;
-		font-size: $font-size-slightly-smaller;
-	}
+  .media_type{
+    opacity: 0.75;
+    font-size: $font-size-slightly-smaller;
+  }
 
-	.lower span{
-		display: block;
-	}
+  .lower span{
+    display: block;
+  }
 
-	.theme-dark &{
-		border-color: $white;
+  .theme-dark &{
+    border-color: $white;
 
-		a{
-			color: $white;
-		}
-	}
+    a{
+      color: $white;
+    }
+  }
 }

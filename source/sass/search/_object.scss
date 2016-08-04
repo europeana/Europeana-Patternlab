@@ -149,7 +149,11 @@
 .object-media-wrap{
 
     text-align: center;
-    padding: $pad;
+    
+    &:not(.empty){
+      padding: $pad;
+    }
+    
     position: relative;
 
     .media-thumb-section{
@@ -771,24 +775,13 @@
 
 }
 
-.color-data{
-    font-size: 0;
+.colour-data{
+  font-size: 0;
 }
-.color-datum{
-    width:20%;
-    padding-bottom: 20%;
-    position: relative;
 
-    &:last-child a{
-        border-right: none;
-    }
-
-    a{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: block;
-        @include fontSize(14px);
-        border-right: 1px solid $white;
-    }
+.colour-datum{
+  border: 1px solid $gray-lighter;
+  margin-right: 2%;
+  position: relative;
+  width: 13%;
 }

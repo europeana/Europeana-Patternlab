@@ -28,82 +28,85 @@
     border-width: 1px medium 1px 1px;
     right: 0;
     transform: translateX(100%);
+    -webkit-transform: translateX(100%);
   }
 }
-/* line 25, style.scss */
+/* line 26, style.scss */
 .feedback.loaded {
   transition: all 0.2s ease-out 0s;
 }
-/* line 29, style.scss */
+/* line 30, style.scss */
 .feedback .open {
   display: block;
 }
-/* line 33, style.scss */
+/* line 34, style.scss */
 .feedback .close {
   display: none;
 }
-/* line 37, style.scss */
+/* line 38, style.scss */
 .feedback .open,
 .feedback .close {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.65em;
 }
-/* line 44, style.scss */
+/* line 45, style.scss */
 .feedback .feedback-text {
   border-radius: 0.5em 0.5em 0 0;
 }
-/* line 47, style.scss */
+/* line 48, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   border-radius: 0.25em;
 }
-/* line 54, style.scss */
+/* line 55, style.scss */
 .feedback.open a.open {
   display: none;
 }
-/* line 57, style.scss */
+/* line 58, style.scss */
 .feedback.open a.close {
   display: block;
 }
 @media all and (max-width: 50em) {
-  /* line 52, style.scss */
+  /* line 53, style.scss */
   .feedback.open {
     top: auto;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 52, style.scss */
+  /* line 53, style.scss */
   .feedback.open {
     transform: translateX(0);
+    -webkit-transform: translateX(0);
   }
 }
-/* line 71, style.scss */
+/* line 73, style.scss */
 .feedback .feedback-toggle {
   color: #fff;
   position: absolute;
   left: 0;
 }
 @media all and (max-width: 50em) {
-  /* line 71, style.scss */
+  /* line 73, style.scss */
   .feedback .feedback-toggle {
     width: 100%;
     top: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 71, style.scss */
+  /* line 73, style.scss */
   .feedback .feedback-toggle {
     bottom: 0;
   }
 }
 @media all and (min-width: 50em) {
-  /* line 71, style.scss */
+  /* line 73, style.scss */
   .feedback .feedback-toggle {
     transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
 }
-/* line 89, style.scss */
+/* line 92, style.scss */
 .feedback .feedback-toggle a {
   border: 0 none;
   cursor: pointer;
@@ -113,20 +116,21 @@
   vertical-align: middle;
 }
 @media all and (min-width: 50em) {
-  /* line 89, style.scss */
+  /* line 92, style.scss */
   .feedback .feedback-toggle a {
     transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
   }
-  /* line 101, style.scss */
+  /* line 105, style.scss */
   .feedback .feedback-toggle a.open {
     left: 23px;
     top: -23px;
   }
-  /* line 104, style.scss */
+  /* line 108, style.scss */
   .feedback .feedback-toggle a.open:hover, .feedback .feedback-toggle a.open:focus {
     background: #212121;
   }
-  /* line 108, style.scss */
+  /* line 112, style.scss */
   .feedback .feedback-toggle a.close {
     left: 23px;
     top: -23px;
@@ -134,12 +138,13 @@
   }
 }
 @media all and (max-width: 50em) {
-  /* line 89, style.scss */
+  /* line 92, style.scss */
   .feedback .feedback-toggle a {
     transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
   }
 }
-/* line 121, style.scss */
+/* line 126, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-cancel,
 .feedback .feedback-send {
@@ -148,7 +153,7 @@
   padding: 0.5em;
 }
 @media all and (max-width: 50em) {
-  /* line 128, style.scss */
+  /* line 133, style.scss */
   .feedback .feedback-toggle a.close,
   .feedback .feedback-cancel.close,
   .feedback .feedback-send.close {
@@ -156,11 +161,11 @@
     top: 0;
   }
 }
-/* line 136, style.scss */
+/* line 141, style.scss */
 .feedback .feedback-toggle a {
   padding: 0.75em 1em;
 }
-/* line 140, style.scss */
+/* line 145, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   color: #fff;
@@ -168,50 +173,50 @@
   width: 2.45em;
   height: 2.45em;
 }
-/* line 146, style.scss */
+/* line 151, style.scss */
 .feedback .feedback-cancel svg.icon,
 .feedback .feedback-send svg.icon {
   width: 1.4em;
   height: 1.4em;
 }
-/* line 152, style.scss */
+/* line 157, style.scss */
 .feedback .feedback-cancel {
   background-color: #CCCCCC;
 }
-/* line 156, style.scss */
+/* line 161, style.scss */
 .feedback .feedback-send {
   right: 0;
 }
-/* line 160, style.scss */
+/* line 165, style.scss */
 .feedback #feedback-form {
   margin: 1em;
   padding-bottom: 3em;
 }
-/* line 163, style.scss */
+/* line 168, style.scss */
 .feedback #feedback-form .controls.step1 {
   position: relative;
 }
-/* line 167, style.scss */
+/* line 172, style.scss */
 .feedback #feedback-form .step2 {
   visibility: hidden;
   position: absolute;
   top: 0;
 }
-/* line 173, style.scss */
+/* line 178, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 177, style.scss */
+/* line 182, style.scss */
 .feedback #feedback-form p.step2 {
   position: absolute;
   top: 4em;
 }
-/* line 182, style.scss */
+/* line 187, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   margin-top: 1.6rem;
 }
-/* line 187, style.scss */
+/* line 192, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -225,19 +230,19 @@
   text-align: right;
   top: -7px;
 }
-/* line 201, style.scss */
+/* line 206, style.scss */
 .feedback #feedback-form .feedback-error {
   color: red;
   position: absolute;
   visibility: hidden;
   top: 0;
 }
-/* line 209, style.scss */
+/* line 214, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: red;
 }
-/* line 214, style.scss */
+/* line 219, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -251,27 +256,27 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 228, style.scss */
+/* line 233, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 232, style.scss */
+/* line 237, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 236, style.scss */
+/* line 241, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 243, style.scss */
+/* line 248, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 250, style.scss */
+/* line 255, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url(spinner.gif);

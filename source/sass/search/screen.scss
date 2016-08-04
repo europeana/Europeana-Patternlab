@@ -65,6 +65,7 @@ $susy: (
 @import "../scss/objects/footer";
 @import "../scss/objects/sections";
 @import "../scss/objects/blocks";
+
 @import "../scss/objects/blocks/promo-module";
 @import "../scss/objects/blocks/browse-entry";
 @import "../scss/objects/blocks/site-hero";
@@ -85,6 +86,7 @@ $susy: (
   Buttons and text Styles
 \*------------------------------------*/
 @import "../scss/objects/buttons";
+@import "../scss/objects/controls/cookie-disclaimer";
 @import "../scss/objects/tags";
 @import "../scss/objects/action-links";
 @import "../scss/objects/corner-ribbon";

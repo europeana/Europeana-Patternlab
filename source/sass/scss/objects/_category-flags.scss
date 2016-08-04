@@ -1,38 +1,46 @@
 .category-flag{
-	background-color: $accent;
-	color: $white;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 0.75em;
-	display: block;
-	padding: 0.4em 0.8em;
-	position: absolute;
-	z-index: 2;
-	top: 5%;
-	left: -4px;
-    letter-spacing: 0.1em;
+  background-color: $accent;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+  display: block;
+  padding: 0.4em 0.8em;
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  left: -4px;
+  letter-spacing: 0.1em;
 
-    a{
-       color: $white;
-    }
+  a{
+   color: $white;
+  }
 
-    .item-channel &, .category_1 &{
-    	background-color: $eu-red;
-    }
+  .item-channel &, .category_1 &{
+    background-color: $eu-red;
+  }
 
-    .item-exhibition &, .category_2 &{
-    	background-color: $eu-orange;
-    }
+  .item-exhibition &, .category_2 &{
+    background-color: $eu-orange;
+  }
 
-    .item-new &, .category_3 &{
-    	background-color: $eu-blue;
-    }
+  .item-new &, .category_3 &{
+    background-color: $eu-blue;
+  }
 
-    .item-partner &, .category_4 &{
-        background-color: $eu-raspberry;
-    }
+  .item-partner &, .category_4 &{
+    background-color: $eu-raspberry;
+  }
 
-    .item-featuredsite &, .category_5 &{
-    	background-color: $eu-purple;
-    }
+  .item-featuredsite &, .category_5 &{
+    background-color: $eu-purple;
+  }
+
+  .tail{
+    background-color: inherit;
+    padding: 0.4em;
+    position: absolute;
+    right: -2.5em;
+    top: 0;
+  }
 }
