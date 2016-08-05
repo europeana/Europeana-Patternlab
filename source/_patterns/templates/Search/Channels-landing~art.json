@@ -233,6 +233,7 @@
         {
           "more_link": "javascript:alert('More items (1)');",
           "more_text": "More topics",
+          "more_image": "/images/icons/browse_entry_bkg.png",
           "items":[
             {
               "title": "All Paintings",
@@ -264,6 +265,7 @@
         {
           "more_link": "javascript:alert('More items (2)');",
           "more_text": "More people",
+          "more_image": "/images/icons/browse_entry_bkg.png",
           "items":[
             {
               "title": "Spotlight on Botticelli",
