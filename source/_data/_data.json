@@ -6,6 +6,8 @@
         "is_beta": false
     },
 
+    "styleguide_root": "",
+
     "page_config": {
         "newsletter": true
     },
