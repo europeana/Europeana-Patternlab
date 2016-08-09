@@ -37,11 +37,15 @@ define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'util_scrollEvents'], 
           var hidden     = swapText($tgt);
           var toShowHide = $tgt.prev('.filter-list').find('.js-nested-filters');
 
+          var parentFilter = $tgt.closest('.filter')
+
           if(hidden){
             toShowHide.addClass('is-jshidden');
+            parentFilter.removeClass('is-expanded');
           }
           else{
             toShowHide.removeClass('is-jshidden');
+            parentFilter.addClass('is-expanded');
           }
 
         });
