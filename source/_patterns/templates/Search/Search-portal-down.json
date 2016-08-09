@@ -16,25 +16,32 @@
       "css": "true"
     }]
   },
-  "css_files": false,
-  "js_files": [
-    {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/templates/main-collections"
-    }
-  ],
-  "js_vars": [
-    {
-      "name": "pageName",
-      "value": "portal/static"
-    }
-  ],
-  "content":{
+  "content": {
     "title":"We'll be back shortly!",
     "description": "Europeana Collections is unavailable at the moment, please check back soon.",
     "src": "https://www.europeana.eu/api/v2/thumbnail-by-url.json?size=w400&uri=https%3A%2F%2Fwww.rijksmuseum.nl%2Fassetimage2.jsp%3Fid%3DBK-2007-24&type=IMAGE",
     "alt": "Screaming Child, Stung by a Bee by Hendrik de Keyser",
     "caption":"Screaming Child, Stung by a Bee | Keyser, Hendrik de"
+  },
+  "navigation": false,
+  "navigation": {
+    "home_url": false,
+    "home_text": "Return to Home",
+    "global": {
+      "options": {
+        "search_active": false,
+        "settings_active": false
+      },
+      "logo": {
+        "url": false,
+        "text": "Europeana Collections"
+      },
+      "primary_nav": {
+        "menu_id": "main-menu",
+        "items": false
+      }
+    },
+      "footer": false
   },
   "social": {
     "social_title": "Find Europeana on social media",
@@ -50,5 +57,5 @@
       "url": "https://uk.pinterest.com/europeana/",
       "text": "Pinterest"
     }
- 	}
+   }
 }
