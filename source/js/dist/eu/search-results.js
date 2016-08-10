@@ -262,6 +262,11 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
               showList();
           }
       }
+
+      $('.facet-menu .opener').on('click', function(){
+          $('.refine').toggleClass('open');
+      });
+
     }
 
     var bindGA = function(){
