@@ -1,27 +1,27 @@
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 
 /* Definition Lists */
 dl {
-	overflow: hidden;
-	margin: 0 0 $space;
+  overflow: hidden;
+  margin: 0 0 $space;
 }
 
 dt {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 dd {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 .inline-list, ul.inline-list {
     margin-left: 0;
-	li {
-		display: inline-block;
-		margin-right: $space-quarter;
-	}
+  li {
+    display: inline-block;
+    margin-right: $space-quarter;
+  }
 }
 
 // Comma separated inline text list
@@ -37,5 +37,13 @@ dd {
     }
     li:last-child:after{
         content: '';
+    }
+
+    li.split-items{
+      display: block;
+      margin-bottom: 1em;
+      &:after{
+        content: '';
+      }
     }
 }
