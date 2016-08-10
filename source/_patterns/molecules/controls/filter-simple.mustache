@@ -52,7 +52,7 @@ Configuration options and content model:
 
 
 }}
-<div class="filter{{#select_one}} radiobuttons{{/select_one}}{{^select_one}} checkboxes{{/select_one}}{{^filter_open}} filter-closed{{/filter_open}}">
+<div class="filter{{#select_one}} radiobuttons{{/select_one}}{{^select_one}} checkboxes{{/select_one}}{{^filter_open}}{{^has_subfilters}} filter-closed{{/has_subfilters}}{{/filter_open}}">
 
     {{# title }}
     <div class="filter-name">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
