@@ -295,12 +295,18 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
     }
 
+    var bindfacetOpeners = function(){
+      $('.filter .filter-name').on('click', function(){
+        $(this).closest('.filter').toggleClass('filter-closed');
+      });
+    }
 
 
     var initPage = function(){
       bindViewButtons();
       bindResultSizeLinks();
       bindGA();
+      bindfacetOpeners();
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');
