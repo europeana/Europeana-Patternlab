@@ -89,8 +89,7 @@
 
       position: absolute;
 
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0.8em;
 
       @media all and (min-width: $bp-med) {
         transform: translateY(50%);
@@ -99,6 +98,7 @@
 
     &.filter-closed{
       > .filter-name:after{
+        top: 1em;
         border-color: $textcolour_body transparent transparent;
       }
     }
