@@ -4,6 +4,15 @@
 //
 // Styleguide 1.0.0
 
+.filter-closed{
+  > ul{
+    display: none;
+  }
+  > .filter-moreless{
+    display: none;
+  }
+}
+
 .filter{
   .filter-moreless:after{
     border-color: $textcolour_body transparent transparent;
@@ -52,6 +61,7 @@
 
 .filter-name{
   color: $textcolour_body;
+  cursor: pointer;
   margin: $space-half 0;
   text-transform: uppercase;
   font-weight: bold;
@@ -62,6 +72,39 @@
     margin-bottom: $space-quarter;
   }
 }
+
+.refine{
+  > .filter{
+    position: relative;
+    > .filter-name:after{
+      border-color: transparent transparent $textcolour_body;
+      border-style: solid;
+      border-width: 5px;
+      content: '';
+      display: inline-block;
+
+      //float: right;
+
+      right: 1em;
+
+      position: absolute;
+
+      top: 50%;
+      transform: translateY(-50%);
+
+      @media all and (min-width: $bp-med) {
+        transform: translateY(50%);
+      }
+    }
+
+    &.filter-closed{
+      > .filter-name:after{
+        border-color: $textcolour_body transparent transparent;
+      }
+    }
+  }
+}
+
 
 .filter-list{
   margin-bottom: $space-half;
