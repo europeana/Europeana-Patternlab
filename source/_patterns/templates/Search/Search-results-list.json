@@ -649,6 +649,7 @@
   },
   "has_results": true,
   "has_multiple_results": true,
+  "active_filter_count": 3,
   "results_menu": {
     "menu_id": "results_menu",
     "button_title_prefix": "Per page",

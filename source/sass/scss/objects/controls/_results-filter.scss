@@ -30,6 +30,13 @@
   margin-bottom: $space-half;
   @include fontSize(14px);
 
+  @media all and (max-width: $bp-med) {
+    margin-bottom: 0;
+    &:nth-of-type(1){
+      border-top: 0;
+    }
+  }
+
   .subfilters &{
     border-top: none;
   }
@@ -58,6 +65,26 @@
 
 .filter-list{
   margin-bottom: $space-half;
+}
+
+.filter-mobile-summary{
+  display: none;
+}
+
+.refine.open .filter-mobile-summary{
+  display: block;
+  font-weight: normal;
+  text-transform: initial;
+  opacity: 0.5;
+  li{
+    display: inline;
+    &:after{
+      content: ", ";
+    }
+    &:last-child:after{
+      content: "";
+    }
+  }
 }
 
 .filter-wrap{
@@ -208,6 +235,14 @@
 
 .radiobuttons > ul > li .filter-item:before{
     background-position: -88px 0;
+}
+
+.filter-boolean{
+  @media all and (max-width: $bp-med) {
+    .filter-item:before{
+      left: 16px;
+    }
+  }
 }
 
 .filter-boolean .filter-item,

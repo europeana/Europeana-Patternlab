@@ -54,7 +54,13 @@ Configuration options and content model:
 }}
 <div class="filter {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
 
-    {{# title }}<div class="filter-name">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>{{/ title }}
+    {{# title }}
+    <div class="filter-name">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
+      {{^has_subfilters}}
+        {{> molecules/controls/filter-mobile-summary}}
+      {{/has_subfilters}}
+    </div>
+    {{/ title }}
 
     <ul class="filter-list filter-wrap">
     {{#items}}
