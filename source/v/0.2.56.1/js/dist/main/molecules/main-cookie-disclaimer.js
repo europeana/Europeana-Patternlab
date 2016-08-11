@@ -1,1 +1,0 @@
-require.config({paths:{cookie_disclaimer:"../../eu/cookie-disclaimer",jquery:"../../lib/jquery"}}),require(["jquery"],function(a){require(["cookie_disclaimer"],function(a){a.init()})});
