@@ -1,0 +1,1 @@
+require.config({paths:{eu_tooltip:"../../eu/tooltip/eu-tooltip",jqDropdown:"../../lib/jquery.dropdown",jquery:"../../lib/jquery"}}),require(["jquery"],function(a){require(["jqDropdown"],function(){}),require(["eu_tooltip"],function(a){a.configure()})});
