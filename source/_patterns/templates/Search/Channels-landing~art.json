@@ -307,13 +307,13 @@
           "title": "From Dada to Surrealism",
           "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
           "is_exhibition": true,
+          "wide": true,
           "bg_image": "../../images/sample/thumb-dada.jpg"
         },
         {
           "title": "Art Nouveau",
           "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
           "is_exhibition": true,
-          "wide": true,
           "bg_image": "../../images/sample/thumb-artnouveau.jpg"
         },
         {
