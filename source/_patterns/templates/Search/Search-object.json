@@ -386,6 +386,7 @@
       "more_items_query" : "javascript:alert('loads a page of similar items')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
 
       "items": [
         {
