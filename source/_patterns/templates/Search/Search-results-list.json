@@ -483,6 +483,9 @@
           "num_results": 600
         },
         {
+          "is_separator": true
+        },
+        {
           "url": "http://europeana.eu",
           "text": "Label here",
           "num_results": 123

@@ -131,6 +131,11 @@
   display: none;
 }
 
+.filter-item-separator{
+  border-bottom: 1px solid $grey3;
+  margin: 0.5em 0;
+}
+
 .refine.open .filter-mobile-summary{
   display: block;
   font-weight: normal;
