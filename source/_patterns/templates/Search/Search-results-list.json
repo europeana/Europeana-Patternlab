@@ -466,6 +466,7 @@
     {
       "title": "Language",
       "simple": true,
+      "filter_open": true,
       "items": [
         {
           "url": "http://europeana.eu",
