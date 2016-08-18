@@ -98,6 +98,7 @@
       "tumblr_url": "javascript:alert('open tumblr page')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
       "items": [
         {
           "url":  "?q=The+Lace+Maker",
@@ -329,7 +330,7 @@
         "url": "http://www.europeanafashion.tumblr.com",
         "text": "Tumblr"
       }
- 	},
+   },
     "news": {
       "items": [
         {
