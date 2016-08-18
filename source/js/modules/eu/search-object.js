@@ -585,6 +585,18 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
           });
           log('GA: Media View, Action = ' + href + ', Label = ' + type);
       });
+
+      // colour palette
+
+      $('body').on('click', '.colour-data .link', function () {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Colour Search',
+          eventAction: $(this).attr('href'),
+          eventLabel: 'Colour ' + $(this).find('span').text()
+        });
+      });
+
     }
 
     function bindAttributionToggle(){
