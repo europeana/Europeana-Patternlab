@@ -86,27 +86,27 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
     console.log('pageName ' + pageName);
 
     switch(pageName){
-        case 'browse/people':
+        case 'explore/people':
             promisedPageJS.resolve();
             doForAllPages();
             break;
 
-        case 'browse/colours':
+        case 'explore/colours':
             promisedPageJS.resolve();
             doForAllPages();
             break;
 
-        case 'browse/topics':
+        case 'explore/topics':
             promisedPageJS.resolve();
             doForAllPages();
             break;
 
-        case 'browse/new_content':
+        case 'explore/new_content':
             promisedPageJS.resolve();
             doForAllPages();
             break;
 
-        case 'browse/sources':
+        case 'explore/sources':
             require(['util_foldable']);
             promisedPageJS.resolve();
             doForAllPages();
