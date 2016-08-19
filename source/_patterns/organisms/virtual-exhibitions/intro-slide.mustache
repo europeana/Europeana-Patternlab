@@ -3,7 +3,7 @@
   {{#image}}
     {{>organisms/virtual-exhibitions/main-slide-bg-style }}
     <a id="ve-element-anchor-{{id}}" class="ve-element-anchor"></a>
-    
+
     <picture class="ve-intro-image">
       {{#is_featured_exhibition}}{{#link}}<a href="{{.}}">{{/link}}{{/is_featured_exhibition}}
         {{>atoms/images/responsive-srcset-picture}}
@@ -15,13 +15,13 @@
         </div>
       {{/image_credit}}
     </picture>
-    
+
   {{/image}}
 </div>
 <div class="ve-base ve-base-intro-texts">
 
   {{#image_credit}}
-    <div class="ve-image-credit">
+    <div class="ve-image-credit{{#is_foyer}} foyer{{/is_foyer}}">
      {{>molecules/text/attribution}}
     </div>
   {{/image_credit}}
