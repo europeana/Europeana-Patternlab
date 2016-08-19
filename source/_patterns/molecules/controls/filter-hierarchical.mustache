@@ -67,7 +67,7 @@ Configuration options and content model:
 }}
 <div class="filter filter-hierarchical js-filter-hierarchical{{#select_one}} radiobuttons{{/select_one}}{{^select_one}} checkboxes{{/select_one}}{{^filter_open}} filter-closed{{/filter_open}}">
 
-    <div class="filter-name">{{#title}}{{.}}{{/title}}{{#tooltip}}{{>atoms/text/tooltip}}{{/tooltip}}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
+    <div class="filter-name">{{#title}}{{.}}{{/title}}{{#tooltip}}{{>atoms/text/tooltip}}{{/tooltip}}{{#icon_link}} <a class="filter-name-icon" href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
       {{> molecules/controls/filter-mobile-summary}}
     </div>
 

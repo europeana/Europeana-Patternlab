@@ -589,14 +589,11 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
       // colour palette
 
       $('body').on('click', '.colour-data .link', function () {
-
-        log('colour data link = ' + $(this).attr('href') + '   --> ' + $(this).find('span').text()  );
-
         ga('send', {
           hitType: 'event',
-          eventCategory: 'Colour Browse',
+          eventCategory: 'Colour Search',
           eventAction: $(this).attr('href'),
-          eventLabel: $(this).find('span').text()
+          eventLabel: 'Colour ' + $(this).find('span').text()
         });
       });
 

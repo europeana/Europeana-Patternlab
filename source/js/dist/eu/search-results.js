@@ -187,7 +187,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           }
       };
 
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.eu-tooltip-anchor').each(function(){
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.filter-name-icon').each(function(){
           updateUrl($(this));
       });
 
