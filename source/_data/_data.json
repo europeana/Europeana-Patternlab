@@ -629,6 +629,7 @@
                     "download": "Download",
                     "download-started": "The download has started",
                     "download-started": "Retry",
+                    "media-metadata": "Media Metadata",
                     "technicalmetadata": "Technical Metadata",
                     "open-media": "Open this media item",
                     "attribute-author":"Attribute the author",
@@ -643,6 +644,7 @@
                 },
                 "meta-label": {
                     "concepts": "Categories",
+                    "creator": "Creator",
                     "place": "Place",
                     "properties": "Properties",
                     "provenance": "Provenance",
@@ -659,7 +661,8 @@
                     "fps": "Frames per second",
                     "dimensions": "Dimensions",
                     "runtime": "Run time",
-                    "rights": "Can I use this?",
+                    "rights": "Rights",
+                    "rights_human": "Can I use this?",
                     "provided-by": "Provided by",
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
                 },
