@@ -258,6 +258,9 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 [{attr: 'runtime'},
                  {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
         | setVal(
+                [{attr: 'runtime'},
+                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
+        | setVal(
                 [{attr: 'format'}], '.object-techdata .tech-meta-format')
         | setVal(
                 [{attr: 'codec'}],  '.tech-meta-codec')
@@ -269,7 +272,17 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         | setVal(
                 [{attr: 'attribution-plain', toDataAttr: 'e-licence-content'}], '.attribution-fmt.plain')
         | setVal(
-                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html');
+                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html')
+        | setVal(
+                [{attr: 'dc-creator'}], '.tech-meta-creator')
+        | setVal(
+                [{attr: 'dc-description'}], '.tech-meta-description')
+        | setVal(
+                [{attr: 'dc-source'}], '.tech-meta-source')
+        | setVal(
+                [{attr: 'dc-rights'}], '.tech-meta-dc-rights')
+        | setVal(
+                [{attr: 'edm-rights'}], '.tech-meta-edm-rights');
 
         if(somethingGotSet){
             techData.show();
