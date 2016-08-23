@@ -619,14 +619,22 @@
     }
   }
 
+
   @media all and (min-width: $bp-med){
 
     .list-item-more{
       display: none;
     }
 
-    .list-item:nth-child(3n+3) .browse-entries-more{
-      display: block;
+    &:not(.single-type){
+      .list-item:nth-child(3n+3) .browse-entries-more{
+        display: block;
+      }
+    }
+    &.single-type{
+      .list-item:nth-child(6n) .browse-entries-more{
+        display: block;
+      }
     }
 
   }
