@@ -4,17 +4,12 @@
     <div class="corner-ribbon alternate">Coming Soon</div>
     {{/comingsoon}}
     <div class="inner">
-      <span class="title">{{title}}</span>
+      <span class="title">{{title}}{{^subtitle}}{{#is_external}} <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg>{{/is_external}}{{/subtitle}}</span>
       {{#subtitle}}
-      <span class="subtitle">{{subtitle}}</span>
+        <span class="subtitle">{{subtitle}}{{#is_external}} <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg>{{/is_external}}</span>
       {{/subtitle}}
     </div>
   </a>
-  <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}
-    {{#is_external}}
-      <div class="tail">
-        <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg>
-      </div>
-    {{/is_external}}
+  <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}{{#is_channel}}Channel{{/is_channel}}
   </div>
 </div>
