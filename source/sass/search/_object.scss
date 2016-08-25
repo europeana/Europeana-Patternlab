@@ -451,7 +451,7 @@
         column-gap: $space;
 
         @media all and (min-width: $bp-med) {
-            @include span(19 of 24);
+            @include span(14 of 24);
         }
     }
 
@@ -506,6 +506,9 @@
 .object-techdata-list li{
     &.is-disabled{
         display: none;
+    }
+    .val-rights a{
+      white-space: nowrap;
     }
 }
 
