@@ -451,7 +451,7 @@
         column-gap: $space;
 
         @media all and (min-width: $bp-med) {
-            @include span(10 of 24);
+            @include span(19 of 24);
         }
     }
 
@@ -504,7 +504,6 @@
     }
 }
 .object-techdata-list li{
-    white-space: nowrap;
     &.is-disabled{
         display: none;
     }
@@ -554,6 +553,9 @@
   }
 }
 
+#molecules-icons-licenses-js{
+  display: none;
+}
 
 .original_context{
     display: block;

@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
+define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga, Mustache) {
 
     ga = window.fixGA(ga);
 
@@ -141,14 +141,11 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 'template':        ops.template,
                 'total_available': ops.total_available,
                 'doAfter': function(data){
-
                   var addToDom = [];
                   var template = $('.colour-navigation.js-template');
 
                   $.each(data, function(i, item){
-
-                    var newEntry = template.before(template.clone());
-
+                    var newEntry = template.clone();
                     addToDom.push(newEntry)
 
                     newEntry.removeClass('js-template');
@@ -158,13 +155,12 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                     var tm = item.technical_metadata;
 
                     if(tm && tm.colours && tm.colours.present){
-                      $.each(tm.colours.items, function(i, item){
 
+                      $.each(tm.colours.items, function(i, item){
                         var itemTemplate = newEntry.find('li.js-template');
                         var newItem = itemTemplate.clone();
 
                         itemTemplate.before(newItem);
-
                         newItem.removeAttr('style');
                         newItem.removeClass('js-template');
                         newItem.find('a').css('background-color', item.hex);
@@ -172,8 +168,8 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                       });
                     }
                   });
-                  for(var i=0; i<addToDom.length; i++){
-                    template.before(addToDom[i]);
+                  if(addToDom.length > 0){
+                    template.before(addToDom);
                   }
                 }
             });
@@ -185,7 +181,6 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
     // tech-data download handling
 
     var updateTechData = function(e){
-
         var tgt          = $(e.target);
         var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
@@ -201,7 +196,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         var setFileInfoData = function(href, meta, fmt){
             $('.file-info .file-title').attr('href', href);
             $('.file-info .file-meta li').remove();
-            $('.file-detail .file-type').html(fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
+            $('.file-detail .file-type').html(fmt == null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
             $.each(meta, function(i, ob){
                 $('.file-info .file-meta').append('<li>' + ob + '</li>');
             });
@@ -223,7 +218,12 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             for(var i=0; i<data.length; i++){
                 var val = tgt.data(data[i]['attr']) || data[i]['def'];
                 if(val){
-                    allConcat += val + ' ';
+                    if(typeof val == 'string'){
+                        allConcat += val + ' ';
+                    }
+                    if(typeof val == 'object'){
+                        allConcat = val.model;
+                    }
                     if(!data[i]['label']){
                         anyFound  = true;
                     }
@@ -237,8 +237,21 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                     writeEl.data(data[0].toDataAttr, allConcat);
                 }
                 else{
+                    var templateId = writeEl.data('mustache');
                     writeEl.next('.val').empty();
-                    writeEl.next('.val').text(allConcat.trim());
+
+                    if(templateId){
+                        var template = $(templateId).html();
+                        var model    = allConcat;
+
+                        Mustache.tags = ["[[", "]]"];
+                        var rendered = Mustache.render(template, model);
+
+                        writeEl.next('.val').html((model.license_human ? model.license_human : '') + rendered);
+                    }
+                    else{
+                        writeEl.next('.val').text(allConcat.trim());
+                    }
                     writeEl.closest('li').removeClass('is-disabled');
                 }
             }
@@ -251,6 +264,8 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             return anyFound;
         }
         var techData        = $('.object-techdata');
+
+
         var somethingGotSet = setVal(
                 [{attr: 'file-size'},
                  {attr: 'file-unit'}],  '.tech-meta-filesize')
@@ -285,12 +300,12 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 [{attr: 'edm-rights'}], '.tech-meta-edm-rights');
 
         if(somethingGotSet){
-            techData.show();
-            $('.attribution-fmt.plain').trigger('click');
+          techData.show();
+          $('.attribution-fmt.plain').trigger('click');
         }
         else{
-            techData.removeClass('is-expanded')
-            techData.hide();
+          techData.removeClass('is-expanded')
+          techData.hide();
         }
 
         // download window
@@ -356,6 +371,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                        load more into the carousel then hand control back to search-image-viewer
                     */
                     $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
+                        log('reached last');
                         carousel.loadMore(false, data.doAfterLoad);
                     });
                     $('.media-thumbs').on('click', 'a', updateTechData);

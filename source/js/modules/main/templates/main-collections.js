@@ -66,6 +66,8 @@ require.config({
     midi_vc_base64:                '../../lib/midijs/VersionControl.Base64',
     midi_base64:                   '../../lib/midijs/base64binary',
 
+    mustache:                      '../../lib/mustache/mustache',
+
     NOFlogger:                     '../../lib/904Labs/904-logger',
     NOFremote:                     '../../lib/904Labs/noflogging-0.2.min',
 //    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',

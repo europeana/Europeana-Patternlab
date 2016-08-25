@@ -67,25 +67,29 @@ module.exports = function(grunt) {
 
         copy: {
           jquery: {
-              options: {
-                separator: ';\n'
-              },
-              src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
+            options: {
+              separator: ';\n'
+            },
+            src:    ['source/js/modules/bower_components/jquery.scrollTo/jquery.scrollTo.js',
+                     'source/js/modules/lib/hotjar.js',
+                     'source/js/modules/lib/jquery.imagesloaded.min.js',
 
-                       'source/js/modules/lib/hotjar.js',
-                       'source/js/modules/lib/jquery.imagesloaded.min.js',
+                     'source/js/modules/lib/jquery.event.move.js',
+                     'source/js/modules/lib/jquery.event.swipe.js',
 
-                       'source/js/modules/lib/jquery.event.move.js',
-                       'source/js/modules/lib/jquery.event.swipe.js',
+                     'source/js/modules/bower_components/jquery/dist/jquery.js',
+                     'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],
 
-                       'source/js/modules/bower_components/jquery/dist/jquery.js',
-                       'source/js/modules/bower_components/jquery-dropdown/jquery.dropdown.js'],
-
-              dest:    'source/js/dist/lib',
-              expand:  true,
-              flatten: true
+            dest:    'source/js/dist/lib',
+            expand:  true,
+            flatten: true
           },
-
+          mustache: {
+            src:    ['source/js/modules/lib/mustache/mustache.js'],
+            dest:    'source/js/dist/lib/mustache',
+            expand:  true,
+            flatten: true
+          },
           /*
           js_assets_enable: {
               files: [{
@@ -523,6 +527,7 @@ module.exports = function(grunt) {
        'copy:midi',
        'copy:midi_css',
        'copy:midi_img',
+       'copy:mustache',
        'copy:NOF',
        'copy:pdfjs',
        'copy:pdfjs_img',
