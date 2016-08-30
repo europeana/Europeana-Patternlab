@@ -218,7 +218,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             for(var i=0; i<data.length; i++){
                 var val = tgt.data(data[i]['attr']) || data[i]['def'];
                 if(val){
-                    if(typeof val == 'string'){
+                    if(typeof val == 'string' || typeof val == 'number'){
                         allConcat += val + ' ';
                     }
                     if(typeof val == 'object'){
@@ -233,6 +233,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
                 }
             }
             if(allFound){
+
                 if(data[0].toDataAttr != null){
                     writeEl.data(data[0].toDataAttr, allConcat);
                 }
@@ -246,8 +247,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
                         Mustache.tags = ["[[", "]]"];
                         var rendered = Mustache.render(template, model);
-
-                        writeEl.next('.val').html((model.license_human ? model.license_human : '') + rendered);
+                        writeEl.next('.val').html(rendered);
                     }
                     else{
                         writeEl.next('.val').text(allConcat.trim());
@@ -265,13 +265,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         }
         var techData        = $('.object-techdata');
 
-
         var somethingGotSet = setVal(
                 [{attr: 'file-size'},
-                 {attr: 'file-unit'}],  '.tech-meta-filesize')
-        | setVal(
-                [{attr: 'runtime'},
-                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
+                 {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
         | setVal(
                 [{attr: 'runtime'},
                  {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
@@ -299,12 +295,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         | setVal(
                 [{attr: 'edm-rights'}], '.tech-meta-edm-rights');
 
+
         if(somethingGotSet){
           techData.show();
           $('.attribution-fmt.plain').trigger('click');
         }
         else{
-          techData.removeClass('is-expanded')
+          techData.removeClass('is-expanded');
           techData.hide();
         }
 
