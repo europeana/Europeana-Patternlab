@@ -47,6 +47,20 @@ define(['jquery'], function ($) {
     	});
     }
     
+    function applyXmlBeautify() {
+    	jush.style('../../js/modules/lib/jush/jush.css');
+		jush.highlight_tag('code');
+		document.getElementById('xml-formatted').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
+										.highlight('xml', document.getElementById('xml').value)
+										.replace(/\t/g, '')
+										.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
+		document.getElementById('xml-formatted-expanded').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
+		.highlight('xml', document.getElementById('xml').value)
+		.replace(/\t/g, '')
+		.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
+		//.replace(new RegExp('xmlns:','g'), '&#13;&#10;xmlns:')
+    }
+    
 	function pageInit() {
       
 	  log('in page init');
@@ -67,6 +81,8 @@ define(['jquery'], function ($) {
       });
       
       expandCollapseMappingCard();
+      
+      applyXmlBeautify();
     }
     
 	function selectView() {
@@ -79,3 +95,4 @@ define(['jquery'], function ($) {
 		}
 	}    
 });
+

@@ -4,7 +4,9 @@ require.config({
     jqDropdown:    '../../lib/jquery.dropdown',
     jquery:        '../../lib/jquery',
     pandoraPage:   '../../eu/pandora/pandora-page',
-    util_ellipsis: '../../eu/util/ellipsis'
+    util_ellipsis: '../../eu/util/ellipsis',
+    util_resize:   '../../eu/util/resize'
+
   }
 });
 

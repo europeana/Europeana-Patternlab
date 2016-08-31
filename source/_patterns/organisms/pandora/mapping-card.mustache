@@ -1,25 +1,25 @@
 <div class="container-large">
 	<table class="mapping-widget">
 		<tr class="mapping-widget-collapsed">
-			<td width="25%">
+			<td>
 				<table class="mapping-widget-mapping">
-					<tr><td class="normal-colored test-item-colored"><div class="indent">{{mapping_key}}</div></td></tr>
-					<tr><td class="normal-colored-dark test-item-colored-dark"><div class="indent">{{mapping_value}}</div></td></tr>
-					<tr><td class="normal-colored test-item-colored">
-						<table class="mapping-widget-controls">
+					<tr class="mapping-card-label"><td class="normal-colored test-item-colored"><div class="indent">{{mapping_key}}</div></td></tr>
+					<tr class="mapping-card-label"><td class="normal-colored-dark test-item-colored-dark"><div class="indent">{{mapping_value}}</div></td></tr>
+					<tr class="mapping-card-label"><td class="normal-colored test-item-colored">
+						<table class="card-controls">
 							<tr>
-								<td class="values-expand">Values</td>
-								<td class="functions">
+								<td class="mapping-card-controls values-expand">Values</td>
+								<td class="mapping-card-controls">
 									<span style="font-family: 'Times New Roman', Times, serif;  font-style: italic; font-size:20px;">f</span>
 									<span style="font-family: 'Times New Roman', Times, serif;  font-size:10px;">x</span>
 								</td>
-								<td class="if">if</td>
+								<td class="mapping-card-controls">if</td>
 							</tr>
 						</table>
 					</td></tr>
 				</table>
 			</td>
-			<td colspan="2">
+			<td class="mapping-card-values">
 				<table class="mapping-widget-values">
 					{{#field_value_cells}}
 						<tr>
@@ -48,14 +48,14 @@
 			<td width="33%" class="normal-colored"><div class="indent">edm:ProvidedCHO</div></td>
 			<td width="33%"  class="normal-colored-dark"><div class="indent">edm:ProvidedCHO</div></td>
 			<td width="33%"  class="normal-colored">
-				<table class="mapping-widget-controls">
+				<table class="card-controls">
 					<tr>
-						<td class="values-collapse">Values</td>
-						<td class="functions">
+						<td class="mapping-card-controls values-collapse">Values</td>
+						<td class="mapping-card-controls">
 							<span style="font-family: 'Times New Roman', Times, serif;  font-style: italic; font-size:20px;">f</span>
 							<span style="font-family: 'Times New Roman', Times, serif;  font-size:10px;">x</span>
 						</td>
-						<td class="if">if</td>
+						<td class="mapping-card-controls">if</td>
 					</tr>
 				</table>
 			</td>
@@ -63,16 +63,6 @@
 		<tr>
 			<td colspan="3">
 				<table class="mapping-widget mapping-widget-expanded mapping-widget-values">
-				
-<!--  					<tr><td>
-							<div class="first-line-expand tooltip-container">
-								<div>http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF</div>
-								<div class="tooltip">http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF</div>
-							</div>
-							<div class="second-line">123</div>
-							<div class="flag"><i class="fa fa-flag-o"></i></div>
-						</td>
-						<td><div>Random Value</div></td><td><div>Random Value</div></td><td><div>Random Value</div></td></tr> -->
 					{{#field_value_cells}}
 						<tr>
 						{{#items_line_1}}
