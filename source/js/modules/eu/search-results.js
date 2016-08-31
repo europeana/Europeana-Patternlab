@@ -280,8 +280,23 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         });
       });
 
-      $('.refine .js-showhide-nested').on('click', function(){
+      $('.refine a:not(.js-showhide-nested)').on('click', function(e){
 
+        var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
+        if(facetRoot.length == 0){
+          facetRoot = $(e.target).closest('.filter').parent().closest('.filter')
+          facetRoot = facetRoot.find('> .filter-name');
+        }
+        var facetAction = facetRoot.data('filter-name');
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Facets',
+          eventAction: facetAction,
+          eventLabel: 'Facet selection'
+        });
+      });
+
+      $('.refine .js-showhide-nested').on('click', function(){
         if($('.refine .js-showhide-nested').data('ga-sent')){
           return;
         }

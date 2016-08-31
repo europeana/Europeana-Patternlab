@@ -113,7 +113,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             break;
 
         case 'collections/show':
-            if(window.location.href.indexOf('?q=') == -1){
+            if((window.location.href.indexOf('?q=') == -1) && (window.location.href.indexOf('&q=') == -1)){
               require(['search_landing'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);
