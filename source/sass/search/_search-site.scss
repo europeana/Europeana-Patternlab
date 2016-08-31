@@ -54,7 +54,8 @@
 .search-hero{
   height: 50%;
 
-  @media all and (min-width: $bp-med) {
+
+  @media all and (max-width: $bp-small-3) {
     height: 75%;
   }
 }

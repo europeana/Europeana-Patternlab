@@ -8,6 +8,10 @@
 	left: 0;
 	opacity: 0.5;
 
+  @media all and (max-width: $bp-small-3) {
+    width: 80%;
+  }
+
 	// .brand-topleft &{ // redundant as top left is default
 	// 	top: 0;
 	// 	left: 0;
