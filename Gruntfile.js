@@ -122,6 +122,13 @@ module.exports = function(grunt) {
               expand:  true
           },
 
+          jush: {
+              src:    '**',
+              cwd:    'source/js/modules/lib/jush',
+              dest:   'source/js/dist/lib/jush',
+              expand:  true
+          },
+
           beeld_en_geluid: {
               src:    '**',
               cwd:    'source/js/modules/lib/BenG',
@@ -520,6 +527,7 @@ module.exports = function(grunt) {
        'copy:imgCompare',
        'copy:jquery',
        'copy:jstree',
+       'copy:jush',
        'copy:beeld_en_geluid',
        'copy:main',
        'copy:map_img',

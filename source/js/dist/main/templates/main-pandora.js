@@ -5,7 +5,8 @@ require.config({
     jquery:        '../../lib/jquery',
     pandoraPage:   '../../eu/pandora/pandora-page',
     util_ellipsis: '../../eu/util/ellipsis',
-    util_resize:   '../../eu/util/resize'
+    util_resize:   '../../eu/util/resize',
+    jush:          '../../lib/jush/jush'
 
   }
 });
