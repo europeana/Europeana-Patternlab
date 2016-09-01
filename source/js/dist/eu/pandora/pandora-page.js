@@ -65,7 +65,7 @@ define(['jquery'], function ($) {
     
 	function pageInit() {
       
-	  log('in page init: pageName = ' + pageName);
+	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
 	  
       $(window).on('scroll', function() {
         log('close open menus here...')
@@ -85,7 +85,9 @@ define(['jquery'], function ($) {
       
       expandCollapseMappingCard();
       
-      applyXmlBeautify();
+      if(pageName && pageName == 'itemCard'){
+        applyXmlBeautify();    	  
+      }
     }
     
 	function selectView() {
