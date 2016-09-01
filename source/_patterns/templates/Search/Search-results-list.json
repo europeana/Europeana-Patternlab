@@ -80,6 +80,7 @@
   "filters": [
     {
       "title": "Channels",
+      "name": "COLLECTION",
       "hierarchical": true,
       "select_one": true,
       "items": [
@@ -92,6 +93,7 @@
           "filters": [
             {
               "title": "Orientation",
+              "name": "IMAGE_ORIENTATION",
               "simple": true,
               "select_one": false,
               "items": [
@@ -118,6 +120,7 @@
             },
             {
               "title": "Medium",
+              "name": "IMAGE_MEDIUM",
               "simple": true,
               "select_one": false,
               "items": [
@@ -150,6 +153,7 @@
             },
             {
               "title": "Colour",
+              "name": "IMAGE_COLOUR",
               "colour": true,
               "select_one": false,
               "items": [
@@ -230,6 +234,7 @@
     },
     {
       "title": "Type",
+      "name": "TYPE",
       "simple": true,
       "items": [
         {
@@ -283,6 +288,7 @@
     },
     {
       "title": "Country",
+      "name": "COUNTRY",
       "simple": true,
       "items": [
         {
@@ -334,6 +340,7 @@
     },
     {
       "title": "Can I use it?",
+      "name": "REUSABILITY",
       "icon_link": {
         "icon": "icon-help",
         "link": "javascript:alert('open link...')"
@@ -465,6 +472,7 @@
     },
     {
       "title": "Language",
+      "name": "LANGUAGE",
       "simple": true,
       "filter_open": true,
       "items": [
@@ -518,7 +526,8 @@
       }
     },
     {
-      "title": "Advanced Options",
+        "title": "Advanced Options",
+        "name": "ADVANCED",
         "advanced": true,
         "select_one": false,
         "advanced_items": {

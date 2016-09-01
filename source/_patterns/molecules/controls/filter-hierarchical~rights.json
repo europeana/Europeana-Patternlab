@@ -1,5 +1,6 @@
 {
   "title": "Can I use it?",
+  "name": "REUSABILITY",
   "hierarchical": true,
   "items": [
     {
@@ -38,6 +39,7 @@
     {
       "url": "http://europeana.eu",
       "text": "Yes With Restrictions",
+      "name": "RESTRICTED",
       "num_results": 300,
       "is_checked": true,
       "has_subfilters": true,
@@ -87,6 +89,7 @@
     {
       "url": "http://europeana.eu",
       "text": "Only With Permission",
+      "name": "RESTRICTED",
       "num_results": "17,308",
       "is_checked": false,
       "has_subfilters": true,
