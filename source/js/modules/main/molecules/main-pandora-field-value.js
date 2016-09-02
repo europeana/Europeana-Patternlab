@@ -1,7 +1,7 @@
 require.config({
   paths: {
-	eu_tooltip: '../../eu/tooltip/eu-tooltip',
-    jqDropdown: '../../lib/jquery.dropdown',
+  eu_tooltip: '../../eu/tooltip/eu-tooltip',
+    jqDropdown: '../../lib/jquery/jquery.dropdown',
     jquery: '../../lib/jquery'//,
 //    util_ellipsis: '../../eu/util/ellipsis',
 //    util_resize: '../../eu/util/resize'

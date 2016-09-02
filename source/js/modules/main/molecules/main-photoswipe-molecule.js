@@ -1,7 +1,7 @@
 require.config({
 
     paths: {
-        jquery:                 '../../lib/jquery',
+        jquery:                 '../../lib/jquery/jquery',
         photoswipe:             '../../lib/photoswipe/photoswipe',
         photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',
         media_viewer_image:     '../../eu/media/search-image-viewer'

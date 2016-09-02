@@ -15,8 +15,8 @@
       "path": "http://vjs.zencdn.net/4.12/video.js"
     },
     {
-      "path": "/js/dist/require.js",
-      "data_main": "/js/dist/main/molecules/main-videojs-molecule"
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/molecules/main-videojs-molecule"
     }
   ],
   "is_current": true,

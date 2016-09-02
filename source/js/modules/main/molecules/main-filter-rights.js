@@ -3,7 +3,7 @@ require.config({
    featureDetect:      '../../global/feature-detect',
     jquery:            '../../lib/jquery',
     global:            '../../eu/global',
-    jqDropdown:        '../../lib/jquery.dropdown',
+    jqDropdown:        '../../lib/jquery/jquery.dropdown',
     menus:             '../../global/menus',
     util_scrollEvents: '../../eu/util/scrollEvents'
   },

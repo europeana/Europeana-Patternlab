@@ -8,14 +8,12 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "content": {
     "title":"We'll be back shortly!",
     "description": "Europeana Collections is unavailable at the moment, please check back soon.",

@@ -33,12 +33,12 @@ require.config({
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
 
-    leaflet:                       '../../application-map',
+    leaflet:                       '../../lib/map/application-map-all',
     leaflet_iiif:                  '../../lib/iiif/leaflet-iiif',
 
-    jqDropdown:                    '../../lib/jquery.dropdown',
-    jquery:                        '../../lib/jquery',
-    jqScrollto:                    '../../lib/jquery.scrollTo',
+    jqDropdown:                    '../../lib/jquery/jquery.dropdown',
+    jquery:                        '../../lib/jquery/jquery',
+    jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
 
     media_controller:              '../../eu/media/search-media-controller',
@@ -101,8 +101,8 @@ require.config({
 
     eu_tooltip:                    '../../eu/tooltip/eu-tooltip',
 
-    touch_move:                    '../../lib/jquery.event.move',
-    touch_swipe:                   '../../lib/jquery.event.swipe',
+    touch_move:                    '../../lib/jquery/jquery.event.move',
+    touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
     videojs:                       '//vjs.zencdn.net/4.12/video',
 //    videojs:                       '//vjs.zencdn.net/5.0/video',

@@ -1,10 +1,10 @@
 require.config({
   paths: {
-      jquery:                        '../../lib/jquery',
+      jquery:                        '../../lib/jquery/jquery',
       media_player_midi:             '../../eu/media/search-midi-player',
 
-      touch_move:                     '../../lib/jquery.event.move',
-      touch_swipe:                    '../../lib/jquery.event.swipe',
+      touch_move:                     '../../lib/jquery/jquery.event.move',
+      touch_swipe:                    '../../lib/jquery/jquery.event.swipe',
 
       midi_dom_load_xmlhttp:         '../../lib/midijs/DOMLoader.XMLHttp',
       midi_dom_load_script:          '../../lib/midijs/DOMLoader.script',

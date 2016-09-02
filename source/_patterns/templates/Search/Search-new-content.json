@@ -7,16 +7,12 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
-  "css_files": false,
-
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "js_files": [
     {
       "path": "../../js/dist/require.js",

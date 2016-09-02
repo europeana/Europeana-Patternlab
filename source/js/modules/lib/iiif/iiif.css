@@ -98,19 +98,19 @@
 }
 /* line 114, iiif.scss */
 #iiif-ctrl .first {
-  background-image: url(icon-first.svg);
+  background-image: url(../map/css/icon-first.svg);
 }
 /* line 118, iiif.scss */
 #iiif-ctrl .prev {
-  background-image: url(icon-previous.svg);
+  background-image: url(../map/css/icon-previous.svg);
 }
 /* line 122, iiif.scss */
 #iiif-ctrl .next {
-  background-image: url(icon-next.svg);
+  background-image: url(../map/css/icon-next.svg);
 }
 /* line 126, iiif.scss */
 #iiif-ctrl .last {
-  background-image: url(icon-last.svg);
+  background-image: url(../map/css/icon-last.svg);
 }
 /* line 130, iiif.scss */
 #iiif-ctrl a[disabled="disabled"] {

@@ -1,7 +1,7 @@
 require.config({
   paths: {
     eu_tooltip: '../../eu/tooltip/eu-tooltip',
-    jquery: '../../lib/jquery',
+    jquery: '../../lib/jquery/jquery',
   }
 });
 

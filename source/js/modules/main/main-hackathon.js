@@ -5,10 +5,10 @@ require
         featureDetect : '../global/feature-detect',
         global : '../eu/global',
 
-        imagesloaded:           '../lib/jquery.imagesloaded.min',
+        imagesloaded: '../lib/jquery/jquery.imagesloaded.min',
 
-        jqDropdown : '../lib/jquery.dropdown',
-        jquery : '../lib/jquery',
+        jqDropdown : '../lib/jquery/jquery.dropdown',
+        jquery :     '../lib/jquery/jquery',
         jqScrollto : '../lib/jquery.scrollTo',
 
         menus : '../global/menus',
@@ -42,7 +42,7 @@ require([ 'jquery' ], function($) {
   require([ 'global' ], function() {
     $('html').addClass('styled');
     require([ 'mosaics' ], function() {
-      
+
     });
   });
 });

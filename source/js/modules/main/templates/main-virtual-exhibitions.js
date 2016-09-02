@@ -11,11 +11,11 @@ require.config({
     hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
 
     imageCompare:           '../../lib/image-compare/image-compare',
-    imagesloaded:           '../../lib/jquery.imagesloaded.min',
+    imagesloaded:           '../../lib/jquery/jquery.imagesloaded.min',
 
-    jquery:                 '../../lib/jquery',
-    jqDropdown:             '../../lib/jquery.dropdown',
-    jqScrollto:             '../../lib/jquery.scrollTo',
+    jquery:                 '../../lib/jquery/jquery',
+    jqDropdown:             '../../lib/jquery/jquery.dropdown',
+    jqScrollto:             '../../lib/jquery/jquery.scrollTo',
     menus:                  '../../global/menus',
     photoswipe:             '../../lib/photoswipe/photoswipe',
     photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',

@@ -1,8 +1,8 @@
 {
   "js_files": [
     {
-      "path": "/js/dist/require.js",
-      "data_main": "/js/dist/main/atoms/main-tooltip-atom.js"
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/atoms/main-tooltip-atom.js"
     }
   ],
   "tooltip":{

@@ -1,8 +1,8 @@
 require.config({
   paths: {
     media_viewer_iiif:  '../../eu/media/search-iiif-viewer',
-    jquery:             '../../lib/jquery',
-    leaflet:            '../../application-map',
+    jquery:             '../../lib/jquery/jquery',
+    leaflet:            '../../lib/map/application-map-all',
     leaflet_iiif:       '../../lib/iiif/leaflet-iiif'
   }
 });

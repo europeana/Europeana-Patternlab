@@ -69,7 +69,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           imagePath.pop();
           imagePath.pop();
           imagePath.pop();
-          L.Icon.Default.imagePath = imagePath.join('/') + '/css/map/images';
+          L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
 
           map.addLayer(new L.TileLayer(osmUrl, {
             minZoom : 4,
@@ -89,7 +89,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
           $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../css/map/application-map.css') + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
         });
       }
 

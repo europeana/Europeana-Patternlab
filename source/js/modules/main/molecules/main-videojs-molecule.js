@@ -1,6 +1,6 @@
 require.config({
   paths: {
-      jquery:                        '../../lib/jquery',
+      jquery:                        '../../lib/jquery/jquery',
       aurora:                        '../../lib/audiocogs/aurora',
       flac:                          '../../lib/audiocogs/flac',
 
