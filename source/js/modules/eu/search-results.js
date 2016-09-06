@@ -187,7 +187,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
           }
       };
 
-      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a').not('.eu-tooltip-anchor').each(function(){
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a').not('.filter-name-icon').each(function(){
           updateUrl($(this));
       });
 
@@ -262,6 +262,11 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
               showList();
           }
       }
+
+      $('.facet-menu .opener').on('click', function(){
+          $('.refine').toggleClass('open');
+      });
+
     }
 
     var bindGA = function(){
@@ -275,8 +280,23 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         });
       });
 
-      $('.refine .js-showhide-nested').on('click', function(){
+      $('.refine a:not(.js-showhide-nested)').on('click', function(e){
 
+        var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
+        if(facetRoot.length == 0){
+          facetRoot = $(e.target).closest('.filter').parent().closest('.filter')
+          facetRoot = facetRoot.find('> .filter-name');
+        }
+        var facetAction = facetRoot.data('filter-name');
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Facets',
+          eventAction: facetAction,
+          eventLabel: 'Facet selection'
+        });
+      });
+
+      $('.refine .js-showhide-nested').on('click', function(){
         if($('.refine .js-showhide-nested').data('ga-sent')){
           return;
         }
@@ -290,12 +310,18 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
     }
 
+    var bindfacetOpeners = function(){
+      $('.filter .filter-name').on('click', function(){
+        $(this).closest('.filter').toggleClass('filter-closed');
+      });
+    }
 
 
     var initPage = function(){
       bindViewButtons();
       bindResultSizeLinks();
       bindGA();
+      bindfacetOpeners();
 
       if(typeof(Storage) !== "undefined") {
          var label = $('.breadcrumbs').data('store-channel-label');

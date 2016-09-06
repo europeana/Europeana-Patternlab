@@ -92,11 +92,11 @@ body {
 }
 
 .breadcrumbs {
-	margin-top:20px;
+	margin-top:0px;
 	padding-left:10px;
 	border-top: 0.1em solid #FFFFFF;
 	background-color: #4BC0F0;
-	padding-top: 60px;
+	padding-top: 0px;
 }
 
 .breadcrumbs a{
@@ -121,25 +121,22 @@ body {
 }
 
 .mapping-widget-mapping td {
-	height:51px;
 	color: #FFFFFF;
 	vertical-align: middle;
 }
 
 .mapping-widget-values td,  mapping-widget-values-expanded td {
-	height: 75px;
+	height: 5.25em;
 	color: #1676aa;
 }
 
 .mapping-widget-values td:hover,mapping-widget-values-expanded td:hover {
 	background-color: #F1F1EE;
-	/* color: #FFFFFF; */
-/* 	opacity: 0.6; */
 }
 
-.mapping-widget-values tr, mapping-widget-values-expanded tr {
+/* .mapping-widget-values tr, mapping-widget-values-expanded tr {
 	height: 100%;
-}
+} */
 
 .mapping-widget-values {
   td {
@@ -187,23 +184,43 @@ td.mapping-widget-paging:hover {
 	background-color: #FFFFFF !important;
 }
 
-.mapping-widget-controls td {
+.card-controls td {
 	width: 30%;
-	border: 0px;
-	padding-left:0px !important;
+	border: 0em;
+	padding-left:0em !important;
 	text-align: center;
 }
 
-.mapping-widget-controls td:hover {
+.card-controls {
+	margin-bottom: 0px;	
+}
+
+.mapping-card-controls td {
+	height: 3em;
+	border: 0em;
+	text-align: center;
+}
+
+.item-card-controls td {
+	height: 4.5em;
+	border: 0em;
+	text-align: center;
+}
+
+.card-controls tr, .card-controls table {
+	height: 100%;
+	margin-bottom: 0px !important;
+}
+
+.card-controls td:hover {
 	background-color: #1676AA;
 	color: #FFFFFF;
 }
 
 .second-line {
-	
 	vertical-align: baseline;
 	color: #777777;
-	font-size: 16px;
+	font-size: 1em;
 	display: inline-block;
 	
 	selected {
@@ -222,10 +239,7 @@ td.mapping-widget-paging:hover {
 }
 
 .flag:hover,
-.values-expand:hover,
-.values-collapse:hover,
-.functions:hover,
-.if:hover {
+.card-controls:hover {
 	cursor: pointer;
 }
 
@@ -261,6 +275,17 @@ td.mapping-widget-paging:hover {
 
 .mapping-widget-values td {
 	width: 20%;
+}
+
+.mapping-card-label {
+	height: 3.5em;
+	width: 15em;
+}
+
+.mapping-card-values {
+	column-span: 2;
+	width: 45em;
+	height: 10.5em;
 }
 
 .pagination {
@@ -310,3 +335,42 @@ td.mapping-widget-paging:hover {
 .action_menu {
 	padding-bottom: 50px;
 }
+
+.item-card-values {
+	column-span: 3;
+	width: 45em;
+	height: 9em;
+}
+
+.xml-view {
+	overflow-x: scroll;
+	overflow-y: scroll;
+ 	width: 45em;
+}
+
+.xml-view-short {
+    height: 9em;
+}
+
+.xml-view-long {
+    width: 60em;
+    height: 45em;
+}
+
+.item-label {
+	height: 4.5em;
+	width: 15em;
+}
+
+.xml-view-source {
+	display: none;
+}
+
+.item-card-controls {
+	height: 4.5em;
+}
+
+.mapping-card-controls {
+	height: 3.5em;
+}
+

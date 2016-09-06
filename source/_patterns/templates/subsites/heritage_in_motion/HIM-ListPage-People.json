@@ -156,6 +156,27 @@
         ]
       },
       "linklist2": false,
+      "sponsorlist":
+      {
+        "title": "Founded by:",
+        "items":
+        [
+          {
+          "img": {
+              "src": "heritage-in-motion/europanostra.png",
+              "alt": "EuropaNostra"
+            },
+            "url": "http://google.com"
+          },
+          {
+            "img": {
+                "src": "heritage-in-motion/ema.png",
+                "alt": "EMA"
+            },
+            "url": "http://google.com"
+          }
+        ]
+      },
       "subfooter": {
         "items": [
           {

@@ -5,15 +5,12 @@
   "version":{
       "is_alpha": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
-  "css_files": false,
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "js_vars": [
     {
       "name": "pageName",
@@ -24,8 +21,8 @@
   "js_files":
   [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/templates/main-collections"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
     }
   ],
 
@@ -80,12 +77,16 @@
               "width": "2261",
               "height": "2548",
 
-
               "language":"English",
               "format": "jpg",
               "file_size": "23.2",
               "file_unit": "MB",
               "codec": "MPEG-2",
+              "dc_creator": "Media Item (1) Creator",
+              "dc_description": "Description of the 1st media item",
+              "dc_rights": "DC rights of the 1st media item",
+              "dc_source": "Source of the 1st media item",
+              "edm_rights": "EDM rights of the 1st media item",
               "fps": "30",
               "fps_unit": "fps",
               "size_unit": "pixels",
@@ -128,7 +129,12 @@
             "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
             "thumbnail": "/media/iiif.jpg",
             "technical_metadata": {
-              "mime_type": "video/wmv"
+              "mime_type": "video/wmv",
+              "dc_creator": "Media Item (2) Creator",
+              "dc_description": "Description of the 2nd media item",
+              "dc_rights": "DC rights of the 2nd media item",
+              "dc_source": "Source of the 2nd media item",
+              "edm_rights": "EDM rights of the 2nd media item"
             },
             "rights":
             {
@@ -152,9 +158,14 @@
             },
             "technical_metadata":
             {
+              "dc_creator": "Media Item (3) Creator",
+              "dc_description": "Description of the 3rd media item",
+              "dc_rights": "DC rights of the 3rd media item",
+              "dc_source": "Source of the 3rd media item",
+              "edm_rights": "EDM rights of the 3rd media item",
               "language":"English",
               "format": "png",
-              "file_size": "23.2",
+              "file_size": "7.3",
               "file_unit": "MB"
             }
           },
@@ -867,7 +878,7 @@
       "more_items_query" : "javascript:alert('loads a page of similar items')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
-
+      "more_items_total_formatted" : 12,
 
       "items": [
         {

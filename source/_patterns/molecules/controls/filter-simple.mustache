@@ -52,12 +52,24 @@ Configuration options and content model:
 
 
 }}
-<div class="filter {{#select_one}}radiobuttons{{/select_one}}{{^select_one}}checkboxes{{/select_one}}">
+<div class="filter{{#select_one}} radiobuttons{{/select_one}}{{^select_one}} checkboxes{{/select_one}}{{^filter_open}}{{^has_subfilters}} filter-closed{{/has_subfilters}}{{/filter_open}}">
 
-    {{# title }}<div class="filter-name">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>{{/ title }}
+    {{# title }}
+    <div class="filter-name" data-filter-name="{{name}}">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
+      {{^has_subfilters}}
+        {{> molecules/controls/filter-mobile-summary}}
+      {{/has_subfilters}}
+    </div>
+    {{/ title }}
 
     <ul class="filter-list filter-wrap">
     {{#items}}
+        {{#is_separator}}
+          <li class="filter-item-separator">
+          </li>
+        {{/is_separator}}
+        {{^is_separator}}
+
         <li>
             <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}><div class="filter-text">{{text}}</div>
             {{#num_results}}
@@ -65,6 +77,7 @@ Configuration options and content model:
             {{/num_results}}
             </a>
         </li>
+        {{/is_separator}}
     {{/items}}
 
     {{#extra_items}}

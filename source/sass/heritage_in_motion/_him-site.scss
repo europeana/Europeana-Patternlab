@@ -232,11 +232,8 @@
 
 .l-supportedby .gi{
 
-	@include span(8 of 24);
-
-	@media all and (min-width: $bp-med) {
-	  @include span(4 of 24);
-	}
+	float:left;
+	max-width: 300px;
 
 	&:last-child{
 		margin-right: 0;

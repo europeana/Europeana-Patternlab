@@ -47,9 +47,26 @@ define(['jquery'], function ($) {
     	});
     }
     
+    function applyXmlBeautify() {
+        require(['jush'], function() {
+        	jush.style('../../js/modules/lib/jush/jush.css');
+        	jush.highlight_tag('code');
+        	document.getElementById('xml-formatted').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
+        	.highlight('xml', document.getElementById('xml').value)
+        	.replace(/\t/g, '')
+        	.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
+        	document.getElementById('xml-formatted-expanded').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
+        	.highlight('xml', document.getElementById('xml').value)
+        	.replace(/\t/g, '')
+        	.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
+        	//.replace(new RegExp('xmlns:','g'), '&#13;&#10;xmlns:')        	
+        });
+    }
+    
 	function pageInit() {
       
-	  log('in page init');
+	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
+	  
       $(window).on('scroll', function() {
         log('close open menus here...')
       });
@@ -61,12 +78,17 @@ define(['jquery'], function ($) {
       require(['eu_tooltip'], function(euTooltip){
         euTooltip.configure();
       });
-
+        
       require(['util_ellipsis'], function(EllipsisUtil){
         var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
       });
       
       expandCollapseMappingCard();
+      
+      if(pageName && pageName == 'itemCard'){
+        applyXmlBeautify();    	  
+      }
+      
     }
     
 	function selectView() {
@@ -79,3 +101,4 @@ define(['jquery'], function ($) {
 		}
 	}    
 });
+

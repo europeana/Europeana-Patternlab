@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga) {
+define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga, Mustache) {
 
     ga = window.fixGA(ga);
 
@@ -69,7 +69,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
           imagePath.pop();
           imagePath.pop();
           imagePath.pop();
-          L.Icon.Default.imagePath = imagePath.join('/') + '/css/map/images';
+          L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
 
           map.addLayer(new L.TileLayer(osmUrl, {
             minZoom : 4,
@@ -89,7 +89,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
           placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
           $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../css/map/application-map.css') + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
         });
       }
 
@@ -141,14 +141,11 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 'template':        ops.template,
                 'total_available': ops.total_available,
                 'doAfter': function(data){
-
                   var addToDom = [];
                   var template = $('.colour-navigation.js-template');
 
                   $.each(data, function(i, item){
-
-                    var newEntry = template.before(template.clone());
-
+                    var newEntry = template.clone();
                     addToDom.push(newEntry)
 
                     newEntry.removeClass('js-template');
@@ -158,13 +155,12 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                     var tm = item.technical_metadata;
 
                     if(tm && tm.colours && tm.colours.present){
-                      $.each(tm.colours.items, function(i, item){
 
+                      $.each(tm.colours.items, function(i, item){
                         var itemTemplate = newEntry.find('li.js-template');
                         var newItem = itemTemplate.clone();
 
                         itemTemplate.before(newItem);
-
                         newItem.removeAttr('style');
                         newItem.removeClass('js-template');
                         newItem.find('a').css('background-color', item.hex);
@@ -172,8 +168,8 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                       });
                     }
                   });
-                  for(var i=0; i<addToDom.length; i++){
-                    template.before(addToDom[i]);
+                  if(addToDom.length > 0){
+                    template.before(addToDom);
                   }
                 }
             });
@@ -185,7 +181,6 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
     // tech-data download handling
 
     var updateTechData = function(e){
-
         var tgt          = $(e.target);
         var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
@@ -201,7 +196,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         var setFileInfoData = function(href, meta, fmt){
             $('.file-info .file-title').attr('href', href);
             $('.file-info .file-meta li').remove();
-            $('.file-detail .file-type').html(fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
+            $('.file-detail .file-type').html(fmt == null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
             $.each(meta, function(i, ob){
                 $('.file-info .file-meta').append('<li>' + ob + '</li>');
             });
@@ -223,7 +218,12 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             for(var i=0; i<data.length; i++){
                 var val = tgt.data(data[i]['attr']) || data[i]['def'];
                 if(val){
-                    allConcat += val + ' ';
+                    if(typeof val == 'string' || typeof val == 'number'){
+                        allConcat += val + ' ';
+                    }
+                    if(typeof val == 'object'){
+                        allConcat = val.model;
+                    }
                     if(!data[i]['label']){
                         anyFound  = true;
                     }
@@ -233,12 +233,25 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                 }
             }
             if(allFound){
+
                 if(data[0].toDataAttr != null){
                     writeEl.data(data[0].toDataAttr, allConcat);
                 }
                 else{
+                    var templateId = writeEl.data('mustache');
                     writeEl.next('.val').empty();
-                    writeEl.next('.val').text(allConcat.trim());
+
+                    if(templateId){
+                        var template = $(templateId).html();
+                        var model    = allConcat;
+
+                        Mustache.tags = ["[[", "]]"];
+                        var rendered = Mustache.render(template, model);
+                        writeEl.next('.val').html(rendered);
+                    }
+                    else{
+                        writeEl.next('.val').text(allConcat.trim());
+                    }
                     writeEl.closest('li').removeClass('is-disabled');
                 }
             }
@@ -251,9 +264,10 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
             return anyFound;
         }
         var techData        = $('.object-techdata');
+
         var somethingGotSet = setVal(
                 [{attr: 'file-size'},
-                 {attr: 'file-unit'}],  '.tech-meta-filesize')
+                 {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
         | setVal(
                 [{attr: 'runtime'},
                  {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
@@ -269,15 +283,26 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
         | setVal(
                 [{attr: 'attribution-plain', toDataAttr: 'e-licence-content'}], '.attribution-fmt.plain')
         | setVal(
-                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html');
+                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html')
+        | setVal(
+                [{attr: 'dc-creator'}], '.tech-meta-creator')
+        | setVal(
+                [{attr: 'dc-description'}], '.tech-meta-description')
+        | setVal(
+                [{attr: 'dc-source'}], '.tech-meta-source')
+        | setVal(
+                [{attr: 'dc-rights'}], '.tech-meta-dc-rights')
+        | setVal(
+                [{attr: 'edm-rights'}], '.tech-meta-edm-rights');
+
 
         if(somethingGotSet){
-            techData.show();
-            $('.attribution-fmt.plain').trigger('click');
+          techData.show();
+          $('.attribution-fmt.plain').trigger('click');
         }
         else{
-            techData.removeClass('is-expanded')
-            techData.hide();
+          techData.removeClass('is-expanded');
+          techData.hide();
         }
 
         // download window
@@ -343,6 +368,7 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
                        load more into the carousel then hand control back to search-image-viewer
                     */
                     $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
+                        log('reached last');
                         carousel.loadMore(false, data.doAfterLoad);
                     });
                     $('.media-thumbs').on('click', 'a', updateTechData);
@@ -585,6 +611,18 @@ define(['jquery', 'util_scrollEvents', 'ga', '', 'util_foldable', 'blacklight', 
           });
           log('GA: Media View, Action = ' + href + ', Label = ' + type);
       });
+
+      // colour palette
+
+      $('body').on('click', '.colour-data .link', function () {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Colour Search',
+          eventAction: $(this).attr('href'),
+          eventLabel: 'Colour ' + $(this).find('span').text()
+        });
+      });
+
     }
 
     function bindAttributionToggle(){

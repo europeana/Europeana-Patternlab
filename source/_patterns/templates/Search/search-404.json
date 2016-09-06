@@ -7,20 +7,16 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
-  "css_files": false,
-
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-collections"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/main-collections"
     }
   ],
   "input_search": {

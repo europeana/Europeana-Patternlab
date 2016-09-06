@@ -1,6 +1,6 @@
 {
   "bodyclass": "europeana_search",
-  "page_title": "Europeana Search",
+  "page_title": "Europeana Collections",
   "page_locale": "en",
   "version":{
       "is_alpha": true
@@ -8,14 +8,12 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "content": {
     "title":"We'll be back shortly!",
     "description": "Europeana Collections is unavailable at the moment, please check back soon.",
@@ -46,11 +44,11 @@
   "social": {
     "social_title": "Find Europeana on social media",
     "twitter": {
-      "url": "https://twitter.com/eu_sounds",
+      "url": "https://twitter.com/europeana",
       "text": "Twiiter"
     },
     "facebook": {
-      "url": "https://www.facebook.com/EuropeanaFashion",
+      "url": "https://www.facebook.com/Europeana",
       "text": "FB"
     },
     "pinterest": {

@@ -16,6 +16,10 @@
 
   background: $white; // fallback
 
+  @media all and (max-width: $bp-med) {
+    position: relative;
+  }
+
   @media all and (min-width: $bp-med) {
     background: $offwhite; // fallback
     @include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
@@ -48,25 +52,79 @@
 
 // Filters and secondary content
 .refine{
-  background: $offwhite;
-  padding: $space;
-  margin-left: -$space;
-  margin-right: -$space;
+
+  @media all and (max-width: $bp-med) {
+    background: #fff;
+    border: 1px solid $offwhite;
+    display: none;
+    width: 70%;
+
+    &.open{
+      display: block;
+      position: absolute;
+      top:   4.5em;
+      right: 0;
+      z-index: 2;
+
+      &:before{
+        border-color: transparent transparent $offwhite;
+        border-style: solid;
+        border-width: 12px;
+        content: ' ';
+        display: inline-block;
+        right: 40px;
+        position: absolute;
+        top: -23px;
+      }
+
+      .filter,
+      h2{
+        padding: $space / 2;
+      }
+      h2{
+        background: $offwhite;
+        border: 0;
+
+      }
+      &>h2{
+        margin-bottom: 0;
+      }
+    }
+  }
+  @media all and (max-width: $bp-small-3) {
+    width: 90%;
+    &.open{
+      top: 4em;
+    }
+  }
+  @media all and (max-width: $bp-small-2) {
+    width: 100%;
+    &.open{
+      top: 3em;
+    }
+  }
 
   @media all and (min-width: $bp-med) {
     @include span(6);
+
+    padding: $space;
+    margin-left: -$space;
+    margin-right: -$space;
+
+    background: $offwhite;
     margin: 0;
     padding: $space-half + $space-quarter 0 $space-double 0;
+
+    >h2{
+      margin-bottom: $pad;
+    }
   }
-
-
 
   &>h2{
     text-transform: uppercase;
     font-weight: bold;
     @include fontSize(16px);
     color: $textcolour_body;
-    margin-bottom: $pad;
   }
 }
 
@@ -204,6 +262,32 @@
   }
 }
 
+.facet-menu{
+  float: right;
+  margin-left: $space;
+  position: relative;
+  top: 0.46em;
+
+  .opener{
+    color: $gray30;
+    margin-right: 12px;
+    &:after{
+      border-color: $gray47 transparent transparent;
+      border-style: solid;
+      border-width: 6px;
+      content: ' ';
+      display: inline-block;
+      right: -5px;
+      position: absolute;
+      top: 8px;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    display: none;
+  }
+}
+
 .result-actions{
   float:      right;
   margin-top: -4.5em;
@@ -267,7 +351,7 @@
   }
 
   @media all and (min-width: $bp-small-3) {
-    top: 2em;
+    top: 2.5em;
     margin-top: 2em;
   }
 

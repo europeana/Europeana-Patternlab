@@ -6,30 +6,30 @@
     }
   ],
 
-      "tabbed": true,
-      "title":"My Filter",
-      "tabs":[
+  "tabbed": true,
+  "title": "My Filter",
+  "name": "MY_FILTER",
+  "tabs":[
+      {
+        "title": "Tab title",
+        "select_one" : true,
+        "items": [
           {
-            "title": "Tab title",
-            "select_one" : true,
-            "items": [
-              {
-                  "url":"http://linktofilterapplied",
-                  "text": "My option name",
-                  "num_results": "1234",
-                  "is_checked": false,
-                  "is_disabled": false
-              },
-              {
-                  "url":"http://linktofilterapplied",
-                  "text": "Another option name",
-                  "num_results": "999",
-                  "is_checked": true,
-                  "is_disabled": false
-              }
-
-            ]
+              "url":"http://linktofilterapplied",
+              "text": "My option name",
+              "num_results": "1234",
+              "is_checked": false,
+              "is_disabled": false
+          },
+          {
+              "url":"http://linktofilterapplied",
+              "text": "Another option name",
+              "num_results": "999",
+              "is_checked": true,
+              "is_disabled": false
           }
 
-      ]
+        ]
+      }
+  ]
 }

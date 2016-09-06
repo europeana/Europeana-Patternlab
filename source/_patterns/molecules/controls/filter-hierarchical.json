@@ -6,18 +6,21 @@
     }
   ],
   "title": "Channels",
+  "name": "CHANNELS",
   "hierarchical": true,
   "select_one": true,
   "items": [
     {
       "url": "http://europeana.eu",
       "text": "Art",
+      "name": "ART",
       "num_results": "15K",
       "is_checked": true,
       "has_subfilters": true,
       "filters": [
         {
           "title": "Orientation",
+          "name": "ORIENTATION",
           "simple": true,
           "select_one": false,
           "items": [
@@ -44,6 +47,7 @@
         },
         {
           "title": "Medium",
+          "name": "MEDIUM",
           "simple": true,
           "select_one": false,
           "items": [
@@ -76,6 +80,7 @@
         },
         {
           "title": "Colour",
+          "name": "COLOUR",
           "colour": true,
           "select_one": false,
           "items": [
@@ -115,16 +120,19 @@
     {
       "url": "http://europeana.eu",
       "text": "Music",
+      "name": "MUSIC",
       "num_results": 300
     },
     {
       "url": "http://europeana.eu",
       "text": "Label here",
+      "name": "NAME",
       "num_results": 600
     },
     {
       "url": "http://europeana.eu",
       "text": "Label here",
+      "name": "LABEL",
       "num_results": 123,
       "is_disabled": true
     }

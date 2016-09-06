@@ -24,176 +24,236 @@
       "value": "video-list"
     }
   ],
-    "navigation":
-    {
-        "home_url": "www.europeana.eu",
-        "home_text": "Return to Home",
-        "global":
-        {
-          "options":
+  "navigation": {
+    "home_url": "www.europeana.eu",
+    "home_text": "Return to Home",
+    "global": {
+      "options": {
+        "search_active": true,
+        "settings_active": true,
+        "oursites_hidden": true
+      },
+      "logo": {
+        "url": "http://europeana.eu",
+        "text": "Heritage in Motion"
+      },
+      "primary_nav": {
+        "menu_id": "main-menu",
+        "items": [
           {
-            "search_active": true,
-            "settings_active": true,
-            "oursites_hidden": true
+            "text": "About HIM"
           },
-          "logo":
           {
-            "url": "http://europeana.eu",
-            "text": "Heritage in Motion"
+            "text": "Contest Rules",
+            "submenu": false
           },
-          "primary_nav":
           {
-            "menu_id": "main-menu",
-            "items": [
-              {
-                "text": "About HIM"
-              },
-              {
-                "text": "Contest Rules",
-                "submenu": false
-              },
-              {
-                "text": "Enter the Contest",
-                "is_current": true,
-                "submenu": false
-              },
-              {
-                "text": "Gallery",
-                "url": "#",
-                "submenu": {
-                  "items": [
-                    {
-                      "url": "#",
-                      "text": "New Entries 2015"
-                    },
-                    {
-                      "is_divider": true
-                    },
-                    {
-                      "url": "#",
-                      "text": "Entries 2014"
-                    },
-                    {
-                      "url": "#",
-                      "text": "Entries 2013"
-                    },
-                    {
-                      "url": "#",
-                      "text": "Entries 2012"
-                    },
-                    {
-                      "is_divider": true
-                    },
-                    {
-                      "url": "url to all entries",
-                      "text": "All Entries",
-                      "is_morelink": true
-                    }
-                  ]
-                }
-              }
-            ]
+            "text": "Enter the Contest",
+            "is_current": true,
+            "submenu": false
           },
-          "utility_nav": {
-            "menu_id": "profile-menu",
-            "style_modifier": "caret-right",
-            "tabindex": "6",
-            "items": [
-              {
-                "url": "#",
-                "text": "Hi Dasha",
-                "icon": "users",
-                "submenu": {
-                  "items": [
-                    {
-                      "text": "Profile",
-                      "url": "url to profile page",
-                      "subtitle": false
-                    },
-                    {
-                      "text": "Entries",
-                      "url": "url to entries list page",
-                      "subtitle": false
-                    },
-                    {
-                      "is_divider": true
-                    },
-                    {
-                      "text": "Log Out",
-                      "url": "#url to logout page",
-                      "subtitle": false
-                    },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false },
-                    { "subtitle":false, "is_divider": false, "text": false, "url": false }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "secondary": {
-            "items": [
+          {
+            "text": "Gallery",
+            "url": "#",
+            "submenu": {
+              "items": [
                 {
-                    "url": "#",
-                    "text": "Submissions",
-                    "submenu": false,
-                    "is_current": true
+                  "url": "#",
+                  "text": "New Entries 2015"
                 },
                 {
-                    "url": "#",
-                    "text": "Profile",
-                    "submenu": false
+                  "is_divider": true
+                },
+                {
+                  "url": "#",
+                  "text": "Entries 2014"
+                },
+                {
+                  "url": "#",
+                  "text": "Entries 2013"
+                },
+                {
+                  "url": "#",
+                  "text": "Entries 2012"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": "url to all entries",
+                  "text": "All Entries",
+                  "is_morelink": true
                 }
-            ]
-        },
-        "footer": {
-            "linklist1":
-            {
-              "title": "More info",
-              "items":
-              [
-                {
-                  "text": "News",
-                  "url": "http://google.com"
-                },
-
-                {
-                  "text": "Contact",
-                  "url": "http://google.com"
-                },
-                false
               ]
-            },
-
-            "linklist2": false,
-            "subfooter": {
-                "items": [
-                    {
-                        "text": "Home",
-                        "url": "./"
-                    },
-                    {
-                        "text": "About us",
-                        "url": "./"
-                    },
-                    {
-                        "text": "Terms of use & policies",
-                        "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
-                    },
-                    {
-                        "text": "Sitemap",
-                        "url": "./"
-                    }
-                ]
             }
+          }
+        ]
+      },
+      "utility_nav": {
+        "menu_id": "profile-menu",
+        "style_modifier": "caret-right",
+        "tabindex": "6",
+        "items": [
+          {
+            "url": "#",
+            "text": "Hi Dasha",
+            "icon": "users",
+            "submenu": {
+              "items": [
+                {
+                  "text": "Profile",
+                  "url": "url to profile page",
+                  "subtitle": false
+                },
+                {
+                  "text": "Entries",
+                  "url": "url to entries list page",
+                  "subtitle": false
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "text": "Log Out",
+                  "url": "#url to logout page",
+                  "subtitle": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                },
+                {
+                  "subtitle": false,
+                  "is_divider": false,
+                  "text": false,
+                  "url": false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "secondary": {
+      "items": [
+        {
+          "url": "#",
+          "text": "Submissions",
+          "submenu": false,
+          "is_current": true
+        },
+        {
+          "url": "#",
+          "text": "Profile",
+          "submenu": false
         }
+      ]
+    },
+    "footer": {
+      "linklist1": {
+        "title": "More info",
+        "items": [
+          {
+            "text": "News",
+            "url": "http://google.com"
+          },
+          {
+            "text": "Contact",
+            "url": "http://google.com"
+          },
+          false
+        ]
+      },
+      "linklist2": false,
+      "sponsorlist": {
+        "title": "Founded by:",
+        "items": [
+          {
+            "img": {
+              "src": "heritage-in-motion/europanostra.png",
+              "alt": "EuropaNostra"
+            },
+            "url": "http://google.com"
+          },
+          {
+            "img": {
+              "src": "heritage-in-motion/ema.png",
+              "alt": "EMA"
+            },
+            "url": "http://google.com"
+          }
+        ]
+      },
+      "subfooter": {
+        "items": [
+          {
+            "text": "Home",
+            "url": "./"
+          },
+          {
+            "text": "About us",
+            "url": "./"
+          },
+          {
+            "text": "Terms of use & policies",
+            "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+          },
+          {
+            "text": "Sitemap",
+            "url": "./"
+          }
+        ]
+      }
     }
+  }
 }

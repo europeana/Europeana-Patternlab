@@ -1,4 +1,4 @@
-{{! 
+{{!
 
 FILTER COMPONENT - TABBED
 
@@ -6,11 +6,11 @@ simple/advanced tabbed filter component - each set of filter options is in it's 
 
 Can be configured by the injected data to behave as a single selection filter (radio buttons) or as a multiple selection filter (checkboxes).
 
-Default status: 
+Default status:
 Multiple select (checkboxes)
 
 Single selection mode (radio buttons):
-To trigger single selection mode set 
+To trigger single selection mode set
 "select_one" : true
 
 If injected data isn't present, the default is displayed and false is assumed.
@@ -18,7 +18,7 @@ If injected data isn't present, the default is displayed and false is assumed.
 
 
 Configuration options and content model:
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 "filters":[
     {
@@ -45,14 +45,14 @@ Configuration options and content model:
     ...Add more filters here
 ]
 
-# # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # #
 
 
 
 }}
 <div class="filter filter-tabbed">
 
-    <div class="filter-name">{{ title }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>
+    <div class="filter-name" data-filter-name="{{name}}">{{ title }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>
 
     <ul class="accordion-tabs">
     {{#tabs}}

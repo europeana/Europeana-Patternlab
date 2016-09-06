@@ -5,15 +5,12 @@
   "version":{
       "is_alpha": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
-  "css_files": false,
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "fb_campaigns_on": true,
   "fb_campaigns": ["test", "these", "campaigns"],
   "js_vars": [
@@ -26,8 +23,8 @@
   "js_files":
   [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/templates/main-collections"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
     }
   ],
 
@@ -386,6 +383,7 @@
       "more_items_query" : "javascript:alert('loads a page of similar items')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
 
       "items": [
         {

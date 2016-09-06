@@ -21,19 +21,16 @@
   "page_config": {
     "newsletter": true
   },
-  "head_links": {
-    "items": [{
-      "rel": "stylesheet",
-      "href": "../../css/search/screen.css",
-      "media": "all",
-      "css": "true"
-    }]
-  },
-  "css_files": false,
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/templates/main-collections"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
     }
   ],
   "js_vars": [
@@ -98,6 +95,7 @@
       "tumblr_url": "javascript:alert('open tumblr page')",
       "more_items_load"  : "url-for-extra-items",
       "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
       "items": [
         {
           "url":  "?q=The+Lace+Maker",
@@ -329,7 +327,7 @@
         "url": "http://www.europeanafashion.tumblr.com",
         "text": "Tumblr"
       }
- 	},
+   },
     "news": {
       "items": [
         {

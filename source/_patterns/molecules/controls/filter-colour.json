@@ -1,5 +1,6 @@
 {
   "title": "Colour",
+  "name": "Colour",
   "colour": true,
   "select_one": false,
   "items": [

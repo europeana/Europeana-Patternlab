@@ -4,6 +4,15 @@
 //
 // Styleguide 1.0.0
 
+.filter-closed{
+  > ul{
+    display: none;
+  }
+  > .filter-moreless{
+    display: none;
+  }
+}
+
 .filter{
   .filter-moreless:after{
     border-color: $textcolour_body transparent transparent;
@@ -23,12 +32,19 @@
   }
 }
 
-.filter,
-.filter-advanced{
+.filter{
+  background-color: $offwhite;
 
   border-top: 1px solid $gray87;
   margin-bottom: $space-half;
   @include fontSize(14px);
+
+  @media all and (max-width: $bp-med) {
+    margin-bottom: 0;
+    &:nth-of-type(1){
+      border-top: 0;
+    }
+  }
 
   .subfilters &{
     border-top: none;
@@ -45,7 +61,22 @@
 
 .filter-name{
   color: $textcolour_body;
-  margin: $space-half 0;
+  cursor: pointer;
+
+  @media all and (max-width: $bp-med) {
+    box-sizing: content-box;
+
+    margin: -$space-half;
+    padding: $space-half;
+
+    background-color: #fff;
+  }
+
+  @media all and (min-width: $bp-med) {
+    margin: $space-half 0;
+    top: 1em;
+  }
+
   text-transform: uppercase;
   font-weight: bold;
   width: 100%;
@@ -56,8 +87,69 @@
   }
 }
 
+.refine{
+  > .filter{
+    position: relative;
+    > .filter-name:after{
+      border-color: transparent transparent $textcolour_body;
+      border-style: solid;
+      border-width: 5px;
+      content: '';
+      display: inline-block;
+      right: 1em;
+      position: absolute;
+      top: 1.6em;
+
+      @media all and (min-width: $bp-med) {
+        top: 1.2em;
+      }
+    }
+
+    &.filter-closed{
+      > .filter-name:after{
+        top: 2em;
+        border-color: $textcolour_body transparent transparent;
+        @media all and (min-width: $bp-med) {
+          top: 1.6em;
+        }
+      }
+    }
+  }
+}
+
+
 .filter-list{
   margin-bottom: $space-half;
+
+  @media all and (max-width: $bp-med) {
+    margin-top: $space-half;
+  }
+
+}
+
+.filter-mobile-summary{
+  display: none;
+}
+
+.filter-item-separator{
+  border-bottom: 1px solid $grey3;
+  margin: 0.5em 0;
+}
+
+.refine.open .filter-mobile-summary{
+  display: block;
+  font-weight: normal;
+  text-transform: initial;
+  opacity: 0.5;
+  li{
+    display: inline;
+    &:after{
+      content: ", ";
+    }
+    &:last-child:after{
+      content: "";
+    }
+  }
 }
 
 .filter-wrap{
@@ -67,8 +159,6 @@
 }
 
 .filter-list li{
-  //display: inline-block;
-
   @media all and (min-width: $bp-med) {
     display: block;
   }
@@ -208,6 +298,14 @@
 
 .radiobuttons > ul > li .filter-item:before{
     background-position: -88px 0;
+}
+
+.filter-boolean{
+  @media all and (max-width: $bp-med) {
+    .filter-item:before{
+      left: 16px;
+    }
+  }
 }
 
 .filter-boolean .filter-item,

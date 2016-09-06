@@ -24,7 +24,7 @@ require.config({
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../eu/global',
     handlebars:                    '//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min',
-    jqDropdown:                    '../lib/jquery.dropdown',
+    jqDropdown:                    '../lib/jquery/jquery.dropdown',
     jquery:                        '../lib/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
     list:                          '//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min',
@@ -37,8 +37,8 @@ require.config({
     smartmenus:                    '../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:           '../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     sticky:                        '../lib/sticky/jquery.sticky',
-    touch_move:                    '../lib/jquery.event.move',
-    touch_swipe:                   '../lib/jquery.event.swipe'
+    touch_move:                    '../lib/jquery/jquery.event.move',
+    touch_swipe:                   '../lib/jquery/jquery.event.swipe'
   },
   shim: {
     blacklight:     ['jquery'],

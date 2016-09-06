@@ -1,1 +1,0 @@
-!function(a){Blacklight.onLoad(function(){a(document).on("click","a[data-toggle=collapse][href='#'], [data-toggle=collapse] a[href='#']",function(a){a.preventDefault()})})}(jQuery);

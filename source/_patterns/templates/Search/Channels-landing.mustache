@@ -26,7 +26,7 @@
 
     {{#content.strapline}}
     <div class="strapline">
-      {{.}}
+      {{{.}}}
     </div>
     {{/content.strapline}}
   </div>
@@ -43,7 +43,7 @@
 
   {{#content.channel_entry}}
    {{#grouped_items}}
-  <ul class="browse-entry-list lc">
+  <ul class="browse-entry-list lc{{#is_single_type}} single-type{{/is_single_type}}">
       {{#items}}
       <li class="list-item">
         {{> molecules/blocks/browse-entry }}
