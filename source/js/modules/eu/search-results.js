@@ -99,24 +99,25 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     };
 
     window.onpopstate = function(e){
-        if(e.state){
-            log('state present, view = ' + e.state.view)
-            if(e.state.view == 'grid'){
-                showGrid(true);
-            }
-            else if(e.state.view == 'list'){
-                showList(true);
-            }
-            if(typeof e.state.results != 'undefined'){
-                loadResults(e.state.results);
-            }
+      if(e.state){
+        log('state present, view = ' + e.state.view)
+        if(e.state.view == 'grid'){
+          showGrid(true);
         }
-        else{
-            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
-              return;
-            }
-            showList();
+        else if(e.state.view == 'list'){
+          showList(true);
         }
+        if(typeof e.state.results != 'undefined'){
+          loadResults(e.state.results);
+        }
+      }
+      else{
+        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
+          return;
+        }
+        log('popstate: def to list')
+        showList();
+      }
     };
 
     // fake ajax to assist design
@@ -232,7 +233,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
     }
 
-    var bindViewButtons = function(){
+    var bindViewButtons = function(defView){
 
       btnGrid.on('click', function(e){
         e.preventDefault();
@@ -249,18 +250,35 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       var urlView = $url.param('view');
 
       if(urlView){
-          urlView == 'grid' ? showGrid(true) : showList(true);
+        urlView == 'grid' ? showGrid(true) : showList(true);
       }
       else{
-          if(loadView() == 'grid'){
-              simulateUrlChange('view', 'grid', true);
-              showGrid();
+        var savedView = loadView();
+        if(savedView){
+          if(savedView == 'grid'){
+            simulateUrlChange('view', 'grid', true);
+            showGrid();
           }
           else{
-              // fixes history but rewrites url...
-              //simulateUrlChange('view', 'list', true);
-              showList();
+            // fixes history but rewrites url...
+            //simulateUrlChange('view', 'list', true);
+            showList();
           }
+        }
+        else if(defView){
+          if(defView == 'grid'){
+            simulateUrlChange('view', 'grid', true);
+            showGrid();
+          }
+          else{
+            showList();
+          }
+          log('default for this thematic collection: ' + defView);
+        }
+        else{
+          log('No saved or default view (show list)');
+          showList();
+        }
       }
 
       $('.facet-menu .opener').on('click', function(){
@@ -318,27 +336,28 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
 
     var initPage = function(){
-      bindViewButtons();
+      var defView;
+      if(typeof(Storage) !== "undefined") {
+        var label = $('.breadcrumbs').data('store-channel-label');
+        var name  = $('.breadcrumbs').data('store-channel-name');
+        var url   = $('.breadcrumbs').data('store-channel-url');
+        defView   = $('.breadcrumbs').data('store-channel-def-view');
+
+        sessionStorage.eu_portal_channel_label = label;
+        sessionStorage.eu_portal_channel_name  = name;
+        sessionStorage.eu_portal_channel_url   = url;
+
+        var preferredResultCount = localStorage.getItem('eu_portal_results_count');
+        if(preferredResultCount){
+           $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
+        }
+        thematicCollection = name;
+      }
+      log('initPage: defView = ' + defView)
+      bindViewButtons(defView);
       bindResultSizeLinks();
       bindGA();
       bindfacetOpeners();
-
-      if(typeof(Storage) !== "undefined") {
-         var label = $('.breadcrumbs').data('store-channel-label');
-         var name  = $('.breadcrumbs').data('store-channel-name');
-         var url   = $('.breadcrumbs').data('store-channel-url');
-
-         sessionStorage.eu_portal_channel_label = label;
-         sessionStorage.eu_portal_channel_name  = name;
-         sessionStorage.eu_portal_channel_url   = url;
-
-
-         var preferredResultCount = localStorage.getItem('eu_portal_results_count');
-         if(preferredResultCount){
-             $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
-         }
-
-      }
     };
 
     return {
