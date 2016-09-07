@@ -25,8 +25,8 @@
 	"js_files": 
 	[
 		{
-			"path": "../../js/dist/require.js",
-			"data_main": "../../js/dist/main/templates/main-pandora"
+			"path": "../../js/modules/require.js",
+			"data_main": "../../js/modules/main/templates/main-pandora"
 		}
 	],
 	"edm": [
