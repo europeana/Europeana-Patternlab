@@ -11,6 +11,14 @@
       "media": "all"
     }
   ],
+  "head_links": {
+    "items": [
+      {
+        "hreflang": "x-default",
+        "href": "http://page-url"
+      }
+    ]
+  },
   "fb_campaigns_on": true,
   "fb_campaigns": ["test", "these", "campaigns"],
   "js_vars": [
@@ -372,7 +380,8 @@
         "twitter": true,
         "facebook": true,
         "pinterest": true,
-        "googleplus": true
+        "googleplus": true,
+        "tumblr": true
       }
     },
 

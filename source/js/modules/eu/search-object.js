@@ -693,6 +693,18 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
 
       scrollEvents.fireAllVisible();
+
+      $('.tumblr-share-button').on('click', function(){
+
+        var params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href');
+        params += '&data-title='      + $('h2.object-title').text();
+        params += '&data-content='    + $('.media-viewer img').attr('src');
+
+        log(params)
+        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+        return false;
+      })
+
     };
 
     return {
