@@ -52,12 +52,10 @@
 }
 
 .search-hero{
-  height: 50%;
-
-
   @media all and (max-width: $bp-small-3) {
-    height: 75%;
+    height: 50%;
   }
+  height: 75%;
 }
 
 .tumblr-feed-section{
