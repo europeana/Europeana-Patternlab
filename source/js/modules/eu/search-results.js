@@ -115,7 +115,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
           return;
         }
-        log('popstate: def to list')
         showList();
       }
     };
@@ -268,12 +267,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         else if(defView){
           if(defView == 'grid'){
             simulateUrlChange('view', 'grid', true);
-            showGrid();
+            showGrid(true);
           }
           else{
-            showList();
+            showList(true);
           }
-          log('default for this thematic collection: ' + defView);
+          log('default for this thematic collection: ' + defView + ' (saved)');
         }
         else{
           log('No saved or default view (show list)');
