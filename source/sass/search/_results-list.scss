@@ -138,22 +138,6 @@
   @include fontSize(14px);
 }
 
-.tooltip-wrapper-grid{
-
-  display: none;
-  @media all and (min-width: $bp-med) {
-    display: block;
-  }
-  position:   absolute;
-  right:      133px;
-  top:        4em;
-
-  .eu-tooltip-container{
-    top:   -3.5em;
-    width: 300px;
-  }
-}
-
 .refine .eu-tooltip{
   transform: translate(-0.8em, -1.1em);
 }
