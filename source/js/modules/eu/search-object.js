@@ -698,7 +698,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href');
         params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + decodeURIComponent('http://www.mrwallpaper.com/wallpapers/horses.jpg&type=IMAGE');
+        params += '&data-content='    + decodeURIComponent('http://www.mrwallpaper.com/wallpapers/horses.jpg');
 
         log(params)
         window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
