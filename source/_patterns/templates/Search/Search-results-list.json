@@ -523,7 +523,8 @@
       }
     },
     {
-      "title": "Date",
+      "title": "Date Created",
+      "name": "Date_Created",
       "date": true,
       "date_start": "1923",
       "date_end": "2015",

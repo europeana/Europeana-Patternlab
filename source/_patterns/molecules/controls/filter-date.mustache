@@ -1,7 +1,7 @@
 <div class="filter filter-date {{^filter_open}} filter-closed{{/filter_open}}">
   <div class="filter-name" data-filter-name="{{filter_name}}">{{ title }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}</div>
-  <form action="{{form.action_url}}">
-  <fieldset class="filter filter-date">
+  <form action="{{form.action_url}}" id="date-facet-form">
+  <fieldset>
     {{#form.hidden_inputs}}<input type="hidden" name="{{name}}" value="{{value}}">{{/form.hidden_inputs}}
 
 
@@ -19,7 +19,9 @@
         <input id="date-range-end" name="{{range.end.input_name}}" XXXmin="{{date_start}}" XXXmax="{{date_end}}" type="number" value="{{range.end.input_value}}">
       </div>
 
-      <input type="submit" class="is-jshidden" />
+      <div class="control-group">
+        <button type="submit" form="date-facet-form" value="Submit">{{{i18n.global.facet.filter}}}</button>
+      </div>
     </div>
 
   </fieldset>
