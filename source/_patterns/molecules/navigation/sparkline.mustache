@@ -1,4 +1,5 @@
-<div class="sparkline">
+{{#show_bars}}
+  <div class="sparkline">
     <div class="sparkline-data">
         {{#data}}
         <a class="index" href="{{url}}" title="{{value}}"><span class="count" style="height: {{percent_of_max}}%;">{{value}}</span> </a>
@@ -9,4 +10,5 @@
       <span class="sparkline-start">{{date_start}}</span>
       <span class="sparkline-end">{{date_end}}</span>
     </div>
-</div>
+  </div>
+{{/show_bars}}
