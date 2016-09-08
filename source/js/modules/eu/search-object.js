@@ -698,7 +698,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href');
         params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + decodeURIComponent('http://media-proxy-test.cfapps.io/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_133506?view=http%3A%2F%2Fcollections.rmg.co.uk%2FmediaLib%2F569%2Fmedia-569681%2Flarge.jpg');
+        params += '&data-content='    + decodeURIComponent('http://media-proxy-test.cfapps.io/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_133506?view=http%3A%2F%2Fcollections.rmg.co.uk%2FmediaLib%2F569%2Fmedia-569681%2Flarge.jpg&type=IMAGE');
 
         log(params)
         window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
