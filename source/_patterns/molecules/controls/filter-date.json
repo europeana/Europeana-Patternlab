@@ -68,5 +68,6 @@
       "input_name": "date_end",
       "input_value": "2015"
     }
-  }
+  },
+  "show_bars": true
 }
