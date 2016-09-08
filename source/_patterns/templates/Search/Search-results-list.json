@@ -523,25 +523,90 @@
       }
     },
     {
-        "title": "Advanced Options",
-        "name": "ADVANCED",
-        "advanced": true,
-        "select_one": false,
-        "advanced_items": {
-          "items": [
-            {
-              "url": "http://europeana.eu",
-              "text": "Show content contributed by users"
-            },
-            {
-              "url": "http://europeana.eu",
-              "text": "Only show items with thumbnails"
-            }
-          ]
+      "title": "Date",
+      "date": true,
+      "date_start": "1923",
+      "date_end": "2015",
+      "data": [
+        {
+          "value": 23,
+          "percent_of_max": 23
+        },
+        {
+          "value": 45,
+          "percent_of_max": 45
+        },
+        {
+          "value": 67,
+          "percent_of_max": 67
+        },
+        {
+          "value": 34,
+          "percent_of_max": 34
+        },
+        {
+          "value": 73,
+          "percent_of_max": 73
+        },
+        {
+          "value": 97,
+          "percent_of_max": 97
+        },
+        {
+          "value": 100,
+          "percent_of_max": 100
+        },
+        {
+          "value": 78,
+          "percent_of_max": 78
+        },
+        {
+          "value": 80,
+          "percent_of_max": 80
+        },
+        {
+          "value": 50,
+          "percent_of_max": 50
+        },
+        {
+          "value": 80,
+          "percent_of_max": 80
+        },
+        {
+          "value": 23,
+          "percent_of_max": 23
         }
+      ],
+      "range": {
+        "start": {
+          "input_name": "date_start",
+          "input_value": "1923"
+        },
+        "end": {
+          "input_name": "date_end",
+          "input_value": "2015"
+        }
+      },
+      "show_bars": true
+    },
+    {
+      "title": "Advanced Options",
+      "name": "ADVANCED",
+      "advanced": true,
+      "select_one": false,
+      "advanced_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Show content contributed by users"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Only show items with thumbnails"
+          }
+        ]
+      }
     }
-
-
   ],
   "facets_selected": {
     "items": [
