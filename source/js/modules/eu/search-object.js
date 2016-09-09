@@ -698,7 +698,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href');
         params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + 'content goes here!!! testing data-content par. ';
+        params += '&data-content='    + decodeURIComponent($('.media-viewer img').attr('src'));
 
         log(params)
         window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
