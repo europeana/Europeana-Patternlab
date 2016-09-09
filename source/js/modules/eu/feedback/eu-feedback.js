@@ -15,7 +15,8 @@ define(['jquery'], function($){
     var spinner   = el.find('.feedback-spinner');
     var submit    = el.find('.feedback-send');
     var text      = el.find('.feedback-text');
-    var maxlength = 0;
+    var maxLength = 0;
+    var minWords  = el.data('min-words');
 
     ops = ops ? ops : {};
 
@@ -57,8 +58,15 @@ define(['jquery'], function($){
       if(text.val().length==0){
         text.addClass('error');
         counter.addClass('error');
-        return;
+        return false;
       }
+      if(text.val().split(' ').length < minWords){
+        text.addClass('error');
+        counter.addClass('error');
+        return false;
+      }
+
+      log('counted ' + text.val().split(' ') + ' words');
 
       spinner.show();
       var url  = el.find('form').attr('action');
@@ -82,7 +90,7 @@ define(['jquery'], function($){
           fbShow(el.find('.step2'));
 
           text.val('');
-          counter.html(maxlength);
+          counter.html(maxLength);
         },
         error : function(data){
           setTimeout(function(){
@@ -95,11 +103,11 @@ define(['jquery'], function($){
     });
 
     el.find('.pageurl').val(window.location.href);
-    maxlength = parseInt(counter.data('maxlength'));
+    maxLength = parseInt(counter.data('maxLength'));
 
-    counter.html(maxlength - text.val().length);
+    counter.html(maxLength - text.val().length);
     text.on('keyup', function(){
-      counter.html(maxlength - text.val().length);
+      counter.html(maxLength - text.val().length);
       text.removeClass('error');
       counter.removeClass('error');
     });
