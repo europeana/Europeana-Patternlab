@@ -697,12 +697,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('.tumblr-share-button').on('click', function(){
 
         var ulrPattern  = /http:/ig,
-            params      = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href').replace(ulrPattern, "https:"),
-            imageUrl    = decodeURIComponent($('.media-viewer img').attr('src')).replace(ulrPattern, "https:");
+            params      = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href'),
+            imageUrl    = decodeURIComponent($('.media-viewer img').attr('src'));
 
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
-        console.log('imageUrl: ', imageUrl, ' params', params);
+        params +=  params.replace(ulrPattern, "https:");
+        console.log('imageUrl:2 ', imageUrl, ' params', params);
         log(params)
         window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
         return false;
