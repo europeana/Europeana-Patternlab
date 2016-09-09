@@ -708,6 +708,7 @@
             },
             "email-address": "email address",
             "facet": {
+              "filter": "filter",
               "header": {
                 "reusability": "Can I use this?"
               }

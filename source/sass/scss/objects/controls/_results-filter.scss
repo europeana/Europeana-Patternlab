@@ -8,6 +8,9 @@
   > ul{
     display: none;
   }
+  > form{
+    display: none;
+  }
   > .filter-moreless{
     display: none;
   }
@@ -220,11 +223,16 @@
 .filter-date .filter-controls{
 
   & > .control-group{
-  float: left;
-  width: 50%;
-
-    &:first-of-type{
-      padding-right: 1em;
+    float: left;
+    width: 35%;
+    padding-right: 1em;
+    margin-bottom: .5rem;
+    margin-top:    .5rem;
+    &:last-of-type{
+      float: right;
+      padding-right: 0;
+      text-align: right;
+      width: 30%;
     }
   }
 
