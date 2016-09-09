@@ -43,6 +43,11 @@
 .sparkline-start{
   float: left;
 }
+.sparkline-middle{
+  float: left;
+  margin-left: 50%;
+  transform: translateX(-150%);
+}
 .sparkline-end{
   float: right;
 }

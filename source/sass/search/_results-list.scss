@@ -120,6 +120,20 @@
     }
   }
 
+  @media all and (max-width: $bp-med) {
+    .filter:not(.filter-closed){
+      .filter-name{
+        margin-bottom: 0.5em;
+      }
+      &.filter-date{
+        .filter-name{
+          margin-bottom: 2em;
+        }
+      }
+    }
+  }
+
+
   &>h2{
     text-transform: uppercase;
     font-weight: bold;
