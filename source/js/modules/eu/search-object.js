@@ -696,9 +696,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       $('.tumblr-share-button').on('click', function(){
 
-        var params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href'),
-            ulrPattern = /http:/ig,
-            imageUrl = decodeURIComponent($('.media-viewer img').attr('src')).replace(ulrPattern, "https:");
+        var ulrPattern  = /http:/ig,
+            params      = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href').replace(ulrPattern, "https:"),
+            imageUrl    = decodeURIComponent($('.media-viewer img').attr('src')).replace(ulrPattern, "https:");
+
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
         console.log('imageUrl: ', imageUrl, ' params', params);
