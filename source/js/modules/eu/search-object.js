@@ -701,7 +701,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             imageUrl = decodeURIComponent($('.media-viewer img').attr('src')).replace(ulrPattern, "https:");
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
-        console.log('ulrPattern: ', ulrPattern, ' params', params);
+        console.log('imageUrl: ', imageUrl, ' params', params);
         log(params)
         window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
         return false;
