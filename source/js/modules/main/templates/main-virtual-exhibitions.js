@@ -4,6 +4,7 @@ require.config({
   paths: {
     exhibitions:            '../../eu/exhibitions',
     featureDetect:          '../../global/feature-detect',
+    feedback:               '../../eu/feedback/eu-feedback',
     ga:                     '//www.google-analytics.com/analytics',
     global:                 '../../eu/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
