@@ -176,156 +176,153 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             carousel.resolve(Carousel.create(el, appender, ops));
         });
         return carousel.promise();
-    }
+    };
 
     // tech-data download handling
 
     var updateTechData = function(e){
-        var tgt          = $(e.target);
-        var fileInfoData = {"href": "", "meta": [], "fmt": ""};
+      var tgt          = $(e.target);
+      var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
-        // colour browse
-        var clickedThumb = tgt.data('thumbnail');
+      // colour browse
+      var clickedThumb = tgt.data('thumbnail');
 
-        var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
+      var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
 
-        $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
-        $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
+      $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
+      $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
 
-        // download section
-        var setFileInfoData = function(href, meta, fmt){
-            $('.file-info .file-title').attr('href', href);
-            $('.file-info .file-meta li').remove();
-            $('.file-detail .file-type').html(fmt == null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
-            $.each(meta, function(i, ob){
-                $('.file-info .file-meta').append('<li>' + ob + '</li>');
-            });
-            if(!href){
-                $('.object-downloads').removeClass('is-expanded')
-            }
+      // download section
+      var setFileInfoData = function(href, meta, fmt){
+        $('.file-info .file-title').attr('href', href);
+        $('.file-info .file-meta li').remove();
+        $('.file-detail .file-type').html(fmt == null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
+        $.each(meta, function(i, ob){
+          $('.file-info .file-meta').append('<li>' + ob + '</li>');
+        });
+        if(!href){
+          $('.object-downloads').removeClass('is-expanded')
         }
+      }
 
-        // individual tech-data fields
-        var setVal = function(data, writeEl){
-
-            writeEl = $(writeEl);
-            if(writeEl.length==0){
-                return false;
+      // individual tech-data fields
+      var setVal = function(data, writeEl){
+        writeEl = $(writeEl);
+        if(writeEl.length==0){
+          return false;
+        }
+        var allFound  = true;
+        var anyFound  = false;
+        var allConcat = '';
+        for(var i=0; i<data.length; i++){
+          var val = tgt.data(data[i]['attr']) || data[i]['def'];
+          if(val){
+            if(typeof val == 'string' || typeof val == 'number'){
+              allConcat += val + ' ';
             }
-            var allFound  = true;
-            var anyFound  = false;
-            var allConcat = '';
-            for(var i=0; i<data.length; i++){
-                var val = tgt.data(data[i]['attr']) || data[i]['def'];
-                if(val){
-                    if(typeof val == 'string' || typeof val == 'number'){
-                        allConcat += val + ' ';
-                    }
-                    if(typeof val == 'object'){
-                        allConcat = val.model;
-                    }
-                    if(!data[i]['label']){
-                        anyFound  = true;
-                    }
-                }
-                else{
-                    allFound = false;
-                }
+            if(typeof val == 'object'){
+              allConcat = val.model;
             }
-            if(allFound){
+            if(!data[i]['label']){
+              anyFound  = true;
+            }
+          }
+          else{
+            allFound = false;
+          }
+        }
+        if(allFound){
+          if(data[0].toDataAttr != null){
+            writeEl.data(data[0].toDataAttr, allConcat);
+          }
+          else{
+            var templateId = writeEl.data('mustache');
+            writeEl.next('.val').empty();
 
-                if(data[0].toDataAttr != null){
-                    writeEl.data(data[0].toDataAttr, allConcat);
-                }
-                else{
-                    var templateId = writeEl.data('mustache');
-                    writeEl.next('.val').empty();
+            if(templateId){
+              var template = $(templateId).html();
+              var model    = allConcat;
 
-                    if(templateId){
-                        var template = $(templateId).html();
-                        var model    = allConcat;
-
-                        Mustache.tags = ["[[", "]]"];
-                        var rendered = Mustache.render(template, model);
-                        writeEl.next('.val').html(rendered);
-                    }
-                    else{
-                        writeEl.next('.val').text(allConcat.trim());
-                    }
-                    writeEl.closest('li').removeClass('is-disabled');
-                }
+              Mustache.tags = ["[[", "]]"];
+              var rendered = Mustache.render(template, model);
+              writeEl.next('.val').html(rendered);
             }
             else{
-                if(data[0].toDataAttr == null){
-                    writeEl.next('.val').empty();
-                    writeEl.closest('li').addClass('is-disabled');
-                }
+              writeEl.next('.val').text(allConcat.trim());
             }
-            return anyFound;
-        }
-        var techData        = $('.object-techdata');
-
-        var somethingGotSet = setVal(
-                [{attr: 'file-size'},
-                 {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
-        | setVal(
-                [{attr: 'runtime'},
-                 {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
-        | setVal(
-                [{attr: 'format'}], '.object-techdata .tech-meta-format')
-        | setVal(
-                [{attr: 'codec'}],  '.tech-meta-codec')
-        | setVal(
-                [{attr: 'width'},
-                 {attr: 'use_def', def: 'x', label: true},
-                 {attr: 'height'},
-                 {attr: 'size-unit', label: true}], '.tech-meta-dimensions')
-        | setVal(
-                [{attr: 'attribution-plain', toDataAttr: 'e-licence-content'}], '.attribution-fmt.plain')
-        | setVal(
-                [{attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html')
-        | setVal(
-                [{attr: 'dc-creator'}], '.tech-meta-creator')
-        | setVal(
-                [{attr: 'dc-description'}], '.tech-meta-description')
-        | setVal(
-                [{attr: 'dc-source'}], '.tech-meta-source')
-        | setVal(
-                [{attr: 'dc-rights'}], '.tech-meta-dc-rights')
-        | setVal(
-                [{attr: 'edm-rights'}], '.tech-meta-edm-rights');
-
-
-        if(somethingGotSet){
-          techData.show();
-          $('.attribution-fmt.plain').trigger('click');
+            writeEl.closest('li').removeClass('is-disabled');
+          }
         }
         else{
-          techData.removeClass('is-expanded');
-          techData.hide();
+          if(data[0].toDataAttr == null){
+            writeEl.next('.val').empty();
+            writeEl.closest('li').addClass('is-disabled');
+          }
         }
+        return anyFound;
+      }
+      var techData        = $('.object-techdata');
+
+      var somethingGotSet = setVal(
+        [{attr: 'file-size'},
+         {attr: 'file-unit', label: true}],  '.tech-meta-filesize')
+         | setVal(
+             [ {attr: 'runtime'},
+               {attr: 'runtime-unit', label: true}], '.tech-meta-runtime')
+         | setVal(
+             [ {attr: 'format'}], '.object-techdata .tech-meta-format')
+         | setVal(
+             [ {attr: 'codec'}],  '.tech-meta-codec')
+         | setVal(
+             [ {attr: 'width'},
+               {attr: 'use_def', def: 'x', label: true},
+               {attr: 'height'},
+               {attr: 'size-unit', label: true}], '.tech-meta-dimensions')
+         | setVal(
+             [ {attr: 'attribution-plain', toDataAttr: 'e-licence-content'}], '.attribution-fmt.plain')
+         | setVal(
+             [ {attr: 'attribution-html', toDataAttr: 'e-licence-content'}], '.attribution-fmt.html')
+         | setVal(
+             [ {attr: 'dc-creator'}], '.tech-meta-creator')
+         | setVal(
+             [ {attr: 'dc-description'}], '.tech-meta-description')
+         | setVal(
+             [ {attr: 'dc-source'}], '.tech-meta-source')
+         | setVal(
+             [ {attr: 'dc-rights'}], '.tech-meta-dc-rights')
+         | setVal(
+             [ {attr: 'edm-rights'}], '.tech-meta-edm-rights');
+
+      if(somethingGotSet){
+        techData.show();
+        $('.attribution-fmt.plain').trigger('click');
+      }
+      else{
+        techData.removeClass('is-expanded');
+        techData.hide();
+      }
 
         // download window
-        if(tgt.data('download-uri')){
-            $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
-            fileInfoData["href"] = tgt.data('download-uri');
-            fileInfoData["fmt"]  = tgt.data('format');
-            fileInfoData["meta"] = [];
+      if(tgt.data('download-uri')){
+        $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
+        fileInfoData["href"] = tgt.data('download-uri');
+        fileInfoData["fmt"]  = tgt.data('format');
+        fileInfoData["meta"] = [];
 
             // take 1st 2 available metadatas
-            var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
-            for(var i=0; i < Math.min(2, availableMeta.length); i++){
-                fileInfoData["meta"].push($(availableMeta[i]).html());
-            }
+        var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
+        for(var i=0; i < Math.min(2, availableMeta.length); i++){
+            fileInfoData["meta"].push($(availableMeta[i]).html());
         }
-        else{
-            $('.object-downloads .download-button').addClass('js-showhide').addClass('is-disabled');
-            fileInfoData["href"] = '';
-            fileInfoData["meta"] = [];
-            fileInfoData["fmt"]  = '';
-        }
-        setFileInfoData(fileInfoData["href"], fileInfoData["meta"], fileInfoData["fmt"]);
-        $('.download-button').attr('href', fileInfoData["href"]);
+      }
+      else{
+        $('.object-downloads .download-button').addClass('js-showhide').addClass('is-disabled');
+        fileInfoData["href"] = '';
+        fileInfoData["meta"] = [];
+        fileInfoData["fmt"]  = '';
+      }
+      setFileInfoData(fileInfoData["href"], fileInfoData["meta"], fileInfoData["fmt"]);
+      $('.download-button').attr('href', fileInfoData["href"]);
     }
 
     var showMediaThumbs = function(data){

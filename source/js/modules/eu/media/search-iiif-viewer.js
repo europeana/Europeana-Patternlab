@@ -1,6 +1,34 @@
 define([], function() {
   'use strict';
 
+  /*
+    Example 1
+
+    http://localhost:3000/portal/en/record/07931/diglit_zygulski2009.html?q=edm_datasetName%3A07931*&debug=json
+
+    webResource / svcsHasService = http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg
+
+    manifestUrl:
+      svcsHasService  +  /info.json
+    =
+      http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg/info.json
+
+    > http://develop.styleguide.eanadev.org/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg/info.json
+
+
+    Example 2
+
+    http://iiif.europeana.eu/AZ_1927_01_04_0001
+
+    manifestUrl:
+      svcsHasService  +  /info.json
+    =
+      http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
+
+    > http://develop.styleguide.eanadev.org/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
+  */
+
+
   $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
   $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/iiif/iiif.css')           + '" type="text/css"/>');
 
@@ -190,31 +218,33 @@ define([], function() {
     initUI(fullScreenAvailable);
 
     if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
-        setTotalImages(1);
-        load(1, manifestUrl);
-        $('#iiif').removeClass('loading');
+      setTotalImages(1);
+      load(1, manifestUrl);
+      $('#iiif').removeClass('loading');
+      $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
+      updateCtrls();
     }
     else{
-        // Grab a IIIF manifest
-        $.getJSON(manifestUrl, function(data) {
+      // Grab a IIIF manifest
+      $.getJSON(manifestUrl, function(data) {
 
-            $.each(data.sequences[0].canvases, function(_, val) {
-                labelledData[val.label] = val;
-            });
-
-            setTotalImages(Object.keys(labelledData).length)
-            load();
-
-            $('#iiif').removeClass('loading');
-
-            iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
-
-            $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
-            updateCtrls();
-        }).fail(function(jqxhr) {
-            log('error loading manifest: ' + JSON.stringify(jqxhr, null, 4));
-            $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
+        $.each(data.sequences[0].canvases, function(_, val) {
+          labelledData[val.label] = val;
         });
+
+        setTotalImages(Object.keys(labelledData).length)
+        load();
+
+        $('#iiif').removeClass('loading');
+
+        iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
+
+        $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
+        updateCtrls();
+      }).fail(function(jqxhr) {
+        log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
+        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
+      });
     }
   }
 

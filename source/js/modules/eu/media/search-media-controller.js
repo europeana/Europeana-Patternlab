@@ -20,14 +20,14 @@ define(['jquery'], function($) {
   function log(msg){
       console.log('search-media-controller: ' + msg);
   }
-  
+
   var fsAvailable = function(){
     db = document.body;
-    return db.requestFullScreen 
-    || db.webkitRequestFullscreen 
-    || db.webkitRequestFullscreen 
-    || db.mozRequestFullScreen 
-    || db.mozRequestFullScreen 
+    return db.requestFullScreen
+    || db.webkitRequestFullscreen
+    || db.webkitRequestFullscreen
+    || db.mozRequestFullScreen
+    || db.mozRequestFullScreen
     || db.msRequestFullscreen
     || db.msRequestFullscreen
   }
