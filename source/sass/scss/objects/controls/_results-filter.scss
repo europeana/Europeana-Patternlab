@@ -5,9 +5,8 @@
 // Styleguide 1.0.0
 
 .filter-closed{
-  > ul{
-    display: none;
-  }
+  > ul,
+  > form,
   > .filter-moreless{
     display: none;
   }
@@ -215,17 +214,88 @@
   }
 }
 
-
 // Date specific filter
 .filter-date .filter-controls{
 
   & > .control-group{
-  float: left;
-  width: 50%;
 
-    &:first-of-type{
-      padding-right: 1em;
+    input,
+    label{
+      width: 5.2em;
     }
+
+    padding-right: 1em;
+    float:         left;
+    margin-bottom: .5rem;
+    margin-top:    .5rem;
+
+    &:last-of-type{
+      float: right;
+      padding-right: 0;
+      text-align: right;
+    }
+
+    @media all and (max-width: $bp-small-2) {
+      &:last-of-type{
+        margin-top: 1.88em;
+      }
+    }
+
+    @media all and (min-width: $bp-small-2) and (max-width: $bp-med) {
+      text-align: center;
+      width: 33%;
+      label{
+        display: inline;
+      }
+      &.date{
+        input{
+          margin-left: 0.5em;
+        }
+      }
+      &:last-of-type{
+        text-align: center;
+      }
+    }
+
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+      &:last-of-type{
+        width:      100%;
+        button{
+          width:      100%;
+        }
+      }
+    }
+
+    @media all and (min-width: $bp-large) and (max-width: $bp-xl) {
+      &:last-of-type{
+        text-align: center;
+        width:      100%;
+      }
+    }
+
+    @media all and (min-width: $bp-med) and (max-width: $bp-xl) {
+      padding-right: 0;
+      &.date.to{
+        float: right;
+        text-align: right;
+        label{
+          text-align: left;
+        }
+      }
+    }
+
+    @media all and (min-width: $bp-xl) and (max-width: $bp-xxl){
+      &:last-of-type{
+        margin-top: 1.62rem;
+      }
+    }
+
+    @media all and (min-width: $bp-xxl){
+      &:last-of-type{
+        margin-top: 1.59rem;
+      }
+    }
+
   }
 
   label{

@@ -74,6 +74,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       pageInitComplete = true;
     }
     else{
+      initFeedback();
       doneSfx = initSFX();
       $.when(doneProgressState, doneSfx).done(function(){
         if(!inEditor){
@@ -141,6 +142,18 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function isDesktop(){
     return $('#desktop_detect').width()>0;
+  }
+
+  var initFeedback = function(){
+    if($('.feedback').size()>0){
+      require(['feedback'], function(fb){
+        fb.init($('.feedback'), {
+          //beforeSend: function(xhr) {
+          //  xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+          //}
+        });
+      });
+    }
   }
 
   function growl(msg){

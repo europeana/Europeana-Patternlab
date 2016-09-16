@@ -120,6 +120,20 @@
     }
   }
 
+  @media all and (max-width: $bp-med) {
+    .filter:not(.filter-closed){
+      .filter-name{
+        margin-bottom: 0.5em;
+      }
+      &.filter-date{
+        .filter-name{
+          margin-bottom: 2em;
+        }
+      }
+    }
+  }
+
+
   &>h2{
     text-transform: uppercase;
     font-weight: bold;
@@ -136,22 +150,6 @@
   margin-bottom: $space;
   overflow: hidden;
   @include fontSize(14px);
-}
-
-.tooltip-wrapper-grid{
-
-  display: none;
-  @media all and (min-width: $bp-med) {
-    display: block;
-  }
-  position:   absolute;
-  right:      133px;
-  top:        4em;
-
-  .eu-tooltip-container{
-    top:   -3.5em;
-    width: 300px;
-  }
 }
 
 .refine .eu-tooltip{

@@ -65,6 +65,8 @@ define(['jquery'], function ($) {
     
 	function pageInit() {
       
+      log('typeof pageName ' + (typeof pageName));
+      
 	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
 	  
       $(window).on('scroll', function() {
@@ -79,9 +81,9 @@ define(['jquery'], function ($) {
         euTooltip.configure();
       });
         
-      require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
-      });
+      //require(['util_ellipsis'], function(EllipsisUtil){
+      //  var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
+      //});
       
       expandCollapseMappingCard();
       
