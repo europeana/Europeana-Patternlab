@@ -63,6 +63,7 @@ define(['jquery'], function($){
       if(text.val().split(' ').length < minWords){
         text.addClass('error');
         counter.addClass('error');
+        alert ('For feedback, minWords is ' + minWords + '.');
         return false;
       }
 
