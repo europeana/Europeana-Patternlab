@@ -6,7 +6,10 @@
     margin: 0 auto;
 
     .search-multiterm{
-        display: table-row;
+      display: table-row;
+      @media all and (max-width: $bp-small-3) {
+        display: block;
+      }
     }
 
     .search-multiterm > div{
