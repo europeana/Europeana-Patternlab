@@ -148,9 +148,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if($('.feedback').size()>0){
       require(['feedback'], function(fb){
         fb.init($('.feedback'), {
-          //beforeSend: function(xhr) {
-          //  xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
-          //}
+          beforeSend: function(xhr) {
+            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+          }
         });
       });
     }
