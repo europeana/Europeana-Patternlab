@@ -87,10 +87,10 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       console.warn( 'no data-src given' );
       return false;
     }
-    if ( item.w < min_width_pixels ) {
-      console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
-      return false;
-    }
+    //if ( item.w < min_width_pixels ) {
+    //  console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
+    //  return false;
+    //}
 
     return true;
   }
