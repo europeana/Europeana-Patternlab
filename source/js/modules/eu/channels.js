@@ -101,6 +101,11 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             doForAllPages();
             break;
 
+        case 'explore/periods':
+            promisedPageJS.resolve();
+            doForAllPages();
+            break;
+
         case 'explore/new_content':
             promisedPageJS.resolve();
             doForAllPages();

@@ -59,11 +59,18 @@
 
   background-color: white;
   box-sizing: content-box;
+  @media all and (max-width: $bp-small-3) {
+    box-sizing: border-box;
+  }
+
   color: #000;
   margin-top: $space;
   padding: 0.5em 3.1rem 0.5em 0.4rem;
+  @media all and (max-width: $bp-small-2) {
+    padding: 0.5em 0.4rem 0.5em 0.4rem;
+  }
+  
   width: 100%;
-
   .browse-options{
     color: $eu-blue;
     display: table-cell;
