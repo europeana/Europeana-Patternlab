@@ -147,6 +147,12 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
                 doForAllPages();
             });
             break;
+
+        case 'pages/show':
+            promisedPageJS.resolve();
+            doForAllPages();
+            break;
+
         case 'portal/static':
             require(['util_foldable']);
             promisedPageJS.resolve();
