@@ -1,7 +1,7 @@
 @import "../scss/generic/variables";
 
 .logo {
-	background-image: url("../../images/europeana-logo-pandora.png");
+	background-image: url("../../images/europeana-logo-collections.png");
 	.svg &{
 	  background-image: url("../../images/europeana-logo-collections.svg");
 	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
@@ -19,7 +19,7 @@
 }
 
 body {
-
+	
   @media all and (max-width: $bp-med){
     background-color: red;  
   }
@@ -33,44 +33,56 @@ body {
 	margin-top:3.5em;
 }
 
-.header .nav_primary a {
-	color: #FFFFFF;
+.header-wrapper .header .cf {
+	border-top-color: #4BC0F0;
 }
 
-.header .nav_primary a:hover {
-	background-color: #1676aa;
+.pusher {
+	padding-top: 4.88em;
 }
 
-.header {
-/* 	display: block; */
+.nav-toggle-sites {
 	background-color: #4BC0F0;
-	margin-left: auto;
-	margin-right: auto;
-	width: 960px;
+}
+
+.nav-toggle-sites:hover {
+	background-color: #1676AA;
+	color: #4BC0F0;
 }
 
 .nav_primary a:hover:after {
-	border-color: #FFFFFF;
+	border-color: #4BC0F0;
+}
+
+.theme_select .dropdown-trigger {
+	padding: 0.4em;
+}
+
+.working-space {
+	background-color: #D9D4CA;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
 }
 
 .container-large {
 	margin-left: auto;
 	margin-right: auto;
-	width: 960px;
 }
 
 .container-menu {
-	width: 180px !important;
+	width: 11em !important;
 	padding-left: 0px;
 	margin-left: 0px;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 0.75em;
 	float: left;
-	padding-bottom: 0px;
+	padding-bottom: 0em;
+	background-color: white;
 }
 
 .container-search-box {
-	width: 280px;
+	width: 17.5em;
 	padding-left: 2px;
 	margin-left: 0px;
 	display: inline-block;
@@ -87,10 +99,6 @@ body {
 	height:32px;
 }
 
-.dropdown-trigger {
-	padding: 6px !important;
-}
-
 .breadcrumbs {
 	margin-top:0px;
 	padding-left:10px;
@@ -99,61 +107,40 @@ body {
 	padding-top: 0px;
 }
 
-.breadcrumbs a{
+.breadcrumbs a {
 	color:#FFFFFF;
 }
 
-.mapping-widget {
+.indent {
+	padding-left: 10px !important;
+}
+
+.dropdown {
+	margin-top:10px;
+	margin-left: -1em;
+}
+
+.action_menu {
+	height: 2em;
+	margin-bottom: 1.5em;
+	background-color: #1676AA;
+	width: 100%;
+}
+
+/*** COMMON FOR MAPPING CARD AND ITEM CARD ***/
+.card-component {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin-bottom: 0px !important;
 	border: 0px;
+	color: white !important;
+	width: 60em;
+	margin-left: 1em;
 }
 
-.mapping-widget td {
+.card-component td {
 	cellpadding: 0px;
 	cellspacing: 0px;
 	padding: 0px !important;
-}
-
-.mapping-widget-mapping, .mapping-widget-values, mapping-widget-values-expanded, .mapping-widget-controls {
-	margin-bottom: 0px !important;
-	border: 0px;
-}
-
-.mapping-widget-mapping td {
-	color: #FFFFFF;
-	vertical-align: middle;
-}
-
-.mapping-widget-values td,  mapping-widget-values-expanded td {
-	height: 5.25em;
-	color: #1676aa;
-}
-
-.mapping-widget-values td:hover,mapping-widget-values-expanded td:hover {
-	background-color: #F1F1EE;
-}
-
-/* .mapping-widget-values tr, mapping-widget-values-expanded tr {
-	height: 100%;
-} */
-
-.mapping-widget-values {
-  td {
-     color: #1676aa;
-     &.selected{
-		background-color: #37B98B;
-		color: #FFFFFF;
-     }
-     &.suspicious{
-		background-color: #FFAE00;
-		color: #FFFFFF;
-     }
-     &.erroneous{
-		background-color: #F22F24;
-		color: #FFFFFF;
-     }
-  }
 }
 
 .normal-colored {
@@ -172,44 +159,143 @@ body {
 	background-color: #d43900;
 }
 
-.erroneous-colored {
+.invalid-colored {
 	background-color: #F22F24;
 }
 
-.erroneous-colored-dark {
+.invalid-colored-dark {
 	background-color: #293745;
 }
 
-td.mapping-widget-paging:hover {
-	background-color: #FFFFFF !important;
+.card-buttons {
+	display: table;
 }
 
-.card-controls td {
-	width: 30%;
-	border: 0em;
-	padding-left:0em !important;
+.card-buttons div {
+	height: 3.5em;
+	width: 5em;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.card-buttons div:hover {
+	cursor: pointer;
+	background-color: #1676AA;
+}
+
+.values-collapse {
+	width: 7em;
+	line-height: 3.5em;
+	vertical-align: middle;
+	display: inline-block;
 	text-align: center;
 }
 
-.card-controls {
-	margin-bottom: 0px;	
+.card-controls-expanded .card-label {
+	height: 3.5em;
+	width: 20em;
+	line-height: 3.5em;
+	vertical-align: middle;
+	display: inline-block;
 }
 
-.mapping-card-controls td {
-	height: 3em;
-	border: 0em;
+.card-controls-expanded div {
+	margin-left: -4px;
+}
+
+.card-controls-expanded > div:first-of-type {
+	margin-left: 0px;
+}
+
+.mapping-card-controls, item-card-controls {
+	width: 15em;
+}
+
+.card-button:hover {
+	cursor: pointer;
+	background-color: #095F90;
+}
+
+.normal-colored-dark.card-button:hover {
+	cursor: pointer;
+	background-color: #095F90;
+}
+/*** END OF COMMON FOR MAPPING CARD AND ITEM CARD ***/
+
+/*** MAPPING CARD ***/
+.mapping-card-controls-expanded {
+	width: 60em;
+}
+
+.mapping-card-controls .card-label {
+	height: 3.5em;
+	width: 15em;
+	line-height: 3.5em;
+	vertical-align: middle;
+}
+
+.mapping-field-item-container {
+	width: 45em;
+	height: 10.5em;
+	background-color: white;
+}
+
+.mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item {
+    /* this rule targets the rows after the 10th .mapping-field-item */
+    display: none;
+}
+
+.mapping-field-item-container-expanded {
+	width: 60em;
+	height: 60em;
+	background-color: white;
+}
+
+.mapping-field-item {
+	width: 9em;
+	height: 5.25em;
+	display: inline-block;
+	font-size: 1em;
+	border: 1px solid #D9D4CA;
+	margin-right: -4px;
+	margin-bottom: -7px;
+}
+
+.mapping-field-item-expanded {
+	width: 10em;
+	height: 5.25em;
+	display: inline-block;
+	font-size: 1em;
+	border: 1px solid #D9D4CA;
+	margin-right: -4px;
+	margin-bottom: -7px;
+}
+
+.mapping-card-function {
+	font-family: 'Times New Roman', Times, serif;
+	width: 6em;
+	height: 3.5em;
+	vertical-align: middle;
+	display: inline-block;
 	text-align: center;
 }
 
-.item-card-controls td {
-	height: 4.5em;
-	border: 0em;
+.if {
+	width: 7em;
+	line-height: 3.5em;
+	vertical-align: middle;
+	display: inline-block;
 	text-align: center;
+	margin-left: -5px !important;
 }
 
-.card-controls tr, .card-controls table {
-	height: 100%;
-	margin-bottom: 0px !important;
+.mapping-card-f {
+	font-style: italic; font-size:1.6em;
+}
+
+.mapping-card-x {
+	font-size:0.8em;
 }
 
 .card-controls td:hover {
@@ -217,73 +303,7 @@ td.mapping-widget-paging:hover {
 	color: #FFFFFF;
 }
 
-.second-line {
-	vertical-align: baseline;
-	color: #777777;
-	font-size: 1em;
-	display: inline-block;
-	
-	selected {
-	  color: #FFFFFF;
-	}
-}
-
-
-.flag {
-	vertical-align: baseline;
-	float: right;
-	color: #777777;
-	font-size: 16px;
-	padding-right: 3px;
-	display: inline-block;
-}
-
-.flag:hover,
-.card-controls:hover {
-	cursor: pointer;
-}
-
-.first-line {
-    display: block;
-    max-width: 144px;
-    height: 50px;
-    font-size: 12px;
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.first-line-expand {
-    display: block;
-    max-width: 240px;
-    height: 50px;
-    margin: 5px 5px;
-    font-size: 12px;
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.indent {
-	padding-left: 10px !important;
-}
-
-.mapping-widget-values td {
-	width: 20%;
-}
-
-.mapping-card-label {
-	height: 3.5em;
-	width: 15em;
-}
-
 .mapping-card-values {
-	column-span: 2;
 	width: 45em;
 	height: 10.5em;
 }
@@ -302,10 +322,104 @@ td.mapping-widget-paging:hover {
     font-weight: bold;
     background-color: #1676aa;
 }
+/*** END OF MAPPING CARD ***/
 
-.dropdown {
-	margin-top:10px;
-	margin-left: -1em;
+/*** ITEM CARD ***/
+.item-card-controls .card-label {
+	height: 3.5em;
+	width: 15em;
+	line-height: 3.5em;
+	vertical-align: middle;
+}
+
+.item-card-values {
+	column-span: 3;
+	width: 45em;
+	height: 7em;
+}
+
+.xml-view {
+	overflow-x: scroll;
+	overflow-y: scroll;
+ 	width: 45em;
+}
+
+.xml-view-short {
+    height: 7em;
+}
+
+.xml-view-long {
+    width: 60em;
+    height: 45em;
+}
+
+.xml-view-source {
+	display: none;
+}
+
+.item-button, .item-source-button {
+	width: 16.4em;
+	line-height: 3.5em;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+}
+/*** END OF ITEM CARD ***/
+
+/*** FIELD VALUE ***/
+.flag {
+	vertical-align: baseline;
+	float: right;
+	color: #777777;
+	font-size: 1em;
+	padding-right: 0.20em;
+	display: inline-block;
+	hover {
+		cursor: pointer;
+	}
+}
+
+.mapping-field {
+	display: table;
+    height: 100%;
+    width: 100%;
+    max-height: 10em;
+    max-width: 20em;
+    font-size: 0.75em;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.mapping-field-top {
+	vertical-align: top;
+	display: table-row;
+	height: 100%;
+    width: 9em;
+	font-size: 1em;
+}
+
+.mapping-field-bottom {
+	vertical-align: bottom;
+	display: table-row;
+}
+
+.mapping-field-occurence {
+	color: #777777;
+	font-size: 1em;
+	display: inline-block;
+	selected {
+	  color: #FFFFFF;
+	}
+}
+
+.mapping-field  .dropdown-trigger {
+	display: none !important;
+	padding: 6px !important;
 }
 
 .field_value_valid {
@@ -323,54 +437,18 @@ td.mapping-widget-paging:hover {
 	color: #FFFFFF;
 }
 
-.field-value-cell .dropdown-trigger {
-	display: none !important;
+.field_value_valid .mapping-field-occurence, 
+.field_value_invalid .mapping-field-occurence, 
+.field_value_suspicious .mapping-field-occurence {
+	color: #FFFFFF;
 }
 
-.field-value-cell {
-	height: 100%;
-	max-width: 600px;
+.field_value_valid a, .field_value_invalid a {
+	color: #D9D4CA;
 }
 
-.action_menu {
-	padding-bottom: 50px;
+.field_value_suspicious a {
+	color: #777777;
 }
-
-.item-card-values {
-	column-span: 3;
-	width: 45em;
-	height: 9em;
-}
-
-.xml-view {
-	overflow-x: scroll;
-	overflow-y: scroll;
- 	width: 45em;
-}
-
-.xml-view-short {
-    height: 9em;
-}
-
-.xml-view-long {
-    width: 60em;
-    height: 45em;
-}
-
-.item-label {
-	height: 4.5em;
-	width: 15em;
-}
-
-.xml-view-source {
-	display: none;
-}
-
-.item-card-controls {
-	height: 4.5em;
-}
-
-.mapping-card-controls {
-	height: 3.5em;
-}
+/*** END OF FIELD VALUE ***/
 

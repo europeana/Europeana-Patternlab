@@ -23,27 +23,27 @@ define(['jquery'], function ($) {
     }
     
     function bindTableCellClick(){
-    	$('.field-value-cell .dropdown-menu a').on('click', function(e){
+    	$('.mapping-field .dropdown-menu a').on('click', function(e){
           e.preventDefault();
     	  var $el = $(e.target);
     	  var val = $el.text();
-    	  var $cell = $el.closest('.field-value-cell');
+    	  var $cell = $el.closest('.mapping-field')
     	  var cellId = $cell.attr('id');
     	  setFieldValueStatus(cellId, val);
     	});
     	
-    }
+    } 
     
     function expandCollapseMappingCard() {
-        $('.mapping-widget-expanded').hide();
+        $('.widget-expanded').hide();
     	$('.values-expand').click(function() {
-    		$('.mapping-widget-expanded').slideToggle('1000');
-    		$('.mapping-widget-collapsed').hide();
+    		$('.widget-collapsed').hide();
+    		$('.widget-expanded').show();
     	});
     	
     	$('.values-collapse').click(function() {
-    		$('.mapping-widget-expanded').hide();
-    		$('.mapping-widget-collapsed').show();
+    		$('.widget-expanded').hide();
+    		$('.widget-collapsed').show();
     	});
     }
     
@@ -63,11 +63,10 @@ define(['jquery'], function ($) {
         });
     }
     
-	function pageInit() {
-      
-      log('typeof pageName ' + (typeof pageName));
-      
-	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
+	function pageInit() {     
+//    log('typeof pageName ' + (typeof pageName));
+//      
+//	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
 	  
       $(window).on('scroll', function() {
         log('close open menus here...')
