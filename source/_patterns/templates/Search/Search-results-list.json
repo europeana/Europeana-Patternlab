@@ -797,7 +797,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "/images/search/search-result-thumb-2.jpg",
+        "src": "/images/search/search-result-thumb-lincoln.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -1082,7 +1082,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "http://placeimg.com/400/300/tech",
+        "src": "/images/search/search-result-thumb-2.jpg",
         "alt": "Rectangle"
       },
       "origin": {
