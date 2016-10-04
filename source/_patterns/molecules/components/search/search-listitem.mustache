@@ -2,23 +2,21 @@
 
   <div class="item-preview">
     <div class="item-image">
-        <div class="XXXXXXXXXXXXXXXXXXXXXXXthumb-square{{^ img.src }} text-only{{/ img.src }}">
-          <div class="inner">
-            <a class="link"
-               target="{{target}}"
-               href="{{object_url}}">
-               {{# img.src }}
-                 <img src="{{img.src}}"/>
-               {{/ img.src }}
-               {{^ img.src }}
-                 <span class="show-with-grid missing-image-text">
-                   {{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}
-                   {{text.medium}}
-                 </span>
-               {{/ img.src }}
-            </a>
-          </div>
-        </div>
+      <div class="inner">
+        <a class="link"
+           target="{{target}}"
+           href="{{object_url}}">
+           {{# img.src }}
+             <img src="{{img.src}}"/>
+           {{/ img.src }}
+           {{^ img.src }}
+             <span class="show-with-grid missing-image-text">
+               {{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}
+               {{text.medium}}
+             </span>
+           {{/ img.src }}
+        </a>
+      </div>
     </div>
   </div>
 

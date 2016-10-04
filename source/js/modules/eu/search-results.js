@@ -50,7 +50,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     if(toFix.length>0){
       require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create($(toFix));
+        var ellipsis = EllipsisUtil.create($(toFix), {sub: '...XXX'});
         for(var i = 0; i < ellipsis.length; i++){
           ellipsisObjects.push(ellipsis[i]);
         }
@@ -61,7 +61,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     if(noImageTexts.size()>0){
       require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create(noImageTexts);
+        var ellipsis = EllipsisUtil.create(noImageTexts, {sub: '...XXXX'});
         for(var i = 0; i < ellipsis.length; i++){
           ellipsisObjects.push(ellipsis[i]);
         }
