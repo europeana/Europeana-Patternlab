@@ -41,6 +41,8 @@ require.config({
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
 
+    masonry:                       '../../lib/desandro/masonry.pkgd',
+
     media_controller:              '../../eu/media/search-media-controller',
     media_viewer_iiif:             '../../eu/media/search-iiif-viewer',
     media_viewer_pdf:              '../../eu/media/search-pdf-ui-viewer',
