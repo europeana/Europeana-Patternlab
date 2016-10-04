@@ -753,6 +753,7 @@
   "search_results": [
       {
       "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
+      "creator": "Charles Rennie Mackintosh",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -791,6 +792,7 @@
     },
     {
       "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
+      "creator": "Charles Rennie Mackintosh and Abraham Lincoln",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -829,6 +831,7 @@
     },
     {
       "title": "Glasgow",
+      "creator": "Unknown",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -867,6 +870,7 @@
     },
     {
       "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie",
+      "creator": "Charles Rennie Mackintosh",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -905,6 +909,7 @@
     },
     {
       "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
+      "creator": "Charles Rennie Mackintosh",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -943,6 +948,7 @@
     },
     {
       "title": "Glasgow School of Art - Interior, alcove for mosaic | Mackintosh, Charles Rennie",
+      "creator": "Charles Rennie Mackintosh",
       "is_image": true,
       "item_type": {
         "name": "Photograph",
@@ -981,6 +987,7 @@
     },
     {
       "agent": "The Elephant Scribbler",
+      "creator": "Confused Horse",
       "title": "An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap",
       "is_image": true,
       "item_type": {
@@ -1028,6 +1035,7 @@
     },
     {
       "agent": "Rembrandt van Rijn",
+      "creator": "Rembrandt",
       "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
       "is_audio": true,
       "item_type": {
@@ -1075,6 +1083,7 @@
     },
     {
       "agent": "Nicolaes Tulp",
+      "creator": "Nicolaes Tulp",
       "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
       "is_audio": true,
       "item_type": {
@@ -1122,6 +1131,7 @@
     },
     {
       "agent": "Me",
+      "creator": "Me",
       "title": "Self portrait",
       "is_text": true,
       "item_type": {
@@ -1169,6 +1179,7 @@
     },
     {
       "agent": "Rembrandt, in association with Belshazzar",
+      "creator": "Rembrandt",
       "title": "Belshazzars Feast",
       "is_text": true,
       "item_type": {
@@ -1216,6 +1227,7 @@
     },
     {
       "agent": "Rembrandt van Rijn",
+      "creator": "Rembrandt van Rijn",
       "title": "The Stoning of Saint Stephen",
 
             "xxximg": {

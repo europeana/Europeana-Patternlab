@@ -34,34 +34,12 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
   }
 
   var handleEllipsis = function(){
-    var texts = results.find('.result-items h2:not(.js-ellipsis)');
-    var toFix = [];
-
-    texts.css('overflow-y', 'auto');
-
-    texts.each(function(){
-      if($(this).find('a')[0].offsetHeight > $(this).height()){
-        $(this).addClass('js-ellipsis');
-        toFix.push($(this));
-      }
-    });
-
-    texts.css('overflow-y', 'hidden');
-
-    if(toFix.length>0){
-      require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create($(toFix), {sub: '...XXX'});
-        for(var i = 0; i < ellipsis.length; i++){
-          ellipsisObjects.push(ellipsis[i]);
-        }
-      });
-    }
 
     var noImageTexts = results.find('.search-list-item.missing-image .item-image .missing-image-text:not(.js-ellipsis)');
 
     if(noImageTexts.size()>0){
       require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create(noImageTexts, {sub: '...XXXX'});
+        var ellipsis = EllipsisUtil.create(noImageTexts);
         for(var i = 0; i < ellipsis.length; i++){
           ellipsisObjects.push(ellipsis[i]);
         }

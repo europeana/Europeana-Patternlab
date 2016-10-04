@@ -35,6 +35,11 @@
     }
   }
 
+  h3{
+    font-size: $font-size-slightly-smaller;
+    font-weight: bold;
+  }
+
   footer{
     font-size: $font-size-slightly-smaller;
     margin-bottom: $space;
@@ -150,8 +155,14 @@
     position:   relative;
 
     h2{
-      font-size: $font-size-norm;
-      line-height: 1.4;
+      font-size:     $font-size-norm;
+      line-height:   1.4;
+    }
+
+    h2, h3{
+      overflow:      hidden;
+      text-overflow: ellipsis;
+      white-space:   nowrap;
     }
 
     a.show-with-grid{
@@ -180,9 +191,11 @@
       width:      auto;
 
       h2{
-        max-height:    2.8em;
-        margin-bottom: 0;
-        overflow-y:    hidden;
+        margin-bottom:  0.6em;
+        max-height:     1.4em;
+      }
+      h2, h3{
+        margin-right:   1.6rem;
       }
     }
 
@@ -196,7 +209,7 @@
       padding:          0 1em 1em 1em;
 
       .item-agent{
-        bottom:           0.4em;
+        bottom:           1.8em;
         overflow:         hidden;
         padding-right:    4em;
         position:         absolute;
@@ -266,13 +279,13 @@
 
       border:         1px solid #dedede;
       border-top:     0;
-      height:         3.6em;
+      height:         3.8em;
       padding:        0.5em;
 
       footer{
         margin:   0;
         position: absolute;
-        bottom:   .9em;
+        bottom:   1.6em;
         right:    1em;
       }
 
