@@ -30,8 +30,10 @@
 
   <div class="item-info {{^ img.src }}hide-with-grid{{/ img.src }}">
 
-    <h2><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a>&nbsp;&nbsp;</h2>
-
+    <h2><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}{{#agent}} | {{ agent }}{{/agent}}</a></h2>
+    {{#creator}}
+      <h3><a href="{{object_url}}"{{#link_attrs}} {{name}}="{{value}}"{{/link_attrs}}>{{ . }}</a></h3>
+    {{/creator}}
     {{#text}}
     <p class="excerpt">
        {{text.medium}}
