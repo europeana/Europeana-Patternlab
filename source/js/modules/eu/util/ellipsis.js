@@ -4,11 +4,11 @@ define(['jquery', 'util_resize'], function($){
 
       var $cmp      = $(cmp);
       var $inner    = $cmp.find('.ellipsis-inner');
-      var text      = [];
-      var sub       = ops && ops.sub ? ops.sub : '...XXX';
       var disabled  = false;
-      var tail      = ops && ops.tail ? ops.tail : '...';
       var fixed     = false;
+      var sub       = ops && ops.sub ? ops.sub : '...XXX';
+      var tail      = ops && ops.tail ? ops.tail : '...';
+      var text      = [];
       var totalText = '';
 
       if(ops && ops.fixed){
