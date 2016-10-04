@@ -988,7 +988,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "http://placeimg.com/400/300/people",
+        "src": "/images/search/search-result-thumb-giraffe.png",
         "alt": "Rectangle"
       },
       "origin": {
