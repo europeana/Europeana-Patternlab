@@ -183,12 +183,18 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     handleIE();
     handleEllipsis();
 
-    require(['masonry'], function(Masonry){
-      masonry = new Masonry( '.result-items', {
-        itemSelector: '.search-list-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
+    require(['jqImagesLoaded'], function(){
+      $('.result-items').imagesLoaded().always( function( instance ) {
+
+        require(['masonry'], function(Masonry){
+          masonry = new Masonry( '.result-items', {
+            itemSelector: '.search-list-item',
+            columnWidth: '.grid-sizer',
+            percentPosition: true
+          });
+        });
       });
+
     });
   };
 

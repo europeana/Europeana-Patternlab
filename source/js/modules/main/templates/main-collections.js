@@ -38,6 +38,7 @@ require.config({
 
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jquery:                        '../../lib/jquery/jquery',
+    jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
 
