@@ -117,12 +117,8 @@
     }
   }
 
-  .search-list-item{
-
-    border:     none;
-    float:      left;
-    overflow:   hidden;
-    position:   relative;
+  .search-list-item,
+  .grid-sizer{
     width:      100%;
 
     @media all and (min-width: $bp-small-3) {
@@ -140,6 +136,15 @@
     @media all and (min-width: $bp-xl) {
       width:    33.33%;
     }
+  }
+
+  .search-list-item{
+
+    border:     none;
+    float:      left;
+    overflow:   hidden;
+    position:   relative;
+
 
     h2{
       font-size: $font-size-norm;
