@@ -36,18 +36,18 @@
   }
 
   h3{
-    font-size: $font-size-slightly-smaller;
+    font-size:   0.75rem;
     font-weight: bold;
   }
 
   footer{
-    font-size: $font-size-slightly-smaller;
+    font-size: 1.1em;
     margin-bottom: $space;
     @extend .cf;
   }
 
   .highlight{
-    color: $peachy;
+    color: $gray-light;
   }
 
   .excerpt{
@@ -143,7 +143,7 @@
     }
 
     @media all and (min-width: $bp-xl) {
-      width:    33.33%;
+      width:    32.5%;
     }
   }
 
@@ -184,18 +184,46 @@
 
     .item-info{
 
+      border:     1px solid #dedede;
+      border-top: 0;
+
       float:      none;
-      margin:     0 1em;
-      padding:    0;
+      margin:     0 0.5em;
+      padding:    0.5em;
       position:   relative;
-      width:      auto;
+      width:          auto;
+
+      footer{
+        margin:    0;
+        position:  absolute;
+        right:     0.5em;
+        top:       50%;
+        transform: translateY(-50%);
+
+        .item-metadata{
+          float:      none;
+          height:     1em;
+          margin:     0;
+          width:      1em;
+        }
+      }
+
+      .excerpt,
+      .item-concepts,
+      .item-origin{
+         display: none;
+      }
 
       h2{
-        margin-bottom:  0.6em;
+        margin-bottom:  0;
         max-height:     1.4em;
       }
       h2, h3{
         margin-right:   1.6rem;
+      }
+      h3{
+        margin-top:    $space-quarter;
+        margin-bottom: $space-half;
       }
     }
 
@@ -205,7 +233,7 @@
       border: 1px solid #dedede;
 
       height:           100%;
-      margin:           0 1em;
+      margin:           0 0.5em;
       padding:          0 1em 1em 1em;
 
       .item-agent{
@@ -224,7 +252,7 @@
       border-bottom:    0;
 
       float:            none;
-      margin:           1em 1em 0 1em;
+      margin:           0.5em 0.5em 0 0.5em;
       min-height:       unset;
 
       width:            auto;
@@ -244,65 +272,55 @@
       .item-info{
         border:     0;
         bottom:     1.56em;
-        font-size:  0.9em;
         height:     1em;
         position:   absolute;
         right:      1.56em;
         width:      1em;
-      }
-
-      .item-preview{
-
-         border-bottom: solid 1px #dedede;
-         padding:       0.5em;
-         text-align:    left;
-
-        .item-image{
-
-          .ellipsis-inner{
-            display: inline;
-          }
-          .icon{
-              color: $peachy;
-              float: right;
-              position: relative;
-              top: 4px;
-          }
+        .icon{
+          color:     $gray-light;
+          float:     right;
+          font-size: 1.1em;
+          left:      1.1em;
+          position:  relative;
+          top:       4px;
         }
       }
 
+      .item-preview{
+        border-bottom: solid 1px #dedede;
+        padding-top:   0.6em;
+        text-align:    left;
+        overflow:      hidden;
+      }
+
       .missing-image-text{
+        line-height:   1.6em;
         max-height:    16em;
-      }
-    }
+        overflow:      hidden;
+        position:      relative;
+        text-align:    justify;
+        margin-right:  -0.5em;
+        padding-left:  1.5em;
+        padding-right: 2em;
+        margin-bottom: 2em;
 
-    .item-info{
+        &:before,
+        &:after {
+          position:   absolute;
+          right:      1em;
+        }
 
-      border:         1px solid #dedede;
-      border-top:     0;
-      height:         4.4em;
-      padding:        0.5em;
+        &:before {
+          bottom:  1px;
+          content: '...';
+        }
 
-      footer{
-        margin:   0;
-        position: absolute;
-        bottom:   1.6em;
-        right:    1em;
-      }
-
-      footer .item-metadata{
-
-        float:      none;
-        height:     1em;
-        margin:     0;
-        width:      1em;
-      }
-
-      .excerpt,
-      .item-concepts,
-      .item-origin{
-
-         display: none;
+        &:after {
+          background: white;
+          content:    '';
+          height:     1.6em;
+          width:      1em;
+        }
       }
     }
   }

@@ -33,21 +33,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
   }
 
-  var handleEllipsis = function(){
-
-    var noImageTexts = results.find('.search-list-item.missing-image .item-image .missing-image-text:not(.js-ellipsis)');
-
-    if(noImageTexts.size()>0){
-      require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create(noImageTexts);
-        for(var i = 0; i < ellipsis.length; i++){
-          ellipsisObjects.push(ellipsis[i]);
-        }
-      });
-      noImageTexts.addClass('js-ellipsis');
-    }
-  }
-
   var simulateUrlChange = function(param, newVal, replace){
     var state         = {};
         state[param]  = newVal;
@@ -179,9 +164,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     }
 
     updateViewParamInLinks('grid');
-
     handleIE();
-    handleEllipsis();
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
