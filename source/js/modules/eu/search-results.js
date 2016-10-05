@@ -183,24 +183,26 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     handleIE();
     handleEllipsis();
 
-    require(['jqImagesLoaded'], function(){
-      $('.result-items').imagesLoaded().always( function( instance ) {
+    require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
-        require(['masonry'], function(Masonry){
-          masonry = new Masonry( '.result-items', {
-            itemSelector: '.search-list-item',
-            columnWidth: '.grid-sizer',
-            percentPosition: true
-          });
-        });
+      masonry = new Masonry( '.result-items', {
+        itemSelector: '.search-list-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
       });
 
+      $('.result-items').imagesLoaded().progress( function(){
+        if(masonry){
+          masonry.layout();
+        }
+      });
     });
   };
 
   var showList = function(save){
     if(masonry){
       masonry.destroy();
+      masonry = false;
     }
     $('body').removeClass('display-grid');
     btnList.addClass('is-active');
