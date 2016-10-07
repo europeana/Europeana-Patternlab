@@ -246,14 +246,16 @@
 </main>
 {{> molecules/components/photoswipe/photoswipe }}
 
-{{#is_foyer}}
-  {{> organisms/global/footer }}
-  {{> molecules/forms/feedback }}
-{{/is_foyer}}
-{{^is_foyer}}
-  {{#footer}}
-    <footer class="ve-footer footer" role="contentinfo">
-      {{> molecules/navigation/linklist-simple}}
-    </footer>
-  {{/footer}}
-{{/is_foyer}}
+{{# page_data }}
+  {{#is_foyer}}
+    {{> organisms/global/footer }}
+    {{> molecules/forms/feedback }}
+  {{/is_foyer}}
+  {{^is_foyer}}
+    {{#footer}}
+      <footer class="ve-footer footer" role="contentinfo">
+        {{> molecules/navigation/linklist-simple}}
+      </footer>
+    {{/footer}}
+  {{/is_foyer}}
+{{/ page_data }}
