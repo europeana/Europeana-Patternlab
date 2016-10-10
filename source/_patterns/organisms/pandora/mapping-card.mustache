@@ -1,4 +1,4 @@
-<div class="container-large">
+<div class="container-large" {{#object_id}}id="{{.}}"{{/object_id}}>
 	<table class="card-component">
 		<tr class="widget-collapsed">
 			<td class="mapping-card-controls">
@@ -41,4 +41,7 @@
 			</td>
 		</tr>
 	 </table>
+	 <div class="mapping-card-dropdown">
+		 {{#dropdown}}{{>molecules/controls/dropdown-menu}}{{/dropdown}}
+	 </div>
 </div>

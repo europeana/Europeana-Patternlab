@@ -5,8 +5,8 @@ define(['jquery'], function ($) {
     }
 
     function setFieldValueStatus(id, status){
-    	$('#' + id).removeClass('field_value_valid').removeClass('field_value_invalid').removeClass('field_value_suspicious')
-    	
+    	log('set field value id = ' + id);    	
+    	$('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');   	
     	switch (status) {
 			case "Valid": 
 				$('#' + id).addClass('field_value_valid'); 
@@ -22,16 +22,24 @@ define(['jquery'], function ($) {
 		}
     }
     
-    function bindTableCellClick(){
-    	$('.mapping-field .dropdown-menu a').on('click', function(e){
-          e.preventDefault();
-    	  var $el = $(e.target);
-    	  var val = $el.text();
-    	  var $cell = $el.closest('.mapping-field')
-    	  var cellId = $cell.attr('id');
-    	  setFieldValueStatus(cellId, val);
+    function bindTableCellClick(){   	
+    	$('.mapping-field .flag').on('click', function(e){
+        	var $cell = $(e.target).closest('.mapping-field')
+    		var cellId = $cell.attr('id');
+        	log('show menu for ' + cellId + ' menu length = ' +   ( $('.theme_select')).length  );
+        	$('.theme_select').attr('active-cell', cellId);
     	});
     	
+    	$('body').on('click', '.dropdown-menu a', function(e){
+          e.preventDefault();
+      	  var $el = $(e.target);
+      	  var val = $el.text();
+      	  var cellId = $('.theme_select').attr('active-cell');
+      	  log('clicked on cell id ' + cellId);
+      	  
+      	  setFieldValueStatus(cellId, val);
+      	});
+ 	
     } 
     
     function expandCollapseMappingCard() {
