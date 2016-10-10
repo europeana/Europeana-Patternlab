@@ -20,8 +20,38 @@
 		}
 	],
 	
+	"object_id": "mapping_card_01",
+	"parent_id": "mapping_card_00",
 	"prefix": "@rdf",
     "name": "about",
+	"dropdown": {
+	  "style_modifier": "theme_select",
+	  "menu_id": "mapping-card-dropdown",
+	  "button_title": " ",
+	  "menu_title": "Set item as:",
+	  "items": [
+	    {
+	      "text": "Valid",
+	      "url": "#"
+	    },
+	    {
+	      "text": "Suspicious",
+	      "url": "#"
+	    },
+	    {
+	      "text": "Invalid",
+	      "url": "#"
+	    },
+	    {
+	      "divider": true
+	    },
+	    {
+	      "text": "Remove all marks",
+	      "url": "#"
+	    }
+	  ]
+	},
+    
     "field_value_cells": [
       {
         "object_id": "57d93b11cbf72d03def1a28b1",
@@ -31,34 +61,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 126,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 126
       },
       {
         "object_id": "57d93b11cbf72d03def1a28c2",
@@ -68,34 +71,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 12,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 12
       },
       {
         "object_id": "57d93b11cbf72d03def1a28d3",
@@ -105,34 +81,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 3450,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 3450
       },
       {
         "object_id": "57d93b11cbf72d03def1a28e4",
@@ -142,34 +91,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 7,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 7
       },
       {
         "object_id": "57d93b11cbf72d03def1a28f5",
@@ -179,34 +101,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 24,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 24
       },
       {
         "object_id": "57d93b11cbf72d03def1a2906",
@@ -216,34 +111,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 126,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 126
       },
       {
         "object_id": "57d93b11cbf72d03def1a2917",
@@ -253,34 +121,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 625,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 625
       },
       {
         "object_id": "57d93b11cbf72d03def1a2928",
@@ -290,34 +131,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 38,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 38
       },
       {
         "object_id": "57d93b11cbf72d03def1a2939",
@@ -327,34 +141,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 29,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 29
       },
       {
         "object_id": "57d93b11cbf72d03def1a29410",
@@ -364,34 +151,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 2,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 2
       },
       {
         "object_id": "57d93b11cbf72d03def1a29411",
@@ -401,34 +161,7 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 2,
-        "dropdown": {
-          "style_modifier": "theme_select",
-          "menu_id": "object_furtheractions_test",
-          "button_title": " ",
-          "menu_title": "Set item as:",
-          "items": [
-            {
-              "text": "Valid",
-              "url": "#"
-            },
-            {
-              "text": "Suspicious",
-              "url": "#"
-            },
-            {
-              "text": "Invalid",
-              "url": "#"
-            },
-            {
-              "divider": true
-            },
-            {
-              "text": "Remove all marks",
-              "url": "#"
-            }
-          ]
-        }
+        "occurence": 2
       }
     ]
 }

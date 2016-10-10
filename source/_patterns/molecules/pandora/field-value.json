@@ -21,33 +21,5 @@
     "tooltipped_text": "Some Text or URL",
     "tooltip_text": "The Tooltip for Text or URL"
   },
-  "occurence": "123",
-  "dropdown": {
-    "menu-title": "Set item as:",
-    "button_title": " ",
-    "menu_id": "object_furtheractions_test",
-    "style_modifier": "theme_select",
-    "items": [
-    {
-      "text": "Valid",
-      "url": "#"
-    },
-    {
-      "text": "Suspicious",
-      "url": "#"
-    },
-    {
-      "text": "Invalid",
-      "url": "#"
-    },
-    {
-      "divider": true,
-      "url": false
-    },
-    {
-      "text": "Remove all marks",
-      "url": "#"
-    }
-    ]
-  }
+  "occurence": "262"
 }
