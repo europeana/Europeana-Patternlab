@@ -259,6 +259,8 @@
 
       .item-image{
         a img{
+          background-size: cover;
+          background-repeat: no-repeat;
           max-width:  100%;
           max-height: 100%;
           min-height: 12em;
