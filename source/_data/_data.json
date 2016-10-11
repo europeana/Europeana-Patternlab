@@ -761,9 +761,11 @@
             "newsletter":
             {
               "signup": "Sign up for our newsletter",
-              "email-address-invalid": "Email must be a valid email address.",
-              "email-address-required": "Email must be specified",
-              "language-required": "A language must be specified."
+              "submit-alt": "Subscribe",
+              "choose-language":"Choose a language",
+              "email-address-invalid": "Please enter a valid email address.",
+              "email-address-required": "Please enter your email address.",
+              "language-required": "Please choose a language for your newsletter."
             },
             "our-sites": "Our sites",
             "professional": "Professional",
