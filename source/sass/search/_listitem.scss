@@ -50,6 +50,12 @@
     color: $gray-light;
   }
 
+  .highlight-text{
+    font-size: 0.8em;
+    position:  relative;
+    top:       -2px;
+  }
+
   .excerpt{
     display: none;
 
