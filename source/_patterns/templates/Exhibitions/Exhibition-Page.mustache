@@ -68,7 +68,6 @@
 
           {{! NAV ELEMENTS }}
 
-          {{#is_exhibition}}
             <div class="ve-chapter-selection-container">
               <div class="ve-chapter-selection-container-inner cf">
                 {{#chapter_elements}}
@@ -83,12 +82,6 @@
               </div>
               {{> templates/Exhibitions/Next-Prev-Chapter }}
             </div>
-          {{/is_exhibition}}
-          {{#is_chapter}}
-            <div class="ve-chapter-selection-container cf">
-              {{> templates/Exhibitions/Next-Prev-Chapter }}
-            </div>
-          {{/is_chapter}}
         {{/is_credit}}
       {{/is_foyer}}
 
