@@ -52,126 +52,125 @@
 		}
 	],
 
-	"navigation": 
-	{
-		"home_url": "#",
-		"home_text": "Return to Home",
-		"next_prev": 
+    "metis_header": {
+		"navigation": 
 		{
-			"next_url": "next_url_here",
-			"prev_url": "prev_url_here",
-			"results_url": "results_url_here"
-		},
-
-		"footer": false,
-		"global": 
-		{
-			"options": 
+			"home_url": "#",
+			"home_text": "Return to Home",
+			"next_prev": 
 			{
-				"search_active": false,
-				"settings_active": true
+				"next_url": "next_url_here",
+				"prev_url": "prev_url_here",
+				"results_url": "results_url_here"
 			},
-
-			"logo": 
+	
+			"footer": false,
+			"global": 
 			{
-				"url": "#",
-				"text": "Europeana Pandora"
-			},
-
-			"primary_nav": 
-			{
-				"menu_id": "main-menu",
-				"items": 
-				[
-					{
-						"text": "New Dataset",
-						"url": "#",
-						"is_current": false,
-						"submenu": false
-					},
-
-					{
-						"text": "All Datasets",
-						"url": "javascript:alert('Hello')",
-						"submenu": 
+				"options": 
+				{
+					"search_active": false,
+					"settings_active": true
+				},
+	
+				"logo": 
+				{
+					"url": "#",
+					"text": "Europeana Pandora"
+				},
+				"primary_nav": 
+				{
+					"menu_id": "main-menu",
+					"items": 
+					[
 						{
-							"items": 
-							[
-								{
-									"url": "#",
-									"text": "Submenu Item 11"
-								},
-
-								{
-									"url": "#",
-									"text": "Submenu Item 12"
-								},
-
-								{
-									"url": "Menu Item 2",
-									"text": "Submenu Item 13"
-								}
-							]
-						}
-					},
-
-					{
-						"text": "Management",
-						"url": "#",
-						"submenu": 
+							"text": "New Dataset",
+							"url": "#",
+							"is_current": false,
+							"submenu": false
+						},
+	
 						{
-							"items": 
-							[
-								{
-									"url": false,
-									"text": "Submenu Item 21",
-									"subtitle": true
-								},
-
-								{
-									"url": false,
-									"text": "Submenu Item 22",
-									"message": true
-								},
-
-								{
-									"url": "www.exhibitions.eu",
-									"text": "Submenu Item 23"
-								},
-
-								{
-									"is_divider": true
-								},
-
-								{
-									"url": "#",
-									"text": "Submenu Item 24"
-								}
-							]
+							"text": "All Datasets",
+							"url": "javascript:alert('Hello')",
+							"submenu": 
+							{
+								"items": 
+								[
+									{
+										"url": "#",
+										"text": "Submenu Item 11"
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 12"
+									},
+	
+									{
+										"url": "Menu Item 2",
+										"text": "Submenu Item 13"
+									}
+								]
+							}
+						},
+	
+						{
+							"text": "Management",
+							"url": "#",
+							"submenu": 
+							{
+								"items": 
+								[
+									{
+										"url": "javascript:alert('Hi')",
+										"text": "Submenu Item 21"
+									},
+	
+									{
+										"url": "javascript:alert('Hi')",
+										"text": "Submenu Item 22"
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 23"
+									},
+	
+									{
+										"is_divider": true
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 24"
+									}
+								]
+							}
+						},
+	
+						{
+							"text": false,
+							"url": "#",
+							"is_current": false,
+							"submenu": false
 						}
-					},
-
-					{
-						"text": "",
-						"url": "#",
-						"is_current": false,
-						"submenu": false
-					}
-				]
-			},
-			"utility_nav": 
-			{
-				"menu_id": "settings-menu",
-				"style_modifier": "caret-right",
-				"tabindex": "6",
-				"items": 
-				[
-					{
-						"url": "#",
-						"text": "Wiki",
-						"icon": "settings"
-					}
-				]
+					]
+				},
+				"utility_nav": 
+				{
+					"menu_id": "settings-menu",
+					"style_modifier": "caret-right",
+					"tabindex": "6",
+					"items": 
+					[
+						{
+							"url": "#",
+							"text": "Wiki",
+							"icon": "settings"
+						}
+					]
+				}
 			}
 		}
 	},

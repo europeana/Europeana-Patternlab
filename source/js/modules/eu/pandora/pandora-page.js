@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'smartmenus'], function ($) {
 	
     function log(msg) {
         console.log(msg);
@@ -79,6 +79,30 @@ define(['jquery'], function ($) {
       $(window).on('scroll', function() {
         log('close open menus here...')
       });
+      
+      
+      require(['smartmenus'], function() {
+          require(['smartmenus_keyboard'], function() {
+      	    log('loaded menus');
+            $('.nav_primary>ul').smartmenus({
+                mainMenuSubOffsetX: -1,
+                mainMenuSubOffsetY: 4,
+                subMenusSubOffsetX: 6,
+                subMenusSubOffsetY: -6,
+                subMenusMaxWidth: null,
+                subMenusMinWidth: null
+              });
+              $('#settings-menu').smartmenus({
+                mainMenuSubOffsetX: -62,
+                mainMenuSubOffsetY: 4,
+                subMenusSubOffsetX: 0,
+                subMenusSubOffsetY: -6,
+                subMenusMaxWidth: null,
+                subMenusMinWidth: null
+              });
+          });
+      });
+      
       
       require(['jqDropdown'], function() {
         bindTableCellClick();
