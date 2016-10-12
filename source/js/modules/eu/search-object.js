@@ -716,8 +716,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
                 + '&name=n-' + $('h2.object-title').text()
 
                 + '&description=' + 'Andy'
-                + '&posttype=photo'
-                + '&click_thru=http://www.minds.com'
+//                + '&posttype=photo'
+                + '&clickthru=http://www.minds.com'
         log(url);
         window.open(url);
 
