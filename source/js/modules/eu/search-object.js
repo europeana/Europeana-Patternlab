@@ -707,7 +707,17 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 //        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
 
 //            var url = 'http://www.tumblr.com/share?url=' + imageUrl + '&caption=' + 'http://www.europeana.eu' + '&data-caption=' + 'http://www.europeana.eu' + '&t' + $('h2.object-title').text() + '&description=' + 'Andy&posttype=photo&show-via=0'
-            var url = 'http://www.tumblr.com/share/photo?source=' + imageUrl + '&caption=' + '<a href="http://www.europeana.eu">Europeana</a>' + '&t' + $('h2.object-title').text() + '&description=' + 'Andy&posttype=photo&click_thru=http://www.minds.com'
+            var url = 'http://www.tumblr.com/share/photo'
+                + '?source=' + imageUrl
+                + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">Europeana</a>'
+
+                + '&t=t-' + $('h2.object-title').text()
+                + '&title=title' + $('h2.object-title').text()
+                + '&name=n-' + $('h2.object-title').text()
+
+                + '&description=' + 'Andy'
+                + '&posttype=photo'
+                + '&click_thru=http://www.minds.com'
         log(url);
         window.open(url);
 
