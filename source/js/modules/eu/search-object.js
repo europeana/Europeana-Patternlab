@@ -697,6 +697,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       canonicalUrl = canonicalUrl.indexOf('?') > -1 ? canonicalUrl.split('?')[0] : canonicalUrl;
 
+      // TMP
+      canonicalUrl = canonicalUrl.replace('///', '//');
+
       if(confirm('decode img URI?')){
           imageUrl     = decodeURIComponent( imageUrl );
       }
