@@ -163,7 +163,7 @@
 					$(window).bind(getEventsNS([['resize orientationchange', $.proxy(this.winResize, this)]], eNS));
 
 					if (this.opts.subIndicators) {
-						this.$subArrow = $('<span/>').addClass('sub-arrow');
+						this.$subArrow = $('<span/>').addClass('sub-arrow').attr("aria-hidden", true);
 						if (this.opts.subIndicatorsText) {
 							this.$subArrow.html(this.opts.subIndicatorsText);
 						}
