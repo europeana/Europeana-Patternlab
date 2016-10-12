@@ -697,6 +697,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var imageUrl     = decodeURIComponent($('.media-viewer a').attr('href')); //.replace(ulrPattern, "https:");
 
         canonicalUrl = canonicalUrl.indexOf('?') > 0 ? canonicalUrl.split('?')[0] : canonicalUrl;
+        imageUrl     = imageUrl.split('?view=')[1];
 
         var params = '?canonicalUrl=' + canonicalUrl;
         params += '&data-title='      + $('h2.object-title').text();
