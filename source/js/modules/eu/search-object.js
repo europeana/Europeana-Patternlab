@@ -707,6 +707,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         params += '?content='      + imageUrl;
         params += '&canonicalUrl=' + canonicalUrl;
         params += '&caption='      + title;
+        params += '&posttype='     + 'photo';
 
         log('widget params = ' + params)
 
