@@ -703,7 +703,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 //        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 
 //        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
-        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&canonicalUrl=' + $('[hreflang="x-default"]').attr('href');
+//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
+        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
 
         window.open(url);
 
