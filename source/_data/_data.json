@@ -700,7 +700,8 @@
               "filter-by": "Filter by",
               "filter-all": "All",
               "fullscreen-enter": "full screen",
-              "fullscreen-exit":  "exit full screen"
+              "fullscreen-exit":  "exit full screen",
+              "skip-to-main":  "Skip to page contents"
             },
             "cookie_disclaimer": {
               "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
