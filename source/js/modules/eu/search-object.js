@@ -700,13 +700,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         params += '&data-content='    + imageUrl;
 
        // log(params);
-//        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+        if(confirm('widget?')){
 
-//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
-//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
-//        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
-//        var url = 'http://www.tumblr.com/share?url=' + imageUrl + '&caption=' + 'http://www.europeana.eu' + '&data-caption=' + 'http://www.europeana.eu' + '&t' + $('h2.object-title').text() + '&description=' + 'Andy&posttype=photo&show-via=0'
+          log('widget params = ' + params)
+          window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 
+        }
+        else{
             var url = 'http://www.tumblr.com/share/photo'
                 + '?source=' + imageUrl
                 + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">Europeana</a>'
@@ -720,6 +720,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 */
         log(url);
         window.open(url);
+
+        }
+
+//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
+//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
+//        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
+//        var url = 'http://www.tumblr.com/share?url=' + imageUrl + '&caption=' + 'http://www.europeana.eu' + '&data-caption=' + 'http://www.europeana.eu' + '&t' + $('h2.object-title').text() + '&description=' + 'Andy&posttype=photo&show-via=0'
+
 
 //        http://www.tumblr.com/share/link?url=[uri encoded URL]&amp;name=[title]&amp;description=[description]
         return false;
