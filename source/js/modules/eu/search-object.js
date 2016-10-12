@@ -696,7 +696,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var canonicalUrl = $('[property="og:url"]').attr('content');
             canonicalUrl    = encodeURIComponent( canonicalUrl );
 
-        var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
+        var imageUrl     = $('.media-viewer a').attr('href');
+        //    imageUrl     = imageUrl.split('?view=')[1];
 
         log('canonicalUrl = ' + canonicalUrl);
         log('imageUrl = '     + imageUrl);
@@ -704,7 +705,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var params = ''
         params += '?content='      + imageUrl;
         params += '&canonicalUrl=' + canonicalUrl;
-        //params += '&caption='      + title;
+        params += '&caption='      + title;
 
         log('widget params = ' + params)
 
