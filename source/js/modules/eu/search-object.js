@@ -701,7 +701,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var params = '?canonicalUrl=' + canonicalUrl;
         params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + imageUrl;
+        params += '&data-content='    + encodeURIComponent(imageUrl);
 
         log('params' + params);
         log('canonicalUrl ' + canonicalUrl);
