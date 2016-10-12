@@ -690,26 +690,50 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       scrollEvents.fireAllVisible();
 
+
+
+      var canonicalUrl = $('[hreflang="x-default"]').attr('href');
+      var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
+
+      canonicalUrl = canonicalUrl.indexOf('?') > -1 ? canonicalUrl.split('?')[0] : canonicalUrl;
+
+      if(confirm('decode img URI?')){
+          imageUrl     = decodeURIComponent( imageUrl );
+      }
+
+
+      log('canonicalUrl = ' + canonicalUrl);
+      log('imageUrl = '     + imageUrl);
+
+
+      $('.tumblr-share-button').after('<input id="tumblr" value="?canonicalUrl=' + canonicalUrl + '">');
+      $('.tumblr-share-button').after('<code>imageUrl-ref: ' + imageUrl + '</code>');
+
       $('.tumblr-share-button').on('click', function(){
 
-        var ulrPattern = /http:/ig,
-            params   = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href'); //.replace(ulrPattern, "https:"),
-            imageUrl = decodeURIComponent( $('.media-viewer a').attr('href').split('?view=')[1] );
+        var ulrPattern = /http:/ig;
+        var params   = '?canonicalUrl=' + canonicalUrl; //.replace(ulrPattern, "https:"),
 
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
 
-       // log(params);
         if(confirm('widget?')){
 
           log('widget params = ' + params)
-          window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+          if(confirm('use hack input?')){
 
+              var hi = $('#tumblr').val();
+              log('hi = ' + hi);
+              window.open('https://www.tumblr.com/widgets/share/tool' + hi, '', 'width=540,height=600');
+          }
+          else{
+              window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+          }
         }
         else{
             var url = 'http://www.tumblr.com/share/photo'
                 + '?source=' + imageUrl
-                + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">Europeana</a>'
+                + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">' + $('h2.object-title').text() + ' - Europeana</a>'
 /*
                 + '&t=t-' + $('h2.object-title').text()
                 + '&title=title' + $('h2.object-title').text()
