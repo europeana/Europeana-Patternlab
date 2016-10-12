@@ -710,6 +710,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 //            var url = 'http://www.tumblr.com/share/photo'
             var url = 'http://www.tumblr.com/share'
                 + '?source=' + imageUrl
+
+                + '&data-content=' + imageUrl
+                + '&content=' + imageUrl
+
                 + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">Europeana</a>'
 
                 + '&t=t-' + $('h2.object-title').text()
