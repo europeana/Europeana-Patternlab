@@ -690,111 +690,26 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       scrollEvents.fireAllVisible();
 
-
-
-//      var canonicalUrl = $('[hreflang="x-default"]').attr('href');
-      var canonicalUrl = $('[property="og:url"]').attr('content');
-
-      // TMP
-      canonicalUrl = 'https://test-npc.eanadev.org/portal/en/record/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_125386.html'
-
-      var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
-
-      canonicalUrl = canonicalUrl.indexOf('?') > -1 ? canonicalUrl.split('?')[0] : canonicalUrl;
-
-      // TMP
-      canonicalUrl = canonicalUrl.replace('///', '//');
-
-      if(confirm('decode img URI? ' + imageUrl)){
-          imageUrl     = decodeURIComponent( imageUrl );
-      }
-
-      if(confirm('encode CANONICAL?')){
-          canonicalUrl    = encodeURIComponent( canonicalUrl );
-      }
-
-
-      log('canonicalUrl = ' + canonicalUrl);
-      log('imageUrl = '     + imageUrl);
-
-
-      $('.tumblr-share-button').after('<input id="tumblr" value="?canonicalUrl=' + canonicalUrl + '">');
-      $('.tumblr-share-button').after('<code>imageUrl-ref: ' + imageUrl + '</code>');
-
       $('.tumblr-share-button').on('click', function(){
 
-        var title = $('h2.object-title').text();
+        //var canonicalUrl = $('[hreflang="x-default"]').attr('href');
+        var canonicalUrl = $('[property="og:url"]').attr('content');
+            canonicalUrl    = encodeURIComponent( canonicalUrl );
 
-        if(confirm('widget?')){
+        var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
 
-          if(confirm('use hack input?')){
+        log('canonicalUrl = ' + canonicalUrl);
+        log('imageUrl = '     + imageUrl);
 
-              var hi = $('#tumblr').val();
-              log('hi = ' + hi);
-              window.open('https://www.tumblr.com/widgets/share/tool' + hi, '', 'width=540,height=600');
-          }
-          else{
+        var params = ''
+        params += '?content='      + imageUrl;
+        params += '&canonicalUrl=' + canonicalUrl;
+        //params += '&caption='      + title;
 
-              var ulrPattern = /http:/ig;
-              var params   = '?canonicalUrl=' + canonicalUrl; //.replace(ulrPattern, "https:"),
+        log('widget params = ' + params)
 
-              if(confirm('use data prefixes')){
-                  params += '&data-title='      + 'pref: ' +$('h2.object-title').text();
-                  params += '&data-content='    + imageUrl;
-              }
-              else{
-                  params += '&title='      + 'no-pref: ' + $('h2.object-title').text();
-                  params += '&content='    + imageUrl;
-              }
+        window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 
-              log('widget params = ' + params)
-
-
-              window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
-          }
-        }
-        else{
-          var url = '';
-
-          if(confirm('share as photo')){
-
-            url = 'http://www.tumblr.com/share/photo'
-                + '?source=' + imageUrl
-                + '&title=' + title
-                + '&caption=' + '<a href="' + canonicalUrl + '">' + $('h2.object-title').text() + ' - Europeana</a>'
-                + '&clickthru=http://www.minds.com'
-                + '&contentlickthru=http://www.minds.com'
-
-             /*
-                + '&t=t-' + $('h2.object-title').text()
-                + '&title=title' + $('h2.object-title').text()
-                + '&name=n-' + $('h2.object-title').text()
-
-                + '&description=' + 'Andy'
-                + '&clickthru=http://www.minds.com'
-            */
-          }
-          else{
-              url = 'http://www.tumblr.com/share'
-                  + '?content=' + imageUrl
-                  + '&caption=' + '<a href="' + canonicalUrl + '">' + title + ' - Europeana</a>'
-                  + '&title=' +  title
-                  + '&posttype=photo'
-                  + '&clickthru=http://www.minds.com'
-                  + '&click_thru=http://www.minds.com/andyjmaclean'
-          }
-        log(url);
-        window.open(url);
-
-        }
-
-//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
-//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
-//        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
-//        var url = 'http://www.tumblr.com/share?url=' + imageUrl + '&caption=' + 'http://www.europeana.eu' + '&data-caption=' + 'http://www.europeana.eu' + '&t' + $('h2.object-title').text() + '&description=' + 'Andy&posttype=photo&show-via=0'
-
-
-//        http://www.tumblr.com/share/link?url=[uri encoded URL]&amp;name=[title]&amp;description=[description]
         return false;
       })
     };
