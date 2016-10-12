@@ -692,7 +692,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
 
 
-      var canonicalUrl = $('[hreflang="x-default"]').attr('href');
+//      var canonicalUrl = $('[hreflang="x-default"]').attr('href');
+      var canonicalUrl = $('[property="og:url"]').attr('href');
       var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
 
       canonicalUrl = canonicalUrl.indexOf('?') > -1 ? canonicalUrl.split('?')[0] : canonicalUrl;
