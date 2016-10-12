@@ -699,8 +699,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
 
-        log(params)
-        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+        log(params);
+//        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+
+        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
+        window.open(url);
+
         return false;
       })
     };
