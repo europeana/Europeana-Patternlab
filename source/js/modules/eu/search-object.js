@@ -693,7 +693,11 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
 
 //      var canonicalUrl = $('[hreflang="x-default"]').attr('href');
-      var canonicalUrl = $('[property="og:url"]').attr('href');
+      var canonicalUrl = $('[property="og:url"]').attr('content');
+
+      // TMP
+      canonicalUrl = 'https://test-npc.eanadev.org/portal/en/record/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_125386.html'
+
       var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
 
       canonicalUrl = canonicalUrl.indexOf('?') > -1 ? canonicalUrl.split('?')[0] : canonicalUrl;
@@ -703,6 +707,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       if(confirm('decode img URI?')){
           imageUrl     = decodeURIComponent( imageUrl );
+      }
+
+      if(confirm('encode CANONICAL?')){
+          canonicalUrl    = encodeURIComponent( canonicalUrl );
       }
 
 
