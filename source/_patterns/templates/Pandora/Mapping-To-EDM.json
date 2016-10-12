@@ -1,2651 +1,875 @@
 {
-	"css_files": [
+	"css_files": 
+	[
 		{
 			"path": "../../css/pandora/screen.css",
 			"media": "all"
 		},
+
 		{
 			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
 			"media": "all"
 		}
 	],
-	"js_files": [
+
+	"js_files": 
+	[
 		{
 			"path": "../../js/modules/require.js",
 			"data_main": "../../js/modules/main/templates/main-pandora"
 		}
 	],
-	"js_vars": [
+
+	"js_vars": 
+	[
 		{
 			"name": "pageName",
 			"value": "portal/index"
 		}
 	],
-	"page_title": "Pandora",
-	"breadcrumbs":
-	{
-		"items": [
-			{
-				"text": "Grandparent",
-				"url": "#"
-			},
-			{
-				"text": "Parent",
-				"url": "#"
-			},
-			{
-				"text": "Child",
-				"url": "#"
-			},
-			{
-				"text": "Grandchild",
-				"url": "#"
-			}
-		] 
-	},
-	
-	"navigation":
-    {
-        "home_url": "#",
-        "home_text": "Return to Home",
-        "next_prev":
-        {
-          "next_url": "next_url_here",
-          "prev_url": "prev_url_here",
-          "results_url": "results_url_here"
-        },
-        "footer": false,
-        "global":
-        {
-          "options":
-          {
-            "search_active": false,
-            "settings_active": true
-          },
-          "logo":
-          {
-            "url": "#",
-            "text": "Europeana Pandora"
-          },
-          "primary_nav":
-          {
-            "menu_id": "main-menu",
-            "items": [
-              {
-                "text": "Home",
-                "url": "#",
-                "is_current": false,
-                "submenu": false
-              },
-              {
-                "text": "Menu Item 1",
-                "url": "javascript:alert('Hello')",
-                "submenu": {
-                  "items": [
-                    {
-                      "url": "#",
-                      "text": "Submenu Item 11"
-                    },
-                    {
-                      "url": "#",
-                      "text": "Submenu Item 12"
-                    },
-                    {
-                      "url": "Menu Item 2",
-                      "text": "Submenu Item 13"
-                    }
-                  ]
-                }
-              },
-              {
-                "text": "Menu Item 2",
-                "url": "#",
-                "submenu": {
-                  "items": [
-                    {
-                      "url": false,
-                      "text": "Submenu Item 21",
-                      "subtitle": true
-                    },
-                    {
-                      "url": false,
-                      "text": "Submenu Item 22",
-                      "message": true
-                    },
-                    {
-                      "url": "www.exhibitions.eu",
-                      "text": "Submenu Item 23"
-                    },
-                    {
-                      "is_divider": true
-                    },
-                    {
-                      "url": "#",
-                      "text": "Submenu Item 24"
-                    }
-                  ]
-                }
-              },
-              {
-                "text": "",
-                "url": "#",
-                "is_current": false,
-                "submenu": false
-              }
-            ]
-          }
-		}
-	},
 
-	"action_menu": {
-		"sections": [
+	"page_title": "Pandora",
+	"breadcrumbs": 
+	[
+		{
+			"text": "Grandparent",
+			"url": "#"
+		},
+
+		{
+			"text": "Parent",
+			"url": "#"
+		},
+
+		{
+			"text": "Child",
+			"url": "#"
+		},
+
+		{
+			"text": "Grandchild",
+			"url": "#"
+		}
+	],
+
+    "metis_header": {
+		"navigation": 
+		{
+			"home_url": "#",
+			"home_text": "Return to Home",
+			"next_prev": 
 			{
-				"menu": {
-					"button_title": "View",
-					"menu_title": "Show:",
-					"menu_id": "object_furtheractions",
-					"style_modifier": "theme_select",
-					"items": [
+				"next_url": "next_url_here",
+				"prev_url": "prev_url_here",
+				"results_url": "results_url_here"
+			},
+	
+			"footer": false,
+			"global": 
+			{
+				"options": 
+				{
+					"search_active": false,
+					"settings_active": true
+				},
+	
+				"logo": 
+				{
+					"url": "#",
+					"text": "Europeana Pandora"
+				},
+				"primary_nav": 
+				{
+					"menu_id": "main-menu",
+					"items": 
+					[
 						{
-							"text": "Mapping to EDM",
-							"url": "javascript:$('.dropdown-trigger').innerHTML = 'Mapping to EDM'"
+							"text": "New Dataset",
+							"url": "#",
+							"is_current": false,
+							"submenu": false
 						},
+	
 						{
-							"text": "Source Schema",
-							"url": "#"
+							"text": "All Datasets",
+							"url": "javascript:alert('Hello')",
+							"submenu": 
+							{
+								"items": 
+								[
+									{
+										"url": "#",
+										"text": "Submenu Item 11"
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 12"
+									},
+	
+									{
+										"url": "Menu Item 2",
+										"text": "Submenu Item 13"
+									}
+								]
+							}
 						},
+	
 						{
-							"text": "Per Item",
-							"url": "#"
+							"text": "Management",
+							"url": "#",
+							"submenu": 
+							{
+								"items": 
+								[
+									{
+										"url": "javascript:alert('Hi')",
+										"text": "Submenu Item 21"
+									},
+	
+									{
+										"url": "javascript:alert('Hi')",
+										"text": "Submenu Item 22"
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 23"
+									},
+	
+									{
+										"is_divider": true
+									},
+	
+									{
+										"url": "#",
+										"text": "Submenu Item 24"
+									}
+								]
+							}
 						},
+	
 						{
-							"text": "XSLT Editor",
-							"url": "#"
+							"text": false,
+							"url": "#",
+							"is_current": false,
+							"submenu": false
+						}
+					]
+				},
+				"utility_nav": 
+				{
+					"menu_id": "settings-menu",
+					"style_modifier": "caret-right",
+					"tabindex": "6",
+					"items": 
+					[
+						{
+							"url": "#",
+							"text": "Wiki",
+							"icon": "settings"
 						}
 					]
 				}
-			},
-			{
-				"menu": {
-					"button_title": "Browse",
-					"menu_title": "Filter by:",
-					"menu_id": "object_furtheractions2",
-					"style_modifier": "theme_select",
-					"items": [
-						{
-							"text": "dc:title",
-							"url": "#"
-						},
-						{
-							"text": "@xml:lang",
-							"url": "#"
-						},
-						{
-							"text": "dc:creator",
-							"url": "#"
-						},
-						{
-							"text": "@xml:lang",
-							"url": "#"
-						},
-						{
-							"text": "dc:language",
-							"url": "#"
-						},
-						{
-							"text": "@xml:lang",
-							"url": "#"
-						},
-						{
-							"text": "dc:subject",
-							"url": "#"
-						},
-						{
-							"text": "@xml:lang",
-							"url": "#"
-						},
-						{
-							"text": "dc:identifier",
-							"url": "#"
-						}
-					]	
-				}
-			},
-			{
-				"search_box": {
-					"search_box_legend": "Search",
-					"search_box_label": "Search Label",
-					"search_box_hidden": "Search Hidden"
-				}
 			}
-		]
+		}
 	},
-		
-	"mapping_key": "edm:ProvidedCHO",
-	
-	"mapping_value": "edm:ProvidedCHO",
-	
-		"field_value_cells": 
+	"action_menu": 
+	[
+		{
+			"sections": 
+			[
+				{
+					"menu": 
+					{
+						"button_title": "View",
+						"menu_title": "Show:",
+						"menu_id": "object_furtheractions",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "Mapping to EDM",
+								"url": "javascript:$('.dropdown-trigger').innerHTML = 'Mapping to EDM'"
+							},
+
+							{
+								"text": "Source Schema",
+								"url": "#"
+							},
+
+							{
+								"text": "Per Item",
+								"url": "#"
+							},
+
+							{
+								"text": "XSLT Editor",
+								"url": "#"
+							}
+						]
+					}
+				},
+
+				{
+					"menu": 
+					{
+						"button_title": "Browse",
+						"menu_title": "Filter by:",
+						"menu_id": "object_furtheractions2",
+						"style_modifier": "theme_select",
+						"items": 
+						[
+							{
+								"text": "dc:title",
+								"url": "#"
+							},
+
+							{
+								"text": "@xml:lang",
+								"url": "#"
+							},
+
+							{
+								"text": "dc:creator",
+								"url": "#"
+							},
+
+							{
+								"text": "@xml:lang",
+								"url": "#"
+							},
+
+							{
+								"text": "dc:language",
+								"url": "#"
+							},
+
+							{
+								"text": "@xml:lang",
+								"url": "#"
+							},
+
+							{
+								"text": "dc:subject",
+								"url": "#"
+							},
+
+							{
+								"text": "@xml:lang",
+								"url": "#"
+							},
+
+							{
+								"text": "dc:identifier",
+								"url": "#"
+							}
+						]
+					}
+				}
+			]
+		},
+
+		{
+			"search_box": 
+			{
+				"search_box_legend": "Search",
+				"search_box_label": "Search Label",
+				"search_box_hidden": "Search Hidden"
+			}
+		}
+	],
+
+	"mapping_card": 
 	{
-		"items_line_1": 
+		"object_id": "mapping_card_01",
+		"prefix": "@rdf",
+		"name": "about",
+		"dropdown": 
+		{
+			"menu-title": "Set item as:",
+			"button_title": " ",
+			"menu_id": "mapping-card-dropdown",
+			"style_modifier": "theme_select",
+			"items": 
+			[
+				{
+					"text": "Valid",
+					"url": "#"
+				},
+
+				{
+					"text": "Suspicious",
+					"url": "#"
+				},
+
+				{
+					"text": "Invalid",
+					"url": "#"
+				},
+
+				{
+					"divider": true,
+					"url": false
+				},
+
+				{
+					"text": "Remove all marks",
+					"url": "#"
+				}
+			]
+		},
+
+		"field_value_cells": 
 		[
 			{
-				"field_value_cell": 
+				"object_id": "object_id00",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id00",
-					"tooltip": 
-					{
-						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/Provided...",
-						"tooltip_text": "The Tooltip for Text or URL 1"
-					},
+					"tooltipped_text": "http://mint-projects...",
+					"tooltip_text": "The Tooltip for Text or URL 1"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_00",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id01",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id01",
-					"tooltip": 
-					{
-						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/Provided...",
-						"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
-					},
+					"tooltipped_text": "http://mint-projects.image...",
+					"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_01",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id02",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id02",
-					"tooltip": 
-					{
-						"tooltipped_text": "http://mint-projects.image.ntua.gr/photography/Provided...",
-						"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
-					},
+					"tooltipped_text": "http://mint-proj...",
+					"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_02",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id03",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id03",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 4",
-						"tooltip_text": "The Tooltip for Text or URL 4"
-					},
+					"tooltipped_text": "Some Text or URL 4",
+					"tooltip_text": "The Tooltip for Text or URL 4"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_03",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id04",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id04",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 5",
-						"tooltip_text": "The Tooltip for Text or URL 5"
-					},
+					"tooltipped_text": "Some Text or URL 5",
+					"tooltip_text": "The Tooltip for Text or URL 5"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_04",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-
-		"items_line_2": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id10",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_10",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id10",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id11",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_11",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id11",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id12",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_12",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id12",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id13",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_13",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id13",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id14",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_14",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_3": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id20",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_20",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id14",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id21",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_21",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id20",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id22",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_22",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id21",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id23",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_23",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id22",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id24",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_24",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_4": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id30",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_30",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id23",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id31",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_31",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id24",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id32",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_32",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id30",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id33",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_33",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id31",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id34",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_34",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_5": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id40",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_40",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id32",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id41",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_41",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id33",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id42",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_42",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id34",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id43",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_43",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id40",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id44",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_44",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_6": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id50",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_50",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id41",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id51",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_51",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id42",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id52",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_52",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id43",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id53",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_53",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id44",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id54",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_54",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_7": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id60",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_60",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id50",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id61",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_61",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id51",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id62",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_62",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id52",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id63",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_63",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id53",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id64",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_64",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_8": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id70",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_70",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id54",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id71",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_71",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id60",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id72",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_72",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id61",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id73",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_73",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id62",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id74",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_74",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_9": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id80",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_80",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id63",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id81",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_81",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id64",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id82",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_82",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id70",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id83",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_83",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id71",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id84",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_84",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
-			}
-		],
-		"items_line_10": 
-		[
-			{
-				"field_value_cell": 
-				{
-					"field_value_id": "field_value_id90",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 6",
-						"tooltip_text": "The Tooltip for Text or URL 6"
-					},
-
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_90",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id72",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id91",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 7",
-						"tooltip_text": "The Tooltip for Text or URL 7"
-					},
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_91",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id73",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id92",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 8",
-						"tooltip_text": "The Tooltip for Text or URL 8"
-					},
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_92",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id74",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id93",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 9",
-						"tooltip_text": "The Tooltip for Text or URL 9"
-					},
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_93",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
-
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
-
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
-
-							{
-								"divider": true,
-								"url": false
-							},
-
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
 			},
 
 			{
-				"field_value_cell": 
+				"object_id": "object_id80",
+				"tooltip": 
 				{
-					"field_value_id": "field_value_id94",
-					"tooltip": 
-					{
-						"tooltipped_text": "Some Text or URL 10",
-						"tooltip_text": "The Tooltip for Text or URL 10"
-					},
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
 
-					"value_number": "123",
-					"dropdown": 
-					{
-						"menu-title": "Set item as:",
-						"button_title": " ",
-						"menu_id": "object_furtheractions_94",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Valid",
-								"url": "#"
-							},
+				"occurence": "123"
+			},
 
-							{
-								"text": "Suspicious",
-								"url": "#"
-							},
+			{
+				"object_id": "object_id81",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
 
-							{
-								"text": "Invalid",
-								"url": "#"
-							},
+				"occurence": "123"
+			},
 
-							{
-								"divider": true,
-								"url": false
-							},
+			{
+				"object_id": "object_id82",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
 
-							{
-								"text": "Remove all marks",
-								"url": "#"
-							}
-						]
-					}
-				}
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id83",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id84",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id90",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 6",
+					"tooltip_text": "The Tooltip for Text or URL 6"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id91",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 7",
+					"tooltip_text": "The Tooltip for Text or URL 7"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id92",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 8",
+					"tooltip_text": "The Tooltip for Text or URL 8"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id93",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 9",
+					"tooltip_text": "The Tooltip for Text or URL 9"
+				},
+
+				"occurence": "123"
+			},
+
+			{
+				"object_id": "object_id94",
+				"tooltip": 
+				{
+					"tooltipped_text": "Some Text or URL 10",
+					"tooltip_text": "The Tooltip for Text or URL 10"
+				},
+
+				"occurence": "123"
 			}
 		]
 	}

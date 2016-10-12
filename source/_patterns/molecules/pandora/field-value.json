@@ -11,43 +11,15 @@
   ],
 
   "js_files": [
-    {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/molecules/main-pandora-field-value"
-    }
+	{
+		"path": "../../js/modules/require.js",
+		"data_main": "../../js/modules/main/templates/main-pandora"
+	}
   ],
-  "field_value_id": "field_value_id1",
+  "object_id": "object_id1",
   "tooltip":{
     "tooltipped_text": "Some Text or URL",
     "tooltip_text": "The Tooltip for Text or URL"
   },
-  "value_number": "123",
-  "dropdown": {
-    "menu-title": "Set item as:",
-    "button_title": " ",
-    "menu_id": "object_furtheractions_test",
-    "style_modifier": "theme_select",
-    "items": [
-    {
-      "text": "Valid",
-      "url": "#"
-    },
-    {
-      "text": "Suspicious",
-      "url": "#"
-    },
-    {
-      "text": "Invalid",
-      "url": "#"
-    },
-    {
-      "divider": true,
-      "url": false
-    },
-    {
-      "text": "Remove all marks",
-      "url": "#"
-    }
-    ]
-  }
+  "occurence": "262"
 }

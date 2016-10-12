@@ -13,7 +13,7 @@ define([], function() {
     =
       http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg/info.json
 
-    > http://develop.styleguide.eanadev.org/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg/info.json
+    > http://styleguide.europeana.eu/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://diglit.ub.uni-heidelberg.de/image/zygulski2009/000a.jpg/info.json
 
 
     Example 2
@@ -25,7 +25,7 @@ define([], function() {
     =
       http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
 
-    > http://develop.styleguide.eanadev.org/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
+    > http://styleguide.europeana.eu/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://iiif.europeana.eu/AZ_1927_01_04_0001/info.json
   */
 
 

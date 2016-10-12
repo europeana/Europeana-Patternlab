@@ -25,6 +25,11 @@ label {
   display: block;
   padding-bottom: $space-quarter;
 }
+.field-label{
+  @include fontSize(12px);
+  text-transform: uppercase;
+  padding-bottom: 0;
+}
 
 button, input, select, textarea {
     font-family: inherit;

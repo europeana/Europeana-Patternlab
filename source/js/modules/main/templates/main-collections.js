@@ -38,8 +38,11 @@ require.config({
 
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jquery:                        '../../lib/jquery/jquery',
+    jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
+
+    masonry:                       '../../lib/desandro/masonry.pkgd',
 
     media_controller:              '../../eu/media/search-media-controller',
     media_viewer_iiif:             '../../eu/media/search-iiif-viewer',

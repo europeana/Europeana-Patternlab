@@ -1,0 +1,17 @@
+{
+  "bodyclass": "europeana_pro",
+  "pagetitle": "Europeana Pro",
+
+  "css_files": [
+    {
+      "path": "../../css/pro/screen.css",
+      "media": "all"
+    }
+  ],
+  "newsletter": {
+    "form": {
+      "action": "http://europeana.us3.list-manage.com/subscribe?u=ad318b7566f97eccc895e014e&id=e82f7fb3f1",
+      "language_op": false
+    }
+  }
+}

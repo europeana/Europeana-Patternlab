@@ -88,7 +88,11 @@ define(['jquery'], function($) {
       $('.media-viewer .multi-item-poster').removeClass('is-hidden');
       if(data.type=='image'){
         // update poster & tech metadata
-        $(window).trigger('updateTechData', {target: listSelector + ' [data-uri="' + data.current + '"]'});
+        $(window).trigger('updateTechData',
+          {
+            target: $(listSelector).length > 0 ? listSelector + ' [data-uri="' + data.current + '"]' : $('.single-item-thumb a')[0]
+          }
+        );
         $('.multi-item-poster img').attr('src', data.current);
       }
   };

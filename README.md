@@ -45,7 +45,7 @@ A new site is defined by its own folder within `source/sass` and a folder in `so
 Javascripts are stored in the source/js directory of the Europeana-Patternlab project.  To include them in the compiled styleguide the default grunt task must be run from the project root:
 
  - #grunt
- 
+
 then the site must be regenerated
 
  - #./core/scripts/generateSite.command
@@ -55,7 +55,7 @@ To use the javascript in the styleguide the client application must indicate whi
 `js_variables (deprecated)`
  - JSON array (String) of javascript statements that will be written to the page footer (individually wrapped in a script tag)
 
-`js_vars` 
+`js_vars`
  - JSON array (Object) where each entry has a "name" / "value" pair (both String) that will be written to the page footer as a global js var.
 
 `js_files`
@@ -69,8 +69,8 @@ A typical styleguide model will contain a single entry in `js_files` which instr
 * If, for any reason, you need to delete all assets from the public directory, you should also delete the /config/config.ini file. The `./core/scripts/generateSite.command` will then re-generate that file and the /public/ directory without error.
 * The development site will rebuild automatically in response to commits to this repository
 * To update the "production" site go here - http://jenkins.eanadev.org/job/styleguide-engineyard-production - and log in if you haven't already and click "build now"
-* This site: http://develop.styleguide.eanadev.org/ is built from the develop branch
-* This site: http://styleguide.europeana.eu/ is built from the master branch
+* This site: http://styleguide.europeana.eu/ is built from the develop branch
+* The sites under this domain: https://europeana-styleguide-production.s3.amazonaws.com/ are built from versions on the master branch
 * Make sure that the develop branch has been merged with the master branch before attempting to build the master branch
 
 ## About Pattern Lab
