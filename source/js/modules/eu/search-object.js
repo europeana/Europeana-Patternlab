@@ -694,7 +694,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var ulrPattern = /http:/ig,
             params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href').replace(ulrPattern, "https:"),
-            imageUrl = decodeURIComponent($('.media-viewer a').attr('href')).replace(ulrPattern, "https:");
+            imageUrl = $('.media-viewer a').attr('href').split('?view=')[1];
 
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
