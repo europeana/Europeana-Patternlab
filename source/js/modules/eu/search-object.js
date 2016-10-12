@@ -694,9 +694,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         var title  = $('h2.object-title').text();
 
-        //var canonicalUrl = $('[hreflang="x-default"]').attr('href');
         var canonicalUrl = $('[property="og:url"]').attr('content');
-            canonicalUrl    = encodeURIComponent( canonicalUrl );
+            canonicalUrl = encodeURIComponent( canonicalUrl );
 
         var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
 
@@ -706,7 +705,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var params = ''
         params += '?content='      + imageUrl;
         params += '&canonicalUrl=' + canonicalUrl;
-        params += '&caption='      + title;
+        params += '&caption='      + '<a href="' + window.location.href + '">Europeana - ' + title + '</a>';
         params += '&posttype='     + 'photo';
 
         log('widget params = ' + params)
