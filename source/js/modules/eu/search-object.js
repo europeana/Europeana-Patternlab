@@ -705,7 +705,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       // TMP
       canonicalUrl = canonicalUrl.replace('///', '//');
 
-      if(confirm('decode img URI?')){
+      if(confirm('decode img URI? ' + imageUrl)){
           imageUrl     = decodeURIComponent( imageUrl );
       }
 
@@ -724,14 +724,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('.tumblr-share-button').on('click', function(){
 
         var title = $('h2.object-title').text();
-        var ulrPattern = /http:/ig;
-        var params   = '?canonicalUrl=' + canonicalUrl; //.replace(ulrPattern, "https:"),
-        params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + imageUrl;
 
         if(confirm('widget?')){
 
-          log('widget params = ' + params)
           if(confirm('use hack input?')){
 
               var hi = $('#tumblr').val();
@@ -739,6 +734,22 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
               window.open('https://www.tumblr.com/widgets/share/tool' + hi, '', 'width=540,height=600');
           }
           else{
+
+              var ulrPattern = /http:/ig;
+              var params   = '?canonicalUrl=' + canonicalUrl; //.replace(ulrPattern, "https:"),
+
+              if(confirm('use data prefixes')){
+                  params += '&data-title='      + 'pref: ' +$('h2.object-title').text();
+                  params += '&data-content='    + imageUrl;
+              }
+              else{
+                  params += '&title='      + 'no-pref: ' + $('h2.object-title').text();
+                  params += '&content='    + imageUrl;
+              }
+
+              log('widget params = ' + params)
+
+
               window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
           }
         }
