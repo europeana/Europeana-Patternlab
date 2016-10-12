@@ -699,13 +699,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
 
-        log(params);
+       // log(params);
 //        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 
 //        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text();
-//        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
-        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
+        var url = 'http://www.tumblr.com/share?v=3&u=' + imageUrl + '&t=' + $('h2.object-title').text() + '&description=' + 'ANDY';//<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
+//        var url = 'http://www.tumblr.com/share?v=3&content=' + imageUrl + '&t=' + $('h2.object-title').text(); //'<a href="' + $('[hreflang="x-default"]').attr('href') + '>Europeana</a>';
 
+        log(url);
         window.open(url);
 
 //        http://www.tumblr.com/share/link?url=[uri encoded URL]&amp;name=[title]&amp;description=[description]
