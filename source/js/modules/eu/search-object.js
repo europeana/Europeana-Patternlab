@@ -714,9 +714,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       $('.tumblr-share-button').on('click', function(){
 
+        var title = $('h2.object-title').text();
         var ulrPattern = /http:/ig;
         var params   = '?canonicalUrl=' + canonicalUrl; //.replace(ulrPattern, "https:"),
-
         params += '&data-title='      + $('h2.object-title').text();
         params += '&data-content='    + imageUrl;
 
@@ -734,17 +734,35 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           }
         }
         else{
-            var url = 'http://www.tumblr.com/share/photo'
+          var url = '';
+
+          if(confirm('share as photo')){
+
+            url = 'http://www.tumblr.com/share/photo'
                 + '?source=' + imageUrl
-                + '&caption=' + '<a href="' + $('[hreflang="x-default"]').attr('href') + '">' + $('h2.object-title').text() + ' - Europeana</a>'
-/*
+                + '&title=' + title
+                + '&caption=' + '<a href="' + canonicalUrl + '">' + $('h2.object-title').text() + ' - Europeana</a>'
+                + '&clickthru=http://www.minds.com'
+                + '&contentlickthru=http://www.minds.com'
+
+             /*
                 + '&t=t-' + $('h2.object-title').text()
                 + '&title=title' + $('h2.object-title').text()
                 + '&name=n-' + $('h2.object-title').text()
 
                 + '&description=' + 'Andy'
                 + '&clickthru=http://www.minds.com'
-*/
+            */
+          }
+          else{
+              url = 'http://www.tumblr.com/share'
+                  + '?content=' + imageUrl
+                  + '&caption=' + '<a href="' + canonicalUrl + '">' + title + ' - Europeana</a>'
+                  + '&title=' +  title
+                  + '&posttype=photo'
+                  + '&clickthru=http://www.minds.com'
+                  + '&click_thru=http://www.minds.com/andyjmaclean'
+          }
         log(url);
         window.open(url);
 
