@@ -692,6 +692,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       $('.tumblr-share-button').on('click', function(){
 
+        var title  = $('h2.object-title').text();
+
         //var canonicalUrl = $('[hreflang="x-default"]').attr('href');
         var canonicalUrl = $('[property="og:url"]').attr('content');
             canonicalUrl    = encodeURIComponent( canonicalUrl );
