@@ -34,11 +34,7 @@
   outline: none;
 }
 
-.nav-toggle-menu{
-  background-color: $white;
-  color: $offcanvas_bg;
-  outline: none;
-}
+
 
 .nav-toggle-sites{
   //mobile first hidden
@@ -68,10 +64,16 @@
   display: none;
 }
 
-//hover + toggled item is open
 .nav-toggle-menu{
   background-color: $white;
   color: $textcolour_head;
+
+  @media all and (max-width: $bp-med) {
+    &:hover, &:focus{
+      color: $white;
+      background-color: $textcolour_head;
+    }
+  }
 }
 
 // OFF CANVAS MENUS
@@ -192,10 +194,10 @@
     padding: $space-quarter $space-half;
     color: white;
 
-    &:hover{
+    &:hover, &:focus{
       background-color: lighten($offcanvas_bg, 5);
     }
-    &:hover:after{
+    &:hover:after, &:focus:after{
       border-color: $white;
     }
   }
@@ -329,17 +331,5 @@
   }
 }
 
-// Remove focus & hover behaviour of menu button on mobile sizes
 
-@media all and (max-width: $bp-med) {
-  .nav-toggle-menu{
-    &:hover{
-      color: $white;
-      background-color: $textcolour_head;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-}
 

@@ -190,7 +190,6 @@
           "utility_nav": {
             "menu_id": "settings-menu",
             "style_modifier": "caret-right",
-            "tabindex": "6",
             "items": [
               {
                 "url": "#",
@@ -774,6 +773,10 @@
             "research": "Research",
             "research-text": "Connecting to the academic community",
             "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
+            "search-area":{
+              "search-button-image-alt": "Search",
+              "search-placeholder-text": "Add a search term"
+            },
             "search-collections": "Search collections",
             "search-collections-text": "Search through Europe's cultural heritage",
             "share": "Share",
