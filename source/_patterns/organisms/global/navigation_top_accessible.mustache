@@ -41,13 +41,13 @@
 
     <div class="nav-global">
       {{^options.oursites_hidden}}
-      <a href="#" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false" aria-haspopup="true" aria-label="open Our Sites panel" aria-owns="oursites">
-        <span class="link-text">{{i18n.global.our-sites}}</span>
+      <a href="#" id="oursites_button" class="nav-toggle nav-toggle-sites" aria-controls="oursites" aria-expanded="false">
+        <span class="link-text">{{i18n.global.our-sites}}</span><span class="js-panelstate is-vishidden">(open panel)</span>
       </a>
       {{/options.oursites_hidden}}
 
       {{#options.search_active}}
-      <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-expanded="false" aria-haspopup="true" aria-label="open search panel" aria-owns="searcharea">
+      <a href="#search" class="nav-toggle nav-toggle-search" aria-controls="searcharea" aria-label="Open search panel">
         <svg class="icon icon-search">
           <use xlink:href="#icon-search"></use>
         </svg>
