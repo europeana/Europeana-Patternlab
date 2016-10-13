@@ -10,115 +10,115 @@
 }
 
 .header > .cf{
-	border-color: $white;
+  border-color: $white;
 }
 
 .site-hero{
-	height: auto;
-	text-align: center;
-	background-color: $accent;
+  height: auto;
+  text-align: center;
+  background-color: $accent;
 
-	.hero-content{
-		padding: $space;
-	}
+  .hero-content{
+    padding: $space;
+  }
 
-	.title{
-		font-weight: bold;
-	}
+  .title{
+    font-weight: bold;
+  }
 
-	h2.subtitle{
-		text-transform: initial;
-		font-size: 1.4em;
-		margin-bottom: $space-double;
-	}
+  h2.subtitle{
+    text-transform: initial;
+    font-size: 1.4em;
+    margin-bottom: $space-double;
+  }
 
-	.cta-primary, .cta-primar{
-		background-color: $white;
-		font-size: 1.4em;
-		border-color: $accent;
-		color: $black;
+  .cta-primary, .cta-primar{
+    background-color: $white;
+    font-size: 1.4em;
+    border-color: $accent;
+    color: $black;
 
-		&:hover{
-			color: $white;
-		}
-	}
+    &:hover{
+      color: $white;
+    }
+  }
 }
 
 .competition-benefits{
-	margin-top: $space;
-	margin-bottom: $space-double;
-	list-style-type: disc;
-	list-style-position: inside;
+  margin-top: $space;
+  margin-bottom: $space-double;
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 .hero-content{
-	background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .maker-types{
-	margin-bottom: $space;
+  margin-bottom: $space;
 
-	li{
-		display: inline-block;
-		vertical-align: top;
-		width: 100%;
-		margin-bottom: 20px;
-		font-weight: bold;
+  li{
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: bold;
 
-		&:before{
-			content: "";
-			display: block;
-			width: 120px;
-			height: 120px;
-			margin: 0 auto 1em;
-			background-color: rgba(255, 255, 255, 1);
-			border: 4px solid #FFF;
-			border-radius: 200px;
-			background-position: 50% 10px;
-			background-size: contain;
-		}
+    &:before{
+      content: "";
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1em;
+      background-color: rgba(255, 255, 255, 1);
+      border: 4px solid #FFF;
+      border-radius: 200px;
+      background-position: 50% 10px;
+      background-size: contain;
+    }
 
-		@media all and (min-width: $bp-small) {
-			width: 49%;
-		}
-		@media all and (min-width: $bp-small-3) {
-			width: 27%;
-		}
-		@media all and (min-width: $bp-large) {
-			width: 18%;
-		}
-	}
+    @media all and (min-width: $bp-small) {
+      width: 49%;
+    }
+    @media all and (min-width: $bp-small-3) {
+      width: 27%;
+    }
+    @media all and (min-width: $bp-large) {
+      width: 18%;
+    }
+  }
 
-	.maker1:before{
-		@include svg-bg-with-fallback("heritage-in-motion/laptop");
-	}
-	.maker2:before{
-		@include svg-bg-with-fallback("heritage-in-motion/clapperboard");
-	}
-	.maker3:before{
-		@include svg-bg-with-fallback("heritage-in-motion/masks");
-	}
-	.maker4:before{
-		@include svg-bg-with-fallback("heritage-in-motion/easel");
-	}
-	.maker5:before{
-		@include svg-bg-with-fallback("heritage-in-motion/gallery");
-	}
+  .maker1:before{
+    @include svg-bg-with-fallback("heritage-in-motion/laptop");
+  }
+  .maker2:before{
+    @include svg-bg-with-fallback("heritage-in-motion/clapperboard");
+  }
+  .maker3:before{
+    @include svg-bg-with-fallback("heritage-in-motion/masks");
+  }
+  .maker4:before{
+    @include svg-bg-with-fallback("heritage-in-motion/easel");
+  }
+  .maker5:before{
+    @include svg-bg-with-fallback("heritage-in-motion/gallery");
+  }
 }
 
 @media all and (min-width: $bp-med) and (min-height: 850px) {
-	.site-hero{
-		height: 80%;
-	}
+  .site-hero{
+    height: 80%;
+  }
 
-	.hero-content{
-		position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    @include translate (-50%, -50%);
-	    width: 80%;
-		max-width: $max-width;
-	}
+  .hero-content{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      @include translate (-50%, -50%);
+      width: 80%;
+    max-width: $max-width;
+  }
 }
 
 // STATIC PAGES
@@ -127,103 +127,103 @@
 
 .l-page{
 
-	position: relative;
-	background: $white; // fallback
+  position: relative;
+  background: $white; // fallback
 
-	@media all and (min-width: $bp-med) {
-		background: $offwhite; // fallback
-		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
-		background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-		background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-		background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-		background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
+  @media all and (min-width: $bp-med) {
+    background: $offwhite; // fallback
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,$offwhite), color-stop(50%,$offwhite), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to left,  $offwhite 0%, $offwhite 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1ee', endColorstr='#00ffffff',GradientType=1 );
 
-	}
+  }
 
-	&.no-sidebar{
-		background: $white;
+  &.no-sidebar{
+    background: $white;
 
-	}
+  }
 
-	.textcontent, .l-sidebar, .l-breadcrumbs{
-		position: relative;
-		z-index: 10;
-	}
+  .textcontent, .l-sidebar, .l-breadcrumbs{
+    position: relative;
+    // z-index: 10;
+  }
 
-	.l-content{
-		background: $white;
-		@media all and (min-width: $bp-med) {
-		  @include span(18 of 24 wide no-gutter);
-		}
-	}
+  .l-content{
+    background: $white;
+    @media all and (min-width: $bp-med) {
+      @include span(18 of 24 wide no-gutter);
+    }
+  }
 
-	.maincontent{
-		background-color: $white;
-		padding: $space-triple $space;
-	}
+  .maincontent{
+    background-color: $white;
+    padding: $space-triple $space;
+  }
 
-	.item-rss{
-		text-align: right;
-		margin-top: -3rem;
-		margin-bottom: 3.1rem;
-	}
+  .item-rss{
+    text-align: right;
+    margin-top: -3rem;
+    margin-bottom: 3.1rem;
+  }
 
-	.textcontent{
-		background-color: $white;
-		padding-bottom: $space-triple;
+  .textcontent{
+    background-color: $white;
+    padding-bottom: $space-triple;
 
-		@media all and (min-width: $bp-med) {
-		  max-width: 40em;
-		}
-	}
+    @media all and (min-width: $bp-med) {
+      max-width: 40em;
+    }
+  }
 
 
-	@media all and (min-width: $bp-med) {
-		//The coloured band that extends the breadcrumbs background colour to the left edge of the window
-		&:before{
-			content: '';
-			display: block;
-			width: 100%;
-			height: $globalnavheight + $space-triple;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: #F8F8F8;
-			z-index: -1;
-		}
-	}
+  @media all and (min-width: $bp-med) {
+    //The coloured band that extends the breadcrumbs background colour to the left edge of the window
+    &:before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: $globalnavheight + $space-triple;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #F8F8F8;
+      z-index: -1;
+    }
+  }
 
 }
 
 .l-sidebar{
-	position: relative;
-	z-index: 10;
-	background: $offwhite;
-	padding: $space;
+  position: relative;
+  // z-index: 10;
+  background: $offwhite;
+  padding: $space;
 
-	@media all and (min-width: $bp-med) {
-	  @include span(last 6 of 24);
-	  padding-top: $space * 6;
-	}
+  @media all and (min-width: $bp-med) {
+    @include span(last 6 of 24);
+    padding-top: $space * 6;
+  }
 }
 
 .page_event .l-sidebar{
-	@media all and (min-width: $bp-med) {
-	  min-height: 650px;
-	}
+  @media all and (min-width: $bp-med) {
+    min-height: 650px;
+  }
 }
 
 .results-list,
 .page-intro,
 .articleheader{
-	margin-bottom: $space-double;
+  margin-bottom: $space-double;
 }
 
 
 .l-content .section, .entry-detail .section {
-	padding: $space;
-	margin-bottom: 0;
+  padding: $space;
+  margin-bottom: 0;
 }
 
 .footer_logo {
@@ -232,17 +232,17 @@
 
 .l-supportedby .gi{
 
-	float:left;
-	max-width: 300px;
+  float:left;
+  max-width: 300px;
 
-	&:last-child{
-		margin-right: 0;
-	}
+  &:last-child{
+    margin-right: 0;
+  }
 
 }
 
 // Secondary navigation over-ride
 .nav_secondary .level1 > li > a.is-current{
-	color: $white;
+  color: $white;
 }
 

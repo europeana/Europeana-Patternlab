@@ -16,8 +16,8 @@
   ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-statistics"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/main-statistics"
     }
   ],
   "navigation": {
