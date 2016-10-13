@@ -21,6 +21,7 @@ var Site = window.Site || {};
     Site.resetMenu = function(){
         body.removeClass('is-open-menu-right is-open-globalsearch is-open-menu-top');
         document.removeEventListener( 'click', bodyClickFn );
+        $(document).unbind( ".menu_close" );
     };
 
     Site.init_menu = function(){
@@ -54,13 +55,33 @@ var Site = window.Site || {};
 
         //Our Sites toggle
         $('.nav-toggle-sites').on('click', function(e) {
+            var self = $(this);
+            var target_id = self.attr('aria-controls');
+
 
             if( body.hasClass( 'is-open-menu-top' ) ){
+                // menu is open
                 Site.resetMenu();
+                self.find(".js-panelstate").html("(open panel)");
+                $(this).attr('aria-expanded', 'false');
+                $(this).focus();
+
             }else{
+                // menu is closed
                 body.addClass('is-open-menu-top');
+                $(this).attr('aria-expanded', 'true');
+                self.find(".js-panelstate").html("(close panel)");
+                $("#"+target_id+" a").first().focus();
+
                 document.addEventListener( 'click', bodyClickFn );
+
+                $(document).bind("keyup.menu_close", function(e) {
+                    if (e.keyCode === 27) {
+                        self.click();   // esc
+                    }
+                });
             }
+
             e.preventDefault();
         });
     };
