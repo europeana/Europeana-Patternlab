@@ -91,7 +91,7 @@
     .facets-selected &{
         background-color: transparent;
         border-right: 1px solid rgb(163, 184, 189);
-        color: $textcolour_body;
+        color: $white;
         @include fontSize(14px);
 
         &:last-child{
@@ -121,7 +121,8 @@
         text-transform: uppercase;
         @include fontSize(12px);
         font-weight: bold;
-        color: rgba($textcolour_body, 0.5);
+//        color:  rgba($textcolour_body, 0.5);
+        color: $gray80;
     }
 
 }

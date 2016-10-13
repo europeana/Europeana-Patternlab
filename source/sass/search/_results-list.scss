@@ -4,10 +4,31 @@
   padding: $space-double $space;
   background-color: #DDEBEE;
   border-bottom: 1px solid $gray87;
+
+  &.search-results-hero{
+    background-position: center center;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    position:            relative;
+    &:after{
+      background-color: rgba(0,0,0,0.45);
+      content: " ";
+      display: block;
+      height:  100%;
+      width:   100%;
+      top:     0;
+      bottom:  0;
+      left:    0;
+      right:   0;
+      position: absolute;
+    }
+  }
 }
 
 .searchbar{
   @include container(50em);
+  position: relative;
+  z-index:  1;
 }
 
 // Search results container
