@@ -184,6 +184,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       var tgt          = $(e.target);
       var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
+      $('.media-thumbs .js-carousel-item a').removeClass('is-current');
+      tgt.addClass('is-current');
+
       // colour browse
       var clickedThumb = tgt.data('thumbnail');
       if(clickedThumb){
@@ -693,11 +696,17 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('.tumblr-share-button').on('click', function(){
 
         var title  = $('h2.object-title').text();
-
         var canonicalUrl = $('[property="og:url"]').attr('content');
             canonicalUrl = encodeURIComponent( canonicalUrl );
 
-        var imageUrl     = $('.media-viewer a').attr('href').split('?view=')[1];
+        var imageUrl     = $('.media-viewer a').attr('href');
+
+        if(imageUrl){
+          imageUrl     = imageUrl.split('?view=')[1];
+        }
+        else{
+          imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
+        }
 
         log('canonicalUrl = ' + canonicalUrl);
         log('imageUrl = '     + imageUrl);
