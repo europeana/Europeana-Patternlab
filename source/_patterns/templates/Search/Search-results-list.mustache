@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section class="search-hero" {{#content.hero_config}} style="background-image: url('{{hero_image}}');" {{/content.hero_config}}>
+    <section class="search-hero search-results-hero" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
         <div class="searchbar">
         {{> molecules/components/search/search-form }}
 
