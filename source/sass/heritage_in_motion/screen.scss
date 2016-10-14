@@ -15,6 +15,7 @@
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
 $accent: #2F3E95;
 $textcolour_highlight: $accent;
+$contrast: #D8FB15;
 
 
 // Reset
@@ -81,7 +82,7 @@ $susy: (
 //navigation types
 @import "../scss/objects/navigation/pagination";
 @import "../scss/objects/navigation/breadcrumbs";
-//@import "../scss/objects/navigation/phase-flags";
+@import "../scss/objects/navigation/phase-flags";
 
 /*------------------------------------*\
 	Buttons and text Styles

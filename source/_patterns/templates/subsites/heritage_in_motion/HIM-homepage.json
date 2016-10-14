@@ -2,6 +2,9 @@
   "bodyclass": "europeana_HIM page_home",
   "page_title": "Heritage in Motion",
   "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
   "page_config": {
     "newsletter": true
   },
