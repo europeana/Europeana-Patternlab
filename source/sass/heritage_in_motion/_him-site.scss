@@ -33,13 +33,15 @@
   }
 
   .cta-primary, .cta-primar{
-    background-color: $white;
+    background-color: $contrast;
     font-size: 1.4em;
-    border-color: $accent;
+    border-color: $contrast;
     color: $black;
 
     &:hover{
-      color: $white;
+      background-color: $white;
+      border-color: $white;
+      color: $accent;
     }
   }
 }
@@ -75,11 +77,11 @@
       width: 120px;
       height: 120px;
       margin: 0 auto 1em;
-      background-color: rgba(255, 255, 255, 1);
-      border: 4px solid #FFF;
-      border-radius: 200px;
+      //background-color: rgba(255, 255, 255, 1);
+      //border: 4px solid #FFF;
+      //border-radius: 200px;
       background-position: 50% 10px;
-      background-size: contain;
+      background-size: cover;
     }
 
     @media all and (min-width: $bp-small) {
@@ -94,19 +96,19 @@
   }
 
   .maker1:before{
-    @include svg-bg-with-fallback("heritage-in-motion/laptop");
+    @include svg-bg-with-fallback("heritage-in-motion/laptop_w");
   }
   .maker2:before{
-    @include svg-bg-with-fallback("heritage-in-motion/clapperboard");
+    @include svg-bg-with-fallback("heritage-in-motion/clapperboard_w");
   }
   .maker3:before{
-    @include svg-bg-with-fallback("heritage-in-motion/masks");
+    @include svg-bg-with-fallback("heritage-in-motion/masks_w");
   }
   .maker4:before{
-    @include svg-bg-with-fallback("heritage-in-motion/easel");
+    @include svg-bg-with-fallback("heritage-in-motion/easel_w");
   }
   .maker5:before{
-    @include svg-bg-with-fallback("heritage-in-motion/gallery");
+    @include svg-bg-with-fallback("heritage-in-motion/gallery_w");
   }
 }
 
