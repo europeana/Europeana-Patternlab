@@ -91,14 +91,14 @@
     .facets-selected &{
         background-color: transparent;
         border-right: 1px solid rgb(163, 184, 189);
-        color: $white;
+        color: $textcolour_body;
         @include fontSize(14px);
 
         &:last-child{
             border-right: none;
         }
 
-        a{
+        a[data-role="remove"]{
             background-color: rgb(163, 184, 189);
             border-radius: 20em;
             font-size: 11px;
@@ -117,12 +117,23 @@
         }
     }
 
+    .has-bgimage .facets-selected &{
+        color: $white;
+
+        a[data-role="remove"]{
+            color: $textcolour_body;
+        }
+    }
+
     .title{
         text-transform: uppercase;
         @include fontSize(12px);
         font-weight: bold;
-//        color:  rgba($textcolour_body, 0.5);
-        color: $gray80;
+        color:  rgba($textcolour_body, 0.5);
+
+        .has-bgimage &{
+            color:  rgba($white, 0.8);
+        }
     }
 
 }

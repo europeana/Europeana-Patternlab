@@ -74,6 +74,9 @@
       }
     ]
   },
+  "hero": {
+      "hero_image": "../../images/pro/home_image_test.jpg"
+  },
   "filters": [
     {
       "title": "Channels",

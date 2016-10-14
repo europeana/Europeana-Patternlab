@@ -5,7 +5,7 @@
   background-color: #DDEBEE;
   border-bottom: 1px solid $gray87;
 
-  &.search-results-hero{
+  &.has-bgimage{
     background-position: center center;
     background-repeat:   no-repeat;
     background-size:     cover;
@@ -17,9 +17,7 @@
       height:  100%;
       width:   100%;
       top:     0;
-      bottom:  0;
       left:    0;
-      right:   0;
       position: absolute;
     }
   }
