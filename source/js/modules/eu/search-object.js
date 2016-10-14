@@ -184,13 +184,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       var tgt          = $(e.target);
       var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
+      $('.media-thumbs .js-carousel-item a').removeClass('is-current');
+      tgt.addClass('is-current');
+
       // colour browse
       var clickedThumb = tgt.data('thumbnail');
-
-      var matchingColourBrowse = $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]');
-
-      $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
-      $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
+      if(clickedThumb){
+        $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
+        $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
+      }
 
       // download section
       var setFileInfoData = function(href, meta, fmt){
@@ -693,15 +695,32 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       $('.tumblr-share-button').on('click', function(){
 
-        var ulrPattern = /http:/ig,
-            params = '?canonicalUrl=' + $('[hreflang="x-default"]').attr('href').replace(ulrPattern, "https:"),
-            imageUrl = decodeURIComponent($('.media-viewer img').attr('src')).replace(ulrPattern, "https:");
+        var title  = $('h2.object-title').text();
+        var canonicalUrl = $('[property="og:url"]').attr('content');
+            canonicalUrl = encodeURIComponent( canonicalUrl );
 
-        params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + imageUrl;
+        var imageUrl     = $('.media-viewer a').attr('href');
 
-        log(params)
-        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+        if(imageUrl){
+          imageUrl     = imageUrl.split('?view=')[1];
+        }
+        else{
+          imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
+        }
+
+        log('canonicalUrl = ' + canonicalUrl);
+        log('imageUrl = '     + imageUrl);
+
+        var params = ''
+        params += '?content='      + imageUrl;
+        params += '&canonicalUrl=' + canonicalUrl;
+        params += '&caption='      + '<a href="' + window.location.href + '">Europeana - ' + title + '</a>';
+        params += '&posttype='     + 'photo';
+
+        log('widget params = ' + params)
+
+        window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+
         return false;
       })
     };

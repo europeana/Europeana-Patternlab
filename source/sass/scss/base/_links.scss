@@ -50,13 +50,7 @@ a {
 }
 
 // Skip to main link (uses is-vishidden)
-a.skip-main {
-    left:99%;
-    position:absolute;
-    width:1px;
-    height:1px;
-    z-index:-999;
-}
+
 a.skip-main:focus, a.skip-main:active {
     color: #fff;
     background-color: $black;
@@ -69,4 +63,6 @@ a.skip-main:focus, a.skip-main:active {
     border:4px solid yellow;
     text-align:center;
     z-index:999;
+    display: block;
+    clip: auto;
 }
