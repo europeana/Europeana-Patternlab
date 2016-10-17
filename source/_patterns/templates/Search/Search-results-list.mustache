@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section class="search-hero {{#hero.hero_image}}has-bgimage{{/hero.hero_image}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
+    <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
         <div class="searchbar">
         {{> molecules/components/search/search-form }}
 
@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <section class="search-results">
+    <section class="search-results" id="skiptotarget">
         <div class="container">
             <div class="results-list cf">
 
