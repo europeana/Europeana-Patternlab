@@ -273,7 +273,13 @@
           object-fit: cover;
           width: 100%;
         }
+        &.super-tall a img{
+          max-height: 22em;
+          object-fit: contain;
+        }
       }
+
+
     }
 
     &.missing-image{
