@@ -45,7 +45,9 @@ Site_HIM = {
 
                     if($('.extra-media img').length > 0){
                       require(['jqScrollto'], function(){
-                        $(document).scrollTo($('.extra-media'));
+                        setTimeout(function(){
+                          $(document).scrollTo($('.extra-media'));
+                        }, 1200);
                       });
                     }
                 });
