@@ -185,14 +185,16 @@ require(['jquery', 'optimizely'], function( $ ) {
                       }
                     });
                   }
+                  var url = $('meta[property="og:url"]').attr('content');
                   if($('.tmp-pinterest').size()==0){
                     PinUtils.pinOne({
                       media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
-                      description: data.desc ? data.desc : 'Europeana Record'
+                      description: data.desc ? data.desc : 'Europeana Record',
+                      url: url
                     });
                   }
                   else{
-                    PinUtils.pinAny();
+                    PinUtils.pinAny({url: url});
                   }
                 });
               }
