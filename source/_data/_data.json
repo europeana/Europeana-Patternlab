@@ -702,7 +702,9 @@
               "filter-all": "All",
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen",
-              "skip-to-main":  "Skip to page contents"
+              "skip-to-main":  "Skip to page contents",
+              "next":"next",
+              "previous":"previous"
             },
             "cookie_disclaimer": {
               "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
@@ -745,6 +747,7 @@
               "connect": "Connect"
             },
             "home": "Home",
+            "page": "page",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
             "language-english": "English",
@@ -752,7 +755,8 @@
             "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
             "mission-title": "Our mission",
             "more": {
-                "load-more": "Load more"
+                "load-more": "Load more",
+                "show-more": "Show more"
             },
             "navigation":{
               "more":{
