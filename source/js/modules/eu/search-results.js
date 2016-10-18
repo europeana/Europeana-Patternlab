@@ -182,7 +182,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         var hasSuperTall = false;
         $('.item-image').each(function(i, ob){
           var $ob = $(ob);
-          if($ob.height() > 500){
+          if($ob.height() > 650){
             hasSuperTall = true;
             $ob.addClass('super-tall');
           }
