@@ -184,6 +184,7 @@ require(['jquery', 'optimizely'], function( $ ) {
                         $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
                       }
                     });
+                    console.log('made tmp container');
                   }
                   var url = $('meta[property="og:url"]').attr('content');
                   if($('.tmp-pinterest').size()==0){
@@ -192,9 +193,11 @@ require(['jquery', 'optimizely'], function( $ ) {
                       description: data.desc ? data.desc : 'Europeana Record',
                       url: url
                     });
+                    console.log('called pin one: ' + url);
                   }
                   else{
                     PinUtils.pinAny({url: url});
+                    console.log('called pin any: ' + url);
                   }
                 });
               }

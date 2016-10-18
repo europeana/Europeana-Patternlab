@@ -733,7 +733,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var params = ''
         params += '?content='      + imageUrl;
         params += '&canonicalUrl=' + canonicalUrl;
-        params += '&caption='      + '<a href="' + window.location.href + '">Europeana - ' + title + '</a>';
+        params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
         params += '&posttype='     + 'photo';
 
         log('widget params = ' + params)
