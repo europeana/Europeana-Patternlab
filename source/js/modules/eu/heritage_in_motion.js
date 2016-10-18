@@ -39,6 +39,15 @@ Site_HIM = {
                     $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
                     $('#profile-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
+                    $('#heritageedit_new_image').on('change', function(){
+                      $('form').submit();
+                    });
+
+                    if($('.extra-media img').length > 0){
+                      require(['jqScrollto'], function(){
+                        $(document).scrollTo($('.extra-media'));
+                      });
+                    }
                 });
             });
 
