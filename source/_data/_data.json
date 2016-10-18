@@ -627,7 +627,7 @@
                 "actions": {
                     "download": "Download",
                     "download-started": "The download has started",
-                    "download-started": "Retry",
+                    "download-retry": "Retry",
                     "media-metadata": "Media Metadata",
                     "technicalmetadata": "Technical Metadata",
                     "open-media": "Open this media item",
@@ -662,6 +662,7 @@
                     "runtime": "Run time",
                     "rights": "Rights",
                     "rights_human": "Can I use this?",
+                    "title": "Title",
                     "provided-by": "Provided by",
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
                 },
