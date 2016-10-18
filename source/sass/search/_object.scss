@@ -567,6 +567,11 @@
   }
 }
 
+.object-downloads.is-expanded + .object-techdata.is-expanded{
+   border-top: 1px solid $gray87;
+   margin-top: $space;
+}
+
 #molecules-icons-licenses-js{
   display: none;
 }

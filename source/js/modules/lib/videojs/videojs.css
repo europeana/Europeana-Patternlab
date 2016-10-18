@@ -219,7 +219,7 @@ fonts to show/hide properly.
   /*  outline: 0; */
   /* keyboard-only users cannot see the focus on several of the UI elements when
   this is set to 0 */
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* Hide control text visually, but have it available for screenreaders */
