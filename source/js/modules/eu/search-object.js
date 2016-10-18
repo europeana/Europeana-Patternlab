@@ -639,10 +639,28 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     function bindDownloadButton(){
       $('.download-button').on('click', function(e){
+
+        var state = $(this).attr('aria-expanded') === 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+        $("#panel_download").attr('aria-hidden', !state);
+
         if($(this).parent().hasClass('is-expanded')){
           e.preventDefault();
         }
         $(this).parent().toggleClass('is-expanded');
+      });
+    }
+
+    function bindMetadataButton(){
+      $('.object-techdata .show-button').on('click', function(e){
+        e.preventDefault();
+
+        var panel_id = "#" + $(this).attr('aria-controls');
+        var state = $(this).attr('aria-expanded') === 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+        $(panel_id).attr('aria-hidden', !state);
+        $(this).parent().toggleClass('is-expanded');
+
       });
     }
 
@@ -652,6 +670,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       bindAnalyticsEventsSocial();
       bindAttributionToggle();
       bindDownloadButton();
+      bindMetadataButton();
       updateTechData({target:$('.single-item-thumb a')[0]});
 
 
