@@ -8,7 +8,7 @@
       {{#sections}}
         <li>
           <section>
-            <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+            {{#title }}<h4 class="data-header">{{.}}:</h4>{{/title }}
             <ul class="comma-list data-group">
               {{# items }}
                 <li {{#is_desc}}class="split-items"{{/is_desc}}>
