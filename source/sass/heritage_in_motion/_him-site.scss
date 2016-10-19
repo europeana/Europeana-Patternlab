@@ -96,19 +96,19 @@
   }
 
   .maker1:before{
-    @include svg-bg-with-fallback("heritage-in-motion/laptop_w");
+    @include svg-bg-with-fallback("/heritage-in-motion/laptop_w");
   }
   .maker2:before{
-    @include svg-bg-with-fallback("heritage-in-motion/clapperboard_w");
+    @include svg-bg-with-fallback("/heritage-in-motion/clapperboard_w");
   }
   .maker3:before{
-    @include svg-bg-with-fallback("heritage-in-motion/masks_w");
+    @include svg-bg-with-fallback("/heritage-in-motion/masks_w");
   }
   .maker4:before{
-    @include svg-bg-with-fallback("heritage-in-motion/easel_w");
+    @include svg-bg-with-fallback("/heritage-in-motion/easel_w");
   }
   .maker5:before{
-    @include svg-bg-with-fallback("heritage-in-motion/gallery_w");
+    @include svg-bg-with-fallback("/heritage-in-motion/gallery_w");
   }
 }
 
