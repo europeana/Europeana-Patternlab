@@ -71,8 +71,8 @@
 }
 
 .site-hero{
+  margin-top: $globalnavheight;
   @media all and (min-width: $bp-small) {
-    margin-top: $globalnavheight;
     height: 50%;
   }
 }
