@@ -25,7 +25,7 @@ require.config({
     global:                        '../eu/global',
     handlebars:                    '//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min',
     jqDropdown:                    '../lib/jquery/jquery.dropdown',
-    jquery:                        '../lib/jquery',
+    jquery:                        '../lib/jquery/jquery',
     jqScrollto:                    '../lib/jquery.scrollTo',
     list:                          '//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min',
     menus:                         '../global/menus',
