@@ -109,10 +109,10 @@
             top: -1px;
 
             &:hover{
-                background-color: $accent;
+                background-color: $white;
             }
             &:hover:after{
-                color: $white;
+                color: $accent;
             }
         }
     }
