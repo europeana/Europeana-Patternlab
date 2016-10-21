@@ -701,6 +701,42 @@
   table-layout: fixed;
 }
 
+.eu-filter{
+  border-color:  $gray80;
+  border-radius: 2em;
+  margin-bottom: 1.5em;
+  outline:       0 none;
+  padding:       0.25em 0.25em 0.25em 0.75em;
+  width:         18em;
+
+  &:focus{
+    border-color: $linkblue;
+  }
+}
+
+.filter-force-hide{
+  display: none !important;
+}
+.filter-force-show{
+  display: block !important;
+  &.filter-force-show-children{
+    .eu-foldable-title{
+      >a{
+        &:after{
+          /* arrows opened */
+          border-color: #a4cde1 transparent transparent transparent !important;
+          bottom: 2px                                               !important;
+          border-style: solid dashed dashed dashed                  !important;
+        }
+      }
+    }
+    .eu-foldable-data.is-hidden{
+      display:    block   !important;
+      visibility: visible !important;
+    }
+  }
+}
+
 .eu-foldable-url:not(.inline),
 .eu-foldable-title:not(.inline),
 .eu-foldable-data:not(.inline){

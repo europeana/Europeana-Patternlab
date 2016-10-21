@@ -112,7 +112,28 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             break;
 
         case 'explore/sources':
-            require(['util_foldable']);
+            require(['util_foldable'], function(){
+              require(['util_filterable'], function(filter){
+                filter.init($('.eu-filter'),
+                  {
+                    selector:    '.eu-foldable > li',
+                    sel_title:   ' > h4 > a',
+                    children: {
+                      selector:  '.eu-foldable-data > li',
+                      sel_title: 'a',
+                      actions: {
+                        select: function($el){
+                          $el.closest('.eu-foldable-data').addClass('filter-force-show');
+                        },
+                        deselect: function($el){
+                          $el.closest('.eu-foldable-data').removeClass('filter-force-show');
+                        }
+                      }
+                    }
+                  }
+                );
+              });
+            });
             promisedPageJS.resolve();
             doForAllPages();
             break;
