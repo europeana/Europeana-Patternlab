@@ -98,7 +98,7 @@
             border-right: none;
         }
 
-        a{
+        a[data-role="remove"]{
             background-color: rgb(163, 184, 189);
             border-radius: 20em;
             font-size: 11px;
@@ -109,11 +109,19 @@
             top: -1px;
 
             &:hover{
-                background-color: $accent;
+                background-color: $white;
             }
             &:hover:after{
-                color: $white;
+                color: $accent;
             }
+        }
+    }
+
+    .has-bgimage .facets-selected &{
+        color: $white;
+
+        a[data-role="remove"]{
+            color: $textcolour_body;
         }
     }
 
@@ -121,7 +129,11 @@
         text-transform: uppercase;
         @include fontSize(12px);
         font-weight: bold;
-        color: rgba($textcolour_body, 0.5);
+        color:  rgba($textcolour_body, 0.5);
+
+        .has-bgimage &{
+            color:  rgba($white, 0.8);
+        }
     }
 
 }

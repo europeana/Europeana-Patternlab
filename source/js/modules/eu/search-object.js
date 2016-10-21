@@ -184,6 +184,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       var tgt          = $(e.target);
       var fileInfoData = {"href": "", "meta": [], "fmt": ""};
 
+      $('.media-thumbs .js-carousel-item a').removeClass('is-current');
+      tgt.addClass('is-current');
+
       // colour browse
       var clickedThumb = tgt.data('thumbnail');
       if(clickedThumb){
@@ -636,10 +639,28 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     function bindDownloadButton(){
       $('.download-button').on('click', function(e){
+
+        var state = $(this).attr('aria-expanded') === 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+        $("#panel_download").attr('aria-hidden', !state);
+
         if($(this).parent().hasClass('is-expanded')){
           e.preventDefault();
         }
         $(this).parent().toggleClass('is-expanded');
+      });
+    }
+
+    function bindMetadataButton(){
+      $('.object-techdata .show-button').on('click', function(e){
+        e.preventDefault();
+
+        var panel_id = "#" + $(this).attr('aria-controls');
+        var state = $(this).attr('aria-expanded') === 'false' ? true : false;
+        $(this).attr('aria-expanded', state);
+        $(panel_id).attr('aria-hidden', !state);
+        $(this).parent().toggleClass('is-expanded');
+
       });
     }
 
@@ -649,6 +670,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       bindAnalyticsEventsSocial();
       bindAttributionToggle();
       bindDownloadButton();
+      bindMetadataButton();
       updateTechData({target:$('.single-item-thumb a')[0]});
 
 
@@ -692,21 +714,32 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       $('.tumblr-share-button').on('click', function(){
 
-        //var ulrPattern   = /http:/ig;
-        var canonicalUrl = $('[hreflang="x-default"]').attr('href');              //.replace(ulrPattern, "https:");
-        var imageUrl     = decodeURIComponent($('.media-viewer a').attr('href')); //.replace(ulrPattern, "https:");
+        var title  = $('h2.object-title').text();
+        var canonicalUrl = $('[property="og:url"]').attr('content');
+            canonicalUrl = encodeURIComponent( canonicalUrl );
 
-        canonicalUrl = canonicalUrl.indexOf('?') > 0 ? canonicalUrl.split('?')[0] : canonicalUrl;
+        var imageUrl     = $('.media-viewer a').attr('href');
 
-        var params = '?canonicalUrl=' + canonicalUrl;
-        params += '&data-title='      + $('h2.object-title').text();
-        params += '&data-content='    + imageUrl;
+        if(imageUrl){
+          imageUrl     = imageUrl.split('?view=')[1];
+        }
+        else{
+          imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
+        }
 
-        log('params' + params);
-        log('canonicalUrl ' + canonicalUrl);
-        log('imageUrl ' + imageUrl);
+        log('canonicalUrl = ' + canonicalUrl);
+        log('imageUrl = '     + imageUrl);
 
-        window.open('https://www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+        var params = ''
+        params += '?content='      + imageUrl;
+        params += '&canonicalUrl=' + canonicalUrl;
+        params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
+        params += '&posttype='     + 'photo';
+
+        log('widget params = ' + params)
+
+        window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
+
         return false;
       })
     };

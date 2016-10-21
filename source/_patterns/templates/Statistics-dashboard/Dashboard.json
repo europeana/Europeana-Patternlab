@@ -13,8 +13,8 @@
   ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-statistics"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/main-statistics"
     }
   ],
   "navigation": {
@@ -123,12 +123,20 @@
         {
           "title": "Total Visits in 2015",
           "value": "20,060,879",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum.",
+          "trend":{
+            "value": "12%",
+            "positive": true
+          }
         },
         {
           "title": "Total Visits in 2012",
           "value": "11,060,879",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum.",
+          "trend":{
+            "value": "6%",
+            "negative": true
+          }
         },
         {
           "title": "Total Visits in 2011",
@@ -138,7 +146,11 @@
         {
           "title": "Total Visits in 2011",
           "value": "1,060,879",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum."
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum.",
+          "trend":{
+            "value": "16%",
+            "positive": true
+          }
         },
         {
           "title": "Total Visits in 2011",

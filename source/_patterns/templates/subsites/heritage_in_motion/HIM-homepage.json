@@ -2,6 +2,9 @@
   "bodyclass": "europeana_HIM page_home",
   "page_title": "Heritage in Motion",
   "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
   "page_config": {
     "newsletter": true
   },
@@ -13,8 +16,8 @@
   ],
   "js_files": [
     {
-      "path": "../../js/dist/require.js",
-      "data_main": "../../js/dist/main/main-heritageinmotion"
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/main-heritageinmotion"
     }
   ],
   "jQuery": false,

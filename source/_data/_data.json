@@ -190,7 +190,6 @@
           "utility_nav": {
             "menu_id": "settings-menu",
             "style_modifier": "caret-right",
-            "tabindex": "6",
             "items": [
               {
                 "url": "#",
@@ -628,7 +627,7 @@
                 "actions": {
                     "download": "Download",
                     "download-started": "The download has started",
-                    "download-started": "Retry",
+                    "download-retry": "Retry",
                     "media-metadata": "Media Metadata",
                     "technicalmetadata": "Technical Metadata",
                     "open-media": "Open this media item",
@@ -663,9 +662,11 @@
                     "runtime": "Run time",
                     "rights": "Rights",
                     "rights_human": "Can I use this?",
+                    "title": "Title",
                     "provided-by": "Provided by",
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
                 },
+                "preview_unavailable": "Item preview not available, to access the full image and more information about the item go to <a href=\"javascript:alert('link to provider');\">The Provider</a>",
                 "show-more-similar-items": "Show more similar items",
                 "named-entities": {
                   "title": "Named Entities"
@@ -700,7 +701,10 @@
               "filter-by": "Filter by",
               "filter-all": "All",
               "fullscreen-enter": "full screen",
-              "fullscreen-exit":  "exit full screen"
+              "fullscreen-exit":  "exit full screen",
+              "skip-to-main":  "Skip to page contents",
+              "next":"next",
+              "previous":"previous"
             },
             "cookie_disclaimer": {
               "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
@@ -743,6 +747,7 @@
               "connect": "Connect"
             },
             "home": "Home",
+            "page": "page",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
             "language-english": "English",
@@ -750,7 +755,8 @@
             "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
             "mission-title": "Our mission",
             "more": {
-                "load-more": "Load more"
+                "load-more": "Load more",
+                "show-more": "Show more"
             },
             "navigation":{
               "more":{
@@ -773,6 +779,10 @@
             "research": "Research",
             "research-text": "Connecting to the academic community",
             "requires_javascript": "To view this content please enable JavaScript, and consider upgrading to a web browser that supports HTML5 content.",
+            "search-area":{
+              "search-button-image-alt": "Search",
+              "search-placeholder-text": "Add a search term"
+            },
             "search-collections": "Search collections",
             "search-collections-text": "Search through Europe's cultural heritage",
             "share": "Share",

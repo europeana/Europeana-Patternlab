@@ -47,14 +47,21 @@
 	display: inline-block;
 	padding: 0.4em 0.3em;
 	line-height: 1;
+	color: #131313;
 
 	&.up{
 		background-color: $eu-jade;
-		color: $white;
+
+		.stat-value:before{
+			content: "▲";
+		}
 	}
 	&.down{
 		background-color: $eu-red;
 		color: $white;
-	}
 
+		.stat-value:before{
+			content: "▼";
+		}
+	}
 }

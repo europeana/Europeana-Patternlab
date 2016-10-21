@@ -19,15 +19,23 @@ define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'util_scrollEvents'], 
     }
 
     function init_showhide(){
+
         $('.js-showhide').on('click', function(e){
           e.preventDefault();
 
           var self = $(this);
           var parent = $(this).parent();
-          parent.find(".js-showhide-panel").toggleClass("is-jshidden");  // apply the toggle to the panel
+          var panel = parent.find(".js-showhide-panel");
+
+          panel.toggleClass("is-jshidden");  // apply the toggle to the panel
           parent.toggleClass('is-expanded');
 
+          var state = $(this).attr('aria-expanded') === 'false' ? true : false;
+          $(this).attr('aria-expanded', state);
+          panel.attr('aria-hidden', !state);
+
           swapText(self);
+
         });
 
         $('.js-showhide-nested').on('click', function(e){
@@ -40,11 +48,13 @@ define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'util_scrollEvents'], 
           var parentFilter = $tgt.closest('.filter')
 
           if(hidden){
-            toShowHide.addClass('is-jshidden');
+            toShowHide.addClass('is-jshidden').attr('aria-hidden', true);
+            $(this).attr('aria-expanded', false);
             parentFilter.removeClass('is-expanded');
           }
           else{
-            toShowHide.removeClass('is-jshidden');
+            toShowHide.removeClass('is-jshidden').attr('aria-hidden', "false");
+            $(this).attr('aria-expanded', true);
             parentFilter.addClass('is-expanded');
           }
 

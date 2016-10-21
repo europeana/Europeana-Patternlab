@@ -17,7 +17,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	color: $textcolour_body;
-	
+
 }
 
 .tags a{
@@ -32,7 +32,7 @@ ul.tags li{
 	@extend %tag;
 	color: $white;
 	background-color: $textcolour_highlight;
-	
+
 	&:hover, &.is-active{
 		$i: darken($textcolour_highlight, 20);
 		text-decoration: none;
@@ -55,7 +55,7 @@ ul.tags li{
 }
 
 .tags-large .tag, .tag-large{
-	@include font-size(0.8); 
+	@include font-size(0.8);
 }
 
 .tag_beta{
@@ -67,4 +67,11 @@ ul.tags li{
 	}
 }
 
-
+.tag-num_results{
+	&:before{
+		content: "(";
+	}
+	&:after{
+		content: ")";
+	}
+}

@@ -154,6 +154,18 @@
       padding: $pad;
     }
 
+    .no-preview{
+      color:      #fff;
+      display:    block;
+      padding:    4em 31% 2em 22%;
+      text-align: left;
+      width:      100%;
+      a{
+        color:           #fff;
+        text-decoration: underline;
+      }
+    }
+
     position: relative;
 
     .media-thumb-section{
@@ -555,6 +567,11 @@
   }
 }
 
+.object-downloads.is-expanded + .object-techdata.is-expanded{
+   border-top: 1px solid $gray87;
+   margin-top: $space;
+}
+
 #molecules-icons-licenses-js{
   display: none;
 }
@@ -682,6 +699,42 @@
   width: 100%;
   display: table-row;
   table-layout: fixed;
+}
+
+.eu-filter{
+  border-color:  $gray80;
+  border-radius: 2em;
+  margin-bottom: 1.5em;
+  outline:       0 none;
+  padding:       0.25em 0.25em 0.25em 0.75em;
+  width:         18em;
+
+  &:focus{
+    border-color: $linkblue;
+  }
+}
+
+.filter-force-hide{
+  display: none !important;
+}
+.filter-force-show{
+  display: block !important;
+  &.filter-force-show-children{
+    .eu-foldable-title{
+      >a{
+        &:after{
+          /* arrows opened */
+          border-color: #a4cde1 transparent transparent transparent !important;
+          bottom: 2px                                               !important;
+          border-style: solid dashed dashed dashed                  !important;
+        }
+      }
+    }
+    .eu-foldable-data.is-hidden{
+      display:    block   !important;
+      visibility: visible !important;
+    }
+  }
 }
 
 .eu-foldable-url:not(.inline),

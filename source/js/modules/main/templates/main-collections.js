@@ -84,10 +84,13 @@ require.config({
     purl:                          '../../lib/purl/purl',
     photoswipe:                    '../../lib/photoswipe/photoswipe',
     photoswipe_ui:                 '../../lib/photoswipe/photoswipe-ui-default',
-    pinterest:                     'http://assets.pinterest.com/js/pinit_main',
+
+    //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
+    pinterest:                     '../../lib/pinterest/pinit_main',
 
     util_ellipsis:                 '../../eu/util/ellipsis',
     util_foldable:                 '../../eu/util/foldable-list',
+    util_filterable:               '../../eu/util/foldable-list-filter',
     util_resize:                   '../../eu/util/resize',
     util_scrollEvents:             '../../eu/util/scrollEvents',
 
@@ -182,15 +185,20 @@ require(['jquery', 'optimizely'], function( $ ) {
                         $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
                       }
                     });
+                    console.log('made tmp container');
                   }
+                  var url = $('meta[property="og:url"]').attr('content');
                   if($('.tmp-pinterest').size()==0){
                     PinUtils.pinOne({
                       media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
-                      description: data.desc ? data.desc : 'Europeana Record'
+                      description: data.desc ? data.desc : 'Europeana Record',
+                      url: url
                     });
+                    console.log('called pin one: ' + url);
                   }
                   else{
-                    PinUtils.pinAny();
+                    PinUtils.pinAny({url: url});
+                    console.log('called pin any: ' + url);
                   }
                 });
               }

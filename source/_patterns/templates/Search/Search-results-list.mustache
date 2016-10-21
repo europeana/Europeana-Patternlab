@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section class="search-hero">
+    <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
         <div class="searchbar">
         {{> molecules/components/search/search-form }}
 
@@ -32,7 +32,7 @@
                 <li class="search-tag">
                     {{#filter}}<span class="title">{{filter}}:</span>{{/filter}}
                     {{value}}
-                    <a href="{{remove}}" data-role="remove"></a>
+                    <a href="{{remove}}" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
                     <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
                 </li>
             {{/items}}
@@ -42,7 +42,7 @@
         </div>
     </section>
 
-    <section class="search-results">
+    <section class="search-results" id="maincontent">
         <div class="container">
             <div class="results-list cf">
 
