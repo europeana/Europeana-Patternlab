@@ -1,10 +1,8 @@
-define(['jquery'], function(){
+define(['jquery', 'util_foldable'], function($, foldable){
 
   var txt;
-  var showClass         = 'filter-force-show';
-  var showChildrenClass = 'filter-force-show-children';
-  var hideClass         = 'filter-force-hide';
-  var allFilterables    = [];
+  var classes = foldable.classes;
+  var allFilterables = [];
 
   function Filterable(conf, $el){
     this.text        = $el.find(conf.sel_title).text().toUpperCase();
@@ -24,30 +22,30 @@ define(['jquery'], function(){
   }
 
   Filterable.prototype.hide = function(){
-    this.$el.addClass(hideClass);
-    this.$el.removeClass(showClass);
+    this.$el.addClass(classes.hideClass);
+    this.$el.removeClass(classes.showClass);
   }
 
   Filterable.prototype.reset = function(){
-    this.$el.removeClass(hideClass);
-    this.$el.removeClass(showClass);
-    this.$el.removeClass(showChildrenClass);
+    this.$el.removeClass(classes.hideClass);
+    this.$el.removeClass(classes.showClass);
+    this.$el.removeClass(classes.showChildrenClass);
   }
 
   Filterable.prototype.show = function(){
-    this.$el.addClass(showClass);
-    this.$el.removeClass(hideClass);
+    this.$el.addClass(classes.showClass);
+    this.$el.removeClass(classes.hideClass);
   }
 
   Filterable.prototype.fade = function(){
-    this.$el.addClass(showClass);
-    this.$el.addClass(showChildrenClass);
-    this.$el.removeClass(hideClass);
+    this.$el.addClass(classes.showClass);
+    this.$el.addClass(classes.showChildrenClass);
+    this.$el.removeClass(classes.hideClass);
   }
 
   function hideAll(){
     $(confs).each(function(i, conf){
-      $(conf.elements).addClass(hideClass);
+      $(conf.elements).addClass(classes.hideClass);
     });
   }
 
@@ -109,6 +107,9 @@ define(['jquery'], function(){
       el.reset();
     });
 
+    if(txt.val().length==0){
+      return;
+    }
     var matchData = getMatches(txt.val().toUpperCase());
 
     $.each(matchData.toShow, function(i, el){
