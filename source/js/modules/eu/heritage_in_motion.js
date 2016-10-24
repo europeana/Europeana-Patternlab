@@ -111,7 +111,7 @@ Site_HIM = {
             require(["embedly"]);
 
             require(["tagsinput"], function() {
-                $('.js-tagsinput').tagsInput({'width': '100%', 'height': 'auto'});
+                $('.js-tagsinput, .tagsinputsource').tagsInput({'width': '100%', 'height': 'auto'});
             });
         }
     }
