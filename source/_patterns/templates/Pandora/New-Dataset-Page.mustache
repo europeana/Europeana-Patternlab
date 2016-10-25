@@ -3,14 +3,15 @@
 {{/is_java}}
 <div class="working-space">
 	<div class="container-large">
-		{{> organisms/global/header_v2}}
+		{{#metis_header}}
+			{{> organisms/global/header_v2}}
+		{{/metis_header}}
 	    <ul class="breadcrumbs">
 		{{#breadcrumbs}}
 	       	<li><a href="{{url}}">{{text}}</a></li>
 	    {{/breadcrumbs}}
 	    </ul>
 	</div>
-	
 </div>
 {{#is_java}}
 	{{>atoms/meta/_foot}}
