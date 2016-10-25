@@ -102,13 +102,13 @@ license options: ONLY ONE should be active
 {{#license_PD_NC}}
   <a href="{{license_url}}" class="license" {{>molecules/icons/rel_attribute}}><span class="icon-license-pd"></span><span class="icon-license-nc"></span><span class="icon-license-nd"></span>
   {{license_name}}
-  {{^license_name}} Public Domain - non commercial re-use{{/license_name}}</a>
+  {{^license_name}} Public Domain - non commercial re-use{{/license_name}}<svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg></a>
 {{/license_PD_NC}}
 
 {{#license_public}}
   <a href="{{license_url}}" class="license icon-license-pd" {{>molecules/icons/rel_attribute}}>
   {{license_name}}
-  {{^license_name}} Public Domain {{/license_name}}</a>
+  {{^license_name}} Public Domain {{/license_name}}<svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg></a>
 {{/license_public}}
 
 {{#license_RR_free}}
