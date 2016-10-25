@@ -41,90 +41,91 @@
 			"url": "#"
 		}
 	],
-
-	"navigation": 
-	{
-		"home_url": "#",
-		"home_text": "Return to Home",
-		"next_prev": 
+    "metis_header": {
+		"navigation": 
 		{
-			"next_url": "next_url_here",
-			"prev_url": "prev_url_here",
-			"results_url": "results_url_here"
-		},
-
-		"footer": false,
-		"global": 
-		{
-			"options": 
+			"home_url": "#",
+			"home_text": "Home",
+			"next_prev": 
 			{
-				"search_active": false,
-				"settings_active": true
+				"next_url": "next_url_here",
+				"prev_url": "prev_url_here",
+				"results_url": "results_url_here"
 			},
-
-			"logo": 
+	
+			"footer": false,
+			"global": 
 			{
-				"url": "#",
-				"text": "Europeana Pandora"
-			},
-
-			"primary_nav": 
-			{
-				"menu_id": "main-menu",
-				"items": 
-				[
-					{
-						"text": "New Dataset",
-						"url": "#",
-						"is_current": true,
-						"submenu": false
-					},
-
-					{
-						"text": "All Datasets",
-						"url": "javascript:alert('Hello')"
-					},
-
-					{
-						"text": "Management",
-						"url": "#",
-						"submenu": 
+				"options": 
+				{
+					"search_active": false,
+					"settings_active": true
+				},
+	
+				"logo": 
+				{
+					"url": "#",
+					"text": "Europeana Pandora"
+				},
+	
+				"primary_nav": 
+				{
+					"menu_id": "main-menu",
+					"items": 
+					[
 						{
-							"items": 
-							[
-								{
-									"url": "#",
-									"text": "Organizations",
-									"subtitle": true
-								},
-								{
-									"url": "#",
-									"text": "Users",
-									"message": true
-								},
-								{
-									"url": "#",
-									"text": "Crosswalks"
-								},
-								{
-									"is_divider": true
-								},
-								{
-									"url": "#",
-									"text": "Entities"
-								},
-								{
-									"url": "#",
-									"text": "Schemas (XSD)"
-								}
-							]
+							"text": "New Dataset",
+							"url": "#",
+							"is_current": true,
+							"submenu": false
+						},
+	
+						{
+							"text": "All Datasets",
+							"url": "javascript:alert('Hello')"
+						},
+	
+						{
+							"text": "Management",
+							"url": "#",
+							"submenu": 
+							{
+								"items": 
+								[
+									{
+										"url": "#",
+										"text": "Organizations",
+										"subtitle": true
+									},
+									{
+										"url": "#",
+										"text": "Users",
+										"message": true
+									},
+									{
+										"url": "#",
+										"text": "Crosswalks"
+									},
+									{
+										"is_divider": true
+									},
+									{
+										"url": "#",
+										"text": "Entities"
+									},
+									{
+										"url": "#",
+										"text": "Schemas (XSD)"
+									}
+								]
+							}
+						},
+						{
+							"text": "",
+							"url": ""
 						}
-					},
-					{
-						"text": "",
-						"url": ""
-					}
-				]
+					]
+				}
 			}
 		}
 	}
