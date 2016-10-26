@@ -1,0 +1,11 @@
+{
+  "bodyclass": "europeana_HIM",
+  "page_title": "Heritage in Motion",
+  "page_locale": "en",
+  "css_files": [
+    {
+      "path": "../../css/heritage_in_motion/screen.css",
+      "media": "all"
+    }
+  ]
+}

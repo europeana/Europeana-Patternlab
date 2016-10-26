@@ -1,5 +1,95 @@
 // Heritage in Motion Site specific styles
 
+.him-add, .him-cancel, .him-checkout, .him-confirm, .him-complete, .him-edit, .him-proceed, .him-preview, .him-remove, .him-submit, .him-view{
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*
+Source (not working - taken from icon-plus)
+  <svg xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" class="path1" viewBox="0 0 745 1024" d="M449.939 791.273h-155.152q-6.896 0-11.205-4.31t-4.31-11.205v-263.758h-263.758q-6.896 0-11.205-4.31t-4.31-11.205v-155.152q0-6.896 4.31-11.205t11.205-4.31h263.758v-263.758q0-6.896 4.31-11.205t11.205-4.31h155.152q6.896 0 11.205 4.31t4.31 11.205v263.758h263.758q6.896 0 11.205 4.31t4.31 11.205v155.152q0 6.896-4.31 11.205t-11.205 4.31h-263.758v263.758q0 6.896-4.31 11.205t-11.205 4.31z"></path></svg>
+  (position / padding still to be worked out)
+*/
+
+.him-add,
+input[type="submit"].him-add{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%20745%201024%22%20d%3D%22M449.939%20791.273h-155.152q-6.896%200-11.205-4.31t-4.31-11.205v-263.758h-263.758q-6.896%200-11.205-4.31t-4.31-11.205v-155.152q0-6.896%204.31-11.205t11.205-4.31h263.758v-263.758q0-6.896%204.31-11.205t11.205-4.31h155.152q6.896%200%2011.205%204.31t4.31%2011.205v263.758h263.758q6.896%200%2011.205%204.31t4.31%2011.205v155.152q0%206.896-4.31%2011.205t-11.205%204.31h-263.758v263.758q0%206.896-4.31%2011.205t-11.205%204.31z%22%3E%3C/path%3E%3C/svg%3E);
+  background-position: 0.35em 0.5em;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+}
+
+.him-checkout,
+input[type="submit"].him-checkout,
+.him-proceed,
+input[type="submit"].him-proceed,
+.him-submit,
+input[type="submit"].him-submit{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2026%2030%22%20d%3D%22M26.030%209.121l-15.818%2015.818q-0.212%200.152-0.394%200.152t-0.394-0.152l-9.273-9.273q-0.394-0.394%200-0.788l3.818-3.818q0.394-0.394%200.788%200l5.061%205.091%2011.606-11.636q0.394-0.394%200.788%200l3.818%203.818q0.394%200.394%200%200.788z%22%3E%3C/path%3E%3C/svg%3E);
+  background-position: 0.45em 0.4em;
+  padding: 0.5rem 1rem 0.5rem 2.6rem;
+}
+
+.him-confirm,
+input[type="submit"].him-confirm,
+.him-complete,
+input[type="submit"].him-complete{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2026%2030%22%20d%3D%22M26.030%209.121l-15.818%2015.818q-0.212%200.152-0.394%200.152t-0.394-0.152l-9.273-9.273q-0.394-0.394%200-0.788l3.818-3.818q0.394-0.394%200.788%200l5.061%205.091%2011.606-11.636q0.394-0.394%200.788%200l3.818%203.818q0.394%200.394%200%200.788z%22%3E%3C/path%3E%3C/svg%3E);
+  background-position: 0.45em 0.4em;
+  padding: 0.5rem 1rem 0.5rem 2.6rem;
+}
+
+
+.him-cancel,
+input[type="submit"].him-cancel,
+.him-remove,
+input[type="submit"].him-remove{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20viewBox%3D%220%200%2026%2030%22%20class%3D%22path1%22%20fill-rule%3D%22evenodd%22%20d%3D%22M24.424%2021.424q0.152%200.212%200.152%200.394t-0.152%200.394l-3.848%203.848q-0.212%200.152-0.394%200.152t-0.394-0.152l-6.697-6.697-6.697%206.697q-0.212%200.152-0.394%200.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152%200.394-0.152t0.394%200.152l6.697%206.697%206.697-6.697q0.212-0.152%200.394-0.152t0.394%200.152l3.848%203.848q0.152%200.212%200.152%200.394t-0.152%200.394l-6.697%206.697z%22%3E%3C/path%3E%3C/svg%3E);
+  background-position: 0.25em 0.45em;
+  padding: 0.5rem 1rem 0.5rem 2.4rem;
+}
+
+
+/*
+Source (not working - taken from icon-edit)
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" xml:space="preserve"><path fill="#FFF" class="path1" viewBox="0 0 33 33" d="M376.956,237.143l58.504-57.637v255.468c0,34.352-27.852,62.207-62.207,62.207H62.209   c-34.352,0-62.207-27.855-62.207-62.207V123.932c0-34.355,27.855-62.211,62.207-62.211h255.453l-59.848,58.234H58.597v318.359   h318.359V237.143z M377.469,56.755l62.967,62.985l20.993-20.986l-62.968-62.985L377.469,56.755z M434.211,0l-20.989,20.99   l62.968,62.968l20.989-20.989L434.211,0z M171.288,262.987l188.91-188.953l62.969,62.984l-188.91,188.938l-91.703,28.677   L171.288,262.987z M202.596,265.369l10.77,10.953l161.938-159.184l-10.77-10.953L202.596,265.369z"/></svg>
+  (position / padding still to be worked out)
+*/
+
+.him-edit,
+input[type="submit"].him-edit{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20x%3D%220px%22%20y%3D%220px%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2033%2033%22%20d%3D%22M376.956%2C237.143l58.504-57.637v255.468c0%2C34.352-27.852%2C62.207-62.207%2C62.207H62.209%20%20%20c-34.352%2C0-62.207-27.855-62.207-62.207V123.932c0-34.355%2C27.855-62.211%2C62.207-62.211h255.453l-59.848%2C58.234H58.597v318.359%20%20%20h318.359V237.143z%20M377.469%2C56.755l62.967%2C62.985l20.993-20.986l-62.968-62.985L377.469%2C56.755z%20M434.211%2C0l-20.989%2C20.99%20%20%20l62.968%2C62.968l20.989-20.989L434.211%2C0z%20M171.288%2C262.987l188.91-188.953l62.969%2C62.984l-188.91%2C188.938l-91.703%2C28.677%20%20%20L171.288%2C262.987z%20M202.596%2C265.369l10.77%2C10.953l161.938-159.184l-10.77-10.953L202.596%2C265.369z%22/%3E%3C/svg%3E);
+  padding: 0.5rem 1rem;
+}
+
+.him-preview,
+input[type="submit"].him-preview,
+.him-view,
+input[type="submit"].him-view{
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2023%2032%22%20d%3D%22M23.192%2012.822q0.189%200.269%200%200.539-0.215%200.296-0.593%200.808t-1.589%201.805-2.492%202.276-3.165%201.791-3.717%200.808-3.69-0.768-3.219-1.872-2.451-2.209-1.63-1.886l-0.566-0.754q-0.189-0.269%200-0.539%200.216-0.296%200.593-0.808t1.589-1.805%202.492-2.276%203.165-1.791%203.717-0.808%203.69%200.768%203.205%201.859%202.424%202.168%201.616%201.832l0.566%200.781zM11.636%2017.455q1.805%200%203.084-1.279t1.279-3.084-1.279-3.084-3.084-1.279-3.084%201.279-1.279%203.084q0%201.832%201.266%203.098t3.098%201.266z%22%3E%3C/path%3E%3C/svg%3E);
+  background-position: 0.35em 0.5em;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+}
+
+.him-btn-square{
+  border-radius: 4px;
+}
+
+.him-blue{
+  background-color: #2f3e95;
+}
+
+.him-green{
+  background-color: #37b98b;
+}
+
+.him-orange{
+  background-color: #ffae00;
+}
+
+
+
 
 //Logo for Heritage in Motion
 .logo {
