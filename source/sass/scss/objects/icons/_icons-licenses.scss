@@ -75,29 +75,8 @@ html:hover [class^="icon-"]{-ms-zoom: 1;}
   content: "©";
 }
 
-.icon-license-rs-inc:before,
-.icon-license-rs-inc-edu:before,
-.icon-license-rs-inc-ow-eu:before{
-  content: url(../../../../images/search/InC.Solo.dark.svg);
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  width: 1em;
-}
-
-.icon-license-rs-noc-nc:before,
-.icon-license-rs-noc-oklr:before{
-  content: url(../../../../images/search/NoC.Solo.dark.svg);
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  width: 1em;
-}
-
-.icon-license-rs-cne:before{
-  content: url(../../../../images/search/Other.Solo.dark.svg);
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  width: 1em;
+svg.icon.icon-license-rs{
+  margin-right: 0;
+  position:     relative;
+  top: 1px;
 }
