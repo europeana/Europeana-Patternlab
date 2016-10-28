@@ -12,27 +12,27 @@ input[type="submit"].him-remove, input[type="submit"].him-submit, input[type="su
 }
 
 .him-add,
-input[type="submit"].him-add{
+[type="submit"].him-add{
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 95 95' xml:space='preserve'%3E%3Cpath fill='%23fff' d='M92.49,35.284H59.206V2c0-1.104-0.896-2-2-2H37.284c-1.104,0-2,0.896-2,2v33.284H2c-1.104,0-2,0.896-2,2v19.922 c0,1.104,0.896,2,2,2h33.284V92.49c0,1.104,0.896,2,2,2h19.922c1.104,0,2-0.896,2-2V59.206H92.49c1.104,0,2-0.896,2-2V37.284 C94.49,36.18,93.596,35.284,92.49,35.284z'/%3E%3C/svg%3E");  background-position: 0.35em 0.5em;
   background-size: 1.7em;
   padding: 0.5rem 1rem 0.5rem 2.5rem;
 }
 
 .him-checkout,
-input[type="submit"].him-checkout,
+[type="submit"].him-checkout,
 .him-proceed,
-input[type="submit"].him-proceed,
+[type="submit"].him-proceed,
 .him-submit,
-input[type="submit"].him-submit{
+[type="submit"].him-submit{
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2026%2030%22%20d%3D%22M26.030%209.121l-15.818%2015.818q-0.212%200.152-0.394%200.152t-0.394-0.152l-9.273-9.273q-0.394-0.394%200-0.788l3.818-3.818q0.394-0.394%200.788%200l5.061%205.091%2011.606-11.636q0.394-0.394%200.788%200l3.818%203.818q0.394%200.394%200%200.788z%22%3E%3C/path%3E%3C/svg%3E);
   background-position: 0.45em 0.4em;
   padding: 0.5rem 1rem 0.5rem 2.6rem;
 }
 
 .him-confirm,
-input[type="submit"].him-confirm,
+[type="submit"].him-confirm,
 .him-complete,
-input[type="submit"].him-complete{
+[type="submit"].him-complete{
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2026%2030%22%20d%3D%22M26.030%209.121l-15.818%2015.818q-0.212%200.152-0.394%200.152t-0.394-0.152l-9.273-9.273q-0.394-0.394%200-0.788l3.818-3.818q0.394-0.394%200.788%200l5.061%205.091%2011.606-11.636q0.394-0.394%200.788%200l3.818%203.818q0.394%200.394%200%200.788z%22%3E%3C/path%3E%3C/svg%3E);
   background-position: 0.45em 0.4em;
   padding: 0.5rem 1rem 0.5rem 2.6rem;
@@ -40,9 +40,9 @@ input[type="submit"].him-complete{
 
 
 .him-cancel,
-input[type="submit"].him-cancel,
+[type="submit"].him-cancel,
 .him-remove,
-input[type="submit"].him-remove{
+[type="submit"].him-remove{
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20viewBox%3D%220%200%2026%2030%22%20class%3D%22path1%22%20fill-rule%3D%22evenodd%22%20d%3D%22M24.424%2021.424q0.152%200.212%200.152%200.394t-0.152%200.394l-3.848%203.848q-0.212%200.152-0.394%200.152t-0.394-0.152l-6.697-6.697-6.697%206.697q-0.212%200.152-0.394%200.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152%200.394-0.152t0.394%200.152l6.697%206.697%206.697-6.697q0.212-0.152%200.394-0.152t0.394%200.152l3.848%203.848q0.152%200.212%200.152%200.394t-0.152%200.394l-6.697%206.697z%22%3E%3C/path%3E%3C/svg%3E);
   background-position: 0.25em 0.45em;
   padding: 0.5rem 1rem 0.5rem 2.4rem;
@@ -50,7 +50,7 @@ input[type="submit"].him-remove{
 
 
 .him-edit,
-input[type="submit"].him-edit{
+[type="submit"].him-edit{
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' y='0px' viewBox='0 0 1000 1000' xml:space='preserve'%3E%3Cpath fill='%23fff' d='M772.2,881.1H118.9V227.8H500l108.9-108.9H64.4c-30.1,0-54.4,24.4-54.4,54.4v762.2c0,30.1,24.4,54.4,54.4,54.4h762.2c30.1,0,54.4-24.4,54.4-54.4V391.1L772.2,500V881.1z'/%3E%3Cpath fill='%23fff' d='M881.1,10h-54.4l-490,490v163.3H500l490-490v-54.4L881.1,10z M445.6,608.9h-54.4v-54.4l54.4-54.4l54.4,54.4L445.6,608.9z M581.7,472.8l-54.4-54.4l299.4-299.4l54.4,54.4L581.7,472.8z'/%3E%3C/svg%3E");
   background-position: 0.4em 0.3em;
   background-size: 1.7em;
@@ -58,7 +58,7 @@ input[type="submit"].him-edit{
 }
 
 .him-preview,
-input[type="submit"].him-preview,
+[type="submit"].him-preview,
 .him-view,
 input[type="submit"].him-view{
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2023%2032%22%20d%3D%22M23.192%2012.822q0.189%200.269%200%200.539-0.215%200.296-0.593%200.808t-1.589%201.805-2.492%202.276-3.165%201.791-3.717%200.808-3.69-0.768-3.219-1.872-2.451-2.209-1.63-1.886l-0.566-0.754q-0.189-0.269%200-0.539%200.216-0.296%200.593-0.808t1.589-1.805%202.492-2.276%203.165-1.791%203.717-0.808%203.69%200.768%203.205%201.859%202.424%202.168%201.616%201.832l0.566%200.781zM11.636%2017.455q1.805%200%203.084-1.279t1.279-3.084-1.279-3.084-3.084-1.279-3.084%201.279-1.279%203.084q0%201.832%201.266%203.098t3.098%201.266z%22%3E%3C/path%3E%3C/svg%3E);
@@ -71,7 +71,7 @@ input[type="submit"].him-view{
 }
 
 .him-black{
-  background-color: ##1a1a1a;
+  background-color: #1a1a1a;
 }
 
 .him-blue{
