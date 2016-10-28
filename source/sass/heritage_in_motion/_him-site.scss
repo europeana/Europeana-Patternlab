@@ -70,27 +70,33 @@ input[type="submit"].him-view{
   border-radius: 4px;
 }
 
-.him-black{
+.him-black,
+[type="submit"].him-black{
   background-color: #1a1a1a;
 }
 
-.him-blue{
+.him-blue,
+[type="submit"].him-blue{
   background-color: #2f3e95;
 }
 
-.him-grey{
+.him-grey,
+[type="submit"].him-grey{
   background-color: #ccc;
 }
 
-.him-green{
+.him-green,
+[type="submit"].him-green{
   background-color: #37b98b;
 }
 
-.him-orange{
+.him-orange,
+[type="submit"].him-orange{
   background-color: #ffae00;
 }
 
-.him-red{
+.him-red,
+[type="submit"].him-red{
   background-color: #d43900;
 }
 
