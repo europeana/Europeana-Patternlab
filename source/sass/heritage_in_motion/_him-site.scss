@@ -73,31 +73,55 @@ input[type="submit"].him-view{
 .him-black,
 [type="submit"].him-black{
   background-color: #1a1a1a;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 .him-blue,
 [type="submit"].him-blue{
   background-color: #2f3e95;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 .him-grey,
 [type="submit"].him-grey{
   background-color: #ccc;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 .him-green,
 [type="submit"].him-green{
   background-color: #37b98b;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 .him-orange,
 [type="submit"].him-orange{
   background-color: #ffae00;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 .him-red,
 [type="submit"].him-red{
   background-color: #d43900;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
 }
 
 
