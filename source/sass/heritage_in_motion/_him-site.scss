@@ -100,7 +100,11 @@ input[type="submit"].him-view{
   background-color: #d43900;
 }
 
-
+// Breadcrumbs override
+.search-object{
+    margin-bottom: 0;
+    background-color: #F8F8F8;
+}
 
 
 //Logo for Heritage in Motion
@@ -347,6 +351,10 @@ input[type="submit"].him-view{
     margin-right: 0;
   }
 
+}
+
+.content-pad{
+  padding: $space;
 }
 
 // Secondary navigation over-ride
