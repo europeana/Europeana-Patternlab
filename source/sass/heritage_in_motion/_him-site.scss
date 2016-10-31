@@ -76,34 +76,52 @@ input[type="submit"].him-view{
   background-color: #1a1a1a;
 }
 
+.him-black-status{
+  color: #1a1a1a;
+}
+
 .him-blue,
-.him-blue-status,
 [type="submit"].him-blue{
   background-color: #2f3e95;
 }
+.him-blue-status{
+  color: #2f3e95;
+}
 
 .him-grey,
-.him-grey-status,
 [type="submit"].him-grey{
   background-color: #ccc;
 }
 
+.him-grey-status{
+  color: #ccc;
+}
+
 .him-green,
-.him-green-status,
 [type="submit"].him-green{
   background-color: #37b98b;
 }
 
+.him-green-status{
+  color: #37b98b;
+}
+
 .him-orange,
-.him-orange-status,
 [type="submit"].him-orange{
   background-color: #ffae00;
 }
 
+.him-orange-status{
+  color: #ffae00;
+}
+
 .him-red,
-.him-red-status,
 [type="submit"].him-red{
   background-color: #d43900;
+}
+
+.him-red-status{
+  color: #d43900;
 }
 
 .him-black-status,
