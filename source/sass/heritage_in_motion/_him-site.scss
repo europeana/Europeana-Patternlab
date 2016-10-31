@@ -68,60 +68,75 @@ input[type="submit"].him-view{
 
 .him-btn-square{
   border-radius: 4px;
+  &:hover{
+    cursor:  pointer;
+    opacity: 0.9;
+  }
+}
+
+.him-black-status,
+.him-blue-status,
+.him-grey-status,
+.him-green-status,
+.him-orange-status,
+.him-red-status{
+  background-color: white;
+  font-weight:      bold;
+  text-transform:   uppercase;
 }
 
 .him-black,
 [type="submit"].him-black{
   background-color: #1a1a1a;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-black-status{
+  color: #1a1a1a;
 }
 
 .him-blue,
 [type="submit"].him-blue{
   background-color: #2f3e95;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-blue-status{
+  color: #2f3e95;
 }
 
 .him-grey,
 [type="submit"].him-grey{
   background-color: #ccc;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-grey-status{
+  color: #ccc;
 }
 
 .him-green,
 [type="submit"].him-green{
   background-color: #37b98b;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-green-status{
+  color: #37b98b;
 }
 
 .him-orange,
 [type="submit"].him-orange{
   background-color: #ffae00;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-orange-status{
+  color: #ffae00;
 }
 
 .him-red,
 [type="submit"].him-red{
   background-color: #d43900;
-  &:hover{
-    cursor:  pointer;
-    opacity: 0.9;
-  }
+}
+
+.him-red-status{
+  color: #d43900;
 }
 
 
