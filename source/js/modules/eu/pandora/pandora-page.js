@@ -45,13 +45,17 @@ define(['jquery', 'smartmenus'], function ($) {
     function expandCollapseMappingCard() {
         $('.widget-expanded').hide();
     	$('.values-expand').click(function() {
-    		$('.widget-collapsed').hide();
-    		$('.widget-expanded').show();
+    		var $card = $(this).closest('.widget-collapsed');
+    		var $objId = $card.attr('object_id');
+    		$('.widget-collapsed[object_id='+ $objId +']').hide();
+    		$('.widget-expanded[object_id='+ $objId +']').show();
     	});
     	
     	$('.values-collapse').click(function() {
-    		$('.widget-expanded').hide();
-    		$('.widget-collapsed').show();
+    		var $card = $(this).closest('.widget-expanded');
+    		var $objId = $card.attr('object_id');
+    		$('.widget-expanded[object_id='+ $objId +']').hide();
+    		$('.widget-collapsed[object_id='+ $objId +']').show();
     	});
     }
     

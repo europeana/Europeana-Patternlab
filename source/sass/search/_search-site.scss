@@ -208,9 +208,12 @@
 
 // Channel landing specific
 .above-hero {
+  /*
   @media all and (min-width: $bp-small) {
     margin-top: $globalnavheight;
   }
+  */
+  margin-top: $globalnavheight;
 }
 
 .exhibitions-list .list-item{
