@@ -5,6 +5,7 @@ input[type="submit"].him-add, input[type="submit"].him-cancel, input[type="submi
 input[type="submit"].him-complete, input[type="submit"].him-edit, input[type="submit"].him-proceed, input[type="submit"].him-preview,
 input[type="submit"].him-remove, input[type="submit"].him-submit, input[type="submit"].him-view{
   background-repeat: no-repeat;
+  box-shadow: none;
   color: #fff;
   display: inline-block;
   font-weight: bold;
@@ -46,6 +47,9 @@ input[type="submit"].him-remove, input[type="submit"].him-submit, input[type="su
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23fff%22%20viewBox%3D%220%200%2026%2030%22%20class%3D%22path1%22%20fill-rule%3D%22evenodd%22%20d%3D%22M24.424%2021.424q0.152%200.212%200.152%200.394t-0.152%200.394l-3.848%203.848q-0.212%200.152-0.394%200.152t-0.394-0.152l-6.697-6.697-6.697%206.697q-0.212%200.152-0.394%200.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152%200.394-0.152t0.394%200.152l6.697%206.697%206.697-6.697q0.212-0.152%200.394-0.152t0.394%200.152l3.848%203.848q0.152%200.212%200.152%200.394t-0.152%200.394l-6.697%206.697z%22%3E%3C/path%3E%3C/svg%3E);
   background-position: 0.25em 0.45em;
   padding: 0.5rem 1rem 0.5rem 2.4rem;
+  &.pill{
+    background-position: 0.5em 0.45em;
+  }
 }
 
 
@@ -55,6 +59,10 @@ input[type="submit"].him-remove, input[type="submit"].him-submit, input[type="su
   background-position: 0.4em 0.3em;
   background-size: 1.7em;
   padding: 0.5rem 1rem 0.5rem 2.5rem;
+  &.pill{
+    background-position: 0.9em 0.25em;
+    padding: 0.5rem 1rem 0.5rem 3em;
+  }
 }
 
 .him-preview,
@@ -64,14 +72,23 @@ input[type="submit"].him-view{
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20class%3D%22path1%22%20viewBox%3D%220%200%2023%2032%22%20d%3D%22M23.192%2012.822q0.189%200.269%200%200.539-0.215%200.296-0.593%200.808t-1.589%201.805-2.492%202.276-3.165%201.791-3.717%200.808-3.69-0.768-3.219-1.872-2.451-2.209-1.63-1.886l-0.566-0.754q-0.189-0.269%200-0.539%200.216-0.296%200.593-0.808t1.589-1.805%202.492-2.276%203.165-1.791%203.717-0.808%203.69%200.768%203.205%201.859%202.424%202.168%201.616%201.832l0.566%200.781zM11.636%2017.455q1.805%200%203.084-1.279t1.279-3.084-1.279-3.084-3.084-1.279-3.084%201.279-1.279%203.084q0%201.832%201.266%203.098t3.098%201.266z%22%3E%3C/path%3E%3C/svg%3E);
   background-position: 0.35em 0.5em;
   padding: 0.5rem 1rem 0.5rem 2rem;
+  &.pill{
+    background-position: 0.5em 0.5em;
+    padding: 0.5rem 1rem 0.5rem 2.4rem;
+  }
 }
 
 .him-btn-square{
   border-radius: 4px;
+  cursor: pointer;
+  &:active,
+  &:focus,
+  &:hover{
+    opacity: 0.9;
+  }
 }
 
 .him-black,
-.him-black-status,
 [type="submit"].him-black{
   background-color: #1a1a1a;
 }
