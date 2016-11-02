@@ -36,6 +36,7 @@
           {
             "text": "Our Network",
             "is_current": false,
+            "url": "#",
             "submenu": false
           },
           {
@@ -50,7 +51,7 @@
           },
           {
             "text": "Use our data",
-            "url": "",
+            "url": "#",
             "submenu": false
           }
         ]
