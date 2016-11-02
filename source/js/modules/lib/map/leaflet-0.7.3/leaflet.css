@@ -360,8 +360,8 @@
 
 /* map zoom controls */
 /* line 278, leaflet.scss */
-#map .leaflet-bar a,
-#map .leaflet-bar a:hover {
+.map .leaflet-bar a,
+.map .leaflet-bar a:hover {
   width: 18px;
   height: 18px;
   line-height: 18px;

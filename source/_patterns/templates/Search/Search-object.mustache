@@ -323,7 +323,8 @@
                          }'
                         ></a>
                       <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
-                      <div id="map">
+                      <a id="map" style="bottom:4.8em; position: relative;"></a>
+                      <div class="map">
                         <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
                         <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
                       </div>

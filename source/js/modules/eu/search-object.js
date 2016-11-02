@@ -43,10 +43,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
 
     function showMap(data){
+    	
       var initLeaflet = function(longitudes, latitudes, labels){
         log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
-
-        var mapId = 'map';
         var mapInfoId = 'map-info';
         var placeName = $('#js-map-place-name').text();
 
@@ -55,10 +54,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
           var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
-          $('#' + mapId).after('<div id="' + mapInfoId + '"></div>');
+          $('.map').after('<div id="' + mapInfoId + '"></div>');
           var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
-          var map = L.map(mapId, {
+          var map = L.map($('.map')[0], {
             center : new L.LatLng(latitudes[0], longitudes[0]),
             zoomControl : true,
             zoomsliderControl: false,
