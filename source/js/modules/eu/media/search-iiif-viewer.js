@@ -39,6 +39,7 @@ define([], function() {
 
   var labelledData = {}; // JSON (entire manifest): data.label: data
   var iiifLayers   = {}; // Map layers (loaded): label: layer
+  var allCanvases  = [];
 
   function log(msg) {
     console.log(msg);
@@ -69,16 +70,15 @@ define([], function() {
       if(noLoaded == noToLoad){
         done = true;
       }
-      else if(index >= Object.keys(labelledData).length){
+      else if(index >= allCanvases.length){
         done = true;
       }
       else{
-        var key   = Object.keys(labelledData)[ index ];
-        var data  = labelledData[key];
+        var data = allCanvases[index];
 
-        if(! iiifLayers[data.label] ){
+        if(! iiifLayers[index + ''] ){
           var layer = L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
-          iiifLayers[data.label] = layer;
+          iiifLayers[index + ''] = layer;
           noLoaded += 1;
         }
         index += 1;
@@ -110,13 +110,12 @@ define([], function() {
       return;
     }
 
-    var target = Object.keys(labelledData)[index];
-    var layer = iiifLayers[target];
+    var layer = iiifLayers[index + ''];
 
     if(!layer){
       $('#iiif').addClass('loading');
       load(index);
-      layer = iiifLayers[target];
+      layer = iiifLayers[index + ''];
       $('#iiif').removeClass('loading');
     }
 
@@ -144,7 +143,6 @@ define([], function() {
         forcePseudoFullscreen: false
       }).addTo(iiif);
     }
-
 
     iiif.on('enterFullscreen', function(){
       $('.leaflet-container').css('background-color', '#000');
@@ -230,14 +228,15 @@ define([], function() {
 
         $.each(data.sequences[0].canvases, function(_, val) {
           labelledData[val.label] = val;
+          allCanvases.push(val);
         });
 
-        setTotalImages(Object.keys(labelledData).length)
+        setTotalImages(allCanvases.length)
         load();
 
         $('#iiif').removeClass('loading');
 
-        iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif);
+        iiifLayers['0'].addTo(iiif);
 
         $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
         updateCtrls();
@@ -259,6 +258,7 @@ define([], function() {
         currentImg   = 0;
         totalImages  = 0;
         labelledData = {};
+        allCanvases  = [];
         iiifLayers   = {};
     }
   };
