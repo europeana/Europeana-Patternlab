@@ -146,7 +146,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
     };
 
-    $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a').not('.filter-name-icon').each(function(){
+    $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a').not('.filter-name-icon, .mlt_remove').each(function(){
       updateUrl($(this));
     });
   }
