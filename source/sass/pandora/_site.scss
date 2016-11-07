@@ -1,7 +1,7 @@
 @import "../scss/generic/variables";
 
 .logo {
-	background-image: url("../../images/metis/europeana-metis-logo.svg");
+	background-image: url("../../images/metis/europeana-logo-metis.png");
 	.svg &{
 	  background-image: url("../../images/metis/europeana-metis-logo.svg");
 	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
@@ -455,3 +455,28 @@ body {
 }
 /*** END OF FIELD VALUE ***/
 
+/***    LOGIN FORM     ***/
+.metis-login-form {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 0px !important;
+	border: 0px;
+	background-color: white;
+	width: 20em;
+	height: 20em;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.metis-login-form div{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.login-form-header {
+	text-align: center;
+	color: white;
+	background-color: #1676aa;
+	width: 10em;
+	font-size: 2em;
+}
+/*** END OF LOGIN FORM ***/

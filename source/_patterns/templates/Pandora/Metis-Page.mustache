@@ -1,0 +1,23 @@
+{{#is_java}}
+	{{>atoms/meta/_head}}
+{{/is_java}}
+<div class="working-space">
+	<div class="container-large">
+		{{#metis_header}}
+			{{> organisms/global/header_v2}}
+		{{/metis_header}}
+	    <ul class="breadcrumbs">
+		{{#breadcrumbs}}
+	       	<li><a href="{{url}}">{{text}}</a></li>
+	    {{/breadcrumbs}}
+	    </ul>
+	</div>
+	{{#is_login}}
+	<div>
+		{{> molecules/pandora/login-form}}
+	</div>
+	{{/is_login}}
+</div>
+{{#is_java}}
+	{{>atoms/meta/_foot}}
+{{/is_java}}
