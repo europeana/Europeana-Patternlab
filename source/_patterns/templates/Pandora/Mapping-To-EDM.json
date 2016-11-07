@@ -51,7 +51,7 @@
 			"url": "#"
 		}
 	],
-
+	
     "metis_header": {
 		"navigation": 
 		{
@@ -78,78 +78,61 @@
 					"url": "#",
 					"text": "Europeana Pandora"
 				},
-				"primary_nav": 
-				{
-					"menu_id": "main-menu",
-					"items": 
-					[
-						{
-							"text": "New Dataset",
-							"url": "#",
-							"is_current": false,
-							"submenu": false
-						},
-	
-						{
-							"text": "All Datasets",
-							"url": "javascript:alert('Hello')",
-							"submenu": 
-							{
-								"items": 
-								[
-									{
-										"url": "#",
-										"text": "Submenu Item 11"
-									},
-	
-									{
-										"url": "#",
-										"text": "Submenu Item 12"
-									},
-	
-									{
-										"url": "Menu Item 2",
-										"text": "Submenu Item 13"
-									}
-								]
-							}
-						},
-	
-						{
-							"text": "Management",
-							"url": "#",
-							"submenu": 
-							{
-								"items": 
-								[
-									{
-										"url": "javascript:alert('Hi')",
-										"text": "Submenu Item 21"
-									},
-	
-									{
-										"url": "javascript:alert('Hi')",
-										"text": "Submenu Item 22"
-									},
-	
-									{
-										"url": "#",
-										"text": "Submenu Item 23"
-									},
-	
-									{
-										"is_divider": true
-									},
-	
-									{
-										"url": "#",
-										"text": "Submenu Item 24"
-									}
-								]
-							}
-						}
-					]
-				},
+				"primary_nav": {
+			    	"items": [
+			            {
+			              "text": "New Dataset",
+			              "url": "/new-dataset-page",
+			              "is_current": false,
+			              "submenu": false
+			            },
+			            {
+			              "text": "All Datasets",
+			              "url": "/all-datasets-page",
+			              "is_current": false,
+			              "submenu": false
+			            },
+			            {
+			              "text": "Management",
+			              "url": "#",
+			              "is_current": false,
+			              "submenu": {
+			                "items": [
+			                  {
+			                    "text": "Organizations",
+			                    "url": "#",
+			                    "subtitle": false,
+			                    "submenu": false
+			                  },
+			                  {
+			                    "text": "Users",
+			                    "url": "#",
+			                    "message": false,
+			                    "submenu": false
+			                  },
+			                  {
+			                    "is_divider": true
+			                  },
+			                  {
+			                    "text": "Crosswalks",
+			                    "submenu": false
+			                  },
+			                  {
+			                    "text": "Entities",
+			                    "url": "#",
+			                    "submenu": false
+			                  },
+			                  {
+			                    "text": "Schemas (XSD)",
+			                    "url": "#",
+			                    "submenu": false
+			                  }
+			                ]
+			              }
+			            }
+			    	],
+					"menu_id": "main-menu"
+		        },
 				"utility_nav": 
 				{
 					"menu_id": "settings-menu",
@@ -159,8 +142,23 @@
 					[
 						{
 							"url": "#",
-							"text": "Wiki",
-							"icon": "settings"
+							"text": "Settings",
+							"icon": "settings",
+				            "submenu": {
+				              "items": [
+				                {
+				                  "text": "My Profile",
+				                  "url": "#"
+				                },
+				                {
+				                  "is_divider": true
+				                },
+				                {
+				                  "text": "Logout",
+				                  "url": "#"
+				                }
+				              ]
+				            }
 						}
 					]
 				}

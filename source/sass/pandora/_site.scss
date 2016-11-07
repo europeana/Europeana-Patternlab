@@ -1,9 +1,9 @@
 @import "../scss/generic/variables";
 
 .logo {
-	background-image: url("../../images/europeana-logo-collections.png");
+	background-image: url("../../images/metis/europeana-metis-logo.svg");
 	.svg &{
-	  background-image: url("../../images/europeana-logo-collections.svg");
+	  background-image: url("../../images/metis/europeana-metis-logo.svg");
 	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
 	      background-image: url("../../images/europeana-logo-symbol.svg");
 	      min-width:50px;
