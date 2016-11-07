@@ -11,53 +11,39 @@
         <input type="hidden" name="q" value="{{input_original.value}}"/>
       {{/has_original}}
 
-      {{^has_original}}
-
-        {{#mlt_src}}
-          <ul class="search-tags js-search-tags">
+      <ul class="search-tags js-search-tags">
+        {{#input_values}}
+          {{#is_mlt}}
+            <li class="search-tag mlt">
+              {{i18n.site.navigation.breadcrumb.results_list_mlt}} 
+              <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
+              <a href="{{remove}}" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
+            </li>
+	      {{/is_mlt}}
+        {{/input_values}}
+        
+        {{#input_values}}
+          {{^is_mlt}}
             <li class="search-tag">
-              {{i18n.site.navigation.breadcrumb.results_list_mlt}}
-              <input type="hidden" name="mlt" value="{{.}}" class="js-hidden-search-term"/>
-              <a href="{{.}}" class="mlt_remove" data-role="remove"><span class="is-vishidden">Remove</span></a>
+              {{value}}
+              <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
+              <a href="{{remove}}" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
             </li>
-            <li class="search-input-item">
-              <input class="search-input js-search-input js-placeholder" type="text"
-              {{#title}}title="{{title}}" {{/title}}
-              {{#input_name}}name="{{input_name}}" {{/input_name}}
-              {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}/>
-            </li>
-          </ul>
-        {{/mlt_src}}
-        {{^mlt_src}}
+          {{/is_mlt}}
+        {{/input_values}}
+
+        {{#input_original.value}}
+          <li class="search-tag">{{.}}<a href="{{input_original.remove}}" data-role="remove"><span class="is-vishidden">Remove {{.}}</span></a></li>
+        {{/input_original.value}}
+
+        <li class="search-input-item">
           <input class="search-input js-search-input js-placeholder" type="text"
           {{#title}}title="{{title}}" {{/title}}
           {{#input_name}}name="{{input_name}}" {{/input_name}}
-          {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}
-          />
-        {{/mlt_src}}
-      {{/has_original}}
+          {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}/>
+        </li>
+      </ul>
 
-
-      {{#has_original}}
-        <ul class="search-tags js-search-tags">
-          {{#input_values}}
-            <li class="search-tag">
-            {{value}}
-            <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
-            <a href="{{remove}}" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
-            </li>
-          {{/input_values}}
-
-          <li class="search-tag">{{input_original.value}}<a href="{{input_original.remove}}" data-role="remove"><span class="is-vishidden">Remove {{input_original.value}}</span></a></li>
-
-          <li class="search-input-item">
-            <input class="search-input js-search-input js-placeholder" type="text"
-            {{#title}}title="{{title}}" {{/title}}
-            {{#input_name}}name="{{input_name}}" {{/input_name}}
-            {{#placeholder}}placeholder="{{placeholder}}" {{/placeholder}}/>
-          </li>
-        </ul>
-      {{/has_original}}
     {{/input_search}}
 
   </div>
