@@ -28,8 +28,12 @@ dd {
 .comma-list{
 
     > *, li {
-        display: inline;
+        display: inline-block;
         margin-right: 0.4em;
+    }
+
+    li:first-letter {
+    text-transform: capitalize;
     }
 
     li:after{
@@ -47,3 +51,5 @@ dd {
       }
     }
 }
+
+
