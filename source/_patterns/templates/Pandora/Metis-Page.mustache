@@ -12,11 +12,18 @@
 	    {{/breadcrumbs}}
 	    </ul>
 	</div>
-	{{#is_login}}
-	<div>
-		{{> molecules/pandora/login-form}}
-	</div>
-	{{/is_login}}
+	{{#landing_page_content}}
+		{{#is_login}}
+		<div>
+			{{> molecules/pandora/login-form}}
+		</div>
+		{{/is_login}}
+		{{#is_register}}
+		<div>
+			{{> molecules/pandora/register-form}}
+		</div>
+		{{/is_register}}
+	{{/landing_page_content}}
 </div>
 {{#is_java}}
 	{{>atoms/meta/_foot}}

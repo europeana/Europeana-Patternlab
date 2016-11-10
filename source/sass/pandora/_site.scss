@@ -12,20 +12,21 @@
 	}
 }
 
-.no-js{
+.no-js {
 
   // style / hide things for no javascript
 
 }
 
 body {
-  @media all and (max-width: $bp-med){
-    background-color: red;  
-  }
-		
-  @media all and (min-width: $bp-med) and (max-width: $bp-xl){
-    background-color: white;
-  }
+	background-image: url("../../images/metis/inscription2.jpg");
+	background-size: cover;
+	@media all and (max-width: $bp-med){
+	  background-color: red;  
+	}
+	@media all and (min-width: $bp-med) and (max-width: $bp-xl){
+	  background-color: white;
+	}
 }
 
 .ve-anchor {
@@ -58,7 +59,7 @@ body {
 }
 
 .working-space {
-	background-color: #D9D4CA;
+	/* background-color: #D9D4CA; */
 	margin-left: auto;
 	margin-right: auto;
 	height: 100%;
@@ -462,7 +463,7 @@ body {
 	border: 0px;
 	background-color: white;
 	width: 20em;
-	height: 20em;
+	overflow: auto;
 	margin-left: 1em;
 	margin-top: 1em;
 }
@@ -480,3 +481,34 @@ body {
 	font-size: 2em;
 }
 /*** END OF LOGIN FORM ***/
+
+
+/***    REGISTER FORM     ***/
+.metis-register-form {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 0px !important;
+	border: 0px;
+	background-color: white;
+	width: 20em;
+	overflow: auto;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.metis-register-form div{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.register-form-header {
+	text-align: center;
+	color: white;
+	background-color: #1676aa;
+	width: 10em;
+	font-size: 2em;
+}
+/*** END OF REGISTER FORM ***/
+
+.error-message {
+	color: red;
+}
