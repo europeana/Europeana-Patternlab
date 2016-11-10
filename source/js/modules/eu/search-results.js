@@ -306,13 +306,26 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       });
       $('.refine .js-showhide-nested').data('ga-sent', true);
     });
-  }
+  };
 
   var bindfacetOpeners = function(){
     $('.filter .filter-name').on('click', function(){
       $(this).closest('.filter').toggleClass('filter-closed');
     });
-  }
+  };
+
+  var bindDateFacetInputs = function(){
+    var s = $('#date-range-start');
+    var e = $('#date-range-end');
+    e.attr('max', new Date().getFullYear());
+    s.attr('max', new Date().getFullYear());
+    e.on('change', function(){
+      s.attr('max', e.val());
+      if(s.val()>e.val()){
+        s.val(e.val());
+      }
+    });
+  };
 
   var initPage = function(){
     var defView;
@@ -337,6 +350,7 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     bindResultSizeLinks();
     bindGA();
     bindfacetOpeners();
+    bindDateFacetInputs();
   };
 
   return {
