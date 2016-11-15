@@ -1,0 +1,44 @@
+<h3>TODO</h3>
+<ul>
+  <li>Test!</li>
+  <li>Add preview</li>
+  <li>Handle / add namespace</li>
+  <li>Inline viewbox editing</li>
+  <li>Correct singleton path elements</li>
+  <li>Resetting the x and y attributes?</li>
+</ul>
+
+<h4>SRC</h4>
+<textarea id="src"></textarea>
+
+<br><br>
+
+<h4>CSS</h4>
+<textarea id="css"></textarea>
+
+<br><br>
+
+<h4>Preview</h4>
+<textarea id="result"></textarea>
+
+<script>
+  function encodeSVG(svg){
+    // Use single quotes instead of double to avoid encoding.
+    if(svg.indexOf( '"' ) >= 0){
+      svg = svg.replace(/"/g, "'");
+    }
+
+    svg = svg.replace(/>\s{1,}</g, "><");
+    svg = svg.replace(/\s{2,}/g, " ");
+
+    return svg.replace(symbols, escape);
+  }
+
+  $(document).ready(function(){
+    $('#src').onchange = function() {
+      var $src = $(this);
+      var encoded = encodeSVG($src.val());
+      css.value = encoded;
+    };
+  })
+</script>
