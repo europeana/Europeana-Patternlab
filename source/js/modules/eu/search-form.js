@@ -4,7 +4,7 @@ define(['jquery', 'util_resize'], function ($){
   var blockers = [];
 
   function log(msg){
-    console.log(msg);
+    console.log('SearchForm: ' + msg);
   }
 
   function registerBlocker(fn){
@@ -13,6 +13,7 @@ define(['jquery', 'util_resize'], function ($){
 
   function checkBlocked(){
     var blocked = false;
+    log('check ' + blockers.length + ' blockers');
     for(var i=0; i<blockers.length; i++){
       if(blockers[i].apply()){
          blocked = true;
@@ -62,7 +63,8 @@ define(['jquery', 'util_resize'], function ($){
       }
     });
 
-    $('.search-submit').on('click', function(){
+    $('.search-submit').on('mousedown', function(){
+      log('mousedown submit');
       blockers = [];
     });
 
@@ -99,6 +101,7 @@ define(['jquery', 'util_resize'], function ($){
 
   return {
     registerBlocker: function(fn){
+      log('registered blocker');
       registerBlocker(fn);
     },
     submit : function(){
