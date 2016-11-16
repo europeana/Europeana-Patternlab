@@ -1,5 +1,4 @@
 
-
 /* Declare a namespace for the site */
 var Site = window.Site || {};
 
