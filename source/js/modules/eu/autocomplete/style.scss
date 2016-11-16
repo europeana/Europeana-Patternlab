@@ -1,11 +1,15 @@
 @import "../../../../sass/scss/generic/variables";
 
+
 .eu-autocomplete{
+  display: none;
+  @media all and (min-width: $bp-med){
+    display: block;
+  }
   background-color: #fff;
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
   color: $gray30;
-  display: block;
   left: 1px;
   list-style: none;
   margin: 0;

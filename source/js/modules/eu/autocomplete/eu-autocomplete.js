@@ -47,7 +47,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function resize(){
-    $list.width(($widthEl.outerWidth()-2) + 'px');
+    $list.width(($widthEl.outerWidth()-4) + 'px');
   }
 
   function escapeRegExp(str) {
@@ -171,6 +171,11 @@ define(['jquery', 'util_resize'], function($){
 
   function bindKeyboard(){
     $input.on('keyup', function(e){
+
+      if(!$list.is(":visible")){
+        log('exit (hidden)');
+        return;
+      }
 
       var key = window.event ? e.keyCode : e.which;
       if([39, 40].indexOf(key)>-1){
