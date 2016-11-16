@@ -62,6 +62,10 @@ define(['jquery', 'util_resize'], function ($){
       }
     });
 
+    $('.search-submit').on('click', function(){
+      blockers = [];
+    });
+
     input.focus();
   }
 
