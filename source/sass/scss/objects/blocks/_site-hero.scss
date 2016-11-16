@@ -4,6 +4,10 @@
   height: 70%;
   position: relative;
 
+  @media all and (max-width: $bp-med) {
+    overflow: hidden;
+  }
+
   background-image: url("../../images/sample/pro-background.jpg");
   background-position: 50% 50%;
   -webkit-background-size: cover;
