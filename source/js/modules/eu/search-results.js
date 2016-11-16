@@ -1,8 +1,9 @@
-define(['jquery', 'ga', 'purl'], function ($, ga){
+define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEvents){
 
   ga = window.fixGA(ga);
 
   var $url            = $.url();
+  var euSearchForm    = null;
   var masonry         = null;
   var results         = $('.search-results');
   var ellipsisObjects = [];
@@ -50,8 +51,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
     var newParams     = $.param(params);
 
-    log('set state (replace): ' + JSON.stringify(state));
-
     if(replace){
       window.history.replaceState(state, '', '?' + newParams);
     }
@@ -62,7 +61,6 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
 
   window.onpopstate = function(e){
     if(e.state){
-      log('state present, view = ' + e.state.view)
       if(e.state.view == 'grid'){
         showGrid(true);
       }
@@ -256,10 +254,8 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
         else{
           showList(true);
         }
-        log('default for this thematic collection: ' + defView + ' (saved)');
       }
       else{
-        log('No saved or default view (show list)');
         showList();
       }
     }
@@ -327,7 +323,10 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
     });
   };
 
-  var initPage = function(){
+  var initPage = function(form){
+
+    euSearchForm = form;
+
     var defView;
     if(typeof(Storage) !== "undefined") {
       var label = $('.breadcrumbs').data('store-channel-label');
@@ -345,17 +344,43 @@ define(['jquery', 'ga', 'purl'], function ($, ga){
       }
       thematicCollection = name;
     }
-    log('initPage: defView = ' + defView)
     bindViewButtons(defView);
     bindResultSizeLinks();
     bindGA();
     bindfacetOpeners();
     bindDateFacetInputs();
+
+    $(window).bind('addAutocomplete', function(e, data){
+      addAutocomplete(data);
+    });
+    scrollEvents.fireAllVisible();
   };
 
+  function addAutocomplete(data){
+    require(['eu_autocomplete', 'util_resize'], function(autocomplete){
+      autocomplete.init({
+        evtResize    : 'europeanaResize',
+        selInput     : '.search-input',
+        selWidthEl   : '.js-hitarea',
+        selAnchor    : '.search-multiterm',
+        searchForm   : euSearchForm,
+        translations : data.translations,
+        url          : data.url,
+        fnOnShow     : function(){
+          $('.attribution-content').hide();
+          $('.attribution-toggle').show();
+        },
+        fnOnHide : function(){
+          $('.attribution-content').show();
+          $('.attribution-toggle').hide();
+        }
+      });
+    });
+  }
+
   return {
-    initPage: function(){
-      initPage();
+    initPage: function(euSearchForm){
+      initPage(euSearchForm);
     }
   }
 });
