@@ -239,6 +239,7 @@ define(['jquery', 'util_resize'], function($){
       else if(key==27){
         // esc
         $list.empty();
+        $input.val(typeof typedTerm == null ? '' : typedTerm);
       }
       else{
         var val = $(this).val();
