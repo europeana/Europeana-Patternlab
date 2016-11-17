@@ -22,7 +22,8 @@
     padding:        0.6rem 0.4rem;
     position:       relative;
 
-    &.selected{
+    &.selected,
+    &:hover{
       background-color: #e3e3e3;
     }
 
@@ -46,10 +47,6 @@
   .suggest-dod{
     display: table-cell;
     white-space: nowrap;
-  }
-
-  .suggest-dox{
-    width: 5.6em;
   }
 
   .suggest-agent:before,
@@ -91,9 +88,11 @@
     font-size: 0.8em;
   }
 
-  .suggest-dob,
-  .suggest-dox{
+  .suggest-dob{
     width: 8em;
+  }
+  .suggest-dox{
+    width: 6.4em;
   }
 
   .suggest-type{

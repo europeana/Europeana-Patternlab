@@ -13,6 +13,7 @@ define(['jquery', 'util_resize'], function($){
   var formBlocked        = false;
   var formUnblockPending = false;
   var translations       = { 'Agent': 'Person', 'Place' : 'Place', 'Concept': 'Topic' };
+  var typedTerm          = null;
   var urlStem            = null;
 
   var fnOnShow           = null;
@@ -54,6 +55,12 @@ define(['jquery', 'util_resize'], function($){
     return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
   }
 
+  function isElementInViewport(el){
+    el = el[0];
+    var rect = el.getBoundingClientRect();
+    return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight)
+  }
+
   function hide(){
     formBlocked = false;
     $list.empty();
@@ -66,15 +73,21 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function setSelected($el){
-    $list.find('li').removeClass('selected');
-    $el.addClass('selected');
+  function updateInput($el){
+    if($el){
+      $input.val($el.data('term'));
+      var inV = isElementInViewport($el);
+      if(inV > 0){
+        log('update scroll')
+        $(window).scrollTop($(window).scrollTop() + inV);
+      }
+    }
   }
 
   function select(){
     var sel = $list.find('.selected');
     if(sel.length){
-      $input.val(sel.data('term'));
+      updateInput(sel);
       hide();
     }
   }
@@ -82,25 +95,53 @@ define(['jquery', 'util_resize'], function($){
   function back(first){
     if(first){
       $list.find('li').removeClass('selected');
-      $list.find('li:first').addClass('selected');
+      var $f = $list.find('li:first')
+      $f.addClass('selected');
+      updateInput($f);
     }
     else{
-      var sel = $list.find('.selected');
-      if(sel.prev('li').length > 0){
-        sel.removeClass('selected').prev('li').addClass('selected');
+      var $sel = $list.find('.selected');
+      if($sel.length>0){
+        var $prev = $sel.prev('li');
+        if($prev.length > 0){
+          $sel.removeClass('selected');
+          $prev.addClass('selected');
+          updateInput($prev);
+        }
+        else{
+          $list.find('.selected').removeClass('selected');
+          $input.val(typeof typedTerm == null ? '' : typedTerm);
+        }
       }
     }
   }
 
   function fwd(last){
     if(last){
+      var $l = $list.find('li:last')
       $list.find('li').removeClass('selected');
-      $list.find('li:last').addClass('selected');
+      $l.addClass('selected');
+      updateInput($l);
     }
     else{
-      var sel = $list.find('.selected');
-      if(sel.next('li').length > 0){
-        sel.removeClass('selected').next('li').addClass('selected');
+      var $sel = $list.find('.selected');
+      if($sel.length == 0){
+        var $f = $list.find('li:first')
+        $f.addClass('selected');
+        updateInput($f);
+      }
+      else{
+        var $next = $sel.next('li');
+        if($next.length > 0){
+          $sel.removeClass('selected');
+          $next.addClass('selected');
+          updateInput($next);
+        }
+        else{
+          $list.find('.selected').removeClass('selected');
+          $input.val(typeof typedTerm == null ? '' : typedTerm);
+          $(window).scrollTop(0);
+        }
       }
     }
   }
@@ -130,8 +171,8 @@ define(['jquery', 'util_resize'], function($){
     $.each(dataList, function(i, item){
       var value   = item[valPath];
       var escaped = escapeRegExp(term);
-      var display = (escapeRegExp(value + "")).replace(new RegExp("(" + escaped + ")", "gi") , "<b>$1</b>");
-      $list.append('<li data-term="' + value + '" ' + (i==0 ? ' class="selected"' : '') + '>' + processItem(display, item) + '</li>');
+      var display = (escapeRegExp(value + "")).replace(new RegExp("(" + escaped + ")", "gi") , "<b>$1</b>").replace('\\(', '(').replace('\\)', ')');
+      $list.append('<li data-term="' + value + '">' + processItem(display, item) + '</li>');
     });
   }
 
@@ -178,15 +219,13 @@ define(['jquery', 'util_resize'], function($){
       }
 
       var key = window.event ? e.keyCode : e.which;
-      if([39, 40].indexOf(key)>-1){
-        // right, down
+      if(key == 40){
+        // down
         fwd(e.ctrlKey || e.shiftKey);
-        return;
       }
-      else if([37, 38].indexOf(e.keyCode)>-1){
-        // left, up
+      else if(key == 38){
+        // up
         back(e.ctrlKey || e.shiftKey);
-        return;
       }
       else if(e.keyCode == 13){
         // carriage return
@@ -202,15 +241,18 @@ define(['jquery', 'util_resize'], function($){
         $list.empty();
       }
       else{
-        getSuggestions($(this).val());
+        var val = $(this).val();
+        typedTerm = val;
+        getSuggestions(val);
       }
     });
   }
 
   function bindMouse(){
-    $(document).on('mouseenter', '.eu-autocomplete li', function(e){
-      setSelected($(this));
+    $(document).on('click', '.eu-autocomplete li', function(e){
+      form.submit();
     });
+
     $(document).on('click', '.eu-autocomplete li', function(e){
       select();
     });
