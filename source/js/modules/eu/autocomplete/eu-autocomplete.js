@@ -93,6 +93,9 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function back(first){
+    if($list.find('li').length == 0){
+      return;
+    }
     if(first){
       $list.find('li').removeClass('selected');
       var $f = $list.find('li:first')
@@ -117,6 +120,9 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function fwd(last){
+    if($list.find('li').length == 0){
+      return;
+    }
     if(last){
       var $l = $list.find('li:last')
       $list.find('li').removeClass('selected');
