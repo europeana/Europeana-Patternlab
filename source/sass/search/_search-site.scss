@@ -163,11 +163,11 @@
 
   &.list-item-wide{
     @media all and (min-width: $bp-small) {
-      @include span(24 of 24 split);
+      // @include span(24 of 24 split);
     }
 
     @media all and (min-width: $bp-small-3) {
-      @include span(8 of 24 split);
+      // @include span(8 of 24 split);
     }
 
     @media all and (min-width: $bp-large) {
