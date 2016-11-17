@@ -1,25 +1,9 @@
 define(['jquery', 'util_resize'], function ($){
 
   var form     = $('.search-multiterm');
-  var blockers = [];
 
   function log(msg){
     console.log('SearchForm: ' + msg);
-  }
-
-  function registerBlocker(fn){
-    blockers.push(fn)
-  }
-
-  function checkBlocked(){
-    var blocked = false;
-    log('check ' + blockers.length + ' blockers');
-    for(var i=0; i<blockers.length; i++){
-      if(blockers[i].apply()){
-         blocked = true;
-      }
-    }
-    return blocked;
   }
 
   function sizeInput(){
@@ -58,14 +42,6 @@ define(['jquery', 'util_resize'], function ($){
       if(input.attr('name')=='qf[]' && input.val().length==0){
         return false;
       }
-      if(checkBlocked()){
-        return false;
-      }
-    });
-
-    $('.search-submit').on('mousedown', function(){
-      log('mousedown submit');
-      blockers = [];
     });
 
     input.focus();
@@ -100,10 +76,6 @@ define(['jquery', 'util_resize'], function ($){
   });
 
   return {
-    registerBlocker: function(fn){
-      log('registered blocker');
-      registerBlocker(fn);
-    },
     submit : function(){
       form.submit();
     }

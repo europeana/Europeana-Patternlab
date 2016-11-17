@@ -8,10 +8,7 @@ define(['jquery', 'util_resize'], function($){
     console.log('Autocomplete: ' + msg);
   };
 
-  var maxResults         = 4;
   var form               = null;
-  var formBlocked        = false;
-  var formUnblockPending = false;
   var translations       = { 'Agent': 'Person', 'Place' : 'Place', 'Concept': 'Topic' };
   var typedTerm          = null;
   var urlStem            = null;
@@ -33,13 +30,12 @@ define(['jquery', 'util_resize'], function($){
     $list = $anchor.next('.eu-autocomplete');
     $input.attr('autocomplete', 'off');
 
-    fnOnShow = ops.fnOnShow;
-    fnOnHide = ops.fnOnHide;
-
+    fnOnShow     = ops.fnOnShow;
+    fnOnHide     = ops.fnOnHide;
+    form         = ops.searchForm;
     translations = ops.translations;
     urlStem      = ops.url;
 
-    bindForm(ops.searchForm);
     bindKeyboard();
     bindMouse();
 
@@ -62,14 +58,9 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function hide(){
-    formBlocked = false;
     $list.empty();
     if(fnOnHide){
       fnOnHide();
-    }
-    if(formUnblockPending){
-      formUnblockPending = false;
-      form.submit();
     }
   }
 
@@ -193,35 +184,18 @@ define(['jquery', 'util_resize'], function($){
     $.getJSON(urlStem + term, function(data){
       processResult(data, term);
 
-      if($list.find('.selected').length > 0){
-
-        formBlocked = true;
-
+      if($list.find('li').length > 0){
         if(fnOnShow){
           fnOnShow();
         }
       }
+
     })
     .error(function(e, f){
       log('Error: ' + e + '  ' + f);
       hide();
     });
   };
-
-  function bindForm(frm){
-    if(frm){
-      form = frm;
-      form.registerBlocker(function(){
-        if(formBlocked){
-          formUnblockPending = true;
-        }
-        return formBlocked;
-      });
-    }
-    else{
-      log('no form supplied');
-    }
-  }
 
   function bindKeyboard(){
     $input.on('keyup', function(e){
