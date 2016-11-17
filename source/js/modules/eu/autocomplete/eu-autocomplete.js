@@ -47,7 +47,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function resize(){
-    $list.width(($widthEl.outerWidth()-4) + 'px');
+    $list.width(($widthEl.outerWidth()-2) + 'px');
   }
 
   function escapeRegExp(str) {
