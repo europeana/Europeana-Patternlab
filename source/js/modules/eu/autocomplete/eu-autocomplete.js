@@ -92,6 +92,13 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
+  function setSelected($el){
+    $list.find('li').removeClass('selected');
+    $el.addClass('selected');
+    select();
+    form.submit();
+  }
+
   function back(first){
     if($list.find('li').length == 0){
       return;
@@ -257,11 +264,7 @@ define(['jquery', 'util_resize'], function($){
 
   function bindMouse(){
     $(document).on('click', '.eu-autocomplete li', function(e){
-      form.submit();
-    });
-
-    $(document).on('click', '.eu-autocomplete li', function(e){
-      select();
+      setSelected($(this));
     });
   }
 
