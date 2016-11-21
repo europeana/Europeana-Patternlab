@@ -1,4 +1,4 @@
-define(['jquery', 'search_form', 'smartmenus'], function () {
+define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
 
     var promisedPageJS = jQuery.Deferred();
     var log = function(msg){
@@ -141,14 +141,14 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
         case 'collections/show':
             if((window.location.href.indexOf('?q=') == -1) && (window.location.href.indexOf('&q=') == -1)){
               require(['search_landing'], function(page){
-                page.initPage();
+                page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
               });
             }
             else{
               require(['search_results'], function(page){
-                page.initPage();
+                page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
               });
@@ -163,7 +163,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             break;
         case 'portal/index':
             require(['search_results'], function(page){
-                page.initPage();
+                page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
             });
@@ -181,7 +181,7 @@ define(['jquery', 'search_form', 'smartmenus'], function () {
             break;
         case 'home/index':
             require(['search_home'], function(page){
-                page.initPage();
+                page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
             });

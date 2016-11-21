@@ -68,6 +68,10 @@
     @include fontSize(14px);
     border-radius: 3px;
 
+    &.mlt{
+      background-color: #293745;    	
+    }
+
     & a[data-role="remove"] {
         margin-left: 4px;
         cursor: pointer;

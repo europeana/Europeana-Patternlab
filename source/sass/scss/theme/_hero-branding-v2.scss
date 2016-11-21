@@ -71,17 +71,36 @@
 
 // Text
 
+.brand-text-wrapper,
 .brand-text{
-  width: 60%;
-  min-width: 400px;
-  max-width: 900px;
-  position: absolute;
-  top: 18%;
-  right: -30px;
-
   svg{
     fill: $white;
   }
+}
+
+.brand-text-wrapper{
+  height:    20%;
+  min-width: 400px;
+  max-width: 900px;
+  min-height: 13em;
+  overflow:   hidden;
+  position:   absolute;
+  right:      0px;
+  top:        25%;
+  width:      60%;
+}
+
+.brand-text-wrapper-inner{
+  position: relative;
+  height:    100%;
+  width:    100%;
+}
+
+.brand-text{
+  position: absolute;
+  right:    -30px;
+  height:    100%;
+  width:    100%;
 }
 
 .scaling-svg-container {
