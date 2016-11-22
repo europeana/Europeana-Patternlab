@@ -148,6 +148,15 @@
       }
 
     }
+    
+    &.ve-soundcloud {
+      
+      @media all and (min-width: $bp-med) {
+        height: 10em;
+        max-width: 50%;
+      }
+      
+    }
 
     &.ve-base-medium-tall{
 
