@@ -1,44 +1,203 @@
-<h3>TODO</h3>
-<ul>
-  <li>Test!</li>
-  <li>Add preview</li>
-  <li>Handle / add namespace</li>
-  <li>Inline viewbox editing</li>
-  <li>Correct singleton path elements</li>
-  <li>Resetting the x and y attributes?</li>
-</ul>
-
-<h4>SRC</h4>
-<textarea id="src"></textarea>
-
-<br><br>
-
-<h4>CSS</h4>
-<textarea id="css"></textarea>
-
-<br><br>
-
-<h4>Preview</h4>
-<textarea id="result"></textarea>
-
-<script>
-  function encodeSVG(svg){
-    // Use single quotes instead of double to avoid encoding.
-    if(svg.indexOf( '"' ) >= 0){
-      svg = svg.replace(/"/g, "'");
-    }
-
-    svg = svg.replace(/>\s{1,}</g, "><");
-    svg = svg.replace(/\s{2,}/g, " ");
-
-    return svg.replace(symbols, escape);
+<style>
+  .wrapper{
+    padding: 2em 4em;
   }
 
-  $(document).ready(function(){
-    $('#src').onchange = function() {
-      var $src = $(this);
-      var encoded = encodeSVG($src.val());
-      css.value = encoded;
-    };
-  })
-</script>
+  .input-wrapper{
+    display: inline-block;
+    margin: 0.5em 4% 1.5em 0;
+    overflow: hidden;
+    width: 45%;
+  }
+
+  #src,
+  #src-modified,
+  #css,
+  .preview-wrapper{
+    height: 8em;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  #preview{
+    height: 100px;
+    margin: auto;
+    width: 100px;
+  }
+
+  .error,
+  .error:focus{
+    border: 1px solid red;
+  }
+
+</style>
+
+<div class="wrapper">
+  <h3>TODO</h3>
+  <ul>
+    <li>inline viewbox editing</li>
+    <li>inline preview height adjust</li>
+    <li>inline x and y attributes</li>
+    <li>correct singleton path elements</li>
+    <li>&nbsp;</li>
+  </ul>
+
+  <div class="input-wrapper">
+    <h4>SRC</h4>
+    <textarea id="src"></textarea>
+  </div>
+
+  <div class="input-wrapper src-modified">
+    <h4>SRC MODIFIED</h4>
+    <textarea id="src-modified"></textarea>
+  </div>
+
+  <div class="input-wrapper">
+    <h4>CSS</h4>
+    <textarea id="css"></textarea>
+  </div>
+
+  <div class="input-wrapper">
+    <h4>Preview</h4>
+    <div class="preview-wrapper">
+      <div id="preview"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    var symbols      = /[\r\n"%#()<>?\[\\\]^`{|}]/g;
+    var namespace    = 'http://www.w3.org/2000/svg';
+    var nodeModified = false;
+
+    function log(msg){
+      console.log(msg)
+    }
+
+    function reset(){
+      nodeModified = false;
+      $('#css').val('');
+      $('#preview').removeAttr('style');
+      $('#src').removeClass('error');
+      $('.src-modified').addClass('hidden');
+    }
+
+    function encodeSVG(svg){
+      if(svg.indexOf( '"' ) >= 0){
+        svg = svg.replace(/"/g, "'");
+      }
+      svg = svg.replace(/>\s{1,}</g, "><");
+      svg = svg.replace(/\s{2,}/g, " ");
+      return svg.replace(symbols, escape);
+    }
+
+    function parse(){
+      var $parsed      = false;
+      var $src         = $('#src');
+      var nodeName     = '';
+      var val          = $src.val() + '';
+
+      if(val.length > 0 && val.indexOf('$') == 0){
+        $src.addClass('error');
+        return;
+      }
+      try{
+        $parsed = $(val);
+      }
+      catch(e){
+        $src.addClass('error');
+        return;
+      }
+
+      log('$parsed' + $parsed + ' ' + ($parsed ? $parsed.length : ''));
+
+      if(!$parsed || $parsed.length == 0){
+        $src.addClass('error');
+        return;
+      }
+
+      nodeName = $parsed[0].nodeName.toLowerCase();
+
+      if(nodeName == 'symbol'){
+
+        var attrs    = $parsed[0].attributes;
+        var $newNode = $('<svg>');
+
+        $.each(attrs, function(i, ob){
+          $newNode.attr(ob.nodeName, ob.nodeValue);
+        });
+
+        $newNode.html($parsed.html());
+        $parsed = $newNode;
+
+        nodeName     = $parsed[0].nodeName.toLowerCase();
+        nodeModified = true;
+      }
+
+      if(nodeName != 'svg'){
+        $src.addClass('error');
+        return;
+      }
+
+      if(!$parsed.attr('xmlns')){
+        $parsed.attr('xmlns', namespace);
+      }
+
+      if($parsed.attr('display')){
+        $parsed.removeAttr('display');
+        nodeModified = true;
+      }
+      /*
+      if($parsed.attr('viewBox')){
+          log('has vb')
+        var viewBox = $parsed.attr('viewBox');
+        $parsed.find('path').each(function(i, el){
+          var $el = el;
+          if(!$el.attr('viewBox')){
+            $el.attr('viewBox', viewBox);
+          }
+        });
+        $parsed.removeAttr('viewBox');
+        nodeModified = true;
+      }
+      */
+      if($parsed.find('symbol').length > 0){
+        var sym = $parsed.find('symbol');
+        sym.after(sym.children());
+        sym.remove();
+        nodeModified = true;
+      }
+
+      if(nodeModified){
+        $('#src-modified').val($parsed[0].outerHTML);
+        $('.src-modified').removeClass('hidden');
+      }
+
+      return $parsed;
+    }
+
+    function run(){
+      reset();
+      var $parsed = parse();
+      if(!$parsed){
+        return;
+      }
+
+      var str   = $parsed[0].outerHTML;
+      var style = 'background-image:url("data:image/svg+xml,' + encodeSVG(str) + '");';
+
+      $('#css').val(style);
+      $('#preview').attr('style', style);
+    }
+
+    $(document).ready(function(){
+      $('#src').on('keyup', function() {
+        run();
+      });
+      run();
+    });
+  </script>
+</div>
