@@ -1,5 +1,4 @@
-define(['jquery', 'smartmenus'], function ($) {
-	
+define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
     function log(msg) {
         console.log(msg);
     }
@@ -75,6 +74,33 @@ define(['jquery', 'smartmenus'], function ($) {
         });
     }
     
+    function validateProfileForm() {
+        $('.user-profile-password').hide();
+        $('.error_nonequal').hide();
+        $('.error_missing').hide();
+        $('.user-profile-update-password').click(function() {
+      	  $('.user-profile-password').show();
+        });
+  	  $('.metis-profile-form').submit(function(event) {
+//  		  var template = $('.metis-profile-form').html();
+//  		  var data = {error_nonequal_new_confirm_pwd: "Error: a new password and the confirmed password are not the same"};
+//  		  var html = Mustache.render(template, data);
+//  		  $('.metis-profile-form').html(html);
+  		  var valid = true;
+  		  if ($('#password_new').val() != null && $('#password_new').val() != "" && $('#password_new').val() != ($('#password_new2').val())) {
+  			  $('.error_nonequal').show(); 
+  			  valid = false;
+  		  }
+  		  if (($('#password').val() == null || $('#password').val() == "") && ($('#password_new').val() != null && $('#password_new').val() != "")) {
+  			  $('.error_missing').show(); 
+  			  valid = false;
+  		  }
+  		  if (!valid) {
+  			  event.preventDefault();  			  
+  		  }
+  	  });
+    }
+    
 	function pageInit() {     
 //    log('typeof pageName ' + (typeof pageName));
 //      
@@ -83,7 +109,6 @@ define(['jquery', 'smartmenus'], function ($) {
       $(window).on('scroll', function() {
         log('close open menus here...')
       });
-      
       
       require(['smartmenus'], function() {
           require(['smartmenus_keyboard'], function() {
@@ -121,6 +146,8 @@ define(['jquery', 'smartmenus'], function ($) {
       //});
       
       expandCollapseMappingCard();
+      
+      validateProfileForm();
       
       if(pageName && pageName == 'itemCard'){
         applyXmlBeautify();    	  

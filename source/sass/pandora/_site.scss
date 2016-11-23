@@ -482,7 +482,6 @@ body {
 }
 /*** END OF LOGIN FORM ***/
 
-
 /***    REGISTER FORM     ***/
 .metis-register-form {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -508,6 +507,32 @@ body {
 	font-size: 2em;
 }
 /*** END OF REGISTER FORM ***/
+
+/***    PROFILE FORM     ***/
+.metis-profile-form {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 0px !important;
+	border: 0px;
+	background-color: white;
+	width: 25em;
+	overflow: auto;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.metis-profile-form div{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.profile-form-header {
+	text-align: center;
+	color: white;
+	background-color: #1676aa;
+	width: 12.5em;
+	font-size: 2em;
+}
+/*** END OF PROFILE FORM ***/
 
 .error-message {
 	color: red;
