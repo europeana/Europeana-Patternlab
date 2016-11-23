@@ -1,7 +1,7 @@
 <form action="register" method="post" role="form" class="metis-register-form">
 	<fieldset>
 		<legend  class="register-form-header">Register</legend>
-		{{#error_duplicate_user}}<div class="error-message">{{.}}</div>{{/error_duplicate_user}}
+		{{#register_err_duplicate_user}}<div class="error-message">{{.}}</div>{{/register_err_duplicate_user}}
 		<div class="field-container">
 			<label for="fullName">First Name*:</label>
 			<input id="fullName" type='text' name='fullName' placeholder="Type your first name"/>

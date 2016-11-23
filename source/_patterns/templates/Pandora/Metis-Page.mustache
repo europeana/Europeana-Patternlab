@@ -23,6 +23,11 @@
 			{{> molecules/pandora/register-form}}
 		</div>
 		{{/is_register}}
+		{{#is_profile}}
+		<div>
+			{{> molecules/pandora/profile-form}}
+		</div>
+		{{/is_profile}}
 	{{/landing_page_content}}
 </div>
 {{#is_java}}
