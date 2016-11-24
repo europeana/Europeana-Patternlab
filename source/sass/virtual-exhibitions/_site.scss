@@ -127,10 +127,6 @@
     width:    100%;
     height:   26em;
 
-    &.auto-height{
-      height: auto;
-    }
-
     &.ve-base-small{
 
       @media all and (min-width: $bp-med) {
