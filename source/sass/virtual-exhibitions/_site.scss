@@ -148,15 +148,8 @@
       }
 
     }
-    
-    &.ve-soundcloud {
-      
-      @media all and (min-width: $bp-med) {
-        height: 10em;
-        max-width: 50%;
-      }
-      
-    }
+
+
 
     &.ve-base-medium-tall{
 
@@ -198,8 +191,8 @@
   position: relative;
 }
 
-
-.ve-base-compare{
+.ve-base-compare,
+.ve-soundcloud{
   width:    100%;
 }
 
@@ -776,7 +769,8 @@ a:hover > .ve-state-button-off,
       max-width: $ve_text_column_width_XL_padded;
   }
   .ve-base.ve-base-quote,
-  .ve-base-text{
+  .ve-base-text,
+  .ve-soundcloud{
       max-width: $ve_text_column_width;
       //width:     auto;
   }
@@ -855,7 +849,8 @@ a:hover > .ve-state-button-off,
     max-width: $ve_text_column_width_XL_padded;
   }
   .ve-base.ve-base-quote,
-  .ve-base-text{
+  .ve-base-text,
+  .ve-soundcloud{
       max-width: $ve_text_column_width_XL;
   }
 
