@@ -330,14 +330,41 @@
             "body": "<p>The battle was one of the largest in Medieval Europe and is regarded as the most important victory in the histories of Poland, Belarus and Lithuania.  It has been used as a source of romantic legends and national pride, becoming a larger symbol of struggle against foreign invaders.</p><p>If there's a gap below here it's because the slide is smaller than the viewport height.</p>"
         },
         {
+            "id": "x0_5_0",
+            "is_section": true,
+            "section_title": "Sound Cloud Embeds"
+        },
+        {
+            "id": "x0_5_1",
+            "is_text": true,
+            "body": "<h2>Ireland</h2>"
+        },
+        {
+            "id": "x0_5_2",
+            "is_embed": true,
+            "html": "<iframe class=\"ve-soundcloud auto-height\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/277830697&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true\" scrolling=\"no\"></iframe>"
+        },
+        {
+            "id": "x0_5_3",
+            "is_text": true,
+            "body": "<h2>Scotland</h2>"
+        },
+        {
+            "id": "x0_5_4",
+            "is_embed": true,
+            "html": "<iframe class=\"ve-soundcloud auto-height\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/277830697&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true\" scrolling=\"no\"></iframe>"
+        },
+        {
             "id": "x0_6",
             "is_section": true,
-            "section_title": "Another Embed"
+            "section_title": "Broken Embed"
         },
         {
             "id": "x0_7",
-            "XXX_is_embed": true,
-            "XXX_html": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
+            "XXXXis_embed": true,
+            "is_text": true,
+            "body": "disabled",
+            "XXXXhtml": "<iframe height=\"650\" frameborder=\"0\" width=\"100%\" src=\"//cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=12m537GWvzwK_EbOX00q4sj1tSU73iK93kEQEW3v6k6Q&amp;font=OpenSans-GentiumBook&amp;lang=en&amp;initial_zoom=2&amp;height=650\"></iframe>"
         },
         {
             "id": "x0_8",

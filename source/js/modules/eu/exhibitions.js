@@ -347,6 +347,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       if(ob.is('.ve-base-small, .ve-base-medium, .ve-base-large')){
           return;
       }
+      if(ob.is('.ve-soundcloud')){
+          return;
+      }
       else{
           ob.addClass('ve-base-medium');
       }
