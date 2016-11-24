@@ -1,0 +1,13 @@
+  <div class="object-nav cf">
+    <div class="object-nav-lists">
+      <ul class="breadcrumbs">
+        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+        <li class="js-channel"><a href=""></a></li>
+        {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>{{/navigation.back_url}}
+        <li class="js-return"><a href="">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>
+        <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.item_detail}}</strong></span></li>
+      </ul>
+      {{>molecules/navigation/next-previous}}
+    </div>
+    {{>molecules/forms/search-item-navigation}}
+  </div>

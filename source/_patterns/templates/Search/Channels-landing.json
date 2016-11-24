@@ -119,42 +119,60 @@
     },
     "channel_entry": {
       "title": "Promoted title",
-      "items": [
+      "grouped_items": [
         {
-          "title": "Erlkonig",
-          "url": "urlhere",
-          "count": "12",
-          "media_type": "audio recordings"
-        },
-        {
-          "title": "Mahler 5",
-          "url": "urlhere",
-          "count": "12",
-          "media_type": "video recordings"
-        },
-        {
-          "title": "Beethoven’s handwriting",
-          "url": "urlhere",
-          "count": "12",
-          "media_type": "scores"
-        },
-        {
-          "title": "Haitink in Berlin",
-          "url": "urlhere",
-          "count": "12",
-          "media_type": "letters"
-        },
-        {
-          "title": "Papageno costumes",
-          "url": "urlhere",
-          "count": "42",
-          "media_type": "images"
-        },
-        {
-          "title": "Baroque wedding music",
-          "url": "urlhere",
-          "count": "23",
-          "media_type": "audio recordings"
+          "more_link": "javascript:alert('More items (1)');",
+          "more_text": "More topics",
+          "items":[
+            {
+              "title": "Human Hair",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/portal/collections/fashion?q=hair",
+              "count": "190,226",
+              "media_type": "Images",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_1.png"
+            },
+            {
+              "title": "Smokings",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
+              "count": "7,029",
+              "media_type": "Images and video",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_2.png"
+            },
+            {
+              "title": "Bikinis",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
+              "count": "2,333",
+              "media_type": "Documents",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_3.png"
+            },
+            {
+              "title": "Damir Doma",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+              "count": "76",
+              "media_type": "Images and videos",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_4.png"
+            },
+            {
+              "title": "Betty Jackson",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+              "count": "46",
+              "media_type": "Images and documents",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_5.png"
+            },
+            {
+              "title": "Addy van den Krommenacker",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+              "count": "240",
+              "media_type": "Images",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_6.png"
+            }
+          ]
         }
       ]
     },
