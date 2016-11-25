@@ -1,0 +1,409 @@
+{
+  "bodyclass": "channel_landing",
+  "pagetitle": "Europeana - Fashion",
+  "version": {
+    "is_alpha": true
+  },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
+
+  "navigation": {
+    "back_label": false,
+    "last_label" : "Europeana Fashion",
+    "next_prev": false,
+    "global": {
+      "options": {
+         "searchbar": true
+       }
+    }
+  },
+
+  "form_search": {
+    "action": "javascript:alert('submit form');"
+  },
+
+  "js_slsb_ld":{
+    "context": "http://schema.org",
+    "type": "WebSite",
+    "url": "http://www.europeana.eu/portal",
+    "potentialAction": {
+      "type": "SearchAction",
+      "target": "http://www.europeana.eu/portal/search?q={q}",
+      "query_input": "required name=q"
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "collections/show"
+    }
+  ],
+  "input_search": {
+    "title": "Search Europeana Fashion",
+    "input_name": "q",
+    "placeholder": "Search Europeana Fashion"
+  },
+  "browse_menu": {
+    "menu_id": "browse-menu",
+    "style_modifier": "caret-right",
+    "items": [
+      {
+        "url": "#",
+        "text": "Browse",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "Images",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Videos",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            },
+            {
+              "text": "Sound recordings",
+              "url": "javascript:alert('sounds')",
+              "icon": "icon-music"
+            },
+            {
+              "text": "Text",
+              "url": "javascript:alert('texts')",
+              "icon": "icon-openbook"
+            },
+            {
+              "text": "3D Objects",
+              "url": "javascript:alert('3d')",
+              "icon": "icon-3d"
+            },
+            {
+              "text": "All",
+              "url": "javascript:alert('all')",
+              "icon": "icon-ellipsis"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "content": {
+    "carousel": {
+      "title": "Tumblr",
+      "tumblr_url": "javascript:alert('open tumblr page')",
+      "more_items_load"  : "url-for-extra-items",
+      "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
+      "items": [
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+             "alt": "The Lace Maker",
+             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+          }
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+          }
+        },
+        {
+          "url": "?q=Delft",
+          "img": {
+            "alt": "Delft",
+            "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+          }
+        },
+        {
+          "url": "?q=Girl+with+the+pearl+earring",
+          "img": {
+            "alt": "Girl with the pearl earring",
+            "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+          }
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+             "alt": "The Lace Maker",
+             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+          }
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+          }
+        }
+      ]
+    },
+    "channel_info": {
+      "name": "Europeana Fashion",
+      "description": "The <strong>Europeana Fashion</strong> brings together more than 30 public and private archives and museums from across Europe in order give public access to high quality digital fashion content, ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos, and fashion catalogues.",
+      "stats": {
+        "items": [
+          {
+            "count": "662,296",
+            "text": "Images",
+            "url": "#"
+          },
+          {
+            "count": "11,014",
+            "text": "Texts",
+            "url": "#"
+          },
+          {
+            "count": "416",
+            "text": "Videos",
+            "url": "#"
+          }
+        ]
+      },
+      "recent": {
+        "title": "Added recently:",
+        "items": [
+          {
+            "text": "Victoria and Albert Museum",
+            "url": "#",
+            "number": "2,747 items",
+            "date": "May 2015"
+          },
+          {
+            "text": "Catwalkpictures",
+            "url": "#",
+            "number": "29,611 items",
+            "date": "May 2015"
+          },
+          {
+            "text": "Stiftelsen Nordiska Museet",
+            "url": "#",
+            "number": "10,949 items",
+            "date": "May 2015"
+          }
+        ],
+        "more_link": {
+          "text": "Load more",
+          "url": "#777"
+        }
+      }
+    },
+    "hero_config": {
+      "hero_image": "../../images/sample/channel_hero_fashion.jpg",
+      "attribution_title": "Stockholms mode-journal: Tidskrift för den eleganta werlden 1851,",
+      "attribution_creator": "",
+      "attribution_institution": "Stiftelsen Nordiska Museet",
+      "attribution_url": "http://www.europeana.eu/portal/record/2048211/449.html",
+      "license_public": true,
+      "ripple_size_thin" : true,
+      "ripple_size_medium" : false,
+      "ripple_size_thick" : false
+    },
+    "channel_entry": {
+      "title": "Promoted title",
+      "grouped_items": [
+        {
+          "more_link": "javascript:alert('More items (1)');",
+          "more_text": "More topics",
+          "items":[
+            {
+              "title": "Human Hair",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/portal/collections/fashion?q=hair",
+              "count": "190,226",
+              "media_type": "Images",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_1.png"
+            },
+            {
+              "title": "Smokings",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
+              "count": "7,029",
+              "media_type": "Images and video",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_2.png"
+            },
+            {
+              "title": "Bikinis",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
+              "count": "2,333",
+              "media_type": "Documents",
+              "is_search": true,
+              "image": "../../images/sample/entry_fashion_3.png"
+            },
+            {
+              "title": "Damir Doma",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
+              "count": "76",
+              "media_type": "Images and videos",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_4.png"
+            },
+            {
+              "title": "Betty Jackson",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
+              "count": "46",
+              "media_type": "Images and documents",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_5.png"
+            },
+            {
+              "title": "Addy van den Krommenacker",
+              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
+              "count": "240",
+              "media_type": "Images",
+              "is_spotlight": true,
+              "image": "../../images/sample/entry_fashion_6.png"
+            }
+          ]
+        }
+      ]
+    },
+    "promoted": {
+      "title": "Promoted title",
+      "items": [
+        {
+          "title": "Royal Book Collections",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-book.jpg"
+        },
+        {
+          "title": "From Dada to Surrealism",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-dada.jpg"
+        },
+        {
+          "title": "Art Nouveau",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-artnouveau.jpg"
+        },
+        {
+          "title": "Explore the World of Musical Instruments",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-instruments.jpg"
+        },
+        {
+          "title": "Pablo Picasso",
+          "url": "http://dizbi.hazu.hr/picasso/",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-picasso.jpg"
+        },
+        {
+          "title": "From Dada to Surrealism",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+          "is_exhibition": true,
+          "bg_image": "../../images/sample/thumb-dada.jpg"
+        }
+      ]
+    },
+    "social": {
+      "social_title": "Find Europeana Fashion on social media",
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/EuropeanaFashion",
+        "text": "Facebook"
+      },
+      "soundcloud": {
+        "url": "https://soundcloud.com/europeana",
+        "text": "Soundcloud"
+      },
+      "pinterest": {
+        "url": "https://uk.pinterest.com/europeana/",
+        "text": "Pinterest"
+      },
+      "googleplus": {
+        "url": "https://plus.google.com/+europeana/posts",
+        "text": "Google Plus"
+      },
+      "instagram": {
+        "url": "http://www.instagram.com/europeanafashionofficial/",
+        "text": "Instagram"
+      },
+      "tumblr": {
+        "url": "http://www.europeanafashion.tumblr.com",
+        "text": "Tumblr"
+      }
+   },
+    "news": {
+      "items": [
+        {
+          "headline": {
+            "medium": "The miniature magic of Japanese netsuke"
+          },
+          "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+          "img": {
+            "rectangle": {
+              "src": "sample/netsuke.jpg",
+              "alt": "Japanese scroll with netsuke illustration"
+            }
+          },
+          "excerpt": {
+            "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
+          }
+        },
+        {
+          "headline": {
+            "medium": "Vintage fashion drawings from the Late 1930s"
+          },
+          "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+          "img": {
+            "rectangle": {
+              "src": "sample/theatreday.jpg",
+              "alt": "Theatre Day"
+            }
+          },
+          "excerpt": {
+            "short": "The years between 1900 and 1939 represent an extremely turbulent time in history with two World Wars and the rise of the suffrage movement. These unstable times clearly had an impact on women’s fashion, this was seen in the rise ..."
+          }
+        },
+        {
+          "headline": {
+            "medium": "Pitti Archive: “The Fourth Sex. Adolescent Extremes”"
+          },
+          "url": "http://www.europeanafashion.eu/portal/blogdetail.html?post=pitti-archive-the-fourth-sex-adolescent-extremes",
+          "img": {
+            "rectangle": {
+              "src": "sample/Museumweek.jpg",
+              "alt": "Museum Week 2015"
+            }
+          },
+          "excerpt": {
+            "short": "The 2003 exhibition gives a meaningful insight in Simons’ world. Co-curated by Francesco Bonami and Simons himself, the exhibit reflected upon a central figure in the work of Simons, the teenager."
+          }
+        }
+      ]
+    },
+    "banner": {
+      "title": "This is an Alpha release of our new collections search and Music Channel",
+      "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+      "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
+      "cta_text": "Help us improve the site"
+    },
+    "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."
+  }
+}

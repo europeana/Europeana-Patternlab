@@ -15,21 +15,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
     });
   }
 
-  function initPage(form){
-
-    euSearchForm = form;
-
-    $(window).bind('showCarousel', function(e, data){
-      showCarousel(data);
-    });
-
-    $(window).bind('addAutocomplete', function(e, data){
-      addAutocomplete(data);
-    });
-
-    scrollEvents.fireAllVisible();
-  };
-
   function addAutocomplete(data){
     require(['eu_autocomplete', 'util_resize'], function(autocomplete){
       autocomplete.init({
@@ -51,6 +36,33 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       });
     });
   }
+
+  function bindShowInlineSearch(){
+    $('.item-nav-show').on('click', function(e){
+      e.preventDefault();
+      var btn = $(e.target);
+      btn.hide();
+      btn.prev('.content').show();
+      btn.prev('.content').find('form .item-search-input').focus();
+      $('.after-header-with-search').addClass('search-open');
+    });
+  }
+
+  function initPage(form){
+
+    euSearchForm = form;
+
+    $(window).bind('showCarousel', function(e, data){
+      showCarousel(data);
+    });
+
+    $(window).bind('addAutocomplete', function(e, data){
+      addAutocomplete(data);
+    });
+
+    bindShowInlineSearch();
+    scrollEvents.fireAllVisible();
+  };
 
   return {
     initPage: function(euSearchForm){

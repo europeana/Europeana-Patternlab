@@ -23,6 +23,29 @@
   position: relative;
 }
 
+.after-header{
+  margin-top: $globalnavheight;
+}
+
+.after-header-with-search{
+
+  margin-top: $globalnavheight-with-search-small;
+  &.search-open{
+    margin-top: $globalnavheight-with-search-large;
+    @media only screen and (min-width: $bp-med) {
+      margin-top: $globalnavheight-with-search-small;
+    }
+  }
+
+  @media only screen and (min-width: $bp-small-2) {
+    margin-top: $globalnavheight-with-search-large;
+  }
+
+  @media only screen and (min-width: $bp-med) {
+    margin-top: $globalnavheight-with-search-small;
+  }
+}
+
 .logo {
   display: block;
   float: left;

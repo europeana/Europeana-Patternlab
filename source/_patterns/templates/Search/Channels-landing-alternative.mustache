@@ -1,0 +1,76 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+<section class="channels-landing-x after-header-with-search">
+
+  <div class="lc">
+
+    <div class="main-content">
+
+      <div class="landing-blurb">
+        <span class="fashion-logo page-header"></span>
+        <b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.
+      </div>
+
+      <div class="landing-featured">
+        <img style="width: 100%;" src="x.jpg">
+      </div>
+
+      <div class="landing-picks">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+        <img style="width: 200px; height: 200px;" src="x.jpg">
+      </div>
+
+    </div>
+
+    <div class="facet-content">
+      <span class="fashion-logo facet-header"></span>
+      <ul>
+        <li>Facet Header A</li>
+        <li>
+          <ul>
+            <li>Facet value XXX</li>
+            <li>Facet value YYY</li>
+            <li>Facet value ZZZ</li>
+          </ul>
+        </li>
+        <li>Facet Header B</li>
+        <li>
+          <ul>
+            <li>Facet value XXX</li>
+            <li>Facet value YYY</li>
+            <li>Facet value ZZZ</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sneak-peek-content">
+      <h2>Sneak Peek</h2>
+
+      {{# content.promoted }}
+        <section class="exhibitions-list cf lc">
+          <ul class="promo-list">
+            {{#items}}
+              <li class="list-item {{#wide}}list-item-wide{{/wide}}">
+                {{> molecules/blocks/promo-module }}
+              </li>
+            {{/items}}
+          </ul>
+        </section>
+      {{/ content.promoted }}
+
+    </div>
+  </div>
+</section>
+
+
+{{> organisms/sections/banner }}
+
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

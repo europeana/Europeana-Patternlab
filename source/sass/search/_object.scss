@@ -42,95 +42,59 @@
 }
 
 .object-nav{
-    padding: 0.7rem $space-half;
-    background-color: $offwhite;
-    @include fontSize(14px);
+  padding: 0.7rem $space-half;
+  background-color: $offwhite;
+  @include fontSize(14px);
 
-    .object-nav-search{
-      @media all and (min-width: $bp-med) {
-        @include span(last 6);
-      }
+  .object-nav-search{
+    @media all and (min-width: $bp-med) {
+      @include span(last 6);
     }
+  }
 
-
-    .object-nav-lists{
-      .js-next,
-      .js-previous{
-        display: none;
-      }
-
-      @media all and (min-width: $bp-med) {
-        @include span(first 18);
-      }
-    }
-
-    .next-previous, .breadcrumbs{
-        display: inline;
-        a {
-          font-size: $font-size-slightly-smaller;
-          &:after{
-          font-size: $font-size-norm;
-          top: 0.01em;
-          }
-        }
-        strong {
-          font-size: $font-size-slightly-smaller;}
-        .btn2{
-          background-color: $gray87;
-          font-size: 0.7em;
-        }
-    }
-
-    .breadcrumbs .js-channel,
-    .breadcrumbs .js-return{
+  .object-nav-lists{
+    .js-next,
+    .js-previous{
       display: none;
     }
 
-    .item-nav-search{
-      position: relative;
-
-      @media all and (max-width: $bp-med) {
-      margin-top: $pad;
+    @media all and (min-width: $bp-med) {
+      @include span(first 18);
     }
-    }
+  }
 
-   .item-search-input{
-      width: 100% !important;
-      padding: $pad-quarter $pad-and-half $pad-quarter $pad-half;
-      border-color: transparent;
-      box-shadow: none;
-      border-radius: 6px;
-      &:focus{
-        border-color: $textcolour_link;
+  .next-previous,
+  .breadcrumbs{
+    display: inline;
+    a {
+      font-size: $font-size-slightly-smaller;
+      &:after{
+        font-size: $font-size-norm;
+        top: 0.01em;
       }
     }
-
-    .item-nav-submit{
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: transparent;
-      color: $accent;
-      padding: $pad-quarter $pad-quarter;
-      &:hover{
-        $darker: darken($icon_primary, 15%);
-        color: $darker;
-      }
+    strong {
+      font-size: $font-size-slightly-smaller;
     }
+    .btn2{
+      background-color: $gray87;
+      font-size: 0.7em;
+    }
+  }
+
+  .breadcrumbs .js-channel,
+  .breadcrumbs .js-return{
+    display: none;
+  }
+
 }
+
+.with-searchbar .object-nav{
+   background: rgba(241, 241, 238, 0.85);
+}
+
 
 // main media display area
-
-#scroll-trigger-media-items:before{
-
-  // model for carousel
-  // - technique to get sass var into markup (and so to js)
-  // - breakpoint for vertical display, in pixels
-
-  // disabled because safari doesn't like parsing the escaped quotes in JSON
-  // content: '{ "bpVertical": "' + (($bp-js-carousel-to-v/1em)*16) + '"}';
-  // display: none;
-}
 
 .object-media-oembed.fullscreen{
   height: 100%;

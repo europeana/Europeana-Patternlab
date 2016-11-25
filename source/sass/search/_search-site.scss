@@ -365,7 +365,6 @@
       display: block;
     }
   }
-
 }
 
 .channel-credits{
@@ -440,8 +439,6 @@
     @include span(last 5 of 24);
   }
 
-
-
   .number{
     @include fontSize(18px);
     font-weight: bold;
@@ -451,6 +448,7 @@
     border-bottom: 1px dotted $textcolour_link_hover;
   }
 }
+
 .portal-down-social{
   padding-top: 2em;
   .channel-social{
@@ -669,8 +667,99 @@
   }
 }
 
+// LANDING ALTERNATIVE
+
+.channels-landing-x{
+  padding: 0;
+}
+
+.main-content,
+.facet-content,
+.sneak-peek-content{
+  padding: 0;
+  width:   100%;
+}
+
+@media all and (min-width: $bp-med) {
+  .channels-landing-x{
+    padding: $pad $pad;
+  }
+
+  .main-content,
+  .landing-featured{
+    padding-left: $pad;
+  }
+
+  .facet-content,
+  .sneak-peek-content{
+    //  padding: 1.6rem 0;
+  }
+
+  .main-content{
+    clear: both;
+    float: right;
+    width: 75%;
+  }
+
+  .facet-content{
+    float: left;
+    width: 25%;
+  }
+
+  .sneak-peek-content{
+    float: right;
+  }
+
+  .landing-blurb{
+    float: left;
+    width: 30%;
+  }
+
+  .landing-featured{
+    float: left;
+    width: 70%;
+  }
+}
+
+@media all and (min-width: $bp-large) {
+  .channels-landing-x{
+    padding: $space $space;
+  }
+
+  .main-content,
+  .landing-featured{
+    padding-left: $space;
+  }
+}
+
+
+.fashion-logo{
+  background-image: url("../../images/europeana-logo-fashion.png");
+  background-size: cover;
+  width: 100%;
+  padding-bottom: 49.0795%;
+
+  &.facet-header{
+    display: none;
+    @media all and (min-width: $bp-med) {
+      display: inline-block;
+    }
+  }
+  &.page-header{
+    display: inline-block;
+    @media all and (min-width: $bp-med) {
+      display: none;
+      background-color: pink;
+    }
+  }
+}
+
+
+
+
 
 // STATIC PAGES
+
 .static-content{
   p{
     padding: 0 $space;

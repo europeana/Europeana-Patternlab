@@ -36,6 +36,17 @@
     }
   ],
 
+  "form_search": {
+    "action": "javascript:alert('submit form');"
+  },
+
+  "navigation":{
+    "back_url": "javascript:alert('go back');",
+    "back_label": "Return",
+    "last_label" : "item detail",
+    "next_prev": false
+  },
+
   "content":
   {
     "object":

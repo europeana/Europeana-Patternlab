@@ -43,7 +43,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
 
     function showMap(data){
-    	
+
       var initLeaflet = function(longitudes, latitudes, labels){
         log('initLeaflet:\n\t' + JSON.stringify(longitudes) + '\n\t' + JSON.stringify(latitudes))
         var mapInfoId = 'map-info';
@@ -663,6 +663,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       });
     }
 
+    function bindShowInlineSearch(){
+      $('.item-nav-show').on('click', function(e){
+        var btn = $(e.target);
+        btn.hide();
+        btn.prev('.content').show();
+        btn.prev('.content').find('form .item-search-input').focus();
+        e.preventDefault();
+      });
+    }
 
     function initPage(){
       bindAnalyticsEvents();
@@ -670,8 +679,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       bindAttributionToggle();
       bindDownloadButton();
       bindMetadataButton();
+      bindShowInlineSearch();
       updateTechData({target:$('.single-item-thumb a')[0]});
-
 
       // set preferred search
       var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
