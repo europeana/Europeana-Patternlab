@@ -223,8 +223,20 @@ input[type="search"]::-webkit-search-decoration {
   position: relative;
   top: -0.15em;
 
-  @media all and (max-width: $bp-med) {
-  margin-top: $pad;
+  .content{
+    display: none;
+    @media all and (max-width: $bp-med) {
+      margin-top: $pad;
+    }
+  }
+
+  @media all and (min-width: $bp-small-2) {
+    .content{
+      display: block;
+    }
+    .item-nav-show{
+      display: none;
+    }
   }
 
  .item-search-input{
@@ -237,10 +249,9 @@ input[type="search"]::-webkit-search-decoration {
     }
   }
 
+  .item-nav-show,
   .item-nav-submit{
     position: absolute;
-    top: 0;
-    right: 0;
     background-color: transparent;
     color: $accent;
     padding: $pad-quarter $pad-quarter;
@@ -250,10 +261,23 @@ input[type="search"]::-webkit-search-decoration {
     }
   }
 
+  .item-nav-show{
+    top:   -1.8em;
+    right: -2px;
+    @media all and (min-width: $bp-med) {
+      display: none;
+    }
+  }
+
+  .item-nav-submit{
+    top: 0;
+    right: 0;
+  }
+
   .item-nav-input{
     @media all and (min-width: $bp-med) {
       height: $pad-half;
-      }
+    }
   }
 }
 
@@ -298,13 +322,13 @@ input[type="search"]::-webkit-search-decoration {
     margin-bottom: $pad-half;
   }
 
-    .submit-contact{
-      input{
-        box-shadow: none;
-      }
-      .pushbutton{
-        background: $gray-light;
-      }
+  .submit-contact{
+    input{
+      box-shadow: none;
+    }
+    .pushbutton{
+      background: $gray-light;
+    }
   }
 }
 

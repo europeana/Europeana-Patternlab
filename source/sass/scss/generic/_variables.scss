@@ -185,6 +185,8 @@ $base-border-radius: 4px;
 
 // Global navigation
 $globalnavheight: $space-triple;
+$globalnavheight-with-search-small: $space*4.875;
+$globalnavheight-with-search-large: $space*6.5;
 
 // Global Off screen navigation
 $menuwidth_right: 250px;

@@ -1,69 +1,83 @@
 .breadcrumbs {
-	list-style: none;
+  list-style: none;
 
-	a, .lastitem {
-		display: inline;
-		position: relative;
-		padding-right: $space-half;
-		text-decoration: none;
-	}
+  a, .lastitem {
+    display: inline;
+    position: relative;
+    padding-right: $space-half;
+    text-decoration: none;
+  }
 
-	a:after {
-		content: "/";
-		position: absolute; right: -0.3em;
-	}
+  a:after {
+    content: "/";
+    position: absolute; right: -0.3em;
+  }
 
-	a:hover {
-		text-decoration: underline;
-	}
+  a:hover {
+    text-decoration: underline;
+  }
 
-	>li{
-		display: inline;
-		margin-right: $space-half;
+  >li{
+    display: inline;
+    margin-right: $space-half;
 
-		&:first-of-type a{
-			padding-left: 0;
-		}
+    &:first-of-type a{
+      padding-left: 0;
+    }
 
-		&:first-child a:before {
-			display: none;
-		}
+    &:first-child a:before {
+      display: none;
+    }
 
-		&:last-child a:after {
-			display: none;
-		}
-	}
+    &:last-child a:after {
+      display: none;
+    }
 
-	&.breadcrumbs-arrows{
-		a:after {
-			content: "";
-			border-top: 0.3em solid transparent;
-			border-bottom: 0.3em solid transparent;
-			border-left: 0.3em solid $gray-light;
-			position: absolute; right: -0.3em; top: 50%;
-			margin-top: -0.3em;
-			z-index: 1;
-		}
+    &.icon-on-small{
+      @media all and (max-width: $bp-small) {
 
-		a:hover:after {
-			border-left-color: $textcolour_link;
-		}
-	}
+        margin-right: $space-quarter;
 
-	.page_header & {
-		display: table-cell;
-		vertical-align: middle;
-		width: 75%;
-	}
+        a{
+          padding-right: 0;
+        }
+        .text{
+          display: none;
+        }
+      }
+    }
+  }
 
-	//inside search result item
-	.item-details & {
-		font-size: $font-size-slightly-smaller;
+  &.breadcrumbs-arrows{
+    a:after {
+      content: "";
+      border-top: 0.3em solid transparent;
+      border-bottom: 0.3em solid transparent;
+      border-left: 0.3em solid $gray-light;
+      position: absolute; right: -0.3em; top: 50%;
+      margin-top: -0.3em;
+      z-index: 1;
+    }
 
-		.icon-home{
-			display: none;
-		}
-	}
+    a:hover:after {
+      border-left-color: $textcolour_link;
+    }
+  }
+
+  .page_header & {
+    display: table-cell;
+    vertical-align: middle;
+    width: 75%;
+  }
+
+  //inside search result item
+  .item-details & {
+    font-size: $font-size-slightly-smaller;
+
+    .icon-home{
+      display: none;
+    }
+  }
 
 }
 

@@ -10,11 +10,18 @@
   },
 
   "navigation": {
+    "back_label": false,
+    "last_label" : "Europeana Fashion",
+    "next_prev": false,
     "global": {
       "options": {
          "searchbar": true
        }
     }
+  },
+
+  "form_search": {
+    "action": "javascript:alert('submit form');"
   },
 
   "js_slsb_ld":{
@@ -301,8 +308,7 @@
           "title": "Pablo Picasso",
           "url": "http://dizbi.hazu.hr/picasso/",
           "is_exhibition": true,
-          "bg_image": "../../images/sample/thumb-picasso.jpg",
-          "wide": true
+          "bg_image": "../../images/sample/thumb-picasso.jpg"
         },
         {
           "title": "From Dada to Surrealism",
