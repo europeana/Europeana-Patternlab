@@ -1,0 +1,84 @@
+/*** ORGANIZATION'S SELECTION ***/
+.metis-style-select {
+  max-width: 800px;
+  margin: 10px; // margin only usable on pattern labs. Remove before including module.
+
+  .subject-info-arrows {
+    text-align: center;
+  }
+
+  label {
+    color: #fff;
+    background-color: #1676aa;
+    padding: 10px;
+  }
+
+  input {
+    box-shadow: 0 1px 2px #999 inset;
+    border-radius: 6px;
+
+    &#btnAllRight, &#btnRight,  &#btnLeft, &#btnAllLeft{
+      background-color: #1676aa;
+      color: white;
+      border: none;
+    }
+  }
+
+  #lstBox1, #lstBox2 {
+    width: 100%;
+  }
+
+  .add-btns {
+    padding: 0;
+    input {
+      margin-top: 25px;
+      width: 100%;
+    }
+  }
+
+  .col-md-12 {
+    max-width: 940px;
+  }
+
+  .selected-left {
+    float: left;
+    width: 88%;
+  }
+
+  .selected-right {
+    float: left;
+    button {
+      display: block;
+      margin-left: 4px;
+      margin-bottom: 2px;
+    }
+  }
+
+  .subject-info-box-1,
+  .subject-info-box-2 {
+    float: left;
+    width: 45%;
+
+    select {
+      height: 400px;
+      padding: 0;
+      option {
+        padding: 8px 10px;
+        border-bottom: 1px dotted #f3f3f3;
+      }
+      option:hover {
+        background: #eee;
+      }
+    }
+  }
+
+  .subject-info-arrows {
+    float: left;
+    width: 10%;
+
+    input {
+      width: 70%;
+      margin-bottom: 5px;
+    }
+  }
+}
