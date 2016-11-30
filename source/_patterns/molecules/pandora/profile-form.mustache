@@ -20,8 +20,14 @@
 			<input id="skype" type='text' name='skype' placeholder="Type your skype account"/>
 		</div>
 		<div class="field-container">
-			<label for="country">Country:</label>
-			<input id="country" type='text' name='skype' placeholder="Choose your country"/>
+			<select class="select-dropdown" id="user-profile-country-select" name="country" autocomplete="off">
+				{{#countries}}
+				<option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{text}}</option>
+				{{/countries}}
+			</select>
+		</div>
+		<div class="profile-select-orgs field-container">
+			{{>molecules/pandora/select-organizations}}
 		</div>
 		<div class="field-container">
 			<label><input type="checkbox" id="network_member_checkbox" value="network_member_checkbox"> I am a member of Europeana Network Association</label>

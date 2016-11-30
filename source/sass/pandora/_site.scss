@@ -510,7 +510,7 @@ body {
 	margin-bottom: 0px !important;
 	border: 0px;
 	background-color: white;
-	width: 25em;
+	width: 50em;
 	overflow: auto;
 	margin-left: 1em;
 	margin-top: 1em;
@@ -525,8 +525,12 @@ body {
 	text-align: center;
 	color: white;
 	background-color: #1676aa;
-	width: 12.5em;
+	width: 25em;
 	font-size: 2em;
+}
+
+.profile-select-orgs {
+	display: inline-block;
 }
 
 .select-dropdown {

@@ -22,5 +22,116 @@
 			"path": "../../js/modules/require.js",
 			"data_main": "../../js/modules/main/templates/main-pandora"
 		}
-	]
+	],
+  "countries": [
+  	{
+  	  "text": "France"
+  	},
+  	{
+  	  "text": "Great Britain"
+  	},
+  	{
+  	  "text": "The Netherlands"
+  	},
+  	{
+  	  "text": "Belgium"
+  	},
+  	{
+  	  "text": "Greece"
+  	}
+  ],
+  "selection_list": [
+    {
+      "value": 1,
+      "title": "Museum Louvre"
+    },
+    {
+      "value": 2,
+      "title": "Museum Van Gogh"
+    },
+    {
+      "value": 3,
+      "title": "Ana Frank's House"
+    },
+    {
+      "value": 4,
+      "title": "Nationaal Luchtvaart-Themapark Aviodrome"
+    },
+    {
+      "value": 5,
+      "title": "Museum Sorgdrager"
+    },
+    {
+      "value": 6,
+      "title": "Natuurmuseum Fryslân"
+    },
+    {
+      "value": 7,
+      "title": "Nationaal Vlechtmuseum Noordwolde"
+    },
+    {
+      "value": 8,
+      "title": "Museum Stedhûs Sleat"
+    },
+    {
+      "value": 9,
+      "title": "Nationaal Modelspoor Museum"
+    },
+    {
+      "value": 10,
+      "title": "Fries Scheepvaart Museum"
+    },
+    {
+      "value": 11,
+      "title": "1e Nederlandse Opel Museum"
+    },
+    {
+      "value": 12,
+      "title": "Museum 't Behouden Huys"
+    },
+    {
+      "value": 13,
+      "title": "Visserijmuseum Aike van Stien"
+    },
+    {
+      "value": 14,
+      "title": "opie Huisman Museum"
+    },
+    {
+      "value": 15,
+      "title": "Museum Kerkelijke Kunst"
+    },
+    {
+      "value": 16,
+      "title": "Museum Warkums Erfskip"
+    },
+    {
+      "value": 17,
+      "title": "Boerderijmuseum de Neeth"
+    },
+    {
+      "value": 18,
+      "title": "Euregionaal museum voor de vrijheid"
+    },
+    {
+      "value": 19,
+      "title": "Nederlands Openluchtmuseum"
+    },
+    {
+      "value": 20,
+      "title": "Museum Arnhem"
+    },
+    {
+      "value": 21,
+      "title": "Museum Bronbeek"
+    },
+    {
+      "value": 22,
+      "title": "Arnhems Oorlogsmuseum 40-45"
+    },
+    {
+      "value": 23,
+      "title": "Informatiecentrum Slag om Arnhem"
+    }
+  ]
 }
