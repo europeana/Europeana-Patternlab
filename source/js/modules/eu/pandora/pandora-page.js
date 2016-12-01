@@ -327,7 +327,7 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
     function updateOrgList() {
     	$('.org-list').empty();
     	$("#lstBox2 option").each(function() {
-    		$('.org-list').append($(this).text());
+    		$('.org-list').append("\n" + $(this).text());
     	});
     }
     
