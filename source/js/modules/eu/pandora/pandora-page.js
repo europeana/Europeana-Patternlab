@@ -78,8 +78,20 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
         $('.user-profile-password').hide();
         $('.error_nonequal').hide();
         $('.error_missing').hide();
+        $('.profile-select-orgs').hide();
+        $('.user-profile-choose_org_drpdwn').click(function() {
+        	if ($('.profile-select-orgs').is(":visible")) {
+        		$('.profile-select-orgs').hide();
+	        } else {
+				$('.profile-select-orgs').show();
+			}
+        });
         $('.user-profile-update-password').click(function() {
-      	  $('.user-profile-password').show();
+        	if ($('.user-profile-password').is(":visible")) {
+        		$('.user-profile-password').hide();
+        	} else {
+        		$('.user-profile-password').show();        		
+        	}
         });
   	  $('.metis-profile-form').submit(function(event) {
 //  		  var template = $('.metis-profile-form').html();
@@ -289,25 +301,36 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
 
     $('#btnRight').click(function(e) {
         $('select').moveToListAndDelete('#lstBox1', '#lstBox2');
+        updateOrgList();
         e.preventDefault();
     });
 
     $('#btnAllRight').click(function(e) {
         $('select').moveAllToListAndDelete('#lstBox1', '#lstBox2');
+        updateOrgList();
         e.preventDefault();
     });
 
     $('#btnLeft').click(function(e) {
         $('select').moveToListAndDelete('#lstBox2', '#lstBox1');
+        updateOrgList();
         e.preventDefault();
     });
 
     $('#btnAllLeft').click(function(e) {
         $('select').moveAllToListAndDelete('#lstBox2', '#lstBox1');
+        updateOrgList();
         e.preventDefault();
     });
     // END OF ORGANIZATION'S SELECTION BLOCK CODE.
 
+    function updateOrgList() {
+    	$('.org-list').empty();
+    	$("#lstBox2 option").each(function() {
+    		$('.org-list').append($(this).text());
+    	});
+    }
+    
     function selectView() {
 		
 	}
