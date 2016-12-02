@@ -8,63 +8,81 @@
 
     <div class="main-content">
 
-      <div class="landing-blurb">
-        <span class="fashion-logo page-header"></span>
-        <b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.
+      <div style="background: yellow;" class="cf">
+
+        <div class="landing-blurb">
+          <span class="fashion-logo page-header"></span>
+          <b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.
+        </div>
+
+        <div class="landing-featured hero-nopad search-hero {{#content.hero_config}}{{brand_position}} {{brand_colour}} {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{hero_image}}');" {{/content.hero_config}}>
+          {{#content.hero_config}}
+            {{>molecules/text/attribution}}
+            {{>molecules/media/brand-svg-assets}}
+          {{/content.hero_config}}
+        </div>
+
       </div>
 
-      <div class="landing-featured">
-        <img style="width: 100%;" src="x.jpg">
-      </div>
+      <h2 class="editor-picks">Editor's Picks</h2>
 
-      <div class="landing-picks">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-        <img style="width: 200px; height: 200px;" src="x.jpg">
-      </div>
+      <ul class="home-promo promo-list editors-picks">
+        {{#content.editors_picks.items}}
+          <li class="list-item {{#wide}}list-item-wide{{/wide}}">
+            {{> molecules/blocks/promo-module }}
+          </li>
+        {{/content.editors_picks.items}}
+      </ul>
 
     </div>
 
-    <div class="facet-content">
+    <div class="facet-content refine">
       <span class="fashion-logo facet-header"></span>
-      <ul>
-        <li>Facet Header A</li>
-        <li>
-          <ul>
-            <li>Facet value XXX</li>
-            <li>Facet value YYY</li>
-            <li>Facet value ZZZ</li>
-          </ul>
-        </li>
-        <li>Facet Header B</li>
-        <li>
-          <ul>
-            <li>Facet value XXX</li>
-            <li>Facet value YYY</li>
-            <li>Facet value ZZZ</li>
-          </ul>
-        </li>
-      </ul>
+      {{#content.filters}}
+        {{#simple}}
+            {{> molecules/controls/filter-simple }}
+        {{/simple}}
+
+        {{#hierarchical}}
+            {{> molecules/controls/filter-hierarchical }}
+        {{/hierarchical}}
+
+        {{#colour}}
+            {{> molecules/controls/filter-colour }}
+        {{/colour}}
+
+        {{#tabbed}}
+            {{> molecules/controls/filter-tabbed }}
+        {{/tabbed}}
+
+        {{#boolean}}
+          <div class="filter-wrap">
+            {{> molecules/controls/filter-boolean }}
+          </div>
+        {{/boolean}}
+
+        {{#date}}
+          {{> molecules/controls/filter-date }}
+        {{/date}}
+
+        {{#advanced}}
+            {{> molecules/controls/filter-advanced }}
+        {{/advanced}}
+      {{/content.filters}}
     </div>
 
     <div class="sneak-peek-content">
-      <h2>Sneak Peek</h2>
-
-      {{# content.promoted }}
-        <section class="exhibitions-list cf lc">
-          <ul class="promo-list">
-            {{#items}}
-              <li class="list-item {{#wide}}list-item-wide{{/wide}}">
-                {{> molecules/blocks/promo-module }}
-              </li>
-            {{/items}}
-          </ul>
-        </section>
-      {{/ content.promoted }}
-
+      <h2 class="sneak-peek">Sneak Peek</h2>
+      {{# content.sneak_peak }}
+        <ol class="result-items display-grid cf">
+          <li class="grid-sizer"></li>
+          {{# items }}
+            <li>
+              {{> molecules/components/search/search-listitem }}
+            </li>
+          {{/ items }}
+        </ol>
+      {{/ content.sneak_peak }}
     </div>
   </div>
 </section>

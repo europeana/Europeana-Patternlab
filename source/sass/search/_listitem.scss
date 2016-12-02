@@ -116,8 +116,30 @@
 
 }
 
+.sneak-peek-content{
+  .display-grid{
+    .search-list-item,
+    .grid-sizer{
+      width:      100%;
 
-// Single List item in search result grid
+      @media all and (min-width: $bp-small-3) {
+        width:    50%;
+      }
+
+      @media all and (min-width: $bp-med) {
+        width:    48.5%;
+      }
+
+      @media all and (min-width: $bp-large) {
+        width:    32.5%;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        width:    25%;
+      }
+    }
+  }
+}
 
 .display-grid{
 

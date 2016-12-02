@@ -111,18 +111,18 @@
 
 .promo-list{
 
-  padding-top: $space-quarter; //fallback
+  padding-top: $space-quarter;
   padding-top: 1.05634vw;
 
   @media all and (min-width: $bp-med) {
-    padding-top: $space-half; //fallback
+    padding-top: $space-half;
     padding-top: 1.05634vw;
   }
 }
 
 .promo-list .list-item{
 
-  margin-bottom: $space-quarter; //fallback
+  margin-bottom: $space-quarter;
   margin-bottom: 1.05634vw;
   position: relative;
 
@@ -137,7 +137,7 @@
 
   @media all and (min-width: $bp-small-3) {
     min-height: 32vw;
-    margin-bottom: $space-half; //fallback
+    margin-bottom: $space-half;
     margin-bottom: 1.05634vw;
     font-size: 2vw;
   }
@@ -183,6 +183,14 @@
       @include span(18 of 48 split);
     }
   }
+}
+
+.editors-picks .list-item{
+
+  @media all and (min-width: $bp-large) {
+    @include span(8 of 24 split);
+  }
+
 }
 
 
@@ -680,6 +688,23 @@
   width:   100%;
 }
 
+.editor-picks,
+.sneak-peek{
+  text-transform: uppercase;
+}
+
+.editor-picks{
+  padding:        $space;
+}
+
+.landing-featured{
+  height: 100vw;
+  .brand-circles{
+    width: 100%;
+  }
+}
+
+
 @media all and (min-width: $bp-med) {
   .channels-landing-x{
     padding: $pad $pad;
@@ -701,6 +726,11 @@
     width: 75%;
   }
 
+  .editor-picks{
+    margin:  0;
+    padding: $space 0;
+  }
+
   .facet-content{
     float: left;
     width: 25%;
@@ -716,9 +746,13 @@
   }
 
   .landing-featured{
-    float: left;
-    width: 70%;
+    float: 						left;
+    width: 						70%;
+    background-color: orange;
+    height:           50vh;
   }
+
+
 }
 
 @media all and (min-width: $bp-large) {
@@ -726,10 +760,21 @@
     padding: $space $space;
   }
 
-  .main-content,
-  .landing-featured{
+  .main-content{
     padding-left: $space;
   }
+
+  .landing-blurb{
+    @include span(8 of 24);
+  }
+
+  .landing-featured{
+    background-color: red;
+    height:           50vh;
+
+    @include span(16 of 24 last);
+  }
+
 }
 
 

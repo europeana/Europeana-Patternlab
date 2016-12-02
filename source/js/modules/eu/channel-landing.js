@@ -52,6 +52,42 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
     euSearchForm = form;
 
+    var spc = $('.sneak-peek-content');
+
+    if(spc.find('.search-list-item').length > 0){
+
+      require(['masonry', 'jqImagesLoaded'], function(Masonry){
+
+        masonry = new Masonry( '.result-items', {
+          itemSelector: '.search-list-item',
+          columnWidth: '.grid-sizer',
+          percentPosition: true
+        });
+
+        $('.result-items').imagesLoaded().progress( function(instance, image){
+          if(masonry){
+            masonry.layout();
+          }
+        }).done( function(){
+          var hasSuperTall = false;
+          $('.item-image').each(function(i, ob){
+            var $ob = $(ob);
+            if($ob.height() > 650){
+              hasSuperTall = true;
+              $ob.addClass('super-tall');
+            }
+          });
+          if(hasSuperTall){
+            masonry.layout();
+          }
+        });
+      });
+    }
+
+    $('.filter .filter-name').on('click', function(){
+      $(this).closest('.filter').toggleClass('filter-closed');
+    });
+
     $(window).bind('showCarousel', function(e, data){
       showCarousel(data);
     });

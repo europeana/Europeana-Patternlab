@@ -106,53 +106,287 @@
     ]
   },
   "content": {
-    "carousel": {
-      "title": "Tumblr",
-      "tumblr_url": "javascript:alert('open tumblr page')",
-      "more_items_load"  : "url-for-extra-items",
-      "more_items_total" : 12,
-      "more_items_total_formatted" : 12,
+    "sneak_peak": {
       "items": [
         {
-          "url":  "?q=The+Lace+Maker",
+          "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
+          "creator": "Charles Rennie Mackintosh",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-             "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+            "src": "/images/search/search-result-thumb-1.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1895"
           }
         },
         {
-          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
+          "creator": "Charles Rennie Mackintosh and Abraham Lincoln",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-            "alt": "Zittende jongeman bij ton met het hoofd naar links",
-            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+            "src": "/images/search/search-result-thumb-lincoln.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1896/1909"
           }
         },
         {
-          "url": "?q=Delft",
+          "title": "Glasgow",
+          "creator": "Unknown",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-            "alt": "Delft",
-            "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+            "src": "/images/search/search-result-thumb-3.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Interior, stained glass (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1896/1909"
           }
         },
         {
-          "url": "?q=Girl+with+the+pearl+earring",
+          "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie",
+          "creator": "Charles Rennie Mackintosh",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-            "alt": "Girl with the pearl earring",
-            "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+            "src": "/images/search/search-result-thumb-4.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1895"
           }
         },
         {
-          "url":  "?q=The+Lace+Maker",
+          "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-             "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
+            "src": "/images/search/search-result-thumb-5.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1896/1909"
           }
         },
         {
-          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "title": "Glasgow School of Art - Interior, alcove for mosaic | Mackintosh, Charles Rennie",
+          "creator": "Charles Rennie Mackintosh",
+          "is_image": true,
+          "item_type": {
+            "name": "Photograph",
+            "url": "http://europeana.eu/search/paintings"
+          },
           "img": {
-            "alt": "Zittende jongeman bij ton met het hoofd naar links",
-            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
+            "src": "/images/search/search-result-thumb-6.jpg",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Glasgow School of Art"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "Interior, alcove for mosaic, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+          },
+          "year": {
+            "long": "1896/1909"
+          }
+        },
+        {
+          "agent": "The Elephant Scribbler",
+          "creator": "Confused Horse",
+          "title": "An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap",
+          "is_image": true,
+          "item_type": {
+            "name": "Painting",
+            "url": "http://europeana.eu/search/paintings"
+          },
+          "img": {
+            "src": "/images/search/search-result-thumb-giraffe.png",
+            "alt": "Rectangle"
+          },
+          "origin": {
+            "url": "http://urlhere.com",
+            "text": "Rijksmuseum"
+          },
+          "concepts": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "prints (visual works)"
+              },
+              {
+                "url": "http://europeana.eu",
+                "text": "paper (fiber product)"
+              }
+            ]
+          },
+          "channels": {
+            "items": [
+              {
+                "url": "http://europeana.eu",
+                "text": "Art History"
+              },
+              {
+                "url": "http://europeana.eu",
+                "text": "Military History"
+              }
+            ]
+          },
+          "text": {
+            "medium": "This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures..."
+          },
+          "year": {
+            "long": "1637"
           }
         }
       ]
@@ -208,15 +442,21 @@
       }
     },
     "hero_config": {
-      "hero_image": "../../images/sample/channel_hero_fashion.jpg",
-      "attribution_title": "Stockholms mode-journal: Tidskrift för den eleganta werlden 1851,",
-      "attribution_creator": "",
+      "hero_image":              "../../images/sample/channel_hero_fashion.jpg",
+      "attribution_title":       "Stockholms mode-journal: Tidskrift för den eleganta werlden 1851,",
+      "attribution_creator":     "",
       "attribution_institution": "Stiftelsen Nordiska Museet",
-      "attribution_url": "http://www.europeana.eu/portal/record/2048211/449.html",
-      "license_public": true,
-      "ripple_size_thin" : true,
-      "ripple_size_medium" : false,
-      "ripple_size_thick" : false
+      "attribution_url":         "http://www.europeana.eu/portal/record/2048211/449.html",
+
+      "brand_colour":            "#fff",
+      "brand_position":          "brand-bottomleft",
+
+      "hide_branding_text":      true,
+
+      "license_public":          true,
+      "ripple_size_thin" :       false,
+      "ripple_size_medium" :     true,
+      "ripple_size_thick" :      false
     },
     "channel_entry": {
       "title": "Promoted title",
@@ -277,7 +517,7 @@
         }
       ]
     },
-    "promoted": {
+    "editors_picks": {
       "title": "Promoted title",
       "items": [
         {
@@ -398,6 +638,120 @@
         }
       ]
     },
+    "filters": [
+
+      {
+      "title": "Designer",
+      "name": "TYPE",
+      "simple": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Filter Label",
+          "num_results": "15K"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "num_results": 300,
+          "is_checked": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label, this one long enough to line wrap",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123,
+          "is_checked": true
+        }
+      ],
+      "extra_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label, this one long enough to line wrap",
+            "num_results": 600,
+            "is_checked": true
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
+          }
+        ]
+      }
+    },
+    {
+      "title": "Item Type",
+      "name": "ITEM_TYPE",
+      "simple": true,
+      "items": [
+        {
+          "url": "http://europeana.eu",
+          "text": "Filter Label",
+          "num_results": "15K"
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label",
+          "num_results": 300,
+          "is_checked": true
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Another Label, this one long enough to line wrap",
+          "num_results": 600
+        },
+        {
+          "url": "http://europeana.eu",
+          "text": "Label here",
+          "num_results": 123
+        }
+      ],
+      "extra_items": {
+        "items": [
+          {
+            "url": "http://europeana.eu",
+            "text": "Extra Label",
+            "num_results": "15K"
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Another Label",
+            "num_results": 300
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 600
+          },
+          {
+            "url": "http://europeana.eu",
+            "text": "Label here",
+            "num_results": 123
+          }
+        ]
+      }
+    }
+
+
+
+
+
+    ],
     "banner": {
       "title": "This is an Alpha release of our new collections search and Music Channel",
       "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
