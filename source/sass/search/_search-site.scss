@@ -682,10 +682,34 @@
 }
 
 .main-content,
-.facet-content,
+.entry-point-content,
 .sneak-peek-content{
   padding: 0;
   width:   100%;
+}
+
+.landing-blurb{
+
+  position: relative;
+
+  .landing-blurb-zoomed{
+    display:   block;
+    font-size: 1.25em;
+    margin:    0.75em 0;
+  }
+
+  .blurb-about{
+    bottom:           0;
+    position:         absolute;
+    background-color: #fff;
+
+    .text{
+      display:        block;
+      font-size:      0.9em;
+      font-weight:    bold;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .editor-picks,
@@ -704,6 +728,44 @@
   }
 }
 
+.entry-points{
+
+  margin-bottom:  0.75em;
+  padding-bottom: 1em;
+  border-bottom:  1px solid #dedede;
+
+  .entry-point{
+    position:       relative;
+  }
+
+  .entry-points-title{
+    color:            #4d4d4d;
+    display:          inline-block;
+    font-weight:      bold;
+    margin:           0.4rem 0 0.75em 0;
+    text-transform:   uppercase;
+  }
+
+
+  .entry-point-image{
+    width:      2em;
+    max-height: 4em;
+  }
+
+  .entry-point-link{
+    position:  relative;
+  }
+
+  .entry-point-text{
+    display:     inline-block;
+    margin:      0.2em 0 0.2em 0.25em;
+    position:    relative;
+    top:         50%;
+    transform:   translateY(-50%);
+  }
+
+}
+
 
 @media all and (min-width: $bp-med) {
   .channels-landing-x{
@@ -715,7 +777,7 @@
     padding-left: $pad;
   }
 
-  .facet-content,
+  .entry-point-content-content,
   .sneak-peek-content{
     //  padding: 1.6rem 0;
   }
@@ -731,7 +793,7 @@
     padding: $space 0;
   }
 
-  .facet-content{
+  .entry-point-content{
     float: left;
     width: 25%;
   }
@@ -741,18 +803,20 @@
   }
 
   .landing-blurb{
-    float: left;
-    width: 30%;
+    float:    left;
+    overflow: hidden;
+    width:    30%;
   }
 
   .landing-featured{
-    float: 						left;
-    width: 						70%;
-    background-color: orange;
-    height:           50vh;
+    float:  left;
+    width:  70%;
   }
 
-
+  .landing-blurb,
+  .landing-featured{
+    height: 65vh;
+  }
 }
 
 @media all and (min-width: $bp-large) {
@@ -769,12 +833,8 @@
   }
 
   .landing-featured{
-    background-color: red;
-    height:           50vh;
-
     @include span(16 of 24 last);
   }
-
 }
 
 

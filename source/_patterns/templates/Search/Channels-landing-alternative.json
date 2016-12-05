@@ -391,54 +391,13 @@
         }
       ]
     },
-    "channel_info": {
-      "name": "Europeana Fashion",
-      "description": "The <strong>Europeana Fashion</strong> brings together more than 30 public and private archives and museums from across Europe in order give public access to high quality digital fashion content, ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos, and fashion catalogues.",
-      "stats": {
-        "items": [
-          {
-            "count": "662,296",
-            "text": "Images",
-            "url": "#"
-          },
-          {
-            "count": "11,014",
-            "text": "Texts",
-            "url": "#"
-          },
-          {
-            "count": "416",
-            "text": "Videos",
-            "url": "#"
-          }
-        ]
-      },
-      "recent": {
-        "title": "Added recently:",
-        "items": [
-          {
-            "text": "Victoria and Albert Museum",
-            "url": "#",
-            "number": "2,747 items",
-            "date": "May 2015"
-          },
-          {
-            "text": "Catwalkpictures",
-            "url": "#",
-            "number": "29,611 items",
-            "date": "May 2015"
-          },
-          {
-            "text": "Stiftelsen Nordiska Museet",
-            "url": "#",
-            "number": "10,949 items",
-            "date": "May 2015"
-          }
-        ],
-        "more_link": {
-          "text": "Load more",
-          "url": "#777"
-        }
+    "channel_blurb": {
+      "description": "<b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.",
+      "summary": "Records ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos and fashion catalogues.",
+      "about" : {
+        "text" : "About Europeana Fashion",
+        "link_text" : "Europeana Fashion International Association",
+        "link_url"  : "javascript(alert('follow link'))"
       }
     },
     "hero_config": {
@@ -638,119 +597,96 @@
         }
       ]
     },
-    "filters": [
-
+    "entry_points": [
       {
-      "title": "Designer",
-      "name": "TYPE",
-      "simple": true,
-      "items": [
-        {
-          "url": "http://europeana.eu",
-          "text": "Filter Label",
-          "num_results": "15K"
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Another Label",
-          "num_results": 300,
-          "is_checked": true
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Another Label, this one long enough to line wrap",
-          "num_results": 600
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Label here",
-          "num_results": 123,
-          "is_checked": true
-        }
-      ],
-      "extra_items": {
+        "title": "Designer",
         "items": [
           {
-            "url": "http://europeana.eu",
-            "text": "Extra Label",
-            "num_results": "15K"
+            "url": "javascript:alert('follow link');",
+            "label": "Alexander McQueen",
+            "image_url": "../../images/sample/entry_fashion_7.png"
           },
           {
-            "url": "http://europeana.eu",
-            "text": "Another Label",
-            "num_results": 300
+            "url": "javascript:alert('follow link');",
+            "label": "Agath Ruiz de la Prada",
+            "image_url": "../../images/sample/entry_fashion_8.png"
           },
           {
-            "url": "http://europeana.eu",
-            "text": "Another Label, this one long enough to line wrap",
-            "num_results": 600,
-            "is_checked": true
+            "url": "javascript:alert('follow link');",
+            "label": "Vivienne Westwood",
+            "image_url": "../../images/sample/entry_fashion_9.png"
           },
           {
-            "url": "http://europeana.eu",
-            "text": "Label here",
-            "num_results": 123
+            "url": "javascript:alert('follow link');",
+            "label": "Christian Dior",
+            "image_url": "../../images/sample/entry_fashion_10.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Armani",
+            "image_url": "../../images/sample/entry_fashion_11.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Burberry",
+            "image_url": "../../images/sample/entry_fashion_12.png"
+          }
+        ]
+      },
+      {
+        "title": "Item Type",
+        "items": [
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Shoes"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Couture Collections"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Hats"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Jewellery"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Sketches"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Illlustrations"
+          }
+        ]
+      },
+      {
+        "title": "Technique",
+        "items": [
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_13.png",
+            "label": "Patterns"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_14.png",
+            "label": "Winter"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_15.png",
+            "label": "Zoolander"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_16.png",
+            "label": "Ga-ga-Gangnam"
           }
         ]
       }
-    },
-    {
-      "title": "Item Type",
-      "name": "ITEM_TYPE",
-      "simple": true,
-      "items": [
-        {
-          "url": "http://europeana.eu",
-          "text": "Filter Label",
-          "num_results": "15K"
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Another Label",
-          "num_results": 300,
-          "is_checked": true
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Another Label, this one long enough to line wrap",
-          "num_results": 600
-        },
-        {
-          "url": "http://europeana.eu",
-          "text": "Label here",
-          "num_results": 123
-        }
-      ],
-      "extra_items": {
-        "items": [
-          {
-            "url": "http://europeana.eu",
-            "text": "Extra Label",
-            "num_results": "15K"
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Another Label",
-            "num_results": 300
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Label here",
-            "num_results": 600
-          },
-          {
-            "url": "http://europeana.eu",
-            "text": "Label here",
-            "num_results": 123
-          }
-        ]
-      }
-    }
-
-
-
-
-
     ],
     "banner": {
       "title": "This is an Alpha release of our new collections search and Music Channel",

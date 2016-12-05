@@ -27,7 +27,7 @@
   "js_files": [
     {
       "path": "../../js/modules/require.js",
-      "data_main": "../../js/modules/main/main-collections"
+      "data_main": "../../js/modules/main/templates/main-collections"
     }
   ],
   "settings": {
