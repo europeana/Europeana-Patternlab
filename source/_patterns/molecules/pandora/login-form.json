@@ -1,0 +1,29 @@
+{
+	"css_files": 
+	[
+		{
+			"path": "../../css/pandora/screen.css",
+			"media": "all"
+		},
+
+		{
+			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+			"media": "all"
+		},
+		
+		{
+			"path": "../../js/modules/lib/jush/jush.css",
+			"media": "all"
+		}
+	],
+	"js_files": 
+	[
+		{
+			"path": "../../js/modules/require.js",
+			"data_main": "../../js/modules/main/templates/main-pandora"
+		}
+	],
+	"email": "some@email.eu",
+	"password": "123",
+	"login_err_authenticate": "Authentication error!"
+}
