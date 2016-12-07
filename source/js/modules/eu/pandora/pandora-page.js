@@ -92,7 +92,7 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
         	} else {
         		$('.user-profile-password').show();        		
         	}
-        });
+      });
   	  $('.metis-profile-form').submit(function(event) {
 //  		  var template = $('.metis-profile-form').html();
 //  		  var data = {error_nonequal_new_confirm_pwd: "Error: a new password and the confirmed password are not the same"};
@@ -103,7 +103,7 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
   			  $('.error_nonequal').show(); 
   			  valid = false;
   		  }
-  		  if (($('#password').val() == null || $('#password').val() == "") && ($('#password_new').val() != null && $('#password_new').val() != "")) {
+  		  if (($('#password_old').val() == null || $('#password_old').val() == "") && ($('#password_new').val() != null && $('#password_new').val() != "")) {
   			  $('.error_missing').show(); 
   			  valid = false;
   		  }
