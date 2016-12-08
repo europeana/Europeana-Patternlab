@@ -682,26 +682,41 @@
 }
 
 .main-content,
-.entry-point-content,
+.entry-point-column,
 .sneak-peek-content{
   padding: 0;
   width:   100%;
 }
 
-.landing-blurb{
+.landing-text-inner{
 
-  position: relative;
+  position:        relative;
+  display:         flex;
+  height:          100%;
+  flex-direction:  column;
+  justify-content: space-between;
 
-  .landing-blurb-zoomed{
-    display:   block;
-    font-size: 1.25em;
-    margin:    0.75em 0;
+  @media all and (max-width: $bp-med) {
+    margin: 1rem;
   }
 
-  .blurb-about{
-    bottom:           0;
-    position:         absolute;
+  .opening{
+    align-self: flex-start;
+  }
+
+  .zoomed{
+    display:   block;
+    font-size: 1.25em;
+
+    @media all and (max-width: $bp-med) {
+      margin: 1rem 0;
+    }
+  }
+
+  .about{
+    align-self:       flex-end;
     background-color: #fff;
+    width:            100%;
 
     .text{
       display:        block;
@@ -777,11 +792,6 @@
     padding-left: $pad;
   }
 
-  .entry-point-content-content,
-  .sneak-peek-content{
-    //  padding: 1.6rem 0;
-  }
-
   .main-content{
     clear: both;
     float: right;
@@ -793,16 +803,24 @@
     padding: $space 0;
   }
 
-  .entry-point-content{
+  .entry-point-column{
     float: left;
     width: 25%;
+    .social-share{
+      display:         flex;
+      font-size:        0.6em;
+      justify-content: space-between;
+      .icon{
+        color: $eu-blue;
+      }
+    }
   }
 
   .sneak-peek-content{
     float: right;
   }
 
-  .landing-blurb{
+  .landing-text{
     float:    left;
     overflow: hidden;
     width:    30%;
@@ -813,7 +831,7 @@
     width:  70%;
   }
 
-  .landing-blurb,
+  .landing-text,
   .landing-featured{
     height: 65vh;
   }
@@ -828,7 +846,7 @@
     padding-left: $space;
   }
 
-  .landing-blurb{
+  .landing-text{
     @include span(8 of 24);
   }
 
@@ -968,7 +986,6 @@
     }
     .field-container{
       .language_wrapper{
-        display: flex;
         label{
           font-weight: normal;
         }

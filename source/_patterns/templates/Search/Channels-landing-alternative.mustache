@@ -5,25 +5,24 @@
 <section class="channels-landing-x after-header-with-search">
 
   <div class="lc">
-
     <div class="main-content">
-
       <div class="cf">
-
-        <div class="landing-blurb">
+        <div class="landing-text">
           {{#content.channel_blurb}}
-            <span class="fashion-logo page-header"></span>
 
-            {{{description}}}
-
-            <span class="landing-blurb-zoomed">{{{summary}}}</span>
-
-            {{#about}}
-              <div class="blurb-about">
-                {{#text}}<span class="text">{{.}}</span>{{/text}}
-                {{#link_url}}<a href="{{.}}">{{link_text}}</a>{{/link_url}}
-              </div>
-            {{/about}}
+            <div class="landing-text-inner">
+              <span class="{{logo_class}} page-header"></span>
+              <span class="opening">
+              {{{description}}}
+              </span>
+              <span class="zoomed">{{{summary}}}</span>
+              {{#about}}
+                <div class="about">
+                  {{#text}}<span class="text">{{.}}</span>{{/text}}
+                  {{#link_url}}<a href="{{.}}">{{link_text}}</a>{{/link_url}}
+                </div>
+              {{/about}}
+            </div>
 
           {{/content.channel_blurb}}
         </div>
@@ -49,8 +48,8 @@
 
     </div>
 
-    <div class="entry-point-content">
-      <span class="fashion-logo facet-header"></span>
+    <div class="entry-point-column">
+      <span class="{{logo_class}} facet-header"></span>
       {{#content.entry_points}}
       <ul class="entry-points">
         {{#title}}
@@ -70,6 +69,10 @@
         {{/items}}
       </ul>
       {{/content.entry_points}}
+
+      {{#content}}
+        {{>organisms/sections/social-share}}
+      {{/content}}
     </div>
 
     <div class="sneak-peek-content">

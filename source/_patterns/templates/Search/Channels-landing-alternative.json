@@ -105,6 +105,7 @@
       }
     ]
   },
+  "logo_class": "fashion-logo",
   "content": {
     "sneak_peak": {
       "items": [
@@ -518,18 +519,14 @@
       ]
     },
     "social": {
-      "social_title": "Find Europeana Fashion on social media",
-      "twitter": {
-        "url": "https://twitter.com/eu_sounds",
-        "text": "Twitter"
-      },
+      "social_title": "Europeana Fashion on social media",
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"
       },
-      "soundcloud": {
-        "url": "https://soundcloud.com/europeana",
-        "text": "Soundcloud"
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
       },
       "pinterest": {
         "url": "https://uk.pinterest.com/europeana/",
