@@ -155,6 +155,7 @@
       "people":
       {
         "title": "People",
+        "info": "javascript:alert('link to info');",
         "sections": [
           {
             "title": false,

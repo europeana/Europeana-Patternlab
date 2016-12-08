@@ -1,6 +1,13 @@
 <div class="data-section cf">
   <h3 class="subsection-label">
     {{ title }}
+    {{#info}}
+      <a class="eu-tooltip-anchor" href="{{.}}">
+        <svg class="icon icon-help">
+          <use xlink:href="#icon-help"/>
+        </svg>
+      </a>
+    {{/info}}
   </h3>
   <div class="subsection-content">
 
