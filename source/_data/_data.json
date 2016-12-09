@@ -614,6 +614,14 @@
     "location": "Den Haag, Netherlands",
     "i18n": {
         "site": {
+            "collections": {
+              "labels": {
+                "editors-picks":   "Editor's picks",
+                "sneak-peek":      "Sneak peek",
+                "whats-happening": "What's happening",
+                "designer":        "Designer"
+              }
+            },
             "more": "More...",
             "navigation": {
                 "breadcrumb": {

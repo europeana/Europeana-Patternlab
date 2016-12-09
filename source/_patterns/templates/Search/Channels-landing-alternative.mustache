@@ -19,7 +19,7 @@
               {{#about}}
                 <div class="about">
                   {{#text}}<span class="text">{{.}}</span>{{/text}}
-                  {{#link_url}}<a href="{{.}}">{{link_text}}</a>{{/link_url}}
+                  {{#link_url}}<a href="{{.}}">{{link_text}} <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg></a>{{/link_url}}
                 </div>
               {{/about}}
             </div>
@@ -36,16 +36,17 @@
 
       </div>
 
-      <h2 class="editor-picks">Editor's Picks</h2>
+      <h2 class="section-header editor-picks-header">{{i18n.site.collections.labels.editors-picks}}</h2>
 
-      <ul class="home-promo promo-list editors-picks">
-        {{#content.editors_picks.items}}
-          <li class="list-item {{#wide}}list-item-wide{{/wide}}">
-            {{> molecules/blocks/promo-module }}
-          </li>
-        {{/content.editors_picks.items}}
-      </ul>
-
+      {{#content.editors_picks}}
+        <ul class="home-promo promo-list editors-picks">
+          {{#items}}
+            <li class="list-item {{#wide}}list-item-wide{{/wide}}">
+              {{> molecules/blocks/promo-module }}
+            </li>
+          {{/items}}
+        </ul>
+      {{/content.editors_picks}}
     </div>
 
     <div class="entry-point-column">
@@ -69,16 +70,25 @@
         {{/items}}
       </ul>
       {{/content.entry_points}}
+    </div>
 
+    <div class="sneak-peek-content cf">
       {{#content}}
         {{>organisms/sections/social-share}}
       {{/content}}
-    </div>
+      <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+      <span class="sneak-peek-subheader">{{i18n.site.collections.labels.designer}}:</span>
 
-    <div class="sneak-peek-content">
-      <h2 class="sneak-peek">Sneak Peek</h2>
+      {{#content.sneak_peak.recently_viewed}}
+        <ul class="comma-list recently-viewed">
+          {{#items}}
+            <li>{{.}}</li>
+          {{/items}}
+        </ul>
+      {{/content.sneak_peak.recently_viewed}}
+
       {{# content.sneak_peak }}
-        <ol class="result-items display-grid cf">
+        <ol class="sneak-peek-list result-items display-grid cf">
           <li class="grid-sizer"></li>
           {{# items }}
             <li>
@@ -86,11 +96,50 @@
             </li>
           {{/ items }}
         </ol>
+        <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
       {{/ content.sneak_peak }}
     </div>
   </div>
 </section>
 
+<section class="channels-landing-x happening-content">
+
+  <div class="lc">
+    <h2 class="section-header happening-header">{{i18n.site.collections.labels.whats-happening}}</h2>
+
+    {{#content.carousel}}
+
+      <div class="mlt cf lc">
+        <a id="scroll-trigger-carousel"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="showCarousel"
+           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "tumblr", "svg": true, "minSpacingPx": 30}'
+        ></a>
+        <div class="js-carousel tumblr-feed">
+          <ul class="cf">
+            {{#items}}
+              <li class="js-carousel-item">
+                <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                  <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                </div>
+                {{#title}}
+                <span class="js-carousel-title">
+                  <a href="{{url}}">{{.}}</a>
+                </span>
+                {{/title}}
+              </li>
+            {{/items}}
+          </ul>
+        </div>
+        <a class="scroll-trigger trigger-chain"
+           data-enabled="true"
+           data-disable-when-fired="showCarousel"
+           data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
+      </div>
+    {{/content.carousel}}
+  </div>
+</section>
 
 {{> organisms/sections/banner }}
 

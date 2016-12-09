@@ -678,62 +678,82 @@
 // LANDING ALTERNATIVE
 
 .channels-landing-x{
-  padding: 0;
+  padding: 0 1em;
 }
 
 .main-content,
 .entry-point-column,
 .sneak-peek-content{
-  padding: 0;
-  width:   100%;
+
+  padding:    0;
+  position:   relative;
+  width:      100%;
+
+  .channel-social{
+
+    margin-bottom: 0;
+    padding-right: 0;
+
+    h4{
+      font-size: 1em;
+    }
+
+    .social-share{
+      display:         flex;
+      justify-content: space-between;
+      margin-bottom:   $space;
+      margin-top:      $space;
+
+      .icon{
+        color: $eu-blue;
+      }
+    }
+  }
+
+  .sneak-peek-subheader{
+    display:     inline-block;
+    font-size:   $font-size-slightly-smaller;
+    font-weight: bold;
+  }
+
+  .recently-viewed{
+    display:       inline-block;
+    font-weight:   bold;
+    margin-bottom: 1em;
+  }
+
 }
 
 .landing-text-inner{
 
-  position:        relative;
-  display:         flex;
-  height:          100%;
-  flex-direction:  column;
-  justify-content: space-between;
-
-  @media all and (max-width: $bp-med) {
-    margin: 1rem;
-  }
-
-  .opening{
-    align-self: flex-start;
-  }
-
   .zoomed{
     display:   block;
-    font-size: 1.25em;
+    font-size: 1.5em;
 
     @media all and (max-width: $bp-med) {
-      margin: 1rem 0;
+      margin: $space 0;
     }
   }
 
   .about{
-    align-self:       flex-end;
-    background-color: #fff;
-    width:            100%;
+    margin-bottom: $space;
+    width:         100%;
 
     .text{
       display:        block;
-      font-size:      0.9em;
       font-weight:    bold;
       text-transform: uppercase;
     }
   }
 }
 
-.editor-picks,
-.sneak-peek{
+.section-header{
   text-transform: uppercase;
 }
 
-.editor-picks{
-  padding:        $space;
+.editor-picks-header{
+  padding: $space 0;
+  margin-bottom:  0;
 }
 
 .landing-featured{
@@ -744,6 +764,11 @@
 }
 
 .entry-points{
+
+  &:first-of-type{
+    border-top:   1px solid #dedede;
+    margin-top:   1.5em;
+  }
 
   margin-bottom:  0.75em;
   padding-bottom: 1em;
@@ -761,7 +786,6 @@
     text-transform:   uppercase;
   }
 
-
   .entry-point-image{
     width:      2em;
     max-height: 4em;
@@ -778,9 +802,15 @@
     top:         50%;
     transform:   translateY(-50%);
   }
-
 }
 
+.happening-content{
+  background-color: $gray80;
+
+  .happening-header{
+    margin: $space 0;
+  }
+}
 
 @media all and (min-width: $bp-med) {
   .channels-landing-x{
@@ -798,26 +828,80 @@
     width: 75%;
   }
 
-  .editor-picks{
+  .entry-points:first-of-type{
+    border-top:  0;
+    margin-top:  0;
+  }
+
+  .entry-points:last-of-type{
+    margin-bottom: 5em;
+  }
+
+
+  .editor-picks-header{
     margin:  0;
-    padding: $space 0;
   }
 
   .entry-point-column{
     float: left;
     width: 25%;
-    .social-share{
-      display:         flex;
-      font-size:        0.6em;
-      justify-content: space-between;
-      .icon{
-        color: $eu-blue;
+  }
+
+  .landing-text-inner{
+
+    position:        relative;
+    display:         flex;
+    height:          100%;
+    flex-direction:  column;
+    justify-content: space-between;
+
+    .opening{
+      align-self: flex-start;
+    }
+
+    .zoomed{
+      font-size: 1.25em;
+    }
+
+    .about{
+      align-self:       flex-end;
+      margin-bottom:    0;
+
+      .text{
+        font-size:      0.9em;
       }
     }
   }
 
   .sneak-peek-content{
-    float: right;
+
+    float:      right;
+    margin-top: 0;
+
+    .channel-social{
+      position:         absolute;
+      transform:        translateY(-110%);
+      width:            25%;
+
+      .social-share{
+        font-size:     0.6em;
+        margin-bottom: 0;
+        margin-top:    0;
+        padding-right: 0;
+      }
+    }
+    .sneak-peek-header{
+      margin-top: $space;
+    }
+    .sneak-peek-list:after{
+
+      content:    " ";
+      position:   absolute;
+      height:     24em;
+      background: linear-gradient(top, rgba(255, 255, 255,0), rgba(255, 255, 255,1));
+      bottom: 0;
+      width:  100%;
+    }
   }
 
   .landing-text{
@@ -870,9 +954,9 @@
   }
   &.page-header{
     display: inline-block;
+    margin:  1em 0;
     @media all and (min-width: $bp-med) {
       display: none;
-      background-color: pink;
     }
   }
 }
