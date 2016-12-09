@@ -805,10 +805,21 @@
 }
 
 .happening-content{
-  background-color: $gray80;
+  background-color: $paper;
+    position:       relative;
 
   .happening-header{
     margin: $space 0;
+  }
+
+  .subscribe-block{
+    position: absolute;
+    right:    1em;
+    top:      $space;
+
+    .icon{
+      font-size: 1.5em;
+    }
   }
 }
 
@@ -919,6 +930,14 @@
   .landing-featured{
     height: 65vh;
   }
+
+  .happening-content{
+    .happening-header{
+      margin: 0;
+      margin-bottom: $space;
+    }
+  }
+
 }
 
 @media all and (min-width: $bp-large) {
