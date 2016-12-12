@@ -160,10 +160,13 @@
                         <li class="ve-field">
                           <h4 class="ve-field-label">Title</h4>
                           {{#attribution_url}}
-                            <a href="{{.}}" target="_new">{{attribution_title}}</a>
+                            with attribution url: ({{.}})
+                             <br/>
+                             <br/>
+                             <a href="{{.}}" target="_new">{{attribution_title}}</a>
                           {{/attribution_url}}
                           {{^attribution_url}}
-                            {{attribution_title}}
+                            no attribution url (use attribution_title): {{attribution_title}}
                           {{/attribution_url}}
                         </li>
                       {{/attribution_title}}
