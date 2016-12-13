@@ -677,7 +677,7 @@
 
 // LANDING ALTERNATIVE
 
-.channels-landing-x{
+.channels-landing-browse{
   padding: 0 1em;
 }
 
@@ -757,7 +757,14 @@
 }
 
 .landing-featured{
-  height: 100vw;
+
+  background-position: 50% 50%;
+  background-size:     cover;
+
+  height:              100vw;
+
+  position:            relative;
+
   .brand-circles{
     width: 100%;
   }
@@ -824,12 +831,11 @@
 }
 
 @media all and (min-width: $bp-med) {
-  .channels-landing-x{
+  .channels-landing-browse{
     padding: $pad $pad;
   }
 
-  .main-content,
-  .landing-featured{
+  .main-content{
     padding-left: $pad;
   }
 
@@ -941,7 +947,7 @@
 }
 
 @media all and (min-width: $bp-large) {
-  .channels-landing-x{
+  .channels-landing-browse{
     padding: $space $space;
   }
 

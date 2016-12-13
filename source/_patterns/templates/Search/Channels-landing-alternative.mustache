@@ -2,7 +2,7 @@
 
 {{> organisms/global/header_v2}}
 
-<section class="channels-landing-x after-header-with-search">
+<section class="channels-landing-browse after-header-with-search">
 
   <div class="lc">
     <div class="main-content">
@@ -27,26 +27,32 @@
           {{/content.channel_blurb}}
         </div>
 
-        <div class="landing-featured hero-nopad search-hero {{#content.hero_config}}{{brand_position}} {{brand_colour}} {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{hero_image}}');" {{/content.hero_config}}>
-          {{#content.hero_config}}
-            {{>molecules/text/attribution}}
-            {{>molecules/media/brand-svg-assets}}
-          {{/content.hero_config}}
+        <div class="landing-featured brand-bottomleft brand-colour-white brand-opacity50">
+          {{#content.promoted}}
+            {{#items}}
+              {{#featured}}
+                {{> molecules/blocks/promo-module }}
+                {{> molecules/media/brand-svg-assets}}
+              {{/featured}}
+            {{/items}}
+          {{/content.promoted}}
         </div>
 
       </div>
 
       <h2 class="section-header editor-picks-header">{{i18n.site.collections.labels.editors-picks}}</h2>
 
-      {{#content.editors_picks}}
+      {{#content.promoted}}
         <ul class="home-promo promo-list editors-picks">
           {{#items}}
-            <li class="list-item {{#wide}}list-item-wide{{/wide}}">
-              {{> molecules/blocks/promo-module }}
-            </li>
+            {{^featured}}
+              <li class="list-item {{#wide}}list-item-wide{{/wide}}">
+                {{> molecules/blocks/promo-module }}
+              </li>
+            {{/featured}}
           {{/items}}
         </ul>
-      {{/content.editors_picks}}
+      {{/content.promoted}}
     </div>
 
     <div class="entry-point-column">
@@ -102,7 +108,7 @@
   </div>
 </section>
 
-<section class="channels-landing-x happening-content">
+<section class="channels-landing-browse happening-content">
 
   <div class="lc">
     <h2 class="section-header happening-header">{{i18n.site.collections.labels.whats-happening}}</h2>
