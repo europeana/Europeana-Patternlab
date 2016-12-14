@@ -2,6 +2,8 @@
 {{> organisms/global/header_v2}}
 
 <div role="main" class="search-object">
+  {{> molecules/components/search/search-form-navbar }}
+  <!--
   <div class="object-nav cf">
     <div class="object-nav-lists">
       <ul class="breadcrumbs">
@@ -15,6 +17,7 @@
     </div>
     {{>molecules/forms/search-item-navigation}}
   </div>
+  -->
   {{#content}}
     {{#object.media}}
       <section class="object-display" id="maincontent">
@@ -263,6 +266,10 @@
             {{#places }}
               {{> organisms/sections/object-data-section }}
             {{/places }}
+
+            {{#annotations}}
+              {{> organisms/sections/object-data-section }}
+            {{/annotations}}
 
             {{#provenance}}
               {{> organisms/sections/object-data-section }}

@@ -36,6 +36,17 @@
     }
   ],
 
+  "form_search": {
+    "action": "javascript:alert('submit form');"
+  },
+
+  "navigation":{
+    "back_url": "javascript:alert('go back');",
+    "back_label": "Return",
+    "last_label" : "item detail",
+    "next_prev": false
+  },
+
   "content":
   {
     "object":
@@ -140,6 +151,15 @@
         "institution_country": "Netherlands",
         "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
         "logo": "sample/logo.jpg"
+      },
+      "annotations":
+      {
+        "title": "Annotations",
+        "info": "javascript:alert('link to info');",
+        "sections": [{
+          "title": "Relations",
+          "items": [{"url": "http://www.wikidata.org/entity/Q15847665", "preserve_case": true, "text": "http://www.wikidata.org/entity/Q15847665", "title": false}]
+        }]
       },
       "people":
       {

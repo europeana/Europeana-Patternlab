@@ -32,8 +32,8 @@ dd {
         margin-right: 0.4em;
     }
 
-    li:first-letter {
-    text-transform: capitalize;
+    li:not(.preserve-case):first-letter {
+        text-transform: capitalize;
     }
 
     li:after{

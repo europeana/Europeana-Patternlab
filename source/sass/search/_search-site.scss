@@ -111,18 +111,18 @@
 
 .promo-list{
 
-  padding-top: $space-quarter; //fallback
+  padding-top: $space-quarter;
   padding-top: 1.05634vw;
 
   @media all and (min-width: $bp-med) {
-    padding-top: $space-half; //fallback
+    padding-top: $space-half;
     padding-top: 1.05634vw;
   }
 }
 
 .promo-list .list-item{
 
-  margin-bottom: $space-quarter; //fallback
+  margin-bottom: $space-quarter;
   margin-bottom: 1.05634vw;
   position: relative;
 
@@ -137,7 +137,7 @@
 
   @media all and (min-width: $bp-small-3) {
     min-height: 32vw;
-    margin-bottom: $space-half; //fallback
+    margin-bottom: $space-half;
     margin-bottom: 1.05634vw;
     font-size: 2vw;
   }
@@ -183,6 +183,14 @@
       @include span(18 of 48 split);
     }
   }
+}
+
+.editors-picks .list-item{
+
+  @media all and (min-width: $bp-large) {
+    @include span(8 of 24 split);
+  }
+
 }
 
 
@@ -365,7 +373,6 @@
       display: block;
     }
   }
-
 }
 
 .channel-credits{
@@ -440,8 +447,6 @@
     @include span(last 5 of 24);
   }
 
-
-
   .number{
     @include fontSize(18px);
     font-weight: bold;
@@ -451,6 +456,7 @@
     border-bottom: 1px dotted $textcolour_link_hover;
   }
 }
+
 .portal-down-social{
   padding-top: 2em;
   .channel-social{
@@ -669,8 +675,196 @@
   }
 }
 
+// LANDING ALTERNATIVE
+
+.channels-landing-x{
+  padding: 0;
+}
+
+.main-content,
+.entry-point-content,
+.sneak-peek-content{
+  padding: 0;
+  width:   100%;
+}
+
+.landing-blurb{
+
+  position: relative;
+
+  .landing-blurb-zoomed{
+    display:   block;
+    font-size: 1.25em;
+    margin:    0.75em 0;
+  }
+
+  .blurb-about{
+    bottom:           0;
+    position:         absolute;
+    background-color: #fff;
+
+    .text{
+      display:        block;
+      font-size:      0.9em;
+      font-weight:    bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.editor-picks,
+.sneak-peek{
+  text-transform: uppercase;
+}
+
+.editor-picks{
+  padding:        $space;
+}
+
+.landing-featured{
+  height: 100vw;
+  .brand-circles{
+    width: 100%;
+  }
+}
+
+.entry-points{
+
+  margin-bottom:  0.75em;
+  padding-bottom: 1em;
+  border-bottom:  1px solid #dedede;
+
+  .entry-point{
+    position:       relative;
+  }
+
+  .entry-points-title{
+    color:            #4d4d4d;
+    display:          inline-block;
+    font-weight:      bold;
+    margin:           0.4rem 0 0.75em 0;
+    text-transform:   uppercase;
+  }
+
+
+  .entry-point-image{
+    width:      2em;
+    max-height: 4em;
+  }
+
+  .entry-point-link{
+    position:  relative;
+  }
+
+  .entry-point-text{
+    display:     inline-block;
+    margin:      0.2em 0 0.2em 0.25em;
+    position:    relative;
+    top:         50%;
+    transform:   translateY(-50%);
+  }
+
+}
+
+
+@media all and (min-width: $bp-med) {
+  .channels-landing-x{
+    padding: $pad $pad;
+  }
+
+  .main-content,
+  .landing-featured{
+    padding-left: $pad;
+  }
+
+  .entry-point-content-content,
+  .sneak-peek-content{
+    //  padding: 1.6rem 0;
+  }
+
+  .main-content{
+    clear: both;
+    float: right;
+    width: 75%;
+  }
+
+  .editor-picks{
+    margin:  0;
+    padding: $space 0;
+  }
+
+  .entry-point-content{
+    float: left;
+    width: 25%;
+  }
+
+  .sneak-peek-content{
+    float: right;
+  }
+
+  .landing-blurb{
+    float:    left;
+    overflow: hidden;
+    width:    30%;
+  }
+
+  .landing-featured{
+    float:  left;
+    width:  70%;
+  }
+
+  .landing-blurb,
+  .landing-featured{
+    height: 65vh;
+  }
+}
+
+@media all and (min-width: $bp-large) {
+  .channels-landing-x{
+    padding: $space $space;
+  }
+
+  .main-content{
+    padding-left: $space;
+  }
+
+  .landing-blurb{
+    @include span(8 of 24);
+  }
+
+  .landing-featured{
+    @include span(16 of 24 last);
+  }
+}
+
+
+.fashion-logo{
+  background-image: url("../../images/europeana-logo-fashion.png");
+  background-size: cover;
+  width: 100%;
+  padding-bottom: 49.0795%;
+
+  &.facet-header{
+    display: none;
+    @media all and (min-width: $bp-med) {
+      display: inline-block;
+    }
+  }
+  &.page-header{
+    display: inline-block;
+    @media all and (min-width: $bp-med) {
+      display: none;
+      background-color: pink;
+    }
+  }
+}
+
+
+
+
 
 // STATIC PAGES
+
 .static-content{
   p{
     padding: 0 $space;

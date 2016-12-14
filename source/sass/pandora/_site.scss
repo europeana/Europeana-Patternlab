@@ -37,10 +37,6 @@ body {
 	border-top-color: #4BC0F0;
 }
 
-.pusher {
-	padding-top: 4.88em;
-}
-
 .nav-toggle-sites {
 	background-color: #4BC0F0;
 }
@@ -100,7 +96,7 @@ body {
 }
 
 .breadcrumbs {
-	margin-top:0px;
+	margin-top: $globalnavheight;
 	padding-left:10px;
 	border-top: 0.1em solid #FFFFFF;
 	background-color: #4BC0F0;
@@ -514,13 +510,13 @@ body {
 	margin-bottom: 0px !important;
 	border: 0px;
 	background-color: white;
-	width: 25em;
+	width: 50em;
 	overflow: auto;
 	margin-left: 1em;
 	margin-top: 1em;
 }
 
-.metis-profile-form div{
+.metis-profile-form div {
 	padding-left: 1em;
 	padding-right: 1em;
 }
@@ -529,8 +525,26 @@ body {
 	text-align: center;
 	color: white;
 	background-color: #1676aa;
-	width: 12.5em;
+	width: 25em;
 	font-size: 2em;
+}
+
+.profile-select-orgs {
+	display: inline-block;
+}
+
+.select-dropdown {
+	width: 100%;
+	height: 2.37em;
+    border: 1px solid #777777;
+    padding: 0.5rem 0.65rem 1em 1em;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-transition: 0.3s linear border;
+    -moz-transition: 0.3s linear border;
+    -ms-transition: 0.3s linear border;
+    -o-transition: 0.3s linear border;
+    transition: 0.3s linear border;
 }
 /*** END OF PROFILE FORM ***/
 
