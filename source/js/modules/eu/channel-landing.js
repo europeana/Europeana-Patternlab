@@ -4,6 +4,8 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
   function showCarousel(ops){
     var el = $('.tumblr-feed');
+    el = el.length == 1 ? el : $('.happening-feed');
+
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
       var appender = CarouselAppender.create({
         'cmp':             el.find('ul'),

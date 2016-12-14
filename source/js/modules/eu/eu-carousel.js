@@ -21,9 +21,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
      */
     var EuCarousel = function(cmp, appender, opsIn){
 
-    	log('carousel ops in: ' + JSON.stringify(opsIn, null, 4));
-    	
-    	
+      log('carousel ops in: ' + JSON.stringify(opsIn, null, 4));
+
+
         var dynamic    = null;
         var vertical   = null;
         var bpVertical = null;
@@ -63,7 +63,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
             var ops = mergeHashes(opsIn, opsDef);
 
-        	log('carousel merged ops: ' + JSON.stringify(ops, null, 4));
+          log('carousel merged ops: ' + JSON.stringify(ops, null, 4));
 
             classData = {
                     "arrowClasses" : {
@@ -89,6 +89,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             dynamic         = typeof ops.bpVertical != 'undefined';
             bpVertical      = ops.bpVertical;
             alwaysAfterLoad = ops.alwaysAfterLoad;
+            smallButtons    = ops.smallButtons;
 
             if(dynamic){
                 ascertainVerticality();
@@ -107,7 +108,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             // ui
 
             items = cmp.find('ul');
-            addButtons();
+            addButtons(!smallButtons);
 
             var swipeLoadThreshold = Math.min(-100, 0-(itemW / 2));
             // var swipeLoadThreshold = 0;
@@ -545,7 +546,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             +'</span>' + '</li>';
         }
 
-        var addButtons = function(){
+        var addButtons = function(useContainer){
 
             btnPrev = $('<a class="' + classData.arrowClasses.back + '">'
                     + (vertical ? classData.arrowClasses.content.up : classData.arrowClasses.content.back)
@@ -554,9 +555,15 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
                     + (vertical ? classData.arrowClasses.content.down : classData.arrowClasses.content.fwd)
                     + '</a>');
 
-            cmp.before('<div class="' + classData.arrowClasses.container + (vertical ? ' v' : ' h') + '"></div>');
-            cmp.prev('.' + classData.arrowClasses.container ).append(btnPrev);
-            cmp.prev('.' + classData.arrowClasses.container ).append(btnNext);
+            if(useContainer){
+              cmp.before('<div class="' + classData.arrowClasses.container + (vertical ? ' v' : ' h') + '"></div>');
+              cmp.prev('.' + classData.arrowClasses.container ).append(btnPrev);
+              cmp.prev('.' + classData.arrowClasses.container ).append(btnNext);
+            }
+            else{
+              cmp.before(btnPrev);
+              cmp.before(btnNext);
+            }
 
             totalLoaded = items.find('.' + classData.itemClass).length;
 

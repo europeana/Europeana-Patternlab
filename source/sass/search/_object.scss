@@ -154,6 +154,7 @@
           }
         }
       }
+
       .js-carousel{
         .js-carousel-item{
             width: $thumbnail_max_dimension_media;
@@ -235,8 +236,8 @@
 
       .media-thumb-section{
 
-        width:         $thumbnail_max_dimension_media;	// set width of thumbnail column here - thumbnail width and height (if left unset) will match it
-        min-width:     $thumbnail_max_dimension_media;	// (both needed - and should match the thumbnail width to keep arrows aligned)
+        width:         $thumbnail_max_dimension_media;  // set width of thumbnail column here - thumbnail width and height (if left unset) will match it
+        min-width:     $thumbnail_max_dimension_media;  // (both needed - and should match the thumbnail width to keep arrows aligned)
         padding-right: 1.6rem;
 
 
@@ -313,7 +314,7 @@
 
 .single-item-thumb svg.icon.icon-newspaper,
 .multi-item-poster svg.icon.icon-newspaper,
-.object-media-nav svg.icon.icon-newspaper	{
+.object-media-nav svg.icon.icon-newspaper  {
     font-size: 0.9em;
     margin: 0.4em 0 0 0.16em;
 }
@@ -354,8 +355,8 @@
 .single-item{
   .object-media-nav a{
       box-shadow: none;
-      color:	white;
-      position:		relative;
+      color:  white;
+      position:    relative;
       display: inline-block;
       margin-bottom: 1.6rem;
       transition: box-shadow 0.25s ease-in-out;
@@ -642,6 +643,173 @@
     }
 }
 
+// override carousel defaults for landing feed
+
+.happening-feed-container{
+
+  position: relative;
+
+  .left,
+  .right{
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color:            white;
+
+    font-size:        4em;
+    font-weight:      bold;
+
+    height:           1em;
+
+    left:             50%;
+    line-height:      1em;
+    position:         absolute;
+
+    text-shadow:      0 0 1px #000;
+    top:              50%;
+    transform:        translateX(-50%);
+
+    z-index:          1;
+
+    @media all and (min-width: $bp-med) {
+      left: 0;
+    }
+
+    &.arrow-hidden{
+      color:  $gray-lighter;
+      cursor: default;
+    }
+
+    &:not(.arrow-hidden):hover{
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+
+  .left{
+    margin-left: -205px;
+  }
+
+  .right{
+    margin-left: 205px;
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    .left,
+    .right{
+      margin-left: 0;
+      transform:   none;
+    }
+
+    .left{
+      left:  -0.4em;
+      right: auto;
+    }
+    .right{
+      left:  auto;
+      right: -0.4em;
+    }
+  }
+
+
+  .js-carousel{
+    .js-carousel-item{
+      background-color: #fff;
+      height:           100%;
+      width:            400px;
+
+      .js-carousel-texts{
+        padding:  0 1em 1em;
+        position: relative;
+      }
+
+      .js-carousel-text{
+        padding: 1em 0;
+      }
+
+      .js-carousel-title{
+        font-size:     $font-size-med;
+        height:        auto;
+        line-height:   1.6em;
+        margin:        0 -1.6em 0.75em 0;
+        max-height:    3.2em;
+        padding-right: 2em;
+
+        &:before,
+        &:after {
+          height:     1.4em;
+          right:      1em;
+        }
+
+      }
+
+      .js-carousel-text{
+        display:       block;
+        font-size:     1em;
+        height:        auto;
+        line-height:   1.3em;
+        margin:        0 -1.95em 0.75em 0;
+        max-height:    6.6em;
+        padding:       0 1.4em 0 0;
+
+        &:before,
+          &:after {
+            height:   1.15em;
+            right:    0.5em;
+          }
+        }
+
+      .js-carousel-text,
+      .js-carousel-title{
+
+        overflow:      hidden;
+        position:      relative;
+        text-align:    justify;
+
+        max-width:     100%;
+
+        &:before,
+        &:after {
+          position:   absolute;
+        }
+
+        &:before {
+          bottom:  1px;
+          content: '...';
+        }
+
+        &:after {
+          background: white;
+          content:    '';
+          height:     1.6em;
+          width:      1em;
+        }
+      }
+
+      .js-carousel-date{
+        font-size:   $font-size-slightly-smaller;
+        font-weight: bold;
+      }
+
+    }
+  }
+  .js-carousel-arrows{
+    &.h{
+      .left{
+        @media all and (min-width: $bp-med) {
+          left: 0;
+        }
+      }
+    }
+    a{
+      line-height: $thumbnail_max_dimension_mlt;
+      &.arrow-hidden{
+        color: $gray-lighter;
+      }
+    }
+  }
+}
+
 
 .js-carousel.media-thumbs.h{
     margin: 0 2.6rem;
@@ -650,8 +818,11 @@
     line-height: $thumbnail_max_dimension_media;
 }
 
-.subsection-content>ul{
+.subsection-content{
+  position: relative;
+  &>ul{
     display: inline;
+  }
 }
 
 

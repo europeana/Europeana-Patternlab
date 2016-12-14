@@ -406,6 +406,7 @@
         "link_url"  : "javascript(alert('follow link'))"
       }
     },
+    "subscribe_url": "javascript:alert('follow subscribe link...')",
     "promoted": {
       "title": "Promoted title",
       "items": [
@@ -493,43 +494,61 @@
           "url":  "?q=The+Lace+Maker",
           "img": {
              "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
-          }
+             "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a terrible Tumblr title that's totally taking too much height and is technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "14/12/2016",
+          "text": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
         },
         {
           "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
           "img": {
             "alt": "Zittende jongeman bij ton met het hoofd naar links",
-            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
-          }
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Title II",
+          "type": "events",
+          "date": "15/12/2016",
+          "text": "This carousel item for the aggregated feed also has text and a date"
         },
         {
           "url": "?q=Delft",
           "img": {
             "alt": "Delft",
-            "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
-          }
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "tumblr",
+          "text": "This carousel item for the aggregated feed has text but no date"
         },
         {
           "url": "?q=Girl+with+the+pearl+earring",
           "img": {
             "alt": "Girl with the pearl earring",
-            "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
-          }
+            "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "17/12/2016"
         },
         {
           "url":  "?q=The+Lace+Maker",
           "img": {
-             "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
-          }
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
         },
         {
           "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
           "img": {
             "alt": "Zittende jongeman bij ton met het hoofd naar links",
-            "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
-          }
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
         }
       ]
     },

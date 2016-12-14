@@ -110,31 +110,44 @@
 
 <section class="channels-landing-browse happening-content">
 
-  <div class="lc">
+  <div class="lc relative">
     <h2 class="section-header happening-header">{{i18n.site.collections.labels.whats-happening}}</h2>
-    <span class="subscribe-block">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></span>
+    <span class="subscribe-block"><a href="{{content.subscribe_url}}">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
 
     {{#content.carousel}}
 
-      <div class="mlt cf lc">
+      <div class="cf lc happening-feed-container">
         <a id="scroll-trigger-carousel"
            class="scroll-trigger"
            data-enabled="true"
            data-fire-on-open="showCarousel"
-           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "tumblr", "svg": true, "minSpacingPx": 30}'
+           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "tumblr", "svg": true, "minSpacingPx": 30, "smallButtons": true}'
         ></a>
-        <div class="js-carousel tumblr-feed">
+        <div class="js-carousel happening-feed">
           <ul class="cf">
             {{#items}}
               <li class="js-carousel-item">
-                <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-                  <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                <img src="{{img.src}}"/>
+                <div class="js-carousel-texts">
+                  {{#title}}
+                    <span class="js-carousel-title">
+                      <a href="{{url}}">{{.}}</a>
+                    </span>
+                  {{/title}}
+                  {{#text}}
+                    <span class="js-carousel-text">
+                      {{{.}}}
+                    </span>
+                  {{/text}}
+                  {{#date}}
+                    <span class="js-carousel-date">
+                      {{.}}
+                    </span>
+                  {{/date}}
+                  {{#type}}
+                    <span class="js-carousel-type js-carousel-type-{{.}}">{{.}}</span>
+                  {{/type}}
                 </div>
-                {{#title}}
-                <span class="js-carousel-title">
-                  <a href="{{url}}">{{.}}</a>
-                </span>
-                {{/title}}
               </li>
             {{/items}}
           </ul>
