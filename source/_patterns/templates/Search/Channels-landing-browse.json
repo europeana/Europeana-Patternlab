@@ -499,7 +499,7 @@
           "title": "Test a terrible Tumblr title that's totally taking too much height and is technically too tall (when line wrapped)",
           "type": "news",
           "date": "14/12/2016",
-          "text": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
+          "excerpt": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
         },
         {
           "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
@@ -510,7 +510,7 @@
           "title": "Title II",
           "type": "events",
           "date": "15/12/2016",
-          "text": "This carousel item for the aggregated feed also has text and a date"
+          "excerpt": "This carousel item for the aggregated feed also has text and a date"
         },
         {
           "url": "?q=Delft",
@@ -520,7 +520,7 @@
           },
           "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
           "type": "tumblr",
-          "text": "This carousel item for the aggregated feed has text but no date"
+          "excerpt": "This carousel item for the aggregated feed has text but no date"
         },
         {
           "url": "?q=Girl+with+the+pearl+earring",
@@ -530,6 +530,7 @@
           },
           "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
           "type": "news",
+          "excerpt": false,
           "date": "17/12/2016"
         },
         {
@@ -539,6 +540,7 @@
             "src": "/images/search/carousel2.jpg"
           },
           "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "excerpt": false,
           "type": "news"
         },
         {
@@ -548,6 +550,7 @@
             "src": "/images/search/carousel3.jpg"
           },
           "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "excerpt": false,
           "type": "news"
         }
       ]
