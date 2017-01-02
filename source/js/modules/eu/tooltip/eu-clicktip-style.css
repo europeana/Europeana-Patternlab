@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 7, eu-clicktip-style.scss */
+.eu-tooltip-anchor .icon,
+.eu-tooltip-container .icon {
+  vertical-align: baseline;
+  font-size: 0.825em;
+  position: relative;
+  top: -2px;
+}
+
+/* line 15, eu-clicktip-style.scss */
+.eu-tooltip-container {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in;
+  -moz-transition: opacity 0.4s ease-in;
+  -ms-transition: opacity 0.4s ease-in;
+  -o-transition: opacity 0.4s ease-in;
+  transition: opacity 0.4s ease-in;
+  position: relative;
+}
+/* line 23, eu-clicktip-style.scss */
+.eu-tooltip-container.showing {
+  opacity: 1;
+}
+/* line 29, eu-clicktip-style.scss */
+.eu-tooltip-container:hover, .eu-tooltip-container:focus {
+  cursor: default;
+}
+/* line 31, eu-clicktip-style.scss */
+.eu-tooltip-container:hover .eu-tooltip:not(:empty), .eu-tooltip-container:focus .eu-tooltip:not(:empty) {
+  display: block;
+}
+/* line 36, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip {
+  background: #1676aa;
+  color: #FFFFFF;
+  display: none;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 1.6;
+  padding: 0.6em;
+  position: absolute;
+  text-transform: none;
+  top: 2.5em;
+  z-index: 1;
+}
+/* line 50, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip.persistent {
+  display: block;
+  padding-right: 1.8em;
+}
+/* line 55, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a {
+  color: #FFFFFF;
+}
+/* line 57, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a[href] {
+  border-bottom: 1px dotted #fff;
+}
+/* line 59, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a[href]:hover {
+  border-bottom: 1px solid #fff;
+}
+/* line 66, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a[data-role="remove"] {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 0.6em;
+  right: 2px;
+}
+/* line 74, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a[data-role="remove"]:after {
+  content: "✕";
+  padding: 0px 3px;
+  vertical-align: baseline;
+}
+/* line 80, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip a[data-role="remove"]:hover:after {
+  font-size: 105%;
+}
+/* line 86, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip:after {
+  bottom: 100%;
+  left: 5%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-bottom-color: #1676AA;
+  border-width: 7px;
+}
+/* line 97, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip.right-aligned {
+  right: 0;
+}
+/* line 99, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip.right-aligned:after {
+  left: auto;
+  right: 4%;
+}
+/* line 104, eu-clicktip-style.scss */
+.eu-tooltip-container .eu-tooltip.trailing {
+  left: 40%;
+  white-space: nowrap;
+}
+/* line 111, eu-clicktip-style.scss */
+.eu-tooltip-container .tooltip.right:after {
+  left: inherit;
+  right: 5%;
+}
+/* line 117, eu-clicktip-style.scss */
+.eu-tooltip-container .tooltip--right {
+  left: auto;
+  right: -2em;
+}
