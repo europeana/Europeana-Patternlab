@@ -112,7 +112,8 @@
 
   <div class="lc relative">
     <h2 class="section-header happening-header">{{i18n.site.collections.labels.whats-happening}}</h2>
-    <span class="subscribe-block"><a href="{{content.subscribe_url}}">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
+
+    <span class="subscribe-block">{{> atoms/text/clicktip}}<a class="show-feeds">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
 
     {{#content.carousel}}
 

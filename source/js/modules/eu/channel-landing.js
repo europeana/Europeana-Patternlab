@@ -98,6 +98,9 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       addAutocomplete(data);
     });
 
+    require(['eu_clicktip'], function(Carousel, CarouselAppender){
+    });
+
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
   };
