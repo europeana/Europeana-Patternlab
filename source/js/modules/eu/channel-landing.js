@@ -54,37 +54,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
     euSearchForm = form;
 
-    var spc = $('.sneak-peek-content');
-
-    if(spc.find('.search-list-item').length > 0){
-
-      require(['masonry', 'jqImagesLoaded'], function(Masonry){
-
-        masonry = new Masonry( '.result-items', {
-          itemSelector: '.search-list-item',
-          columnWidth: '.grid-sizer',
-          percentPosition: true
-        });
-
-        $('.result-items').imagesLoaded().progress( function(instance, image){
-          if(masonry){
-            masonry.layout();
-          }
-        }).done( function(){
-          var hasSuperTall = false;
-          $('.item-image').each(function(i, ob){
-            var $ob = $(ob);
-            if($ob.height() > 650){
-              hasSuperTall = true;
-              $ob.addClass('super-tall');
-            }
-          });
-          if(hasSuperTall){
-            masonry.layout();
-          }
-        });
-      });
-    }
 
     $('.filter .filter-name').on('click', function(){
       $(this).closest('.filter').toggleClass('filter-closed');
@@ -98,12 +67,80 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       addAutocomplete(data);
     });
 
+    $(window).bind('loadPreview', function(e, data){
+      loadPreview(data);
+    });
+
     require(['eu_clicktip'], function(Carousel, CarouselAppender){
     });
 
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
   };
+
+
+  function initPreviewMasonry(){
+
+    require(['masonry', 'jqImagesLoaded'], function(Masonry){
+
+      masonry = new Masonry( '.result-items', {
+        itemSelector: '.search-list-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
+      });
+
+      $('.result-items').imagesLoaded().progress( function(instance, image){
+
+        console.log('MASONRY ITEM LOADED...........');
+
+        if(masonry){
+          masonry.layout();
+        }
+      }).done( function(){
+        var hasSuperTall = false;
+        $('.item-image').each(function(i, ob){
+          var $ob = $(ob);
+          if($ob.height() > 650){
+            hasSuperTall = true;
+            $ob.addClass('super-tall');
+          }
+        });
+
+        if(hasSuperTall){
+          masonry.layout();
+        }
+      });
+    });
+  }
+
+
+  function loadPreview(data){
+
+    $.ajax({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+      },
+      url: data.loadUrl,
+      type: 'GET',
+      contentType: "application/json; charset=utf-8",
+      success: function(data) {
+        require(['mustache'], function(Mustache){
+
+          Mustache.tags = ["[[", "]]"];
+          var templateId = '#molecules-components-search-search-listitem-js';
+          var template   = $(templateId).find('noscript').html();
+
+          console.log('template is ' + template)
+
+          initPreviewMasonry();
+
+          $.each(data.search_results, function(i, datum){
+            $('.sneak-peek-list').append('<li>' + Mustache.render(template, datum) + '</li>');
+          });
+        });
+      }
+    });
+  }
 
   return {
     initPage: function(euSearchForm){
