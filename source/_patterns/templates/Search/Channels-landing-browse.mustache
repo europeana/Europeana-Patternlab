@@ -81,19 +81,25 @@
     <div class="sneak-peek-content cf">
       {{#content}}
         {{>organisms/sections/social-share}}
+
+        {{#preview_search_url}}
+          <a class="scroll-trigger"
+             data-enabled="true"
+             data-fire-on-open="loadPreview"
+             data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
+          ></a>
+        {{/preview_search_url}}
+
       {{/content}}
       <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
       <span class="sneak-peek-subheader">{{i18n.site.collections.labels.designer}}:</span>
 
-      {{#content.sneak_peak.recently_viewed}}
+      {{#content.sneak_peak}}
         <ul class="comma-list recently-viewed">
-          {{#items}}
+          {{#recently_viewed.items}}
             <li>{{.}}</li>
-          {{/items}}
+          {{/recently_viewed.items}}
         </ul>
-      {{/content.sneak_peak.recently_viewed}}
-
-      {{# content.sneak_peak }}
         <ol class="sneak-peek-list result-items display-grid cf">
           <li class="grid-sizer"></li>
           {{# items }}
@@ -104,6 +110,13 @@
         </ol>
         <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
       {{/ content.sneak_peak }}
+      {{^ content.sneak_peak }}
+        <ol class="sneak-peek-list result-items display-grid cf">
+          <li class="grid-sizer"></li>
+        </ol>
+      {{/ content.sneak_peak }}
+      <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+
     </div>
   </div>
 </section>

@@ -71,6 +71,11 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       loadPreview(data);
     });
 
+    // init masonry for non-ajax loaded images
+    if( $('.result-items li').length > 1 ){
+      initPreviewMasonry();
+    }
+
     require(['eu_clicktip'], function(Carousel, CarouselAppender){
     });
 
@@ -90,9 +95,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       });
 
       $('.result-items').imagesLoaded().progress( function(instance, image){
-
-        console.log('MASONRY ITEM LOADED...........');
-
         if(masonry){
           masonry.layout();
         }
@@ -129,8 +131,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
           Mustache.tags = ["[[", "]]"];
           var templateId = '#molecules-components-search-search-listitem-js';
           var template   = $(templateId).find('noscript').html();
-
-          console.log('template is ' + template)
 
           initPreviewMasonry();
 
