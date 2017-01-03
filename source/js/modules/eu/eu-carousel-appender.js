@@ -14,9 +14,7 @@ define(['jquery'], function($){
 
     var templates = {
 
-      "tumblr": function(data){
-
-        log('tumblr template: ' + data);
+      "aggregated": function(data){
 
         var markup = '';
 
@@ -24,13 +22,23 @@ define(['jquery'], function($){
 
           markup += ''
             + '<li class="js-carousel-item">'
-            +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
-            +     '<div class="inner">'
-            +         '<a title="' + item.img.alt + '"'
-            +             ' class="link"'
-            +             ' href="'  + item.url
-            +         '">&nbsp;</a>'
-            +     '</div>'
+
+            +   '<img src="' + item.img.src + '"/>'
+
+            +   '<div class="js-carousel-texts">'
+            +     '<span class="js-carousel-title">'
+            +       '<a href="' + item.url + '">' + item.title + '</a>'
+            +     '</span>'
+
+            +     '<span class="js-carousel-text">'
+            +       item.excerpt.short
+            +     '</span>'
+
+            +     '<span class="js-carousel-date">'
+            +       item.date
+            +     '</span>'
+
+            +     '<span class="js-carousel-type js-carousel-type-' + item.type + '">' + item.type + '</span>'
             +   '</div>'
             + '</li>';
         });
@@ -41,9 +49,32 @@ define(['jquery'], function($){
         }
       },
 
-      "mlt": function(data){
+      "tumblr": function(data){
 
-          log('mlt template: ' + data);
+          var markup = '';
+
+          $.each(data.items, function(i, item){
+
+              markup += ''
+                  + '<li class="js-carousel-item">'
+                  +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
+                  +     '<div class="inner">'
+                  +       '<a title="' + item.img.alt + '"'
+                  +         ' class="link"'
+                  +         ' href="'  + item.url
+                  +       '">&nbsp;</a>'
+                  +     '</div>'
+                  +   '</div>'
+                  + '</li>';
+          });
+
+          return {
+              "markup": markup,
+              "added":  data.items
+          }
+      },
+
+      "mlt": function(data){
 
           var markup = '';
 
@@ -52,10 +83,10 @@ define(['jquery'], function($){
               + '<li class="js-carousel-item">'
               +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
               +     '<div class="inner">'
-              +         '<a title="' + item.img.alt + '"'
-              +             ' class="link"'
-              +             ' href="'  + item.url
-              +         '">&nbsp;</a>'
+              +       '<a title="' + item.img.alt + '"'
+              +         ' class="link"'
+              +         ' href="'  + item.url
+              +       '">&nbsp;</a>'
               +     '</div>'
               +   '</div>'
               +   '<span class="js-carousel-title">'
@@ -120,7 +151,7 @@ define(['jquery'], function($){
                 if(tm.size_unit){
                   sizeUnit = tm.size_unit;
                 }
-                
+
             }
 
             markup += ''
@@ -185,7 +216,7 @@ define(['jquery'], function($){
           var appendData = templates[template](data);
           cmp.append(appendData.markup);
           totalLoaded = cmp.find('li').size();
-          
+
           if(doAfter){
             doAfter(appendData.added);
           }

@@ -115,7 +115,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
     });
   }
 
-
   function loadPreview(data){
 
     $.ajax({
