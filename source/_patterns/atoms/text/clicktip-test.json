@@ -12,6 +12,13 @@
       "direction": "top"
     }
   },
+  "top-right-aligned":{
+    "clicktip":{
+      "activator": "#test-clicktip-1-right",
+      "tooltip_text": "Here is some text - this is the top tooltip",
+      "direction": "top"
+    }
+  },
   "left":{
     "clicktip":{
       "activator": "#test-clicktip-2",
@@ -32,6 +39,13 @@
   "bottom":{
     "clicktip":{
       "activator": "#test-clicktip-3",
+      "tooltip_text": "Here is some text - this is the bottom tooltip",
+      "direction": "bottom"
+    }
+  },
+  "bottom-right-aligned":{
+    "clicktip":{
+      "activator": "#test-clicktip-3-right",
       "tooltip_text": "Here is some text - this is the bottom tooltip",
       "direction": "bottom"
     }

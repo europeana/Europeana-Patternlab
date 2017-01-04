@@ -6,6 +6,13 @@ Here is some normal text.
 {{/top}}
 <br/>
 <br/>
+<p style="width:100%; text-align:right;">
+  {{#top-right-aligned}}
+    This tooltip corrects itself to not run <span style="text-align:left;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-1-right" style="font-weight:bold;">off-screen</span>.
+  {{/top-right-aligned}}
+</p>
+<br/>
+<br/>
 Here is some more normal text.
 <br/>
 <br/>
@@ -20,6 +27,13 @@ Here is some more normal text.
 {{#bottom}}
   This {{> atoms/text/clicktip}} <span id="test-clicktip-3" style="font-weight:bold;">text here</span> has a (bottom) tooltip.  It shows on click but also on hover.
 {{/bottom}}
+<br/>
+<br/>
+<p style="width:100%; text-align:right;">
+  {{#bottom-right-aligned}}
+    This tooltip corrects itself to not run <span style="text-align:left;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-3-right" style="font-weight:bold;">off-screen</span>.
+  {{/bottom-right-aligned}}
+</p>
 <br/>
 <br/>
 Here is some more normal text.

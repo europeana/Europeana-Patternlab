@@ -127,9 +127,9 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       success: function(data) {
         require(['mustache'], function(Mustache){
 
-          Mustache.tags = ["[[", "]]"];
+          Mustache.tags = ['[[', ']]'];
           var templateId = '#molecules-components-search-search-listitem-js';
-          var template   = $(templateId).find('noscript').html();
+          var template   = $(templateId).find('noscript').text();
 
           initPreviewMasonry();
 

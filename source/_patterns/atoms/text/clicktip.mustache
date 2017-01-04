@@ -1,6 +1,6 @@
 {{#clicktip}}
-  <div class="eu-clicktip-container" data-clicktip-activator="{{activator}}">
-    <div class="eu-clicktip {{direction}}">
+  <span class="eu-clicktip-container" data-clicktip-activator="{{activator}}">
+    <span class="eu-clicktip {{direction}}">
       {{#tooltip_text}}
         {{.}}
       {{/tooltip_text}}
@@ -14,6 +14,6 @@
         </ul>
       {{/has_tooltip_links}}
       <a data-role="remove"></a>
-    </div>
-  </div>
+    </span>
+  </span>
 {{/clicktip}}
