@@ -5,6 +5,14 @@
 <section class="channels-landing-browse after-header-with-search">
 
   <div class="lc">
+    {{#content.preview_search_url}}
+      <a class="scroll-trigger trigger-chain"
+         data-enabled="true"
+         data-disable-when-fired="loadPreview"
+         data-fire-on-open-params='{ "trigger": "scroll-trigger-preview"}'>
+      </a>
+    {{/content.preview_search_url}}
+
     <div class="main-content">
       <div class="cf">
         <div class="landing-text">
@@ -83,7 +91,8 @@
         {{>organisms/sections/social-share}}
 
         {{#preview_search_url}}
-          <a class="scroll-trigger"
+          <a id="scroll-trigger-preview"
+             class="scroll-trigger"
              data-enabled="true"
              data-fire-on-open="loadPreview"
              data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
