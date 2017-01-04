@@ -13,6 +13,14 @@
       </a>
     {{/content.preview_search_url}}
 
+    {{#content.preview_search_data}}
+      <a class="scroll-trigger trigger-chain"
+         data-enabled="true"
+         data-disable-when-fired="loadPreview"
+         data-fire-on-open-params='{ "trigger": "scroll-trigger-preview"}'>
+      </a>
+    {{/content.preview_search_data}}
+
     <div class="main-content">
       <div class="cf">
         <div class="landing-text">
@@ -99,9 +107,21 @@
           ></a>
         {{/preview_search_url}}
 
+        {{#preview_search_data}}
+          <a id="scroll-trigger-preview"
+             class="scroll-trigger"
+             data-enabled="true"
+             data-fire-on-open="loadPreview"
+             data-fire-on-open-params='{ "loadUrl": "{{preview_search_url}}" }'
+          ></a>
+        {{/preview_search_data}}
+
       {{/content}}
       <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
-      <span class="sneak-peek-subheader">{{i18n.site.collections.labels.designer}}:</span>
+
+      {{#content.preview_search_data}}
+        <span class="sneak-peek-subheader">{{preview_search_type}}: {{preview_search_title}}</span>
+      {{/content.preview_search_data}}
 
       {{#content.sneak_peak}}
         <ul class="comma-list recently-viewed">

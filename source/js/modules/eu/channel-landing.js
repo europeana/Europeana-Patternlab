@@ -3,11 +3,29 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
   var euSearchForm  = null;
 
   function showCarousel(ops){
-    // noramlise "what's happening" images
+    // normalise "what's happening" images
 
-    if($('.happening-feed').length == 1){
+    var happeningFeed   = $('.happening-feed').length == 1;
+    var fnProcessImages = false;
+
+    if(happeningFeed){
 
       var portraitClass = 'portrait-1';
+
+      fnProcessImages = function(images){
+        var fnProcessImage = function(img){
+          var w = img.width();
+          var h = img.height();
+          img.closest('.js-carousel-item').addClass('js-img-processed ' + (w > h ? 'landscape' : portraitClass));
+        };
+        require(['jqImagesLoaded'], function(){
+          $('.happening-feed .js-carousel-item:not(.js-img-processed) img').imagesLoaded(   function($images){
+            $images.each(function(i, img){
+              fnProcessImage($(img));
+            });
+          });
+        });
+      };
 
       require(['purl'], function(){
 
@@ -25,32 +43,7 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
         }
         console.log('portraitClass set to ' + portraitClass);
 
-        require(['jqImagesLoaded'], function(){
-          $('.happening-feed').imagesLoaded( function($images, $proper, $broken){
-
-            console.log('evt images loaded...');
-
-            $.each($images, function(i, img){
-              img   = $(img);
-              var w = img.width();
-              var h = img.height();
-
-              console.log('w = ' + w + ', h = ' + h);
-
-              if(w > h){
-                img.closest('.js-carousel-item').addClass('landscape');
-                console.log('applied landscape');
-              }
-              else{
-                img.closest('.js-carousel-item').addClass(portraitClass);
-                console.log('applied portrait class ' + portraitClass);
-              }
-
-            });
-
-          });
-        });
-
+        fnProcessImages();
       });
     }
 
@@ -62,11 +55,13 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
         'cmp':             el.find('ul'),
         'loadUrl':         ops.loadUrl,
         'template':        ops.template,
-        'total_available': ops.total_available
+        'total_available': ops.total_available,
+        'doAfter':         !happeningFeed ? null : function(){
+          fnProcessImages();
+        }
       });
       jQuery.Deferred().resolve(Carousel.create(el, appender, ops));
     });
-
   }
 
   function addAutocomplete(data){
