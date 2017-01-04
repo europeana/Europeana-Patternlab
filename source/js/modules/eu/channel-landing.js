@@ -1,8 +1,59 @@
 define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
-  var euSearchForm = null;
+  var euSearchForm  = null;
 
   function showCarousel(ops){
+    // noramlise "what's happening" images
+
+    if($('.happening-feed').length == 1){
+
+      var portraitClass = 'portrait-1';
+
+      require(['purl'], function(){
+
+        var purl            = $.url(window.location.href);
+        var carouselDisplay = purl.param('carousel-display');
+
+        if(carouselDisplay == '1'){
+            portraitClass = 'portrait-1';
+        }
+        else if(carouselDisplay == '2'){
+            portraitClass = 'portrait-2';
+        }
+        else if(carouselDisplay == '3'){
+            portraitClass = 'portrait-3';
+        }
+        console.log('portraitClass set to ' + portraitClass);
+
+        require(['jqImagesLoaded'], function(){
+          $('.happening-feed').imagesLoaded( function($images, $proper, $broken){
+
+            console.log('evt images loaded...');
+
+            $.each($images, function(i, img){
+              img   = $(img);
+              var w = img.width();
+              var h = img.height();
+
+              console.log('w = ' + w + ', h = ' + h);
+
+              if(w > h){
+                img.closest('.js-carousel-item').addClass('landscape');
+                console.log('applied landscape');
+              }
+              else{
+                img.closest('.js-carousel-item').addClass(portraitClass);
+                console.log('applied portrait class ' + portraitClass);
+              }
+
+            });
+
+          });
+        });
+
+      });
+    }
+
     var el = $('.tumblr-feed');
     el = el.length == 1 ? el : $('.happening-feed');
 
@@ -15,6 +66,7 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       });
       jQuery.Deferred().resolve(Carousel.create(el, appender, ops));
     });
+
   }
 
   function addAutocomplete(data){

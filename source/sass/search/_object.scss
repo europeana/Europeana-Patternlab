@@ -719,6 +719,43 @@
       height:           100%;
       width:            400px;
 
+      img{
+        display: block;
+      }
+      &.landscape img{
+
+        max-height: 15em;
+        min-width:  100%;
+      }
+      &.portrait-1 img{
+
+        max-height: 15em;
+        min-width:  100%;
+
+        object-fit:      cover;
+        object-position: top;
+      }
+      &.portrait-2 img{
+
+        max-height: 15em;
+        min-width:  100%;
+
+        object-fit:      contain;
+      }
+      &.portrait-3{
+
+        .js-carousel-item-img-wrap{
+          background-color: $gray47;
+        }
+
+        img{
+          max-height: 15em;
+          min-width:  100%;
+
+          object-fit:      contain;
+        }
+      }
+
       .js-carousel-texts{
         padding:  0 1em 1em;
         position: relative;
