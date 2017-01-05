@@ -47,6 +47,8 @@
     "next_prev": false
   },
 
+  "include_nav_searchbar": true,
+
   "content":
   {
     "object":

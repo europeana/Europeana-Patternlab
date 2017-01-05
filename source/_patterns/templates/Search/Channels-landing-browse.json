@@ -15,10 +15,11 @@
     "next_prev": false,
     "global": {
       "options": {
-         "searchbar": true
        }
     }
   },
+
+  "include_nav_searchbar": true,
 
   "form_search": {
     "action": "javascript:alert('submit form');"
