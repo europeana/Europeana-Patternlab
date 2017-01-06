@@ -24,23 +24,16 @@
     <div class="main-content">
       <div class="cf">
         <div class="landing-text">
-          {{#content.channel_blurb}}
-
-            <div class="landing-text-inner">
-              <span class="{{logo_class}} page-header"></span>
-              <span class="opening">
-              {{{description}}}
-              </span>
-              <span class="zoomed">{{{summary}}}</span>
-              {{#about}}
-                <div class="about">
-                  {{#text}}<span class="text">{{.}}</span>{{/text}}
-                  {{#link_url}}<a href="{{.}}">{{link_text}} <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg></a>{{/link_url}}
-                </div>
-              {{/about}}
-            </div>
-
-          {{/content.channel_blurb}}
+          {{#content.channel_info}}
+            {{{description}}}
+            {{#credits }}
+              <ul class="credit-list">
+                {{#items}}
+                  <li><a href="{{url}}" class="external">{{text}}</a></li>
+                {{/items}}
+              </ul>
+            {{/ credits }}
+          {{/content.channel_info}}
         </div>
 
         <div class="landing-featured brand-bottomleft brand-colour-white brand-opacity50">
