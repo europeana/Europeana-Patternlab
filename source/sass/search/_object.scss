@@ -139,16 +139,20 @@
       margin: 0 auto 3.2rem;
 
       .js-carousel-arrows{
-        &.left,
-        &.right{
-          top: -0.1em;
-        }
         a{
+          &.left{
+            background-position: 10px 35px;
+          }
+          &.right{
+            background-position: -5px 35px;
+            right: 6px;
+          }
           color: white;
           text-shadow: 0 0 1px #000;
           font-weight: bold;
+          width: 1em;
 
-          &.arrow-hidden{
+          &.disabled{
             color: $gray-lighter;
             cursor: default;
           }
@@ -637,7 +641,7 @@
         }
          a{
             line-height: $thumbnail_max_dimension_mlt;
-            &.arrow-hidden{
+            &.disabled{
               color: $gray-lighter;
             }
         }
@@ -652,35 +656,36 @@
 
   .left,
   .right{
+    background-color:    rgba(0, 0, 0, 0.5);
+    background-position: 6px 18px;
 
-    background-color: rgba(0, 0, 0, 0.5);
-    color:            white;
+    color:               white;
 
-    font-size:        4em;
-    font-weight:      bold;
+    font-size:           4em;
+    font-weight:         bold;
 
-    height:           1em;
+    height:              1em;
 
-    left:             50%;
-    line-height:      1em;
-    position:         absolute;
+    left:                50%;
+    line-height:         1em;
+    position:            absolute;
 
-    text-shadow:      0 0 1px #000;
-    top:              50%;
-    transform:        translateX(-50%);
-
-    z-index:          1;
+    text-shadow:         0 0 1px #000;
+    top:                 50%;
+    transform:           translateX(-50%);
+    width:               0.6em;
+    z-index:             1;
 
     @media all and (min-width: $bp-med) {
       left: 0;
     }
 
-    &.arrow-hidden{
+    &.disabled{
       color:  $gray-lighter;
       cursor: default;
     }
 
-    &:not(.arrow-hidden):hover{
+    &:not(.disabled):hover{
       background-color: rgba(0, 0, 0, 0.9);
     }
   }
@@ -851,7 +856,7 @@
     }
     a{
       line-height: $thumbnail_max_dimension_mlt;
-      &.arrow-hidden{
+      &.disabled{
         color: $gray-lighter;
       }
     }

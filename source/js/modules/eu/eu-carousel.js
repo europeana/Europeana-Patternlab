@@ -61,24 +61,22 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         var ops = mergeHashes(opsIn, opsDef);
 
         classData = {
-          "arrowClasses" : {
-            "container" : "js-carousel-arrows",
-            "back" : "left",
-            "fwd"  : "right",
-            "content" : {
-              // "back" : "◂",
-              // "fwd"  : "▸",
-              "back"  : ops.svg ? "<svg class=\"icon icon-previous\"><use xlink:href=\"#icon-previous\"/></svg>" : "&lt;",
-              "fwd"   : ops.svg ? "<svg class=\"icon icon-next\"><use xlink:href=\"#icon-next\"/></svg>" : "&gt;",
-              "up"    : ops.svg ? "<svg class=\"icon icon-caret-up\"><use xlink:href=\"#icon-caret-up\"/></svg>" : "^",
-              "down"  : ops.svg ? "<svg class=\"icon icon-caret-down\"><use xlink:href=\"#icon-caret-down\"/></svg>" : "^"
+          'arrowClasses' : {
+            'container' : 'js-carousel-arrows',
+            'back' : 'left svg-icon-previous' + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
+            'fwd'  : 'right svg-icon-next'    + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
+            'content' : {
+              'back'  : '&nbsp;',
+              'fwd'   : '&nbsp;',
+              'up'    : '&nbsp;',
+              'down'  : '&nbsp;'
             }
           },
-          "itemClass" : "js-carousel-item",
-          "itemDivClass" : "mlt-img-div height-to-width",
-          "itemInnerClass" : "inner",
-          "itemLinkClass" : "link",
-          "titleClass" : "js-carousel-title"
+          'itemClass' : 'js-carousel-item',
+          'itemDivClass' : 'mlt-img-div height-to-width',
+          'itemInnerClass' : 'inner',
+          'itemLinkClass' : 'link',
+          'titleClass' : 'js-carousel-title'
         };
 
         dynamic         = typeof ops.bpVertical != 'undefined';
@@ -242,7 +240,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
           var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
 
           cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
-            "onAfter" : function(){
+            'onAfter' : function(){
             var done = function(){
               animating = false;
               setArrowState();
@@ -378,14 +376,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       var setArrowState = function(){
         if(btnPrev){
-          position == 1 ? btnPrev.addClass('arrow-hidden') : btnPrev.removeClass('arrow-hidden');
+          position == 1 ? btnPrev.addClass('disabled') : btnPrev.removeClass('disabled');
         }
         if(btnNext){
           if((position-1) + inView < totalAvailable){
-             btnNext.removeClass('arrow-hidden');
+             btnNext.removeClass('disabled');
           }
           else{
-              btnNext.addClass('arrow-hidden');
+              btnNext.addClass('disabled');
           }
         }
       };
@@ -403,7 +401,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         items.css(edge, '0');
 
         cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
-          "onAfter" : function(){
+          'onAfter' : function(){
             var done = function(){
               animating = false;
               setArrowState();
@@ -438,7 +436,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         animating = true;
 
         cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
-          "onAfter" : function(){
+          'onAfter' : function(){
             var done = function(){
               cmp.removeClass('loading');
               animating = false;
