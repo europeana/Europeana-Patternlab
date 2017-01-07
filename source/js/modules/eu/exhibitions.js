@@ -667,9 +667,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function getAnchorRelativeToCurrent(getPrev){
-      var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
-      var anchor = getPrev ? curr.prev('a') : curr.next('a');
-      return anchor.attr('href');
+    var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
+    var anchor = getPrev ? curr.prev('a') : curr.next('a');
+    return anchor.attr('href');
   }
 
   function initArrowNav(){
@@ -679,6 +679,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     $('.slide-nav-next:first').on('click', function(e){
       if(smCtrl){
         var anchor = getAnchorRelativeToCurrent();
+        if(!anchor){
+          scrollToAdaptedForPin($('.ve-chapter-selection-container'));
+          return;
+        }
         scrollToAdaptedForPin($(anchor));
         e.preventDefault();
       }
