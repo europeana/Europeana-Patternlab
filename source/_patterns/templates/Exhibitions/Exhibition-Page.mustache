@@ -38,13 +38,13 @@
                 {{# elements.items }}
                   {{^ is_section }}
                     {{#is_first}}
-                      <a href="#ve-anchor-{{id}}-js"><span class="is-vishidden">Skip to Start</span><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                      <a href="#ve-anchor-{{id}}-js" tabindex="-1"><span class="is-vishidden">Skip to Start</span><span class="ve-state-button ve-state-button-on ve-first"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
                     {{/is_first}}
                   {{/ is_section }}
                 {{/ elements.items }}
                 {{# elements.items }}
                   {{# is_section }}
-                    <a href="#ve-anchor-{{id}}-js">{{#section_title}}<span class="is-vishidden">Skip to {{.}}</span>{{/section_title}}<span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
+                    <a href="#ve-anchor-{{id}}-js" tabindex="-1">{{#section_title}}<span class="is-vishidden">Skip to {{.}}</span>{{/section_title}}<span class="ve-state-button {{^is_first}}ve-state-button-off{{/is_first}}"></span>{{> templates/Exhibitions/SpeechBubble}}</a>
                   {{/ is_section }}
                 {{/ elements.items }}
               </div>

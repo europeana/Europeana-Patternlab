@@ -804,8 +804,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       ob = $(ob);
 
       var imgUrl;
-      var target        = $(ob.attr('href'));
-      var section       = target.closest('.ve-slide');
+      var section       = $(ob).closest('.ve-slide');
       var bubbleContent = ob.find('.speech-bubble .speech-bubble-inner');
 
       var baseImage   = section.find('.ve-base-image');
@@ -837,6 +836,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       if(imgUrl){
         bubbleContent.html('<img src="' + imgUrl + '">');
       }
+
+      // accessibility
+      $('.skip-main').before('<a class="skip-content is-vishidden" href="' + $(ob).attr('href') + '">' + $('.skip-main').data('label-skip-to-section') + ' ' + (i+1) + '</a>');
     });
   }
 
