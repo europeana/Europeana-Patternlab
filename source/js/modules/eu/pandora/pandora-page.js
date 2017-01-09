@@ -160,7 +160,7 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
       expandCollapseMappingCard();
       
       validateProfileForm();
-      
+      var pageName = pageName || '';
       if(pageName && pageName == 'itemCard'){
         applyXmlBeautify();    	  
       }
