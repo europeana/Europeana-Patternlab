@@ -152,7 +152,7 @@ define(['jquery', 'jqScrollto'], function() {
 
             var normaliseText = function(id, title, type, childCount, index, parent, relBefore){
 
-                var text           = title.def[0];
+                var text = title['def'] ? title['def'][0] : title['de'] ? title['de'][0] : title['en'] ? title['en'][0] : title['es'] ? title['es'][0] : title['it'] ? title['it'][0] : title['dk'] ? title['dk'][0] : 'no title';
                 var childCountText = (typeof childCount == 'undefined' || childCount == 0 ? '' : '<span> (' + childCount + ')<span>');
 
                 if(typeof hierarchyOriginalUrl != 'undefined' && id == hierarchyOriginalUrl){
