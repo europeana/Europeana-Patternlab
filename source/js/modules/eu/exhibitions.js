@@ -660,18 +660,22 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       log('ST: type of $(window).scrollTo ' + typeof $(window).scrollTo );
       log('ST: initial scroll ' + $target.attr('class') );
 
-      $(window).scrollTo($target,
-        (afterResize ? scrollDuration / 2 : scrollDuration),
-        {
-          axis:    'y',
-          easing:  'linear',
-          offset:  0 - $(window).height() / 2,
-          onAfter: function(){
-            log('ST: call final scroll');
-            finalScroll();
+      setTimeout(function(){
+
+        $(window).scrollTo($target,
+          (afterResize ? scrollDuration / 2 : scrollDuration),
+          {
+            axis:    'y',
+            easing:  'linear',
+            offset:  0 - $(window).height() / 2,
+            onAfter: function(){
+                log('ST: call final scroll');
+                finalScroll();
+            }
           }
-        }
-      );
+        );
+
+      },1);
     }
     else{
       log('ST: call final scroll directly');
