@@ -44,7 +44,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function log(msg){
-    //console.log('Virtual-Exhibitions: ' + msg);
+    console.log('Virtual-Exhibitions: ' + msg);
   }
 
   function initExhibitions(){
@@ -632,22 +632,29 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function scrollToAdaptedForPin($target, afterResize){
 
+    log('ST: begin');
+
     if($target.size()==0){
+      log('ST: no target');
       return false;
     }
 
     scrollExecuting = true;
 
     var finalScroll = function(){
+      log('ST: final begin');
+
       $(window).scrollTo($target,
         afterResize ? scrollDuration / 2 : scrollDuration,  {
         onAfter: function(){
           scrollExecuting = false;
+          log('ST: final end');
         }
       });
     };
 
     if(afterResize || $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
+      log('ST: initial scroll');
       $(window).scrollTo($target,
         afterResize ? scrollDuration / 2 : scrollDuration,
         {
@@ -655,12 +662,14 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           easing:  'linear',
           offset:  0 - $(window).height() / 2,
           onAfter: function(){
+            log('ST: call final scroll');
             finalScroll();
           }
         }
       );
     }
     else{
+      log('ST: call final scroll directly');
       finalScroll();
     }
     return true;
@@ -677,14 +686,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     $('.slide-nav-next:first').css('position', 'fixed');
 
     $('.slide-nav-next:first').on('click', function(e){
+      log('click slide nav...');
       if(smCtrl){
         var anchor = getAnchorRelativeToCurrent();
         if(!anchor){
           scrollToAdaptedForPin($('.ve-chapter-selection-container'));
           return;
         }
+        log('anchor found: ');
         scrollToAdaptedForPin($(anchor));
         e.preventDefault();
+      }
+      else{
+        log('no smCtrl');
+        window.scrollTo(0, $(window).scrollTop() + window.innerHeight);
       }
     });
   }
