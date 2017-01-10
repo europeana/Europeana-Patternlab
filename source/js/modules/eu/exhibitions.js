@@ -654,7 +654,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     };
 
     if(afterResize || $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
-      log('ST: initial scroll');
+      log('ST: initial scroll ');
+      log('ST: initial scroll ' + $target.length);
+      log('ST: initial scroll ' + (0 - $(window).height() / 2));
       $(window).scrollTo($target,
         afterResize ? scrollDuration / 2 : scrollDuration,
         {
