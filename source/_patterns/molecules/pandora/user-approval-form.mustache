@@ -6,21 +6,7 @@
         <div class="field-container">
             <label for="userId">User ID: <b>123</b></label>
         </div>
-        <div class="field-container">
-            <label for="networkMember">Network Member: <b>True</b></label>
-        </div>
-        <div class="field-container">
-            <label for="active">Active: <b>False</b></label>
-        </div>
-        <div class="field-container">
-            <label for="approved">Approved: <b>False</b></label>
-        </div>
-        <div class="field-container">
-            <label for="created">Created: <b> 22 April 2011</b></label>
-        </div>
-        <div class="field-container">
-            <label for="created">Updated:  <b> 2 June 2012</b></label>
-        </div>
+
 
         <div class="field-container">
             <label for="fullName">First Name*:</label>
@@ -29,10 +15,6 @@
         <div class="field-container">
             <label for="lastName">Last Name*:</label>
             <input id="lastName" type='text' name='lastName' {{#lastName}}value="{{.}}"{{/lastName}}/>
-        </div>
-        <div class="field-container">
-            <label for="password">Password*:</label>
-            <input id="password" type='text' name='password' {{#lastName}}value="{{.}}"{{/lastName}}/>
         </div>
         <div class="field-container">
             <label for="email">Email*:</label>
@@ -63,28 +45,23 @@
         </div>
 
         <div class="field-container">
-            <a class="user-profile-choose_org_drpdwn">Choose Organization >></a>
+            <a class="user-profile-choose_org" href="#">Choose Organization >></a>
         </div>
         <div class="profile-select-orgs field-container">
             {{>molecules/pandora/select-organizations}}
         </div>
+
         <div class="field-container">
-            <label><input type="checkbox" id="network_member_checkbox" value="network_member_checkbox"> I am a member of Europeana Network Association</label>
+            <label for="active">Active: <b>False</b></label>
         </div>
         <div class="field-container">
-            <a class="user-profile-update-password">Change Password >></a>
+            <label for="approved">Approved: <b>False</b></label>
         </div>
-        <div class="field-container user-profile-password">
-            <label for="password_old">Old Password:</label>
-            <input id="password_old" type='password' name='password_old' placeholder="Old password"/>
+        <div class="field-container">
+            <label for="created">Created: <b> 22 April 2011</b></label>
         </div>
-        <div class="field-container user-profile-password">
-            <label for="password_new">New Password:</label>
-            <input id="password_new" type='password' name='password_new' placeholder="New password"/>
-        </div>
-        <div class="field-container user-profile-password">
-            <label for="password_new2">Confirm Password:</label>
-            <input id="password_new2" type='password' name='password' placeholder="New password"/>
+        <div class="field-container">
+            <label for="created">Updated:  <b> 2 June 2012</b></label>
         </div>
         <div class="field-container">
             <button type="submit">Update</button>
