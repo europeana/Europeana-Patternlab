@@ -657,8 +657,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       log('ST: initial scroll ');
       log('ST: initial scroll ' + $target.length);
       log('ST: initial scroll ' + (0 - $(window).height() / 2));
+      log('ST: type of $(window).scrollTo ' + typeof $(window).scrollTo );
+      log('ST: initial scroll ' + $target.attr('class') );
+
       $(window).scrollTo($target,
-        afterResize ? scrollDuration / 2 : scrollDuration,
+        (afterResize ? scrollDuration / 2 : scrollDuration),
         {
           axis:    'y',
           easing:  'linear',
