@@ -326,9 +326,17 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
 
     function updateOrgList() {
     	$('.org-list').empty();
+    	var value = "";
     	$("#lstBox2 option").each(function() {
-    		$('.org-list').append("\n" + $(this).text());
+    		 value = value + $(this).text() + ", \n";
     	});
+    	var length = value.length;
+    	if (length > 4) {
+    		value = value.substring(0, length - 3);
+    	} else {
+    		value = "";
+    	}
+    	$('.org-list').append(value);	
     }
     
     function selectView() {
