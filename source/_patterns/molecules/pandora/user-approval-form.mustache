@@ -1,0 +1,106 @@
+<form action="profile" method="post" role="form" class="metis-profile-form">
+    <fieldset>
+        <legend class="profile-form-header">Edit User Profile</legend>
+        <div class="error_missing error-message">Error: a new password and the confirmed password are not the same</div>
+        <div class="error_nonequal error-message">Error: an old password is missing</div>
+        <div class="field-container">
+            <label for="userId">User ID: <b>123</b></label>
+        </div>
+
+
+        <div class="field-container">
+            <label for="fullName">First Name*:</label>
+            <input id="fullName" type='text' name='fullName' {{#fullName}}value="{{.}}"{{/fullName}}/>
+        </div>
+        <div class="field-container">
+            <label for="lastName">Last Name*:</label>
+            <input id="lastName" type='text' name='lastName' {{#lastName}}value="{{.}}"{{/lastName}}/>
+        </div>
+        <div class="field-container">
+            <label for="email">Email*:</label>
+            <input id="email" type='email' name='email' {{#email}}value="{{.}}"{{/email}}/>
+        </div>
+        <div class="field-container">
+            <label for="skype">Skype:</label>
+            <input id="skype" type='text' name='skype' placeholder="Type your skype account"
+                   {{#skype}}value="{{.}}"{{/skype}}/>
+        </div>
+        <div class="field-container">
+            <label for="skype">Country: </label>
+            <select class="select-dropdown" id="user-profile-country-select" name="country" autocomplete="off">
+
+                {{#countries}}
+                    <option value="{{value}}" {{#selected}}selected="selected"{{/selected}}>{{text}}</option>
+                {{/countries}}
+            </select>
+        </div>
+        <div class="field-container">
+            <label for="textarea">Organization</label>
+            <textarea class="org-list" id="user-profile-organization" name="organization" rows="4" cols="48">
+        	</textarea>
+        </div>
+        <div class="field-container">
+            <label for="textarea">Notes</label>
+            <textarea class="org-list" id="notes" name="notes" rows="4" cols="48">
+        	</textarea>
+        </div>
+
+        <div class="field-container">
+            <a class="user-profile-choose_org" href="#">Choose Organization >></a>
+        </div>
+
+        <div class="org_selection">
+            <h1>Organizations</h1>
+            <input id="hero-demo" autofocus type="text" name="q" placeholder="Search Organizations ...">
+            <input type="button" class="btn trigger" href="javascript:;" id="addOrganizationBtn"
+                   value='Add Organisation'>
+            <span class="zip"></span>
+
+            <div class="modal-wrapper">
+                <div class="modal">
+                    <div class="head">
+
+                        <a class="btn-close trigger" href="javascript:;"></a>
+                        <h3 class="headerRole">Select role for user</h3>
+                    </div>
+                    <div class="content">
+
+                        <select>
+                            <option value="volvo">Contact</option>
+                            <option value="saab">Viewer</option>
+                            <option value="mercedes">Data Officer</option>
+                            <option value="audi">Admin</option>
+                            <option value="audi">Viewer</option>
+                            <option value="audi">Data Officer</option>
+                            <option value="audi">Superadmin</option>
+                        </select>
+                        <input type="button" value="Submit" class="btn trigger" id="roleSelection">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-select-orgs field-container">
+            {{>molecules/pandora/select-organizations}}
+        </div>
+
+        <div class="field-container">
+            <label for="active">Active: <b>False</b></label>
+        </div>
+        <div class="field-container">
+            <label for="approved">Approved: <b>False</b></label>
+        </div>
+        <div class="field-container">
+            <label for="created">Created: <b> 22 April 2011</b></label>
+        </div>
+        <div class="field-container">
+            <label for="created">Updated: <b> 2 June 2012</b></label>
+        </div>
+        <div class="field-container">
+            <button type="submit">Update</button>
+        </div>
+        <div class="field-container">
+            <button type="button">Back to Home</button>
+        </div>
+    </fieldset>
+</form>
