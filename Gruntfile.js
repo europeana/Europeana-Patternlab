@@ -125,6 +125,21 @@ module.exports = function(grunt) {
         src: ['**/*.*',  '!**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
         dest: 'source/js_min/modules'
       },
+
+      production_swap_js: {
+        cwd: 'source/js_min/modules',
+        expand: true,
+        src: ['**/*.*'],
+        dest: 'source/js/modules'
+      },
+
+      production_swap_css: {
+        cwd: 'source/css_min',
+        expand:  true,
+        src: ['**/*.*'],
+        dest: 'source/css'
+      },
+
       version_images: {
         src:    '**',
         cwd:    'source/images',
@@ -263,15 +278,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('production', function(){
-
     console.warn('minify js...');
     grunt.task.run('uglify:production');
 
-    console.warn('copy js assets to analogous directory');
+    console.warn('copy js assets to analogous directory...');
     grunt.task.run('copy:production_js_assets');
 
+    console.warn('minify css...');
     grunt.task.run('compass:production');
     grunt.task.run('compass:production_js_styles');
+
+    console.warn('replace assets with minified assets...');
+    grunt.task.run('copy:production_swap_js');
+    grunt.task.run('copy:production_swap_css');
   });
 
   grunt.registerTask('freeze-version', function(){
