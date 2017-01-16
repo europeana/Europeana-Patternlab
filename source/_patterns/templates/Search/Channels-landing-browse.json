@@ -482,6 +482,10 @@
       "tumblr": {
         "url": "http://www.europeanafashion.tumblr.com",
         "text": "Tumblr"
+      },
+      "linkedin": {
+        "url": "http://www.linkedin.com",
+        "text": "LinkedIn"
       }
     },
     "carousel": {

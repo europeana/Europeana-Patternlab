@@ -72,6 +72,16 @@
           </a>
         </li>
       {{/tumblr}}
+      {{#linkedin}}
+        <li>
+          <a class="icon-social-linkedin" {{#url}}href="{{.}}"{{/url}} target="_blank">
+            <svg class="icon icon-social-linkedin">
+              <use xlink:href="#icon-linkedin"></use>
+            </svg>
+            {{#text}}<span class="share-name is-vishidden">{{.}}</span>{{/text}}
+          </a>
+        </li>
+      {{/linkedin}}
     </ul>
   </section>
 {{/social}}
