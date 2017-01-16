@@ -1,4 +1,4 @@
-define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
+define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Mustache) {
     function log(msg) {
         console.log(msg);
     }
@@ -167,174 +167,17 @@ define(['jquery', 'mustache', 'smartmenus'], function ($, Mustache) {
       
     }
 
-    // jQuery plugin to select/move items from list A to B.
-    (function($) {
-        //Moves selected item(s) from sourceList to destinationList
-        $.fn.moveToList = function(sourceList, destinationList) {
-            var opts = $(sourceList + ' option:selected');
-            if (opts.length == 0) {
-                console.log("Nothing Selected");
-            }
-
-            $(destinationList).append($(opts).clone());
-        };
-
-        //Moves all items from sourceList to destinationList
-        $.fn.moveAllToList = function(sourceList, destinationList) {
-            var opts = $(sourceList + ' option');
-            if (opts.length == 0) {
-                console.log("Nothing Selected");
-            }
-
-            $(destinationList).append($(opts).clone());
-        };
-
-        //Moves selected item(s) from sourceList to destinationList and deleting the
-        // selected item(s) from the source list
-        $.fn.moveToListAndDelete = function(sourceList, destinationList) {
-            var opts = $(sourceList + ' option:selected');
-            if (opts.length == 0) {
-                console.log("Nothing Selected");
-            }
-
-            $(opts).remove();
-            $(destinationList).append($(opts).clone());
-        };
-
-        //Moves all items from sourceList to destinationList and deleting
-        // all items from the source list
-        $.fn.moveAllToListAndDelete = function(sourceList, destinationList) {
-            var opts = $(sourceList + ' option');
-            if (opts.length == 0) {
-                console.log("Nothing Selected");
-            }
-
-            $(opts).remove();
-            $(destinationList).append($(opts).clone());
-        };
-
-        //Removes selected item(s) from list
-        $.fn.removeSelected = function(list) {
-            var opts = $(list + ' option:selected');
-            if (opts.length == 0) {
-                console.log("Nothing to remove");
-            }
-
-            $(opts).remove();
-        };
-
-        //Moves selected item(s) up or down in a list
-        $.fn.moveUpDown = function(list, btnUp, btnDown) {
-            var opts = $(list + ' option:selected');
-            if (opts.length == 0) {
-                console.log("Nothing Selected");
-            }
-
-            if (btnUp) {
-                opts.first().prev().before(opts);
-            } else if (btnDown) {
-                opts.last().next().after(opts);
-            }
-        };
-    })($);
-
-    // Using jQuery plugin to implement organization's selection in Metis.
-    $('#btnAvenger').click(function(e) {
-        $('select').moveToList('#StaffList', '#PresenterList');
-        e.preventDefault();
-    });
-
-    $('#btnRemoveAvenger').click(function(e) {
-        $('select').removeSelected('#PresenterList');
-        e.preventDefault();
-    });
-
-    $('#btnAvengerUp').click(function(e) {
-        $('select').moveUpDown('#PresenterList', true, false);
-        e.preventDefault();
-    });
-
-    $('#btnAvengerDown').click(function(e) {
-        $('select').moveUpDown('#PresenterList', false, true);
-        e.preventDefault();
-    });
-
-    $('#btnShield').click(function(e) {
-        $('select').moveToList('#StaffList', '#ContactList');
-        e.preventDefault();
-    });
-
-    $('#btnRemoveShield').click(function(e) {
-        $('select').removeSelected('#ContactList');
-        e.preventDefault();
-    });
-
-    $('#btnShieldUp').click(function(e) {
-        $('select').moveUpDown('#ContactList', true, false);
-        e.preventDefault();
-    });
-
-    $('#btnShieldDown').click(function(e) {
-        $('select').moveUpDown('#ContactList', false, true);
-        e.preventDefault();
-    });
-
-    $('#btnJusticeLeague').click(function(e) {
-        $('select').moveToList('#StaffList', '#FacilitatorList');
-        e.preventDefault();
-    });
-
-    $('#btnRemoveJusticeLeague').click(function(e) {
-        $('select').removeSelected('#FacilitatorList');
-        e.preventDefault();
-    });
-
-    $('#btnJusticeLeagueUp').click(function(e) {
-        $('select').moveUpDown('#FacilitatorList', true, false);
-        e.preventDefault();
-    });
-
-    $('#btnJusticeLeagueDown').click(function(e) {
-        $('select').moveUpDown('#FacilitatorList', false, true);
-        e.preventDefault();
-    });
-
-    $('#btnRight').click(function(e) {
-        $('select').moveToListAndDelete('#lstBox1', '#lstBox2');
-        updateOrgList();
-        e.preventDefault();
-    });
-
-    $('#btnAllRight').click(function(e) {
-        $('select').moveAllToListAndDelete('#lstBox1', '#lstBox2');
-        updateOrgList();
-        e.preventDefault();
-    });
-
-    $('#btnLeft').click(function(e) {
-        $('select').moveToListAndDelete('#lstBox2', '#lstBox1');
-        updateOrgList();
-        e.preventDefault();
-    });
-
-    $('#btnAllLeft').click(function(e) {
-        $('select').moveAllToListAndDelete('#lstBox2', '#lstBox1');
-        updateOrgList();
-        e.preventDefault();
-    });
-    // END OF ORGANIZATION'S SELECTION BLOCK CODE.
-
     function updateOrgList() {
     	$('.org-list').empty();
     	$("#lstBox2 option").each(function() {
     		$('.org-list').append("\n" + $(this).text());
     	});
     }
-    
+
     function selectView() {
-		
-	}
-	
+
+    }
+
 	return {
 		pageInit: function() {
 			pageInit();
