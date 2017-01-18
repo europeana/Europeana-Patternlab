@@ -6,7 +6,8 @@ define(['jquery', 'autocomplete'], function ($) {
             e.preventDefault();
             $('.modal-wrapper').toggleClass('open');
             $('.page-wrapper').toggleClass('blur');
-
+            $('.currentSelectedOrganization').html(term);
+            $('.selectedOrganizations').append('<a class="selectedOrganization">' + term + '</a><br>');
         },
         source: function(term, response){
             var typedSearch = $('#hero-demo').val().toUpperCase();
@@ -30,9 +31,21 @@ define(['jquery', 'autocomplete'], function ($) {
                 });
         }
     });
+
+
+
 });
 
 $('.btn-close').click(function(){
     $('.modal-wrapper').toggleClass('open');
     $('.page-wrapper').toggleClass('blur');
 });
+
+$('.selectedOrganizations').on('click', '.selectedOrganization', function(){
+    $('.modal-wrapper').toggleClass('open');
+    $('.page-wrapper').toggleClass('blur');
+    $('.currentSelectedOrganization').html($(this).text());
+    console.log($(this).text());
+});
+
+
