@@ -33,7 +33,6 @@ define(['jquery', 'autocomplete'], function ($) {
 });
 
 $('.btn-close').click(function(){
-    console.log('button close clicked');
     $('.modal-wrapper').toggleClass('open');
     $('.page-wrapper').toggleClass('blur');
 });
