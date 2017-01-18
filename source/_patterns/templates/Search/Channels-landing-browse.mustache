@@ -67,6 +67,7 @@
           {{/items}}
         </ul>
       {{/content.promoted}}
+
     </div>
 
     <div class="entry-point-column">
@@ -93,7 +94,6 @@
     </div>
 
   </div>
-
   <div class="sneak-peek-content cf">
     {{#content}}
 
@@ -148,25 +148,23 @@
   </div>
 
   {{#content}}
-
-    <div class="cf">
+    <div class="lc cf">
 
       {{>organisms/sections/social-share}}
 
-      <section class="custom-newsletter">
-
-        <span class="cell">
-          {{#newsletter.labels}}
-            <h4>{{heading}}</h4>
-            {{subheading}}
-          {{/newsletter.labels}}
-        </span>
-
-        <span class="cell">
-          {{>molecules/forms/newsletter}}
-        </span>
-
-      </section>
+      <div class="custom-newsletter-outer">
+        <section class="custom-newsletter">
+          <span class="cell">
+            {{#newsletter.labels}}
+              <h4>{{heading}}</h4>
+              {{subheading}}
+            {{/newsletter.labels}}
+          </span>
+          <span class="cell">
+            {{>molecules/forms/newsletter}}
+          </span>
+        </section>
+      </div>
 
     </div>
 
@@ -182,7 +180,6 @@
     <span class="subscribe-block">{{> atoms/text/clicktip}}<a class="show-feeds">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
 
     {{#content.carousel}}
-
       <div class="cf lc happening-feed-container">
         <a id="scroll-trigger-carousel"
            class="scroll-trigger"
@@ -226,6 +223,7 @@
            data-disable-when-fired="showCarousel"
            data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
       </div>
+
     {{/content.carousel}}
   </div>
 </section>
