@@ -94,7 +94,8 @@
     </div>
 
   </div>
-  <div class="sneak-peek-content cf">
+
+  <div class="sneak-peek-content cf lc">
     {{#content}}
 
       {{#preview_search_url}}
@@ -129,7 +130,7 @@
           <li>{{.}}</li>
         {{/recently_viewed.items}}
       </ul>
-      <ol class="sneak-peek-list result-items display-grid cf">
+      <ol class="sneak-peek-list result-items display-grid cf not-loaded">
         <li class="grid-sizer"></li>
         {{# items }}
           <li>
@@ -148,6 +149,7 @@
   </div>
 
   {{#content}}
+
     <div class="lc cf">
 
       {{>organisms/sections/social-share}}
@@ -187,7 +189,7 @@
            data-fire-on-open="showCarousel"
            data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "aggregated", "arrowClass": "white-grey", "minSpacingPx": 30, "smallButtons": true}'
         ></a>
-        <div class="js-carousel happening-feed">
+        <div class="js-carousel happening-feed not-loaded">
           <ul class="cf">
             {{#items}}
               <li class="js-carousel-item">
@@ -223,7 +225,6 @@
            data-disable-when-fired="showCarousel"
            data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
       </div>
-
     {{/content.carousel}}
   </div>
 </section>

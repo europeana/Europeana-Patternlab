@@ -732,7 +732,6 @@
 
   @media all and (min-width: $bp-xl) {
 
-
     .left{
       left:  -0.4em;
       right: auto;
@@ -745,6 +744,11 @@
 
 
   .js-carousel{
+    &.not-loaded{
+      width:  1px;
+      height: 1px;
+      overflow: hidden;
+    }
     &.loading ul:after {
       min-height: 15em;
     }
