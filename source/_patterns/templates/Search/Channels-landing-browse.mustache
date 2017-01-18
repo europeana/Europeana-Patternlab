@@ -24,16 +24,21 @@
     <div class="main-content">
       <div class="cf">
         <div class="landing-text">
-          {{#content.channel_info}}
-            {{{description}}}
-            {{#credits }}
-              <ul class="credit-list">
-                {{#items}}
-                  <li><a href="{{url}}" class="external">{{text}}</a></li>
-                {{/items}}
-              </ul>
-            {{/ credits }}
-          {{/content.channel_info}}
+          <div class="landing-text-inner">
+            <span class="{{logo_class}} page-header"></span>
+            <span>
+              {{#content.channel_info}}
+                {{{description}}}
+                {{#credits }}
+                  <ul class="credit-list">
+                    {{#items}}
+                      <li><a href="{{url}}" class="external">{{text}}</a></li>
+                    {{/items}}
+                  </ul>
+                {{/ credits }}
+              {{/content.channel_info}}
+            </span>
+          </div>
         </div>
 
         <div class="landing-featured brand-bottomleft brand-colour-white brand-opacity50">
@@ -87,60 +92,86 @@
       {{/content.entry_points}}
     </div>
 
-    <div class="sneak-peek-content cf">
-      {{#content}}
-        {{>organisms/sections/social-share}}
+  </div>
 
-        {{#preview_search_url}}
-          <a id="scroll-trigger-preview"
-             class="scroll-trigger"
-             data-enabled="true"
-             data-fire-on-open="loadPreview"
-             data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
-          ></a>
-        {{/preview_search_url}}
+  <div class="sneak-peek-content cf">
+    {{#content}}
 
-        {{#preview_search_data}}
-          <a id="scroll-trigger-preview"
-             class="scroll-trigger"
-             data-enabled="true"
-             data-fire-on-open="loadPreview"
-             data-fire-on-open-params='{ "loadUrl": "{{preview_search_url}}" }'
-          ></a>
-        {{/preview_search_data}}
+      {{#preview_search_url}}
+        <a id="scroll-trigger-preview"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="loadPreview"
+           data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
+        ></a>
+      {{/preview_search_url}}
 
-      {{/content}}
-      <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+      {{#preview_search_data}}
+        <a id="scroll-trigger-preview"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="loadPreview"
+           data-fire-on-open-params='{ "loadUrl": "{{preview_search_url}}" }'
+        ></a>
+      {{/preview_search_data}}
 
-      {{#content.preview_search_data}}
-        <span class="sneak-peek-subheader">{{preview_search_type}}: {{preview_search_title}}</span>
-      {{/content.preview_search_data}}
+    {{/content}}
 
-      {{#content.sneak_peak}}
-        <ul class="comma-list recently-viewed">
-          {{#recently_viewed.items}}
-            <li>{{.}}</li>
-          {{/recently_viewed.items}}
-        </ul>
-        <ol class="sneak-peek-list result-items display-grid cf">
-          <li class="grid-sizer"></li>
-          {{# items }}
-            <li>
-              {{> molecules/components/search/search-listitem }}
-            </li>
-          {{/ items }}
-        </ol>
-        <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
-      {{/ content.sneak_peak }}
-      {{^ content.sneak_peak }}
-        <ol class="sneak-peek-list result-items display-grid cf">
-          <li class="grid-sizer"></li>
-        </ol>
-      {{/ content.sneak_peak }}
-      <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+    <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+
+    {{#content.preview_search_data}}
+      <span class="sneak-peek-subheader">{{preview_search_type}}: {{preview_search_title}}</span>
+    {{/content.preview_search_data}}
+
+    {{#content.sneak_peak}}
+      <ul class="comma-list recently-viewed">
+        {{#recently_viewed.items}}
+          <li>{{.}}</li>
+        {{/recently_viewed.items}}
+      </ul>
+      <ol class="sneak-peek-list result-items display-grid cf">
+        <li class="grid-sizer"></li>
+        {{# items }}
+          <li>
+            {{> molecules/components/search/search-listitem }}
+          </li>
+        {{/ items }}
+      </ol>
+      <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
+    {{/ content.sneak_peak }}
+    {{^ content.sneak_peak }}
+      <ol class="sneak-peek-list result-items display-grid cf">
+        <li class="grid-sizer"></li>
+      </ol>
+    {{/ content.sneak_peak }}
+    <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+  </div>
+
+  {{#content}}
+
+    <div class="cf">
+
+      {{>organisms/sections/social-share}}
+
+      <section class="custom-newsletter">
+
+        <span class="cell">
+          {{#newsletter.labels}}
+            <h4>{{heading}}</h4>
+            {{subheading}}
+          {{/newsletter.labels}}
+        </span>
+
+        <span class="cell">
+          {{>molecules/forms/newsletter}}
+        </span>
+
+      </section>
 
     </div>
-  </div>
+
+  {{/content}}
+
 </section>
 
 <section class="channels-landing-browse happening-content">
