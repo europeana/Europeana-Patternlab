@@ -132,7 +132,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
     scrollEvents.fireAllVisible();
   };
 
-
   function initPreviewMasonry(){
 
     $('.result-items').removeClass('not-loaded');
