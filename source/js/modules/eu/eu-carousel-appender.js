@@ -23,7 +23,7 @@ define(['jquery'], function($){
         markup += ''
           + '<li class="js-carousel-item">'
 
-          +   '<div class="js-carousel-item-img-wrap"><img src="' + item.img.src + '"/></div>'
+          +   '<div class="js-carousel-item-img-wrap"><a href="' + item.url + '"><img src="' + item.img.src + '"/></a></div>'
 
           +   '<div class="js-carousel-texts">'
           +     '<span class="js-carousel-title">'

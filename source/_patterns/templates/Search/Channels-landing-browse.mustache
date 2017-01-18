@@ -29,15 +29,17 @@
             <span>
               {{#content.channel_info}}
                 {{{description}}}
-                {{#credits }}
-                  <ul class="credit-list">
-                    {{#items}}
-                      <li><a href="{{url}}" class="external">{{text}}</a></li>
-                    {{/items}}
-                  </ul>
-                {{/ credits }}
               {{/content.channel_info}}
             </span>
+            {{#content.channel_info}}
+              {{#credits }}
+                <ul class="credit-list">
+                  {{#items}}
+                    <li><a href="{{url}}" class="external">{{text}}</a></li>
+                  {{/items}}
+                </ul>
+              {{/ credits }}
+            {{/content.channel_info}}
           </div>
         </div>
 
@@ -194,7 +196,7 @@
             {{#items}}
               <li class="js-carousel-item">
 
-                <div class="js-carousel-item-img-wrap"><img src="{{img.src}}"/></div>
+                <div class="js-carousel-item-img-wrap"><a href="{{url}}"><img src="{{img.src}}"/></a></div>
 
                 <div class="js-carousel-texts">
                   {{#title}}
