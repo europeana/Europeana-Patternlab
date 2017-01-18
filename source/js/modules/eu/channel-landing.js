@@ -10,6 +10,8 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
     if(happeningFeed){
 
+      $('.happening-feed').removeClass('not-loaded');
+
       var portraitClass = 'portrait-1';
 
       fnProcessImages = function(images){
@@ -132,6 +134,8 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
 
   function initPreviewMasonry(){
+
+    $('.result-items').removeClass('not-loaded');
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 

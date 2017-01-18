@@ -825,9 +825,29 @@
 
   position:            relative;
 
-  .brand-circles{
-    width: 100%;
+  .brand-circles-container{
+    pointer-events: none;
+    .brand-circles{
+      width: 100%;
+    }
   }
+
+  @media all and (min-width: $bp-small) {
+    font-size: 3.5vw;
+  }
+
+  @media all and (min-width: $bp-small-3) {
+    font-size: 2vw;
+  }
+
+  @media all and (min-width: $bp-large) {
+    font-size: 1.4vw;
+  }
+
+  @media all and (min-width: 80em) {
+    font-size: 1.25vw;
+  }
+
 }
 
 .entry-points{
