@@ -416,6 +416,18 @@
         "text" : "About Europeana Fashion",
         "link_text" : "Europeana Fashion International Association",
         "link_url"  : "javascript(alert('follow link'))"
+      },
+      "credits": {
+        "items": [
+          {
+            "text": "Credit 1",
+            "url": "javascript:alert('follow credit link 1')"
+          },
+          {
+            "text": "Credit 2",
+            "url": "javascript:alert('follow credit link 2')"
+          }
+        ]
       }
     },
     "subscribe_url": "javascript:alert('follow subscribe link...')",

@@ -771,9 +771,10 @@
 
 
   .sneak-peek-subheader{
-    display:     inline-block;
-    font-size:   $font-size-slightly-smaller;
-    font-weight: bold;
+    display:       inline-block;
+    font-size:     $font-size-slightly-smaller;
+    font-weight:   bold;
+    margin-bottom: $space;
   }
 
   .recently-viewed{
@@ -958,11 +959,6 @@
     border-top:  0;
     margin-top:  0;
   }
-
-  .entry-points:last-of-type{
-    margin-bottom: 5em;
-  }
-
 
   .editor-picks-header{
     margin:  0;

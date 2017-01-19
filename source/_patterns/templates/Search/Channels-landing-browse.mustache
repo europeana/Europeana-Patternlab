@@ -35,7 +35,7 @@
               {{#credits }}
                 <ul class="credit-list">
                   {{#items}}
-                    <li><a href="{{url}}" class="external">{{text}}</a></li>
+                    <li><a href="{{url}}" class="external" target="_blank">{{text}}</a></li>
                   {{/items}}
                 </ul>
               {{/ credits }}
@@ -94,37 +94,33 @@
       </ul>
       {{/content.entry_points}}
     </div>
-
   </div>
 
   <div class="sneak-peek-content cf lc">
     {{#content}}
-
-      {{#preview_search_url}}
+      {{#preview_search_data_present}}
         <a id="scroll-trigger-preview"
            class="scroll-trigger"
            data-enabled="true"
            data-fire-on-open="loadPreview"
-           data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
         ></a>
-      {{/preview_search_url}}
+        <script>
+          window.sneakPeakData = [];
+      {{/preview_search_data_present}}
 
       {{#preview_search_data}}
-        <a id="scroll-trigger-preview"
-           class="scroll-trigger"
-           data-enabled="true"
-           data-fire-on-open="loadPreview"
-           data-fire-on-open-params='{ "loadUrl": "{{preview_search_url}}" }'
-        ></a>
+          var entry = {};
+          entry['title'] = '{{preview_search_title}}';
+          entry['type']  = '{{preview_search_type}}';
+          entry['url']   = '{{preview_search_url}}';
+          window.sneakPeakData.push(entry);
       {{/preview_search_data}}
-
+      {{#preview_search_data_present}}
+        </script>
+        <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+        <span class="sneak-peek-subheader"><span id="js-sneak-peek-type">{{preview_search_type}}</span>: <span id="js-sneak-peek-title">{{preview_search_title}}</span></span>
+      {{/preview_search_data_present}}
     {{/content}}
-
-    <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
-
-    {{#content.preview_search_data}}
-      <span class="sneak-peek-subheader">{{preview_search_type}}: {{preview_search_title}}</span>
-    {{/content.preview_search_data}}
 
     {{#content.sneak_peak}}
       <ul class="comma-list recently-viewed">
