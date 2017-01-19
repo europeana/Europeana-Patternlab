@@ -52,13 +52,21 @@ define(['jquery', 'autocomplete'], function ($) {
         switchPopUp($(this).text(), true);
     });
 
+    $('.selectedOrganizations').on('click', '.removeOrganization', function() {
+       $(this).parent().parent().remove();
+    });
     // after clicking button the role is assigned to the current organization and the pop-up it's closed
     $('#roleSelection').on('click', function () {
 
             var selectedOrg = $('.currentSelectedOrganization').text();
 
             if (!$('.modal-wrapper').hasClass('updatingRole')) {
-                $('.selectedOrganizations').append('<a class="selectedOrganization alreadySelected">' + selectedOrg + '</a><br><br>');
+                $('.selectedOrganizations')
+                    .append(
+                        '<div class="selectedOrg"><a class="selectedOrganization alreadySelected">'
+                        + selectedOrg
+                        + '</a> <b><a class="removeOrganization">X</a></b></div>'
+                    );
             } else {
                 $('.modal-wrapper').removeClass('updatingRole');
             }
