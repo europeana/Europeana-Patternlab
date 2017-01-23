@@ -10,6 +10,8 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
     if(happeningFeed){
 
+      $('.happening-feed').removeClass('not-loaded');
+
       var portraitClass = 'portrait-1';
 
       fnProcessImages = function(images){
@@ -130,8 +132,9 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
     scrollEvents.fireAllVisible();
   };
 
-
   function initPreviewMasonry(){
+
+    $('.result-items').removeClass('not-loaded');
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
@@ -162,13 +165,23 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
     });
   }
 
-  function loadPreview(data){
+  function loadPreview(){
+
+    var data   = window.sneakPeakData;
+    var random = data[Math.floor((Math.random() * data.length) + 1)];
+
+    if(!random){
+      return;
+    }
+
+    $('#js-sneak-peek-title').html(random.title.replace(random.type + ': ', ''));
+    $('#js-sneak-peek-type').html(random.type);
 
     $.ajax({
       beforeSend: function(xhr) {
         xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
       },
-      url: data.loadUrl,
+      url: random.url,
       type: 'GET',
       contentType: "application/json; charset=utf-8",
       success: function(data) {

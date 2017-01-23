@@ -107,7 +107,18 @@
     ]
   },
   "logo_class": "fashion-logo",
+
   "content": {
+    "newsletter": {
+      "form": {
+        "language_op" : false,
+        "placeholder" : "email address"
+      },
+      "labels": {
+        "heading" : "Get the scoop!",
+        "subheading" : "Sign up for the Europeana fashion newsletter and stay in the know!"
+      }
+    },
     "sneak_peak": {
       "recently_viewed": {
         "items": ["Alexander McQueen", "Armani"]
@@ -405,6 +416,18 @@
         "text" : "About Europeana Fashion",
         "link_text" : "Europeana Fashion International Association",
         "link_url"  : "javascript(alert('follow link'))"
+      },
+      "credits": {
+        "items": [
+          {
+            "text": "Credit 1",
+            "url": "javascript:alert('follow credit link 1')"
+          },
+          {
+            "text": "Credit 2",
+            "url": "javascript:alert('follow credit link 2')"
+          }
+        ]
       }
     },
     "subscribe_url": "javascript:alert('follow subscribe link...')",
@@ -458,7 +481,7 @@
       ]
     },
     "social": {
-      "social_title": "Europeana Fashion on social media",
+      "social_title": "Follow Europeana Fashion",
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"

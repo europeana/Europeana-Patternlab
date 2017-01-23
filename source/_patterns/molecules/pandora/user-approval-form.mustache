@@ -1,4 +1,4 @@
-<form action="profile" method="post" role="form" class="metis-profile-form">
+<form action="#" method="post" role="form" class="metis-profile-form">
     <fieldset>
         <legend class="profile-form-header">Edit User Profile</legend>
         <div class="error_missing error-message">Error: a new password and the confirmed password are not the same</div>
@@ -44,27 +44,24 @@
             <textarea class="org-list" id="notes" name="notes" rows="4" cols="48">
         	</textarea>
         </div>
-
-        <div class="field-container">
-            <a class="user-profile-choose_org" href="#">Choose Organization >></a>
-        </div>
-
         <div class="org_selection">
             <h1>Organizations</h1>
-            <input id="hero-demo" autofocus type="text" name="q" placeholder="Search Organizations ...">
-            <input type="button" class="btn trigger" href="javascript:;" id="addOrganizationBtn"
-                   value='Add Organisation'>
+            <div class="selectedOrganizations">
+
+            </div>
+            <input id="searchOrganization" autofocus type="text" name="q" placeholder="Search Organizations ...">
             <span class="zip"></span>
 
             <div class="modal-wrapper">
                 <div class="modal">
                     <div class="head">
 
-                        <a class="btn-close trigger" href="javascript:;"></a>
-                        <h3 class="headerRole">Select role for user</h3>
+                        <a class="btn-close trigger"></a>
+                        <h3 class="headerRole">Select User' Role at:</h3>
+
                     </div>
                     <div class="content">
-
+                        <h4 class="currentSelectedOrganization"></h4>
                         <select>
                             <option value="volvo">Contact</option>
                             <option value="saab">Viewer</option>
@@ -74,7 +71,7 @@
                             <option value="audi">Data Officer</option>
                             <option value="audi">Superadmin</option>
                         </select>
-                        <input type="button" value="Submit" class="btn trigger" id="roleSelection">
+                        <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
                     </div>
                 </div>
             </div>
@@ -97,7 +94,7 @@
             <label for="created">Updated: <b> 2 June 2012</b></label>
         </div>
         <div class="field-container">
-            <button type="submit">Update</button>
+            <button type="button">Update</button>
         </div>
         <div class="field-container">
             <button type="button">Back to Home</button>

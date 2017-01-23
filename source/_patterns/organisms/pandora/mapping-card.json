@@ -22,8 +22,10 @@
 	
 	"object_id": "mapping_card_01",
 	"parent_id": "mapping_card_00",
-	"prefix": "@rdf",
-    "name": "about",
+	"prefix": "edm",
+    "name": "ProvidedCHO",
+    "xpath-source-field": "edm:ProvidedCHO",
+    "flag": "SUSPICIOUS",
 	"dropdown": {
 	  "style_modifier": "theme_select",
 	  "menu_id": "mapping-card-dropdown",
@@ -71,7 +73,8 @@
             "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
           }
         ],
-        "occurence": 12
+        "occurence": 12,
+        "flag": "SUSPICIOUS"
       },
       {
         "object_id": "57d93b11cbf72d03def1a28d3",

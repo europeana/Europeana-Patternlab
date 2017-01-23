@@ -699,6 +699,17 @@
     margin-left: 205px;
   }
 
+  @media all and (min-width: $bp-small-3) {
+
+    .left{
+      margin-left: -290px;
+    }
+
+    .right{
+      margin-left: 290px;
+    }
+  }
+
   @media all and (min-width: $bp-med) {
 
     .left,
@@ -706,6 +717,20 @@
       margin-left: 0;
       transform:   none;
     }
+
+    .left{
+      left:  4px;
+      right: auto;
+    }
+
+    .right{
+      left:  auto;
+      right: 4px;
+    }
+
+  }
+
+  @media all and (min-width: $bp-xl) {
 
     .left{
       left:  -0.4em;
@@ -719,6 +744,11 @@
 
 
   .js-carousel{
+    &.not-loaded{
+      width:  1px;
+      height: 1px;
+      overflow: hidden;
+    }
     &.loading ul:after {
       min-height: 15em;
     }
@@ -726,19 +756,45 @@
     .js-carousel-item{
       background-color: #fff;
       height:           100%;
-      width:            400px;
+      width:            300px;
+
+      @media all and (min-width: $bp-large) {
+        width: 220px;
+      }
+
+      @media all and (min-width: $bp-large) {
+        width: 280px;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        width: 320px;
+      }
+
+      @media all and (min-width: $bp-xxl) {
+        width: 400px;
+      }
 
       img{
         display: block;
       }
       &.landscape img{
 
-        max-height: 15em;
+        height:     12em;
         min-width:  100%;
+        object-fit: cover;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
       }
       &.portrait-1 img{
 
-        max-height: 15em;
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
         min-width:  100%;
 
         object-fit:      cover;
@@ -746,7 +802,12 @@
       }
       &.portrait-2 img{
 
-        max-height: 15em;
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
         min-width:  100%;
 
         object-fit:      contain;
@@ -758,10 +819,14 @@
         }
 
         img{
-          max-height: 15em;
-          min-width:  100%;
+          height: 12em;
 
-          object-fit:      contain;
+          @media all and (min-width: $bp-large) {
+            height: 15em;
+          }
+
+          min-width:  100%;
+          object-fit: contain;
         }
       }
 
