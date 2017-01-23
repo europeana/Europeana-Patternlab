@@ -1,0 +1,47 @@
+/* mixin for multiline */
+@mixin multiLineEllipsis($maxWidth, $lineHeight: 1.2em, $lineCount: 1){
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: blue;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+  }
+  &.eu-tooltip-container {
+    &.block-with-text {
+      &.showing {
+        overflow: hidden;
+
+        &:hover {
+          overflow: visible;
+        }
+
+      }
+    }
+
+    &.showing {
+      max-width: $maxWidth;
+    }
+  }
+}
+
+.block-with-text {
+  @include multiLineEllipsis($maxWidth: 130px, $lineHeight: 1.2em, $lineCount: 3);
+}
+
+
