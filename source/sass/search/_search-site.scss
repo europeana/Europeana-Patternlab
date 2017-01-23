@@ -692,7 +692,9 @@
   }
 
   .custom-newsletter-outer{
-    padding-left: 2.6rem;
+    @media all and (min-width: $bp-med) {
+      padding-left: 2.6rem;
+    }
   }
 
   .custom-newsletter{
