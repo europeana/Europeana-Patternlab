@@ -1,0 +1,13 @@
+{
+  "js_files": [
+    {
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/atoms/main-clicktip-atom.js"
+    }
+  ],
+  "clicktip":{
+    "activator": "#test-el",
+    "tooltip_text": "Here is some text",
+    "direction": "top"
+  }
+}

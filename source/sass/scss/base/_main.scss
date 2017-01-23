@@ -1,23 +1,23 @@
 body, html{
-	height: 100%;
+  height: 100%;
 }
 
 body {
 
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	-ms-hyphens: auto;
-	-o-hyphens: auto;
-	hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 
-	word-wrap: break-word;
-	// non standard for webkit
-	word-break: break-word;
+  word-wrap: break-word;
+  // non standard for webkit
+  word-break: break-word;
 
-	background: $page_bg;
-	font: 16px/1.6 $font-primary; //16px default font
-	-webkit-text-size-adjust: 100%;
-	color: $textcolour_body;
+  background: $page_bg;
+  font: 16px/1.6 $font-primary; //16px default font
+  -webkit-text-size-adjust: 100%;
+  color: $textcolour_body;
 }
 
 /*------------------------------------*\
@@ -26,9 +26,9 @@ body {
 
 /* Layout Container */
 .lc {
-	max-width: $max-width;
-	margin: 0 auto;
-	@extend .cf;
+  max-width: $max-width;
+  margin: 0 auto;
+  @extend .cf;
 }
 
 
@@ -37,9 +37,11 @@ body {
 \*------------------------------------*/
 
 main, [role=main] {
-	@extend .cf;
+  @extend .cf;
 
-        padding-top: $globalnavheight;
+  &:not(.after-header-with-search){
+    padding-top: $globalnavheight;
+  }
 
 }
 

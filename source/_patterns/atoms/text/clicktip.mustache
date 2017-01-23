@@ -1,0 +1,19 @@
+{{#clicktip}}
+  <span class="eu-clicktip-container" data-clicktip-activator="{{activator}}">
+    <span class="eu-clicktip {{direction}}">
+      {{#tooltip_text}}
+        {{.}}
+      {{/tooltip_text}}
+      {{#has_tooltip_links}}
+        <ul>
+        {{#tooltip_links}}
+          <li>
+            <a href="{{url}}">{{text}}</a>
+          </li>
+        {{/tooltip_links}}
+        </ul>
+      {{/has_tooltip_links}}
+      <a data-role="remove"></a>
+    </span>
+  </span>
+{{/clicktip}}

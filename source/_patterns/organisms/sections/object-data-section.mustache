@@ -18,7 +18,7 @@
             {{#title }}<h4 class="data-header">{{.}}:</h4>{{/title }}
             <ul class="comma-list data-group">
               {{# items }}
-                <li {{#is_desc}}class="split-items"{{/is_desc}} {{#preserve_case}}class="preserve-case"{{/preserve_case}}>
+                <li {{#is_desc}}class="split-items"{{/is_desc}}>
 
                   {{#url }}<a href="{{.}}">{{/url }}{{#ga_data}}<span class="ga-data" data-ga-metric="{{.}}">{{/ga_data}}{{ text }}{{#ga_data}}</span>{{/ga_data}}{{#url }}</a>{{/url }}
 

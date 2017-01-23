@@ -15,10 +15,11 @@
     "next_prev": false,
     "global": {
       "options": {
-         "searchbar": true
        }
     }
   },
+
+  "include_nav_searchbar": true,
 
   "form_search": {
     "action": "javascript:alert('submit form');"
@@ -105,8 +106,25 @@
       }
     ]
   },
+  "logo_class": "fashion-logo",
+
   "content": {
+    "newsletter": {
+      "form": {
+        "language_op" : false,
+        "placeholder" : "email address"
+      },
+      "labels": {
+        "heading" : "Get the scoop!",
+        "subheading" : "Sign up for the Europeana fashion newsletter and stay in the know!"
+      }
+    },
     "sneak_peak": {
+      "recently_viewed": {
+        "items": ["Alexander McQueen", "Armani"]
+      },
+      "more_items_query": "javascript:alert('load more');",
+      "more_items_total_formatted": "321",
       "items": [
         {
           "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
@@ -391,94 +409,39 @@
         }
       ]
     },
-    "channel_blurb": {
+    "channel_info": {
       "description": "<b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.",
       "summary": "Records ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos and fashion catalogues.",
       "about" : {
         "text" : "About Europeana Fashion",
         "link_text" : "Europeana Fashion International Association",
         "link_url"  : "javascript(alert('follow link'))"
+      },
+      "credits": {
+        "items": [
+          {
+            "text": "Credit 1",
+            "url": "javascript:alert('follow credit link 1')"
+          },
+          {
+            "text": "Credit 2",
+            "url": "javascript:alert('follow credit link 2')"
+          }
+        ]
       }
     },
-    "hero_config": {
-      "hero_image":              "../../images/sample/channel_hero_fashion.jpg",
-      "attribution_title":       "Stockholms mode-journal: Tidskrift för den eleganta werlden 1851,",
-      "attribution_creator":     "",
-      "attribution_institution": "Stiftelsen Nordiska Museet",
-      "attribution_url":         "http://www.europeana.eu/portal/record/2048211/449.html",
-
-      "brand_colour":            "#fff",
-      "brand_position":          "brand-bottomleft",
-
-      "hide_branding_text":      true,
-
-      "license_public":          true,
-      "ripple_size_thin" :       false,
-      "ripple_size_medium" :     true,
-      "ripple_size_thick" :      false
-    },
-    "channel_entry": {
-      "title": "Promoted title",
-      "grouped_items": [
-        {
-          "more_link": "javascript:alert('More items (1)');",
-          "more_text": "More topics",
-          "items":[
-            {
-              "title": "Human Hair",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/portal/collections/fashion?q=hair",
-              "count": "190,226",
-              "media_type": "Images",
-              "is_search": true,
-              "image": "../../images/sample/entry_fashion_1.png"
-            },
-            {
-              "title": "Smokings",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BLANGUAGE%5D%5B%5D=nl&q=what%3A%28sculpture+OR+sculptuur%20OR%20skulptur%29",
-              "count": "7,029",
-              "media_type": "Images and video",
-              "is_search": true,
-              "image": "../../images/sample/entry_fashion_2.png"
-            },
-            {
-              "title": "Bikinis",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?f%5BTYPE%5D%5B%5D=TEXT&q=%28what%3A+%22art+history%22%29+OR+%28what%3A+%22http%3A%2F%2Fvocab.getty.edu%2Faat%2F300041273%22%29+OR+%28what%3A+histoire%20art%29+OR+%28what%3A+kunstgeschichte%29+OR+%28what%3A+%22estudio+de+la+historia+del+arte%22%29+OR+%28what%3A+Kunstgeschiedenis%29",
-              "count": "2,333",
-              "media_type": "Documents",
-              "is_search": true,
-              "image": "../../images/sample/entry_fashion_3.png"
-            },
-            {
-              "title": "Damir Doma",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:%20sandro%20botticelli",
-              "count": "76",
-              "media_type": "Images and videos",
-              "is_spotlight": true,
-              "image": "../../images/sample/entry_fashion_4.png"
-            },
-            {
-              "title": "Betty Jackson",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:alexander%20roslin",
-              "count": "46",
-              "media_type": "Images and documents",
-              "is_spotlight": true,
-              "image": "../../images/sample/entry_fashion_5.png"
-            },
-            {
-              "title": "Addy van den Krommenacker",
-              "url": "http://europeana-npc-test.de.a9sapp.eu/channels/art?q=who:hokusai",
-              "count": "240",
-              "media_type": "Images",
-              "is_spotlight": true,
-              "image": "../../images/sample/entry_fashion_6.png"
-            }
-          ]
-        }
-      ]
-    },
-    "editors_picks": {
+    "subscribe_url": "javascript:alert('follow subscribe link...')",
+    "promoted": {
       "title": "Promoted title",
       "items": [
+        {
+          "featured":           true,
+          "hide_branding_text": true,
+          "title":              "Tidskrift för den eleganta werlden 1851",
+          "url":                "javascript:alert('Link to featured promotion');",
+          "is_exhibition":      true,
+          "bg_image":           "../../images/sample/channel_hero_fashion.jpg"
+        },
         {
           "title": "Royal Book Collections",
           "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
@@ -518,18 +481,14 @@
       ]
     },
     "social": {
-      "social_title": "Find Europeana Fashion on social media",
-      "twitter": {
-        "url": "https://twitter.com/eu_sounds",
-        "text": "Twitter"
-      },
+      "social_title": "Follow Europeana Fashion",
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"
       },
-      "soundcloud": {
-        "url": "https://soundcloud.com/europeana",
-        "text": "Soundcloud"
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
       },
       "pinterest": {
         "url": "https://uk.pinterest.com/europeana/",
@@ -546,54 +505,84 @@
       "tumblr": {
         "url": "http://www.europeanafashion.tumblr.com",
         "text": "Tumblr"
+      },
+      "linkedin": {
+        "url": "http://www.linkedin.com",
+        "text": "LinkedIn"
       }
-   },
-    "news": {
+    },
+    "carousel": {
+      "title": "Tumblr",
+      "tumblr_url": "javascript:alert('open tumblr page')",
+      "more_items_load"  : "url-for-extra-items",
+      "more_items_total" : 12,
+      "more_items_total_formatted" : 12,
       "items": [
         {
-          "headline": {
-            "medium": "The miniature magic of Japanese netsuke"
-          },
-          "url": "http://blog.europeana.eu/2015/04/the-miniature-magic-of-japanese-netsuke/",
+          "url":  "?q=The+Lace+Maker",
           "img": {
-            "rectangle": {
-              "src": "sample/netsuke.jpg",
-              "alt": "Japanese scroll with netsuke illustration"
-            }
+             "alt": "The Lace Maker",
+             "src": "/images/search/carousel1.jpg"
           },
+          "title": "Test a terrible Tumblr title that's totally taking too much height and is technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "14/12/2016",
           "excerpt": {
-            "short": "Netsuke, the small sculptural objects worn by men in Japan since the seventeenth century, first shot to fame in Europe with the publication of Edmund de Waal’s popular memoir, The Hare With Amber Eyes in 2010."
+            "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
           }
         },
         {
-          "headline": {
-            "medium": "Vintage fashion drawings from the Late 1930s"
-          },
-          "url": "http://blog.europeana.eu/2015/03/celebrating-world-theatre-day-2015/",
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
           "img": {
-            "rectangle": {
-              "src": "sample/theatreday.jpg",
-              "alt": "Theatre Day"
-            }
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel2.jpg"
           },
+          "title": "Title II",
+          "type": "events",
+          "date": "15/12/2016",
           "excerpt": {
-            "short": "The years between 1900 and 1939 represent an extremely turbulent time in history with two World Wars and the rise of the suffrage movement. These unstable times clearly had an impact on women’s fashion, this was seen in the rise ..."
+            "short": "This carousel item for the aggregated feed also has text and a date"
           }
         },
         {
-          "headline": {
-            "medium": "Pitti Archive: “The Fourth Sex. Adolescent Extremes”"
-          },
-          "url": "http://www.europeanafashion.eu/portal/blogdetail.html?post=pitti-archive-the-fourth-sex-adolescent-extremes",
+          "url": "?q=Delft",
           "img": {
-            "rectangle": {
-              "src": "sample/Museumweek.jpg",
-              "alt": "Museum Week 2015"
-            }
+            "alt": "Delft",
+            "src": "/images/search/carousel3.jpg"
           },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "tumblr",
           "excerpt": {
-            "short": "The 2003 exhibition gives a meaningful insight in Simons’ world. Co-curated by Francesco Bonami and Simons himself, the exhibit reflected upon a central figure in the work of Simons, the teenager."
+            "short": "This carousel item for the aggregated feed has text but no date"
           }
+        },
+        {
+          "url": "?q=Girl+with+the+pearl+earring",
+          "img": {
+            "alt": "Girl with the pearl earring",
+            "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "17/12/2016"
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
         }
       ]
     },
@@ -638,7 +627,8 @@
         "items": [
           {
             "url": "javascript:alert('follow link');",
-            "label": "Shoes"
+            "label": "Shoes",
+            "image_url": false
           },
           {
             "url": "javascript:alert('follow link');",

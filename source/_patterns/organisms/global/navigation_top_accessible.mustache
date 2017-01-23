@@ -1,7 +1,8 @@
 {{# navigation.global }}
-<a href="#maincontent" class="skip-main is-vishidden">{{ i18n.global.actions.skip-to-main }}</a>
 
-<div class="header-wrapper{{#options.searchbar}} with-searchbar{{/options.searchbar}}">
+<a href="#maincontent" class="skip-main is-vishidden" data-label-skip-to-section="{{ i18n.global.actions.skip-to-section }}">{{ i18n.global.actions.skip-to-main }}</a>
+
+<div class="header-wrapper{{#include_nav_searchbar}} with-transparency{{/include_nav_searchbar}}">
 
   {{> molecules/blocks/block-cookie-disclaimer }}
 
@@ -73,10 +74,9 @@
     </div>
   </header>
 
-  {{#options.searchbar}}
+  {{#include_nav_searchbar}}
     {{> molecules/components/search/search-form-navbar }}
-  {{/options.searchbar}}
-
+  {{/include_nav_searchbar}}
 </div>
 
 

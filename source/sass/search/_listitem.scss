@@ -118,6 +118,13 @@
 
 .sneak-peek-content{
   .display-grid{
+
+    &.not-loaded{
+      height: 1px;
+      overflow: hidden;
+      width: 1px;
+    }
+
     .search-list-item,
     .grid-sizer{
       width:      100%;

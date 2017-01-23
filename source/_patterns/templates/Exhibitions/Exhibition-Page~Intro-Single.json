@@ -1,0 +1,322 @@
+{
+  "pattern_lab_reset": "start",
+  "title":             false,
+  "is_chapter":        false,
+  "is_credit":         false,
+
+  "pattern_lab_reset": "end",
+
+  "google_analytics_code": "123",
+
+  "js_files": [{
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-virtual-exhibitions"
+    }
+
+  ],
+  "css_files": [
+    {
+      "path":  "../../css/virtual-exhibitions/screen.css",
+      "media": "all"
+    }
+  ],
+  "navigation": {
+    "global":
+    {
+      "logo":
+      {
+        "url": "javascript:alert('go home')",
+        "text": "Heritage in Motion"
+      },
+      "options": {
+        "search_active": false,
+        "oursites_hidden": false
+      },
+     "primary_nav":
+      {
+        "menu_id": "main-menu",
+        "items": [
+          {
+            "text": "Exhibitions",
+            "url": "#",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 1"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 2"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 3"
+                },
+                {
+                  "is_divider": true
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 4"
+                },
+                {
+                  "url": "javascript:alert('open exhibition')",
+                  "text": "Exhibitions 5"
+                },
+                {
+                  "url": "url to foyer",
+                  "text": "All Exhibitions…",
+                  "is_morelink": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "",
+            "text": "Faces of Europe",
+            "submenu": {
+              "items": [
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 1"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 2"
+                },
+                {
+                  "url": "javascript:alert('open chapter')",
+                  "text": "Chaper 3"
+                }
+              ]
+            }
+          },
+          {
+            "text": false,
+            "submenu": false
+          },
+          {
+            "text": false,
+            "submenu": false,
+            "Explanation": "(override data.json in styleguide)"
+          }
+        ]
+      },
+      "utility_nav": {
+        "menu_id": "settings-menu",
+        "style_modifier": "caret-right",
+        "tabindex": "6",
+        "items": [
+          {
+            "url": "#",
+            "text": "Language",
+            "icon": "settings",
+            "submenu": {
+              "items": [
+                {
+                  "text": "English",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "French",
+                  "url": "javascript:alert('set language')"
+                },
+                {
+                  "text": "German",
+                  "url": "javascript:alert('set language')"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+
+
+  "breakpoint_pixels":{
+    "img":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "801px"
+    },
+    "bg":{
+      "show_thumbnail": "1px",
+      "show_small": "200px",
+      "show_half":  "400px",
+      "show_full":  "801px"
+    },
+    "bg-hr":{
+      "dpr": "2",
+      "dpr_fraction": "2/1",
+      "show_thumbnail": "1",
+      "show_small": "400px",
+      "show_half":  "801px",
+      "show_full":  "1600px"
+    }
+  },
+  "breadcrumbs": [
+    {
+      "url": "javascript:alert('breadcrumb 1')",
+      "title": "Home",
+      "is_first": "true"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 2')",
+      "title": "trial exhibition"
+    },
+    {
+      "url": "javascript:alert('breadcrumb 3')",
+      "title": "trial exhibition 2nd page",
+      "is_last": "true"
+    }
+  ],
+  "next_page": {
+    "title": "Faces Of Europe (next)",
+    "url": "javascript:alert('nav next');"
+  },
+  "previous_page": false,
+  "page_data": {
+    "title": "Page title",
+    "is_exhibition": true,
+    "url": "/example-page",
+    "elements": {
+      "present": "true",
+      "items":[
+        {
+            "id": "x1_2",
+            "is_intro": true,
+            "is_first": true,
+            "is_last": "true",
+            "label": "Art history collection",
+            "partner_image": {
+              "thumbnail": {
+                "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              }
+            },
+            "partner_url": "javascript:alert('link to curator site')",
+            "section_title": "Another intro type",
+            "subtitle": "The first chapter of this amazing virtual exhibition",
+            "title": "Faces of Europe",
+            "intro_description": "<p>The alliance of the Kingdom of <a href=\"www.google.com\">Poland</a> and the Grand Duchy of <a href=\"www.google.com\">Lithuania</a>, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>",
+            "image_credit": {
+              "attribution_title": "Battle of Grunweald",
+              "attribution_creator": "Jan Matejko",
+              "attribution_institution": "Muzeum Narodowe W Warszawie",
+              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+              "license_public": true
+            },
+            "image":
+            {
+              "full": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+              },
+              "fullx2": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+              },
+              "half": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
+              },
+              "halfx2": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+              },
+              "small": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
+              },
+              "smallx2": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+              },
+              "thumbnail": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+              },
+              "thumbnailx2": {
+                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
+              }
+            }
+        }
+      ]
+    },
+    "chapter_elements": {
+      "present": "true",
+      "items":[
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+
+        {
+          "is_chapter_nav": true,
+          "title": "But Isn't Keen on Art Deco",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        },
+        {
+          "is_chapter_nav": true,
+          "title": "Wiki Loves Art Nouveau",
+          "label": "Art history collection",
+          "image": {
+            "thumbnail" : {
+              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            }
+          },
+          "url": "javascript:alert('navigate to chapter')"
+        }
+      ]
+    }
+  },
+  "footer":{
+    "items":
+    [
+      {
+        "text": "Contacts",
+        "url": "javascript:alert('Contacts');"
+      },
+
+      {
+        "text": "Credits",
+        "url": "javascript:alert('Credits');"
+      },
+      {
+        "text": "About Europeana",
+        "url": "javascript:alert('About Europeana');"
+      },
+      {
+        "text": "Europeana Collections",
+        "url": "javascript:alert('Europeana Collections');"
+      }
+    ]
+  },
+  "social": {
+    "url": "http://this-page-url.com",
+    "twitter": true,
+    "facebook": true,
+    "pinterest": true,
+    "googleplus": true,
+    "text": "Share this Exhibition"
+  }
+}

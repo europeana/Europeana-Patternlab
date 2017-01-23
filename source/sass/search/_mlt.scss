@@ -72,9 +72,7 @@
 
 .js-carousel-title{
   display:		 block;
-  //height:			 3.2em;
   overflow:		 hidden;
-  //line-height: 1.6em;
 
   height:			 3.1em;
   margin-top:  0.5em;
@@ -147,10 +145,14 @@
 }
 
 .mlt .js-carousel-arrows.h{
-  .left,.right{
-    background-color: rgba(255,255,255,0.74);
-    &.arrow-hidden{
+  .left,
+  .right{
+    background-color:    rgba(255,255,255,0.74);
+    background-position: 2px 88px;
+    width:               1em;
+    &.disabled{
       background-color: rgba(255,255,255,0.25);
+      cursor: default;
     }
     &:hover{
       background-color: rgba(255,255,255,0.9);
@@ -160,7 +162,7 @@
 
 .js-carousel.loading ul:after {
   content: " ";
-  z-index: 10;
+  z-index: 9;
   display: block;
   position: absolute;
   height: 100%;
@@ -182,15 +184,13 @@
   transition:         background .25s ease-in-out;
 }
 
-
-
 .js-carousel-arrows{
 
   overflow: visible;
   z-index: 2;
 
   > a{
-    font-size: 3em;
+    font-size: 2em;
     float: none;
     position: absolute;
     z-index: 1;

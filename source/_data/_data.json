@@ -614,6 +614,14 @@
     "location": "Den Haag, Netherlands",
     "i18n": {
         "site": {
+            "collections": {
+              "labels": {
+                "editors-picks":   "Editor's picks",
+                "sneak-peek":      "Sneak peek",
+                "whats-happening": "What's happening",
+                "designer":        "Designer"
+              }
+            },
             "more": "More...",
             "navigation": {
                 "breadcrumb": {
@@ -702,7 +710,8 @@
               "filter-all": "All",
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen",
-              "skip-to-main":  "Skip to page contents",
+              "skip-to-main":     "Skip to page contents",
+              "skip-to-section":  "Skip to section",
               "next":"next",
               "previous":"previous"
             },
@@ -786,6 +795,7 @@
             "search-collections": "Search collections",
             "search-collections-text": "Search through Europe's cultural heritage",
             "share": "Share",
+            "subscribe": "Subscribe",
             "reusability": {
                 "open": "Yes, with attribution"
             }

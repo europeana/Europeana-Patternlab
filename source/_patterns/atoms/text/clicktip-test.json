@@ -1,0 +1,60 @@
+{
+  "js_files": [
+    {
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/atoms/main-clicktip-atom.js"
+    }
+  ],
+  "top":{
+    "clicktip":{
+      "activator": "#test-clicktip-1",
+      "tooltip_text": "Here is some text - this is the top tooltip",
+      "direction": "top"
+    }
+  },
+  "top-right-aligned":{
+    "clicktip":{
+      "activator": "#test-clicktip-1-right",
+      "tooltip_text": "Here is some text - this is the top tooltip",
+      "direction": "top"
+    }
+  },
+  "left":{
+    "clicktip":{
+      "activator": "#test-clicktip-2",
+      "has_tooltip_links": true,
+      "tooltip_links": [
+        {
+          "url":  "javascript:alert('Hello');",
+          "text": "This is a link"
+        },
+        {
+          "url":  "javascript:alert('Goodbye');",
+          "text": "This is a another link"
+        }
+      ],
+      "direction": "left"
+    }
+  },
+  "bottom":{
+    "clicktip":{
+      "activator": "#test-clicktip-3",
+      "tooltip_text": "Here is some text - this is the bottom tooltip",
+      "direction": "bottom"
+    }
+  },
+  "bottom-right-aligned":{
+    "clicktip":{
+      "activator": "#test-clicktip-3-right",
+      "tooltip_text": "Here is some text - this is the bottom tooltip",
+      "direction": "bottom"
+    }
+  },
+  "right":{
+    "clicktip":{
+      "activator": "#test-clicktip-4",
+      "tooltip_text": "Here is some text - this is the right tooltip",
+      "direction": "right"
+    }
+  }
+}

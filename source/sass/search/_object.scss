@@ -89,7 +89,7 @@
 
 }
 
-.with-searchbar .object-nav{
+.with-transparency .object-nav{
    background: rgba(241, 241, 238, 0.85);
 }
 
@@ -139,21 +139,26 @@
       margin: 0 auto 3.2rem;
 
       .js-carousel-arrows{
-        &.left,
-        &.right{
-          top: -0.1em;
-        }
         a{
+          &.left{
+            background-position: 10px 35px;
+          }
+          &.right{
+            background-position: -5px 35px;
+            right: 6px;
+          }
           color: white;
           text-shadow: 0 0 1px #000;
           font-weight: bold;
+          width: 1em;
 
-          &.arrow-hidden{
+          &.disabled{
             color: $gray-lighter;
             cursor: default;
           }
         }
       }
+
       .js-carousel{
         .js-carousel-item{
             width: $thumbnail_max_dimension_media;
@@ -235,8 +240,8 @@
 
       .media-thumb-section{
 
-        width:         $thumbnail_max_dimension_media;	// set width of thumbnail column here - thumbnail width and height (if left unset) will match it
-        min-width:     $thumbnail_max_dimension_media;	// (both needed - and should match the thumbnail width to keep arrows aligned)
+        width:         $thumbnail_max_dimension_media;  // set width of thumbnail column here - thumbnail width and height (if left unset) will match it
+        min-width:     $thumbnail_max_dimension_media;  // (both needed - and should match the thumbnail width to keep arrows aligned)
         padding-right: 1.6rem;
 
 
@@ -313,7 +318,7 @@
 
 .single-item-thumb svg.icon.icon-newspaper,
 .multi-item-poster svg.icon.icon-newspaper,
-.object-media-nav svg.icon.icon-newspaper	{
+.object-media-nav svg.icon.icon-newspaper  {
     font-size: 0.9em;
     margin: 0.4em 0 0 0.16em;
 }
@@ -354,8 +359,8 @@
 .single-item{
   .object-media-nav a{
       box-shadow: none;
-      color:	white;
-      position:		relative;
+      color:  white;
+      position:    relative;
       display: inline-block;
       margin-bottom: 1.6rem;
       transition: box-shadow 0.25s ease-in-out;
@@ -536,6 +541,7 @@
    margin-top: $space;
 }
 
+#molecules-components-search-search-listitem-js,
 #molecules-icons-licenses-js{
   display: none;
 }
@@ -635,11 +641,291 @@
         }
          a{
             line-height: $thumbnail_max_dimension_mlt;
-            &.arrow-hidden{
+            &.disabled{
               color: $gray-lighter;
             }
         }
     }
+}
+
+// override carousel defaults for landing feed
+
+.happening-feed-container{
+
+  position: relative;
+
+  .left,
+  .right{
+    background-color:    rgba(0, 0, 0, 0.5);
+    background-position: 6px 18px;
+
+    color:               white;
+
+    font-size:           4em;
+    font-weight:         bold;
+
+    height:              1em;
+
+    left:                50%;
+    line-height:         1em;
+    position:            absolute;
+
+    text-shadow:         0 0 1px #000;
+    top:                 50%;
+    transform:           translateX(-50%);
+    width:               0.6em;
+    z-index:             1;
+
+    @media all and (min-width: $bp-med) {
+      left: 0;
+    }
+
+    &.disabled{
+      color:  $gray-lighter;
+      cursor: default;
+    }
+
+    &:not(.disabled):hover{
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+
+  .left{
+    margin-left: -205px;
+  }
+
+  .right{
+    margin-left: 205px;
+  }
+
+  @media all and (min-width: $bp-small-3) {
+
+    .left{
+      margin-left: -290px;
+    }
+
+    .right{
+      margin-left: 290px;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    .left,
+    .right{
+      margin-left: 0;
+      transform:   none;
+    }
+
+    .left{
+      left:  4px;
+      right: auto;
+    }
+
+    .right{
+      left:  auto;
+      right: 4px;
+    }
+
+  }
+
+  @media all and (min-width: $bp-xl) {
+
+    .left{
+      left:  -0.4em;
+      right: auto;
+    }
+    .right{
+      left:  auto;
+      right: -0.4em;
+    }
+  }
+
+
+  .js-carousel{
+    &.not-loaded{
+      width:  1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    &.loading ul:after {
+      min-height: 15em;
+    }
+
+    .js-carousel-item{
+      background-color: #fff;
+      height:           100%;
+      width:            300px;
+
+      @media all and (min-width: $bp-large) {
+        width: 220px;
+      }
+
+      @media all and (min-width: $bp-large) {
+        width: 280px;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        width: 320px;
+      }
+
+      @media all and (min-width: $bp-xxl) {
+        width: 400px;
+      }
+
+      img{
+        display: block;
+      }
+      &.landscape img{
+
+        height:     12em;
+        min-width:  100%;
+        object-fit: cover;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+      }
+      &.portrait-1 img{
+
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
+        min-width:  100%;
+
+        object-fit:      cover;
+        object-position: top;
+      }
+      &.portrait-2 img{
+
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
+        min-width:  100%;
+
+        object-fit:      contain;
+      }
+      &.portrait-3{
+
+        .js-carousel-item-img-wrap{
+          background-color: $gray47;
+        }
+
+        img{
+          height: 12em;
+
+          @media all and (min-width: $bp-large) {
+            height: 15em;
+          }
+
+          min-width:  100%;
+          object-fit: contain;
+        }
+      }
+
+      .js-carousel-texts{
+        padding:  0 1em 1em;
+        position: relative;
+      }
+
+      .js-carousel-text{
+        padding: 1em 0;
+      }
+
+      .js-carousel-title{
+        font-size:     $font-size-med;
+        font-weight:   bold;
+        height:        3.2em;
+        line-height:   1.6em;
+        margin:        0.75em -1.6em 0.75em 0;
+        max-height:    3.2em;
+        padding-right: 2em;
+
+        &:before,
+        &:after {
+          height: 1.4em;
+          right:  1em;
+        }
+
+        a{
+          color: $gray30;
+        }
+
+      }
+
+      .js-carousel-text{
+        display:       block;
+        font-size:     1em;
+        height:        6.6em;
+        line-height:   1.3em;
+        margin:        0 -1.95em 0.75em 0;
+        min-height:    6.6em;
+        max-height:    6.6em;
+        padding:       0 1.4em 0 0;
+
+        &:before,
+          &:after {
+            height:   1.15em;
+            right:    0.5em;
+          }
+        }
+
+      .js-carousel-text,
+      .js-carousel-title{
+
+        overflow:      hidden;
+        position:      relative;
+        text-align:    justify;
+
+        max-width:     100%;
+
+        &:before,
+        &:after {
+          bottom:   1px;
+          position: absolute;
+        }
+
+        &:before {
+          content: '...';
+        }
+
+        &:after {
+          background: white;
+          content:    '';
+          height:     1.6em;
+          width:      1em;
+        }
+      }
+
+      .js-carousel-date{
+        font-size:   $font-size-slightly-smaller;
+        font-weight: bold;
+      }
+
+    }
+  }
+  .js-carousel-arrows{
+    &.h{
+      .left{
+        @media all and (min-width: $bp-med) {
+          left: 0;
+        }
+      }
+    }
+    a{
+      line-height: $thumbnail_max_dimension_mlt;
+      &.disabled{
+        color: $gray-lighter;
+      }
+    }
+  }
 }
 
 
@@ -650,8 +936,11 @@
     line-height: $thumbnail_max_dimension_media;
 }
 
-.subsection-content>ul{
+.subsection-content{
+  position: relative;
+  &>ul{
     display: inline;
+  }
 }
 
 

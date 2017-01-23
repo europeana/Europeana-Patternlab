@@ -16,6 +16,7 @@ define([], function() {
 
     if(wrapped.children().length > 1){
       wrapped.children().each(function(){
+
         var nodeName = this.nodeName.toUpperCase();
         if(nodeName == 'DIV'){
           oembed   = $(this);
@@ -39,6 +40,8 @@ define([], function() {
       });
     }
     else{
+      play_html = play_html.replace('<![CDATA[', '').replace(']]>', '');
+
       var $play_html = $(play_html);
       oembed = $play_html.find('iframe').length > 0 ? $play_html.find('iframe') : $play_html;
     }

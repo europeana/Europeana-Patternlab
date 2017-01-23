@@ -107,6 +107,7 @@ require.config({
     smartmenus_keyboard:           '../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
 
     eu_tooltip:                    '../../eu/tooltip/eu-tooltip',
+    eu_clicktip:                   '../../eu/tooltip/eu-clicktip',
 
     touch_move:                    '../../lib/jquery/jquery.event.move',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',

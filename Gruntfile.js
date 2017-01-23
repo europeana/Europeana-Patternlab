@@ -119,6 +119,27 @@ module.exports = function(grunt) {
           }
         ]
       },
+      production_js_assets: {
+        cwd: 'source/js/modules',
+        expand:  true,
+        src: ['**/*.*',  '!**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+        dest: 'source/js_min/modules'
+      },
+
+      production_swap_js: {
+        cwd: 'source/js_min/modules',
+        expand: true,
+        src: ['**/*.*'],
+        dest: 'source/js/modules'
+      },
+
+      production_swap_css: {
+        cwd: 'source/css_min',
+        expand:  true,
+        src: ['**/*.*'],
+        dest: 'source/css'
+      },
+
       version_images: {
         src:    '**',
         cwd:    'source/images',
@@ -133,11 +154,17 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      version_js: {
-          cwd: 'source/js/dist',
+      production: {
+          cwd: 'source/js/modules',
           expand:  true,
-          src: ['**/*.js',  '!**/soundfont/*'],
-          dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
+          src: ['**/*.js', '!**/soundfont/*', '!**/bower_components/**'],
+          dest: 'source/js_min/modules'
+      },
+      version_js: {
+        cwd: 'source/js/dist',
+        expand:  true,
+        src: ['**/*.js',  '!**/soundfont/*'],
+        dest: 'source/v/' + grunt.option('styleguide-version') + '/js/dist'
       }
     },
     watch: {
@@ -200,6 +227,32 @@ module.exports = function(grunt) {
           src: ['**/*.scss']
         }]
       },
+      production: {
+        options: {
+          config:  'config-production.rb',
+          cssDir:  'source/css_min',
+          sassDir: 'source/sass'
+        },
+        files: [{
+          expand: true,
+          cwd: 'source/sass/',
+          src: ['*.scss'],
+          ext: '.css'
+        }]
+      },
+      production_js_styles: {
+        options: {
+          config:  'config-production.rb',
+          cssDir:  'source/js_min',
+          sassDir: 'source/js'
+        },
+        files: [{
+          expand: true,
+          cwd: 'source/js/',
+          src: ['*.scss'],
+          ext: '.css'
+        }]
+      },
       version: {
         options: {
           config: 'config-versions.rb',
@@ -223,6 +276,22 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mkdir');
   grunt.loadNpmTasks('grunt-shell');
+
+  grunt.registerTask('production', function(){
+    console.warn('minify js...');
+    grunt.task.run('uglify:production');
+
+    console.warn('copy js assets to analogous directory...');
+    grunt.task.run('copy:production_js_assets');
+
+    console.warn('minify css...');
+    grunt.task.run('compass:production');
+    grunt.task.run('compass:production_js_styles');
+
+    console.warn('replace assets with minified assets...');
+    grunt.task.run('copy:production_swap_js');
+    grunt.task.run('copy:production_swap_css');
+  });
 
   grunt.registerTask('freeze-version', function(){
     var version = grunt.option('styleguide-version');
