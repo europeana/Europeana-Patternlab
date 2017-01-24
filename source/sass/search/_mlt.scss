@@ -145,10 +145,14 @@
 }
 
 .mlt .js-carousel-arrows.h{
-  .left,.right{
-    background-color: rgba(255,255,255,0.74);
-    &.arrow-hidden{
+  .left,
+  .right{
+    background-color:    rgba(255,255,255,0.74);
+    background-position: 2px 88px;
+    width:               1em;
+    &.disabled{
       background-color: rgba(255,255,255,0.25);
+      cursor: default;
     }
     &:hover{
       background-color: rgba(255,255,255,0.9);
@@ -186,7 +190,7 @@
   z-index: 2;
 
   > a{
-    font-size: 3em;
+    font-size: 2em;
     float: none;
     position: absolute;
     z-index: 1;

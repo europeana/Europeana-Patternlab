@@ -665,11 +665,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     function bindShowInlineSearch(){
       $('.item-nav-show').on('click', function(e){
+        e.preventDefault();
         var btn = $(e.target);
         btn.hide();
         btn.prev('.content').show();
         btn.prev('.content').find('form .item-search-input').focus();
-        e.preventDefault();
+        $('.after-header-with-search').addClass('search-open');
       });
     }
 

@@ -51,7 +51,10 @@ a {
 
 // Skip to main link (uses is-vishidden)
 
-a.skip-main:focus, a.skip-main:active {
+.skip-main:focus,
+.skip-main:active,
+.skip-content:focus,
+.skip-content:active{
     color: #fff;
     background-color: $black;
     left: auto;

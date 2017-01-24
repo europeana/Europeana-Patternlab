@@ -44,7 +44,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function log(msg){
-    //console.log('Virtual-Exhibitions: ' + msg);
+    // console.log('Virtual-Exhibitions: ' + msg);
   }
 
   function initExhibitions(){
@@ -639,6 +639,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     scrollExecuting = true;
 
     var finalScroll = function(){
+
       $(window).scrollTo($target,
         afterResize ? scrollDuration / 2 : scrollDuration,  {
         onAfter: function(){
@@ -648,17 +649,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     };
 
     if(afterResize || $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
-      $(window).scrollTo($target,
-        afterResize ? scrollDuration / 2 : scrollDuration,
-        {
-          axis:    'y',
-          easing:  'linear',
-          offset:  0 - $(window).height() / 2,
-          onAfter: function(){
-            finalScroll();
+      setTimeout(function(){
+
+        $(window).scrollTo($target,
+          (afterResize ? scrollDuration / 2 : scrollDuration),
+          {
+            axis:    'y',
+            easing:  'linear',
+            offset:  0 - $(window).height() / 2,
+            onAfter: function(){
+                finalScroll();
+            }
           }
-        }
-      );
+        );
+
+      },1);
     }
     else{
       finalScroll();
@@ -667,9 +672,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function getAnchorRelativeToCurrent(getPrev){
-      var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
-      var anchor = getPrev ? curr.prev('a') : curr.next('a');
-      return anchor.attr('href');
+    var curr   = $('.ve-progress-nav .ve-state-button-on').parent();
+    var anchor = getPrev ? curr.prev('a') : curr.next('a');
+    return anchor.attr('href');
   }
 
   function initArrowNav(){
@@ -679,8 +684,15 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     $('.slide-nav-next:first').on('click', function(e){
       if(smCtrl){
         var anchor = getAnchorRelativeToCurrent();
+        if(!anchor){
+          scrollToAdaptedForPin($('.ve-chapter-selection-container'));
+          return;
+        }
         scrollToAdaptedForPin($(anchor));
         e.preventDefault();
+      }
+      else{
+        window.scrollTo(0, $(window).scrollTop() + window.innerHeight);
       }
     });
   }
@@ -800,8 +812,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       ob = $(ob);
 
       var imgUrl;
-      var target        = $(ob.attr('href'));
-      var section       = target.closest('.ve-slide');
+      var section       = $(ob).closest('.ve-slide');
       var bubbleContent = ob.find('.speech-bubble .speech-bubble-inner');
 
       var baseImage   = section.find('.ve-base-image');
@@ -833,6 +844,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       if(imgUrl){
         bubbleContent.html('<img src="' + imgUrl + '">');
       }
+
+      // accessibility
+      $('.skip-main').before('<a class="skip-content is-vishidden" href="' + $(ob).attr('href') + '">' + $('.skip-main').data('label-skip-to-section') + ' ' + (i+1) + '</a>');
     });
   }
 

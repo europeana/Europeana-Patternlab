@@ -1,23 +1,7 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" class="search-object">
-  {{> molecules/components/search/search-form-navbar }}
-  <!--
-  <div class="object-nav cf">
-    <div class="object-nav-lists">
-      <ul class="breadcrumbs">
-        <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-        <li class="js-channel"><a href=""></a></li>
-        {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>{{/navigation.back_url}}
-        <li class="js-return"><a href="">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>
-        <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.item_detail}}</strong></span></li>
-      </ul>
-      {{>molecules/navigation/next-previous}}
-    </div>
-    {{>molecules/forms/search-item-navigation}}
-  </div>
-  -->
+<div role="main" class="search-object after-header-with-search">
   {{#content}}
     {{#object.media}}
       <section class="object-display" id="maincontent">
@@ -444,7 +428,7 @@
                    class="scroll-trigger"
                    data-enabled="true"
                    data-fire-on-open="showMLT"
-                   data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "svg": true}'
+                   data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey" }'
                 ></a>
               </div>
               <div class="subsection-content">
@@ -470,7 +454,9 @@
                    data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
               </div>
             </div>
-            <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
+            {{#more_items_query}}
+              <div class="show-more-mlt"><a href="{{.}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
+            {{/more_items_query}}
           </div>
         {{/content.similar}}
       </div>

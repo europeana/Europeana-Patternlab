@@ -89,7 +89,7 @@
 
 }
 
-.with-searchbar .object-nav{
+.with-transparency .object-nav{
    background: rgba(241, 241, 238, 0.85);
 }
 
@@ -139,16 +139,20 @@
       margin: 0 auto 3.2rem;
 
       .js-carousel-arrows{
-        &.left,
-        &.right{
-          top: -0.1em;
-        }
         a{
+          &.left{
+            background-position: 10px 35px;
+          }
+          &.right{
+            background-position: -5px 35px;
+            right: 6px;
+          }
           color: white;
           text-shadow: 0 0 1px #000;
           font-weight: bold;
+          width: 1em;
 
-          &.arrow-hidden{
+          &.disabled{
             color: $gray-lighter;
             cursor: default;
           }
@@ -637,7 +641,7 @@
         }
          a{
             line-height: $thumbnail_max_dimension_mlt;
-            &.arrow-hidden{
+            &.disabled{
               color: $gray-lighter;
             }
         }
@@ -652,35 +656,36 @@
 
   .left,
   .right{
+    background-color:    rgba(0, 0, 0, 0.5);
+    background-position: 6px 18px;
 
-    background-color: rgba(0, 0, 0, 0.5);
-    color:            white;
+    color:               white;
 
-    font-size:        4em;
-    font-weight:      bold;
+    font-size:           4em;
+    font-weight:         bold;
 
-    height:           1em;
+    height:              1em;
 
-    left:             50%;
-    line-height:      1em;
-    position:         absolute;
+    left:                50%;
+    line-height:         1em;
+    position:            absolute;
 
-    text-shadow:      0 0 1px #000;
-    top:              50%;
-    transform:        translateX(-50%);
-
-    z-index:          1;
+    text-shadow:         0 0 1px #000;
+    top:                 50%;
+    transform:           translateX(-50%);
+    width:               0.6em;
+    z-index:             1;
 
     @media all and (min-width: $bp-med) {
       left: 0;
     }
 
-    &.arrow-hidden{
+    &.disabled{
       color:  $gray-lighter;
       cursor: default;
     }
 
-    &:not(.arrow-hidden):hover{
+    &:not(.disabled):hover{
       background-color: rgba(0, 0, 0, 0.9);
     }
   }
@@ -694,6 +699,17 @@
     margin-left: 205px;
   }
 
+  @media all and (min-width: $bp-small-3) {
+
+    .left{
+      margin-left: -290px;
+    }
+
+    .right{
+      margin-left: 290px;
+    }
+  }
+
   @media all and (min-width: $bp-med) {
 
     .left,
@@ -701,6 +717,20 @@
       margin-left: 0;
       transform:   none;
     }
+
+    .left{
+      left:  4px;
+      right: auto;
+    }
+
+    .right{
+      left:  auto;
+      right: 4px;
+    }
+
+  }
+
+  @media all and (min-width: $bp-xl) {
 
     .left{
       left:  -0.4em;
@@ -714,6 +744,11 @@
 
 
   .js-carousel{
+    &.not-loaded{
+      width:  1px;
+      height: 1px;
+      overflow: hidden;
+    }
     &.loading ul:after {
       min-height: 15em;
     }
@@ -721,19 +756,45 @@
     .js-carousel-item{
       background-color: #fff;
       height:           100%;
-      width:            400px;
+      width:            300px;
+
+      @media all and (min-width: $bp-large) {
+        width: 220px;
+      }
+
+      @media all and (min-width: $bp-large) {
+        width: 280px;
+      }
+
+      @media all and (min-width: $bp-xl) {
+        width: 320px;
+      }
+
+      @media all and (min-width: $bp-xxl) {
+        width: 400px;
+      }
 
       img{
         display: block;
       }
       &.landscape img{
 
-        max-height: 15em;
+        height:     12em;
         min-width:  100%;
+        object-fit: cover;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
       }
       &.portrait-1 img{
 
-        max-height: 15em;
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
         min-width:  100%;
 
         object-fit:      cover;
@@ -741,7 +802,12 @@
       }
       &.portrait-2 img{
 
-        max-height: 15em;
+        height: 12em;
+
+        @media all and (min-width: $bp-large) {
+          height: 15em;
+        }
+
         min-width:  100%;
 
         object-fit:      contain;
@@ -753,10 +819,14 @@
         }
 
         img{
-          max-height: 15em;
-          min-width:  100%;
+          height: 12em;
 
-          object-fit:      contain;
+          @media all and (min-width: $bp-large) {
+            height: 15em;
+          }
+
+          min-width:  100%;
+          object-fit: contain;
         }
       }
 
@@ -851,7 +921,7 @@
     }
     a{
       line-height: $thumbnail_max_dimension_mlt;
-      &.arrow-hidden{
+      &.disabled{
         color: $gray-lighter;
       }
     }

@@ -710,7 +710,8 @@
               "filter-all": "All",
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen",
-              "skip-to-main":  "Skip to page contents",
+              "skip-to-main":     "Skip to page contents",
+              "skip-to-section":  "Skip to section",
               "next":"next",
               "previous":"previous"
             },

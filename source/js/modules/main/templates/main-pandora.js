@@ -9,7 +9,9 @@ require.config({
     jush:			'../../lib/jush/jush',
     smartmenus:		'../../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:	'../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
-    mustache:		'../../lib/mustache/mustache'
+    mustache:		'../../lib/mustache/mustache',
+    user_approval:  '../../eu/pandora/user-approval-form',
+    autocomplete:   '../../lib/autocomplete/autocomplete'
   }
 });
 

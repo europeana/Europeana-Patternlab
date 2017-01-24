@@ -47,6 +47,8 @@
     "next_prev": false
   },
 
+  "include_nav_searchbar": true,
+
   "content":
   {
     "object":
@@ -158,7 +160,7 @@
         "info": "javascript:alert('link to info');",
         "sections": [{
           "title": "Relations",
-          "items": [{"url": "http://www.wikidata.org/entity/Q15847665", "preserve_case": true, "text": "http://www.wikidata.org/entity/Q15847665", "title": false}]
+          "items": [{"url": "http://www.wikidata.org/entity/Q15847665", "text": "http://www.wikidata.org/entity/Q15847665", "title": false}]
         }]
       },
       "people":

@@ -15,10 +15,11 @@
     "next_prev": false,
     "global": {
       "options": {
-         "searchbar": true
        }
     }
   },
+
+  "include_nav_searchbar": true,
 
   "form_search": {
     "action": "javascript:alert('submit form');"
@@ -106,7 +107,18 @@
     ]
   },
   "logo_class": "fashion-logo",
+
   "content": {
+    "newsletter": {
+      "form": {
+        "language_op" : false,
+        "placeholder" : "email address"
+      },
+      "labels": {
+        "heading" : "Get the scoop!",
+        "subheading" : "Sign up for the Europeana fashion newsletter and stay in the know!"
+      }
+    },
     "sneak_peak": {
       "recently_viewed": {
         "items": ["Alexander McQueen", "Armani"]
@@ -397,13 +409,25 @@
         }
       ]
     },
-    "channel_blurb": {
+    "channel_info": {
       "description": "<b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.",
       "summary": "Records ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos and fashion catalogues.",
       "about" : {
         "text" : "About Europeana Fashion",
         "link_text" : "Europeana Fashion International Association",
         "link_url"  : "javascript(alert('follow link'))"
+      },
+      "credits": {
+        "items": [
+          {
+            "text": "Credit 1",
+            "url": "javascript:alert('follow credit link 1')"
+          },
+          {
+            "text": "Credit 2",
+            "url": "javascript:alert('follow credit link 2')"
+          }
+        ]
       }
     },
     "subscribe_url": "javascript:alert('follow subscribe link...')",
@@ -457,7 +481,7 @@
       ]
     },
     "social": {
-      "social_title": "Europeana Fashion on social media",
+      "social_title": "Follow Europeana Fashion",
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"
@@ -481,6 +505,10 @@
       "tumblr": {
         "url": "http://www.europeanafashion.tumblr.com",
         "text": "Tumblr"
+      },
+      "linkedin": {
+        "url": "http://www.linkedin.com",
+        "text": "LinkedIn"
       }
     },
     "carousel": {

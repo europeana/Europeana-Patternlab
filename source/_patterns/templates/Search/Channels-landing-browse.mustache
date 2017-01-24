@@ -24,23 +24,23 @@
     <div class="main-content">
       <div class="cf">
         <div class="landing-text">
-          {{#content.channel_blurb}}
-
-            <div class="landing-text-inner">
-              <span class="{{logo_class}} page-header"></span>
-              <span class="opening">
-              {{{description}}}
-              </span>
-              <span class="zoomed">{{{summary}}}</span>
-              {{#about}}
-                <div class="about">
-                  {{#text}}<span class="text">{{.}}</span>{{/text}}
-                  {{#link_url}}<a href="{{.}}">{{link_text}} <svg class="icon icon-linkout"><use xlink:href="#icon-linkout"/></svg></a>{{/link_url}}
-                </div>
-              {{/about}}
-            </div>
-
-          {{/content.channel_blurb}}
+          <div class="landing-text-inner">
+            <span class="{{logo_class}} page-header"></span>
+            <span>
+              {{#content.channel_info}}
+                {{{description}}}
+              {{/content.channel_info}}
+            </span>
+            {{#content.channel_info}}
+              {{#credits }}
+                <ul class="credit-list">
+                  {{#items}}
+                    <li><a href="{{url}}" class="external" target="_blank">{{text}}</a></li>
+                  {{/items}}
+                </ul>
+              {{/ credits }}
+            {{/content.channel_info}}
+          </div>
         </div>
 
         <div class="landing-featured brand-bottomleft brand-colour-white brand-opacity50">
@@ -69,6 +69,7 @@
           {{/items}}
         </ul>
       {{/content.promoted}}
+
     </div>
 
     <div class="entry-point-column">
@@ -93,61 +94,82 @@
       </ul>
       {{/content.entry_points}}
     </div>
+  </div>
 
-    <div class="sneak-peek-content cf">
-      {{#content}}
-        {{>organisms/sections/social-share}}
+  <div class="sneak-peek-content cf lc">
+    {{#content}}
+      {{#preview_search_data_present}}
+        <a id="scroll-trigger-preview"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="loadPreview"
+        ></a>
+        <script>
+          window.sneakPeakData = [];
+      {{/preview_search_data_present}}
 
-        {{#preview_search_url}}
-          <a id="scroll-trigger-preview"
-             class="scroll-trigger"
-             data-enabled="true"
-             data-fire-on-open="loadPreview"
-             data-fire-on-open-params='{ "loadUrl": "{{.}}" }'
-          ></a>
-        {{/preview_search_url}}
+      {{#preview_search_data}}
+          var entry = {};
+          entry['title'] = '{{preview_search_title}}';
+          entry['type']  = '{{preview_search_type}}';
+          entry['url']   = '{{preview_search_url}}';
+          window.sneakPeakData.push(entry);
+      {{/preview_search_data}}
+      {{#preview_search_data_present}}
+        </script>
+        <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+        <span class="sneak-peek-subheader"><span id="js-sneak-peek-type">{{preview_search_type}}</span>: <span id="js-sneak-peek-title">{{preview_search_title}}</span></span>
+      {{/preview_search_data_present}}
+    {{/content}}
 
-        {{#preview_search_data}}
-          <a id="scroll-trigger-preview"
-             class="scroll-trigger"
-             data-enabled="true"
-             data-fire-on-open="loadPreview"
-             data-fire-on-open-params='{ "loadUrl": "{{preview_search_url}}" }'
-          ></a>
-        {{/preview_search_data}}
+    {{#content.sneak_peak}}
+      <ul class="comma-list recently-viewed">
+        {{#recently_viewed.items}}
+          <li>{{.}}</li>
+        {{/recently_viewed.items}}
+      </ul>
+      <ol class="sneak-peek-list result-items display-grid cf not-loaded">
+        <li class="grid-sizer"></li>
+        {{# items }}
+          <li>
+            {{> molecules/components/search/search-listitem }}
+          </li>
+        {{/ items }}
+      </ol>
+      <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
+    {{/ content.sneak_peak }}
+    {{^ content.sneak_peak }}
+      <ol class="sneak-peek-list result-items display-grid cf">
+        <li class="grid-sizer"></li>
+      </ol>
+    {{/ content.sneak_peak }}
+    <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+  </div>
 
-      {{/content}}
-      <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
+  {{#content}}
 
-      {{#content.preview_search_data}}
-        <span class="sneak-peek-subheader">{{preview_search_type}}: {{preview_search_title}}</span>
-      {{/content.preview_search_data}}
+    <div class="lc cf">
 
-      {{#content.sneak_peak}}
-        <ul class="comma-list recently-viewed">
-          {{#recently_viewed.items}}
-            <li>{{.}}</li>
-          {{/recently_viewed.items}}
-        </ul>
-        <ol class="sneak-peek-list result-items display-grid cf">
-          <li class="grid-sizer"></li>
-          {{# items }}
-            <li>
-              {{> molecules/components/search/search-listitem }}
-            </li>
-          {{/ items }}
-        </ol>
-        <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
-      {{/ content.sneak_peak }}
-      {{^ content.sneak_peak }}
-        <ol class="sneak-peek-list result-items display-grid cf">
-          <li class="grid-sizer"></li>
-        </ol>
-      {{/ content.sneak_peak }}
-      <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+      {{>organisms/sections/social-share}}
+
+      <div class="custom-newsletter-outer">
+        <section class="custom-newsletter">
+          <span class="cell">
+            {{#newsletter.labels}}
+              <h4>{{heading}}</h4>
+              {{subheading}}
+            {{/newsletter.labels}}
+          </span>
+          <span class="cell">
+            {{>molecules/forms/newsletter}}
+          </span>
+        </section>
+      </div>
 
     </div>
-  </div>
+
+  {{/content}}
+
 </section>
 
 <section class="channels-landing-browse happening-content">
@@ -158,20 +180,19 @@
     <span class="subscribe-block">{{> atoms/text/clicktip}}<a class="show-feeds">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
 
     {{#content.carousel}}
-
       <div class="cf lc happening-feed-container">
         <a id="scroll-trigger-carousel"
            class="scroll-trigger"
            data-enabled="true"
            data-fire-on-open="showCarousel"
-           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "aggregated", "svg": true, "minSpacingPx": 30, "smallButtons": true}'
+           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "aggregated", "arrowClass": "white-grey", "minSpacingPx": 30, "smallButtons": true}'
         ></a>
-        <div class="js-carousel happening-feed">
+        <div class="js-carousel happening-feed not-loaded">
           <ul class="cf">
             {{#items}}
               <li class="js-carousel-item">
 
-                <div class="js-carousel-item-img-wrap"><img src="{{img.src}}"/></div>
+                <div class="js-carousel-item-img-wrap"><a href="{{url}}"><img src="{{img.src}}"/></a></div>
 
                 <div class="js-carousel-texts">
                   {{#title}}

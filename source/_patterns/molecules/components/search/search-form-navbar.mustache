@@ -6,8 +6,11 @@
         {{#navigation.back_url}}<li><a href="{{.}}">{{navigation.back_label}}</a></li>{{/navigation.back_url}}
         <li class="js-return"><a href="">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>
         {{#navigation.last_label}}<li><span class="lastitem"><strong>{{.}}</strong></span></li>{{/navigation.last_label}}
+        {{#content.channel_info.name}}<li><span class="lastitem"><strong>{{.}}</strong></span></li>{{/content.channel_info.name}}
       </ul>
       {{>molecules/navigation/next-previous}}
     </div>
-    {{>molecules/forms/search-item-navigation}}
+    {{#include_nav_searchbar}}
+      {{>molecules/forms/search-item-navigation}}
+    {{/include_nav_searchbar}}
   </div>
