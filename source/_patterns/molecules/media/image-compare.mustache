@@ -1,15 +1,15 @@
 <div class="cf">
   <div class="image-compare">
     <div class="handle"></div>
-    {{#image_1}}
-      {{>atoms/images/responsive-srcset-picture}}
-    {{/image_1}}
-
     {{#image_2}}
+      {{>atoms/images/responsive-srcset-picture}}
+    {{/image_2}}
+
+    {{#image_1}}
       <div class="resize-img">
       {{>atoms/images/responsive-srcset-picture}}
       </div>
-    {{/image_2}}
+    {{/image_1}}
   </div>
 </div>
   <div class="attribution-text">
