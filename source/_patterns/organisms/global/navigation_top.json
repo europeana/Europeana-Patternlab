@@ -1,22 +1,27 @@
 {
     "primary_nav": {
+      "submenu": false,
       "items": [
           {
-              "url": "",
-              "text": "Primary 1",
-              "is_current": true
+            "url": "",
+            "text": "Primary 1",
+            "is_current": true,
+            "submenu": false
           },
           {
-              "url": "",
-              "text": "Primary 2"
+            "url": "",
+            "text": "Primary 2",
+            "submenu": false
           },
           {
-              "url": "Primary 3",
-              "text": "Primary 3"
+            "url": "Primary 3",
+            "text": "Primary 3",
+            "submenu": false
           },
           {
-              "url": "",
-              "text": "Primary 4"
+            "url": "",
+            "text": "Primary 4",
+            "submenu": false
           }
       ]
     }

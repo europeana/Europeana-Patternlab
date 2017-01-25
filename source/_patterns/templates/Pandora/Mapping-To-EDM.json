@@ -1,867 +1,886 @@
 {
-	"css_files": 
-	[
-		{
-			"path": "../../css/pandora/screen.css",
-			"media": "all"
-		},
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
 
-		{
-			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
-			"media": "all"
-		}
-	],
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
 
-	"js_files": 
-	[
-		{
-			"path": "../../js/modules/require.js",
-			"data_main": "../../js/modules/main/templates/main-pandora"
-		}
-	],
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
 
-	"js_vars": 
-	[
-		{
-			"name": "pageName",
-			"value": "portal/index"
-		}
-	],
+  "js_vars":
+  [
+    {
+      "name": "pageName",
+      "value": "portal/index"
+    }
+  ],
 
-	"page_title": "Pandora",
-	"breadcrumbs": 
-	[
-		{
-			"text": "Grandparent",
-			"url": "#"
-		},
+  "page_title": "Pandora",
+  "breadcrumbs":
+  [
+    {
+      "text": "Grandparent",
+      "url": "#"
+    },
 
-		{
-			"text": "Parent",
-			"url": "#"
-		},
+    {
+      "text": "Parent",
+      "url": "#"
+    },
 
-		{
-			"text": "Child",
-			"url": "#"
-		},
+    {
+      "text": "Child",
+      "url": "#"
+    },
 
-		{
-			"text": "Grandchild",
-			"url": "#"
-		}
-	],
-	
+    {
+      "text": "Grandchild",
+      "url": "#"
+    }
+  ],
+
     "metis_header": {
-		"navigation": 
-		{
-			"home_url": "#",
-			"home_text": "Return to Home",
-			"next_prev": 
-			{
-				"next_url": "next_url_here",
-				"prev_url": "prev_url_here",
-				"results_url": "results_url_here"
-			},
-	
-			"footer": false,
-			"global": 
-			{
-				"options": 
-				{
-					"search_active": false,
-					"settings_active": true
-				},
-	
-				"logo": 
-				{
-					"url": "#",
-					"text": "Europeana Pandora"
-				},
-				"primary_nav": {
-			    	"items": [
-			            {
-			              "text": "New Dataset",
-			              "url": "/new-dataset-page",
-			              "is_current": false,
-			              "submenu": false
-			            },
-			            {
-			              "text": "All Datasets",
-			              "url": "/all-datasets-page",
-			              "is_current": false,
-			              "submenu": false
-			            },
-			            {
-			              "text": "Management",
-			              "url": "#",
-			              "is_current": false,
-			              "submenu": {
-			                "items": [
-			                  {
-			                    "text": "Organizations",
-			                    "url": "#",
-			                    "subtitle": false,
-			                    "submenu": false
-			                  },
-			                  {
-			                    "text": "Users",
-			                    "url": "#",
-			                    "message": false,
-			                    "submenu": false
-			                  },
-			                  {
-			                    "is_divider": true
-			                  },
-			                  {
-			                    "text": "Crosswalks",
-			                    "submenu": false
-			                  },
-			                  {
-			                    "text": "Entities",
-			                    "url": "#",
-			                    "submenu": false
-			                  },
-			                  {
-			                    "text": "Schemas (XSD)",
-			                    "url": "#",
-			                    "submenu": false
-			                  }
-			                ]
-			              }
-			            }
-			    	],
-					"menu_id": "main-menu"
-		        },
-				"utility_nav": 
-				{
-					"menu_id": "settings-menu",
-					"style_modifier": "caret-right",
-					"tabindex": "6",
-					"items": 
-					[
-						{
-							"url": "#",
-							"text": "Settings",
-							"icon": "settings",
-				            "submenu": {
-				              "items": [
-				                {
-				                  "text": "My Profile",
-				                  "url": "#"
-				                },
-				                {
-				                  "is_divider": true
-				                },
-				                {
-				                  "text": "Logout",
-				                  "url": "#"
-				                }
-				              ]
-				            }
-						}
-					]
-				}
-			}
-		}
-	},
-	"action_menu": 
-	[
-		{
-			"sections": 
-			[
-				{
-					"menu": 
-					{
-						"button_title": "View",
-						"menu_title": "Show:",
-						"menu_id": "object_furtheractions",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "Mapping to EDM",
-								"url": "javascript:$('.dropdown-trigger').innerHTML = 'Mapping to EDM'"
-							},
-
-							{
-								"text": "Source Schema",
-								"url": "#"
-							},
-
-							{
-								"text": "Per Item",
-								"url": "#"
-							},
-
-							{
-								"text": "XSLT Editor",
-								"url": "#"
-							}
-						]
-					}
-				},
-
-				{
-					"menu": 
-					{
-						"button_title": "Browse",
-						"menu_title": "Filter by:",
-						"menu_id": "object_furtheractions2",
-						"style_modifier": "theme_select",
-						"items": 
-						[
-							{
-								"text": "dc:title",
-								"url": "#"
-							},
-
-							{
-								"text": "@xml:lang",
-								"url": "#"
-							},
-
-							{
-								"text": "dc:creator",
-								"url": "#"
-							},
-
-							{
-								"text": "@xml:lang",
-								"url": "#"
-							},
-
-							{
-								"text": "dc:language",
-								"url": "#"
-							},
-
-							{
-								"text": "@xml:lang",
-								"url": "#"
-							},
-
-							{
-								"text": "dc:subject",
-								"url": "#"
-							},
-
-							{
-								"text": "@xml:lang",
-								"url": "#"
-							},
-
-							{
-								"text": "dc:identifier",
-								"url": "#"
-							}
-						]
-					}
-				}
-			]
-		},
-
-		{
-			"search_box": 
-			{
-				"search_box_legend": "Search",
-				"search_box_label": "Search Label",
-				"search_box_hidden": "Search Hidden"
-			}
-		}
-	],
-
-	"mapping_card": 
-	{
-		"object_id": "mapping_card_01",
-		"prefix": "@rdf",
-		"name": "about",
-		"dropdown": 
-		{
-			"menu-title": "Set item as:",
-			"button_title": " ",
-			"menu_id": "mapping-card-dropdown",
-			"style_modifier": "theme_select",
-			"items": 
-			[
-				{
-					"text": "Valid",
-					"url": "#"
-				},
-
-				{
-					"text": "Suspicious",
-					"url": "#"
-				},
-
-				{
-					"text": "Invalid",
-					"url": "#"
-				},
-
-				{
-					"divider": true,
-					"url": false
-				},
-
-				{
-					"text": "Remove all marks",
-					"url": "#"
-				}
-			]
-		},
-
-		"field_value_cells": 
-		[
-			{
-				"object_id": "object_id00",
-				"tooltip": 
-				{
-					"tooltipped_text": "http://mint-projects...",
-					"tooltip_text": "The Tooltip for Text or URL 1"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id01",
-				"tooltip": 
-				{
-					"tooltipped_text": "http://mint-projects.image...",
-					"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id02",
-				"tooltip": 
-				{
-					"tooltipped_text": "http://mint-proj...",
-					"tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id03",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 4",
-					"tooltip_text": "The Tooltip for Text or URL 4"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id04",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 5",
-					"tooltip_text": "The Tooltip for Text or URL 5"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id10",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id11",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id12",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id13",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id14",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id20",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id21",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id22",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id23",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id24",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id30",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id31",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id32",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id33",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id34",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id40",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id41",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id42",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id43",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id44",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id50",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id51",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id52",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id53",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id54",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id60",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id61",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id62",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id63",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id64",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id70",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id71",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id72",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id73",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id74",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id80",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id81",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id82",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id83",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id84",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id90",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 6",
-					"tooltip_text": "The Tooltip for Text or URL 6"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id91",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 7",
-					"tooltip_text": "The Tooltip for Text or URL 7"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id92",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 8",
-					"tooltip_text": "The Tooltip for Text or URL 8"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id93",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 9",
-					"tooltip_text": "The Tooltip for Text or URL 9"
-				},
-
-				"occurence": "123"
-			},
-
-			{
-				"object_id": "object_id94",
-				"tooltip": 
-				{
-					"tooltipped_text": "Some Text or URL 10",
-					"tooltip_text": "The Tooltip for Text or URL 10"
-				},
-
-				"occurence": "123"
-			}
-		]
-	}
+    "navigation":
+    {
+      "home_url": "#",
+      "home_text": "Return to Home",
+      "next_prev":
+      {
+        "next_url": "next_url_here",
+        "prev_url": "prev_url_here",
+        "results_url": "results_url_here"
+      },
+
+      "footer": false,
+      "global":
+      {
+        "options":
+        {
+          "search_active": false,
+          "settings_active": true
+        },
+
+        "logo":
+        {
+          "url": "#",
+          "text": "Europeana Pandora"
+        },
+        "primary_nav": {
+            "submenu": false,
+            "items": [
+                  {
+                    "text": "New Dataset",
+                    "url": "/new-dataset-page",
+                    "is_current": false,
+                    "submenu": false
+                  },
+                  {
+                    "text": "All Datasets",
+                    "url": "/all-datasets-page",
+                    "is_current": false,
+                    "submenu": false
+                  },
+                  {
+                    "text": "Management",
+                    "url": "#",
+                    "is_current": false,
+                    "submenu": {
+                      "items": [
+                        {
+                          "text": "Organizations",
+                          "url": "#",
+                          "subtitle": false,
+                          "submenu": false
+                        },
+                        {
+                          "text": "Users",
+                          "url": "#",
+                          "message": false,
+                          "submenu": false
+                        },
+                        {
+                          "is_divider": true,
+                          "submenu": false
+                        },
+                        {
+                          "text": "Crosswalks",
+                          "submenu": false
+                        },
+                        {
+                          "text": "Entities",
+                          "url": "#",
+                          "submenu": false
+                        },
+                        {
+                          "text": "Schemas (XSD)",
+                          "url": "#",
+                          "submenu": false
+                        }
+                      ]
+                    }
+                  }
+            ],
+          "menu_id": "main-menu"
+            },
+        "utility_nav":
+        {
+          "menu_id": "settings-menu",
+          "style_modifier": "caret-right",
+          "tabindex": "6",
+          "items":
+          [
+            {
+              "url": "#",
+              "submenu": false,
+              "text": "Settings",
+              "icon": "settings",
+                    "submenu": {
+                      "items": [
+                        {
+                          "text": "My Profile",
+                          "submenu": false,
+                          "url": "#"
+                        },
+                        {
+                          "submenu": false,
+                          "is_divider": true
+                        },
+                        {
+                          "text": "Logout",
+                          "submenu": false,
+                          "url": "#"
+                        }
+                      ]
+                    }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "action_menu":
+  [
+    {
+      "sections":
+      [
+        {
+          "menu":
+          {
+            "button_title": "View",
+            "menu_title": "Show:",
+            "menu_id": "object_furtheractions",
+            "style_modifier": "theme_select",
+            "items":
+            [
+              {
+                "submenu": false,
+                "text": "Mapping to EDM",
+                "url": "javascript:$('.dropdown-trigger').innerHTML = 'Mapping to EDM'"
+              },
+
+              {
+                "submenu": false,
+                "text": "Source Schema",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "Per Item",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "XSLT Editor",
+                "url": "#"
+              }
+            ]
+          }
+        },
+
+        {
+          "menu":
+          {
+            "button_title": "Browse",
+            "menu_title": "Filter by:",
+            "menu_id": "object_furtheractions2",
+            "style_modifier": "theme_select",
+            "items":
+            [
+              {
+                "submenu": false,
+                "text": "dc:title",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "@xml:lang",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "dc:creator",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "@xml:lang",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "dc:language",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "@xml:lang",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "dc:subject",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "@xml:lang",
+                "url": "#"
+              },
+
+              {
+                "submenu": false,
+                "text": "dc:identifier",
+                "url": "#"
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "search_box":
+      {
+        "search_box_legend": "Search",
+        "search_box_label": "Search Label",
+        "search_box_hidden": "Search Hidden"
+      }
+    }
+  ],
+
+  "mapping_card":
+  {
+    "object_id": "mapping_card_01",
+    "prefix": "@rdf",
+    "name": "about",
+    "dropdown":
+    {
+      "menu-title": "Set item as:",
+      "button_title": " ",
+      "menu_id": "mapping-card-dropdown",
+      "style_modifier": "theme_select",
+      "items":
+      [
+        {
+          "text": "Valid",
+          "url": "#"
+        },
+
+        {
+          "text": "Suspicious",
+          "url": "#"
+        },
+
+        {
+          "text": "Invalid",
+          "url": "#"
+        },
+
+        {
+          "divider": true,
+          "url": false
+        },
+
+        {
+          "text": "Remove all marks",
+          "url": "#"
+        }
+      ]
+    },
+
+    "field_value_cells":
+    [
+      {
+        "object_id": "object_id00",
+        "tooltip":
+        {
+          "tooltipped_text": "http://mint-projects...",
+          "tooltip_text": "The Tooltip for Text or URL 1"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id01",
+        "tooltip":
+        {
+          "tooltipped_text": "http://mint-projects.image...",
+          "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id02",
+        "tooltip":
+        {
+          "tooltipped_text": "http://mint-proj...",
+          "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id03",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 4",
+          "tooltip_text": "The Tooltip for Text or URL 4"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id04",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 5",
+          "tooltip_text": "The Tooltip for Text or URL 5"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id10",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id11",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id12",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id13",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id14",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id20",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id21",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id22",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id23",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id24",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id30",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id31",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id32",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id33",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id34",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id40",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id41",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id42",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id43",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id44",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id50",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id51",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id52",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id53",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id54",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id60",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id61",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id62",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id63",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id64",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id70",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id71",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id72",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id73",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id74",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id80",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id81",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id82",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id83",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id84",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id90",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 6",
+          "tooltip_text": "The Tooltip for Text or URL 6"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id91",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 7",
+          "tooltip_text": "The Tooltip for Text or URL 7"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id92",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 8",
+          "tooltip_text": "The Tooltip for Text or URL 8"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id93",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 9",
+          "tooltip_text": "The Tooltip for Text or URL 9"
+        },
+
+        "occurence": "123"
+      },
+
+      {
+        "object_id": "object_id94",
+        "tooltip":
+        {
+          "tooltipped_text": "Some Text or URL 10",
+          "tooltip_text": "The Tooltip for Text or URL 10"
+        },
+
+        "occurence": "123"
+      }
+    ]
+  }
 }

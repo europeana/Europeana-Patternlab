@@ -67,6 +67,7 @@
           },
           "primary_nav":
           {
+            "submenu": false,
             "menu_id": "main-menu",
             "items": [
               {

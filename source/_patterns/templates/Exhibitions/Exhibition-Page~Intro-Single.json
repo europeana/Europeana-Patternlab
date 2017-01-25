@@ -42,29 +42,36 @@
             "submenu": {
               "items": [
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open exhibition')",
                   "text": "Exhibitions 1"
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open exhibition')",
                   "text": "Exhibitions 2"
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open exhibition')",
                   "text": "Exhibitions 3"
                 },
                 {
+                  "submenu": false,
                   "is_divider": true
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open exhibition')",
                   "text": "Exhibitions 4"
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open exhibition')",
                   "text": "Exhibitions 5"
                 },
                 {
+                  "submenu": false,
                   "url": "url to foyer",
                   "text": "All Exhibitions…",
                   "is_morelink": true
@@ -78,14 +85,17 @@
             "submenu": {
               "items": [
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open chapter')",
                   "text": "Chaper 1"
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open chapter')",
                   "text": "Chaper 2"
                 },
                 {
+                  "submenu": false,
                   "url": "javascript:alert('open chapter')",
                   "text": "Chaper 3"
                 }
