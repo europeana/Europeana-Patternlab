@@ -35,7 +35,7 @@
 
       {{# primary_nav }}
         <nav role="navigation" class="nav_primary">
-          {{> molecules/navigation/smartmenu }}
+          {{> molecules/navigation/smartmenu-x }}
         </nav>
       {{/ primary_nav }}
 
@@ -118,9 +118,19 @@
         {{#submenu}}
           <ul class="sub-menu">
           {{#items}}
-          {{^subtitle}}
-            <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
-          {{/subtitle}}
+            {{^subtitle}}
+              <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a>
+                {{#submenu}}
+                  <ul class="sub-menu">
+                    {{#items}}
+                      {{^subtitle}}
+                        <li><a href="{{#url}}{{.}}{{/url}}{{^url}}#{{/url}}" {{#is_current}}class="current"{{/is_current}}>{{text}}</a></li>
+                      {{/subtitle}}
+                    {{/items}}
+                  </ul>
+              {{/submenu}}
+              </li>
+            {{/subtitle}}
           {{/items}}
           </ul>
         {{/submenu}}
