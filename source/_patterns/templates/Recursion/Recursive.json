@@ -1,64 +1,50 @@
 {
-  "item": {
+  "name": "Top level",
+  "children": {
+    "items": [
+      {
+        "name": "Level A child 1",
+        "children": false
+      },
 
-    "name": "Top level",
-    "children": {
-      "items": [
-        {
-          "item": {
-            "name": "Level A child 1",
-            "children": false
-          }
-        },
-        {
-          "item": {
-            "name": "Level A child 2",
-            "children": {
-              "items": [
-                {
-                  "item": {
-                    "name": "Level B child 1",
-                    "children": {
-                      "items": [
-                        {
-                          "item": {
-                            "name": "Level C child 1",
-                            "children": false
-                          }
-                        },
-                        {
-                          "item": {
-                            "name": "Level C child 2",
-                            "children": false
-                          }
-                        },
-                        {
-                          "item": {
-                            "name": "Level C child 3",
-                            "children": false
-                          }
-                        },
-                        {
-                          "item": {
-                            "name": "Level C child 4",
-                            "children": false
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "item": {
-                    "name": "Level B child 2",
+      {
+        "name": "Level A child 2",
+        "children": {
+          "items": [
+            {
+              "name": "Level B child 1",
+              "children": {
+                "items": [
+                  {
+                    "name": "Level C child 1",
+                    "children": false
+                  },
+                  {
+                    "name": "Level C child 2",
+                    "children": false
+                  },
+                  {
+                    "name": "Level C child 3",
+                    "children": false
+                  },
+                  {
+                    "name": "Level C child 4",
                     "children": false
                   }
-                }
-              ]
+                ]
+              }
+            },
+            {
+              "name": "Level B child 2",
+              "children": false
             }
-          }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "name": "Level A child 3",
+        "children": false
+      }
+    ]
   }
 }
