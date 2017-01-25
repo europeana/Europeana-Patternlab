@@ -1,6 +1,10 @@
 define(['jquery', 'autocomplete'], function ($) {
 
-    function switchPopUp(term, update) {
+    var currentRoles = [];
+    var currentKeys = [];
+    var selectedRoles = [];
+    function switchPopUp(term, update, roles) {
+        
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur');
 
@@ -9,39 +13,90 @@ define(['jquery', 'autocomplete'], function ($) {
             $('.modal-wrapper').addClass('updatingRole');
         }
 
+        if(roles) {
+            var optionsList = '';
+
+            roles[0].roles.map(function(role) {
+                optionsList += '<option value="' + role.name + '">' + role.name + '</option>';
+            });
+
+            if (!arraySearch(currentRoles, term)) {
+                currentRoles[term] = optionsList;
+                selectedRoles.push(term);
+                currentKeys.push(term);
+            }
+
+            $('#availableRoles').html(optionsList);
+        }
+
         $('.currentSelectedOrganization').html(term);
+
         $('#searchOrganization').val('');
         $('#searchOrganization').attr('placeholder', 'Search Organizations ...');
+
+    };
+
+
+    function arraySearch(arr,val) {
+        for (var i=0; i<arr.length; i++)
+            if (arr[i] === val)
+                return i;
+        return false;
+    };
+
+    Array.prototype.exclude = function(list){
+        return this.filter(function(el){return list.indexOf(el)<0;})
     };
 
     $('#searchOrganization').autoComplete({
+        cache: false,
         minChars: 2,
         onSelect: function (e, term, item) {
-            switchPopUp(term);
+            var result = $.grep(data, function(e){ return (e.name).toUpperCase() === term; });
+
+            switchPopUp(term, false, result);
         },
+        renderItem: function (item, search) {
+            // escape special characters
+            search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+            return '<div class="autocomplete-suggestion" data-val="' + item + '">' + item.replace(re, "<b>$1</b>") + '</div>';
+        },
+
         source: function (term, response) {
             var typedSearch = $('#searchOrganization').val().toUpperCase();
 
-            $.getJSON(
-                // TODO: test URL. Get the right one for production.
-                // 'http://twitter.github.io/typeahead.js/data/films/queries/b.json',
-                'https://www.europeana.eu/api/v2/search.json?wskey=api2demo&rows=9&query="' + typedSearch + '"',
+            var jsonPromise = $.getJSON(
+                // TODO: test URL. Get the right URL for production.
+                // 'https://www.europeana.eu/api/v2/search.json?wskey=api2demo&rows=9&query="' + typedSearch + '"',
+                'http://metis.webdeveloper-tips.com/organizations.json',
                 function (data) {
                     var final = [];
-                    var items = data.items;
+                    var items = data.orgs;
+
                     items.map(function (x) {
-                        var stringVal = x.title[0].toUpperCase();
+                        var stringVal = x.name.toUpperCase();
+
                         if (stringVal.indexOf(typedSearch) !== -1) {
                             final.push(stringVal);
                         } else {
                             return stringVal;
                         }
                     });
+
+                    final = final.exclude(currentKeys);
                     response(final);
                 }
             );
+            jsonPromise.done(function (data) {
+                saveData(data.orgs)
+            });
         }
     });
+
+    function saveData(dat) {
+        data = dat;
+    };
 
     $('.btn-close').click(function () {
         switchPopUp();
@@ -49,23 +104,39 @@ define(['jquery', 'autocomplete'], function ($) {
 
     //clicking an already selected organization from the selected box.
     $('.selectedOrganizations').on('click', '.selectedOrganization', function () {
+        console.log('updating roles for org');
         switchPopUp($(this).text(), true);
     });
 
-    $('.selectedOrganizations').on('click', '.removeOrganization', function() {
-       $(this).parent().parent().remove();
+    $('.selectedOrganizations').on('click', '.removeOrganization', function () {
+
+        $(this).parent().parent().remove();
+         delete currentRoles[$(this).data('name')];
+
+        // TODO: wrap in a fc.
+        var index = selectedRoles.indexOf($(this).data('name'));
+        if (index > -1) {
+            selectedRoles.splice(index, 1);
+        }
+
+        var indexCurrentKeys = currentKeys.indexOf($(this).data('name'));
+        if (indexCurrentKeys > -1) {
+            currentKeys.splice(index, 1);
+        }
+
     });
     // after clicking button the role is assigned to the current organization and the pop-up it's closed
     $('#roleSelection').on('click', function () {
 
             var selectedOrg = $('.currentSelectedOrganization').text();
+            var selectedRole = $('#availableRoles').find(":selected").text();
 
             if (!$('.modal-wrapper').hasClass('updatingRole')) {
                 $('.selectedOrganizations')
                     .append(
                         '<div class="selectedOrg"><a class="selectedOrganization alreadySelected">'
-                        + selectedOrg
-                        + '</a> <b><a class="removeOrganization">X</a></b></div>'
+                        + selectedOrg + ': ' + selectedRole
+                        + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg + '"> X</a></b></div>'
                     );
             } else {
                 $('.modal-wrapper').removeClass('updatingRole');
