@@ -683,6 +683,8 @@
     &.disabled{
       color:  $gray-lighter;
       cursor: default;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     &:not(.disabled):hover{

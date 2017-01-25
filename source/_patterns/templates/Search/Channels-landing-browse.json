@@ -418,6 +418,7 @@
         "link_url"  : "javascript(alert('follow link'))"
       },
       "credits": {
+        "title": "About Europeana Fashion",
         "items": [
           {
             "text": "Credit 1",
