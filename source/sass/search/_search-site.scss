@@ -701,7 +701,7 @@
 // LANDING ALTERNATIVE
 
 .channels-landing-browse{
-  padding: 0.5em 1em;
+  padding: 1em 1em 2em 1em;
 
   .custom-newsletter,
   .channel-social{
@@ -962,7 +962,7 @@
 
   .js-carousel-type{
     border-radius:  4px;
-    bottom:         0.5em;
+    bottom:         $pad;
     color:          #fff;
     font-size:      $font-size-sm;
     font-weight:    bold;
