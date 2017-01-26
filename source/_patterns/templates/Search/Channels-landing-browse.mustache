@@ -5,21 +5,13 @@
 <section class="channels-landing-browse after-header-with-search">
 
   <div class="lc">
-    {{#content.preview_search_url}}
+    {{#content.preview_search_data_present}}
       <a class="scroll-trigger trigger-chain"
          data-enabled="true"
          data-disable-when-fired="loadPreview"
-         data-fire-on-open-params='{ "trigger": "scroll-trigger-preview"}'>
+         data-fire-on-open-params='{"trigger": "scroll-trigger-preview"}'>
       </a>
-    {{/content.preview_search_url}}
-
-    {{#content.preview_search_data}}
-      <a class="scroll-trigger trigger-chain"
-         data-enabled="true"
-         data-disable-when-fired="loadPreview"
-         data-fire-on-open-params='{ "trigger": "scroll-trigger-preview"}'>
-      </a>
-    {{/content.preview_search_data}}
+    {{/content.preview_search_data_present}}
 
     <div class="main-content">
       <div class="cf">
@@ -100,30 +92,30 @@
   <div class="sneak-peek-content cf lc">
     {{#content}}
       {{#preview_search_data_present}}
-        <a id="scroll-trigger-preview"
-           class="scroll-trigger"
+        <a class="scroll-trigger"
            data-enabled="true"
            data-fire-on-open="loadPreview"
-        ></a>
+           data-disable-when-fired="loadPreview"
+           id="scroll-trigger-preview">
+        </a>
         <script>
-          window.sneakPeakData = [];
-      {{/preview_search_data_present}}
-
-      {{#preview_search_data}}
-          var entry = {};
-          entry['title'] = '{{preview_search_title}}';
-          entry['type']  = '{{preview_search_type}}';
-          entry['url']   = '{{preview_search_url}}';
-          window.sneakPeakData.push(entry);
-      {{/preview_search_data}}
-      {{#preview_search_data_present}}
+        window.sneakPeekData = [];
+          {{#preview_search_data}}
+            var entry = {};
+            entry['title'] = '{{preview_search_title}}';
+            entry['type']  = '{{preview_search_type}}';
+            entry['url']   = '{{preview_search_url}}';
+            entry['extra'] = '{{preview_search_more_link}}';
+            window.sneakPeekData.push(entry);
+          {{/preview_search_data}}
         </script>
+
         <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
         <span class="sneak-peek-subheader"><span id="js-sneak-peek-type">{{preview_search_type}}</span>: <span id="js-sneak-peek-title">{{preview_search_title}}</span></span>
       {{/preview_search_data_present}}
     {{/content}}
 
-    {{#content.sneak_peak}}
+    {{#content.sneak_peek}}
       <ul class="comma-list recently-viewed">
         {{#recently_viewed.items}}
           <li>{{.}}</li>
@@ -138,12 +130,14 @@
         {{/ items }}
       </ol>
       <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
-    {{/ content.sneak_peak }}
-    {{^ content.sneak_peak }}
+    {{/ content.sneak_peek }}
+
+    {{^ content.sneak_peek }}
       <ol class="sneak-peek-list result-items display-grid cf">
         <li class="grid-sizer"></li>
       </ol>
-    {{/ content.sneak_peak }}
+      <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}…</a></div>
+    {{/ content.sneak_peek }}
     <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
   </div>
 
