@@ -1,0 +1,132 @@
+@import "../_patterns/atoms/iconography/_svg-icon-info";
+
+.gallery-foyer{
+  .hero-text{
+    width: auto;
+  }
+}
+
+.gallery-shares{
+
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 0 0 0;
+
+  h4{
+    margin: 1.1em $space 0 0;
+  }
+
+}
+
+.galleries{
+
+  margin-bottom: 2em;
+
+  .gutter-sizer{
+
+    width:      0;
+
+    @media all and (min-width: $bp-small-3) {
+      width:    4%;
+    }
+
+    @media all and (min-width: $bp-med) {
+      width:    1.5%;
+    }
+
+    @media all and (min-width: $bp-large) {
+      width:    5%;
+    }
+
+  }
+
+
+  .image-set,
+  .grid-sizer{
+
+    width:      100%;
+
+    @media all and (min-width: $bp-small-3) {
+      width:    48%;
+    }
+
+    @media all and (min-width: $bp-med) {
+      width:    48.5%;
+    }
+
+    @media all and (min-width: $bp-large) {
+      width:    30%;
+    }
+  }
+
+
+  .image-set{
+
+    margin-bottom: 2em;
+
+    img{
+      height:     100%;
+      object-fit: cover;
+      width:      100%;
+    }
+
+    .img-link{
+      border-bottom: 0.25em solid #fff;
+      display:    block;
+      height:     11em;
+      float:      left;
+      object-fit: cover;
+      width:      50%;
+
+      &:first-of-type{
+        border-bottom: 0;
+        border-right:  0.5em solid #fff;
+        height:        22em;
+      }
+
+      &:last-of-type{
+        border-bottom: 0;
+        border-top:    0.25em solid #fff;
+      }
+    }
+
+    &.layout-portrait{
+      .img-link{
+        height: 15em;
+
+        &:first-of-type{
+          height: 22em;
+        }
+
+        &:last-of-type{
+          height: 7em;
+        }
+      }
+    }
+
+    .image-set-data{
+      position: relative;
+      .svg-icon-info{
+        display:  block;
+        height:   1.6em;
+        position: absolute;
+        right:    0;
+        width:    1.6em;
+      }
+    }
+
+    .image-set-info,
+    .image-set-info a{
+      color:     #4D4D4D;
+      display:   flex;
+      font-size: $font-size-slightly-smaller;
+    }
+
+    .image-set-title{
+      flex-grow:   1;
+      font-size:   $font-size-med;
+      font-weight: bold;
+    }
+  }
+
+}

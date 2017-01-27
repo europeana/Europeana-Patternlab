@@ -99,6 +99,7 @@ require.config({
 
     search_landing:                '../../eu/channel-landing',
     search_form:                   '../../eu/search-form',
+    search_galleries:              '../../eu/search-galleries',
     search_home:                   '../../eu/search-home',
     search_object:                 '../../eu/search-object',
     search_results:                '../../eu/search-results',

@@ -39,13 +39,28 @@
       width: 35%;
     }
 
-     a{
+    a{
       color: $white;
       border-bottom: 1px dotted $white;
 
       &:hover, &:focus{
         color: $accent;
         border-color: $accent;
+      }
+    }
+  }
+
+  &.gallery-foyer{
+
+    height: 11em;
+
+    .hero-text{
+      background-color: transparent;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      h1{
+        font-weight: bold;
       }
     }
   }
@@ -77,5 +92,8 @@
   margin-top: $globalnavheight;
   @media all and (min-width: $bp-small) {
     height: 50%;
+  }
+  &.gallery-foyer{
+    margin-top: 0;
   }
 }

@@ -801,9 +801,9 @@
                 "correction": "correction",
                 "bug": "bug"
               }
-
             },
             "find-us-elsewhere": "Find us elsewhere",
+            "galleries": "Galleries",
             "header": {
               "discover": "Discover",
               "network": "Network",
@@ -814,6 +814,9 @@
             "page": "page",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
+            "labels": {
+              "images": "images"
+            },
             "language-english": "English",
             "language-french": "Français",
             "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
