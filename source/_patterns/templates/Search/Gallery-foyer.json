@@ -97,15 +97,19 @@
         "count": "6",
         "images":[
           {
+            "index": 0,
             "url": "../../images/search/search-result-thumb-1.jpg"
           },
           {
+            "index": 1,
             "url": "../../images/search/search-result-thumb-lincoln.jpg"
           },
           {
+            "index": 2,
             "url": "../../images/search/search-result-thumb-3.jpg"
           }
         ],
+        "is_channel": true,
         "title": "Gallery with a fairly long title",
         "link": "javascript:alert('Open gallery 1');"
       },
@@ -113,15 +117,19 @@
         "count": "12",
         "images":[
           {
+            "index": 0,
             "url": "../../images/search/search-result-thumb-4.jpg"
           },
           {
+            "index": 1,
             "url": "../../images/search/search-result-thumb-5.jpg"
           },
           {
+            "index": 2,
             "url": "../../images/search/search-result-thumb-6.jpg"
           }
         ],
+        "is_collection": true,
         "title": "Gallery Two",
         "link": "javascript:alert('Open gallery 2');"
       },
@@ -129,17 +137,81 @@
         "count": "18",
         "images":[
           {
+            "index": 0,
             "url": "../../images/search/carousel1.jpg"
           },
           {
+            "index": 1,
             "url": "../../images/search/carousel2.jpg"
           },
           {
+            "index": 2,
             "url": "../../images/search/carousel3.jpg"
           }
         ],
+        "is_exhibition": true,
         "title": "Gallery Three",
-        "link": "javascript:alert('Open gallery 2');"
+        "link": "javascript:alert('Open gallery 3');"
+      },
+      {
+        "count": "22",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_new": true,
+        "title": "Gallery Four",
+        "link": "javascript:alert('Open gallery 4');"
+      },
+      {
+        "count": "22",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_partner": true,
+        "title": "Gallery Five",
+        "link": "javascript:alert('Open gallery 5');"
+      },
+      {
+        "count": "20",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_featured_site": true,
+        "title": "Gallery Six",
+        "link": "javascript:alert('Open gallery 6');"
       }
     ]
   }

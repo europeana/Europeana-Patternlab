@@ -97,22 +97,22 @@
                     },
                     {
                       "url": "#",
-                      "text": "XX",
+                      "text": "Galleries",
                       "submenu": {
                         "items": [
                           {
-                            "url": "javascript:alert('music');",
-                            "text": "More Music",
+                            "url": "javascript:alert('photography');",
+                            "text": "Photography",
                             "submenu": false
                           },
                           {
-                            "url": "javascript:alert('fashion');",
-                            "text": "Fashion",
+                            "url": "javascript:alert('uniforms');",
+                            "text": "Uniforms",
                             "submenu": false
                           },
                           {
-                            "url": "javascript:alert('art history');",
-                            "text": "More Art History",
+                            "url": "javascript:alert('rome');",
+                            "text": "Rome",
                             "submenu": false
                           }
                         ]

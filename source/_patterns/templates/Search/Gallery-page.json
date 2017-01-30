@@ -93,22 +93,60 @@
         "text": "LinkedIn"
       }
     },
-    "entries":[
+    "items":[
       {
-        "count": "Gallery One",
-        "images":[
-          {
-            "url": "../../images/search/search-result-thumb-1.jpg"
-          },
-          {
-            "url": "../../images/search/search-result-thumb-lincoln.jpg"
-          },
-          {
-            "url": "../../images/search/search-result-thumb-3.jpg"
-          }
-        ],
-        "title": "Gallery One",
-        "url": "javascript:alert('Open gallery');"
+        "title":     "Gallery Item One",
+        "creator":   "Thierry Mugler",
+        "thumb_url": "../../images/search/search-result-thumb-1.jpg",
+        "full_url":  "../../images/search/search-result-thumb-1.jpg"
+      },
+      {
+        "title":     "Gallery Item Two",
+        "creator":   "Abraham Lincoln",
+        "thumb_url": "../../images/search/search-result-thumb-lincoln.jpg",
+        "full_url":  "../../images/search/search-result-thumb-lincoln.jpg"
+      },
+      {
+        "title":     "Gallery Item Three, also known as \"the third gallery\"",
+        "creator":   "Claude Montana",
+        "thumb_url": "../../images/search/search-result-thumb-3.jpg",
+        "full_url":  "../../images/search/search-result-thumb-3.jpg"
+      },
+      {
+        "title":     "Gallery Item Four",
+        "creator":   "Thierry Mugler",
+        "thumb_url": "../../images/search/search-result-thumb-4.jpg",
+        "full_url":  "../../images/search/search-result-thumb-4.jpg"
+      },
+      {
+        "title":     "Gallery Item Five",
+        "creator":   "Abraham Lincoln",
+        "thumb_url": "../../images/search/search-result-thumb-5.jpg",
+        "full_url":  "../../images/search/search-result-thumb-5.jpg"
+      },
+      {
+        "title":     "Gallery Item Six",
+        "creator":   "Claude Montana",
+        "thumb_url": "../../images/search/search-result-thumb-6.jpg",
+        "full_url":  "../../images/search/search-result-thumb-6.jpg"
+      },
+      {
+        "title":     "Gallery Item Seven",
+        "creator":   "Thierry Mugler",
+        "thumb_url": "../../images/search/carousel1.jpg",
+        "full_url":  "../../images/search/carousel1.jpg"
+      },
+      {
+        "title":     "Gallery Item Eight",
+        "creator":   "Abraham Lincoln",
+        "thumb_url": "../../images/search/carousel2.jpg",
+        "full_url":  "../../images/search/carousel2.jpg"
+      },
+      {
+        "title":     "Gallery Item Nine",
+        "creator":   "Claude Montana",
+        "thumb_url": "../../images/search/carousel3.jpg",
+        "full_url":  "../../images/search/carousel3.jpg"
       }
     ],
     "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."

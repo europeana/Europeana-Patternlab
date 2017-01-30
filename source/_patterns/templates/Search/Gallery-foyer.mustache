@@ -34,14 +34,14 @@
     </section>
 
     <section class="lc">
-      <div class="galleries">
+      <div class="masonry-items gallery-foyer">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
         {{#galleries}}
-          <div class="image-set">
+          <div class="masonry-item image-set {{#is_channel}} item-channel{{/is_channel}}{{#is_exhibition}} item-exhibition{{/is_exhibition}}{{#is_new}} item-new{{/is_new}}{{#is_partner}} item-partner{{/is_partner}}{{#is_featured_site}} item-featuredsite{{/is_featured_site}}">
             <div class="cf">
               {{#images}}
-                <a class="img-link" href="{{link}}?imgId={{url}}">
+                <a class="img-link" href="{{link}}?imgIndex={{index}}">
                   <img src="{{url}}"/>
                 </a>
               {{/images}}
@@ -55,13 +55,11 @@
                 <span class="svg-icon-info"> </span>
               </span>
             </div>
+            <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}{{#is_channel}}Channel{{/is_channel}}
+            </div>
           </div>
         {{/galleries}}
       </div>
-    </section>
-
-    <section class="lc">
-      SOME MORE STUFF
     </section>
 
   {{/content}}

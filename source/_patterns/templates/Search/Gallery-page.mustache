@@ -35,6 +35,31 @@
     </section>
   {{/content}}
 
+  <section class="lc">
+
+    <div class="masonry-items gallery">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      {{#content.items}}
+        <div class="masonry-item">
+          <img src="{{thumb_url}}" data-full-image="{{full_url}}" />
+          <div class="image-info">
+            <div class="image-texts">
+              <div class="image-title">
+                {{title}}
+              </div>
+              <div class="image-creator">
+                {{creator}}
+              </div>
+            </div>
+            <a class="btn-zoom"> </a>
+          </div>
+        </div>
+      {{/content.items}}
+    </div>
+
+  </section>
+  {{> molecules/components/photoswipe/photoswipe }}
 </div>
 
 {{> organisms/sections/banner }}
