@@ -124,8 +124,8 @@
 
 .promo-list .list-item{
 
-  margin-bottom: $space-quarter;
-  margin-bottom: 1.05634vw;
+  margin-bottom: $space-half;
+  margin-bottom: 1.634vw;
   position: relative;
 
   min-height: 10em;
@@ -139,8 +139,6 @@
 
   @media all and (min-width: $bp-small-3) {
     min-height: 32vw;
-    margin-bottom: $space-half;
-    margin-bottom: 1.05634vw;
     font-size: 2vw;
   }
 
@@ -872,6 +870,10 @@
     }
   }
 
+  .inner{
+    z-index: 1;
+  }
+
   @media all and (min-width: $bp-small) {
     font-size: 3.5vw;
   }
@@ -887,7 +889,6 @@
   @media all and (min-width: 80em) {
     font-size: 1.25vw;
   }
-
 }
 
 .entry-points{
@@ -910,7 +911,7 @@
     display:          inline-block;
     font-size:        $font-size-slightly-smaller;
     font-weight:      bold;
-    margin:           0.4rem 0 0.75em 0;
+    margin:           0.4rem 0 1.25em 0;
     text-transform:   uppercase;
   }
 
