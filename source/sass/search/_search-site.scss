@@ -187,6 +187,8 @@
 
 .editors-picks .list-item{
 
+  min-height: 25vw;
+
   @media all and (min-width: $bp-large) {
     $susy: (gutters: 1);
     @include layout($susy float inside);
