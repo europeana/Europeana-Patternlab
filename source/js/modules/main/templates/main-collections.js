@@ -114,9 +114,12 @@ require.config({
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
     videojs:                       '//vjs.zencdn.net/4.12/video',
-//    videojs:                       '//vjs.zencdn.net/5.0/video',
+    // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
-    videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight'
+    videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
+
+    videojs_wavesurfer:            '../../lib/videojs-wavesurfer/videojs-wavesurfer',
+    wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {
     blacklight:     ['jquery'],
