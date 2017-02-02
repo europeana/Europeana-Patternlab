@@ -24,7 +24,7 @@
 
 .gallery-shares{
 
-  margin:     2rem 0 0 0;
+  margin:     2rem auto 0;
   max-width:  90%;
   text-align: center;
 
@@ -156,8 +156,11 @@
     margin:    auto;
     max-width: 90%;
 
-    @media all and (max-width: $bp-med) {
+    @media all and (max-width: $bp-small-3) {
       max-width:  400px;
+    }
+
+    @media all and (max-width: $bp-med) {
       .masonry-item,
       .grid-sizer{
         max-width:  400px;
