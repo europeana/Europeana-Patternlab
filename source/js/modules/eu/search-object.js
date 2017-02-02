@@ -750,7 +750,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 
         return false;
-      })
+      });
     };
 
     return {

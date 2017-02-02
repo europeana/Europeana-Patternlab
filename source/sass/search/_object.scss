@@ -683,6 +683,8 @@
     &.disabled{
       color:  $gray-lighter;
       cursor: default;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     &:not(.disabled):hover{
@@ -831,7 +833,7 @@
       }
 
       .js-carousel-texts{
-        padding:  0 1em 1em;
+        padding:  0 0 1em 1em;
         position: relative;
       }
 
@@ -857,17 +859,16 @@
         a{
           color: $gray30;
         }
-
       }
 
       .js-carousel-text{
         display:       block;
         font-size:     1em;
-        height:        6.6em;
-        line-height:   1.3em;
+        height:        7em;
+        line-height:   1.4em;
         margin:        0 -1.95em 0.75em 0;
-        min-height:    6.6em;
-        max-height:    6.6em;
+        min-height:    7em;
+        max-height:    7em;
         padding:       0 1.4em 0 0;
 
         &:before,

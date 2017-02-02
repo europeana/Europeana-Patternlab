@@ -1,0 +1,107 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+<div role="main" class="page l-page">
+
+  <section class="search-object">
+    <div class="object-nav cf">
+      <div class="object-nav-lists">
+        <ul class="breadcrumbs">
+          <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+          <li><a href="{{content.galleries_link}}">{{i18n.global.galleries}}</a></li>
+          <li><span class="lastitem"><strong>{{content.hero.title}}</strong></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-hero gallery-foyer" id="maincontent" style="background-image:url('{{content.hero.url}}');">
+    <div class="hero-text">
+      <h1>{{content.hero.title}}</h1>
+      <br/>
+      <h3>{{content.hero.subtitle}}</h3>
+    </div>
+  </section>
+
+  {{#content}}
+    <section class="lc">
+      <div class="gallery-shares">
+        {{#social}}
+          <h4>{{social_title}}</h4>
+          {{>molecules/controls/share-social}}
+        {{/social}}
+      </div>
+    </section>
+  {{/content}}
+
+  <section class="lc">
+
+    <div class="masonry-items gallery">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+
+      {{#content.items}}
+        <div class="masonry-item">
+
+            <img src="{{thumb_url}}" data-src="{{full_url}}" />
+            <div style="display:none;">
+              <div class="image-meta">
+
+              {{#title}}<span class="title">{{.}}</span>{{/title}}
+
+              {{#description}}<span class="description">{{.}}</span>{{/description}}
+
+              {{#creator}}
+                <span class="title">{{i18n.site.object.meta-label.creator}}</span>
+                <span>{{.}}</span>
+              {{/creator}}
+
+              {{#creation_date}}
+                <span class="title">{{i18n.site.object.meta-label.creation-date}}</span>
+                <span class="creation-date">{{.}}</span>
+              {{/creation_date}}
+
+              {{#data_provider}}
+                <span class="title">{{i18n.site.object.meta-label.data-provider}}</span>
+                <span class="data-provider">{{.}}</span>
+              {{/data_provider}}
+
+              {{#provider}}
+                <span class="title">{{i18n.site.object.meta-label.provider}}</span>
+                <span class="provider">{{.}}</span>
+              {{/provider}}
+
+              {{#rights}}
+                <span class="title capitalise">{{i18n.site.object.meta-label.rights-statement}}</span>
+                <div class="object-license">{{> molecules/icons/licenses }}</div>
+
+              {{/rights}}
+
+              {{#url_collection}}<a href="{{.}}">{{global.navigation.view-collection}}</a>{{/url_collection}}
+              </div>
+            </div>
+
+          <div class="image-info">
+            <div class="image-texts">
+              <div class="image-title">
+                {{title}}
+              </div>
+              <div class="image-creator">
+                {{creator}}
+              </div>
+            </div>
+            <a class="btn-zoom"> </a>
+          </div>
+
+        </div>
+      {{/content.items}}
+    </div>
+
+  </section>
+
+</div>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

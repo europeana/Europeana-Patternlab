@@ -145,9 +145,11 @@ define([], function() {
       }
     }
 
-    require(['videojs'], function(){
+    require(['videojs'], function(videojs){
+      //require(['wavesurfer'], function(){
+      //  require(['videojs_wavesurfer'], function(WaveSurfer){
 
-        determineMediaViewer(media_item.mime_type, function(playerOptions){
+          determineMediaViewer(media_item.mime_type, function(playerOptions){
 
             // it would be nice to set the tech order via the player options here:
             // but I can't verify it works.
@@ -162,8 +164,25 @@ define([], function() {
             // The height option here applies only to audio - videos will override this
 
             player = videojs( $viewer[0], {
-                height: media_item.thumbnail ? 340 : 150
+              height: media_item.thumbnail ? 340 : 150
+              /*              ,
+              autoplay: true,
+              plugins: {
+                wavesurfer: {
+                  src: media_item.url,
+                  debug: true,
+                  waveColor: '#fff',
+                  progressColor: '#1676aa',
+                  cursorColor: 'black',
+                  cursorWidth: 0,
+                  autoplay: true,
+                  interact: false
+                }
+              }
+              */
             });
+
+            // $('.vjs-waveform').css('background-color', '#dedede');
 
             //player.on('error', function() {
             //    alert('player.dispose();\netc;');
@@ -174,11 +193,10 @@ define([], function() {
             //    http://europeana-pattern-lab/patterns/molecules-components-videojs-wmv/molecules-components-videojs-wmv.html
 
             if(playerOptions){
-                for (var attrname in playerOptions){
-                    videojs.options[attrname] = playerOptions[attrname];
-                    log('set player option:\t' + attrname + ' = ' + playerOptions[attrname]);
-                }
-                //log('options full:\n\t' + JSON.stringify(videojs.options, null, 4));
+              for (var attrname in playerOptions){
+                videojs.options[attrname] = playerOptions[attrname];
+                log('set player option:\t' + attrname + ' = ' + playerOptions[attrname]);
+              }
             }
 
             /*
@@ -193,7 +211,9 @@ define([], function() {
             doPlay(media_item);
 
             $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
-        });
+          });
+      //  });
+      //});
     });
   }
 

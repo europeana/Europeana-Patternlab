@@ -201,8 +201,6 @@
       }
     }
 
-
-
     // Sub menu carets
     .sub-arrow {
       margin-top: 5px;
@@ -247,4 +245,23 @@
         right: 31px;
       }
   }
+}
+
+.menu-sublevel .menu-sublevel.caret{
+  // Second sub level caret overrides
+
+  &:before,
+  &:after {
+    top: 11px;
+    left: -17px;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent $gray87 transparent transparent;
+  }
+  &:after {
+    top: 12px;
+    left: -14px;
+    border-width: 8px;
+    border-color: transparent $white transparent transparent;
+  }
+
 }

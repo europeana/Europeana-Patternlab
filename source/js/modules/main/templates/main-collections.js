@@ -43,6 +43,9 @@ require.config({
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
 
+    lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
+    lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
+
     masonry:                       '../../lib/desandro/masonry.pkgd',
 
     media_controller:              '../../eu/media/search-media-controller',
@@ -99,6 +102,7 @@ require.config({
 
     search_landing:                '../../eu/channel-landing',
     search_form:                   '../../eu/search-form',
+    search_galleries:              '../../eu/search-galleries',
     search_home:                   '../../eu/search-home',
     search_object:                 '../../eu/search-object',
     search_results:                '../../eu/search-results',
@@ -113,9 +117,12 @@ require.config({
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
     videojs:                       '//vjs.zencdn.net/4.12/video',
-//    videojs:                       '//vjs.zencdn.net/5.0/video',
+    // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
-    videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight'
+    videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
+
+    videojs_wavesurfer:            '../../lib/videojs-wavesurfer/videojs-wavesurfer',
+    wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {
     blacklight:     ['jquery'],

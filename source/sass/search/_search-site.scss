@@ -20,8 +20,6 @@
 
   position: relative;
 
-  //z-index: 5;
-  // updated to stop smart menu going under attribution
   z-index: 9;
 
   top: 50%;
@@ -124,8 +122,8 @@
 
 .promo-list .list-item{
 
-  margin-bottom: $space-quarter;
-  margin-bottom: 1.05634vw;
+  margin-bottom: $space-half;
+  margin-bottom: 1.634vw;
   position: relative;
 
   min-height: 10em;
@@ -139,8 +137,6 @@
 
   @media all and (min-width: $bp-small-3) {
     min-height: 32vw;
-    margin-bottom: $space-half;
-    margin-bottom: 1.05634vw;
     font-size: 2vw;
   }
 
@@ -189,10 +185,20 @@
 
 .editors-picks .list-item{
 
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med) {
+    @include span(12 of 24 split);
+    min-height: 30vw;
+  }
+
   @media all and (min-width: $bp-large) {
+    $susy: (gutters: 1);
+    @include layout($susy float inside);
     @include span(8 of 24 split);
   }
 
+  @media all and (min-width: $bp-med) and (max-width: $bp-xxl) {
+    min-height: 25vw;
+  }
 }
 
 
@@ -664,11 +670,29 @@
     }
   }
   .credit-list{
+    .title{
+      font-size: $font-size-slightly-smaller;
+      font-weight: bold;
+      margin-bottom: $pad;
+    }
+
     @media all and (min-width: $bp-med) {
       @include span(last 20 of 24);
     }
   }
 }
+
+.channels-landing-browse{
+  .credit-list{
+    .title{
+      font-size: $font-size-slightly-smaller;
+      font-weight: bold;
+      margin-bottom: $pad;
+      text-transform: uppercase;
+    }
+  }
+}
+
 
 .channel-social{
   .lc{
@@ -681,13 +705,13 @@
 // LANDING ALTERNATIVE
 
 .channels-landing-browse{
-  padding: 0.5em 1em;
+  padding: 1em 1em 2em 1em;
 
   .custom-newsletter,
   .channel-social{
     padding: 1em 0;
     @media all and (min-width: $bp-med) {
-      height: 7em;
+      min-height: 6.5em;
     }
   }
 
@@ -701,6 +725,17 @@
     border-bottom:  1px solid #dedede;
     border-top:     1px solid #dedede;
 
+    .cell{
+      display: block;
+    }
+
+    @media all and (max-width: $bp-med) {
+      form{
+        margin-bottom: $pad;
+        margin-top:    $space;
+      }
+    }
+
     @media all and (min-width: $bp-med) {
       float: right;
       width: 75%;
@@ -712,7 +747,14 @@
 
         &:first-of-type{
           padding-right: $pad;
+          width:  65%;
         }
+        &:last-of-type{
+          width:  35%;
+        }
+      }
+      form {
+        transform: translateY(50%);
       }
     }
 
@@ -720,11 +762,6 @@
       font-size: $font-size-med;
     }
 
-    form {
-      position:  relative;
-      top:       50%;
-      transform: translateY(-50%);
-    }
   }
 
   .channel-social{
@@ -748,17 +785,15 @@
       display:         flex;
       justify-content: space-between;
 
-
       font-size:     0.6em;
       margin-bottom: 0;
-      margin-top:    0;
+      margin-top:    $pad;
       padding-right: 0;
 
       .icon{
         color: $eu-blue;
       }
     }
-
 
   }
 }
@@ -794,6 +829,12 @@
     font-size: 1.5em;
   }
 
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    .credit-list{
+      margin-top: $space;
+    }
+  }
+
   @media all and (max-width: $bp-med) {
     margin: $space 0;
   }
@@ -815,7 +856,17 @@
 }
 
 .editor-picks-header{
-  padding: $space 0;
+
+  padding: $pad-double 0 $pad-half 0;
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    padding: 0.5rem 0 0.5rem;
+  }
+
+  @media all and (min-width: $bp-med) {
+    padding: $pad-double 0 $pad-half 0.75%;
+  }
+
   margin-bottom:  0;
 }
 
@@ -835,12 +886,24 @@
     }
   }
 
+  .inner{
+    z-index: 1;
+  }
+
   @media all and (min-width: $bp-small) {
     font-size: 3.5vw;
   }
 
   @media all and (min-width: $bp-small-3) {
     font-size: 2vw;
+  }
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    height:   45vw;
+    position: absolute;
+    right:    0;
+    top:      0;
+    width:    49%;
   }
 
   @media all and (min-width: $bp-large) {
@@ -850,7 +913,6 @@
   @media all and (min-width: 80em) {
     font-size: 1.25vw;
   }
-
 }
 
 .entry-points{
@@ -871,14 +933,21 @@
   .entry-points-title{
     color:            #4d4d4d;
     display:          inline-block;
+    font-size:        $font-size-slightly-smaller;
     font-weight:      bold;
-    margin:           0.4rem 0 0.75em 0;
+    margin:           0.4rem 0 1.25em 0;
     text-transform:   uppercase;
   }
 
+  .entry-points-title,
+  .entry-point-link{
+    font-size: $font-size-slightly-smaller;
+  }
+
   .entry-point-image{
-    width:      2em;
-    max-height: 4em;
+    width:      2.5em;
+    height:     2.5em;
+    object-fit: contain;
   }
 
   .entry-point-link{
@@ -887,11 +956,30 @@
 
   .entry-point-text{
     display:     inline-block;
-    margin:      0.2em 0 0.2em 0.25em;
+    margin:      0.2em 0 0.2em 0;
     position:    relative;
     top:         50%;
     transform:   translateY(-50%);
+
+    @media all and (min-width: $bp-med){
+      margin-left: $pad-half;
+    }
   }
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    float:        left;
+    margin-top:   1em;
+    margin-left:  1%;
+    margin-right: 1%;
+    width:      48%;
+
+    &:first-of-type{
+      border-top: none;
+      margin-top:   1em;
+    }
+
+  }
+
 }
 
 .happening-content{
@@ -918,7 +1006,7 @@
 
   .js-carousel-type{
     border-radius:  4px;
-    bottom:         0.5em;
+    bottom:         $pad;
     color:          #fff;
     font-size:      $font-size-sm;
     font-weight:    bold;
@@ -1004,14 +1092,21 @@
     .sneak-peek-header{
       margin-top: $space;
     }
-    .sneak-peek-list:after{
-      background: linear-gradient(top, rgba(255, 255, 255,0), rgba(255, 255, 255,1));
-      bottom: 0;
-      content: " ";
-      height: 24em;
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
+
+    .sneak-peek-list{
+
+      border-top: 1px solid #dedede;
+      padding-top: $pad;
+
+      &:after{
+        background: linear-gradient(top, rgba(255, 255, 255,0), rgba(255, 255, 255,1));
+        bottom: 0;
+        content: " ";
+        height: 24em;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+      }
     }
   }
 
@@ -1065,6 +1160,7 @@
   width: 100%;
   padding-bottom: 49.0795%;
 
+
   &.facet-header{
     display: none;
     @media all and (min-width: $bp-med) {
@@ -1074,6 +1170,13 @@
   &.page-header{
     display: inline-block;
     margin:  1em 0;
+
+    @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+      display:        block;
+      margin-bottom:  25%;
+      padding-bottom: 25%;
+      width:          49%;
+    }
     @media all and (min-width: $bp-med) {
       display: none;
     }

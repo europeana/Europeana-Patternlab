@@ -1,0 +1,218 @@
+{
+  "bodyclass": "channel_landing",
+  "pagetitle": "Europeana - Fashion",
+  "version": {
+    "is_alpha": true
+  },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
+
+  "navigation": {
+    "back_label": false,
+    "last_label" : "Europeana Fashion",
+    "next_prev": false,
+    "global": {
+      "options": {
+       }
+    }
+  },
+
+  "form_search": {
+    "action": "javascript:alert('submit form');"
+  },
+
+  "js_slsb_ld":{
+    "context": "http://schema.org",
+    "type": "WebSite",
+    "url": "http://www.europeana.eu/portal",
+    "potentialAction": {
+      "type": "SearchAction",
+      "target": "http://www.europeana.eu/portal/search?q={q}",
+      "query_input": "required name=q"
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "collections/galleries"
+    }
+  ],
+  "content": {
+    "hero": {
+      "url": "../../images/sample/gallery_foyer_hero.jpg",
+      "title": "Gallery",
+      "subtitle": "Description of this page"
+    },
+    "social": {
+      "social_title": "Share galleries",
+      "social_label": "Share galleries",
+      "facebook": {
+        "url": "https://www.facebook.com/EuropeanaFashion",
+        "text": "Facebook"
+      },
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
+      },
+      "pinterest": {
+        "url": "https://uk.pinterest.com/europeana/",
+        "text": "Pinterest"
+      },
+      "googleplus": {
+        "url": "https://plus.google.com/+europeana/posts",
+        "text": "Google Plus"
+      },
+      "instagram": {
+        "url": "http://www.instagram.com/europeanafashionofficial/",
+        "text": "Instagram"
+      },
+      "tumblr": {
+        "url": "http://www.europeanafashion.tumblr.com",
+        "text": "Tumblr"
+      },
+      "linkedin": {
+        "url": "http://www.linkedin.com",
+        "text": "LinkedIn"
+      }
+    },
+    "galleries":[
+      {
+        "count": "6",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/search-result-thumb-1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/search-result-thumb-lincoln.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/search-result-thumb-3.jpg"
+          }
+        ],
+        "is_channel": true,
+        "title": "Gallery with a fairly long title",
+        "link": "javascript:alert('Open gallery 1');"
+      },
+      {
+        "count": "12",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/search-result-thumb-4.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/search-result-thumb-5.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/search-result-thumb-6.jpg"
+          }
+        ],
+        "is_collection": true,
+        "title": "Gallery Two",
+        "link": "javascript:alert('Open gallery 2');"
+      },
+      {
+        "count": "18",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_exhibition": true,
+        "title": "Gallery Three",
+        "link": "javascript:alert('Open gallery 3');"
+      },
+      {
+        "count": "22",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_new": true,
+        "title": "Gallery Four",
+        "link": "javascript:alert('Open gallery 4');"
+      },
+      {
+        "count": "22",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_partner": true,
+        "title": "Gallery Five",
+        "link": "javascript:alert('Open gallery 5');"
+      },
+      {
+        "count": "20",
+        "images":[
+          {
+            "index": 0,
+            "url": "../../images/search/carousel1.jpg"
+          },
+          {
+            "index": 1,
+            "url": "../../images/search/carousel2.jpg"
+          },
+          {
+            "index": 2,
+            "url": "../../images/search/carousel3.jpg"
+          }
+        ],
+        "is_featured_site": true,
+        "title": "Gallery Six",
+        "link": "javascript:alert('Open gallery 6');"
+      }
+    ]
+  }
+}

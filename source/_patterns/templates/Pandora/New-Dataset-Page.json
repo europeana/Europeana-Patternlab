@@ -1,132 +1,140 @@
 {
-	"css_files": 
-	[
-		{
-			"path": "../../css/pandora/screen.css",
-			"media": "all"
-		},
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
 
-		{
-			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
-			"media": "all"
-		}
-	],
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
 
-	"js_files": 
-	[
-		{
-			"path": "../../js/modules/require.js",
-			"data_main": "../../js/modules/main/templates/main-pandora"
-		}
-	],
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
 
-	"js_vars": 
-	[
-		{
-			"name": "pageName",
-			"value": "portal/index"
-		}
-	],
+  "js_vars":
+  [
+    {
+      "name": "pageName",
+      "value": "portal/index"
+    }
+  ],
 
-	"page_title": "Pandora",
-	"breadcrumbs": 
-	[
-		{
-			"text": "Home",
-			"url": "#"
-		},
+  "page_title": "Pandora",
+  "breadcrumbs":
+  [
+    {
+      "text": "Home",
+      "url": "#"
+    },
 
-		{
-			"text": "New Dataset",
-			"url": "#"
-		}
-	],
+    {
+      "text": "New Dataset",
+      "url": "#"
+    }
+  ],
     "metis_header": {
-		"navigation": 
-		{
-			"home_url": "#",
-			"home_text": "Home",
-			"next_prev": 
-			{
-				"next_url": "next_url_here",
-				"prev_url": "prev_url_here",
-				"results_url": "results_url_here"
-			},
-	
-			"footer": false,
-			"global": 
-			{
-				"options": 
-				{
-					"search_active": false,
-					"settings_active": true
-				},
-	
-				"logo": 
-				{
-					"url": "#",
-					"text": "Europeana Pandora"
-				},
-	
-				"primary_nav": 
-				{
-					"menu_id": "main-menu",
-					"items": 
-					[
-						{
-							"text": "New Dataset",
-							"url": "#",
-							"is_current": true,
-							"submenu": false
-						},
-	
-						{
-							"text": "All Datasets",
-							"url": "javascript:alert('Hello')"
-						},
-	
-						{
-							"text": "Management",
-							"url": "#",
-							"submenu": 
-							{
-								"items": 
-								[
-									{
-										"url": "#",
-										"text": "Organizations",
-										"subtitle": true
-									},
-									{
-										"url": "#",
-										"text": "Users",
-										"message": true
-									},
-									{
-										"url": "#",
-										"text": "Crosswalks"
-									},
-									{
-										"is_divider": true
-									},
-									{
-										"url": "#",
-										"text": "Entities"
-									},
-									{
-										"url": "#",
-										"text": "Schemas (XSD)"
-									}
-								]
-							}
-						},
-						{
-							"text": "",
-							"url": ""
-						}
-					]
-				}
-			}
-		}
-	}
+    "navigation":
+    {
+      "home_url": "#",
+      "home_text": "Home",
+      "next_prev":
+      {
+        "next_url": "next_url_here",
+        "prev_url": "prev_url_here",
+        "results_url": "results_url_here"
+      },
+
+      "footer": false,
+      "global":
+      {
+        "options":
+        {
+          "search_active": false,
+          "settings_active": true
+        },
+
+        "logo":
+        {
+          "url": "#",
+          "text": "Europeana Pandora"
+        },
+
+        "primary_nav":
+        {
+          "menu_id": "main-menu",
+          "items":
+          [
+            {
+              "text": "New Dataset",
+              "url": "#",
+              "is_current": true,
+              "submenu": false
+            },
+
+            {
+              "submenu": false,
+              "text": "All Datasets",
+              "url": "javascript:alert('Hello')"
+            },
+
+            {
+              "text": "Management",
+              "url": "#",
+              "submenu":
+              {
+                "items":
+                [
+                  {
+                    "url": "#",
+                    "text": "Organizations",
+                    "submenu": false,
+                    "subtitle": true
+                  },
+                  {
+                    "url": "#",
+                    "text": "Users",
+                    "submenu": false,
+                    "message": true
+                  },
+                  {
+                    "url": "#",
+                    "submenu": false,
+                    "text": "Crosswalks"
+                  },
+                  {
+                    "submenu": false,
+                    "is_divider": true
+                  },
+                  {
+                    "url": "#",
+                    "submenu": false,
+                    "text": "Entities"
+                  },
+                  {
+                    "url": "#",
+                    "submenu": false,
+                    "text": "Schemas (XSD)"
+                  }
+                ]
+              }
+            },
+            {
+              "submenu": false,
+              "text": "",
+              "url": ""
+            }
+          ]
+        }
+      }
+    }
+  }
 }

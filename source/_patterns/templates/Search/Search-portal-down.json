@@ -36,7 +36,8 @@
       },
       "primary_nav": {
         "menu_id": "main-menu",
-        "items": false
+        "items": false,
+        "submenu": false
       }
     },
       "footer": false

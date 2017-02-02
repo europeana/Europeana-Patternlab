@@ -7,7 +7,6 @@
             <label for="userId">User ID: <b>123</b></label>
         </div>
 
-
         <div class="field-container">
             <label for="fullName">First Name*:</label>
             <input id="fullName" type='text' name='fullName' {{#fullName}}value="{{.}}"{{/fullName}}/>
@@ -34,18 +33,9 @@
                 {{/countries}}
             </select>
         </div>
-        <div class="field-container">
-            <label for="textarea">Organization</label>
-            <textarea class="org-list" id="user-profile-organization" name="organization" rows="4" cols="48">
-        	</textarea>
-        </div>
-        <div class="field-container">
-            <label for="textarea">Notes</label>
-            <textarea class="org-list" id="notes" name="notes" rows="4" cols="48">
-        	</textarea>
-        </div>
+
         <div class="org_selection">
-            <h1>Organizations</h1>
+            <label for="organizations">Organizations: </label>
             <div class="selectedOrganizations">
 
             </div>
@@ -62,14 +52,8 @@
                     </div>
                     <div class="content">
                         <h4 class="currentSelectedOrganization"></h4>
-                        <select>
-                            <option value="volvo">Contact</option>
-                            <option value="saab">Viewer</option>
-                            <option value="mercedes">Data Officer</option>
-                            <option value="audi">Admin</option>
-                            <option value="audi">Viewer</option>
-                            <option value="audi">Data Officer</option>
-                            <option value="audi">Superadmin</option>
+                        <select id="availableRoles">
+
                         </select>
                         <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
                     </div>
@@ -77,15 +61,17 @@
             </div>
         </div>
 
-        <div class="profile-select-orgs field-container">
-            {{>molecules/pandora/select-organizations}}
+        <div class="field-container">
+            <label for="textarea">Notes</label>
+            <textarea class="org-list" id="notes" name="notes" rows="4" cols="48">
+        	</textarea>
         </div>
 
         <div class="field-container">
-            <label for="active">Active: <b>False</b></label>
+            <label for="active">Active: <b>Yes</b></label>
         </div>
         <div class="field-container">
-            <label for="approved">Approved: <b>False</b></label>
+            <label for="approved">Approved: <b>No</b></label>
         </div>
         <div class="field-container">
             <label for="created">Created: <b> 22 April 2011</b></label>

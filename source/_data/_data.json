@@ -67,6 +67,7 @@
           },
           "primary_nav":
           {
+            "submenu": false,
             "menu_id": "main-menu",
             "items": [
               {
@@ -81,15 +82,41 @@
                   "items": [
                     {
                       "url": "music",
-                      "text": "Music"
+                      "text": "Music",
+                      "submenu": false
                     },
                     {
                       "url": "fashion",
-                      "text": "Fashion"
+                      "text": "Fashion",
+                      "submenu": false
                     },
                     {
                       "url": "art-history",
-                      "text": "Art History"
+                      "text": "Art History",
+                      "submenu": false
+                    },
+                    {
+                      "url": "#",
+                      "text": "Galleries",
+                      "submenu": {
+                        "items": [
+                          {
+                            "url": "javascript:alert('photography');",
+                            "text": "Photography",
+                            "submenu": false
+                          },
+                          {
+                            "url": "javascript:alert('uniforms');",
+                            "text": "Uniforms",
+                            "submenu": false
+                          },
+                          {
+                            "url": "javascript:alert('rome');",
+                            "text": "Rome",
+                            "submenu": false
+                          }
+                        ]
+                      }
                     }
                   ]
                 }
@@ -102,48 +129,59 @@
                     {
                       "url": false,
                       "text": "Exhibitions Title",
-                      "subtitle": true
+                      "subtitle": true,
+                      "submenu": false
                     },
                     {
                       "url": false,
                       "text": "This is some text for a message",
-                      "message": true
+                      "message": true,
+                      "submenu": false
                     },
                     {
                       "url": "www.exhibitions.eu",
-                      "text": "We know this war by heart"
+                      "text": "We know this war by heart",
+                      "submenu": false
                     },
                     {
-                      "is_divider": true
-                    },
-                    {
-                      "url": "#",
-                      "text": "European Film and the First World War"
-                    },
-                    {
-                      "url": "#",
-                      "text": "A Voyage with the Gods"
+                      "is_divider": true,
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Weddings in Eastern Europe"
+                      "text": "European Film and the First World War",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Explore the World of Musical Instruments"
+                      "text": "A Voyage with the Gods",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Untold stories of the First World War"
+                      "text": "Weddings in Eastern Europe",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Darwinism: Reception in Spain and Catalonia"
+                      "text": "Explore the World of Musical Instruments",
+                      "submenu": false
+                    },
+                    {
+                      "url": "#",
+                      "text": "Untold stories of the First World War",
+                      "submenu": false
+                    },
+                    {
+                      "url": "#",
+                      "text": "Darwinism: Reception in Spain and Catalonia",
+                      "submenu": false
                     },
                     {
                       "url": "url to all exhibitions",
                       "text": "All Exhibitions…",
-                      "is_morelink": true
+                      "is_morelink": true,
+                      "submenu": false
                     }
                   ]
                 }
@@ -155,32 +193,39 @@
                   "items": [
                     {
                       "url": "#",
-                      "text": "Introduction to the Europeana Access and Re-use Framework"
+                      "text": "Introduction to the Europeana Access and Re-use Framework",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Exploring Vienna’s historic Ringstrasse in Field Trip"
+                      "text": "Exploring Vienna’s historic Ringstrasse in Field Trip",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Choosing a country’s top 10 artworks for Europeana 280"
+                      "text": "Choosing a country’s top 10 artworks for Europeana 280",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Details make the design: an interview with Chris Wild"
+                      "text": "Details make the design: an interview with Chris Wild",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Writing the past: transcribing handwritten documents from World War One"
+                      "text": "Writing the past: transcribing handwritten documents from World War One",
+                      "submenu": false
                     },
                     {
                       "url": "#",
-                      "text": "Exploring big visual cultural data: an interview with Lev Manovich"
+                      "text": "Exploring big visual cultural data: an interview with Lev Manovich",
+                      "submenu": false
                     },
                     {
                       "url": "url to all blog posts",
                       "text": "All Posts…",
-                      "is_morelink": true
+                      "is_morelink": true,
+                      "submenu": false
                     }
                   ]
                 }
@@ -200,43 +245,53 @@
                     {
                       "text": "Settings",
                       "subtitle": true,
+                      "submenu": false,
                       "url": false
                     },
                     {
                       "text": "Language",
-                      "url": "url to language settings page"
+                      "url": "url to language settings page",
+                      "submenu": false
                     },
                     {
                       "text": "My Profile",
-                      "url": "url to profile page"
+                      "url": "url to profile page",
+                      "submenu": false
                     },
                     {
                       "text": "Advanced",
-                      "url": "url to settings page"
+                      "url": "url to settings page",
+                      "submenu": false
                     },
                     {
-                      "is_divider": true
+                      "is_divider": true,
+                      "submenu": false
                     },
                     {
                       "text": "Admin",
                       "subtitle": true,
+                      "submenu": false,
                       "url": false
                     },
                     {
                       "text": "Channel Admin",
-                      "url": "url to admin page"
+                      "url": "url to admin page",
+                      "submenu": false
                     },
                     {
-                      "is_divider": true
+                      "is_divider": true,
+                      "submenu": false
                     },
                     {
                       "text": "Account",
                       "subtitle": true,
+                      "submenu": false,
                       "url": false
                     },
                     {
                       "text": "Log Out",
-                      "url": "url to login page"
+                      "url": "url to login page",
+                      "submenu": false
                     }
                   ]
                 }
@@ -244,7 +299,7 @@
             ]
           }
         },
-        "secondary": {
+        "XXXXXXsecondary": {
             "items": [
                 {
                     "url": "#",
@@ -652,6 +707,9 @@
                 "meta-label": {
                     "concepts": "Categories",
                     "creator": "Creator",
+                    "creation-date": "Creation date",
+                    "provider": "Provider",
+                    "data-provider": "Data Provider",
                     "place": "Place",
                     "properties": "Properties",
                     "provenance": "Provenance",
@@ -670,6 +728,7 @@
                     "runtime": "Run time",
                     "rights": "Rights",
                     "rights_human": "Can I use this?",
+                    "rights-statement": "Rights statement",
                     "title": "Title",
                     "provided-by": "Provided by",
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
@@ -746,9 +805,9 @@
                 "correction": "correction",
                 "bug": "bug"
               }
-
             },
             "find-us-elsewhere": "Find us elsewhere",
+            "galleries": "Galleries",
             "header": {
               "discover": "Discover",
               "network": "Network",
@@ -759,6 +818,9 @@
             "page": "page",
             "labs": "Labs",
             "labs-text": "A playground for remixing cultural content",
+            "labels": {
+              "images": "images"
+            },
             "language-english": "English",
             "language-french": "Français",
             "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
@@ -768,6 +830,7 @@
                 "show-more": "Show more"
             },
             "navigation":{
+              "view-collection": "View entire collection",
               "more":{
                 "agents": "more people",
                 "topics": "more topics"

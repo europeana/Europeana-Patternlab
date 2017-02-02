@@ -33,6 +33,7 @@
         "menu_id": "main-menu",
         "items": [
           {
+            "submenu": false,
             "text": "Europeana Stats",
             "is_current": false
           },
@@ -43,26 +44,32 @@
                 {
                   "url": false,
                   "text": "Browse Statistics:",
+                  "submenu": false,
                   "subtitle": true
                 },
                 {
                   "url": "http://statistics.europeana.eu/countries",
+                  "submenu": false,
                   "text": "By Country"
                 },
                 {
+                  "submenu": false,
                   "is_divider": true
                 },
                 {
                   "url": false,
                   "text": "Find statistics for an organisation:",
+                  "submenu": false,
                   "subtitle": true
                 },
                 {
                   "url": "http://statistics.europeana.eu/dataproviders",
+                  "submenu": false,
                   "text": "Find an Aggregator"
                 },
                 {
                   "url": "http://statistics.europeana.eu/providers",
+                  "submenu": false,
                   "text": "Find an Institution"
                 }
               ]
@@ -74,6 +81,7 @@
       }
     },
     "secondary": {
+      "submenu": false,
       "items": [
         {
           "url": "#",

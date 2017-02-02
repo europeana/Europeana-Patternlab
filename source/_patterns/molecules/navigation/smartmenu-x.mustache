@@ -1,0 +1,19 @@
+<ul {{^submenu}}id="{{menu_id}}" {{/submenu}}class="{{#submenu}}menu-sublevel caret {{style_modifier}}{{/submenu}}{{^submenu}}sm cf nav-access {{style_modifier}}{{/submenu}}">
+
+{{#items}}
+  <li>
+
+    <a {{#url}}href="{{url}}"{{/url}}  class="{{#is_current}} is-current {{/is_current}}">
+      {{#icon}}
+        <svg class="icon icon-{{icon}}">
+          <use xlink:href="#icon-{{icon}}"></use>
+        </svg>{{/icon}}<span class="link-text">{{text}}</span>
+    </a>
+
+    {{#submenu}}
+      {{> molecules/navigation/smartmenu-x }}
+    {{/submenu}}
+  </li>
+{{/items}}
+
+</ul>

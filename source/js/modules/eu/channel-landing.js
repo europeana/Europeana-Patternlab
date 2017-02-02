@@ -167,15 +167,15 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
   function loadPreview(){
 
-    var data   = window.sneakPeakData;
+    var data   = window.sneakPeekData;
     var random = data[Math.floor((Math.random() * data.length) + 1)];
-
     if(!random){
       return;
     }
 
     $('#js-sneak-peek-title').html(random.title.replace(random.type + ': ', ''));
     $('#js-sneak-peek-type').html(random.type);
+    $('.sneak-peek-list').next('.show-more-mlt').find('a').attr('href', random.extra);
 
     $.ajax({
       beforeSend: function(xhr) {
