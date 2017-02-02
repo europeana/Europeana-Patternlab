@@ -6,6 +6,22 @@
   }
 }
 
+.site-hero.gallery-foyer{
+
+  height:     11em;
+  margin-top: 0;
+
+  .hero-text{
+    background-color: transparent;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    h1{
+      font-weight: bold;
+    }
+  }
+}
+
 .gallery-shares{
 
   margin:     2rem 0 0 0;
@@ -27,9 +43,7 @@
       margin: 1.1em $space 0 0;
     }
   }
-  @media all and (min-width	: $bp-large) {
-    max-width: none;
-  }
+
 
 }
 
@@ -148,9 +162,6 @@
       .grid-sizer{
         max-width:  400px;
       }
-    }
-    @media all and (min-width	: $bp-large) {
-      max-width: none;
     }
 
     .masonry-item{

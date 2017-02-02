@@ -44,7 +44,7 @@
       {{#content.items}}
         <div class="masonry-item">
 
-            <img src="{{thumb_url}}" data-src="{{full_url}}?size=x" />
+            <img src="{{thumb_url}}" data-src="{{full_url}}" />
             <div style="display:none;">
               <div class="image-meta">
 
@@ -78,7 +78,7 @@
 
               {{/rights}}
 
-              {{#url_collection}}<a href="{{.}}">View entire collection</a>{{/url_collection}}
+              {{#url_collection}}<a href="{{.}}">{{global.navigation.view-collection}}</a>{{/url_collection}}
               </div>
             </div>
 

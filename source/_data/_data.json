@@ -830,6 +830,7 @@
                 "show-more": "Show more"
             },
             "navigation":{
+              "view-collection": "View entire collection",
               "more":{
                 "agents": "more people",
                 "topics": "more topics"

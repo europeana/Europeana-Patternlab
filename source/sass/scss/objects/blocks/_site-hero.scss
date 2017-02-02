@@ -50,21 +50,6 @@
     }
   }
 
-  &.gallery-foyer{
-
-    height: 11em;
-
-    .hero-text{
-      background-color: transparent;
-      bottom: auto;
-      top: 50%;
-      transform: translateY(-50%);
-      h1{
-        font-weight: bold;
-      }
-    }
-  }
-
   .attribution{
 
     position: absolute;
@@ -92,8 +77,5 @@
   margin-top: $globalnavheight;
   @media all and (min-width: $bp-small) {
     height: 50%;
-  }
-  &.gallery-foyer{
-    margin-top: 0;
   }
 }

@@ -8,7 +8,13 @@ define(['jquery', 'purl'], function($, scrollEvents) {
     initMasonry();
     initSocialShare();
     initLightbox();
+    initGA();
   }
+
+  function initGA(){
+
+  }
+
 
   function initLightbox(){
 
