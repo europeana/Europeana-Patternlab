@@ -13,6 +13,44 @@ define(['jquery', 'purl'], function($, scrollEvents) {
 
   function initGA(){
 
+    $(document).on('click', '#lg-download', function(){
+
+      var url = $(this).attr('href');
+
+      ga('send', {
+        hitType:       'event',
+        eventCategory: 'Download',
+        eventAction:   url,
+        eventLabel:    'Gallery Item Download'
+      });
+
+    });
+
+    $('.gallery').on('onAfterSlide.lg', function(e){
+
+      var current = $('.lg-current img').attr('src');
+
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Media View',
+        eventAction: current,
+        eventLabel: 'Gallery Image'
+      });
+
+    });
+
+    $('.social-share a').on('click', function(){
+
+      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+
+      ga('send', {
+        hitType: 'social',
+        socialNetwork: socialNetwork,
+        socialAction: 'share',
+        socialTarget: window.location.href
+      });
+    });
+
   }
 
 
@@ -39,7 +77,7 @@ define(['jquery', 'purl'], function($, scrollEvents) {
           {
             selector: itemSelector
           }
-        );
+        )
 
         require(['purl'], function(){
           var purl     = $.url(window.location.href);
