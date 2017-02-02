@@ -20,8 +20,6 @@
 
   position: relative;
 
-  //z-index: 5;
-  // updated to stop smart menu going under attribution
   z-index: 9;
 
   top: 50%;
@@ -187,13 +185,18 @@
 
 .editors-picks .list-item{
 
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med) {
+    @include span(12 of 24 split);
+    min-height: 30vw;
+  }
+
   @media all and (min-width: $bp-large) {
     $susy: (gutters: 1);
     @include layout($susy float inside);
     @include span(8 of 24 split);
   }
 
-  @media all and (max-width: $bp-xxl) {
+  @media all and (min-width: $bp-med) and (max-width: $bp-xxl) {
     min-height: 25vw;
   }
 }
@@ -826,6 +829,12 @@
     font-size: 1.5em;
   }
 
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    .credit-list{
+      margin-top: $space;
+    }
+  }
+
   @media all and (max-width: $bp-med) {
     margin: $space 0;
   }
@@ -849,6 +858,10 @@
 .editor-picks-header{
 
   padding: $pad-double 0 $pad-half 0;
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    padding: 0.5rem 0 0.5rem;
+  }
 
   @media all and (min-width: $bp-med) {
     padding: $pad-double 0 $pad-half 0.75%;
@@ -883,6 +896,14 @@
 
   @media all and (min-width: $bp-small-3) {
     font-size: 2vw;
+  }
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    height:   45vw;
+    position: absolute;
+    right:    0;
+    top:      0;
+    width:    49%;
   }
 
   @media all and (min-width: $bp-large) {
@@ -935,11 +956,30 @@
 
   .entry-point-text{
     display:     inline-block;
-    margin:      0.2em 0 0.2em $pad-half;
+    margin:      0.2em 0 0.2em 0;
     position:    relative;
     top:         50%;
     transform:   translateY(-50%);
+
+    @media all and (min-width: $bp-med){
+      margin-left: $pad-half;
+    }
   }
+
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+    float:        left;
+    margin-top:   1em;
+    margin-left:  1%;
+    margin-right: 1%;
+    width:      48%;
+
+    &:first-of-type{
+      border-top: none;
+      margin-top:   1em;
+    }
+
+  }
+
 }
 
 .happening-content{
@@ -1120,6 +1160,7 @@
   width: 100%;
   padding-bottom: 49.0795%;
 
+
   &.facet-header{
     display: none;
     @media all and (min-width: $bp-med) {
@@ -1129,6 +1170,13 @@
   &.page-header{
     display: inline-block;
     margin:  1em 0;
+
+    @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+      display:        block;
+      margin-bottom:  25%;
+      padding-bottom: 25%;
+      width:          49%;
+    }
     @media all and (min-width: $bp-med) {
       display: none;
     }
