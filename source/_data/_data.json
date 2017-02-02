@@ -707,6 +707,9 @@
                 "meta-label": {
                     "concepts": "Categories",
                     "creator": "Creator",
+                    "creation-date": "Creation date",
+                    "provider": "Provider",
+                    "data-provider": "Data Provider",
                     "place": "Place",
                     "properties": "Properties",
                     "provenance": "Provenance",
@@ -725,6 +728,7 @@
                     "runtime": "Run time",
                     "rights": "Rights",
                     "rights_human": "Can I use this?",
+                    "rights-statement": "Rights statement",
                     "title": "Title",
                     "provided-by": "Provided by",
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."

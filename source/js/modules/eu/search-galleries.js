@@ -1,8 +1,5 @@
 define(['jquery', 'purl'], function($, scrollEvents) {
 
-  var gallery = null;
-  var imgData = [];
-
   function log(msg){
     console.log('search-galleries: ' + msg);
   }
@@ -10,74 +7,48 @@ define(['jquery', 'purl'], function($, scrollEvents) {
   function initPage(){
     initMasonry();
     initSocialShare();
-    initPhotoswipe();
+    initLightbox();
   }
 
-  function openImage(index){
-    require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
-      gallery = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: index, history: false});
-      gallery.init();
-    });
-  }
+  function initLightbox(){
 
-  function getImageIndex(url){
-    for(var i=0; i<imgData.length; i++){
-      if(imgData[i].src == url){
-        return i;
-      }
-    }
-  }
-
-  function initPhotoswipe(){
     if($('.gallery').length == 0){
       return;
     }
 
-    require(['jqImagesLoaded'], function(){
-      require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
+    var itemSelector = '.masonry-item img';
 
-        var css_path_1      = require.toUrl('../../lib/photoswipe/photoswipe.css'),
-            css_path_2      = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
-            imgUrls         = $.map($('img[data-full-image]'), function(x){return $(x).data('full-image')});
-
-        $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
-        $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
-        $('head').append('<style>.pswp__button--share{ display: none; }</style>');
-
-        for(var i=0; i < imgUrls.length; i++){
-          $('#img-measure').append('<img src="' + imgUrls[i] + '">');
-        }
-
-        $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
-          for(var i=0; i< $images.length; i++){
-            var img = $( $images[i] );
-            imgData.push({
-              src: img.attr('src'),
-              h:   img.height(),
-              w:   img.width()
-            });
-
-            log('img.height() = ' + img.height() + ', img.width() = ' + img.width() + ', img.attr(src) = ' + img.attr('src'));
-          }
-
-          require(['purl'], function(){
-            var purl     = $.url(window.location.href);
-            var imgIndex = purl.param('imgIndex');
-            if(imgIndex){
-              openImage(imgIndex);
-            }
-          });
-
-        });
-      });
+    $(itemSelector).each(function(i, ob){
+      var captionId = 'caption-' + i;
+      $(ob).attr('data-sub-html', '#' + captionId);
+      $(ob).next('div').find('.image-meta').attr('id', captionId);
     });
 
-    $('.btn-zoom').on('click', function(e){
-      var tgt   = $(e.target);
-      var img   = tgt.closest('.masonry-item').find('img[data-full-image]').data('full-image');
-      var index = getImageIndex(img);
-      openImage(index);
+    require(['lightgallery'], function(){
+      require(['lightgallery_zoom'], function(){
+        var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+        $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+
+        lightGallery( $('.gallery')[0],
+          {
+            selector: itemSelector
+          }
+        );
+
+        require(['purl'], function(){
+          var purl     = $.url(window.location.href);
+          var imgIndex = purl.param('imgIndex');
+          if(imgIndex){
+            $(itemSelector).get(parseInt(imgIndex)).click();
+          }
+        });
+
+        $('.btn-zoom').on('click', function(e){
+          var tgt   = $(e.target);
+          var img   = tgt.closest('.masonry-item').find('img').click();
+        });
+
+      });
     });
   }
 

@@ -40,9 +40,48 @@
     <div class="masonry-items gallery">
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
+
       {{#content.items}}
         <div class="masonry-item">
-          <img src="{{thumb_url}}" data-full-image="{{full_url}}" />
+
+            <img src="{{thumb_url}}" data-src="{{full_url}}?size=x" />
+            <div style="display:none;">
+              <div class="image-meta">
+
+              {{#title}}<span class="title">{{.}}</span>{{/title}}
+
+              {{#description}}<span class="description">{{.}}</span>{{/description}}
+
+              {{#creator}}
+                <span class="title">{{i18n.site.object.meta-label.creator}}</span>
+                <span>{{.}}</span>
+              {{/creator}}
+
+              {{#creation_date}}
+                <span class="title">{{i18n.site.object.meta-label.creation-date}}</span>
+                <span class="creation-date">{{.}}</span>
+              {{/creation_date}}
+
+              {{#data_provider}}
+                <span class="title">{{i18n.site.object.meta-label.data-provider}}</span>
+                <span class="data-provider">{{.}}</span>
+              {{/data_provider}}
+
+              {{#provider}}
+                <span class="title">{{i18n.site.object.meta-label.provider}}</span>
+                <span class="provider">{{.}}</span>
+              {{/provider}}
+
+              {{#rights}}
+                <span class="title capitalise">{{i18n.site.object.meta-label.rights-statement}}</span>
+                <div class="object-license">{{> molecules/icons/licenses }}</div>
+
+              {{/rights}}
+
+              {{#url_collection}}<a href="{{.}}">View entire collection</a>{{/url_collection}}
+              </div>
+            </div>
+
           <div class="image-info">
             <div class="image-texts">
               <div class="image-title">
@@ -54,12 +93,13 @@
             </div>
             <a class="btn-zoom"> </a>
           </div>
+
         </div>
       {{/content.items}}
     </div>
 
   </section>
-  {{> molecules/components/photoswipe/photoswipe }}
+
 </div>
 
 {{> organisms/sections/banner }}

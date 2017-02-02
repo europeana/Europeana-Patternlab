@@ -51,7 +51,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "galleries/show"
+      "value": "collections/galleries"
     }
   ],
   "content": {
@@ -98,55 +98,145 @@
         "title":     "Gallery Item One",
         "creator":   "Thierry Mugler",
         "thumb_url": "../../images/search/search-result-thumb-1.jpg",
-        "full_url":  "../../images/search/search-result-thumb-1.jpg"
+        "full_url":  "../../images/search/search-result-thumb-1.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1440",
+        "data_provider":  "Kelvingrove",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Two",
         "creator":   "Abraham Lincoln",
         "thumb_url": "../../images/search/search-result-thumb-lincoln.jpg",
-        "full_url":  "../../images/search/search-result-thumb-lincoln.jpg"
+        "full_url":  "../../images/search/search-result-thumb-lincoln.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1845",
+        "data_provider":  "Smithsonian",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Three, also known as \"the third gallery\"",
         "creator":   "Claude Montana",
         "thumb_url": "../../images/search/search-result-thumb-3.jpg",
-        "full_url":  "../../images/search/search-result-thumb-3.jpg"
+        "full_url":  "../../images/search/search-result-thumb-3.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1660",
+        "data_provider":  "Rijksmuseum",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Four",
         "creator":   "Thierry Mugler",
         "thumb_url": "../../images/search/search-result-thumb-4.jpg",
-        "full_url":  "../../images/search/search-result-thumb-4.jpg"
+        "full_url":  "../../images/search/search-result-thumb-4.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1770",
+        "data_provider":  "British Library",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Five",
         "creator":   "Abraham Lincoln",
         "thumb_url": "../../images/search/search-result-thumb-5.jpg",
-        "full_url":  "../../images/search/search-result-thumb-5.jpg"
+        "full_url":  "../../images/search/search-result-thumb-5.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1880",
+        "data_provider":  "Louvre",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Six",
         "creator":   "Claude Montana",
         "thumb_url": "../../images/search/search-result-thumb-6.jpg",
-        "full_url":  "../../images/search/search-result-thumb-6.jpg"
+        "full_url":  "../../images/search/search-result-thumb-6.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1990",
+        "data_provider":  "Pergamon",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Seven",
         "creator":   "Thierry Mugler",
         "thumb_url": "../../images/search/carousel1.jpg",
-        "full_url":  "../../images/search/carousel1.jpg"
+        "full_url":  "../../images/search/carousel1.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "2010",
+        "data_provider":  "Prada",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Eight",
         "creator":   "Abraham Lincoln",
         "thumb_url": "../../images/search/carousel2.jpg",
-        "full_url":  "../../images/search/carousel2.jpg"
+        "full_url":  "../../images/search/carousel2.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1550",
+        "data_provider":  "Uffizi",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       },
       {
         "title":     "Gallery Item Nine",
         "creator":   "Claude Montana",
         "thumb_url": "../../images/search/carousel3.jpg",
-        "full_url":  "../../images/search/carousel3.jpg"
+        "full_url":  "../../images/search/carousel3.jpg",
+
+        "description":    "Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah",
+        "creation_date":  "1660",
+        "data_provider":  "Mauritshaus",
+        "provider":       "Europeana",
+        "rights": {
+          "license_CC0": true,
+          "license_url": "javascript:alert('open rights')"
+        },
+        "url_collection": "javascript:alert('open collection')"
       }
     ],
     "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."

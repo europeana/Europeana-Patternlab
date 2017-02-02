@@ -43,6 +43,9 @@ require.config({
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
 
+    lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
+    lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
+
     masonry:                       '../../lib/desandro/masonry.pkgd',
 
     media_controller:              '../../eu/media/search-media-controller',
