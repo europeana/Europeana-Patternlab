@@ -70,7 +70,8 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
     require(['lightgallery'], function(){
       require(['lightgallery_zoom'], function(){
-        var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+        //var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+        var css_path = 'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.3.8/css/lightgallery.css';
         $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
         lightGallery( $('.gallery')[0],
