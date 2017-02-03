@@ -22,6 +22,9 @@
   top:       50%;
   z-index:   1080;
 }
+.lg-actions .lg-prev {
+  padding:   0.5em 0.7em 0.5em 0.3em;
+}
 .lg-actions .lg-next.disabled, .lg-actions .lg-prev.disabled {
   pointer-events: none;
   opacity: 0.5;
