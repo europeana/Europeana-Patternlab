@@ -1,21 +1,14 @@
 @import "../_patterns/atoms/iconography/_svg-icon-info";
 
-.gallery-foyer{
-  .hero-text{
-    width: auto;
-  }
-}
+.site-hero.galleries{
 
-.site-hero.gallery-foyer{
-
-  height:     11em;
   margin-top: 0;
 
   .hero-text{
     background-color: transparent;
     bottom: auto;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    width: auto;
     h1{
       font-weight: bold;
     }
