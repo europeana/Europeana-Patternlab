@@ -44,26 +44,28 @@
 .lg-outer{
   .lg{
 
-    @media all and (max-width: $bp-med) {
-      span:not(.title):not([resource]){
+    @media all and (max-width: $bp-xl) {
+
+      .lg-sub-html span:not(.title):not([resource]){
         &:after{
           content: ", ";
         }
       }
     }
 
-    @media all and (min-width: $bp-med) {
+    @media all and (min-width: $bp-xl) {
 
       .lg-inner{
         width: 80%;
       }
 
       .lg-actions .lg-next{
-        right: 21%;
+        right: 23%;
       }
 
       .lg-sub-html{
         left:             80%;
+        padding-top:      3.5em;
         top:              0;
 
         span{
@@ -83,7 +85,6 @@
     .lg-sub-html{
 
       background-color: #333;
-      padding-top:      3.5em;
       text-align:       left;
 
       .title{

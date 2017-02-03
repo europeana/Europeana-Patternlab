@@ -13,27 +13,23 @@
 .lg-actions .lg-next, .lg-actions .lg-prev {
   background-color: rgba(0, 0, 0, 0.45);
   border-radius: 2px;
-  color: #999;
-  cursor: pointer;
-  display: block;
+  color:     #999;
+  cursor:    pointer;
+  display:   block;
   font-size: 22px;
-  margin-top: -10px;
-  padding: 8px 10px 9px;
-  position: absolute;
-  top: 50%;
-  z-index: 1080;
+  padding:   0.5em;
+  position:  absolute;
+  top:       50%;
+  z-index:   1080;
 }
 .lg-actions .lg-next.disabled, .lg-actions .lg-prev.disabled {
   pointer-events: none;
   opacity: 0.5;
 }
-.lg-actions .lg-next:hover, .lg-actions .lg-prev:hover {
-  color: #FFF;
-}
+
 .lg-actions .lg-next {
   right: 20px;
 }
-
 
 .lg-actions .lg-next:before {
   content: " ";
@@ -41,10 +37,9 @@
   display: block;
   height:  1.3em;
   width:   1em;
-
 }
 
-.lg-actions .lg-next:after:before {
+.lg-actions .lg-next:hover:before {
   background-image: url("data:image/svg+xml,%3Csvg fill=\'%23fff\' xmlns=\'http://www.w3.org/2000/svg\' viewbox=\'0 0 26 30\'%3E%3Cpath class=\'path1\' d=\'M8.727 1.636q0.182 0 0.394 0.152l12.545 12.545q0.394 0.394 0 0.788l-12.545 12.545q-0.394 0.394-0.788 0l-3.818-3.818q-0.394-0.394 0-0.788l8.333-8.333-8.333-8.333q-0.394-0.394 0-0.788l3.818-3.818q0.212-0.152 0.394-0.152z\'%3E%3C/path%3E%3C/svg%3E");
 }
 
