@@ -927,7 +927,7 @@
   border-bottom:  1px solid #dedede;
 
   .entry-point{
-    position:       relative;
+    position:     relative;
   }
 
   .entry-points-title{
@@ -967,7 +967,7 @@
   }
 
   @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
-    float:        left;
+
     margin-top:   1em;
     margin-left:  1%;
     margin-right: 1%;
@@ -976,6 +976,12 @@
     &:first-of-type{
       border-top: none;
       margin-top:   1em;
+    }
+    &:last-of-type{
+      margin-top: 0;
+      position:   absolute;
+      right:      0;
+      top:        0;
     }
 
   }
