@@ -84,7 +84,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
           var purl     = $.url(window.location.href);
           var imgIndex = purl.param('imgIndex');
           if(imgIndex){
-            $(itemSelector).get(parseInt(imgIndex)).click();
+            $(itemSelector).get(parseInt(imgIndex)-1).click();
           }
         });
 
