@@ -1,4 +1,4 @@
-define(['jquery', 'purl'], function($, scrollEvents) {
+define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
   function log(msg){
     console.log('search-galleries: ' + msg);
