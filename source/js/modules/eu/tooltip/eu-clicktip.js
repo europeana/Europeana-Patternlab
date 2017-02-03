@@ -32,18 +32,25 @@ define(['jquery'], function($){
       }
     }
 
-    $(activator).on('mouseover', function(){
-      //$el.addClass('showing');
+    $(activator).on('mouseover', function(e){
+      var target = $(e.target);
+      if(target.hasClass('eu-clicktip')){
+        return;
+      }
+      $('.eu-clicktip-container').removeClass('showing');
+      $el.addClass('showing');
     });
 
     $(activator).on('click', function(){
+      $('.eu-clicktip-container').removeClass('showing');
       $el.addClass('showing');
     });
   }
 
   function init(){
-    $('.eu-clicktip-container [data-role="remove"]').on('click', function(){
+    $('.eu-clicktip-container [data-role="remove"]').on('click', function(e){
       $(this).closest('.eu-clicktip-container').removeClass('showing');
+      e.stopPropagation();
     });
 
     $.each($('.eu-clicktip-container'), function(i, clickTip){
