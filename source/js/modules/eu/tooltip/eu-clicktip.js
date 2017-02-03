@@ -34,16 +34,21 @@ define(['jquery'], function($){
 
     $(activator).on('mouseover', function(e){
       var target = $(e.target);
-      if(target.hasClass('eu-clicktip')){
-        return;
-      }
+
+      //if(target.hasClass('eu-clicktip') || target.parent().hasClass('eu-clicktip')){
+      //  return;
+     // }
+
       $('.eu-clicktip-container').removeClass('showing');
       $el.addClass('showing');
     });
 
     $(activator).on('click', function(){
+      var open = $el.hasClass('showing');
       $('.eu-clicktip-container').removeClass('showing');
-      $el.addClass('showing');
+      if(!open){
+        $el.addClass('showing');
+      }
     });
   }
 
