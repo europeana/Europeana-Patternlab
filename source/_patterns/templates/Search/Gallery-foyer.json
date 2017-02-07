@@ -133,7 +133,7 @@
           }
         ],
         "is_collection": true,
-        "title": "Gallery Two",
+        "title": "Gallery Two with a mega-long title - big enough to line wrap",
         "link": "javascript:alert('Open gallery 2');",
         "clicktip":{
           "tooltip_text": "Gallery of Glasgow images"

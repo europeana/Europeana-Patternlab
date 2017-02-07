@@ -273,15 +273,18 @@
       }
     }
 
+    .image-set-info{
+      display:         flex;
+      justify-content: space-between;
+    }
+
     .image-set-info,
     .image-set-info a{
       color:     #4D4D4D;
-      display:   flex;
       font-size: $font-size-slightly-smaller;
     }
 
     .image-set-title{
-      flex-grow:   1;
       font-size:   $font-size-med;
       font-weight: bold;
     }
@@ -312,11 +315,17 @@
   }
 
   .image-creator,
+  .image-set-title,
   .image-title{
     max-width:     85%;
     overflow:      hidden;
     text-overflow: ellipsis;
     white-space:   nowrap;
+  }
+
+  .image-set-title{
+    display: inline-block;
+    max-width:     80%;
   }
 
   .image-texts{
