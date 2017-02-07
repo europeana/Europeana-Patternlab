@@ -512,6 +512,21 @@
         "text": "LinkedIn"
       }
     },
+    "clicktip": {
+      "activator": ".show-feeds",
+      "direction": "top",
+      "has_tooltip_links": true,
+      "tooltip_links": [
+        {
+          "text": "tumblr",
+          "url": "javascript:alert('Open feed');"
+        },
+        {
+          "text": "news",
+          "url": "javascript:alert('Open feed');"
+        }
+      ]
+    },
     "carousel": {
       "title": "Tumblr",
       "tumblr_url": "javascript:alert('open tumblr page')",

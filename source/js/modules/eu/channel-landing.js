@@ -125,8 +125,7 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
       initPreviewMasonry();
     }
 
-    require(['eu_clicktip'], function(Carousel, CarouselAppender){
-    });
+    require(['eu_clicktip']);
 
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
