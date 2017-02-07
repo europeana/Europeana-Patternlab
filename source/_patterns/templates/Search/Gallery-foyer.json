@@ -232,6 +232,33 @@
           "tooltip_text": "Gallery of Dutch images"
         }
       }
-    ]
+    ],
+    "navigation": {
+      "pagination": {
+        "prev_url": "prevurl",
+        "next_url": "nexturl",
+        "is_first_page": false,
+        "is_last_page": false,
+        "pages": [
+          {
+            "url": "javascript:alert('already on page 1')",
+            "index": "1",
+            "is_current": true
+          },
+          {
+            "url": "javascript:alert('go to page 2')",
+            "index": "2"
+          },
+          {
+            "url": "javascript:alert('go to page 3')",
+            "index": "3"
+          },
+          {
+            "url": "javascript:alert('go to page 4')",
+            "index": "4"
+          }
+        ]
+      }
+    }
   }
 }
