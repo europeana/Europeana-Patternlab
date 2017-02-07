@@ -66,7 +66,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       ga('send', {
         hitType: 'social',
         socialNetwork: socialNetwork,
-        socialAction: 'share',
+        socialAction: 'share (gallery)',
         socialTarget: window.location.href
       });
     });
