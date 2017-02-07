@@ -468,19 +468,19 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       var loadMore = function(scroll, doAfter){
 
-        if(!loadUrl){
-          log('no load url (return)');
-          return;
-        }
-        if(cmp.hasClass('loading')){
-          log('already loading (return)');
-          return;
-        }
         if(totalLoaded == totalAvailable){
           log('no more to load (scroll and return)');
           if(!swiping){
             scrollForward();
           }
+          return;
+        }
+        if(!loadUrl){
+          log('no load url (return)\n\ttotalLoaded: ' + totalLoaded + ',\n\ttotalAvailable: ' + totalAvailable);
+          return;
+        }
+        if(cmp.hasClass('loading')){
+          log('already loading (return)');
           return;
         }
 

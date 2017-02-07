@@ -1,4 +1,4 @@
-define(['jquery', 'purl'], function($, scrollEvents) {
+define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
   function log(msg){
     console.log('search-galleries: ' + msg);
@@ -9,6 +9,26 @@ define(['jquery', 'purl'], function($, scrollEvents) {
     initSocialShare();
     initLightbox();
     initGA();
+    initClicktips();
+  }
+
+  function initClicktips(){
+
+    if($('.gallery-foyer').length == 0){
+      return;
+    }
+
+    $('.gallery-foyer .svg-icon-info').each(function(i, ob){
+
+      var btnInfo   = $(ob);
+      var className = 'gallery-clicktip-' + i;
+
+      $(btnInfo).addClass(className);
+      $(btnInfo).find('.eu-clicktip-container').attr('data-clicktip-activator', '.' + className);
+
+      require(['eu_clicktip']);
+    });
+
   }
 
   function initGA(){
@@ -46,7 +66,7 @@ define(['jquery', 'purl'], function($, scrollEvents) {
       ga('send', {
         hitType: 'social',
         socialNetwork: socialNetwork,
-        socialAction: 'share',
+        socialAction: 'share (gallery)',
         socialTarget: window.location.href
       });
     });
@@ -70,7 +90,9 @@ define(['jquery', 'purl'], function($, scrollEvents) {
 
     require(['lightgallery'], function(){
       require(['lightgallery_zoom'], function(){
+
         var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+
         $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
         lightGallery( $('.gallery')[0],
@@ -83,7 +105,7 @@ define(['jquery', 'purl'], function($, scrollEvents) {
           var purl     = $.url(window.location.href);
           var imgIndex = purl.param('imgIndex');
           if(imgIndex){
-            $(itemSelector).get(parseInt(imgIndex)).click();
+            $(itemSelector).get(parseInt(imgIndex)-1).click();
           }
         });
 
@@ -104,7 +126,7 @@ define(['jquery', 'purl'], function($, scrollEvents) {
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
-      masonry = new Masonry('.masonry-items', {
+      var masonry = new Masonry('.masonry-items', {
         itemSelector: '.masonry-item',
         columnWidth: '.grid-sizer',
         gutter: '.gutter-sizer',

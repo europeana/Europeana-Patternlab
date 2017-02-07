@@ -172,7 +172,15 @@
   <div class="lc relative">
     <h2 class="section-header happening-header">{{i18n.site.collections.labels.whats-happening}}</h2>
 
-    <span class="subscribe-block">{{> atoms/text/clicktip}}<a class="show-feeds">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
+    {{#content}}
+      {{#clicktip}}
+        <span class="subscribe-block">
+      {{/clicktip}}
+      {{> atoms/text/clicktip}}
+      {{#clicktip}}
+          <a class="show-feeds">{{i18n.global.subscribe}} <svg class="icon icon-rss"><use xlink:href="#icon-rss"/></svg></a></span>
+      {{/clicktip}}
+    {{/content}}
 
     {{#content.carousel}}
       <div class="cf lc happening-feed-container">
@@ -223,6 +231,5 @@
 </section>
 
 {{> organisms/sections/banner }}
-
 {{> organisms/global/footer_v2 }}
 {{> molecules/forms/feedback }}

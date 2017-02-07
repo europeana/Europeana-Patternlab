@@ -32,18 +32,30 @@ define(['jquery'], function($){
       }
     }
 
-    $(activator).on('mouseover', function(){
-      //$el.addClass('showing');
+    $(activator).on('mouseover', function(e){
+      var target = $(e.target);
+
+      //if(target.hasClass('eu-clicktip') || target.parent().hasClass('eu-clicktip')){
+      //  return;
+     // }
+
+      $('.eu-clicktip-container').removeClass('showing');
+      $el.addClass('showing');
     });
 
     $(activator).on('click', function(){
-      $el.addClass('showing');
+      var open = $el.hasClass('showing');
+      $('.eu-clicktip-container').removeClass('showing');
+      if(!open){
+        $el.addClass('showing');
+      }
     });
   }
 
   function init(){
-    $('.eu-clicktip-container [data-role="remove"]').on('click', function(){
+    $('.eu-clicktip-container [data-role="remove"]').on('click', function(e){
       $(this).closest('.eu-clicktip-container').removeClass('showing');
+      e.stopPropagation();
     });
 
     $.each($('.eu-clicktip-container'), function(i, clickTip){

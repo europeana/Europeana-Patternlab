@@ -812,7 +812,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       ob = $(ob);
 
       var imgUrl;
-      var section       = $(ob).closest('.ve-slide');
+      var target        = $(ob.attr('href'));
+      var section       = target.closest('.ve-slide');
       var bubbleContent = ob.find('.speech-bubble .speech-bubble-inner');
 
       var baseImage   = section.find('.ve-base-image');

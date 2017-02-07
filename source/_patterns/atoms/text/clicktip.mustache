@@ -1,6 +1,6 @@
 {{#clicktip}}
-  <span class="eu-clicktip-container" data-clicktip-activator="{{activator}}">
-    <span class="eu-clicktip {{direction}}">
+  <span class="eu-clicktip-container"{{#activator}} data-clicktip-activator="{{.}}"{{/activator}}>
+    <span class="eu-clicktip {{direction}}{{^direction}}top{{/direction}}">
       {{#tooltip_text}}
         {{.}}
       {{/tooltip_text}}

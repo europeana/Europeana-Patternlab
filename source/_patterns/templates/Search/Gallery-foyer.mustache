@@ -5,7 +5,7 @@
 {{#content}}
   <div role="main" class="page l-page">
 
-    <section class="search-object">
+    <section>
       <div class="object-nav cf">
         <div class="object-nav-lists">
           <ul class="breadcrumbs">
@@ -16,7 +16,7 @@
       </div>
     </section>
 
-    <section class="site-hero gallery-foyer" id="maincontent" style="background-image:url('{{content.hero.url}}');">
+    <section class="site-hero galleries" id="maincontent" style="background-image:url('{{content.hero.url}}');">
       <div class="hero-text">
         <h1>{{content.hero.title}}</h1>
         <br/>
@@ -47,12 +47,12 @@
               {{/images}}
             </div>
             <div class="image-set-info">
-              <span class="image-set-title">
-                <a href="{{link}}">{{title}}</a>
-              </span>
+              <a class="image-set-title" href="{{link}}">{{title}}</a>
               <span class="image-set-data cf">
                 {{count}} {{i18n.global.labels.images}}
-                <span class="svg-icon-info"> </span>
+                <span class="svg-icon-info gallery-clicktip">
+                  {{>atoms/text/clicktip}}
+                </span>
               </span>
             </div>
             <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}{{#is_channel}}Channel{{/is_channel}}
@@ -60,6 +60,10 @@
           </div>
         {{/galleries}}
       </div>
+    </section>
+
+    <section>
+      {{> molecules-pagination }}
     </section>
 
   {{/content}}
