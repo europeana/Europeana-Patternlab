@@ -36,14 +36,38 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     $(document).on('click', '#lg-download', function(){
 
       var url = $(this).attr('href');
-
       ga('send', {
         hitType:       'event',
         eventCategory: 'Download',
         eventAction:   url,
         eventLabel:    'Gallery Item Download'
       });
+    });
 
+    var shareImage = function(socialNetwork){
+      log('share ' + socialNetwork + ': ' + window.location.href);
+      ga('send', {
+        hitType: 'social',
+        socialNetwork: socialNetwork,
+        socialAction: 'share (gallery image)',
+        socialTarget: window.location.href
+      });
+    }
+
+    $(document).on('click', '#lg-share-facebook', function(){
+      shareImage('facebook');
+    });
+
+    $(document).on('click', '#lg-share-twitter', function(){
+      shareImage('twitter');
+    });
+
+    $(document).on('click', '#lg-share-googleplus', function(){
+      shareImage('googleplus');
+    });
+
+    $(document).on('click', '#lg-share-pinterest', function(){
+      shareImage('pinterest');
     });
 
     $('.gallery').on('onAfterSlide.lg', function(e){
@@ -89,23 +113,23 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     require(['lightgallery'], function(){
-      require(['lightgallery_zoom'], function(){
+      require(['lightgallery_zoom', 'lightgallery_hash'], function(){
+        require(['lightgallery_zoom', 'lightgallery_share'], function(){
 
-        var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+          var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
 
-        $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
+          lightGallery( $('.gallery')[0],
+            {
+              selector: itemSelector
+            }
+          )
+          $('.btn-zoom').on('click', function(e){
+            var tgt   = $(e.target);
+            var img   = tgt.closest('.masonry-item').find('img').click();
+          });
 
-        lightGallery( $('.gallery')[0],
-          {
-            selector: itemSelector
-          }
-        )
-
-        $('.btn-zoom').on('click', function(e){
-          var tgt   = $(e.target);
-          var img   = tgt.closest('.masonry-item').find('img').click();
         });
-
       });
     });
   }

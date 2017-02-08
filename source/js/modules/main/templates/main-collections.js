@@ -45,6 +45,8 @@ require.config({
 
     lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
     lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
+    lightgallery_hash:             '../../lib/lightgallery/js/lg-hash.min',
+    lightgallery_share:            '../../lib/lightgallery/js/lg-share.min',
 
     masonry:                       '../../lib/desandro/masonry.pkgd',
 

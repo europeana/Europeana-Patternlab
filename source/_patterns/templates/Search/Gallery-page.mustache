@@ -44,7 +44,7 @@
       {{#content.items}}
         <div class="masonry-item">
 
-            <img src="{{thumb_url}}" data-src="{{full_url}}" />
+            <img src="{{thumb_url}}" data-src="{{full_url}}" {{#title}}data-tweet-text="{{.}}" data-pinterest-text="{{.}}"{{/title}}/>
             <div style="display:none;">
               <div class="image-meta">
 
