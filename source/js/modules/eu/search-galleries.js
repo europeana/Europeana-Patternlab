@@ -101,14 +101,6 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
           }
         )
 
-        require(['purl'], function(){
-          var purl     = $.url(window.location.href);
-          var imgIndex = purl.param('imgIndex');
-          if(imgIndex){
-            $(itemSelector).get(parseInt(imgIndex)-1).click();
-          }
-        });
-
         $('.btn-zoom').on('click', function(e){
           var tgt   = $(e.target);
           var img   = tgt.closest('.masonry-item').find('img').click();
