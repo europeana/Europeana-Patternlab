@@ -224,16 +224,20 @@
         "pages": [
           {
             "url": "javascript:alert('already on page 1')",
+            "index": 1,
             "is_current": true
           },
           {
-            "url": "javascript:alert('go to page 2')"
+            "url": "javascript:alert('go to page 2')",
+            "index": 2
           },
           {
-            "url": "javascript:alert('go to page 3')"
+            "url": "javascript:alert('go to page 3')",
+            "index": 3
           },
           {
-            "url": "javascript:alert('go to page 4')"
+            "url": "javascript:alert('go to page 4')",
+            "index": 4
           }
         ]
       }
