@@ -13,28 +13,37 @@
 }
 
 .object-overview{
-    @media all and (min-width: $bp-med) {
-        @include span(18);
-    }
+  @media all and (min-width: $bp-med) {
+    @include span(18);
+  }
 }
 
 .object-actions{
 
-    @include fontSize(14px);
+  @include fontSize(14px);
 
-    @media all and (min-width: $bp-med) {
-        @include span(last 6);
-    }
+  @media all and (min-width: $bp-med) {
+    @include span(last 6);
+  }
 
-    &>div{
-        margin-bottom: $space;
-    }
+  &>div{
+    margin-bottom: $space;
+  }
 
-    .object-origin{
-      .icon{
-        margin-right: 0;
-      }
+  .object-origin{
+    .icon{
+      margin-right: 0;
     }
+    .institution-logo{
+      display:        block;
+      -webkit-filter: grayscale(100%);
+      filter:         grayscale(100%);
+      margin-bottom:  0.8rem;
+      max-height:     50px;
+      max-width:      140px;
+      object-fit:     contain;
+    }
+  }
 }
 
 .object-title{

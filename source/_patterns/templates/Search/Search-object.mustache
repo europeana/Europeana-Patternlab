@@ -337,6 +337,11 @@
           {{# object.origin }}
             <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
               <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+
+              {{#institution_logo}}
+                <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+              {{/institution_logo}}
+
               {{#logo}}
                 <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
               {{/logo}}
