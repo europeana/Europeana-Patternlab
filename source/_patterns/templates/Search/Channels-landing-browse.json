@@ -483,6 +483,7 @@
     },
     "social": {
       "social_title": "Follow Europeana Fashion",
+      "style_blue": "true",
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"

@@ -44,9 +44,10 @@ require.config({
     jsTree:                        '../../lib/jstree/jstree',
 
     lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
-    lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
+    lightgallery_fs:               '../../lib/lightgallery/js/lg-fullscreen.min',
     lightgallery_hash:             '../../lib/lightgallery/js/lg-hash.min',
     lightgallery_share:            '../../lib/lightgallery/js/lg-share.min',
+    lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
 
     masonry:                       '../../lib/desandro/masonry.pkgd',
 

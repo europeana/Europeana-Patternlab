@@ -90,7 +90,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       ga('send', {
         hitType: 'social',
         socialNetwork: socialNetwork,
-        socialAction: 'share (gallery)',
+        socialAction: $('.gallery-foyer').length == 0 ? 'share (gallery foyer)' : 'share (gallery)',
         socialTarget: window.location.href
       });
     });
@@ -114,7 +114,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
     require(['lightgallery'], function(){
       require(['lightgallery_zoom', 'lightgallery_hash'], function(){
-        require(['lightgallery_zoom', 'lightgallery_share'], function(){
+        require(['lightgallery_fs', 'lightgallery_share'], function(){
 
           var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
 

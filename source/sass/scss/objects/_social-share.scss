@@ -1,69 +1,111 @@
 //Social Share
 .social-share {
-	margin-bottom: $space;
+  margin-bottom: $space;
 
-	li {
-		display: inline-block;
-	}
+  li {
+    display: inline-block;
+  }
 
-	a {
-		display: block;
-	}
+  a {
+    display: block;
+  }
 
-	.icon{
-		width: 3em;
-		height: 3em;
-		margin-right: 0;
-	}
+  .icon{
+    width: 3em;
+    height: 3em;
+    margin-right: 0;
+  }
 
-	.icon-twitter{
-		color: $brand-twitter;
-		&:hover{
-			color: darken($brand-twitter, 15%);
-			cursor: pointer;
-		}
-	}
-	.icon-facebook{
-		color: $brand-facebook;
-		&:hover{
-			color: darken($brand-facebook, 15%);
-			cursor: pointer;
-		}
-	}
-	.icon-pinterest{
-		color: $brand-pinterest;
-		&:hover{
-			color: darken($brand-pinterest, 15%);
-			cursor: pointer;
-		}
-	}
-	.icon-googleplus{
-		color: $brand-google;
-		&:hover{
-			color: darken($brand-google, 15%);
-			cursor: pointer;
-		}
-	}
-	.icon-soundcloud{
-		color: $brand-soundcloud;
-		&:hover{
-			color: darken($brand-soundcloud, 15%);
-			cursor: pointer;
-		}
-	}
-  .icon-tumblr{
-		color: $brand-tumblr;
-		&:hover{
-			color: darken($brand-tumblr, 15%);
-			cursor: pointer;
-		}
-	}
-  .icon-instagram{
-		color: $brand-instagram;
-		&:hover{
-			color: darken($brand-instagram, 15%);
-			cursor: pointer;
-		}
-	}
+  &:not(.blue){
+    .icon-twitter{
+      color: $brand-twitter;
+      &:hover{
+        color: darken($brand-twitter, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-facebook{
+      color: $brand-facebook;
+      &:hover{
+        color: darken($brand-facebook, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-pinterest{
+      color: $brand-pinterest;
+      &:hover{
+        color: darken($brand-pinterest, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-googleplus{
+      color: $brand-google;
+      &:hover{
+        color: darken($brand-google, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-soundcloud{
+      color: $brand-soundcloud;
+      &:hover{
+        color: darken($brand-soundcloud, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-tumblr{
+      color: $brand-tumblr;
+      &:hover{
+        color: darken($brand-tumblr, 15%);
+        cursor: pointer;
+      }
+    }
+    .icon-instagram{
+      color: $brand-instagram;
+      &:hover{
+        color: darken($brand-instagram, 15%);
+        cursor: pointer;
+      }
+    }
+  }
 
+  &.blue{
+    .icon{
+      color: $eu-blue;
+    }
+    .icon-twitter{
+      &:hover{
+        color: $brand-twitter;
+      }
+    }
+    .icon-facebook{
+      &:hover{
+        color: $brand-facebook;
+      }
+    }
+    .icon-pinterest{
+      &:hover{
+        color: $brand-pinterest;
+      }
+    }
+    .icon-googleplus{
+      &:hover{
+        color: $brand-google;
+      }
+    }
+    .icon-soundcloud{
+      &:hover{
+        color: $brand-soundcloud;
+      }
+    }
+    .icon-tumblr{
+      &:hover{
+        color: $brand-tumblr;
+      }
+    }
+    .icon-instagram{
+      &:hover{
+        color: $brand-instagram;
+      }
+    }
+  }
 }

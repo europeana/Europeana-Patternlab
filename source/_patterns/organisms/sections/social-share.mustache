@@ -1,10 +1,10 @@
 {{#social}}
   <section class="channel-social section">
     <h4>{{social_title}}:</h4>
-    <ul class="social-share">
+    <ul class="social-share{{#style_blue}} blue{{/style_blue}}">
       {{#twitter}}
         <li>
-          <a class="icon-soundcloud" {{#url}}href="{{.}}"{{/url}} target="_blank">
+          <a class="icon-social" {{#url}}href="{{.}}"{{/url}} target="_blank">
             <svg class="icon icon-twitter">
               <use xlink:href="#icon-twitter"></use>
             </svg>
@@ -54,7 +54,7 @@
       {{/pinterest}}
       {{#soundcloud}}
         <li>
-          <a class="icon-soundcloud" {{#url}}href="{{.}}"{{/url}} target="_blank">
+          <a class="icon-social" {{#url}}href="{{.}}"{{/url}} target="_blank">
             <svg class="icon icon-soundcloud">
               <use xlink:href="#icon-soundcloud"></use>
             </svg>
@@ -64,7 +64,7 @@
       {{/soundcloud}}
       {{#tumblr}}
         <li>
-          <a class="icon-soundcloud" {{#url}}href="{{.}}"{{/url}} target="_blank">
+          <a class="icon-social" {{#url}}href="{{.}}"{{/url}} target="_blank">
             <svg class="icon icon-tumblr">
               <use xlink:href="#icon-tumblr"></use>
             </svg>
@@ -74,7 +74,7 @@
       {{/tumblr}}
       {{#linkedin}}
         <li>
-          <a class="icon-social-linkedin" {{#url}}href="{{.}}"{{/url}} target="_blank">
+          <a class="icon-social" {{#url}}href="{{.}}"{{/url}} target="_blank">
             <svg class="icon icon-social-linkedin">
               <use xlink:href="#icon-linkedin"></use>
             </svg>
