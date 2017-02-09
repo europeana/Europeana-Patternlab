@@ -153,7 +153,8 @@ window.fixGA = function(ga){
   return ga;
 }
 
-require(['jquery', 'optimizely'], function( $ ) {
+require(['jquery'], function( $ ) {
+  require(['optimizely']);
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'global'], function(channels) {
