@@ -172,7 +172,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
                   }
                 }
             });
-            carousel.resolve(Carousel.create(el, appender, ops));
+            var mltCarousel = Carousel.create(el, appender, ops);
+            carousel.resolve(mltCarousel);
+
+            if(ops.total_available > 0 && el.find('ul li').length == 0){
+              mltCarousel.loadMore();
+            }
         });
         return carousel.promise();
     };

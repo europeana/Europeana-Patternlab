@@ -1,7 +1,7 @@
 {
   "bodyclass": "europeana_search",
   "page_title": "Europeana Search",
-  "page_locale": "en",
+
   "version":{
       "is_alpha": true
   },
@@ -11,16 +11,6 @@
       "media": "all"
     }
   ],
-  "head_links": {
-    "items": [
-      {
-        "hreflang": "x-default",
-        "href": "http://page-url"
-      }
-    ]
-  },
-  "fb_campaigns_on": true,
-  "fb_campaigns": ["test", "these", "campaigns"],
   "js_vars": [
     {
       "name": "pageName",
@@ -35,19 +25,6 @@
       "data_main": "../../js/modules/main/templates/main-collections"
     }
   ],
-
-  "form_search": {
-    "action": "javascript:alert('submit form');"
-  },
-
-  "navigation":{
-    "back_url": "javascript:alert('go back');",
-    "back_label": "Return",
-    "last_label" : "item detail",
-    "next_prev": false
-  },
-
-  "include_nav_searchbar": true,
 
   "content":
   {
@@ -137,7 +114,6 @@
       "rights":
       {
         "license_CC0": true,
-        "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like"
       },
@@ -147,6 +123,7 @@
       "subtitle": "Het melkmeisje",
       "creation_date": "1660",
       "creator": "Johannes Vermeer",
+
       "origin":
       {
         "institution_name": "Rijksmuseum",
@@ -154,15 +131,7 @@
         "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
-      "annotations":
-      {
-        "title": "Annotations",
-        "info": "javascript:alert('link to info');",
-        "sections": [{
-          "title": "Relations",
-          "items": [{"url": "http://www.wikidata.org/entity/Q15847665", "text": "http://www.wikidata.org/entity/Q15847665", "title": false}]
-        }]
-      },
+
       "people":
       {
         "title": "People",
@@ -203,32 +172,32 @@
           {
             "title": "Type",
             "items": [
-                      {
-                          "text":  "paintings",
-                          "url":    "javascript:alert('search concepts')"
-                        },
-                      {
-                          "text":  "easel paintings",
-                          "url":    "javascript:alert('search concepts')"
-                        }
+              {
+                "text":  "paintings",
+                "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "easel paintings",
+                "url":    "javascript:alert('search concepts')"
+              }
             ]
           },
           {
             "title": "Subject",
             "items": [
-                      {
-                          "text":  "Kitchen maid",
-                          "url":    "javascript:alert('search concepts')"
-                        },
-                      {
-                          "text":  "Kitchen servant",
-                          "url":    "javascript:alert('search concepts')"
-                        }
+              {
+                  "text":  "Kitchen maid",
+                  "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "Kitchen servant",
+                "url":    "javascript:alert('search concepts')"
+              }
             ]
           }
         ]
-         },
-       "description":
+     },
+     "description":
       {
          "title": "Description",
         "sections": [{
@@ -372,6 +341,37 @@
 
         "add_url": "add_new_tag_url_here"
       },
+
+      "colours":
+      {
+        "items":
+        [
+          {
+            "hex": "#2F4F4F",
+            "url": "http://europeana.eu"
+          },
+
+          {
+            "hex": "#800000",
+            "url": "http://europeana.eu"
+          },
+
+          {
+            "hex": "#696969",
+            "url": "http://europeana.eu"
+          },
+
+          {
+            "hex": "#8B4513",
+            "url": "http://europeana.eu"
+          },
+
+          {
+            "hex": "#556B2F",
+            "url": "http://europeana.eu"
+          }
+        ]
+      },
       "meta_additional":
       {
         "present": true,
@@ -402,127 +402,28 @@
         "twitter": true,
         "facebook": true,
         "pinterest": true,
-        "googleplus": true,
-        "tumblr": true
+        "googleplus": true
       }
     },
 
-    "similar":
+    "mlt_ajax":
     {
-      "title": "Similar items",
-
+      "title": "Similar items - Ajax",
       "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "url-for-extra-items",
+      "more_items_load" : "http://localhost:3000/portal/en/record/92093/BibliographicResource_1000086157270/similar.json?page=1&per_page=4",
+      "XXX__more_items_load" : "http://test-npc.eanadev.org/portal/en/record/92093/BibliographicResource_1000086157270/similar.json",
+      "xxxxxxxxxxxxxxx" : "http://test-npc.eanadev.org/portal/en/record/92093/BibliographicResource_1000086157270/similar.json",
       "more_items_total" : 12,
-      "more_items_total_formatted" : 12,
-
-      "items": [
-        {
-          "url":  "?q=The+Lace+Maker",
-          "title": "The Lace Maker",
-          "img": {
-             "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
-          }
-        },
-        {
-          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
-        "title": "Zittende jongeman bij ton met het hoofd naar links",
-          "img": {
-              "alt": "Zittende jongeman bij ton met het hoofd naar links",
-              "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
-           }
-        },
-        {
-          "url": "?q=Delft",
-          "title": "Delft",
-          "img": {
-              "alt": "Delft",
-              "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
-           }
-        },
-        {
-          "url": "?q=Girl+with+the+pearl+earring",
-          "title": "Girl with the pearl earring",
-          "img": {
-              "alt": "Girl with the pearl earring",
-              "src": "/images/sample/object_full.jpg"
-           }
-
-        }
-      ]
+      "more_items_total_formatted" : 12
     },
-    "named_entities": {
-          "fold_title": "Named Entities",
-          "inline": true,
-          "data": [
-          {
-            "title": "Who",
-            "fields": [
-              {
-                  "key": "Agent Term",
-                  "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Agent Label",
-                  "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
-                  "multi": true
-              }
-            ]
-          },
-          {
-            "title": "What",
-            "fields": [
-              {
-                  "key": "Concept Term",
-                  "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Concept Label",
-                  "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
-                  "multi": true
-              }
-            ]
-          },
-          {
-            "title": "Where",
-            "fields": [
-              {
-                  "key": "Place Term",
-                  "val": "https://www.google.co.uk/maps",
-                  "foldable_link": true
-              }
-            ]
-          },
-          {
-            "title": "When",
-            "fields": [
-              {
-                  "key": "Period Term",
-                  "val": "http://semium.org/time/17xx_4_quarter",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Period Term",
-                  "vals": [
-                    {"key": "(fr)", "val": "[4e quart 18e siècle]"},
-                    {"key": "(en)", "val": "[4 quarter of the 18th century]"},
-                    {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
-                  ],
-                  "multi": true
-              }
-            ]
-          }
-        ]
+    "similar": false
 
-
-    }
   },
+
   "page_config":
   {
     "newsletter": true
   },
+
   "debug": ""
 }

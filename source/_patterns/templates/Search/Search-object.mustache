@@ -424,6 +424,49 @@
           </div>
         {{/content.hierarchy}}
 
+        {{#content.mlt_ajax}}
+          <div class="data-section no-border">
+            <div class="mlt cf">
+              <div class="subsection-label">
+                {{title}}
+                <a id="scroll-trigger-mlt"
+                   class="scroll-trigger"
+                   data-enabled="true"
+                   data-fire-on-open="showMLT"
+                   data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey" }'
+                ></a>
+              </div>
+              <div class="subsection-content">
+                <div class="js-carousel more-like-this">
+                  <ul class="cf">
+                  <!--
+                    {{#items}}
+                      <li class="js-carousel-item">
+                        <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                          <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                        </div>
+                        {{#title}}
+                        <span class="js-carousel-title">
+                          <a href="{{url}}">THIS IS AN MLT AJAX ITEM{{.}}</a>
+                        </span>
+                        {{/title}}
+                      </li>
+                    {{/items}}
+                  -->
+                  </ul>
+                </div>
+                <a class="scroll-trigger trigger-chain"
+                   data-enabled="true"
+                   data-disable-when-fired="showMLT"
+                   data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
+              </div>
+            </div>
+            {{#more_items_query}}
+              <div class="show-more-mlt"><a href="{{.}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
+            {{/more_items_query}}
+          </div>
+        {{/content.mlt_ajax}}
+
         {{#content.similar}}
           <div class="data-section no-border">
             <div class="mlt cf">
