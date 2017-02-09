@@ -15,7 +15,7 @@
   }
 }
 
-.gallery-shares{
+.gallery-header{
 
   margin:     2rem auto 0;
   max-width:  90%;
@@ -26,15 +26,24 @@
     margin: 2em auto 1.2em;
   }
 
-
   @media all and (min-width: $bp-small-3) {
 
     display:         flex;
+    position:        relative;
     justify-content: flex-end;
+
     h4{
      font-size: $font-size-slightly-smaller;
       margin: 1.1em $space 0 0;
     }
+
+    .filterby{
+      position:   absolute;
+      left:       0;
+      top:        1.4em;
+      transform:  translateY(-50%);
+    }
+
   }
 
   @media all and (min-width: $bp-xxl) {
@@ -252,7 +261,8 @@
     }
 
     .image-set-data{
-      position: relative;
+      position:    relative;
+      white-space: nowrap;
       .svg-icon-info{
         display:  block;
         height:   1.6em;
@@ -265,6 +275,7 @@
 
         .eu-clicktip-container{
           left: -0.5em;
+          white-space: normal;
           .eu-clicktip{
             color: $gray30;
           }

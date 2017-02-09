@@ -25,7 +25,10 @@
     </section>
 
     <section class="lc">
-      <div class="gallery-shares">
+      <div class="gallery-header">
+        {{#gallery_filter_options}}
+          {{>molecules/forms/filterby}}
+        {{/gallery_filter_options}}
         {{#social}}
           <h4>{{social_title}}</h4>
           {{>molecules/controls/share-social}}

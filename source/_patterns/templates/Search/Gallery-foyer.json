@@ -60,6 +60,26 @@
       "title": "Gallery",
       "subtitle": "Description of this page"
     },
+    "gallery_filter_options": {
+      "options": [
+        {
+          "label": "Theme",
+          "value": "Value 1"
+        },
+        {
+          "label": "Art",
+          "value": "Value 2"
+        },
+        {
+          "label": "Fashion",
+          "value": "Value 3"
+        },
+        {
+          "label": "Music",
+          "value": "Value 4"
+        }
+      ]
+    },
     "social": {
       "social_title": "Share galleries",
       "social_label": "Share galleries",
