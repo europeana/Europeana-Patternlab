@@ -38,8 +38,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       var perPage        = appender.getDataCount();
 
-      var totalLoaded    = appender.getDataCount();
-      var totalAvailable = 100;
+      var totalLoaded    = perPage;
+      var totalAvailable = null;
 
       var scrollTime     = 400;
 
@@ -93,9 +93,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         }
         edge           = vertical ? 'top' : 'left';
         loadUrl        = ops.loadUrl;
-        totalAvailable = ops.total_available ? ops.total_available : totalAvailable;
         minSpacingPx   = ops.minSpacingPx;
         spacing        = minSpacingPx;
+        totalAvailable = ops.total_available ? ops.total_available : totalAvailable;
 
         // ui
 
@@ -228,7 +228,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             scrollTime = scrollTimeRef;
           });
         }
-        resize();
+        if(totalAvailable != null){
+          resize();
+        }
       };
 
       var anchor = function(){
@@ -492,6 +494,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       appender.append(function(added){
         totalLoaded = appender.getDataCount();
 
+        if(totalAvailable == null){
+          totalAvailable = appender.getDataAvailable();
+          setArrowState();
+        }
+
         if(added.length){
           resize();
           if(scroll){
@@ -525,12 +532,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         }
       },  perPage);
     };
-
-    var getItemMarkup = function(data){
-      return '' + '<li class="' + classData.itemClass + '">' + '<div class="' + classData.itemDivClass + '" style="background-image: url(' + data.img.src + ')">' + '<div class="' + classData.itemInnerClass + '"><a title="' + data.img.alt + '" class="' + classData.itemLinkClass + '" href="' + data.url
-              + '">&nbsp;</a></div>' + '</div>' + '<span class="' + classData.titleClass + '">' + '<a href="' + data.url + '">' + data.title + '</a>';
-      +'</span>' + '</li>';
-    }
 
     var addButtons = function(useContainer){
 

@@ -610,6 +610,9 @@
 .data-border{
     border-top: 1px solid $gray-lighter;
 }
+.data-full-w{
+  @include span(24);
+}
 
 .map-section{
     padding-bottom: 0;
@@ -1087,7 +1090,7 @@
     }
 
     .subsection-content{
-        @include span(last 20);
+        @include span(last 20 no-gutters);
         .object-overview &{
             @include span(last 14 of 18);
         }
