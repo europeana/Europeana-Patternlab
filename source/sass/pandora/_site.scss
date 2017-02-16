@@ -568,6 +568,34 @@ body {
 }
 /*** END OF PROFILE FORM ***/
 
+/*** USER REQUESTS TABLE ***/
+.user-request-table {
+	margin-top: 2em;
+	width: 70em;
+	background-color: white;
+}
+
+.user-request-pending {
+	color: #1676AA;
+}
+
+.user-request-accepted {
+	color: #37B98B;
+}
+
+.user-request-rejected {
+	color: #d12d1e;
+}
+
+.user-request-type-add {
+	color: #1676AA;
+}
+
+.user-request-type-delete {
+	color: #d12d1e;
+}
+/*** END OF USER REQUESTS TABLE ***/
+
 .error-message {
 	color: red;
 }
