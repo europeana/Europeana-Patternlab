@@ -575,6 +575,11 @@ body {
 	background-color: white;
 }
 
+.user-request-table tr {
+	background: red;
+	cursor: pointer;'
+}
+
 .user-request-pending {
 	color: #1676AA;
 }
