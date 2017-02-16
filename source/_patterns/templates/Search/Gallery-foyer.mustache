@@ -25,7 +25,10 @@
     </section>
 
     <section class="lc">
-      <div class="gallery-shares">
+      <div class="gallery-header">
+        {{#gallery_filter_options}}
+          {{>molecules/forms/filterby}}
+        {{/gallery_filter_options}}
         {{#social}}
           <h4>{{social_title}}</h4>
           {{>molecules/controls/share-social}}
@@ -41,7 +44,7 @@
           <div class="masonry-item image-set {{#is_channel}} item-channel{{/is_channel}}{{#is_exhibition}} item-exhibition{{/is_exhibition}}{{#is_new}} item-new{{/is_new}}{{#is_partner}} item-partner{{/is_partner}}{{#is_featured_site}} item-featuredsite{{/is_featured_site}}">
             <div class="cf">
               {{#images}}
-                <a class="img-link" href="{{link}}?imgIndex={{index}}">
+                <a class="img-link" href="{{link}}">
                   <img src="{{url}}"/>
                 </a>
               {{/images}}
@@ -63,7 +66,7 @@
     </section>
 
     <section>
-      {{> molecules-pagination }}
+      {{> molecules/navigation/pagination }}
     </section>
 
   {{/content}}

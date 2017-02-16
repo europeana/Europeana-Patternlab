@@ -4,7 +4,8 @@
 <div class="working-space">
 	<div class="container-large">
 		{{#metis_header}}
-			{{> organisms/global/header_v2}}
+			{{>organisms/global/navigation_top_accessible_v2}}
+			<div class="pusher">
 		{{/metis_header}}
 	    <ul class="breadcrumbs">
 		{{#breadcrumbs}}
@@ -28,6 +29,11 @@
 			{{> molecules/pandora/profile-form}}
 		</div>
 		{{/is_profile}}
+		{{#is_requests}}
+		<div>
+			{{> atoms/tables/table-horizontal}}
+		</div>
+		{{/is_requests}}
 	{{/landing_page_content}}
 </div>
 {{#is_java}}

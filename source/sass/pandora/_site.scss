@@ -131,6 +131,23 @@ body {
 	color: white !important;
 	width: 60em;
 	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.depth_1 {
+	margin-left: 4em;
+}
+
+.depth_2 {
+	margin-left: 8em;
+}
+
+.depth_3 {
+	margin-left: 12em;
+}
+
+.depth_4 {
+	margin-left: 16em;
 }
 
 .card-component td {
@@ -550,6 +567,39 @@ body {
     transition: 0.3s linear border;
 }
 /*** END OF PROFILE FORM ***/
+
+/*** USER REQUESTS TABLE ***/
+.user-request-table {
+	margin-top: 2em;
+	width: 70em;
+	background-color: white;
+}
+
+.user-request-table tr {
+	background: red;
+	cursor: pointer;'
+}
+
+.user-request-pending {
+	color: #1676AA;
+}
+
+.user-request-accepted {
+	color: #37B98B;
+}
+
+.user-request-rejected {
+	color: #d12d1e;
+}
+
+.user-request-type-add {
+	color: #1676AA;
+}
+
+.user-request-type-delete {
+	color: #d12d1e;
+}
+/*** END OF USER REQUESTS TABLE ***/
 
 .error-message {
 	color: red;

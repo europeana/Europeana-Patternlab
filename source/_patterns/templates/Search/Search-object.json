@@ -152,7 +152,7 @@
         "institution_name": "Rijksmuseum",
         "institution_country": "Netherlands",
         "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
-        "logo": "sample/logo.jpg"
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       "annotations":
       {
@@ -446,7 +446,7 @@
           "title": "Girl with the pearl earring",
           "img": {
               "alt": "Girl with the pearl earring",
-              "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+              "src": "/images/sample/object_full.jpg"
            }
 
         }

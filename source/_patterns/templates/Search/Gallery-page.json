@@ -64,6 +64,7 @@
     "social": {
       "social_title": "Share galleries",
       "social_label": "Share galleries",
+      "style_blue": true,
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
         "text": "Facebook"

@@ -189,11 +189,12 @@ define(['jquery'], function($){
 
   var EuCarouselAppender = function(conf){
 
-    var cmp         = conf.cmp;
-    var loadUrl     = conf.loadUrl;
-    var template    = conf.template;
-    var totalLoaded = cmp.find('li').size();
-    var doAfter     = conf.doAfter ? conf.doAfter : false;
+    var cmp            = conf.cmp;
+    var loadUrl        = conf.loadUrl;
+    var template       = conf.template;
+    var totalLoaded    = cmp.find('li').size();
+    var totalAvailable = null;
+    var doAfter        = conf.doAfter ? conf.doAfter : false;
 
     if(!templates[template]){
       warn('no valid template found (' + template + ')');
@@ -203,7 +204,8 @@ define(['jquery'], function($){
     var append = function(data){
       var appendData = templates[template](data);
       cmp.append(appendData.markup);
-      totalLoaded = cmp.find('li').size();
+      totalLoaded    = cmp.find('li').size();
+      totalAvailable = data.total;
 
       if(doAfter){
         doAfter(appendData.added);
@@ -223,24 +225,25 @@ define(['jquery'], function($){
       $.getJSON( url, null)
         .done(
           function( data ) {
-              var appendedData = append(data);
-              callback(appendedData);
+            var appendedData = append(data);
+            callback(appendedData);
           }
         )
         .fail(function(msg){
-            cmp.removeClass('loading');
-            log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
-            callback(false);
+          cmp.removeClass('loading');
+          log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+          callback(false);
         });
     };
 
     return {
       append : function(callback, perPage){
-        log('append...');
         load(callback, perPage);
       },
+      getDataAvailable : function(){
+        return totalAvailable;
+      },
       getDataCount : function(){
-        log('data count is ' + totalLoaded);
         return totalLoaded;
       }
     }

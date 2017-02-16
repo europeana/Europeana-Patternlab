@@ -1,0 +1,54 @@
+{
+	"css_files": 
+	[
+		{
+			"path": "../../css/pandora/screen.css",
+			"media": "all"
+		},
+
+		{
+			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+			"media": "all"
+		}
+	],
+
+	"js_files": 
+	[
+		{
+			"path": "../../js/modules/require.js",
+			"data_main": "../../js/modules/main/templates/main-pandora"
+		}
+	], 
+
+	"request": [ 
+	{ 
+        "id": 1,
+		"email": "alena.fedasenka@europeana.eu",
+		"organization": "Europeana",
+		"date": "15-02-2017",
+		"type": "Add",
+		"status": "Pending",
+		"status_type": "user-request-pending",
+		"request_type":"user-request-type-add"
+    }, 
+    { 
+        "id": 2,
+		"email": "yorgos.mamakis@europeana.eu",
+		"organization": "BNF",
+		"date": "14-02-2017",
+		"type": "Delete",
+		"status": "Rejected",
+		"status_type": "user-request-rejected",
+		"request_type":"user-request-type-delete"
+    }, 
+    {
+        "id": 1,
+		"email": "cecile.devarenne@europeana.eu",
+		"organization": "Europeana",
+		"date": "15-01-2017",
+		"type": "Add",
+		"status": "Accepted",
+		"status_type": "user-request-accepted",
+		"request_type":"user-request-type-add"
+    } ]
+}

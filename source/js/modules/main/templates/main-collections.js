@@ -44,6 +44,9 @@ require.config({
     jsTree:                        '../../lib/jstree/jstree',
 
     lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
+    lightgallery_fs:               '../../lib/lightgallery/js/lg-fullscreen.min',
+    lightgallery_hash:             '../../lib/lightgallery/js/lg-hash.min',
+    lightgallery_share:            '../../lib/lightgallery/js/lg-share.min',
     lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
 
     masonry:                       '../../lib/desandro/masonry.pkgd',
@@ -150,7 +153,8 @@ window.fixGA = function(ga){
   return ga;
 }
 
-require(['jquery', 'optimizely'], function( $ ) {
+require(['jquery'], function( $ ) {
+  require(['optimizely']);
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'global'], function(channels) {

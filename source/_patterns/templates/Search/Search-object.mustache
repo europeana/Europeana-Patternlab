@@ -337,6 +337,11 @@
           {{# object.origin }}
             <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
               <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+
+              {{#institution_logo}}
+                <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+              {{/institution_logo}}
+
               {{#logo}}
                 <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
               {{/logo}}
@@ -399,77 +404,84 @@
         {{! end object actions }}
       </div>
 
-      <div class="lc data-border">
-
-        {{#content.hierarchy}}
-          <div class="data-section no-border">
-            <div class="hierarchy cf">
-              <div class="subsection-label">
-               {{i18n.site.object.hierarchy.title}}
-                <a class="scroll-trigger"
-                    data-enabled="true"
-                    data-fire-on-open="showHierarchy"
-                    data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
-                ></a>
-              </div>
-              <div class="subsection-content">
-                <div class="hierarchy-objects" style="display:none;">{{.}}</div>
-              </div>
-            </div>
-          </div>
-        {{/content.hierarchy}}
-
-        {{#content.similar}}
-          <div class="data-section no-border">
-            <div class="mlt cf">
-              <div class="subsection-label">
-                {{title}}
-                <a id="scroll-trigger-mlt"
-                   class="scroll-trigger"
-                   data-enabled="true"
-                   data-fire-on-open="showMLT"
-                   data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey" }'
-                ></a>
-              </div>
-              <div class="subsection-content">
-                <div class="js-carousel more-like-this">
-                  <ul class="cf">
-                    {{#items}}
-                      <li class="js-carousel-item">
-                        <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-                          <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
-                        </div>
-                        {{#title}}
-                        <span class="js-carousel-title">
-                          <a href="{{url}}">{{.}}</a>
-                        </span>
-                        {{/title}}
-                      </li>
-                    {{/items}}
-                  </ul>
+      <div class="lc">
+        <div class="data-full-w">
+          <div class="data-border">
+            {{#content.hierarchy}}
+              <div class="data-section no-border">
+                <div class="hierarchy cf">
+                  <div class="subsection-label">
+                   {{i18n.site.object.hierarchy.title}}
+                    <a class="scroll-trigger"
+                        data-enabled="true"
+                        data-fire-on-open="showHierarchy"
+                        data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
+                    ></a>
+                  </div>
+                  <div class="subsection-content">
+                    <div class="hierarchy-objects" style="display:none;">{{.}}</div>
+                  </div>
                 </div>
-                <a class="scroll-trigger trigger-chain"
-                   data-enabled="true"
-                   data-disable-when-fired="showMLT"
-                   data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
               </div>
-            </div>
-            {{#more_items_query}}
-              <div class="show-more-mlt"><a href="{{.}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
-            {{/more_items_query}}
+            {{/content.hierarchy}}
+
+            {{#content.similar}}
+              <div class="data-section no-border">
+                <div class="mlt cf">
+                  <div class="subsection-label">
+                    {{title}}
+                    <a id="scroll-trigger-mlt"
+                       class="scroll-trigger"
+                       data-enabled="true"
+                       data-fire-on-open="showMLT"
+                       data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey", "itemWidth": "400" }'
+                    ></a>
+                  </div>
+                  <div class="subsection-content">
+                    <div class="js-carousel more-like-this">
+                      <ul class="cf">
+                        {{#items}}
+                          <li class="js-carousel-item">
+                            <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                              <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                            </div>
+                            {{#title}}
+                            <span class="js-carousel-title">
+                              <a href="{{url}}">{{.}}</a>
+                            </span>
+                            {{/title}}
+                          </li>
+                        {{/items}}
+                      </ul>
+                    </div>
+                    <a class="scroll-trigger trigger-chain"
+                       data-enabled="true"
+                       data-disable-when-fired="showMLT"
+                       data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
+                  </div>
+                </div>
+                {{#more_items_query}}
+                  <div class="show-more-mlt"><a href="{{.}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
+                {{/more_items_query}}
+              </div>
+            {{/content.similar}}
           </div>
-        {{/content.similar}}
+        </div>
       </div>
 
       {{#content.named_entities}}
-        <div class="lc data-border">
-          <div class="data-section no-border">
-            <div class="cf">
-              <div class="subsection-label">
-                {{i18n.site.object.named-entities.title}}
-              </div>
-              <div class="subsection-content">
-                  {{>molecules/navigation/foldable-list}}
+        <div class="lc">
+          <div class="data-full-w">
+            <div class="data-border">
+              <div class="data-section no-border">
+                <div class="cf">
+                  <div class="subsection-label">
+                    {{i18n.site.object.named-entities.title}}
+                  </div>
+                  <div class="subsection-content">
+                      {{>molecules/navigation/foldable-list}}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
