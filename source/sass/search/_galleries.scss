@@ -178,7 +178,6 @@
   &.gallery-foyer{
 
     margin:    auto;
-    max-width: 90%;
 
     @media all and (min-width: $bp-xxl) {
       max-width: none;
@@ -187,8 +186,10 @@
 
   &.gallery{
 
-    @media all and (max-width: $bp-small-3) {
-      max-width:  400px;
+    max-width: 400px;
+    
+    @media all and (min-width: $bp-small-3) {
+      max-width: 90%;
     }
 
     @media all and (max-width: $bp-med) {
@@ -208,14 +209,12 @@
 
   &.gallery-foyer{
 
-    @media all and (max-width: $bp-med) {
+    max-width: 450px;
 
-      .masonry-item,
-      .grid-sizer{
-        max-width: 450px;
-      }
+    @media all and (min-width: $bp-small-3) {
+      max-width: 90%;
     }
-
+   
   }
 
   .image-set{
