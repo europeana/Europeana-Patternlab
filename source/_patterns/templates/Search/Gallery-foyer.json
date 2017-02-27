@@ -61,6 +61,7 @@
       "subtitle": "Description of this page"
     },
     "gallery_filter_options": {
+      "filter_name": "topic",
       "options": [
         {
           "label": "Theme",
