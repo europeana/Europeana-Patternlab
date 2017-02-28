@@ -705,7 +705,7 @@
 // LANDING ALTERNATIVE
 
 .channels-landing-browse{
-  padding: 1em 1em 2em 1em;
+  padding: 1em 1em 3.2em 1em;
 
   .custom-newsletter,
   .channel-social{
@@ -985,7 +985,8 @@
 
 .happening-content{
   background-color: $paper;
-    position:       relative;
+  margin-bottom:    3.2em;
+  position:         relative;
 
   .happening-header{
     margin: $space 0;
@@ -1005,15 +1006,29 @@
     }
   }
 
+  .js-carousel-title{
+  	 margin: 0.75em -1.6em 0.75em 0.25em;
+  }
+ 
+  .js-carousel-text{
+     margin: 0 0 0.75em 0.25em;
+  }
+ 
+  .js-carousel-date{
+    font-size: $font-size-sm;
+    color: $gray-light;
+    margin-left: 0.25em;
+  }
+
   .js-carousel-type{
     border-radius:  4px;
     bottom:         $pad;
     color:          #fff;
     font-size:      $font-size-sm;
-    font-weight:    bold;
+    font-weight:    normal;
     position:       absolute;
-    padding:        0.1em 0.2em;
-    right:          1em;
+    padding:        0.1em 0.6em;
+    right:          2em;
     text-transform: uppercase;
   }
 
@@ -1138,7 +1153,7 @@
 
 @media all and (min-width: $bp-large) {
   .channels-landing-browse{
-    padding: $space $space;
+    padding: $space $space $space*2;
   }
 
   .main-content{
