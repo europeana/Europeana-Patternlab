@@ -118,7 +118,7 @@
             "url": "../../images/search/search-result-thumb-3.jpg"
           }
         ],
-        "is_channel": true,
+        "label": "Channel",
         "title": "Gallery with a fairly long title",
         "link": "javascript:alert('Open gallery 1');",
         "info": "Gallery of American presidents"
@@ -136,7 +136,7 @@
             "url": "../../images/search/search-result-thumb-6.jpg"
           }
         ],
-        "is_collection": true,
+        "label": "Our Collections",
         "title": "Gallery Two with a mega-long title - big enough to line wrap",
         "link": "javascript:alert('Open gallery 2');",
         "info": "Gallery of Glasgow images"
@@ -154,7 +154,7 @@
             "url": "../../images/search/carousel3.jpg"
           }
         ],
-        "is_exhibition": true,
+        "label": "Exhibition",
         "title": "Gallery Three",
         "link": "javascript:alert('Open gallery 3');",
         "info": "Gallery of Dutch images with quite a long description."
@@ -172,7 +172,7 @@
             "url": "../../images/search/carousel3.jpg"
           }
         ],
-        "is_new": true,
+        "label": "Exhibition",
         "title": "Gallery Four",
         "link": "javascript:alert('Open gallery 4');",
         "info": "Gallery of Dutch images"
@@ -190,7 +190,7 @@
             "url": "../../images/search/carousel3.jpg"
           }
         ],
-        "is_partner": true,
+        "label": "Our Partners",
         "title": "Gallery Five",
         "link": "javascript:alert('Open gallery 5');",
         "info": "Gallery of Dutch images"
@@ -208,7 +208,7 @@
             "url": "../../images/search/carousel3.jpg"
           }
         ],
-        "is_featured_site": true,
+        "label": "Featured Site",
         "title": "Gallery Six",
         "link": "javascript:alert('Open gallery 6');",
         "info": "Gallery of Dutch images"

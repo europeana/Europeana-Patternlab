@@ -57,8 +57,7 @@
                 {{count}} {{i18n.global.labels.images}}
               </span>
             </div>
-            <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}{{#is_channel}}Channel{{/is_channel}}
-            </div>
+            {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
           </div>
         {{/galleries}}
       </div>

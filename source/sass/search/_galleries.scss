@@ -284,6 +284,10 @@
       background-color: rgba(0, 0, 0, 0.7);
       bottom:     0;
       color:      #fff;
+      a{
+      	border-bottom: 1px dotted #fff;
+        color:         #fff;
+      }
       display:    none;
       left:       0;
       padding:    $space;
