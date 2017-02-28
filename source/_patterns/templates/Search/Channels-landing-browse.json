@@ -1,6 +1,7 @@
 {
-  "bodyclass": "channel_landing",
-  "pagetitle": "Europeana - Fashion",
+  "bodyclass":        "channel_landing",
+  "page_title":       "Europeana Fashion",
+  "collection_title": "Fashion",
   "version": {
     "is_alpha": true
   },
@@ -18,7 +19,7 @@
        }
     }
   },
-
+  
   "include_nav_searchbar": true,
 
   "form_search": {
@@ -106,8 +107,6 @@
       }
     ]
   },
-  "logo_class": "fashion-logo",
-
   "content": {
     "newsletter": {
       "form": {
