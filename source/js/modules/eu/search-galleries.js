@@ -9,26 +9,6 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     initSocialShare();
     initLightbox();
     initGA();
-    initClicktips();
-  }
-
-  function initClicktips(){
-
-    if($('.gallery-foyer').length == 0){
-      return;
-    }
-
-    $('.gallery-foyer .svg-icon-info').each(function(i, ob){
-
-      var btnInfo   = $(ob);
-      var className = 'gallery-clicktip-' + i;
-
-      $(btnInfo).addClass(className);
-      $(btnInfo).find('.eu-clicktip-container').attr('data-clicktip-activator', '.' + className);
-
-      require(['eu_clicktip']);
-    });
-
   }
 
   function initGA(){

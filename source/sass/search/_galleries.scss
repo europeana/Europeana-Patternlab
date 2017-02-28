@@ -28,6 +28,10 @@
     margin: 2em auto 1.2em;
   }
 
+  .social-share{
+  	font-size: 0.85em;
+  }
+ 
   @media all and (min-width: $bp-small-3) {
 
     display:         flex;
@@ -36,7 +40,7 @@
 
     h4{
      font-size: $font-size-slightly-smaller;
-      margin: 1.1em $space 0 0;
+      margin: 0.9em 1.1em 0 0;
     }
 
     .filterby{
@@ -264,25 +268,34 @@
     .image-set-data{
       position:    relative;
       white-space: nowrap;
-      .svg-icon-info{
-        display:  block;
-        height:   1.6em;
-        position: absolute;
-        right:    0;
-        width:    1.6em;
-        z-index:  3;
-
-        // clicktip customisation
-
-        .eu-clicktip-container{
-          left: -0.5em;
-          white-space: normal;
-          .eu-clicktip{
-            color: $gray30;
-          }
-        }
-
-      }
+    }
+   
+    .svg-icon-info{
+      bottom:   -3em;
+      display:  block;
+      height:   1.6em;
+      position: absolute;
+      right:    0;
+      width:    1.6em;
+      z-index:  3;
+    }
+     
+    .info{
+      background-color: rgba(0, 0, 0, 0.7);
+      bottom:     0;
+      color:      #fff;
+      display:    none;
+      left:       0;
+      padding:    $space;
+      position:   absolute;
+      right:      0;
+      text-align: center;
+      top:        0;
+      z-index:    3;
+    }
+   
+    .svg-icon-info:hover + .info{
+      display: block;
     }
 
     .image-set-info{

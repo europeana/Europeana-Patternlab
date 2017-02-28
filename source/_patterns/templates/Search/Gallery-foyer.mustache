@@ -42,20 +42,19 @@
         <div class="gutter-sizer"></div>
         {{#galleries}}
           <div class="masonry-item image-set {{#is_channel}} item-channel{{/is_channel}}{{#is_exhibition}} item-exhibition{{/is_exhibition}}{{#is_new}} item-new{{/is_new}}{{#is_partner}} item-partner{{/is_partner}}{{#is_featured_site}} item-featuredsite{{/is_featured_site}}">
-            <div class="cf">
+            <div class="cf relative">
               {{#images}}
                 <a class="img-link" href="{{link}}">
                   <img src="{{url}}"/>
                 </a>
               {{/images}}
+              <span class="svg-icon-info"></span>
+              <span class="info">{{{info}}}</span>
             </div>
             <div class="image-set-info">
               <a class="image-set-title" href="{{link}}">{{title}}</a>
               <span class="image-set-data cf">
                 {{count}} {{i18n.global.labels.images}}
-                <span class="svg-icon-info gallery-clicktip">
-                  {{>atoms/text/clicktip}}
-                </span>
               </span>
             </div>
             <div class="category-flag">{{#is_collection}}Thematic collections{{/is_collection}}{{#is_exhibition}}Exhibition{{/is_exhibition}}{{#is_new}}What's New{{/is_new}}{{#is_partner}}Our Partners{{/is_partner}}{{#is_featured_site}}Featured Site{{/is_featured_site}}{{#is_app}}App{{/is_app}}{{#is_timeline}}Timeline{{/is_timeline}}{{#is_playlist}}Playlist{{/is_playlist}}{{#is_gallery}}Gallery{{/is_gallery}}{{#is_channel}}Channel{{/is_channel}}

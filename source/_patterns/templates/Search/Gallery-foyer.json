@@ -1,22 +1,12 @@
 {
   "bodyclass": "channel_landing",
-  "pagetitle": "Europeana - Fashion",
+  "pagetitle": "Europeana - Galleries",
   "version": {
     "is_alpha": true
   },
   "globalnav_options": {
     "search": false,
     "myeuropeana": true
-  },
-
-  "navigation": {
-    "back_label": false,
-    "last_label" : "Europeana Fashion",
-    "next_prev": false,
-    "global": {
-      "options": {
-       }
-    }
   },
 
   "form_search": {
@@ -131,9 +121,7 @@
         "is_channel": true,
         "title": "Gallery with a fairly long title",
         "link": "javascript:alert('Open gallery 1');",
-        "clicktip":{
-          "tooltip_text": "Gallery of American presidents"
-        }
+        "info": "Gallery of American presidents"
       },
       {
         "count": "12",
@@ -151,9 +139,7 @@
         "is_collection": true,
         "title": "Gallery Two with a mega-long title - big enough to line wrap",
         "link": "javascript:alert('Open gallery 2');",
-        "clicktip":{
-          "tooltip_text": "Gallery of Glasgow images"
-        }
+        "info": "Gallery of Glasgow images"
       },
       {
         "count": "18",
@@ -171,9 +157,7 @@
         "is_exhibition": true,
         "title": "Gallery Three",
         "link": "javascript:alert('Open gallery 3');",
-        "clicktip":{
-          "tooltip_text": "Gallery of Dutch images with quite a long description."
-        }
+        "info": "Gallery of Dutch images with quite a long description."
       },
       {
         "count": "22",
@@ -191,10 +175,7 @@
         "is_new": true,
         "title": "Gallery Four",
         "link": "javascript:alert('Open gallery 4');",
-        "clicktip":{
-          "tooltip_text": "Gallery of Dutch images"
-        }
-
+        "info": "Gallery of Dutch images"
       },
       {
         "count": "22",
@@ -212,9 +193,7 @@
         "is_partner": true,
         "title": "Gallery Five",
         "link": "javascript:alert('Open gallery 5');",
-        "clicktip":{
-          "tooltip_text": "Gallery of Dutch images"
-        }
+        "info": "Gallery of Dutch images"
       },
       {
         "count": "20",
@@ -232,9 +211,7 @@
         "is_featured_site": true,
         "title": "Gallery Six",
         "link": "javascript:alert('Open gallery 6');",
-        "clicktip":{
-          "tooltip_text": "Gallery of Dutch images"
-        }
+        "info": "Gallery of Dutch images"
       }
     ],
     "navigation": {
