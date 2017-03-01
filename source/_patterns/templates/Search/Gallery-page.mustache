@@ -47,7 +47,7 @@
           <img src="{{thumb_url}}" data-src="{{full_url}}" {{#title}}data-tweet-text="{{.}}" data-pinterest-text="{{.}}"{{/title}}/>
           <div style="display:none;">
             <div class="image-meta">
-              <div class="image-col">
+              <div class="image-col{{#url_collection}} justified{{/url_collection}}">
                 {{#title}}<span class="title">{{.}}</span>{{/title}}
 
                 {{#description}}<span class="description">{{.}}</span>{{/description}}
