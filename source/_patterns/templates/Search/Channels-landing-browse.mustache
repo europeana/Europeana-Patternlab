@@ -147,19 +147,21 @@
 
       {{>organisms/sections/social-share}}
 
-      <div class="custom-newsletter-outer">
-        <section class="custom-newsletter">
-          <span class="cell">
-            {{#newsletter.labels}}
-              <h4>{{heading}}</h4>
-              {{subheading}}
-            {{/newsletter.labels}}
-          </span>
-          <span class="cell">
-            {{>molecules/forms/newsletter}}
-          </span>
-        </section>
-      </div>
+      {{#newsletter}}
+        <div class="custom-newsletter-outer">
+          <section class="custom-newsletter">
+            <span class="cell">
+              {{#labels}}
+                <h4>{{heading}}</h4>
+                {{subheading}}
+              {{/labels}}
+            </span>
+            <span class="cell">
+              {{>molecules/forms/newsletter}}
+            </span>
+          </section>
+        </div>
+      {{/newsletter}}
 
     </div>
 
