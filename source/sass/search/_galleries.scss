@@ -3,7 +3,7 @@
 .site-hero.galleries{
 
   margin-top: 0;
-  h1{  	
+  h1{
     text-transform: capitalize;
   }
   .hero-text{
@@ -29,9 +29,9 @@
   }
 
   .social-share{
-  	font-size: 0.85em;
+    font-size: 0.85em;
   }
- 
+
   @media all and (min-width: $bp-small-3) {
 
     display:         flex;
@@ -117,6 +117,18 @@
         color:          #eee;
         text-transform: uppercase;
       }
+
+      .institution-logo{
+        background-repeat: no-repeat;
+        align-self:        flex-end;
+        margin-left:       auto;
+        margin-right:      auto;
+        margin-top:        auto;
+        margin-bottom:     0.5em;
+
+        -webkit-filter: grayscale(100%);
+        filter:         grayscale(100%);
+      }
     }
   }
 }
@@ -191,7 +203,7 @@
   &.gallery{
 
     max-width: 400px;
-    
+
     @media all and (min-width: $bp-small-3) {
       max-width: 90%;
     }
@@ -218,7 +230,7 @@
     @media all and (min-width: $bp-small-3) {
       max-width: 90%;
     }
-   
+
   }
 
   .image-set{
@@ -269,7 +281,7 @@
       position:    relative;
       white-space: nowrap;
     }
-   
+
     .svg-icon-info{
       bottom:   -3em;
       display:  block;
@@ -279,13 +291,13 @@
       width:    1.6em;
       z-index:  3;
     }
-     
+
     .info{
       background-color: rgba(0, 0, 0, 0.7);
       bottom:     0;
       color:      #fff;
       a{
-      	border-bottom: 1px dotted #fff;
+        border-bottom: 1px dotted #fff;
         color:         #fff;
       }
       display:    none;
@@ -297,7 +309,7 @@
       top:        0;
       z-index:    3;
     }
-   
+
     .svg-icon-info:hover + .info{
       display: block;
     }
@@ -366,4 +378,11 @@
     font-size:   $font-size-slightly-smaller;
     font-weight: bold;
   }
+}
+
+.image-col{
+  display:         flex;
+  height:          100%;
+  justify-content: space-between;
+  flex-direction:  column;
 }

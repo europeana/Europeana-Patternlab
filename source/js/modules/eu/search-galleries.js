@@ -96,19 +96,42 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       require(['lightgallery_zoom', 'lightgallery_hash'], function(){
         require(['lightgallery_fs', 'lightgallery_share'], function(){
 
+          require(['jqImagesLoaded'], function(){
+            var el, bg, index = 0, logos = $('.institution-logo');
+            var bump = function(){
+              if(index < logos.length){
+                el = $(logos[index]);
+                bg = el.data('institution-logo');
+
+                var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
+                ms.imagesLoaded(function(){
+                  el.css('background-image', 'url(' + bg +')');
+                  el.css('width',  ms[0].naturalWidth  || 200);
+                  el.css('height', ms[0].naturalHeight || 100);
+                  index++;
+                  bump();
+                });
+                ms.attr('src', bg);
+              }
+            }
+            bump();
+          });
+
           var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+          var gallery  = $('.gallery');
 
           $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
-          lightGallery( $('.gallery')[0],
+
+          lightGallery( gallery[0],
             {
               selector: itemSelector
             }
           )
+
           $('.btn-zoom').on('click', function(e){
             var tgt   = $(e.target);
             var img   = tgt.closest('.masonry-item').find('img').click();
           });
-
         });
       });
     });
@@ -167,7 +190,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
         imageUrl     = imageUrl.split('?view=')[1];
       }
       else{
-        imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
+        imageUrl = $('.lg-current img').attr('src');
       }
 
       log('canonicalUrl = ' + canonicalUrl);
@@ -179,7 +202,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
       params += '&posttype='     + 'photo';
 
-      log('widget params = ' + params)
+      log('widget params = ' + params);
 
       window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 

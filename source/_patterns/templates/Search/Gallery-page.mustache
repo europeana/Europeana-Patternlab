@@ -44,43 +44,45 @@
       {{#content.items}}
         <div class="masonry-item">
 
-            <img src="{{thumb_url}}" data-src="{{full_url}}" {{#title}}data-tweet-text="{{.}}" data-pinterest-text="{{.}}"{{/title}}/>
-            <div style="display:none;">
-              <div class="image-meta">
+          <img src="{{thumb_url}}" data-src="{{full_url}}" {{#title}}data-tweet-text="{{.}}" data-pinterest-text="{{.}}"{{/title}}/>
+          <div style="display:none;">
+            <div class="image-meta">
+              <div class="image-col">
+                {{#title}}<span class="title">{{.}}</span>{{/title}}
 
-              {{#title}}<span class="title">{{.}}</span>{{/title}}
+                {{#description}}<span class="description">{{.}}</span>{{/description}}
 
-              {{#description}}<span class="description">{{.}}</span>{{/description}}
+                {{#creator}}
+                  <span class="title">{{i18n.site.object.meta-label.creator}}</span>
+                  <span>{{.}}</span>
+                {{/creator}}
 
-              {{#creator}}
-                <span class="title">{{i18n.site.object.meta-label.creator}}</span>
-                <span>{{.}}</span>
-              {{/creator}}
+                {{#creation_date}}
+                  <span class="title">{{i18n.site.object.meta-label.creation-date}}</span>
+                  <span class="creation-date">{{.}}</span>
+                {{/creation_date}}
 
-              {{#creation_date}}
-                <span class="title">{{i18n.site.object.meta-label.creation-date}}</span>
-                <span class="creation-date">{{.}}</span>
-              {{/creation_date}}
+                {{#data_provider}}
+                  <span class="title">{{i18n.site.object.meta-label.data-provider}}</span>
+                  <span class="data-provider">{{.}}</span>
+                {{/data_provider}}
 
-              {{#data_provider}}
-                <span class="title">{{i18n.site.object.meta-label.data-provider}}</span>
-                <span class="data-provider">{{.}}</span>
-              {{/data_provider}}
+                {{#provider}}
+                  <span class="title">{{i18n.site.object.meta-label.provider}}</span>
+                  <span class="provider">{{.}}</span>
+                {{/provider}}
 
-              {{#provider}}
-                <span class="title">{{i18n.site.object.meta-label.provider}}</span>
-                <span class="provider">{{.}}</span>
-              {{/provider}}
+                {{#rights}}
+                  <span class="title capitalise">{{i18n.site.object.meta-label.rights-statement}}</span>
+                  <div class="object-license">{{> molecules/icons/licenses }}</div>
+                {{/rights}}
 
-              {{#rights}}
-                <span class="title capitalise">{{i18n.site.object.meta-label.rights-statement}}</span>
-                <div class="object-license">{{> molecules/icons/licenses }}</div>
+                {{#url_collection}}<a href="{{.}}">{{global.navigation.view-collection}}</a>{{/url_collection}}
 
-              {{/rights}}
-
-              {{#url_collection}}<a href="{{.}}">{{global.navigation.view-collection}}</a>{{/url_collection}}
+                {{#institution_logo}}<div class="institution-logo" data-institution-logo="{{.}}"></div>{{/institution_logo}}
               </div>
             </div>
+          </div>
 
           <div class="image-info">
             <div class="image-texts">
