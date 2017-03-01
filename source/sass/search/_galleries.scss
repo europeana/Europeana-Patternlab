@@ -114,8 +114,14 @@
       }
 
       a{
-        color:          #eee;
-        text-transform: uppercase;
+        color:   #eee;
+        display: inline;
+        &:hover{
+          border-bottom: dashed 1px #eee;
+        }
+        svg.icon{
+          margin-right: 0;
+        }
       }
 
       .institution-logo{

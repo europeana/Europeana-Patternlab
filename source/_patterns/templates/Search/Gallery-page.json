@@ -100,6 +100,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -117,6 +118,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -134,6 +136,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -151,6 +154,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -168,6 +172,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -185,6 +190,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -202,6 +208,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -219,6 +226,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
@@ -236,6 +244,7 @@
           "license_url": "javascript:alert('open rights')"
         },
         "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       }
     ],
