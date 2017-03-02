@@ -97,6 +97,9 @@
             margin-bottom: 0.4em;
           }
         }
+        .object-license a span{
+          display: inline-block;
+        }
       }
     }
 
@@ -113,11 +116,17 @@
         text-transform: uppercase;
       }
 
+      .object-license a{
+      	
+      }
+     
       a{
         color:   #eee;
+        border-bottom: dashed 1px #eee;
         display: inline;
+        
         &:hover{
-          border-bottom: dashed 1px #eee;
+          border-bottom: solid 1px #eee;
         }
         svg.icon{
           margin-right: 0;
