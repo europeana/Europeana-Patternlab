@@ -237,6 +237,12 @@
       max-width: 90%;
     }
 
+    .category-flag{
+   	  max-width:     60%;
+   	  overflow:      hidden;
+   	  text-overflow: ellipsis;
+   	  white-space:   nowrap;
+    }
   }
 
   .image-set{
