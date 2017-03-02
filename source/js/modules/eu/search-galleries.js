@@ -4,6 +4,10 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     console.log('search-galleries: ' + msg);
   }
 
+  function logGA(ob){
+    console.log('GA send: ' + JSON.stringify(ob));
+  }
+
   function initPage(){
     initMasonry();
     initSocialShare();
@@ -14,24 +18,27 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
   function initGA(){
 
     $(document).on('click', '#lg-download', function(){
-
       var url = $(this).attr('href');
-      ga('send', {
+      var data = {
         hitType:       'event',
         eventCategory: 'Download',
         eventAction:   url,
         eventLabel:    'Gallery Item Download'
-      });
+      };
+      ga('send', data);
+      logGA(data);
     });
 
     var shareImage = function(socialNetwork){
       log('share ' + socialNetwork + ': ' + window.location.href);
-      ga('send', {
+      var data = {
         hitType: 'social',
         socialNetwork: socialNetwork,
         socialAction: 'share (gallery image)',
         socialTarget: window.location.href
-      });
+      };
+      ga('send', data);
+      logGA(data);
     }
 
     $(document).on('click', '#lg-share-facebook', function(){
@@ -51,32 +58,29 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     $('.gallery').on('onAfterSlide.lg', function(e){
-
       var current = $('.lg-current img').attr('src');
-
-      ga('send', {
+      var data    = {
         hitType: 'event',
         eventCategory: 'Media View',
         eventAction: current,
         eventLabel: 'Gallery Image'
-      });
-
+      }
+      ga('send', data);
+      logGA(data);
     });
 
     $('.social-share a').on('click', function(){
-
       var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-
-      ga('send', {
+      var data = {
         hitType: 'social',
         socialNetwork: socialNetwork,
         socialAction: $('.gallery-foyer').length == 0 ? 'share (gallery foyer)' : 'share (gallery)',
         socialTarget: window.location.href
-      });
+      };
+      ga('send', data);
+      logGA(data);
     });
-
   }
-
 
   function initLightbox(){
 
@@ -182,16 +186,22 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
       var title  = $('h2.object-title').text();
       var canonicalUrl = $('[property="og:url"]').attr('content');
+          canonicalUrl = window.location.href;
           canonicalUrl = encodeURIComponent( canonicalUrl );
 
-      var imageUrl     = $('.media-viewer a').attr('href');
+      var style = $('.site-hero').attr('style');
+      var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
 
+      var imageUrl = reg.exec(style)[1];;
+
+      /*
       if(imageUrl){
         imageUrl     = imageUrl.split('?view=')[1];
       }
       else{
         imageUrl = $('.lg-current img').attr('src');
       }
+      */
 
       log('canonicalUrl = ' + canonicalUrl);
       log('imageUrl = '     + imageUrl);
