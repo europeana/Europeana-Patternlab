@@ -211,12 +211,7 @@
 
   &.gallery,
   &.gallery-foyer{
-
     margin:    auto;
-
-    @media all and (min-width: $bp-xxl) {
-      max-width: none;
-    }
   }
 
   &.gallery{
@@ -255,6 +250,13 @@
    	  overflow:      hidden;
    	  text-overflow: ellipsis;
    	  white-space:   nowrap;
+    }
+  }
+
+  &.gallery,
+  &.gallery-foyer{
+    @media all and (min-width: $bp-xxl) {
+      max-width: 100%;
     }
   }
 
