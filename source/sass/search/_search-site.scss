@@ -1009,14 +1009,16 @@
     }
   }
 
-  .js-carousel-title{
-  	 margin: 0.75em -1.6em 0.75em 0.25em;
+  .js-carousel .js-carousel-item{
+    .js-carousel-title{
+       margin: 0.75em -1.6em 0.75em 0.25em;
+    }
+
+    .js-carousel-text{
+       margin: 0 0 0.75em 0.25em;
+    }
   }
- 
-  .js-carousel-text{
-     margin: 0 0 0.75em 0.25em;
-  }
- 
+
   .js-carousel-date{
     font-size: $font-size-sm;
     color: $gray-light;
@@ -1183,7 +1185,7 @@
   width:            100%;
 
   .inner-text{
-  	padding-left: 0.4em;
+    padding-left: 0.4em;
   }
   .inner{
     background-color: #fff;
