@@ -9,16 +9,6 @@
     "myeuropeana": true
   },
 
-  "navigation": {
-    "back_label": false,
-    "last_label" : "Europeana Fashion",
-    "next_prev": false,
-    "global": {
-      "options": {
-       }
-    }
-  },
-
   "form_search": {
     "action": "javascript:alert('submit form');"
   },
@@ -62,8 +52,8 @@
       "subtitle": "Discover the many forms and definitions of 'uniform' and the intricate relationship fashion establishes with power, representation and identity."
     },
     "social": {
-      "social_title": "Share galleries",
-      "social_label": "Share galleries",
+      "social_title": "Share this gallery",
+      "social_label": "Share this gallery",
       "style_blue": true,
       "facebook": {
         "url": "https://www.facebook.com/EuropeanaFashion",
@@ -109,7 +99,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Two",
@@ -125,7 +117,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Three, also known as \"the third gallery\"",
@@ -141,7 +135,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Four",
@@ -157,7 +153,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Five",
@@ -173,7 +171,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Six",
@@ -189,7 +189,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Seven",
@@ -205,7 +207,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Eight",
@@ -221,7 +225,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       {
         "title":     "Gallery Item Nine",
@@ -237,7 +243,9 @@
           "license_CC0": true,
           "license_url": "javascript:alert('open rights')"
         },
-        "url_collection": "javascript:alert('open collection')"
+        "url_collection": "javascript:alert('open collection')",
+        "url_item":       "javascript:alert('open item')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
       }
     ],
     "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."

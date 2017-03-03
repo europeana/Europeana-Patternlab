@@ -705,7 +705,7 @@
 // LANDING ALTERNATIVE
 
 .channels-landing-browse{
-  padding: 1em 1em 2em 1em;
+  padding: 1em 1em 3.2em 1em;
 
   .custom-newsletter,
   .channel-social{
@@ -815,6 +815,9 @@
     margin-bottom: 1em;
   }
 
+  .show-more-mlt{
+    margin-bottom: 1.6em;
+  }
 }
 
 .landing-text-inner{
@@ -985,7 +988,8 @@
 
 .happening-content{
   background-color: $paper;
-    position:       relative;
+  margin-bottom:    3.2em;
+  position:         relative;
 
   .happening-header{
     margin: $space 0;
@@ -1005,15 +1009,21 @@
     }
   }
 
+  .js-carousel-date{
+    font-size: $font-size-sm;
+    color: $gray-light;
+    margin-left: 0.25em;
+  }
+
   .js-carousel-type{
     border-radius:  4px;
     bottom:         $pad;
     color:          #fff;
     font-size:      $font-size-sm;
-    font-weight:    bold;
+    font-weight:    normal;
     position:       absolute;
-    padding:        0.1em 0.2em;
-    right:          1em;
+    padding:        0.1em 0.6em;
+    right:          2em;
     text-transform: uppercase;
   }
 
@@ -1138,7 +1148,7 @@
 
 @media all and (min-width: $bp-large) {
   .channels-landing-browse{
-    padding: $space $space;
+    padding: $space $space $space*2;
   }
 
   .main-content{
@@ -1155,31 +1165,47 @@
 }
 
 
-.fashion-logo{
-  background-image: url("../../images/europeana-logo-fashion.png");
-  background-size: cover;
-  width: 100%;
-  padding-bottom: 49.0795%;
+.text-logo{
+  background-color: #000;
+  border-bottom:    0.25em solid #000;
+  color:            #fff;
+  font-size:        2em;
+  line-height:      1.9em;
+  text-transform:   uppercase;
+  width:            100%;
 
+  .inner-text{
+    padding-left: 0.4em;
+  }
+  .inner{
+    background-color: #fff;
+    color:            #000;
+    display:          block;
+  }
 
   &.facet-header{
     display: none;
     @media all and (min-width: $bp-med) {
       display: inline-block;
     }
+    @media all and (min-width: $bp-med) and (max-width: $bp-med+5em) {
+      font-size:        1.2em;
+    }
   }
   &.page-header{
     display: inline-block;
-    margin:  1em 0;
+    margin:  0 0 1em 0;
 
     @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
       display:        block;
-      margin-bottom:  25%;
-      padding-bottom: 25%;
+      margin-bottom:  33%;
       width:          49%;
     }
     @media all and (min-width: $bp-med) {
       display: none;
+    }
+    @media all and (max-width: $bp-small-2) {
+      font-size:        1.2em;
     }
   }
 }

@@ -4,54 +4,41 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     console.log('search-galleries: ' + msg);
   }
 
+  function logGA(ob){
+    console.log('GA send: ' + JSON.stringify(ob));
+  }
+
   function initPage(){
     initMasonry();
     initSocialShare();
     initLightbox();
     initGA();
-    initClicktips();
-  }
-
-  function initClicktips(){
-
-    if($('.gallery-foyer').length == 0){
-      return;
-    }
-
-    $('.gallery-foyer .svg-icon-info').each(function(i, ob){
-
-      var btnInfo   = $(ob);
-      var className = 'gallery-clicktip-' + i;
-
-      $(btnInfo).addClass(className);
-      $(btnInfo).find('.eu-clicktip-container').attr('data-clicktip-activator', '.' + className);
-
-      require(['eu_clicktip']);
-    });
-
   }
 
   function initGA(){
 
     $(document).on('click', '#lg-download', function(){
-
       var url = $(this).attr('href');
-      ga('send', {
+      var data = {
         hitType:       'event',
         eventCategory: 'Download',
         eventAction:   url,
         eventLabel:    'Gallery Item Download'
-      });
+      };
+      ga('send', data);
+      logGA(data);
     });
 
     var shareImage = function(socialNetwork){
       log('share ' + socialNetwork + ': ' + window.location.href);
-      ga('send', {
+      var data = {
         hitType: 'social',
         socialNetwork: socialNetwork,
         socialAction: 'share (gallery image)',
         socialTarget: window.location.href
-      });
+      };
+      ga('send', data);
+      logGA(data);
     }
 
     $(document).on('click', '#lg-share-facebook', function(){
@@ -71,32 +58,29 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     $('.gallery').on('onAfterSlide.lg', function(e){
-
       var current = $('.lg-current img').attr('src');
-
-      ga('send', {
+      var data    = {
         hitType: 'event',
         eventCategory: 'Media View',
         eventAction: current,
         eventLabel: 'Gallery Image'
-      });
-
+      }
+      ga('send', data);
+      logGA(data);
     });
 
     $('.social-share a').on('click', function(){
-
       var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-
-      ga('send', {
+      var data = {
         hitType: 'social',
         socialNetwork: socialNetwork,
         socialAction: $('.gallery-foyer').length == 0 ? 'share (gallery foyer)' : 'share (gallery)',
         socialTarget: window.location.href
-      });
+      };
+      ga('send', data);
+      logGA(data);
     });
-
   }
-
 
   function initLightbox(){
 
@@ -116,19 +100,42 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       require(['lightgallery_zoom', 'lightgallery_hash'], function(){
         require(['lightgallery_fs', 'lightgallery_share'], function(){
 
+          require(['jqImagesLoaded'], function(){
+            var el, bg, index = 0, logos = $('.institution-logo');
+            var bump = function(){
+              if(index < logos.length){
+                el = $(logos[index]);
+                bg = el.data('institution-logo');
+
+                var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
+                ms.imagesLoaded(function(){
+                  el.css('background-image', 'url(' + bg +')');
+                  el.css('width',  ms[0].naturalWidth  || 200);
+                  el.css('height', ms[0].naturalHeight || 100);
+                  index++;
+                  bump();
+                });
+                ms.attr('src', bg);
+              }
+            }
+            bump();
+          });
+
           var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+          var gallery  = $('.gallery');
 
           $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
-          lightGallery( $('.gallery')[0],
+
+          lightGallery( gallery[0],
             {
               selector: itemSelector
             }
           )
+
           $('.btn-zoom').on('click', function(e){
             var tgt   = $(e.target);
             var img   = tgt.closest('.masonry-item').find('img').click();
           });
-
         });
       });
     });
@@ -179,16 +186,22 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
       var title  = $('h2.object-title').text();
       var canonicalUrl = $('[property="og:url"]').attr('content');
+          canonicalUrl = window.location.href;
           canonicalUrl = encodeURIComponent( canonicalUrl );
 
-      var imageUrl     = $('.media-viewer a').attr('href');
+      var style = $('.site-hero').attr('style');
+      var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
 
+      var imageUrl = reg.exec(style)[1];;
+
+      /*
       if(imageUrl){
         imageUrl     = imageUrl.split('?view=')[1];
       }
       else{
-        imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
+        imageUrl = $('.lg-current img').attr('src');
       }
+      */
 
       log('canonicalUrl = ' + canonicalUrl);
       log('imageUrl = '     + imageUrl);
@@ -199,7 +212,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
       params += '&posttype='     + 'photo';
 
-      log('widget params = ' + params)
+      log('widget params = ' + params);
 
       window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 

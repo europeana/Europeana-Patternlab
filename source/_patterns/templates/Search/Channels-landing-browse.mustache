@@ -17,7 +17,7 @@
       <div class="cf">
         <div class="landing-text">
           <div class="landing-text-inner">
-            <span class="{{logo_class}} page-header"></span>
+            <span class="text-logo page-header"><span class="inner-text">Europeana</span><span class="inner-text inner">{{collection_title}}</span></span>
             <span>
               {{#content.channel_info}}
                 {{{description}}}
@@ -66,7 +66,7 @@
     </div>
 
     <div class="entry-point-column">
-      <span class="{{logo_class}} facet-header"></span>
+      <span class="text-logo facet-header"><span class="inner-text">Europeana</span><span class="inner inner-text">{{collection_title}}</span></span>
       {{#content.entry_points}}
       <ul class="entry-points">
         {{#title}}
@@ -147,19 +147,21 @@
 
       {{>organisms/sections/social-share}}
 
-      <div class="custom-newsletter-outer">
-        <section class="custom-newsletter">
-          <span class="cell">
-            {{#newsletter.labels}}
-              <h4>{{heading}}</h4>
-              {{subheading}}
-            {{/newsletter.labels}}
-          </span>
-          <span class="cell">
-            {{>molecules/forms/newsletter}}
-          </span>
-        </section>
-      </div>
+      {{#newsletter}}
+        <div class="custom-newsletter-outer">
+          <section class="custom-newsletter">
+            <span class="cell">
+              {{#labels}}
+                <h4>{{heading}}</h4>
+                {{subheading}}
+              {{/labels}}
+            </span>
+            <span class="cell">
+              {{>molecules/forms/newsletter}}
+            </span>
+          </section>
+        </div>
+      {{/newsletter}}
 
     </div>
 
