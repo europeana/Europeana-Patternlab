@@ -121,14 +121,14 @@
       }
 
       .object-license a{
-      	
+
       }
-     
+
       a{
         color:   #eee;
         border-bottom: dashed 1px #eee;
         display: inline;
-        
+
         &:hover{
           border-bottom: solid 1px #eee;
         }
@@ -138,15 +138,14 @@
       }
 
       .institution-logo{
-        background-repeat: no-repeat;
-        align-self:        flex-end;
-        margin-left:       auto;
-        margin-right:      auto;
-        margin-top:        auto;
-        margin-bottom:     0.5em;
-
-        -webkit-filter: grayscale(100%);
-        filter:         grayscale(100%);
+        background-color:    #fff;
+        background-position: center;
+        background-repeat:   no-repeat;
+        align-self:          flex-end;
+        margin-left:         auto;
+        margin-right:        auto;
+        margin-top:          auto;
+        margin-bottom:       0.5em;
       }
     }
   }
@@ -246,10 +245,10 @@
     }
 
     .category-flag{
-   	  max-width:     60%;
-   	  overflow:      hidden;
-   	  text-overflow: ellipsis;
-   	  white-space:   nowrap;
+       max-width:     60%;
+       overflow:      hidden;
+       text-overflow: ellipsis;
+       white-space:   nowrap;
     }
   }
 
