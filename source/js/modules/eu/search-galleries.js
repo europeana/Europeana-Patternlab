@@ -107,8 +107,8 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
           var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
           ms.imagesLoaded(function(){
             el.css('background-image', 'url(' + bg +')');
-            el.css('width',  20 + ms[0].naturalWidth  || 200);
-            el.css('height', 20 + ms[0].naturalHeight || 100);
+            el.css('width',  20 + (ms[0].naturalWidth  || 200));
+            el.css('height', 20 + (ms[0].naturalHeight || 100));
             index++;
             bump();
           });
@@ -183,25 +183,15 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
       var title  = $('h2.object-title').text();
       var canonicalUrl = $('[property="og:url"]').attr('content');
-          canonicalUrl = window.location.href;
           canonicalUrl = encodeURIComponent( canonicalUrl );
 
-      var style = $('.site-hero').attr('style');
-      var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
+      var imageUrl = $('[property="og:image"]').attr('content');
+          imageUrl = encodeURIComponent( imageUrl );
 
-      var imageUrl = reg.exec(style)[1];;
-
-      /*
-      if(imageUrl){
-        imageUrl     = imageUrl.split('?view=')[1];
-      }
-      else{
-        imageUrl = $('.lg-current img').attr('src');
-      }
-      */
-
+      log('')
       log('canonicalUrl = ' + canonicalUrl);
       log('imageUrl = '     + imageUrl);
+      log('')
 
       var params = ''
       params += '?content='      + imageUrl;
