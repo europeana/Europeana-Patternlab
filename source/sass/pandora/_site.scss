@@ -575,8 +575,8 @@ body {
 	background-color: white;
 }
 
-.user-request-table tr {
-	background: red;
+.user-request-table tr:hover {
+	background: #F1F1EE;
 	cursor: pointer;
 }
 
