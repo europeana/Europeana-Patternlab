@@ -121,9 +121,14 @@
 }
 
 .ve-base-embed{
-  iframe{
-    display:  block;
+  > iframe,
+  > center,
+  > div{
     margin:   1em auto;
+    display:  block;
+  }
+  
+  iframe{
     width:    100%;
     height:   26em;
 
@@ -317,15 +322,20 @@ a:hover > .ve-state-button-off,
     }
 
   }
-
+    
   figcaption{
     text-align: center;
     font-size:  $font-size-slightly-smaller;
     a{
-      white-space: nowrap;
+      // white-space: nowrap;
     }
   }
+}
 
+.ve-base-compare .attribution-text{  	
+  text-align: center;
+  font-size:  $font-size-slightly-smaller;
+  font-style: italic;
 }
 
 .ve-base-quote{
