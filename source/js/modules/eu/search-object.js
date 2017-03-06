@@ -132,14 +132,18 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var initCarousel = function(el, ops){
         var carousel = jQuery.Deferred();
-
+      
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
-            var fnAfterLoad = function(data){
-
+            var fnAfterLoad = function(data, totalAvailable){
               if(el.hasClass('more-like-this')){
                 if(data.length == 0 && el.find('ul li').length == 0){
                   el.closest('.lc').remove();
                   return;
+                }
+                else if(totalAvailable > data.length){
+                  var fmttd = String(totalAvailable).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+                  $('.show-more-mlt').find('.number').html(fmttd);
+                  $('.show-more-mlt').removeAttr('style');            
                 }
               }
               else if(el.hasClass('media-thumbs')){

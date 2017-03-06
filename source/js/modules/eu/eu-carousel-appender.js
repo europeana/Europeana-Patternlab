@@ -208,7 +208,7 @@ define(['jquery'], function($){
       totalAvailable = data.total;
 
       if(doAfter){
-        doAfter(appendData.added);
+        doAfter(appendData.added, totalAvailable);
       }
       return appendData.added;
     };

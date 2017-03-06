@@ -460,9 +460,7 @@
                        data-fire-on-open-params='{ "trigger": "scroll-trigger-mlt"}'></a>
                   </div>
                 </div>
-                {{#more_items_query}}
-                  <div class="show-more-mlt"><a href="{{.}}">{{ i18n.site.object.show-more-similar-items }}… ({{more_items_total_formatted}})</a></div>
-                {{/more_items_query}}
+                <div class="show-more-mlt"{{^more_items_total_formatted}} style="display:none;"{{/more_items_total_formatted}}><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}… (<span class="number">{{more_items_total_formatted}}</span>)</a></div>
               </div>
             {{/content.similar}}
           </div>
