@@ -96,45 +96,42 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       $(ob).next('div').find('.image-meta').attr('id', captionId);
     });
 
-    require(['lightgallery'], function(){
-      require(['lightgallery_zoom', 'lightgallery_hash'], function(){
-        require(['lightgallery_fs', 'lightgallery_share'], function(){
+    require(['jqImagesLoaded'], function(){
+      var el, bg, index = 0, logos = $('.institution-logo');
+      var measured = {};
 
-          require(['jqImagesLoaded'], function(){
-            var el, bg, index = 0, logos = $('.institution-logo');
-            var bump = function(){
-              if(index < logos.length){
-                el = $(logos[index]);
-                bg = el.data('institution-logo');
-
-                var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
-                ms.imagesLoaded(function(){
-                  el.css('background-image', 'url(' + bg +')');
-                  el.css('width',  ms[0].naturalWidth  || 200);
-                  el.css('height', ms[0].naturalHeight || 100);
-                  index++;
-                  bump();
-                });
-                ms.attr('src', bg);
-              }
-            }
+      var bump = function(){
+        if(index < logos.length){
+          el = $(logos[index]);
+          bg = el.data('institution-logo');
+          var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
+          ms.imagesLoaded(function(){
+            el.css('background-image', 'url(' + bg +')');
+            el.css('width',  20 + (ms[0].naturalWidth  || 200));
+            el.css('height', 20 + (ms[0].naturalHeight || 100));
+            index++;
             bump();
           });
+          ms.attr('src', bg);
+        }
+      }
+      bump();
+      require(['lightgallery'], function(){
+        require(['lightgallery_zoom', 'lightgallery_hash'], function(){
+          require(['lightgallery_fs', 'lightgallery_share'], function(){
+            var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
+            var gallery  = $('.gallery');
 
-          var css_path = require.toUrl('../../lib/lightgallery/css/style.css');
-          var gallery  = $('.gallery');
+            $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-          $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
-
-          lightGallery( gallery[0],
-            {
+            lightGallery( gallery[0], {
               selector: itemSelector
-            }
-          )
+            });
 
-          $('.btn-zoom').on('click', function(e){
-            var tgt   = $(e.target);
-            var img   = tgt.closest('.masonry-item').find('img').click();
+            $('.btn-zoom').on('click', function(e){
+              var tgt   = $(e.target);
+              var img   = tgt.closest('.masonry-item').find('img').click();
+            });
           });
         });
       });
@@ -186,25 +183,15 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
       var title  = $('h2.object-title').text();
       var canonicalUrl = $('[property="og:url"]').attr('content');
-          canonicalUrl = window.location.href;
           canonicalUrl = encodeURIComponent( canonicalUrl );
 
-      var style = $('.site-hero').attr('style');
-      var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
+      var imageUrl = $('[property="og:image"]').attr('content');
+          imageUrl = encodeURIComponent( imageUrl );
 
-      var imageUrl = reg.exec(style)[1];;
-
-      /*
-      if(imageUrl){
-        imageUrl     = imageUrl.split('?view=')[1];
-      }
-      else{
-        imageUrl = $('.lg-current img').attr('src');
-      }
-      */
-
+      log('')
       log('canonicalUrl = ' + canonicalUrl);
       log('imageUrl = '     + imageUrl);
+      log('')
 
       var params = ''
       params += '?content='      + imageUrl;
