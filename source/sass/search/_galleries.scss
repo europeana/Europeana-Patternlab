@@ -328,12 +328,19 @@
       }
       display:    none;
       left:       0;
-      padding:    $space;
       position:   absolute;
       right:      0;
-      text-align: center;
       top:        0;
       z-index:    3;
+      
+      .text{
+        padding:    $space;
+        position:   absolute;
+        text-align: center;
+        top:        50%;
+        transform:  translateY(-50%);
+        width:      100%;
+      }
     }
 
     .svg-icon-info:hover + .info{
