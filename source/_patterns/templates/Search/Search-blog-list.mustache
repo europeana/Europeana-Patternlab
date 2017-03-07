@@ -1,0 +1,60 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+<div role="main" class="page l-page">
+
+  <section class="search-object">
+    <div class="object-nav cf">
+      <div class="object-nav-lists">
+        <ul class="breadcrumbs">
+          <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+          <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.blogs_list_breadcrumb}}</strong></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
+    <div class="searchbar">
+    {{> molecules/components/search/search-form }}
+    </div>
+  </section>
+
+  <section class="search-blogs" id="maincontent">
+    <div class="container">
+      <div class="blog-list cf">
+
+        <div class="results-header">
+          <div class="blogs-info">
+            {{ i18n.site.blogs.list.count-and-terms-with-range }}
+          </div>
+          <div class="result-controls">
+            {{#blogs_filter_options}}
+              {{>molecules/forms/filterby}}
+            {{/blogs_filter_options}}
+          </div>
+        </div>
+
+        {{#has_results}}
+          <ol class="blog-items">
+            {{#blog_items}}
+              <li>
+                {{> molecules/components/search/search-blogitem }}
+              </li>
+            {{/blog_items}}
+          </ol>
+        {{/has_results}}
+
+        {{#has_results}}
+          {{> molecules/navigation/pagination }}
+        {{/has_results}}
+
+      </div>
+    </div>
+  </section>
+</div>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

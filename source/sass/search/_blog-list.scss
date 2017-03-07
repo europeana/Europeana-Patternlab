@@ -1,0 +1,163 @@
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark";
+@import "../_patterns/atoms/iconography/_svg-icon-calendar";
+
+
+.blog-list{
+  padding-bottom: $space;
+  position: relative;
+
+  .results-header{
+    margin-top: $space;
+  }
+
+  .blog-items{
+    padding-bottom: 2 * $space;
+  }
+}
+
+// Search results container
+.search-blogs{
+  padding: 0 $space;
+
+  background: $white;
+
+  @media all and (max-width: $bp-med) {
+    position: relative;
+  }
+
+  .container{
+    @include container($max-width);
+    @media all and (min-width: $bp-med) {
+      overflow:hidden;
+    }
+  }
+}
+
+
+.blog-list-item{
+  margin-top: 3 * $space;
+
+  .item-info{
+
+    .summary{
+      padding-bottom: $space / 2;
+      margin-bottom: $space / 2;
+      border-bottom: 1px solid $gray87;
+    }
+
+    @media all and (min-width: $bp-small) {
+      @include span(12 of 18  inside no-gutters);
+    }
+
+    @media all and (min-width: $bp-small-3) {
+      @include span(14 of 18  inside no-gutters);
+    }
+
+    @media all and (min-width: $bp-med) {
+      @include span(13 of 18  inside no-gutters);
+    }
+  }
+
+  h2{
+    font-size: $font-size-med;
+    margin-bottom: $space-half;
+    font-family: $font-secondary;
+    line-height: 1.4;
+
+    a:hover, a:focus{
+      border-bottom: 1px dotted $textcolour_link_hover;
+    }
+  }
+
+  h3{
+    font-size:   0.75rem;
+    font-weight: bold;
+  }
+
+  .item-tags a,
+  .date{
+    position: relative;
+    top:      -0.6em;
+  }
+
+  .date-icon,
+  .tags-icon{
+    height:       1.9em;
+    display:      inline-block;
+    margin-right: 0.4em;
+    width:        2em;
+  }
+
+  .tags-icon{
+    margin-left: 2em;
+    width:       1.5em;
+  }
+
+  .item-tags{
+    display: inline-block;
+  }
+
+  .date-icon{
+    height:       1.9em;
+    transform:    scale(0.8);
+  }
+
+  .excerpt{
+    @media all and (min-width: $bp-small-3) {
+      margin-bottom: $space-half;
+      margin-top: $space-half;
+    }
+
+    line-height:   1.4em;
+    margin-right:  -1.25em;
+    max-height:    7em;
+    max-width:     100%;
+    overflow:      hidden;
+    padding-right: 1.75em;
+    position:      relative;
+    text-align:    justify;
+
+    &:before,
+    &:after {
+      position: absolute;
+      right:    0.5em;
+      width:    1em;
+    }
+
+    &:before {
+      bottom:     3px;
+      content:    '...';
+      height:   1.15em;
+    }
+
+    &:after {
+      background: white;
+      content:    ' ';
+      height:     1.2em;
+    }
+
+  }
+
+  .item-preview{
+    .item-image{
+      position: relative;
+      a{
+        display: block;
+        img{
+          max-height: 22em;
+          object-fit: cover;
+          width:      100%;
+        }
+      }
+    }
+
+    @media all and (min-width: $bp-small) {
+      @include span(last 6 of 18);
+    }
+    @media all and (min-width: $bp-small-3) {
+      @include span(last 4 of 18);
+      min-height: 10em;
+    }
+  }
+
+}

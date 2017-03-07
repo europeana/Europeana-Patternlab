@@ -1,0 +1,48 @@
+<article class="blog-list-item cf {{^ img.src }}missing-image{{/ img.src }}">
+  <div class="item-preview">
+    <div class="item-image">
+      {{#img.src}}
+        <a class="link" target="{{target}}" href="{{object_url}}" tabindex="-1">
+          <img src="{{img.src}}" alt="{{ title }}" />
+        </a>
+      {{/img.src}}
+      {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+    </div>
+  </div>
+
+  <div class="item-info">
+
+    <div class="summary">
+      <h2><a href="{{object_url}}">{{ title }}</a></h2>
+
+      {{#author}}
+        <span class="capitalised">{{i18n.global.labels.by}}</span> <a class="author" href="{{author.url}}">{{ author.name }}</a>
+      {{/author}}
+      {{#read_time}}
+        {{ . }} {{i18n.site.blogs.min-to-read}}
+      {{/read_time}}
+    </div>
+
+    {{#date}}
+      <span class="svg-icon-calendar date-icon"></span>
+      <span class="date">{{.}}</span>
+    {{/date}}
+
+    {{#tags}}
+      <span class="svg-icon-bookmark tags-icon"></span>
+      <ul class="item-tags">
+        {{#items}}
+          <li><a href="{{url}}">{{text}}</a></li>
+        {{/items}}
+      </ul>
+    {{/tags}}
+
+    {{#description}}
+      <p class="excerpt">
+        {{.}}
+      </p>
+    {{/description}}
+
+  </div>
+
+</article>

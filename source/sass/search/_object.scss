@@ -853,20 +853,27 @@
         padding: 1em 0;
       }
 
+      .js-carousel-title-wrap{
+        display:        block;
+        height:         4.9em;
+        min-height:     4.9em;
+        margin-top:     0.75em;
+        padding:        0.1em;
+      }
 
       .js-carousel-title{
         font-size:     $font-size-med;
         font-weight:   bold;
-        height:        3.2em;
+        height:        auto;
         line-height:   1.6em;
-        margin:        0.75em -1.6em 0.75em 0.25em;
+        margin:        0 -1.6em 0 0.25em;
         max-height:    3.2em;
         padding-right: 2em;
 
         &:before,
         &:after {
           height: 1.4em;
-          right:  1em;
+          right:  1.1em;
         }
 
         a{
@@ -874,22 +881,26 @@
         }
       }
 
+      .js-carousel-text-wrap{
+        display:    block;
+        height:     7.75em;
+        min-height: 7.75em;
+      }
+
       .js-carousel-text{
         display:       block;
         font-size:     1em;
-        height:        7em;
         line-height:   1.4em;
-        margin:        0 0 0.75em 0.25em;
-        min-height:    7em;
+        margin:        0 0 0 0.25em;
         max-height:    7em;
         padding:       0 1.4em 0 0;
 
         &:before,
-          &:after {
-            height:   1.15em;
-            right:    0.5em;
-          }
+        &:after {
+          height:   1.15em;
+          right:    0.5em;
         }
+      }
 
       .js-carousel-text,
       .js-carousel-title{
@@ -902,17 +913,17 @@
 
         &:before,
         &:after {
-          bottom:   1px;
           position: absolute;
         }
 
         &:before {
+          bottom:   1px;
           content: '...';
         }
 
         &:after {
           background: white;
-          content:    '';
+          content:    ' ';
           height:     1.6em;
           width:      1em;
         }
