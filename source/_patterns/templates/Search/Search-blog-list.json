@@ -1,6 +1,5 @@
 {
-  "bodyclass": "europeana_search",
-  "page_title": "Europeana Search",
+  "page_title": "Europeana Blog",
   "page_locale": "en",
   "version": {
     "is_alpha": true
@@ -117,7 +116,7 @@
       "tags": {
         "items": [
           {
-            "url": "http://europeana.eu",
+            "url": "javascript:alert('open tag link')",
             "text": "Extra"
           }
         ]
@@ -140,7 +139,7 @@
       "tags": {
         "items": [
           {
-            "url": "http://europeana.eu",
+            "url": "javascript:alert('open tag link')",
             "text": "Tags"
           }
         ]
