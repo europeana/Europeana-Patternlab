@@ -132,7 +132,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var initCarousel = function(el, ops){
         var carousel = jQuery.Deferred();
-      
+
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
             var fnAfterLoad = function(data, totalAvailable){
               if(el.hasClass('more-like-this')){
@@ -143,7 +143,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
                 else if(totalAvailable > data.length){
                   var fmttd = String(totalAvailable).replace(/(.)(?=(\d{3})+$)/g,'$1,');
                   $('.show-more-mlt').find('.number').html(fmttd);
-                  $('.show-more-mlt').removeAttr('style');            
+                  $('.show-more-mlt').removeAttr('style');
                 }
               }
               else if(el.hasClass('media-thumbs')){
@@ -712,10 +712,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       // event binding
 
-      $(window).bind('showMLT', function(e, data){
-        showMLT(data);
-      });
-
       $(window).bind('showMediaThumbs', function(e, data){
         showMediaThumbs(data);
       });
@@ -741,6 +737,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
 
       scrollEvents.fireAllVisible();
+
+      var triggerMLT = $('#scroll-trigger-mlt');
+      showMLT(triggerMLT.data('fire-on-open-params'));
+      triggerMLT.data('enabled', false);
 
       $('.tumblr-share-button').on('click', function(){
 
