@@ -1,0 +1,36 @@
+{
+  "page_title": "Europeana Blog",
+  "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "collections/item"
+    }
+  ],
+  "img": false,
+  "channel_data": false,
+  "navigation": {
+    "back_url": "javascript:alert('follow breadcrumb')"
+  },
+  "blog_title": "This Specific Blog",
+  "content" : "<img src=\"https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg\"><p>The blog post will have text as well as images</p>"
+  
+}

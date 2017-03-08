@@ -15,6 +15,10 @@
   }
 }
 
+.search-hero.empty{
+  z-index: -1;
+}
+
 // Search results container
 .search-blogs{
   padding: 0 $space;
@@ -30,6 +34,15 @@
     @media all and (min-width: $bp-med) {
       overflow:hidden;
     }
+   
+    &.blog-post{
+   	  transform:  translateY(-3em);
+   	  img{
+        display:  block;
+        position: relative;
+        margin:   auto;
+      }
+    }
   }
 }
 
@@ -37,6 +50,10 @@
 .blog-list-item{
   margin-top: 3 * $space;
 
+  .authors{
+  	display: inline-block;
+  }
+ 
   .item-info{
 
     .summary{
