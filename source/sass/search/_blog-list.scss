@@ -36,6 +36,9 @@
     }
    
     &.blog-post{
+     .introduction{
+   	   font-weight: bold;
+     }
    	  transform:  translateY(-3em);
    	  img{
         display:  block;
@@ -110,7 +113,8 @@
     width:       1.5em;
   }
 
-  .item-tags{
+  .item-tags,
+  .item-tags li{
     display: inline-block;
   }
 
