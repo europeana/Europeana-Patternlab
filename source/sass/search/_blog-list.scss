@@ -34,17 +34,32 @@
     @media all and (min-width: $bp-med) {
       overflow:hidden;
     }
-   
+
     &.blog-post{
-     .introduction{
-   	   font-weight: bold;
-     }
-   	  transform:  translateY(-3em);
-   	  img{
-        display:  block;
-        position: relative;
-        margin:   auto;
+
+      transform:   translateY(-3em);
+
+      img{
+        display:   block;
+        margin:    auto;
+        max-width: 75%;
+        position:  relative;
       }
+
+      p{
+        margin:    1em auto 0.75em auto;
+        max-width: 40em;
+
+        img{
+          transform: translateX(-25%);
+          max-width: 200%;
+        }
+      }
+
+      .introduction{
+        font-size: 1.125;
+      }
+
     }
   }
 }
@@ -54,9 +69,9 @@
   margin-top: 3 * $space;
 
   .authors{
-  	display: inline-block;
+    display: inline-block;
   }
- 
+
   .item-info{
 
     .summary{
