@@ -12,12 +12,20 @@
   }
 }
 
+.capitalised{
+  text-transform: capitalise;
+}
+
 .relative{
   position: relative;
 }
 
-.capitalised{
-  text-transform: capitalise;
+.text-centre{
+  text-align: center;
+}
+
+.text-left{
+  text-align: left;
 }
 
 .hero-contents{

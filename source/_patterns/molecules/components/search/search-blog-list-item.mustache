@@ -14,16 +14,17 @@
 
     <div class="summary">
       <h2><a href="{{object_url}}">{{ title }}</a></h2>
+
       {{#has_authors}}
         <span class="capitalised">{{i18n.global.labels.by}}</span>
+
+        <ul class="authors comma-list">
+          {{#authors}}
+            <li><a class="author" href="{{url}}">{{name}}</a></li>
+          {{/authors}}
+        </ul>
       {{/has_authors}}
-      
-      <ul class="authors comma-list">
-        {{#authors}}
-          <li><a class="author" href="{{url}}">{{name}}</a></li>
-        {{/authors}}
-      </ul>
-        
+
       {{#read_time}}
         {{ . }} {{i18n.site.blogs.min-to-read}}
       {{/read_time}}

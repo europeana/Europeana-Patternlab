@@ -1,6 +1,8 @@
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar";
-
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white";
+@import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
+@import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
 
 .blog-list{
   padding-bottom: $space;
@@ -19,7 +21,6 @@
   z-index: -1;
 }
 
-// Search results container
 .search-blogs{
   padding: 0 $space;
 
@@ -30,6 +31,7 @@
   }
 
   .container{
+
     @include container($max-width);
     @media all and (min-width: $bp-med) {
       overflow:hidden;
@@ -37,7 +39,7 @@
 
     &.blog-post{
 
-      transform:   translateY(-3em);
+      transform:   translateY(-5em);
 
       img{
         display:   block;
@@ -49,15 +51,71 @@
       p{
         margin:    1em auto 0.75em auto;
         max-width: 40em;
-
-        img{
-          transform: translateX(-25%);
-          max-width: 200%;
-        }
       }
 
-      .introduction{
-        font-size: 1.125;
+      .blog-hero{
+        display:    inline-block;
+        height:     auto;
+        margin-top: 0;
+        position:   relative;
+
+        img{
+          max-width: none;
+        }
+
+        .introduction{
+          color:       $white;
+          left:        50%;
+          position:    absolute;
+          padding:     1em 2em;
+          top:         50%;
+          transform:   translate(-50%, -50%);
+          width:       100%;
+          z-index:     3;
+
+          a{
+            color: $white;
+            border-bottom: 1px dotted #fff;
+
+            &.author{
+              margin-right: 1em;
+            }
+
+            &:hover{
+              border-bottom: solid 1px #eee;
+            }
+          }
+
+          .text{
+            font-size:   1.125em;
+            font-weight: bold;
+          }
+          .text-split{
+            border-bottom:  1px solid $white;
+            margin-bottom:  0.5em;
+            padding-bottom: 1em;
+
+            .read-time{
+              font-size: $font-size-slightly-smaller;
+            }
+          }
+        }
+
+
+        &:after{
+          background-color: rgba(0, 0, 0, 0.5);
+          bottom:     0;
+          color:      #fff;
+          content:    ' ';
+          a{
+            border-bottom: 1px dotted #fff;
+            color:         #fff;
+          }
+          left:       0;
+          position:   absolute;
+          right:      0;
+          top:        0;
+        }
       }
 
     }
@@ -65,12 +123,46 @@
 }
 
 
-.blog-list-item{
-  margin-top: 3 * $space;
+.blog-list-item,
+.blog-hero{
 
-  .authors{
+  .authors,
+  .authors li{
     display: inline-block;
   }
+
+  .item-tags,
+  .item-tags li{
+    display: inline-block;
+  }
+
+  .date-icon,
+  .tags-icon{
+    height:       1.9em;
+    display:      inline-block;
+    margin-right: 0.4em;
+    width:        2em;
+  }
+
+  .tags-icon{
+    margin-left: 2em;
+    width:       1.5em;
+  }
+
+  .date-icon{
+    height:       1.9em;
+    transform:    scale(0.8);
+  }
+
+  .item-tags a,
+  .date{
+    position: relative;
+    top:      -0.6em;
+  }
+}
+
+.blog-list-item{
+  margin-top: 3 * $space;
 
   .item-info{
 
@@ -107,35 +199,6 @@
   h3{
     font-size:   0.75rem;
     font-weight: bold;
-  }
-
-  .item-tags a,
-  .date{
-    position: relative;
-    top:      -0.6em;
-  }
-
-  .date-icon,
-  .tags-icon{
-    height:       1.9em;
-    display:      inline-block;
-    margin-right: 0.4em;
-    width:        2em;
-  }
-
-  .tags-icon{
-    margin-left: 2em;
-    width:       1.5em;
-  }
-
-  .item-tags,
-  .item-tags li{
-    display: inline-block;
-  }
-
-  .date-icon{
-    height:       1.9em;
-    transform:    scale(0.8);
   }
 
   .excerpt{

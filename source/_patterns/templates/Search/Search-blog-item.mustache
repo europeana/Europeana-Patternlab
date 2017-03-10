@@ -20,12 +20,56 @@
   </section>
 
   <section class="search-blogs" id="maincontent">
-    <div class="container blog-post">
-      {{#introduction}}
-        <div class="introduction">
-          {{{.}}}
+    <div class="container text-centre blog-post">
+
+      {{#blog_image}}
+
+        <div class="site-hero blog-hero">
+
+          {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+
+          <img src="{{url}}"/>
+
+          <div class="introduction text-centre">
+
+            {{#introduction}}<div class="text text-centre">{{.}}</div>{{/introduction}}
+
+            <div class="text-split">
+              {{#has_authors}}
+                <ul class="authors">
+                  {{#authors}}
+                    <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                  {{/authors}}
+                </ul>
+              {{/has_authors}}
+              {{#read_time}}
+                <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
+              {{/read_time}}
+            </div>
+
+            {{#date}}
+              <span class="svg-icon-calendar-white date-icon"></span>
+              <span class="date">{{.}}</span>
+            {{/date}}
+
+            {{#tags}}
+              <span class="svg-icon-bookmark-white tags-icon"></span>
+              <ul class="item-tags">
+                {{#items}}
+                  <li><a href="{{url}}">{{text}}</a></li>
+                {{/items}}
+              </ul>
+            {{/tags}}
+
+          </div>
+          <div class="text-left">
+            {{> molecules/text/attribution }}
+          </div>
+
         </div>
-      {{/introduction}}
+
+      {{/blog_image}}
+
       {{{content}}}
     </div>
   </section>
