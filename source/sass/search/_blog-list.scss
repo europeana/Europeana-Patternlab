@@ -66,6 +66,7 @@
         .introduction{
           color:       $white;
           left:        50%;
+          max-height:  100%;
           position:    absolute;
           padding:     1em 2em;
           top:         50%;
@@ -86,10 +87,16 @@
             }
           }
 
-          .text{
+          .title{
+
             font-size:   1.125em;
             font-weight: bold;
+
+            line-height:   1.2em;
+            max-height:    2.4em;
+            overflow:      hidden;
           }
+
           .text-split{
             border-bottom:  1px solid $white;
             margin-bottom:  0.5em;
@@ -149,16 +156,23 @@
 .blog-list-item,
 .blog-hero{
   background-image: none;
-  
+
   img{
-    height:           20%;
-    max-width:        100%;
-    object-fit:       cover;
-    width:            100%;
+    height:       20%;
+    max-width:    100%;
+    object-fit:   cover;
+    width:        100%;
   }
 
- 
+  @media all and (min-width: $bp-med) {
+    width:        100%;
+    img{
+      height:     18em;
+    }
+  }
+
   @media all and (min-width: $bp-xl) {
+    width:      70em;
     img{
       height:     19em;
       width:      70em;
@@ -166,6 +180,7 @@
   }
 
   @media all and (min-width: $bp-xxl) {
+    width:      80em;
     img{
       height:     20em;
       width:      80em;
@@ -214,12 +229,12 @@
 
     .summary{
       padding-bottom: $space / 2;
-      margin-bottom: $space / 2;
-      border-bottom: 1px solid $gray87;
+      margin-bottom:  $space / 2;
+      border-bottom:  1px solid $gray87;
     }
 
-    @media all and (min-width: $bp-small) {
-      @include span(12 of 18  inside no-gutters);
+    @media all and (min-width: $bp-small-2) {
+      @include span(11 of 18  inside);
     }
 
     @media all and (min-width: $bp-small-3) {
@@ -248,19 +263,32 @@
   }
 
   .excerpt{
-    @media all and (min-width: $bp-small-3) {
-      margin-bottom: $space-half;
-      margin-top: $space-half;
-    }
 
     line-height:   1.4em;
-    margin-right:  -1.25em;
     max-height:    7em;
-    max-width:     100%;
     overflow:      hidden;
-    padding-right: 1.75em;
     position:      relative;
     text-align:    justify;
+
+    @media all and (max-width: $bp-small-3) {
+      box-sizing:   content-box;
+      margin-left:  -1.5em;
+      margin-right: -1.5em;
+      padding:      1.5em;
+      width:        100%;
+    }
+
+    @media all and (min-width: $bp-small-3) {
+
+      box-sizing:    border-box;
+      margin-left:   0;
+      margin-right:  0;
+
+      margin-bottom: $space-half;
+      margin-top:    $space-half;
+      padding-right: 1.75em;
+    }
+
 
     &:before,
     &:after {
@@ -296,7 +324,7 @@
       }
     }
 
-    @media all and (min-width: $bp-small) {
+    @media all and (min-width: $bp-small-2) {
       @include span(last 6 of 18);
     }
     @media all and (min-width: $bp-small-3) {
