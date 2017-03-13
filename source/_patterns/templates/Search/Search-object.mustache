@@ -150,52 +150,50 @@
               {{/items}}
             </div>
 
+            {{#has_media}}
+              <div class="object-techdata">
+                <a class="show-button" href="#" aria-expanded="false" aria-controls="technical_metadata" role="button">
+                  <svg class="icon icon-info">
+                    <use xlink:href="#icon-info"></use>
+                  </svg>
+                  {{ i18n.site.object.actions.media-metadata }}
+                </a>
 
+                {{#items}}
+                  {{#is_current}}
+                    <div class="media-info-tab" aria-hidden="true" id="technical_metadata">
+                      <div class="lc">
+                        <div class="info-primary">
+                        </div>
+                        <div class="info-secondary">
+                          <ul class="object-techdata-list">
+                            <li {{^technical_metadata.dc_creator}}class="is-disabled"{{/technical_metadata.dc_creator}}><span class="label tech-meta-creator">{{i18n.site.object.meta-label.creator}}</span>  <span class="val">{{#technical_metadata}}{{dc_creator}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.dc_description}}class="is-disabled"{{/technical_metadata.dc_description}}><span class="label tech-meta-description">{{i18n.site.object.meta-label.description}}</span>  <span class="val">{{#technical_metadata}}{{dc_description}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.format}}class="is-disabled"{{/technical_metadata.format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{#technical_metadata}}{{format}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.file_size}}class="is-disabled"{{/technical_metadata.file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{#technical_metadata}}{{#file_size}}{{.}} {{file_unit}}{{/file_size}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.codec}}class="is-disabled"{{/technical_metadata.codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{#technical_metadata}}{{codec}}{{/technical_metadata}}</span></li>
+                            <!--
+                            <li {{^technical_metadata.fps}}class="is-disabled"{{/technical_metadata.fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{#technical_metadata}}{{fps}} {{fps_unit}}{{/technical_metadata}}</span></li>
+                            -->
+                            <li {{^technical_metadata.width}}class="is-disabled"{{/technical_metadata.width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{#technical_metadata}}{{width}} × {{height}} {{size_unit}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.runtime}}class="is-disabled"{{/technical_metadata.runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{#technical_metadata}}{{runtime}} {{runtime_unit}}{{/technical_metadata}}</span></li>
 
+                            <li {{^technical_metadata.dc_source}}class="is-disabled"{{/technical_metadata.dc_source}}><span class="label tech-meta-source">{{i18n.site.object.meta-label.source}}</span>  <span class="val">{{#technical_metadata}}{{dc_description}}{{/technical_metadata}}</span></li>
 
-            <div class="object-techdata">
+                            <li {{^technical_metadata.dc_rights}}class="is-disabled"{{/technical_metadata.dc_rights}}><span class="label tech-meta-dc-rights">{{i18n.site.object.meta-label.rights}}</span>  <span class="val">{{#technical_metadata}}{{dc_rights}}{{/technical_metadata}}</span></li>
+                            <li {{^technical_metadata.edm_rights}}class="is-disabled"{{/technical_metadata.edm_rights}}><span class="label tech-meta-edm-rights" data-mustache="#molecules-icons-licenses-js">{{i18n.site.object.meta-label.rights}}</span>  <span class="val val-rights">{{#technical_metadata}}{{edm_rights}}{{/technical_metadata}}</span></li>
 
-              <a class="show-button" href="#" aria-expanded="false" aria-controls="technical_metadata" role="button">
-                <svg class="icon icon-info">
-                  <use xlink:href="#icon-info"></use>
-                </svg>
-                {{ i18n.site.object.actions.media-metadata }}
-              </a>
-
-              {{#items}}
-                {{#is_current}}
-                  <div class="media-info-tab" aria-hidden="true" id="technical_metadata">
-                    <div class="lc">
-                      <div class="info-primary">
-                      </div>
-                      <div class="info-secondary">
-                        <ul class="object-techdata-list">
-                          <li {{^technical_metadata.dc_creator}}class="is-disabled"{{/technical_metadata.dc_creator}}><span class="label tech-meta-creator">{{i18n.site.object.meta-label.creator}}</span>  <span class="val">{{#technical_metadata}}{{dc_creator}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.dc_description}}class="is-disabled"{{/technical_metadata.dc_description}}><span class="label tech-meta-description">{{i18n.site.object.meta-label.description}}</span>  <span class="val">{{#technical_metadata}}{{dc_description}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.format}}class="is-disabled"{{/technical_metadata.format}}      ><span class="label tech-meta-format"    >{{i18n.site.object.meta-label.format}}</span>     <span class="val">{{#technical_metadata}}{{format}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.file_size}}class="is-disabled"{{/technical_metadata.file_size}}><span class="label tech-meta-filesize"  >{{i18n.site.object.meta-label.file-size}}</span>  <span class="val">{{#technical_metadata}}{{#file_size}}{{.}} {{file_unit}}{{/file_size}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.codec}}class="is-disabled"{{/technical_metadata.codec}}        ><span class="label tech-meta-codec"     >{{i18n.site.object.meta-label.codec}}</span>      <span class="val">{{#technical_metadata}}{{codec}}{{/technical_metadata}}</span></li>
-                          <!--
-                          <li {{^technical_metadata.fps}}class="is-disabled"{{/technical_metadata.fps}}            ><span class="label tech-meta-fps"       >{{i18n.site.object.meta-label.fps}}</span>        <span class="val">{{#technical_metadata}}{{fps}} {{fps_unit}}{{/technical_metadata}}</span></li>
-                          -->
-                          <li {{^technical_metadata.width}}class="is-disabled"{{/technical_metadata.width}}        ><span class="label tech-meta-dimensions">{{i18n.site.object.meta-label.dimensions}}</span> <span class="val">{{#technical_metadata}}{{width}} × {{height}} {{size_unit}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.runtime}}class="is-disabled"{{/technical_metadata.runtime}}    ><span class="label tech-meta-runtime"   >{{i18n.site.object.meta-label.runtime}}</span>    <span class="val">{{#technical_metadata}}{{runtime}} {{runtime_unit}}{{/technical_metadata}}</span></li>
-
-                          <li {{^technical_metadata.dc_source}}class="is-disabled"{{/technical_metadata.dc_source}}><span class="label tech-meta-source">{{i18n.site.object.meta-label.source}}</span>  <span class="val">{{#technical_metadata}}{{dc_description}}{{/technical_metadata}}</span></li>
-
-                          <li {{^technical_metadata.dc_rights}}class="is-disabled"{{/technical_metadata.dc_rights}}><span class="label tech-meta-dc-rights">{{i18n.site.object.meta-label.rights}}</span>  <span class="val">{{#technical_metadata}}{{dc_rights}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.edm_rights}}class="is-disabled"{{/technical_metadata.edm_rights}}><span class="label tech-meta-edm-rights" data-mustache="#molecules-icons-licenses-js">{{i18n.site.object.meta-label.rights}}</span>  <span class="val val-rights">{{#technical_metadata}}{{edm_rights}}{{/technical_metadata}}</span></li>
-
-                        </ul>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div id="molecules-icons-licenses-js">{{> molecules/icons/licenses-js }}</div>
+                    <div id="molecules-icons-licenses-js">{{> molecules/icons/licenses-js }}</div>
 
-                {{/is_current}}
-              {{/items}}
-            </div>
+                  {{/is_current}}
+                {{/items}}
+              </div>
+            {{/has_media}}
           </div>
         </section>
       {{/empty_item}}
