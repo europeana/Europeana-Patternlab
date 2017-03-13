@@ -148,23 +148,16 @@
 
 .blog-list-item,
 .blog-hero{
-
   background-image: none;
-  max-width:        100%;
-
-  @media all and (min-width: $bp-med) {
-    img{
-      width:      100%;
-    }
+  
+  img{
+    height:           20%;
+    max-width:        100%;
+    object-fit:       cover;
+    width:            100%;
   }
+
  
-  @media all and (min-width: $bp-large) {
-    img{
-      height:     18em;
-      object-fit: cover;
-    }
-  }
-
   @media all and (min-width: $bp-xl) {
     img{
       height:     19em;
