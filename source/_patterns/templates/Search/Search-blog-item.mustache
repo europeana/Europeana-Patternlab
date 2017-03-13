@@ -19,71 +19,74 @@
   <section class="search-hero empty">
   </section>
 
-  <section class="search-blogs" id="maincontent">
-    <div class="container text-centre blog-post">
+  {{#content}}
+    <section class="search-blogs" id="maincontent">
+      <div class="container text-centre blog-post">
 
-      {{#blog_image}}
+        {{#blog_image}}
 
-        <div class="site-hero blog-hero">
+          <div class="site-hero blog-hero">
 
-          {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+            {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
 
-          <img src="{{url}}"/>
+            <img src="{{url}}"/>
 
-          <div class="introduction text-centre">
+            <div class="introduction text-centre">
 
-            {{#introduction}}<div class="text text-centre">{{.}}</div>{{/introduction}}
+              {{#introduction}}<div class="text text-centre">{{.}}</div>{{/introduction}}
 
-            <div class="text-split">
-              {{#has_authors}}
-                <ul class="authors">
-                  {{#authors}}
-                    <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
-                  {{/authors}}
-                </ul>
-              {{/has_authors}}
-              {{#read_time}}
-                <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
-              {{/read_time}}
-            </div>
-
-            <div class="text-lower-section">
-              <div class="cell nowrap">
-                {{#date}}
-                  <span class="svg-icon-calendar-white date-icon"></span>
-                  <span class="date">{{.}}</span>
-                {{/date}}
-              </div>
-            
-              {{#has_tags}}
-                <div class="cell">
-                  <span class="svg-icon-bookmark-white tags-icon"></span>
-                </div>
-              {{/has_tags}}
-
-              <div class="cell tags">
-                {{#tags}}
-                  <ul class="item-tags">
-                    {{#items}}
-                      <li><a href="{{url}}">{{text}}</a></li>
-                    {{/items}}
+              <div class="text-split">
+                {{#has_authors}}
+                  <ul class="authors">
+                    {{#authors}}
+                      <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                    {{/authors}}
                   </ul>
-                {{/tags}}
+                {{/has_authors}}
+                {{#read_time}}
+                  <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
+                {{/read_time}}
+              </div>
+
+              <div class="text-lower-section">
+                <div class="cell nowrap">
+                  {{#date}}
+                    <span class="svg-icon-calendar-white date-icon"></span>
+                    <span class="date">{{.}}</span>
+                  {{/date}}
+                </div>
+            
+                {{#has_tags}}
+                  <div class="cell">
+                    <span class="svg-icon-bookmark-white tags-icon"></span>
+                  </div>
+                {{/has_tags}}
+
+                <div class="cell tags">
+                  {{#tags}}
+                    <ul class="item-tags">
+                      {{#items}}
+                        <li><a href="{{url}}">{{text}}</a></li>
+                      {{/items}}
+                    </ul>
+                  {{/tags}}
+                </div>
               </div>
             </div>
-          </div>
           
-          <div class="text-left">
-            {{> molecules/text/attribution }}
+            <div class="text-left">
+              {{> molecules/text/attribution }}
+            </div>
+
           </div>
 
+        {{/blog_image}}
+        <div class="text-left">
+          {{{body}}}
         </div>
-
-      {{/blog_image}}
-
-      {{{content}}}
-    </div>
-  </section>
+      </div>
+    </section>
+  {{/content}}
 </div>
 
 {{> organisms/sections/banner }}

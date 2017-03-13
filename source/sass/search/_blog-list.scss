@@ -149,6 +149,14 @@
 .blog-list-item,
 .blog-hero{
 
+  background-image: none;
+  
+  img{
+  	height:     20em;
+  	object-fit: cover;
+  	width:      80em;  	
+  }
+  
   .authors,
   .authors li{
     display: inline-block;
