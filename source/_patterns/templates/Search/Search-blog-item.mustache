@@ -47,19 +47,30 @@
               {{/read_time}}
             </div>
 
-            {{#date}}
-              <span class="svg-icon-calendar-white date-icon"></span>
-              <span class="date">{{.}}</span>
-            {{/date}}
+            <div class="text-lower-section">
+              <div class="cell nowrap">
+                {{#date}}
+                  <span class="svg-icon-calendar-white date-icon"></span>
+                  <span class="date">{{.}}</span>
+                {{/date}}
+              </div>
+            
+              {{#has_tags}}
+                <div class="cell">
+                  <span class="svg-icon-bookmark-white tags-icon"></span>
+                </div>
+              {{/has_tags}}
 
-            {{#tags}}
-              <span class="svg-icon-bookmark-white tags-icon"></span>
-              <ul class="item-tags">
-                {{#items}}
-                  <li><a href="{{url}}">{{text}}</a></li>
-                {{/items}}
-              </ul>
-            {{/tags}}
+              <div class="cell tags">
+                {{#tags}}
+                  <ul class="item-tags">
+                    {{#items}}
+                      <li><a href="{{url}}">{{text}}</a></li>
+                    {{/items}}
+                  </ul>
+                {{/tags}}
+              </div>
+            </div>
           </div>
           
           <div class="text-left">

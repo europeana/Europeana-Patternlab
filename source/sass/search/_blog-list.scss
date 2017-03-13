@@ -99,6 +99,29 @@
               font-size: $font-size-slightly-smaller;
             }
           }
+          .text-lower-section{
+            display: table;
+            margin:  auto;
+            .cell{
+              display: table-cell;
+
+              &.tags{
+                vertical-align: bottom;
+                a{
+                  border-bottom-right-radius: 0;
+                  font-size:                  1em;
+                  font-weight:                normal;
+                  padding:                    0;
+                  text-transform:             none;
+                  text-transform:             capitalize;
+                  top:                        -0.1em;
+                }
+              }
+            }
+            .nowrap{
+              white-space: nowrap;
+            }
+          }
         }
 
 

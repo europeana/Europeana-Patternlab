@@ -43,6 +43,7 @@
   "date": "2 February, 2017",
   "introduction": "This is the introduction for the test blog post",
   "label": "Art",
+  "has_tags": true,
   "tags": {
     "items": [
       {
