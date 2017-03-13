@@ -150,13 +150,35 @@
 .blog-hero{
 
   background-image: none;
-  
-  img{
-  	height:     20em;
-  	object-fit: cover;
-  	width:      80em;  	
+  max-width:        100%;
+
+  @media all and (min-width: $bp-med) {
+    img{
+      width:      100%;
+    }
   }
-  
+ 
+  @media all and (min-width: $bp-large) {
+    img{
+      height:     18em;
+      object-fit: cover;
+    }
+  }
+
+  @media all and (min-width: $bp-xl) {
+    img{
+      height:     19em;
+      width:      70em;
+    }
+  }
+
+  @media all and (min-width: $bp-xxl) {
+    img{
+      height:     20em;
+      width:      80em;
+    }
+  }
+
   .authors,
   .authors li{
     display: inline-block;
