@@ -29,8 +29,8 @@
   "navigation": {
     "back_url": "javascript:alert('follow breadcrumb')"
   },
+  "blog_title": "This Specific Blog",
   "content": {
-    "blog_title": "This Specific Blog",
     "blog_image": {
       "src": "https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg",
       "alt": "Some dude"
