@@ -20,7 +20,7 @@
   </section>
 
   {{#content}}
-    <section class="search-blogs" id="maincontent">
+    <section class="search-blog-item" id="maincontent">
       <div class="container text-centre blog-post">
 
         {{#blog_image}}
@@ -49,45 +49,49 @@
               </div>
 
               <div class="text-lower-section">
-                <div class="nowrap">
+                <div class="cell">
                   {{#date}}
                     <span class="svg-icon-calendar-white date-icon"></span>
                     <span class="date">{{.}}</span>
                   {{/date}}
                 </div>
 
-                {{#has_tags}}
-                  <div class="cell">
-                    <div class="blog-tags">
-                      {{#tags}}
-                        <ul class="blog-item-tags svg-icon-bookmark-white-before">
+                {{#tags}}
+                  {{#has_tags}}
+                    <div class="cell hide-with-tags">
+                      <span class="svg-icon-bookmark-white"></span>
+                    </div>
+                    <div class="cell">
+                      <div class="blog-tags">
+                        <ul class="blog-item-tags">
                           {{#items}}
                             <li><a href="{{url}}">{{text}}</a></li>
                           {{/items}}
                         </ul>
-                      {{/tags}}
+                      </div>
                     </div>
-                  </div>
-                {{/has_tags}}
-
+                  {{/has_tags}}
+                {{/tags}}
               </div>
             </div>
-
           </div>
 
         {{/blog_image}}
+
         <div class="text-left blog-body">
-          {{#has_tags}}
-            <span class="svg-icon-bookmark-eu-blue tags-icon"></span>
-            <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span>
-            {{#tags}}
-              <ul class="blog-item-tags-wide blog-item-tags">
-                {{#items}}
-                  <li><a href="{{url}}">{{text}}</a></li>
-                {{/items}}
-              </ul>
-            {{/tags}}
-          {{/has_tags}}
+          {{#tags}}
+            {{#has_tags}}
+              <div class="blog-item-tags-wide">
+                <a class="expand-tags">
+                  <span class="svg-icon-bookmark-eu-blue tags-icon"></span>
+                  <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span>
+                </a>
+                <ul class="blog-item-tags comma-list js-hidden">
+                  {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                </ul>
+              </div>
+            {{/has_tags}}
+          {{/tags}}
           {{{body}}}
         </div>
       </div>

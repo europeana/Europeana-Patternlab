@@ -1,11 +1,12 @@
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark";
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark-before";
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark-eu-blue";
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white";
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark-white-before";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
 @import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
-
 
 .blog-list{
   padding-bottom: $space;
@@ -24,7 +25,9 @@
   z-index: -1;
 }
 
-.search-blogs{
+.search-blogs,
+.search-blog-item{
+
   padding:    0 $space;
   background: $white;
 
@@ -40,12 +43,55 @@
     width:        2em;
   }
 
+  .svg-icon-bookmark-before::before{
+    display:  inline-block;
+    height:   1.92em;
+    width:    1.5em;
+  }
+
+  .svg-icon-bookmark-white{
+    display:     inline-block;
+    height:      1.92em;
+    margin-left: 2em;
+    width:       1.5em;
+  }
+
+  .svg-icon-ellipsis-eu-blue.ellipsis-icon{
+    transform: translateY(1em);
+  }
+
+  .svg-icon-bookmark-white{
+    transform: translateY(0.7em);
+    margin-right: 1em;
+  }
+
+  .svg-icon-bookmark-eu-blue.tags-icon,
+  .svg-icon-bookmark-before::before,
+  .svg-icon-bookmark-white-before::before{
+    transform: translateY(0.5em);
+  }
+
+  .svg-icon-bookmark-white-before::before{
+    left:      -1.5em;
+    display:   inline-block;
+  }
+
+  .svg-icon-bookmark-white-before::before,
   .tags-icon{
     height:      1.92em;
     width:       1.5em;
   }
+
   .ellipsis-icon{
-    height:      1.92em;  	
+    height:      1.92em;
+  }
+
+  .expand-tags{
+    border-bottom:  1px dotted #1676aa;
+    padding-bottom: 0.3em;
+    &:hover{
+      border-bottom: solid 1px #1676aa;
+    }
   }
 
   .container{
@@ -105,7 +151,7 @@
               border-bottom: solid 1px #eee;
             }
           }
-         
+
           .title{
 
             font-size:   1.125em;
@@ -123,19 +169,25 @@
 
             .read-time{
               font-size: $font-size-slightly-smaller;
+              white-space: nowrap;
             }
           }
           .text-lower-section{
             display: table;
+
             margin:  auto;
             .cell{
               display: table-cell;
+              &.hide-with-tags{
+                &.eu-active-on-shrink{
+                  display: none;
+                }
+              }
             }
 
             &.blog-tags{
-              margin-left:    2em;
               vertical-align: bottom;
-              
+
               a{
                 border-bottom-right-radius: 0;
                 font-size:                  1em;
@@ -143,10 +195,9 @@
                 padding:                    0;
                 text-transform:             none;
                 text-transform:             capitalize;
-                top:                        -0.1em;
               }
             }
-            
+
             .nowrap{
               display:     inline-block;
               white-space: nowrap;
@@ -216,28 +267,36 @@
   }
 
   .blog-tags{
-    display:    inline-block;
-    max-height: 2.3em;
+    max-height: 3em;
     overflow-y: auto;
-    
+
     &.eu-active-on-shrink{
       display: none;
     }
   }
 
   .date-icon{
-    height:       1.9em;
-    transform:    scale(0.8);
+    height:    1.9em;
+    transform: scale(0.8);
+    position:  relative;
+    top:       0.6em;
   }
 
   .blog-item-tags{
-    margin-left: 2em;
+    white-space: normal;
+    position:  relative;
   }
- 
-  .blog-item-tags a,
-  .date{
-    position: relative;
-    top:      -0.6em;
+
+}
+
+.blog-item-tags,
+.blog-item-tags li{
+  display: inline-block;
+  &:not(:first-of-type){
+    margin-left: 0.7em;
+  }
+  &.js-hidden{
+    display: none;
   }
 }
 
@@ -248,10 +307,6 @@
   }
 }
 
-.blog-item-tags,
-.blog-item-tags li{
-  display: inline-block;
-}
 
 .blog-list-item{
   margin-top: 3 * $space;
@@ -364,4 +419,7 @@
     }
   }
 
+  .blog-item-tags{
+    margin-left: 2em;
+  }
 }

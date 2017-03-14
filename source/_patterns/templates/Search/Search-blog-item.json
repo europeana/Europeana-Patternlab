@@ -39,8 +39,8 @@
     "date": "2 February, 2017",
     "introduction": "This is the introduction for the test blog post",
     "label": "Art",
-    "has_tags": true,
     "tags": {
+      "has_tags": true,
       "items": [
         {
           "url": "javascript:alert('open tag link')",
@@ -49,6 +49,10 @@
         {
           "url": "javascript:alert('open tag link')",
           "text": "Tag 2"
+        },
+        {
+          "url": "javascript:alert('open tag link')",
+          "text": "Annotation One"
         }
       ]
     },
