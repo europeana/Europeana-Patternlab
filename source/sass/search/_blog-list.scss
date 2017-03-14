@@ -1,8 +1,11 @@
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark";
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark-eu-blue";
+@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white-before";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar";
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
+@import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
+
 
 .blog-list{
   padding-bottom: $space;
@@ -22,12 +25,27 @@
 }
 
 .search-blogs{
-  padding: 0 $space;
-
+  padding:    0 $space;
   background: $white;
 
   @media all and (max-width: $bp-med) {
     position: relative;
+  }
+
+  .date-icon,
+  .ellipsis-icon,
+  .tags-icon{
+    display:      inline-block;
+    margin-right: 0.4em;
+    width:        2em;
+  }
+
+  .tags-icon{
+    height:      1.92em;
+    width:       1.5em;
+  }
+  .ellipsis-icon{
+    height:      1.92em;  	
   }
 
   .container{
@@ -48,7 +66,8 @@
         position:  relative;
       }
 
-      p{
+      p,
+      .blog-body{
         margin:    1em auto 0.75em auto;
         max-width: 40em;
       }
@@ -86,7 +105,7 @@
               border-bottom: solid 1px #eee;
             }
           }
-
+         
           .title{
 
             font-size:   1.125em;
@@ -111,21 +130,25 @@
             margin:  auto;
             .cell{
               display: table-cell;
+            }
 
-              &.tags{
-                vertical-align: bottom;
-                a{
-                  border-bottom-right-radius: 0;
-                  font-size:                  1em;
-                  font-weight:                normal;
-                  padding:                    0;
-                  text-transform:             none;
-                  text-transform:             capitalize;
-                  top:                        -0.1em;
-                }
+            &.blog-tags{
+              margin-left:    2em;
+              vertical-align: bottom;
+              
+              a{
+                border-bottom-right-radius: 0;
+                font-size:                  1em;
+                font-weight:                normal;
+                padding:                    0;
+                text-transform:             none;
+                text-transform:             capitalize;
+                top:                        -0.1em;
               }
             }
+            
             .nowrap{
+              display:     inline-block;
               white-space: nowrap;
             }
           }
@@ -192,22 +215,14 @@
     display: inline-block;
   }
 
-  .item-tags,
-  .item-tags li{
-    display: inline-block;
-  }
-
-  .date-icon,
-  .tags-icon{
-    height:       1.9em;
-    display:      inline-block;
-    margin-right: 0.4em;
-    width:        2em;
-  }
-
-  .tags-icon{
-    margin-left: 2em;
-    width:       1.5em;
+  .blog-tags{
+    display:    inline-block;
+    max-height: 2.3em;
+    overflow-y: auto;
+    
+    &.eu-active-on-shrink{
+      display: none;
+    }
   }
 
   .date-icon{
@@ -215,11 +230,27 @@
     transform:    scale(0.8);
   }
 
-  .item-tags a,
+  .blog-item-tags{
+    margin-left: 2em;
+  }
+ 
+  .blog-item-tags a,
   .date{
     position: relative;
     top:      -0.6em;
   }
+}
+
+.blog-item-tags-wide{
+  display: none;
+  &.eu-active-on-shrink{
+    display: block;
+  }
+}
+
+.blog-item-tags,
+.blog-item-tags li{
+  display: inline-block;
 }
 
 .blog-list-item{

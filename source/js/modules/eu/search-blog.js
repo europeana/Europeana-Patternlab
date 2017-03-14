@@ -1,14 +1,26 @@
 define(['jquery'], function($, scrollEvents, ga) {
 
   function log(msg){
-    console.log('search-galleries: ' + msg);
+    console.log('search-blog: ' + msg);
   }
 
   function initPage(){
 
     log('init blog....');
-
     analyseMarkup();
+    initExpandables();
+    initAOS();
+  }
+  
+  function initExpandables(){
+	
+  }
+  
+  function initAOS(){
+    require(['eu_activate_on_shrink'], function(aos){
+      log('loaded activate-on-shrink');
+      aos.create( $('.tags'), $('.blog-item-tags-wide'));
+    });
   }
 
   /**

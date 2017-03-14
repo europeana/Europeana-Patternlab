@@ -49,7 +49,7 @@
               </div>
 
               <div class="text-lower-section">
-                <div class="cell nowrap">
+                <div class="nowrap">
                   {{#date}}
                     <span class="svg-icon-calendar-white date-icon"></span>
                     <span class="date">{{.}}</span>
@@ -58,26 +58,36 @@
 
                 {{#has_tags}}
                   <div class="cell">
-                    <span class="svg-icon-bookmark-white tags-icon"></span>
+                    <div class="blog-tags">
+                      {{#tags}}
+                        <ul class="blog-item-tags svg-icon-bookmark-white-before">
+                          {{#items}}
+                            <li><a href="{{url}}">{{text}}</a></li>
+                          {{/items}}
+                        </ul>
+                      {{/tags}}
+                    </div>
                   </div>
                 {{/has_tags}}
 
-                <div class="cell tags">
-                  {{#tags}}
-                    <ul class="item-tags">
-                      {{#items}}
-                        <li><a href="{{url}}">{{text}}</a></li>
-                      {{/items}}
-                    </ul>
-                  {{/tags}}
-                </div>
               </div>
             </div>
 
           </div>
 
         {{/blog_image}}
-        <div class="text-left">
+        <div class="text-left blog-body">
+          {{#has_tags}}
+            <span class="svg-icon-bookmark-eu-blue tags-icon"></span>
+            <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span>
+            {{#tags}}
+              <ul class="blog-item-tags-wide blog-item-tags">
+                {{#items}}
+                  <li><a href="{{url}}">{{text}}</a></li>
+                {{/items}}
+              </ul>
+            {{/tags}}
+          {{/has_tags}}
           {{{body}}}
         </div>
       </div>
