@@ -97,6 +97,8 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     require(['jqImagesLoaded'], function(){
+    	
+      /*
       var el, bg, index = 0, logos = $('.institution-logo');
       var measured = {};
 
@@ -116,6 +118,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
         }
       }
       bump();
+      */
       require(['lightgallery'], function(){
         require(['lightgallery_zoom', 'lightgallery_hash'], function(){
           require(['lightgallery_fs', 'lightgallery_share'], function(){

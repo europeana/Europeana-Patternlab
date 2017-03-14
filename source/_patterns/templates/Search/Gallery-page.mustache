@@ -47,7 +47,7 @@
           <img src="{{thumb_url}}" data-src="{{full_url}}" {{#title}}data-tweet-text="{{.}}" data-pinterest-text="{{.}}"{{/title}}/>
           <div style="display:none;">
             <div class="image-meta">
-              <div class="image-col{{#institution_logo}} justified{{/institution_logo}}">
+              <div class="image-col{{!institution_logo justified institution_logo}}">
                 {{#title}}<span class="title">{{#url_item}}<a href="{{.}}">{{/url_item}}{{.}}{{#url_item}}</a>{{/url_item}}</span>{{/title}}
 
                 {{#description}}<span class="description">{{.}}</span>{{/description}}
@@ -79,7 +79,10 @@
 
                 {{#url_collection}}<span class="title"><a href="{{.}}">{{i18n.global.navigation.view-collection}}</a></span>{{/url_collection}}
 
-                {{#institution_logo}}<div class="institution-logo" data-institution-logo="{{.}}"></div>{{/institution_logo}}
+                
+                {{! institution_logo  <div class="institution-logo" data-institution-logo=" "></div> institution_logo}}
+                
+                
               </div>
             </div>
           </div>
