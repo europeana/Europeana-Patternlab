@@ -34,6 +34,11 @@
 			{{> atoms/pandora/table/user-requests-table}}
 		</div>
 		{{/is_requests}}
+		{{#is_request_approve}}
+		<div>
+			{{> molecules/pandora/user-approval-form}}
+		</div>
+		{{/is_request_approve}}
 	{{/landing_page_content}}
 </div>
 {{#is_java}}
