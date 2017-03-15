@@ -116,6 +116,10 @@
       .blog-body{
         margin:    1em auto 0.75em auto;
         max-width: 40em;
+        ul{
+          list-style-type:     circle;
+          list-style-position: inside;
+        }
       }
 
       .blog-hero{
