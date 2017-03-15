@@ -137,8 +137,8 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             promisedPageJS.resolve();
             doForAllPages();
             break;
-            
-        case 'collections/blog':
+
+        case 'blog_posts/index':
             require(['search_blog'], function(page){
                 page.initPage();
                 promisedPageJS.resolve(page);

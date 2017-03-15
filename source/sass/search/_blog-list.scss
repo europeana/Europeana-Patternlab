@@ -25,15 +25,17 @@
   z-index: -1;
 }
 
-.search-blogs,
-.search-blog-item{
-
+.blog-main{
   padding:    0 $space;
   background: $white;
 
   @media all and (max-width: $bp-med) {
     position: relative;
   }
+}
+
+.search-blog-list,
+.search-blog-item{
 
   .date-icon,
   .ellipsis-icon,
@@ -119,6 +121,7 @@
         ul{
           list-style-type:     circle;
           list-style-position: outside;
+          margin-left:         1em;
         }
         em{
           border-top:  1px solid #999;
@@ -126,7 +129,7 @@
           padding-top: $space-quarter;
           text-align:  center;
           width:       100%;
-          
+
         }
       }
 

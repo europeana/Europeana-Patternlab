@@ -2,7 +2,7 @@
 
 {{> organisms/global/header_v2}}
 
-<div role="main" class="page l-page">
+<div role="main" class="page l-page search-blog-item"">
 
   <section class="search-object">
     <div class="object-nav cf">
@@ -20,7 +20,7 @@
   </section>
 
   {{#content}}
-    <section class="search-blog-item" id="maincontent">
+    <section id="maincontent" class="blog-main">
       <div class="container text-centre blog-post">
 
         {{#blog_image}}
@@ -33,7 +33,7 @@
 
             <div class="introduction text-centre">
 
-              {{#introduction}}<div class="title text-centre">{{.}}</div>{{/introduction}}
+              {{#blog_title}}<div class="title text-centre">{{.}}</div>{{/blog_title}}
 
               <div class="text-split">
                 {{#has_authors}}
@@ -92,6 +92,11 @@
               </div>
             {{/has_tags}}
           {{/tags}}
+
+          <p>
+            {{{introduction}}}
+          </p>
+
           {{{body}}}
         </div>
       </div>

@@ -11,13 +11,8 @@ define(['jquery', 'util_resize'], function($){
     var activateClass = activateClass || 'eu-active-on-shrink';
 
     var test = function(){
-
       deactivate();
-
-      log('(test) m1 = ' + el[0].scrollHeight + ', m2 = ' + el[0].offsetHeight);
-
       if((el[0].scrollHeight > el[0].offsetHeight) || el[0].offsetHeight == 0){
-        log('test passed....');
         activate();
       }
     }
@@ -35,7 +30,6 @@ define(['jquery', 'util_resize'], function($){
         $(this).removeClass(activateClass);
       });
     }
-
     test();
     $(window).europeanaResize(function(){
       test();
@@ -47,5 +41,4 @@ define(['jquery', 'util_resize'], function($){
       return new EuActivateOnShrink(el, toActivate, activateClass);
     }
   }
-
 });

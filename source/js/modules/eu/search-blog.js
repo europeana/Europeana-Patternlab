@@ -26,17 +26,18 @@ define(['jquery'], function($, scrollEvents, ga) {
   }
 
   function initAOS(){
-    require(['eu_activate_on_shrink'], function(aos){
-      log('loaded activate-on-shrink');
-      aos.create( $('.blog-tags'), [$('.blog-item-tags-wide'), $('.hide-with-tags')]);
-    });
+    var tags = $('.blog-tags');
+    if(tags.length>0){
+      require(['eu_activate_on_shrink'], function(aos){
+        aos.create(tags, [$('.blog-item-tags-wide'), $('.hide-with-tags')]);
+      });
+    }
   }
-
 
   function analyseMarkup(){
 
-	// line up images side by side
-	  
+  // line up images side by side
+
     $('.blog-body > p').each(function(i, p){
       p = $(p);
       if(p.find('img').length == 2 && p.children().length == 2){
@@ -53,8 +54,8 @@ define(['jquery'], function($, scrollEvents, ga) {
           }
         }
       }
-	});
-	
+  });
+
   }
 
   return {

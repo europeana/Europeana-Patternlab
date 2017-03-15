@@ -22,7 +22,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "collections/blog"
+      "value": "blog_posts/show"
     }
   ],
   "channel_data": false,
