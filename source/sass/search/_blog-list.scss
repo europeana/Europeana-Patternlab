@@ -120,6 +120,14 @@
           list-style-type:     circle;
           list-style-position: outside;
         }
+        em{
+          border-top:  1px solid #999;
+          display:     inline-block;
+          padding-top: $space-quarter;
+          text-align:  center;
+          width:       100%;
+          
+        }
       }
 
       .blog-hero{
