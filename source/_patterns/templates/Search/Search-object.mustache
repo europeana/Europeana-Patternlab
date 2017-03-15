@@ -404,8 +404,9 @@
 
       <div class="lc">
         <div class="data-full-w">
-          <div class="data-border">
-            {{#content.hierarchy}}
+        
+          {{#content.hierarchy}}
+            <div class="data-border">
               <div class="data-section no-border">
                 <div class="hierarchy cf">
                   <div class="subsection-label">
@@ -421,9 +422,11 @@
                   </div>
                 </div>
               </div>
-            {{/content.hierarchy}}
-
-            {{#content.similar}}
+            </div>
+          {{/content.hierarchy}}
+          
+          {{#content.similar}}
+            <div class="data-border js-hidden">
               <div class="data-section no-border">
                 <div class="mlt cf">
                   <div class="subsection-label">
@@ -456,8 +459,8 @@
                 </div>
                 <div class="show-more-mlt"{{^more_items_total_formatted}} style="display:none;"{{/more_items_total_formatted}}><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}… (<span class="number">{{more_items_total_formatted}}</span>)</a></div>
               </div>
-            {{/content.similar}}
-          </div>
+            </div>
+          {{/content.similar}}
         </div>
       </div>
 

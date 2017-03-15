@@ -402,12 +402,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     var showMLT = function(data){
       var addEllipsis = function(added){
         require(['util_ellipsis'], function(EllipsisUtil){
-            if(added){
-              EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
-            }
-            else{
-              EllipsisUtil.create($('.more-like-this .js-carousel-title'));
-            }
+          if(added){
+            EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
+          }
+          else{
+            EllipsisUtil.create($('.more-like-this .js-carousel-title'));
+          }
         });
       }
       data.alwaysAfterLoad = function(added){addEllipsis(added);};
@@ -416,6 +416,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       promisedCarousel.done(function(carousel){
         addEllipsis();
         bindAnalyticsEventsMLT();
+        $('.more-like-this').closest('.data-border').removeClass('js-hidden');
+        carousel.resize();
       });
 
     }
@@ -741,7 +743,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       var triggerMLT = $('#scroll-trigger-mlt');
       showMLT(triggerMLT.data('fire-on-open-params'));
       triggerMLT.data('enabled', false);
-
+      
       $('.tumblr-share-button').on('click', function(){
 
         var title  = $('h2.object-title').text();
