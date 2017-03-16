@@ -20,7 +20,6 @@
   </section>
 
   {{#content}}
-    <section id="maincontent" class="blog-main">
       <div class="container text-centre blog-post">
 
         {{#blog_image}}
@@ -78,7 +77,8 @@
 
         {{/blog_image}}
 
-        <div class="text-left blog-body">
+
+        <div class="text-left blog-body bolg-main">
           {{#tags}}
             {{#has_tags}}
               <div class="blog-item-tags-wide">
@@ -100,7 +100,7 @@
           {{{body}}}
         </div>
       </div>
-    </section>
+    
   {{/content}}
 </div>
 

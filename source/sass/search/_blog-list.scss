@@ -9,12 +9,17 @@
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
 
 .blog-list{
+	
   padding-bottom: $space;
   position: relative;
 
-  .results-header{
-    margin-top: $space;
+  .results-header-blog{
+    @include span(18 of 18  inside);
+    .results-header{
+      margin-top: $space;
+    }
   }
+
 
   .blog-items{
     padding-bottom: 2 * $space;
@@ -26,12 +31,14 @@
 }
 
 .blog-main{
+	/*
   padding:    0 $space;
   background: $white;
 
   @media all and (max-width: $bp-med) {
     position: relative;
   }
+ */	
 }
 
 .search-blog-list,
@@ -116,6 +123,16 @@
 
       p,
       .blog-body{
+
+//////////////////////////////
+      	padding:    0 $space;
+        background: $white;
+
+        @media all and (max-width: $bp-med) {
+          position: relative;
+        }
+///////////////////////////////
+
         margin:    1em auto 0.75em auto;
         max-width: 40em;
         ul{
