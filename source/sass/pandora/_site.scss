@@ -1,7 +1,7 @@
 @import "../scss/generic/variables";
 
 .logo {
-	background-image: url("../../images/metis/europeana-logo-metis.png");
+	background-image: url("../../images/metis/europeana-metis-logo.png");
 	.svg &{
 	  background-image: url("../../images/metis/europeana-metis-logo.svg");
 	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {

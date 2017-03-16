@@ -144,7 +144,6 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
           });
       });
       
-      
       require(['jqDropdown'], function() {
         bindTableCellClick();
       });
@@ -158,7 +157,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
       //});
       
       expandCollapseMappingCard();
-      
+      initTableRowsAsLinks();
       validateProfileForm();
       var pageName = pageName || '';
       if(pageName && pageName == 'itemCard'){
@@ -166,6 +165,12 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
       }
       
     }
+	
+	function initTableRowsAsLinks() {
+		$(".clickable-row").click(function() {
+	        window.location = $(this).data("href");
+	    });
+	}
 
     function updateOrgList() {
     	$('.org-list').empty();

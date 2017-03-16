@@ -134,12 +134,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var carousel = jQuery.Deferred();
 
         require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
-            var fnAfterLoad = function(data){
-
+            var fnAfterLoad = function(data, totalAvailable){
               if(el.hasClass('more-like-this')){
                 if(data.length == 0 && el.find('ul li').length == 0){
                   el.closest('.lc').remove();
                   return;
+                }
+                else if(totalAvailable > data.length){
+                  var fmttd = String(totalAvailable).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+                  $('.show-more-mlt').find('.number').html(fmttd);
+                  $('.show-more-mlt').removeAttr('style');
                 }
               }
               else if(el.hasClass('media-thumbs')){
@@ -398,12 +402,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     var showMLT = function(data){
       var addEllipsis = function(added){
         require(['util_ellipsis'], function(EllipsisUtil){
-            if(added){
-              EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
-            }
-            else{
-              EllipsisUtil.create($('.more-like-this .js-carousel-title'));
-            }
+          if(added){
+            EllipsisUtil.create($('.more-like-this .js-carousel-title').slice(0-added.length) );
+          }
+          else{
+            EllipsisUtil.create($('.more-like-this .js-carousel-title'));
+          }
         });
       }
       data.alwaysAfterLoad = function(added){addEllipsis(added);};
@@ -412,6 +416,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       promisedCarousel.done(function(carousel){
         addEllipsis();
         bindAnalyticsEventsMLT();
+        $('.more-like-this').closest('.data-border').removeClass('js-hidden');
+        carousel.resize();
       });
 
     }
@@ -708,10 +714,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       // event binding
 
-      $(window).bind('showMLT', function(e, data){
-        showMLT(data);
-      });
-
       $(window).bind('showMediaThumbs', function(e, data){
         showMediaThumbs(data);
       });
@@ -738,6 +740,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       scrollEvents.fireAllVisible();
 
+      var triggerMLT = $('#scroll-trigger-mlt');
+      showMLT(triggerMLT.data('fire-on-open-params'));
+      triggerMLT.data('enabled', false);
+      
       $('.tumblr-share-button').on('click', function(){
 
         var title  = $('h2.object-title').text();

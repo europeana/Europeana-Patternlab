@@ -1,0 +1,109 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+<div role="main" class="page l-page search-blog-item"">
+
+  <section class="search-object">
+    <div class="object-nav cf">
+      <div class="object-nav-lists">
+        <ul class="breadcrumbs">
+          <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+          {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.blogs_list_breadcrumb}}</a></li>{{/navigation.back_url}}
+          <li><span class="lastitem"><strong>{{blog_title}}</strong></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-hero empty">
+  </section>
+
+  {{#content}}
+      <div class="container text-centre blog-post">
+
+        {{#blog_image}}
+
+          <div class="site-hero blog-hero">
+
+            {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+
+            <img src="{{src}}" alt="{{alt}}"/>
+
+            <div class="introduction text-centre">
+
+              {{#blog_title}}<div class="title text-centre">{{.}}</div>{{/blog_title}}
+
+              <div class="text-split">
+                {{#has_authors}}
+                  <ul class="authors">
+                    {{#authors}}
+                      <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                    {{/authors}}
+                  </ul>
+                {{/has_authors}}
+                {{#read_time}}
+                  <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
+                {{/read_time}}
+              </div>
+
+              <div class="text-lower-section">
+                <div class="cell">
+                  {{#date}}
+                    <span class="svg-icon-calendar-white date-icon"></span>
+                    <span class="date">{{.}}</span>
+                  {{/date}}
+                </div>
+
+                {{#tags}}
+                  {{#has_tags}}
+                    <div class="cell hide-with-tags">
+                      <span class="svg-icon-bookmark-white"></span>
+                    </div>
+                    <div class="cell">
+                      <div class="blog-tags">
+                        <ul class="blog-item-tags">
+                          {{#items}}
+                            <li><a href="{{url}}">{{text}}</a></li>
+                          {{/items}}
+                        </ul>
+                      </div>
+                    </div>
+                  {{/has_tags}}
+                {{/tags}}
+              </div>
+            </div>
+          </div>
+
+        {{/blog_image}}
+
+
+        <div class="text-left blog-body bolg-main">
+          {{#tags}}
+            {{#has_tags}}
+              <div class="blog-item-tags-wide">
+                <a class="expand-tags">
+                  <span class="svg-icon-bookmark-eu-blue tags-icon"></span>
+                  <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span>
+                </a>
+                <ul class="blog-item-tags comma-list js-hidden">
+                  {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                </ul>
+              </div>
+            {{/has_tags}}
+          {{/tags}}
+
+          <p>
+            {{{introduction}}}
+          </p>
+
+          {{{body}}}
+        </div>
+      </div>
+    
+  {{/content}}
+</div>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

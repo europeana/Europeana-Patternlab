@@ -178,6 +178,7 @@
 
 .action-select,
 .result-actions,
+.blogs-info,
 .result-info,
 .result-sort{
   margin-top: $space-quarter;
@@ -239,14 +240,15 @@
   }
 }
 
-.result-info{
-  @media all and (min-width: $bp-med) {
-    margin-left: span(1 of 18 wide);
+@media all and (min-width: $bp-med) {
+  .blogs-info,
+  .result-info{
     @include span(8 of 18);
   }
+  .result-info{
+    margin-left: span(1 of 18 wide);
+  }
 }
-
-
 
 .result-actions{
   margin-left:  0;
@@ -260,6 +262,7 @@
   }
 }
 
+.blogs-info,
 .result-info{
   @media all and (min-width: $bp-med) {
     margin-left:  0;
@@ -359,6 +362,7 @@
   }
 }
 
+.blogs-info,
 .result-info{
   position:         relative;
   top:              3em;
@@ -385,6 +389,14 @@
     width: auto;
   }
 }
+
+.blogs-info{
+  @media all and (min-width: $bp-med) {
+    margin-left:  0em;
+    padding-left: 0;
+  }
+}
+
 
 .result-viewtype{
   float: right;

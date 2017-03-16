@@ -29,7 +29,8 @@
 		"type": "Add",
 		"status": "Pending",
 		"status_type": "user-request-pending",
-		"request_type":"user-request-type-add"
+		"request_type":"user-request-type-add",
+		"url": "#"
     }, 
     { 
         "id": 2,
@@ -39,7 +40,8 @@
 		"type": "Delete",
 		"status": "Rejected",
 		"status_type": "user-request-rejected",
-		"request_type":"user-request-type-delete"
+		"request_type":"user-request-type-delete",
+		"url": "#"
     }, 
     {
         "id": 1,
@@ -49,6 +51,7 @@
 		"type": "Add",
 		"status": "Accepted",
 		"status_type": "user-request-accepted",
-		"request_type":"user-request-type-add"
+		"request_type":"user-request-type-add",
+		"url": "#"
     } ]
 }

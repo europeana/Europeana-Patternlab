@@ -201,13 +201,17 @@
 
                 <div class="js-carousel-texts">
                   {{#title}}
-                    <span class="js-carousel-title">
-                      <a href="{{url}}">{{.}}</a>
+                    <span class="js-carousel-title-wrap">
+                      <span class="js-carousel-title">
+                        <a href="{{url}}">{{.}}</a>
+                      </span>
                     </span>
                   {{/title}}
                   {{#excerpt}}
-                    <span class="js-carousel-text">
-                      {{short}}
+                    <span class="js-carousel-text-wrap">
+                      <span class="js-carousel-text">
+                        {{short}}
+                      </span>
                     </span>
                   {{/excerpt}}
                   {{#date}}

@@ -23,6 +23,7 @@ require.config({
     blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels',
     cookie_disclaimer:             '../../eu/cookie-disclaimer',
+    eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
     eu_carousel:                   '../../eu/eu-carousel',
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
@@ -105,6 +106,7 @@ require.config({
 
     search_landing:                '../../eu/channel-landing',
     search_form:                   '../../eu/search-form',
+    search_blog:                   '../../eu/search-blog',
     search_galleries:              '../../eu/search-galleries',
     search_home:                   '../../eu/search-home',
     search_object:                 '../../eu/search-object',

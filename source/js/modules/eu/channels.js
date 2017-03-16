@@ -138,6 +138,20 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             doForAllPages();
             break;
 
+        case 'blog_posts/index':
+            require(['search_blog'], function(page){
+                page.initPage();
+                promisedPageJS.resolve(page);
+                doForAllPages();
+            });
+            break;
+        case 'blog_posts/show':
+            require(['search_blog'], function(page){
+                page.initPage();
+                promisedPageJS.resolve(page);
+                doForAllPages();
+            });
+            break;
         case 'collections/galleries':
             require(['search_galleries'], function(page){
                 page.initPage();
