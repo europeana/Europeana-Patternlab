@@ -36,11 +36,16 @@ define(['jquery'], function($, scrollEvents, ga) {
 
   function analyseMarkup(){
 
-  // line up images side by side
+    $('.blog-body > ul').add('.blog-body > h2').each(function(i, u){
+      $(u).wrap('<p></p>');
+    });
 
     $('.blog-body > p').each(function(i, p){
       p = $(p);
-      if(p.find('img').length == 2 && p.children().length == 2){
+      if(p.find('img').length == 1){
+          p.find('img').removeAttr('style');
+      }
+      else if(p.find('img').length == 2 && p.children().length == 2){
         var x = p.clone();
         x.find('img').remove();
         x = x[0].outerHTML.replace('&nbsp;', '').replace(' ', '');

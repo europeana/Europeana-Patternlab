@@ -22,6 +22,13 @@
     }
   }
 
+  @media all and (min-width: $bp-med) {
+    .results-header-blog{
+      margin-left:  0.5em;
+      margin-right: 0.5em;
+    }
+  }
+
   .results-header-blog{
     .results-header{
       margin-top: $space;
@@ -34,9 +41,10 @@
 }
 
 .search-hero.empty{
-  z-index:          -1;
   background-color: $paper;
   border-bottom:    0;
+  height:           11em;
+  z-index:          -1;
 }
 
 .search-blog-list,
@@ -114,13 +122,17 @@
 
     &.blog-post{
 
-      transform:   translateY(-5em);
+      transform:   translateY(-9em);
 
       img{
         display:   block;
         margin:    auto;
         max-width: 75%;
         position:  relative;
+      }
+
+      .blog-intro{
+        font-size: $font-size-med;
       }
 
       p,
@@ -202,9 +214,14 @@
 
             @media all and (min-width: $bp-med) {
               font-size:     1.4em;
-              font-weight:   bold;
               line-height:   1.6em;
               max-height:    3.2em;
+            }
+
+            @media all and (min-width: $bp-xl) {
+              font-size:     1.8em;
+              line-height:   2.1em;
+              max-height:    4.2em;
             }
 
           }
@@ -437,13 +454,13 @@ li:not(:first-of-type){
 
     &:before,
     &:after {
+      bottom:   3px;
       position: absolute;
       right:    0.5em;
       width:    1em;
     }
 
     &:before {
-      bottom:     3px;
       content:    '...';
       height:   1.15em;
     }
