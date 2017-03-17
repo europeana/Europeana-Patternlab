@@ -9,17 +9,24 @@
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
 
 .blog-list{
-	
+
   padding-bottom: $space;
-  position: relative;
+  position:       relative;
+
+  @media all and (max-width: $bp-med) {
+    padding-left:  $space;
+    padding-right: $space;
+
+    .results-header-blog{
+      @include span(18 of 18  inside);
+    }
+  }
 
   .results-header-blog{
-    @include span(18 of 18  inside);
     .results-header{
       margin-top: $space;
     }
   }
-
 
   .blog-items{
     padding-bottom: 2 * $space;
@@ -27,18 +34,9 @@
 }
 
 .search-hero.empty{
-  z-index: -1;
-}
-
-.blog-main{
-	/*
-  padding:    0 $space;
-  background: $white;
-
-  @media all and (max-width: $bp-med) {
-    position: relative;
-  }
- */	
+  z-index:          -1;
+  background-color: $paper;
+  border-bottom:    0;
 }
 
 .search-blog-list,
@@ -53,9 +51,9 @@
   }
 
   .svg-icon-bookmark-before::before{
-    display:  inline-block;
-    height:   1.92em;
-    width:    1.5em;
+    display:   inline-block;
+    height:    1.92em;
+    width:     1.5em;
   }
 
   .svg-icon-bookmark-white{
@@ -74,8 +72,11 @@
     margin-right: 1em;
   }
 
+  .svg-icon-bookmark-before::before{
+    transform: scale(0.6) translateY(0.8em);
+  }
+
   .svg-icon-bookmark-eu-blue.tags-icon,
-  .svg-icon-bookmark-before::before,
   .svg-icon-bookmark-white-before::before{
     transform: translateY(0.5em);
   }
@@ -105,7 +106,8 @@
 
   .container{
 
-    @include container($max-width);
+    @include container(60rem);
+
     @media all and (min-width: $bp-med) {
       overflow:hidden;
     }
@@ -124,17 +126,16 @@
       p,
       .blog-body{
 
-//////////////////////////////
-      	padding:    0 $space;
+        padding:    0 $space;
         background: $white;
 
         @media all and (max-width: $bp-med) {
           position: relative;
         }
-///////////////////////////////
 
         margin:    1em auto 0.75em auto;
         max-width: 40em;
+
         ul{
           list-style-type:     circle;
           list-style-position: outside;
@@ -146,7 +147,6 @@
           padding-top: $space-quarter;
           text-align:  center;
           width:       100%;
-
         }
       }
 
@@ -176,6 +176,7 @@
             border-bottom: 1px dotted #fff;
 
             &.author{
+              font-size:    $font-size-slightly-smaller;
               margin-right: 1em;
             }
 
@@ -186,12 +187,26 @@
 
           .title{
 
-            font-size:   1.125em;
-            font-weight: bold;
-
-            line-height:   1.2em;
-            max-height:    2.4em;
             overflow:      hidden;
+            font-weight:   bold;
+
+            font-size:     1em;
+            line-height:   1.3em;
+            max-height:    2.6em;
+
+            @media all and (min-width: $bp-small-3) {
+              font-size:     1.2em;
+              line-height:   1.5em;
+              max-height:    3em;
+            }
+
+            @media all and (min-width: $bp-med) {
+              font-size:     1.4em;
+              font-weight:   bold;
+              line-height:   1.6em;
+              max-height:    3.2em;
+            }
+
           }
 
           .text-split{
@@ -204,10 +219,12 @@
               white-space: nowrap;
             }
           }
-          .text-lower-section{
-            display: table;
 
-            margin:  auto;
+          .text-lower-section{
+
+            display:   table;
+            margin:    auto;
+
             .cell{
               display: table-cell;
               &.hide-with-tags{
@@ -217,14 +234,14 @@
               }
             }
 
-            &.blog-tags{
-              vertical-align: bottom;
+            .date{
+              font-size: $font-size-slightly-smaller;
+            }
 
+            .blog-tags{
+              vertical-align: bottom;
               a{
-                border-bottom-right-radius: 0;
-                font-size:                  1em;
-                font-weight:                normal;
-                padding:                    0;
+                font-size:                  $font-size-slightly-smaller;
                 text-transform:             none;
                 text-transform:             capitalize;
               }
@@ -235,6 +252,11 @@
               white-space: nowrap;
             }
           }
+
+          @media all and (min-width: $bp-med) {
+            padding: 1.5em 6em 0 6em;
+          }
+
         }
 
 
@@ -278,18 +300,10 @@
   }
 
   @media all and (min-width: $bp-xl) {
-    width:      70em;
-    img{
-      height:     19em;
-      width:      70em;
-    }
-  }
-
-  @media all and (min-width: $bp-xxl) {
-    width:      80em;
+    width:      60em;
     img{
       height:     20em;
-      width:      80em;
+      width:      60em;
     }
   }
 
@@ -308,10 +322,11 @@
   }
 
   .date-icon{
-    height:    1.9em;
-    transform: scale(0.8);
-    position:  relative;
-    top:       0.6em;
+    height:       1.9em;
+    transform:    scale(0.6);
+    margin-right: 0;
+    position:     relative;
+    top:          0.6em;
   }
 
   .blog-item-tags{
@@ -340,15 +355,27 @@
 }
 
 
+li:not(:first-of-type){
+ .blog-list-item{
+    margin-top: 3 * $space;
+ }
+}
+
 .blog-list-item{
-  margin-top: 3 * $space;
 
   .item-info{
 
     .summary{
       padding-bottom: $space / 2;
-      margin-bottom:  $space / 2;
       border-bottom:  1px solid $gray87;
+    }
+
+    .date{
+      font-size: $font-size-slightly-smaller;
+    }
+
+    @media all and (max-width: $bp-small-2) {
+      padding-top: $space;
     }
 
     @media all and (min-width: $bp-small-2) {
@@ -356,7 +383,7 @@
     }
 
     @media all and (min-width: $bp-small-3) {
-      @include span(14 of 18  inside no-gutters);
+      @include span(12 of 18  inside no-gutters);
     }
 
     @media all and (min-width: $bp-med) {
@@ -382,8 +409,8 @@
 
   .excerpt{
 
-    line-height:   1.4em;
-    max-height:    7em;
+    line-height:   1.5em;
+    max-height:    7.5em;
     overflow:      hidden;
     position:      relative;
     text-align:    justify;
@@ -435,7 +462,7 @@
       a{
         display: block;
         img{
-          max-height: 22em;
+          max-height: 16em;
           object-fit: cover;
           width:      100%;
         }
@@ -446,12 +473,17 @@
       @include span(last 6 of 18);
     }
     @media all and (min-width: $bp-small-3) {
-      @include span(last 4 of 18);
+      @include span(last 6 of 18);
       min-height: 10em;
+    }
+
+    @media all and (min-width: $bp-med) {
+      @include span(last 5 of 18  inside no-gutters);
     }
   }
 
   .blog-item-tags{
+    font-size:   $font-size-slightly-smaller;
     margin-left: 2em;
   }
 }

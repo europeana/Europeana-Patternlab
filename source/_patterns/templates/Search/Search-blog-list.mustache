@@ -16,30 +16,31 @@
   </section>
 
   <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
-    <div class="searchbar">
-    {{> molecules/components/search/search-form }}
-    </div>
+    {{#input_search}}
+      <div class="searchbar">
+      {{> molecules/components/search/search-form }}
+      </div>
+    {{/input_search}}
   </section>
 
   <section id="maincontent" class="blog-main">
     <div class="container">
-      <div class="blog-list cf">
+      <div class="blog-list">
 
-
-<div class="results-header-blog">
-
-        <div class="results-header">
-          <div class="blogs-info">
-            {{ i18n.site.blogs.list.count-and-terms-with-range }}
-          </div>
-          <div class="result-controls">
-            {{#blogs_filter_options}}
-              {{>molecules/forms/filterby}}
-            {{/blogs_filter_options}}
+        <div class="results-header-blog">
+          <div class="results-header">
+            <div class="blogs-info">
+              {{ i18n.site.blogs.list.count-and-terms-with-range }}
+            </div>
+            <div class="result-controls">
+              {{#blogs_filter_options}}
+                {{>molecules/forms/filterby}}
+              {{/blogs_filter_options}}
+            </div>
           </div>
         </div>
-</div>
         {{#has_results}}
+          <div class="cf"></div>
           <ol class="blog-items">
             {{#blog_items}}
               <li>

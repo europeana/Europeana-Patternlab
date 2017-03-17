@@ -262,7 +262,6 @@
   }
 }
 
-.blogs-info,
 .result-info{
   @media all and (min-width: $bp-med) {
     margin-left:  0;
@@ -390,12 +389,34 @@
   }
 }
 
-.blogs-info{
+.blog-list{
+
+  .blogs-info{
+
+    top: 2em;
+
+    @media all and (min-width: $bp-small-3) {
+      top:          -0.25em;
+      margin-left:  0;
+      margin-right: 0;
+      width:        auto;
+    }
+
+    @media all and (min-width: $bp-med) {
+      margin-left:  0;
+      margin-top:   0;
+      padding-left: 0;
+      top:          0.5em;
+    }
+  }
+
   @media all and (min-width: $bp-med) {
-    margin-left:  0em;
-    padding-left: 0;
+    .result-controls{
+      top: 0;
+    }
   }
 }
+
 
 
 .result-viewtype{
