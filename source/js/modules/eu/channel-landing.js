@@ -101,6 +101,90 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
 
   function initPage(form){
 
+    /*
+    require(['purl'], function(){
+      
+      var purl      = $.url(window.location.href);
+      var paramFrom = purl.param('from');
+
+      if(paramFrom == 'europeanafashion.eu'){
+      
+        var hash    = window.location.href.split('#')[1];
+        var urlRoot = window.location.href.split('?')[0];
+      
+        if(hash){
+          hash = decodeURIComponent(hash);
+          console.log(hash);
+          
+          var params       = hash.split('&');
+          var facets       = [];
+          var toLookup     = ['f[colour][]', 'f[proxy_dc_format.en][]'];
+          var lookupNeeded = false;
+          var newUrl       = '';
+          var newUrlParams = [];
+          var prependValues = {
+            'f[proxy_dc_format.en][]' : 'Technique:+',
+            'f[proxy_dc_type.en][]' : 'Object Type:+'
+          };
+          var facetNames   = {
+            'searchTerm' : 'q',
+            'color' : 'f[colour][]',
+            'colour' : 'f[colour][]',
+            'dcCreator' : 'f[CREATOR][]',
+            'dataProviders' : 'f[DATA_PROVIDER][]',
+            'objectType' : 'f[proxy_dc_type.en][]',
+            'techsAndMaterials' : 'f[proxy_dc_format.en][]'
+          };
+
+          $.each(params, function(i, p){
+
+            var param = p.split('=');
+            var fName = facetNames[param[0]] || param[0];
+            var fVal  = param[1];
+
+            if(toLookup.indexOf(fName) > -1){
+              lookupNeeded = true;
+            }
+            
+            fName == 'q' ? facets.unshift([fName, fVal]) : facets.push([fName, fVal]);
+            
+          });
+          
+          console.log('Facet count: ' + facets.length + (lookupNeeded ? ' (lookupNeeded)' : '') );
+          
+          
+          if(lookupNeeded){
+            require(['data_fashion_thesaurus'], function(data){
+              $.each(facets, function(i, f){
+            	  
+            	console.log('---facet: ' + f[0])
+            	  
+                if(toLookup.indexOf(f[0]) > -1){
+                	
+                  f[1] = data[f[1].replace('http://thesaurus.europeanafashion.eu/thesaurus/', '')];
+                  f[1] = (prependValues[f[0]] || '') + f[1];
+                }
+              });
+              
+              $.each(facets, function(i, f){
+                newUrlParams.push(f[0] + '=' + f[1]);
+              });          
+              console.log('GOTO: ' + urlRoot + '?' + newUrlParams.join('&'));
+              
+            });
+          }
+          else{
+            $.each(facets, function(i, f){
+              newUrlParams.push(f[0] + '=' + f[1]);
+            });          
+            console.log('GOTO: ' + urlRoot + '?' + newUrlParams.join('&'));
+          }
+          
+        }
+      }
+    });
+    */
+    
     euSearchForm = form;
 
 
