@@ -23,6 +23,22 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "lastName": "Bággįnš",
+  "skype": "bilbo.baggins",
+  "fullName": "Bìlbö",
+  "organizations":[
+  	{
+		"organizationName": "Europeana",
+		"organizationId": 1,
+		"organizationRole": "false"
+	},
+	{
+		"organizationName": "BNF",
+		"organizationId": 2,
+		"organizationRole": "DATA PROVIDER"
+	}
+  
+  ],
   "countries": [
     {
       "text": "France"

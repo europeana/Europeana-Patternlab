@@ -37,7 +37,12 @@
         <div class="org_selection">
             <label for="organizations">Organizations: </label>
             <div class="selectedOrganizations">
-
+				{{#organizations}}
+					<div class="selectedOrg" id="{{organizationId}}">
+						<a class="selectedOrganization alreadySelected" name="organization" data-role="{{organizationRole}}" data-name="{{organizationName}}">{{organizationName}}:&nbsp;{{organizationRole}}</a> 
+                        <b><a class="removeOrganization" data-name="{{organizationName}}">&nbsp;X</a></b>
+                    </div>
+				{{/organizations}}
             </div>
             <input id="searchOrganization" autofocus type="text" name="q" placeholder="Search Organizations ...">
             <span class="zip"></span>
