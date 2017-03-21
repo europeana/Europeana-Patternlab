@@ -4,6 +4,9 @@
       <div class="banner-info">
         <h2>{{ content.banner.title }}</h2>
         <p>{{{ content.banner.text }}}</p>
+        {{# content.banner.info_url }}
+            <p><a href="{{ . }}" class="info-link">{{ content.banner.info_link }}</a></p>
+        {{/ content.banner.info_url }}
       </div>
 
       <div class="banner-link">
