@@ -1,5 +1,9 @@
 window.GoogleAnalyticsObject = '__ga__';
 
+if(typeof googleAnalyticsKey == 'undefined'){
+  window.googleAnalyticsKey = '';
+}
+
 window.__ga__ = {
     q: [['create', googleAnalyticsKey, 'auto']],
     l: Date.now()
