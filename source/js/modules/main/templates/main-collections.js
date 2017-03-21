@@ -1,20 +1,13 @@
 window.GoogleAnalyticsObject = '__ga__';
+
+if(typeof googleAnalyticsKey == 'undefined'){
+  window.googleAnalyticsKey = '';
+}
+
 window.__ga__ = {
-    q: [['create', 'UA-12776629-1', 'auto']],
+    q: [['create', googleAnalyticsKey, 'auto']],
     l: Date.now()
 };
-
-/*
-var release   = null;
-
-var scripts = document.getElementsByTagName('script');
-for (var i=0; i<scripts.length; i++){
-    var v = scripts[i].getAttribute('js-version');
-    if(v){
-        release = v;
-    }
-};
-*/
 
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),

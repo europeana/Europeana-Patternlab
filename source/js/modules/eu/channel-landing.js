@@ -181,6 +181,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
         if(dateFacets.length > 0){
           var dateValues = [];
+          var bce        = false;
           $.each(dateFacets, function(i, df){
             var parts = df[1].split('-');
 
@@ -188,13 +189,30 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               if($.isNumeric(part)){
                 dateValues.push(parseInt(part));
               }
+              else if(part.length > 0){
+                if(part[part.length-1] == 's'){
+                  var shortened = part.substr(0, part.length-1);
+                  if($.isNumeric(shortened)){
+                    dateValues.push(parseInt(shortened));
+                    dateValues.push(parseInt(shortened) + 9);
+                  }
+                }
+                else if(part == 'BCE'){
+                  bce = true;
+                }
+              }
             });
           });
           var dateMax   = Math.max.apply(null, dateValues);
           var dateMin   = Math.min.apply(null, dateValues);
-          facets.push(['range[YEAR][begin]', dateMin]);
+          if(!bce){
+            facets.push(['range[YEAR][begin]', dateMin]);
+          }
           if(dateMax != dateMin){
-            facets.push(['range[YEAR][end]', dateMax]);
+            facets.push(['range[YEAR][end]', bce ? Math.max(0, dateMax) : dateMax]);
+          }
+          else if(bce){
+            facets.push(['range[YEAR][end]', Math.max(0, dateMax)]);
           }
         }
 
@@ -219,10 +237,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     }
     return false;
   }
-
-//  `datesNormalized` in fragment has value (e.g. "1000-1499") split by '-' character,
-//  with first part becoming query param `range[YEAR][begin]`
-//  and second part becoming query param `range[YEAR][end]`
 
   function initPage(form){
 
