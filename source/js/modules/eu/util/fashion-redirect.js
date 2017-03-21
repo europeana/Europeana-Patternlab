@@ -41,8 +41,7 @@ define(['jquery', 'purl'], function($) {
           $.each(facets, function(i, f){
             newUrlParams.push(f[0] + '=' + (prependValues[f[0]] || '') + f[1] + (appendValues[f[0]] || ''));
           });
-//          window.location.href = urlRoot + '?' + newUrlParams.join('&');
-          console.log( urlRoot + '?' + newUrlParams.join('&') );
+          window.location.href = urlRoot + '?' + newUrlParams.join('&');
         };
 
 
