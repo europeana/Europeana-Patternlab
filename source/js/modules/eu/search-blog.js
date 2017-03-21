@@ -1,6 +1,8 @@
-define(['jquery'], function($, scrollEvents, ga) {
+define(['jquery'], function($) {
 
-  var singleBlogPage = false;
+  var lightboxOnWidth = 600;
+  var imgData         = [];
+  var photoSwipe;
 
   function log(msg){
     console.log('search-blog: ' + msg);
@@ -8,12 +10,13 @@ define(['jquery'], function($, scrollEvents, ga) {
 
   function initPage(){
 
-    singleBlogPage = $('.search-blog-item').length > 0;
+    var singleBlogPage = $('.search-blog-item').length > 0;
 
     log('init blog: ' + (singleBlogPage ? 'singleBlogPage' : ''));
 
     if(singleBlogPage){
       analyseMarkup();
+      checkForLightbox();
       initExpandables();
       initAOS();
     }
@@ -32,6 +35,43 @@ define(['jquery'], function($, scrollEvents, ga) {
         aos.create(tags, [$('.blog-item-tags-wide'), $('.hide-with-tags')]);
       });
     }
+  }
+
+  function openLightbox(index){
+    log('index = ' + index);
+    require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
+      photoSwipe = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: 0});
+      photoSwipe.init();
+    });
+  }
+
+  function checkForLightbox(){
+    require(['jqImagesLoaded'], function(){
+      $('.blog-body img').imagesLoaded(function($images){
+        var suitableFound = false;
+        $images.each(function(i, img){
+          if(img.naturalWidth > lightboxOnWidth){
+            suitableFound = true;
+            imgData.push({
+              src: $(img).attr('src'),
+              h:   img.naturalHeight,
+              w:   img.naturalWidth
+            });
+            $(img).addClass('zoomable');
+            $(img).on('click', function(){
+              openLightbox(imgData.length-0);
+            });
+          }
+        });
+        if(suitableFound){
+          var css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css');
+          var css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css');
+          $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+          $('.photoswipe-wrapper').parent().removeClass('is-hidden');
+        }
+      });
+    });
   }
 
   function analyseMarkup(){

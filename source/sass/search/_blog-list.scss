@@ -129,6 +129,10 @@
         margin:    auto;
         max-width: 75%;
         position:  relative;
+
+        &.zoomable{
+          cursor: pointer;
+        }
       }
 
       .blog-intro{
