@@ -1,0 +1,206 @@
+{
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
+
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+
+  "js_vars":
+  [
+    {
+      "name": "pageName",
+      "value": "portal/index"
+    }
+  ],
+  "version":{
+    "is_alpha": false,
+    "is_beta": true
+  },
+
+  "content": {
+    "hero_config": {
+      "hero_image": "../../images/metis/metis-hero.png",
+      "brand_colour": "brand-colour-site",
+      "brand_position": "brand-bottomleft",
+      "brand_opacity": "brand-opacity100",
+      "attribution_text": "Cyclopides metis L., Cyclopides qua... Museum Fur Naturkunde Berlin",
+      "attribution_url": "http://europeana.eu",
+      "license_CC-ND-NC-SA": true
+    },
+    "banner": {
+      "title":"What can you do with Metis?",
+      "text":"Ever wondered how to automagicsally digest huge amounts of data with the push of a button?",
+      "info_link": "Learn more about Metis",
+      "info_url": "#",
+      "cta_url":"#",
+      "cta_text":"Register to metis here"
+    }
+  },
+  "i18n": {
+    "global": {
+      "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
+      "mission-title": "Our mission"
+    }
+  },
+  "headline": {
+    "short": false,
+    "medium": false,
+    "long":false
+  },
+  "excerpt": {
+    "vshort": false,
+    "short": false,
+    "medium":false,
+    "long": false
+  },
+  "metis_footer": {
+
+    "navigation": {
+      "footer": {
+        "linklist1":
+        {
+          "title": "More info",
+          "items":
+          [
+            {
+              "text": "About",
+              "url": "http://google.com"
+            },
+
+            {
+              "text": "Development updates",
+              "url": "http://google.com"
+            },
+
+            {
+              "text": "All institutions",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Become our partner",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Contact us",
+              "url": "http://google.com"
+            }
+          ]
+        },
+
+        "linklist2":
+        {
+          "title": "Help",
+          "items":
+          [
+            {
+              "text": "Search tips",
+              "url": "http://google.com"
+            },
+
+            {
+              "text": "Terms of Use & Policies",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "linklist3":
+        {
+          "title": "Tools",
+          "items":
+          [
+            {
+              "text": "API Docs",
+              "url": "http://google.com"
+            },
+
+            {
+              "text": "Status",
+              "url": "http://google.com"
+            }
+          ]
+        },
+
+        "social":
+        {
+          "linkedin": false,
+          "github": false,
+          "twitter": true,
+          "facebook": true,
+          "pinterest": true,
+          "googleplus": true
+        },
+        "subfooter": {
+          "items": [
+            {
+              "text": "Home",
+              "url": "./"
+            },
+            {
+              "text": "Terms of use & policies",
+              "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+            },
+            {
+              "text": "Contact us",
+              "url": "./"
+            },
+            {
+              "text": "Sitemap",
+              "url": "./"
+            }
+          ]
+        }
+
+
+      }
+    }
+  },
+  "page_title": "Europeana Metis",
+  "metis_header": {
+    "navigation":
+    {
+      "home_url": "#",
+      "home_text": "Home",
+      "next_prev":
+      {
+        "next_url": "#",
+        "prev_url": "#",
+        "results_url": "results_url_here"
+      },
+      "footer": true,
+      "global":
+      {
+        "options":
+        {
+          "search_active": false,
+          "settings_active": true,
+          "oursites_hidden": true
+        },
+
+        "logo":
+        {
+          "url": "#",
+          "text": "Europeana Pandora 1232"
+        },
+        "primary_nav":
+        {
+          "menu_id": "main-menu",
+          "submenu": false
+        }
+      }
+    }
+  }
+}
