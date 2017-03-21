@@ -38,9 +38,8 @@ define(['jquery'], function($) {
   }
 
   function openLightbox(index){
-    log('index = ' + index);
     require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
-      photoSwipe = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: 0});
+      photoSwipe = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: index});
       photoSwipe.init();
     });
   }
@@ -58,8 +57,11 @@ define(['jquery'], function($) {
               w:   img.naturalWidth
             });
             $(img).addClass('zoomable');
-            $(img).on('click', function(){
-              openLightbox(imgData.length-0);
+            $(img).data('lb-index', imgData.length-1);
+            $(img).on('click', function(e){
+              openLightbox($(this).data('lb-index'));
+              e.stopPropagation();
+              e.preventDefault();
             });
           }
         });
