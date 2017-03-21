@@ -84,23 +84,43 @@ define(['jquery'], function($) {
 
     $('.blog-body > p').each(function(i, p){
       p = $(p);
+
       if(p.find('img').length == 1){
           p.find('img').removeAttr('style');
       }
-      else if(p.find('img').length == 2 && p.children().length == 2){
-        var x = p.clone();
-        x.find('img').remove();
-        x = x[0].outerHTML.replace('&nbsp;', '').replace(' ', '');
+      else if(p.find('img').length == 2){
+        var img1 = p.find('img:first');
+        var img2 = p.find('img:last');
 
-        if($(x).is(':empty')){
-          var w = p.find('img:first').width() + p.find('img:last').width();
-          if(w < p.width()){
+        if(img1.siblings().is(img2)){
+          var w = img1.width() + img2.width();
+          console.log(w  + '  <  ' +  p.width());
+          if(w <= p.width()){
             p.find('img:first').css('float', 'left');
             p.find('img:last').css('float', 'right');
             p.addClass('cf');
           }
         }
       }
+      /*
+      else if(p.find('img').length == 2 && p.children().length == 2){
+          var x = p.clone();
+          x.find('img').remove();
+          x = x[0].outerHTML.replace('&nbsp;', '').replace(' ', '');
+
+          if($(x).is(':empty')){
+              var w = p.find('img:first').width() + p.find('img:last').width();
+
+              console.log(w  + '  <  ' +  p.width());
+
+              if(w < p.width()){
+                  p.find('img:first').css('float', 'left');
+                  p.find('img:last').css('float', 'right');
+                  p.addClass('cf');
+              }
+          }
+      }
+      */
   });
 
   }

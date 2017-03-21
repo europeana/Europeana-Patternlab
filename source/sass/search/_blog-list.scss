@@ -126,7 +126,7 @@
 
       img{
         display:   block;
-        margin:    auto;
+        margin:    $space/2 auto;
         max-width: 75%;
         position:  relative;
 
@@ -142,27 +142,35 @@
       p,
       .blog-body{
 
-        padding:    0 $space;
         background: $white;
 
+        @media all and (max-width: $bp-small-3) {
+          padding:  0 $space/2;
+        }
+
         @media all and (max-width: $bp-med) {
+          padding:  0 $space;
           position: relative;
         }
 
         margin:    1em auto 0.75em auto;
         max-width: 40em;
 
+        >h2 {
+          margin-top: 1.6rem;
+        }
         ul{
           list-style-type:     circle;
           list-style-position: outside;
           margin-left:         1em;
         }
         em{
-          border-top:  1px solid #999;
-          display:     inline-block;
-          padding-top: $space-quarter;
-          text-align:  center;
-          width:       100%;
+          border-top:     1px solid #999;
+          display:        inline-block;
+          padding-bottom: $space-quarter;
+          padding-top:    $space-quarter;
+          text-align:     center;
+          width:          100%;
         }
       }
 
