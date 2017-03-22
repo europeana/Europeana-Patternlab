@@ -164,7 +164,7 @@
           list-style-position: outside;
           margin-left:         1em;
         }
-        em{
+        em:not(.single-word){
           border-top:     1px solid #999;
           display:        inline-block;
           padding-bottom: $space-quarter;
