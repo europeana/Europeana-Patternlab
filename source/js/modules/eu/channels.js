@@ -179,10 +179,14 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
               });
             }
             else{
-              require(['search_results'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  require(['search_results'], function(page){
+                    page.initPage(euSearchForm);
+                    promisedPageJS.resolve(page);
+                    doForAllPages();
+                  });
+                });
               });
             }
             break;
