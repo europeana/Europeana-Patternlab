@@ -23,6 +23,7 @@ require.config({
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/eu-hierarchy',
     fashion_redirect:              '../../eu/util/fashion-redirect',
+    fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
     featureDetect:                 '../../global/feature-detect',
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',

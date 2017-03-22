@@ -147,23 +147,27 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'blog_posts/show':
             require(['search_blog'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'galleries/index':
-            require(['search_galleries'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+            require(['fashion_gallery_redirect'], function(fgr){
+              fgr.redirectOrCallback(function(){
+                require(['search_galleries'], function(page){
+                  page.initPage();
+                  promisedPageJS.resolve(page);
+                  doForAllPages();
+                });
+              });
             });
             break;
         case 'galleries/show':
             require(['search_galleries'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'collections/show':
@@ -192,13 +196,12 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'portal/show':
             require(['search_object'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'portal/index':
-
             var loadPageJS = function(){
               require(['search_results'], function(page){
                 page.initPage(euSearchForm);
@@ -232,16 +235,16 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'home/index':
             require(['search_home'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage(euSearchForm);
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'settings/language':
             require(['settings'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         default:
@@ -250,8 +253,8 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
      }
 
     return {
-        getPromisedPageJS: function(){
-            return promisedPageJS.promise();
-        }
+      getPromisedPageJS: function(){
+        return promisedPageJS.promise();
+      }
     }
 });
