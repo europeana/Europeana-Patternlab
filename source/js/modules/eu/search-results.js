@@ -327,10 +327,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
     euSearchForm = form;
 
-    if(typeof collectionName != 'undefined' && collectionName == 'fashion'){
-      require(['fashion_redirect']);
-    }
-
     var defView;
     if(typeof(Storage) !== "undefined") {
       var label = $('.breadcrumbs').data('store-channel-label');

@@ -1,12 +1,13 @@
 define(['jquery', 'purl'], function($) {
-  (function(){
-    var purl      = $.url(window.location.href);
+
+  var redirectOrCallback = function(callback){
+    var href      = window.location.href;
+    var purl      = $.url(href);
     var paramFrom = purl.param('from');
 
     if(paramFrom == 'europeanafashion.eu'){
-
-      var hash    = window.location.href.split('#')[1];
-      var urlRoot = window.location.href.split('?')[0];
+      var hash    = href.split('#')[1];
+      var urlRoot = href.split('?')[0];
 
       if(hash){
         hash = decodeURIComponent(hash);
@@ -43,7 +44,6 @@ define(['jquery', 'purl'], function($) {
           });
           window.location.href = urlRoot + '?' + newUrlParams.join('&');
         };
-
 
         // normalise names to facets array
 
@@ -137,6 +137,21 @@ define(['jquery', 'purl'], function($) {
           gotoNewUrl();
         }
       }
+      else{
+        if(callback){
+          callback();
+        }
+      }
     }
-  }());
+    else{
+      if(callback){
+        callback();
+      }
+    }
+  };
+  return {
+    redirectOrCallback : function(callback){
+      redirectOrCallback(callback);
+    }
+  }
 });

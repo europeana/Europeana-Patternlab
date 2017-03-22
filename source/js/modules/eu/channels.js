@@ -168,10 +168,14 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'collections/show':
             if((window.location.href.indexOf('?q=') == -1) && (window.location.href.indexOf('&q=') == -1)){
-              require(['search_landing'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  require(['search_landing'], function(page){
+                    page.initPage(euSearchForm);
+                    promisedPageJS.resolve(page);
+                    doForAllPages();
+                  });
+                });
               });
             }
             else{
@@ -190,11 +194,26 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             });
             break;
         case 'portal/index':
-            require(['search_results'], function(page){
+
+            var loadPageJS = function(){
+              require(['search_results'], function(page){
                 page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
-            });
+              });
+            }
+
+            if(typeof collectionName != 'undefined' && collectionName == 'fashion'){
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  loadPageJS();
+                });
+              });
+            }
+            else{
+              loadPageJS();
+            }
+
             break;
 
         case 'pages/show':

@@ -97,7 +97,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function initPage(form){
 
-    require(['fashion_redirect']);
     euSearchForm = form;
 
     $('.filter .filter-name').on('click', function(){
