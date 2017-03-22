@@ -58,6 +58,13 @@
     width:        2em;
   }
 
+  .blog-item-tags-wide{
+    .ellipsis-icon,
+    .tags-icon{
+      margin-right: 0em;
+    }
+  }
+
   .svg-icon-bookmark-before::before{
     display:   inline-block;
     height:    1.92em;
@@ -105,11 +112,22 @@
   }
 
   .expand-tags{
-    border-bottom:  1px dotted #1676aa;
-    padding-bottom: 0.3em;
-    &:hover{
-      border-bottom: solid 1px #1676aa;
+    >span{
+      border-bottom:  1px dotted #1676aa;
+      padding-bottom: 0.2em;
+      &:hover{
+        border-bottom: solid 1px #1676aa;
+      }
     }
+    &.expanded{
+      .ellipsis-icon{
+        display: none;
+      }
+    }
+
+    display:        table-cell;
+    padding-bottom: 0.3em;
+    white-space:    nowrap;
   }
 
   .container{
@@ -140,6 +158,7 @@
       }
 
       p,
+      .blog-item-tags-wide,
       .blog-body{
 
         background: $white;
@@ -159,10 +178,30 @@
         >h2 {
           margin-top: 1.6rem;
         }
-        ul{
-          list-style-type:     circle;
-          list-style-position: outside;
-          margin-left:         1em;
+        &:not(.blog-item-tags-wide){
+          ul{
+            list-style-type:     circle;
+            list-style-position: outside;
+            margin-left:         1em;
+          }
+        }
+        &.blog-item-tags-wide{
+
+          display: none;
+
+          &.eu-active-on-shrink{
+            display: table;
+            width:   100%;
+          }
+          ul{
+            display:      table-cell;
+            margin-left:  0;
+            padding-left: 1em;
+
+            &.js-hidden{
+              display: none;
+            }
+          }
         }
         em:not(.single-word){
           border-top:     1px solid #999;
@@ -362,32 +401,24 @@
     white-space: normal;
     position:  relative;
   }
-
 }
 
 .blog-item-tags,
 .blog-item-tags li{
-  display: inline-block;
-  &:not(:first-of-type){
-    margin-left: 0.7em;
+
+  &:not(:last-of-type){
+    margin-right: 0.7em;
   }
   &.js-hidden{
     display: none;
   }
-}
 
-.blog-item-tags-wide{
-  display: none;
-  &.eu-active-on-shrink{
-    display: block;
-  }
 }
-
 
 li:not(:first-of-type){
- .blog-list-item{
+  .blog-list-item{
     margin-top: 3 * $space;
- }
+  }
 }
 
 .blog-list-item{

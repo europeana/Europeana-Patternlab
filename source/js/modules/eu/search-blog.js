@@ -23,8 +23,10 @@ define(['jquery'], function($) {
   }
 
   function initExpandables(){
-    $('.expand-tags').on('click', function(){
-      $(this).next('.blog-item-tags').removeClass('js-hidden');
+    $('.expand-tags').on('click', function(e){
+      e.preventDefault();
+      $(this).toggleClass('expanded');
+      $(this).next('.blog-item-tags').toggleClass('js-hidden');
     })
   }
 
