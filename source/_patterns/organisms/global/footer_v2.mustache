@@ -12,9 +12,8 @@
           <h4 class="title">{{i18n.global.mission-title}}</h4>
           <p>{{i18n.global.mission}}</p>
         </div>
-          <div class="linklist l-linklist">
-              {{# navigation.footer.linklist3 }}
-
+          {{# navigation.footer.linklist3 }}
+              <div class="linklist l-linklist">
                   <div class="tools-links">
                       <div class="inner">
                           {{# title }}
@@ -27,17 +26,23 @@
                               {{# items}}
                                   <li class="cf">
                                       <a href="{{url}}" class="item-line">
-                                          {{#text}}<div class="link-text">{{text}}</div> {{/text}}
-                                          {{#number}}<span class="link-number">{{number}}</span>{{/number}}
-                                          {{#date}}<span class="link-date">{{date}}</span>{{/date}}
+                                          {{#text}}
+                                              <div class="link-text">{{text}}</div>
+                                          {{/text}}
+                                          {{#number}}
+                                              <span class="link-number">{{number}}</span>
+                                          {{/number}}
+                                          {{#date}}
+                                              <span class="link-date">{{date}}</span>
+                                          {{/date}}
                                       </a>
                                   </li>
                               {{/ items}}
                           </ul>
                       </div>
                   </div>
-              {{/ navigation.footer.linklist3 }}
-          </div>
+              </div>
+          {{/ navigation.footer.linklist3 }}
       </div>
 
       <div class="l-content">
