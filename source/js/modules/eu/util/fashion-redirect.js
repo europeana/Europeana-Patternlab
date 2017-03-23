@@ -14,13 +14,14 @@ define(['jquery', 'purl'], function($) {
         var params       = hash.split('&');
         var facets       = [];
         var dateFacets   = [];
-        var toLookup     = ['f[colour][]', 'f[proxy_dc_format.en][]'];
+        var toLookup     = ['f[colour][]', 'f[proxy_dc_format.en][]', 'f[proxy_dc_type.en][]'];
         var lookupNeeded = false;
         var newUrl       = '';
         var appendValues = {
           'f[CREATOR][]' : '+(Designer)'
         };
         var prependValues = {
+          'f[proxy_dcterms_medium.en][]' : 'Material:+',
           'f[proxy_dc_format.en][]' : 'Technique:+',
           'f[proxy_dc_type.en][]' : 'Object Type:+'
         };
@@ -126,9 +127,26 @@ define(['jquery', 'purl'], function($) {
         if(lookupNeeded){
           require(['data_fashion_thesaurus'], function(data){
             $.each(facets, function(i, f){
+            	
+              var abbreviated = f[1].replace('http://thesaurus.europeanafashion.eu/thesaurus/', '');
               if(toLookup.indexOf(f[0]) > -1){
-                f[1] = data[f[1].replace('http://thesaurus.europeanafashion.eu/thesaurus/', '')];
+                
+              	if(data['colours'][abbreviated]){
+              	  f[1] = data['colours'][abbreviated];
+              	}
+              	else if(data['type'][abbreviated]){
+              	  f[1] = data['type'][abbreviated];
+              	}
+              	else if(data['materials'][abbreviated]){
+              	  f[0]= 'f[proxy_dcterms_medium.en][]';
+              	  f[1] = data['materials'][abbreviated];
+               	}
+              	else if(data['techniques'][abbreviated]){
+               	  f[1] = data['techniques'][abbreviated];
+               	}
+              	
               }
+
             });
             gotoNewUrl();
           });
