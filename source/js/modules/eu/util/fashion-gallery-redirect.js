@@ -1,28 +1,29 @@
 define(['jquery', 'purl'], function($) {
 
   var lookup = {
-    '30': 'http://www.europeana.eu/portal/en/explore/galleries/the-uniform',
-    '10': 'http://www.europeana.eu/portal/en/explore/galleries/embroidery',
     '6': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-illustration',
     '7': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-from-WW1',
     '8': 'http://www.europeana.eu/portal/en/explore/galleries/eccentric-fashion',
     '9': 'http://www.europeana.eu/portal/en/explore/galleries/the-gala',
+    '10': 'http://www.europeana.eu/portal/en/explore/galleries/embroidery',
     '11': 'http://www.europeana.eu/portal/en/explore/galleries/prints',
     '12': 'http://www.europeana.eu/portal/en/explore/galleries/winterwear',
     '13': 'http://www.europeana.eu/portal/en/explore/galleries/fashioning-performance',
-    '29': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-for-travel',
-    '27': 'http://www.europeana.eu/portal/en/explore/galleries/animalier',
-    '26': 'http://www.europeana.eu/portal/en/explore/galleries/colourblock',
-    '25': 'http://www.europeana.eu/portal/en/explore/galleries/clothes-for-the-ballroom',
-    '31': 'http://www.europeana.eu/portal/en/explore/galleries/masculin-feminin',
-    '21': 'http://www.europeana.eu/portal/en/explore/galleries/sportswear',
-    '20': 'http://www.europeana.eu/portal/en/explore/galleries/watches',
-    '19': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-forward',
-    '18': 'http://www.europeana.eu/portal/en/explore/galleries/folklore',
-    '17': 'http://www.europeana.eu/portal/en/explore/galleries/bikini',
-    '16': 'http://www.europeana.eu/portal/en/explore/galleries/flowergems',
+    '14': 'http://www.europeana.eu/portal/en/explore/galleries/haute-couture',
     '15': 'http://www.europeana.eu/portal/en/explore/galleries/satorial-masculinity',
-    '14': 'http://www.europeana.eu/portal/en/explore/galleries/haute-couture'
+    '16': 'http://www.europeana.eu/portal/en/explore/galleries/flowergems',
+    '17': 'http://www.europeana.eu/portal/en/explore/galleries/bikini',
+    '18': 'http://www.europeana.eu/portal/en/explore/galleries/folklore',
+    '19': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-forward',
+    '20': 'http://www.europeana.eu/portal/en/explore/galleries/watches',
+    '21': 'http://www.europeana.eu/portal/en/explore/galleries/sportswear',
+    '25': 'http://www.europeana.eu/portal/en/explore/galleries/clothes-for-the-ballroom',
+    '26': 'http://www.europeana.eu/portal/en/explore/galleries/colourblock',
+    '27': 'http://www.europeana.eu/portal/en/explore/galleries/animalier',
+    '29': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-for-travel',
+	'30': 'http://www.europeana.eu/portal/en/explore/galleries/the-uniform',
+	'31': 'http://www.europeana.eu/portal/en/explore/galleries/masculin-feminin',
+	'32': 'http://www.europeana.eu/portal/en/explore/galleries/celebrity-fashion'
   };
 
   var cb = function(callback){
