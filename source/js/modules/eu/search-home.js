@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
 
   var euSearchForm = null;
 
