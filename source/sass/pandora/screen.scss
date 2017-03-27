@@ -106,9 +106,9 @@ $susy: (
 @import "../scss/objects/controls/form-control-groups";
 @import "../scss/objects/controls/sortby";
 
-@import "site";
+@import "../search/search-site";
 @import "select-organizations";
 @import "user-approval-form";
 @import "ellipsis";
-
+@import "site";
 @import "./homepageMetis";
