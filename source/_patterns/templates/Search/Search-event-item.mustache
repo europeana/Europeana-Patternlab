@@ -64,7 +64,8 @@
                       <div class="blog-tags">
                         <ul class="blog-item-tags">
                           {{#items}}
-                            <li><a href="{{url}}">{{text}}</a></li>
+                            {{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}
+                            {{^url}}<li>{{text}}</li>{{/url}}
                           {{/items}}
                         </ul>
                       </div>
@@ -87,7 +88,7 @@
                     <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span></span>
                 </a>
                 <ul class="blog-item-tags comma-list js-hidden">
-                  {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                  {{#items}}{{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}{{^url}}<li>{{text}}</li>{{/url}}{{/items}}
                 </ul>
               </div>
             {{/has_tags}}
