@@ -21,7 +21,7 @@
   {{#content}}
       <div class="container text-centre blog-post">
 
-        {{#blog_image}}
+        {{#event_image}}
 
           <div class="site-hero blog-hero">
 
@@ -61,8 +61,8 @@
                       <span class="svg-icon-bookmark-white"></span>
                     </div>
                     <div class="cell">
-                      <div class="blog-tags">
-                        <ul class="blog-item-tags">
+                      <div class="event-tags">
+                        <ul class="event-item-tags">
                           {{#items}}
                             {{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}
                             {{^url}}<li>{{text}}</li>{{/url}}
@@ -76,18 +76,18 @@
             </div>
           </div>
 
-        {{/blog_image}}
+        {{/event_image}}
 
 
-        <div class="text-left blog-body">
+        <div class="text-left event-body">
           {{#tags}}
             {{#has_tags}}
-              <div class="blog-item-tags-wide">
+              <div class="event-item-tags-wide">
                 <a class="expand-tags">
                   <span><span class="svg-icon-bookmark-eu-blue tags-icon"></span>
                     <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span></span>
                 </a>
-                <ul class="blog-item-tags comma-list js-hidden">
+                <ul class="event-item-tags comma-list js-hidden">
                   {{#items}}{{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}{{^url}}<li>{{text}}</li>{{/url}}{{/items}}
                 </ul>
               </div>

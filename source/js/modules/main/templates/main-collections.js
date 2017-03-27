@@ -103,6 +103,7 @@ require.config({
     search_landing:                '../../eu/channel-landing',
     search_form:                   '../../eu/search-form',
     search_blog:                   '../../eu/search-blog',
+    search_events:                 '../../eu/search-events',
     search_galleries:              '../../eu/search-galleries',
     search_home:                   '../../eu/search-home',
     search_object:                 '../../eu/search-object',
