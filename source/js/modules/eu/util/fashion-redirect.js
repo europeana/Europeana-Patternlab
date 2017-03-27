@@ -83,6 +83,11 @@ define(['jquery', 'purl'], function($) {
           }
         }
 
+        // convert (or) query to and query
+        if(facets[0][0] == 'q'){
+          facets[0][1] = facets[0][1].replace(/\+/g, '+OR+').replace(/ /g, ' OR ').replace(/%20/g, '%20OR%20');
+        }
+        
         // normalise date values
 
         if(dateFacets.length > 0){
