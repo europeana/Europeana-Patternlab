@@ -2,22 +2,21 @@
 
 {{> organisms/global/header_v2}}
 
-<div role="main" class="page l-page search-blog-item"">
+<div role="main" class="page l-page search-event-item">
 
   <section class="search-object">
     <div class="object-nav cf">
       <div class="object-nav-lists">
         <ul class="breadcrumbs">
           <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-          {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.blogs_list_breadcrumb}}</a></li>{{/navigation.back_url}}
-          <li><span class="lastitem"><strong>{{blog_title}}</strong></span></li>
+          {{#navigation.back_url}}<li><a href="{{.}}">{{i18n.site.navigation.breadcrumb.events_list_breadcrumb}}</a></li>{{/navigation.back_url}}
+          <li><span class="lastitem"><strong>{{event_title}}</strong></span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="search-hero empty">
-  </section>
+  <section class="search-hero empty"> </section>
 
   {{#content}}
       <div class="container text-centre blog-post">
@@ -32,10 +31,11 @@
 
             <div class="introduction text-centre">
 
-              {{#blog_title}}<div class="title text-centre">{{.}}</div>{{/blog_title}}
+              {{#event_title}}<div class="title text-centre">{{.}}</div>{{/event_title}}
 
               <div class="text-split">
                 {{#has_authors}}
+                  <span class="capitalised by">{{i18n.global.labels.by}}</span>
                   <ul class="authors">
                     {{#authors}}
                       <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>

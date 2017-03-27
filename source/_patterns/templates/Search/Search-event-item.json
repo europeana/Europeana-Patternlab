@@ -1,5 +1,5 @@
 {
-  "page_title": "Europeana Blog",
+  "page_title": "Europeana Event",
   "page_locale": "en",
   "version": {
     "is_alpha": true
@@ -22,14 +22,14 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "blog_posts/show"
+      "value": "events/show"
     }
   ],
   "channel_data": false,
   "navigation": {
     "back_url": "javascript:alert('follow breadcrumb')"
   },
-  "blog_title": "This Specific Blog",
+  "event_title": "Exhibition: \"Hubert de Givenchy.  To Audrey with Love\"",
   "content": {
     "blog_image": {
       "src": "https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg",

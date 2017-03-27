@@ -56,7 +56,8 @@
 
 .search-blog-list,
 .search-blog-item,
-.search-event-list{
+.search-event-list,
+.search-event-item{
 
   .date-icon,
   .ellipsis-icon,
@@ -253,6 +254,11 @@
           width:       100%;
           z-index:     3;
 
+          .by{
+          	display:      inline-block;
+            font-size:    $font-size-slightly-smaller;
+            margin-right: 0.35em;
+          }
           a{
             color: $white;
             border-bottom: 1px dotted #fff;
