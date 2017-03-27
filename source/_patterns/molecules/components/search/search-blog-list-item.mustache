@@ -38,7 +38,8 @@
     {{#tags}}
       <ul class="blog-item-tags svg-icon-bookmark-before">
         {{#items}}
-          <li><a href="{{url}}">{{text}}</a></li>
+          {{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}
+          {{^url}}<li>{{text}}</li>{{/url}}
         {{/items}}
       </ul>
     {{/tags}}
