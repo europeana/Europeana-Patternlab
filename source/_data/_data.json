@@ -683,6 +683,11 @@
                 "designer":        "Designer"
               }
             },
+            "events":{
+              "list": {
+                "count-and-terms-with-range": "1 - X of 321 events"
+              }
+            },
             "more": "More...",
             "navigation": {
               "search": {
@@ -694,7 +699,8 @@
                 "item_detail": "Item Detail",
                 "return_home": "Return to Home",
                 "results_list": "Results List",
-                "blogs_list_breadcrumb": "Blog"
+                "blogs_list_breadcrumb": "Blog",
+                "events_list_breadcrumb": "Events"
               }
             },
             "news": "News",

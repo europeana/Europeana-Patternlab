@@ -2,14 +2,14 @@
 
 {{> organisms/global/header_v2}}
 
-<div role="main" class="page l-page search-blog-list">
+<div role="main" class="page l-page search-event-list">
 
   <section class="search-object">
     <div class="object-nav cf">
       <div class="object-nav-lists">
         <ul class="breadcrumbs">
           <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-          <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.blogs_list_breadcrumb}}</strong></span></li>
+          <li><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.events_list_breadcrumb}}</strong></span></li>
         </ul>
       </div>
     </div>
@@ -25,28 +25,28 @@
 
   <section id="maincontent">
     <div class="container">
-      <div class="blog-list">
+      <div class="event-list">
 
-        <div class="results-header-blog">
+        <div class="results-header-events">
           <div class="results-header">
-            <div class="blogs-info">
-              {{ i18n.site.blogs.list.count-and-terms-with-range }}
+            <div class="events-info">
+              {{ i18n.site.events.list.count-and-terms-with-range }}
             </div>
             <div class="result-controls">
-              {{#blogs_filter_options}}
+              {{#events_filter_options}}
                 {{>molecules/forms/filterby}}
-              {{/blogs_filter_options}}
+              {{/events_filter_options}}
             </div>
           </div>
         </div>
         {{#has_results}}
           <div class="cf"></div>
-          <ol class="blog-items">
-            {{#blog_items}}
+          <ol class="event-items">
+            {{#event_items}}
               <li>
-                {{> molecules/components/search/search-blog-list-item}}
+                {{> molecules/components/search/search-event-list-item}}
               </li>
-            {{/blog_items}}
+            {{/event_items}}
           </ol>
         {{/has_results}}
 

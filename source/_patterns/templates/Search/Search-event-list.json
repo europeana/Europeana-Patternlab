@@ -1,0 +1,375 @@
+{
+  "page_title": "Europeana Events",
+  "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "i18n": {
+    "global": {
+      "refine-your-search": "Refine your search",
+      "facet": {
+        "date": {
+          "to": "to",
+          "from": "from"
+        },
+        "more-refinements": "Advanced filters"
+      }
+    },
+    "site": {
+      "results": {
+        "list": {
+          "in-channel": "in Channel",
+          "view-at-provider": "View at",
+          "empty": "No results",
+          "empty-with-terms": "Your search for <strong>paris</strong> returned no results",
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>"
+        },
+        "actions": {
+          "product-save": "Save"
+        },
+        "page": {
+          "count-and-terms": "345 results for <strong>paris</strong> and <strong>berlin</strong>",
+          "search_terms": "<strong>paris</strong> and <strong>berlin</strong>"
+        }
+      }
+    }
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "events/index"
+    }
+  ],
+  "img": false,
+  "input_search": {
+    "title": "Search",
+    "input_name": "supersearch",
+    "placeholder": "Add a search term",
+    "has_original": true,
+    "input_original": {
+      "value": "Rembrandt",
+      "remove": "removeurl"
+    },
+    "input_values": [
+      {
+        "value": "Paintings",
+        "remove": "removeurl",
+        "name": "fieldname"
+      }
+    ]
+  },
+  "hero": {
+      "hero_image": "../../images/pro/home_image_test.jpg"
+  },
+  "has_results": true,
+  "events_filter_options": {
+    "filter_name": "topic",
+    "options": [
+      {
+        "label": "Theme",
+        "value": "Value 1"
+      },
+      {
+        "label": "1914-18",
+        "value": "Value 2"
+      },
+      {
+        "label": "Art",
+        "value": "Value 3"
+      },
+      {
+        "label": "Collections",
+        "value": "Value 4"
+      },
+      {
+        "label": "Fashion",
+        "value": "Value 5"
+      },
+      {
+        "label": "Music",
+        "value": "Value 6"
+      }
+    ]
+  },
+
+  "event_items": [
+    {
+      "location": "Piazza Navona, Rome, Italy",
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building)",
+      "description": "Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "read_time": 12,
+      "date": "5 March, 2017",
+      "img": {
+        "src": "/images/search/search-result-thumb-1.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Extra"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "Queen Margaret Drive, Glasgow, Scotland",
+      "title": "Glasgow School of Art",
+      "description": "Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "read_time": 8,
+      "date": "1 March, 2017",
+      "img": {
+        "src": "/images/search/search-result-thumb-lincoln.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Tags"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "Juliannalaan, Leiden, Netherlands",
+      "title": "Glasgow",
+      "description": "This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further. This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further. This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further",
+      "read_time": 6,
+      "date": "28 February, 2017",
+      "img": {
+        "src": "/images/search/search-result-thumb-3.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Extra"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": false,
+      "read_time": 9,
+      "date": "11 February, 2017",
+      "title": "The Lighthouse, Glasgow (Glasgow Herald Building)",
+      "description": "Model (on display) | Mackintosh, Charles Rennie.  Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "img": {
+        "src": "/images/search/search-result-thumb-4.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Tags"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": false,
+      "title": "A blog post without an author?",
+      "description": "How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "date": "30 January, 2017",
+      "img": {
+        "src": "/images/search/search-result-thumb-5.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Extra"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "Renfrew Street, Glasgow, Scotland",
+      "title": "Glasgow School of Art",
+      "description": "Interior, alcove for mosaic | Mackintosh, Charles Rennie.  Interior, alcove for mosaic, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "read_time": 12,
+      "date": "23 January, 2017",
+      "img": {
+        "src": "/images/search/search-result-thumb-6.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Tags"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "The Royal Mile, Edinburgh, Scotland",
+      "read_time": 3,
+      "date": "8 January, 2017",
+      "title": "An Elephant, a photograph, a drawing.",
+      "description": "This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures.",
+      "img": {
+        "src": "/images/search/search-result-thumb-giraffe.png",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Extra"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "paper-product"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Elephant"
+          }
+        ]
+      }
+    },
+    {
+      "location": "Via Roma, Napoli, Italy",
+      "read_time": 7,
+      "date": "19 December, 2016",
+      "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
+      "description": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century. The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century. The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century.",
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "paper"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "scissors"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "stone"
+          }
+        ]
+      },
+      "label": "Military History"
+    },
+    {
+      "location": "11 Dorset Avenue, Cambridge, England",
+      "read_time": 14,
+      "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+      "description": "Janet is not related to Joe Bloggs (or Nicolaes Tulp).  The Anatomy Lesson of Dr. Nicolaes Tulp is a 1632 oil painting on canvas by Rembrandt housed in the Mauritshuis museum in The Hague, the Netherlands. Dr. Nicolaes Tulp is pictured explaining the musculature of the arm to medical professionals. Some of the spectators are checking their phones.",
+      "date": "11 December, 2016",
+      "img": {
+        "src": "/images/search/search-result-thumb-2.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "prints"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "paper"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "12 Winchester Court, Bournemouth, England",
+      "read_time": 1,
+      "title": "Self portrait",
+      "description": "Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro. Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro. Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro.",
+      "date": "5 December, 2016",
+      "img": {
+        "src": "/images/search/search-result-thumb-2.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "visuals"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "fibres"
+          }
+        ]
+      },
+      "label": "Art"
+    },
+    {
+      "location": "22 Fleet Street, London, England",
+      "read_time": 12,
+      "date": "27 November, 2016",
+      "title": "Belshazzars Feast",
+      "description": "Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London. Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London. Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London.",
+      "img": {
+        "src": "/images/search/search-result-thumb-3.jpg",
+        "alt": "Rectangle"
+      },
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Extra"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "label": "Art History"
+    },
+    {
+      "location": "Rue d'Voltaire, Paris, France'",
+      "read_time": 2,
+      "title": "The Stoning of Saint Stephen",
+      "description": "The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19.",
+      "date": "21 November, 2016",
+      "tags": {
+        "items": [
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "Tags"
+          },
+          {
+            "url": "javascript:alert('open tag link')",
+            "text": "paper (fiber product)"
+          }
+        ]
+      },
+      "label": "Military History"
+    }
+  ],
+  "channel_data": false
+}

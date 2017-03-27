@@ -84,22 +84,6 @@ define(['jquery'], function($) {
       $(u).wrap('<p></p>');
     });
 
-    $('.blog-body em').each(function(i, em){
-      var t = $(em).text();
-      if(t.trim().split(' ').length == 1){
-        $(em).addClass('single-word');
-      }
-    });
-
-    $('.blog-body em').each(function(i, em){
-      var t = $(em).text();
-      if(t.trim().split(' ').length == 2){
-        if( $(em).siblings().is('.single-word')){
-          $(em).addClass('single-word');
-        }
-      }
-    });
-
     $('.blog-body > p').each(function(i, p){
       p = $(p);
 

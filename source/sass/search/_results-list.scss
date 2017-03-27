@@ -179,6 +179,7 @@
 .action-select,
 .result-actions,
 .blogs-info,
+.events-info,
 .result-info,
 .result-sort{
   margin-top: $space-quarter;
@@ -242,6 +243,7 @@
 
 @media all and (min-width: $bp-med) {
   .blogs-info,
+  .events-info,
   .result-info{
     @include span(8 of 18);
   }
@@ -362,6 +364,7 @@
 }
 
 .blogs-info,
+.events-info,
 .result-info{
   position:         relative;
   top:              3em;
@@ -389,9 +392,11 @@
   }
 }
 
-.blog-list{
+.blog-list,
+.event-list{
 
-  .blogs-info{
+  .blogs-info,
+  .events-info{
 
     top: 2em;
 
