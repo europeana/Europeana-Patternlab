@@ -199,6 +199,37 @@
         {
           "menu_id": "main-menu",
           "submenu": false
+        },
+        "utility_nav":
+        {
+          "menu_id": "settings-menu",
+          "style_modifier": "caret-right",
+          "tabindex": "6",
+          "items":
+          [
+            {
+              "url": "#",
+              "text": "Sign In",
+              "icon": "users",
+              "submenu": {
+                "items": [
+                  {
+                    "submenu": false,
+                    "text": "My Profile",
+                    "url": "#"
+                  },
+                  {
+                    "is_divider": true
+                  },
+                  {
+                    "submenu": false,
+                    "text": "Login",
+                    "url": "#"
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     }
