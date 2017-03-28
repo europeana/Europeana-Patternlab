@@ -17,9 +17,61 @@ define(['jquery'], function($) {
     if(singleEventPage){
       initMap();
       checkForLightbox();
+      fixDates();
       initExpandables();
       initAOS();
     }
+  }
+
+  function fixDates(){
+
+    var date  = $('.event-date').data('date');
+    var fmt   = getFormatDate(date);
+
+    $('.event-date').append('<span class="date-top">'    +  fmt[0] + '</span>');
+    $('.event-date').append('<span class="date-bottom">' +  fmt[1] + '</span>');
+  }
+
+  function getFormatDate(date){
+
+      log('raw: ' + date);
+
+      var rMonth       = /[a-zA-Z]+/;
+      var rDate        = /^[0-9]+/;
+      var rYear        = /[0-9]+$/;
+      var displayDate  = '';
+      var displayMY    = '';
+
+      var split = date.split('-');
+
+      var begin       = split[0].trim();
+      var month1      = '' + rMonth.exec(begin);
+      var date1       = '' + rDate.exec(begin);
+      var year1       = '' + rYear.exec(begin);
+
+      if(split.length == 1){
+        displayDate = date1;
+        displayMY   = month1 + ' ' + year1;
+        return [displayDate, displayMY];
+      }
+
+      var end    = split[1].trim();
+      var month2 = '' + rMonth.exec(end);
+      var date2  = '' + rDate.exec(end);
+      var year2  = '' + rYear.exec(end);
+
+      displayDate  = date1  == date2  ? date1  : date1 + ' - ' + date2;
+      displayMY    = month1 + ' ' + year1;
+
+      if(month1 != month2){
+        if(year1 != year2){
+          displayMY += ' - ' + month2 + ' ' + year2;
+        }
+        else{
+          displayMY = month1 + ' - ' + month2 + ' ' + year1;
+        }
+      }
+      return [displayDate, displayMY];
   }
 
   function initExpandables(){
@@ -40,15 +92,12 @@ define(['jquery'], function($) {
   }
 
   function initMap(){
-	log('init map...');
-	var latitude  = $('.map').data('latitude');
-	var longitude = $('.map').data('longitude');
-	
-	log(' latitude = '  + latitude);
-	log(' longitude = ' + longitude);
-	
+
+    var latitude  = $('.map').data('latitude');
+    var longitude = $('.map').data('longitude');
+
     require(['leaflet'], function(){
-    	
+
       var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
       var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
@@ -78,12 +127,12 @@ define(['jquery'], function($) {
 
       var offset = map.getSize().x*0.35;
       map.panBy(new L.Point(-offset, 0), {animate: false});
-      
+
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
-       
+
     });
   }
-  
+
   function openLightbox(index){
     require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
       photoSwipe = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: index});

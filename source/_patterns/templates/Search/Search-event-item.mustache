@@ -56,6 +56,9 @@
               {{#read_time}}
                 <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
               {{/read_time}}
+              {{#event_date}}
+                <div class="event-date" data-date="{{.}}"></div>
+              {{/event_date}}
             </div>
 
             <div class="text-lower-section">
