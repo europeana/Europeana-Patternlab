@@ -54,9 +54,47 @@
   height:           11em;
   z-index:          -1;
 }
+
 .search-hero.map{
-  height:           22em;
+
+  height: 22em;
+
+  &.larger{
+
+    @media all and (min-width: $bp-xl) {
+
+      height: 28.5em;
+      .leaflet-bottom{
+        bottom: 7em;
+      }
+    }
+  }
 }
+
+.map-mask{
+  display: none;
+}
+
+@media all and (min-width: $bp-xl) {
+
+  .map-mask{
+    display:         flex;
+    height:          5em;
+    justify-content: center;
+    position:        absolute;
+    transform:       translateY(-100%);
+    width:           100%;
+  }
+  .map-mask-side{
+    background-color: #fff;
+    flex-grow:        1;
+  }
+  .map-mask-center{
+    background-color: transparent;
+    width:            60rem;
+  }
+}
+
 
 .search-blog-list,
 .search-blog-item,
@@ -70,10 +108,10 @@
     margin-right: 0.4em;
     width:        2em;
   }
- 
+
   .icon-location{
     display:   inline-block;
-  	height:    1.7em;
+    height:    1.7em;
     position:  relative;
     top:       0.5em;
     transform: scale(0.7);
@@ -164,7 +202,13 @@
     &.blog-post,
     &.event-detail{
 
-      transform:   translateY(-9em);
+      transform: translateY(-9em);
+
+      &.larger-map{
+        @media all and (min-width: $bp-xl){
+          transform: translateY(-20em);
+        }
+      }
 
       img{
         display:   block;
@@ -268,7 +312,7 @@
           z-index:     3;
 
           .by{
-          	display:      inline-block;
+            display:      inline-block;
             font-size:    $font-size-slightly-smaller;
             margin-right: 0.35em;
           }
@@ -391,7 +435,7 @@
   }
 }
 
-.event-hero.site-hero{	
+.event-hero.site-hero{
   background-color: transparent;
 }
 
@@ -399,6 +443,7 @@
 .blog-list-item,
 .event-hero,
 .blog-hero{
+
   background-image: none;
 
   .no-image,
@@ -407,6 +452,13 @@
     max-width:    100%;
     object-fit:   cover;
     width:        100%;
+  }
+
+  @media all and (max-width: $bp-med) {
+    .no-image{
+      height: 14em;
+      // width:  34em;
+    }
   }
 
   @media all and (min-width: $bp-med) {
@@ -456,13 +508,21 @@
   }
 }
 
+.larger-map{
+  .event-hero{
+    @media all and (max-width: $bp-med) {
+      width: 100%;
+    }
+  }
+}
+
 .blog-item-tags,
 .blog-item-tags li,
 .event-item-tags,
 .event-item-tags li{
 
   display: inline-block;
-  
+
   &:not(:last-of-type){
     margin-right: 0.7em;
   }

@@ -16,11 +16,18 @@
     </div>
   </section>
 
-  <section class="search-hero map" {{#content}}{{#geolocation}}data-longitude="{{longitude}}" data-latitude="{{latitude}}"{{/geolocation}}{{/content}}> </section>
-
   {{#content}}
-      <div class="container text-centre event-detail">
+    <section class="search-hero map {{^event_image}}larger{{/event_image}}" {{#geolocation}}data-longitude="{{longitude}}" data-latitude="{{latitude}}"{{/geolocation}}> </section>
 
+      {{^event_image}}
+        <div class="map-mask">
+          <div class="map-mask-side"></div>
+          <div class="map-mask-center"></div>
+          <div class="map-mask-side"></div>
+        </div>
+      {{/event_image}}
+
+      <div class="container text-centre event-detail{{^event_image}} larger-map{{/event_image}}">
 
         <div class="site-hero event-hero">
 
@@ -79,11 +86,6 @@
             </div>
           </div>
         </div>
-
-        {{^event_image}}
-          Map overlay here....
-        {{/event_image}}
-
 
         <div class="text-left event-body">
           {{#tags}}
