@@ -1,7 +1,8 @@
 define(['jquery', 'autocomplete'], function ($) {
 
     var currentKeys = [],
-        selectedRoles = [];
+        selectedRoles = [],
+        orgsToExclude = [];
 
     Array.prototype.exclude = function (list) {
         return this.filter(function (el) {
@@ -9,6 +10,20 @@ define(['jquery', 'autocomplete'], function ($) {
         })
     };
 
+    function isInArray(value, array) {
+        return array.indexOf(value) > -1;
+    }
+    
+    function loadOrgsToExclude() {
+        var all = document.getElementsByClassName('selectedOrg');
+
+        for (var j = 0; j < all.length; j++){
+            console.log(all[j].id);
+            // isInArray(1, all); // true
+        }
+    };
+    // loadOrgsToExclude();
+    
     $('#searchOrganization').autoComplete({
         cache: false,
         minChars: 2,
@@ -57,6 +72,7 @@ define(['jquery', 'autocomplete'], function ($) {
             });
         }
     });
+
     function switchPopUp(org, update, roles) {
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur');
@@ -118,8 +134,7 @@ define(['jquery', 'autocomplete'], function ($) {
     });
 
     $('.selectedOrganizations').on('click', '.removeOrganization', function () {
-        $(this).parent().parent().remove();
-        delete currentRoles[$(this).data('name')];
+        $(this).parent().parent().remove() ;
 
         // TODO: wrap in a fc.
         var index = selectedRoles.indexOf($(this).data('name'));
