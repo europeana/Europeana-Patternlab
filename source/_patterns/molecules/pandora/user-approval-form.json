@@ -29,15 +29,58 @@
   "organizations":[
   	{
 		"organizationName": "Europeana",
-		"organizationId": 1,
-		"organizationRole": "false"
+		"organizationId": 12,
+		"organizationRole": "false",
+        "rolesTypeId": 1
+
 	},
 	{
 		"organizationName": "BNF",
-		"organizationId": 2,
-		"organizationRole": "DATA PROVIDER"
+		"organizationId": 23,
+		"organizationRole": "Provider Admin",
+        "rolesTypeId": 2
 	}
-  
+  ],
+  "roleTypes": [
+    {
+      "typeId": "1",
+      "roles": [
+        {
+          "name": "Europeana Viewer"
+        },
+        {
+          "name": "Europeana Data Officer"
+        },
+        {
+          "name": "Europeana Admin"
+        },
+        {
+          "name": "Europeana Superadmin"
+        }
+      ]
+    },
+    {
+      "typeId": "2",
+      "roles": [
+        {
+          "name": "Provider Viewer"
+        },
+        {
+          "name": "Provider Data Officer"
+        },
+        {
+          "name": "Provider Admin"
+        }
+      ]
+    },
+    {
+      "typeId": "3",
+      "roles": [
+        {
+          "name": "Data Provider Contact"
+        }
+      ]
+    }
   ],
   "countries": [
     {

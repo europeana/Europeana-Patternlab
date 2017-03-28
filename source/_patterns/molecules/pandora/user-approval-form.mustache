@@ -39,7 +39,13 @@
             <div class="selectedOrganizations">
 				{{#organizations}}
 					<div class="selectedOrg" id="{{organizationId}}">
-						<a class="selectedOrganization alreadySelected" name="organization" data-role="{{organizationRole}}" data-name="{{organizationName}}">{{organizationName}}:&nbsp;{{organizationRole}}</a> 
+						<a class="selectedOrganization alreadySelected"
+                           name="organization"
+                           data-rolesTypeId="{{rolesTypeId}}"
+                           data-role="{{organizationRole}}"
+                           data-name="{{organizationName}}"
+                           data-organizationId="{{organizationId}}"
+                        >{{organizationName}}:&nbsp;{{organizationRole}}</a>
                         <b><a class="removeOrganization" data-name="{{organizationName}}">&nbsp;X</a></b>
                     </div>
 				{{/organizations}}
@@ -52,14 +58,18 @@
                     <div class="head">
 
                         <a class="btn-close trigger"></a>
-                        <h3 class="headerRole">Select User' Role at:</h3>
+                        <h3 class="headerRole">Select User's Role for: </h3>
 
                     </div>
                     <div class="content">
                         <h4 class="currentSelectedOrganization"></h4>
-                        <select id="availableRoles">
-
-                        </select>
+                        {{#roleTypes}}
+                            <select data-rolesTypeId="{{typeId}}" class="roles hidden">
+                                {{#roles}}
+                                    <option value="{{name}}">{{name}}</option>
+                                {{/roles}}
+                           </select>
+                        {{/roleTypes}}
                         <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
                     </div>
                 </div>
