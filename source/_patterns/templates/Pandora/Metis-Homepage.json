@@ -31,24 +31,28 @@
     "is_beta": true
   },
 
-  "content": {
-    "hero_config": {
-      "hero_image": "../../images/metis/metis-hero.png",
-      "brand_colour": "brand-colour-site",
-      "brand_position": "brand-bottomleft",
-      "brand_opacity": "brand-opacity100",
-      "attribution_text": "Cyclopides metis L., Cyclopides qua... Museum Fur Naturkunde Berlin",
-      "attribution_url": "http://europeana.eu",
-      "license_CC-ND-NC-SA": true
-    },
-    "banner": {
-      "title":"What can you do with Metis?",
-      "text":"Ever wondered how to automagicsally digest huge amounts of data with the push of a button?",
-      "info_link": "Learn more about Metis",
-      "info_url": "#",
-      "cta_url":"#",
-      "cta_text":"Register to metis here"
-    }
+  "landing_page_content": {
+  	"is_home": {
+	  "content": {
+	    "hero_config": {
+	      "hero_image": "../../images/metis/metis-hero.png",
+	      "brand_colour": "brand-colour-site",
+	      "brand_position": "brand-bottomleft",
+	      "brand_opacity": "brand-opacity100",
+	      "attribution_text": "Cyclopides metis L., Cyclopides qua... Museum Fur Naturkunde Berlin",
+	      "attribution_url": "http://europeana.eu",
+	      "license_CC-ND-NC-SA": true
+	    },
+	    "banner": {
+	      "title":"What can you do with Metis?",
+	      "text":"Ever wondered how to automagicsally digest huge amounts of data with the push of a button?",
+	      "info_link": "Learn more about Metis",
+	      "info_url": "#",
+	      "cta_url":"#",
+	      "cta_text":"Register to metis here"
+	    }
+	  }
+  	}
   },
   "i18n": {
     "global": {
