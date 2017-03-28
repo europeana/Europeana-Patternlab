@@ -32,7 +32,7 @@
   "event_title": "Exhibition: \"Hubert de Givenchy.  To Audrey with Love\"",
   "content": {
     "event_date" : "3 December, 2015 - 4 December, 2015",
-    "event_image": {
+    "XXXevent_image": {
       "src": "https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg",
       "alt": "Some dude"
     },
@@ -44,7 +44,7 @@
       "longitude": "-3.605688",
       "formatted_address": "Avenida De Las Ciencias, S\/N, 18006 Granada, Granada, Spain"
     },
-    "introduction": "This is the introduction for the test blog post",
+    "introduction": "This is the Event introduction",
     "label": "Art",
     "tags": {
       "has_tags": true,

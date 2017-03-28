@@ -15,6 +15,7 @@ define(['jquery'], function($) {
     log('init events: ' + (singleEventPage ? '(show)' : '(index)'));
 
     if(singleEventPage){
+      initMap();
       checkForLightbox();
       initExpandables();
       initAOS();
@@ -33,11 +34,56 @@ define(['jquery'], function($) {
     var tags = $('.event-tags');
     if(tags.length>0){
       require(['eu_activate_on_shrink'], function(aos){
-        aos.create(tags, [$('.blog-item-tags-wide'), $('.hide-with-tags')]);
+        aos.create(tags, [$('.event-item-tags-wide'), $('.hide-with-tags')]);
       });
     }
   }
 
+  function initMap(){
+	log('init map...');
+	var latitude  = $('.map').data('latitude');
+	var longitude = $('.map').data('longitude');
+	
+	log(' latitude = '  + latitude);
+	log(' longitude = ' + longitude);
+	
+    require(['leaflet'], function(){
+    	
+      var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+
+      var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+
+      var map = L.map($('.map')[0], {
+        center : new L.LatLng(latitude, longitude),
+        zoomControl : false,
+        zoomsliderControl: false,
+        zoom : 8
+      });
+
+      var imagePath = require.toUrl('').split('/');
+      imagePath.pop();
+      imagePath.pop();
+      imagePath.pop();
+      L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
+
+      map.addLayer(new L.TileLayer(osmUrl, {
+        minZoom : 4,
+        maxZoom : 18,
+        attribution : osmAttr,
+        type : 'osm'
+      }));
+      map.invalidateSize();
+      L.marker([latitude, longitude]).addTo(map);
+
+      var offset = map.getSize().x*0.35;
+      map.panBy(new L.Point(-offset, 0), {animate: false});
+      
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
+       
+    });
+  }
+  
   function openLightbox(index){
     require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
       photoSwipe = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, {index: index});
@@ -47,7 +93,7 @@ define(['jquery'], function($) {
 
   function checkForLightbox(){
     require(['jqImagesLoaded'], function(){
-      $('.blog-body img').imagesLoaded(function($images){
+      $('.event-body img').imagesLoaded(function($images){
         var suitableFound = false;
         $images.each(function(i, img){
           if(img.naturalWidth > lightboxOnWidth){
@@ -74,41 +120,6 @@ define(['jquery'], function($) {
           $('.photoswipe-wrapper').parent().removeClass('is-hidden');
         }
       });
-    });
-  }
-
-  function analyseMarkup(){
-
-    $('.blog-body > ul').add('.blog-body > h2').each(function(i, u){
-      $(u).wrap('<p></p>');
-    });
-
-    $('.blog-body > p').each(function(i, p){
-      p = $(p);
-
-      if(p.find('img').length == 1){
-        p.find('img').removeAttr('style').removeAttr('width').removeAttr('height');
-      }
-      else if(p.find('img').length == 2){
-        var img1 = p.find('img:first');
-        var img2 = p.find('img:last');
-
-        if(img1.siblings().is(img2)){
-          var w = img1.width() + img2.width();
-          console.log(w  + '  <  ' +  p.width());
-          if(w <= p.width()){
-            p.find('img:first').css('float', 'left');
-            p.find('img:last').css('float', 'right');
-            p.addClass('cf');
-          }
-          else{
-            img1.add(img2).removeAttr('style').removeAttr('width').removeAttr('height');
-          }
-        }
-        else{
-          img1.add(img2).removeAttr('style').removeAttr('width').removeAttr('height');
-        }
-      }
     });
   }
 

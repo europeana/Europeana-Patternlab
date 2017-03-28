@@ -16,66 +16,72 @@
     </div>
   </section>
 
-  <section class="search-hero empty"> </section>
+  <section class="search-hero map" {{#content}}{{#geolocation}}data-longitude="{{longitude}}" data-latitude="{{latitude}}"{{/geolocation}}{{/content}}> </section>
 
   {{#content}}
-      <div class="container text-centre blog-post">
+      <div class="container text-centre event-detail">
 
-        {{#event_image}}
 
-          <div class="site-hero blog-hero">
+        <div class="site-hero event-hero">
 
-            {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+          {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
 
+          {{#event_image}}
             <img src="{{src}}" alt="{{alt}}"/>
+          {{/event_image}}
+          {{^event_image}}
+            <div class="no-image"></div>
+          {{/event_image}}
 
-            <div class="introduction text-centre">
+          <div class="introduction text-centre">
 
-              {{#event_title}}<div class="title text-centre">{{.}}</div>{{/event_title}}
+            {{#event_title}}<div class="title text-centre">{{.}}</div>{{/event_title}}
 
-              <div class="text-split">
-                {{#has_authors}}
-                  <span class="capitalised by">{{i18n.global.labels.by}}</span>
-                  <ul class="authors">
-                    {{#authors}}
-                      <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
-                    {{/authors}}
-                  </ul>
-                {{/has_authors}}
-                {{#read_time}}
-                  <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
-                {{/read_time}}
+            <div class="text-split">
+              {{#has_authors}}
+                <span class="capitalised by">{{i18n.global.labels.by}}</span>
+                <ul class="authors">
+                  {{#authors}}
+                    <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                  {{/authors}}
+                </ul>
+              {{/has_authors}}
+              {{#read_time}}
+                <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
+              {{/read_time}}
+            </div>
+
+            <div class="text-lower-section">
+              <div class="cell">
+                {{#date}}
+                  <span class="svg-icon-calendar-white date-icon"></span>
+                  <span class="date">{{.}}</span>
+                {{/date}}
               </div>
 
-              <div class="text-lower-section">
-                <div class="cell">
-                  {{#date}}
-                    <span class="svg-icon-calendar-white date-icon"></span>
-                    <span class="date">{{.}}</span>
-                  {{/date}}
-                </div>
-
-                {{#tags}}
-                  {{#has_tags}}
-                    <div class="cell hide-with-tags">
-                      <span class="svg-icon-bookmark-white"></span>
+              {{#tags}}
+                {{#has_tags}}
+                  <div class="cell hide-with-tags">
+                    <span class="svg-icon-bookmark-white"></span>
+                  </div>
+                  <div class="cell">
+                    <div class="event-tags">
+                      <ul class="event-item-tags">
+                        {{#items}}
+                          {{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}
+                          {{^url}}<li>{{text}}</li>{{/url}}
+                        {{/items}}
+                      </ul>
                     </div>
-                    <div class="cell">
-                      <div class="event-tags">
-                        <ul class="event-item-tags">
-                          {{#items}}
-                            {{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}
-                            {{^url}}<li>{{text}}</li>{{/url}}
-                          {{/items}}
-                        </ul>
-                      </div>
-                    </div>
-                  {{/has_tags}}
-                {{/tags}}
-              </div>
+                  </div>
+                {{/has_tags}}
+              {{/tags}}
             </div>
           </div>
+        </div>
 
+        {{^event_image}}
+          Map overlay here....
         {{/event_image}}
 
 
@@ -94,7 +100,7 @@
             {{/has_tags}}
           {{/tags}}
 
-          <p class="blog-intro">
+          <p class="event-intro">
             {{{introduction}}}
           </p>
 
