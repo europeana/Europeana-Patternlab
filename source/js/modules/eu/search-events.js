@@ -12,8 +12,6 @@ define(['jquery'], function($) {
 
     var singleEventPage = $('.search-event-item').length > 0;
 
-    log('init events: ' + (singleEventPage ? '(show)' : '(index)'));
-
     if(singleEventPage){
       initMap();
       checkForLightbox();
@@ -26,6 +24,9 @@ define(['jquery'], function($) {
   function fixDates(){
 
     var date  = $('.event-date').data('date');
+    if(!date){
+      return;
+    }
     var fmt   = getFormatDate(date);
 
     $('.event-date').append('<span class="date-top">'    +  fmt[0] + '</span>');
@@ -33,8 +34,6 @@ define(['jquery'], function($) {
   }
 
   function getFormatDate(date){
-
-      log('raw: ' + date);
 
       var rMonth       = /[a-zA-Z]+/;
       var rDate        = /^[0-9]+/;
@@ -95,6 +94,11 @@ define(['jquery'], function($) {
 
     var latitude  = $('.map').data('latitude');
     var longitude = $('.map').data('longitude');
+
+    if(! (latitude && longitude)){
+      latitude  = 52.078663;
+      longitude = 4.288788;
+    }
 
     require(['leaflet'], function(){
 
