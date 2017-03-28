@@ -1,3 +1,7 @@
+{{#is_java}}
+    {{>atoms/meta/_head}}
+{{/is_java}}
+
 {{#metis_header}}
     {{> organisms/global/header_v2 }}
 {{/metis_header}}
@@ -12,3 +16,7 @@
 {{#metis_footer}}
     {{> organisms/global/footer_v2 }}
 {{/metis_footer}}
+
+{{#is_java}}
+    {{>atoms/meta/_foot}}
+{{/is_java}}
