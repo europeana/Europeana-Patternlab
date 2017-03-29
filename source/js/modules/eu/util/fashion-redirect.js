@@ -1,5 +1,26 @@
 define(['jquery', 'purl'], function($) {
 
+  var splitParams = function(s){
+    var split    = s.split('=');
+    var nameVals = [{'n':split[0]}];
+
+    for(var i=1; i<split.length; i++){
+      var valName = split[i];
+      if(i==split.length-1){
+        nameVals[nameVals.length-1]['v'] = split[split.length-1].replace(/&/g, '%26');
+        continue;
+      }
+      var index   = valName.lastIndexOf('&');
+      var value   = valName.substr(0, index);
+      var name    = valName.substr(index+1, valName.length);
+      nameVals[i-1]['v'] = value.replace(/&/g, '%26');
+      nameVals.push({'n':name});
+    }
+
+    console.log(JSON.stringify(nameVals, null, 4));
+    return nameVals;
+  }
+
   var redirectOrCallback = function(callback){
     var href      = window.location.href;
     var purl      = $.url(href);
@@ -11,7 +32,9 @@ define(['jquery', 'purl'], function($) {
 
       if(hash){
         hash = decodeURIComponent(hash);
-        var params       = hash.split('&');
+
+        //var params       = hash.split('&');
+        var params       = splitParams(hash);
         var facets       = [];
         var dateFacets   = [];
         var toLookup     = ['f[colour][]', 'f[proxy_dc_format.en][]', 'f[proxy_dc_type.en][]'];
@@ -43,11 +66,29 @@ define(['jquery', 'purl'], function($) {
           $.each(facets, function(i, f){
             newUrlParams.push(f[0] + '=' + (prependValues[f[0]] || '') + f[1] + (appendValues[f[0]] || ''));
           });
+          //console.log(urlRoot + '?' + newUrlParams.join('&'));
           window.location.href = urlRoot + '?' + newUrlParams.join('&');
         };
 
         // normalise names to facets array
 
+        $.each(params, function(i, p){
+          //var param = p.split('=');
+          var fName = facetNames[p['n']] || p['n'];
+          var fVal  = p['v'];
+
+          if(toLookup.indexOf(fName) > -1){
+            lookupNeeded = true;
+          }
+          if(fName == 'range[YEAR][begin]'){
+            dateFacets.push([fName, fVal]);
+          }
+          else{
+            ['q', 'q2'].indexOf(fName) > -1 ? facets.unshift([fName, fVal]) : facets.push([fName, fVal]);
+          }
+        });
+
+        /*
         $.each(params, function(i, p){
           var param = p.split('=');
           var fName = facetNames[param[0]] || param[0];
@@ -63,6 +104,7 @@ define(['jquery', 'purl'], function($) {
             ['q', 'q2'].indexOf(fName) > -1 ? facets.unshift([fName, fVal]) : facets.push([fName, fVal]);
           }
         });
+        */
 
         // deal with duplicate params
 
@@ -87,7 +129,7 @@ define(['jquery', 'purl'], function($) {
         if(facets[0][0] == 'q'){
           facets[0][1] = facets[0][1].replace(/\+/g, '+OR+').replace(/ /g, ' OR ').replace(/%20/g, '%20OR%20');
         }
-        
+
         // normalise date values
 
         if(dateFacets.length > 0){
@@ -132,26 +174,22 @@ define(['jquery', 'purl'], function($) {
         if(lookupNeeded){
           require(['data_fashion_thesaurus'], function(data){
             $.each(facets, function(i, f){
-            	
-              var abbreviated = f[1].replace('http://thesaurus.europeanafashion.eu/thesaurus/', '');
+              var abbreviated = (f[1]+'').replace('http://thesaurus.europeanafashion.eu/thesaurus/', '');
               if(toLookup.indexOf(f[0]) > -1){
-                
-              	if(data['colours'][abbreviated]){
-              	  f[1] = data['colours'][abbreviated];
-              	}
-              	else if(data['type'][abbreviated]){
-              	  f[1] = data['type'][abbreviated];
-              	}
-              	else if(data['materials'][abbreviated]){
-              	  f[0]= 'f[proxy_dcterms_medium.en][]';
-              	  f[1] = data['materials'][abbreviated];
-               	}
-              	else if(data['techniques'][abbreviated]){
-               	  f[1] = data['techniques'][abbreviated];
-               	}
-              	
+                if(data['colours'][abbreviated]){
+                  f[1] = data['colours'][abbreviated];
+                }
+                else if(data['type'][abbreviated]){
+                  f[1] = data['type'][abbreviated];
+                }
+                else if(data['materials'][abbreviated]){
+                  f[0] = 'f[proxy_dcterms_medium.en][]';
+                  f[1] = data['materials'][abbreviated];
+                }
+                else if(data['techniques'][abbreviated]){
+                  f[1] = data['techniques'][abbreviated];
+                }
               }
-
             });
             gotoNewUrl();
           });
