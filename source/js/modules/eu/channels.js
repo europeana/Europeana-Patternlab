@@ -147,47 +147,94 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'blog_posts/show':
             require(['search_blog'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
-        case 'collections/galleries':
+        case 'events/index':
+            require(['search_events'], function(page){
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
+            });
+            break;
+        case 'events/show':
+            require(['search_events'], function(page){
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
+            });
+            break;
+        case 'galleries/index':
+            require(['fashion_gallery_redirect'], function(fgr){
+              fgr.redirectOrCallback(function(){
+                require(['search_galleries'], function(page){
+                  page.initPage();
+                  promisedPageJS.resolve(page);
+                  doForAllPages();
+                });
+              });
+            });
+            break;
+        case 'galleries/show':
             require(['search_galleries'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'collections/show':
             if((window.location.href.indexOf('?q=') == -1) && (window.location.href.indexOf('&q=') == -1)){
-              require(['search_landing'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  require(['search_landing'], function(page){
+                    page.initPage(euSearchForm);
+                    promisedPageJS.resolve(page);
+                    doForAllPages();
+                  });
+                });
               });
             }
             else{
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  require(['search_results'], function(page){
+                    page.initPage(euSearchForm);
+                    promisedPageJS.resolve(page);
+                    doForAllPages();
+                  });
+                });
+              });
+            }
+            break;
+        case 'portal/show':
+            require(['search_object'], function(page){
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
+            });
+            break;
+        case 'portal/index':
+            var loadPageJS = function(){
               require(['search_results'], function(page){
                 page.initPage(euSearchForm);
                 promisedPageJS.resolve(page);
                 doForAllPages();
               });
             }
-            break;
-        case 'portal/show':
-            require(['search_object'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
-            });
-            break;
-        case 'portal/index':
-            require(['search_results'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
-            });
+
+            if(typeof collectionName != 'undefined' && collectionName == 'fashion'){
+              require(['fashion_redirect'], function(fr){
+                fr.redirectOrCallback(function(){
+                  loadPageJS();
+                });
+              });
+            }
+            else{
+              loadPageJS();
+            }
+
             break;
 
         case 'pages/show':
@@ -202,16 +249,16 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             break;
         case 'home/index':
             require(['search_home'], function(page){
-                page.initPage(euSearchForm);
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage(euSearchForm);
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         case 'settings/language':
             require(['settings'], function(page){
-                page.initPage();
-                promisedPageJS.resolve(page);
-                doForAllPages();
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();
             });
             break;
         default:
@@ -220,8 +267,8 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
      }
 
     return {
-        getPromisedPageJS: function(){
-            return promisedPageJS.promise();
-        }
+      getPromisedPageJS: function(){
+        return promisedPageJS.promise();
+      }
     }
 });

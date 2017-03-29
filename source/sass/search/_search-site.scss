@@ -1,5 +1,27 @@
 // Search Site specific styles
 
+html.redirecting{
+  display: table;
+  height: 100vh;
+  width: 100%;
+  body{
+    display:    table-cell;
+    min-height: 100vh;
+    position: relative;
+  }
+  body:after{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:      #fff;
+    content:    ' ';
+    height:     100%;
+    left:       0;
+    position:   absolute;
+    right:      0;
+    top:        0;
+    z-index:    10;
+  }
+}
+
 .logo {
   background-image: url("../../images/europeana-logo-collections.png");
   .svg &{

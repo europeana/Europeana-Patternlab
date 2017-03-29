@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   var euSearchForm  = null;
 
@@ -29,24 +29,20 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
         });
       };
 
-      require(['purl'], function(){
+      var purl            = $.url(window.location.href);
+      var carouselDisplay = purl.param('carousel-display');
 
-        var purl            = $.url(window.location.href);
-        var carouselDisplay = purl.param('carousel-display');
+      if(carouselDisplay == '1'){
+        portraitClass = 'portrait-1';
+      }
+      else if(carouselDisplay == '2'){
+        portraitClass = 'portrait-2';
+      }
+      else if(carouselDisplay == '3'){
+        portraitClass = 'portrait-3';
+      }
 
-        if(carouselDisplay == '1'){
-            portraitClass = 'portrait-1';
-        }
-        else if(carouselDisplay == '2'){
-            portraitClass = 'portrait-2';
-        }
-        else if(carouselDisplay == '3'){
-            portraitClass = 'portrait-3';
-        }
-        console.log('portraitClass set to ' + portraitClass);
-
-        fnProcessImages();
-      });
+      fnProcessImages();
     }
 
     var el = $('.tumblr-feed');
@@ -102,7 +98,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents) {
   function initPage(form){
 
     euSearchForm = form;
-
 
     $('.filter .filter-name').on('click', function(){
       $(this).closest('.filter').toggleClass('filter-closed');

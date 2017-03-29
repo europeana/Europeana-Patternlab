@@ -9,7 +9,6 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css'),
     css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
 
-    min_width_pixels = 400,
     items = [],
     options = { index: 0 },
     gallery = null,
@@ -87,10 +86,6 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       console.warn( 'no data-src given' );
       return false;
     }
-    //if ( item.w < min_width_pixels ) {
-    //  console.warn( 'img width too small for display (<' + min_width_pixels + '): ' + item.src );
-    //  return false;
-    //}
 
     return true;
   }

@@ -183,6 +183,8 @@
   text-align:  center;
   width:       3.4em;
 
+  transform: scale(0.8);
+
   text-decoration: none !important;
   outline: medium none;
   -webkit-transition: color 0.2s linear;

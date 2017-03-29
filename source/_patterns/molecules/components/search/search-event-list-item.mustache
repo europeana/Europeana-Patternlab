@@ -1,4 +1,4 @@
-<article class="blog-list-item cf {{^ img.src }}missing-image{{/ img.src }}">
+<article class="event-list-item cf {{^ img.src }}missing-image{{/ img.src }}">
   <div class="item-preview">
     <div class="item-image">
       {{#img.src}}
@@ -14,25 +14,9 @@
 
     <div class="summary">
       <h2><a href="{{object_url}}">{{ title }}</a></h2>
-
-      {{#has_authors}}
-        <span class="capitalised">{{i18n.global.labels.by}}</span>
-
-        <ul class="authors comma-list">
-          {{#authors}}
-            {{#url}}
-              <li><a class="author" href="{{.}}">{{name}}</a></li>
-            {{/url}}
-            {{^url}}
-              <li><span class="author">{{name}}</span></li>
-            {{/url}}
-          {{/authors}}
-        </ul>
-      {{/has_authors}}
-
-      {{#read_time}}
-        {{ . }} {{i18n.site.blogs.min-to-read}}
-      {{/read_time}}
+      {{#location}}
+        <span class="svg-icon-location icon-location"></span><span class="location">{{ . }}</span>
+      {{/location}}
     </div>
 
     {{#date}}

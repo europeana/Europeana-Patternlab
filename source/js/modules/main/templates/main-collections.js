@@ -1,20 +1,13 @@
 window.GoogleAnalyticsObject = '__ga__';
+
+if(typeof googleAnalyticsKey == 'undefined'){
+  window.googleAnalyticsKey = '';
+}
+
 window.__ga__ = {
-    q: [['create', 'UA-12776629-1', 'auto']],
+    q: [['create', googleAnalyticsKey, 'auto']],
     l: Date.now()
 };
-
-/*
-var release   = null;
-
-var scripts = document.getElementsByTagName('script');
-for (var i=0; i<scripts.length; i++){
-    var v = scripts[i].getAttribute('js-version');
-    if(v){
-        release = v;
-    }
-};
-*/
 
 require.config({
   //urlArgs: "cache=" + (release || Math.random()),
@@ -23,11 +16,14 @@ require.config({
     blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels',
     cookie_disclaimer:             '../../eu/cookie-disclaimer',
+    data_fashion_thesaurus:        '../../data/fashion-thesaurus.json',
     eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
     eu_carousel:                   '../../eu/eu-carousel',
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/eu-hierarchy',
+    fashion_redirect:              '../../eu/util/fashion-redirect',
+    fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
     featureDetect:                 '../../global/feature-detect',
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
@@ -107,6 +103,7 @@ require.config({
     search_landing:                '../../eu/channel-landing',
     search_form:                   '../../eu/search-form',
     search_blog:                   '../../eu/search-blog',
+    search_events:                 '../../eu/search-events',
     search_galleries:              '../../eu/search-galleries',
     search_home:                   '../../eu/search-home',
     search_object:                 '../../eu/search-object',

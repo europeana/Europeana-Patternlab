@@ -1,5 +1,5 @@
 {
-  "page_title": "Europeana Blog",
+  "page_title": "Europeana Events",
   "page_locale": "en",
   "version": {
     "is_alpha": true
@@ -52,7 +52,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "blog_posts/index"
+      "value": "events/index"
     }
   ],
   "img": false,
@@ -77,7 +77,7 @@
       "hero_image": "../../images/pro/home_image_test.jpg"
   },
   "has_results": true,
-  "blogs_filter_options": {
+  "events_filter_options": {
     "filter_name": "topic",
     "options": [
       {
@@ -85,35 +85,34 @@
         "value": "Value 1"
       },
       {
-        "label": "Art",
+        "label": "1914-18",
         "value": "Value 2"
       },
       {
-        "label": "Fashion",
+        "label": "Art",
         "value": "Value 3"
       },
       {
-        "label": "Music",
+        "label": "Collections",
         "value": "Value 4"
+      },
+      {
+        "label": "Fashion",
+        "value": "Value 5"
+      },
+      {
+        "label": "Music",
+        "value": "Value 6"
       }
     ]
   },
 
-  "blog_items": [
+  "event_items": [
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Joe Bloggs",
-          "url": false
-        },
-        {
-          "name": "Eric Jones",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "Piazza Navona, Rome, Italy",
       "title": "The Lighthouse, Glasgow (Glasgow Herald Building)",
       "description": "Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh.  Exterior, stonework over entrance, of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "object_url": "javascript:alert('open event');",
       "read_time": 12,
       "date": "5 March, 2017",
       "img": {
@@ -131,19 +130,10 @@
       "label": "Art History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Joe Bloggs",
-          "url": "javascript:alert('link to the author');"
-        },
-        {
-          "name": "Janet Bloggs",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "Queen Margaret Drive, Glasgow, Scotland",
       "title": "Glasgow School of Art",
       "description": "Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie.  Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "object_url": "javascript:alert('open event');",
       "read_time": 8,
       "date": "1 March, 2017",
       "img": {
@@ -161,15 +151,10 @@
       "label": "Art History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Janet Bloggs",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "Juliannalaan, Leiden, Netherlands",
       "title": "Glasgow",
       "description": "This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further. This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further. This blog post description gets truncated after four lines - with the ellipsis effect added at the end to signify to the reader that the text continues.  Most people get it that they should click on the text to read further",
+      "object_url": "javascript:alert('open event');",
       "read_time": 6,
       "date": "28 February, 2017",
       "img": {
@@ -187,11 +172,12 @@
       "label": "Art History"
     },
     {
-      "has_authors": false,
+      "location": false,
       "read_time": 9,
       "date": "11 February, 2017",
       "title": "The Lighthouse, Glasgow (Glasgow Herald Building)",
       "description": "Model (on display) | Mackintosh, Charles Rennie.  Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "object_url": "javascript:alert('open event');",
       "img": {
         "src": "/images/search/search-result-thumb-4.jpg",
         "alt": "Rectangle"
@@ -207,9 +193,10 @@
       "label": "Art History"
     },
     {
-      "has_authors": false,
+      "location": false,
       "title": "A blog post without an author?",
       "description": "How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh. How does that make sense?  These things happen, and this is an example of that.  Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie.  Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "object_url": "javascript:alert('open event');",
       "date": "30 January, 2017",
       "img": {
         "src": "/images/search/search-result-thumb-5.jpg",
@@ -226,9 +213,10 @@
       "label": "Art History"
     },
     {
-      "has_authors": false,
+      "location": "Renfrew Street, Glasgow, Scotland",
       "title": "Glasgow School of Art",
       "description": "Interior, alcove for mosaic | Mackintosh, Charles Rennie.  Interior, alcove for mosaic, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh.",
+      "object_url": "javascript:alert('open event');",
       "read_time": 12,
       "date": "23 January, 2017",
       "img": {
@@ -246,17 +234,12 @@
       "label": "Art History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "The Elephant Scribbler",
-          "url": false
-        }
-      ],
+      "location": "The Royal Mile, Edinburgh, Scotland",
       "read_time": 3,
       "date": "8 January, 2017",
       "title": "An Elephant, a photograph, a drawing.",
       "description": "This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures.",
+      "object_url": "javascript:alert('open event');",
       "img": {
         "src": "/images/search/search-result-thumb-giraffe.png",
         "alt": "Rectangle"
@@ -279,17 +262,12 @@
       }
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Joe Bloggs",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "Via Roma, Napoli, Italy",
       "read_time": 7,
       "date": "19 December, 2016",
       "title": "Militia Company of District II under the Command of Captain Frans Banninck Cocq, Known as de Night Watch",
       "description": "The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century. The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century. The painting may be more properly titled by its long since forgotten name The Company of captain Frans Banning Cocq and lieutenant Willem van Ruytenburch preparing to march out. In the 18th century the painting became known as the Night Watch, in 19th century it continued to be known as the Night Watch and in the 20th century \"the Night Watch\" was still the name of the painting.  So far the name has not been altered in the 21st century.",
+      "object_url": "javascript:alert('open event');",
       "tags": {
         "items": [
           {
@@ -309,16 +287,11 @@
       "label": "Military History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Janet Bloggs",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "11 Dorset Avenue, Cambridge, England",
       "read_time": 14,
       "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
       "description": "Janet is not related to Joe Bloggs (or Nicolaes Tulp).  The Anatomy Lesson of Dr. Nicolaes Tulp is a 1632 oil painting on canvas by Rembrandt housed in the Mauritshuis museum in The Hague, the Netherlands. Dr. Nicolaes Tulp is pictured explaining the musculature of the arm to medical professionals. Some of the spectators are checking their phones.",
+      "object_url": "javascript:alert('open event');",
       "date": "11 December, 2016",
       "img": {
         "src": "/images/search/search-result-thumb-2.jpg",
@@ -339,16 +312,11 @@
       "label": "Art History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Me",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "12 Winchester Court, Bournemouth, England",
       "read_time": 1,
       "title": "Self portrait",
       "description": "Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro. Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro. Self-portrait with dishevelled hair is an early self-portrait by the Dutch artist Rembrandt, now in the Rijksmuseum. It dates to 1628 and is an exercise in chiaroscuro.",
+      "object_url": "javascript:alert('open event');",
       "date": "5 December, 2016",
       "img": {
         "src": "/images/search/search-result-thumb-2.jpg",
@@ -369,21 +337,12 @@
       "label": "Art"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Joe Bloggs",
-          "url": "javascript:alert('link to the author');"
-        },
-        {
-          "name": "Janet Bloggs",
-          "url": false
-        }
-      ],
+      "location": "22 Fleet Street, London, England",
       "read_time": 12,
       "date": "27 November, 2016",
       "title": "Belshazzars Feast",
       "description": "Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London. Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London. Belshazzar's Feast is a painting by Rembrandt. Its source comes from the story of Belshazzar and the writing on the wall in the Old Testament Book of Daniel. It is held in the The National Gallery, London.",
+      "object_url": "javascript:alert('open event');",
       "img": {
         "src": "/images/search/search-result-thumb-3.jpg",
         "alt": "Rectangle"
@@ -403,17 +362,12 @@
       "label": "Art History"
     },
     {
-      "has_authors": true,
-      "authors": [
-        {
-          "name": "Joe Bloggs",
-          "url": "javascript:alert('link to the author');"
-        }
-      ],
+      "location": "Rue d'Voltaire, Paris, France'",
       "read_time": 2,
       "title": "The Stoning of Saint Stephen",
       "description": "The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19. The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19.",
       "date": "21 November, 2016",
+      "object_url": "javascript:alert('open event');",
       "tags": {
         "items": [
           {

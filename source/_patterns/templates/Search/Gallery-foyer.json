@@ -41,7 +41,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "collections/galleries"
+      "value": "galleries/index"
     }
   ],
   "content": {

@@ -36,9 +36,15 @@
 
               <div class="text-split">
                 {{#has_authors}}
+                  <span class="capitalised by">{{i18n.global.labels.by}}</span>
                   <ul class="authors">
                     {{#authors}}
-                      <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                      {{#url}}
+                        <li><a class="author svg-icon-external-white-after" href="{{.}}">{{name}}</a></li>
+                      {{/url}}
+                      {{^url}}
+                        <li><span class="author">{{name}}</span></li>
+                      {{/url}}
                     {{/authors}}
                   </ul>
                 {{/has_authors}}
@@ -64,7 +70,12 @@
                       <div class="blog-tags">
                         <ul class="blog-item-tags">
                           {{#items}}
-                            <li><a href="{{url}}">{{text}}</a></li>
+                            {{#url}}
+                              <li><a href="{{.}}">{{text}}</a></li>
+                            {{/url}}
+                            {{^url}}
+                              <li>{{text}}</li>
+                            {{/url}}
                           {{/items}}
                         </ul>
                       </div>
@@ -78,30 +89,33 @@
         {{/blog_image}}
 
 
-        <div class="text-left blog-body bolg-main">
+        <div class="text-left blog-body">
           {{#tags}}
             {{#has_tags}}
               <div class="blog-item-tags-wide">
                 <a class="expand-tags">
-                  <span class="svg-icon-bookmark-eu-blue tags-icon"></span>
-                  <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span>
+                  <span><span class="svg-icon-bookmark-eu-blue tags-icon"></span>
+                    <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span></span>
                 </a>
                 <ul class="blog-item-tags comma-list js-hidden">
-                  {{#items}}<li><a href="{{url}}">{{text}}</a></li>{{/items}}
+                  {{#items}}{{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}{{^url}}<li>{{text}}</li>{{/url}}{{/items}}
                 </ul>
               </div>
             {{/has_tags}}
           {{/tags}}
 
-          <p>
+          <p class="blog-intro">
             {{{introduction}}}
           </p>
 
           {{{body}}}
         </div>
       </div>
-    
+
   {{/content}}
+  <div class="is-hidden">
+    {{> molecules/components/photoswipe/photoswipe }}
+  </div>
 </div>
 
 {{> organisms/sections/banner }}

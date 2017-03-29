@@ -1,0 +1,50 @@
+{{#is_java}}
+    {{>atoms/meta/_head}}
+{{/is_java}}
+
+{{#metis_header}}
+    {{> organisms/global/header_v2 }}
+{{/metis_header}}
+
+{{#landing_page_content}}
+	{{#is_home}}
+		{{> organisms/components/site-hero }}
+		<!-- Start Main page content -->
+		<div>
+		    {{> organisms/sections/banner }}
+		    <!-- End main content -->
+		</div>
+	{{/is_home}}
+	{{#is_login}}
+	<div>
+		{{> molecules/pandora/login-form}}
+	</div>
+	{{/is_login}}
+	{{#is_register}}
+	<div>
+		{{> molecules/pandora/register-form}}
+	</div>
+	{{/is_register}}
+	{{#is_profile}}
+	<div>
+		{{> molecules/pandora/profile-form}}
+	</div>
+	{{/is_profile}}
+	{{#is_requests}}
+	<div>
+		{{> atoms/pandora/table/user-requests-table}}
+	</div>
+	{{/is_requests}}
+	{{#is_request_approve}}
+	<div>
+		{{> molecules/pandora/user-approval-form}}
+	</div>
+	{{/is_request_approve}}
+{{/landing_page_content}}
+{{#metis_footer}}
+    {{> organisms/global/footer_v2 }}
+{{/metis_footer}}
+
+{{#is_java}}
+    {{>atoms/meta/_foot}}
+{{/is_java}}

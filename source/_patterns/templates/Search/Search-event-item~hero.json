@@ -1,5 +1,5 @@
 {
-  "page_title": "Europeana Blog",
+  "page_title": "Europeana Event",
   "page_locale": "en",
   "version": {
     "is_alpha": true
@@ -22,22 +22,29 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "blog_posts/show"
+      "value": "events/show"
     }
   ],
   "channel_data": false,
   "navigation": {
     "back_url": "javascript:alert('follow breadcrumb')"
   },
-  "blog_title": "This Specific Blog",
+  "event_title": "Exhibition: \"Hubert de Givenchy.  To Audrey with Love\"",
   "content": {
-    "blog_image": {
+    "event_date" : "3 December, 2015 - 4 December, 2015",
+    "event_image": {
       "src": "https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg",
       "alt": "Some dude"
     },
     "body": "<p>At this year’s European Museums Academy annual conference, two awards, the <a href=\"http://heritageinmotion.eu/\" target=\"_blank\">Heritage in Motion</a> Awards and the <a href=\"http://www.europeanmuseumacademy.eu/4/luigi_micheletti_award_406337.html\">Luigi&nbsp;</a><a href=\"http://www.europeanmuseumacademy.eu/4/luigi_micheletti_award_406337.html\" target=\"_blank\">Micheletti Award</a>, highlighted the most exciting and inventive uses of digital and multimedia technology in European museums in 2014.</p>\r\n\r\n<p>At&nbsp;the awards, museums and archives are recognised for using multimedia technology to enhance the experience of visitors in all sorts of different ways, whether to educate and enlighten, or merely to entertain.&nbsp;</p>\r\n\r\n<p><strong>Heritage in Motion Awards&nbsp;</strong></p>\r\n\r\n<p>What does an archeological site beneath Utrecht’s Domplein Square have in common with a knitting museum in Nottinghamshire, a Croatian monument and the Rijksmuseum in Amsterdam? Well, all four were winners at this year’s Heritage in Motion awards, and as they show, achievements in this broad field can take all shapes and sizes.&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://s-media-cache-ak0.pinimg.com/736x/cb/4c/32/cb4c32d1fcea956ec17e5ab8fb8cdaa4.jpg\"/><br />\r\nJudges and winners&nbsp;of Heritage in Motion awards. Image: <a href=\"http://heritageinmotion.eu/winners-announced-of-the-heritage-in-motion-awards-2015/\" target=\"_blank\">Heritage in Motion</a>.</p>\r\n\r\n<p>This year’s Best Achievement award went to <a href=\"http://heritageinmotion.eu/project/domunder-archaeological-visitor-experience-under-the-domplein-square/\" target=\"_blank\">DOMunder</a>, an archeological experience under Domplein square in Utrecht. Dreamt up by <a href=\"http://www.tinker.nl/en/home\" target=\"_blank\">Tinker Imagineers</a>, visitors descend into the darkness beneath the medieval Cathedral Square armed with an interactive torch and an earpiece. Here, their time-travelling experience begins, and the torch, which uses infrared technology, helps visitors independently explore the archeological site, and uncover hidden stories along the way.&nbsp;</p>\r\n\r\n<p>In the website and online content category, the visitor again assumes an active, participatory role. The Framework Knitters Museum, in Nottinghamshire, UK, won the award with their interactive drama, <a href=\"http://heritageinmotion.eu/project/breaking-the-frame-interactive-film-drama/\" target=\"_blank\">Breaking the Frame</a>, which follows the story of a boy Ben, a young knitter working during the Luddite Uprising in the 19th century. As Ben faces some tough choices, visitors must decide what path he will take.&nbsp;</p>\r\n\r\n<p>The Rijksmuseum’s <a href=\"http://heritageinmotion.eu/project/rijksmuseum-app-multimedia-tour-and-family-quest/\" target=\"_blank\">multimedia tour and family quest</a> got the jury’s stamp of approval in the apps for mobile devices category. A game for two to four players, families must solve mysteries, learning about the collection on the way, and even receiving a call from the museum director, Wim Pijbes.&nbsp;</p>\r\n\r\n<p>Finally, <a href=\"http://heritageinmotion.eu/project/gubec-teater/\" target=\"_blank\">the Gubec Theatre</a> by the Museum of Peasant Uprisings in Gornja Stubia, Croatia, won the film and video award. This project transforms the sixteenth century Peasants Revolt into a multimedia narrative projected onto the 40 metre-long monument which commemorates the historic event.&nbsp;</p>\r\n\r\n<p><strong>The Micheletti Award</strong></p>\r\n\r\n<p>There was another Dutch winner at the Luigi Micheletti Award,<a href=\"http://www.europeanmuseumacademy.eu/4/upload/2015_micheletti_judges_report.pdf\" target=\"_blank\"> this year given to the National Archives of the Netherlands</a> for their exhibition, The Memory Palace. With the archive’s vast collections as the basis for eleven different stories, each designed by artists, producers and game developers, visitors take a journey through Dutch history from the Middle Ages through to the 1970s. Judges praised the archives for using their collections, mainly written documents, in such surprising and engaging ways, and for showing what “an archival institution can do when the will is there and the mind is set.”</p>\r\n\r\n<p>It’s always inspiring to see the different ways museums are using their collections to create unexpected and original experiences for their visitors in the digital age. Well done to everyone involved!</p>",
     "date": "2 February, 2017",
-    "introduction": "This is the introduction for the test blog post",
+    "geolocation": {
+      "address": "Avda\/ de la Ciencia s\/n, 18006 Granada, Spanje",
+      "latitude": "37.160094",
+      "longitude": "-3.605688",
+      "formatted_address": "Avenida De Las Ciencias, S\/N, 18006 Granada, Granada, Spain"
+    },
+    "introduction": "This is the Event introduction",
     "label": "Art",
     "tags": {
       "has_tags": true,
@@ -72,7 +79,7 @@
     "authors": [
       {
         "name": "Joe Bloggs",
-        "url": false
+        "url": "javascript:alert('link to the author');"
       },
       {
         "name": "Eric Jones",

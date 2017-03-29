@@ -71,6 +71,10 @@
     transition: all 0.25s ease-in-out;
   }
 
+  .hidden {
+    display: none;
+  }
+
   .modal-wrapper.open {
     opacity: 1;
     visibility: visible;

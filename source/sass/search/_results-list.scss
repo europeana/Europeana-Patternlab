@@ -179,6 +179,7 @@
 .action-select,
 .result-actions,
 .blogs-info,
+.events-info,
 .result-info,
 .result-sort{
   margin-top: $space-quarter;
@@ -242,6 +243,7 @@
 
 @media all and (min-width: $bp-med) {
   .blogs-info,
+  .events-info,
   .result-info{
     @include span(8 of 18);
   }
@@ -262,7 +264,6 @@
   }
 }
 
-.blogs-info,
 .result-info{
   @media all and (min-width: $bp-med) {
     margin-left:  0;
@@ -363,6 +364,7 @@
 }
 
 .blogs-info,
+.events-info,
 .result-info{
   position:         relative;
   top:              3em;
@@ -390,12 +392,36 @@
   }
 }
 
-.blogs-info{
+.blog-list,
+.event-list{
+
+  .blogs-info,
+  .events-info{
+
+    top: 2em;
+
+    @media all and (min-width: $bp-small-3) {
+      top:          -0.25em;
+      margin-left:  0;
+      margin-right: 0;
+      width:        auto;
+    }
+
+    @media all and (min-width: $bp-med) {
+      margin-left:  0;
+      margin-top:   0;
+      padding-left: 0;
+      top:          0.5em;
+    }
+  }
+
   @media all and (min-width: $bp-med) {
-    margin-left:  0em;
-    padding-left: 0;
+    .result-controls{
+      top: 0;
+    }
   }
 }
+
 
 
 .result-viewtype{

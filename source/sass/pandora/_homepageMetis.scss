@@ -1,0 +1,58 @@
+@import "./layout_susy";
+
+/*------------------------------------*\
+  BANNER
+\*------------------------------------*/
+//included to style banner block on Metis homepage
+
+.header-wrapper .header .cf {
+  border-top-color: $eu-raspberry;
+}
+
+// sets circles over hero.
+.brand-circles svg {
+  fill: $white;
+}
+
+body {
+  background-image: none;
+}
+
+// Hero box attribute
+.attribution-content {
+  max-width: 210px;
+}
+
+.hero-text {
+  display: none;
+}
+
+.phase-flag.beta {
+  background-color: $eu-raspberry;
+}
+
+
+.banner {
+  background-color: $white;
+  color: $black;
+}
+
+.btn.btn-light {
+  border-color: $eu-raspberry;
+  color: $eu-raspberry;
+}
+
+// link on homepage banner.
+.info-link {
+  color: $eu-raspberry;
+  font-weight: bold;
+}
+
+// make styling specific to homepage metis since this might/will affect other sites.
+header.header,
+.site-hero.cf.brand-bottomleft.brand-colour-site,
+section#banner,
+footer.footer.v2{
+  //max-width: 1440px;
+  //margin: 0 auto;
+}
