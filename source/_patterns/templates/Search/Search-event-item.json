@@ -76,7 +76,7 @@
     "authors": [
       {
         "name": "Joe Bloggs",
-        "url": "javascript:alert('link to the author');"
+        "url": false
       },
       {
         "name": "Eric Jones",

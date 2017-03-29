@@ -49,7 +49,12 @@
                 <span class="capitalised by">{{i18n.global.labels.by}}</span>
                 <ul class="authors">
                   {{#authors}}
-                    <li><a class="author svg-icon-external-white-after" href="{{url}}">{{name}}</a></li>
+                    {{#url}}
+                      <li><a class="author svg-icon-external-white-after" href="{{.}}">{{name}}</a></li>
+                    {{/url}}
+                    {{^url}}
+                      <li><span class="author">{{name}}</span></li>
+                    {{/url}}
                   {{/authors}}
                 </ul>
               {{/has_authors}}

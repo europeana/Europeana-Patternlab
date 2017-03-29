@@ -105,7 +105,7 @@
       "authors": [
         {
           "name": "Joe Bloggs",
-          "url": "javascript:alert('link to the author');"
+          "url": false
         },
         {
           "name": "Eric Jones",
@@ -249,7 +249,8 @@
       "has_authors": true,
       "authors": [
         {
-          "name": "The Elephant Scribbler"
+          "name": "The Elephant Scribbler",
+          "url": false
         }
       ],
       "read_time": 3,
@@ -376,7 +377,7 @@
         },
         {
           "name": "Janet Bloggs",
-          "url": "javascript:alert('link to the author');"
+          "url": false
         }
       ],
       "read_time": 12,

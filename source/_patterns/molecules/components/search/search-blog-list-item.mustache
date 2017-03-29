@@ -20,7 +20,12 @@
 
         <ul class="authors comma-list">
           {{#authors}}
-            <li><a class="author" href="{{url}}">{{name}}</a></li>
+            {{#url}}
+              <li><a class="author" href="{{.}}">{{name}}</a></li>
+            {{/url}}
+            {{^url}}
+              <li><span class="author">{{name}}</span></li>
+            {{/url}}
           {{/authors}}
         </ul>
       {{/has_authors}}

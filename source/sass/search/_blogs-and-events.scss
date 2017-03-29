@@ -320,14 +320,15 @@
             color: $white;
             border-bottom: 1px dotted #fff;
 
-            &.author{
-              font-size:    $font-size-slightly-smaller;
-              margin-right: 1em;
-            }
 
             &:hover{
               border-bottom: solid 1px #eee;
             }
+          }
+          .author{
+            display:      inline-block;
+            font-size:    $font-size-slightly-smaller;
+            margin-right: 1em;
           }
 
           .title{
@@ -525,8 +526,9 @@
       font-size: 2em;
     }
     .date-bottom{
-      border-top: 1px solid #fff;
-      display:    block;
+      border-top:  1px solid #fff;
+      display:     block;
+      padding-top: 0.4em;
     }
   }
 }
