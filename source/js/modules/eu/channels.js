@@ -51,11 +51,16 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
     });
 
     var initCollectionsFilter = function(){
-        $('#list_filterby').on('change', function(){
-            var val = $(this).val();
-            var param = (val == '*') ? '' : '?theme=' + val;
-            window.location.href = window.location.href.split('?')[0] + param;
-        })
+      $('#list_filterby').on('change', function(){
+        var val = $(this).val();
+        var param = (val == '*') ? '' : '?theme=' + val;
+        window.location.href = window.location.href.split('?')[0] + param;
+      });
+      $('#list_sortby').on('change', function(){
+        var val = $(this).val();
+        var param = (val == '*') ? '' : '?sort=' + val;
+        window.location.href = window.location.href.split('?')[0] + param;
+      });
     }
 
     var initFeedback = function(){

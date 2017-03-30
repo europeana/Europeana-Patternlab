@@ -18,3 +18,10 @@
     padding:0;
   }
 }
+
+.filterby + .filterby,
+.sortby + .sortby,
+.sortby + .filterby,
+.filterby + .sortby{
+  margin-left: 1em;
+}
