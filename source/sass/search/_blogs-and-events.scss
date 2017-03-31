@@ -515,21 +515,21 @@
       width: 100%;
     }
   }
+}
 
-  .event-date{
-    border:      1px solid #fff;
-    display:     inline-block;
-    margin-left: 1em;
-    padding:     0.5em;
+.event-date{
+  border:      1px solid #fff;
+  display:     inline-block;
+  margin-left: 1em;
+  padding:     0.5em;
 
-    .date-top{
-      font-size: 2em;
-    }
-    .date-bottom{
-      border-top:  1px solid #fff;
-      display:     block;
-      padding-top: 0.4em;
-    }
+  .date-top{
+    font-size: 2em;
+  }
+  .date-bottom{
+    border-top:  1px solid #fff;
+    display:     block;
+    padding-top: 0.4em;
   }
 }
 
