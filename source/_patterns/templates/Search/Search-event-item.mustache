@@ -115,6 +115,46 @@
           </p>
 
           {{{body}}}
+          
+          {{#where_and_when}}
+            <div class="where-when">
+              {{#institute}}
+                {{#url}}
+                  <a class="svg-icon-external-after" href="{{.}}">{{name}}</a>
+                {{/url}}
+              {{/institute}}
+              {{#address}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-location"> </span>
+                  {{.}}
+                </span>
+              {{/address}}
+              {{#time}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-clock"> </span>
+                  {{.}}
+                </span>
+              {{/time}}
+              {{#phone}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-phone-landline"> </span>
+                  {{.}}
+                </span>
+              {{/phone}}
+              {{#email}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-email"> </span>
+                  {{.}}
+                </span>
+              {{/email}}
+              {{#contact}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-user"> </span>
+                  {{.}}
+                </span>
+              {{/contact}}
+            </div>
+          {{/where_and_when}}
         </div>
       </div>
 

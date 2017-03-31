@@ -5,9 +5,14 @@
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark-white-before";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
+@import "../_patterns/atoms/iconography/_svg-icon-clock";
 @import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
+@import "../_patterns/atoms/iconography/_svg-icon-email";
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
+@import "../_patterns/atoms/iconography/_svg-icon-phone-landline";
 @import "../_patterns/atoms/iconography/_svg-icon-location";
+@import "../_patterns/atoms/iconography/_svg-icon-user";
+
 
 
 .blog-list,
@@ -530,6 +535,44 @@
     border-top:  1px solid #fff;
     display:     block;
     padding-top: 0.4em;
+  }
+}
+
+.where-when{
+  border:   1px solid #ccc;
+  margin:   auto;
+  padding:  $space;
+  position: relative;
+  
+  .where-when-icon{
+  	
+    display: inline-block;
+    width:   1.7em;
+    
+    &.svg-icon-clock{
+      height:    1.8em;
+      transform: scale(0.7);
+    }
+    &.svg-icon-email{
+      height:    1.8em;
+      transform: scale(0.7);
+    }
+    &.svg-icon-location{
+      height:    1.8em;
+      transform: scale(0.7);
+    }   
+    &.svg-icon-phone-landline{
+      height:    1.8em;
+      transform: scale(0.7);    	
+    }
+    &.svg-icon-user{
+      height:    1.8em;
+      transform: scale(0.7);    	
+    }
+  }
+  
+  .where-when-info{
+    display: block;  	
   }
 }
 
