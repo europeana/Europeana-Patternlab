@@ -52,7 +52,7 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
 
     var initCollectionsFilter = function(){
       require(['purl'], function(){
-          $('#list_sortby').add('#list_filterby').on('change', function(){
+        $('#list_sortby').add('#list_filterby').on('change', function(){
           var val        = $(this).val();
           var filterName = $(this).data('filter-name');
           if(!filterName){
@@ -67,7 +67,8 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
             delete params[filterName];
           }
           
-          var newUrl = window.location.href.split('?')[0] + '?' + $.param(params);
+          var newParams = $.param(params);
+          var newUrl = window.location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
           window.location.href = newUrl;
         });
       });
