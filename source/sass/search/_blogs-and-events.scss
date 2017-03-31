@@ -9,6 +9,7 @@
 @import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
 @import "../_patterns/atoms/iconography/_svg-icon-email";
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
+@import "../_patterns/atoms/iconography/_svg-icon-external-eu-blue-after";
 @import "../_patterns/atoms/iconography/_svg-icon-phone-landline";
 @import "../_patterns/atoms/iconography/_svg-icon-location";
 @import "../_patterns/atoms/iconography/_svg-icon-user";
@@ -540,39 +541,30 @@
 
 .where-when{
   border:   1px solid #ccc;
-  margin:   auto;
+  margin:   $space*2 auto 0 auto;
   padding:  $space;
   position: relative;
-  
+
   .where-when-icon{
-  	
-    display: inline-block;
-    width:   1.7em;
-    
-    &.svg-icon-clock{
-      height:    1.8em;
-      transform: scale(0.7);
-    }
-    &.svg-icon-email{
-      height:    1.8em;
-      transform: scale(0.7);
-    }
+
+    display:   inline-block;
+    height:    1.8em;
+    position:  relative;
+    top:       0.6em;
+    transform: scale(0.7);
+    width:     1.7em;
+
+    &.svg-icon-clock,
     &.svg-icon-location{
-      height:    1.8em;
-      transform: scale(0.7);
-    }   
-    &.svg-icon-phone-landline{
-      height:    1.8em;
-      transform: scale(0.7);    	
+      top:     0.5em;
     }
-    &.svg-icon-user{
-      height:    1.8em;
-      transform: scale(0.7);    	
+    &.svg-icon-phone-landline{
+      top:     0.55em;
     }
   }
-  
+
   .where-when-info{
-    display: block;  	
+    display: block;
   }
 }
 
