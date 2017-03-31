@@ -106,6 +106,19 @@
       }
     ]
   },
+  "events_order_options": {
+    "filter_name": "order",
+    "options": [
+      {
+        "label": "Most recent",
+        "value": "Value 1"
+      },
+      {
+        "label": "Most ancient",
+        "value": "Value 2"
+      }
+    ]
+  },
 
   "event_items": [
     {

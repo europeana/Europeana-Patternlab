@@ -33,6 +33,9 @@
               {{ i18n.site.events.list.count-and-terms-with-range }}
             </div>
             <div class="result-controls">
+              {{#events_order_options}}
+                {{>molecules/forms/sortby}}
+              {{/events_order_options}}
               {{#events_filter_options}}
                 {{>molecules/forms/filterby}}
               {{/events_filter_options}}

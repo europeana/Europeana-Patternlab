@@ -51,13 +51,29 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
     });
 
     var initCollectionsFilter = function(){
-        $('#list_filterby').on('change', function(){
-            var val = $(this).val();
-            var param = (val == '*') ? '' : '?theme=' + val;
-            window.location.href = window.location.href.split('?')[0] + param;
-        })
+      require(['purl'], function(){
+        $('#list_sortby').add('#list_filterby').on('change', function(){
+          var val        = $(this).val();
+          var filterName = $(this).data('filter-name');
+          if(!filterName){
+            filterName = $(this).attr('id') == 'list_sortby' ? 'order' : 'theme';
+          }
+          var $url   = $.url();
+          var params = $url.param();
+          
+          params[filterName] = (['*', 'all'].indexOf(val) > -1 ? '' : val);
+          
+          if(!params[filterName]){
+            delete params[filterName];
+          }
+          
+          var newParams = $.param(params);
+          var newUrl = window.location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
+          window.location.href = newUrl;
+        });
+      });
     }
-
+      
     var initFeedback = function(){
       if($('.feedback').size()>0){
         require(['feedback'], function(fb){

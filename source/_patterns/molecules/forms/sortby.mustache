@@ -1,9 +1,8 @@
-
 <div class="sortby">
-    <label for="list_sortby">Sort by:</label>
-    <select id="list_sortby">
-            <option>Date</option>
-            <option>Option Two</option>
-            <option>Option Three</option>
-    </select>
+  <label for="list_sortby">{{i18n.global.actions.view}}:</label>
+  <select id="list_sortby" {{#filter_name}}data-filter-name="{{.}}"{{/filter_name}} autocomplete="off">
+    {{#options}}
+      <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
+    {{/options}}
+  </select>
 </div>

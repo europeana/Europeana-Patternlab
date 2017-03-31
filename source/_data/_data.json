@@ -795,7 +795,9 @@
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
               "next":"next",
-              "previous":"previous"
+              "sort-by": "Order by",
+              "previous":"previous",
+              "view": "View"
             },
             "cookie_disclaimer": {
               "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
