@@ -303,7 +303,10 @@
         img{
           margin-bottom: 0;
           margin-top: 0;
-          max-width: none;
+          
+          @media all and (min-width: $bp-med) {
+            max-width: none;
+          }
         }
 
         .introduction{
@@ -449,7 +452,7 @@
         }
       }
      
-      @media all and (min-width: $bp-small-3) {
+      @media all and (min-width: $bp-med) {
      
         .event-date{
           bottom:    0;
@@ -462,10 +465,14 @@
           float:       left;
           line-height: 2em;
           max-width:   70%;
+          text-align:  left;
         }
       }
 
       @media all and (max-width: $bp-med) {
+      	.event-date{
+      	  font-size: 0.9em;
+      	}
         .title{
        	  padding: 0 1em;
         }      
