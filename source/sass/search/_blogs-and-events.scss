@@ -63,7 +63,7 @@
 
 .search-hero.map{
 
-  height: 22em;
+  height: 24em;
 
   &.larger{
 
@@ -219,8 +219,13 @@
       img{
         display:   block;
         margin:    $space/2 auto;
-        max-width: 75%;
+        max-width: none;
         position:  relative;
+        width:     100%;
+        
+        @media all and (min-width: $bp-med) {
+          max-width: 75%;
+        }
 
         &.zoomable{
           cursor: pointer;
@@ -307,6 +312,9 @@
           @media all and (min-width: $bp-med) {
             max-width: none;
           }
+          @media all and (max-width: $bp-med) {
+            max-height: 22em;
+          }
         }
 
         .introduction{
@@ -357,14 +365,14 @@
 
             @media all and (min-width: $bp-med) {
               font-size:     1.4em;
-              line-height:   1.6em;
-              min-height:    4.8em;
+              line-height:   1.5em;
+              min-height:    4.5em;
             }
 
             @media all and (min-width: $bp-xl) {
-              font-size:     1.8em;
-              line-height:   1.9em;
-              min-height:    5.7em;
+              font-size:     1.8rem;
+              line-height:   2.5rem;
+              min-height:    7.5rem;
             }
 
           }
@@ -372,6 +380,7 @@
           .text-split{
             border-bottom:  1px solid $white;
             margin-bottom:  0.5em;
+            margin-top:     0.5em;
             padding-bottom: 1em;
 
             .location,
@@ -420,6 +429,10 @@
           @media all and (min-width: $bp-med) {
             padding: 1.2em 6em 0 6em;
           }
+          @media all and (max-width: $bp-med) {
+            padding: 1em 4em;
+          }
+
         }
 
 
@@ -450,16 +463,20 @@
         .event-date{
           margin-bottom: 0.5em;
         }
+        .event-hero{
+       	  min-height: 16em;
+        }
       }
      
       @media all and (min-width: $bp-med) {
      
         .event-date{
-          bottom:    0;
           float:     right;
           max-width: 30%;
           position:  absolute;
           right:     0em;
+          top:       50%;
+          transform: translateY(-50%);
         }
         .title{
           float:       left;
@@ -488,6 +505,7 @@
 
 .event-hero.site-hero{
   background-color: transparent;
+  width:            100%;
 }
 
 .event-list-item,
@@ -580,7 +598,6 @@
     border-top:  1px solid #fff;
     display:     block;
     padding-top: 0.4em;
-    white-space: nowrap;
   }
 }
 
