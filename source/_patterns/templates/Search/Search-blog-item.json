@@ -53,18 +53,6 @@
         {
           "url": "javascript:alert('open tag link')",
           "text": "Annotation one"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
         }
       ]
     },

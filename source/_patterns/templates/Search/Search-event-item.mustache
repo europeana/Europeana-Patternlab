@@ -42,8 +42,14 @@
 
           <div class="introduction text-centre">
 
-            {{#event_title}}<div class="title text-centre">{{.}}</div>{{/event_title}}
+            <div class="cf relative">
+              {{#event_title}}<div class="title">{{.}}</div>{{/event_title}}
 
+              {{#event_date}}
+                <div class="event-date" data-date="{{.}}"></div>
+              {{/event_date}}
+            </div>
+            
             <div class="text-split">
               {{#has_authors}}
                 <span class="capitalised by">{{i18n.global.labels.by}}</span>
@@ -61,9 +67,6 @@
               {{#read_time}}
                 <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
               {{/read_time}}
-              {{#event_date}}
-                <div class="event-date" data-date="{{.}}"></div>
-              {{/event_date}}
             </div>
 
             <div class="text-lower-section">
@@ -116,13 +119,16 @@
 
           {{{body}}}
 
-          {{#where_and_when}}
+          {{#location}}
             <div class="where-when">
-              {{#institute}}
-                {{#url}}
-                  <a class="svg-icon-external-eu-blue-after" href="{{.}}">{{name}}</a>
+              {{#institute_name}}
+                {{#institute_url}}
+                  <a class="svg-icon-external-eu-blue-after" href="{{.}}">{{institute_name}}</a>
+                {{/institute_url}}
+                {{^url}}
+                  {{.}}
                 {{/url}}
-              {{/institute}}
+              {{/institute_name}}
               {{#address}}
                 <span class="where-when-info">
                   <span class="where-when-icon svg-icon-location"> </span>
@@ -154,7 +160,7 @@
                 </span>
               {{/contact}}
             </div>
-          {{/where_and_when}}
+          {{/location}}
         </div>
       </div>
 

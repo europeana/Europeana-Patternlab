@@ -41,11 +41,9 @@
       "longitude": "-3.605688",
       "formatted_address": "Avenida De Las Ciencias, S\/N, 18006 Granada, Granada, Spain"
     },
-    "where_and_when": {
-      "institute": {
-	    "url": "javascript:alert('open institute url');",
-	    "name": "Gemeentenmuseum Den Haag"
-      },
+    "location": {
+	  "institute_url": "javascript:alert('open institute url');",
+	  "institute_name": "Gemeentenmuseum Den Haag",
       "address": "Stadhouderslaan 41, 2517 HV, The Hague, The Netherlands",
       "time": "08:00 - 23:00", 
       "phone": "0123-456-789",
@@ -68,18 +66,6 @@
         {
           "url": "javascript:alert('open tag link')",
           "text": "Annotation one"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
-        },
-        {
-          "url": "javascript:alert('open tag link')",
-          "text": "Another annotation"
         }
       ]
     },
