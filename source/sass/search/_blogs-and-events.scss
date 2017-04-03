@@ -150,8 +150,8 @@
   }
 
   .svg-icon-bookmark-white{
-    transform: translateY(0.7em);
-    margin-right: 1em;
+    transform: translateY(0.7em) scale(0.7);
+    margin-right: 0.5em;
   }
 
   .svg-icon-bookmark-before::before{
@@ -344,24 +344,24 @@
 
             font-size:     1em;
             line-height:   1.3em;
-            max-height:    2.6em;
+            height:        3.9em;
 
             @media all and (min-width: $bp-small-3) {
               font-size:     1.2em;
               line-height:   1.5em;
-              max-height:    3em;
+              min-height:    4.5em;
             }
 
             @media all and (min-width: $bp-med) {
               font-size:     1.4em;
               line-height:   1.6em;
-              max-height:    3.2em;
+              min-height:    4.8em;
             }
 
             @media all and (min-width: $bp-xl) {
               font-size:     1.8em;
-              line-height:   2.1em;
-              max-height:    4.2em;
+              line-height:   1.9em;
+              min-height:    5.7em;
             }
 
           }
@@ -379,6 +379,10 @@
               white-space: nowrap;
             }
           }
+         
+          .date{
+            font-size: $font-size-slightly-smaller;
+          }
 
           .text-lower-section{
 
@@ -392,10 +396,6 @@
                   display: none;
                 }
               }
-            }
-
-            .date{
-              font-size: $font-size-slightly-smaller;
             }
 
             .blog-tags,
@@ -415,7 +415,7 @@
           }
 
           @media all and (min-width: $bp-med) {
-            padding: 1.5em 6em 0 6em;
+            padding: 1.2em 6em 0 6em;
           }
         }
 
@@ -438,6 +438,43 @@
     }
     &.event-detail{
       transform: translateY(-15em);
+      
+
+      @media all and (max-width: $bp-small-3) {
+        .title{
+       	  padding: 0 2em;
+        }
+        .event-date{
+          margin-bottom: 0.5em;
+        }
+      }
+     
+      @media all and (min-width: $bp-small-3) {
+     
+        .event-date{
+          bottom:    0;
+          float:     right;
+          max-width: 30%;
+          position:  absolute;
+          right:     0em;
+        }
+        .title{
+          float:       left;
+          line-height: 2em;
+          max-width:   70%;
+        }
+      }
+
+      @media all and (max-width: $bp-med) {
+        .title{
+       	  padding: 0 1em;
+        }      
+      }
+
+      @media all and (min-width: $bp-xl) {
+      	
+      }
+
     }
   }
 }
@@ -536,6 +573,7 @@
     border-top:  1px solid #fff;
     display:     block;
     padding-top: 0.4em;
+    white-space: nowrap;
   }
 }
 
