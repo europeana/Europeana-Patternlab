@@ -60,3 +60,21 @@ footer.footer.v2{
 .attribution-content {
   max-width: 300px;
 }
+
+
+// TEMP user icon on Metis homepage required the following styling to be modified accordingly
+@media (min-width: 50em) {
+  .nav-access > li {
+    float: right;
+  }
+}
+.icon {
+  &.icon-users {
+    display: none;
+  }
+}
+.fa {
+  &.fa-user {
+    padding-right: 7px;
+  }
+}

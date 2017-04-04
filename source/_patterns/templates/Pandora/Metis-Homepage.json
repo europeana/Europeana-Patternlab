@@ -40,7 +40,7 @@
           "brand_opacity": "brand-opacity75",
           "attribution_title": "Cyclopides metis L., Cyclopides quadrisignatus Btl. ...",
           "attribution_institution": "Museum Für Naturkunde Berlin",
-          "attribution_url": "http://www.europeana.eu/portal/record/90402/SK_A_793.html",
+          "attribution_url": "http://www.europeana.eu/portal/fr/record/11622/_MFN_DRAWERS_MFN_GERMANY_http___coll_mfn_berlin_de_u_MFNB_Lep_Hesperiidae_D146.html",
           "license_CC0": true,
           "license_public": false
         },
@@ -216,6 +216,7 @@
               "url": "#",
               "text": "Sign In",
               "icon": "users",
+              "fontawesome": true,
               "submenu": {
                 "items": [
                   {
