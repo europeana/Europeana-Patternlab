@@ -792,11 +792,12 @@
               "filter-all": "All",
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen",
+              "next":"next",
+              "previous":"previous",
+              "share": "Share",
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
-              "next":"next",
               "sort-by": "Order by",
-              "previous":"previous",
               "view": "View"
             },
             "cookie_disclaimer": {
