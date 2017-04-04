@@ -42,10 +42,10 @@
       "formatted_address": "Avenida De Las Ciencias, S\/N, 18006 Granada, Granada, Spain"
     },
     "location": {
-	  "institute_url": "javascript:alert('open institute url');",
-	  "institute_name": "Gemeentenmuseum Den Haag",
+    "institute_url": "javascript:alert('open institute url');",
+    "institute_name": "Gemeentenmuseum Den Haag",
       "address": "Stadhouderslaan 41, 2517 HV, The Hague, The Netherlands",
-      "time": "08:00 - 23:00", 
+      "time": "08:00 - 23:00",
       "phone": "0123-456-789",
       "email": "email@address",
       "contact": "Jimmy"
@@ -80,7 +80,27 @@
         "url": "javascript:alert('link to the author');"
       }
     ],
-    "read_time": 15
+    "read_time": 15,
+    "social": {
+      "social_title": "Share",
+      "social_label": "Share",
+      "facebook": {
+        "url": "https://www.facebook.com/EuropeanaFashion",
+        "text": "Facebook"
+      },
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
+      },
+      "pinterest": {
+        "url": "https://uk.pinterest.com/europeana/",
+        "text": "Pinterest"
+      },
+      "googleplus": {
+        "url": "https://plus.google.com/+europeana/posts",
+        "text": "Google Plus"
+      }
+    }
   }
 }
 

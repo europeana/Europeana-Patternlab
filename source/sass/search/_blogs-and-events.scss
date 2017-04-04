@@ -209,10 +209,12 @@
     &.event-detail{
 
       transform: translateY(-9em);
+      margin-bottom: -7em;
 
       &.larger-map{
         @media all and (min-width: $bp-xl){
           transform: translateY(-20em);
+          margin-bottom: -18em;
         }
       }
 
@@ -222,7 +224,7 @@
         max-width: none;
         position:  relative;
         width:     100%;
-        
+
         @media all and (min-width: $bp-med) {
           max-width: 75%;
         }
@@ -308,7 +310,7 @@
         img{
           margin-bottom: 0;
           margin-top: 0;
-          
+
           @media all and (min-width: $bp-med) {
             max-width: none;
           }
@@ -391,7 +393,7 @@
               white-space: nowrap;
             }
           }
-         
+
           .date{
             font-size: $font-size-slightly-smaller;
           }
@@ -454,22 +456,23 @@
     }
     &.event-detail{
       transform: translateY(-15em);
-      
+      margin-bottom: -13em;
+
 
       @media all and (max-width: $bp-small-3) {
         .title{
-       	  padding: 0 2em;
+           padding: 0 2em;
         }
         .event-date{
           margin-bottom: 0.5em;
         }
         .event-hero{
-       	  min-height: 16em;
+           min-height: 16em;
         }
       }
-     
+
       @media all and (min-width: $bp-med) {
-     
+
         .event-date{
           float:     right;
           max-width: 30%;
@@ -487,16 +490,16 @@
       }
 
       @media all and (max-width: $bp-med) {
-      	.event-date{
-      	  font-size: 0.9em;
-      	}
+        .event-date{
+          font-size: 0.9em;
+        }
         .title{
-       	  padding: 0 1em;
-        }      
+           padding: 0 1em;
+        }
       }
 
       @media all and (min-width: $bp-xl) {
-      	
+
       }
 
     }

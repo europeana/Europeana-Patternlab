@@ -20,98 +20,90 @@
   </section>
 
   {{#content}}
-      <div class="container text-centre blog-post">
-
-        {{#blog_image}}
-
-          <div class="site-hero blog-hero">
-
-            {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
-
-            <img src="{{src}}" alt="{{alt}}"/>
-
-            <div class="introduction text-centre">
-
-              {{#blog_title}}<div class="title text-centre">{{.}}</div>{{/blog_title}}
-
-              <div class="text-split">
-                {{#has_authors}}
-                  <span class="capitalised by">{{i18n.global.labels.by}}</span>
-                  <ul class="authors">
-                    {{#authors}}
-                      {{#url}}
-                        <li><a class="author svg-icon-external-white-after" href="{{.}}">{{name}}</a></li>
-                      {{/url}}
-                      {{^url}}
-                        <li><span class="author">{{name}}</span></li>
-                      {{/url}}
-                    {{/authors}}
-                  </ul>
-                {{/has_authors}}
-                {{#read_time}}
-                  <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
-                {{/read_time}}
+    <div class="container text-centre blog-post">
+      {{#blog_image}}
+        <div class="site-hero blog-hero">
+          {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+          <img src="{{src}}" alt="{{alt}}"/>
+          <div class="introduction text-centre">
+            {{#blog_title}}<div class="title text-centre">{{.}}</div>{{/blog_title}}
+            <div class="text-split">
+              {{#has_authors}}
+                <span class="capitalised by">{{i18n.global.labels.by}}</span>
+                <ul class="authors">
+                  {{#authors}}
+                    {{#url}}
+                      <li><a class="author svg-icon-external-white-after" href="{{.}}">{{name}}</a></li>
+                    {{/url}}
+                    {{^url}}
+                      <li><span class="author">{{name}}</span></li>
+                    {{/url}}
+                  {{/authors}}
+                </ul>
+              {{/has_authors}}
+              {{#read_time}}
+                <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
+              {{/read_time}}
+            </div>
+            <div class="text-lower-section">
+              <div class="cell">
+                {{#date}}
+                  <span class="svg-icon-calendar-white date-icon"></span>
+                  <span class="date">{{.}}</span>
+                {{/date}}
               </div>
 
-              <div class="text-lower-section">
-                <div class="cell">
-                  {{#date}}
-                    <span class="svg-icon-calendar-white date-icon"></span>
-                    <span class="date">{{.}}</span>
-                  {{/date}}
-                </div>
-
-                {{#tags}}
-                  {{#has_tags}}
-                    <div class="cell hide-with-tags">
-                      <span class="svg-icon-bookmark-white"></span>
+              {{#tags}}
+                {{#has_tags}}
+                  <div class="cell hide-with-tags">
+                    <span class="svg-icon-bookmark-white"></span>
+                  </div>
+                  <div class="cell">
+                    <div class="blog-tags">
+                      <ul class="blog-item-tags">
+                        {{#items}}
+                          {{#url}}
+                            <li><a href="{{.}}">{{text}}</a></li>
+                          {{/url}}
+                          {{^url}}
+                            <li>{{text}}</li>
+                          {{/url}}
+                        {{/items}}
+                      </ul>
                     </div>
-                    <div class="cell">
-                      <div class="blog-tags">
-                        <ul class="blog-item-tags">
-                          {{#items}}
-                            {{#url}}
-                              <li><a href="{{.}}">{{text}}</a></li>
-                            {{/url}}
-                            {{^url}}
-                              <li>{{text}}</li>
-                            {{/url}}
-                          {{/items}}
-                        </ul>
-                      </div>
-                    </div>
-                  {{/has_tags}}
-                {{/tags}}
-              </div>
+                  </div>
+                {{/has_tags}}
+              {{/tags}}
             </div>
           </div>
-
-        {{/blog_image}}
-
-
-        <div class="text-left blog-body">
-          {{#tags}}
-            {{#has_tags}}
-              <div class="blog-item-tags-wide">
-                <a class="expand-tags">
-                  <span><span class="svg-icon-bookmark-eu-blue tags-icon"></span>
-                    <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span></span>
-                </a>
-                <ul class="blog-item-tags comma-list js-hidden">
-                  {{#items}}{{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}{{^url}}<li>{{text}}</li>{{/url}}{{/items}}
-                </ul>
-              </div>
-            {{/has_tags}}
-          {{/tags}}
-
-          <p class="blog-intro">
-            {{{introduction}}}
-          </p>
-
-          {{{body}}}
         </div>
-      </div>
+      {{/blog_image}}
 
+      <div class="text-left blog-body">
+        {{#tags}}
+          {{#has_tags}}
+            <div class="blog-item-tags-wide">
+              <a class="expand-tags">
+                <span><span class="svg-icon-bookmark-eu-blue tags-icon"></span>
+                <span class="svg-icon-ellipsis-eu-blue ellipsis-icon"></span></span>
+              </a>
+              <ul class="blog-item-tags comma-list js-hidden">
+                {{#items}}{{#url}}<li><a href="{{.}}">{{text}}</a></li>{{/url}}{{^url}}<li>{{text}}</li>{{/url}}{{/items}}
+              </ul>
+            </div>
+          {{/has_tags}}
+        {{/tags}}
+        <p class="blog-intro">
+          {{{introduction}}}
+        </p>
+        {{{body}}}
+      </div>
+      <div class="lc cf text-centre">
+        {{#social}}
+          {{>organisms/sections/social-share}}
+        {{/social}}
+      </div>
+    </div>
   {{/content}}
   <div class="is-hidden">
     {{> molecules/components/photoswipe/photoswipe }}

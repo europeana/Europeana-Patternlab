@@ -49,7 +49,7 @@
                 <div class="event-date" data-date="{{.}}"></div>
               {{/event_date}}
             </div>
-            
+
             <div class="text-split">
               {{#has_authors}}
                 <span class="capitalised by">{{i18n.global.labels.by}}</span>
@@ -163,7 +163,11 @@
           {{/location}}
         </div>
       </div>
-
+      <div class="lc cf text-centre">
+        {{#social}}
+          {{>organisms/sections/social-share}}
+        {{/social}}
+      </div>
   {{/content}}
   <div class="is-hidden">
     {{> molecules/components/photoswipe/photoswipe }}
