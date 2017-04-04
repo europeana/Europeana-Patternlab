@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'ga'], function($, ga) {
 
   var lightboxOnWidth = 600;
   var imgData         = [];
@@ -32,13 +32,13 @@ define(['jquery'], function($) {
         socialAction: 'share (event)',
         socialTarget: window.location.href
       });
+      log('sent ga event data ' + socialNetwork);
     });
   }
 
   function initPinterest(){
     require(['pinterest'], function() {
-      var pinOneButton = document.querySelector('.pinit');
-      pinOneButton.addEventListener('click', function() {
+      $('.pinit').on('click', function() {
         PinUtils.pinOne({
           media: $('meta[property="og:image"]').attr('content'),
           description: $('meta[property="og:description"]').attr('content'),

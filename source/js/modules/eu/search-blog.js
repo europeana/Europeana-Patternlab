@@ -34,8 +34,7 @@ define(['jquery', 'ga'], function($, ga) {
 
   function initPinterest(){
     require(['pinterest'], function() {
-      var pinOneButton = document.querySelector('.pinit');
-      pinOneButton.addEventListener('click', function() {
+      $('.pinit').on('click', function() {
         PinUtils.pinOne({
           media: $('meta[property="og:image"]').attr('content'),
           description: $('meta[property="og:description"]').attr('content'),
