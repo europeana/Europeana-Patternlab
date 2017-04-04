@@ -1,11 +1,7 @@
 define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Mustache) {
-    function log(msg) {
-        console.log(msg);
-    }
 
     function setFieldValueStatus(id, status){
-    	log('set field value id = ' + id);    	
-    	$('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');   	
+    	$('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');
     	switch (status) {
 			case "Valid": 
 				$('#' + id).addClass('field_value_valid'); 
@@ -17,15 +13,15 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
 				$('#' + id).addClass('field_value_invalid'); 
 			    break;
 			default:
-				log('switch does not match');
+                console.log('switch does not match');
 		}
+        setMappingCardColor();
     }
     
     function bindTableCellClick(){   	
     	$('.mapping-field .flag').on('click', function(e){
         	var $cell = $(e.target).closest('.mapping-field')
     		var cellId = $cell.attr('id');
-        	log('show menu for ' + cellId + ' menu length = ' +   ( $('.theme_select')).length  );
         	$('.theme_select').attr('active-cell', cellId);
     	});
     	
@@ -34,13 +30,23 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
       	  var $el = $(e.target);
       	  var val = $el.text();
       	  var cellId = $('.theme_select').attr('active-cell');
-      	  log('clicked on cell id ' + cellId);
-      	  
+
       	  setFieldValueStatus(cellId, val);
       	});
- 	
+
     } 
-    
+    function setMappingCardColor(){
+    	// count number of suspicious or invalid and change mapping card color code
+        var numItems = $('.field_value_suspicious, .field_value_invalid').length;
+    	console.log('number of items ', numItems);
+    	if(numItems > 0) {
+            $('.card-label.normal-colored-dark.indent').css('background', 'red');
+		} else {
+            $('.card-label.normal-colored-dark.indent').css('background', '#1676AA');
+		}
+
+	}
+	
     function expandCollapseMappingCard() {
 
         $('.widget-expanded').hide();
@@ -52,6 +58,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     	});
 
     	$('.values-collapse').click(function() {
+
     		var $card = $(this).closest('.widget-expanded');
     		var $objId = $card.attr('object_id');
     		$('.widget-expanded[object_id='+ $objId +']').hide();
@@ -68,6 +75,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
                 $('.mapping-card-controls').removeClass('flex-container row');
                 $('.mapping-card-controls').css('width', '15em');
             }
+
     	});
     }
 
@@ -83,7 +91,6 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         	.highlight('xml', document.getElementById('xml').value)
         	.replace(/\t/g, '')
         	.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-        	//.replace(new RegExp('xmlns:','g'), '&#13;&#10;xmlns:')
         });
     }
 
@@ -107,10 +114,6 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         	}
       });
   	  $('.metis-profile-form').submit(function(event) {
-//  		  var template = $('.metis-profile-form').html();
-//  		  var data = {error_nonequal_new_confirm_pwd: "Error: a new password and the confirmed password are not the same"};
-//  		  var html = Mustache.render(template, data);
-//  		  $('.metis-profile-form').html(html);
   		  var valid = true;
   		  if ($('#password_new').val() != null && $('#password_new').val() != "" && $('#password_new').val() != ($('#password_new2').val())) {
   			  $('.error_nonequal').show();
@@ -127,17 +130,12 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     }
 
 	function pageInit() {
-//    log('typeof pageName ' + (typeof pageName));
-//
-//	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
-
       $(window).on('scroll', function() {
         log('close open menus here...')
       });
 
       require(['smartmenus'], function() {
           require(['smartmenus_keyboard'], function() {
-      	    log('loaded menus');
             $('.nav_primary>ul').smartmenus({
                 mainMenuSubOffsetX: -1,
                 mainMenuSubOffsetY: 4,
@@ -165,18 +163,14 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         euTooltip.configure();
       });
 
-      //require(['util_ellipsis'], function(EllipsisUtil){
-      //  var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
-      //});
-
       expandCollapseMappingCard();
       initTableRowsAsLinks();
       validateProfileForm();
+      setMappingCardColor();
       var pageName = pageName || '';
       if(pageName && pageName == 'itemCard'){
         applyXmlBeautify();
       }
-
     }
 
 	function initTableRowsAsLinks() {
@@ -200,14 +194,9 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     	$('.org-list').append(value);
     }
 
-    function selectView() {
-
-    }
-
 	return {
 		pageInit: function() {
 			pageInit();
-			console.log('test');
 		}
 	}    
 });
