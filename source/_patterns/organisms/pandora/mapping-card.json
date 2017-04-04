@@ -165,6 +165,56 @@
           }
         ],
         "occurence": 2
+      },
+      {
+        "object_id": "57d93b11cbf72d03def1a2912",
+        "tooltip": [
+          {
+            "tooltipped_text": "http://mint-pr...",
+            "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
+          }
+        ],
+        "occurence": 625
+      },
+      {
+        "object_id": "57d93b11cbf72d03def1a292812",
+        "tooltip": [
+          {
+            "tooltipped_text": "http://mint-proje...",
+            "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
+          }
+        ],
+        "occurence": 38
+      },
+      {
+        "object_id": "57d93b11cbf72d03def1a293912",
+        "tooltip": [
+          {
+            "tooltipped_text": "http://mint-projects.i...",
+            "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
+          }
+        ],
+        "occurence": 29
+      },
+      {
+        "object_id": "57d93b11cbf72d03def1a2941012",
+        "tooltip": [
+          {
+            "tooltipped_text": "http://min...",
+            "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
+          }
+        ],
+        "occurence": 2
+      },
+      {
+        "object_id": "57d93b11cbf72d03def1a29411123",
+        "tooltip": [
+          {
+            "tooltipped_text": "http://min...",
+            "tooltip_text": "http://mint-projects.image.ntua.gr/photography/ProvidedCHO/MHF/zbiory.mhf.krakow.pl:MHF 3319/II/28"
+          }
+        ],
+        "occurence": 2
       }
     ]
 }
