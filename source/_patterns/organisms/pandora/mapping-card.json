@@ -130,7 +130,7 @@
           }
         ],
         "occurence": 625,
-        "flag": "invalid"
+        "flag": "valid"
       },
       {
         "object_id": "57d93b11cbf72d03def1a2928",
@@ -218,7 +218,7 @@
           }
         ],
         "occurence": 2,
-        "flag": "suspicious"
+        "flag": "valid"
       },
       {
         "object_id": "57d93b11cbf72d03def1a29411123",
@@ -229,7 +229,7 @@
           }
         ],
         "occurence": 21,
-        "flag": "suspicious"
+        "flag": "valid"
       }
     ]
 }

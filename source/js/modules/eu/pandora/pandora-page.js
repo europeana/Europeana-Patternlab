@@ -20,35 +20,39 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     
     function bindTableCellClick(){   	
     	$('.mapping-field .flag').on('click', function(e){
-        	var $cell = $(e.target).closest('.mapping-field')
-    		var cellId = $cell.attr('id');
+        	var $cell = $(e.target).closest('.mapping-field'),
+    		    cellId = $cell.attr('id');
         	$('.theme_select').attr('active-cell', cellId);
     	});
     	
     	$('body').on('click', '.dropdown-menu a', function(e){
           e.preventDefault();
-      	  var $el = $(e.target);
-      	  var val = $el.text();
-      	  var cellId = $('.theme_select').attr('active-cell');
+      	  var   $el = $(e.target),
+      	        val = $el.text(),
+      	        cellId = $('.theme_select').attr('active-cell');
 
       	  setFieldValueStatus(cellId, val);
       	});
+    }
 
-    } 
-    function setMappingCardColor(){
-    	// count number of suspicious or invalid and change mapping card color code
+    function setMappingCardColor() {
+        // count number of suspicious or invalid and change mapping card color code
         var numItems = $('.field_value_suspicious, .field_value_invalid').length;
-    	console.log('number of items ', numItems);
-    	if(numItems > 0) {
-            $('.card-label.normal-colored-dark.indent').css('background', 'red');
-		} else {
-            $('.card-label.normal-colored-dark.indent').css('background', '#1676AA');
-		}
-
-	}
+        if (numItems > 0) {
+            $('.edm-name').hasClass('color-blue')
+            if (!$('.edm-name').hasClass('color-blue')) {
+                $('.edm-name').addClass("invalid-card");
+                $('.card-options > *').addClass("invalid-card");
+                $('.card-editing').addClass("invalidOptionsBar");
+            }
+        } else {
+            $('.edm-name').removeClass("invalid-card");
+            $('.card-options > *').removeClass("invalid-card");
+            $('.card-editing').removeClass("invalidOptionsBar");
+        }
+    }
 	
     function expandCollapseMappingCard() {
-
         $('.widget-expanded').hide();
     	$('.values-expand').click(function() {
     		var $card = $(this).closest('.widget-collapsed');
@@ -75,7 +79,6 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
                 $('.mapping-card-controls').removeClass('flex-container row');
                 $('.mapping-card-controls').css('width', '15em');
             }
-
     	});
     }
 
@@ -113,6 +116,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         		$('.user-profile-password').show();
         	}
       });
+
   	  $('.metis-profile-form').submit(function(event) {
   		  var valid = true;
   		  if ($('#password_new').val() != null && $('#password_new').val() != "" && $('#password_new').val() != ($('#password_new2').val())) {
@@ -200,4 +204,3 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
 		}
 	}    
 });
-
