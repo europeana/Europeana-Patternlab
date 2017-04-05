@@ -604,3 +604,47 @@ body {
 .error-message {
 	color: red;
 }
+// mapping card
+.flex-container {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	&.row {
+		flex-direction: row;
+	}
+	&.column {
+		flex-direction: column;
+		float: left;
+	}
+}
+.flex-item,
+.flex-inner-item {
+	padding: 5px;
+	width: 230px;
+	height: 50px;
+	line-height: 50px;
+	color: white;
+	text-align: center;
+
+}
+.flex-inner-item {
+	padding: 5px;
+	width: 70px;
+	&:hover {
+		background:#1676AA;
+	}
+}
+.color-blue {
+	background: #4BC0F0;
+}
+.color-deep-blue {
+	background: #1676AA;
+}
+.color-orange {
+	background:white;
+	border: 1px solid #D9D4CA;
+	color: #1676AA;
+}
+.normal-colored {
+	color: white;
+}
