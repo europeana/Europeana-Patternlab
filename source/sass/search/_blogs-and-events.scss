@@ -47,6 +47,11 @@
     }
   }
 
+  .filterby label,
+  .sortby label{
+   	font-size: $font-size-slightly-smaller;
+  }
+
   .blog-items,
   .event-items{
     padding-bottom: 2 * $space;
@@ -66,6 +71,12 @@
   height: 24em;
 
   &.larger{
+  	
+    height: 29em;
+
+    @media all and (min-width: $bp-med) {
+      height: 27em;
+    }
 
     @media all and (min-width: $bp-xl) {
 
@@ -211,9 +222,16 @@
       transform: translateY(-9em);
       margin-bottom: -7em;
 
+      &:not(.larger-map){
+        @media all and (max-width: $bp-small-3){
+          transform: translateY(-16em);
+        }
+      }
+
       &.larger-map{
         @media all and (min-width: $bp-xl){
           transform: translateY(-20em);
+          color: #890;
           margin-bottom: -18em;
         }
       }
@@ -317,6 +335,9 @@
 
           @media all and (min-width: $bp-med) {
             max-width: none;
+          }
+          @media all and (max-width: $bp-small-3) {
+            height: 22em;
           }
           @media all and (max-width: $bp-med) {
             max-height: 22em;
@@ -459,9 +480,14 @@
       }
     }
     &.event-detail{
-      transform: translateY(-15em);
-      margin-bottom: -13em;
 
+      transform: translateY(-16em);
+      &.larger-map{
+        transform: translateY(-20em);
+        color: #123;
+      }
+      
+      margin-bottom: -13em;
 
       @media all and (max-width: $bp-small-3) {
         .title{
@@ -471,11 +497,36 @@
           margin-bottom: 0.5em;
         }
         .event-hero{
-           min-height: 16em;
+           margin-top: -2em;
+           min-height: 22em;
+        }
+      }
+
+
+      @media all and (max-width: $bp-small-3){
+      	.event-hero{
+           border: 1px solid blue;
+        }
+      }
+      @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+        .event-hero{
+           min-height: 19em;
+           border: 1px solid red;
+        }
+      }
+
+      @media all and (max-width: $bp-med) {
+        .event-hero{
         }
       }
 
       @media all and (min-width: $bp-med) {
+
+        transform: translateY(-16em);
+        &.larger-map{
+          transform: translateY(-19em);
+          color: #345;
+        }
 
         .event-date{
           float:     right;
@@ -503,7 +554,10 @@
       }
 
       @media all and (min-width: $bp-xl) {
-
+        &.larger-map{
+          transform: translateY(-20em);
+          color: #999;
+        }
       }
 
     }
@@ -691,7 +745,7 @@ li:not(:first-of-type){
       @include span(13 of 18  inside no-gutters);
     }
   }
-
+ 
   h2{
     font-size: $font-size-med;
     margin-bottom: $space-half;

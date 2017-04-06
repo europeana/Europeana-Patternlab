@@ -163,12 +163,11 @@
           {{/location}}
         </div>
       </div>
-      <div class="lc cf text-centre">
-        <h4>{{i18n.global.actions.share}}</h4>
-        {{#social}}
+      {{#social}}
+        <div class="lc cf text-centre">
           {{>organisms/sections/social-share}}
-        {{/social}}
-      </div>
+        </div>
+      {{/social}}
   {{/content}}
   <div class="is-hidden">
     {{> molecules/components/photoswipe/photoswipe }}
