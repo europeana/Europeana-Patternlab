@@ -1,11 +1,7 @@
 define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Mustache) {
-    function log(msg) {
-        console.log(msg);
-    }
 
     function setFieldValueStatus(id, status){
-    	log('set field value id = ' + id);    	
-    	$('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');   	
+    	$('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');
     	switch (status) {
 			case "Valid": 
 				$('#' + id).addClass('field_value_valid'); 
@@ -17,30 +13,45 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
 				$('#' + id).addClass('field_value_invalid'); 
 			    break;
 			default:
-				log('switch does not match');
+                console.log('switch does not match');
 		}
+        setMappingCardColor();
     }
     
     function bindTableCellClick(){   	
     	$('.mapping-field .flag').on('click', function(e){
-        	var $cell = $(e.target).closest('.mapping-field')
-    		var cellId = $cell.attr('id');
-        	log('show menu for ' + cellId + ' menu length = ' +   ( $('.theme_select')).length  );
+        	var $cell = $(e.target).closest('.mapping-field'),
+    		    cellId = $cell.attr('id');
         	$('.theme_select').attr('active-cell', cellId);
     	});
     	
     	$('body').on('click', '.dropdown-menu a', function(e){
           e.preventDefault();
-      	  var $el = $(e.target);
-      	  var val = $el.text();
-      	  var cellId = $('.theme_select').attr('active-cell');
-      	  log('clicked on cell id ' + cellId);
-      	  
+      	  var   $el = $(e.target),
+      	        val = $el.text(),
+      	        cellId = $('.theme_select').attr('active-cell');
+
       	  setFieldValueStatus(cellId, val);
       	});
- 	
-    } 
-    
+    }
+
+    function setMappingCardColor() {
+        // count number of suspicious or invalid and change mapping card color code
+        var numItems = $('.field_value_suspicious, .field_value_invalid').length;
+        if (numItems > 0) {
+            $('.edm-name').hasClass('color-blue')
+            if (!$('.edm-name').hasClass('color-blue')) {
+                $('.edm-name').addClass("invalid-card");
+                $('.card-options > *').addClass("invalid-card");
+                $('.card-editing').addClass("invalidOptionsBar");
+            }
+        } else {
+            $('.edm-name').removeClass("invalid-card");
+            $('.card-options > *').removeClass("invalid-card");
+            $('.card-editing').removeClass("invalidOptionsBar");
+        }
+    }
+	
     function expandCollapseMappingCard() {
         $('.widget-expanded').hide();
     	$('.values-expand').click(function() {
@@ -49,15 +60,28 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     		$('.widget-collapsed[object_id='+ $objId +']').hide();
     		$('.widget-expanded[object_id='+ $objId +']').show();
     	});
-    	
+
     	$('.values-collapse').click(function() {
+
     		var $card = $(this).closest('.widget-expanded');
     		var $objId = $card.attr('object_id');
     		$('.widget-expanded[object_id='+ $objId +']').hide();
     		$('.widget-collapsed[object_id='+ $objId +']').show();
+            var $cardCol = $(this).closest('.mapping-card-controls').parent();
+            if ( $cardCol.hasClass('column') ) {
+                $cardCol.removeClass('column').addClass('row');
+                $('.mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item').css('display','inline-block');
+                $('.mapping-card-controls').addClass('flex-container row');
+                $('.mapping-card-controls').css('width', '45em');
+            } else {
+                $cardCol.removeClass('row').addClass('column');
+                $('.mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item').css('display','none');
+                $('.mapping-card-controls').removeClass('flex-container row');
+                $('.mapping-card-controls').css('width', '15em');
+            }
     	});
     }
-    
+
     function applyXmlBeautify() {
         require(['jush'], function() {
         	jush.style('../../js/modules/lib/jush/jush.css');
@@ -70,10 +94,9 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         	.highlight('xml', document.getElementById('xml').value)
         	.replace(/\t/g, '')
         	.replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-        	//.replace(new RegExp('xmlns:','g'), '&#13;&#10;xmlns:')        	
         });
     }
-    
+
     function validateProfileForm() {
         $('.user-profile-password').hide();
         $('.error_nonequal').hide();
@@ -90,41 +113,33 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
         	if ($('.user-profile-password').is(":visible")) {
         		$('.user-profile-password').hide();
         	} else {
-        		$('.user-profile-password').show();        		
+        		$('.user-profile-password').show();
         	}
       });
+
   	  $('.metis-profile-form').submit(function(event) {
-//  		  var template = $('.metis-profile-form').html();
-//  		  var data = {error_nonequal_new_confirm_pwd: "Error: a new password and the confirmed password are not the same"};
-//  		  var html = Mustache.render(template, data);
-//  		  $('.metis-profile-form').html(html);
   		  var valid = true;
   		  if ($('#password_new').val() != null && $('#password_new').val() != "" && $('#password_new').val() != ($('#password_new2').val())) {
-  			  $('.error_nonequal').show(); 
+  			  $('.error_nonequal').show();
   			  valid = false;
   		  }
   		  if (($('#password_old').val() == null || $('#password_old').val() == "") && ($('#password_new').val() != null && $('#password_new').val() != "")) {
-  			  $('.error_missing').show(); 
+  			  $('.error_missing').show();
   			  valid = false;
   		  }
   		  if (!valid) {
-  			  event.preventDefault();  			  
+  			  event.preventDefault();
   		  }
   	  });
     }
-    
-	function pageInit() {     
-//    log('typeof pageName ' + (typeof pageName));
-//      
-//	  log('in page init: pageName = ' + (typeof pageName != 'undefined') ? pageName : 'not defined' );
-	  
+
+	function pageInit() {
       $(window).on('scroll', function() {
         log('close open menus here...')
       });
-      
+
       require(['smartmenus'], function() {
           require(['smartmenus_keyboard'], function() {
-      	    log('loaded menus');
             $('.nav_primary>ul').smartmenus({
                 mainMenuSubOffsetX: -1,
                 mainMenuSubOffsetY: 4,
@@ -143,7 +158,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
               });
           });
       });
-      
+
       require(['jqDropdown'], function() {
         bindTableCellClick();
       });
@@ -151,21 +166,17 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
       require(['eu_tooltip'], function(euTooltip){
         euTooltip.configure();
       });
-        
-      //require(['util_ellipsis'], function(EllipsisUtil){
-      //  var ellipsis = EllipsisUtil.create(  '.eu-tooltip-anchor' );
-      //});
-      
+
       expandCollapseMappingCard();
       initTableRowsAsLinks();
       validateProfileForm();
+      setMappingCardColor();
       var pageName = pageName || '';
       if(pageName && pageName == 'itemCard'){
-        applyXmlBeautify();    	  
+        applyXmlBeautify();
       }
-      
     }
-	
+
 	function initTableRowsAsLinks() {
 		$(".clickable-row").click(function() {
 	        window.location = $(this).data("href");
@@ -184,11 +195,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
     	} else {
     		value = "";
     	}
-    	$('.org-list').append(value);	
-    }
-
-    function selectView() {
-
+    	$('.org-list').append(value);
     }
 
 	return {
@@ -197,4 +204,3 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
 		}
 	}    
 });
-

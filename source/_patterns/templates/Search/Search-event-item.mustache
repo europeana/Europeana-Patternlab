@@ -42,7 +42,13 @@
 
           <div class="introduction text-centre">
 
-            {{#event_title}}<div class="title text-centre">{{.}}</div>{{/event_title}}
+            <div class="cf relative">
+              {{#event_title}}<div class="title">{{.}}</div>{{/event_title}}
+
+              {{#event_date}}
+                <div class="event-date" data-date="{{.}}"></div>
+              {{/event_date}}
+            </div>
 
             <div class="text-split">
               {{#has_authors}}
@@ -61,9 +67,6 @@
               {{#read_time}}
                 <span class="read-time">{{ . }} {{i18n.site.blogs.min-to-read}}</span>
               {{/read_time}}
-              {{#event_date}}
-                <div class="event-date" data-date="{{.}}"></div>
-              {{/event_date}}
             </div>
 
             <div class="text-lower-section">
@@ -115,9 +118,56 @@
           </p>
 
           {{{body}}}
+
+          {{#location}}
+            <div class="where-when">
+              {{#institute_name}}
+                {{#institute_url}}
+                  <a class="svg-icon-external-eu-blue-after" href="{{.}}">{{institute_name}}</a>
+                {{/institute_url}}
+                {{^url}}
+                  {{.}}
+                {{/url}}
+              {{/institute_name}}
+              {{#address}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-location"> </span>
+                  {{.}}
+                </span>
+              {{/address}}
+              {{#time}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-clock"> </span>
+                  {{.}}
+                </span>
+              {{/time}}
+              {{#phone}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-phone-landline"> </span>
+                  {{.}}
+                </span>
+              {{/phone}}
+              {{#email}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-email"> </span>
+                  {{.}}
+                </span>
+              {{/email}}
+              {{#contact}}
+                <span class="where-when-info">
+                  <span class="where-when-icon svg-icon-user"> </span>
+                  {{.}}
+                </span>
+              {{/contact}}
+            </div>
+          {{/location}}
         </div>
       </div>
-
+      {{#social}}
+        <div class="lc cf text-centre">
+          {{>organisms/sections/social-share}}
+        </div>
+      {{/social}}
   {{/content}}
   <div class="is-hidden">
     {{> molecules/components/photoswipe/photoswipe }}

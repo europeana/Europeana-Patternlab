@@ -211,7 +211,7 @@
         "label": "Featured Site",
         "title": "Gallery Six",
         "link": "javascript:alert('Open gallery 6');",
-        "info": "Gallery of Dutch images"
+        "info": false
       }
     ],
     "navigation": {

@@ -1,46 +1,29 @@
 <div class="container-large" {{#object_id}}id="{{.}}"{{/object_id}}>
-	<table class="card-component {{depth}}">
-		<tr class="widget-collapsed" {{#object_id}}object_id="{{.}}"{{/object_id}}>
-			<td class="mapping-card-controls">
-				<div class="card-label normal-colored indent">{{prefix}}:{{name}}</div>
-				<div class="card-label normal-colored-dark indent">{{xpath}}</div>
-				<div class="card-buttons normal-colored">
-					<div class="values-expand card-button">Values</div>
-					<div class="mapping-card-function card-button"><span class="mapping-card-f">f</span><span class="mapping-card-x">x</span></div>
-					<div class="if card-button">if</div>
-				</div>
-			</td>
-			<td class="mapping-card-values">
+	<div class="ponent {{depth}}">
+		<div class="widget-collapsed flex-container column" {{#object_id}}object_id="{{.}}"{{/object_id}}>
+			<div class="mapping-card-controls">
+				<div class="card-label normal-colored indent flex-item edm-name">{{prefix}}:{{name}}</div>
+				<div class="card-label normal-colored-dark indent card-editing">{{xpath}}</div>
+                <div class="flex-container card-options">
+                    <div class="normal-colored values-collapse card-button">Values</div>
+                    <div class="normal-colored mapping-card-function card-button"><span
+                            class="mapping-card-f">f</span><span class="mapping-card-x">x</span></div>
+                    <div class="normal-colored if card-button">if</div>
+                </div>
+			</div>
+		</div>
+		<div class="flex-container row" {{#object_id}}object_id="{{.}}"{{/object_id}}>
+			<div class="mapping-card-values">
 				<div class="mapping-field-item-container">
 					{{#field_value_cells}}
-						<div  class="mapping-field-item">
+						<div  class="mapping-field-item color-orange">
 							{{>molecules/pandora/field-value}}
 						</div>
 					{{/field_value_cells}}
 				</div>
-			</td>
-		</tr>
-		<tr class="widget-expanded" {{#object_id}}object_id="{{.}}"{{/object_id}}>
-			<td class="card-controls-expanded">
-				<div class="card-label normal-colored indent">{{prefix}}:{{name}}</div>
-				<div class="card-label normal-colored-dark indent">{{xpath}}</div>
-				<div class="normal-colored values-collapse card-button">Values</div>
-				<div class="normal-colored mapping-card-function card-button"><span class="mapping-card-f">f</span><span class="mapping-card-x">x</span></div>
-				<div class="normal-colored if card-button">if</div>			
-			</td>
-		</tr>
-		<tr class="widget-expanded" {{#object_id}}object_id="{{.}}"{{/object_id}}>
-			<td class="mapping-card-values">
-				<div class="mapping-field-item-container-expanded">
-					{{#field_value_cells}}
-						<div  class="mapping-field-item-expanded">
-							{{>molecules/pandora/field-value}}
-						</div>
-					{{/field_value_cells}}
-				</div>
-			</td>
-		</tr>
-	 </table>
+			</div>
+		</div>
+	 </div>
 	 <div class="mapping-card-dropdown">
 		 {{#dropdown}}{{>molecules/controls/dropdown-menu}}{{/dropdown}}
 	 </div>

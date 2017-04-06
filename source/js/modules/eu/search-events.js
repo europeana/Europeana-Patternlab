@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery', 'ga'], function($, ga) {
 
   var lightboxOnWidth = 600;
   var imgData         = [];
@@ -17,8 +17,35 @@ define(['jquery'], function($) {
       checkForLightbox();
       fixDates();
       initExpandables();
+      initGA();
+      initPinterest();
       initAOS();
     }
+  }
+
+  function initGA(){
+    $('.social-share a').on('click', function(){
+      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+      ga('send', {
+        hitType: 'social',
+        socialNetwork: socialNetwork,
+        socialAction: 'share (event)',
+        socialTarget: window.location.href
+      });
+      log('sent ga event data ' + socialNetwork);
+    });
+  }
+
+  function initPinterest(){
+    require(['pinterest'], function() {
+      $('.pinit').on('click', function() {
+        PinUtils.pinOne({
+          media: $('meta[property="og:image"]').attr('content'),
+          description: $('meta[property="og:description"]').attr('content'),
+          url: $('meta[property="og:url"]').attr('content')
+        });
+      });
+    });
   }
 
   function fixDates(){

@@ -34,18 +34,19 @@
   "landing_page_content": {
   	"is_home": {
 	  "content": {
-	    "hero_config": {
-	      "hero_image": "../../images/metis/metis-hero.png",
-	      "brand_colour": "brand-colour-site",
-	      "brand_position": "brand-bottomleft",
-	      "brand_opacity": "brand-opacity100",
-	      "attribution_text": "Cyclopides metis L., Cyclopides qua... Museum Fur Naturkunde Berlin",
-	      "attribution_url": "http://europeana.eu",
-	      "license_CC-ND-NC-SA": true
-	    },
+        "hero_config": {
+          "hero_image": "../../images/metis/hero_metis_1600x650_jade.png",
+          "brand_position": "brand-bottomleft",
+          "brand_opacity": "brand-opacity75",
+          "attribution_title": "Cyclopides metis L., Cyclopides quadrisignatus Btl. ...",
+          "attribution_institution": "Museum Für Naturkunde Berlin",
+          "attribution_url": "http://www.europeana.eu/portal/fr/record/11622/_MFN_DRAWERS_MFN_GERMANY_http___coll_mfn_berlin_de_u_MFNB_Lep_Hesperiidae_D146.html",
+          "license_CC0": true,
+          "license_public": false
+        },
 	    "banner": {
 	      "title":"What can you do with Metis?",
-	      "text":"Ever wondered how to automagicsally digest huge amounts of data with the push of a button?",
+	      "text":"Ever wondered how to automagically digest huge amounts of data with the push of a button?",
 	      "info_link": "Learn more about Metis",
 	      "info_url": "#",
 	      "cta_url":"#",
@@ -215,6 +216,7 @@
               "url": "#",
               "text": "Sign In",
               "icon": "users",
+              "fontawesome": true,
               "submenu": {
                 "items": [
                   {

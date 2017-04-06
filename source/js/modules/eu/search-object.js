@@ -314,7 +314,11 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
          | setVal(
              [ {attr: 'edm-rights'}], '.tech-meta-edm-rights');
 
-      if(somethingGotSet){
+      if($('.object-techdata-list li:not(.is-disabled)').length == 0){
+        techData.removeClass('is-expanded');
+        techData.hide();    	  
+      }
+      else if(somethingGotSet){
         techData.show();
         $('.attribution-fmt.plain').trigger('click');
       }
@@ -322,6 +326,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         techData.removeClass('is-expanded');
         techData.hide();
       }
+
 
         // download window
       if(tgt.data('download-uri')){

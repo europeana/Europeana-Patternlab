@@ -6,7 +6,7 @@
 //included to style banner block on Metis homepage
 
 .header-wrapper .header .cf {
-  border-top-color: $eu-raspberry;
+  border-top-color: $eu-jade;
 }
 
 // sets circles over hero.
@@ -28,7 +28,7 @@ body {
 }
 
 .phase-flag.beta {
-  background-color: $eu-raspberry;
+  background-color: $eu-jade;
 }
 
 
@@ -38,13 +38,13 @@ body {
 }
 
 .btn.btn-light {
-  border-color: $eu-raspberry;
-  color: $eu-raspberry;
+  border-color: $eu-jade;
+  color: $eu-jade;
 }
 
 // link on homepage banner.
 .info-link {
-  color: $eu-raspberry;
+  color: $eu-jade;
   font-weight: bold;
 }
 
@@ -55,4 +55,26 @@ section#banner,
 footer.footer.v2{
   //max-width: 1440px;
   //margin: 0 auto;
+}
+
+.attribution-content {
+  max-width: 300px;
+}
+
+
+// TEMP user icon on Metis homepage required the following styling to be modified accordingly
+@media (min-width: 50em) {
+  .nav-access > li {
+    float: right;
+  }
+}
+.icon {
+  &.icon-users {
+    display: none;
+  }
+}
+.fa {
+  &.fa-user {
+    padding-right: 7px;
+  }
 }

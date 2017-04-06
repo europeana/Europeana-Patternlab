@@ -5,9 +5,15 @@
 @import "../_patterns/atoms/iconography/_svg-icon-bookmark-white-before";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar";
 @import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
+@import "../_patterns/atoms/iconography/_svg-icon-clock";
 @import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
+@import "../_patterns/atoms/iconography/_svg-icon-email";
 @import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
+@import "../_patterns/atoms/iconography/_svg-icon-external-eu-blue-after";
+@import "../_patterns/atoms/iconography/_svg-icon-phone-landline";
 @import "../_patterns/atoms/iconography/_svg-icon-location";
+@import "../_patterns/atoms/iconography/_svg-icon-user";
+
 
 
 .blog-list,
@@ -41,6 +47,11 @@
     }
   }
 
+  .filterby label,
+  .sortby label{
+   	font-size: $font-size-slightly-smaller;
+  }
+
   .blog-items,
   .event-items{
     padding-bottom: 2 * $space;
@@ -57,9 +68,15 @@
 
 .search-hero.map{
 
-  height: 22em;
+  height: 24em;
 
   &.larger{
+  	
+    height: 29em;
+
+    @media all and (min-width: $bp-med) {
+      height: 27em;
+    }
 
     @media all and (min-width: $bp-xl) {
 
@@ -144,8 +161,8 @@
   }
 
   .svg-icon-bookmark-white{
-    transform: translateY(0.7em);
-    margin-right: 1em;
+    transform: translateY(0.7em) scale(0.7);
+    margin-right: 0.5em;
   }
 
   .svg-icon-bookmark-before::before{
@@ -203,18 +220,35 @@
     &.event-detail{
 
       transform: translateY(-9em);
+      margin-bottom: -7em;
+
+      &:not(.larger-map){
+        @media all and (max-width: $bp-small-3){
+          transform: translateY(-16em);
+        }
+      }
 
       &.larger-map{
         @media all and (min-width: $bp-xl){
           transform: translateY(-20em);
+          margin-bottom: -18em;
         }
+      }
+
+      h4{
+        margin-top: 2em;
       }
 
       img{
         display:   block;
         margin:    $space/2 auto;
-        max-width: 75%;
+        max-width: none;
         position:  relative;
+        width:     100%;
+
+        @media all and (min-width: $bp-med) {
+          max-width: 75%;
+        }
 
         &.zoomable{
           cursor: pointer;
@@ -297,7 +331,16 @@
         img{
           margin-bottom: 0;
           margin-top: 0;
-          max-width: none;
+
+          @media all and (min-width: $bp-med) {
+            max-width: none;
+          }
+          @media all and (max-width: $bp-small-3) {
+            height: 22em;
+          }
+          @media all and (max-width: $bp-med) {
+            max-height: 22em;
+          }
         }
 
         .introduction{
@@ -338,24 +381,24 @@
 
             font-size:     1em;
             line-height:   1.3em;
-            max-height:    2.6em;
+            height:        3.9em;
 
             @media all and (min-width: $bp-small-3) {
               font-size:     1.2em;
               line-height:   1.5em;
-              max-height:    3em;
+              min-height:    4.5em;
             }
 
             @media all and (min-width: $bp-med) {
               font-size:     1.4em;
-              line-height:   1.6em;
-              max-height:    3.2em;
+              line-height:   1.5em;
+              min-height:    4.5em;
             }
 
             @media all and (min-width: $bp-xl) {
-              font-size:     1.8em;
-              line-height:   2.1em;
-              max-height:    4.2em;
+              font-size:     1.8rem;
+              line-height:   2.5rem;
+              min-height:    7.5rem;
             }
 
           }
@@ -363,6 +406,7 @@
           .text-split{
             border-bottom:  1px solid $white;
             margin-bottom:  0.5em;
+            margin-top:     0.5em;
             padding-bottom: 1em;
 
             .location,
@@ -372,6 +416,10 @@
             .read-time{
               white-space: nowrap;
             }
+          }
+
+          .date{
+            font-size: $font-size-slightly-smaller;
           }
 
           .text-lower-section{
@@ -386,10 +434,6 @@
                   display: none;
                 }
               }
-            }
-
-            .date{
-              font-size: $font-size-slightly-smaller;
             }
 
             .blog-tags,
@@ -409,8 +453,12 @@
           }
 
           @media all and (min-width: $bp-med) {
-            padding: 1.5em 6em 0 6em;
+            padding: 1.2em 6em 0 6em;
           }
+          @media all and (max-width: $bp-med) {
+            padding: 1em 4em;
+          }
+
         }
 
 
@@ -431,13 +479,78 @@
       }
     }
     &.event-detail{
-      transform: translateY(-15em);
+
+      transform: translateY(-16em);
+      &.larger-map{
+        transform: translateY(-20em);
+      }
+      
+      margin-bottom: -13em;
+
+      @media all and (max-width: $bp-small-3) {
+        .title{
+           padding: 0 2em;
+        }
+        .event-date{
+          margin-bottom: 0.5em;
+        }
+        .event-hero{
+           margin-top: -2em;
+           min-height: 22em;
+        }
+      }
+
+      @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
+        .event-hero{
+           min-height: 19em;
+        }
+      }
+
+      @media all and (min-width: $bp-med) {
+
+        transform: translateY(-16em);
+        &.larger-map{
+          transform: translateY(-19em);
+        }
+
+        .event-date{
+          float:     right;
+          max-width: 30%;
+          position:  absolute;
+          right:     0em;
+          top:       50%;
+          transform: translateY(-50%);
+        }
+        .title{
+          float:       left;
+          line-height: 2em;
+          max-width:   70%;
+          text-align:  left;
+        }
+      }
+
+      @media all and (max-width: $bp-med) {
+        .event-date{
+          font-size: 0.9em;
+        }
+        .title{
+           padding: 0 1em;
+        }
+      }
+
+      @media all and (min-width: $bp-xl) {
+        &.larger-map{
+          transform: translateY(-20em);
+        }
+      }
+
     }
   }
 }
 
 .event-hero.site-hero{
   background-color: transparent;
+  width:            100%;
 }
 
 .event-list-item,
@@ -458,7 +571,6 @@
   @media all and (max-width: $bp-med) {
     .no-image{
       height: 14em;
-      // width:  34em;
     }
   }
 
@@ -533,6 +645,35 @@
   }
 }
 
+.where-when{
+  border:   1px solid #ccc;
+  margin:   $space*2 auto 0 auto;
+  padding:  $space;
+  position: relative;
+
+  .where-when-icon{
+
+    display:   inline-block;
+    height:    1.8em;
+    position:  relative;
+    top:       0.6em;
+    transform: scale(0.7);
+    width:     1.7em;
+
+    &.svg-icon-clock,
+    &.svg-icon-location{
+      top:     0.5em;
+    }
+    &.svg-icon-phone-landline{
+      top:     0.55em;
+    }
+  }
+
+  .where-when-info{
+    display: block;
+  }
+}
+
 .blog-item-tags,
 .blog-item-tags li,
 .event-item-tags,
@@ -587,7 +728,7 @@ li:not(:first-of-type){
       @include span(13 of 18  inside no-gutters);
     }
   }
-
+ 
   h2{
     font-size: $font-size-med;
     margin-bottom: $space-half;
