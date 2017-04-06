@@ -231,7 +231,6 @@
       &.larger-map{
         @media all and (min-width: $bp-xl){
           transform: translateY(-20em);
-          color: #890;
           margin-bottom: -18em;
         }
       }
@@ -484,7 +483,6 @@
       transform: translateY(-16em);
       &.larger-map{
         transform: translateY(-20em);
-        color: #123;
       }
       
       margin-bottom: -13em;
@@ -502,21 +500,9 @@
         }
       }
 
-
-      @media all and (max-width: $bp-small-3){
-      	.event-hero{
-           border: 1px solid blue;
-        }
-      }
       @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
         .event-hero{
            min-height: 19em;
-           border: 1px solid red;
-        }
-      }
-
-      @media all and (max-width: $bp-med) {
-        .event-hero{
         }
       }
 
@@ -525,7 +511,6 @@
         transform: translateY(-16em);
         &.larger-map{
           transform: translateY(-19em);
-          color: #345;
         }
 
         .event-date{
@@ -556,7 +541,6 @@
       @media all and (min-width: $bp-xl) {
         &.larger-map{
           transform: translateY(-20em);
-          color: #999;
         }
       }
 
@@ -587,7 +571,6 @@
   @media all and (max-width: $bp-med) {
     .no-image{
       height: 14em;
-      // width:  34em;
     }
   }
 
