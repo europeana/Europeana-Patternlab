@@ -18,6 +18,8 @@
  *   - #mainContainer renamed to #main-container-pdf
  *   - body renamed to .pdf-ui-wrappper
  */
+ 
+@import "../../../../sass/scss/generic/variables";
 
 .textLayer {
   position: absolute;
@@ -1277,7 +1279,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
 
 .toolbarField:hover {
   background-color: #fff;
-  color: #4d4d4d;
+  color: $medium-gray;
 }
 
 .toolbarField:focus {
