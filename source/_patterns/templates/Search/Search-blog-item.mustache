@@ -98,12 +98,12 @@
         </p>
         {{{body}}}
       </div>
-      <div class="lc cf text-centre">
-        <h4>{{i18n.global.actions.share}}</h4>
-        {{#social}}
+      {{#social}}
+        <div class="lc cf text-centre">
+          <h4>{{i18n.global.actions.share}}</h4>
           {{>molecules/controls/share-social}}
-        {{/social}}
-      </div>
+        </div>
+      {{/social}}
     </div>
   {{/content}}
   <div class="is-hidden">
