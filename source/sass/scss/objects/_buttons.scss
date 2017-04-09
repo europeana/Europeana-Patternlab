@@ -42,7 +42,32 @@
 		}
 	}
 
-
+	&.btn-left,
+	&.btn-right {
+		text-transform: none;
+		color: #777;
+		border: solid 1px #fff;
+		padding: 1em 2.4em;
+		font-weight: 500;
+		
+		&:hover {
+			background: #ccc;
+			color: #B81621;
+			&.btn-left:after {
+				display: none;
+			}
+		}
+	}
+	&.btn-left:after{
+			content: "";
+			background-color: #ccc;
+			position: absolute;
+			width: 1px;
+			height: 2.6rem;
+			top: 3px;
+			left: 101%;
+			display: block;
+	}
 }
 
 .btn.cta, .btn.cta_main{
@@ -156,4 +181,16 @@
 	svg.icon{
 		margin-right: 0;
 	}
+}
+
+.vertical-division {
+	font-size: 1.8rem;
+}
+.btns-set {
+	height: 5rem;
+	border: 1px solid green;
+	width:30rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
