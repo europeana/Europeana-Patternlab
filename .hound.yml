@@ -2,7 +2,3 @@
 eslint:
   enabled: true
   config_file: .eslint.yml
-jshint:
-  enabled: true
-  config_file: .jshintrc.yml
-
