@@ -1,6 +1,6 @@
 define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
 
-     var euSearchForm = null;
+       var euSearchForm = null;
 
   function initHome(form){
 
