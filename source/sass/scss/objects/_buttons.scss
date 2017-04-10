@@ -45,17 +45,22 @@
 	&.btn-left,
 	&.btn-right {
 		text-transform: none;
-		color: #777;
-		border: solid 1px #fff;
+		color: $gray-light;
+		border: solid 1px $white;
 		padding: 1em 2.4em;
 		font-weight: 500;
 		float: left;
 
 		&:hover {
-			background: #E3E3E3;
-			color: #B81621;
+			background: $offwhite;
+			color: $eu-raspberry;
+			transition:.4s linear;
 			&.btn-left:after {
 				display: none;
+			}
+			.right-btn-under-text {
+				opacity:0;
+				transition:opacity .4s linear;
 			}
 		}
 	}
@@ -184,15 +189,30 @@
 	}
 }
 
-
-.vertical-division {
-	font-size: 1.8rem;
-}
 .btns-set {
 	height: 5rem;
-	border: 1px solid #E3E3E3;
+	border: 1px solid $off-white;
 	width:30rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	.btn-padding {
+		a {
+			i {
+				padding-right: 10px;
+			}
+			.right-btn-under-text {
+				position: absolute;
+				right: 0;
+				left: 0;
+				margin: auto;
+				font-size:0.7em;
+				bottom: 0px;
+			}
+		}
+	}
+
 }
+
+
