@@ -7,9 +7,9 @@ globals:
   require: false
   window: false
 rules:
-  indent:
-    - error
-    - 2
+#  indent:
+#    - error
+#    - 2
   linebreak-style:
     - error
     - unix
