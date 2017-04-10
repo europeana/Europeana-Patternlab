@@ -4,3 +4,4 @@ eslint:
 jshint:
   enabled: true
   config_file: .jshintrc.yml
+
