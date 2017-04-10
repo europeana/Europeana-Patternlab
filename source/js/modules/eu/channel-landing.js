@@ -168,7 +168,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     }
 
     $('#js-sneak-peek-title').html(random.title.replace(random.type + ': ', ''));
-    $('#js-sneak-peek-type').html(random.type);
     $('.sneak-peek-list').next('.show-more-mlt').find('a').attr('href', random.extra);
 
     $.ajax({
