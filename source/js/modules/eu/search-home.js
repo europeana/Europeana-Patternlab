@@ -1,6 +1,6 @@
 define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
 
-  var euSearchForm = null;
+        var euSearchForm = null;
 
   function initHome(form){
 
@@ -16,7 +16,7 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
     });
 
     scrollEvents.fireAllVisible();
-  };
+  }
 
   function addAutocomplete(data){
 
@@ -45,6 +45,6 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
     initPage: function(euSearchForm){
       initHome(euSearchForm);
     }
-  }
+  };
 
 });
