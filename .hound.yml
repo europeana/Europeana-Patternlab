@@ -1,6 +1,5 @@
+fail_on_violations: true
 eslint:
   enabled: true
   config_file: .eslintrc.yml
-jshint:
-  enabled: true
-  config_file: .jshintrc.yml
+
