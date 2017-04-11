@@ -1,6 +1,5 @@
 fail_on_violations: true
 eslint:
   enabled: true
-  xxx_config_file: .eslintrc.yml
-  config_file: .eslint.json
+  config_file: .eslintrc.json
 
