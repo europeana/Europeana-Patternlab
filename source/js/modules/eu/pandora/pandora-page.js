@@ -135,7 +135,7 @@ define(['jquery', 'mustache', 'smartmenus', 'user_approval'], function ($, Musta
 
 	function pageInit() {
       $(window).on('scroll', function() {
-        log('close open menus here...')
+         console.log('close open menus here...')
       });
 
       require(['smartmenus'], function() {
