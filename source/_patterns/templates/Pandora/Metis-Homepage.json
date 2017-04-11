@@ -226,7 +226,7 @@
             {
               "url": "#",
               "text": "Sign In",
-              "icon": "users",
+              "icon_class": "svg-icon-user-signin",
               "fontawesome": true,
               "submenu": {
                 "items": [

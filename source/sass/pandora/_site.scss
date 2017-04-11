@@ -13,20 +13,16 @@
 }
 
 .no-js {
-
   // style / hide things for no javascript
-
 }
 
-body {
-	background-image: url("../../images/metis/inscription2.jpg");
-	background-size: cover;
-	@media all and (max-width: $bp-med){
-	  background-color: red;  
-	}
-	@media all and (min-width: $bp-med) and (max-width: $bp-xl){
-	  background-color: white;
-	}
+#settings-menu .svg-icon-user-signin{
+  float:             left;
+  height:            2em;
+  margin-bottom:     -1em;
+  margin-right:      -0.3em;
+  transform:         scale(0.7) translateY(-0.3em);
+  width:             2em;
 }
 
 .ve-anchor {
