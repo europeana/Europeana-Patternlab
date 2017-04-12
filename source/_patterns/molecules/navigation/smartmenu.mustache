@@ -1,7 +1,7 @@
 <ul id="{{menu_id}}" class="sm cf nav-access {{style_modifier}}">
   {{#items}}
     <li>
-      <a {{#url}}href="{{url}}"{{/url}} class="{{#is_current}} is-current {{/is_current}}"><span class="{{#icon_class}}{{.}}{{/icon_class}}{{^icon_class}}svg-icon-language{{/icon_class}}"></span><span class="link-text">{{text}}</span></a>
+      <a {{#url}}href="{{url}}"{{/url}} class="{{#is_current}} is-current {{/is_current}}">{{#icon_class}}<span class="{{.}}"></span>{{/icon_class}}<span class="link-text">{{text}}</span></a>
       {{#submenu}}
         <ul class="menu-sublevel caret">
           {{#items}}
