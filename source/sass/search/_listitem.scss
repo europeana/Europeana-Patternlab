@@ -46,10 +46,6 @@
     @extend .cf;
   }
 
-  .highlight{
-    color: $gray-light;
-  }
-
   .highlight-text{
     font-size: 0.8em;
     position:  relative;
@@ -110,8 +106,36 @@
     text-align: right;
   }
 
-  .item-type svg{
-    margin-right: -4px;
+  .item-type{
+
+    .svg-icon{
+      display:   inline-block;
+    }
+
+    .svg-icon-image{
+      height:    1.2em;
+      transform: scale(0.76) translateY(0.2em);
+      width:     1.2em;
+    }
+
+    .svg-icon-music{
+      height:    1.3em;
+      transform: scale(0.8) translateY(0.3em);
+      width:     1.3em;
+    }
+
+    .svg-icon-openbook{
+      height:    1.4em;
+      transform: scale(0.67) translateY(0.4em);
+      width:     1.4em;
+    }
+
+    .svg-icon-tv{
+      height:    1.4em;
+      transform: scale(0.7) translateY(0.55em);
+      width:     1.4em;
+    }
+
   }
 
 }
