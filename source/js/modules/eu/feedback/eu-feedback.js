@@ -6,7 +6,7 @@ define(['jquery'], function($){
     console.log('eu-feedback: ' + msg);
   };
 
-  var EuFeedback = function(el, ops){
+  var EuFeedback = function(el){
 
     var open      = el.find('.feedback-toggle .open');
     var close     = el.find('.feedback-toggle .close');
@@ -18,7 +18,6 @@ define(['jquery'], function($){
     var maxLength = 0;
     var minWords  = el.data('min-words');
 
-    ops = ops ? ops : {};
 
     open.on('click', function(){
       el.addClass('open');
@@ -77,30 +76,47 @@ define(['jquery'], function($){
         "page": window.location.href
       }
 
-      var beforeSend = ops.beforeSend ? ops.beforeSend : null;
-
-      $.ajax({
-        beforeSend: ops.beforeSend ? ops.beforeSend : null,
-        url : url,
-        type : 'POST',
-        data: data,
-        success : function(data){
-          spinner.hide();
-
-          fbHide(el.find('.step1'));
-          fbShow(el.find('.step2'));
-
-          text.val('');
-          counter.html(maxLength);
-        },
-        error : function(data){
-          setTimeout(function(){
-            fbShow(el.find('.feedback-error'));
-            fbHide(el.find('.step1'));
+      var doSubmit = function(csrfToken){
+        $.ajax({
+          beforeSend: function(xhr) {
+            if(csrfToken){
+              xhr.setRequestHeader("X-CSRF-Token", csrfToken);
+            }
+          },
+          url : url,
+          type : 'POST',
+          data: data,
+          success : function(data){
             spinner.hide();
-          }, 200);
-        }
-      });
+
+            fbHide(el.find('.step1'));
+            fbShow(el.find('.step2'));
+
+            text.val('');
+            counter.html(maxLength);
+          },
+          error : function(data){
+            setTimeout(function(){
+              fbShow(el.find('.feedback-error'));
+              fbHide(el.find('.step1'));
+              spinner.hide();
+            }, 200);
+          }
+        });
+      }
+      
+      var metaToken = $('meta[name="csrf-token"]').attr('content');
+      if(typeof metaToken != 'undefined'){
+      doSubmit(metaToken);
+      }
+      else{
+        var tokenUrl = (enableCSRFWithoutSSL ? location.protocol : 'https:') + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/csrf.json';
+        $.get(tokenUrl, function(data){
+          if(data.token){
+            doSubmit(data.token);
+          }
+        });
+      }
     });
 
     el.find('.pageurl').val(window.location.href);
@@ -117,8 +133,8 @@ define(['jquery'], function($){
     });
   }
   return {
-    init : function(el, ops){
-      new EuFeedback(el, ops);
+    init : function(el){
+      new EuFeedback(el);
     }
   }
 });

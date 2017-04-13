@@ -73,17 +73,15 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
         });
       });
     }
-      
+
     var initFeedback = function(){
       if($('.feedback').size()>0){
         require(['feedback'], function(fb){
-          fb.init($('.feedback'), { beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
-          }});
+          fb.init($('.feedback'));
         });
       }
     }
-
+    
     var doForAllPages = function(){
       initCollectionsFilter();
 
