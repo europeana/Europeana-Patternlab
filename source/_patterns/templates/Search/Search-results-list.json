@@ -796,9 +796,9 @@
     {
       "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
       "creator": "Charles Rennie Mackintosh and Abraham Lincoln",
-      "is_image": true,
+      "is_video": true,
       "item_type": {
-        "name": "Photograph",
+        "name": "Video",
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {

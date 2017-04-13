@@ -1,0 +1,6 @@
+@import "../../../sass/scss/generic/variables";
+
+.svg-icon-tv{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-light)}' viewbox='0 0 26 27'%3E%3Cpath d='M20.455 1.364q0.556 0 0.96 0.404t0.404 0.96v15q0 0.556-0.404 0.96t-0.96 0.404h-6.818v1.313l3.813 1.919q0.278 0.076 0.278 0.404 0 0.202-0.126 0.328t-0.328 0.126h-12.727q-0.354 0-0.455-0.354-0.051-0.354 0.253-0.505l3.838-1.919v-1.313h-6.818q-0.556 0-0.96-0.404t-0.404-0.96v-15q0-0.556 0.404-0.96t0.96-0.404h19.091zM19.091 16.364v-12.273h-16.364v12.273h16.364z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
