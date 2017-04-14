@@ -3,4 +3,5 @@ eslint:
   enabled: true
   xxx_config_file: .eslintrc.yml
   config_file: .eslint.json
-
+scss:
+  config_file: .scss-lint.yml
