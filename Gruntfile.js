@@ -229,7 +229,7 @@ module.exports = function(grunt) {
                 console.log('\t(skip ' + lines[i] + ')');
                 continue;
               }
-              var entry = lines[i].replace(/^_/,'').replace(/.scss/,'')
+              var entry = lines[i].replace(/^_/,'').replace(/.scss/,'');
               content_mustache += '<span class="svg-generated-icon white off-white ' + entry + '"></span>\n';
               content_mustache += entry;
               content_mustache += '<br/><br/>';
