@@ -1,15 +1,14 @@
 @import 'mlt';
 
 .search-object{
-    margin-bottom: 0;
+  margin-bottom: 0;
 
-    .js-img-frame{
-      max-width:  100%;
-      max-height: 22em;
-      overflow-y: auto;
-      margin-bottom: $space;
-    }
-
+  .js-img-frame{
+    margin-bottom: $space;
+    max-height:    22em;
+    max-width:     100%;
+    overflow-y:    auto;
+  }
 }
 
 .object-overview{
@@ -26,7 +25,7 @@
     @include span(last 6);
   }
 
-  &>div{
+  >div{
     margin-bottom: $space;
   }
 
@@ -44,16 +43,27 @@
       object-fit:     contain;
     }
   }
+
+  .license .svg-icon-linkout{
+    display:       inline-block;
+    height:        2em;
+    margin-bottom: -0.55em;
+    margin-top:    -0.55em;
+    transform:     scale(0.6);
+    width:         2em;
+  }
 }
 
 .object-title{
-    word-break: normal;
+  word-break: normal;
 }
 
 .object-nav{
-  padding: 0.7rem $space-half;
-  background-color: $offwhite;
+
   @include fontSize(14px);
+
+  background-color: $offwhite;
+  padding:          0.7rem $space-half;
 
   .object-nav-search{
     @media all and (min-width: $bp-med) {
@@ -77,7 +87,7 @@
     display: inline;
     a {
       font-size: $font-size-slightly-smaller;
-      &:after{
+      &::after{
         font-size: $font-size-norm;
         top: 0.01em;
       }
@@ -99,7 +109,7 @@
 }
 
 .with-transparency .object-nav{
-   background: rgba(241, 241, 238, 0.85);
+  background: rgba(241, 241, 238, 0.85);
 }
 
 
@@ -113,115 +123,111 @@
 }
 
 .object-display{
-    overflow-y: auto;
-    background-color: $media_bg;
-    position: relative;
+  background-color: $media_bg;
+  overflow-y:       auto;
+  position:         relative;
 }
 
 
 .object-media-wrap{
 
-    text-align: center;
+  position: relative;
+  text-align: center;
 
-    &:not(.empty){
-      padding: $pad;
+  &:not(.empty){
+    padding: $pad;
+  }
+
+  .no-preview{
+    color:      #fff;
+    display:    block;
+    padding:    4em 31% 2em 22%;
+    text-align: left;
+    width:      100%;
+    a{
+      color:           #fff;
+      text-decoration: underline;
     }
+  }
 
-    .no-preview{
-      color:      #fff;
-      display:    block;
-      padding:    4em 31% 2em 22%;
-      text-align: left;
-      width:      100%;
+  .media-thumb-section{
+    margin:    0 auto 3.2rem;
+    max-width: $max-width;
+    overflow:  hidden;
+    width:     100%;
+
+    .js-carousel-arrows{
       a{
-        color:           #fff;
-        text-decoration: underline;
-      }
-    }
+        color:       #ffffff;
+        font-weight: bold;
+        text-shadow: 0 0 1px #000;
+        width:       1em;
 
-    position: relative;
-
-    .media-thumb-section{
-      overflow: hidden;
-      width: 100%;
-      max-width: $max-width;
-      margin: 0 auto 3.2rem;
-
-      .js-carousel-arrows{
-        a{
-          &.left{
-            background-position: 10px 35px;
-          }
-          &.right{
-            background-position: -5px 35px;
-            right: 6px;
-          }
-          color: white;
-          text-shadow: 0 0 1px #000;
-          font-weight: bold;
-          width: 1em;
-
-          &.disabled{
-            color: $gray-lighter;
-            cursor: default;
-          }
+        &.left{
+          background-position: 10px 35px;
         }
-      }
-
-      .js-carousel{
-        .js-carousel-item{
-            width: $thumbnail_max_dimension_media;
+        &.right{
+          background-position: -5px 35px;
+          right:               6px;
         }
-        &.h{
-          .height-to-width{
-            height: $thumbnail_max_dimension_media;
-          }
-        }
-        &.loading ul:after {
-          min-height: $thumbnail_max_dimension_media;
+        &.disabled{
+          color: $gray-lighter;
+          cursor: default;
         }
       }
     }
 
-    .media-viewer{
-      margin: auto;
+    .js-carousel{
+      .js-carousel-item{
+        width: $thumbnail_max_dimension_media;
+      }
+      &.h{
+        .height-to-width{
+          height: $thumbnail_max_dimension_media;
+        }
+      }
+      &.loading ul::after {
+        min-height: $thumbnail_max_dimension_media;
+      }
+    }
+  }
+
+  .media-viewer{
+    margin:    auto;
+    max-width: $max-width;
+    position:  relative;
+    width:     100%;
+
+    &.active{
+      padding-bottom: $space;
+    }
+    .object-media-audio{
       position: relative;
-      width: 100%;
-      max-width: $max-width;
-
-      &.active{
-        padding-bottom: $space;
-      }
-      .object-media-audio{
-        position: relative;
-        width: 100%;
-      }
-      .object-media-image{
-        position: relative;
-        //z-index: 100; #839
-      }
-      .object-media-iiif{
-        position: relative;
-        z-index: 2;
-      }
-      .object-media-midi{
-        .midi-player{
-          position: relative;
-          top: 3.5em;
-        }
-      }
-
-      .multi-item-poster {
-        //max-width: 100%;
-        //width:     400px;
-        max-width: 400px;
-      }
-
-      .multi-item-poster > a > img{
-        max-width: 100%;
-      }
-
+      width:    100%;
     }
+    .object-media-image{
+      position: relative;
+    }
+    .object-media-iiif{
+      position: relative;
+      z-index: 2;
+    }
+    .object-media-midi{
+      .midi-player{
+        position: relative;
+        top:      3.5em;
+      }
+    }
+
+    .multi-item-poster {
+      max-width: 400px;
+    }
+
+    .multi-item-poster > a > img{
+      max-width: 100%;
+    }
+
+  }
 
 }
 
@@ -229,49 +235,42 @@
 
   .object-media-wrap{
 
-    width:100%;
-    max-width:100%;
-
-    &.single-item{
-
-    }
+    max-width: 100%;
+    width:     100%;
 
     &.multi-item{
 
-      display: table-row;
+      display:      table-row;
       table-layout: fixed;
 
       .media-viewer,
       .media-thumb-section{
-        display: table-cell;
+        display:        table-cell;
         vertical-align: middle;
       }
 
       .media-thumb-section{
 
-        width:         $thumbnail_max_dimension_media;  // set width of thumbnail column here - thumbnail width and height (if left unset) will match it
         min-width:     $thumbnail_max_dimension_media;  // (both needed - and should match the thumbnail width to keep arrows aligned)
         padding-right: 1.6rem;
-
+        width:         $thumbnail_max_dimension_media;  // set width of thumbnail column here - thumbnail width and height (if left unset) will match it
 
         // override carousel default height for thumbnail list (margin allows space for arrows)
         .media-thumbs{
           height: 21em;
-          margin: 2 * $space 0 2 * $space 0;
+          margin: 2 * $space 0;
         }
       }
 
       .media-viewer{
+        box-sizing:     padding-box;
+        padding-left:   $space;
+        padding-right:  $space;
+        width: 100%;
 
-          &.active{
-            padding-top:    $space;
-          }
-
-         width: 100%;
-
-         padding-left:   $space;
-         padding-right:  $space;
-         box-sizing:     padding-box;
+        &.active{
+          padding-top:    $space;
+        }
       }
     }
   }
@@ -286,182 +285,181 @@
 // media thumbnails list
 
 .object-media-nav{
-    background-color: $media_bg;
-    a{
-      cursor: default;
-      &.playable,
-      &.external-media{
-        cursor: pointer;
-      }
-      &.loading{
-          cursor:progress
-      }
+  background-color: $media_bg;
+  a{
+    cursor: default;
+    &.playable,
+    &.external-media{
+      cursor: pointer;
     }
+    &.loading{
+      cursor: progress;
+    }
+  }
 }
 
 
 .single-item-thumb svg.icon.icon-play,
 .multi-item-poster svg.icon.icon-play,
 .object-media-nav svg.icon.icon-play{
-    font-size: 0.9em;
-    margin: 0.42em 0 0 0.2em;
+  font-size: 0.9em;
+  margin:    0.42em 0 0 0.2em;
 }
 
 .single-item-thumb svg.icon.icon-plus,
 .multi-item-poster svg.icon.icon-plus,
 .object-media-nav svg.icon.icon-plus{
-    margin: 0.35em 0 0 0;
+  margin: 0.35em 0 0;
 }
 
 .single-item-thumb svg.icon.icon-eye,
 .multi-item-poster svg.icon.icon-eye,
 .object-media-nav svg.icon.icon-eye{
-    margin: 0.35em 0 0 0;
+  margin: 0.35em 0 0;
 }
 
 .single-item-thumb svg.icon.icon-zoomin,
 .multi-item-poster svg.icon.icon-zoomin,
 .object-media-nav svg.icon.icon-zoomin{
-    margin: 0.27em 0 0 0;
+  margin: 0.27em 0 0;
 }
 
 .single-item-thumb svg.icon.icon-newspaper,
 .multi-item-poster svg.icon.icon-newspaper,
 .object-media-nav svg.icon.icon-newspaper  {
-    font-size: 0.9em;
-    margin: 0.4em 0 0 0.16em;
+  font-size: 0.9em;
+  margin: 0.4em 0 0 0.16em;
 }
 
 .single-item-thumb,
 .multi-item-poster{
 
-    display: inline-block;
-    position: relative;
-    margin: $space / 2 auto;
-    max-width: 100%;
+  display:   inline-block;
+  margin:    $space / 2 auto;
+  max-width: 100%;
+  position:  relative;
 
-    a{
-      cursor: default;
-      &.playable,
-      &.external-media{
-        cursor: pointer;
-      }
+  a{
+    cursor: default;
+    &.playable,
+    &.external-media{
+      cursor: pointer;
     }
+  }
 
-    &.contains-playable{
-      margin: $space auto;
-    }
+  &.contains-playable{
+    margin: $space auto;
+  }
 
-    &.open{
-      display: none;
-    }
+  &.open{
+    display: none;
+  }
 
-    @media all and (max-width: $bp-med) {
-      margin: $space * 2 auto;
-    }
+  @media all and (max-width: $bp-med) {
+    margin: $space * 2 auto;
+  }
 }
 
 .single-item .object-media-nav.open{
-    display: none;
+  display: none;
 }
 
 .single-item{
   .object-media-nav a{
-      box-shadow: none;
-      color:  white;
-      position:    relative;
-      display: inline-block;
-      margin-bottom: 1.6rem;
-      transition: box-shadow 0.25s ease-in-out;
+    box-shadow:    none;
+    color:         #ffffff;
+    display:       inline-block;
+    margin-bottom: 1.6rem;
+    position:      relative;
+    transition:    box-shadow 0.25s ease-in-out;
   }
 
   .object-media-nav a.playable:hover{
-      box-shadow: 0px 0px 0.5em;
+    box-shadow: 0 0 0.5em;
   }
 }
 
 .media-clickable-indicator{
-    bottom: -0.9rem;
-    left:   -1.3rem;
-    color: white;
-    position: absolute;
-    font-weight: bolder;
-    box-sizing: content-box;
-    border-radius: 2em;
-    background-color: $accent;
-    border: 2px solid white;
-    font-size: 1.5em;
-    height: 2.5rem;
-    //line-height: 1.6em;
-    width: 2.5rem;
+  background-color: $accent;
+  border:           2px solid #ffffff;
+  border-radius:    2em;
+  bottom:           -0.9rem;
+  box-sizing:       content-box;
+  color:            #ffffff;
+  font-size:        1.5em;
+  font-weight:      bolder;
+  height:           2.5rem;
+  left:             -1.3rem;
+  position:         absolute;
+  width:            2.5rem;
 }
 
 
 .object-media-info{
-    position: relative;
-    margin-bottom: 0;
-    background-color: $offwhite;
-    display:none;
+  background-color: $offwhite;
+  display:          none;
+  margin-bottom:    0;
+  position:         relative;
 }
 
 .object-media-info.is-current{
-    display:block;
+  display: block;
 }
 
 .media-info-tab{
 
-    position: relative;
-    overflow: hidden;
-    max-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
 
-    -webkit-transition: max-height 0.3s;
-    transition: max-height 0.3s;
+  -webkit-transition: max-height 0.3s;
+  transition: max-height 0.3s;
 
-    .is-expanded & {
-      max-height: 40em;
+  .is-expanded & {
+    max-height: 40em;
+  }
+
+  .lc > div{
+    padding: $pad 0;
+  }
+
+  .info-primary{
+    @media all and (min-width: $bp-med) {
+      @include span(4 of 24);
     }
+  }
 
-    .lc > div{
-        padding: $pad 0;
+  .info-secondary{
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+
+    -moz-column-gap:      $space;
+    -webkit-column-gap:   $space;
+    column-gap:           $space;
+
+    @media all and (min-width: $bp-med) {
+      @include span(14 of 24);
     }
+  }
 
-    .info-primary{
-        @media all and (min-width: $bp-med) {
-            @include span(4 of 24);
-        }
+  .info-license{
+    @media all and (min-width: $bp-med) {
+      @include span(7 of 24);
     }
+  }
 
-    .info-secondary{
-
-        -moz-column-count: 2;
-        -moz-column-gap: $space;
-        -webkit-column-count: 2;
-        -webkit-column-gap: $space;
-        column-count: 2;
-        column-gap: $space;
-
-        @media all and (min-width: $bp-med) {
-            @include span(14 of 24);
-        }
+  .info-attribute{
+    @media all and (min-width: $bp-med) {
+      @include span(11 of 24);
     }
+  }
 
-    .info-license{
-        @media all and (min-width: $bp-med) {
-            @include span(7 of 24);
-        }
+  .info-support{
+    @media all and (min-width: $bp-med) {
+      @include span(last 6);
     }
-
-    .info-attribute{
-        @media all and (min-width: $bp-med) {
-            @include span(11 of 24);
-        }
-    }
-
-    .info-support{
-        @media all and (min-width: $bp-med) {
-            @include span(last 6);
-        }
-    }
+  }
 }
 
 
@@ -469,85 +467,84 @@
 
 .object-techdata{
 
-    // these 3 indent it - is that design's intent?
-    max-width: $max-width;
-    position: relative;
-    margin: auto;
+  margin:    auto;
+  max-width: $max-width;
+  position:  relative;
 
+  >.show-button{
+    bottom:   100%;
+    color:    $offwhite;
+    position: absolute;
+    z-index:  1;
 
-    &>.show-button{
-        position: absolute;
-        bottom: 100%;
-        z-index: 1;
-        color: $offwhite;
-        &:hover{
-            color: $white;
-        }
+    &:hover{
+      color: $white;
     }
+  }
 
-    .label{
-        font-weight: bold;
-        &:after{
-            content: ':'
-        }
+  .label{
+    font-weight: bold;
+    &::after{
+      content: ':';
     }
+  }
 }
 .object-techdata-list li{
-    &.is-disabled{
-        display: none;
-    }
-    .val-rights a{
-      white-space: nowrap;
-    }
+  &.is-disabled{
+    display: none;
+  }
+  .val-rights a{
+    white-space: nowrap;
+  }
 }
 
 
 .object-downloads{
 
-    .btn{
-        background-color: $accent;
-        border: none;
-        position: absolute;
-        right: 11%;
-        bottom: 100%;
-        z-index: 1;
-    }
+  .btn{
+    background-color: $accent;
+    border:           0;
+    bottom:           100%;
+    position:         absolute;
+    right:            11%;
+    z-index:          1;
+  }
 
-    .is-disabled{
-        background: lighten($text_secondary, 10%);
-        color: darken($text_secondary, 20%);
-        pointer-events: none;
-        &:hover{
-            background: lighten($text_secondary, 10%);
-        }
+  .is-disabled{
+    background:     lighten($text_secondary, 10%);
+    color:          darken($text_secondary, 20%);
+    pointer-events: none;
+    &:hover{
+      background: lighten($text_secondary, 10%);
     }
+  }
 
-    p{
-        font-size: $font-size-slightly-smaller;
-        margin-bottom: 0;
-    }
+  p{
+    font-size:     $font-size-slightly-smaller;
+    margin-bottom: 0;
+  }
 
-    .file-meta .label{
-        font-weight: bold;
-        &:after{
-            content: ': '
-        }
+  .file-meta .label{
+    font-weight: bold;
+    &::after{
+      content: ': ';
     }
+  }
 }
 
 // when download drawer is open tech-data is pushed down onto a white background - create contrast here:
 
 .object-downloads.is-expanded + .object-techdata > a.show-button{
-   color: $gray30;
-   &:hover{
-    color: red;
+  color: $gray30;
+  &:hover{
+    color: #ff0000;
     color: $textcolour_link_hover;
   }
 }
 
 .object-downloads.is-expanded + .object-techdata.is-expanded{
-   border-top: 1px solid $gray87;
-   margin-top: $space;
+  border-top: 1px solid $gray87;
+  margin-top: $space;
 }
 
 #molecules-components-search-search-listitem-js,
@@ -556,108 +553,109 @@
 }
 
 .original_context{
-    display: block;
-    margin-bottom: 0.5em;
+  display:       block;
+  margin-bottom: 0.5em;
 }
 
 .original_context_country{
-    display: block;
-    margin-top: 0.5em;
+  display:    block;
+  margin-top: 0.5em;
 }
 
 .object-details{
   margin-top: $space;
 }
 
-
 .object-info{
 
-    padding-bottom: $space;
+  padding-bottom: $space;
 
-    @media all and (min-width: $bp-med) {
-        width: span(14 of 18);
-        @include push(4 of 18);
-    }
+  @media all and (min-width: $bp-med) {
+    @include push(4 of 18);
+    width: span(14 of 18);
+  }
 }
 
 .data-group{
-    .data-header{
-        text-transform: none;
-        text-transform: capitalize;
-        display: inline;
-    }
-    .data-group{
-        display: inline-block;
-    }
+  .data-header{
+    display:        inline;
+    text-transform: capitalize;
+  }
+  .data-group{
+    display: inline-block;
+  }
 }
 
 
 .map-section,
 .data-section,
 .object-extradata{
-    padding-top: $space;
-    padding-bottom: $space;
-    border-top: 1px solid $gray-lighter;
 
-    &.object-title{
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  border-top:     1px solid $gray-lighter;
+  padding-bottom: $space;
+  padding-top:    $space;
+
+  &.object-title{
+    padding-bottom: 0;
+    padding-top:    0;
+  }
 }
+
 .data-section.no-border{
-    border-top: none;
+  border-top: 0;
 }
+
 .data-border{
-    border-top: 1px solid $gray-lighter;
+  border-top: 1px solid $gray-lighter;
 }
+
 .data-full-w{
   @include span(24);
 }
 
 .map-section{
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
-
 
 .map{
-    height: 22em;
-    z-index: 1;
-    position: relative;
+  height: 22em;
+  position: relative;
+  z-index: 1;
 }
-
 
 .subsection-label{
-    font-weight:    bold;
-    text-transform: capitalize;
+  font-weight:    bold;
+  text-transform: capitalize;
 }
-
 
 // override carousel defaults for mlt
 
 .mlt{
-    .js-carousel{
-        .js-carousel-item{
-            width: $thumbnail_max_dimension_mlt;
-        }
-        .height-to-width{
-          height: $thumbnail_max_dimension_mlt;
-        }
+
+  .js-carousel{
+    .js-carousel-item{
+      width: $thumbnail_max_dimension_mlt;
     }
-    .js-carousel-arrows{
-        &.h{
-            .left{
-                @media all and (min-width: $bp-med) {
-                  left: 0;
-                }
-            }
-        }
-         a{
-            line-height: $thumbnail_max_dimension_mlt;
-            &.disabled{
-              color: $gray-lighter;
-            }
-        }
+    .height-to-width{
+      height: $thumbnail_max_dimension_mlt;
     }
+  }
+
+  .js-carousel-arrows{
+    &.h{
+      .left{
+        @media all and (min-width: $bp-med) {
+          left: 0;
+        }
+      }
+    }
+    a{
+      line-height: $thumbnail_max_dimension_mlt;
+      &.disabled{
+        color: $gray-lighter;
+      }
+    }
+  }
 }
 
 // override carousel defaults for landing feed
@@ -671,7 +669,7 @@
     background-color:    rgba(0, 0, 0, 0.5);
     background-position: 6px 18px;
 
-    color:               white;
+    color:               #ffffff;
 
     font-size:           4em;
     font-weight:         bold;
@@ -693,17 +691,16 @@
     }
 
     &.disabled{
-      color:  $gray-lighter;
-      cursor: default;
-      visibility: hidden;
+      color:          $gray-lighter;
+      cursor:         default;
       pointer-events: none;
+      visibility:     hidden;
     }
 
     &:not(.disabled):hover{
       background-color: rgba(0, 0, 0, 0.9);
     }
   }
-
 
   .left{
     margin-left: -205px;
@@ -756,14 +753,13 @@
     }
   }
 
-
   .js-carousel{
     &.not-loaded{
-      width:  1px;
-      height: 1px;
+      height:   1px;
       overflow: hidden;
+      width:    1px;
     }
-    &.loading ul:after {
+    &.loading ul::after {
       min-height: 15em;
     }
 
@@ -804,27 +800,23 @@
       &.portrait-1 img{
 
         height: 12em;
+        min-width:       100%;
+        object-fit:      cover;
+        object-position: top;
 
         @media all and (min-width: $bp-large) {
           height: 15em;
         }
-
-        min-width:  100%;
-
-        object-fit:      cover;
-        object-position: top;
       }
       &.portrait-2 img{
 
         height: 12em;
+        min-width:  100%;
+        object-fit:      contain;
 
         @media all and (min-width: $bp-large) {
           height: 15em;
         }
-
-        min-width:  100%;
-
-        object-fit:      contain;
       }
       &.portrait-3{
 
@@ -856,8 +848,8 @@
       .js-carousel-title-wrap{
         display:        block;
         height:         4.9em;
-        min-height:     4.9em;
         margin-top:     0.75em;
+        min-height:     4.9em;
         padding:        0.1em;
       }
 
@@ -870,8 +862,8 @@
         max-height:    3.2em;
         padding-right: 2em;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           height: 1.4em;
           right:  1.1em;
         }
@@ -895,8 +887,8 @@
         max-height:    7em;
         padding:       0 1.4em 0 0;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           height:   1.15em;
           right:    0.5em;
         }
@@ -905,24 +897,23 @@
       .js-carousel-text,
       .js-carousel-title{
 
+        max-width:     100%;
         overflow:      hidden;
         position:      relative;
         text-align:    justify;
 
-        max-width:     100%;
-
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           position: absolute;
         }
 
-        &:before {
+        &::before {
           bottom:   1px;
           content: '...';
         }
 
-        &:after {
-          background: white;
+        &::after {
+          background: #ffffff;
           content:    ' ';
           height:     1.6em;
           width:      1em;
@@ -955,28 +946,27 @@
 
 
 .js-carousel.media-thumbs.h{
-    margin: 0 2.6rem;
+  margin: 0 2.6rem;
 }
 .js-carousel-arrows.h{
-    line-height: $thumbnail_max_dimension_media;
+  line-height: $thumbnail_max_dimension_media;
 }
 
 .subsection-content{
   position: relative;
-  &>ul{
+  >ul{
     display: inline;
   }
 }
-
 
 .eu-foldable .multi-val{
   display: inline;
 }
 
 .named-entity-section{
-  width: 100%;
-  display: table-row;
+  display:      table-row;
   table-layout: fixed;
+  width:        100%;
 }
 
 .eu-filter{
@@ -995,16 +985,17 @@
 .filter-force-hide{
   display: none !important;
 }
+
 .filter-force-show{
   display: block !important;
   &.filter-force-show-children{
     .eu-foldable-title{
       >a{
-        &:after{
-          /* arrows opened */
-          border-color: #a4cde1 transparent transparent transparent !important;
-          bottom: 2px                                               !important;
-          border-style: solid dashed dashed dashed                  !important;
+        &::after{
+          // arrows opened
+          border-color: #a4cde1 transparent transparent !important;
+          border-style: solid dashed dashed             !important;
+          bottom: 2px                                   !important;
         }
       }
     }
@@ -1030,55 +1021,52 @@
 
 .eu-foldable-url,
 .eu-foldable-title{
-  padding-bottom: 1em;
   margin-bottom: 0;
+  padding-bottom: 1em;
 }
 
 .eu-foldable-title{
-  &>a {
-    display: block;
-    word-wrap: normal;
-    white-space: normal;
-
-    position: relative;
+  >a {
+    display:       block;
     padding-right: 1em;
-    &:after{
-      /* arrows closed */
-      content:' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      border-width: 5px; /* tweak size of the arrow */
-      margin-left:5px;
+    position:      relative;
+    white-space:   normal;
+    word-wrap:     normal;
 
-      top: auto;
-
-      /* override these on opened */
-      bottom: 8%;
-      border-style:dashed dashed dashed solid;
-      border-color:transparent transparent transparent #a4cde1;
+    &::after{
+      // arrows closed
+      border-color: transparent transparent transparent #a4cde1; // override when opened
+      border-style: dashed dashed dashed solid;                  // override when opened
+      border-width: 5px;                                         // tweak size of the arrow
+      bottom:       8%;                                          // override when opened
+      content:      ' ';
+      height:       0;
+      margin-left:  5px;
+      overflow:     hidden;
+      position:     absolute;
+      top:          auto;
+      width:        0;
     }
   }
   &.opened>a{
-   &:after{
-      /* arrows opened */
-      border-color: #a4cde1 transparent transparent transparent;
-      bottom: 2px;
-      border-style: solid dashed dashed dashed;
-   }
+    &::after{
+      // arrows opened
+      border-color: #a4cde1 transparent transparent;
+      border-style: solid dashed dashed;
+      bottom:       2px;
+    }
   }
   &.eu-foldable-top-level{
-    &>a{
-    margin-top: 0;
+    >a{
+      margin-top: 0;
     }
   }
 }
 
 .eu-foldable-title.inline{
-  &>a {
-    whitespace: normal;
-    &:after{
+  >a {
+    white-space: normal;
+    &::after{
       bottom: 8%;
       margin-top: 0;
     }
@@ -1089,25 +1077,20 @@
   margin: 1em 0 0;
 }
 
-
-
-
 @media all and (min-width: $bp-med) {
-
-    .subsection-label{
-        @include span(4);
-        .object-overview &{
-            @include span(4 of 18);
-        }
+  .subsection-label{
+    @include span(4);
+    .object-overview &{
+      @include span(4 of 18);
     }
+  }
 
-    .subsection-content{
-        @include span(last 20 no-gutters);
-        .object-overview &{
-            @include span(last 14 of 18);
-        }
+  .subsection-content{
+    @include span(last 20 no-gutters);
+    .object-overview &{
+      @include span(last 14 of 18);
     }
-
+  }
 }
 
 .colour-data{

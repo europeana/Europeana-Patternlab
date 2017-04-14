@@ -6,73 +6,82 @@
   font-style: normal;
 }
 
-/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
-html:hover [class^="icon-"]{-ms-zoom: 1;}
+// This triggers a redraw in IE to Fix IE8's ::before content rendering.
+html:hover [class^='icon-']{-ms-zoom: 1;}
 
 
 .icon-license,
-[class^="icon-license-"]:before,
-[class*=" icon-license-"]:before
+[class^='icon-license-']::before,
+[class*=' icon-license-']::before
 {
-  font-family: 'cc-licenses';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  white-space: nowrap;
-  /*-webkit-font-feature-settings: "liga"; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected. */
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  -o-font-feature-settings: "liga";
-  font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  margin-right: 0.3em;
+  font-family:                'cc-licenses';
+  -moz-font-feature-settings: 'liga=1';
+  -moz-font-feature-settings: 'liga';
+  -ms-font-feature-settings:  'liga' 1;
+  -o-font-feature-settings:   'liga';
+  font-feature-settings:      'liga';
+  -webkit-font-smoothing:     antialiased;
+  font-style:                 normal;
+  font-weight:                normal;
+  margin-right:               0.3em;
+  speak:                      none;
+  text-decoration:            none;
+  text-rendering:             optimizeLegibility;
+  // -webkit-font-feature-settings: 'liga'; Currently broken in Chrome >= v22. Falls back to text-rendering. Safari is unaffected.
+  white-space:                nowrap;
+}
+
+.license .svg-icon-linkout{
+  display:       inline-block;
+  height:        1.6em;
+  margin-bottom: -0.3em;
+  margin-top:    -0.3em;
+  transform:     scale(0.7);
+  width:         1.6em;
 }
 
 // CC license icons
-.icon-license-nc:before {
-  content: "\e600";
+.icon-license-nc::before {
+  content: '\e600';
 }
-.icon-license-nc-jp:before {
-  content: "\e601";
+.icon-license-nc-jp::before {
+  content: '\e601';
 }
-.icon-license-nc-eu:before {
-  content: "\e602";
+.icon-license-nc-eu::before {
+  content: '\e602';
 }
-.icon-license-cc:before {
-  content: "\e603";
+.icon-license-cc::before {
+  content: '\e603';
 }
-.icon-license-sa:before {
-  content: "\e604";
+.icon-license-sa::before {
+  content: '\e604';
 }
-.icon-license-remix:before {
-  content: "\e605";
+.icon-license-remix::before {
+  content: '\e605';
 }
-.icon-license-pd:before {
-  content: "\e606";
+.icon-license-pd::before {
+  content: '\e606';
 }
-.icon-license-nd:before {
-  content: "\e607";
+.icon-license-nd::before {
+  content: '\e607';
 }
-.icon-license-sampling:before {
-  content: "\e608";
+.icon-license-sampling::before {
+  content: '\e608';
 }
-.icon-license-sampling-plus:before {
-  content: "\e609";
+.icon-license-sampling-plus::before {
+  content: '\e609';
 }
-.icon-license-share:before {
-  content: "\e60a";
+.icon-license-share::before {
+  content: '\e60a';
 }
-.icon-license-zero:before {
-  content: "\e60b";
+.icon-license-zero::before {
+  content: '\e60b';
 }
-.icon-license-by:before {
-  content: "\e60c";
+.icon-license-by::before {
+  content: '\e60c';
 }
-.icon-license-rr:before {
-  content: "©";
+.icon-license-rr::before {
+  content: '©';
 }
 
 svg.icon.icon-license-rs{
