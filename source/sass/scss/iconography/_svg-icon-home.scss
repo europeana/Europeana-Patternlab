@@ -1,4 +1,4 @@
-@import "../../../sass/scss/generic/variables";
+@import "../generic/variables";
 
 .svg-icon-home{
   background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($linkblue)}' id='icon-home' viewbox='0 0 26 30'%3E%3Cpath d='M21.793 12.45q-0.126 0.278-0.429 0.278h-2.273v10q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-7.727h-5.455v7.727q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-10h-2.273q-0.303 0-0.429-0.278-0.076-0.278 0.101-0.505l10.455-10.455q0.328-0.328 0.657 0l10.455 10.455q0.177 0.227 0.101 0.505z'%3E%3C/path%3E%3C/svg%3E");
