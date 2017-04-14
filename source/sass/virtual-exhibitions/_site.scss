@@ -85,16 +85,26 @@
   position:    relative;
   width:       100%;
 
+  .svg-icon-next,
+  .svg-icon-previous{
+    display:   inline-block;
+    height:    1.2em;
+    transform: scale(1.2) translateY(0.2em);
+    width:     1em;
+  }
+
+  .svg-icon-next{
+    margin-left: 0.3em;
+  }
+
+  .svg-icon-previous{
+    margin-right: 0.3em;
+  }
+
   .ve-chapter-nav-next,
   .ve-chapter-nav-prev{
     display:    block;
     text-align: center;
-
-    .icon{
-      height:        1.5em;
-      margin-bottom: -0.35em;
-      width:         1.5em;
-    }
   }
 
   &.has-next.has-previous{
