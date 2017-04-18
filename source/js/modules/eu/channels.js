@@ -66,6 +66,7 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
           if(!params[filterName]){
             delete params[filterName];
           }
+          
           if(params['page']){
             delete params['page'];
           }
