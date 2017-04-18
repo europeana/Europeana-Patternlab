@@ -1,7 +1,7 @@
 env:
   browser: true
-extends:
-  'eslint:recommended'
+#extends:
+#  'eslint:recommended'
 globals:
   define: false
   require: false
