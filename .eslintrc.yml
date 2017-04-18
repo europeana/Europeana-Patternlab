@@ -1,13 +1,16 @@
 env:
   browser: true
-extends:
-  'eslint:recommended'
+
+#extends:
+#  'eslint:recommended'
+
 globals:
   define: false
   require: false
   window: false
 rules:
   no-console:
+    - error
     - 0
   indent:
     - error

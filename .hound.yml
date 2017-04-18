@@ -1,10 +1,12 @@
 fail_on_violations: true
+
 eslint:
   enabled: true
-  config_file: .eslintrc.yml
+#  config_file: .eslintrc.yml
 scss:
   config_file: .scss-lint.yml
-jshint:
-  enabled: true
-  config_file: .jshintrc.yml
+
+#jshint:
+#  enabled: false
+#  config_file: .jshintrc.yml
 
