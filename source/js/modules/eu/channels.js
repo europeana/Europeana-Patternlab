@@ -66,6 +66,9 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
           if(!params[filterName]){
             delete params[filterName];
           }
+          if(params['page']){
+            delete params['page'];
+          }
           
           var newParams = $.param(params);
           var newUrl = window.location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
