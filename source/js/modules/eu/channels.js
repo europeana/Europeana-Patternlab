@@ -62,6 +62,7 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
           var params = $url.param();
           
           params[filterName] = (['*', 'all'].indexOf(val) > -1 ? '' : val);
+
           
           if(!params[filterName]){
             delete params[filterName];
