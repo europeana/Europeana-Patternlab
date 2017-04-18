@@ -8,6 +8,7 @@ globals:
   window: false
 rules:
   no-console:
+    - error
     - 0
   indent:
     - error
