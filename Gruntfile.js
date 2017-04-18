@@ -209,6 +209,49 @@ module.exports = function(grunt) {
       },
       patternlab_markup: {
         command: "php core/builder.php --generate --patternsonly"
+      },
+      generate_icon_ref: {
+        command: 'cd source/sass/scss/iconography/; ls *.scss',
+        options:{
+          callback: function log(err, stdout, stderr, cb) {
+            var lines            = stdout.split('\n');
+            var content_scss     = '@import "../objects/icons/_svgicons.scss";\n';
+            var content_mustache = '<link rel="stylesheet" href= "../../css/svg-icons-all-generated.css" media="all" />\n<b>GENERATED ICON LIST</b><br/><br/><br/>';
+            var doNotOutput      = [
+              'svg-icons-all-generated.scss',
+              '_svg-icons-exhibitions.scss',
+              '_svg-icons-channels.scss',
+              '_svg-icons-metis.scss'
+            ];
+
+            for(var i=0; i<lines.length; i++){
+              if(lines[i].length==0 || doNotOutput.indexOf(lines[i])>-1){
+                console.log('\t(skip ' + lines[i] + ')');
+                continue;
+              }
+              var entry = lines[i].replace(/^_/,'').replace(/.scss/,'');
+              content_mustache += '<span class="svg-generated-icon white off-white ' + entry + '"></span>\n';
+              content_mustache += entry;
+              content_mustache += '<br/><br/>';
+              content_scss     += '@import "' + entry + '";\n';
+            }
+            grunt.task.run('shell:write_scss:'     + JSON.stringify(content_scss,     null, 0));
+            grunt.task.run('shell:write_mustache:' + JSON.stringify(content_mustache, null, 0));
+            grunt.task.run('shell:append_scss');
+            grunt.task.run('compass:svg');
+            grunt.task.run('shell:patternlab_full');
+            cb();
+          }
+        }
+      },
+      append_scss: {
+        command: 'cd source/sass/scss/iconography/; echo ".svg-generated-icon\{ display\:inline-block; height\:2em; margin-right\:2em; width\:2em; background-color\:orange; \&\:before,\&\:after\{ content\:\' \'; width\:2em; height\:2em; background-color\:orange; \} \}" >> svg-icons-all-generated.scss'
+      },
+      write_mustache: {
+        command: data => 'cd source/_patterns/atoms/iconography/; echo ' + data + ' > svg-icons-all-generated.mustache'
+      },
+      write_scss: {
+        command: data => 'cd source/sass/scss/iconography/; echo ' + data + ' > svg-icons-all-generated.scss'
       }
     },
     compass: {
@@ -252,6 +295,12 @@ module.exports = function(grunt) {
           src: ['*.scss'],
           ext: '.css'
         }]
+      },
+      svg: {
+        options: {
+          config: 'config-generated-svg.rb',
+          cssDir: 'source/css'
+        }
       },
       version: {
         options: {
@@ -351,7 +400,11 @@ module.exports = function(grunt) {
       grunt.task.run('compass:js_components');
       done();
     }
-  }),
+  });
+
+  grunt.registerTask('icons', function(){
+    grunt.task.run('shell:generate_icon_ref');
+  });
 
   grunt.registerTask('default', [
     'concat:blacklight',

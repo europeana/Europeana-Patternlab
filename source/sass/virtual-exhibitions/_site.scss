@@ -1,17 +1,16 @@
 @import "../scss/generic/variables";
 @import "variables";
-@import "../_patterns/atoms/iconography/_svg-icons-exhibitions";
-
+@import "../scss/iconography/svg-icons-exhibitions";
 
 .logo {
   background-image: url("../../images/europeana-logo-collections.png");
   .svg &{
     background-image: url("../../images/europeana-logo-collections.svg");
-      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        background-image: url("../../images/europeana-logo-symbol.svg");
-        min-width:50px;
-        max-width:50px;
-      }
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+      background-image: url("../../images/europeana-logo-symbol.svg");
+      max-width: 50px;
+      min-width: 50px;
+    }
   }
 }
 
@@ -44,29 +43,35 @@
     font-size: .875em;
   }
 
-  .breadcrumbs a:after{
+  .breadcrumbs a::after{
     top: 0.01em;
   }
-
 }
 
 .slide-nav{
-  display:     none;
+  display: none;
+
+  .svg-icon-down{
+    display:   inline-block;
+    height:    1em;
+    transform: scale(1.2) translateY(0.1em);
+    width:     1em;
+  }
 }
 
 .nav-to-full{
-  text-align: center;
   margin-top: 1em;
+  text-align: center;
 
   button{
-    text-transform: uppercase;
     font-weight: bold;
+    text-transform: uppercase;
   }
   span{
     display: block;
     font-size: 1.2em;
     font-weight: bold;
-    margin: 0.5em 0 1em 0;
+    margin: 0.5em 0 1em;
   }
   img{
     margin: 1em 0;
@@ -76,19 +81,29 @@
 .ve-base-chapter-nav{
   font-size:   1.5em;
   font-weight: bold;
-  position:    relative;
   margin:      auto;
+  position:    relative;
   width:       100%;
+
+  .svg-icon-next,
+  .svg-icon-previous{
+    display:   inline-block;
+    height:    1.2em;
+    transform: scale(1.2) translateY(0.2em);
+    width:     1em;
+  }
+
+  .svg-icon-next{
+    margin-left: 0.3em;
+  }
+
+  .svg-icon-previous{
+    margin-right: 0.3em;
+  }
 
   .ve-chapter-nav-next,
   .ve-chapter-nav-prev{
     display:    block;
-
-    .icon{
-      height:        1.5em;
-      margin-bottom: -0.35em;
-      width:         1.5em;
-    }
     text-align: center;
   }
 
@@ -126,13 +141,13 @@
   > iframe,
   > center,
   > div{
-    margin:   1em auto;
     display:  block;
+    margin:   1em auto;
   }
-  
+
   iframe{
-    width:    100%;
     height:   26em;
+    width:    100%;
 
     &.ve-base-small{
 
@@ -142,8 +157,8 @@
       }
 
       @media all and (min-width: $bp-xl) {
-        max-width: $ve_text_column_width_XL;
         height:    30em;
+        max-width: $ve_text_column_width_XL;
       }
     }
 
@@ -153,21 +168,15 @@
         height:    38em;
         max-width: $ve_image_column_width;
       }
-
     }
 
-
-
     &.ve-base-medium-tall{
-
       @media all and (min-width: $bp-med) {
-        //height:    48em;
         max-width: $ve_image_column_width;
         min-height: -webkit-calc(100vh - 4.8rem);
         min-height:    -moz-calc(100vh - 4.8rem);
         min-height:         calc(100vh - 4.8rem);
       }
-
     }
 
     &.ve-base-large{
@@ -181,21 +190,19 @@
       @media all and (min-width: $bp-xl) {
         height:    30em;
       }
-
     }
-
   }
 }
 
 .text-element{
-  padding:           1.5em;
   margin:            1em auto;
+  padding:           1.5em;
 }
 
 .ve-base-text{
   margin: auto;
-  z-index: 3;
   position: relative;
+  z-index: 3;
 }
 
 .ve-base-compare,
@@ -231,9 +238,6 @@
     font-weight:    bold;
     letter-spacing: 0.1em;
     margin:         1em auto;
-
-    // FAO Carlos: this can stop it being tight to the edge of the main intro image - disabled
-    // max-width:      80%;
   }
 }
 
@@ -247,11 +251,11 @@
 
 .ve-state-button-on,
 .ve-state-button-off{
-  background-image: url(../../images/formcontrols.png);
+  background-image: url("../../images/formcontrols.png");
   background-size:  155px 19px;
   display:          inline-block;
-  width:            20px;
   height:           19px;
+  width:            20px;
 }
 
 .ve-state-button-off{
@@ -268,9 +272,9 @@ a:hover > .ve-state-button-off,
   position:          fixed;
   right:             3.5em;
   top:               60%;
-  transform:         translateY(-50%);
-  -webkit-transform: translateY(-50%);
   -ms-transform:     translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform:         translateY(-50%);
   width:             0;
   z-index:           3;
 
@@ -288,7 +292,6 @@ a:hover > .ve-state-button-off,
   a:hover .speech-bubble{
     display: block;
   }
-
 }
 
 .ve-progress-nav .ve-state-button-on,
@@ -297,16 +300,15 @@ a:hover > .ve-state-button-off,
   margin-bottom: 0.9em;
 }
 
-.ve-progress-nav .ve-state-button-on:not(.ve-first):before,
-.ve-progress-nav .ve-state-button-off:not(.ve-first):before{
+.ve-progress-nav .ve-state-button-on:not(.ve-first)::before,
+.ve-progress-nav .ve-state-button-off:not(.ve-first)::before{
   background-color: #ddebee;
   content:          "";
   display:          block;
   height:           18px;
   left:             10px;
-  position:         relative;
-  //margin-bottom:    0.9em;
   margin-top:       1.15em;
+  position:         relative;
   top:              -18px;
   width:            1px;
 }
@@ -322,39 +324,35 @@ a:hover > .ve-state-button-off,
     .attribution {
       text-align: left;
     }
-
   }
-    
+
   figcaption{
-    text-align: center;
     font-size:  $font-size-slightly-smaller;
-    a{
-      // white-space: nowrap;
-    }
+    text-align: center;
   }
 }
 
-.ve-base-compare .attribution-text{  	
-  text-align: center;
+.ve-base-compare .attribution-text{
   font-size:  $font-size-slightly-smaller;
   font-style: italic;
+  text-align: center;
 }
 
 .ve-base-quote{
   .quote{
     font-size:     1.75em;
-    font-weight:   normal;
     font-style:    italic;
+    font-weight:   normal;
     margin-bottom: 0.5em;
   }
 
   .quotee{
-    font-weight:    bold;
-    font-size:      0.75em;
-    text-transform: uppercase;
     color:          $gray-light;
+    font-size:      0.75em;
+    font-weight:    bold;
+    text-transform: uppercase;
 
-    &:before{
+    &::before{
       content:       "\2013";
       padding-right: 0.25em;
     }
@@ -378,8 +376,6 @@ a:hover > .ve-state-button-off,
     top:            auto;
   }
 }
-
-
 
 .ve-description{
   bottom:        1em;
@@ -437,17 +433,17 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-slide .svg-icon-eye{
-  height:    1.1em;
   display:   inline-block;
+  height:    1.1em;
   margin:    -0.3em 0 -0.2em -0.4em;
   transform: scale(0.7);
   width:     1.3em;
 }
 
 .ve-base-quote{
-  text-align: center;
-  position:   relative;
   margin:     auto;
+  position:   relative;
+  text-align: center;
 }
 
 .ve-image{
@@ -494,13 +490,13 @@ a:hover > .ve-state-button-off,
   cursor:            pointer;
   font-size:         2em;
   font-weight:       bold;
-  position:          absolute;
   left:              50%;
-  transform:         translateX(-50%);
-  -webkit-transform: translateX(-50%);
+  position:          absolute;
   -ms-transform:     translateX(-50%);
-
+  -webkit-transform: translateX(-50%);
+  transform:         translateX(-50%);
   z-index:           1;
+
   a{
     color:           $offwhite;
     text-shadow:     0 0 1px #000;
@@ -516,12 +512,12 @@ a:hover > .ve-state-button-off,
 }
 
 .ve-image-credit{
-  bottom:      0em;
+  bottom:      0;
   display:     none;
+  font-size:   0.9em;
   font-weight: bold;
   padding:     1em 0 1em 1em;
   right:       0;
-  font-size:   0.9em;
 }
 
 .ve-intro-image{
@@ -545,9 +541,9 @@ a:hover > .ve-state-button-off,
   background-color: $eu-blue;
   color:            #fff;
   font-weight:      bold;
+  letter-spacing:   0.1em;
   padding:          0.4em 0.8em;
   text-transform:   uppercase;
-  letter-spacing:   0.1em;
 }
 
 .ve-social{
@@ -556,9 +552,9 @@ a:hover > .ve-state-button-off,
   margin:            2.5em 0;
   position:          relative;
   text-align:        center;
-  transform:         translateX(-50%);
-  -webkit-transform: translateX(-50%);
   -ms-transform:     translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform:         translateX(-50%);
 }
 
 .ve-footer{
@@ -604,9 +600,9 @@ a:hover > .ve-state-button-off,
   .ve-base{
 
     .centered-text{
-      transform:         translateY(-50%);
-      -webkit-transform: translateY(-50%);
       -ms-transform:     translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform:         translateY(-50%);
     }
     .centered-v-text{
       position: absolute;
@@ -619,9 +615,9 @@ a:hover > .ve-state-button-off,
       z-index:  1;
 
       .ve-partner-logo{
-        filter:         grayScale(100);
-        -webkit-filter: grayScale(100);
         border:         6px solid #fff;
+        -webkit-filter: grayScale(100);
+        filter:         grayScale(100);
       }
 
       .ve-label{
@@ -677,8 +673,8 @@ a:hover > .ve-state-button-off,
 
     .ve-title-group,
     .ve-description{
-      color:            $colour_overlaid_text;
       background-color: $bg_colour_overlaid_text;
+      color:            $colour_overlaid_text;
     }
   }
 
@@ -689,7 +685,7 @@ a:hover > .ve-state-button-off,
       padding: 0;
 
       .ve-title{
-        background-color: #7F3978;
+        background-color: $eu-purple;
       }
       .ve-subtitle{
         background-color: $bg_colour_overlaid_text;
@@ -701,33 +697,29 @@ a:hover > .ve-state-button-off,
     }
   }
 
-
   .ve-base-text{
     padding: 1em 0;
   }
 
   .ve-exhibition{
     .ve-intro-full-description{
-      background-color: white;
-      opacity:           0.85;
+      background-color:  #fff;
       left:              50%;
       margin:            0;
-      //max-width:         $ve_text_column_width_XL_padded;
+      max-width:         calc(#{$ve_text_column_width} + 2em);
+      opacity:           0.85;
       padding:           1em;
       position:          absolute;
       text-align:        left;
-      transform:         translateX(-50%);
-      -webkit-transform: translateX(-50%);
       -ms-transform:     translateX(-50%);
-
-      max-width: calc(#{$ve_text_column_width} + 2em);
-
+      -webkit-transform: translateX(-50%);
+      transform:         translateX(-50%);
       z-index:           1;
 
       &.intro-disabled{
         max-width: $ve_text_column_width_XL;
-        position:  relative;
         padding:   1em 0;
+        position:  relative;
       }
     }
   }
@@ -767,29 +759,29 @@ a:hover > .ve-state-button-off,
 
   .rich_image{
     >.ve-title-group{
+      margin: auto;
       padding: 0;
       width:   $ve_image_column_width;
-      margin: auto;
     }
   }
 
   .ve-title-group{
-    padding-left:   2%;
+    padding-left: 2%;
   }
 
   .ve-title-group{
-      max-width: 60%;
-      width:     auto;
+    max-width: 60%;
+    width:     auto;
   }
 
   .ve-base-compare{
-      max-width: $ve_text_column_width_XL_padded;
+    max-width: $ve_text_column_width_XL_padded;
   }
   .ve-base.ve-base-quote,
   .ve-base-text,
   .ve-soundcloud{
-      max-width: $ve_text_column_width;
-      //width:     auto;
+    max-width: $ve_text_column_width;
+    //width:     auto;
   }
 
   .ve-base-small{
@@ -811,11 +803,10 @@ a:hover > .ve-state-button-off,
       .ve-chapter-nav-prev{
         margin-bottom: 0;
         margin-top:    0;
-        text-align:    left;
         position:      absolute;
+        text-align:    left;
       }
     }
-
   }
 
   .ve-base-medium{
@@ -823,9 +814,9 @@ a:hover > .ve-state-button-off,
   }
 
   .ve-description{
-    max-width:    59%;
     left:         2%;
     margin-left: -1%;
+    max-width:    59%;
   }
 
   .ve-base-title-image-text{
@@ -868,11 +859,11 @@ a:hover > .ve-state-button-off,
   .ve-base.ve-base-quote,
   .ve-base-text,
   .ve-soundcloud{
-      max-width: $ve_text_column_width_XL;
+    max-width: $ve_text_column_width_XL;
   }
 
   .ve-exhibition .ve-intro-full-description{
-      max-width: $ve_text_column_width_XL_padded;
+    max-width: $ve_text_column_width_XL_padded;
   }
 
 }
