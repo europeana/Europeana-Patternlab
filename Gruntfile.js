@@ -171,7 +171,7 @@ module.exports = function(grunt) {
       // trigger compass to compile the sass
       compass: {
         files: ['source/**/*.{scss,sass}', '!source/js/dist/**'],
-        tasks: ['compass:dev', 'copy:dev_css']
+        tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full']
       },
       // Move the JavaScript to dist using the default grunt task
       //scripts: {
