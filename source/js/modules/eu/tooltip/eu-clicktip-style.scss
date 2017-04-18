@@ -6,7 +6,8 @@
   opacity: 0;
   pointer-events: none;
   position: relative;
-
+  text-align: left;
+  
   &.showing{
     opacity: 1;
     pointer-events:auto;

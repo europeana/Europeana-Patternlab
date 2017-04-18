@@ -8,11 +8,20 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     console.log('GA send: ' + JSON.stringify(ob));
   }
 
+  function initClicktip(){
+    if($('.eu-clicktip-container').length > 0){
+      require(['eu_clicktip'], function(){
+    	log('loaded clicktip');
+      });
+    }
+  }
+  
   function initPage(){
     initMasonry();
     initSocialShare();
     initLightbox();
     initGA();
+    initClicktip();
   }
 
   function initGA(){

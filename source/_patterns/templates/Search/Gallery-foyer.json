@@ -71,6 +71,12 @@
         }
       ]
     },
+    "clicktip":{
+      "activator": ".filterby",
+      "direction": "top",
+      "persistent": true,
+      "tooltip_text": "Here is some text"
+    },
     "social": {
       "social_title": "Share galleries",
       "social_label": "Share galleries",

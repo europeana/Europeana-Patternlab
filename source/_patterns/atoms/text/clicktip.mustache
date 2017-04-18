@@ -1,5 +1,5 @@
 {{#clicktip}}
-  <span class="eu-clicktip-container"{{#activator}} data-clicktip-activator="{{.}}"{{/activator}}>
+  <span class="eu-clicktip-container{{#persistent}} showing{{/persistent}}"{{#activator}} data-clicktip-activator="{{.}}"{{/activator}}>
     <span class="eu-clicktip {{direction}}{{^direction}}top{{/direction}}">
       {{#tooltip_text}}
         {{.}}
