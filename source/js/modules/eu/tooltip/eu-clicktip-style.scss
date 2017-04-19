@@ -1,5 +1,8 @@
 @import "../../../../sass/scss/generic/variables";
 
+$clicktip-color: $white;
+$clicktip-bg:    $eu-blue;
+
 
 .eu-clicktip-container{
   display:  inline-block;
@@ -7,7 +10,7 @@
   pointer-events: none;
   position: relative;
   text-align: left;
-  
+
   &.showing{
     opacity: 1;
     pointer-events:auto;
@@ -29,23 +32,19 @@
 
   .eu-clicktip{
 
-    background:     #1676AA;
-    background:     #e7e7e7;
+    background-color: $clicktip-bg;
+    color:            $clicktip-color;
 
-    color:          #777;
+    font-size:        1rem;
+    font-weight:      normal;
+    line-height:      1.6;
 
-    font-size:      1rem;
-    font-weight:    normal;
-    line-height:    1.6;
+    min-width:        12em;
 
-    min-width:      12em;
-
-    padding:        0.6em;
-    position:       absolute;
-    text-transform: none;
-    z-index:        1;
-
-
+    padding:          0.6em;
+    position:         absolute;
+    text-transform:   none;
+    z-index:          1;
 
     &.top {
       box-shadow:     0.3em 0.3em 0.7em 0 rgba(0, 0, 0, 0.5);
@@ -76,7 +75,7 @@
     }
 
     a{
-      color: #777;
+      color: $clicktip-color;
       text-decoration: underline;
     }
 
@@ -91,7 +90,7 @@
     a[data-role="remove"] {
       cursor:        pointer;
       color:         $medium-gray;
-      color:         #777;
+      color:         $clicktip-color;
       line-height:   1em;
       position:      absolute;
       top:           0px;
@@ -102,7 +101,7 @@
     }
 
     a[data-role="remove"]:hover{
-      color: #777;
+      color: $clicktip-color;
     }
 
     a[data-role="remove"]:after {
@@ -120,30 +119,30 @@
   .eu-clicktip.top:after {
     bottom:              100%;
     left:                5%;
-    border-bottom-color: #1676AA;
-    border-bottom-color: #e7e7e7;
+    border-bottom-color: $clicktip-bg;
+    border-bottom-color: $clicktip-bg;
   }
 
   .eu-clicktip.right:after {
-    top:                50%;
-    right:              -15px;
-    transform:          translateY(-50%);
-    border-left-color: #1676AA;
-    border-left-color: #e7e7e7;
+    top:               50%;
+    right:             -15px;
+    transform:         translateY(-50%);
+    border-left-color: $clicktip-bg;
+    border-left-color: $clicktip-bg;
   }
 
   .eu-clicktip.left:after {
     top:                50%;
     left:               -15px;
     transform:          translateY(-50%);
-    border-right-color: #1676AA;
-    border-right-color: #e7e7e7;
+    border-right-color: $clicktip-bg;
+    border-right-color: $clicktip-bg;
   }
 
   .eu-clicktip.bottom:after {
     bottom:           -15px;
     left:             5%;
-    border-top-color: #1676AA;
-    border-top-color: #e7e7e7;
+    border-top-color: $clicktip-bg;
+    border-top-color: $clicktip-bg;
   }
 }

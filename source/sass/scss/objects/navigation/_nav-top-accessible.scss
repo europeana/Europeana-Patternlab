@@ -118,6 +118,28 @@
   }
 }
 
+
+// begin tooltip specific
+
+.nav_primary + .eu-clicktip-container.showing{
+  position:    absolute;
+  display:     none;
+  top:         3em;
+  z-index:     10;
+
+  @media all and (min-width: $bp-med) {
+    display: block;
+    left:    12em;
+  }
+  @media all and (min-width: $bp-large) {
+    display: block;
+    left:    20em;
+  }
+}
+
+  // end begin tooltip specific
+
+
 .sm{
 
   // Toggle buttons (sub menu indicators)

@@ -15,6 +15,8 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
       addAutocomplete(data);
     });
 
+    require(['eu_clicktip']);
+
     scrollEvents.fireAllVisible();
   };
 

@@ -72,10 +72,11 @@
       ]
     },
     "clicktip":{
-      "activator": ".filterby",
-      "direction": "top",
-      "persistent": true,
-      "tooltip_text": "Here is some text"
+      "activator":    ".filterby",
+      "direction":    "top",
+      "id":           "filter-galleries",
+      "persistent":   true,
+      "tooltip_text": "You can filter the galleries here."
     },
     "social": {
       "social_title": "Share galleries",
@@ -145,7 +146,16 @@
         "label": "Our Collections",
         "title": "Gallery Two with a mega-long title - big enough to line wrap",
         "link": "javascript:alert('Open gallery 2');",
-        "info": "Gallery of Glasgow images"
+        "info": "Gallery of Glasgow images",
+        "info_clicktip": {
+          "clicktip":{
+            "activator":    ".image-set:eq(1) .svg-icon-info",
+            "direction":    "top",
+            "id":           "gallery-hover-info",
+            "persistent":   true,
+            "tooltip_text": "Hover to find out more about a gallery"
+          }
+        }
       },
       {
         "count": "18",

@@ -55,6 +55,9 @@
                 <span class="svg-icon-info"></span>
                 <span class="info"><span class="text">{{{.}}}</span></span>
               {{/info}}
+              {{#info_clicktip}}
+                {{>atoms/text/clicktip}}
+              {{/info_clicktip}}
             </div>
             <div class="image-set-info">
               <a class="image-set-title" href="{{link}}">{{title}}</a>

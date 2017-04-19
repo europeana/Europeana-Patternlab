@@ -20,22 +20,38 @@
 
 .gallery-header{
 
-  .eu-clicktip-container.showing{
-  	background-color: #1676aa;
-  	color:            #fff;
-	position: absolute;
-	left:    5em;
-	top:     2em;
-	z-index: 3;
-  }
-
   margin:     2rem auto 0;
   max-width:  90%;
   text-align: center;
 
+
+
+  // begin tooltip specific
+
+  position: relative;
+
+  .eu-clicktip-container.showing{
+    background-color: #1676aa;
+    color:            #fff;
+    margin-left:      3em;
+    position:         absolute;
+    top:              2em;
+    z-index:          4;
+
+    @media all and (min-width: $bp-small-3) {
+      left:        5em;
+      margin-left: 0;
+      max-width:   none;
+    }
+  }
+
+  // end begin tooltip specific
+
+
+
   h4{
     font-size: $font-size-med;
-    margin: 2em auto 1.2em;
+    margin:    2em auto 1.2em;
   }
 
   .social-share{
@@ -294,6 +310,21 @@
         border-top:    0.25em solid #fff;
       }
     }
+
+    // begin tooltip specific
+
+    .eu-clicktip-container.showing{
+      bottom:           -2.5em;
+      right:            2em;
+      position:         absolute;
+      z-index:          4;
+
+      @media all and (min-width: $bp-small-3) {
+      }
+    }
+
+    // end begin tooltip specific
+
 
     &.layout-portrait{
       .img-link{
