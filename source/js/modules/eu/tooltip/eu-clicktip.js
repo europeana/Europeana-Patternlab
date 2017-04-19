@@ -1,8 +1,8 @@
 define(['jquery', 'util_resize'], function($){
 
-  var log = function(msg){
-    console.log('eu-clicktip: ' + msg);
-  };
+  //var log = function(msg){
+  //  console.log('eu-clicktip: ' + msg);
+  //};
 
   var loadedClosedTooltips = (typeof(Storage) == 'undefined') ? null : JSON.parse(localStorage.getItem('eu_portal_closed_tooltips'));
 
@@ -51,23 +51,23 @@ define(['jquery', 'util_resize'], function($){
           }
         }
       }
-    }
+    };
 
     var show = function(id){
       if(!loadedClosedTooltips || !loadedClosedTooltips['tooltips'] || !loadedClosedTooltips['tooltips'][id]){
         $el.addClass('showing');
       }
-    }
+    };
 
-    $(activator).on('mouseover', function(e){
-      var target = $(e.target);
-      $('.eu-clicktip-container').removeClass('showing');
+    $(activator).on('mouseover', function(){
+      //var target = $(e.target);
+      //$('.eu-clicktip-container').removeClass('showing');
       show(id);
     });
 
     $(activator).on('click', function(){
       var open = $el.hasClass('showing');
-      $('.eu-clicktip-container').removeClass('showing');
+      //$('.eu-clicktip-container').removeClass('showing');
       if(!open){
         show(id);
       }
