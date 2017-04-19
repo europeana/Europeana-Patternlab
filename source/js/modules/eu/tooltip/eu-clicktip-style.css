@@ -111,25 +111,24 @@
 /* line 117, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.top::after {
   border-bottom-color: #1676aa;
-  border-bottom-color: #1676aa;
   bottom: 100%;
   left: 5%;
 }
-/* line 124, eu-clicktip-style.scss */
+/* line 123, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.right::after {
   border-left-color: #1676aa;
   right: -15px;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 131, eu-clicktip-style.scss */
+/* line 130, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.left::after {
   border-right-color: #1676aa;
   left: -15px;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 138, eu-clicktip-style.scss */
+/* line 137, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.bottom::after {
   border-top-color: #1676aa;
   bottom: -15px;
