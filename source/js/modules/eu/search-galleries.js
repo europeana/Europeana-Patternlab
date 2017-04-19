@@ -11,11 +11,11 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
   function initClicktip(){
     if($('.eu-clicktip-container').length > 0){
       require(['eu_clicktip'], function(){
-    	log('loaded clicktip');
+        log('loaded clicktip');
       });
     }
   }
-  
+
   function initPage(){
     initMasonry();
     initSocialShare();
@@ -48,7 +48,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       };
       ga('send', data);
       logGA(data);
-    }
+    };
 
     $(document).on('click', '#lg-share-facebook', function(){
       shareImage('facebook');
@@ -66,14 +66,14 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       shareImage('pinterest');
     });
 
-    $('.gallery').on('onAfterSlide.lg', function(e){
+    $('.gallery').on('onAfterSlide.lg', function(){
       var current = $('.lg-current img').attr('src');
       var data    = {
         hitType: 'event',
         eventCategory: 'Media View',
         eventAction: current,
         eventLabel: 'Gallery Image'
-      }
+      };
       ga('send', data);
       logGA(data);
     });
@@ -106,7 +106,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     require(['jqImagesLoaded'], function(){
-    	
+
       /*
       var el, bg, index = 0, logos = $('.institution-logo');
       var measured = {};
@@ -136,7 +136,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
             $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-            lightGallery( gallery[0], {
+            lightGallery(gallery[0], {
               selector: itemSelector
             });
 
@@ -200,12 +200,12 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
       var imageUrl = $('[property="og:image"]').attr('content');
           imageUrl = encodeURIComponent( imageUrl );
 
-      log('')
+      log('');
       log('canonicalUrl = ' + canonicalUrl);
       log('imageUrl = '     + imageUrl);
-      log('')
+      log('');
 
-      var params = ''
+      var params = '';
       params += '?content='      + imageUrl;
       params += '&canonicalUrl=' + canonicalUrl;
       params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
@@ -222,6 +222,6 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
   return {
     initPage: initPage
-  }
+  };
 
 });
