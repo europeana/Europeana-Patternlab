@@ -20,14 +20,7 @@
 
 .gallery-header{
 
-  margin:     2rem auto 0;
-  max-width:  90%;
-  text-align: center;
-
-
-
   // begin tooltip specific
-
   position: relative;
 
   .eu-clicktip-container.showing{
@@ -46,8 +39,13 @@
   }
 
   // end begin tooltip specific
+}
 
+.gallery-header{
 
+  margin:     2rem auto 0;
+  max-width:  90%;
+  text-align: center;
 
   h4{
     font-size: $font-size-med;
@@ -61,38 +59,35 @@
   @media all and (min-width: $bp-small-3) {
 
     display:         flex;
-    position:        relative;
     justify-content: flex-end;
+    position:        relative;
 
     h4{
-     font-size: $font-size-slightly-smaller;
+      font-size: $font-size-slightly-smaller;
       margin: 0.9em 1.1em 0 0;
     }
 
     .filterby{
-      position:   absolute;
       left:       0;
+      position:   absolute;
       top:        1.4em;
       transform:  translateY(-50%);
     }
-
   }
 
   @media all and (min-width: $bp-xxl) {
     max-width: none;
   }
-
 }
 
 
 .lg-outer{
   .lg{
-
     @media all and (max-width: $bp-xl) {
 
       .lg-sub-html span:not(.title):not([resource]){
-        &:after{
-          content: ", ";
+        &::after{
+          content: ', ';
         }
       }
     }
@@ -142,14 +137,10 @@
         text-transform: uppercase;
       }
 
-      .object-license a{
-
-      }
-
       a{
-        color:   #eee;
         border-bottom: dashed 1px #eee;
-        display: inline;
+        color:         #eee;
+        display:       inline;
 
         &:hover{
           border-bottom: solid 1px #eee;
@@ -160,14 +151,14 @@
       }
 
       .institution-logo{
+        align-self:          flex-end;
         background-color:    #fff;
         background-position: center;
         background-repeat:   no-repeat;
-        align-self:          flex-end;
+        margin-bottom:       0.5em;
         margin-left:         auto;
         margin-right:        auto;
         margin-top:          auto;
-        margin-bottom:       0.5em;
       }
     }
   }
@@ -267,10 +258,10 @@
     }
 
     .category-flag{
-       max-width:     60%;
-       overflow:      hidden;
-       text-overflow: ellipsis;
-       white-space:   nowrap;
+      max-width:     60%;
+      overflow:      hidden;
+      text-overflow: ellipsis;
+      white-space:   nowrap;
     }
   }
 
@@ -294,8 +285,8 @@
     .img-link{
       border-bottom: 0.25em solid #fff;
       display:    block;
-      height:     11em;
       float:      left;
+      height:     11em;
       object-fit: cover;
       width:      50%;
 
@@ -314,13 +305,10 @@
     // begin tooltip specific
 
     .eu-clicktip-container.showing{
-      bottom:           -2.5em;
-      right:            2em;
-      position:         absolute;
-      z-index:          4;
-
-      @media all and (min-width: $bp-small-3) {
-      }
+      bottom:   -2.5em;
+      position: absolute;
+      right:    2em;
+      z-index:  4;
     }
 
     // end begin tooltip specific
@@ -357,12 +345,8 @@
 
     .info{
       background-color: rgba(0, 0, 0, 0.7);
-      bottom:     0;
-      color:      #fff;
-      a{
-        border-bottom: 1px dotted #fff;
-        color:         #fff;
-      }
+      bottom:           0;
+      color:            #fff;
       display:    none;
       left:       0;
       position:   absolute;
@@ -370,6 +354,10 @@
       top:        0;
       z-index:    3;
 
+      a{
+        border-bottom: 1px dotted #fff;
+        color:         #fff;
+      }
       .text{
         padding:    $space;
         position:   absolute;
@@ -452,7 +440,7 @@
 
 .image-col.justified{
   display:         flex;
+  flex-direction:  column;
   height:          100%;
   justify-content: space-between;
-  flex-direction:  column;
 }
