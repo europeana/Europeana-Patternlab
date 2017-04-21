@@ -150,6 +150,11 @@
         }
       }
 
+      .license .svg-icon-linkout{
+        margin-top: -1.3em;
+        transform:  scale(0.7) translateY(1.6em);
+      }
+
       .institution-logo{
         align-self:          flex-end;
         background-color:    #fff;
@@ -394,8 +399,7 @@
     margin-bottom: 2em;
     position:      relative;
 
-    .btn-zoom{
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-zoomin' viewbox='0 0 23 32' fill='%234D4D4D'%3E%3Cpath class='path1' d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 11.636v-2.909h-3.394v-3.394h-2.909v3.394h-3.394v2.909h3.394v3.394h2.909v-3.394h3.394z'%3E%3C/path%3E%3C/svg%3E");
+    .svg-icon-zoom-in{
       height:    2em;
       position:  absolute;
       right:     0;

@@ -74,7 +74,7 @@
 
                 {{#rights}}
                   <span class="title">{{i18n.site.object.meta-label.rights-statement}}</span>
-                  <div class="object-license">{{> molecules/icons/licenses }}</div>
+                  <div class="object-license white">{{> molecules/icons/licenses }}</div>
                 {{/rights}}
 
                 {{#url_collection}}<span class="title"><a href="{{.}}">{{i18n.global.navigation.view-collection}}</a></span>{{/url_collection}}
@@ -96,8 +96,9 @@
                 {{creator}}
               </div>
             </div>
-            <a class="btn-zoom"> </a>
+            <a><span class="svg-icon-zoom-in grey"></span></a>
           </div>
+
 
         </div>
       {{/content.items}}
