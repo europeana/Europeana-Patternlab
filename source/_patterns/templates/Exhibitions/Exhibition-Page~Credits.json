@@ -250,14 +250,19 @@
             "type": "ve-intro",
             "is_first": true,
             "is_intro": true,
-
             "image_credit": {
               "attribution_title": "Battle of Grunweald",
               "attribution_creator": "Jan Matejko",
               "attribution_institution": "Muzeum Narodowe W Warszawie",
               "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
               "country": "Brasil",
-              "license_public": true
+              "license_CC0": true,
+              "license_CC_BY": true,
+              "license_CC_BY_SA": true,
+              "license_CC_BY_ND": true,
+              "license_CC_BY_NC": true,
+              "license_CC_BY_NC_SA": true,
+              "license_CC_BY_NC_ND": true
             },
             "image":
             {
@@ -300,7 +305,14 @@
               "attribution_institution": "Museu Nacional De Arte Antiga",
               "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
               "country": "Brasil",
-              "license_public": true
+              "license_OOC": true,
+              "license_PD_NC": true,
+              "license_public": true,
+              "license_RR_free": true,
+              "license_RR_paid": true,
+              "license_RR_restricted": true,
+              "license_unknown": true,
+              "expiry": "19th December 2020"
             },
             "image":
             {
@@ -345,7 +357,13 @@
               "attribution_creator": "Attribution Creator Japonism",
               "attribution_institution": "Attribution Institution Japonism",
               "attribution_url": "http://www.europeana.eu/portal/record/2063606/POR_280_002.html",
-              "license_public": true,
+              "license_orphan": true,
+              "license_RS_NOC_NC": true,
+              "license_RS_NOC_OKLR": true,
+              "license_RS_INC_EDU": true,
+              "license_RS_INC": true,
+              "license_RS_INC_OW_EU": true,
+              "license_RS_CNE": true,
               "country": "Brasil",
               "caption": "Le Japon artistique, n° 3.  <a href=\"javascript:(alert('link to gallery'))\">French National Gallery</a> CC0",
               "stripped_caption": "Le Japon artistique, n° 3."
