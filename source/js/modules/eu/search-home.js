@@ -15,7 +15,14 @@ define(['jquery', 'util_scrollEvents'], function($, scrollEvents){
       addAutocomplete(data);
     });
 
-    require(['eu_clicktip']);
+    require(['eu_clicktip'], function(){
+      if($('#cookie-disclaimer').attr('style').indexOf('block') > -1){
+        $('.nav_primary + .eu-clicktip-container').addClass('cookie-offset');
+        $('.cc_btn_accept_all').on('click', function(){
+          $('.nav_primary + .eu-clicktip-container').removeClass('cookie-offset');
+        })
+      }
+    });
 
     scrollEvents.fireAllVisible();
   };

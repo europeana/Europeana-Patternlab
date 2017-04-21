@@ -125,6 +125,10 @@
   top:         3em;
   z-index:     10;
 
+  &.cookie-offset{
+    display:     none;
+  }
+
   @media all and (min-width: $bp-med) {
     display: block;
     left:    14em;
