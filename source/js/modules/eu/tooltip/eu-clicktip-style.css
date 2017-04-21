@@ -4,7 +4,7 @@
 \*------------------------------------*/
 /* line 7, eu-clicktip-style.scss */
 .eu-clicktip-container {
-  display: inline-block;
+  display: none;
   opacity: 0;
   pointer-events: none;
   position: relative;
@@ -12,6 +12,7 @@
 }
 /* line 14, eu-clicktip-style.scss */
 .eu-clicktip-container.showing {
+  display: inline-block;
   opacity: 1;
   pointer-events: auto;
   -moz-transition: opacity 0.4s ease-in;
@@ -20,15 +21,15 @@
   -webkit-transition: opacity 0.4s ease-in;
   transition: opacity 0.4s ease-in;
 }
-/* line 25, eu-clicktip-style.scss */
+/* line 26, eu-clicktip-style.scss */
 .eu-clicktip-container:hover, .eu-clicktip-container:focus {
   cursor: default;
 }
-/* line 28, eu-clicktip-style.scss */
+/* line 29, eu-clicktip-style.scss */
 .eu-clicktip-container:hover .eu-clicktip, .eu-clicktip-container:focus .eu-clicktip {
   display: block;
 }
-/* line 33, eu-clicktip-style.scss */
+/* line 34, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip {
   background-color: #1676aa;
   color: #FFFFFF;
@@ -41,18 +42,18 @@
   text-transform: none;
   z-index: 1;
 }
-/* line 49, eu-clicktip-style.scss */
+/* line 50, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.top {
   box-shadow: 0.3em 0.3em 0.7em 0 rgba(0, 0, 0, 0.5);
   top: 1em;
 }
-/* line 54, eu-clicktip-style.scss */
+/* line 55, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.bottom {
   bottom: 100%;
   box-shadow: 0.3em -0.3em 0.7em 0 rgba(0, 0, 0, 0.3);
   margin-bottom: 2em;
 }
-/* line 60, eu-clicktip-style.scss */
+/* line 61, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.right {
   bottom: 50%;
   box-shadow: -0.4em 0.3em 0.7em 0 rgba(0, 0, 0, 0.5);
@@ -61,7 +62,7 @@
   right: 0;
   transform: translate(-7px, 50%);
 }
-/* line 69, eu-clicktip-style.scss */
+/* line 70, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.left {
   bottom: 50%;
   box-shadow: 0.3em 0.3em 0.7em 0 rgba(0, 0, 0, 0.5);
@@ -69,20 +70,20 @@
   margin-bottom: 0.4em;
   transform: translate(7px, 50%);
 }
-/* line 77, eu-clicktip-style.scss */
+/* line 78, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a {
   color: #FFFFFF;
   text-decoration: underline;
 }
-/* line 82, eu-clicktip-style.scss */
+/* line 83, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[href] {
   border-bottom: 1px dotted #fff;
 }
-/* line 86, eu-clicktip-style.scss */
+/* line 87, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[href]:hover {
   border-bottom: 1px solid #fff;
 }
-/* line 90, eu-clicktip-style.scss */
+/* line 91, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove'] {
   color: #FFFFFF;
   cursor: pointer;
@@ -93,42 +94,42 @@
   top: 0;
   width: 1em;
 }
-/* line 101, eu-clicktip-style.scss */
+/* line 102, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove']:hover {
   color: #FFFFFF;
 }
-/* line 105, eu-clicktip-style.scss */
+/* line 106, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove']::after {
   content: '✕';
 }
-/* line 109, eu-clicktip-style.scss */
+/* line 110, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip::after {
   border: solid transparent;
   border-width: 8px;
   content: ' ';
   position: absolute;
 }
-/* line 117, eu-clicktip-style.scss */
+/* line 118, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.top::after {
   border-bottom-color: #1676aa;
   bottom: 100%;
   left: 5%;
 }
-/* line 123, eu-clicktip-style.scss */
+/* line 124, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.right::after {
   border-left-color: #1676aa;
   right: -15px;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 130, eu-clicktip-style.scss */
+/* line 131, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.left::after {
   border-right-color: #1676aa;
   left: -15px;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 137, eu-clicktip-style.scss */
+/* line 138, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip.bottom::after {
   border-top-color: #1676aa;
   bottom: -15px;

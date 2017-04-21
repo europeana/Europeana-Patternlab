@@ -5,13 +5,14 @@ $clicktip-bg:    $eu-blue;
 
 
 .eu-clicktip-container{
-  display:  inline-block;
+  display:  none;
   opacity: 0;
   pointer-events: none;
   position: relative;
   text-align: left;
 
   &.showing{
+    display:        inline-block;
     opacity:        1;
     pointer-events: auto;
 
