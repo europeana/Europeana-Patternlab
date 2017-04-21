@@ -140,7 +140,7 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
               selector: itemSelector
             });
 
-            $('.btn-zoom').on('click', function(e){
+            $('.image-info a').on('click', function(e){
               var tgt   = $(e.target);
               var img   = tgt.closest('.masonry-item').find('img').click();
             });
