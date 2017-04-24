@@ -18,7 +18,7 @@ require.config({
   }
 });
 
-require(['jquery', 'channels_metis'], function($) {
+require(['jquery', 'channels_metis'], function() {
   require(['pandoraPage'], function(p) {
     p.pageInit();
   });
