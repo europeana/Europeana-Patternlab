@@ -37,7 +37,7 @@
   font-weight: normal;
   line-height: 1.6;
   min-width: 12em;
-  padding: 0.6em 0.7em;
+  padding: 0.7em 0.8em;
   position: absolute;
   text-transform: none;
   z-index: 1;
@@ -90,9 +90,9 @@
   height: 1em;
   line-height: 1em;
   position: absolute;
-  right: 2px;
-  top: 0;
-  width: 1em;
+  right: 3px;
+  top: 1px;
+  width: 0.9em;
 }
 /* line 102, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove']:hover {
