@@ -1,0 +1,34 @@
+{{# navigation.global }}
+    <div class="header-wrapper{{#include_nav_searchbar}} with-transparency{{/include_nav_searchbar}}">
+        <header class="header">
+            <div class="cf loggedin-metis">
+                <div class="metis-logo">
+                    {{# version.is_alpha }}
+                        <a href="#banner" class="phase-flag alpha" tabindex="-1">BETA</a>
+                    {{/ version.is_alpha }}
+                    {{# version.is_beta }}
+                        <a href="#banner" class="phase-flag beta" tabindex="-1">BETA</a>
+                    {{/ version.is_beta }}
+                    {{> atoms/images/logo }}
+                </div>
+                {{#metis-header-search}}
+                    <div class="dashboard-header">
+                        {{> molecules/components/search/search-form }}
+                    </div>
+                {{/metis-header-search}}
+                {{#metis-logged-user}}
+                    <div class="dashboard-header-links">
+                        <div id="settings-menu">
+                            <a class="notifications" href="#">
+                                <span class="svg-icon-notifications"></span>
+                                <span class="circle">7</span>
+                            </a>
+                            <a href="#"> <span class="svg-icon-configuration"></span></a>
+                            <a href="#"> <span class="svg-icon-loggedin-user"></span></a>
+                        </div>
+                    </div>
+                {{/metis-logged-user}}
+            </div>
+        </header>
+    </div>
+{{/ navigation.global }}

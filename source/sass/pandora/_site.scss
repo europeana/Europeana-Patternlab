@@ -24,7 +24,29 @@
   transform:         scale(0.7) translateY(-0.3em);
   width:             2em;
 }
-
+.svg-icon-notifications{
+	float:             left;
+	height:            3em;
+	margin-right:	   0.8rem;
+	transform:         scale(0.6) translateY(-0.3em);
+	width:             3em;
+}
+.svg-icon-loggedin-user{
+	float:             left;
+	height:            3em;
+	margin-bottom:     -1em;
+	margin-right:	   0.8rem;
+	transform:         scale(0.8) translateY(-0.3em);
+	width:             3em;
+}
+.svg-icon-configuration{
+	float:             left;
+	height:            3em;
+	margin-bottom:     -1em;
+	margin-right:	   0.8rem;
+	transform:         scale(0.7) translateY(-0.3em);
+	width:             3em;
+}
 .ve-anchor {
 	margin-top:3.5em;
 }

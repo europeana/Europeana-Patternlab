@@ -1,14 +1,15 @@
 {{#metis_header}}
-    {{> organisms/global/header_v2 }}
+    {{>organisms/global/navigation_top_metis}}
+    <div class="pusher">
 {{/metis_header}}
 
-<!-- Start Main page content -->
-<div class="dashboard-wrapper">
-    <div class="metis-dashboard">
-        {{> atoms/text/welcome-message }}
+    <!-- Start Main page content -->
+    <div class="dashboard-wrapper">
+        <div class="metis-dashboard">
+            {{> atoms/text/welcome-message }}
+        </div>
+        <div>
+            {{> atoms/buttons/double-btns }}
+        </div>
+        <!-- End main content -->
     </div>
-    <div>
-        {{> atoms/buttons/double-btns }}
-    </div>
-    <!-- End main content -->
-</div>
