@@ -8,13 +8,9 @@ define(['jquery'], function($){
     console.warn('carousel-appender: ' + msg);
   };
 
-  var stringify = function(ob){
-    return JSON.stringify(ob, null, 4);
-  };
-
   var templates = {
 
-    "aggregated": function(data){
+    'aggregated': function(data){
 
       var markup = '';
 
@@ -23,7 +19,11 @@ define(['jquery'], function($){
         markup += ''
           + '<li class="js-carousel-item">'
 
-          +   '<div class="js-carousel-item-img-wrap"><a href="' + item.url + '"><img src="' + item.img.src + '"/></a></div>'
+          +   '<div class="js-carousel-item-img-wrap">'
+          +     '<a href="' + item.url + '">'
+          +       (item.img.src ? '<img src="' + item.img.src + '"/>' : '')
+          +     '</a>'
+          +   '</div>'
 
           +   '<div class="js-carousel-texts">'
           +     '<span class="js-carousel-title">'
@@ -44,12 +44,12 @@ define(['jquery'], function($){
       });
 
       return {
-        "markup": markup,
-        "added":  data.items
-      }
+        'markup': markup,
+        'added':  data.items
+      };
     },
 
-    "tumblr": function(data){
+    'tumblr': function(data){
 
       var markup = '';
 
@@ -69,19 +69,21 @@ define(['jquery'], function($){
       });
 
       return {
-        "markup": markup,
-        "added":  data.items
-      }
+        'markup': markup,
+        'added':  data.items
+      };
     },
 
-    "mlt": function(data){
+    'mlt': function(data){
 
       var markup = '';
 
       $.each(data.documents, function(i, item){
         markup += ''
           + '<li class="js-carousel-item">'
-          +   '<div class="mlt-img-div height-to-width" style="background-image: url(' + item.img.src + ')">'
+          +   '<div class="mlt-img-div height-to-width" '
+          +     (item.img.src ? 'style="background-image: url(' + item.img.src + ')"' : '')
+          +   '>'
           +     '<div class="inner">'
           +       '<a title="' + item.img.alt + '"'
           +         ' class="link"'
@@ -90,24 +92,22 @@ define(['jquery'], function($){
           +     '</div>'
           +   '</div>'
           +   '<span class="js-carousel-title">'
-          +     '<a href="' + item.url + '">' + item.title + '</a>';
+          +     '<a href="' + item.url + '">' + item.title + '</a>'
           +   '</span>'
           + '</li>';
       });
       return {
-        "markup": markup,
-        "added":  data.documents
-      }
+        'markup': markup,
+        'added':  data.documents
+      };
     },
 
-    "media_thumb": function(data){
+    'media_thumb': function(data){
 
       var markup = '';
       $.each(data, function(i, item){
 
-        //log('single item:\n\t' + stringify(item) + '\n');
-
-        var codec = null, thumbnail = null, download = null, format = null, fileSize = null, fileUnit = null, height = null, mimeType = null, language = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
+        var codec = null, download = null, format = null, fileSize = null, fileUnit = null, height = null, mimeType = null, language = null, runtime = null, runtimeUnit = null, sizeUnit = null, width = null;
 
         if(item.downloadable && item.download && item.download.url){
           download = item.download.url;
@@ -180,9 +180,9 @@ define(['jquery'], function($){
           + '</li>';
       });
       return {
-        "markup": markup,
-        "added":  data
-      }
+        'markup': markup,
+        'added':  data
+      };
     }
   };
 
@@ -246,13 +246,13 @@ define(['jquery'], function($){
       getDataCount : function(){
         return totalLoaded;
       }
-    }
+    };
   };
 
   return {
     create : function(conf){
       return new EuCarouselAppender(conf);
     }
-  }
+  };
 
 });

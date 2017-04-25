@@ -6,8 +6,57 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     console.log('search-object: ' + msg);
   }
 
+  function loadHierarchy(params){
+
+    var baseUrl = window.location.href.split('/record')[0] + '/record';
+    var initUrl = window.location.href.split('.html')[0]   + '/hierarchy/ancestor-self-siblings.json';
+
+    var buildHierarchy = function(initialData){
+      log('building hierarchy');
+      require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
+
+        var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
+        var css_path_2 = require.toUrl('../../lib/jstree/css/style-overrides.css');
+
+        $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
+        $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+
+        var markup = ''
+        + '<div class="hierarchy-top-panel uninitialised">'
+        + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
+        + '  <div class="hierarchy-title"></div>'
+        + '</div>'
+        + '<div class="hierarchy-container uninitialised">'
+        + '  <div id="hierarchy"></div>'
+        + '</div>'
+        + '<div class="hierarchy-bottom-panel">'
+        + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
+        + '</div>';
+
+        $('.hierarchy-objects').html(markup);
+        var hierarchy = Hierarchy.create(
+          $('#hierarchy'),
+          16,
+          $('.hierarchy-objects'),
+          baseUrl,
+          baseUrl
+        );
+        $('.hierarchy-objects').removeAttr('style');
+        hierarchy.init(initialData, true);
+      });
+    };
+
+    $.getJSON(initUrl, null).done(buildHierarchy).fail(function(msg){
+      console.error('hierarchy error' + msg);
+      $('.hierarchy-objects').remove();
+    });
+  }
+
+  // TODO: delete this when we move (fully) to the hierarchy_later technique
   function showHierarchy(params){
+
     require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
+
       var data       = JSON.parse( $('.hierarchy-objects').text() );
 
       var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
@@ -17,16 +66,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
       var markup = ''
-      + '<div class="hierarchy-top-panel uninitialised">'
-      + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
-      + '  <div class="hierarchy-title"></div>'
-      + '</div>'
-      + '<div class="hierarchy-container uninitialised">'
-      + '  <div id="hierarchy"></div>'
-      + '</div>'
-      + '<div class="hierarchy-bottom-panel">'
-      + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
-      + '</div>';
+          + '<div class="hierarchy-top-panel uninitialised">'
+          + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
+          + '  <div class="hierarchy-title"></div>'
+          + '</div>'
+          + '<div class="hierarchy-container uninitialised">'
+          + '  <div id="hierarchy"></div>'
+          + '</div>'
+          + '<div class="hierarchy-bottom-panel">'
+          + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
+          + '</div>';
 
       $('.hierarchy-objects').html(markup);
       var hierarchy = Hierarchy.create(
@@ -36,6 +85,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         window.location.href.split('/record')[0] + '/record',
         window.location.href.split('/record')[0] + '/record'
       );
+
       $('.hierarchy-objects').removeAttr('style');
       hierarchy.init(data, true);
     });
@@ -208,7 +258,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     // colour browse
     var clickedThumb = tgt.data('thumbnail');
     if(clickedThumb){
-      $('.colour-navigation').not("[data-thumbnail='" + clickedThumb + "']").addClass('js-hidden');
+      $('.colour-navigation').not('[data-thumbnail="' + clickedThumb + '"]').addClass('js-hidden');
       $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
     }
 
@@ -315,7 +365,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     if($('.object-techdata-list li:not(.is-disabled)').length == 0){
       techData.removeClass('is-expanded');
-      techData.hide();    	  
+      techData.hide();
     }
     else if(somethingGotSet){
       techData.show();
@@ -329,9 +379,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     // download window
     if(tgt.data('download-uri')){
       $('.object-downloads .download-button').removeClass('js-showhide').removeClass('is-disabled');
-      fileInfoData["href"] = tgt.data('download-uri');
-      fileInfoData["fmt"]  = tgt.data('format');
-      fileInfoData["meta"] = [];
+      fileInfoData['href'] = tgt.data('download-uri');
+      fileInfoData['fmt']  = tgt.data('format');
+      fileInfoData['meta'] = [];
 
       // take 1st 2 available metadatas
       var availableMeta = $('.object-techdata-list').find('li:not(.is-disabled)');
@@ -403,6 +453,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
 
   var showMLT = function(data){
+
+    if($('.hierarchy').length > 0){
+      log('showMLT returns - hierarchy expected');
+      return;
+    }
+
     var addEllipsis = function(added){
       require(['util_ellipsis'], function(EllipsisUtil){
         if(added){
@@ -721,10 +777,18 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       showMap(data);
     });
 
+    $(window).bind('showMLT', function(e, data){
+      showMLT(data);
+    });
+
+    $(window).bind('loadHierarchy', function(e, data){
+      loadHierarchy(data);
+    });
+
     $(window).bind('showHierarchy', function(e, data){
       showHierarchy(data);
     });
-    
+
     $(window).bind('updateTechData', function(e, data){
       updateTechData(data);
     });
@@ -739,10 +803,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     scrollEvents.fireAllVisible();
 
-    var triggerMLT = $('#scroll-trigger-mlt');
-    showMLT(triggerMLT.data('fire-on-open-params'));
-    triggerMLT.data('enabled', false);
-      
     $('.tumblr-share-button').on('click', function(){
 
       var title        = $('h2.object-title').text();
