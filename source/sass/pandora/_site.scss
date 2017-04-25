@@ -70,7 +70,7 @@
   color: $eu-lightblue;
 }
 
-.nav_primary a:hover:after {
+.nav_primary a:hover::after {
   border-color: $eu-lightblue;
 }
 
@@ -137,21 +137,26 @@
 }
 
 .action_menu {
+  background-color: $eu-blue;
   height: 2em;
   margin-bottom: 1.5em;
-  background-color: $eu-blue;
   width: 100%;
 }
 
-/*** COMMON FOR MAPPING CARD AND ITEM CARD ***/
+// COMMON FOR MAPPING CARD AND ITEM CARD
 .card-component {
+  border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0px !important;
-  border: 0px;
   color: $white !important;
-  width: 60em;
+  margin-bottom: 0 !important;
   margin-left: 1em;
   margin-top: 1em;
+  width: 60em;
+
+  td {
+    border-collapse: collapse;
+    padding: 0 !important;
+  }
 }
 
 .depth_1 {
@@ -170,18 +175,9 @@
   margin-left: 16em;
 }
 
-.card-component td {
-  cellpadding: 0px;
-  cellspacing: 0px;
-  padding: 0px !important;
-}
-
 .normal-colored {
   background-color: $eu-lightblue;
-}
-
-.normal-colored-dark {
-  background-color: $eu-blue;
+  color: $white;
 }
 
 .suspicious-colored {
@@ -202,35 +198,35 @@
 
 .card-buttons {
   display: table;
-}
 
-.card-buttons div {
-  height: 3.5em;
-  width: 5em;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
+  div {
+    display: table-cell;
+    height: 3.5em;
+    text-align: center;
+    vertical-align: middle;
+    width: 5em;
 
-.card-buttons div:hover {
-  cursor: pointer;
-  background-color: $eu-blue;
+    &:hover {
+      background-color: $eu-blue;
+      cursor: pointer;
+    }
+  }
 }
 
 .values-collapse {
-  width: 7em;
-  line-height: 3.5em;
-  vertical-align: middle;
   display: inline-block;
+  line-height: 3.5em;
   text-align: center;
+  vertical-align: middle;
+  width: 7em;
 }
 
 .card-controls-expanded .card-label {
+  display: inline-block;
   height: 3.5em;
-  width: 20em;
   line-height: 3.5em;
   vertical-align: middle;
-  display: inline-block;
+  width: 20em;
 }
 
 .card-controls-expanded div {
@@ -238,95 +234,99 @@
 }
 
 .card-controls-expanded > div:first-of-type {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
-.mapping-card-controls, item-card-controls {
+.mapping-card-controls,
+item-card-controls {
   width: 15em;
 }
 
 .card-button:hover {
-  cursor: pointer;
   background-color: $linkblue;
+  cursor: pointer;
+}
+.normal-colored-dark {
+  background-color: $eu-blue;
+
+  &.card-button:hover {
+    background-color: $linkblue;
+    cursor: pointer;
+  }
 }
 
-.normal-colored-dark.card-button:hover {
-  cursor: pointer;
-  background-color: $linkblue;
-}
+// END OF COMMON FOR MAPPING CARD AND ITEM CARD
 
-/*** END OF COMMON FOR MAPPING CARD AND ITEM CARD ***/
-
-/*** MAPPING CARD ***/
+// MAPPING CARD
 .mapping-card-controls-expanded {
   width: 60em;
 }
 
 .mapping-card-controls .card-label {
   height: 3.5em;
-  width: 15em;
   line-height: 3.5em;
   vertical-align: middle;
+  width: 15em;
 }
 
 .mapping-field-item-container {
-  width: 45em;
-  height: 10.5em;
   background-color: $white;
+  height: 10.5em;
+  width: 45em;
 }
 
 .mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item {
-  /* this rule targets the rows after the 10th .mapping-field-item */
+  // this rule targets the rows after the 10th .mapping-field-item
   display: none;
 }
 
 .mapping-field-item-container-expanded {
-  width: 60em;
-  height: 60em;
   background-color: $white;
+  height: 60em;
+  width: 60em;
 }
 
 .mapping-field-item {
-  width: 9em;
-  height: 5.25em;
+  border: 1px solid $paper;
   display: inline-block;
   font-size: 1em;
-  border: 1px solid $paper;
-  margin-right: -4px;
+  height: 5.25em;
   margin-bottom: -7px;
+  margin-right: -4px;
+  width: 9em;
 }
 
 .mapping-field-item-expanded {
-  width: 10em;
-  height: 5.25em;
+  border: 1px solid $paper;
   display: inline-block;
   font-size: 1em;
-  border: 1px solid $paper;
-  margin-right: -4px;
+  height: 5.25em;
   margin-bottom: -7px;
+  margin-right: -4px;
+  width: 10em;
 }
 
 .mapping-card-function {
-  font-family: 'Times New Roman', Times, serif;
-  width: 6em;
-  height: 3.5em;
-  vertical-align: middle;
   display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+  height: 3.5em;
   text-align: center;
+  vertical-align: middle;
+  width: 6em;
 }
 
 .if {
-  width: 7em;
-  line-height: 3.5em;
-  vertical-align: middle;
   display: inline-block;
-  text-align: center;
+  line-height: 3.5em;
   margin-left: -5px !important;
+  text-align: center;
+  vertical-align: middle;
+  width: 7em;
 }
 
 .mapping-card-f {
-  font-style: italic;
   font-size: 1.6em;
+  font-style: italic;
 }
 
 .mapping-card-x {
@@ -339,43 +339,44 @@
 }
 
 .mapping-card-values {
-  width: 45em;
   height: 10.5em;
+  width: 45em;
 }
 
 .pagination {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
   padding-top: 1rem;
+
+  a {
+    color: $eu-blue;
+  }
 }
 
-.pagination a {
-  color: $eu-blue;
-}
-
-.pagination .current a, .pagination .is-current a {
+.pagination .current a,
+.pagination .is-current a {
+  background-color: $eu-blue;
   color: $white;
   font-weight: bold;
-  background-color: $eu-blue;
 }
 
 .mapping-card-dropdown .dropdown-trigger {
   display: none;
 }
 
-/*** END OF MAPPING CARD ***/
+// END OF MAPPING CARD
 
-/*** ITEM CARD ***/
+// ITEM CARD
 .item-card-controls .card-label {
   height: 3.5em;
-  width: 15em;
   line-height: 3.5em;
   vertical-align: middle;
+  width: 15em;
 }
 
 .item-card-values {
   column-span: 3;
-  width: 45em;
   height: 7em;
+  width: 45em;
 }
 
 .xml-view {
@@ -389,58 +390,45 @@
 }
 
 .xml-view-long {
-  width: 60em;
   height: 45em;
+  width: 60em;
 }
 
 .xml-view-source {
   display: none;
 }
 
-.item-button, .item-source-button {
-  width: 16.4em;
-  line-height: 3.5em;
-  vertical-align: middle;
+.item-button,
+.item-source-button {
   display: inline-block;
+  line-height: 3.5em;
   text-align: center;
+  vertical-align: middle;
+  width: 16.4em;
 }
 
-/*** END OF ITEM CARD ***/
+// END OF ITEM CARD
 
-/*** FIELD VALUE ***/
+// FIELD VALUE
 .flag {
-  vertical-align: baseline;
-  float: right;
   color: $light-gray;
+  display: inline-block;
+  float: right;
   font-size: 1em;
   padding-right: .20em;
-  display: inline-block;
+  vertical-align: baseline;
+
   hover {
     cursor: pointer;
   }
 }
 
-.mapping-field {
-  display: table;
-  height: 100%;
-  width: 100%;
-  max-height: 10em;
-  max-width: 20em;
-  font-size: .75em;
-  line-height: 1.4;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  padding-left: .2em;
-  padding-right: .2em;
-}
-
 .mapping-field-top {
-  vertical-align: top;
   display: table-row;
-  height: 100%;
-  width: 9em;
   font-size: 1em;
+  height: 100%;
+  vertical-align: top;
+  width: 9em;
 
   .eu-tooltip {
     width: 240px;
@@ -448,31 +436,43 @@
 }
 
 .mapping-field-bottom {
-  vertical-align: bottom;
   display: table-row;
+  vertical-align: bottom;
 }
 
 .mapping-field-occurence {
   color: $light-gray;
-  font-size: 1em;
   display: inline-block;
+  font-size: 1em;
+
   selected {
     color: $white;
   }
 }
 
-.mapping-field .dropdown-trigger {
-  display: none !important;
-  padding: 6px !important;
+
+.mapping-field {
+  -webkit-box-orient: vertical;
+  display: table;
+  font-size: .75em;
+  height: 100%;
+  -webkit-line-clamp: 3;
+  line-height: 1.4;
+  max-height: 10em;
+  max-width: 20em;
+  padding-left: .2em;
+  padding-right: .2em;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  &.dropdown-trigger {
+    display: none !important;
+    padding: 6px !important;
+  }
 }
 
 .field_value_valid {
   background-color: $eu-jade;
-  color: $white;
-}
-
-.field_value_suspicious {
-  background-color: $yellow;
   color: $white;
 }
 
@@ -487,93 +487,99 @@
   color: $white;
 }
 
-.field_value_valid a, .field_value_invalid a {
+.field_value_valid a,
+.field_value_invalid a {
   color: $paper;
 }
 
-.field_value_suspicious a {
-  color: $light-gray;
+.field_value_suspicious {
+  background-color: $yellow;
+  color: $white;
+
+  a {
+    color: $light-gray;
+  }
 }
 
-/*** END OF FIELD VALUE ***/
+// END OF FIELD VALUE
 
-/***    LOGIN FORM     ***/
+// LOGIN FORM
 .metis-login-form {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0px !important;
-  border: 0px;
   background-color: $white;
-  width: 20em;
-  overflow: auto;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0 !important;
   margin-left: 1em;
   margin-top: 1em;
-}
+  overflow: auto;
+  width: 20em;
 
-.metis-login-form div {
-  padding-left: 1em;
-  padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .login-form-header {
-  text-align: center;
-  color: $white;
   background-color: $eu-blue;
-  width: 10em;
+  color: $white;
   font-size: 2em;
+  text-align: center;
+  width: 10em;
 }
 
-/*** END OF LOGIN FORM ***/
+// END OF LOGIN FORM
 
-/***    REGISTER FORM     ***/
+// REGISTER FORM
 .metis-register-form {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0px !important;
-  border: 0px;
   background-color: $white;
-  width: 20em;
-  overflow: auto;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0 !important;
   margin-left: 1em;
   margin-top: 1em;
-}
+  overflow: auto;
+  width: 20em;
 
-.metis-register-form div {
-  padding-left: 1em;
-  padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .register-form-header {
-  text-align: center;
-  color: $white;
   background-color: $eu-blue;
-  width: 10em;
+  color: $white;
   font-size: 2em;
+  text-align: center;
+  width: 10em;
 }
 
-/*** END OF REGISTER FORM ***/
+// END OF REGISTER FORM
 
-/***    PROFILE FORM     ***/
+// PROFILE FORM
 .metis-profile-form {
+  background-color: $white;
+  border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
   margin-bottom: 0 !important;
-  border: 0;
-  background-color: $white;
-  width: 50em;
-  overflow: auto;
   margin-left: 1em;
   margin-top: 1em;
-}
+  overflow: auto;
+  width: 50em;
 
-.metis-profile-form div {
-  padding-left: 1em;
-  padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .profile-form-header {
-  text-align: center;
-  color: $white;
   background-color: $eu-blue;
-  width: 25em;
+  color: $white;
   font-size: 2em;
+  text-align: center;
+  width: 25em;
 }
 
 .profile-select-orgs {
@@ -581,31 +587,27 @@
 }
 
 .select-dropdown {
-  width: 100%;
-  height: 2.37em;
   border: 1px solid $light-gray;
-  padding: .5rem .65rem 1em 1em;
-  box-shadow: inset 0 1px 3px $offwhite;
   border-radius: 4px;
-  -webkit-transition: .3s linear border;
-  -moz-transition: .3s linear border;
-  -ms-transition: .3s linear border;
-  -o-transition: .3s linear border;
+  box-shadow: inset 0 1px 3px $offwhite;
+  height: 2.37em;
+  padding: .5rem .65rem 1em 1em;
   transition: .3s linear border;
+  width: 100%;
 }
 
 // END OF PROFILE FORM
 
 // USER REQUESTS TABLE
 .user-request-table {
+  background-color: $white;
   margin-top: 2em;
   width: 70em;
-  background-color: $white;
-}
 
-.user-request-table tr:hover {
-  background: $off-white;
-  cursor: pointer;
+  tr:hover {
+    background: $off-white;
+    cursor: pointer;
+  }
 }
 
 .user-request-pending {
@@ -628,20 +630,22 @@
   color: $peachy;
 }
 
-/*** END OF USER REQUESTS TABLE ***/
+// END OF USER REQUESTS TABLE
 
 .error-message {
-  color: red;
+  color: $error;
 }
 
 // mapping card
 .flex-container {
-  padding: 0;
-  margin: 0;
   display: flex;
+  margin: 0;
+  padding: 0;
+
   &.row {
     flex-direction: row;
   }
+
   &.column {
     flex-direction: column;
     float: left;
@@ -650,17 +654,18 @@
 
 .flex-item,
 .flex-inner-item {
-  padding: 5px;
-  width: 230px;
+  color: $white;
   height: 50px;
   line-height: 50px;
-  color: $white;
+  padding: 5px;
   text-align: center;
+  width: 230px;
 }
 
 .flex-inner-item {
   padding: 5px;
   width: 70px;
+
   &:hover {
     background: $eu-blue;
   }
@@ -678,10 +683,6 @@
   background: $white;
   border: 1px solid $paper;
   color: $eu-blue;
-}
-
-.normal-colored {
-  color: $white;
 }
 
 .invalid-card {
