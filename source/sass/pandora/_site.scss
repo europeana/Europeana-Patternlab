@@ -1,640 +1,656 @@
-@import "../scss/generic/variables";
+@import '../scss/generic/variables';
 
 .logo {
-    background-image: url("../../images/metis/europeana-metis-logo.png");
-    .svg &{
-      background-image: url("../../images/metis/europeana-metis-logo.svg");
-        @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-          background-image: url("../../images/europeana-logo-symbol.svg");
-          min-width:50px;
-          max-width:50px;
-        }
+  background-image: url('../../images/metis/europeana-metis-logo.png');
+
+  .svg & {
+    background-image: url('../../images/metis/europeana-metis-logo.svg');
+
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+      background-image: url('../../images/europeana-logo-symbol.svg');
+      max-width: 50px;
+      min-width: 50px;
     }
+  }
 }
 
 .no-js {
   // style / hide things for no javascript
 }
 
-#settings-menu .svg-icon-user-signin{
-  float:             left;
-  height:            2em;
-  margin-bottom:     -1em;
-  margin-right:      -0.3em;
-  transform:         scale(0.7) translateY(-0.3em);
-  width:             2em;
+#settings-menu .svg-icon-user-signin {
+  float: left;
+  height: 2em;
+  margin-bottom: -1em;
+  margin-right: -.3em;
+  transform: scale(.7) translateY(-.3em);
+  width: 2em;
 }
-.svg-icon-notifications{
-    float:             left;
-    height:            3em;
-    margin-right:	   0.8rem;
-    transform:         scale(0.6) translateY(-0.3em);
-    width:             3em;
+
+.svg-icon-notifications {
+  float: left;
+  height: 3em;
+  margin-right: .8rem;
+  transform: scale(.6) translateY(-.3em);
+  width: 3em;
 }
-.svg-icon-loggedin-user{
-    float:             left;
-    height:            3em;
-    margin-bottom:     -1em;
-    margin-right:      0.8rem;
-    transform:         scale(0.8) translateY(-0.3em);
-    width:             3em;
+
+.svg-icon-loggedin-user {
+  float: left;
+  height: 3em;
+  margin-bottom: -1em;
+  margin-right: .8rem;
+  transform: scale(.8) translateY(-.3em);
+  width: 3em;
 }
-.svg-icon-configuration{
-    float:             left;
-    height:            3em;
-    margin-bottom:     -1em;
-    margin-right:	   0.8rem;
-    transform:         scale(0.7) translateY(-0.3em);
-    width:             3em;
+
+.svg-icon-configuration {
+  float: left;
+  height: 3em;
+  margin-bottom: -1em;
+  margin-right: .8rem;
+  transform: scale(.7) translateY(-.3em);
+  width: 3em;
 }
+
 .ve-anchor {
-    margin-top:3.5em;
+  margin-top: 3.5em;
 }
 
 .header-wrapper .header .cf {
-    border-top-color: #4BC0F0;
+  border-top-color: $eu-lightblue;
 }
 
 .nav-toggle-sites {
-    background-color: #4BC0F0;
+  background-color: $eu-lightblue;
 }
 
 .nav-toggle-sites:hover {
-    background-color: #1676AA;
-    color: #4BC0F0;
+  background-color: $eu-blue;
+  color: $eu-lightblue;
 }
 
 .nav_primary a:hover:after {
-    border-color: #4BC0F0;
+  border-color: $eu-lightblue;
 }
 
 .theme_select .dropdown-trigger {
-    padding: 0.4em;
+  padding: .4em;
 }
 
 .working-space {
-    /* background-color: #D9D4CA; */
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-large {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-menu {
-    width: 11em !important;
-    padding-left: 0px;
-    margin-left: 0px;
-    display: inline-block;
-    font-size: 0.75em;
-    float: left;
-    padding-bottom: 0em;
-    background-color: white;
+  width: 11em !important;
+  padding-left: 0px;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: .75em;
+  float: left;
+  padding-bottom: 0em;
+  background-color: white;
 }
 
 .container-search-box {
-    width: 17.5em;
-    padding-left: 2px;
-    margin-left: 0px;
-    display: inline-block;
-    font-size: 12px;
-    float: left;
-    padding-bottom: 0px;
+  width: 17.5em;
+  padding-left: 2px;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: 12px;
+  float: left;
+  padding-bottom: 0px;
 }
 
 .container-search-box .inline-form .search-submit {
-    height:32px;
+  height: 32px;
 }
 
 .container-search-box .inline-form .search-field {
-    height:32px;
+  height: 32px;
 }
 
 .breadcrumbs {
-    margin-top: $globalnavheight;
-    padding-left:10px;
-    border-top: 0.1em solid #FFFFFF;
-    background-color: #4BC0F0;
-    padding-top: 0px;
+  margin-top: $globalnavheight;
+  padding-left: 10px;
+  border-top: .1em solid $white;
+  background-color: $eu-lightblue;
+  padding-top: 0px;
 }
 
 .breadcrumbs a {
-    color:#FFFFFF;
+  color: $white;
 }
 
 .indent {
-    padding-left: 10px !important;
+  padding-left: 10px !important;
 }
 
 .dropdown {
-    margin-top:10px;
-    margin-left: -1em;
+  margin-top: 10px;
+  margin-left: -1em;
 }
 
 .action_menu {
-    height: 2em;
-    margin-bottom: 1.5em;
-    background-color: #1676AA;
-    width: 100%;
+  height: 2em;
+  margin-bottom: 1.5em;
+  background-color: $eu-blue;
+  width: 100%;
 }
 
 /*** COMMON FOR MAPPING CARD AND ITEM CARD ***/
 .card-component {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 0px !important;
-    border: 0px;
-    color: white !important;
-    width: 60em;
-    margin-left: 1em;
-    margin-top: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0px !important;
+  border: 0px;
+  color: white !important;
+  width: 60em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 .depth_1 {
-    margin-left: 4em;
+  margin-left: 4em;
 }
 
 .depth_2 {
-    margin-left: 8em;
+  margin-left: 8em;
 }
 
 .depth_3 {
-    margin-left: 12em;
+  margin-left: 12em;
 }
 
 .depth_4 {
-    margin-left: 16em;
+  margin-left: 16em;
 }
 
 .card-component td {
-    cellpadding: 0px;
-    cellspacing: 0px;
-    padding: 0px !important;
+  cellpadding: 0px;
+  cellspacing: 0px;
+  padding: 0px !important;
 }
 
 .normal-colored {
-    background-color: #4BC0F0;
+  background-color: $eu-lightblue;
 }
 
 .normal-colored-dark {
-    background-color: #1676AA;
+  background-color: $eu-blue;
 }
 
 .suspicious-colored {
-    background-color: #FFAE00;
+  background-color: $yellow;
 }
 
 .suspicious-colored-dark {
-    background-color: #d43900;
+  background-color: $eu-orange;
 }
 
 .invalid-colored {
-    background-color: #F22F24;
+  background-color: $eu-red;
 }
 
 .invalid-colored-dark {
-    background-color: #293745;
+  background-color: $dark-blue;
 }
 
 .card-buttons {
-    display: table;
+  display: table;
 }
 
 .card-buttons div {
-    height: 3.5em;
-    width: 5em;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
+  height: 3.5em;
+  width: 5em;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .card-buttons div:hover {
-    cursor: pointer;
-    background-color: #1676AA;
+  cursor: pointer;
+  background-color: $eu-blue;
 }
 
 .values-collapse {
-    width: 7em;
-    line-height: 3.5em;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
+  width: 7em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
 }
 
 .card-controls-expanded .card-label {
-    height: 3.5em;
-    width: 20em;
-    line-height: 3.5em;
-    vertical-align: middle;
-    display: inline-block;
+  height: 3.5em;
+  width: 20em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .card-controls-expanded div {
-    margin-left: -4px;
+  margin-left: -4px;
 }
 
 .card-controls-expanded > div:first-of-type {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 .mapping-card-controls, item-card-controls {
-    width: 15em;
+  width: 15em;
 }
 
 .card-button:hover {
-    cursor: pointer;
-    background-color: #095F90;
+  cursor: pointer;
+  background-color: $linkblue;
 }
 
 .normal-colored-dark.card-button:hover {
-    cursor: pointer;
-    background-color: #095F90;
+  cursor: pointer;
+  background-color: $linkblue;
 }
+
 /*** END OF COMMON FOR MAPPING CARD AND ITEM CARD ***/
 
 /*** MAPPING CARD ***/
 .mapping-card-controls-expanded {
-    width: 60em;
+  width: 60em;
 }
 
 .mapping-card-controls .card-label {
-    height: 3.5em;
-    width: 15em;
-    line-height: 3.5em;
-    vertical-align: middle;
+  height: 3.5em;
+  width: 15em;
+  line-height: 3.5em;
+  vertical-align: middle;
 }
 
 .mapping-field-item-container {
-    width: 45em;
-    height: 10.5em;
-    background-color: white;
+  width: 45em;
+  height: 10.5em;
+  background-color: white;
 }
 
 .mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item {
-    /* this rule targets the rows after the 10th .mapping-field-item */
-    display: none;
+  /* this rule targets the rows after the 10th .mapping-field-item */
+  display: none;
 }
 
 .mapping-field-item-container-expanded {
-    width: 60em;
-    height: 60em;
-    background-color: white;
+  width: 60em;
+  height: 60em;
+  background-color: white;
 }
 
 .mapping-field-item {
-    width: 9em;
-    height: 5.25em;
-    display: inline-block;
-    font-size: 1em;
-    border: 1px solid #D9D4CA;
-    margin-right: -4px;
-    margin-bottom: -7px;
+  width: 9em;
+  height: 5.25em;
+  display: inline-block;
+  font-size: 1em;
+  border: 1px solid $paper;
+  margin-right: -4px;
+  margin-bottom: -7px;
 }
 
 .mapping-field-item-expanded {
-    width: 10em;
-    height: 5.25em;
-    display: inline-block;
-    font-size: 1em;
-    border: 1px solid #D9D4CA;
-    margin-right: -4px;
-    margin-bottom: -7px;
+  width: 10em;
+  height: 5.25em;
+  display: inline-block;
+  font-size: 1em;
+  border: 1px solid $paper;
+  margin-right: -4px;
+  margin-bottom: -7px;
 }
 
 .mapping-card-function {
-    font-family: 'Times New Roman', Times, serif;
-    width: 6em;
-    height: 3.5em;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  width: 6em;
+  height: 3.5em;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
 }
 
 .if {
-    width: 7em;
-    line-height: 3.5em;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    margin-left: -5px !important;
+  width: 7em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  margin-left: -5px !important;
 }
 
 .mapping-card-f {
-    font-style: italic; font-size:1.6em;
+  font-style: italic;
+  font-size: 1.6em;
 }
 
 .mapping-card-x {
-    font-size:0.8em;
+  font-size: .8em;
 }
 
 .card-controls td:hover {
-    background-color: #1676AA;
-    color: #FFFFFF;
+  background-color: $eu-blue;
+  color: $white;
 }
 
 .mapping-card-values {
-    width: 45em;
-    height: 10.5em;
+  width: 45em;
+  height: 10.5em;
 }
 
 .pagination {
-    margin-bottom: 0px !important;
-    padding-top: 1rem;
+  margin-bottom: 0px !important;
+  padding-top: 1rem;
 }
 
 .pagination a {
-    color: #1676aa;
+  color: $eu-blue;
 }
 
 .pagination .current a, .pagination .is-current a {
-    color: #FFFFFF;
-    font-weight: bold;
-    background-color: #1676aa;
+  color: $white;
+  font-weight: bold;
+  background-color: $eu-blue;
 }
 
 .mapping-card-dropdown .dropdown-trigger {
-    display: none;
+  display: none;
 }
+
 /*** END OF MAPPING CARD ***/
 
 /*** ITEM CARD ***/
 .item-card-controls .card-label {
-    height: 3.5em;
-    width: 15em;
-    line-height: 3.5em;
-    vertical-align: middle;
+  height: 3.5em;
+  width: 15em;
+  line-height: 3.5em;
+  vertical-align: middle;
 }
 
 .item-card-values {
-    column-span: 3;
-    width: 45em;
-    height: 7em;
+  column-span: 3;
+  width: 45em;
+  height: 7em;
 }
 
 .xml-view {
-    overflow-x: scroll;
-    overflow-y: scroll;
-    width: 45em;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 45em;
 }
 
 .xml-view-short {
-    height: 7em;
+  height: 7em;
 }
 
 .xml-view-long {
-    width: 60em;
-    height: 45em;
+  width: 60em;
+  height: 45em;
 }
 
 .xml-view-source {
-    display: none;
+  display: none;
 }
 
 .item-button, .item-source-button {
-    width: 16.4em;
-    line-height: 3.5em;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
+  width: 16.4em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
 }
+
 /*** END OF ITEM CARD ***/
 
 /*** FIELD VALUE ***/
 .flag {
-    vertical-align: baseline;
-    float: right;
-    color: #777777;
-    font-size: 1em;
-    padding-right: 0.20em;
-    display: inline-block;
-    hover {
-        cursor: pointer;
-    }
+  vertical-align: baseline;
+  float: right;
+  color: $light-gray;
+  font-size: 1em;
+  padding-right: .20em;
+  display: inline-block;
+  hover {
+    cursor: pointer;
+  }
 }
 
 .mapping-field {
-    display: table;
-    height: 100%;
-    width: 100%;
-    max-height: 10em;
-    max-width: 20em;
-    font-size: 0.75em;
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+  display: table;
+  height: 100%;
+  width: 100%;
+  max-height: 10em;
+  max-width: 20em;
+  font-size: .75em;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  padding-left: .2em;
+  padding-right: .2em;
 }
 
 .mapping-field-top {
-    vertical-align: top;
-    display: table-row;
-    height: 100%;
-    width: 9em;
-    font-size: 1em;
+  vertical-align: top;
+  display: table-row;
+  height: 100%;
+  width: 9em;
+  font-size: 1em;
 
-    .eu-tooltip {
-        width: 240px;
-    }
+  .eu-tooltip {
+    width: 240px;
+  }
 }
 
 .mapping-field-bottom {
-    vertical-align: bottom;
-    display: table-row;
+  vertical-align: bottom;
+  display: table-row;
 }
 
 .mapping-field-occurence {
-    color: #777777;
-    font-size: 1em;
-    display: inline-block;
-    selected {
-      color: #FFFFFF;
-    }
+  color: $light-gray;
+  font-size: 1em;
+  display: inline-block;
+  selected {
+    color: $white;
+  }
 }
 
-.mapping-field  .dropdown-trigger {
-    display: none !important;
-    padding: 6px !important;
+.mapping-field .dropdown-trigger {
+  display: none !important;
+  padding: 6px !important;
 }
 
 .field_value_valid {
-    background-color: #37B98B;
-    color: #FFFFFF;
+  background-color: $eu-jade;
+  color: $white;
 }
 
 .field_value_suspicious {
-    background-color: #FFAE00;
-    color: #FFFFFF;
+  background-color: $yellow;
+  color: $white;
 }
 
 .field_value_invalid {
-    background-color: #F22F24;
-    color: #FFFFFF;
+  background-color: $eu-red;
+  color: $white;
 }
 
-.field_value_valid .mapping-field-occurence, 
-.field_value_invalid .mapping-field-occurence, 
+.field_value_valid .mapping-field-occurence,
+.field_value_invalid .mapping-field-occurence,
 .field_value_suspicious .mapping-field-occurence {
-    color: #FFFFFF;
+  color: $white;
 }
 
 .field_value_valid a, .field_value_invalid a {
-    color: #D9D4CA;
+  color: $paper;
 }
 
 .field_value_suspicious a {
-    color: #777777;
+  color: $light-gray;
 }
+
 /*** END OF FIELD VALUE ***/
 
 /***    LOGIN FORM     ***/
 .metis-login-form {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 0px !important;
-    border: 0px;
-    background-color: white;
-    width: 20em;
-    overflow: auto;
-    margin-left: 1em;
-    margin-top: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0px !important;
+  border: 0px;
+  background-color: white;
+  width: 20em;
+  overflow: auto;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
-.metis-login-form div{
-    padding-left: 1em;
-    padding-right: 1em;
+.metis-login-form div {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .login-form-header {
-    text-align: center;
-    color: white;
-    background-color: #1676aa;
-    width: 10em;
-    font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: $eu-blue;
+  width: 10em;
+  font-size: 2em;
 }
+
 /*** END OF LOGIN FORM ***/
 
 /***    REGISTER FORM     ***/
 .metis-register-form {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 0px !important;
-    border: 0px;
-    background-color: white;
-    width: 20em;
-    overflow: auto;
-    margin-left: 1em;
-    margin-top: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0px !important;
+  border: 0px;
+  background-color: white;
+  width: 20em;
+  overflow: auto;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
-.metis-register-form div{
-    padding-left: 1em;
-    padding-right: 1em;
+.metis-register-form div {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .register-form-header {
-    text-align: center;
-    color: white;
-    background-color: #1676aa;
-    width: 10em;
-    font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: $eu-blue;
+  width: 10em;
+  font-size: 2em;
 }
+
 /*** END OF REGISTER FORM ***/
 
 /***    PROFILE FORM     ***/
 .metis-profile-form {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 0px !important;
-    border: 0px;
-    background-color: white;
-    width: 50em;
-    overflow: auto;
-    margin-left: 1em;
-    margin-top: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0px !important;
+  border: 0px;
+  background-color: white;
+  width: 50em;
+  overflow: auto;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 .metis-profile-form div {
-    padding-left: 1em;
-    padding-right: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .profile-form-header {
-    text-align: center;
-    color: white;
-    background-color: #1676aa;
-    width: 25em;
-    font-size: 2em;
+  text-align: center;
+  color: white;
+  background-color: $eu-blue;
+  width: 25em;
+  font-size: 2em;
 }
 
 .profile-select-orgs {
-    display: inline-block;
+  display: inline-block;
 }
 
 .select-dropdown {
-    width: 100%;
-    height: 2.37em;
-    border: 1px solid #777777;
-    padding: 0.5rem 0.65rem 1em 1em;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    -webkit-transition: 0.3s linear border;
-    -moz-transition: 0.3s linear border;
-    -ms-transition: 0.3s linear border;
-    -o-transition: 0.3s linear border;
-    transition: 0.3s linear border;
+  width: 100%;
+  height: 2.37em;
+  border: 1px solid $light-gray;
+  padding: .5rem .65rem 1em 1em;
+  box-shadow: inset 0 1px 3px $offwhite;
+  border-radius: 4px;
+  -webkit-transition: .3s linear border;
+  -moz-transition: .3s linear border;
+  -ms-transition: .3s linear border;
+  -o-transition: .3s linear border;
+  transition: .3s linear border;
 }
+
 /*** END OF PROFILE FORM ***/
 
 /*** USER REQUESTS TABLE ***/
 .user-request-table {
-    margin-top: 2em;
-    width: 70em;
-    background-color: white;
+  margin-top: 2em;
+  width: 70em;
+  background-color: white;
 }
 
 .user-request-table tr:hover {
-    background: #F1F1EE;
-    cursor: pointer;
+  background: $off-white;
+  cursor: pointer;
 }
 
 .user-request-pending {
-    color: #1676AA;
+  color: $eu-blue;
 }
 
 .user-request-accepted {
-    color: #37B98B;
+  color: $eu-jade;
 }
 
 .user-request-rejected {
-    color: #d12d1e;
+  color: $peachy;
 }
 
 .user-request-type-add {
-    color: #1676AA;
+  color: $eu-blue;
 }
 
 .user-request-type-delete {
-    color: #d12d1e;
+  color: $peachy;
 }
+
 /*** END OF USER REQUESTS TABLE ***/
 
 .error-message {
-    color: red;
+  color: red;
 }
+
 // mapping card
 .flex-container {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    &.row {
-        flex-direction: row;
-    }
-    &.column {
-        flex-direction: column;
-        float: left;
-    }
+  padding: 0;
+  margin: 0;
+  display: flex;
+  &.row {
+    flex-direction: row;
+  }
+  &.column {
+    flex-direction: column;
+    float: left;
+  }
 }
+
 .flex-item,
 .flex-inner-item {
   padding: 5px;
@@ -644,31 +660,37 @@
   color: white;
   text-align: center;
 }
+
 .flex-inner-item {
-    padding: 5px;
-    width: 70px;
-    &:hover {
-        background:#1676AA;
-    }
+  padding: 5px;
+  width: 70px;
+  &:hover {
+    background: $eu-blue;
+  }
 }
+
 .color-blue {
-    background: #4BC0F0;
+  background: $eu-lightblue;
 }
+
 .color-deep-blue {
-    background: #1676AA;
+  background: $eu-blue;
 }
+
 .color-orange {
-    background:white;
-    border: 1px solid #D9D4CA;
-    color: #1676AA;
+  background: white;
+  border: 1px solid $paper;
+  color: $eu-blue;
 }
+
 .normal-colored {
-    color: white;
+  color: white;
 }
 
 .invalid-card {
-    background: $google-plus-red;
+  background: $google-plus-red;
 }
+
 .invalidOptionsBar {
-    background: $pinterest-red;
+  background: $pinterest-red;
 }
