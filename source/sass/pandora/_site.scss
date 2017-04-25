@@ -1,13 +1,13 @@
 @import '../scss/generic/variables';
 
 .logo {
-  background-image: url('../../images/metis/europeana-metis-logo.png');
+  background-image: url("../../images/metis/europeana-metis-logo.png");
 
   .svg & {
-    background-image: url('../../images/metis/europeana-metis-logo.svg');
+    background-image: url("../../images/metis/europeana-metis-logo.svg");
 
     @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-      background-image: url('../../images/europeana-logo-symbol.svg');
+      background-image: url("../../images/europeana-logo-symbol.svg");
       max-width: 50px;
       min-width: 50px;
     }
