@@ -530,6 +530,11 @@ a:hover > .ve-state-button-off,
   .ve-image-credit{
     display: none;
   }
+  .attribution-content .license .svg-icon-linkout{
+    height:        2.2em;
+    margin-bottom: -0.65em;
+    transform:     scale(0.4);
+  }
 }
 
 .ve-intro-full-description{
