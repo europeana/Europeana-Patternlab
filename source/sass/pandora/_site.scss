@@ -90,44 +90,41 @@
 }
 
 .container-menu {
-  width: 11em !important;
-  padding-left: 0px;
-  margin-left: 0px;
+  background-color: $white;
   display: inline-block;
-  font-size: .75em;
   float: left;
-  padding-bottom: 0em;
-  background-color: white;
+  font-size: .75em;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  width: 11em !important;
 }
 
 .container-search-box {
-  width: 17.5em;
-  padding-left: 2px;
-  margin-left: 0px;
   display: inline-block;
-  font-size: 12px;
   float: left;
-  padding-bottom: 0px;
+  font-size: 12px;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  width: 17.5em;
 }
 
-.container-search-box .inline-form .search-submit {
-  height: 32px;
-}
-
+.container-search-box .inline-form .search-submit,
 .container-search-box .inline-form .search-field {
   height: 32px;
 }
 
 .breadcrumbs {
+  background-color: $eu-lightblue;
+  border-top: .1em solid $white;
   margin-top: $globalnavheight;
   padding-left: 10px;
-  border-top: .1em solid $white;
-  background-color: $eu-lightblue;
-  padding-top: 0px;
-}
+  padding-top: 0;
 
-.breadcrumbs a {
-  color: $white;
+  a {
+    color: $white;
+  }
 }
 
 .indent {
@@ -135,8 +132,8 @@
 }
 
 .dropdown {
-  margin-top: 10px;
   margin-left: -1em;
+  margin-top: 10px;
 }
 
 .action_menu {
@@ -151,7 +148,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
   margin-bottom: 0px !important;
   border: 0px;
-  color: white !important;
+  color: $white !important;
   width: 60em;
   margin-left: 1em;
   margin-top: 1em;
@@ -275,7 +272,7 @@
 .mapping-field-item-container {
   width: 45em;
   height: 10.5em;
-  background-color: white;
+  background-color: $white;
 }
 
 .mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item {
@@ -286,7 +283,7 @@
 .mapping-field-item-container-expanded {
   width: 60em;
   height: 60em;
-  background-color: white;
+  background-color: $white;
 }
 
 .mapping-field-item {
@@ -505,7 +502,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
   margin-bottom: 0px !important;
   border: 0px;
-  background-color: white;
+  background-color: $white;
   width: 20em;
   overflow: auto;
   margin-left: 1em;
@@ -519,7 +516,7 @@
 
 .login-form-header {
   text-align: center;
-  color: white;
+  color: $white;
   background-color: $eu-blue;
   width: 10em;
   font-size: 2em;
@@ -532,7 +529,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
   margin-bottom: 0px !important;
   border: 0px;
-  background-color: white;
+  background-color: $white;
   width: 20em;
   overflow: auto;
   margin-left: 1em;
@@ -546,7 +543,7 @@
 
 .register-form-header {
   text-align: center;
-  color: white;
+  color: $white;
   background-color: $eu-blue;
   width: 10em;
   font-size: 2em;
@@ -557,9 +554,9 @@
 /***    PROFILE FORM     ***/
 .metis-profile-form {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0px !important;
-  border: 0px;
-  background-color: white;
+  margin-bottom: 0 !important;
+  border: 0;
+  background-color: $white;
   width: 50em;
   overflow: auto;
   margin-left: 1em;
@@ -573,7 +570,7 @@
 
 .profile-form-header {
   text-align: center;
-  color: white;
+  color: $white;
   background-color: $eu-blue;
   width: 25em;
   font-size: 2em;
@@ -597,13 +594,13 @@
   transition: .3s linear border;
 }
 
-/*** END OF PROFILE FORM ***/
+// END OF PROFILE FORM
 
-/*** USER REQUESTS TABLE ***/
+// USER REQUESTS TABLE
 .user-request-table {
   margin-top: 2em;
   width: 70em;
-  background-color: white;
+  background-color: $white;
 }
 
 .user-request-table tr:hover {
@@ -657,7 +654,7 @@
   width: 230px;
   height: 50px;
   line-height: 50px;
-  color: white;
+  color: $white;
   text-align: center;
 }
 
@@ -678,13 +675,13 @@
 }
 
 .color-orange {
-  background: white;
+  background: $white;
   border: 1px solid $paper;
   color: $eu-blue;
 }
 
 .normal-colored {
-  color: white;
+  color: $white;
 }
 
 .invalid-card {
