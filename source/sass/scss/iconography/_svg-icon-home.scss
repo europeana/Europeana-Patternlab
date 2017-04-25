@@ -6,12 +6,8 @@
   display:           inline-block;
   height:            2em;
   position:          absolute;
-  transform:         scale(0.5);
+  transform:         scale(0.5) translateX(-2 * $space);
   width:             2em;
-}
-
-.svg-icon-home + .text{
-  margin-left: $space;
 }
 
 a:hover .svg-icon-home{
