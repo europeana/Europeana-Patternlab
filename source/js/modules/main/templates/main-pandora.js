@@ -11,11 +11,14 @@ require.config({
     smartmenus_keyboard:	'../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     mustache:		'../../lib/mustache/mustache',
     user_approval:  '../../eu/pandora/user-approval-form',
-    autocomplete:   '../../lib/autocomplete/autocomplete'
+    autocomplete:   '../../lib/autocomplete/autocomplete',
+    // search filter selection files
+    channels_metis:                      '../../eu/pandora/metis-channels',
+    search_form:                   '../../eu/search-form'
   }
 });
 
-require(['jquery'], function($) {
+require(['jquery', 'channels_metis'], function() {
   require(['pandoraPage'], function(p) {
     p.pageInit();
   });

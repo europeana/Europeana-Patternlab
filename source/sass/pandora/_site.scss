@@ -1,653 +1,694 @@
-@import "../scss/generic/variables";
+@import '../scss/generic/variables';
 
 .logo {
-	background-image: url("../../images/metis/europeana-metis-logo.png");
-	.svg &{
-	  background-image: url("../../images/metis/europeana-metis-logo.svg");
-	    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-	      background-image: url("../../images/europeana-logo-symbol.svg");
-	      min-width:50px;
-	      max-width:50px;
-	    }
-	}
+  background-image: url('../../images/metis/europeana-metis-logo.png');
+
+  .svg & {
+    background-image: url('../../images/metis/europeana-metis-logo.svg');
+
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+      background-image: url('../../images/europeana-logo-symbol.svg');
+      max-width: 50px;
+      min-width: 50px;
+    }
+  }
 }
 
 .no-js {
   // style / hide things for no javascript
 }
 
-#settings-menu .svg-icon-user-signin{
-  float:             left;
-  height:            2em;
-  margin-bottom:     -1em;
-  margin-right:      -0.3em;
-  transform:         scale(0.7) translateY(-0.3em);
-  width:             2em;
+#settings-menu .svg-icon-user-signin {
+  float: left;
+  height: 2em;
+  margin-bottom: -1em;
+  margin-right: -.3em;
+  transform: scale(.7) translateY(-.3em);
+  width: 2em;
+}
+
+.svg-icon-notifications {
+  float: left;
+  height: 3em;
+  margin-right: .8rem;
+  transform: scale(.6) translateY(-.3em);
+  width: 3em;
+}
+
+.svg-icon-loggedin-user {
+  float: left;
+  height: 3em;
+  margin-bottom: -1em;
+  margin-right: .8rem;
+  transform: scale(.8) translateY(-.3em);
+  width: 3em;
+}
+
+.svg-icon-configuration {
+  float: left;
+  height: 3em;
+  margin-bottom: -1em;
+  margin-right: .8rem;
+  transform: scale(.7) translateY(-.3em);
+  width: 3em;
 }
 
 .ve-anchor {
-	margin-top:3.5em;
+  margin-top: 3.5em;
 }
 
 .header-wrapper .header .cf {
-	border-top-color: #4BC0F0;
+  border-top-color: $eu-lightblue;
 }
 
 .nav-toggle-sites {
-	background-color: #4BC0F0;
+  background-color: $eu-lightblue;
 }
 
 .nav-toggle-sites:hover {
-	background-color: #1676AA;
-	color: #4BC0F0;
+  background-color: $eu-blue;
+  color: $eu-lightblue;
 }
 
-.nav_primary a:hover:after {
-	border-color: #4BC0F0;
+.nav_primary a:hover::after {
+  border-color: $eu-lightblue;
 }
 
 .theme_select .dropdown-trigger {
-	padding: 0.4em;
+  padding: .4em;
 }
 
 .working-space {
-	/* background-color: #D9D4CA; */
-	margin-left: auto;
-	margin-right: auto;
-	height: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-large {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-menu {
-	width: 11em !important;
-	padding-left: 0px;
-	margin-left: 0px;
-	display: inline-block;
-	font-size: 0.75em;
-	float: left;
-	padding-bottom: 0em;
-	background-color: white;
+  background-color: $white;
+  display: inline-block;
+  float: left;
+  font-size: .75em;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  width: 11em;
 }
 
 .container-search-box {
-	width: 17.5em;
-	padding-left: 2px;
-	margin-left: 0px;
-	display: inline-block;
-	font-size: 12px;
-	float: left;
-	padding-bottom: 0px;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  width: 17.5em;
 }
 
-.container-search-box .inline-form .search-submit {
-	height:32px;
-}
-
+.container-search-box .inline-form .search-submit,
 .container-search-box .inline-form .search-field {
-	height:32px;
+  height: 32px;
 }
 
 .breadcrumbs {
-	margin-top: $globalnavheight;
-	padding-left:10px;
-	border-top: 0.1em solid #FFFFFF;
-	background-color: #4BC0F0;
-	padding-top: 0px;
-}
+  background-color: $eu-lightblue;
+  border-top: .1em solid $white;
+  margin-top: $globalnavheight;
+  padding-left: 10px;
+  padding-top: 0;
 
-.breadcrumbs a {
-	color:#FFFFFF;
-}
-
-.indent {
-	padding-left: 10px !important;
+  a {
+    color: $white;
+  }
 }
 
 .dropdown {
-	margin-top:10px;
-	margin-left: -1em;
+  margin-left: -1em;
+  margin-top: 10px;
 }
 
 .action_menu {
-	height: 2em;
-	margin-bottom: 1.5em;
-	background-color: #1676AA;
-	width: 100%;
+  background-color: $eu-blue;
+  height: 2em;
+  margin-bottom: 1.5em;
+  width: 100%;
 }
 
-/*** COMMON FOR MAPPING CARD AND ITEM CARD ***/
+// COMMON FOR MAPPING CARD AND ITEM CARD
 .card-component {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 0px !important;
-	border: 0px;
-	color: white !important;
-	width: 60em;
-	margin-left: 1em;
-	margin-top: 1em;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  color: $white;
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 60em;
+
+  td {
+    border-collapse: collapse;
+    padding: 0;
+  }
 }
 
 .depth_1 {
-	margin-left: 4em;
+  margin-left: 4em;
 }
 
 .depth_2 {
-	margin-left: 8em;
+  margin-left: 8em;
 }
 
 .depth_3 {
-	margin-left: 12em;
+  margin-left: 12em;
 }
 
 .depth_4 {
-	margin-left: 16em;
-}
-
-.card-component td {
-	cellpadding: 0px;
-	cellspacing: 0px;
-	padding: 0px !important;
+  margin-left: 16em;
 }
 
 .normal-colored {
-	background-color: #4BC0F0;
-}
-
-.normal-colored-dark {
-	background-color: #1676AA;
+  background-color: $eu-lightblue;
+  color: $white;
 }
 
 .suspicious-colored {
-	background-color: #FFAE00;
+  background-color: $yellow;
 }
 
 .suspicious-colored-dark {
-	background-color: #d43900;
+  background-color: $eu-orange;
 }
 
 .invalid-colored {
-	background-color: #F22F24;
+  background-color: $eu-red;
 }
 
 .invalid-colored-dark {
-	background-color: #293745;
+  background-color: $dark-blue;
 }
 
 .card-buttons {
-	display: table;
-}
+  display: table;
 
-.card-buttons div {
-	height: 3.5em;
-	width: 5em;
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-}
+  div {
+    display: table-cell;
+    height: 3.5em;
+    text-align: center;
+    vertical-align: middle;
+    width: 5em;
 
-.card-buttons div:hover {
-	cursor: pointer;
-	background-color: #1676AA;
+    &:hover {
+      background-color: $eu-blue;
+      cursor: pointer;
+    }
+  }
 }
 
 .values-collapse {
-	width: 7em;
-	line-height: 3.5em;
-	vertical-align: middle;
-	display: inline-block;
-	text-align: center;
+  display: inline-block;
+  line-height: 3.5em;
+  text-align: center;
+  vertical-align: middle;
+  width: 7em;
 }
 
 .card-controls-expanded .card-label {
-	height: 3.5em;
-	width: 20em;
-	line-height: 3.5em;
-	vertical-align: middle;
-	display: inline-block;
+  display: inline-block;
+  height: 3.5em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  width: 20em;
 }
 
 .card-controls-expanded div {
-	margin-left: -4px;
+  margin-left: -4px;
 }
 
 .card-controls-expanded > div:first-of-type {
-	margin-left: 0px;
+  margin-left: 0;
 }
 
-.mapping-card-controls, item-card-controls {
-	width: 15em;
+.mapping-card-controls,
+item-card-controls {
+  width: 15em;
 }
 
 .card-button:hover {
-	cursor: pointer;
-	background-color: #095F90;
+  background-color: $linkblue;
+  cursor: pointer;
+}
+.normal-colored-dark {
+  background-color: $eu-blue;
+
+  &.card-button:hover {
+    background-color: $linkblue;
+    cursor: pointer;
+  }
 }
 
-.normal-colored-dark.card-button:hover {
-	cursor: pointer;
-	background-color: #095F90;
-}
-/*** END OF COMMON FOR MAPPING CARD AND ITEM CARD ***/
+// END OF COMMON FOR MAPPING CARD AND ITEM CARD
 
-/*** MAPPING CARD ***/
+// MAPPING CARD
 .mapping-card-controls-expanded {
-	width: 60em;
+  width: 60em;
 }
 
 .mapping-card-controls .card-label {
-	height: 3.5em;
-	width: 15em;
-	line-height: 3.5em;
-	vertical-align: middle;
+  height: 3.5em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  width: 15em;
 }
 
 .mapping-field-item-container {
-	width: 45em;
-	height: 10.5em;
-	background-color: white;
+  background-color: $white;
+  height: 10.5em;
+  width: 45em;
 }
 
 .mapping-field-item-container > .mapping-field-item:nth-child(10) ~ .mapping-field-item {
-    /* this rule targets the rows after the 10th .mapping-field-item */
-    display: none;
+  // this rule targets the rows after the 10th .mapping-field-item
+  display: none;
 }
 
 .mapping-field-item-container-expanded {
-	width: 60em;
-	height: 60em;
-	background-color: white;
+  background-color: $white;
+  height: 60em;
+  width: 60em;
 }
 
 .mapping-field-item {
-	width: 9em;
-	height: 5.25em;
-	display: inline-block;
-	font-size: 1em;
-	border: 1px solid #D9D4CA;
-	margin-right: -4px;
-	margin-bottom: -7px;
+  border: 1px solid $paper;
+  display: inline-block;
+  font-size: 1em;
+  height: 5.25em;
+  margin-bottom: -7px;
+  margin-right: -4px;
+  width: 9em;
 }
 
 .mapping-field-item-expanded {
-	width: 10em;
-	height: 5.25em;
-	display: inline-block;
-	font-size: 1em;
-	border: 1px solid #D9D4CA;
-	margin-right: -4px;
-	margin-bottom: -7px;
+  border: 1px solid $paper;
+  display: inline-block;
+  font-size: 1em;
+  height: 5.25em;
+  margin-bottom: -7px;
+  margin-right: -4px;
+  width: 10em;
 }
 
 .mapping-card-function {
-	font-family: 'Times New Roman', Times, serif;
-	width: 6em;
-	height: 3.5em;
-	vertical-align: middle;
-	display: inline-block;
-	text-align: center;
+  display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+  height: 3.5em;
+  text-align: center;
+  vertical-align: middle;
+  width: 6em;
 }
 
 .if {
-	width: 7em;
-	line-height: 3.5em;
-	vertical-align: middle;
-	display: inline-block;
-	text-align: center;
-	margin-left: -5px !important;
+  display: inline-block;
+  line-height: 3.5em;
+  margin-left: -5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 7em;
 }
 
 .mapping-card-f {
-	font-style: italic; font-size:1.6em;
+  font-size: 1.6em;
+  font-style: italic;
 }
 
 .mapping-card-x {
-	font-size:0.8em;
+  font-size: .8em;
 }
 
 .card-controls td:hover {
-	background-color: #1676AA;
-	color: #FFFFFF;
+  background-color: $eu-blue;
+  color: $white;
 }
 
 .mapping-card-values {
-	width: 45em;
-	height: 10.5em;
+  height: 10.5em;
+  width: 45em;
 }
 
 .pagination {
-	margin-bottom: 0px !important;
-	padding-top: 1rem;
+  margin-bottom: 0;
+  padding-top: 1rem;
+
+  a {
+    color: $eu-blue;
+  }
 }
 
-.pagination a {
-	color: #1676aa;
-}
-
-.pagination .current a, .pagination .is-current a {
-    color: #FFFFFF;
-    font-weight: bold;
-    background-color: #1676aa;
+.pagination .current a,
+.pagination .is-current a {
+  background-color: $eu-blue;
+  color: $white;
+  font-weight: bold;
 }
 
 .mapping-card-dropdown .dropdown-trigger {
-	display: none;
+  display: none;
 }
-/*** END OF MAPPING CARD ***/
 
-/*** ITEM CARD ***/
+// END OF MAPPING CARD
+
+// ITEM CARD
 .item-card-controls .card-label {
-	height: 3.5em;
-	width: 15em;
-	line-height: 3.5em;
-	vertical-align: middle;
+  height: 3.5em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  width: 15em;
 }
 
 .item-card-values {
-	column-span: 3;
-	width: 45em;
-	height: 7em;
+  column-span: 3;
+  height: 7em;
+  width: 45em;
 }
 
 .xml-view {
-	overflow-x: scroll;
-	overflow-y: scroll;
- 	width: 45em;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 45em;
 }
 
 .xml-view-short {
-    height: 7em;
+  height: 7em;
 }
 
 .xml-view-long {
-    width: 60em;
-    height: 45em;
+  height: 45em;
+  width: 60em;
 }
 
 .xml-view-source {
-	display: none;
+  display: none;
 }
 
-.item-button, .item-source-button {
-	width: 16.4em;
-	line-height: 3.5em;
-	vertical-align: middle;
-	display: inline-block;
-	text-align: center;
+.item-button,
+.item-source-button {
+  display: inline-block;
+  line-height: 3.5em;
+  text-align: center;
+  vertical-align: middle;
+  width: 16.4em;
 }
-/*** END OF ITEM CARD ***/
 
-/*** FIELD VALUE ***/
+// END OF ITEM CARD
+
+// FIELD VALUE
 .flag {
-	vertical-align: baseline;
-	float: right;
-	color: #777777;
-	font-size: 1em;
-	padding-right: 0.20em;
-	display: inline-block;
-	hover {
-		cursor: pointer;
-	}
-}
+  color: $light-gray;
+  display: inline-block;
+  float: right;
+  font-size: 1em;
+  padding-right: .20em;
+  vertical-align: baseline;
 
-.mapping-field {
-	display: table;
-    height: 100%;
-    width: 100%;
-    max-height: 10em;
-    max-width: 20em;
-    font-size: 0.75em;
-    line-height: 1.4;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+  hover {
+    cursor: pointer;
+  }
 }
 
 .mapping-field-top {
-	vertical-align: top;
-	display: table-row;
-	height: 100%;
-    width: 9em;
-	font-size: 1em;
+  display: table-row;
+  font-size: 1em;
+  height: 100%;
+  vertical-align: top;
+  width: 9em;
 
-	.eu-tooltip {
-		width: 240px;
-	}
+  .eu-tooltip {
+    width: 240px;
+  }
 }
 
 .mapping-field-bottom {
-	vertical-align: bottom;
-	display: table-row;
+  display: table-row;
+  vertical-align: bottom;
 }
 
 .mapping-field-occurence {
-	color: #777777;
-	font-size: 1em;
-	display: inline-block;
-	selected {
-	  color: #FFFFFF;
-	}
+  color: $light-gray;
+  display: inline-block;
+  font-size: 1em;
+
+  selected {
+    color: $white;
+  }
 }
 
-.mapping-field  .dropdown-trigger {
-	display: none !important;
-	padding: 6px !important;
+
+.mapping-field {
+  -webkit-box-orient: vertical;
+  display: table;
+  font-size: .75em;
+  height: 100%;
+  -webkit-line-clamp: 3;
+  line-height: 1.4;
+  max-height: 10em;
+  max-width: 20em;
+  padding-left: .2em;
+  padding-right: .2em;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  &.dropdown-trigger {
+    display: none;
+    padding: 6px;
+  }
 }
 
 .field_value_valid {
-	background-color: #37B98B;
-	color: #FFFFFF;
-}
-
-.field_value_suspicious {
-	background-color: #FFAE00;
-	color: #FFFFFF;
+  background-color: $eu-jade;
+  color: $white;
 }
 
 .field_value_invalid {
-	background-color: #F22F24;
-	color: #FFFFFF;
+  background-color: $eu-red;
+  color: $white;
 }
 
-.field_value_valid .mapping-field-occurence, 
-.field_value_invalid .mapping-field-occurence, 
+.field_value_valid .mapping-field-occurence,
+.field_value_invalid .mapping-field-occurence,
 .field_value_suspicious .mapping-field-occurence {
-	color: #FFFFFF;
+  color: $white;
 }
 
-.field_value_valid a, .field_value_invalid a {
-	color: #D9D4CA;
+.field_value_valid a,
+.field_value_invalid a {
+  color: $paper;
 }
 
-.field_value_suspicious a {
-	color: #777777;
-}
-/*** END OF FIELD VALUE ***/
+.field_value_suspicious {
+  background-color: $yellow;
+  color: $white;
 
-/***    LOGIN FORM     ***/
+  a {
+    color: $light-gray;
+  }
+}
+
+// END OF FIELD VALUE
+
+// LOGIN FORM
 .metis-login-form {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 0px !important;
-	border: 0px;
-	background-color: white;
-	width: 20em;
-	overflow: auto;
-	margin-left: 1em;
-	margin-top: 1em;
-}
+  background-color: $white;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  overflow: auto;
+  width: 20em;
 
-.metis-login-form div{
-	padding-left: 1em;
-	padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .login-form-header {
-	text-align: center;
-	color: white;
-	background-color: #1676aa;
-	width: 10em;
-	font-size: 2em;
+  background-color: $eu-blue;
+  color: $white;
+  font-size: 2em;
+  text-align: center;
+  width: 10em;
 }
-/*** END OF LOGIN FORM ***/
 
-/***    REGISTER FORM     ***/
+// END OF LOGIN FORM
+
+// REGISTER FORM
 .metis-register-form {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 0px !important;
-	border: 0px;
-	background-color: white;
-	width: 20em;
-	overflow: auto;
-	margin-left: 1em;
-	margin-top: 1em;
-}
+  background-color: $white;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  overflow: auto;
+  width: 20em;
 
-.metis-register-form div{
-	padding-left: 1em;
-	padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .register-form-header {
-	text-align: center;
-	color: white;
-	background-color: #1676aa;
-	width: 10em;
-	font-size: 2em;
+  background-color: $eu-blue;
+  color: $white;
+  font-size: 2em;
+  text-align: center;
+  width: 10em;
 }
-/*** END OF REGISTER FORM ***/
 
-/***    PROFILE FORM     ***/
+// END OF REGISTER FORM
+
+// PROFILE FORM
 .metis-profile-form {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 0px !important;
-	border: 0px;
-	background-color: white;
-	width: 50em;
-	overflow: auto;
-	margin-left: 1em;
-	margin-top: 1em;
-}
+  background-color: $white;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  overflow: auto;
+  width: 50em;
 
-.metis-profile-form div {
-	padding-left: 1em;
-	padding-right: 1em;
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
 
 .profile-form-header {
-	text-align: center;
-	color: white;
-	background-color: #1676aa;
-	width: 25em;
-	font-size: 2em;
+  background-color: $eu-blue;
+  color: $white;
+  font-size: 2em;
+  text-align: center;
+  width: 25em;
 }
 
 .profile-select-orgs {
-	display: inline-block;
+  display: inline-block;
 }
 
 .select-dropdown {
-	width: 100%;
-	height: 2.37em;
-    border: 1px solid #777777;
-    padding: 0.5rem 0.65rem 1em 1em;
-    box-shadow: inset 0 1px 3px #ddd;
-    border-radius: 4px;
-    -webkit-transition: 0.3s linear border;
-    -moz-transition: 0.3s linear border;
-    -ms-transition: 0.3s linear border;
-    -o-transition: 0.3s linear border;
-    transition: 0.3s linear border;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px $offwhite;
+  height: 2.37em;
+  padding: .5rem .65rem 1em 1em;
+  transition: .3s linear border;
+  width: 100%;
 }
-/*** END OF PROFILE FORM ***/
 
-/*** USER REQUESTS TABLE ***/
+// END OF PROFILE FORM
+
+// USER REQUESTS TABLE
 .user-request-table {
-	margin-top: 2em;
-	width: 70em;
-	background-color: white;
-}
+  background-color: $white;
+  margin-top: 2em;
+  width: 70em;
 
-.user-request-table tr:hover {
-	background: #F1F1EE;
-	cursor: pointer;
+  tr:hover {
+    background: $off-white;
+    cursor: pointer;
+  }
 }
 
 .user-request-pending {
-	color: #1676AA;
+  color: $eu-blue;
 }
 
 .user-request-accepted {
-	color: #37B98B;
+  color: $eu-jade;
 }
 
 .user-request-rejected {
-	color: #d12d1e;
+  color: $peachy;
 }
 
 .user-request-type-add {
-	color: #1676AA;
+  color: $eu-blue;
 }
 
 .user-request-type-delete {
-	color: #d12d1e;
+  color: $peachy;
 }
-/*** END OF USER REQUESTS TABLE ***/
+
+// END OF USER REQUESTS TABLE
 
 .error-message {
-	color: red;
+  color: $error;
 }
+
 // mapping card
 .flex-container {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	&.row {
-		flex-direction: row;
-	}
-	&.column {
-		flex-direction: column;
-		float: left;
-	}
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+    float: left;
+  }
 }
+
 .flex-item,
 .flex-inner-item {
-	padding: 5px;
-	width: 230px;
-	height: 50px;
-	line-height: 50px;
-	color: white;
-	text-align: center;
+  color: $white;
+  height: 50px;
+  line-height: 50px;
+  padding: 5px;
+  text-align: center;
+  width: 230px;
+}
 
+.indent {
+  padding-left: 10px;
 }
+
 .flex-inner-item {
-	padding: 5px;
-	width: 70px;
-	&:hover {
-		background:#1676AA;
-	}
+  padding: 5px;
+  width: 70px;
+
+  &:hover {
+    background: $eu-blue;
+  }
 }
+
 .color-blue {
-	background: #4BC0F0;
+  background: $eu-lightblue;
 }
+
 .color-deep-blue {
-	background: #1676AA;
+  background: $eu-blue;
 }
+
 .color-orange {
-	background:white;
-	border: 1px solid #D9D4CA;
-	color: #1676AA;
-}
-.normal-colored {
-	color: white;
+  background: $white;
+  border: 1px solid $paper;
+  color: $eu-blue;
 }
 
 .invalid-card {
-	background: $google-plus-red;
+  background: $google-plus-red;
 }
+
 .invalidOptionsBar {
-	background: $pinterest-red;
+  background: $pinterest-red;
 }
