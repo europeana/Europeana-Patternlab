@@ -7,13 +7,25 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function loadHierarchy(params){
-	var href     = window.location.href;
+    var href     = window.location.href;
     var baseUrl  = href.split('/record')[0] + '/record';
     var initUrl  = href.split('.html')[0];
-        initUrl  = href.replace('.html', '').split('?')[0];
-        initUrl += '/hierarchy/ancestor-self-siblings.json';
 
+    initUrl  = href.replace('.html', '').split('?')[0];
+    initUrl += '/hierarchy/ancestor-self-siblings.json';
+
+    var error = function(msg){
+      console.error('hierarchy error' + msg);
+      $('.hierarchy-objects').closest('.lc').remove();
+    };
+    
     var buildHierarchy = function(initialData){
+      
+      if(initialData && initialData.error != null){
+        error(initialData.error);
+        return;
+      }
+      
       require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
 
         var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
@@ -46,11 +58,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         hierarchy.init(initialData, true);
       });
     };
-
-    $.getJSON(initUrl, null).done(buildHierarchy).fail(function(msg){
-      console.error('hierarchy error' + msg);
-      $('.hierarchy-objects').remove();
-    });
+    $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
   }
 
   // TODO: delete this when we move (fully) to the hierarchy_later technique
