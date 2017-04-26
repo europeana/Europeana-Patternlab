@@ -1,0 +1,33 @@
+@import "../objects/icons/_svgicons.scss";
+@import "svg-icon-bookmark-before";
+@import "svg-icon-bookmark-eu-blue";
+@import "svg-icon-bookmark";
+@import "svg-icon-bookmark-white-before";
+@import "svg-icon-bookmark-white";
+@import "svg-icon-calendar";
+@import "svg-icon-calendar-white";
+@import "svg-icon-clock";
+@import "svg-icon-download";
+@import "svg-icon-down";
+@import "svg-icon-ellipsis-eu-blue";
+@import "svg-icon-email";
+@import "svg-icon-external-eu-blue-after";
+@import "svg-icon-external-white-after";
+@import "svg-icon-eye";
+@import "svg-icon-home";
+@import "svg-icon-image";
+@import "svg-icon-info";
+@import "svg-icon-language";
+@import "svg-icon-linkout";
+@import "svg-icon-location";
+@import "svg-icon-music";
+@import "svg-icon-next";
+@import "svg-icon-openbook";
+@import "svg-icon-phone-landline";
+@import "svg-icon-previous";
+@import "svg-icon-rss";
+@import "svg-icon-tv";
+@import "svg-icon-user";
+@import "svg-icon-user-signin";
+
+.svg-generated-icon{ display:inline-block; height:2em; margin-right:2em; width:2em; background-color:orange; &:before,&:after{ content:' '; width:2em; height:2em; background-color:orange; } }

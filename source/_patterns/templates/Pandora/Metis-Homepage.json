@@ -30,7 +30,9 @@
     "is_alpha": false,
     "is_beta": true
   },
-
+  "page_config": {
+    "newsletter": true
+  },
   "landing_page_content": {
   	"is_home": {
 	  "content": {
@@ -57,6 +59,15 @@
   },
   "i18n": {
     "global": {
+      "newsletter":
+      {
+        "signup": "Sign up for our newsletter",
+        "submit-alt": "Subscribe",
+        "choose-language":"Choose a language",
+        "email-address-invalid": "Please enter a valid email address.",
+        "email-address-required": "Please enter your email address.",
+        "language-required": "Please choose a language for your newsletter."
+      },
       "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
       "mission-title": "Our mission"
     }
@@ -215,8 +226,7 @@
             {
               "url": "#",
               "text": "Sign In",
-              "icon": "users",
-              "fontawesome": true,
+              "icon_class": "svg-icon-user-signin",
               "submenu": {
                 "items": [
                   {

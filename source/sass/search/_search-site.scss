@@ -1,4 +1,4 @@
-// Search Site specific styles
+@import "../scss/iconography/_svg-icons-channels";
 
 html.redirecting{
   display: table;
@@ -963,7 +963,7 @@ html.redirecting{
   }
 
   .entry-points-title{
-    color:            #4d4d4d;
+    color:            $medium-gray;
     display:          inline-block;
     font-size:        $font-size-slightly-smaller;
     font-weight:      bold;
@@ -1041,6 +1041,13 @@ html.redirecting{
     .icon{
       font-size: 1.5em;
     }
+
+    .svg-icon-rss{
+      display: inline-block;
+      height: 1.5em;
+      width:  1.5em;
+    }
+
   }
 
   .js-carousel-date{

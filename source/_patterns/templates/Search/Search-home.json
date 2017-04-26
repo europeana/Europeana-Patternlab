@@ -31,6 +31,14 @@
     "input_name": "search",
     "placeholder": "Search Europeana"
   },
+  "primary_nav_clicktip": {
+    "clicktip": {
+      "tooltip_text": "Have you explored our new galleries?",
+      "direction": "top",
+      "id": "explore-menu-tooltip",
+      "persistent": true
+    }
+  },
   "content": {
     "hero_config": {
       "hero_image": "../../images/sample/search_hero_1.jpg",

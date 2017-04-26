@@ -1,0 +1,6 @@
+@import "../generic/variables";
+
+.svg-icon-clock{
+  background-image:url("data:image/svg+xml,%3Csvg fill='#{url-encode-color($gray-light)}' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.091 1.636q5.424 0 9.258 3.833t3.833 9.258-3.833 9.258-9.258 3.833-9.258-3.833-3.833-9.258 3.833-9.258 9.258-3.833zM18.879 20.515l1.545-1.545-5.333-5.333-2-8.727h-2.182v9.818q0 0.909 0.636 1.545 0.121 0.121 0.364 0.303z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}

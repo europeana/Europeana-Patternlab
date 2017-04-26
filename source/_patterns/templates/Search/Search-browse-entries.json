@@ -1,0 +1,36 @@
+
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "version":{
+      "is_alpha": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "explore/colours"
+    }
+  ],
+  "js_files":
+  [
+      {
+        "path": "../../js/modules/require.js",
+        "data_main": "../../js/modules/main/templates/main-collections"
+      }
+  ],
+
+  "content": {
+    "title": "Browse Entries"
+  },
+
+  "page_config":
+  {
+    "newsletter": true
+  }
+}

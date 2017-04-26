@@ -1,0 +1,8 @@
+@import "../generic/variables";
+
+.svg-icon-down{
+  background-repeat: no-repeat;
+  &.off-white{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($off-white)}' viewbox='0 0 23 32' %3E%3Cpath class='path1' d='M23.273 9.212q0 0.162-0.135 0.35l-11.152 11.152q-0.35 0.35-0.7 0l-11.152-11.152q-0.35-0.35 0-0.7l3.394-3.394q0.35-0.35 0.7 0l7.407 7.434 7.407-7.434q0.35-0.35 0.7 0l3.394 3.394q0.135 0.189 0.135 0.35z'%3E%3C/path%3E%3C/svg%3E");
+  }
+}

@@ -1,21 +1,3 @@
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark";
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark-before";
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark-eu-blue";
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white";
-@import "../_patterns/atoms/iconography/_svg-icon-bookmark-white-before";
-@import "../_patterns/atoms/iconography/_svg-icon-calendar";
-@import "../_patterns/atoms/iconography/_svg-icon-calendar-white";
-@import "../_patterns/atoms/iconography/_svg-icon-clock";
-@import "../_patterns/atoms/iconography/_svg-icon-ellipsis-eu-blue";
-@import "../_patterns/atoms/iconography/_svg-icon-email";
-@import "../_patterns/atoms/iconography/_svg-icon-external-white-after";
-@import "../_patterns/atoms/iconography/_svg-icon-external-eu-blue-after";
-@import "../_patterns/atoms/iconography/_svg-icon-phone-landline";
-@import "../_patterns/atoms/iconography/_svg-icon-location";
-@import "../_patterns/atoms/iconography/_svg-icon-user";
-
-
-
 .blog-list,
 .event-list{
 
@@ -49,7 +31,7 @@
 
   .filterby label,
   .sortby label{
-   	font-size: $font-size-slightly-smaller;
+     font-size: $font-size-slightly-smaller;
   }
 
   .blog-items,
@@ -71,7 +53,7 @@
   height: 24em;
 
   &.larger{
-  	
+
     height: 29em;
 
     @media all and (min-width: $bp-med) {
@@ -484,7 +466,7 @@
       &.larger-map{
         transform: translateY(-20em);
       }
-      
+
       margin-bottom: -13em;
 
       @media all and (max-width: $bp-small-3) {
@@ -728,7 +710,7 @@ li:not(:first-of-type){
       @include span(13 of 18  inside no-gutters);
     }
   }
- 
+
   h2{
     font-size: $font-size-med;
     margin-bottom: $space-half;

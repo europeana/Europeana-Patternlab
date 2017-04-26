@@ -8,7 +8,7 @@
     <div class="object-nav cf">
       <div class="object-nav-lists">
         <ul class="breadcrumbs">
-          <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+          <li><a href="{{navigation.home_url}}"><span class="svg-icon-home"></span>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
           <li><a href="{{content.galleries_link}}">{{i18n.global.galleries}}</a></li>
           <li><span class="lastitem"><strong>{{content.hero.title}}</strong></span></li>
         </ul>
@@ -74,15 +74,15 @@
 
                 {{#rights}}
                   <span class="title">{{i18n.site.object.meta-label.rights-statement}}</span>
-                  <div class="object-license">{{> molecules/icons/licenses }}</div>
+                  <div class="object-license white">{{> molecules/icons/licenses }}</div>
                 {{/rights}}
 
                 {{#url_collection}}<span class="title"><a href="{{.}}">{{i18n.global.navigation.view-collection}}</a></span>{{/url_collection}}
 
-                
+
                 {{! institution_logo  <div class="institution-logo" data-institution-logo=" "></div> institution_logo}}
-                
-                
+
+
               </div>
             </div>
           </div>
@@ -96,8 +96,9 @@
                 {{creator}}
               </div>
             </div>
-            <a class="btn-zoom"> </a>
+            <a><span class="svg-icon-zoom-in grey"></span></a>
           </div>
+
 
         </div>
       {{/content.items}}

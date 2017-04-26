@@ -1,54 +1,73 @@
-Here is some normal text.
-<br/>
-<br/>
-{{#top}}
-  This {{> atoms/text/clicktip}} <span id="test-clicktip-1" style="font-weight:bold;">text here</span> has a (top) tooltip.
-{{/top}}
-<br/>
-<br/>
-<p style="width:100%; text-align:right;">
-  {{#top-right-aligned}}
-    This tooltip corrects itself to not run <span style="text-align:left;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-1-right" style="font-weight:bold;">off-screen</span>.
-  {{/top-right-aligned}}
-</p>
-<br/>
-<br/>
-Here is some more normal text.
-<br/>
-<br/>
-{{#left}}
-  Blah, blah, blah... this <span id="test-clicktip-2" style="font-weight:bold;">text here</span>{{> atoms/text/clicktip}} has a (left) tooltip.  It shows on click but also on hover.
-{{/left}}
-<br/>
-<br/>
-Here is some more normal text.
-<br/>
-<br/>
-{{#bottom}}
-  This {{> atoms/text/clicktip}} <span id="test-clicktip-3" style="font-weight:bold;">text here</span> has a (bottom) tooltip.  It shows on click but also on hover.
-{{/bottom}}
-<br/>
-<br/>
-<p style="width:100%; text-align:right;">
-  {{#bottom-right-aligned}}
-    This tooltip corrects itself to not run <span style="text-align:left;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-3-right" style="font-weight:bold;">off-screen</span>.
-  {{/bottom-right-aligned}}
-</p>
-<br/>
-<br/>
-Here is some more normal text.
-<br/>
-<br/>
-{{#right}}
-  Blah, blah, blah... this {{> atoms/text/clicktip}}<span id="test-clicktip-4" style="font-weight:bold;">text here</span> has a (right) tooltip.  It shows on click but also on hover.
-{{/right}}
-<br/>
-<br/>
-<div style="background-color:#e7e7e7">e7e7e7</div>
-<div style="background-color:#dedede">dedede</div>
-<div style="background-color:#F8F8F8">F8F8F8</div>
-<div style="background-color:#DEDEDE">DEDEDE</div>
-<div style="background-color:#CCCCCC">CCCCCC</div>
-<div style="background-color:#A6A6A6">A6A6A6</div>
-<div style="background-color:#777777">777777</div>
-<div style="background-color:#4D4D4D">4D4D4D</div>
+<div style="max-width:100%;">
+  <script type="text/javascript">
+    function forgetClicktips(){
+      localStorage.removeItem('eu_portal_closed_tooltips');
+      alert('removed "eu_portal_closed_tooltips" from local storage');
+      window.location.reload();
+    }
+  </script>
+  <style>
+    data-clicktip-id[top-right-1],
+    data-clicktip-id[bottom-right-1]{
+      position: absolute;
+    }
+  </style>
+
+  Clicktips marked "persistent" will show on page load (unless they've been closed before - clear your local-storage <a href="javascript:forgetClicktips();">here</a>).
+  <br/>
+  <br/>
+  Non-persistent clicktips will show when their activator-element is hovered over or clicked on.
+  <br/>
+  <br/>
+  {{#top}}
+    This {{> atoms/text/clicktip}} <span id="test-clicktip-1" style="font-weight:bold;">text here</span> has a (top) tooltip.
+  {{/top}}
+  <br/>
+  <br/>
+  <p style="max-width:100%; text-align:right;">
+    {{#top-right-aligned}}
+      This tooltip corrects itself to not run <span style="text-align:left; position:relative;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-1-right" style="font-weight:bold;">off-screen</span>.
+    {{/top-right-aligned}}
+  </p>
+  <br/>
+  <br/>
+  Here is some more normal text.
+  <br/>
+  <br/>
+  {{#left}}
+    Blah, blah, blah... this <span id="test-clicktip-2" style="font-weight:bold;">text here</span>{{> atoms/text/clicktip}} has a (left) tooltip.  It shows on click but also on hover.
+  {{/left}}
+  <br/>
+  <br/>
+  Here is some more normal text.
+  <br/>
+  <br/>
+  {{#bottom}}
+    This {{> atoms/text/clicktip}} <span id="test-clicktip-3" style="font-weight:bold;">text here</span> has a (bottom) tooltip.  It shows on click but also on hover.
+  {{/bottom}}
+  <br/>
+  <br/>
+  <p style="width:100%; text-align:right;">
+    {{#bottom-right-aligned}}
+      This tooltip corrects itself to not run <span style="text-align:left;">{{> atoms/text/clicktip}}</span><span id="test-clicktip-3-right" style="font-weight:bold;">off-screen</span>.
+    {{/bottom-right-aligned}}
+  </p>
+  <br/>
+  <br/>
+  Here is some more normal text.
+  <br/>
+  <br/>
+  {{#right}}
+    Blah, blah, blah... this {{> atoms/text/clicktip}}<span id="test-clicktip-4" style="font-weight:bold;">text here</span> has a (right) tooltip.  It shows on click but also on hover.
+  {{/right}}
+  <br/>
+  <br/>
+  <div style="background-color:#e7e7e7">e7e7e7</div>
+  <div style="background-color:#dedede">dedede</div>
+  <div style="background-color:#F8F8F8">F8F8F8</div>
+  <div style="background-color:#DEDEDE">DEDEDE</div>
+  <div style="background-color:#CCCCCC">CCCCCC</div>
+  <div style="background-color:#A6A6A6">A6A6A6</div>
+  <div style="background-color:#777777">777777</div>
+  <div style="background-color:#4D4D4D">4D4D4D</div>
+</div>

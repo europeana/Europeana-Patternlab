@@ -2,6 +2,7 @@
 
 @import "compass/css3";
 @import "../scss/generic/variables";
+@import "../scss/iconography/_svg-icons-metis";
 
 // Europeana variables
 
@@ -111,4 +112,5 @@ $susy: (
 @import "user-approval-form";
 @import "ellipsis";
 @import "site";
-@import "./homepageMetis";
+@import "./homepage-metis";
+@import "dashboard";

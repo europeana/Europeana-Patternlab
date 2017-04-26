@@ -9,7 +9,7 @@
       <div class="object-nav cf">
         <div class="object-nav-lists">
           <ul class="breadcrumbs">
-            <li><a href="{{navigation.home_url}}"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+            <li><a href="{{navigation.home_url}}"><span class="svg-icon-home"></span>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
             <li><span class="lastitem"><strong>{{i18n.global.galleries}}</strong></span></li>
           </ul>
         </div>
@@ -26,6 +26,9 @@
 
     <section class="lc">
       <div class="gallery-header">
+        {{#clicktip}}
+          {{>atoms/text/clicktip}}
+        {{/clicktip}}
         {{#gallery_filter_options}}
           {{>molecules/forms/filterby}}
         {{/gallery_filter_options}}
@@ -52,6 +55,9 @@
                 <span class="svg-icon-info"></span>
                 <span class="info"><span class="text">{{{.}}}</span></span>
               {{/info}}
+              {{#info_clicktip}}
+                {{>atoms/text/clicktip}}
+              {{/info_clicktip}}
             </div>
             <div class="image-set-info">
               <a class="image-set-title" href="{{link}}">{{title}}</a>
@@ -69,8 +75,8 @@
       {{> molecules/navigation/pagination }}
     </section>
 
-  {{/content}}
-</div>
+  </div>
+{{/content}}
 
 
 {{> organisms/sections/banner }}

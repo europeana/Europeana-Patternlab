@@ -1,25 +1,28 @@
-/* line 1, iiif.scss */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 3, iiif.scss */
 #iiif {
   height: 36em;
   position: relative;
   margin: 0 auto;
 }
-/* line 7, iiif.scss */
+/* line 9, iiif.scss */
 #iiif .leaflet-control-zoom {
   display: none;
 }
-/* line 11, iiif.scss */
+/* line 13, iiif.scss */
 #iiif.loading {
   cursor: progress;
 }
 
-/* line 16, iiif.scss */
+/* line 18, iiif.scss */
 #iiif,
 #iiif-ctrl {
   font-size: 0.875em;
 }
 
-/* line 21, iiif.scss */
+/* line 23, iiif.scss */
 #iiif-ctrl {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.025)), to(rgba(0, 0, 0, 0.75)));
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 95%);
@@ -33,26 +36,26 @@
   margin-bottom: -3em;
   text-align: center;
 }
-/* line 51, iiif.scss */
+/* line 52, iiif.scss */
 #iiif-ctrl .iiif-ctrl-group {
   max-width: 40em;
   margin: auto;
 }
-/* line 56, iiif.scss */
+/* line 57, iiif.scss */
 #iiif-ctrl a {
   color: #fff;
   text-align: center;
 }
-/* line 61, iiif.scss */
+/* line 62, iiif.scss */
 #iiif-ctrl a:hover {
   text-decoration: underline;
 }
-/* line 65, iiif.scss */
+/* line 66, iiif.scss */
 #iiif-ctrl a,
 #iiif-ctrl a[disabled="disabled"]:hover {
   text-decoration: none;
 }
-/* line 70, iiif.scss */
+/* line 71, iiif.scss */
 #iiif-ctrl .first[disabled="disabled"],
 #iiif-ctrl .prev[disabled="disabled"],
 #iiif-ctrl .last[disabled="disabled"],
@@ -61,24 +64,24 @@
   color: transparent;
   opacity: 0.4;
 }
-/* line 79, iiif.scss */
+/* line 80, iiif.scss */
 #iiif-ctrl a,
 #iiif-ctrl .jump-to-img,
 #iiif-ctrl .total-images {
   width: 5%;
   max-width: 5%;
 }
-/* line 87, iiif.scss */
+/* line 88, iiif.scss */
 #iiif-ctrl .next,
 #iiif-ctrl .last {
   text-align: right;
   padding-right: 0.5em;
 }
-/* line 93, iiif.scss */
+/* line 94, iiif.scss */
 #iiif-ctrl .prev {
   padding-right: 0.5em;
 }
-/* line 97, iiif.scss */
+/* line 98, iiif.scss */
 #iiif-ctrl .first,
 #iiif-ctrl .prev,
 #iiif-ctrl .last,
@@ -90,35 +93,35 @@
   position: relative;
   opacity: 0.8;
 }
-/* line 109, iiif.scss */
+/* line 110, iiif.scss */
 #iiif-ctrl .first:hover,
 #iiif-ctrl .prev:hover,
 #iiif-ctrl .last:hover,
 #iiif-ctrl .next:hover {
   opacity: 1;
 }
-/* line 116, iiif.scss */
+/* line 117, iiif.scss */
 #iiif-ctrl .first {
   background-image: url(../map/css/icon-first.svg);
 }
-/* line 120, iiif.scss */
+/* line 121, iiif.scss */
 #iiif-ctrl .prev {
   background-image: url(../map/css/icon-previous.svg);
 }
-/* line 124, iiif.scss */
+/* line 125, iiif.scss */
 #iiif-ctrl .next {
   background-image: url(../map/css/icon-next.svg);
 }
-/* line 128, iiif.scss */
+/* line 129, iiif.scss */
 #iiif-ctrl .last {
   background-image: url(../map/css/icon-last.svg);
 }
-/* line 132, iiif.scss */
+/* line 133, iiif.scss */
 #iiif-ctrl a[disabled="disabled"] {
   color: #aaa;
   cursor: not-allowed;
 }
-/* line 137, iiif.scss */
+/* line 138, iiif.scss */
 #iiif-ctrl .jump-to-img {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.85);
@@ -130,21 +133,21 @@
   text-align: right;
   border-radius: 0;
 }
-/* line 149, iiif.scss */
+/* line 150, iiif.scss */
 #iiif-ctrl .jump-to-img:hover:enabled {
-  color: #4d4d4d;
+  color: #4D4D4D;
   background-color: #fff;
 }
-/* line 154, iiif.scss */
+/* line 155, iiif.scss */
 #iiif-ctrl .total-images {
   text-align: left;
 }
-/* line 158, iiif.scss */
+/* line 159, iiif.scss */
 #iiif-ctrl .total-images,
 #iiif-ctrl .title {
   color: #fff;
 }
-/* line 163, iiif.scss */
+/* line 164, iiif.scss */
 #iiif-ctrl .title {
   width: 100%;
   text-align: center;

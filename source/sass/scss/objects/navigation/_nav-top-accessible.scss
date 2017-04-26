@@ -1,24 +1,22 @@
-/* Mobile first layout SmartMenus Core CSS (it's not recommended editing these rules)
-   You need this once per page no matter how many menu trees or different themes you use.
--------------------------------------------------------------------------------------------*/
+// Mobile first layout SmartMenus Core CSS (it's not recommended editing these rules)
+//   You need this once per page no matter how many menu trees or different themes you use.
 
 .sm,
 .sm ul,
 .sm li{
-  display:block;
-  list-style:none;
-  line-height:normal;
-  direction:ltr;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  direction:   ltr;
+  display:     block;
+  line-height: normal;
+  list-style:  none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .sm-rtl,
 .sm-rtl ul,
 .sm-rtl li{
-  direction:rtl;
-  text-align:right;
+  direction:  rtl;
+  text-align: right;
 }
-
 
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -26,11 +24,11 @@
   // Bizarre hack needed to address issue reported on 2015-09-28 11:24 in ticket #430
 
   .sm>li{
-    direction:rtl;
+    direction: rtl;
   }
 
   .sm>li *{
-    direction:ltr;
+    direction: ltr;
   }
 
 }
@@ -38,7 +36,7 @@
 .sm-rtl,
 .sm-rtl ul,
 .sm-rtl li{
-   direction:rtl;
+  direction: rtl;
 }
 
 .sm>li>h1,
@@ -47,53 +45,53 @@
 .sm>li>h4,
 .sm>li>h5,
 .sm>li>h6{
-  margin:0;padding:0;
+  margin:  0;
+  padding: 0;
 }
 
 .sm ul{
-  display:none;
+  display: none;
 }
 
 .sm li,
 .sm a{
-  position:relative;
+  position: relative;
 }
 
 .sm a{
-  display:block;
+  display: block;
 }
 
 .sm a.disabled{
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
 
-/* Your rules to style the menu in mobile view (collapsible mode) here... */
+// Your rules to style the menu in mobile view (collapsible mode) here..
 
 
 @media (min-width: $bp-med) {
 
-  /* Switch to desktop layout
-  -----------------------------------------------
-     These transform the menu tree from
-     collapsible to desktop (navbar + dropdowns)
-  -----------------------------------------------*/
-  /* start... (it's not recommended editing these rules) */
+  // Switch to desktop layout
+  //   These transform the menu tree from
+  //   collapsible to desktop (navbar + dropdowns)
+
+  // start... (it's not recommended editing these rules)
   .nav-access ul{
-    position:absolute;
+    position: absolute;
   }
 
   .nav-access > li{
-    float:left;
+    float: left;
   }
 
   .nav-access.sm-rtl > li{
-    float:right;
+    float: right;
   }
 
   .nav-access ul li,
   .nav-access.sm-rtl ul li,
   .nav-access.sm-vertical li{
-    float:none;
+    float: none;
   }
 
   .nav-access > a{
@@ -109,159 +107,191 @@
   .nav-access .sm-nowrap > li > :not(ul) a{
     white-space: nowrap;
   }
-  /* ...end */
+  // ...end
 
-  /* Your rules to style the menu in desktop view here... */
+  // Your rules to style the menu in desktop view here...
 
   .header .nav_primary .nav-access {
     overflow: visible;
   }
 }
 
+
+// begin tooltip specific
+
+.nav_primary + .eu-clicktip-container.showing{
+  display:     none;
+  position:    absolute;
+  top:         3em;
+  z-index:     10;
+
+  &.cookie-offset{
+    display:     none;
+  }
+
+  @media all and (min-width: $bp-med) {
+    display: block;
+    left:    14em;
+  }
+  @media all and (min-width: $bp-large) {
+    display: block;
+    left:    22em;
+  }
+}
+
+// end begin tooltip specific
+
+
 .sm{
 
   // Toggle buttons (sub menu indicators)
   .sub-arrow {
-    top: 50%;
-    float: right;
-    margin-top: 0.5em;
-    margin-left: $pad-quarter;
-    right: 12px;
-    width: 0;
-    height: 10px;
-    border-width: 4px;
-    border-style: solid dashed dashed dashed;
-    border-color: $gray-light transparent transparent transparent;
     background: transparent;
+    border-color: $gray-light transparent transparent;
+    border-style: solid dashed dashed;
+    border-width: 4px;
+    float: right;
+    height: 10px;
+    margin-left: $pad-quarter;
+    margin-top: 0.5em;
     overflow: hidden;
+    right: 12px;
+    top: 50%;
+    width: 0;
   }
-  .highlighted .sub-arrow:before {
+
+  .highlighted
+  .sub-arrow::before {
     display: none;
   }
 
   .menu-subtitle{
+    color: $gray-light;
+    font-size: $font-size-sm;
     margin: $pad-half;
     margin-bottom: 0.1em;
-    font-size: $font-size-sm;
-    color: $gray-light;
   }
   .menu-message{
-    margin: $pad-half;
-    font-size: $font-size-sm;
     color: $gray-med;
+    font-size: $font-size-sm;
+    margin: $pad-half;
   }
 
   .menu-divider {
-    font-size: 0;
     border-top: solid 1px $gray87;
+    font-size: 0;
     margin: 5px 0;
   }
 }
 
 .sm .menu-sublevel{
 
-    //to show all menus for easier styling
-    // display: block !important;
+  //to show all menus for easier styling
+  // display: block !important;
 
-    background: $white;
-    box-shadow: rgba(77, 77, 77, 0.3) 0 1px 4px;
-    padding: $pad-quarter;
+  background: $white;
+  box-shadow: rgba(77, 77, 77, 0.3) 0 1px 4px;
 
-    word-wrap: normal;
-    word-break: normal;
+  max-width: 20em;
+  min-width: 16em;
 
-    min-width: 16em;
-    max-width: 20em;
+  padding: $pad-quarter;
 
-    li{
-      float: none;
-      display: inline;
+  word-break: normal;
+  word-wrap: normal;
+
+  li{
+    display: inline;
+    float: none;
+  }
+
+  a{
+    color: $textcolour_body;
+    font-size: $font-size-slightly-smaller;
+    font-weight: normal;
+    padding: 0.4em 0.6em;
+
+    &:hover{
+      background-color: $offwhite;
     }
 
-    a{
-      font-size: $font-size-slightly-smaller;
-      font-weight: normal;
-      color: $textcolour_body;
-      padding: 0.4em 0.6em;
-
-      &:hover{
-        background-color: $offwhite;
-      }
-
-      &:after {
-        border-bottom: none;
-      }
-
-      &.menu-more, &.is-current{
-        font-weight: bold;
-        color: $textcolour_link;
-      }
-      &.menu-more{
-        padding: 0.7em 0.6em;
-      }
+    &::after {
+      border-bottom: 0;
     }
 
-    // Sub menu carets
-    .sub-arrow {
-      margin-top: 5px;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      border-width: 5px;
-      border-style: dashed dashed dashed solid;
-      border-color: transparent transparent transparent $gray-light;
+    &.menu-more,
+    &.is-current{
+      color: $textcolour_link;
+      font-weight: bold;
     }
+    &.menu-more{
+      padding: 0.7em 0.6em;
+    }
+  }
+
+  // Sub menu carets
+  .sub-arrow {
+    border-color: transparent transparent transparent $gray-light;
+    border-style: dashed dashed dashed solid;
+    border-width: 5px;
+    height: 0;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 0;
+  }
 }
 
 .menu-sublevel.caret{
+
   // First sub level carets
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
+    border-color: transparent transparent $gray87;
+    border-style: dashed dashed solid;
+    border-width: 9px;
     content: '';
+    height: 0;
+    left: 30px;
+    overflow: hidden;
     position: absolute;
     top: -18px;
-    left: 30px;
     width: 0;
-    height: 0;
-    overflow: hidden;
-    border-width: 9px;
-    border-style: dashed dashed solid dashed;
-    border-color: transparent transparent $gray87 transparent;
   }
-  &:after {
-    top: -16px;
-    left: 31px;
+
+  &::after {
+    border-color: transparent transparent $white;
     border-width: 8px;
-    border-color: transparent transparent $white transparent;
+    left: 31px;
+    top: -16px;
   }
 
   .caret-right &{
-      &:before,
-      &:after {
-        left: auto;
-        right: 30px;
-      }
-      &:after {
-        right: 31px;
-      }
+    &::before,
+    &::after {
+      left: auto;
+      right: 30px;
+    }
+    &::after {
+      right: 31px;
+    }
   }
 }
 
 .menu-sublevel .menu-sublevel.caret{
   // Second sub level caret overrides
 
-  &:before,
-  &:after {
-    top: 11px;
-    left: -17px;
-    border-style: dashed solid dashed dashed;
+  &::before,
+  &::after {
     border-color: transparent $gray87 transparent transparent;
+    border-style: dashed solid dashed dashed;
+    left: -17px;
+    top: 11px;
   }
-  &:after {
-    top: 12px;
-    left: -14px;
-    border-width: 8px;
+  &::after {
     border-color: transparent $white transparent transparent;
+    border-width: 8px;
+    left: -14px;
+    top: 12px;
   }
-
 }

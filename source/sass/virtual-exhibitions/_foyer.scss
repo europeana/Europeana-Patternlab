@@ -14,23 +14,25 @@
   width:    100%;
 
   .ve-label{
+    font-size:      0.8em;
+    font-weight:    bold;
+    letter-spacing: 0.1em;
     position:       absolute;
     text-transform: uppercase;
-    font-weight:    bold;
-    font-size:      0.8em;
-    letter-spacing: 0.1em;
   }
 }
 
 .ve-chapter-selection{
   .ve-label{
-    background-color: orange;
+    // TODO: consider using $eu-orange
+    background-color: #ffa500;
   }
   a{
     height:   100%;
     position: absolute;
     width:    100%;
-    &:hover, &:focus{
+    &:hover,
+    &:focus{
       background-color: rgba($accent, .8);
     }
   }
@@ -38,8 +40,8 @@
 
 .ve-chapter-selection-container{
   background-color: $offwhite;
-  padding: 2em 0;
   margin-top: 3em;
+  padding: 2em 0;
 }
 
 .ve-chapter-selection-container-inner,
@@ -71,9 +73,9 @@
   .ve-foyer-card-container{
     left:              50%;
     position:          relative;
-    transform:         translateX(-50%);
-    -webkit-transform: translateX(-50%);
     -ms-transform:     translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform:         translateX(-50%);
     width:             $ve_image_column_width;
   }
 
@@ -125,14 +127,14 @@
 
   .ve-chapter-selection-content,
   .ve-foyer-card-content{
-    position: relative;
+    height:   auto;
     margin:   0;
     overflow: hidden;
     padding:  0;
-    height:   auto;
+    position: relative;
     width:    100%;
 
-    &:before{
+    &::before{
       content:     "";
       display:     block;
       padding-top: 100%;
@@ -141,22 +143,22 @@
     .inner,
     .ve-chapter-selection-state > img,
     .ve-foyer-card-state > img{
-      position:  absolute;
-      top:       0;
       bottom:    0;
       left:      0;
+      position:  absolute;
       right:     0;
+      top:       0;
     }
 
     .ve-chapter-selection-state > img,
     .ve-foyer-card-state > img{
-      width:      100%;
-      height:     100%;
-      max-width:  100%;
-      max-height: 100%;
       border:     0;
+      height:     100%;
       margin:     0;
+      max-height: 100%;
+      max-width:  100%;
       object-fit: cover;
+      width:      100%;
     }
 
     .ve-card-nav{
@@ -164,17 +166,26 @@
       cursor:            pointer;
       font-size:         1em;
       font-weight:       bold;
+      padding:           0.25em;
       position:          absolute;
       top:               50%;
-      transform:         translateY(-50%);
-      -webkit-transform: translateY(-50%);
       -ms-transform:     translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform:         translateY(-50%);
       z-index:           2;
-      padding:           0.25em;
+    }
+
+    .svg-icon-next,
+    .svg-icon-previous{
+      display:       inline-block;
+      height:        2em;
+      margin-bottom: -0.75em;
+      margin-top:    -0.75em;
+      transform:     scale(0.7);
+      width:         2em;
     }
 
     .ve-card-nav-left{
-      // left: -0.25em;
       left: 0;
     }
 
@@ -184,10 +195,10 @@
 
     .ve-chapter-selection-state,
     .ve-foyer-card-state{
-      position: absolute;
-      width:    100%;
       height:   100%;
       left:     0;
+      position: absolute;
+      width:    100%;
 
       &.hide-left{
         left: -100%;
@@ -196,8 +207,8 @@
         left: 100%;
       }
       &.animating{
-        transition: left 1s;
-        webkit-transition: left 1s;
+        -webkit-transition: left 1s;
+        transition:         left 1s;
       }
     }
 
@@ -212,11 +223,10 @@
         font-weight:    bold;
         text-align:     center;
         text-transform: uppercase;
-
         top:               50%;
-        transform:         translateY(-50%);
-        -webkit-transform: translateY(-50%);
         -ms-transform:     translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transform:         translateY(-50%);
       }
 
       a{
@@ -227,12 +237,12 @@
       }
     }
 
-    .ve-foyer-card-state.shaded:before,
+    .ve-foyer-card-state.shaded::before,
     .text-box.title{
       background-color:  $bg_colour_overlaid_text;
     }
 
-    .ve-foyer-card-state.shaded:before{
+    .ve-foyer-card-state.shaded::before{
       content:  "";
       display:  block;
       height:   100%;

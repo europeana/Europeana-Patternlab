@@ -1,4 +1,4 @@
-@import "./layout_susy";
+@import "../scss/grid/susy/layout_susy";
 
 /*------------------------------------*\
   BANNER
@@ -23,14 +23,17 @@ body {
   max-width: 210px;
 }
 
+.metis-main-content {
+  margin-top: 4.8rem;
+}
+
 .hero-text {
   display: none;
 }
 
 .phase-flag.beta {
-  background-color: $eu-jade;
+  background-color: $eu-orange;
 }
-
 
 .banner {
   background-color: $white;

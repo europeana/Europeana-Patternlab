@@ -1,3 +1,5 @@
+@import "../../../../sass/scss/generic/variables";
+
 #iiif{
   //border: 1px solid #000;
   height: 36em;
@@ -19,7 +21,6 @@
 }
 
 #iiif-ctrl{
-  //background-color: #4d4d4d;
   //border: 1px solid #000;
   background-image: -webkit-gradient(
     linear, left top, left bottom, from(rgba(0,0,0,0.025)),
@@ -147,7 +148,7 @@
   }
 
   .jump-to-img:hover:enabled{
-    color: #4d4d4d;
+    color: $medium-gray;
     background-color: #fff;
   }
 

@@ -17,7 +17,10 @@
  *   - #mainContainer renamed to #main-container-pdf
  *   - body renamed to .pdf-ui-wrappper
  */
-/* line 22, viewer.scss */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 24, viewer.scss */
 .textLayer {
   position: absolute;
   left: 0;
@@ -28,7 +31,7 @@
   opacity: 0.2;
 }
 
-/* line 32, viewer.scss */
+/* line 34, viewer.scss */
 .textLayer > div {
   color: transparent;
   position: absolute;
@@ -41,7 +44,7 @@
   transform-origin: 0% 0%;
 }
 
-/* line 44, viewer.scss */
+/* line 46, viewer.scss */
 .textLayer .highlight {
   margin: -1px;
   padding: 1px;
@@ -49,56 +52,56 @@
   border-radius: 4px;
 }
 
-/* line 52, viewer.scss */
+/* line 54, viewer.scss */
 .textLayer .highlight.begin {
   border-radius: 4px 0px 0px 4px;
 }
 
-/* line 56, viewer.scss */
+/* line 58, viewer.scss */
 .textLayer .highlight.end {
   border-radius: 0px 4px 4px 0px;
 }
 
-/* line 60, viewer.scss */
+/* line 62, viewer.scss */
 .textLayer .highlight.middle {
   border-radius: 0px;
 }
 
-/* line 64, viewer.scss */
+/* line 66, viewer.scss */
 .textLayer .highlight.selected {
   background-color: darkgreen;
 }
 
-/* line 68, viewer.scss */
+/* line 70, viewer.scss */
 .textLayer ::selection {
   background: blue;
 }
 
-/* line 69, viewer.scss */
+/* line 71, viewer.scss */
 .textLayer ::-moz-selection {
   background: blue;
 }
 
-/* line 72, viewer.scss */
+/* line 74, viewer.scss */
 .annotationLayer .annotLink > a:hover {
   opacity: 0.2;
   background: #ff0;
   box-shadow: 0px 2px 10px #ff0;
 }
 
-/* line 78, viewer.scss */
+/* line 80, viewer.scss */
 .annotationLayer .annotText > img {
   position: absolute;
   cursor: pointer;
 }
 
-/* line 83, viewer.scss */
+/* line 85, viewer.scss */
 .annotationLayer .annotTextContentWrapper {
   position: absolute;
   width: 20em;
 }
 
-/* line 88, viewer.scss */
+/* line 90, viewer.scss */
 .annotationLayer .annotTextContent {
   z-index: 200;
   float: left;
@@ -110,19 +113,19 @@
   cursor: pointer;
 }
 
-/* line 99, viewer.scss */
+/* line 101, viewer.scss */
 .annotationLayer .annotTextContent > h1 {
   font-size: 1em;
   border-bottom: 1px solid #000000;
   padding-bottom: 0.2em;
 }
 
-/* line 105, viewer.scss */
+/* line 107, viewer.scss */
 .annotationLayer .annotTextContent > p {
   padding-top: 0.2em;
 }
 
-/* line 109, viewer.scss */
+/* line 111, viewer.scss */
 .annotationLayer .annotLink > a {
   position: absolute;
   font-size: 1em;
@@ -132,17 +135,17 @@
   height: 100%;
 }
 
-/* line 118, viewer.scss */
+/* line 120, viewer.scss */
 .annotationLayer .annotLink > a {
   background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAA                   LAAAAAABAAEAAAIBRAA7") 0 0 repeat;
 }
 
-/* line 123, viewer.scss */
+/* line 125, viewer.scss */
 .pdfViewer .canvasWrapper {
   overflow: hidden;
 }
 
-/* line 127, viewer.scss */
+/* line 129, viewer.scss */
 .pdfViewer .page {
   direction: ltr;
   width: 816px;
@@ -156,19 +159,19 @@
   background-color: white;
 }
 
-/* line 140, viewer.scss */
+/* line 142, viewer.scss */
 .pdfViewer.removePageBorders .page {
   margin: 0px auto 10px auto;
   border: none;
 }
 
-/* line 145, viewer.scss */
+/* line 147, viewer.scss */
 .pdfViewer .page canvas {
   margin: 0;
   display: block;
 }
 
-/* line 150, viewer.scss */
+/* line 152, viewer.scss */
 .pdfViewer .page .loadingIcon {
   position: absolute;
   display: block;
@@ -179,37 +182,37 @@
   background: url("images/loading-icon.gif") center no-repeat;
 }
 
-/* line 160, viewer.scss */
+/* line 162, viewer.scss */
 .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
 
-/* line 165, viewer.scss */
+/* line 167, viewer.scss */
 .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
 
-/* line 170, viewer.scss */
+/* line 172, viewer.scss */
 .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
   margin-bottom: 100% !important;
   border: 0;
 }
 
-/* line 175, viewer.scss */
+/* line 177, viewer.scss */
 .pdfPresentationMode:fullscreen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
 
-/* line 181, viewer.scss */
+/* line 183, viewer.scss */
 .pdf-ui-wrappper {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-/* line 187, viewer.scss */
+/* line 189, viewer.scss */
 .pdf-ui-wrappper input,
 .pdf-ui-wrappper button,
 .pdf-ui-wrappper select {
@@ -217,17 +220,17 @@
   outline: none;
 }
 
-/* line 194, viewer.scss */
+/* line 196, viewer.scss */
 .pdf-ui-wrappper .hidden {
   display: none !important;
 }
 
-/* line 197, viewer.scss */
+/* line 199, viewer.scss */
 .pdf-ui-wrappper [hidden] {
   display: none !important;
 }
 
-/* line 201, viewer.scss */
+/* line 203, viewer.scss */
 #viewerContainer.pdfPresentationMode:-webkit-full-screen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -239,7 +242,7 @@
   -webkit-user-select: none;
 }
 
-/* line 212, viewer.scss */
+/* line 214, viewer.scss */
 #viewerContainer.pdfPresentationMode:-moz-full-screen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -251,7 +254,7 @@
   -moz-user-select: none;
 }
 
-/* line 223, viewer.scss */
+/* line 225, viewer.scss */
 #viewerContainer.pdfPresentationMode:-ms-fullscreen {
   top: 0px !important;
   border-top: 2px solid transparent;
@@ -262,12 +265,12 @@
   -ms-user-select: none;
 }
 
-/* line 233, viewer.scss */
+/* line 235, viewer.scss */
 #viewerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
   background-color: #000;
 }
 
-/* line 237, viewer.scss */
+/* line 239, viewer.scss */
 #viewerContainer.pdfPresentationMode:fullscreen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -281,97 +284,97 @@
   -ms-user-select: none;
 }
 
-/* line 250, viewer.scss */
+/* line 252, viewer.scss */
 .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
   display: none;
 }
 
-/* line 254, viewer.scss */
+/* line 256, viewer.scss */
 .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
   display: none;
 }
 
-/* line 258, viewer.scss */
+/* line 260, viewer.scss */
 .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
   display: none !important;
 }
 
-/* line 262, viewer.scss */
+/* line 264, viewer.scss */
 .pdfPresentationMode:fullscreen a:not(.internalLink) {
   display: none;
 }
 
-/* line 266, viewer.scss */
+/* line 268, viewer.scss */
 .pdfPresentationMode:-webkit-full-screen .textLayer > div {
   cursor: none;
 }
 
-/* line 270, viewer.scss */
+/* line 272, viewer.scss */
 .pdfPresentationMode:-moz-full-screen .textLayer > div {
   cursor: none;
 }
 
-/* line 274, viewer.scss */
+/* line 276, viewer.scss */
 .pdfPresentationMode:-ms-fullscreen .textLayer > div {
   cursor: none;
 }
 
-/* line 278, viewer.scss */
+/* line 280, viewer.scss */
 .pdfPresentationMode:fullscreen .textLayer > div {
   cursor: none;
 }
 
-/* line 282, viewer.scss */
+/* line 284, viewer.scss */
 .pdfPresentationMode.pdfPresentationModeControls > *,
 .pdfPresentationMode.pdfPresentationModeControls .textLayer > div {
   cursor: default;
 }
 
 /* outer/inner center provides horizontal center */
-/* line 288, viewer.scss */
+/* line 290, viewer.scss */
 .outerCenter {
   pointer-events: none;
   position: relative;
 }
 
-/* line 292, viewer.scss */
+/* line 294, viewer.scss */
 .pdf-ui-wrappper.ltr .outerCenter {
   float: right;
   right: 50%;
 }
 
-/* line 296, viewer.scss */
+/* line 298, viewer.scss */
 .pdf-ui-wrappper.rtl .outerCenter {
   float: left;
   left: 50%;
 }
 
-/* line 300, viewer.scss */
+/* line 302, viewer.scss */
 .innerCenter {
   pointer-events: auto;
   position: relative;
 }
 
-/* line 304, viewer.scss */
+/* line 306, viewer.scss */
 .pdf-ui-wrappper.ltr .innerCenter {
   float: right;
   right: -50%;
 }
 
-/* line 308, viewer.scss */
+/* line 310, viewer.scss */
 .pdf-ui-wrappper.rtl .innerCenter {
   float: left;
   left: -50%;
 }
 
-/* line 313, viewer.scss */
+/* line 315, viewer.scss */
 #outerContainer {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-/* line 319, viewer.scss */
+/* line 321, viewer.scss */
 #sidebarContainer {
   position: absolute;
   top: 0;
@@ -384,37 +387,37 @@
   transition-timing-function: ease;
 }
 
-/* line 331, viewer.scss */
+/* line 333, viewer.scss */
 .pdf-ui-wrappper.ltr #sidebarContainer {
   -webkit-transition-property: left;
   transition-property: left;
   left: -200px;
 }
 
-/* line 336, viewer.scss */
+/* line 338, viewer.scss */
 .pdf-ui-wrappper.rtl #sidebarContainer {
   -webkit-transition-property: right;
   transition-property: right;
   right: -200px;
 }
 
-/* line 342, viewer.scss */
+/* line 344, viewer.scss */
 #outerContainer.sidebarMoving > #sidebarContainer,
 #outerContainer.sidebarOpen > #sidebarContainer {
   visibility: visible;
 }
 
-/* line 346, viewer.scss */
+/* line 348, viewer.scss */
 .pdf-ui-wrappper.ltr #outerContainer.sidebarOpen > #sidebarContainer {
   left: 0px;
 }
 
-/* line 349, viewer.scss */
+/* line 351, viewer.scss */
 .pdf-ui-wrappper.rtl #outerContainer.sidebarOpen > #sidebarContainer {
   right: 0px;
 }
 
-/* line 353, viewer.scss */
+/* line 355, viewer.scss */
 #main-container-pdf {
   position: absolute;
   top: 0;
@@ -428,21 +431,21 @@
   transition-timing-function: ease;
 }
 
-/* line 366, viewer.scss */
+/* line 368, viewer.scss */
 .pdf-ui-wrappper.ltr #outerContainer.sidebarOpen > #main-container-pdf {
   -webkit-transition-property: left;
   transition-property: left;
   left: 200px;
 }
 
-/* line 372, viewer.scss */
+/* line 374, viewer.scss */
 .pdf-ui-wrappper.rtl #outerContainer.sidebarOpen > #main-container-pdf {
   -webkit-transition-property: right;
   transition-property: right;
   right: 200px;
 }
 
-/* line 378, viewer.scss */
+/* line 380, viewer.scss */
 #sidebarContent {
   top: 0;
   bottom: 0;
@@ -453,19 +456,19 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 387, viewer.scss */
+/* line 389, viewer.scss */
 html[dir='ltr'] #sidebarContent {
   left: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 391, viewer.scss */
+/* line 393, viewer.scss */
 html[dir='rtl'] #sidebarContent {
   right: 0;
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 396, viewer.scss */
+/* line 398, viewer.scss */
 #viewerContainer {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -477,17 +480,17 @@ html[dir='rtl'] #sidebarContent {
   outline: none;
 }
 
-/* line 406, viewer.scss */
+/* line 408, viewer.scss */
 html[dir='ltr'] #viewerContainer {
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
-/* line 409, viewer.scss */
+/* line 411, viewer.scss */
 html[dir='rtl'] #viewerContainer {
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
-/* line 413, viewer.scss */
+/* line 415, viewer.scss */
 .toolbar {
   position: relative;
   left: 0;
@@ -496,12 +499,12 @@ html[dir='rtl'] #viewerContainer {
   cursor: default;
 }
 
-/* line 421, viewer.scss */
+/* line 423, viewer.scss */
 #toolbarContainer {
   width: 100%;
 }
 
-/* line 425, viewer.scss */
+/* line 427, viewer.scss */
 #toolbarSidebar {
   display: none;
   width: 200px;
@@ -510,17 +513,17 @@ html[dir='rtl'] #viewerContainer {
   /* fallback */
 }
 
-/* line 433, viewer.scss */
+/* line 435, viewer.scss */
 html[dir='ltr'] #toolbarSidebar {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-/* line 439, viewer.scss */
+/* line 441, viewer.scss */
 html[dir='rtl'] #toolbarSidebar {
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
-/* line 446, viewer.scss */
+/* line 448, viewer.scss */
 #toolbarContainer, .findbar, .secondaryToolbar {
   position: relative;
   height: 32px;
@@ -528,22 +531,22 @@ html[dir='rtl'] #toolbarSidebar {
   /* fallback */
 }
 
-/* line 454, viewer.scss */
+/* line 456, viewer.scss */
 .pdf-ui-wrappper.ltr #toolbarContainer, .findbar, .secondaryToolbar {
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* line 461, viewer.scss */
+/* line 463, viewer.scss */
 .pdf-ui-wrappper.rtl #toolbarContainer, .findbar, .secondaryToolbar {
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* line 469, viewer.scss */
+/* line 471, viewer.scss */
 #toolbarViewer {
   height: 32px;
 }
 
-/* line 473, viewer.scss */
+/* line 475, viewer.scss */
 #loadingBar {
   position: relative;
   width: 100%;
@@ -552,7 +555,7 @@ html[dir='rtl'] #toolbarSidebar {
   border-bottom: 1px solid #333;
 }
 
-/* line 481, viewer.scss */
+/* line 483, viewer.scss */
 #loadingBar .progress {
   position: absolute;
   top: 0;
@@ -587,14 +590,14 @@ html[dir='rtl'] #toolbarSidebar {
     left: 100%;
   }
 }
-/* line 505, viewer.scss */
+/* line 507, viewer.scss */
 #loadingBar .progress.indeterminate {
   background-color: #999;
   -webkit-transition: none;
   transition: none;
 }
 
-/* line 511, viewer.scss */
+/* line 513, viewer.scss */
 #loadingBar .indeterminate .glimmer {
   position: absolute;
   top: 0;
@@ -608,7 +611,7 @@ html[dir='rtl'] #toolbarSidebar {
   animation: progressIndeterminate 2s linear infinite;
 }
 
-/* line 526, viewer.scss */
+/* line 528, viewer.scss */
 .findbar, .secondaryToolbar {
   top: 32px;
   position: absolute;
@@ -624,57 +627,57 @@ html[dir='rtl'] #toolbarSidebar {
   cursor: default;
 }
 
-/* line 542, viewer.scss */
+/* line 544, viewer.scss */
 html[dir='ltr'] .findbar {
   left: 68px;
 }
 
-/* line 546, viewer.scss */
+/* line 548, viewer.scss */
 html[dir='rtl'] .findbar {
   right: 68px;
 }
 
-/* line 550, viewer.scss */
+/* line 552, viewer.scss */
 .findbar label {
   -webkit-user-select: none;
   -moz-user-select: none;
 }
 
-/* line 555, viewer.scss */
+/* line 557, viewer.scss */
 #findInput[data-status="pending"] {
   background-image: url(images/loading-small.png);
   background-repeat: no-repeat;
   background-position: right;
 }
 
-/* line 560, viewer.scss */
+/* line 562, viewer.scss */
 html[dir='rtl'] #findInput[data-status="pending"] {
   background-position: left;
 }
 
-/* line 564, viewer.scss */
+/* line 566, viewer.scss */
 .findbar input {
   width: inherit;
 }
 
-/* line 568, viewer.scss */
+/* line 570, viewer.scss */
 .secondaryToolbar {
   padding: 6px;
   height: auto;
   z-index: 30000;
 }
 
-/* line 574, viewer.scss */
+/* line 576, viewer.scss */
 .pdf-ui-wrappper.ltr .secondaryToolbar {
   right: 4px;
 }
 
-/* line 577, viewer.scss */
+/* line 579, viewer.scss */
 .pdf-ui-wrappper.rtl .secondaryToolbar {
   left: 4px;
 }
 
-/* line 581, viewer.scss */
+/* line 583, viewer.scss */
 #secondaryToolbarButtonContainer {
   max-width: 200px;
   max-height: 400px;
@@ -683,12 +686,12 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   margin-bottom: -4px;
 }
 
-/* line 589, viewer.scss */
+/* line 591, viewer.scss */
 #secondaryToolbar {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 593, viewer.scss */
+/* line 595, viewer.scss */
 .doorHanger,
 .doorHangerRight {
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -696,7 +699,7 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* line 599, viewer.scss */
+/* line 601, viewer.scss */
 .doorHanger:after, .doorHanger:before,
 .doorHangerRight:after, .doorHangerRight:before {
   bottom: 100%;
@@ -708,70 +711,70 @@ html[dir='rtl'] #findInput[data-status="pending"] {
   pointer-events: none;
 }
 
-/* line 609, viewer.scss */
+/* line 611, viewer.scss */
 .doorHanger:after,
 .doorHangerRight:after {
   border-bottom-color: rgba(82, 82, 82, 0.99);
   border-width: 8px;
 }
 
-/* line 614, viewer.scss */
+/* line 616, viewer.scss */
 .doorHanger:before,
 .doorHangerRight:before {
   border-bottom-color: rgba(0, 0, 0, 0.5);
   border-width: 9px;
 }
 
-/* line 620, viewer.scss */
+/* line 622, viewer.scss */
 .pdf-ui-wrappper.ltr .doorHanger:after,
 .pdf-ui-wrappper.rtl .doorHangerRight:after {
   left: 13px;
   margin-left: -8px;
 }
 
-/* line 626, viewer.scss */
+/* line 628, viewer.scss */
 .pdf-ui-wrappper.ltr .doorHanger:before,
 .pdf-ui-wrappper.rtl .doorHangerRight:before {
   left: 13px;
   margin-left: -9px;
 }
 
-/* line 632, viewer.scss */
+/* line 634, viewer.scss */
 .pdf-ui-wrappper.rtl .doorHanger:after,
 .pdf-ui-wrappper.ltr .doorHangerRight:after {
   right: 13px;
   margin-right: -8px;
 }
 
-/* line 638, viewer.scss */
+/* line 640, viewer.scss */
 .pdf-ui-wrappper.rtl .doorHanger:before,
 .pdf-ui-wrappper.ltr .doorHangerRight:before {
   right: 13px;
   margin-right: -9px;
 }
 
-/* line 644, viewer.scss */
+/* line 646, viewer.scss */
 #findMsg {
   font-style: italic;
   color: #1A8AC7;
 }
 
-/* line 649, viewer.scss */
+/* line 651, viewer.scss */
 #findInput.notFound {
   background-color: #ff6666;
 }
 
-/* line 653, viewer.scss */
+/* line 655, viewer.scss */
 html[dir='ltr'] #toolbarViewerLeft {
   margin-left: -1px;
 }
 
-/* line 656, viewer.scss */
+/* line 658, viewer.scss */
 html[dir='rtl'] #toolbarViewerRight {
   margin-right: -1px;
 }
 
-/* line 660, viewer.scss */
+/* line 662, viewer.scss */
 html[dir='ltr'] #toolbarViewerLeft,
 html[dir='rtl'] #toolbarViewerRight {
   position: absolute;
@@ -779,7 +782,7 @@ html[dir='rtl'] #toolbarViewerRight {
   left: 0;
 }
 
-/* line 666, viewer.scss */
+/* line 668, viewer.scss */
 html[dir='ltr'] #toolbarViewerRight,
 html[dir='rtl'] #toolbarViewerLeft {
   position: absolute;
@@ -788,7 +791,7 @@ html[dir='rtl'] #toolbarViewerLeft {
   margin-right: 0.15em;
 }
 
-/* line 673, viewer.scss */
+/* line 675, viewer.scss */
 html[dir='ltr'] #toolbarViewerLeft > *,
 html[dir='ltr'] #toolbarViewerMiddle > *,
 html[dir='ltr'] #toolbarViewerRight > *,
@@ -797,7 +800,7 @@ html[dir='ltr'] .findbar > * {
   float: left;
 }
 
-/* line 680, viewer.scss */
+/* line 682, viewer.scss */
 html[dir='rtl'] #toolbarViewerLeft > *,
 html[dir='rtl'] #toolbarViewerMiddle > *,
 html[dir='rtl'] #toolbarViewerRight > *,
@@ -806,31 +809,31 @@ html[dir='rtl'] .findbar > * {
   float: right;
 }
 
-/* line 688, viewer.scss */
+/* line 690, viewer.scss */
 html[dir='ltr'] .splitToolbarButton {
   margin: 3px 2px 4px 0;
   display: inline-block;
 }
 
-/* line 692, viewer.scss */
+/* line 694, viewer.scss */
 html[dir='rtl'] .splitToolbarButton {
   margin: 3px 0 4px 2px;
   display: inline-block;
 }
 
-/* line 696, viewer.scss */
+/* line 698, viewer.scss */
 html[dir='ltr'] .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: left;
 }
 
-/* line 700, viewer.scss */
+/* line 702, viewer.scss */
 html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: right;
 }
 
-/* line 705, viewer.scss */
+/* line 707, viewer.scss */
 .toolbarButton,
 .secondaryToolbarButton,
 .overlayButton {
@@ -840,7 +843,7 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   height: 25px;
 }
 
-/* line 714, viewer.scss */
+/* line 716, viewer.scss */
 .toolbarButton > span {
   display: inline-block;
   width: 0;
@@ -848,24 +851,24 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   overflow: hidden;
 }
 
-/* line 721, viewer.scss */
+/* line 723, viewer.scss */
 .toolbarButton[disabled],
 .secondaryToolbarButton[disabled],
 .overlayButton[disabled] {
   opacity: .5;
 }
 
-/* line 727, viewer.scss */
+/* line 729, viewer.scss */
 .toolbarButton.group {
   margin-right: 0;
 }
 
-/* line 731, viewer.scss */
+/* line 733, viewer.scss */
 .splitToolbarButton.toggled .toolbarButton {
   margin: 0;
 }
 
-/* line 735, viewer.scss */
+/* line 737, viewer.scss */
 .splitToolbarButton:hover > .toolbarButton,
 .splitToolbarButton:focus > .toolbarButton,
 .splitToolbarButton.toggled > .toolbarButton,
@@ -880,7 +883,7 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   transition-timing-function: ease;
 }
 
-/* line 755, viewer.scss */
+/* line 757, viewer.scss */
 .splitToolbarButton > .toolbarButton:hover,
 .splitToolbarButton > .toolbarButton:focus,
 .dropdownToolbarButton:hover,
@@ -891,12 +894,12 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   z-index: 199;
 }
 
-/* line 767, viewer.scss */
+/* line 769, viewer.scss */
 .splitToolbarButton > .toolbarButton {
   position: relative;
 }
 
-/* line 770, viewer.scss */
+/* line 772, viewer.scss */
 html[dir='ltr'] .splitToolbarButton > .toolbarButton:first-child,
 html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
   position: relative;
@@ -907,7 +910,7 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
   border-right-color: transparent;
 }
 
-/* line 779, viewer.scss */
+/* line 781, viewer.scss */
 html[dir='ltr'] .splitToolbarButton > .toolbarButton:last-child,
 html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   position: relative;
@@ -918,7 +921,7 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   border-left-color: transparent;
 }
 
-/* line 788, viewer.scss */
+/* line 790, viewer.scss */
 .splitToolbarButtonSeparator {
   padding: 8px 0;
   width: 1px;
@@ -928,17 +931,17 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   margin: 5px 0;
 }
 
-/* line 797, viewer.scss */
+/* line 799, viewer.scss */
 html[dir='ltr'] .splitToolbarButtonSeparator {
   float: left;
 }
 
-/* line 800, viewer.scss */
+/* line 802, viewer.scss */
 html[dir='rtl'] .splitToolbarButtonSeparator {
   float: right;
 }
 
-/* line 803, viewer.scss */
+/* line 805, viewer.scss */
 .splitToolbarButton:hover > .splitToolbarButtonSeparator,
 .splitToolbarButton.toggled > .splitToolbarButtonSeparator {
   padding: 12px 0;
@@ -952,7 +955,7 @@ html[dir='rtl'] .splitToolbarButtonSeparator {
   transition-timing-function: ease;
 }
 
-/* line 816, viewer.scss */
+/* line 818, viewer.scss */
 .toolbarButton,
 .dropdownToolbarButton,
 .secondaryToolbarButton,
@@ -977,21 +980,21 @@ html[dir='rtl'] .splitToolbarButtonSeparator {
   transition-timing-function: ease;
 }
 
-/* line 840, viewer.scss */
+/* line 842, viewer.scss */
 html[dir='ltr'] .toolbarButton,
 html[dir='ltr'] .overlayButton,
 html[dir='ltr'] .dropdownToolbarButton {
   margin: 3px 2px 4px 0;
 }
 
-/* line 845, viewer.scss */
+/* line 847, viewer.scss */
 html[dir='rtl'] .toolbarButton,
 html[dir='rtl'] .overlayButton,
 html[dir='rtl'] .dropdownToolbarButton {
   margin: 3px 0 4px 2px;
 }
 
-/* line 851, viewer.scss */
+/* line 853, viewer.scss */
 .toolbarButton:hover,
 .toolbarButton:focus,
 .dropdownToolbarButton,
@@ -1002,7 +1005,7 @@ html[dir='rtl'] .dropdownToolbarButton {
   border: 1px solid transparent;
 }
 
-/* line 867, viewer.scss */
+/* line 869, viewer.scss */
 .toolbarButton:hover:active,
 .overlayButton:hover:active,
 .dropdownToolbarButton:hover:active,
@@ -1019,7 +1022,7 @@ html[dir='rtl'] .dropdownToolbarButton {
   transition-timing-function: linear;
 }
 
-/* line 885, viewer.scss */
+/* line 887, viewer.scss */
 .toolbarButton.toggled,
 .splitToolbarButton.toggled > .toolbarButton.toggled,
 .secondaryToolbarButton.toggled {
@@ -1033,7 +1036,7 @@ html[dir='rtl'] .dropdownToolbarButton {
   transition-timing-function: linear;
 }
 
-/* line 902, viewer.scss */
+/* line 904, viewer.scss */
 .toolbarButton.toggled:hover:active,
 .splitToolbarButton.toggled > .toolbarButton.toggled:hover:active,
 .secondaryToolbarButton.toggled:hover:active {
@@ -1042,7 +1045,7 @@ html[dir='rtl'] .dropdownToolbarButton {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* line 912, viewer.scss */
+/* line 914, viewer.scss */
 .dropdownToolbarButton {
   width: 120px;
   max-width: 120px;
@@ -1051,23 +1054,23 @@ html[dir='rtl'] .dropdownToolbarButton {
   background: url(images/toolbarButton-menuArrows.png) no-repeat;
 }
 
-/* line 919, viewer.scss */
+/* line 921, viewer.scss */
 html[dir='ltr'] .dropdownToolbarButton {
   background-position: 95%;
 }
 @media screen and (min-resolution: 2dppx) {
-  /* line 919, viewer.scss */
+  /* line 921, viewer.scss */
   html[dir='ltr'] .dropdownToolbarButton {
     margin-top: 6px;
   }
 }
 
-/* line 925, viewer.scss */
+/* line 927, viewer.scss */
 html[dir='rtl'] .dropdownToolbarButton {
   background-position: 5%;
 }
 
-/* line 929, viewer.scss */
+/* line 931, viewer.scss */
 .dropdownToolbarButton > select {
   min-width: 140px;
   font-size: 12px;
@@ -1079,22 +1082,22 @@ html[dir='rtl'] .dropdownToolbarButton {
   /* Opera does not support 'transparent' <select> background */
 }
 
-/* line 939, viewer.scss */
+/* line 941, viewer.scss */
 .dropdownToolbarButton > select > option {
   background: #3d3d3d;
 }
 
-/* line 943, viewer.scss */
+/* line 945, viewer.scss */
 #customScaleOption {
   display: none;
 }
 
-/* line 947, viewer.scss */
+/* line 949, viewer.scss */
 #pageWidthOption {
   border-bottom: 1px rgba(255, 255, 255, 0.5) solid;
 }
 
-/* line 951, viewer.scss */
+/* line 953, viewer.scss */
 html[dir='ltr'] .splitToolbarButton:first-child,
 html[dir='ltr'] .toolbarButton:first-child,
 html[dir='rtl'] .splitToolbarButton:last-child,
@@ -1102,7 +1105,7 @@ html[dir='rtl'] .toolbarButton:last-child {
   margin-left: 4px;
 }
 
-/* line 957, viewer.scss */
+/* line 959, viewer.scss */
 html[dir='ltr'] .splitToolbarButton:last-child,
 html[dir='ltr'] .toolbarButton:last-child,
 html[dir='rtl'] .splitToolbarButton:first-child,
@@ -1110,41 +1113,41 @@ html[dir='rtl'] .toolbarButton:first-child {
   margin-right: 4px;
 }
 
-/* line 964, viewer.scss */
+/* line 966, viewer.scss */
 .toolbarButtonSpacer {
   width: 30px;
   display: inline-block;
   height: 1px;
 }
 
-/* line 970, viewer.scss */
+/* line 972, viewer.scss */
 .toolbarButtonFlexibleSpacer {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   min-width: 30px;
 }
 
-/* line 976, viewer.scss */
+/* line 978, viewer.scss */
 html[dir='ltr'] #findPrevious {
   margin-left: 3px;
 }
 
-/* line 979, viewer.scss */
+/* line 981, viewer.scss */
 html[dir='ltr'] #findNext {
   margin-right: 3px;
 }
 
-/* line 983, viewer.scss */
+/* line 985, viewer.scss */
 html[dir='rtl'] #findPrevious {
   margin-right: 3px;
 }
 
-/* line 986, viewer.scss */
+/* line 988, viewer.scss */
 html[dir='rtl'] #findNext {
   margin-left: 3px;
 }
 
-/* line 990, viewer.scss */
+/* line 992, viewer.scss */
 .toolbarButton::before,
 .secondaryToolbarButton::before {
   /* All matching images have a size of 16x16
@@ -1155,124 +1158,124 @@ html[dir='rtl'] #findNext {
   left: 7px;
 }
 
-/* line 1000, viewer.scss */
+/* line 1002, viewer.scss */
 .pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
   left: 4px;
 }
 
-/* line 1003, viewer.scss */
+/* line 1005, viewer.scss */
 .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
   right: 4px;
 }
 
-/* line 1007, viewer.scss */
+/* line 1009, viewer.scss */
 .pdf-ui-wrappper.ltr .toolbarButton#sidebarToggle::before {
   content: url(images/toolbarButton-sidebarToggle.png);
 }
 
-/* line 1010, viewer.scss */
+/* line 1012, viewer.scss */
 .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
   content: url(images/icon-sidebar.svg);
   width: 16px;
 }
 @media screen and (min-resolution: 2dppx) {
-  /* line 1010, viewer.scss */
+  /* line 1012, viewer.scss */
   .pdf-ui-wrappper.rtl .toolbarButton#sidebarToggle::before {
     width: 32px;
   }
 }
 
-/* line 1018, viewer.scss */
+/* line 1020, viewer.scss */
 html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/icon-tools.svg);
   width: 16px;
 }
 
-/* line 1022, viewer.scss */
+/* line 1024, viewer.scss */
 html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(images/toolbarButton-secondaryToolbarToggle-rtl.png);
 }
 
-/* line 1026, viewer.scss */
+/* line 1028, viewer.scss */
 html[dir='ltr'] .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous.png);
 }
 
-/* line 1029, viewer.scss */
+/* line 1031, viewer.scss */
 html[dir='rtl'] .toolbarButton.findPrevious::before {
   content: url(images/findbarButton-previous-rtl.png);
 }
 
-/* line 1033, viewer.scss */
+/* line 1035, viewer.scss */
 html[dir='ltr'] .toolbarButton.findNext::before {
   content: url(images/findbarButton-next.png);
 }
 
-/* line 1036, viewer.scss */
+/* line 1038, viewer.scss */
 html[dir='rtl'] .toolbarButton.findNext::before {
   content: url(images/findbarButton-next-rtl.png);
 }
 
-/* line 1040, viewer.scss */
+/* line 1042, viewer.scss */
 html[dir='ltr'] .toolbarButton.pageUp::before {
   content: url(images/icon-previous.svg);
   width: 16px;
 }
 
-/* line 1044, viewer.scss */
+/* line 1046, viewer.scss */
 html[dir='rtl'] .toolbarButton.pageUp::before {
   content: url(images/toolbarButton-pageUp-rtl.png);
 }
 
-/* line 1048, viewer.scss */
+/* line 1050, viewer.scss */
 html[dir='ltr'] .toolbarButton.pageDown::before {
   content: url(images/icon-next.svg);
   width: 16px;
 }
 
-/* line 1052, viewer.scss */
+/* line 1054, viewer.scss */
 html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(images/toolbarButton-pageDown-rtl.png);
 }
 
-/* line 1056, viewer.scss */
+/* line 1058, viewer.scss */
 .toolbarButton.zoomOut::before {
   content: url(images/icon-minus.svg);
   width: 14px;
 }
 
-/* line 1061, viewer.scss */
+/* line 1063, viewer.scss */
 .toolbarButton.zoomIn::before {
   content: url(images/icon-plus.svg);
   width: 14px;
 }
 
-/* line 1066, viewer.scss */
+/* line 1068, viewer.scss */
 .toolbarButton.presentationMode::before,
 .secondaryToolbarButton.presentationMode::before {
   content: url(images/toolbarButton-presentationMode.png);
 }
 
-/* line 1071, viewer.scss */
+/* line 1073, viewer.scss */
 .toolbarButton.print::before,
 .secondaryToolbarButton.print::before {
   content: url(images/icon-print.svg);
   width: 16px;
 }
 
-/* line 1077, viewer.scss */
+/* line 1079, viewer.scss */
 .toolbarButton.openFile::before,
 .secondaryToolbarButton.openFile::before {
   content: url(images/toolbarButton-openFile.png);
 }
 
-/* line 1082, viewer.scss */
+/* line 1084, viewer.scss */
 .toolbarButton.download::before,
 .secondaryToolbarButton.download::before {
   content: url(images/toolbarButton-download.png);
 }
 
-/* line 1087, viewer.scss */
+/* line 1089, viewer.scss */
 .toolbarButton.bookmark,
 .secondaryToolbarButton.bookmark {
   -webkit-box-sizing: border-box;
@@ -1283,50 +1286,50 @@ html[dir='rtl'] .toolbarButton.pageDown::before {
   text-decoration: none;
 }
 
-/* line 1096, viewer.scss */
+/* line 1098, viewer.scss */
 .secondaryToolbarButton.bookmark {
   padding-top: 5px;
 }
 
-/* line 1100, viewer.scss */
+/* line 1102, viewer.scss */
 .bookmark[href='#'] {
   opacity: .5;
   pointer-events: none;
 }
 
-/* line 1105, viewer.scss */
+/* line 1107, viewer.scss */
 .toolbarButton.bookmark::before,
 .secondaryToolbarButton.bookmark::before {
   content: url(images/toolbarButton-bookmark.png);
 }
 
-/* line 1110, viewer.scss */
+/* line 1112, viewer.scss */
 #viewThumbnail.toolbarButton::before {
   content: url(images/toolbarButton-viewThumbnail.png);
 }
 
-/* line 1114, viewer.scss */
+/* line 1116, viewer.scss */
 html[dir="ltr"] #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline.png);
 }
 
-/* line 1117, viewer.scss */
+/* line 1119, viewer.scss */
 html[dir="rtl"] #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline-rtl.png);
 }
 
-/* line 1121, viewer.scss */
+/* line 1123, viewer.scss */
 #viewAttachments.toolbarButton::before {
   content: url(images/toolbarButton-viewAttachments.png);
 }
 
-/* line 1125, viewer.scss */
+/* line 1127, viewer.scss */
 #viewFind.toolbarButton::before {
   content: url(images/icon-search.svg);
   width: 16px;
 }
 
-/* line 1130, viewer.scss */
+/* line 1132, viewer.scss */
 .secondaryToolbarButton {
   position: relative;
   margin: 0 0 4px 0;
@@ -1338,59 +1341,59 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   white-space: normal;
 }
 
-/* line 1151, viewer.scss */
+/* line 1153, viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton {
   padding-left: 24px;
   text-align: left;
 }
 
-/* line 1165, viewer.scss */
+/* line 1167, viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton.bookmark {
   padding-left: 27px;
 }
 
-/* line 1178, viewer.scss */
+/* line 1180, viewer.scss */
 .pdf-ui-wrappper .secondaryToolbarButton > span {
   padding: 0 0.3em;
 }
 
-/* line 1184, viewer.scss */
+/* line 1186, viewer.scss */
 .secondaryToolbarButton.firstPage::before {
   content: url(images/icon-first.svg);
   width: 16px;
 }
 
-/* line 1189, viewer.scss */
+/* line 1191, viewer.scss */
 .secondaryToolbarButton.lastPage::before {
   content: url(images/icon-last.svg);
   width: 16px;
 }
 
-/* line 1194, viewer.scss */
+/* line 1196, viewer.scss */
 .secondaryToolbarButton.rotateCcw::before {
   content: url(images/icon-rotate-counter.svg);
   width: 16px;
 }
 
-/* line 1199, viewer.scss */
+/* line 1201, viewer.scss */
 .secondaryToolbarButton.rotateCw::before {
   content: url(images/icon-rotate-clock.svg);
   width: 16px;
 }
 
-/* line 1204, viewer.scss */
+/* line 1206, viewer.scss */
 .secondaryToolbarButton.handTool::before {
   content: url(images/icon-hand.svg);
   width: 16px;
 }
 
-/* line 1209, viewer.scss */
+/* line 1211, viewer.scss */
 .secondaryToolbarButton.documentProperties::before {
   content: url(images/icon-info.svg);
   width: 16px;
 }
 
-/* line 1214, viewer.scss */
+/* line 1216, viewer.scss */
 .verticalToolbarSeparator {
   display: block;
   padding: 8px 0;
@@ -1399,17 +1402,17 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 1222, viewer.scss */
+/* line 1224, viewer.scss */
 html[dir='ltr'] .verticalToolbarSeparator {
   margin-left: 2px;
 }
 
-/* line 1225, viewer.scss */
+/* line 1227, viewer.scss */
 html[dir='rtl'] .verticalToolbarSeparator {
   margin-right: 2px;
 }
 
-/* line 1229, viewer.scss */
+/* line 1231, viewer.scss */
 .horizontalToolbarSeparator {
   display: block;
   margin: 0 0 4px 0;
@@ -1419,7 +1422,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* line 1238, viewer.scss */
+/* line 1240, viewer.scss */
 .toolbarField {
   padding: 3px 6px;
   margin: 4px 0 4px 0;
@@ -1436,13 +1439,13 @@ html[dir='rtl'] .verticalToolbarSeparator {
   transition-timing-function: ease;
 }
 
-/* line 1254, viewer.scss */
+/* line 1256, viewer.scss */
 .toolbarField[type=checkbox] {
   display: inline-block;
   margin: 8px 0px;
 }
 
-/* line 1259, viewer.scss */
+/* line 1261, viewer.scss */
 .toolbarField.pageNumber {
   -moz-appearance: textfield;
   /* hides the spinner in moz */
@@ -1451,27 +1454,27 @@ html[dir='rtl'] .verticalToolbarSeparator {
   width: 40px;
 }
 
-/* line 1266, viewer.scss */
+/* line 1268, viewer.scss */
 .toolbarField.pageNumber.visiblePageIsLoading {
   background-image: url(images/loading-small.png);
   background-repeat: no-repeat;
   background-position: 1px;
 }
 
-/* line 1272, viewer.scss */
+/* line 1274, viewer.scss */
 .toolbarField.pageNumber::-webkit-inner-spin-button,
 .toolbarField.pageNumber::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* line 1278, viewer.scss */
+/* line 1280, viewer.scss */
 .toolbarField:hover {
   background-color: #fff;
-  color: #4d4d4d;
+  color: #4D4D4D;
 }
 
-/* line 1288, viewer.scss */
+/* line 1290, viewer.scss */
 .toolbarLabel {
   min-width: 16px;
   padding: 3px 6px 3px 2px;
@@ -1487,7 +1490,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
   cursor: default;
 }
 
-/* line 1303, viewer.scss */
+/* line 1305, viewer.scss */
 #thumbnailView {
   position: absolute;
   width: 120px;
@@ -1498,29 +1501,29 @@ html[dir='rtl'] .verticalToolbarSeparator {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 1313, viewer.scss */
+/* line 1315, viewer.scss */
 .thumbnail {
   float: left;
   margin-bottom: 5px;
 }
 
-/* line 1318, viewer.scss */
+/* line 1320, viewer.scss */
 #thumbnailView > a:last-of-type > .thumbnail {
   margin-bottom: 10px;
 }
 
-/* line 1322, viewer.scss */
+/* line 1324, viewer.scss */
 #thumbnailView > a:last-of-type > .thumbnail:not([data-loaded]) {
   margin-bottom: 9px;
 }
 
-/* line 1326, viewer.scss */
+/* line 1328, viewer.scss */
 .thumbnail:not([data-loaded]) {
   border: 1px dashed rgba(255, 255, 255, 0.5);
   margin: -1px -1px 4px -1px;
 }
 
-/* line 1331, viewer.scss */
+/* line 1333, viewer.scss */
 .thumbnailImage {
   border: 1px solid transparent;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -1530,19 +1533,19 @@ html[dir='rtl'] .verticalToolbarSeparator {
   background-clip: content-box;
 }
 
-/* line 1340, viewer.scss */
+/* line 1342, viewer.scss */
 .thumbnailSelectionRing {
   border-radius: 2px;
   padding: 7px;
 }
 
-/* line 1345, viewer.scss */
+/* line 1347, viewer.scss */
 a:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,
 .thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {
   opacity: .9;
 }
 
-/* line 1350, viewer.scss */
+/* line 1352, viewer.scss */
 a:focus > .thumbnail > .thumbnailSelectionRing,
 .thumbnail:hover > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.15);
@@ -1552,13 +1555,13 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 1361, viewer.scss */
+/* line 1363, viewer.scss */
 .thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 
-/* line 1366, viewer.scss */
+/* line 1368, viewer.scss */
 .thumbnail.selected > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.3);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -1567,7 +1570,7 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   color: white;
 }
 
-/* line 1376, viewer.scss */
+/* line 1378, viewer.scss */
 #outlineView,
 #attachmentsView {
   position: absolute;
@@ -1580,27 +1583,27 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
   -moz-user-select: none;
 }
 
-/* line 1388, viewer.scss */
+/* line 1390, viewer.scss */
 #outlineView {
   padding: 4px 4px 0;
 }
 
-/* line 1391, viewer.scss */
+/* line 1393, viewer.scss */
 #attachmentsView {
   padding: 3px 4px 0;
 }
 
-/* line 1395, viewer.scss */
+/* line 1397, viewer.scss */
 html[dir='ltr'] .outlineItem > .outlineItems {
   margin-left: 20px;
 }
 
-/* line 1399, viewer.scss */
+/* line 1401, viewer.scss */
 html[dir='rtl'] .outlineItem > .outlineItems {
   margin-right: 20px;
 }
 
-/* line 1403, viewer.scss */
+/* line 1405, viewer.scss */
 .outlineItem > a,
 .attachmentsItem > button {
   text-decoration: none;
@@ -1616,7 +1619,7 @@ html[dir='rtl'] .outlineItem > .outlineItems {
   white-space: normal;
 }
 
-/* line 1418, viewer.scss */
+/* line 1420, viewer.scss */
 .attachmentsItem > button {
   border: 0 none;
   background: none;
@@ -1624,29 +1627,29 @@ html[dir='rtl'] .outlineItem > .outlineItems {
   width: 100%;
 }
 
-/* line 1425, viewer.scss */
+/* line 1427, viewer.scss */
 html[dir='ltr'] .outlineItem > a {
   padding: 2px 0 5px 10px;
 }
 
-/* line 1428, viewer.scss */
+/* line 1430, viewer.scss */
 html[dir='ltr'] .attachmentsItem > button {
   padding: 2px 0 3px 7px;
   text-align: left;
 }
 
-/* line 1433, viewer.scss */
+/* line 1435, viewer.scss */
 html[dir='rtl'] .outlineItem > a {
   padding: 2px 10px 5px 0;
 }
 
-/* line 1436, viewer.scss */
+/* line 1438, viewer.scss */
 html[dir='rtl'] .attachmentsItem > button {
   padding: 2px 7px 3px 0;
   text-align: right;
 }
 
-/* line 1441, viewer.scss */
+/* line 1443, viewer.scss */
 .outlineItem > a:hover,
 .attachmentsItem > button:hover {
   background-color: rgba(255, 255, 255, 0.02);
@@ -1656,7 +1659,7 @@ html[dir='rtl'] .attachmentsItem > button {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 1452, viewer.scss */
+/* line 1454, viewer.scss */
 .outlineItem.selected {
   background-color: rgba(255, 255, 255, 0.08);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -1665,7 +1668,7 @@ html[dir='rtl'] .attachmentsItem > button {
   color: white;
 }
 
-/* line 1462, viewer.scss */
+/* line 1464, viewer.scss */
 .noResults {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
@@ -1676,7 +1679,7 @@ html[dir='rtl'] .attachmentsItem > button {
 /*
 Disabled buttons
 */
-/* line 1472, viewer.scss */
+/* line 1474, viewer.scss */
 #openFile,
 #download,
 #viewBookmark,
@@ -1690,17 +1693,17 @@ Disabled buttons
 /* TODO: file FF bug to support ::-moz-selection:window-inactive
    so we can override the opaque grey background when the window is inactive;
    see https://bugzilla.mozilla.org/show_bug.cgi?id=706209 */
-/* line 1486, viewer.scss */
+/* line 1488, viewer.scss */
 ::selection {
   background: rgba(0, 0, 255, 0.3);
 }
 
-/* line 1487, viewer.scss */
+/* line 1489, viewer.scss */
 ::-moz-selection {
   background: rgba(0, 0, 255, 0.3);
 }
 
-/* line 1489, viewer.scss */
+/* line 1491, viewer.scss */
 #errorWrapper {
   background: none repeat scroll 0 0 #FF5555;
   color: white;
@@ -1712,22 +1715,22 @@ Disabled buttons
   font-size: 0.8em;
 }
 
-/* line 1499, viewer.scss */
+/* line 1501, viewer.scss */
 .loadingInProgress #errorWrapper {
   top: 37px;
 }
 
-/* line 1503, viewer.scss */
+/* line 1505, viewer.scss */
 #errorMessageLeft {
   float: left;
 }
 
-/* line 1507, viewer.scss */
+/* line 1509, viewer.scss */
 #errorMessageRight {
   float: right;
 }
 
-/* line 1511, viewer.scss */
+/* line 1513, viewer.scss */
 #errorMoreInfo {
   background-color: #FFFFFF;
   color: black;
@@ -1736,14 +1739,14 @@ Disabled buttons
   width: 98%;
 }
 
-/* line 1519, viewer.scss */
+/* line 1521, viewer.scss */
 .overlayButton {
   width: auto;
   margin: 3px 4px 2px 4px !important;
   padding: 2px 6px 3px 6px;
 }
 
-/* line 1525, viewer.scss */
+/* line 1527, viewer.scss */
 #overlayContainer {
   display: table;
   position: absolute;
@@ -1753,20 +1756,20 @@ Disabled buttons
   z-index: 40000;
 }
 
-/* line 1533, viewer.scss */
+/* line 1535, viewer.scss */
 #overlayContainer > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 1538, viewer.scss */
+/* line 1540, viewer.scss */
 #overlayContainer > .container {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
-/* line 1544, viewer.scss */
+/* line 1546, viewer.scss */
 #overlayContainer > .container > .dialog {
   display: inline-block;
   padding: 15px;
@@ -1782,22 +1785,22 @@ Disabled buttons
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* line 1564, viewer.scss */
+/* line 1566, viewer.scss */
 .dialog > .row {
   display: table-row;
 }
 
-/* line 1568, viewer.scss */
+/* line 1570, viewer.scss */
 .dialog > .row > * {
   display: table-cell;
 }
 
-/* line 1572, viewer.scss */
+/* line 1574, viewer.scss */
 .dialog .toolbarField {
   margin: 5px 0;
 }
 
-/* line 1576, viewer.scss */
+/* line 1578, viewer.scss */
 .dialog .separator {
   display: block;
   margin: 4px 0 4px 0;
@@ -1807,65 +1810,65 @@ Disabled buttons
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* line 1585, viewer.scss */
+/* line 1587, viewer.scss */
 .dialog .buttonRow {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 1590, viewer.scss */
+/* line 1592, viewer.scss */
 #passwordOverlay > .dialog {
   text-align: center;
 }
 
-/* line 1593, viewer.scss */
+/* line 1595, viewer.scss */
 #passwordOverlay .toolbarField {
   width: 200px;
 }
 
-/* line 1597, viewer.scss */
+/* line 1599, viewer.scss */
 #documentPropertiesOverlay > .dialog {
   text-align: left;
 }
 
-/* line 1600, viewer.scss */
+/* line 1602, viewer.scss */
 #documentPropertiesOverlay .row > * {
   min-width: 100px;
 }
 
-/* line 1603, viewer.scss */
+/* line 1605, viewer.scss */
 html[dir='ltr'] #documentPropertiesOverlay .row > * {
   text-align: left;
 }
 
-/* line 1606, viewer.scss */
+/* line 1608, viewer.scss */
 html[dir='rtl'] #documentPropertiesOverlay .row > * {
   text-align: right;
 }
 
-/* line 1609, viewer.scss */
+/* line 1611, viewer.scss */
 #documentPropertiesOverlay .row > span {
   width: 125px;
   word-wrap: break-word;
 }
 
-/* line 1613, viewer.scss */
+/* line 1615, viewer.scss */
 #documentPropertiesOverlay .row > p {
   max-width: 225px;
   word-wrap: break-word;
 }
 
-/* line 1617, viewer.scss */
+/* line 1619, viewer.scss */
 #documentPropertiesOverlay .buttonRow {
   margin-top: 10px;
 }
 
-/* line 1621, viewer.scss */
+/* line 1623, viewer.scss */
 .clearBoth {
   clear: both;
 }
 
-/* line 1625, viewer.scss */
+/* line 1627, viewer.scss */
 .fileInput {
   background: white;
   color: black;
@@ -1876,7 +1879,7 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   top: 0;
 }
 
-/* line 1635, viewer.scss */
+/* line 1637, viewer.scss */
 #PDFBug {
   background: none repeat scroll 0 0 white;
   border: 1px solid #666666;
@@ -1889,14 +1892,14 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   width: 300px;
 }
 
-/* line 1646, viewer.scss */
+/* line 1648, viewer.scss */
 #PDFBug .controls {
   background: #EEEEEE;
   border-bottom: 1px solid #666666;
   padding: 3px;
 }
 
-/* line 1651, viewer.scss */
+/* line 1653, viewer.scss */
 #PDFBug .panels {
   bottom: 0;
   left: 0;
@@ -1907,53 +1910,53 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   top: 27px;
 }
 
-/* line 1660, viewer.scss */
+/* line 1662, viewer.scss */
 #PDFBug button.active {
   font-weight: bold;
 }
 
-/* line 1663, viewer.scss */
+/* line 1665, viewer.scss */
 .debuggerShowText {
   background: none repeat scroll 0 0 yellow;
   color: blue;
 }
 
-/* line 1667, viewer.scss */
+/* line 1669, viewer.scss */
 .debuggerHideText:hover {
   background: none repeat scroll 0 0 yellow;
 }
 
-/* line 1670, viewer.scss */
+/* line 1672, viewer.scss */
 #PDFBug .stats {
   font-family: courier;
   font-size: 10px;
   white-space: pre;
 }
 
-/* line 1675, viewer.scss */
+/* line 1677, viewer.scss */
 #PDFBug .stats .title {
   font-weight: bold;
 }
 
-/* line 1678, viewer.scss */
+/* line 1680, viewer.scss */
 #PDFBug table {
   font-size: 10px;
 }
 
-/* line 1682, viewer.scss */
+/* line 1684, viewer.scss */
 #viewer.textLayer-visible .textLayer > div,
 #viewer.textLayer-hover .textLayer > div:hover {
   background-color: white;
   color: black;
 }
 
-/* line 1688, viewer.scss */
+/* line 1690, viewer.scss */
 #viewer.textLayer-shadow .textLayer > div {
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
 }
 
-/* line 1693, viewer.scss */
+/* line 1695, viewer.scss */
 .grab-to-pan-grab {
   cursor: url("images/grab.cur"), move !important;
   cursor: -webkit-grab !important;
@@ -1961,12 +1964,12 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   cursor: grab !important;
 }
 
-/* line 1699, viewer.scss */
+/* line 1701, viewer.scss */
 .grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {
   cursor: inherit !important;
 }
 
-/* line 1702, viewer.scss */
+/* line 1704, viewer.scss */
 .grab-to-pan-grab:active,
 .grab-to-pan-grabbing {
   cursor: url("images/grabbing.cur"), move !important;
@@ -1988,259 +1991,259 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 @page {
   margin: 0;
 }
-/* line 1724, viewer.scss */
+/* line 1726, viewer.scss */
 #printContainer {
   display: none;
 }
 
 @media screen and (min-resolution: 2dppx) {
   /* Rules for Retina screens */
-  /* line 1730, viewer.scss */
+  /* line 1732, viewer.scss */
   .toolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -5px;
   }
 
-  /* line 1736, viewer.scss */
+  /* line 1738, viewer.scss */
   .secondaryToolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -4px;
   }
 
-  /* line 1742, viewer.scss */
+  /* line 1744, viewer.scss */
   html[dir='ltr'] .toolbarButton::before,
   html[dir='rtl'] .toolbarButton::before {
     left: -1px;
   }
 
-  /* line 1747, viewer.scss */
+  /* line 1749, viewer.scss */
   .pdf-ui-wrappper.ltr .secondaryToolbarButton::before {
     left: -2px;
   }
 
-  /* line 1750, viewer.scss */
+  /* line 1752, viewer.scss */
   .pdf-ui-wrappper.rtl .secondaryToolbarButton::before {
     left: -4px;
   }
 
-  /* line 1754, viewer.scss */
+  /* line 1756, viewer.scss */
   .toolbarField.pageNumber.visiblePageIsLoading,
   #findInput[data-status="pending"] {
     background-image: url(images/loading-small@2x.png);
     background-size: 16px 17px;
   }
 
-  /* line 1760, viewer.scss */
+  /* line 1762, viewer.scss */
   .dropdownToolbarButton {
     background: url(images/toolbarButton-menuArrows@2x.png) no-repeat;
     background-size: 7px 16px;
   }
 
-  /* line 1765, viewer.scss */
+  /* line 1767, viewer.scss */
   html[dir='ltr'] .toolbarButton#sidebarToggle::before {
     content: url(images/toolbarButton-sidebarToggle@2x.png);
   }
 
-  /* line 1768, viewer.scss */
+  /* line 1770, viewer.scss */
   html[dir='rtl'] .toolbarButton#sidebarToggle::before {
     content: url(images/icon-sidebar.svg);
     width: 32px;
   }
 
-  /* line 1773, viewer.scss */
+  /* line 1775, viewer.scss */
   .pdf-ui-wrappper.ltr .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
 
-  /* line 1776, viewer.scss */
+  /* line 1778, viewer.scss */
   .pdf-ui-wrappper.rtl .toolbarButton#secondaryToolbarToggle::before {
     content: url(images/icon-tools.svg);
     width: 32px;
   }
 
-  /* line 1781, viewer.scss */
+  /* line 1783, viewer.scss */
   html[dir='ltr'] .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous@2x.png);
   }
 
-  /* line 1784, viewer.scss */
+  /* line 1786, viewer.scss */
   html[dir='rtl'] .toolbarButton.findPrevious::before {
     content: url(images/findbarButton-previous-rtl@2x.png);
   }
 
-  /* line 1788, viewer.scss */
+  /* line 1790, viewer.scss */
   html[dir='ltr'] .toolbarButton.findNext::before {
     content: url(images/findbarButton-next@2x.png);
   }
 
-  /* line 1791, viewer.scss */
+  /* line 1793, viewer.scss */
   html[dir='rtl'] .toolbarButton.findNext::before {
     content: url(images/findbarButton-next-rtl@2x.png);
   }
 
-  /* line 1795, viewer.scss */
+  /* line 1797, viewer.scss */
   html[dir='ltr'] .toolbarButton.pageUp::before {
     content: url(images/icon-previous.svg);
     width: 32px;
   }
 
-  /* line 1799, viewer.scss */
+  /* line 1801, viewer.scss */
   html[dir='rtl'] .toolbarButton.pageUp::before {
     content: url(images/icon-previous.svg);
     width: 32px;
   }
 
-  /* line 1804, viewer.scss */
+  /* line 1806, viewer.scss */
   html[dir='ltr'] .toolbarButton.pageDown::before {
     content: url(images/icon-next.svg);
     width: 32px;
   }
 
-  /* line 1808, viewer.scss */
+  /* line 1810, viewer.scss */
   html[dir='rtl'] .toolbarButton.pageDown::before {
     content: url(images/icon-next.svg);
     width: 32px;
   }
 
-  /* line 1813, viewer.scss */
+  /* line 1815, viewer.scss */
   .toolbarButton.zoomIn::before {
     content: url(images/icon-plus.svg);
     width: 32px;
   }
 
-  /* line 1818, viewer.scss */
+  /* line 1820, viewer.scss */
   .toolbarButton.zoomOut::before {
     content: url(images/icon-minus.svg);
     width: 32px;
   }
 
-  /* line 1823, viewer.scss */
+  /* line 1825, viewer.scss */
   .toolbarButton.presentationMode::before,
   .secondaryToolbarButton.presentationMode::before {
     content: url(images/icon-fullscreen.svg);
     width: 32px;
   }
 
-  /* line 1829, viewer.scss */
+  /* line 1831, viewer.scss */
   .toolbarButton.print::before,
   .secondaryToolbarButton.print::before {
     content: url(images/icon-print.svg);
     width: 32px;
   }
 
-  /* line 1835, viewer.scss */
+  /* line 1837, viewer.scss */
   .toolbarButton.openFile::before,
   .secondaryToolbarButton.openFile::before {
     content: url(images/toolbarButton-openFile@2x.png);
   }
 
-  /* line 1840, viewer.scss */
+  /* line 1842, viewer.scss */
   .toolbarButton.download::before,
   .secondaryToolbarButton.download::before {
     content: url(images/toolbarButton-download@2x.png);
   }
 
-  /* line 1845, viewer.scss */
+  /* line 1847, viewer.scss */
   .toolbarButton.bookmark::before,
   .secondaryToolbarButton.bookmark::before {
     content: url(images/toolbarButton-bookmark@2x.png);
   }
 
-  /* line 1850, viewer.scss */
+  /* line 1852, viewer.scss */
   #viewThumbnail.toolbarButton::before {
     content: url(images/toolbarButton-viewThumbnail@2x.png);
   }
 
-  /* line 1854, viewer.scss */
+  /* line 1856, viewer.scss */
   html[dir="ltr"] #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline@2x.png);
   }
 
-  /* line 1857, viewer.scss */
+  /* line 1859, viewer.scss */
   html[dir="rtl"] #viewOutline.toolbarButton::before {
     content: url(images/toolbarButton-viewOutline-rtl@2x.png);
   }
 
-  /* line 1861, viewer.scss */
+  /* line 1863, viewer.scss */
   #viewAttachments.toolbarButton::before {
     content: url(images/toolbarButton-viewAttachments@2x.png);
   }
 
-  /* line 1865, viewer.scss */
+  /* line 1867, viewer.scss */
   #viewFind.toolbarButton::before {
     content: url(images/icon-search.svg);
     width: 32px;
   }
 
-  /* line 1870, viewer.scss */
+  /* line 1872, viewer.scss */
   .secondaryToolbarButton.firstPage::before {
     content: url(images/icon-first.svg);
     width: 32px;
   }
 
-  /* line 1875, viewer.scss */
+  /* line 1877, viewer.scss */
   .secondaryToolbarButton.lastPage::before {
     content: url(images/icon-last.svg);
     width: 32px;
   }
 
-  /* line 1880, viewer.scss */
+  /* line 1882, viewer.scss */
   .secondaryToolbarButton.rotateCcw::before {
     content: url(images/icon-rotate-counter.svg);
     width: 32px;
   }
 
-  /* line 1885, viewer.scss */
+  /* line 1887, viewer.scss */
   .secondaryToolbarButton.rotateCw::before {
     content: url(images/icon-rotate-clock.svg);
     width: 32px;
   }
 
-  /* line 1890, viewer.scss */
+  /* line 1892, viewer.scss */
   .secondaryToolbarButton.handTool::before {
     content: url(images/icon-hand.svg);
     width: 32px;
   }
 
-  /* line 1895, viewer.scss */
+  /* line 1897, viewer.scss */
   .secondaryToolbarButton.documentProperties::before {
     content: url(images/icon-info.svg);
     width: 32px;
   }
 }
-/* line 1901, viewer.scss */
+/* line 1903, viewer.scss */
 #scaleSelectContainer.dropdownToolbarButton:hover {
   box-shadow: none;
 }
 
 @media print {
   /* General rules for printing. */
-  /* line 1907, viewer.scss */
+  /* line 1909, viewer.scss */
   .pdf-ui-wrappper {
     background: transparent none;
   }
 
   /* Rules for browsers that don't support mozPrintCallback. */
-  /* line 1912, viewer.scss */
+  /* line 1914, viewer.scss */
   #sidebarContainer, #secondaryToolbar, .toolbar, #loadingBox, #errorWrapper, .textLayer {
     display: none;
   }
 
-  /* line 1915, viewer.scss */
+  /* line 1917, viewer.scss */
   #viewerContainer {
     overflow: visible;
   }
 
-  /* line 1919, viewer.scss */
+  /* line 1921, viewer.scss */
   #main-container-pdf, #viewerContainer, .page, .page canvas {
     position: static;
     padding: 0;
     margin: 0;
   }
 
-  /* line 1925, viewer.scss */
+  /* line 1927, viewer.scss */
   .page {
     float: left;
     display: none;
@@ -2250,29 +2253,29 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     background-color: white;
   }
 
-  /* line 1934, viewer.scss */
+  /* line 1936, viewer.scss */
   .page[data-loaded] {
     display: block;
   }
 
-  /* line 1938, viewer.scss */
+  /* line 1940, viewer.scss */
   .fileInput {
     display: none;
   }
 
   /* Rules for browsers that support mozPrintCallback */
-  /* line 1943, viewer.scss */
+  /* line 1945, viewer.scss */
   .pdf-ui-wrappper[data-mozPrintCallback] #outerContainer {
     display: none;
   }
 
-  /* line 1946, viewer.scss */
+  /* line 1948, viewer.scss */
   .pdf-ui-wrappper[data-mozPrintCallback] #printContainer {
     display: block;
   }
 
   /* wrapper around (scaled) print canvas elements */
-  /* line 1950, viewer.scss */
+  /* line 1952, viewer.scss */
   #printContainer > div {
     position: relative;
     top: 0;
@@ -2280,12 +2283,12 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     overflow: hidden;
   }
 
-  /* line 1956, viewer.scss */
+  /* line 1958, viewer.scss */
   #printContainer canvas {
     display: block;
   }
 }
-/* line 1961, viewer.scss */
+/* line 1963, viewer.scss */
 .visibleLargeView,
 .visibleMediumView,
 .visibleSmallView {
@@ -2293,14 +2296,14 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 }
 
 @media all and (max-width: 960px) {
-  /* line 1968, viewer.scss */
+  /* line 1970, viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter {
     float: left;
     left: 205px;
   }
 
-  /* line 1973, viewer.scss */
+  /* line 1975, viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter {
     float: right;
@@ -2308,133 +2311,133 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
   }
 }
 @media all and (max-width: 900px) {
-  /* line 1981, viewer.scss */
+  /* line 1983, viewer.scss */
   .sidebarOpen .hiddenLargeView {
     display: none;
   }
 
-  /* line 1984, viewer.scss */
+  /* line 1986, viewer.scss */
   .sidebarOpen .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 860px) {
-  /* line 1990, viewer.scss */
+  /* line 1992, viewer.scss */
   .sidebarOpen .hiddenMediumView {
     display: none;
   }
 
-  /* line 1993, viewer.scss */
+  /* line 1995, viewer.scss */
   .sidebarOpen .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 770px) {
-  /* line 1999, viewer.scss */
+  /* line 2001, viewer.scss */
   #sidebarContainer {
     top: 32px;
     z-index: 100;
   }
 
-  /* line 2003, viewer.scss */
+  /* line 2005, viewer.scss */
   .loadingInProgress #sidebarContainer {
     top: 37px;
   }
 
-  /* line 2006, viewer.scss */
+  /* line 2008, viewer.scss */
   #sidebarContent {
     top: 32px;
     background-color: rgba(0, 0, 0, 0.7);
   }
 
-  /* line 2011, viewer.scss */
+  /* line 2013, viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarOpen > #main-container-pdf {
     left: 0px;
   }
 
-  /* line 2014, viewer.scss */
+  /* line 2016, viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarOpen > #main-container-pdf {
     right: 0px;
   }
 
-  /* line 2018, viewer.scss */
+  /* line 2020, viewer.scss */
   html[dir='ltr'] .outerCenter {
     float: left;
     left: 205px;
   }
 
-  /* line 2022, viewer.scss */
+  /* line 2024, viewer.scss */
   html[dir='rtl'] .outerCenter {
     float: right;
     right: 205px;
   }
 
-  /* line 2027, viewer.scss */
+  /* line 2029, viewer.scss */
   #outerContainer .hiddenLargeView,
   #outerContainer .hiddenMediumView {
     display: inherit;
   }
 
-  /* line 2031, viewer.scss */
+  /* line 2033, viewer.scss */
   #outerContainer .visibleLargeView,
   #outerContainer .visibleMediumView {
     display: none;
   }
 }
 @media all and (max-width: 700px) {
-  /* line 2038, viewer.scss */
+  /* line 2040, viewer.scss */
   #outerContainer .hiddenLargeView {
     display: none;
   }
 
-  /* line 2041, viewer.scss */
+  /* line 2043, viewer.scss */
   #outerContainer .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 660px) {
-  /* line 2047, viewer.scss */
+  /* line 2049, viewer.scss */
   #outerContainer .hiddenMediumView {
     display: none;
   }
 
-  /* line 2050, viewer.scss */
+  /* line 2052, viewer.scss */
   #outerContainer .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 600px) {
-  /* line 2056, viewer.scss */
+  /* line 2058, viewer.scss */
   .hiddenSmallView {
     display: none;
   }
 
-  /* line 2059, viewer.scss */
+  /* line 2061, viewer.scss */
   .visibleSmallView {
     display: inherit;
   }
 
-  /* line 2062, viewer.scss */
+  /* line 2064, viewer.scss */
   html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter,
   html[dir='ltr'] .outerCenter {
     left: 156px;
   }
 
-  /* line 2067, viewer.scss */
+  /* line 2069, viewer.scss */
   html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,
   html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter,
   html[dir='rtl'] .outerCenter {
     right: 156px;
   }
 
-  /* line 2072, viewer.scss */
+  /* line 2074, viewer.scss */
   .toolbarButtonSpacer {
     width: 0;
   }
 }
 @media all and (max-width: 510px) {
-  /* line 2078, viewer.scss */
+  /* line 2080, viewer.scss */
   #scaleSelectContainer, #pageNumberLabel {
     display: none;
   }

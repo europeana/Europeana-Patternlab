@@ -15,6 +15,8 @@
   "top-right-aligned":{
     "clicktip":{
       "activator": "#test-clicktip-1-right",
+      "id": "top-right-1",
+      "persistent": true,
       "tooltip_text": "Here is some text - this is the top tooltip",
       "direction": "top"
     }
@@ -47,7 +49,9 @@
     "clicktip":{
       "activator": "#test-clicktip-3-right",
       "tooltip_text": "Here is some text - this is the bottom tooltip",
-      "direction": "bottom"
+      "direction": "bottom",
+      "id": "bottom-right-1",
+      "persistent": true
     }
   },
   "right":{

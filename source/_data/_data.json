@@ -239,7 +239,7 @@
               {
                 "url": "#",
                 "text": "Settings",
-                "icon": "settings",
+                "icon_class": "svg-icon-language",
                 "submenu": {
                   "items": [
                     {

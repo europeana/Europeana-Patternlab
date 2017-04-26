@@ -66,6 +66,9 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
           if(!params[filterName]){
             delete params[filterName];
           }
+          if(params['page']){
+            delete params['page'];
+          }
           
           var newParams = $.param(params);
           var newUrl = window.location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
@@ -73,17 +76,15 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
         });
       });
     }
-      
+
     var initFeedback = function(){
       if($('.feedback').size()>0){
         require(['feedback'], function(fb){
-          fb.init($('.feedback'), { beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
-          }});
+          fb.init($('.feedback'));
         });
       }
     }
-
+    
     var doForAllPages = function(){
       initCollectionsFilter();
 

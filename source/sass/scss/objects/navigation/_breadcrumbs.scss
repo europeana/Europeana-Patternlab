@@ -1,16 +1,18 @@
 .breadcrumbs {
   list-style: none;
 
-  a, .lastitem {
-    display: inline;
-    position: relative;
-    padding-right: $space-half;
+  a,
+  .lastitem {
+    display:         inline;
+    padding-right:   $space-half;
+    position:        relative;
     text-decoration: none;
   }
 
-  a:after {
-    content: "/";
-    position: absolute; right: -0.3em;
+  a::after {
+    content:  '/';
+    position: absolute;
+    right:    -0.3em;
   }
 
   a:hover {
@@ -18,18 +20,21 @@
   }
 
   >li{
-    display: inline;
+    display:      inline;
     margin-right: $space-half;
 
     &:first-of-type a{
       padding-left: 0;
     }
 
-    &:first-child a:before {
-      display: none;
+    &:first-child a{
+      padding-left: 2 * $pad;
+      &::before {
+        display: none;
+      }
     }
 
-    &:last-child a:after {
+    &:last-child a::after {
       display: none;
     }
 
@@ -49,35 +54,35 @@
   }
 
   &.breadcrumbs-arrows{
-    a:after {
-      content: "";
-      border-top: 0.3em solid transparent;
+    a::after {
       border-bottom: 0.3em solid transparent;
-      border-left: 0.3em solid $gray-light;
-      position: absolute; right: -0.3em; top: 50%;
-      margin-top: -0.3em;
+      border-left:   0.3em solid $gray-light;
+      border-top:    0.3em solid transparent;
+      content:       '';
+      margin-top:    -0.3em;
+      position:      absolute;
+      right:         -0.3em;
+      top: 50%;
       z-index: 1;
     }
 
-    a:hover:after {
+    a:hover::after {
       border-left-color: $textcolour_link;
     }
   }
 
   .page_header & {
-    display: table-cell;
+    display:        table-cell;
     vertical-align: middle;
-    width: 75%;
+    width:          75%;
   }
 
-  //inside search result item
+  // inside search result item
   .item-details & {
     font-size: $font-size-slightly-smaller;
-
     .icon-home{
       display: none;
     }
   }
-
 }
 
