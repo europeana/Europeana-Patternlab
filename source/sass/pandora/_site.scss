@@ -1,13 +1,13 @@
-@import "../scss/generic/variables";
+@import '../scss/generic/variables';
 
 .logo {
-  background-image: url("../../images/metis/europeana-metis-logo.png");
+  background-image: url('../../images/metis/europeana-metis-logo.png');
 
   .svg & {
-    background-image: url("../../images/metis/europeana-metis-logo.svg");
+    background-image: url('../../images/metis/europeana-metis-logo.svg');
 
     @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-      background-image: url("../../images/europeana-logo-symbol.svg");
+      background-image: url('../../images/europeana-logo-symbol.svg');
       max-width: 50px;
       min-width: 50px;
     }
@@ -97,7 +97,7 @@
   margin-left: 0;
   padding-bottom: 0;
   padding-left: 0;
-  width: 11em !important;
+  width: 11em;
 }
 
 .container-search-box {
@@ -127,10 +127,6 @@
   }
 }
 
-.indent {
-  padding-left: 10px !important;
-}
-
 .dropdown {
   margin-left: -1em;
   margin-top: 10px;
@@ -147,15 +143,15 @@
 .card-component {
   border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  color: $white !important;
-  margin-bottom: 0 !important;
+  color: $white;
+  margin-bottom: 0;
   margin-left: 1em;
   margin-top: 1em;
   width: 60em;
 
   td {
     border-collapse: collapse;
-    padding: 0 !important;
+    padding: 0;
   }
 }
 
@@ -318,7 +314,7 @@ item-card-controls {
 .if {
   display: inline-block;
   line-height: 3.5em;
-  margin-left: -5px !important;
+  margin-left: -5px;
   text-align: center;
   vertical-align: middle;
   width: 7em;
@@ -344,7 +340,7 @@ item-card-controls {
 }
 
 .pagination {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   padding-top: 1rem;
 
   a {
@@ -466,8 +462,8 @@ item-card-controls {
   width: 100%;
 
   &.dropdown-trigger {
-    display: none !important;
-    padding: 6px !important;
+    display: none;
+    padding: 6px;
   }
 }
 
@@ -508,7 +504,7 @@ item-card-controls {
   background-color: $white;
   border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   margin-left: 1em;
   margin-top: 1em;
   overflow: auto;
@@ -535,7 +531,7 @@ item-card-controls {
   background-color: $white;
   border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   margin-left: 1em;
   margin-top: 1em;
   overflow: auto;
@@ -562,7 +558,7 @@ item-card-controls {
   background-color: $white;
   border: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   margin-left: 1em;
   margin-top: 1em;
   overflow: auto;
@@ -660,6 +656,10 @@ item-card-controls {
   padding: 5px;
   text-align: center;
   width: 230px;
+}
+
+.indent {
+  padding-left: 10px;
 }
 
 .flex-inner-item {
