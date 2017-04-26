@@ -1,3 +1,131 @@
+// TODO: remove temp stylings.
 .dashboard-wrapper {
-  margin-top: 78px;
+  height: 1600px;
+  margin-top: 178px;
+}
+
+.cf.loggedin-metis {
+  display: flex;
+  flex: 1;
+
+  .metis-logo  {
+    .logo {
+      margin-left: 1.2rem;
+      width: 100%;
+    }
+  }
+
+  .dashboard-header-links {
+    flex: 1;
+    padding-right: 1rem;
+    padding-top: 0.8rem;
+
+    #settings-menu {
+      float: right;
+
+      .notifications {
+        position: relative;
+
+        .circle {
+          background-color: $eu-jade;
+          border-radius: 50%;
+          color: $white;
+          font-size: 10px;
+          font-weight: bold;
+          height: 18px;
+          left: -38px;
+          line-height: 18px;
+          margin: 0 auto 10px;
+          position: absolute;
+          text-align: center;
+          top: 20px;
+          width: 18px;
+        }
+
+        @-moz-document url-prefix() {
+          .circle {
+            left: -158px;
+            top: 38px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dashboard-header {
+  flex: 2;
+  margin-left: 1.2rem;
+  padding-top: 0.4rem;
+
+  .js-hitarea {
+    border: 1px solid $off-white;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+    border-top-right-radius: 0;
+    order: 1;
+    width: 40%;
+
+    ul {
+      margin-top: 0.5rem;
+      li {
+        input {
+          max-width: 50rem;
+        }
+      }
+    }
+  }
+
+  .search-multiterm {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+  }
+  .submitarea {
+    margin-left: 6px;
+    order: 4;
+  }
+  .search-submit {
+    height: 100%;
+  }
+
+  #browse-menu {
+    margin-left: 0;
+
+    .sub-arrow {
+      border-color: $opacity-black transparent transparent;
+    }
+
+    li {
+      background-color: $white;
+
+      a {
+        background-color: $white;
+      }
+    }
+  }
+
+  button,
+  input[type="submit"] {
+    background: $eu-jade;
+  }
+
+  .link-text {
+    color: $light-gray;
+  }
+
+  nav {
+    background-color: $white;
+    border: 1px solid $off-white;
+    border-bottom-right-radius: 4px;
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: text;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin: 0;
+    order: 3;
+    padding: 0.2rem 0.4rem;
+  }
 }
