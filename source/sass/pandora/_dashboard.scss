@@ -1,24 +1,24 @@
 // TODO: remove temp stylings.
 .dashboard-wrapper {
-  margin-top: 178px;
   height: 1600px;
+  margin-top: 178px;
 }
 
 .cf.loggedin-metis {
-  flex: 1;
   display: flex;
+  flex: 1;
 
   .metis-logo  {
     .logo {
-      width: 100%;
       margin-left: 1.2rem;
+      width: 100%;
     }
   }
 
   .dashboard-header-links {
     flex: 1;
-    padding-top: 0.8rem;
     padding-right: 1rem;
+    padding-top: 0.8rem;
 
     #settings-menu {
       float: right;
@@ -27,19 +27,19 @@
         position: relative;
 
         .circle {
-          position: absolute;
-          width: 18px;
-          height: 18px;
           background-color: $eu-jade;
           border-radius: 50%;
-          color: white;
+          color: $white;
           font-size: 10px;
           font-weight: bold;
+          height: 18px;
+          left: -38px;
           line-height: 18px;
           margin: 0 auto 10px;
-          left: -38px;
+          position: absolute;
           text-align: center;
           top: 20px;
+          width: 18px;
         }
 
         @-moz-document url-prefix() {
@@ -59,11 +59,11 @@
   padding-top: 0.4rem;
 
   .js-hitarea {
-    order: 1;
     border: 1px solid $off-white;
+    border-bottom-right-radius: 0;
     border-right: 0;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    order: 1;
     width: 40%;
 
     ul {
@@ -71,7 +71,6 @@
       li {
         input {
           max-width: 50rem !important;
-
         }
       }
     }
@@ -106,7 +105,8 @@
     }
   }
 
-  button, input[type="submit"] {
+  button,
+  input[type="submit"] {
     background: $eu-jade;
   }
 
