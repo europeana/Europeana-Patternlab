@@ -7,12 +7,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function loadHierarchy(params){
-
-    var baseUrl = window.location.href.split('/record')[0] + '/record';
-    var initUrl = window.location.href.split('.html')[0]   + '/hierarchy/ancestor-self-siblings.json';
+	var href     = window.location.href;
+    var baseUrl  = href.split('/record')[0] + '/record';
+    var initUrl  = href.split('.html')[0];
+        initUrl  = href.replace('.html', '').split('?')[0];
+        initUrl += '/hierarchy/ancestor-self-siblings.json';
 
     var buildHierarchy = function(initialData){
-      log('building hierarchy');
       require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
 
         var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
@@ -54,7 +55,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   // TODO: delete this when we move (fully) to the hierarchy_later technique
   function showHierarchy(params){
-
     require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
 
       var data       = JSON.parse( $('.hierarchy-objects').text() );
