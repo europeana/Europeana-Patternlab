@@ -25,6 +25,10 @@
     {
       "name": "pageName",
       "value": "portal/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": true
     }
   ],
 
@@ -412,7 +416,7 @@
       "title": "Similar items",
 
       "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "url-for-extra-items",
+      "more_items_load"  : "portal_similar_items",
       "more_items_total" : 12,
       "more_items_total_formatted" : 12,
 
