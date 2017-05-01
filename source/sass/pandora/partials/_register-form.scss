@@ -1,0 +1,23 @@
+.metis-register-form {
+  background-color: $white;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  overflow: auto;
+  width: 20em;
+
+  div {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+.register-form-header {
+  background-color: $eu-blue;
+  color: $white;
+  font-size: 2em;
+  text-align: center;
+  width: 10em;
+}
