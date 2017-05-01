@@ -1,0 +1,110 @@
+.card-component {
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  color: $white;
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 60em;
+
+  td {
+    border-collapse: collapse;
+    padding: 0;
+  }
+}
+
+.depth_1 {
+  margin-left: 4em;
+}
+
+.depth_2 {
+  margin-left: 8em;
+}
+
+.depth_3 {
+  margin-left: 12em;
+}
+
+.depth_4 {
+  margin-left: 16em;
+}
+
+.normal-colored {
+  background-color: $eu-lightblue;
+  color: $white;
+}
+
+.suspicious-colored {
+  background-color: $yellow;
+}
+
+.suspicious-colored-dark {
+  background-color: $eu-orange;
+}
+
+.invalid-colored {
+  background-color: $eu-red;
+}
+
+.invalid-colored-dark {
+  background-color: $dark-blue;
+}
+
+.card-buttons {
+  display: table;
+
+  div {
+    display: table-cell;
+    height: 3.5em;
+    text-align: center;
+    vertical-align: middle;
+    width: 5em;
+
+    &:hover {
+      background-color: $eu-blue;
+      cursor: pointer;
+    }
+  }
+}
+
+.values-collapse {
+  display: inline-block;
+  line-height: 3.5em;
+  text-align: center;
+  vertical-align: middle;
+  width: 7em;
+}
+
+.card-controls-expanded .card-label {
+  display: inline-block;
+  height: 3.5em;
+  line-height: 3.5em;
+  vertical-align: middle;
+  width: 20em;
+}
+
+.card-controls-expanded div {
+  margin-left: -4px;
+}
+
+.card-controls-expanded > div:first-of-type {
+  margin-left: 0;
+}
+
+.mapping-card-controls,
+item-card-controls {
+  width: 15em;
+}
+
+.card-button:hover {
+  background-color: $linkblue;
+  cursor: pointer;
+}
+.normal-colored-dark {
+  background-color: $eu-blue;
+
+  &.card-button:hover {
+    background-color: $linkblue;
+    cursor: pointer;
+  }
+}

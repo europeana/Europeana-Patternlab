@@ -294,7 +294,114 @@
             "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+        },        
+        {
+           "image_compare_data":[
+             {
+	            "id": "x0_1_image_credit",
+	            "type": "ve-intro",
+	            "is_first": true,
+	            "is_intro": true,
+	            "image_credit": {
+	              "attribution_title": "Battle of Grunweald",
+	              "attribution_creator": "Jan Matejko",
+	              "attribution_institution": "Muzeum Narodowe W Warszawie 1",
+	              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+	              "country": "Brasil",
+	              "license_CC0": true,
+	              "license_CC_BY": true,
+	              "license_CC_BY_SA": true,
+	              "license_CC_BY_ND": true,
+	              "license_CC_BY_NC": true,
+	              "license_CC_BY_NC_SA": true,
+	              "license_CC_BY_NC_ND": true
+	            },
+	            "image":
+	            {
+	              "full": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png?image=1"
+	              },
+	              "fullx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=1"
+	              },
+	              "half": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png?image=1"
+	              },
+	              "halfx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=1"
+	              },
+	              "small": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png?image=1"
+	              },
+	              "smallx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=1"
+	              },
+	              "thumbnail": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=1"
+	              },
+	              "thumbnailx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png?image=1"
+	              }
+	            },
+	            "title": "Faces of Europe",
+	            "subtitle": "The first chapter of this amazing virtual exhibition",
+	            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+            },
+            {
+	            "id": "x0_2_image_credit",
+	            "type": "ve-intro",
+	            "is_first": true,
+	            "is_intro": true,
+	            "image_credit": {
+	              "attribution_title": "Battle of Grunweald 2",
+	              "attribution_creator": "Jan Matejko",
+	              "attribution_institution": "Muzeum Narodowe W Warszawie",
+	              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+	              "country": "Brasil",
+	              "license_CC0": true,
+	              "license_CC_BY": true,
+	              "license_CC_BY_SA": true,
+	              "license_CC_BY_ND": true,
+	              "license_CC_BY_NC": true,
+	              "license_CC_BY_NC_SA": true,
+	              "license_CC_BY_NC_ND": true
+	            },
+	            "image":
+	            {
+	              "full": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png?image=2"
+	              },
+	              "fullx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=2"
+	              },
+	              "half": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png?image=2"
+	              },
+	              "halfx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=2"
+	              },
+	              "small": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png?image=2"
+	              },
+	              "smallx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=2"
+	              },
+	              "thumbnail": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=2"
+	              },
+	              "thumbnailx2": {
+	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png?image=2"
+	              }
+	            },
+	            "title": "Faces of Europe",
+	            "subtitle": "The first chapter of this amazing virtual exhibition",
+	            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+            }
+          ]
         },
+        
+        
+        
         {
             "id": "1",
             "type": "ve-intro",

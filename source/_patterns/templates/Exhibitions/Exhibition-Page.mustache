@@ -139,77 +139,12 @@
 
         {{# credit_elements.present }}
           {{# credit_elements.items }}
-
-           <div class="ve-col-credit cf">
-              <div class="ve-col-credit-left">
-                <div class="inner">
-                  <figure>
-                    {{#image}}
-                      <picture data-hi-res="{{#full}}{{url}}{{/full}}">
-                        {{>atoms/images/responsive-srcset-picture}}
-                      </picture>
-                    {{/image}}
-                  </figure>
-                </div>
-              </div>
-              <div class="ve-col-credit-right">
-                <div class="inner">
-                  {{#image_credit}}
-                    <ul>
-                      {{#attribution_title}}
-                        <li class="ve-field">
-                          <h4 class="ve-field-label">Title</h4>
-                          {{#attribution_url}}
-                             <a href="{{.}}" target="_new">{{attribution_title}}</a>
-                          {{/attribution_url}}
-                          {{^attribution_url}}
-                            {{attribution_title}}
-                          {{/attribution_url}}
-                        </li>
-                      {{/attribution_title}}
-
-                      {{#attribution_creator}}
-                        <li class="ve-field">
-                          <h4 class="ve-field-label">Creator</h4> {{.}}
-                        </li>
-                      {{/attribution_creator}}
-
-                      {{#attribution_institution}}
-                        <li class="ve-field">
-                          <h4 class="ve-field-label">Source</h4>
-                          {{attribution_institution}}
-                        </li>
-                      {{/attribution_institution}}
-
-                      {{#country}}
-                      <li class="ve-field">
-                        <h4 class="ve-field-label">Country</h4>
-                        {{.}}
-                      </li>
-                      {{/country}}
-
-                      <li class="ve-field">
-                        <h4 class="ve-field-label">Rights</h4>
-                        {{>molecules/icons/licenses}}
-                      </li>
-
-                      {{#page_url}}
-                        <li class="ve-field bold">
-                          <a href="{{.}}#ve-element-anchor-{{id}}" target="_new">view in exhibition
-                        </li>
-                      {{/page_url}}
-
-                      {{#image}}
-                        <li class="ve-field">
-                          <a class="btn" download="Europeana-Exhibition-Image" href="{{#full}}{{url}}{{/full}}"><span class="svg-icon-download white"></span> Download</a>
-                        </li>
-                      {{/image}}
-
-                    </ul>
-                  {{/image_credit}}
-                </div>
-              </div>
-            </div>
+            {{^ is_image_compare }}
+              {{> molecules/virtual-exhibitions/image-credit}}
+            {{/is_image_compare}}
+            {{#image_compare_data}}
+              {{> molecules/virtual-exhibitions/image-credit}}
+            {{/image_compare_data}}
           {{/ credit_elements.items }}
         {{/ credit_elements.present }}
         </div>

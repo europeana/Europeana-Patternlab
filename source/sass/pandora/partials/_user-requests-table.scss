@@ -1,0 +1,30 @@
+.user-request-table {
+  background-color: $white;
+  margin-top: 2em;
+  width: 70em;
+
+  tr:hover {
+    background: $off-white;
+    cursor: pointer;
+  }
+}
+
+.user-request-pending {
+  color: $eu-blue;
+}
+
+.user-request-accepted {
+  color: $eu-jade;
+}
+
+.user-request-rejected {
+  color: $peachy;
+}
+
+.user-request-type-add {
+  color: $eu-blue;
+}
+
+.user-request-type-delete {
+  color: $peachy;
+}
