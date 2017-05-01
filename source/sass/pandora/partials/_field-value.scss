@@ -1,0 +1,90 @@
+.flag {
+  color: $light-gray;
+  display: inline-block;
+  float: right;
+  font-size: 1em;
+  padding-right: .20em;
+  vertical-align: baseline;
+
+  hover {
+    cursor: pointer;
+  }
+}
+
+.mapping-field-top {
+  display: table-row;
+  font-size: 1em;
+  height: 100%;
+  vertical-align: top;
+  width: 9em;
+
+  .eu-tooltip {
+    width: 240px;
+  }
+}
+
+.mapping-field-bottom {
+  display: table-row;
+  vertical-align: bottom;
+}
+
+.mapping-field-occurence {
+  color: $light-gray;
+  display: inline-block;
+  font-size: 1em;
+
+  selected {
+    color: $white;
+  }
+}
+
+
+.mapping-field {
+  -webkit-box-orient: vertical;
+  display: table;
+  font-size: .75em;
+  height: 100%;
+  -webkit-line-clamp: 3;
+  line-height: 1.4;
+  max-height: 10em;
+  max-width: 20em;
+  padding-left: .2em;
+  padding-right: .2em;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  &.dropdown-trigger {
+    display: none;
+    padding: 6px;
+  }
+}
+
+.field_value_valid {
+  background-color: $eu-jade;
+  color: $white;
+}
+
+.field_value_invalid {
+  background-color: $eu-red;
+  color: $white;
+}
+
+.field_value_valid .mapping-field-occurence,
+.field_value_invalid .mapping-field-occurence,
+.field_value_suspicious .mapping-field-occurence {
+  color: $white;
+}
+
+.field_value_valid a,
+.field_value_invalid a {
+  color: $paper;
+}
+
+.field_value_suspicious {
+  background-color: $yellow;
+  color: $white;
+
+  a {
+    color: $light-gray;
+  }
+}
