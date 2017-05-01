@@ -1,7 +1,17 @@
-// TODO: remove temp stylings.
 .dashboard-wrapper {
-  height: 1600px;
-  margin-top: 178px;
+  background-color: $off-white;
+  height: 100vh; // TODO: remove temp stylings.
+  margin-top: 4.8em;
+  padding: 0 1.2rem;
+
+
+  .btns-set {
+    background-color: $white;
+  }
+
+  .metis-dashboard {
+    padding: 1rem;
+  }
 }
 
 .cf.loggedin-metis {
