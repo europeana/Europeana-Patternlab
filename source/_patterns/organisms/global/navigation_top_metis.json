@@ -1,16 +1,80 @@
 {
-  "version":{
-    "is_alpha": true
-  },
-  "js_files": [
+  "css_files":
+  [
     {
-      "path": "../../bower_components/smartmenus/dist/jquery.smartmenus.js"
-    },
-    {
-      "path": "../../bower_components/smartmenus/dist/addons/keyboard/jquery.smartmenus.keyboard.js"
-    },
-    {
-      "path": "../../js/patternlab/global/menus.js"
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
     }
-  ]
+  ],
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+  "input_search": {
+    "title": "Search for dataset",
+    "input_name": "q",
+    "placeholder": "Search for dataset"
+  },
+  "version":{
+    "is_alpha": false,
+    "is_beta": true
+  },
+  "browse_menu": {
+    "menu_id": "browse-menu",
+    "items": [
+      {
+        "url": "#",
+        "text": "Datasets",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "Dataset",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "User",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            },
+            {
+              "text": "Organization",
+              "url": "javascript:alert('sounds')",
+              "icon": "icon-music"
+            },
+            {
+              "text": "All",
+              "url": "javascript:alert('texts')",
+              "icon": "icon-openbook"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metis-logged-user": true,
+  "metis-header-search": true,
+  "metis_header": {
+    "navigation":
+    {
+      "global":
+      {
+        "options":
+        {
+          "search_active": false,
+          "settings_active": true,
+          "oursites_hidden": true
+        },
+        "logo":
+        {
+          "url": "#",
+          "text": "Europeana Pandora"
+        }
+      }
+    }
+  }
 }
