@@ -124,6 +124,12 @@
                     {{> molecules/navigation/pagination }}
                 {{/has_results}}
 
+                {{#federated_results}}
+                {{#disabled}}
+                  {{> organisms/components/eu-accordion-tabs }}
+                {{/disabled}}
+                {{/federated_results}}
+
             </div>
 
             <div class="refine">

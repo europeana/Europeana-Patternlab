@@ -1,0 +1,75 @@
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 6, style.scss */
+.eu-accordion-tabs {
+  position: relative;
+}
+/* line 10, style.scss */
+.eu-accordion-tabs .tab-header {
+  border-bottom: 1px solid #4D4D4D;
+  cursor: pointer;
+  display: block;
+  padding: 0.6em 1.2em;
+  width: 100%;
+}
+/* line 17, style.scss */
+.eu-accordion-tabs .tab-header .tab-subtitle {
+  font-size: 0.75em;
+}
+/* line 22, style.scss */
+.eu-accordion-tabs .tab-content {
+  display: none;
+  padding: 0.6em 1.2em;
+  width: 100%;
+}
+/* line 27, style.scss */
+.eu-accordion-tabs .tab-content.active {
+  display: block;
+}
+/* line 34, style.scss */
+.eu-accordion-tabs.as-tabs .tab-content {
+  position: absolute;
+  top: 4em;
+}
+/* line 39, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header {
+  display: block;
+  float: left;
+  position: relative;
+  width: auto;
+}
+/* line 46, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header.active {
+  border-bottom: 0;
+}
+/* line 48, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header.active + .tab-content + .tab-header::before {
+  background-color: #4D4D4D;
+}
+/* line 53, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header:not(.js-last) {
+  border-right: 1px solid #4D4D4D;
+}
+/* line 57, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header:not(.active)::before {
+  background-color: #FFFFFF;
+  bottom: 0;
+  content: ' ';
+  display: block;
+  height: 0.6em;
+  left: -1px;
+  position: absolute;
+  width: 1px;
+}
+/* line 68, style.scss */
+.eu-accordion-tabs.as-tabs .tab-header .tab-title,
+.eu-accordion-tabs.as-tabs .tab-header .tab-subtitle {
+  display: block;
+  transform: translateY(-0.25em);
+}
+/* line 77, style.scss */
+.eu-accordion-tabs:not(.as-tabs) .tab-header:first-of-type,
+.eu-accordion-tabs:not(.as-tabs) .tab-content.active + .tab-header {
+  border-top: 1px solid #4D4D4D;
+}

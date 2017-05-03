@@ -1,0 +1,146 @@
+{
+  "js_files": [
+    {
+      "path":      "/js/modules/require.js",
+      "data_main": "/js/modules/main/organisms/main-eu-accordion-tabs"
+    }
+  ],
+  "tab_items": [
+    {
+      "tab_title":    "Tab One",
+      "tab_subtitle": "1,360 Results",
+      "tab_content": false,
+      "search_results": [{
+        "title": "Glasgow School of Art - Exterior, Renfrew Street metalwork | Mackintosh, Charles Rennie",
+        "creator": "Charles Rennie Mackintosh and Abraham Lincoln",
+        "is_video": true,
+        "item_type": {
+          "name": "Video",
+          "url": "http://europeana.eu/search/paintings"
+        },
+        "img": {
+          "src": "/images/search/search-result-thumb-lincoln.jpg",
+          "alt": "Rectangle"
+        },
+        "origin": {
+          "url": "http://urlhere.com",
+          "text": "Glasgow School of Art"
+        },
+        "concepts": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "prints (visual works)"
+            }
+          ]
+        },
+        "channels": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "Art History"
+            }
+          ]
+        },
+        "text": {
+          "medium": "Exterior, Renfrew Street metalwork, the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+        },
+        "year": {
+          "long": "1896/1909"
+        }
+      }]
+    },
+    {
+      "tab_title":    "Tab Two the Second (II)",
+      "tab_subtitle": "12 Results",
+      "search_results": [{
+        "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie",
+        "creator": "Charles Rennie Mackintosh",
+        "is_image": true,
+        "item_type": {
+          "name": "Photograph",
+          "url": "http://europeana.eu/search/paintings"
+        },
+        "img": {
+          "src": "/images/search/search-result-thumb-4.jpg",
+          "alt": "Rectangle"
+        },
+        "origin": {
+          "url": "http://urlhere.com",
+          "text": "Glasgow School of Art"
+        },
+        "concepts": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "prints (visual works)"
+            }
+          ]
+        },
+        "channels": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "Art History"
+            }
+          ]
+        },
+        "text": {
+          "medium": "Model (on display) of The Lighthouse (formerly the Glasgow Herald Building), Mitchell Lane, Glasgow. Built 1895 to a Glasgow Style design by Charles Rennie Mackintosh."
+        },
+        "year": {
+          "long": "1895"
+        }
+      }]
+    },
+    {
+      "tab_title":    "Tab Three",
+      "tab_subtitle": "123 Results",
+      "tab_content": false,
+      "search_results": [{
+        "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
+        "is_image": true,
+        "item_type": {
+          "name": "Photograph",
+          "url": "http://europeana.eu/search/paintings"
+        },
+        "img": {
+          "src": "/images/search/search-result-thumb-5.jpg",
+          "alt": "Rectangle"
+        },
+        "origin": {
+          "url": "http://urlhere.com",
+          "text": "Glasgow School of Art"
+        },
+        "concepts": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "prints (visual works)"
+            }
+          ]
+        },
+        "channels": {
+          "items": [
+            {
+              "url": "http://europeana.eu",
+              "text": "Art History"
+            }
+          ]
+        },
+        "text": {
+          "medium": "Interior, lighting (rose motif), the Glasgow School of Art, Renfrew Street, Glasgow. Built 1896-1909, to a Glasgow Style design by Charles Rennie Mackintosh."
+        },
+        "year": {
+          "long": "1896/1909"
+        }
+      }]
+    },
+    {
+      "tab_title":    "Tab 4",
+      "tab_subtitle": "123 Results",
+      "tab_content": "This tab has content <b>instead</b> of a search result",
+      "search_result": false
+    }
+  ]
+}

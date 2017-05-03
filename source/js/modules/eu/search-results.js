@@ -328,6 +328,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     euSearchForm = form;
 
     var defView;
+
     if(typeof(Storage) !== "undefined") {
       var label = $('.breadcrumbs').data('store-channel-label');
       var name  = $('.breadcrumbs').data('store-channel-name');
@@ -349,6 +350,8 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     bindGA();
     bindfacetOpeners();
     bindDateFacetInputs();
+
+    initFederatedSearch();
 
     $(window).bind('addAutocomplete', function(e, data){
       addAutocomplete(data);
@@ -376,6 +379,15 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         }
       });
     });
+  }
+
+  function initFederatedSearch(){
+    var fedSearch = $('.eu-accordion-tabs');
+    if(fedSearch.length > 0){
+      require(['eu_accordion_tabs'], function(accordionTabs){
+        accordionTabs.init(fedSearch);
+      });
+    }
   }
 
   return {

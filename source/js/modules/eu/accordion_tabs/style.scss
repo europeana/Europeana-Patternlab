@@ -1,0 +1,82 @@
+@import '../../../../sass/scss/generic/variables';
+
+$tabs-border-colour: $medium-gray;
+$tabs-pad:           1.2em;
+
+.eu-accordion-tabs{
+
+  position: relative;
+
+  .tab-header{
+    border-bottom:  1px solid $tabs-border-colour;
+    cursor:         pointer;
+    display:        block;
+    padding:        $tabs-pad/2 $tabs-pad;
+    width:          100%;
+
+    .tab-subtitle{
+      font-size: $font-size-sm;
+    }
+  }
+
+  .tab-content{
+    display: none;
+    padding: $tabs-pad / 2 $tabs-pad;
+    width:   100%;
+
+    &.active{
+      display: block;
+    }
+  }
+
+  &.as-tabs{
+
+    .tab-content{
+      position: absolute;
+      top:      4em;
+    }
+
+    .tab-header{
+
+      display:  block;
+      float:    left;
+      position: relative;
+      width:    auto;
+
+      &.active{
+        border-bottom: 0;
+        + .tab-content + .tab-header::before{
+          background-color: $tabs-border-colour;
+        }
+      }
+
+      &:not(.js-last){
+        border-right: 1px solid $tabs-border-colour;
+      }
+
+      &:not(.active)::before{
+        background-color: $white;
+        bottom:           0;
+        content:          ' ';
+        display:          block;
+        height:           $tabs-pad / 2;
+        left:            -1px;
+        position:         absolute;
+        width:            1px;
+      }
+
+      .tab-title,
+      .tab-subtitle{
+        display:   block;
+        transform: translateY(-0.25em);
+      }
+    }
+  }
+
+  &:not(.as-tabs){
+    .tab-header:first-of-type,
+    .tab-content.active + .tab-header{
+      border-top:  1px solid $tabs-border-colour;
+    }
+  }
+}
