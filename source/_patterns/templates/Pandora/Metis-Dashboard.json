@@ -14,7 +14,7 @@
   [
     {
       "path": "../../js/modules/require.js",
-      "data_main": "../../js/modules/main/templates/main-pandora"
+      "data_main": "../../js/modules/main/templates/main-metis-dashboard"
     }
   ],
   "js_vars":
@@ -46,7 +46,7 @@
     "url-right": "http://www.europeana.eu"
   },
   "browse_menu": {
-    "menu_id": "browse-menu",
+    "menu_id": "metis-search-menu",
     "items": [
       {
         "url": "#",
