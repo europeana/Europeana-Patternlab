@@ -1,31 +1,32 @@
-define(['jquery', 'purl'], function($) {
+define(['jquery'], function($) {
 
-  var timeout = 3000;
+  var timeout = 500;
 
-  require(['../../eu/dev_data/require-config'], function(xtra_configs){
+  require(['../../eu/dev_data/require-config'], function(data_configs){
 
-    require.config(xtra_configs);
+    require.config(data_configs);
 
     var res      = null;
     var mockAjax = function(options) {
       var that = {
         done: function done(callback) {
+
           if(options.success){
             setTimeout(function(){
               callback(res);
-            }, options.timeout);
+            }, timeout);
           }
           return that;
         },
         error: function error(callback) {
           if(!options.success){
-            setTimeout(callback, options.timeout, res);
+            setTimeout(callback, timeout, res);
           }
           return that;
         },
         fail: function fail(callback) {
           if(!options.success){
-            setTimeout(callback, options.timeout, res);
+            setTimeout(callback, timeout, res);
           }
           return that;
         }
@@ -33,22 +34,21 @@ define(['jquery', 'purl'], function($) {
       return that;
     };
 
-    $.ajax = function(xhr){
+    $.ajax = function(){
 
-      var url    = arguments[0].url;
-      var $url   = $.url(url);
-      path       = url.split('?')[0];
-      var params = $url.param();
+      res               = null;
+      var url           = arguments[0].url;
+      var pathAndParams = data_configs.resolvePathAndParams(url);
 
-      require([path], function(result){
-        res = result;
+      require([pathAndParams.path], function(dataSource){
+        res = dataSource.getData(pathAndParams.params);
       });
 
       return mockAjax({
         success:  true,
-        timeout:  timeout,
         response: res
       });
-    }
+    };
+
   });
 });
