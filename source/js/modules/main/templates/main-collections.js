@@ -10,7 +10,6 @@ window.__ga__ = {
 };
 
 require.config({
-  //urlArgs: "cache=" + (release || Math.random()),
   paths: {
     aurora:                        '../../lib/audiocogs/aurora',
     blacklight:                    '../../lib/blacklight/blacklight_all',
@@ -22,6 +21,7 @@ require.config({
     eu_carousel:                   '../../eu/eu-carousel',
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/eu-hierarchy',
+    eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
     fashion_redirect:              '../../eu/util/fashion-redirect',
     fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
     featureDetect:                 '../../global/feature-detect',
@@ -154,6 +154,11 @@ window.fixGA = function(ga){
 
 require(['jquery'], function( $ ) {
   require(['optimizely']);
+
+  if(typeof mock_ajax != 'undefined' && mock_ajax){
+    require(['eu_mock_ajax']);
+  }
+
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'global'], function(channels) {
