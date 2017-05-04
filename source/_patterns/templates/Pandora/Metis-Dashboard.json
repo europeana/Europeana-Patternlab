@@ -85,7 +85,31 @@
     }
   },
   "page_title": "Europeana Metis Dashboard",
-  "metis-logged-user": true,
+  "metis-logged-user": {
+    "menu_id": "loggedin-user",
+    "icon_class": "svg-icon-loggedin-user",
+    "items": [
+      {
+        "url": "#",
+        "text": "",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "My Profile",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Log out",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "metis-header-search": true,
   "metis_header": {
     "navigation":

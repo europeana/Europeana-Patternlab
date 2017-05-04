@@ -32,6 +32,21 @@
 
     #settings-menu {
       float: right;
+      min-width: 11.5rem;
+
+      .metis-user {
+        .sub-arrow {
+          display: none;
+        }
+        ul li ul.menu-sublevel {
+          &::before {
+            left: 38px;
+          }
+          &::after {
+            left: 39px;
+          }
+        }
+      }
 
       .notifications {
         position: relative;
@@ -54,8 +69,8 @@
 
         @-moz-document url-prefix() {
           .circle {
-            left: -158px;
-            top: 38px;
+            left: -97px;
+            top: 40px;
           }
         }
       }
