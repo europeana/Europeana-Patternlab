@@ -231,7 +231,7 @@
                 "items": [
                   {
                     "submenu": false,
-                    "text": "My Profile",
+                    "text": "Login",
                     "url": "#"
                   },
                   {
@@ -239,7 +239,7 @@
                   },
                   {
                     "submenu": false,
-                    "text": "Login",
+                    "text": "Register",
                     "url": "#"
                   }
                 ]

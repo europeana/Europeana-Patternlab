@@ -10,6 +10,15 @@ define(['jquery', 'search_form', 'smartmenus'], function ($) {
       subMenusMinWidth: null
     });
 
+    $('#loggedin-user').smartmenus({
+      mainMenuSubOffsetX: -25, // margin-left
+      mainMenuSubOffsetY: 44, // margin-top
+      subMenusSubOffsetX: 0,  // left
+      subMenusSubOffsetY: null,
+      subMenusMaxWidth: 110,
+      subMenusMinWidth: 100
+    });
+
     $('.js-hack-smartmenu a').click(function () {
       var href = $(this).attr('href');
       if (href != '#') {
