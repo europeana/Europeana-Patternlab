@@ -7,5 +7,5 @@ require.config({
 });
 
 require(['jquery', 'eu_accordion_tabs'], function($, euAccordionTabs) {
-  euAccordionTabs.init($('.eu-accordion-tabs'));
+  euAccordionTabs.init($('.eu-accordion-tabs'), { "active": 2, "fnOpenTab": function(index){ console.log('opened tab ' + index); } });
 });

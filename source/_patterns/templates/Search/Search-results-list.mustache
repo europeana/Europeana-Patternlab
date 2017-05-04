@@ -125,9 +125,15 @@
                 {{/has_results}}
 
                 {{#federated_results}}
-                {{#disabled}}
-                  {{> organisms/components/eu-accordion-tabs }}
-                {{/disabled}}
+                  <h3 class="title-federated-results">{{i18n.site.results.federated}}</h3>
+                  <div class="display-grid">
+                    {{> organisms/components/eu-accordion-tabs }}
+                  </div>
+                  {{#tab_items}}
+                    {{#more_results_url}}
+                      <h4 class="more-federated-results"><a href="{{.}}">{{more_results_label}}</a></h4>
+                    {{/more_results_url}}
+                  {{/tab_items}}
                 {{/federated_results}}
 
             </div>

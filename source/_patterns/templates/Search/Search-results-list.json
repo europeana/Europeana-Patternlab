@@ -1281,10 +1281,14 @@
     }
   ],
   "federated_results": {
+    "results_count":    "(1st param for translate key 'site.results.federated_more')",
+    "results_provider": "(2nd param for translate key 'site.results.federated_more')",
     "tab_items": [
       {
-        "tab_title":    "DPLA",
-        "tab_subtitle": "273 Results",
+        "tab_title":          "DPLA",
+        "tab_subtitle":       "273 Results",
+        "more_results_label": "View all 273 results on DPLA",
+        "more_results_url":   "javascript:alert('Link to more DPLA results')",
         "search_results": [
           {
             "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
@@ -1448,8 +1452,10 @@
         ]
       },
       {
-        "tab_title":    "Internet Archive",
-        "tab_subtitle": "273 Results",
+        "tab_title":          "Internet Archive",
+        "tab_subtitle":       "612 Results",
+         "more_results_label": "View all 612 results on Internet Archive",
+        "more_results_url":   "javascript:alert('Link to more Intenret Archive results')",
         "search_results": [
           {
             "title": "Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie",
@@ -1629,8 +1635,10 @@
         ]
       },
       {
-        "tab_title":    "DigitalNZ",
-        "tab_subtitle": "189 Results",
+        "tab_title":          "DigitalNZ",
+        "tab_subtitle":       "189 Results",
+         "more_results_label": "View all 189 results on DigitalNZ",
+        "more_results_url":   "javascript:alert('Link to more DigitalNZ results')",
         "search_results": [
           {
             "agent": "Nicolaes Tulp",
@@ -1815,6 +1823,94 @@
             },
             "text": {
               "medium": "The Stoning of Saint Stephen is the first painting by Dutch artist Rembrandt, painted in 1625 at the age of 19."
+            },
+            "year": {
+              "long": "1625"
+            }
+          }
+        ]
+      },
+      {
+        "tab_title":          "Canadiana",
+        "tab_subtitle":       "5 Results",
+        "more_results_label": "View all 5 results on Canadiana",
+        "more_results_url":   "javascript:alert('Link to more Canadiana results')",
+        "search_results": [
+          {
+            "agent": "Canada Nicolaes Tulp",
+            "creator": "Canada Nicolaes Tulp",
+            "title": "Canada The Anatomy Lesson of Dr. Nicolaes Tulp",
+            "is_audio": true,
+            "item_type": {
+              "name": "Canada Song",
+              "url": "http://europeana.eu/search/paintings"
+            },
+            "img": {
+              "src": "/images/search/search-result-thumb-2.jpg",
+              "alt": "Rectangle"
+            },
+            "origin": {
+              "url": "http://urlhere.com",
+              "text": "Canada  Rijksmuseum"
+            },
+            "text": {
+              "medium": "Canada: by Rembrandt"
+            },
+            "year": {
+              "long": "1632"
+            }
+          },
+          {
+            "agent": "Canadian Me",
+            "creator": "Me",
+            "title": "Canadian Self portrait",
+            "is_text": true,
+            "item_type": {
+              "name": "Poem",
+              "url": "http://europeana.eu/search/paintings"
+            },
+            "img": {
+              "src": "http://placeimg.com/400/300/people",
+              "alt": "Rectangle"
+            },
+            "origin": {
+              "url": "http://urlhere.com",
+              "text": "Providerhere"
+            },
+            "text": {
+              "medium": "Canadian self-portrait with dishevelled hair."
+            },
+            "year": {
+              "long": "1628"
+            }
+          },
+          {
+            "agent": "Canadian Rembrandt, in association with Belshazzar",
+            "creator": "Canadian Rembrandt",
+            "title": "Canadian Feast",
+            "is_text": true,
+            "item_type": {
+              "name": "Book",
+              "url": "http://europeana.eu/search/books"
+            },
+            "img": {
+              "src": "http://placeimg.com/400/300/nature",
+              "alt": "Rectangle"
+            },
+            "text": {
+              "medium": "Canadian Feast is a painting by Canadian Rembrandt."
+            },
+            "year": {
+              "long": "1635"
+            }
+          },
+          {
+            "agent": "Canadian Rembrandt van Rijn",
+            "creator": "Canadian Rembrandt van Rijn",
+            "title": "The Stoning of Canadian Saint Stephen",
+            "is_image": true,
+            "text": {
+              "medium": "The Stoning of Canadian Saint Stephen is the first painting by Canadian artist Canadian Rembrandt."
             },
             "year": {
               "long": "1625"

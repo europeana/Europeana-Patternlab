@@ -382,10 +382,23 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   }
 
   function initFederatedSearch(){
+
     var fedSearch = $('.eu-accordion-tabs');
+
     if(fedSearch.length > 0){
       require(['eu_accordion_tabs'], function(accordionTabs){
-        accordionTabs.init(fedSearch);
+
+        accordionTabs.init(fedSearch, {
+          fnOpenTab: function(index){
+            $('.more-federated-results').hide();
+            $('.more-federated-results:eq(' + index + ')').show();
+
+            log('total '     + $('.more-federated-results').length );
+            log('activated ' + $('.more-federated-results:eq(' + index + ')').length );
+          }
+        });
+
+        fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
       });
     }
   }

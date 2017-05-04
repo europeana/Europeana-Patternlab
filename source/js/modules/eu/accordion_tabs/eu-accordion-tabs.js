@@ -16,9 +16,10 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function init($cmp, active){
+  function init($cmp, ops){
 
-    active = active ? active : 0;
+    var active    = ops.active ? ops.active : 0;
+    var fnOpenTab = ops.fnOpenTab;
 
     setTimeout(function(){
       applyMode($cmp);
@@ -30,6 +31,10 @@ define(['jquery', 'util_resize'], function($){
 
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
     $('.tab-content:eq(' + active + ')').add('.tab-header:eq(' + active + ')').addClass('active');
+
+    if(fnOpenTab){
+      fnOpenTab(active);
+    }
 
     function headerClick(){
       if($cmp.hasClass(tabsClass)){
@@ -46,13 +51,21 @@ define(['jquery', 'util_resize'], function($){
           $(this).next('.tab-content').addClass('active');
         }
       }
+      if(fnOpenTab){
+        $.each($cmp.find('.tab-content'), function(i, ob){
+          if($(ob).hasClass('active')){
+              log('call the open tab function ' + i);
+            fnOpenTab(i);
+          }
+        });
+      }
     }
     $cmp.find('.tab-header').on('click', headerClick);
   }
 
   return {
-    init: function($cmp){
-      init($cmp);
+    init: function($cmp, ops){
+      init($cmp, ops);
     }
   }
 });
