@@ -24,7 +24,7 @@
     {
       "tab_title":    "Tab 4",
       "tab_subtitle": "(event callback)",
-      "tab_content":  "	<br/>When the user changes the active tab the (optional) function <code>fnOpenTab</code> (passed in the ops parameter of the <code>init</code> function) will be called - the active tab index is passed into this function as its only parameter.<br/><br/>(in this example text is written to the document body)"
+      "tab_content":  "<br/>When the user changes the active tab the (optional) function <code>fnOpenTab</code> (passed in the ops parameter of the <code>init</code> function) will be called - the active tab index is passed into this function as its only parameter.<br/><br/>(in this example text is written to the document body)"
     }
   ]
 }
