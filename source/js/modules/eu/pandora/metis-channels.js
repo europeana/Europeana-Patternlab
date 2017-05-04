@@ -2,12 +2,12 @@ define(['jquery', 'search_form', 'smartmenus'], function ($) {
   require(['smartmenus_keyboard'], function () {
 
     $('#metis-search-menu').smartmenus({
-      mainMenuSubOffsetX: -8, // margin-left
+      mainMenuSubOffsetX: -7, // margin-left
       mainMenuSubOffsetY: 17, // margin-top
       subMenusSubOffsetX: 0,  // left
       subMenusSubOffsetY: null,
-      subMenusMaxWidth: null,
-      subMenusMinWidth: null
+      subMenusMaxWidth: 240,
+      subMenusMinWidth: 190
     });
 
     $('#loggedin-user').smartmenus({
