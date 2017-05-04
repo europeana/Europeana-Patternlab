@@ -2,7 +2,7 @@ define(['jquery', 'search_form', 'smartmenus'], function ($) {
   require(['smartmenus_keyboard'], function () {
 
     $('#metis-search-menu').smartmenus({
-      mainMenuSubOffsetX: -6, // margin-left
+      mainMenuSubOffsetX: -8, // margin-left
       mainMenuSubOffsetY: 17, // margin-top
       subMenusSubOffsetX: 0,  // left
       subMenusSubOffsetY: null,
