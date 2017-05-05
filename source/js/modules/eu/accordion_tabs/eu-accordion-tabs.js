@@ -3,12 +3,6 @@ define(['jquery', 'util_resize'], function($){
   var css_path  = require.toUrl('../../eu/accordion_tabs/style.css');
   var tabsClass = 'as-tabs';
 
-  $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
-
-  function log(msg){
-    console.log('Accordion Tabs: ' + msg);
-  };
-
   function applyMode($cmp){
     $cmp.addClass(tabsClass);
     if($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
@@ -21,9 +15,7 @@ define(['jquery', 'util_resize'], function($){
     var active    = ops.active ? ops.active : 0;
     var fnOpenTab = ops.fnOpenTab;
 
-    setTimeout(function(){
-      applyMode($cmp);
-    }, 100);
+    applyMode($cmp);
 
     $(window).europeanaResize(function(){
       applyMode($cmp);
@@ -54,7 +46,6 @@ define(['jquery', 'util_resize'], function($){
       if(fnOpenTab){
         $.each($cmp.find('.tab-content'), function(i, ob){
           if($(ob).hasClass('active')){
-              log('call the open tab function ' + i);
             fnOpenTab(i);
           }
         });
@@ -63,9 +54,15 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-header').on('click', headerClick);
   }
 
+  function loadStyle(cb){
+    $('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>').on('load', cb).appendTo('head');
+  }
+
   return {
     init: function($cmp, ops){
-      init($cmp, ops);
+      loadStyle(function(){
+        init($cmp, ops);
+      });
     }
-  }
+  };
 });

@@ -1,9 +1,9 @@
 
 // Search hero bar
 .search-hero{
-  padding: $space-double $space;
-  background-color: #DDEBEE;
+  background-color: #ddebee;
   border-bottom: 1px solid $gray87;
+  padding: $space-double $space;
 }
 
 .search-hero.has-bgimage,
@@ -12,15 +12,15 @@
   background-repeat:   no-repeat;
   background-size:     cover;
   position:            relative;
-  &:after{
-    background-color: rgba(0,0,0,0.58);
-    content: " ";
-    display: block;
-    height:  100%;
-    width:   100%;
-    top:     0;
-    left:    0;
+  &::after{
+    background-color: rgba(0, 0, 0, 0.58);
+    content:  ' ';
+    display:  block;
+    height:   100%;
+    left:     0;
     position: absolute;
+    top:      0;
+    width:    100%;
   }
 }
 
@@ -32,9 +32,9 @@
 
 // Search results container
 .search-results{
-  padding: 0 $space;
 
   background: $white; // fallback
+  padding: 0 $space;
 
   @media all and (max-width: $bp-med) {
     position: relative;
@@ -42,13 +42,13 @@
 
   @media all and (min-width: $bp-med) {
     background: $offwhite; // fallback
-    @include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+    @include background(linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%));
   }
 
   .container{
     @include container($max-width);
     @media all and (min-width: $bp-med) {
-      overflow:hidden;
+      overflow: hidden;
     }
   }
 }
@@ -57,16 +57,16 @@
 // Base 2 columns
 // List of results
 .results-list{
-  background-color: rgba(255,255,255,1);
+  background-color: rgba(255, 255, 255, 1);
   padding-bottom: $space;
   position: relative;
 
   @media all and (min-width: $bp-med) {
     @include span(last 18);
 
-    /* keep column height as high as facet column when result list empty */
-    padding-bottom: 100em;
+    // keep column height as high as facet column when result list empty
     margin-bottom: -100em;
+    padding-bottom: 100em;
   }
 }
 
@@ -82,18 +82,18 @@
     &.open{
       display: block;
       position: absolute;
-      top:   4.5em;
       right: 0;
+      top:   4.5em;
       z-index: 2;
 
-      &:before{
+      &::before{
         border-color: transparent transparent $offwhite;
         border-style: solid;
         border-width: 12px;
         content: ' ';
         display: inline-block;
-        right: 40px;
         position: absolute;
+        right: 40px;
         top: -23px;
       }
 
@@ -104,7 +104,6 @@
       h2{
         background: $offwhite;
         border: 0;
-
       }
       &>h2{
         margin-bottom: 0;
@@ -127,11 +126,9 @@
   @media all and (min-width: $bp-med) {
     @include span(6);
 
-    padding: $space;
+    background: $offwhite;
     margin-left: -$space;
     margin-right: -$space;
-
-    background: $offwhite;
     margin: 0;
     padding: $space-half + $space-quarter 0 $space-double 0;
 
@@ -155,21 +152,21 @@
 
 
   &>h2{
-    text-transform: uppercase;
-    font-weight: bold;
     @include fontSize(16px);
     color: $textcolour_body;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
 // Contents of Results list
 // Results list header containing controls that affect the list
 .results-header{
-  padding: $space-quarter + $pad-quarter $space-quarter;
+  @include fontSize(14px);
   border-bottom: 1px solid $gray87;
   margin-bottom: $space;
   overflow: hidden;
-  @include fontSize(14px);
+  padding: $space-quarter + $pad-quarter $space-quarter;
 }
 
 .refine .eu-tooltip{
@@ -187,6 +184,8 @@
 
 .result-actions{
 
+  @include span(3 of 12);
+
   .results-menu-prefix,
   .menu_dropdown{
     float: left;
@@ -194,11 +193,9 @@
   .results-menu-prefix{
     margin-right: 0.5em;
   }
-  .results-menu-prefix:after{
-    content: ":";
+  .results-menu-prefix::after{
+    content: ':';
   }
-
-  @include span(3 of 12);
 
   @media all and (min-width: $bp-small-3) {
     @include span(2 of 18);
@@ -215,7 +212,7 @@
     border-bottom: 1px dotted #1a8ac7;
     padding-right: 0;
   }
-  .dropdown-trigger:after{
+  .dropdown-trigger::after{
     display: none;
   }
   .active{
@@ -230,10 +227,10 @@
   @include push(1 of 12);
   @include span(10 of 12);
 
-  padding: $space;
   background-color: $gray97;
   border: 1px dashed $gray-lighter;
   margin-bottom: $pad-double;
+  padding: $space;
 
   @media all and (min-width: $bp-small-3) {
     @include push(1 of 18);
@@ -293,14 +290,14 @@
   .opener{
     color: $gray30;
     margin-right: 12px;
-    &:after{
+    &::after{
       border-color: $gray47 transparent transparent;
       border-style: solid;
       border-width: 6px;
       content: ' ';
       display: inline-block;
-      right: -5px;
       position: absolute;
+      right: -5px;
       top: 8px;
     }
   }
@@ -355,8 +352,8 @@
   }
 
   .result-viewtype a{
-    width: 2.8em;
     max-width: 12em;
+    width: 2.8em;
     @media all and (min-width: $bp-small-3) {
       width: auto;
     }
@@ -366,9 +363,9 @@
 .blogs-info,
 .events-info,
 .result-info{
+  margin-top:       3em;
   position:         relative;
   top:              3em;
-  margin-top:       3em;
 
   @media all and (min-width: $bp-small) {
     top:        1em;
@@ -401,9 +398,9 @@
     top: 2em;
 
     @media all and (min-width: $bp-small-3) {
-      top:          -0.25em;
       margin-left:  0;
       margin-right: 0;
+      top:          -0.25em;
       width:        auto;
     }
 
@@ -442,9 +439,9 @@
   text-align: center;
 
   .search-list-item &{
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
   }
 
   input{
@@ -463,6 +460,7 @@
 
 .results-list{
 
+
   .title-federated-results{
     margin: 3em 0 2em 1em;
   }
@@ -473,57 +471,107 @@
     text-align: right;
   }
 
+  @media all and (max-width: $bp-med) {
+    .title-federated-results,
+    .more-federated-results{
+      text-align:   center;
+    }
+  }
+
   .eu-accordion-tabs{
 
-    height: 23em;
+    &:not(.as-tabs) .tab-content{
 
-    @media all and (max-width: $bp-med) {
+      display:  block;
+      float:    left;
+      position: relative;
+      top:      auto;
+      width:    100%;
 
-      .tab-content,
-      &.as-tabs .tab-content{
-        display:  block;
-        float:    left;
-        position: relative;
-        top:      auto;
+      @media all and (min-width: $bp-small-2) {
         width:    50%;
+      }
 
-        .search-list-item{
-          display: none;
-        }
+      .search-list-item{
 
-        .search-list-item:first-child{
+        display: none;
+
+        &:first-child{
           display: block;
           float:   none;
           width:   100%;
         }
       }
-
-      .tab-header{
-        display: none;
-      }
     }
 
-    @media all and (min-width: $bp-med) {
+    &.as-tabs{
 
-      .tab-content.active{
-        display:         flex;
-        justify-content: space-between;
+      height: 40em;
+
+      @media all and (max-width: $bp-large) {
+
+        .search-list-item{
+          width: 50%;
+        }
+
       }
 
+      @media all and (min-width: $bp-large) {
+
+        height: 23em;
+
+        .tab-content.active{
+          display:         flex;
+          justify-content: space-between;
+        }
+      }
+
+    }
+
+    .tab-header{
+      display: none;
     }
 
     .search-list-item{
 
       .item-info{
+
         border:     0;
         max-height: 3.2em;
         overflow:   hidden;
         padding:    0.5em 1em 0 0;
+
+        > h2{
+          margin-right: 0;
+          max-height: none;
+          overflow:   unset;
+          white-space:  normal;
+
+          a{
+            display:    block;
+            max-height: 2.8em;
+            position:   relative;
+          }
+          a.svg-icon-external-eu-blue-after::after{
+            bottom:   1px;
+            position: absolute;
+            right:    -18px;
+            top:      auto;
+          }
+        }
       }
 
       .item-preview{
+
         border: 0;
         height: 12em;
+
+        @media all and (min-width: $bp-small) {
+          height: 15em;
+        }
+        @media all and (min-width: $bp-small-2) {
+          height: 12em;
+        }
 
         .item-image,
         .inner,
@@ -533,27 +581,6 @@
         img{
           height: 100%;
         }
-      }
-
-      h2{
-        max-height: none;
-        overflow:   unset;
-        a{
-          display:    block;
-          max-height: 2.8em;
-          position:   relative;
-          &.svg-icon-external-eu-blue-after::after{
-            bottom:   1px;
-            position: absolute;
-            right:    -18px;
-            top:      auto;
-          }
-        }
-      }
-
-      h2, h3{
-        margin-right: 0;
-        white-space:  normal;
       }
 
     }
