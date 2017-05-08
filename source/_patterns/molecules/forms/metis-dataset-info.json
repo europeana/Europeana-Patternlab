@@ -1,0 +1,110 @@
+{
+  "css_files": [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
+      "media": "all"
+    },
+    {
+      "path": "http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+  "dataset_form": {
+    "dataset_fields": {
+      "field_name": {
+        "label": "Name",
+        "placeholder": "2024913_Photocons_LPDP"
+      },
+      "provider": {
+        "label": "Provider",
+        "placeholder": "Europeana Photography"
+      },
+
+      "data_provider": {
+        "label": "Data provider",
+        "placeholder": "Parisienne de photographie"
+      },
+      "dea_signed": {
+        "label": "DEA signed"
+      },
+      "date_created": {
+        "label": "Date created",
+        "placeholder": "Europeana Photography"
+      },
+      "date_updated": {
+        "label": "Date updated",
+        "placeholder": "25/12/2015"
+      },
+      "replaced_by": {
+        "label": "Replaced by",
+        "placeholder": ""
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "This is a great dataset!"
+      },
+
+      "notes": {
+        "label": "Notes",
+        "placeholder": "I did a complex mapping for edm:rights"
+      },
+      "first_published": {
+        "label": "First published",
+        "placeholder": "23/12/2013"
+      },
+      "last_published": {
+        "label": "Last published",
+        "placeholder": "31/01/2017"
+      },
+      "assigned_to": {
+        "label": "Assigned to",
+        "placeholder": "Pierre"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "France"
+      },
+      "language": {
+        "label": "Language",
+        "placeholder": "fr"
+      },
+
+      "harvest_protocol": {
+        "label": "Harvest protocol",
+        "label_http": "HTTP",
+        "label_oai-pmh": "OAI-PMH",
+        "label_iiif": "IIIF"
+      },
+      "harvest_url": {
+        "label": "Harvest URL",
+        "placeholder": "http://panic.image.ece.ntua.gr:9000/photography/oai"
+      },
+      "setspec": {
+        "label": "Setspec",
+        "placeholder": "1007"
+      },
+      "metadata_format": {
+        "label": "Metadata format",
+        "placeholder": "rdf"
+      },
+      "provider_url": {
+        "label": "Provider",
+        "placeholder": "http://www.europeanalabs.eu/svn/europeana/trunk/ROOT/src/main/webapp/sc..."
+      },
+      "metadata_namespace": {
+        "label": "Metadata Namespace",
+        "placeholder": "http://www.europeana.eu/schemas/edm"
+      }
+    }
+  }
+}
