@@ -46,7 +46,7 @@ $tabs-pad:           1.2em;
       &.active{
         border-bottom: 0;
         + .tab-content + .tab-header::before{
-          background-color: $tabs-border-colour;
+          background-color: transparent;
         }
       }
 

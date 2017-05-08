@@ -125,7 +125,10 @@
                 {{/has_results}}
 
                 {{#federated_results}}
-                  <h3 class="title-federated-results">{{i18n.site.results.federated}}</h3>
+                  <h3 class="title-federated-results">
+                    <a class="fed-res-expand"> </a>
+                    {{i18n.site.results.federated}}
+                  </h3>
                   <div class="display-grid">
                     {{> organisms/components/eu-accordion-tabs }}
                   </div>

@@ -388,17 +388,35 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     if(fedSearch.length > 0){
       require(['eu_accordion_tabs'], function(accordionTabs){
 
+        fedSearch.find('.tab-content').addClass('collapsed');
+        fedSearch.find('.tab-header').on('click', function(){
+          fedSearch.find('.tab-content').removeClass('collapsed');
+        });
+
         accordionTabs.init(fedSearch, {
           fnOpenTab: function(index){
             $('.more-federated-results').hide();
             $('.more-federated-results:eq(' + index + ')').show();
-
-            log('total '     + $('.more-federated-results').length );
-            log('activated ' + $('.more-federated-results:eq(' + index + ')').length );
-          }
+            $('.fed-res-expand').addClass('expanded');
+          },
+          active: -1
         });
 
         fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
+        
+        $('.fed-res-expand').on('click', function(){
+        	
+          var clicked = $(this);
+        
+          if(clicked.hasClass('expanded')){
+            fedSearch.find('.tab-content').addClass('collapsed');
+          }
+          else{
+            fedSearch.find('.tab-content').removeClass('collapsed');
+          }
+          clicked.toggleClass('expanded');
+        });
+        
       });
     }
   }

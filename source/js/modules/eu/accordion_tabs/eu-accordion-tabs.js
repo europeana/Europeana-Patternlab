@@ -22,10 +22,15 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
-    $('.tab-content:eq(' + active + ')').add('.tab-header:eq(' + active + ')').addClass('active');
-
-    if(fnOpenTab){
-      fnOpenTab(active);
+    
+    if(active > -1){
+      $('.tab-content:eq(' + active + ')').add('.tab-header:eq(' + active + ')').addClass('active');
+      if(fnOpenTab){
+        fnOpenTab(active);
+      }
+    }
+    else{
+      $('.tab-content:eq(0)').add('.tab-header:eq(0)').addClass('active');
     }
 
     function headerClick(){

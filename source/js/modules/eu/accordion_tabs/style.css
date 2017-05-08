@@ -45,7 +45,7 @@
 }
 /* line 48, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active + .tab-content + .tab-header::before {
-  background-color: #4D4D4D;
+  background-color: transparent;
 }
 /* line 53, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.js-last) {

@@ -16,6 +16,7 @@ require.config({
     channels:                      '../../eu/channels',
     cookie_disclaimer:             '../../eu/cookie-disclaimer',
     data_fashion_thesaurus:        '../../data/fashion-thesaurus.json',
+    e7a_1418:                      '../../eu/e7a_1418',
     eu_accordion_tabs:             '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',

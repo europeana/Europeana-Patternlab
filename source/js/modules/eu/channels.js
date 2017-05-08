@@ -169,6 +169,13 @@ define(['jquery', 'search_form', 'smartmenus'], function ($, euSearchForm) {
               doForAllPages();
             });
             break;
+        case 'e7a_1418':
+            require(['e7a_1418'], function(page){
+              page.initPage();
+              promisedPageJS.resolve(page);
+              doForAllPages();            	
+            });
+            break;
         case 'events/index':
             require(['search_events'], function(page){
               page.initPage();
