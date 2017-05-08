@@ -1,0 +1,109 @@
+@import 'partials/fontawesome-custom-check-radio-btns';
+
+.metis-form-container {
+  border: 1px solid $off-white;
+  color: $gray-light;
+  margin: 0 auto;
+  margin-top: 2em;
+  max-width: 1200px;
+  padding: 2em;
+  width: 80%;
+}
+
+.flex-outer,
+.flex-inner {
+  padding: 0;
+}
+
+.flex-outer {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.flex-outer div,
+.flex-inner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-inner {
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.flex-outer > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer div label,
+.flex-outer div p {
+  padding-right: 1rem;
+}
+
+.flex-outer > div > label,
+.flex-outer div p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > div > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer div p {
+  margin: 0;
+}
+
+.flex-outer div input:not([type='checkbox']),
+.flex-outer div textarea {
+  box-shadow: none;
+  padding: 10px;
+
+  &.icon-padding {
+    padding-right: 50px;
+  }
+}
+
+.flex-outer > div > input {
+  border: 1px solid $gray-light;
+
+  &::placeholder {
+    color: $gray-light;
+  }
+}
+
+.flex-outer div button {
+  background: $eu-jade;
+  border-radius: 2px;
+  color: $white;
+  letter-spacing: .09em;
+  margin: 0 auto;
+  padding: 1rem 9rem;
+}
+
+.flex-inner div {
+  width: 100px;
+}
+
+.harvest-radio{
+  label{
+    display: inline;
+    margin-right: $space-half;
+    padding: 0;
+  }
+}
+
+// overwrite default icon styling.
+.svg-icon-form-field-calendar {
+  background-position: 98% 50%;
+  background-size: 25px 25px;
+  margin-right: 0;
+  padding-right: 48px;
+  transform: none;
+
+  &::placeholder {
+    color: $gray-light;
+  }
+}
