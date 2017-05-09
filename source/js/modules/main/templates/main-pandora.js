@@ -17,11 +17,6 @@ require.config({
   }
 });
 
-// Addressing issue regarding jquery loaded before requirejs and later as a dependency
-// http://www.manuel-strehl.de/dev/load_jquery_before_requirejs.en.html
-define('jquery', [], function() {
-  return jQuery;
-});
 
 require(['pandoraPage'], function (p) {
   p.pageInit();
