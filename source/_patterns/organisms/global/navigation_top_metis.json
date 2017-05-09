@@ -10,7 +10,7 @@
   [
     {
       "path": "../../js/modules/require.js",
-      "data_main": "../../js/modules/main/templates/main-metis-dashboard"
+      "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
   "input_search": {
