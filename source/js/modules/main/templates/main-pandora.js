@@ -18,7 +18,7 @@ require.config({
 });
 
 
-require(['pandoraPage'], function (p) {
+require(['jquery', 'pandoraPage'], function ($, p) {
   p.pageInit();
 });
 
