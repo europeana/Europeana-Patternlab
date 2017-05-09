@@ -86,8 +86,9 @@ define(['jquery', 'purl'], function($) {
 
   function initPage(){
 
+    var loc = window.location.href.match(/\/[a-z][a-z]\//);
     e7aRoot = iframe.data('base-url');
-    locale  = (window.location.href.match(/\/[a-z][a-z]\//) || '/en/').replace(/\//g, '');
+    locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
 
     log('Init 14-18 (root: ' + e7aRoot + ', locale: ' + locale + ')');
 
