@@ -15,6 +15,12 @@ define(['jquery', 'purl'], function($) {
         '.contribution'
       ]
     },
+    'contributions/new':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.new'
+      ]
+    },
     'contributor': {
       'breadcrumbs': [
         '.contributor'
@@ -44,11 +50,15 @@ define(['jquery', 'purl'], function($) {
     console.log(msg);
   }
 
+  function getUrlFragment(url){
+    return url.replace(e7aRoot, '').replace(/\/[a-z][a-z]\//, '').split('?')[0];
+  }
+
   function setBreadcrumbs(childUrl){
 
-    var fragment    = childUrl.replace(e7aRoot, '').replace(/\/[a-z][a-z]\//, '').split('?')[0];
-
+    var fragment    = getUrlFragment(childUrl);
     log('fragment ' + fragment);
+
 
     var breadcrumbs = pageData[fragment]['breadcrumbs'];
 
@@ -80,7 +90,10 @@ define(['jquery', 'purl'], function($) {
     log(typeof e.data);
     log('height:\t' + e.data.height);
     log('child url:\t' + e.data.url);
+
     setBreadcrumbs(e.data.url);
+    window.location.href = window.location.href.split('#')[0] + '#action=' + getUrlFragment(e.data.url);
+
     $('iframe.e7a1418').css('height', e.data.height + 'px');
   }
 
