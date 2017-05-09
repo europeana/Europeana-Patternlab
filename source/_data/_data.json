@@ -700,7 +700,12 @@
                 "return_home": "Return to Home",
                 "results_list": "Results List",
                 "blogs_list_breadcrumb": "Blog",
-                "events_list_breadcrumb": "Events"
+                "events_list_breadcrumb": "Events",
+                "contributor": "contributor",
+                "contribution": "contribution",
+                "register": "Register",
+                "reset-password": "Reset password",
+                "sign-in": "Sign In"
               }
             },
             "news": "News",
@@ -790,17 +795,22 @@
         },
         "global": {
             "actions": {
+              "edit":"edit",
               "filter-by": "Filter by",
               "filter-all": "All",
               "fullscreen-enter": "full screen",
               "fullscreen-exit":  "exit full screen",
               "next":"next",
+              "new":"new",
               "previous":"previous",
               "share": "Share",
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
               "sort-by": "Order by",
               "view": "View"
+            },
+            "channel": {
+              "first-world-war": "Europeana 1914-1918"
             },
             "cookie_disclaimer": {
               "text": "This website uses cookies to ensure you get the best experience on our website. By clicking or navigating the site, you agree to allow our collection of information through cookies.",
