@@ -10,20 +10,11 @@
       "media": "all"
     }
   ],
-
   "js_files":
   [
     {
       "path": "../../js/modules/require.js",
       "data_main": "../../js/modules/main/templates/main-pandora"
-    }
-  ],
-
-  "js_vars":
-  [
-    {
-      "name": "pageName",
-      "value": "portal/index"
     }
   ],
   "version":{

@@ -13,14 +13,13 @@ require.config({
     user_approval:  '../../eu/pandora/user-approval-form',
     autocomplete:   '../../lib/autocomplete/autocomplete',
     // search filter selection files
-    channels_metis:                      '../../eu/pandora/metis-channels',
     search_form:                   '../../eu/search-form'
   }
 });
 
-require(['jquery', 'channels_metis'], function() {
-  require(['pandoraPage'], function(p) {
-    p.pageInit();
-  });
+
+require(['jquery', 'pandoraPage'], function ($, p) {
+  p.pageInit();
 });
+
 
