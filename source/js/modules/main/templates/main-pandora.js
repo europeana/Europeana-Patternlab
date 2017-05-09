@@ -14,7 +14,12 @@ require.config({
     autocomplete:   '../../lib/autocomplete/autocomplete',
     // search filter selection files
     search_form:                   '../../eu/search-form'
-  }
+  },
+  'shim': {
+    'smartmenus': ['jquery'],
+    'autocomplete': ['jquery']
+  },
+  waitSeconds: 200
 });
 
 

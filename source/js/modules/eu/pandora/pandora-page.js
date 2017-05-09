@@ -1,4 +1,4 @@
-define(['jquery', 'smartmenus', 'user_approval'], function ($) {
+define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
 
   function setFieldValueStatus(id, status) {
     $('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');
@@ -182,8 +182,13 @@ define(['jquery', 'smartmenus', 'user_approval'], function ($) {
             window.location = $(this).attr('href');
           }
         });
+        $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#metis-search-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#loggedin-user').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
       });
     });
+
     //'channels_metis'
     require(['jqDropdown'], function () {
       bindTableCellClick();
