@@ -1,154 +1,149 @@
 {{#dataset_form}}
-    <div class="metis-form-container">
-        <form>
-        <div class="flex-outer">
-            {{#dataset_fields}}
-                {{#field_name}}
+  <div class="metis-form-container">
+    <form>
+    <div class="flex-outer">
+      {{#dataset_fields}}
+        {{#field_name}}
+          <div>
+            <label for="name">{{label}}</label>
+            <input type="text" value="{{value}}" name="name" id="name" placeholder="{{placeholder}}">
+          </div>
+        {{/field_name}}
+        {{#provider}}
+          <div>
+            <label for="provider">{{label}}</label>
+            <input type="text" value="{{value}}" name="provider" id="provider" placeholder="{{placeholder}}">
+          </div>
+        {{/provider}}
+        {{#data_provider}}
+          <div>
+            <label for="data-provider">{{label}}</label>
+            <input type="text" value="{{value}}" name="data-provider" id="data-provider" placeholder="{{placeholder}}">
+          </div>
+        {{/data_provider}}
+        {{#dea_signed}}
+          <div>
+            <label for="dea-signed">{{label}}</label>
+            <input type="checkbox" name="dea-signed" id="dea-signed" {{#checked}}checked{{/checked}}>
+            <label for="dea-signed"></label>
+          </div>
+        {{/dea_signed}}
+        {{#date_created}}
+          <div>
+            <label for="date-created">{{label}}</label>
+            <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created"
+                   type="date" id="date-created"
+                   placeholder="{{placeholder}}">
+          </div>
+        {{/date_created}}
+        {{#date_updated}}
+          <div>
+            <label for="date-updated">{{label}}</label>
+            <input class="svg-icon-form-field-calendar icon-padding" name="date-updated" type="date"
+                   id="date-updated" placeholder="{{placeholder}}">
+          </div>
+        {{/date_updated}}
+        {{#replaced_by}}
+          <div>
+            <label for="replaced-by">{{label}}</label>
+            <input type="text" value="{{value}}" name="replaced-by" id="replaced-by" placeholder="{{placeholder}}">
+          </div>
+        {{/replaced_by}}
+        {{#description}}
+          <div>
+            <label for="description">{{label}}</label>
+            <input value="{{value}}" name="description" type="text" id="description" placeholder="{{placeholder}}">
+          </div>
+        {{/description}}
+        {{#notes}}
+          <div>
+            <label for="notes">{{label}}</label>
+            <input value="{{value}}" name="notes" type="text" id="notes" placeholder="{{placeholder}}">
+          </div>
+        {{/notes}}
+        {{#first_published}}
+          <div>
+            <label for="first-published">{{label}}</label>
+            <input value="{{value}}" name="first-published" class="svg-icon-form-field-calendar icon-padding"
+                   type="date" id="first-published" placeholder="{{placeholder}}">
+          </div>
+        {{/first_published}}
+        {{#last_published}}
+          <div>
+            <label for="last-published">{{label}}</label>
+            <input value="{{value}}" name="last-published" class="svg-icon-form-field-calendar icon-padding"
+                   type="date" id="last-published" placeholder="{{placeholder}}">
+          </div>
+        {{/last_published}}
+        {{#assigned_to}}
+          <div>
+            <label for="assigned-to">{{label}}</label>
+            <input value="{{value}}" name="assigned-to" type="text" id="assigned-to" placeholder="{{placeholder}}">
+          </div>
+        {{/assigned_to}}
+        {{#country}}
+          <div>
+            <label for="country">{{label}}</label>
+            <input value="{{value}}" name="country" type="text" id="country" placeholder="{{placeholder}}">
+          </div>
+        {{/country}}
+        {{#language}}
+          <div>
+            <label for="language">{{label}}</label>
+            <input value="{{value}}" name="language" type="text" id="language" placeholder="{{placeholder}}">
+          </div>
+        {{/language}}
+        {{#harvest_protocol}}
+          <div>
+            <label for="harvest-radio">{{label_name}}</label>
+            <div>
+              {{#options}}
                 <div>
-                    <label for="name">{{label}}</label>
-                    <input type="text" id="name" placeholder="{{placeholder}}">
+                  <input id="{{name}}" name="{{group_name}}" type="radio" class="with-font" value="{{name}}"
+                         {{#checked}}checked{{/checked}}/>
+                  <label for="{{name}}">{{label}}</label>
                 </div>
-                {{/field_name}}
-                {{#provider}}
-                <div>
-                    <label for="provider">{{label}}</label>
-                    <input type="text" id="provider" placeholder="{{placeholder}}">
-                </div>
-                {{/provider}}
-            {{#data_provider}}
-                <div>
-                    <label for="data-provider">{{label}}</label>
-                    <input type="text" id="data-provider" placeholder="{{placeholder}}">
-                </div>
-            {{/data_provider}}
-            {{#dea_signed}}
-                <div>
-                    <label for="dea-signed">{{label}}</label>
-                    <input type="checkbox" id="dea-signed">
-                    <label for="dea-signed"></label>
-                </div>
-            {{/dea_signed}}
-            {{#date_created}}
-                <div>
-                    <label for="date-created">{{label}}</label>
-                    <input class="svg-icon-form-field-calendar icon-padding" type="date" id="date-created"
-                           placeholder="{{placeholder}}">
-                </div>
-            {{/date_created}}
-{{#date_updated}}
-                <div>
-                    <label for="date-updated">{{label}}</label>
-                    <input class="svg-icon-form-field-calendar icon-padding" type="date" id="date-updated"
-                           placeholder="{{placeholder}}">
-                </div>
-{{/date_updated}}
-            {{#replaced_by}}
-                <div>
-                    <label for="replaced-by">{{label}}</label>
-                    <input type="text" id="replaced-by" placeholder="{{placeholder}}">
-                </div>
-            {{/replaced_by}}
-            {{#description}}
-                <div>
-                    <label for="description">{{label}}</label>
-                    <input type="text" id="description" placeholder="{{placeholder}}">
-                </div>
-            {{/description}}
-            {{#notes}}
-                <div>
-                    <label for="notes">{{label}}</label>
-                    <input type="text" id="notes" placeholder="{{placeholder}}">
-                </div>
-            {{/notes}}
-            {{#first_published}}
-                <div>
-                    <label for="first-published">{{label}}</label>
-                    <input class="svg-icon-form-field-calendar icon-padding" type="date" id="first-published"
-                           placeholder="{{placeholder}}">
-                </div>
-            {{/first_published}}
-            {{#last_published}}
-                <div>
-                    <label for="last-published">{{label}}</label>
-                    <input class="svg-icon-form-field-calendar icon-padding" type="date" id="last-published"
-                           placeholder="{{placeholder}}">
-                </div>
-            {{/last_published}}
-            {{#assigned_to}}
-                <div>
-                    <label for="assigned-to">{{label}}</label>
-                    <input type="text" id="assigned-to" placeholder="{{placeholder}}">
-                </div>
-            {{/assigned_to}}
-            {{#country}}
-                <div>
-                    <label for="country">{{label}}</label>
-                    <input type="text" id="country" placeholder="{{placeholder}}">
-                </div>
-            {{/country}}
-            {{#language}}
-                <div>
-                    <label for="language">{{label}}</label>
-                    <input type="text" id="language" placeholder="{{placeholder}}">
-                </div>
-            {{/language}}
-            {{#harvest_protocol}}
-                <div>
-                    <label for="harvest-radio">{{label}}</label>
-
-                    <div>
-                        <div>
-                            <input id="http" name="harvest-protocol" type="radio" class="with-font" value="sel"/>
-                            <label for="http">{{label_http}}</label>
-                        </div>
-                        <div>
-                            <input id="oai-pmh" name="harvest-protocol" type="radio" class="with-font" value="sel"/>
-                            <label for="oai-pmh">{{label_oai-pmh}}</label>
-                        </div>
-                        <div>
-                            <input id="iiif" name="harvest-protocol" type="radio" class="with-font" value="sel"/>
-                            <label for="iiif">{{label_iiif}}</label>
-                        </div>
-                    </div>
-
-                </div>
-            {{/harvest_protocol}}
-            {{#harvest_url}}
-                <div>
-                    <label for="havest-url">{{label}}</label>
-                    <input type="url" id="havest-url" placeholder="{{placeholder}}">
-                </div>
-            {{/harvest_url}}
-            {{#setspec}}
-                <div>
-                    <label for="setspec">{{label}}</label>
-                    <input type="tel" id="setspec" placeholder="{{placeholder}}">
-                </div>
-            {{/setspec}}
-            {{#metadata_format}}
-                <div>
-                    <label for="metadata-format">{{label}}</label>
-                    <input type="text" id="metadata-format" placeholder="{{placeholder}}">
-                </div>
-            {{/metadata_format}}
-            {{#provider_url}}
-                <div>
-                    <label for="provider_url">{{label}}</label>
-                    <input type="url" id="provider_url"
-                           placeholder="{{placeholder}}">
-                </div>
-            {{/provider_url}}
-            {{#metadata_namespace}}
-                <div>
-                    <label for="phone">{{label}}</label>
-                    <input type="text" id="phone" placeholder="{{placeholder}}">
-                </div>
-            {{/metadata_namespace}}
-                <div>
-                    <button type="submit">Edit</button>
-                </div>
+              {{/options}}
             </div>
-            {{/dataset_fields}}
-        </form>
-    </div>
+          </div>
+        {{/harvest_protocol}}
+        {{#harvest_url}}
+          <div>
+            <label for="havest-url">{{label}}</label>
+            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}">
+          </div>
+        {{/harvest_url}}
+        {{#setspec}}
+          <div>
+            <label for="setspec">{{label}}</label>
+            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}">
+          </div>
+        {{/setspec}}
+        {{#metadata_format}}
+          <div>
+            <label for="metadata-format">{{label}}</label>
+            <input value="{{value}}" name="metadata-format" type="text" id="metadata-format"
+                   placeholder="{{placeholder}}">
+          </div>
+        {{/metadata_format}}
+        {{#provider_url}}
+          <div>
+            <label for="provider_url">{{label}}</label>
+            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}">
+          </div>
+        {{/provider_url}}
+        {{#metadata_namespace}}
+          <div>
+            <label for="metadata-namespace">{{label}}</label>
+            <input value="{{value}}" name="metadata-namespace" type="text" id="metadata-namespace"
+                   placeholder="{{placeholder}}">
+          </div>
+        {{/metadata_namespace}}
+        <div>
+          <button type="submit">Edit</button>
+        </div>
+      </div>
+      {{/dataset_fields}}
+    </form>
+  </div>
 {{/dataset_form}}
