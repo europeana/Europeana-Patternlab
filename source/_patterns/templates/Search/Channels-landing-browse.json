@@ -21,6 +21,7 @@
   },
 
   "include_nav_searchbar": true,
+  "include_1418_nav": true,
 
   "form_search": {
     "action": "javascript:alert('submit form');"

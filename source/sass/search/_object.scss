@@ -105,8 +105,37 @@
   .breadcrumbs .js-return{
     display: none;
   }
-
 }
+ 
+.e7a1418-nav{
+  background-color: $blue-dark;
+  color:            #fff;
+  padding:          $pad-half;
+  text-align:       center;
+  
+  .e7a1418-contribute{
+   	margin-right: 4em;
+  }
+  .e7a1418-register{
+   	
+  }
+  .e7a1418-logout{
+    	
+  }
+ 
+  a{
+    color:   #fff;
+    display: inline-block;
+    &.js-hidden{
+      display: none;
+    }
+    :hover{
+      color: #fff;
+      text-decoration: underline;    
+    }
+  }
+}
+
 
 .with-transparency .object-nav{
   background: rgba(241, 241, 238, 0.85);
