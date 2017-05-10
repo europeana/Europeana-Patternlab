@@ -4,7 +4,7 @@ var sendMessage = function(){
   var data = {
     height: Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight),
     url:    window.location.href,
-    user:   userLoggedIn
+    user:   (typeof userLoggedIn == 'undefined' ? false : userLoggedIn)
   }
   parent.postMessage(data, '*');
 }
