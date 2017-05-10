@@ -1,3 +1,5 @@
+@import "../../scss/generic/variables";
+
 // custom checkboxes
 input[type=checkbox],
 input[type=radio] {
@@ -12,14 +14,14 @@ input[type=radio] + label::before{
 }
 
 input[type=checkbox] + label::before {
-  color: $gray-light;
+  color: #777;
   content: '\f096';
   font-size: 2rem;
   font-weight: 100;
 }
 
 input[type=radio] + label::before {
-  color: $gray-light;
+  color: #777;
   content: '\f1db';
   font-size: 2rem;
   font-weight: 100;
@@ -33,16 +35,16 @@ input[type=radio] + label::before{
 
 // space between checkbox and label
 input[type=checkbox]:checked + label::before {
-  color: $eu-jade;
-  content: '\f046';
-  display: inline-block;
+  color:     #37b98b;
+  content:   '\f046';
+  display:   inline-block;
   font-size: 2rem;
 }
 
 input[type=radio]:checked + label::before {
-  color: $eu-jade;
-  content: '\f192';
-  display: inline-block;
+  color:     #37b98b;
+  content:   '\f192';
+  display:   inline-block;
   font-size: 2rem;
-  width: 2.5rem;
+  width:     2.5rem;
 }
