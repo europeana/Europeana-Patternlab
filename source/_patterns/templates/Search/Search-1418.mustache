@@ -26,7 +26,7 @@
         <div class="object-nav-lists">
           <ul class="breadcrumbs">
             <li><a href="{{navigation.home_url}}"><span class="svg-icon-home"></span>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-            <li><span><a href="{{portal_url}}">{{i18n.global.channel.first-world-war}}</a></span></li>
+            {{#channel_data}}<li><span><a href="{{url}}">{{label}}</a></span></li>{{/channel_data}}
 
             <li class="js-hidden breadcrumb contributor"     ><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.contributor}}</strong></span></li>
             <li class="js-hidden breadcrumb contributor-url" ><span><a href="#">{{i18n.site.navigation.breadcrumb.contributor}}</a></span></li>
