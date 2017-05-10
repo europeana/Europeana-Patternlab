@@ -22,6 +22,7 @@
 
   "include_nav_searchbar": true,
   "include_1418_nav": true,
+  "base_1418_url": "http://test.1418.eanadev.org",
 
   "form_search": {
     "action": "javascript:alert('submit form');"

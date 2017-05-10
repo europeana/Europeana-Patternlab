@@ -109,6 +109,21 @@ define(['jquery', 'purl'], function($) {
     $('iframe.e7a1418').css('height', e.data.height + 'px');
   }
 
+  function initPageInvisible(){
+    window.addEventListener('message', function(e){
+      log('user:\t' + e.data.user);
+    }, false);
+    
+    var loc = window.location.href.match(/\/[a-z][a-z]\//);
+    locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
+    e7aRoot = $('.e7a1418-nav').data('base-url');
+
+    log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
+
+    $('body').append('<iframe style="display:none;" src="' + e7aRoot + '/' + locale + '/' + defaultPageUrl + '"></iframe>');
+    iframe = $('iframe')
+  }
+
   function initPage(){
 
     var loc = window.location.href.match(/\/[a-z][a-z]\//);
@@ -119,12 +134,14 @@ define(['jquery', 'purl'], function($) {
 
     window.addEventListener('message', iframeUrlChange, false);
     setSrc();
-
   }
 
   return {
     initPage: function(){
       initPage();
+    },
+    initPageInvisible: function(){
+      initPageInvisible();
     }
   };
 

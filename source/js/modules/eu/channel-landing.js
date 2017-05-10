@@ -124,6 +124,13 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
+    
+    if($('.e7a1418-nav').length > 0){
+      require(['e7a_1418'], function(e7a1418){
+    	e7a1418.initPageInvisible();
+     });
+    }
+
   };
 
   function initPreviewMasonry(){
