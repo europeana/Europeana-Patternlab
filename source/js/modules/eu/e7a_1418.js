@@ -1,9 +1,10 @@
 define(['jquery', 'purl'], function($) {
 
-  var e7aRoot = '';
-  var locale  = '';
-  var iframe  = $('iframe');
-
+  var e7aRoot        = '';
+  var locale         = '';
+  var iframe         = $('iframe');
+  var defaultPageUrl = '#action=contributor';
+	  
   var pageData = {
     'admin':{
       'breadcrumbs': [
@@ -43,7 +44,11 @@ define(['jquery', 'purl'], function($) {
         '.contributor-url',
         '.sign-in'
       ]
-    }
+    },
+    'users/sign-out' : {
+        'breadcrumbs': [
+        ]
+      }
   };
 
   function log(msg){
@@ -81,6 +86,10 @@ define(['jquery', 'purl'], function($) {
         var url      = e7aRoot + '/' + locale + '/' + fragment;
         iframe.attr('src', url);
       }
+    }
+    else{
+      window.location.href = href + defaultPageUrl;
+      setSrc();
     }
   }
 
