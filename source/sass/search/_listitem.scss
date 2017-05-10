@@ -143,9 +143,6 @@
         height:    1.4em;
         width:     1.4em;
       }
-      .svg-icon-openbook{
-        height:    1.7em;
-      }
       .svg-icon-music{
         height:    1.6em;
         width:     1.6em;
@@ -205,6 +202,16 @@
       height:    1.6em;
       transform: scale(0.7) translateY(-0.3em);
       width:     1.6em;
+    }
+    .svg-icon-openbook{
+      height:    1.4em;
+      transform: scale(0.6);
+      width:     1.4em;
+    }
+    &.show-with-grid{
+      .svg-icon-openbook{
+        height:    1.7em;
+      }
     }
   }
 
