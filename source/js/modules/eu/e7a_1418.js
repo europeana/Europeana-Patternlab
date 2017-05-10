@@ -99,6 +99,9 @@ define(['jquery', 'purl'], function($) {
     log(typeof e.data);
     log('height:\t' + e.data.height);
     log('child url:\t' + e.data.url);
+    log('user:\t' + e.data.user);
+    
+    
 
     setBreadcrumbs(e.data.url);
     window.location.href = window.location.href.split('#')[0] + '#action=' + getUrlFragment(e.data.url);
