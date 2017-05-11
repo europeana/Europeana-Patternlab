@@ -16,6 +16,12 @@ define(['jquery', 'purl'], function($) {
         '.contribution'
       ]
     },
+    'contributions/edit':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.edit'
+      ]
+    },
     'contributions/new':{
       'breadcrumbs': [
         '.contribution-url',
@@ -62,9 +68,18 @@ define(['jquery', 'purl'], function($) {
   function setBreadcrumbs(childUrl){
 
     var fragment    = getUrlFragment(childUrl);
+    var breadcrumbs = [];
+
     log('fragment ' + fragment);
 
-    var breadcrumbs = pageData[fragment]['breadcrumbs'];
+    fragment = 'contributions/2/edit';
+
+    if(fragment.match(/contributions\/\d*\/edit/)){
+      breadcrumbs = pageData['contributions/edit']['breadcrumbs'];
+    }
+    else{
+      breadcrumbs = pageData[fragment]['breadcrumbs'];
+    }
 
     $('.breadcrumbs > .breadcrumb').addClass('js-hidden');
 
