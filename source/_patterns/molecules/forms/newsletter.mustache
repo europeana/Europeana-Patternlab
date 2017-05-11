@@ -19,7 +19,7 @@
 
      var checkForm = function(form_obj) {
        var why = "";
-       var email = $('#mce-EMAIL');
+       var email = $(form_obj).find('#mce-EMAIL');
        var filter=/^[a-z0-9_\-\.\+]+@[a-z0-9_\-\.]+\.[a-z]{2,4}$/i;
 
        if (email.val().length==0) {
