@@ -14,14 +14,14 @@ input[type=radio] + label::before{
 }
 
 input[type=checkbox] + label::before {
-  color: #777;
+  color: $gray-light;
   content: '\f096';
   font-size: 2rem;
   font-weight: 100;
 }
 
 input[type=radio] + label::before {
-  color: #777;
+  color: $gray-light;
   content: '\f1db';
   font-size: 2rem;
   font-weight: 100;
@@ -35,14 +35,14 @@ input[type=radio] + label::before{
 
 // space between checkbox and label
 input[type=checkbox]:checked + label::before {
-  color:     #37b98b;
+  color:     $eu-jade;
   content:   '\f046';
   display:   inline-block;
   font-size: 2rem;
 }
 
 input[type=radio]:checked + label::before {
-  color:     #37b98b;
+  color:     $eu-jade;
   content:   '\f192';
   display:   inline-block;
   font-size: 2rem;
