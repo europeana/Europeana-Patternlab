@@ -1,5 +1,5 @@
 <div class="e7a1418-nav"              {{#base_1418_url}}data-base-url="{{.}}"{{/base_1418_url}}>
-  <a class="e7a1418-contribute"       {{#base_1418_url}}href="{{.}}#action=contributor"{{/base_1418_url}}   >Contribute your story</a>
-  <a class="e7a1418-register"         {{#base_1418_url}}href="{{.}}#action=users/sign-in"{{/base_1418_url}} >Register</a>
-  <a class="e7a1418-logout js-hidden" {{#base_1418_url}}href="{{.}}#action=users/sign-out"{{/base_1418_url}}>Logout</a>
+  <a class="e7a1418-contribute"       {{#channel_data.url}}href="{{.}}/contribute#action=contributor"   {{/channel_data.url}}>Contribute your story</a>
+  <a class="e7a1418-register"         {{#channel_data.url}}href="{{.}}/contribute#action=users/sign-in" {{/channel_data.url}}>Register</a>
+  <a class="e7a1418-logout js-hidden" {{#channel_data.url}}href="{{.}}/contribute#action=users/sign-out"{{/channel_data.url}}>Logout</a>
 </div>
