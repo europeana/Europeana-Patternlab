@@ -72,8 +72,6 @@ define(['jquery', 'purl'], function($) {
 
     log('fragment ' + fragment);
 
-    fragment = 'contributions/2/edit';
-
     if(fragment.match(/contributions\/\d*\/edit/)){
       breadcrumbs = pageData['contributions/edit']['breadcrumbs'];
     }
