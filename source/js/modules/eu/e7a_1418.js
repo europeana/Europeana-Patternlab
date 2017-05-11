@@ -77,10 +77,12 @@ define(['jquery', 'purl'], function($) {
     if(user){
       $('.e7a1418-logout').removeClass('js-hidden');
       $('.e7a1418-register').addClass('js-hidden');
+      $('.e7a1418-login').addClass('js-hidden');
     }
     else{
       $('.e7a1418-logout').addClass('js-hidden');
       $('.e7a1418-register').removeClass('js-hidden');
+      $('.e7a1418-login').removeClass('js-hidden');
     }
   }
 
@@ -89,7 +91,7 @@ define(['jquery', 'purl'], function($) {
     var href = urlIn ? urlIn : window.location.href;
 
     if(href.indexOf('#') > -1){
-      var hash = window.location.href.split('#')[1];
+      var hash = href.split('#')[1];
 
       if(hash.indexOf('=') > -1){
         var fragment = hash.split('=')[1];
@@ -119,7 +121,14 @@ define(['jquery', 'purl'], function($) {
   }
 
   function initPageInvisible(){
+
     window.addEventListener('message', function(e){
+      log(e.origin);
+      log(typeof e.data);
+      log('height:\t' + e.data.height);
+      log('child url:\t' + e.data.url);
+      log('user:\t' + e.data.user);
+
       setNavButtons(e.data.user);
     }, false);
 
@@ -140,6 +149,7 @@ define(['jquery', 'purl'], function($) {
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
 
     $('.e7a1418-nav a').on('click', function(){
+      log('clicked link ' + $(this).attr('href'));
       setSrc($(this).attr('href'));
     });
 
