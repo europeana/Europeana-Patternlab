@@ -84,9 +84,9 @@ define(['jquery', 'purl'], function($) {
     }
   }
 
-  function setSrc(){
+  function setSrc(urlIn){
 
-    var href = window.location.href;
+    var href = urlIn ? urlIn : window.location.href;
 
     if(href.indexOf('#') > -1){
       var hash = window.location.href.split('#')[1];
@@ -138,6 +138,10 @@ define(['jquery', 'purl'], function($) {
     var loc = window.location.href.match(/\/[a-z][a-z]\//);
     e7aRoot = iframe.data('base-url');
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
+
+    $('.e7a1418-nav a').on('click', function(){
+      setSrc($(this).attr('href'));
+    });
 
     log('Init 14-18 (root: ' + e7aRoot + ', locale: ' + locale + ')');
 
