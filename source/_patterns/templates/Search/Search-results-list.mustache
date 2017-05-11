@@ -3,7 +3,6 @@
 {{> organisms/global/header_v2}}
 
 <div role="main" class="page l-page">
-
     <section class="search-object">
       <div class="object-nav cf">
         <div class="object-nav-lists">
@@ -26,6 +25,11 @@
           </ul>
         </div>
       </div>
+      {{#content}}
+        {{#include_1418_nav}}
+          {{>molecules/navigation/e7a1418-nav}}
+        {{/include_1418_nav}}
+      {{/content}}
     </section>
 
     <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>

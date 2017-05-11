@@ -106,32 +106,34 @@
     display: none;
   }
 }
- 
+
 .e7a1418-nav{
   background-color: $blue-dark;
   color:            #fff;
   padding:          $pad-half;
   text-align:       center;
-  
-  .e7a1418-contribute{
-   	margin-right: 4em;
-  }
+
+  .e7a1418-contribute,
   .e7a1418-register{
-   	
+     margin-right: 4em;
   }
+
   .e7a1418-logout{
-    	
+
   }
- 
+
   a{
-    color:   #fff;
-    display: inline-block;
+    color:         #fff;
+    display:       inline-block;
+    border-bottom: 1px dotted transparent;
+
     &.js-hidden{
       display: none;
     }
+
     &:hover{
       color: #fff;
-      text-decoration: underline;    
+      border-bottom: 1px dotted #fff;
     }
   }
 }

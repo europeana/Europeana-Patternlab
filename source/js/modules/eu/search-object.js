@@ -18,14 +18,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       console.error('hierarchy error' + msg);
       $('.hierarchy-objects').closest('.lc').remove();
     };
-    
+
     var buildHierarchy = function(initialData){
-      
+
       if(initialData && initialData.error != null){
         error(initialData.error);
         return;
       }
-      
+
       require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
 
         var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
@@ -802,6 +802,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
 
     $('.media-viewer').trigger('media_init');
+
+    if($('.e7a1418-nav').length > 0){
+      require(['e7a_1418'], function(e7a1418){
+        e7a1418.initPageInvisible();
+      });
+    }
 
     $('.single-item-thumb [data-type="oembed"]').trigger('click');
     $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');

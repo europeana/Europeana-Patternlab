@@ -2,9 +2,9 @@ define(['jquery', 'purl'], function($) {
 
   var e7aRoot        = '';
   var locale         = '';
-  var iframe         = $('iframe');
+  var iframe         = $('iframe.e7a1418');
   var defaultPageUrl = '#action=contributor';
-	  
+
   var pageData = {
     'admin':{
       'breadcrumbs': [
@@ -64,7 +64,6 @@ define(['jquery', 'purl'], function($) {
     var fragment    = getUrlFragment(childUrl);
     log('fragment ' + fragment);
 
-
     var breadcrumbs = pageData[fragment]['breadcrumbs'];
 
     $('.breadcrumbs > .breadcrumb').addClass('js-hidden');
@@ -72,6 +71,17 @@ define(['jquery', 'purl'], function($) {
     $.each(breadcrumbs, function(i, ob){
       $('.breadcrumbs > .breadcrumb' + ob).removeClass('js-hidden');
     });
+  }
+
+  function setNavButtons(user){
+    if(user){
+      $('.e7a1418-logout').removeClass('js-hidden');
+      $('.e7a1418-register').addClass('js-hidden');
+    }
+    else{
+      $('.e7a1418-logout').addClass('js-hidden');
+      $('.e7a1418-register').removeClass('js-hidden');
+    }
   }
 
   function setSrc(){
@@ -100,9 +110,8 @@ define(['jquery', 'purl'], function($) {
     log('height:\t' + e.data.height);
     log('child url:\t' + e.data.url);
     log('user:\t' + e.data.user);
-    
-    
 
+    setNavButtons(e.data.user);
     setBreadcrumbs(e.data.url);
     window.location.href = window.location.href.split('#')[0] + '#action=' + getUrlFragment(e.data.url);
 
@@ -111,17 +120,17 @@ define(['jquery', 'purl'], function($) {
 
   function initPageInvisible(){
     window.addEventListener('message', function(e){
-      log('user:\t' + e.data.user);
+      setNavButtons(e.data.user);
     }, false);
-    
+
     var loc = window.location.href.match(/\/[a-z][a-z]\//);
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
     e7aRoot = $('.e7a1418-nav').data('base-url');
 
     log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
 
-    $('body').append('<iframe style="display:none;" src="' + e7aRoot + '/' + locale + '/' + defaultPageUrl + '"></iframe>');
-    iframe = $('iframe')
+    $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor"></iframe>');
+    iframe = $('iframe.e7a1418');
   }
 
   function initPage(){

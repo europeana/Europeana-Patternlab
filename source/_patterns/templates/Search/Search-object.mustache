@@ -3,6 +3,9 @@
 
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
+    {{#include_1418_nav}}
+      {{>molecules/navigation/e7a1418-nav}}
+    {{/include_1418_nav}}
     {{#object.media}}
       <section class="object-display" id="maincontent">
         <div class="object-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">

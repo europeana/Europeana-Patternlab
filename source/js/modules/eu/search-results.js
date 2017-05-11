@@ -357,6 +357,12 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       addAutocomplete(data);
     });
     scrollEvents.fireAllVisible();
+
+    if($('.e7a1418-nav').length > 0){
+      require(['e7a_1418'], function(e7a1418){
+        e7a1418.initPageInvisible();
+     });
+    }
   };
 
   function addAutocomplete(data){
@@ -403,11 +409,11 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         });
 
         fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
-        
+
         $('.fed-res-expand').on('click', function(){
-        	
+
           var clicked = $(this);
-        
+
           if(clicked.hasClass('expanded')){
             fedSearch.find('.tab-content').addClass('collapsed');
           }
@@ -416,7 +422,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           }
           clicked.toggleClass('expanded');
         });
-        
+
       });
     }
   }
