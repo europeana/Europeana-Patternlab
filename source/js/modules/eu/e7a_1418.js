@@ -16,6 +16,11 @@ define(['jquery', 'purl'], function($) {
         '.contribution'
       ]
     },
+    'contributions':{
+      'breadcrumbs': [
+        '.contribution'
+      ]
+    },
     'contributions/edit':{
       'breadcrumbs': [
         '.contribution-url',
@@ -65,12 +70,9 @@ define(['jquery', 'purl'], function($) {
     return url.replace(e7aRoot, '').replace(/\/[a-z][a-z]\//, '').split('?')[0];
   }
 
-  function setBreadcrumbs(childUrl){
+  function setBreadcrumbs(fragment){
 
-    var fragment    = getUrlFragment(childUrl);
     var breadcrumbs = [];
-
-    log('fragment ' + fragment);
 
     if(fragment.match(/contributions\/\d*\/edit/)){
       breadcrumbs = pageData['contributions/edit']['breadcrumbs'];
@@ -84,9 +86,11 @@ define(['jquery', 'purl'], function($) {
     $.each(breadcrumbs, function(i, ob){
       $('.breadcrumbs > .breadcrumb' + ob).removeClass('js-hidden');
     });
+
   }
 
-  function setNavButtons(user){
+  function setNavButtons(user, fragment){
+
     if(user){
       $('.e7a1418-logout').removeClass('js-hidden');
       $('.e7a1418-register').addClass('js-hidden');
@@ -97,6 +101,14 @@ define(['jquery', 'purl'], function($) {
       $('.e7a1418-register').removeClass('js-hidden');
       $('.e7a1418-login').removeClass('js-hidden');
     }
+
+    if(pageName == 'e7a_1418' && ['contributor', 'contributions/new', 'contributions/edit'].indexOf(fragment) > -1){
+      $('.e7a1418-contribute').addClass('js-hidden');
+    }
+    else{
+      $('.e7a1418-contribute').removeClass('js-hidden');
+    }
+
   }
 
   function setSrc(urlIn){
@@ -120,29 +132,35 @@ define(['jquery', 'purl'], function($) {
 
   function iframeUrlChange(e){
 
-    log(e.origin);
-    log(typeof e.data);
+    if(e.data.unload){
+      iframe.css('height', 'auto');
+      return;
+    }
     log('height:\t' + e.data.height);
     log('child url:\t' + e.data.url);
     log('user:\t' + e.data.user);
 
-    setNavButtons(e.data.user);
-    setBreadcrumbs(e.data.url);
-    window.location.href = window.location.href.split('#')[0] + '#action=' + getUrlFragment(e.data.url);
+    var fragment = getUrlFragment(e.data.url);
 
-    $('iframe.e7a1418').css('height', e.data.height + 'px');
+    setNavButtons(e.data.user, fragment);
+    setBreadcrumbs(fragment);
+
+    window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
+
+    iframe.css('height', e.data.height + 'px');
+    //$('iframe.e7a1418').css('height', e.data.height + 'px');
   }
 
   function initPageInvisible(){
 
     window.addEventListener('message', function(e){
-      log(e.origin);
-      log(typeof e.data);
-      log('height:\t' + e.data.height);
-      log('child url:\t' + e.data.url);
-      log('user:\t' + e.data.user);
+      log('invisible height:\t' + e.data.height);
+      log('invisible child url:\t' + e.data.url);
+      log('invisible user:\t' + e.data.user);
 
-      setNavButtons(e.data.user);
+      var fragment = getUrlFragment(e.data.url);
+
+      setNavButtons(e.data.user, fragment);
     }, false);
 
     var loc = window.location.href.match(/\/[a-z][a-z]\//);
