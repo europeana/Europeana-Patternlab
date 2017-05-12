@@ -1,11 +1,11 @@
 define(['jquery', 'purl'], function($) {
 
-  var e7aRoot              = '';
-  var locale               = '';
-  var manuallySetHash      = '';
-  var iframe               = $('iframe.e7a1418');
-  var defaultPageUrl       = '#action=contributor';
-  var ignoreHashChange     = false;
+  var e7aRoot          = '';
+  var locale           = '';
+  var manuallySetHash  = '';
+  var lastMessagedUrl  = '';
+  var iframe           = $('iframe.e7a1418');
+  var defaultPageUrl   = '#action=contributor';
 
   var pageData = {
     'about':{
@@ -38,9 +38,20 @@ define(['jquery', 'purl'], function($) {
         '.contribution'
       ]
     },
+    'collection/search':{
+      'breadcrumbs': [
+        '.contributor-url'
+      ]
+    },
     'contributions':{
       'breadcrumbs': [
         '.contribution'
+      ]
+    },
+    'contributions/complete':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-done'
       ]
     },
     'contributions/edit':{
@@ -55,11 +66,29 @@ define(['jquery', 'purl'], function($) {
         '.new'
       ]
     },
+    'contributions/view':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.view'
+      ]
+    },
+    'contributions/withdraw':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.withdraw'
+      ]
+    },
     'contributions/attachments':{
       'breadcrumbs': [
         '.contribution-url',
         '.contribution-attachments'
        ]
+    },
+    'contributions/attachments/flickr':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-attachments'
+      ]
     },
     'contributions/attachments/delete':{
       'breadcrumbs': [
@@ -120,7 +149,7 @@ define(['jquery', 'purl'], function($) {
   }
 
   function getUrlFragment(url){
-    return url.replace(e7aRoot, '').replace(/\/[a-z][a-z]\//, '').split('?')[0];
+    return url.replace(e7aRoot, '').replace(/\/[a-z][a-z]\//, '').split('?')[0].split('#')[0];
   }
 
   function setBreadcrumbs(fragment){
@@ -129,8 +158,14 @@ define(['jquery', 'purl'], function($) {
 
     log('fragment = ' + fragment);
 
-    if(fragment.match(/contributions\/\d*\/edit/)){
+    if(fragment.match(/contributions\/complete/)){
+      breadcrumbs = pageData['contributions/complete']['breadcrumbs'];
+    }
+    else if(fragment.match(/contributions\/\d*\/edit/)){
       breadcrumbs = pageData['contributions/edit']['breadcrumbs'];
+    }
+    else if(fragment.match(/contributions\/\d*\/withdraw/)){
+      breadcrumbs = pageData['contributions/withdraw']['breadcrumbs'];
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/new/)){
       breadcrumbs = pageData['contributions/attachments/new']['breadcrumbs'];
@@ -141,11 +176,33 @@ define(['jquery', 'purl'], function($) {
       log('TODO: 3 ---set url ');
       breadcrumbs = pageData['contributions/attachments/delete']['breadcrumbs'];
     }
+    else if(fragment.match(/contributions\/\d*\/attachments\/\d*\/edit/)){
+      breadcrumbs = pageData['contributions/attachments/edit']['breadcrumbs'];
+
+      $('.breadcrumb.contribution-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.match(/contributions\/\d*\//) + 'edit');
+
+      $('.breadcrumb.contribution-attachment-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.replace(/\/attachments\/\d*\/edit/, '/attachments/new'));
+    }
+    else if(fragment.match(/contributions\/\d*\/attachments\/flickr/)){
+      log('FLICKR');
+      breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
+    }
     else if(fragment.match(/contributions\/\d*\/attachments/)){
       log('TODO: 2 ---set url');
       breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
     }
+    else if(fragment.match(/contributions\/\d*/)){
+      breadcrumbs = pageData['contributions/view']['breadcrumbs'];
+    }
+    else if(fragment.match(/collection\/search/)){
+      breadcrumbs = pageData[fragment]['breadcrumbs'];
+      var params = $.url(lastMessagedUrl).param();
+      alert('Search portal with paramters:\n\ncontributor_id:\t' + params.contributor_id + '\nqf:\t' + params.qf);
+    }
     else{
+      log('default breadcrumbs for ' + fragment);
       breadcrumbs = pageData[fragment]['breadcrumbs'];
     }
 
@@ -214,13 +271,16 @@ define(['jquery', 'purl'], function($) {
     }
     if(e.data.unload){
       iframe.css('height', 'auto');
+      iframe.closest('.e7a1418-wrapper').addClass('loading');
       window.scrollTo(0, 0);
     }
     if(e.data.height){
       iframe.css('height', e.data.height + 'px');
+      iframe.closest('.e7a1418-wrapper').removeClass('loading');
     }
     if(e.data.url){
-      var fragment = getUrlFragment(e.data.url);
+      var fragment    = getUrlFragment(e.data.url);
+      lastMessagedUrl = e.data.url;
 
       setNavButtons(e.data.user, fragment);
       setBreadcrumbs(fragment);
@@ -231,14 +291,8 @@ define(['jquery', 'purl'], function($) {
   }
 
   function initPageInvisible(){
-
     window.addEventListener('message', function(e){
-      log('invisible height:\t' + e.data.height);
-      log('invisible child url:\t' + e.data.url);
-      log('invisible user:\t' + e.data.user);
-
       var fragment = getUrlFragment(e.data.url);
-
       setNavButtons(e.data.user, fragment);
     }, false);
 
@@ -259,11 +313,9 @@ define(['jquery', 'purl'], function($) {
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
 
     $('.e7a1418-nav a').add('.breadcrumb.contribution-attachment-url a').on('click', function(){
-      log('clicked link ' + $(this).attr('href'));
       setSrc($(this).attr('href'));
     });
     $('.e7a1418-nav a').on('click', function(){
-      ignoreHashChange = true;
       manuallySetHash = $(this).attr('href').split('#')[1];
     });
 
@@ -272,16 +324,13 @@ define(['jquery', 'purl'], function($) {
     window.addEventListener('message', iframeUrlChange, false);
 
     $(window).on('hashchange', function() {
-      // log('manuallySetHash = ' + manuallySetHash + ' v ' + location.hash.replace('#action=', '') );
       if(manuallySetHash != location.hash.replace('#action=', '')){
         log('back button clicked');
         setSrc(location.hash);
       }
     });
 
-    ignoreHashChange = true;
     setSrc();
-    ignoreHashChange = false;
   }
 
   return {

@@ -133,6 +133,23 @@
   }
 }
 
+.e7a1418-wrapper{
+
+  position: relative;
+
+  &.loading::after{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:      #fff;
+    content:    ' ';
+    height:     100%;
+    left:       0;
+    position:   absolute;
+    right:      0;
+    top:        0;
+    z-index:    10;
+  }
+}
+
 
 .with-transparency .object-nav{
   background: rgba(241, 241, 238, 0.85);

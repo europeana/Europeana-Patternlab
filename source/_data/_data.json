@@ -703,6 +703,7 @@
                 "events_list_breadcrumb": "Events",
                 "contributor": "contributor",
                 "contribution": "contribution",
+                "contribution-done": "done",
                 "contribution-attachment": "attachment",
                 "register": "Register",
                 "reset-password": "Reset password",
@@ -809,7 +810,8 @@
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
               "sort-by": "Order by",
-              "view": "View"
+              "view": "View",
+              "withdraw": "withdraw"
             },
             "channel": {
               "first-world-war": "Europeana 1914-1918"

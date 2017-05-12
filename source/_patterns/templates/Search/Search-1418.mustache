@@ -1,16 +1,18 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
-
 <style>
   .breadcrumb.contributor,
   .breadcrumb.contributor-url,
   .breadcrumb.contribution,
   .breadcrumb.contribution-url,
+  .breadcrumb.done,
+  .breadcrumb.edit,
+  .breadcrumb.new,
   .breadcrumb.register,
   .breadcrumb.reset,
   .breadcrumb.sign-in,
-  .breadcrumb.edit,
-  .breadcrumb.new{
+  .breadcrumb.view,
+  .breadcrumb.withdraw{
     text-trasnform: capitalize;
   }
 
@@ -33,7 +35,7 @@
             <li class="js-hidden breadcrumb contributor"                ><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.contributor}}</strong></span></li>
             <li class="js-hidden breadcrumb contributor-url"            ><span><a href="#action=contributor">{{i18n.site.navigation.breadcrumb.contributor}}</a></span></li>
             <li class="js-hidden breadcrumb contribution"               ><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.contribution}}</strong></span></li>
-            <li class="js-hidden breadcrumb contribution-url"           ><span><a href="#">{{i18n.site.navigation.breadcrumb.contribution}}</a></li>
+            <li class="js-hidden breadcrumb contribution-url"           ><span><a href="#action=contributor">{{i18n.site.navigation.breadcrumb.contribution}}</a></li>
             <li class="js-hidden breadcrumb contribution-attachment-url"><span><a href="#">{{i18n.site.navigation.breadcrumb.contribution-attachment}}</a></li>
             <li class="js-hidden breadcrumb contribution-attachments"   ><span class="lastitem">{{i18n.site.navigation.breadcrumb.contribution-attachment}}</li>
 
@@ -42,8 +44,11 @@
             <li class="js-hidden breadcrumb sign-in"                    ><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.sign-in}}</strong></span></li>
 
             <li class="js-hidden breadcrumb delete"                     ><span class="lastitem"><strong>{{i18n.global.actions.delete}}</strong></span></li>
+            <li class="js-hidden breadcrumb done"                       ><span class="lastitem"><strong>{{i18n.site.navigation.breadcrumb.done}}</strong></span></li>
             <li class="js-hidden breadcrumb edit"                       ><span class="lastitem"><strong>{{i18n.global.actions.edit}}</strong></span></li>
             <li class="js-hidden breadcrumb new"                        ><span class="lastitem"><strong>{{i18n.global.actions.new}}</strong></span></li>
+            <li class="js-hidden breadcrumb view"                       ><span class="lastitem"><strong>{{i18n.global.actions.view}}</strong></span></li>
+            <li class="js-hidden breadcrumb withdraw"                   ><span class="lastitem"><strong>{{i18n.global.actions.withdraw}}</strong></span></li>
           </ul>
         </div>
       </div>
@@ -52,7 +57,7 @@
     <section id="maincontent">
       {{#content}}
         {{#ugc_content}}
-          <iframe class="e7a1418" data-base-url="{{base_1418_url}}" src="about:blank" scrolling="no"></iframe>
+          <div class="e7a1418-wrapper loading"><iframe class="e7a1418" data-base-url="{{base_1418_url}}" src="about:blank" scrolling="no"></iframe></div>
         {{/ugc_content}}
       {{/content}}
     </section>
