@@ -1,10 +1,11 @@
 define(['jquery', 'purl'], function($) {
 
-  var e7aRoot          = '';
-  var locale           = '';
-  var iframe           = $('iframe.e7a1418');
-  var defaultPageUrl   = '#action=contributor';
-  var ignoreHashChange = false;
+  var e7aRoot              = '';
+  var locale               = '';
+  var manuallySetHash      = '';
+  var iframe               = $('iframe.e7a1418');
+  var defaultPageUrl       = '#action=contributor';
+  var ignoreHashChange     = false;
 
   var pageData = {
     'about':{
@@ -54,24 +55,30 @@ define(['jquery', 'purl'], function($) {
         '.new'
       ]
     },
+    'contributions/attachments':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-attachments'
+       ]
+    },
     'contributions/attachments/delete':{
       'breadcrumbs': [
         '.contribution-url',
-        '.contribution-attachment',
+        '.contribution-attachment-url',
         '.delete'
-       ]
+      ]
     },
     'contributions/attachments/edit':{
       'breadcrumbs': [
         '.contribution-url',
-        '.contribution-attachment',
+        '.contribution-attachment-url',
         '.edit'
       ]
     },
     'contributions/attachments/new':{
       'breadcrumbs': [
         '.contribution-url',
-        '.contribution-attachment',
+        '.contribution-attachment-url',
         '.new'
       ]
     },
@@ -127,9 +134,16 @@ define(['jquery', 'purl'], function($) {
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/new/)){
       breadcrumbs = pageData['contributions/attachments/new']['breadcrumbs'];
+      $('.breadcrumb.contribution-attachment-url a')
+        .attr('href', location.href.split('#')[0] + '#action=' + fragment.replace(/\/new/, ''));
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/\d*\/delete/)){
+      log('TODO: 3 ---set url ');
       breadcrumbs = pageData['contributions/attachments/delete']['breadcrumbs'];
+    }
+    else if(fragment.match(/contributions\/\d*\/attachments/)){
+      log('TODO: 2 ---set url');
+      breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
     }
     else{
       breadcrumbs = pageData[fragment]['breadcrumbs'];
@@ -174,13 +188,18 @@ define(['jquery', 'purl'], function($) {
       if(hash.indexOf('=') > -1){
         var fragment = hash.split('=')[1];
         var url      = e7aRoot + '/' + locale + '/' + fragment;
+
+        manuallySetHash = fragment;
+
         iframe.attr('src', url);
+      }
+      else{
+        window.location.href = (href + defaultPageUrl).replace('##', '#');
+        setSrc();
       }
     }
     else{
-      ignoreHashChange = true;
       window.location.href = href + defaultPageUrl;
-      ignoreHashChange = false;
       setSrc();
     }
   }
@@ -192,20 +211,20 @@ define(['jquery', 'purl'], function($) {
       window.scrollTo(0, 0);
       return;
     }
-    //log('height:\t' + e.data.height);
-    //log('child url:\t' + e.data.url);
-    //log('user:\t' + e.data.user);
 
-    var fragment = getUrlFragment(e.data.url);
+    if(e.data.height){
+      iframe.css('height', e.data.height + 'px');
+    }
+    if(e.data.url){
+      var fragment = getUrlFragment(e.data.url);
 
-    setNavButtons(e.data.user, fragment);
-    setBreadcrumbs(fragment);
+      setNavButtons(e.data.user, fragment);
+      setBreadcrumbs(fragment);
 
-    ignoreHashChange = true;
-    window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
-    ignoreHashChange = false;
+      manuallySetHash      = fragment;
+      window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
 
-    iframe.css('height', e.data.height + 'px');
+    }
   }
 
   function initPageInvisible(){
@@ -236,9 +255,13 @@ define(['jquery', 'purl'], function($) {
     e7aRoot = iframe.data('base-url');
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
 
-    $('.e7a1418-nav a').on('click', function(){
+    $('.e7a1418-nav a').add('.breadcrumb.contribution-attachment-url a').on('click', function(){
       log('clicked link ' + $(this).attr('href'));
       setSrc($(this).attr('href'));
+    });
+    $('.e7a1418-nav a').on('click', function(){
+      ignoreHashChange = true;
+      manuallySetHash = $(this).attr('href').split('#')[1];
     });
 
     log('Init 14-18 (root: ' + e7aRoot + ', locale: ' + locale + ')');
@@ -246,14 +269,16 @@ define(['jquery', 'purl'], function($) {
     window.addEventListener('message', iframeUrlChange, false);
 
     $(window).on('hashchange', function() {
-      log('hash change... (ignore = ' + ignoreHashChange + ')');
+      // log('manuallySetHash = ' + manuallySetHash + ' v ' + location.hash.replace('#action=', '') );
+      if(manuallySetHash != location.hash.replace('#action=', '')){
+        log('back button clicked');
+        setSrc(location.hash);
+      }
     });
 
-    $(window).on('popstate', function() {
-      log('POP ' + window.history.length);
-    });
-
+    ignoreHashChange = true;
     setSrc();
+    ignoreHashChange = false;
   }
 
   return {

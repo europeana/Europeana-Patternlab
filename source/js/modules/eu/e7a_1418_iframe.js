@@ -17,24 +17,22 @@ var sendMessage = function(unload, heightOnly){
 
 window.onload = function() {
   setTimeout(function(){
-  sendMessage();
+    sendMessage();
+
+    if(typeof jQuery != 'undefined'){
+      console.log('jquery is available');
+      $('.collapsible').add('.collapsed').on('click', function(){
+        console.log('collapsible element clicked....');
+        sendMessage(false, true);
+      });
+    }
+    else{
+      console.log('jquery unavailable');
+    }
   },
   200);
-}
+};
 
 window.onunload = function() {
   sendMessage(true);
-}
-
-setTimeout(function(){
-  if(typeof $ != 'undefined'){
-    console.log('jquery is available');
-    $('.collapsible').add('.collapsed').on('click', function(){
-      console.log('collapsible element clicked....');
-      sendMessage(false, true);
-    });
-  }
-  else{
-    console.log('jquery unavailable');
-  }
-}, 2000);
+};
