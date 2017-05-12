@@ -1,13 +1,14 @@
-var eu1418_height = function(){
-  var body = document.body;
-  var html = document.documentElement;
-  Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-};
 
 
 window.onload = function() {
 
   window.console.log('1418 loaded');
+
+  var eu1418_height = function(){
+    var body = document.body;
+    var html = document.documentElement;
+    return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+  };
 
   setTimeout(function(){
 
@@ -18,7 +19,8 @@ window.onload = function() {
       $('.collapsible').add('.collapsed').on('click', function(){
 
         setTimeout(function(){
-          parent.postMessage({height: eu1418_height()}, '*');
+          // parent.postMessage({height: eu1418_height()}, '*');
+          parent.postMessage({heightUpdate: true}, '*');
         }, 1000);
 
         window.console.log('collapsible element clicked');
@@ -36,8 +38,9 @@ window.onload = function() {
     console.log('incoming message');
     parent.postMessage({height: eu1418_height()}, '*');
   }, false);
-};
 
-window.onunload = function() {
-  parent.postMessage({'unload': true}, '*');
+  window.onunload = function() {
+    parent.postMessage({'unload': true}, '*');
+  };
+
 };

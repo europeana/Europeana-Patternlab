@@ -206,17 +206,16 @@ define(['jquery', 'purl'], function($) {
 
   function iframeUrlChange(e){
 
-    log('height:\t' + e.data.height);
-    log('child url:\t' + e.data.url);
-    log('user:\t' + e.data.user);
-    log('user:\t' + e.data.unload);
+    log('message data:\t' + JSON.stringify(e.data, null, 4));
 
+    if(e.data.heightUpdate){
+      iframe.css('height', 'auto');
+      iframe.postMessage({msg: '(trigger get height)'}, '*');
+    }
     if(e.data.unload){
       iframe.css('height', 'auto');
       window.scrollTo(0, 0);
-      return;
     }
-
     if(e.data.height){
       iframe.css('height', e.data.height + 'px');
     }
@@ -228,7 +227,6 @@ define(['jquery', 'purl'], function($) {
 
       manuallySetHash      = fragment;
       window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
-
     }
   }
 
