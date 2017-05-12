@@ -206,6 +206,11 @@ define(['jquery', 'purl'], function($) {
 
   function iframeUrlChange(e){
 
+    log('height:\t' + e.data.height);
+    log('child url:\t' + e.data.url);
+    log('user:\t' + e.data.user);
+    log('user:\t' + e.data.unload);
+
     if(e.data.unload){
       iframe.css('height', 'auto');
       window.scrollTo(0, 0);

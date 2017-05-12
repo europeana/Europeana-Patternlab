@@ -16,19 +16,25 @@ var sendMessage = function(unload, heightOnly){
 }
 
 window.onload = function() {
-  setTimeout(function(){
-    sendMessage();
 
+  window.console.log('1418 loaded');
+
+  setTimeout(function(){
     if(typeof jQuery != 'undefined'){
-      console.log('jquery is available');
+
+      window.console.log('jquery is available');
+
       $('.collapsible').add('.collapsed').on('click', function(){
-        console.log('collapsible element clicked....');
-        sendMessage(false, true);
+
+        setTimeout(function(){
+          sendMessage(false, true);
+        }, 1000);
+
+        window.console.log('collapsible element clicked');
       });
     }
-    else{
-      console.log('jquery unavailable');
-    }
+
+    sendMessage();
   },
   200);
 };
