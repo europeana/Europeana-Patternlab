@@ -19,20 +19,27 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
-  "user_role": "europeana_role",
+  "page_title": "Metis Dataset",
+  "user_role": {
+    "europeana": false,
+    "provider": true
+  },
+  "view_mode": {
+    "update": true,
+    "create": false,
+    "preview": false
+  },
   "dataset_form": {
     "dataset_fields": {
-      "field_name": {
+      "dataset_name": {
         "label": "Name",
-        "placeholder": "2024913_Photocons_LPDP",
-        "value": ""
+        "value": "2024913_Photocons_LPDP"
       },
       "provider": {
         "label": "Provider",
         "placeholder": "Europeana Photography",
         "value": ""
       },
-
       "data_provider": {
         "label": "Data provider",
         "placeholder": "Parisienne de photographie",
@@ -40,7 +47,7 @@
       },
       "dea_signed": {
         "label": "DEA signed",
-        "checked": false
+        "checked": true
       },
       "date_created": {
         "label": "Date created",
@@ -62,7 +69,6 @@
         "placeholder": "This is a great dataset!",
         "value": ""
       },
-
       "notes": {
         "label": "Notes",
         "placeholder": "I did a complex mapping for edm:rights",
@@ -129,14 +135,9 @@
         "placeholder": "rdf",
         "value": ""
       },
-      "provider_url": {
-        "label": "Provider",
+      "metadata_schema": {
+        "label": "Metadata Schema",
         "placeholder": "http://www.europeanalabs.eu/svn/europeana/trunk/ROOT/src/main/webapp/sc...",
-        "value": ""
-      },
-      "metadata_namespace": {
-        "label": "Metadata Namespace",
-        "placeholder": "http://www.europeana.eu/schemas/edm",
         "value": ""
       }
     }

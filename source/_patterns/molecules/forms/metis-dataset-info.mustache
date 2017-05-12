@@ -3,94 +3,133 @@
     <form>
     <div class="flex-outer">
       {{#dataset_fields}}
-        {{#field_name}}
-          <div>
-            <label for="name">{{label}}</label>
-            <input type="text" value="{{value}}" name="name" id="name" placeholder="{{placeholder}}">
-          </div>
-        {{/field_name}}
+        {{^view_mode.create}}
+          {{#dataset_name}}
+            <div>
+              <label for="name">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="name" id="name">
+            </div>
+          {{/dataset_name}}
+        {{/view_mode.create}}
         {{#provider}}
           <div>
             <label for="provider">{{label}}</label>
-            <input type="text" value="{{value}}" name="provider" id="provider" placeholder="{{placeholder}}">
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="provider"
+                   id="provider" placeholder="{{placeholder}}">
           </div>
         {{/provider}}
         {{#data_provider}}
           <div>
             <label for="data-provider">{{label}}</label>
-            <input type="text" value="{{value}}" name="data-provider" id="data-provider" placeholder="{{placeholder}}">
+            <input type="text" value="{{value}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                   name="data-provider" id="data-provider" placeholder="{{placeholder}}">
           </div>
         {{/data_provider}}
-        {{#dea_signed}}
-          <div>
-            <label for="dea-signed">{{label}}</label>
-            <input type="checkbox" name="dea-signed" id="dea-signed" {{#checked}}checked{{/checked}}>
-            <label for="dea-signed"></label>
-          </div>
-        {{/dea_signed}}
-        {{#date_created}}
-          <div>
-            <label for="date-created">{{label}}</label>
-            <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created"
-                   type="date" id="date-created"
-                   placeholder="{{placeholder}}">
-          </div>
-        {{/date_created}}
-        {{#date_updated}}
-          <div>
-            <label for="date-updated">{{label}}</label>
-            <input class="svg-icon-form-field-calendar icon-padding" name="date-updated" type="date"
-                   id="date-updated" placeholder="{{placeholder}}">
-          </div>
-        {{/date_updated}}
+        <!--DEA Signed checkbox -->
+        {{#view_mode.create}}
+          {{#user_role.europeana}}
+            {{#dea_signed}}
+              <div>
+                <label for="dea-signed">{{label}}</label>
+                <input type="checkbox" name="dea-signed" id="dea-signed">
+                <label for="dea-signed"></label>
+              </div>
+            {{/dea_signed}}
+          {{/user_role.europeana}}
+        {{/view_mode.create}}
+        {{^view_mode.create}}
+          {{#dea_signed}}
+            <div>
+              <label for="dea-signed">{{label}}</label>
+              <input type="checkbox" name="dea-signed" id="dea-signed" {{#checked}}checked{{/checked}}
+                {{#view_mode.preview}}disabled{{/view_mode.preview}}
+                {{^view_mode.preview}}
+                  {{^user_role.europeana}}
+                     disabled
+                  {{/user_role.europeana}}
+                {{/view_mode.preview}}>
+              <label for="dea-signed"></label>
+            </div>
+          {{/dea_signed}}
+        {{/view_mode.create}}
+        <!-- DEA Signed checkbox -->
+        {{^view_mode.create}}
+          {{#date_created}}
+            <div>
+              <label for="date-created">{{label}}</label>
+              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created" type="date"
+                     id="date-created" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/date_created}}
+          {{#date_updated}}
+            <div>
+              <label for="date-updated">{{label}}</label>
+              <input class="svg-icon-form-field-calendar icon-padding" name="date-updated" type="date"
+                     id="date-updated" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/date_updated}}
+        {{/view_mode.create}}
         {{#replaced_by}}
           <div>
             <label for="replaced-by">{{label}}</label>
-            <input type="text" value="{{value}}" name="replaced-by" id="replaced-by" placeholder="{{placeholder}}">
+            <input type="text" value="{{value}}" name="replaced-by" id="replaced-by" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/replaced_by}}
         {{#description}}
           <div>
             <label for="description">{{label}}</label>
-            <input value="{{value}}" name="description" type="text" id="description" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="description" type="text" id="description" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/description}}
-        {{#notes}}
-          <div>
-            <label for="notes">{{label}}</label>
-            <input value="{{value}}" name="notes" type="text" id="notes" placeholder="{{placeholder}}">
-          </div>
-        {{/notes}}
-        {{#first_published}}
-          <div>
-            <label for="first-published">{{label}}</label>
-            <input value="{{value}}" name="first-published" class="svg-icon-form-field-calendar icon-padding"
-                   type="date" id="first-published" placeholder="{{placeholder}}">
-          </div>
-        {{/first_published}}
-        {{#last_published}}
-          <div>
-            <label for="last-published">{{label}}</label>
-            <input value="{{value}}" name="last-published" class="svg-icon-form-field-calendar icon-padding"
-                   type="date" id="last-published" placeholder="{{placeholder}}">
-          </div>
-        {{/last_published}}
-        {{#assigned_to}}
-          <div>
-            <label for="assigned-to">{{label}}</label>
-            <input value="{{value}}" name="assigned-to" type="text" id="assigned-to" placeholder="{{placeholder}}">
-          </div>
-        {{/assigned_to}}
+        {{#user_role.europeana}}
+          {{#notes}}
+            <div>
+              <label for="notes">{{label}}</label>
+              <input value="{{value}}" name="notes" type="text" id="notes" placeholder="{{placeholder}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+            </div>
+          {{/notes}}
+        {{/user_role.europeana}}
+        {{^view_mode.create}}
+          {{#first_published}}
+            <div>
+              <label for="first-published">{{label}}</label>
+              <input value="{{value}}" name="first-published" class="svg-icon-form-field-calendar icon-padding"
+                     type="date" id="first-published" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/first_published}}
+          {{#last_published}}
+            <div>
+              <label for="last-published">{{label}}</label>
+              <input value="{{value}}" name="last-published" class="svg-icon-form-field-calendar icon-padding"
+                     type="date" id="last-published" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/last_published}}
+        {{/view_mode.create}}
+        {{^view_mode.create}}
+          {{#assigned_to}}
+            <div>
+              <label for="assigned-to">{{label}}</label>
+              <input value="{{value}}" name="assigned-to" type="text" id="assigned-to" placeholder="{{placeholder}}"
+                {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                {{^view_mode.preview}}{{^user_role.europeana}}readonly{{/user_role.europeana}}{{/view_mode.preview}}>
+            </div>
+          {{/assigned_to}}
+        {{/view_mode.create}}
         {{#country}}
           <div>
             <label for="country">{{label}}</label>
-            <input value="{{value}}" name="country" type="text" id="country" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="country" type="text" id="country" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/country}}
         {{#language}}
           <div>
             <label for="language">{{label}}</label>
-            <input value="{{value}}" name="language" type="text" id="language" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="language" type="text" id="language" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/language}}
         {{#harvest_protocol}}
@@ -100,7 +139,7 @@
               {{#options}}
                 <div>
                   <input id="{{name}}" name="{{group_name}}" type="radio" class="with-font" value="{{name}}"
-                         {{#checked}}checked{{/checked}}/>
+                    {{#checked}}checked{{/checked}} {{#view_mode.preview}}disabled{{/view_mode.preview}}/>
                   <label for="{{name}}">{{label}}</label>
                 </div>
               {{/options}}
@@ -110,35 +149,31 @@
         {{#harvest_url}}
           <div>
             <label for="havest-url">{{label}}</label>
-            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/harvest_url}}
         {{#setspec}}
           <div>
             <label for="setspec">{{label}}</label>
-            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/setspec}}
         {{#metadata_format}}
           <div>
             <label for="metadata-format">{{label}}</label>
             <input value="{{value}}" name="metadata-format" type="text" id="metadata-format"
-                   placeholder="{{placeholder}}">
+                   placeholder="{{placeholder}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/metadata_format}}
-        {{#provider_url}}
+        {{#metadata_schema}}
           <div>
             <label for="provider_url">{{label}}</label>
-            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}">
+            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
-        {{/provider_url}}
-        {{#metadata_namespace}}
-          <div>
-            <label for="metadata-namespace">{{label}}</label>
-            <input value="{{value}}" name="metadata-namespace" type="text" id="metadata-namespace"
-                   placeholder="{{placeholder}}">
-          </div>
-        {{/metadata_namespace}}
+        {{/metadata_schema}}
         <div>
           <button type="submit">Edit</button>
         </div>
