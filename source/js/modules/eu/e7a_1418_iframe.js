@@ -1,25 +1,16 @@
-var sendMessage = function(unload, heightOnly){
+var eu1418_height = function(){
   var body = document.body;
   var html = document.documentElement;
+  Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+};
 
-  if(unload){
-    parent.postMessage({'unload': true}, '*');
-    return;
-  }
-
-  var data = {
-    height: Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight),
-    url:    (heightOnly ? false : window.location.href),
-    user:   (heightOnly ? false : (typeof userLoggedIn == 'undefined' ? false : userLoggedIn))
-  }
-  parent.postMessage(data, '*');
-}
 
 window.onload = function() {
 
   window.console.log('1418 loaded');
 
   setTimeout(function(){
+
     if(typeof jQuery != 'undefined'){
 
       window.console.log('jquery is available');
@@ -27,18 +18,26 @@ window.onload = function() {
       $('.collapsible').add('.collapsed').on('click', function(){
 
         setTimeout(function(){
-          sendMessage(false, true);
+          parent.postMessage({height: eu1418_height()}, '*');
         }, 1000);
 
         window.console.log('collapsible element clicked');
       });
     }
 
-    sendMessage();
-  },
-  200);
+    parent.postMessage({
+      height: eu1418_height(),
+      url:    window.location.href,
+      user:   typeof userLoggedIn == 'undefined' ? false : userLoggedIn
+    }, '*');
+  }, 200);
+
+  window.addEventListener('message', function(e){
+    console.log('incoming message');
+    parent.postMessage({height: eu1418_height()}, '*');
+  }, false);
 };
 
 window.onunload = function() {
-  sendMessage(true);
+  parent.postMessage({'unload': true}, '*');
 };
