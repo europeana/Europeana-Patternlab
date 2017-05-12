@@ -36,3 +36,6 @@ if(typeof $ != 'undefined'){
     sendMessage();
   });
 }
+else{
+  console.log('jquery unavailable');
+}

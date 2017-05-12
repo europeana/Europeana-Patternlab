@@ -703,6 +703,7 @@
                 "events_list_breadcrumb": "Events",
                 "contributor": "contributor",
                 "contribution": "contribution",
+                "contribution-attachment": "attachment",
                 "register": "Register",
                 "reset-password": "Reset password",
                 "sign-in": "Sign In"
@@ -795,6 +796,7 @@
         },
         "global": {
             "actions": {
+              "delete":"delete",
               "edit":"edit",
               "filter-by": "Filter by",
               "filter-all": "All",

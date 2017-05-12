@@ -54,9 +54,35 @@ define(['jquery', 'purl'], function($) {
         '.new'
       ]
     },
+    'contributions/attachments/delete':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-attachment',
+        '.delete'
+       ]
+    },
+    'contributions/attachments/edit':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-attachment',
+        '.edit'
+      ]
+    },
+    'contributions/attachments/new':{
+      'breadcrumbs': [
+        '.contribution-url',
+        '.contribution-attachment',
+        '.new'
+      ]
+    },
     'contributor': {
       'breadcrumbs': [
         '.contributor'
+      ]
+    },
+    'users': {
+      'breadcrumbs': [
+        '.contributor-url'
       ]
     },
     'users/password/new': {
@@ -94,8 +120,16 @@ define(['jquery', 'purl'], function($) {
 
     var breadcrumbs = [];
 
+    log('fragment = ' + fragment);
+
     if(fragment.match(/contributions\/\d*\/edit/)){
       breadcrumbs = pageData['contributions/edit']['breadcrumbs'];
+    }
+    else if(fragment.match(/contributions\/\d*\/attachments\/new/)){
+      breadcrumbs = pageData['contributions/attachments/new']['breadcrumbs'];
+    }
+    else if(fragment.match(/contributions\/\d*\/attachments\/\d*\/delete/)){
+      breadcrumbs = pageData['contributions/attachments/delete']['breadcrumbs'];
     }
     else{
       breadcrumbs = pageData[fragment]['breadcrumbs'];
