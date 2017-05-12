@@ -26,12 +26,9 @@ window.onunload = function() {
   sendMessage(true);
 }
 
-window.onresize = function() {
-  sendMessage();
-}
-
 setTimeout(function(){
   if(typeof $ != 'undefined'){
+    console.log('jquery is available');
     $('.collapsible').add('.collapsed').on('click', function(){
       console.log('collapsible element clicked....');
       sendMessage(false, true);
