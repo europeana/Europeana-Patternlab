@@ -210,7 +210,7 @@ define(['jquery', 'purl'], function($) {
 
     if(e.data.heightUpdate){
       iframe.css('height', 'auto');
-      iframe.postMessage({msg: '(trigger get height)'}, '*');
+      iframe[0].contentWindow.postMessage({msg: '(trigger get height)'}, '*');
     }
     if(e.data.unload){
       iframe.css('height', 'auto');

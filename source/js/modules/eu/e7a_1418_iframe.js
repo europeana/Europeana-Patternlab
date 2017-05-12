@@ -1,5 +1,3 @@
-
-
 window.onload = function() {
 
   window.console.log('1418 loaded');
@@ -19,7 +17,6 @@ window.onload = function() {
       $('.collapsible').add('.collapsed').on('click', function(){
 
         setTimeout(function(){
-          // parent.postMessage({height: eu1418_height()}, '*');
           parent.postMessage({heightUpdate: true}, '*');
         }, 1000);
 
