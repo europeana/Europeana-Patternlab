@@ -1,4 +1,4 @@
-var sendMessage = function(unload){
+var sendMessage = function(unload, heightOnly){
   var body = document.body;
   var html = document.documentElement;
 
@@ -9,8 +9,8 @@ var sendMessage = function(unload){
 
   var data = {
     height: Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight),
-    url:    window.location.href,
-    user:   (typeof userLoggedIn == 'undefined' ? false : userLoggedIn)
+    url:    (heightOnly ? false : window.location.href),
+    user:   (heightOnly ? false : (typeof userLoggedIn == 'undefined' ? false : userLoggedIn))
   }
   parent.postMessage(data, '*');
 }
@@ -30,12 +30,14 @@ window.onresize = function() {
   sendMessage();
 }
 
-if(typeof $ != 'undefined'){
-  $('.collapsible').add('.collapsed').on('click', function(){
-    console.log('collapsible element clicked....');
-    sendMessage();
-  });
-}
-else{
-  console.log('jquery unavailable');
-}
+setTimeout(function(){
+  if(typeof $ != 'undefined'){
+    $('.collapsible').add('.collapsed').on('click', function(){
+      console.log('collapsible element clicked....');
+      sendMessage(false, true);
+    });
+  }
+  else{
+    console.log('jquery unavailable');
+  }
+}, 2000);
