@@ -29,3 +29,10 @@ window.onunload = function() {
 window.onresize = function() {
   sendMessage();
 }
+
+if(typeof $ != 'undefined'){
+  $('.collapsible').add('.collapsed').on('click', function(){
+    console.log('collapsible element clicked....');
+    sendMessage();
+  });
+}

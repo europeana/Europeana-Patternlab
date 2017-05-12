@@ -27,7 +27,9 @@
     }
   ],
   "content": {
-    "base_1418_url":  "http://test.1418.eanadev.org",
-    "portal_url": "javascript:alert('return to landing page')"
+    "ugc_content": {
+      "base_1418_url":  "http://test.1418.eanadev.org",
+      "portal_url": "javascript:alert('return to landing page')"
+    }
   }
 }

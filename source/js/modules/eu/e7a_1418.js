@@ -1,11 +1,32 @@
 define(['jquery', 'purl'], function($) {
 
-  var e7aRoot        = '';
-  var locale         = '';
-  var iframe         = $('iframe.e7a1418');
-  var defaultPageUrl = '#action=contributor';
+  var e7aRoot          = '';
+  var locale           = '';
+  var iframe           = $('iframe.e7a1418');
+  var defaultPageUrl   = '#action=contributor';
+  var ignoreHashChange = false;
 
   var pageData = {
+    'about':{
+      'breadcrumbs': [
+        '.contributor'
+      ]
+    },
+    'about/privacy':{
+      'breadcrumbs': [
+        '.contributor'
+      ]
+    },
+    'about/takedown':{
+      'breadcrumbs': [
+        '.contributor'
+      ]
+    },
+    'about/terms':{
+      'breadcrumbs': [
+        '.contributor'
+      ]
+    },
     'admin':{
       'breadcrumbs': [
         '.contributor'
@@ -57,9 +78,8 @@ define(['jquery', 'purl'], function($) {
       ]
     },
     'users/sign-out' : {
-        'breadcrumbs': [
-        ]
-      }
+      'breadcrumbs': []
+    }
   };
 
   function log(msg){
@@ -108,7 +128,6 @@ define(['jquery', 'purl'], function($) {
     else{
       $('.e7a1418-contribute').removeClass('js-hidden');
     }
-
   }
 
   function setSrc(urlIn){
@@ -125,7 +144,9 @@ define(['jquery', 'purl'], function($) {
       }
     }
     else{
+      ignoreHashChange = true;
       window.location.href = href + defaultPageUrl;
+      ignoreHashChange = false;
       setSrc();
     }
   }
@@ -134,21 +155,23 @@ define(['jquery', 'purl'], function($) {
 
     if(e.data.unload){
       iframe.css('height', 'auto');
+      window.scrollTo(0, 0);
       return;
     }
-    log('height:\t' + e.data.height);
-    log('child url:\t' + e.data.url);
-    log('user:\t' + e.data.user);
+    //log('height:\t' + e.data.height);
+    //log('child url:\t' + e.data.url);
+    //log('user:\t' + e.data.user);
 
     var fragment = getUrlFragment(e.data.url);
 
     setNavButtons(e.data.user, fragment);
     setBreadcrumbs(fragment);
 
+    ignoreHashChange = true;
     window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
+    ignoreHashChange = false;
 
     iframe.css('height', e.data.height + 'px');
-    //$('iframe.e7a1418').css('height', e.data.height + 'px');
   }
 
   function initPageInvisible(){
@@ -187,6 +210,15 @@ define(['jquery', 'purl'], function($) {
     log('Init 14-18 (root: ' + e7aRoot + ', locale: ' + locale + ')');
 
     window.addEventListener('message', iframeUrlChange, false);
+
+    $(window).on('hashchange', function() {
+      log('hash change... (ignore = ' + ignoreHashChange + ')');
+    });
+
+    $(window).on('popstate', function() {
+      log('POP ' + window.history.length);
+    });
+
     setSrc();
   }
 

@@ -55,8 +55,10 @@
 
   "content":
   {
-    "include_1418_nav": true,
-    "base_1418_url": "http://test.1418.eanadev.org",
+    "ugc_content":{
+      "include_1418_nav": true,
+      "base_1418_url": "http://test.1418.eanadev.org"
+    },
     "object":
     {
       "media":
