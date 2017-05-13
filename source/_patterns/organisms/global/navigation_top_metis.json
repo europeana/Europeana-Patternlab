@@ -22,6 +22,7 @@
     "is_alpha": false,
     "is_beta": true
   },
+  "jQuery": false,
   "browse_menu": {
     "menu_id": "metis-search-menu",
     "items": [
