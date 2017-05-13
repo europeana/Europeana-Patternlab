@@ -17,6 +17,7 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "jQuery": false,
   "input_search": {
     "title": "Search for dataset",
     "input_name": "q",

@@ -17,6 +17,7 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "jQuery": false,
   "version":{
     "is_alpha": false,
     "is_beta": true
