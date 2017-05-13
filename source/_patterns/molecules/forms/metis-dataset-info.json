@@ -5,10 +5,6 @@
       "media": "all"
     },
     {
-      "path": "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
-      "media": "all"
-    },
-    {
       "path": "http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css",
       "media": "all"
     }
@@ -19,10 +15,11 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "jQuery": false,
   "page_title": "Metis Dataset",
   "user_role": {
-    "europeana": false,
-    "provider": true
+    "europeana": true,
+    "provider": false
   },
   "view_mode": {
     "update": true,
@@ -51,13 +48,13 @@
       },
       "date_created": {
         "label": "Date created",
-        "placeholder": "Europeana Photography",
-        "value": ""
+        "placeholder": "dd/mm/yyyy",
+        "value": "08/16/2010"
       },
       "date_updated": {
         "label": "Date updated",
-        "placeholder": "25/12/2015",
-        "value": ""
+        "placeholder": "dd/mm/yyyy",
+        "value": "02/10/2015"
       },
       "replaced_by": {
         "label": "Replaced by",
@@ -76,13 +73,13 @@
       },
       "first_published": {
         "label": "First published",
-        "placeholder": "23/12/2013",
-        "value": ""
+        "placeholder": "dd/mm/yyyy",
+        "value": "08/16/2015"
       },
       "last_published": {
         "label": "Last published",
         "placeholder": "31/01/2017",
-        "value": ""
+        "value": "04/01/2017"
       },
       "assigned_to": {
         "label": "Assigned to",

@@ -16,16 +16,16 @@ input[type=radio] + label::before{
 input[type=checkbox] + label::before {
   color: $gray-light;
   content: '\f096';
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 100;
 }
 
 input[type=radio] + label::before {
   color: $gray-light;
   content: '\f1db';
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 100;
-  width: 2.5rem;
+  width: 2rem;
 }
 // unchecked icon
 input[type=checkbox] + label::before,
@@ -38,13 +38,13 @@ input[type=checkbox]:checked + label::before {
   color:     $eu-jade;
   content:   '\f046';
   display:   inline-block;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 input[type=radio]:checked + label::before {
   color:     $eu-jade;
   content:   '\f192';
   display:   inline-block;
-  font-size: 2rem;
-  width:     2.5rem;
+  font-size: 1.4rem;
+  width:     2rem;
 }

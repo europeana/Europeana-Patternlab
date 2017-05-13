@@ -25,7 +25,7 @@
                    name="data-provider" id="data-provider" placeholder="{{placeholder}}">
           </div>
         {{/data_provider}}
-        <!--DEA Signed checkbox -->
+        {{! DEA Signed checkbox }}
         {{#view_mode.create}}
           {{#user_role.europeana}}
             {{#dea_signed}}
@@ -52,19 +52,19 @@
             </div>
           {{/dea_signed}}
         {{/view_mode.create}}
-        <!-- DEA Signed checkbox -->
+        {{! DEA Signed checkbox }}
         {{^view_mode.create}}
           {{#date_created}}
             <div>
               <label for="date-created">{{label}}</label>
-              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created" type="date"
+              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created" type="text"
                      id="date-created" placeholder="{{placeholder}}" readonly>
             </div>
           {{/date_created}}
           {{#date_updated}}
             <div>
               <label for="date-updated">{{label}}</label>
-              <input class="svg-icon-form-field-calendar icon-padding" name="date-updated" type="date"
+              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-updated" type="text"
                      id="date-updated" placeholder="{{placeholder}}" readonly>
             </div>
           {{/date_updated}}
@@ -97,14 +97,14 @@
             <div>
               <label for="first-published">{{label}}</label>
               <input value="{{value}}" name="first-published" class="svg-icon-form-field-calendar icon-padding"
-                     type="date" id="first-published" placeholder="{{placeholder}}" readonly>
+                     type="text" id="first-published" placeholder="{{placeholder}}" readonly>
             </div>
           {{/first_published}}
           {{#last_published}}
             <div>
               <label for="last-published">{{label}}</label>
               <input value="{{value}}" name="last-published" class="svg-icon-form-field-calendar icon-padding"
-                     type="date" id="last-published" placeholder="{{placeholder}}" readonly>
+                     type="text" id="last-published" placeholder="{{placeholder}}" readonly>
             </div>
           {{/last_published}}
         {{/view_mode.create}}
