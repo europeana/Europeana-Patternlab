@@ -1,3 +1,5 @@
+<h1>User role: {{user_role.value}}</h1>
+<h2>View mode: {{view_mode.value}}</h2>
 {{#dataset_form}}
   <div class="metis-form-container">
     <form action="#" data-role="{{user_role.value}}" data-view-mode="{{view_mode.value}}">
@@ -113,7 +115,7 @@
             <div>
               <label for="assigned-to">{{label}}</label>
               <input value="{{value}}" name="assigned-to" type="text" id="assigned-to" placeholder="{{placeholder}}"
-                {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu"
                 {{^view_mode.preview}}{{^user_role.europeana}}readonly{{/user_role.europeana}}{{/view_mode.preview}}>
             </div>
           {{/assigned_to}}
@@ -179,18 +181,18 @@
           </div>
         {{/metadata_schema}}
 
-          <div class="buttons preview-block-btn hidden">
-            <button class="edit" type="button">Edit</button>
-          </div>
+        <div class="buttons preview-block-btn hidden">
+          <button class="edit" type="button">Edit</button>
+        </div>
 
-          <div class="buttons editable-block-btns hidden">
-            <div>
-              <button class="submit" type="button">Submit</button>
-            </div>
-            <div>
-              <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
-            </div>
+        <div class="buttons editable-block-btns hidden">
+          <div>
+            <button class="submit" type="button">Submit</button>
           </div>
+          <div>
+            <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
+          </div>
+        </div>
 
       </div>
       {{/dataset_fields}}

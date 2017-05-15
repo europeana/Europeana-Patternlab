@@ -12,8 +12,6 @@ define(['jquery'], function ($) {
     }
 
     $('.edit').click(function () {
-      var mode = $('form').data('view-mode');
-
       $('form').attr('data-view-mode', 'update');
       $('.preview-block-btn').toggleClass('hidden');
       $('.editable-block-btns').toggleClass('hidden');
@@ -21,6 +19,9 @@ define(['jquery'], function ($) {
       if (role === 'europeana') {
         $('.eu').attr('readonly', false);
         $('.eu').attr('disabled', false);
+      } else {
+        $('.prov').attr('readonly', false);
+        $('.prov').attr('disabled', false);
       }
     });
 
@@ -31,10 +32,12 @@ define(['jquery'], function ($) {
         $('.eu, .prov').attr('disabled', true);
         $('form').attr('data-view-mode', 'preview');
         $('.cancel').toggleClass('update preview');
+        $('.preview-block-btn').toggleClass('hidden');
+        $('.editable-block-btns').toggleClass('hidden');
+      } else {
+      //  TODO: on create mode after canceling the creation the user should be redirected to ?
+        console.log('canceling dataset creation');
       }
-
-      $('.preview-block-btn').toggleClass('hidden');
-      $('.editable-block-btns').toggleClass('hidden');
     });
 
     // TODO : define the action to be taken after submitting changes.
