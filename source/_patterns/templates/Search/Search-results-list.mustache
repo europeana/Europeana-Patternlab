@@ -130,20 +130,23 @@
                     {{> molecules/navigation/pagination }}
                 {{/has_results}}
 
-                {{#federated_results}}
-                  <h3 class="title-federated-results">
-                    <a class="fed-res-expand"> </a>
-                    {{i18n.site.results.federated}}
-                  </h3>
-                  <div class="display-grid">
-                    {{> organisms/components/eu-accordion-tabs }}
-                  </div>
-                  {{#tab_items}}
-                    {{#more_results_url}}
-                      <h4 class="more-federated-results"><a href="{{.}}">{{more_results_label}}</a></h4>
-                    {{/more_results_url}}
-                  {{/tab_items}}
-                {{/federated_results}}
+                <h3 class="title-federated-results">
+                  <a class="fed-res-expand">
+                    <span class="icon-label-collapse svg-icon-minus"></span>
+                    <span class="icon-label-expand svg-icon-plus"></span>
+                    <span class="label-collapse">{{i18n.global.actions.collapse}}</span>
+                    <span class="label-expand">{{i18n.global.actions.expand}}</span>
+                  </a>
+                  {{i18n.site.results.federated}}
+                </h3>
+                <div class="display-grid">
+                  <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-js }}</noscript></div>
+                </div>
+                {{#tab_items}}
+                  {{#more_results_url}}
+                    <h4 class="more-federated-results"><a href="{{.}}">{{more_results_label}}</a></h4>
+                  {{/more_results_url}}
+                {{/tab_items}}
 
             </div>
 

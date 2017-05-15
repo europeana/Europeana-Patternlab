@@ -797,8 +797,10 @@
         },
         "global": {
             "actions": {
+              "collapse": "Collapse",
               "delete":"delete",
-              "edit":"edit",
+              "edit": "edit",
+              "expand": "Expand",
               "filter-by": "Filter by",
               "filter-all": "All",
               "fullscreen-enter": "full screen",

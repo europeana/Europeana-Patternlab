@@ -94,7 +94,6 @@ define(['jquery', 'smartmenus'], function ($) {
         euTooltip.configure();
       });
     }
-    log(JSON.stringify(requirejs.s.contexts._.config.paths, null, 4));
     initFeedback();
   };
 

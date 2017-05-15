@@ -10,6 +10,14 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
+  function activate($cmp, index){
+    $cmp.find('.tab-content:eq(' + index + ')').add($cmp.find('.tab-header:eq(' + index + ')')).addClass('active');
+  }
+
+  function deactivate($cmp){
+    $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
+  }
+
   function init($cmp, ops){
 
     var active    = ops.active ? ops.active : 0;
@@ -22,9 +30,9 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
-    
+
     if(active > -1){
-      $('.tab-content:eq(' + active + ')').add('.tab-header:eq(' + active + ')').addClass('active');
+      activate($cmp, active);
       if(fnOpenTab){
         fnOpenTab(active);
       }
@@ -68,6 +76,8 @@ define(['jquery', 'util_resize'], function($){
       loadStyle(function(){
         init($cmp, ops);
       });
-    }
+    },
+    activate: activate,
+    deactivate: deactivate
   };
 });

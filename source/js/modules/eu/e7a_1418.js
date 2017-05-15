@@ -190,7 +190,8 @@ define(['jquery', 'purl'], function($) {
       breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
     }
     else if(fragment.match(/contributions\/\d*\/attachments/)){
-      log('TODO: 2 ---set url');
+      $('.breadcrumb.contribution-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.match(/contributions\/\d*\//) + 'edit');
       breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
     }
     else if(fragment.match(/contributions\/\d*/)){

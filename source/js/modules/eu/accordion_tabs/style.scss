@@ -1,6 +1,6 @@
 @import '../../../../sass/scss/generic/variables';
 
-$tabs-border-colour: $medium-gray;
+$tabs-border-colour: $gray-lighter;
 $tabs-pad:           1.2em;
 
 .eu-accordion-tabs{
@@ -15,6 +15,7 @@ $tabs-pad:           1.2em;
     width:          100%;
 
     .tab-subtitle{
+      color: $gray-light;
       font-size: $font-size-sm;
     }
   }
@@ -45,6 +46,7 @@ $tabs-pad:           1.2em;
 
       &.active{
         border-bottom: 0;
+        font-weight: bold;
         + .tab-content + .tab-header::before{
           background-color: transparent;
         }

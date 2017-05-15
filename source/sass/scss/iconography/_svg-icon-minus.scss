@@ -1,0 +1,6 @@
+@import "../generic/variables";
+
+.svg-icon-minus{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($light-gray)}' id='icon-minus' viewbox='0 0 23 32'%3E%3Cpath d='M22.788 16h-22.303q-0.216 0-0.35-0.135t-0.135-0.35v-4.848q0-0.216 0.135-0.35t0.35-0.135h22.303q0.215 0 0.35 0.135t0.135 0.35v4.848q0 0.216-0.135 0.35t-0.35 0.135z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,6 @@
+@import "../generic/variables";
+
+.svg-icon-plus{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($light-gray)}' viewBox='0 0 745 1024'%3E%3Cpath class='path1' d='M449.939 791.273h-155.152q-6.896 0-11.205-4.31t-4.31-11.205v-263.758h-263.758q-6.896 0-11.205-4.31t-4.31-11.205v-155.152q0-6.896 4.31-11.205t11.205-4.31h263.758v-263.758q0-6.896 4.31-11.205t11.205-4.31h155.152q6.896 0 11.205 4.31t4.31 11.205v263.758h263.758q6.896 0 11.205 4.31t4.31 11.205v155.152q0 6.896-4.31 11.205t-11.205 4.31h-263.758v263.758q0 6.896-4.31 11.205t-11.205 4.31z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}

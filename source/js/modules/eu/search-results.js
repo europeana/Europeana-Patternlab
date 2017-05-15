@@ -5,7 +5,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   var $url            = $.url();
   var euSearchForm    = null;
   var masonry         = null;
-  var results         = $('.search-results');
+  // var results         = $('.search-results');
   var ellipsisObjects = [];
   var btnGrid         = $('.icon-view-grid').closest('a');
   var btnList         = $('.icon-view-list').closest('a');
@@ -25,25 +25,25 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
        (!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 ))){
 
       $('.search-list-item').each(function(i, ob){
-        $ob = $(ob);
+        var $ob = $(ob);
         var src = $ob.find('img').attr('src');
         $ob.find('img').css('visibility', 'hidden');
         $ob.find('.inner').css('background-image', 'url(' + src + ')');
         $ob.find('.inner').css('background-size', 'cover');
       });
     }
-  }
+  };
 
   var simulateUrlChange = function(param, newVal, replace){
     var state         = {};
-        state[param]  = newVal;
+    state[param]  = newVal;
 
     if(!newVal){
       delete state[param];
     }
 
     var params        = $url.param();
-        params[param] = newVal;
+    params[param] = newVal;
 
     if(!newVal){
       delete params[param];
@@ -95,10 +95,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     }
     else if(itemsCount > count){
       var toRemove = $('.result-items>li').slice(count, itemsCount);
-      toRemove.remove()
+      toRemove.remove();
     }
     styleResultsMenu(count);
-  }
+  };
 
   var styleResultsMenu = function(count){
     if($('.result-actions a.dropdown-trigger').size() > 0){
@@ -110,7 +110,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
       $('.result-actions a.dropdown-trigger').html(text + '<span class="active">' + count + '</span>');
     }
-  }
+  };
 
   var loadView = function(){
     return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
@@ -147,7 +147,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a').not('.filter-name-icon, .mlt_remove').each(function(){
       updateUrl($(this));
     });
-  }
+  };
 
   var showGrid = function(save){
     $('body').addClass('display-grid');
@@ -172,7 +172,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         percentPosition: true
       });
 
-      $('.result-items').imagesLoaded().progress( function(instance, image){
+      $('.result-items').imagesLoaded().progress( function(/*instance, image*/){
         if(masonry){
           masonry.layout();
         }
@@ -214,7 +214,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     resultSizeLinks.on('click', function(e){
       saveResultCount(parseInt($(e.target).text()));
     });
-  }
+  };
 
   var bindViewButtons = function(defView){
     btnGrid.on('click', function(e){
@@ -262,7 +262,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     $('.facet-menu .opener').on('click', function(){
       $('.refine').toggleClass('open');
     });
-  }
+  };
 
   var bindGA = function(){
     $('.item-origin .external').on('click', function(){
@@ -278,7 +278,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     $('.refine a:not(.js-showhide-nested)').on('click', function(e){
       var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
       if(facetRoot.length == 0){
-        facetRoot = $(e.target).closest('.filter').parent().closest('.filter')
+        facetRoot = $(e.target).closest('.filter').parent().closest('.filter');
         facetRoot = facetRoot.find('> .filter-name');
       }
       var facetAction = facetRoot.data('filter-name');
@@ -329,7 +329,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
     var defView;
 
-    if(typeof(Storage) !== "undefined") {
+    if(typeof(Storage) !== 'undefined') {
       var label = $('.breadcrumbs').data('store-channel-label');
       var name  = $('.breadcrumbs').data('store-channel-name');
       var url   = $('.breadcrumbs').data('store-channel-url');
@@ -343,7 +343,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       if(preferredResultCount){
         $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
       }
-      thematicCollection = name;
+      // thematicCollection = name;
     }
     bindViewButtons(defView);
     bindResultSizeLinks();
@@ -361,7 +361,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     if($('.e7a1418-nav').length > 0){
       require(['e7a_1418'], function(e7a1418){
         e7a1418.initPageInvisible();
-     });
+      });
     }
   };
 
@@ -389,47 +389,86 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
   function initFederatedSearch(){
 
-    var fedSearch = $('.eu-accordion-tabs');
+    var accordionTabs = null;
+    var fedSearch     = null;
+    var btnExpand     = $('.fed-res-expand');
 
-    if(fedSearch.length > 0){
-      require(['eu_accordion_tabs'], function(accordionTabs){
+    var initUI = function(data){
 
-        fedSearch.find('.tab-content').addClass('collapsed');
-        fedSearch.find('.tab-header').on('click', function(){
-          fedSearch.find('.tab-content').removeClass('collapsed');
-        });
+      require(['eu_accordion_tabs', 'mustache'], function(euAccordionTabs, Mustache){
 
-        accordionTabs.init(fedSearch, {
-          fnOpenTab: function(index){
-            $('.more-federated-results').hide();
-            $('.more-federated-results:eq(' + index + ')').show();
-            $('.fed-res-expand').addClass('expanded');
-          },
-          active: -1
-        });
+        var templateId = '#organisms-components-eu-accordion-tabs-js';
+        accordionTabs  = euAccordionTabs;
 
-        fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
+        if(templateId){
+          var template = $(templateId).find('noscript').text();
 
-        $('.fed-res-expand').on('click', function(){
+          Mustache.tags = ['[[', ']]'];
+          var rendered = Mustache.render(template, data);
+          $(templateId).after(rendered);
 
-          var clicked = $(this);
+          fedSearch = $('.eu-accordion-tabs');
 
-          if(clicked.hasClass('expanded')){
-            fedSearch.find('.tab-content').addClass('collapsed');
-          }
-          else{
+          fedSearch.find('.tab-header').on('click', function(){
             fedSearch.find('.tab-content').removeClass('collapsed');
-          }
-          clicked.toggleClass('expanded');
-        });
+          });
 
+          accordionTabs.init(fedSearch, {
+            fnOpenTab: function(index){
+              $('.more-federated-results').hide();
+              $('.more-federated-results:eq(' + index + ')').show();
+              btnExpand.addClass('expanded');
+              fedSearch.addClass('expanded');
+            },
+            active: 0
+          });
+          fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
+          fedSearch.addClass('loaded');
+          btnExpand.removeClass('loading');
+          fnClickExpand();
+        }
       });
-    }
+    };
+
+    var fnClickExpand = function(){
+
+      if(fedSearch){
+        if(btnExpand.hasClass('expanded')){
+          accordionTabs.deactivate(fedSearch);
+        }
+        else{
+          accordionTabs.activate(fedSearch, 0);
+        }
+        fedSearch.toggleClass('expanded');
+        btnExpand.toggleClass('expanded');
+      }
+
+      if(!btnExpand.hasClass('loaded')){
+        btnExpand.addClass('loading, loaded');
+
+        var href     = location.href;
+        var url      = $.url(href);
+        var initUrl  = href.split('.html')[0];
+
+        initUrl  = href.replace('.html', '').split('?')[0];
+        initUrl += '/federated.json?q=' + url.param('q');
+
+        $.getJSON(initUrl).done(function(data) {
+          initUI(data);
+        })
+        .fail(function(msg){
+          log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+        });
+      }
+    };
+
+    $('.fed-res-expand').on('click', fnClickExpand);
+
   }
 
   return {
     initPage: function(euSearchForm){
       initPage(euSearchForm);
     }
-  }
+  };
 });

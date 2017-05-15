@@ -23,6 +23,9 @@ define(['jquery', 'purl'], function($){
       }
       path = 'portal_hierarchy';
     }
+    else if(path.indexOf('/federated.json') > -1){
+      path = 'portal_federated';
+    }
 
     return {
       'path': path,
@@ -32,6 +35,7 @@ define(['jquery', 'purl'], function($){
 
   return {
     'paths': {
+      'portal_federated':     '../../eu/dev_data/portal/federated.json',
       'portal_hierarchy':     '../../eu/dev_data/portal/hierarchy.json',
       'portal_similar_items': '../../eu/dev_data/portal/mlt.json'
     },
