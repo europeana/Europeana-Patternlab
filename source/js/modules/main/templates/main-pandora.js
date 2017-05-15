@@ -13,7 +13,8 @@ require.config({
     user_approval:  '../../eu/pandora/user-approval-form',
     autocomplete:   '../../lib/autocomplete/autocomplete',
     // search filter selection files
-    search_form:                   '../../eu/search-form'
+    search_form:                   '../../eu/search-form',
+    dataset_info_form: '../../eu/pandora/dataset-info'
   },
   'shim': {
     'smartmenus': ['jquery'],
@@ -23,8 +24,9 @@ require.config({
 });
 
 
-require(['jquery', 'pandoraPage'], function ($, p) {
+require(['jquery', 'pandoraPage', 'dataset_info_form'], function ($, p, datasetForm) {
   p.pageInit();
+  datasetForm.formInit();
 });
 
 

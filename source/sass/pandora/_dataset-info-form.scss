@@ -100,11 +100,42 @@
     color: $white;
     letter-spacing: .09em;
     margin: 0 auto;
-    padding: .8rem 8rem;
+    padding: .8rem 7rem;
+
+    &.submit,
+    &.cancel {
+      display: inline-block;
+    }
+
+    &.submit {
+      margin-right: 1rem;
+    }
   }
 
   .flex-inner div {
     width: 100px;
+  }
+
+  .buttons {
+    align-items: center;
+    display: flex;
+    height: 7vh;
+    justify-content: center;
+
+    &.hidden {
+      display: none;
+    }
+  }
+  //  selection box stylings.
+  select {
+    background-color: $white;
+    border: 1px solid $gray-light;
+    color: $gray-light;
+    height: 3rem;
+
+    option {
+      color: $gray-light;
+    }
   }
 }
 
