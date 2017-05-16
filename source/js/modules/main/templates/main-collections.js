@@ -98,6 +98,7 @@ require.config({
     util_foldable:                 '../../eu/util/foldable-list',
     util_filterable:               '../../eu/util/foldable-list-filter',
     util_resize:                   '../../eu/util/resize',
+    util_scroll:                   '../../eu/util/scroll',
     util_scrollEvents:             '../../eu/util/scrollEvents',
 
     settings:                      '../../eu/settings',

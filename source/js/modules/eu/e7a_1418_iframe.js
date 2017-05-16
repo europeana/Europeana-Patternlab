@@ -16,13 +16,10 @@ window.onload = function() {
 
       $('.collapsible').add('.collapsed').on('click', function(){
 
-        var top = $(this)[0].getBoundingClientRect().top;
-
         setTimeout(function(){
-          parent.postMessage({heightUpdate: true, top: top }, '*');
+          parent.postMessage({heightUpdate: true}, '*');
         }, 1000);
 
-        window.console.log('collapsible element clicked');
       });
     }
 
@@ -31,11 +28,11 @@ window.onload = function() {
       url:    window.location.href,
       user:   typeof userLoggedIn == 'undefined' ? false : userLoggedIn
     }, '*');
-  }, 150);
+  }, 200);
 
   window.addEventListener('message', function(e){
     console.log('incoming message');
-    parent.postMessage({height: eu1418_height(), top: e.data.origHeight}, '*');
+    parent.postMessage({height: eu1418_height()}, '*');
   }, false);
 
   window.onunload = function() {

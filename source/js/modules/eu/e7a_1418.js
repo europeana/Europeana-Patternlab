@@ -1,9 +1,10 @@
-define(['jquery', 'purl'], function($) {
+define(['jquery', 'util_scroll', 'purl'], function($) {
 
   var e7aRoot          = '';
   var locale           = '';
   var manuallySetHash  = '';
   var lastMessagedUrl  = '';
+  var lastScrollPos    = 0;
   var iframe           = $('iframe.e7a1418');
   var defaultPageUrl   = '#action=contributor';
 
@@ -56,30 +57,33 @@ define(['jquery', 'purl'], function($) {
     },
     'contributions/edit':{
       'breadcrumbs': [
-        '.contribution-url',
+        '.contributor-url',
         '.edit'
       ]
     },
     'contributions/new':{
       'breadcrumbs': [
-        '.contribution-url',
+        '.contributor-url',
         '.new'
       ]
     },
     'contributions/view':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.view'
       ]
     },
     'contributions/withdraw':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.withdraw'
       ]
     },
     'contributions/attachments':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.contribution-attachments'
        ]
@@ -92,6 +96,7 @@ define(['jquery', 'purl'], function($) {
     },
     'contributions/attachments/delete':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.contribution-attachment-url',
         '.delete'
@@ -99,6 +104,7 @@ define(['jquery', 'purl'], function($) {
     },
     'contributions/attachments/edit':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.contribution-attachment-url',
         '.edit'
@@ -106,6 +112,7 @@ define(['jquery', 'purl'], function($) {
     },
     'contributions/attachments/new':{
       'breadcrumbs': [
+        '.contributor-url',
         '.contribution-url',
         '.contribution-attachment-url',
         '.new'
@@ -166,15 +173,29 @@ define(['jquery', 'purl'], function($) {
     }
     else if(fragment.match(/contributions\/\d*\/withdraw/)){
       breadcrumbs = pageData['contributions/withdraw']['breadcrumbs'];
+
+      $('.breadcrumb.contribution-url a')
+        .attr('href', location.href.split('#')[0] + '#action=' + fragment.replace(/\/withdraw/, '/edit'));
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/new/)){
       breadcrumbs = pageData['contributions/attachments/new']['breadcrumbs'];
+
+      $('.breadcrumb.contribution-url a')
+        .attr('href', location.href.split('#')[0] + '#action=' + fragment.replace(/attachments\/new/, 'edit'));
+
       $('.breadcrumb.contribution-attachment-url a')
-        .attr('href', location.href.split('#')[0] + '#action=' + fragment.replace(/\/new/, ''));
+      .attr('href', location.href.split('#')[0] + '#action=' + fragment.replace(/\/new/, ''));
+
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/\d*\/delete/)){
-      log('TODO: 3 ---set url ');
       breadcrumbs = pageData['contributions/attachments/delete']['breadcrumbs'];
+
+      $('.breadcrumb.contribution-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.match(/contributions\/\d*\//) + 'edit');
+
+      $('.breadcrumb.contribution-attachment-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.replace(/\/attachments\/\d*\/delete/, '/attachments/new'));
+
     }
     else if(fragment.match(/contributions\/\d*\/attachments\/\d*\/edit/)){
       breadcrumbs = pageData['contributions/attachments/edit']['breadcrumbs'];
@@ -194,7 +215,13 @@ define(['jquery', 'purl'], function($) {
         location.href.split('#')[0] + '#action=' + fragment.match(/contributions\/\d*\//) + 'edit');
       breadcrumbs = pageData['contributions/attachments']['breadcrumbs'];
     }
+    else if(fragment.match(/contributions\/new/)){
+      breadcrumbs = pageData['contributions/new']['breadcrumbs'];
+    }
     else if(fragment.match(/contributions\/\d*/)){
+      // view
+      $('.breadcrumb.contribution-url a').attr('href',
+        location.href.split('#')[0] + '#action=' + fragment.match(/contributions\/\d*/) + '/edit');
       breadcrumbs = pageData['contributions/view']['breadcrumbs'];
     }
     else if(fragment.match(/collection\/search/)){
@@ -208,6 +235,8 @@ define(['jquery', 'purl'], function($) {
     }
 
     $('.breadcrumbs > .breadcrumb').addClass('js-hidden');
+
+    console.log('breacrumbs (for ' + fragment + ') = ' + JSON.stringify(breadcrumbs, null, 4));
 
     $.each(breadcrumbs, function(i, ob){
       $('.breadcrumbs > .breadcrumb' + ob).removeClass('js-hidden');
@@ -252,19 +281,23 @@ define(['jquery', 'purl'], function($) {
         iframe.attr('src', url);
       }
       else{
-        window.location.href = (href + defaultPageUrl).replace('##', '#');
+        var newHref = (href + defaultPageUrl).replace('##', '#');
+        if(window.location.href != newHref){
+          window.location.href = newHref;
+        }
         setSrc();
       }
     }
     else{
-      window.location.href = href + defaultPageUrl;
+      var newHref = href + defaultPageUrl;
+      if(window.location.href != newHref){
+        window.location.href = newHref;
+      }
       setSrc();
     }
   }
 
   function iframeUrlChange(e){
-
-    log('message data:\t' + JSON.stringify(e.data, null, 4));
 
     if(e.data.heightUpdate){
       iframe.css('height', 'auto');
@@ -278,6 +311,7 @@ define(['jquery', 'purl'], function($) {
     if(e.data.height){
       iframe.css('height', e.data.height + 'px');
       iframe.closest('.e7a1418-wrapper').removeClass('loading');
+      window.scrollTo(0, lastScrollPos);
     }
     if(e.data.url){
       var fragment    = getUrlFragment(e.data.url);
@@ -287,7 +321,13 @@ define(['jquery', 'purl'], function($) {
       setBreadcrumbs(fragment);
 
       manuallySetHash      = fragment;
-      window.location.href = window.location.href.split('#')[0] + '#action=' + fragment;
+
+      var newHref = window.location.href.split('#')[0] + '#action=' + fragment;
+
+      if(window.location.href != newHref){
+        window.location.href = newHref;
+      }
+
     }
   }
 
@@ -332,6 +372,9 @@ define(['jquery', 'purl'], function($) {
     });
 
     setSrc();
+    $(window).europeanaScroll(function(){
+      lastScrollPos = $(window).scrollTop();
+    });
   }
 
   return {
