@@ -17,7 +17,7 @@ window.onload = function() {
       $('.collapsible').add('.collapsed').on('click', function(){
 
         setTimeout(function(){
-          parent.postMessage({heightUpdate: true}, '*');
+          parent.postMessage({heightUpdate: true, top: $(window).scrollTop()}, '*');
         }, 1000);
 
         window.console.log('collapsible element clicked');
@@ -29,7 +29,7 @@ window.onload = function() {
       url:    window.location.href,
       user:   typeof userLoggedIn == 'undefined' ? false : userLoggedIn
     }, '*');
-  }, 200);
+  }, 150);
 
   window.addEventListener('message', function(e){
     console.log('incoming message');
