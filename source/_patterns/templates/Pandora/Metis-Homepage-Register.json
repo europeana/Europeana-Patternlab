@@ -20,29 +20,32 @@
     "is_alpha": false,
     "is_beta": true
   },
-  "login_form": {
-    "form_title": "Sign in to Metis",
-    "email_field": {
-      "label": "Email",
-      "placeholder": "your@email"
-    },
-    "password_field": {
-      "label": "New Password",
-      "placeholder": "Type your password"
-    },
-    "register_err_duplicate_user": "User already exists",
-    "forgot_login_credentials": {
-      "text": "Forgot your account?",
-      "url": "#"
-    },
-    "submit_btn": "Sign In"
-  },
   "page_config": {
     "newsletter": true
   },
   "landing_page_content": {
-    "is_home": false,
-    "is_login": true
+    "is_register": true
+  },
+  "register_form": {
+    "form_title": "Register to Metis",
+    "full_name_field": {
+      "label": "Name *",
+      "first_name_placeholder": "First",
+      "last_name_placeholder": "Last"
+    },
+    "email_field": {
+      "label": "Email *",
+      "placeholder": "your@email"
+    },
+    "password_field": {
+      "label": "New Password *",
+      "placeholder": "Create your password"
+    },
+    "register_err_duplicate_user": "User already exists",
+    "register_success_user_creation": "Account created successfully!",
+    "submit_btn_text": "Submit",
+    "reset_btn_text": "Reset",
+    "form-requirements-warning": "* needed for registration"
   },
   "i18n": {
     "global": {
