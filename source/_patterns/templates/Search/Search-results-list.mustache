@@ -138,15 +138,11 @@
                     <span class="label-expand">{{i18n.global.actions.expand}}</span>
                   </a>
                   {{i18n.site.results.federated}}
+                  <span class="clicktip-wrapper">{{> atoms/text/clicktip}}</span>
                 </h3>
                 <div class="display-grid">
                   <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-js }}</noscript></div>
                 </div>
-                {{#tab_items}}
-                  {{#more_results_url}}
-                    <h4 class="more-federated-results"><a href="{{.}}">{{more_results_label}}</a></h4>
-                  {{/more_results_url}}
-                {{/tab_items}}
 
             </div>
 

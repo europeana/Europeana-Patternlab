@@ -575,6 +575,19 @@
       padding-right: 0;
     }
 
+    .clicktip-wrapper{
+    	
+      display:      block;
+      margin-top:   -0.75em;
+      position:     absolute;
+      margin-right: 3.5em;
+      right:        0;
+      
+      @media all and (min-width: $bp-med) {
+        margin-right: 7.5em;
+        margin-top:   -1.25em;
+      }
+    }
   }
 
   .more-federated-results{

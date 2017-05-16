@@ -356,7 +356,14 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     $(window).bind('addAutocomplete', function(e, data){
       addAutocomplete(data);
     });
+    
     scrollEvents.fireAllVisible();
+
+    if($('.eu-clicktip-container').length > 0){
+      require(['eu_clicktip'], function(){
+        log('loaded clicktip');
+      });
+    }
 
     if($('.e7a1418-nav').length > 0){
       require(['e7a_1418'], function(e7a1418){
