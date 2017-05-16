@@ -94,6 +94,7 @@
     "persistent": true,
     "tooltip_text": "Check out our cool new federated search"
   },
+  "federated_search_enabled": true,
   "filters": [
     {
       "title": "Channels",
