@@ -16,8 +16,10 @@ window.onload = function() {
 
       $('.collapsible').add('.collapsed').on('click', function(){
 
+        var top = $(this)[0].getBoundingClientRect().top;
+
         setTimeout(function(){
-          parent.postMessage({heightUpdate: true, top: $(this)[0].getBoundingClientRect().top }, '*');
+          parent.postMessage({heightUpdate: true, top: top }, '*');
         }, 1000);
 
         window.console.log('collapsible element clicked');
