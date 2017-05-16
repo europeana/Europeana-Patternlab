@@ -17,7 +17,7 @@ window.onload = function() {
       $('.collapsible').add('.collapsed').on('click', function(){
 
         setTimeout(function(){
-          parent.postMessage({heightUpdate: true, top: $(window).scrollTop()}, '*');
+          parent.postMessage({heightUpdate: true, top: $(this)[0].getBoundingClientRect().top }, '*');
         }, 1000);
 
         window.console.log('collapsible element clicked');
