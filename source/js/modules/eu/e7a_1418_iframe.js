@@ -33,7 +33,7 @@ window.onload = function() {
 
   window.addEventListener('message', function(e){
     console.log('incoming message');
-    parent.postMessage({height: eu1418_height()}, '*');
+    parent.postMessage({height: eu1418_height(), top: e.data.origHeight}, '*');
   }, false);
 
   window.onunload = function() {
