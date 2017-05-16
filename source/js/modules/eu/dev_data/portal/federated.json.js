@@ -1,8 +1,6 @@
 define([], function(){
 
   var federated_results = {
-    "results_count":    "(1st param for translate key 'site.results.federated_more')",
-    "results_provider": "(2nd param for translate key 'site.results.federated_more')",
     "tab_items": [
       {
         "tab_title":          "DPLA",
