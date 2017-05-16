@@ -1,29 +1,39 @@
-<form action="register" method="post" role="form" class="metis-register-form" accept-charset="utf-8">
-	<fieldset>
-		<legend  class="register-form-header">Register</legend>
-		{{#register_err_duplicate_user}}<div class="error-message">{{.}}</div>{{/register_err_duplicate_user}}
-		<div class="field-container">
-			<label for="fullName">First Name*:</label>
-			<input id="fullName" type='text' name='fullName' placeholder="Type your first name"/>
-		</div>
-		<div class="field-container">
-			<label for="lastName">Last Name*:</label>
-			<input id="lastName" type='text' name='lastName' placeholder="Type your last name"/>
-		</div>
-		<div class="field-container">
-			<label for="email">Email*:</label>
-			<input id="email" type='email' name='email' placeholder="Type your email"/>
-		</div>
-		<div class="field-container">
-			<label for="password">Password:</label>
-			<input id="password" type='password' name='password' placeholder="Type your password"/>
-		</div>
-		<div class="field-container">
-			<label><input type="checkbox" id="network_member_checkbox" value="network_member_checkbox"> I am a Europeana Network member</label>
-		</div>
-		<div class="field-container">
-			<button type="submit">Submit</button>
-			<button type="reset">Reset</button>
-		</div>
-	</fieldset>
-</form>
+{{#register_form}}
+  <div class="metis-register-form">
+    <form action="register" method="post" role="form" accept-charset="utf-8">
+      <div class="form-header">
+        <h2>{{form_title}}</h2>
+      </div>
+      <div class="messages">
+        {{#register_err_duplicate_user}}
+          <div class="error-message hidden"><i class="fa fa-times" aria-hidden="true"></i> {{.}}</div>
+        {{/register_err_duplicate_user}}
+        {{#register_success_user_creation}}
+          <div class="success-message hidden"><i class="fa fa-check" aria-hidden="true"></i> {{.}}</div>
+        {{/register_success_user_creation}}
+      </div>
+      <div class="form-fields">
+        <fieldset class="form-group">
+          <legend class="register-form-header">{{full_name_field.label}}</legend>
+          <input id="fullName" type='text' name='fullName' placeholder="{{full_name_field.first_name_placeholder}}"/>
+          <input id="lastName" type='text' name='lastName' placeholder="{{full_name_field.last_name_placeholder}}"/>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend class="register-form-header">{{email_field.label}}</legend>
+          <input id="email" type='email' name='email' placeholder="{{email_field.placeholder}}"/>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend class="legend-heading">{{password_field.label}}</legend>
+          <input id="password" type='password' name='password' placeholder="{{password_field.placeholder}}"/>
+        </fieldset>
+        <div class="form-requirements-warning">
+          <p>{{form-requirements-warning}}</p>
+        </div>
+        <div class="form-group form-group-btns">
+          <button class="submit-btn" type="button">{{submit_btn_text}}</button>
+          <button class="reset-btn" type="button">{{reset_btn_text}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{{/register_form}}

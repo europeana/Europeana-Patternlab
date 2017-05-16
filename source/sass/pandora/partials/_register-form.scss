@@ -1,23 +1,102 @@
 .metis-register-form {
-  background-color: $white;
-  border: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-  margin-bottom: 0;
-  margin-left: 1em;
-  margin-top: 1em;
-  overflow: auto;
-  width: 20em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem 0;
 
-  div {
-    padding-left: 1em;
-    padding-right: 1em;
+  .error-message,
+  .success-message {
+    color: $white;
+    font-size: $font-size-slightly-smaller;
+    margin-bottom: .6rem;
+    padding: .1rem 1.2rem;
+
+    i {
+      padding-right: .6rem;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .messages {
+    height: 2rem;
+  }
+  .success-message {
+    background-color: $eu-jade;
+  }
+
+  .error-message {
+    background-color: $eu-red;
+  }
+
+  .form-header {
+    font-weight: bold;
+    width: auto;
+
+    h2 {
+      margin-bottom: .6rem;
+    }
+  }
+  .form-fields {
+    background-color: $off-white;
+    padding: 2rem 0;
+    width: auto;
+
+    .form-group {
+      color: $white;
+      margin-bottom: 0;
+      padding: .4rem 1.2rem;
+
+      legend {
+        color: $gray-light;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: left;
+      }
+
+      input {
+        margin-bottom: 1rem;
+        &::placeholder {
+          color: $gray-light;
+        }
+      }
+
+      button {
+        background: $eu-jade;
+        border-radius: 0;
+        font-size: $font-size-slightly-smaller;
+        font-weight: bold;
+        margin: 0 .6rem;
+
+        &.reset-btn {
+          background-color: $white;
+          color: $gray-dark;
+        }
+      }
+    }
+
+    .form-group-btns {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-requirements-warning {
+      padding: 0 1.2rem 1rem;
+
+      p {
+        align-items: center;
+        color: $gray-light;
+        display: flex;
+        font-size: $font-size-slightly-smaller;
+        justify-content: flex-end;
+      }
+    }
   }
 }
 
-.register-form-header {
-  background-color: $eu-blue;
-  color: $white;
-  font-size: 2em;
-  text-align: center;
-  width: 10em;
-}

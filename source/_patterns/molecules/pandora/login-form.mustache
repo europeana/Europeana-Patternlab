@@ -1,17 +1,30 @@
-<form action="login" method="post" role="form" class="metis-login-form">
-	<fieldset>
-		<legend  class="login-form-header">Login</legend>
-		{{#login_err_authenticate}}<div class="error-message">{{.}}</div>{{/login_err_authenticate}}
-		<div class="field-container">
-			<label for="emailaddress">Email:</label>
-			<input id="emailaddress" type='text' name='username' placeholder="Type your email" {{#email}}value="{{.}}"{{/email}}/>
-		</div>
-		<div class="field-container">
-			<label for="password">Password:</label>
-			<input id="password" type='password' name='password' placeholder="Type your password" {{#password}}value="{{.}}"{{/password}}/>
-		</div>
-		<div class="field-container">
-			<button type="submit">Login</button>
-		</div>
-	</fieldset>
-</form>
+{{#login_form}}
+  <div class="metis-login-form">
+    <form action="register" method="post" role="form" class="login-form" accept-charset="utf-8">
+      <div class="form-header">
+        <h2>{{form_title}}</h2>
+      </div>
+      <div class="messages">
+        {{#register_err_duplicate_user}}
+          <div class="error-message hidden"><i class="fa fa-times" aria-hidden="true"></i> {{.}}</div>
+        {{/register_err_duplicate_user}}
+      </div>
+      <div class="form-fields">
+        <fieldset class="form-group">
+          <legend class="register-form-header">{{email_field.label}}</legend>
+          <input id="email" type='email' name='email' placeholder="{{email_field.placeholder}}"/>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend class="legend-heading">{{password_field.label}}</legend>
+          <input id="password" type='password' name='password' placeholder="{{password_field.placeholder}}"/>
+        </fieldset>
+        <div class="forgot-credentials">
+          <p><a href="{{forgot_login_credentials.url}}">{{forgot_login_credentials.text}} </a></p>
+        </div>
+        <div class="form-group form-group-btns">
+          <button class="login-btn" type="button">{{submit_btn}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{{/login_form}}
