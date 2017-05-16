@@ -1,6 +1,5 @@
 {
-  "css_files":
-  [
+  "css_files": [
     {
       "path": "../../css/pandora/screen.css",
       "media": "all"
@@ -10,49 +9,50 @@
       "media": "all"
     }
   ],
-  "js_files":
-  [
+  "js_files": [
     {
       "path": "../../js/modules/require.js",
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
   "jQuery": false,
-  "version":{
+  "version": {
     "is_alpha": false,
     "is_beta": true
-  },
-  "login_form": {
-    "form_title": "Sign in to Metis",
-    "email_field": {
-      "label": "Email",
-      "placeholder": "your@email"
-    },
-    "password_field": {
-      "label": "New Password",
-      "placeholder": "Type your password"
-    },
-    "register_err_duplicate_user": "User already exists",
-    "forgot_login_credentials": {
-      "text": "Forgot your account?",
-      "url": "#"
-    },
-    "submit_btn": "Sign In"
   },
   "page_config": {
     "newsletter": true
   },
   "landing_page_content": {
-  	"is_home": false,
-    "is_login": true
+    "is_home": {
+      "content": {
+        "hero_config": {
+          "hero_image": "../../images/metis/hero_metis_1600x650_jade.png",
+          "brand_position": "brand-bottomleft",
+          "brand_opacity": "brand-opacity75",
+          "attribution_title": "Cyclopides metis L., Cyclopides quadrisignatus Btl. ...",
+          "attribution_institution": "Museum Für Naturkunde Berlin",
+          "attribution_url": "http://www.europeana.eu/portal/fr/record/11622/_MFN_DRAWERS_MFN_GERMANY_http___coll_mfn_berlin_de_u_MFNB_Lep_Hesperiidae_D146.html",
+          "license_CC0": true,
+          "license_public": false
+        },
+        "banner": {
+          "title": "What can you do with Metis?",
+          "text": "Ever wondered how to automagically digest huge amounts of data with the push of a button?",
+          "info_link": "Learn more about Metis",
+          "info_url": "#",
+          "cta_url": "#",
+          "cta_text": "Register to metis here"
+        }
+      }
+    }
   },
   "i18n": {
     "global": {
-      "newsletter":
-      {
+      "newsletter": {
         "signup": "Sign up for our newsletter",
         "submit-alt": "Subscribe",
-        "choose-language":"Choose a language",
+        "choose-language": "Choose a language",
         "email-address-invalid": "Please enter a valid email address.",
         "email-address-required": "Please enter your email address.",
         "language-required": "Please choose a language for your newsletter."
@@ -64,33 +64,28 @@
   "headline": {
     "short": false,
     "medium": false,
-    "long":false
+    "long": false
   },
   "excerpt": {
     "vshort": false,
     "short": false,
-    "medium":false,
+    "medium": false,
     "long": false
   },
   "metis_footer": {
-
     "navigation": {
       "footer": {
-        "linklist1":
-        {
+        "linklist1": {
           "title": "More info",
-          "items":
-          [
+          "items": [
             {
               "text": "About",
               "url": "http://google.com"
             },
-
             {
               "text": "Development updates",
               "url": "http://google.com"
             },
-
             {
               "text": "All institutions",
               "url": "http://google.com"
@@ -105,42 +100,33 @@
             }
           ]
         },
-
-        "linklist2":
-        {
+        "linklist2": {
           "title": "Help",
-          "items":
-          [
+          "items": [
             {
               "text": "Search tips",
               "url": "http://google.com"
             },
-
             {
               "text": "Terms of Use & Policies",
               "url": "http://google.com"
             }
           ]
         },
-        "linklist3":
-        {
+        "linklist3": {
           "title": "Tools",
-          "items":
-          [
+          "items": [
             {
               "text": "API Docs",
               "url": "http://google.com"
             },
-
             {
               "text": "Status",
               "url": "http://google.com"
             }
           ]
         },
-
-        "social":
-        {
+        "social": {
           "linkedin": false,
           "github": false,
           "twitter": true,
@@ -168,50 +154,39 @@
             }
           ]
         }
-
-
       }
     }
   },
   "page_title": "Europeana Metis",
   "metis_header": {
-    "navigation":
-    {
+    "navigation": {
       "home_url": "#",
       "home_text": "Home",
-      "next_prev":
-      {
+      "next_prev": {
         "next_url": "#",
         "prev_url": "#",
         "results_url": "results_url_here"
       },
       "footer": true,
-      "global":
-      {
-        "options":
-        {
+      "global": {
+        "options": {
           "search_active": false,
           "settings_active": true,
           "oursites_hidden": true
         },
-
-        "logo":
-        {
+        "logo": {
           "url": "#",
           "text": "Europeana Pandora 1232"
         },
-        "primary_nav":
-        {
+        "primary_nav": {
           "menu_id": "main-menu",
           "submenu": false
         },
-        "utility_nav":
-        {
+        "utility_nav": {
           "menu_id": "settings-menu",
           "style_modifier": "caret-right",
           "tabindex": "6",
-          "items":
-          [
+          "items": [
             {
               "url": "#",
               "text": "Sign In",
