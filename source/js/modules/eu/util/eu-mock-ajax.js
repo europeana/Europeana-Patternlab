@@ -43,10 +43,10 @@ define(['jquery'], function($) {
 
       if((ma.omissions.indexOf(pathAndParams.path) < 0)){
         require([pathAndParams.path], function(dataSource){
-   	      res = dataSource.getData(pathAndParams.params);
+           res = dataSource.getData(pathAndParams.params);
         });
       }
-      
+
       return mockAjax({
         success:  ma.omissions.indexOf(pathAndParams.path) < 0,
         response: res

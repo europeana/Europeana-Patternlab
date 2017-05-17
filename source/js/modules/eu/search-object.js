@@ -7,7 +7,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function loadHierarchy(params, callbackOnFail){
-	  	
+
     var href     = window.location.href;
     var baseUrl  = href.split('/record')[0] + '/record';
     var initUrl  = href.split('.html')[0];
@@ -16,7 +16,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initUrl += '/hierarchy/ancestor-self-siblings.json';
 
     var error = function(msg){
-      console.error('hierarchy error' + msg);
+      log('hierarchy error: ' + msg);
       $('.hierarchy-objects').closest('.data-border').addClass('js-hidden');
       callbackOnFail();
     };
@@ -442,6 +442,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     promisedCarousel.done(function(carousel){
       addEllipsis();
       bindAnalyticsEventsMLT();
+      $('.mlt .js-carousel-arrows').addClass('js-hidden');
       $('.more-like-this').closest('.data-border').removeClass('js-hidden');
       carousel.resize();
     });
@@ -749,7 +750,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         showMLT(data.mlt);
       });
     });
-    
+
     $(window).bind('updateTechData', function(e, data){
       updateTechData(data);
     });
