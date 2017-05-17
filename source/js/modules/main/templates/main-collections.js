@@ -158,7 +158,7 @@ window.fixGA = function(ga){
 require(['jquery'], function( $ ) {
   require(['optimizely']);
 
-  if(typeof mock_ajax != 'undefined' && mock_ajax){
+  if(typeof mock_ajax != 'undefined'){
     require(['eu_mock_ajax']);
   }
 

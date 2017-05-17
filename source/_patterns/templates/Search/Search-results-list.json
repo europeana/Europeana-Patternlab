@@ -88,7 +88,6 @@
       "hero_image": "../../images/pro/home_image_test.jpg"
   },
   "clicktip": {
-    "activator": ".fed-res-expand",
     "direction": "right",
     "id": "clicktip-fed-search",
     "persistent": true,

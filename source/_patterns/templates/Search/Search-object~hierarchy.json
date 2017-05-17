@@ -755,7 +755,6 @@
         "tumblr": true
       }
     },
-    "hierarchy_later": true,
     "named_entities": {
           "fold_title": "Named Entities",
           "inline": true,

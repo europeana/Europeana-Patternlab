@@ -39,13 +39,16 @@ define(['jquery'], function($) {
       res               = null;
       var url           = arguments[0].url;
       var pathAndParams = data_configs.resolvePathAndParams(url);
+      var ma            = (parseInt(mock_ajax) + '' == mock_ajax) ? {omissions:[]} : JSON.parse(mock_ajax.replace(/'/g, '"'));
 
-      require([pathAndParams.path], function(dataSource){
-        res = dataSource.getData(pathAndParams.params);
-      });
-
+      if((ma.omissions.indexOf(pathAndParams.path) < 0)){
+        require([pathAndParams.path], function(dataSource){
+   	      res = dataSource.getData(pathAndParams.params);
+        });
+      }
+      
       return mockAjax({
-        success:  true,
+        success:  ma.omissions.indexOf(pathAndParams.path) < 0,
         response: res
       });
     };

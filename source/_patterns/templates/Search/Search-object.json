@@ -28,7 +28,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{ 'omissions' : ['portal_hierarchy']}"
     }
   ],
 

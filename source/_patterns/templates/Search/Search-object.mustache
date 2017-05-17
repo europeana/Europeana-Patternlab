@@ -410,54 +410,25 @@
 
       <div class="lc">
         <div class="data-full-w">
-
-          {{#content.hierarchy}}
-            <div class="data-border">
-              <div class="data-section no-border">
-                <div class="hierarchy cf">
-                  <div class="subsection-label">
-                   {{i18n.site.object.hierarchy.title}}
-                    <a class="scroll-trigger"
-                        data-enabled="true"
-                        data-fire-on-open="showHierarchy"
-                        data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
-                    ></a>
-                  </div>
-                  <div class="subsection-content">
-                    <div class="hierarchy-objects" style="display:none;">{{.}}</div>
-                  </div>
+          <div class="data-border">
+            <div class="data-section no-border">
+              <div class="hierarchy cf">
+                <div class="subsection-label">
+                 {{i18n.site.object.hierarchy.title}}
+                  <a class="scroll-trigger"
+                      data-enabled="true"
+                      data-fire-on-open="loadHierarchy"
+                      data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}" {{#content.similar}}, "mlt": { "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey", "itemWidth": "400" } {{/content.similar}} }'
+                  ></a>
+                </div>
+                <div class="subsection-content">
+                  <div class="hierarchy-objects" style="display:none;"></div>
                 </div>
               </div>
             </div>
-          {{/content.hierarchy}}
-
-          {{#content.hierarchy_later}}
-            <div class="data-border">
-              <div class="data-section no-border">
-                <div class="hierarchy cf">
-                  <div class="subsection-label">
-                   {{i18n.site.object.hierarchy.title}}
-                    <a class="scroll-trigger"
-                        data-enabled="true"
-                        data-fire-on-open="loadHierarchy"
-                        data-fire-on-open-params='{"label_up": "{{ i18n.site.object.hierarchy.view-items-above }}", "label_down": "{{i18n.site.object.hierarchy.view-items-below}}"}'
-                    ></a>
-                  </div>
-                  <div class="subsection-content">
-                    <div class="hierarchy-objects" style="display:none;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          {{/content.hierarchy_later}}
+          </div>
 
           {{#content.similar}}
-            <a id="scroll-trigger-mlt"
-               class="scroll-trigger"
-               data-enabled="true"
-               data-fire-on-open="showMLT"
-               data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "mlt", "arrowClass": "linkblue-grey", "itemWidth": "400" }'
-            ></a>
             <div class="data-border js-hidden">
               <div class="data-section no-border">
                 <div class="mlt cf">
