@@ -57,6 +57,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           baseUrl
         );
         $('.hierarchy-objects').removeAttr('style');
+        log('init hierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
         hierarchy.init(initialData, true);
       });
     };
