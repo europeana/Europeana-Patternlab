@@ -112,6 +112,17 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     }
   };
 
+  var loadFederatedSetting = function(){
+    return (typeof(Storage) == 'undefined') ? false : sessionStorage.getItem('eu_portal_federated');
+  };
+
+  var saveFederatedSetting = function(setting){
+    if(typeof(Storage) != 'undefined') {
+      log('save eu_portal_federated (' + setting + ')');
+      sessionStorage.setItem('eu_portal_federated', setting);
+    }
+  };
+
   var loadView = function(){
     return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
   };
@@ -438,7 +449,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     };
 
     var fnClickExpand = function(){
-
+   
       if(fedSearch){
         if(btnExpand.hasClass('expanded')){
           accordionTabs.deactivate(fedSearch);
@@ -448,6 +459,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         }
         fedSearch.toggleClass('expanded');
         btnExpand.toggleClass('expanded');
+
+        //if(!suppressSave){
+        //  saveFederatedSetting(btnExpand.hasClass('expanded'));
+        //}
       }
 
       if(!btnExpand.hasClass('loaded')){
@@ -471,6 +486,13 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
     $('.fed-res-expand').on('click', fnClickExpand);
 
+    //if(loadFederatedSetting()){
+    //  log('federated enabled');
+    //  fnClickExpand(true);
+    //}
+    //else{
+    //  log('federated is not enabled');
+    //}
   }
 
   return {

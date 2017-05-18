@@ -18,7 +18,7 @@ window.onload = function() {
 
         setTimeout(function(){
           parent.postMessage({heightUpdate: true}, '*');
-        }, 1000);
+        }, 750);
 
       });
     }
