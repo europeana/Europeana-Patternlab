@@ -23,7 +23,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var buildHierarchy = function(initialData){
 
-      if(initialData && (initialData.error != null || ! initialData.success )){
+      if(initialData && initialData.error != null){
         error(initialData.error);
         return;
       }
