@@ -1185,10 +1185,10 @@ define(['jquery', 'jqScrollto'], function($) {
                     return this.nodeType == 3; //Node.TEXT_NODE
                   }).remove();
 
-                  $('#' + self.pageNodeId + '>a').focus();
+                  //$('#' + self.pageNodeId + '>a').focus();
                   onInit();
                   hideSpinner();
-                  $('#' + self.pageNodeId + '>a').focus();
+                  //$('#' + self.pageNodeId + '>a').focus();
                   self.isLoading = false;
                   self.timer.stop();
 
