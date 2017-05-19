@@ -6,11 +6,8 @@
       </div>
       <div class="messages">
         {{#register_err_duplicate_user}}
-          <div class="error-message hidden"><i class="fa fa-times" aria-hidden="true"></i> {{.}}</div>
+          <div class="error-message"><i class="fa fa-times" aria-hidden="true"></i> {{register_err_duplicate_user}}</div>
         {{/register_err_duplicate_user}}
-        {{#register_success_user_creation}}
-          <div class="success-message hidden"><i class="fa fa-check" aria-hidden="true"></i> {{.}}</div>
-        {{/register_success_user_creation}}
       </div>
       <div class="form-fields">
         <fieldset class="form-group">
