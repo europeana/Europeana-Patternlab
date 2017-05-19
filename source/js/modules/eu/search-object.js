@@ -23,42 +23,46 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var buildHierarchy = function(initialData){
 
+      console.log('buildHierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
+
       if(initialData && initialData.error != null){
         error(initialData.error);
         return;
       }
 
-      require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
+      require(['jsTree'], function(){
+        require(['eu_hierarchy'], function(Hierarchy){
 
-        var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
-        var css_path_2 = require.toUrl('../../lib/jstree/css/style-overrides.css');
+          var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
+          var css_path_2 = require.toUrl('../../lib/jstree/css/style-overrides.css');
 
-        $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
-        var markup = ''
-        + '<div class="hierarchy-top-panel uninitialised">'
-        + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
-        + '  <div class="hierarchy-title"></div>'
-        + '</div>'
-        + '<div class="hierarchy-container uninitialised">'
-        + '  <div id="hierarchy"></div>'
-        + '</div>'
-        + '<div class="hierarchy-bottom-panel">'
-        + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
-        + '</div>';
+          var markup = ''
+          + '<div class="hierarchy-top-panel uninitialised">'
+          + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
+          + '  <div class="hierarchy-title"></div>'
+          + '</div>'
+          + '<div class="hierarchy-container uninitialised">'
+          + '  <div id="hierarchy"></div>'
+          + '</div>'
+          + '<div class="hierarchy-bottom-panel">'
+          + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
+          + '</div>';
 
-        $('.hierarchy-objects').html(markup);
-        var hierarchy = Hierarchy.create(
-          $('#hierarchy'),
-          16,
-          $('.hierarchy-objects'),
-          baseUrl,
-          baseUrl
-        );
-        $('.hierarchy-objects').removeAttr('style');
-        console.error('init hierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
-        hierarchy.init(initialData, true);
+          $('.hierarchy-objects').html(markup);
+          var hierarchy = Hierarchy.create(
+            $('#hierarchy'),
+            16,
+            $('.hierarchy-objects'),
+            baseUrl,
+            baseUrl
+          );
+          $('.hierarchy-objects').removeAttr('style');
+          console.error('init hierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
+          hierarchy.init(initialData, true);
+        });
       });
     };
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
