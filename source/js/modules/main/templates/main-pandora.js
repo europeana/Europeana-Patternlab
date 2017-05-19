@@ -16,7 +16,8 @@ require.config({
     search_form: '../../eu/search-form',
     dataset_info_form: '../../eu/pandora/dataset-info',
     register: '../../eu/pandora/register-form',
-    login: '../../eu/pandora/login-form'
+    login: '../../eu/pandora/login-form',
+    user_profile: '../../eu/pandora/user_profile'
   },
   'shim': {
     'smartmenus': ['jquery'],
@@ -25,9 +26,11 @@ require.config({
   waitSeconds: 200
 });
 
-require(['jquery', 'pandoraPage', 'dataset_info_form', 'register', 'login'], function ($, p, datasetForm, register, login) {
+
+require(['jquery', 'pandoraPage', 'dataset_info_form', 'register', 'login'], function ($, p, datasetForm) {
   p.pageInit();
   datasetForm.formInit();
-  register.formInit();
-  login.formInit();
+  // register.formInit();
+  // login.formInit();
+  // userProfile.formInit();
 });
