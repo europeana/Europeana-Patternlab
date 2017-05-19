@@ -25,7 +25,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       console.log('buildHierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
 
-      if(initialData && initialData.error != null){
+      if(initialData && (initialData.error != null || ! initialData.success )){
         error(initialData.error);
         return;
       }
