@@ -23,8 +23,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var buildHierarchy = function(initialData){
 
-      console.log('buildHierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
-
       if(initialData && (initialData.error != null || ! initialData.success )){
         error(initialData.error);
         return;
@@ -60,7 +58,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             baseUrl
           );
           $('.hierarchy-objects').removeAttr('style');
-          console.error('init hierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
           hierarchy.init(initialData, true);
         });
       });
