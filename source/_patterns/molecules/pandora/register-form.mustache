@@ -1,6 +1,6 @@
 {{#register_form}}
   <div class="metis-register-form">
-    <form action="register" method="post" role="form" accept-charset="utf-8">
+    <form action="/register" method="post" role="form">
       <div class="form-header">
         <h2>{{form_title}}</h2>
       </div>
@@ -30,7 +30,7 @@
           <p>{{form-requirements-warning}}</p>
         </div>
         <div class="form-group form-group-btns">
-          <button class="submit-btn" type="button">{{submit_btn_text}}</button>
+          <button class="submit-btn" type="submit">{{submit_btn_text}}</button>
           <button class="reset-btn" type="button">{{reset_btn_text}}</button>
         </div>
       </div>
