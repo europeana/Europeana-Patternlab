@@ -31,7 +31,7 @@
   float: left;
   height: 3em;
   margin-right: .8rem;
-  transform: scale(.6) translateY(-.3em);
+  transform: scale(0.6) translateY(-0.5em);
   width: 3em;
 }
 
@@ -40,7 +40,7 @@
   height: 3em;
   margin-bottom: -1em;
   margin-right: .8rem;
-  transform: scale(.8) translateY(-.3em);
+  transform: scale(.7) translateY(-.3em);
   width: 3em;
 }
 
@@ -50,6 +50,14 @@
   margin-bottom: -1em;
   margin-right: .8rem;
   transform: scale(.7) translateY(-.3em);
+  width: 3em;
+}
+
+.svg-icon-form-field-calendar {
+  float: left;
+  height: 3em;
+  margin-right: .8rem;
+  transform: scale(.6) translateY(-.3em);
   width: 3em;
 }
 

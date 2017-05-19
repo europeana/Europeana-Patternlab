@@ -17,13 +17,7 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
-  "js_vars":
-  [
-    {
-      "name": "pageName",
-      "value": "portal/index"
-    }
-  ],
+  "jQuery": false,
   "input_search": {
     "title": "Search for dataset",
     "input_name": "q",
@@ -46,7 +40,7 @@
     "url-right": "http://www.europeana.eu"
   },
   "browse_menu": {
-    "menu_id": "browse-menu",
+    "menu_id": "metis-search-menu",
     "items": [
       {
         "url": "#",
@@ -85,7 +79,31 @@
     }
   },
   "page_title": "Europeana Metis Dashboard",
-  "metis-logged-user": true,
+  "metis-logged-user": {
+    "menu_id": "loggedin-user",
+    "icon_class": "svg-icon-loggedin-user",
+    "items": [
+      {
+        "url": "#",
+        "text": "",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "My Profile",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Log out",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "metis-header-search": true,
   "metis_header": {
     "navigation":

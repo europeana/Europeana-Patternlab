@@ -32,6 +32,21 @@
 
     #settings-menu {
       float: right;
+      min-width: 11.5rem;
+
+      .metis-user {
+        .sub-arrow {
+          display: none;
+        }
+        ul li ul.menu-sublevel {
+          &::before {
+            left: 38px;
+          }
+          &::after {
+            left: 39px;
+          }
+        }
+      }
 
       .notifications {
         position: relative;
@@ -43,19 +58,19 @@
           font-size: 10px;
           font-weight: bold;
           height: 18px;
-          left: -38px;
+          left: -36px;
           line-height: 18px;
           margin: 0 auto 10px;
           position: absolute;
           text-align: center;
-          top: 20px;
+          top: 21px;
           width: 18px;
         }
 
         @-moz-document url-prefix() {
           .circle {
-            left: -158px;
-            top: 38px;
+            left: -97px;
+            top: 40px;
           }
         }
       }
@@ -78,8 +93,14 @@
     width: 40%;
 
     ul {
-      margin-top: .5rem;
+      margin-bottom: 8px;
+      margin-top: 3px;
+      min-width: 11rem;
+      padding: 0;
+
       li {
+        width: 100%;
+
         input {
           max-width: 50rem;
         }
@@ -136,5 +157,26 @@
     margin: 0;
     order: 3;
     padding: .2rem .4rem;
+
+    #metis-search-menu{
+      margin-top: 8px;
+      min-width: 11rem;
+      padding: 0;
+      padding-left: 1px;
+
+      &.nav-access > li {
+        float: left;
+        min-width: 10.5rem;
+
+        a > .link-text {
+          padding-left: 5px;
+        }
+      }
+
+      .menu-sublevel.caret::before,
+      .menu-sublevel.caret::after {
+        content: none;
+      }
+    }
   }
 }

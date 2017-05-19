@@ -1,0 +1,30 @@
+{
+  "js_files": [
+    {
+      "path":      "/js/modules/require.js",
+      "data_main": "/js/modules/main/organisms/main-eu-accordion-tabs"
+    }
+  ],
+  "tab_items": [
+    {
+      "tab_title":    "Tab One",
+      "tab_subtitle": "(accordion-tabs Overview)",
+      "tab_content":  "<br/>These tabs become an accordion when there is not enough width for the tab headers to fit on a single row.<br/><br/>(resize your browser window to see this work)<br/><br/>Clicking an open tab-header will close it when in accordion mode.<br/><br/>Click the next tab to learn more."
+    },
+    {
+      "tab_title":    "Tab Two the Second (II)",
+      "tab_subtitle": "(the data model)",
+      "tab_content":  "<br/>The tab content can be supplied with a <code>tab_content</code> entry in the model.  A <code>search_result</code> model can also be supplied.  Other data structures can be added to the template as needed.<br/><br/>Click the next tab to learn more."
+    },
+    {
+      "tab_title":    "Tab Three",
+      "tab_subtitle": "(a layout limitation)",
+      "tab_content":  "<br/>The tab content has an absolute position and so instances of this component may need to explicitly set the height to stop content subsequent to the accordion-tabs disappearing beneath it.<br/><br/>Click the next tab to learn more"
+    },
+    {
+      "tab_title":    "Tab 4",
+      "tab_subtitle": "(event callback)",
+      "tab_content":  "<br/>When the user changes the active tab the (optional) function <code>fnOpenTab</code> (passed in the ops parameter of the <code>init</code> function) will be called - the active tab index is passed into this function as its only parameter.<br/><br/>(in this example text is written to the document body)"
+    }
+  ]
+}

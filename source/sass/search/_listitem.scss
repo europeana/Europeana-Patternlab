@@ -1,11 +1,11 @@
 .show-with-grid{
-   display: none;
+  display: none;
 }
 
 // Single List item in search results
 .search-list-item{
-  margin-bottom: $space;
   border-bottom: 1px solid $gray87;
+  margin-bottom: $space;
 
   .item-info{
 
@@ -24,13 +24,14 @@
   }
 
   h2{
-    font-size: $font-size-med;
-    margin-bottom: $space-half;
-    font-weight: normal;
     font-family: $font-secondary;
+    font-size: $font-size-med;
+    font-weight: normal;
     line-height: 1.4;
+    margin-bottom: $space-half;
 
-    a:hover, a:focus{
+    a:hover,
+    a:focus{
       border-bottom: 1px dotted $textcolour_link_hover;
     }
   }
@@ -41,9 +42,9 @@
   }
 
   footer{
+    @extend .cf;
     font-size: 1.1em;
     margin-bottom: $space;
-    @extend .cf;
   }
 
   .highlight-text{
@@ -61,6 +62,11 @@
     }
   }
 
+  .item-origin a.external::after{
+    position: relative;
+    top:      0.15em;
+  }
+
   .item-origin,
   .item-concepts,
    {
@@ -72,8 +78,8 @@
   }
 
   .item-concepts{
-    font-size: $font-size-slightly-smaller;
     color: $gray-light;
+    font-size: $font-size-slightly-smaller;
   }
 
   .item-preview{
@@ -97,16 +103,12 @@
     }
   }
 
-  .item-metadata{
-    @include span(11 of 13);
-  }
-
   .item-actions{
     @include span(last 2 of 13);
     text-align: right;
   }
 
-  .item-type{
+  .item-info{
 
     .svg-icon{
       display:   inline-block;
@@ -117,6 +119,7 @@
       transform: scale(0.76) translateY(0.2em);
       width:     1.2em;
     }
+
 
     .svg-icon-music{
       height:    1.3em;
@@ -136,8 +139,18 @@
       width:     1.4em;
     }
 
-  }
+    &.show-with-grid{
+      .svg-icon-image{
+        height:    1.4em;
+        width:     1.4em;
+      }
+    }
 
+  }
+}
+
+.eu-accordion-tabs .search-list-item .item-info .svg-icon{
+  display: none;
 }
 
 .sneak-peek-content{
@@ -178,6 +191,42 @@
     display: block;
   }
 
+  .search-list-item .item-info{
+
+    .svg-icon-tv{
+      transform: scale(0.7) translateY(-0.2em);
+    }
+
+    .svg-icon-image{
+      transform: scale(0.7) translateY(-0.1em);
+    }
+
+    .svg-icon-music{
+      height:    1.6em;
+      transform: scale(0.7) translateY(-0.3em);
+      width:     1.6em;
+    }
+
+    .svg-icon-openbook{
+      height:    1.4em;
+      transform: scale(0.6) translateY(-0.4em);
+      width:     1.4em;
+    }
+
+    &.show-with-grid{
+
+      .svg-icon-music{
+        height:    1.6em;
+        width:     1.6em;
+      }
+
+      .svg-icon-openbook{
+        height:    1.7em;
+      }
+
+    }
+  }
+
   .result-items{
     @media all and (min-width: $bp-large) {
       margin-left: 1em;
@@ -208,7 +257,7 @@
 
   .search-list-item{
 
-    border:     none;
+    border:     0;
     float:      left;
     overflow:   hidden;
     position:   relative;
@@ -218,7 +267,8 @@
       line-height:   1.4;
     }
 
-    h2, h3{
+    h2,
+    h3{
       overflow:      hidden;
       text-overflow: ellipsis;
       white-space:   nowrap;
@@ -233,11 +283,7 @@
       display: none;
     }
 
-    .item-type{
-      visibility: collapse;
-    }
     .icon{
-      visibility: visible;
       margin:     0;
     }
 
@@ -270,26 +316,28 @@
       .excerpt,
       .item-concepts,
       .item-origin{
-         display: none;
+        display: none;
       }
 
       h2{
         margin-bottom:  0;
         max-height:     1.4em;
       }
-      h2, h3{
+      h2,
+      h3{
         margin-right:   1.6rem;
       }
       h3{
-        margin-top:    $space-quarter;
-        margin-bottom: $space-half;
+        height:        2em;
+        margin-bottom: 0;
+        transform:     translateY(1em);
       }
     }
 
     .item-agent-data{
 
-      display: none;
       border: 1px solid #dedede;
+      display: none;
 
       height:           100%;
       margin:           0 0.5em;
@@ -318,10 +366,10 @@
 
       .item-image{
         a img{
-          background-size: cover;
           background-repeat: no-repeat;
-          max-width:  100%;
+          background-size: cover;
           max-height: 100%;
+          max-width:  100%;
           min-height: 12em;
           object-fit: cover;
           width: 100%;
@@ -356,35 +404,35 @@
 
       .item-preview{
         border-bottom: solid 1px #dedede;
+        overflow:      hidden;
         padding-top:   0.6em;
         text-align:    left;
-        overflow:      hidden;
       }
 
       .missing-image-text{
         line-height:   1.6em;
+        margin-bottom: 2em;
+        margin-right:  -0.5em;
         max-height:    16em;
         overflow:      hidden;
-        position:      relative;
-        text-align:    justify;
-        margin-right:  -0.5em;
         padding-left:  1.5em;
         padding-right: 2em;
-        margin-bottom: 2em;
+        position:      relative;
+        text-align:    justify;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           position:   absolute;
           right:      1em;
         }
 
-        &:before {
+        &::before {
           bottom:  1px;
           content: '...';
         }
 
-        &:after {
-          background: white;
+        &::after {
+          background: #fff;
           content:    '';
           height:     1.6em;
           width:      1em;

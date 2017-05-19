@@ -23,6 +23,10 @@
     display:      inline;
     margin-right: $space-half;
 
+    &.js-hidden{
+      display: none;
+    }
+
     &:first-of-type a{
       padding-left: 0;
     }

@@ -105,8 +105,51 @@
   .breadcrumbs .js-return{
     display: none;
   }
-
 }
+
+.e7a1418-nav{
+  background-color: $blue-dark;
+  color:            #fff;
+  text-align:       center;
+
+  a{
+    color:         #fff;
+    border-bottom: 1px dotted transparent;
+    display:       inline-block;
+    opacity:       1;
+    margin:        $pad-half $pad;
+    transition:    opacity 1.5s ease-in-out;
+
+    &.js-hidden{
+      opacity:  0;
+      position: absolute;
+      z-index:  -1;
+    }
+
+    &:hover{
+      border-bottom: 1px dotted #fff;
+      color: #fff;
+    }
+  }
+}
+
+.e7a1418-wrapper{
+
+  position: relative;
+
+  &.loading::after{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:      #fff;
+    content:    ' ';
+    height:     100%;
+    left:       0;
+    position:   absolute;
+    right:      0;
+    top:        0;
+    z-index:    10;
+  }
+}
+
 
 .with-transparency .object-nav{
   background: rgba(241, 241, 238, 0.85);

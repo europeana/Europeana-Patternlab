@@ -10,18 +10,20 @@ window.__ga__ = {
 };
 
 require.config({
-  //urlArgs: "cache=" + (release || Math.random()),
   paths: {
     aurora:                        '../../lib/audiocogs/aurora',
     blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels',
     cookie_disclaimer:             '../../eu/cookie-disclaimer',
     data_fashion_thesaurus:        '../../data/fashion-thesaurus.json',
+    e7a_1418:                      '../../eu/e7a_1418',
+    eu_accordion_tabs:             '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
     eu_carousel:                   '../../eu/eu-carousel',
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/eu-hierarchy',
+    eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
     fashion_redirect:              '../../eu/util/fashion-redirect',
     fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
     featureDetect:                 '../../global/feature-detect',
@@ -96,6 +98,7 @@ require.config({
     util_foldable:                 '../../eu/util/foldable-list',
     util_filterable:               '../../eu/util/foldable-list-filter',
     util_resize:                   '../../eu/util/resize',
+    util_scroll:                   '../../eu/util/scroll',
     util_scrollEvents:             '../../eu/util/scrollEvents',
 
     settings:                      '../../eu/settings',
@@ -154,6 +157,11 @@ window.fixGA = function(ga){
 
 require(['jquery'], function( $ ) {
   require(['optimizely']);
+
+  if(typeof mock_ajax != 'undefined'){
+    require(['eu_mock_ajax']);
+  }
+
   $.holdReady( true );
   require(['blacklight'], function( blacklight ) {
     require(['channels', 'global'], function(channels) {

@@ -22,7 +22,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "home/index"
+      "value": "collections/show"
     }
   ],
   "input_search": {
@@ -31,6 +31,10 @@
     "placeholder": "Search Europeana Music"
   },
   "content": {
+    "ugc_content": {
+      "include_1418_nav": true,
+      "base_1418_url": "http://test.1418.eanadev.org"
+    },
     "channel_info": {
       "name": "Europeana Music",
       "description": "<strong>Europeana Music</strong> brings together all music related cultural heritage from the Europeana collections",

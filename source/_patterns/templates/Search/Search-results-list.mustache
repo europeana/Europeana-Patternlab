@@ -3,7 +3,6 @@
 {{> organisms/global/header_v2}}
 
 <div role="main" class="page l-page">
-
     <section class="search-object">
       <div class="object-nav cf">
         <div class="object-nav-lists">
@@ -26,6 +25,13 @@
           </ul>
         </div>
       </div>
+      {{#content}}
+        {{#ugc_content}}
+          {{#include_1418_nav}}
+            {{>molecules/navigation/e7a1418-nav}}
+          {{/include_1418_nav}}
+        {{/ugc_content}}
+      {{/content}}
     </section>
 
     <section class="search-hero {{#hero}}{{#hero_image}} has-bgimage{{/hero_image}}{{/hero}}" {{#hero}} style="background-image: url('{{hero_image}}');" {{/hero}}>
@@ -124,6 +130,21 @@
                     {{> molecules/navigation/pagination }}
                 {{/has_results}}
 
+                {{#federated_search_enabled}}
+                  <h3 class="title-federated-results">
+                    <a class="fed-res-expand">
+                      <span class="icon-label-collapse svg-icon-minus"></span>
+                      <span class="icon-label-expand svg-icon-plus"></span>
+                      <span class="label-collapse">{{i18n.global.actions.collapse}}</span>
+                      <span class="label-expand">{{i18n.global.actions.expand}}</span>
+                    </a>
+                    {{i18n.site.results.federated}}
+                    <span class="clicktip-wrapper">{{> atoms/text/clicktip}}</span>
+                  </h3>
+                  <div class="display-grid">
+                    <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-js }}</noscript></div>
+                  </div>
+                {{/federated_search_enabled}}
             </div>
 
             <div class="refine">

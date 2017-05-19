@@ -54,6 +54,10 @@
     {
       "name": "pageName",
       "value": "portal/index"
+    },
+    {
+      "name": "mock_ajax",
+      "value": true
     }
   ],
   "img": false,
@@ -74,9 +78,22 @@
       }
     ]
   },
+  "content": {
+    "ugc_content":{
+      "include_1418_nav": true,
+      "base_1418_url": "http://test.1418.eanadev.org"
+    }
+  },
   "hero": {
       "hero_image": "../../images/pro/home_image_test.jpg"
   },
+  "clicktip": {
+    "direction": "right",
+    "id": "clicktip-fed-search",
+    "persistent": true,
+    "tooltip_text": "Check out our cool new federated search"
+  },
+  "federated_search_enabled": true,
   "filters": [
     {
       "title": "Channels",

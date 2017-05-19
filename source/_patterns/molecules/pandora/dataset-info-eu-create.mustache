@@ -1,0 +1,201 @@
+<h1>User role: {{user_role.value}}</h1>
+<h2>View mode: {{view_mode.value}}</h2>
+{{#dataset_form}}
+  <div class="metis-form-container">
+    <form action="#" data-role="{{user_role.value}}" data-view-mode="{{view_mode.value}}">
+    <div class="flex-outer">
+      {{#dataset_fields}}
+        {{^view_mode.create}}
+          {{#dataset_name}}
+            <div>
+              <label for="name">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="name" id="name">
+            </div>
+          {{/dataset_name}}
+        {{/view_mode.create}}
+        {{#provider}}
+          <div>
+            <label for="provider">{{label}}</label>
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="provider"
+                   id="provider" placeholder="{{placeholder}}">
+          </div>
+        {{/provider}}
+        {{#data_provider}}
+          <div>
+            <label for="data-provider">{{label}}</label>
+            <input type="text" value="{{value}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                   name="data-provider" id="data-provider" class="eu prov" placeholder="{{placeholder}}">
+          </div>
+        {{/data_provider}}
+        {{! DEA Signed checkbox }}
+        {{#view_mode.create}}
+          {{#user_role.europeana}}
+            {{#dea_signed}}
+              <div>
+                <label for="dea-signed">{{label}}</label>
+                <input type="checkbox" name="dea-signed" id="dea-signed">
+                <label for="dea-signed"></label>
+              </div>
+            {{/dea_signed}}
+          {{/user_role.europeana}}
+        {{/view_mode.create}}
+        {{^view_mode.create}}
+          {{#dea_signed}}
+            <div>
+              <label for="dea-signed">{{label}}</label>
+              <input type="checkbox" name="dea-signed" id="dea-signed" class="eu" {{#checked}}checked{{/checked}}
+                {{#view_mode.preview}}disabled{{/view_mode.preview}}
+                {{^view_mode.preview}}
+                  {{^user_role.europeana}}
+                     disabled
+                  {{/user_role.europeana}}
+                {{/view_mode.preview}}>
+              <label for="dea-signed"></label>
+            </div>
+          {{/dea_signed}}
+        {{/view_mode.create}}
+        {{! DEA Signed checkbox }}
+        {{^view_mode.create}}
+          {{#date_created}}
+            <div>
+              <label for="date-created">{{label}}</label>
+              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-created" type="text"
+                     id="date-created" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/date_created}}
+          {{#date_updated}}
+            <div>
+              <label for="date-updated">{{label}}</label>
+              <input class="svg-icon-form-field-calendar icon-padding" value="{{value}}" name="date-updated" type="text"
+                     id="date-updated" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/date_updated}}
+        {{/view_mode.create}}
+        {{#replaced_by}}
+          <div>
+            <label for="replaced-by">{{label}}</label>
+            <input type="text" value="{{value}}" name="replaced-by" id="replaced-by" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu prov">
+          </div>
+        {{/replaced_by}}
+        {{#description}}
+          <div>
+            <label for="description">{{label}}</label>
+            <input value="{{value}}" name="description" type="text" id="description" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu prov">
+          </div>
+        {{/description}}
+        {{#user_role.europeana}}
+          {{#notes}}
+            <div>
+              <label for="notes">{{label}}</label>
+              <input value="{{value}}" name="notes" type="text" id="notes" placeholder="{{placeholder}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu">
+            </div>
+          {{/notes}}
+        {{/user_role.europeana}}
+        {{^view_mode.create}}
+          {{#first_published}}
+            <div>
+              <label for="first-published">{{label}}</label>
+              <input value="{{value}}" name="first-published" class="svg-icon-form-field-calendar icon-padding"
+                     type="text" id="first-published" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/first_published}}
+          {{#last_published}}
+            <div>
+              <label for="last-published">{{label}}</label>
+              <input value="{{value}}" name="last-published" class="svg-icon-form-field-calendar icon-padding"
+                     type="text" id="last-published" placeholder="{{placeholder}}" readonly>
+            </div>
+          {{/last_published}}
+        {{/view_mode.create}}
+        {{^view_mode.create}}
+          {{#assigned_to}}
+            <div>
+              <label for="assigned-to">{{label}}</label>
+              <input value="{{value}}" name="assigned-to" type="text" id="assigned-to" placeholder="{{placeholder}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu"
+                {{^view_mode.preview}}{{^user_role.europeana}}readonly{{/user_role.europeana}}{{/view_mode.preview}}>
+            </div>
+          {{/assigned_to}}
+        {{/view_mode.create}}
+        {{#countries}}
+          <div>
+            <label for="country">{{label}}</label>
+            <select name="country" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/countries}}
+        {{#language}}
+          <div>
+            <label for="language">{{label}}</label>
+            <input value="{{value}}" name="language" type="text" id="language" placeholder="{{placeholder}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu prov">
+          </div>
+        {{/language}}
+        {{#harvest_protocol}}
+          <div>
+            <label for="harvest-radio">{{label_name}}</label>
+            <div>
+              {{#options}}
+                <div>
+                  <input id="{{name}}" name="{{group_name}}" type="radio" class="with-font eu prov" value="{{name}}"
+                    {{#checked}}checked{{/checked}} {{#view_mode.preview}}disabled{{/view_mode.preview}}/>
+                  <label for="{{name}}">{{label}}</label>
+                </div>
+              {{/options}}
+            </div>
+          </div>
+        {{/harvest_protocol}}
+        {{#harvest_url}}
+          <div>
+            <label for="havest-url">{{label}}</label>
+            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}" class="eu prov"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+          </div>
+        {{/harvest_url}}
+        {{#setspec}}
+          <div>
+            <label for="setspec">{{label}}</label>
+            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}" class="eu prov"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+          </div>
+        {{/setspec}}
+        {{#metadata_format}}
+          <div>
+            <label for="metadata-format">{{label}}</label>
+            <input value="{{value}}" name="metadata-format" type="text" id="metadata-format" class="eu prov"
+                   placeholder="{{placeholder}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+          </div>
+        {{/metadata_format}}
+        {{#metadata_schema}}
+          <div>
+            <label for="provider_url">{{label}}</label>
+            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}" class="eu prov"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+          </div>
+        {{/metadata_schema}}
+
+        <div class="buttons preview-block-btn hidden">
+          <button class="edit" type="button">Edit</button>
+        </div>
+
+        <div class="buttons editable-block-btns hidden">
+          <div>
+            <button class="submit" type="button">Submit</button>
+          </div>
+          <div>
+            <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+      {{/dataset_fields}}
+    </form>
+  </div>
+{{/dataset_form}}

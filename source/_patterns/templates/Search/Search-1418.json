@@ -1,0 +1,35 @@
+{
+  "bodyclass": "europeana_search",
+  "pagetitle": "Europeana Search Home",
+  "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "e7a_1418"
+    }
+  ],
+  "content": {
+    "ugc_content": {
+      "base_1418_url":  "http://test.1418.eanadev.org",
+      "portal_url": "javascript:alert('return to landing page')"
+    }
+  }
+}

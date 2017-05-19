@@ -6,7 +6,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     console.log('search-object: ' + msg);
   }
 
-  function loadHierarchy(params){
+  function loadHierarchy(params, callbackOnFail){
+
     var href     = window.location.href;
     var baseUrl  = href.split('/record')[0] + '/record';
     var initUrl  = href.split('.html')[0];
@@ -15,17 +16,18 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initUrl += '/hierarchy/ancestor-self-siblings.json';
 
     var error = function(msg){
-      console.error('hierarchy error' + msg);
-      $('.hierarchy-objects').closest('.lc').remove();
+      log('hierarchy error: ' + msg);
+      $('.hierarchy-objects').closest('.data-border').addClass('js-hidden');
+      callbackOnFail();
     };
-    
+
     var buildHierarchy = function(initialData){
-      
+
       if(initialData && initialData.error != null){
         error(initialData.error);
         return;
       }
-      
+
       require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
 
         var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
@@ -55,48 +57,11 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           baseUrl
         );
         $('.hierarchy-objects').removeAttr('style');
+        console.error('init hierarchy with initialData:\t\t' + JSON.stringify(initialData, null, 4));
         hierarchy.init(initialData, true);
       });
     };
     $.getJSON(initUrl, null).done(buildHierarchy).fail(error);
-  }
-
-  // TODO: delete this when we move (fully) to the hierarchy_later technique
-  function showHierarchy(params){
-    require(['eu_hierarchy', 'jsTree'], function(Hierarchy){
-
-      var data       = JSON.parse( $('.hierarchy-objects').text() );
-
-      var css_path_1 = require.toUrl('../../lib/jstree/css/style.css');
-      var css_path_2 = require.toUrl('../../lib/jstree/css/style-overrides.css');
-
-      $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
-
-      var markup = ''
-          + '<div class="hierarchy-top-panel uninitialised">'
-          + '  <div class="hierarchy-prev"><a>' + params.label_up + '</a><span class="count"></span></div>'
-          + '  <div class="hierarchy-title"></div>'
-          + '</div>'
-          + '<div class="hierarchy-container uninitialised">'
-          + '  <div id="hierarchy"></div>'
-          + '</div>'
-          + '<div class="hierarchy-bottom-panel">'
-          + '  <div class="hierarchy-next"><a>' + params.label_down + '</a><span class="count"></span></div>'
-          + '</div>';
-
-      $('.hierarchy-objects').html(markup);
-      var hierarchy = Hierarchy.create(
-        $('#hierarchy'),
-        16,
-        $('.hierarchy-objects'),
-        window.location.href.split('/record')[0] + '/record',
-        window.location.href.split('/record')[0] + '/record'
-      );
-
-      $('.hierarchy-objects').removeAttr('style');
-      hierarchy.init(data, true);
-    });
   }
 
   function showMap(data){
@@ -462,11 +427,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   var showMLT = function(data){
 
-    if($('.hierarchy').length > 0){
-      log('showMLT returns - hierarchy expected');
-      return;
-    }
-
     var addEllipsis = function(added){
       require(['util_ellipsis'], function(EllipsisUtil){
         if(added){
@@ -483,6 +443,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     promisedCarousel.done(function(carousel){
       addEllipsis();
       bindAnalyticsEventsMLT();
+      $('.mlt .js-carousel-arrows').addClass('js-hidden');
       $('.more-like-this').closest('.data-border').removeClass('js-hidden');
       carousel.resize();
     });
@@ -785,16 +746,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       showMap(data);
     });
 
-    $(window).bind('showMLT', function(e, data){
-      showMLT(data);
-    });
-
     $(window).bind('loadHierarchy', function(e, data){
-      loadHierarchy(data);
-    });
-
-    $(window).bind('showHierarchy', function(e, data){
-      showHierarchy(data);
+      loadHierarchy(data, function(){
+        showMLT(data.mlt);
+      });
     });
 
     $(window).bind('updateTechData', function(e, data){
@@ -802,6 +757,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
 
     $('.media-viewer').trigger('media_init');
+
+    if($('.e7a1418-nav').length > 0){
+      require(['e7a_1418'], function(e7a1418){
+        e7a1418.initPageInvisible();
+      });
+    }
 
     $('.single-item-thumb [data-type="oembed"]').trigger('click');
     $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');

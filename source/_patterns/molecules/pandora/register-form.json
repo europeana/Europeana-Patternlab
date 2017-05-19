@@ -1,0 +1,41 @@
+{
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+  "register_form": {
+    "form_title": "Register to Metis",
+    "full_name_field": {
+      "label": "Name *",
+      "first_name_placeholder": "First",
+      "last_name_placeholder": "Last"
+    },
+    "email_field": {
+      "label": "Email *",
+      "placeholder": "your@email"
+    },
+    "password_field": {
+      "label": "New Password *",
+      "placeholder": "Create your password"
+    },
+    "register_err_duplicate_user": "User already exists",
+    "register_success_user_creation": "Account created successfully!",
+    "submit_btn_text": "Submit",
+    "reset_btn_text": "Reset",
+    "form-requirements-warning": "* needed for registration"
+  }
+}

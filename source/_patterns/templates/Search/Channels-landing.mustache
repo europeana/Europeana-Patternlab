@@ -2,7 +2,6 @@
 
 {{> organisms/global/header_v2}}
 
-
 <section class="search-object above-hero">
   <div class="object-nav cf">
     <div class="object-nav-lists">
@@ -12,6 +11,13 @@
       </ul>
     </div>
   </div>
+  {{#content}}
+    {{#ugc_content}}
+      {{#include_1418_nav}}
+        {{>molecules/navigation/e7a1418-nav}}
+      {{/include_1418_nav}}
+    {{/ugc_content}}
+  {{/content}}
 </section>
 
 <section id="maincontent" class="hero-nopad search-hero {{#content.hero_config}}{{brand_position}} {{brand_colour}} {{brand_opacity}}{{/content.hero_config}}" {{#content.hero_config}} style="background-image: url('{{hero_image}}');" {{/content.hero_config}}>

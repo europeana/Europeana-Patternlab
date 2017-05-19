@@ -1,4 +1,4 @@
-define(['jquery', 'smartmenus', 'user_approval'], function ($) {
+define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
 
   function setFieldValueStatus(id, status) {
     $('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');
@@ -148,6 +148,7 @@ define(['jquery', 'smartmenus', 'user_approval'], function ($) {
           subMenusMaxWidth: null,
           subMenusMinWidth: null
         });
+
         $('#settings-menu').smartmenus({
           mainMenuSubOffsetX: -62,
           mainMenuSubOffsetY: 4,
@@ -156,9 +157,39 @@ define(['jquery', 'smartmenus', 'user_approval'], function ($) {
           subMenusMaxWidth: null,
           subMenusMinWidth: null
         });
+
+        $('#metis-search-menu').smartmenus({
+          mainMenuSubOffsetX: -7, // margin-left
+          mainMenuSubOffsetY: 17, // margin-top
+          subMenusSubOffsetX: 0,  // left
+          subMenusSubOffsetY: null,
+          subMenusMaxWidth: 240,
+          subMenusMinWidth: 190
+        });
+
+        $('#loggedin-user').smartmenus({
+          mainMenuSubOffsetX: -25, // margin-left
+          mainMenuSubOffsetY: 44, // margin-top
+          subMenusSubOffsetX: 0,  // left
+          subMenusSubOffsetY: null,
+          subMenusMaxWidth: 110,
+          subMenusMinWidth: 100
+        });
+
+        $('.js-hack-smartmenu a').click(function () {
+          var href = $(this).attr('href');
+          if (href != '#') {
+            window.location = $(this).attr('href');
+          }
+        });
+        $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#metis-search-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#loggedin-user').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
       });
     });
 
+    //'channels_metis'
     require(['jqDropdown'], function () {
       bindTableCellClick();
     });
@@ -172,7 +203,7 @@ define(['jquery', 'smartmenus', 'user_approval'], function ($) {
     validateProfileForm();
     setMappingCardColor();
     var pageName = pageName || '';
-    if (pageName && pageName == 'itemCard') {
+    if (pageName && pageName === 'itemCard') {
       applyXmlBeautify();
     }
   }

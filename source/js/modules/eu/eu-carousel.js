@@ -377,6 +377,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       }
       items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
       anchor();
+
+      cmp.parent().find('.' + classData.arrowClasses.container).removeClass('js-hidden');
     };
 
     var setArrowState = function(){

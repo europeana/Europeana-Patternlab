@@ -2,7 +2,19 @@
 
 {{> organisms/global/header_v2}}
 
+
+{{#content}}
+  {{#ugc_content}}
+    {{#include_1418_nav}}
+      <div class="after-header-with-search e7a1418-nav-wrapper">
+        {{>molecules/navigation/e7a1418-nav}}
+       </div>
+    {{/include_1418_nav}}
+  {{/ugc_content}}
+{{/content}}
+
 <section class="channels-landing-browse after-header-with-search">
+
 
   <div class="lc">
     {{#content.preview_search_data_present}}

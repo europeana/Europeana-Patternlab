@@ -25,6 +25,10 @@
     {
       "name": "pageName",
       "value": "portal/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'omissions' : ['portal_hierarchy']}"
     }
   ],
 
@@ -51,6 +55,10 @@
 
   "content":
   {
+    "ugc_content":{
+      "include_1418_nav": true,
+      "base_1418_url": "http://test.1418.eanadev.org"
+    },
     "object":
     {
       "media":
@@ -406,17 +414,15 @@
         "tumblr": true
       }
     },
-
     "similar":
     {
       "title": "Similar items",
-
       "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "url-for-extra-items",
-      "more_items_total" : 12,
-      "more_items_total_formatted" : 12,
+      "more_items_load"  : "portal_similar_items",
 
-      "items": [
+      "XXX_more_items_total" : 12,
+      "XXX_more_items_total_formatted" : 12,
+      "XXX_items": [
         {
           "url":  "?q=The+Lace+Maker",
           "title": "The Lace Maker",
@@ -426,7 +432,7 @@
           }
         },
         {
-          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+        "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
         "title": "Zittende jongeman bij ton met het hoofd naar links",
           "img": {
               "alt": "Zittende jongeman bij ton met het hoofd naar links",
