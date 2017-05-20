@@ -765,15 +765,14 @@
                 }
             },
             "results":{
-                "list":{
-                    "more":"More",
-                    "less":"Less",
-                    "more_adv":"Advanced Filters",
-                    "less_adv":"Less Refinements",
-                    "count-and-terms-with-range": "1 - X of 2,283,391 results"
-                },
-                "federated": "View more items from non-Europeana sources",
-                "federated_more": "View all (X) results on (Provider Y)"
+              "list":{
+                "more":"More",
+                "less":"Less",
+                "more_adv":"Advanced Filters",
+                "less_adv":"Less Refinements",
+                "count-and-terms-with-range": "1 - X of 2,283,391 results"
+              },
+              "federated": "Click here to see more results"
             },
             "search": {
               "placeholder": {

@@ -135,6 +135,8 @@
                     <a class="fed-res-expand">
                       <span class="icon-label-collapse svg-icon-minus"></span>
                       <span class="icon-label-expand svg-icon-plus"></span>
+                      <span class="icon-label-collapse svg-icon-minus-white"></span>
+                      <span class="icon-label-expand svg-icon-plus-white"></span>
                       <span class="label-collapse">{{i18n.global.actions.collapse}}</span>
                       <span class="label-expand">{{i18n.global.actions.expand}}</span>
                     </a>
@@ -152,6 +154,11 @@
                           {{> organisms/components/eu-accordion-tab-ajax}}
                         {{/tab_items}}
                       </div>
+                      {{#tab_items}}
+                        {{#more_results_url}}
+                          <h4 class="more-federated-results svg-icon-external-eu-blue-after"><a href="{{.}}">{{more_results_label}}</a></h4>
+                        {{/more_results_url}}
+                      {{/tab_items}}
                     {{/federated_search_conf}}
                   </div>
                 {{/federated_search_enabled}}

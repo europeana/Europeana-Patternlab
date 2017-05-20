@@ -31,7 +31,8 @@ define(['jquery', 'util_resize'], function($){
       $(tab).addClass('loading');
 
       $.getJSON(url).done(function(data) {
-        log('got tab data...' + data.tab_subtitle + '  (' + data.search_results.length + ')');
+
+        $(tab).find('.tab-subtitle').html(data.tab_subtitle);
 
         $.each(data.search_results, function(i, item){
           var rendered = Mustache.render(template, item);

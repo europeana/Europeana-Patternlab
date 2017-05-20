@@ -14,54 +14,79 @@
   width: 100%;
 }
 /* line 17, style.scss */
+.eu-accordion-tabs .tab-header .tab-title {
+  transform: none;
+  transition: transform 0.5s ease-in-out;
+}
+/* line 22, style.scss */
 .eu-accordion-tabs .tab-header.loading {
-  background-image: url("spinner.gif");
-  background-position: 92% 40%;
-  background-repeat: no-repeat;
-  background-size: 16px auto;
   padding-right: 2.1em;
 }
 /* line 25, style.scss */
+.eu-accordion-tabs .tab-header.loading .tab-title {
+  position: relative;
+  transform: translateY(30%);
+  transition: none;
+  width: 100%;
+}
+/* line 32, style.scss */
+.eu-accordion-tabs .tab-header.loading .tab-title::after {
+  background-image: url("spinner.gif");
+  background-repeat: no-repeat;
+  background-size: 16px auto;
+  content: ' ';
+  height: 16px;
+  left: calc(100% + 0.5em);
+  position: absolute;
+  top: 0.35em;
+  width: 16px;
+}
+/* line 46, style.scss */
 .eu-accordion-tabs .tab-header .tab-subtitle {
   color: #777777;
   font-size: 0.75em;
+  transition: color 0.75s ease-in-out;
 }
-/* line 31, style.scss */
+/* line 53, style.scss */
+.eu-accordion-tabs .tab-header.loading .tab-subtitle {
+  color: transparent;
+}
+/* line 59, style.scss */
 .eu-accordion-tabs .tab-content {
   display: none;
   padding: 0.6em 1.2em;
   width: 100%;
 }
-/* line 36, style.scss */
+/* line 64, style.scss */
 .eu-accordion-tabs .tab-content.active {
   display: block;
 }
-/* line 43, style.scss */
+/* line 71, style.scss */
 .eu-accordion-tabs.as-tabs .tab-content {
   position: absolute;
   top: 4em;
 }
-/* line 48, style.scss */
+/* line 76, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header {
   display: block;
   float: left;
   position: relative;
   width: auto;
 }
-/* line 55, style.scss */
+/* line 83, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active {
   border-bottom: 0;
   font-weight: bold;
 }
-/* line 58, style.scss */
+/* line 86, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active + .tab-content + .tab-header::before {
   background-color: transparent;
 }
-/* line 63, style.scss */
+/* line 91, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.js-last) {
   border-right: 1px solid #CCCCCC;
 }
-/* line 67, style.scss */
+/* line 95, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.active)::before {
   background-color: #FFFFFF;
   bottom: 0;
@@ -72,13 +97,12 @@
   position: absolute;
   width: 1px;
 }
-/* line 78, style.scss */
+/* line 106, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header .tab-title,
 .eu-accordion-tabs.as-tabs .tab-header .tab-subtitle {
   display: block;
-  transform: translateY(-0.25em);
 }
-/* line 87, style.scss */
+/* line 114, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .tab-header:first-of-type,
 .eu-accordion-tabs:not(.as-tabs) .tab-content.active + .tab-header {
   border-top: 1px solid #CCCCCC;

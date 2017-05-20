@@ -97,16 +97,38 @@
   "federated_search_conf": {
     "tab_items": [
       {
+        "more_results_label": "View all 273 results on DPLA",
+        "more_results_url":   "javascript:alert('Link to more DPLA results')",
         "tab_title": "DPLA",
+        "xtab_title": "USA (DPLA)",
         "url":   "/federated.json?provider=dpla"
       },
       {
-        "tab_title": "InternetArchive",
+        "more_results_label": "View all 612 results on Internet Archive",
+        "more_results_url":   "javascript:alert('Link to more Internet Archive results')",
+        "tab_title": "Internet Archive",
         "url":   "/federated.json?provider=internetArchive"
       },
       {
+        "more_results_label": "View all 189 results on DigitalNZ",
+        "more_results_url":   "javascript:alert('Link to more DigitalNZ results')",
         "tab_title": "DigitalNZ",
+        "xtab_title": "New Zealand (DigitalNZ)",
         "url":   "/federated.json?provider=digitalNZ"
+      },
+      {
+        "more_results_label": "View all 5 results on Canadiana",
+        "more_results_url":   "javascript:alert('Link to more Canadiana results')",
+        "tab_title": "Canadiana",
+        "xtab_title": "Canada (Canadiana)",
+        "url":   "/federated.json?provider=canadiana"
+      },
+      {
+        "more_results_label": "View all 447 results on Trove",
+        "more_results_url":   "javascript:alert('Link to more Trove results')",
+        "tab_title": "Trove",
+        "xtab_title": "Australia (Trove)",
+        "url":   "/federated.json?provider=canadiana"
       }
     ]
   },

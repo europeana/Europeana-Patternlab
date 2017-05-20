@@ -14,17 +14,45 @@ $tabs-pad:           1.2em;
     padding:        $tabs-pad/2 $tabs-pad;
     width:          100%;
 
+    .tab-title{
+      transform:    none;
+      transition:   transform 0.5s ease-in-out;
+    }
+
     &.loading{
-      background-image:    url('spinner.gif');
-      background-position: 92% 40%;
-      background-repeat:   no-repeat;
-      background-size:     16px auto;
       padding-right:       2.1em;
+
+      .tab-title{
+
+        position:          relative;
+        transform:         translateY(30%);
+        transition:        none;
+        width:             100%;
+
+        &::after{
+          background-image:  url('spinner.gif');
+          background-repeat: no-repeat;
+          background-size:   16px auto;
+          content:           ' ';
+          height:            16px;
+          left:              calc(100% + 0.5em);
+          position:          absolute;
+          top:               0.35em;
+          width:             16px;
+        }
+      }
     }
 
     .tab-subtitle{
-      color: $gray-light;
-      font-size: $font-size-sm;
+      color:      $gray-light;
+      font-size:  $font-size-sm;
+      transition: color 0.75s ease-in-out;
+    }
+
+    &.loading{
+      .tab-subtitle{
+        color: transparent;
+      }
     }
   }
 
@@ -78,7 +106,6 @@ $tabs-pad:           1.2em;
       .tab-title,
       .tab-subtitle{
         display:   block;
-        transform: translateY(-0.25em);
       }
     }
   }

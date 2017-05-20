@@ -462,133 +462,168 @@
   display: none;
 }
 
-.results-list{
 
-  .fed-res-expand{
-    border:       1px solid $medium-gray;
-    color:        $medium-gray;
-    display:      block;
-    float:        right;
-    font-size:    1.6rem;
-    height:       2rem;
-    position:     relative;
-    text-align:   center;
-    transform:    translateX(100%);
-    width:        2rem;
+.fed-res-expand{
+  border:       1px solid $medium-gray;
+  color:        $medium-gray;
+  display:      block;
+  float:        right;
+  font-size:    1.6rem;
+  height:       2rem;
+  position:     relative;
+  text-align:   center;
+  transform:    translateX(100%);
+  width:        2rem;
 
-    &.loading{
-      cursor: progress;
+  &.loading{
+    cursor: progress;
+  }
+
+  .icon-label-collapse,
+  .icon-label-expand{
+    display:        block;
+    font-weight:    bold;
+    height:         2rem;
+    line-height:    2rem;
+    pointer-events: none;
+    position:       absolute;
+    width:          2rem;
+  }
+
+  .icon-label-collapse{
+    left:  0.133em;
+    top:   0.1em;
+  }
+
+  .icon-label-expand{
+    left:  0.13em;
+    top:   0.08em;
+  }
+
+  .label-collapse,
+  .label-expand{
+    display:     none;
+    font-size:   $font-size-slightly-smaller;
+    font-weight: normal;
+  }
+
+  &.expanded .icon-label-expand{
+    display: none;
+  }
+
+  &:not(.expanded) .icon-label-collapse{
+    display: none;
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    font-size:    1.2em;
+    height:       1.2em;
+    margin-right: 2em;
+    margin-top:   -0.18em;
+    transform:    none;
+    width:        1.2em;
+
+    .label-collapse,
+    .label-expand{
+      display:     block;
+      font-size:   0.75em;
+      position:    absolute;
+      transform:   translateX(-120%);
+      top:         0.22em;
+      white-space: nowrap;
     }
 
     .icon-label-collapse,
     .icon-label-expand{
-      display:        block;
-      font-weight:    bold;
-      height:         2rem;
-      line-height:    2rem;
-      pointer-events: none;
-      position:       absolute;
-      width:          2rem;
+      height:       1.2em;
+      line-height:  1.2em;
+      width:        1.2em;
     }
 
     .icon-label-collapse{
-      left:  0.133em;
-      top:   0.1em;
+      transform: scale(0.6);
+      left:      -0.039em;
+      top:       -0.05em;
     }
 
     .icon-label-expand{
-      left:  0.13em;
-      top:   0.08em;
+      left: 0.11em;
+      top:  0.06em;
     }
 
-    .label-collapse,
-    .label-expand{
-      display:     none;
-      font-size:   $font-size-slightly-smaller;
-      font-weight: normal;
-    }
-
-    &.expanded .icon-label-expand{
+    &.expanded .label-expand{
       display: none;
     }
-
-    &:not(.expanded) .icon-label-collapse{
+    &:not(.expanded) .label-collapse{
       display: none;
     }
+  }
+}
 
-    @media all and (min-width: $bp-med) {
 
-      font-size:    1.2em;
-      height:       1.2em;
-      margin-right: 2em;
-      margin-top:   -0.18em;
-      transform:    none;
-      width:        1.2em;
+.title-federated-results{
 
-      .label-collapse,
-      .label-expand{
-        display:     block;
-        font-size:   0.75em;
-        position:    absolute;
-        transform:   translateX(-120%);
-        top:         0.22em;
-        white-space: nowrap;
+  margin:        3em 3.5em 2em 1em;
+  padding:       $pad 4em $pad $pad;
+  text-align:    center;
+  width:         100%;
+
+  &:hover{
+
+    background-color: $eu-blue;
+    color:            #fff;
+
+    .fed-res-expand{
+      border-color: #fff;
+      color:        #fff;
+      &.expanded{
+        .svg-icon-minus-white{
+          display: block;
+        }
       }
-
-      .icon-label-collapse,
-      .icon-label-expand{
-        height:       1.2em;
-        line-height:  1.2em;
-        width:        1.2em;
+      &:not(.expanded){
+        .svg-icon-plus-white{
+          display: block;
+        }
       }
+    }
 
-      .icon-label-collapse{
-        transform: scale(0.6);
-        left:      -0.039em;
-        top:       -0.05em;
-      }
-
-      .icon-label-expand{
-        left: 0.11em;
-        top:  0.06em;
-      }
-
-      &.expanded .label-expand{
-        display: none;
-      }
-      &:not(.expanded) .label-collapse{
-        display: none;
-      }
-
+    .svg-icon-minus,
+    .svg-icon-plus{
+      display: none;
     }
 
   }
 
-  .title-federated-results{
 
-    margin:        3em 3.5em 2em 1em;
-    padding-right: 4em;
-    width:         100%;
+  @media all and (min-width: $bp-med) {
+    margin:        3em 0 2em 1em;
+    padding-right: 0;
+  }
+
+  .clicktip-wrapper{
+
+    display:      block;
+    margin-top:   -0.75em;
+    position:     absolute;
+    margin-right: 3.5em;
+    right:        0;
 
     @media all and (min-width: $bp-med) {
-      margin:        3em 0 2em 1em;
-      padding-right: 0;
-    }
-
-    .clicktip-wrapper{
-    	
-      display:      block;
-      margin-top:   -0.75em;
-      position:     absolute;
-      margin-right: 3.5em;
-      right:        0;
-      
-      @media all and (min-width: $bp-med) {
-        margin-right: 7.5em;
-        margin-top:   -1.25em;
-      }
+      margin-right: 7.5em;
+      margin-top:   -1.25em;
     }
   }
+
+  .svg-icon-minus-white,
+  .svg-icon-plus-white{
+    display: none;
+  }
+
+}
+
+.results-list{
 
   .more-federated-results{
     display:    none;
@@ -606,16 +641,11 @@
       top:      auto;
       width:    100%;
 
-      // &.collapsed{
-      //   display: none;
-      // }
-
       @media all and (min-width: $bp-small-2) {
         width:    50%;
       }
 
       .search-list-item{
-
         display: none;
 
         &:first-child{
@@ -639,10 +669,6 @@
         }
       }
 
-      // .tab-content.active.collapsed{
-      //   display: none;
-      // }
-
       @media all and (max-width: $bp-large) {
 
         .search-list-item{
@@ -665,11 +691,8 @@
         .tab-content.active{
           display:         flex;
           justify-content: space-between;
-
-          // &.collapsed{
-          //   display: none;
-          // }
         }
+
       }
 
       .tab-header{
