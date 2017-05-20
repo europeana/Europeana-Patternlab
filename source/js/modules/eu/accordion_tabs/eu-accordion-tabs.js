@@ -3,6 +3,10 @@ define(['jquery', 'util_resize'], function($){
   var css_path  = require.toUrl('../../eu/accordion_tabs/style.css');
   var tabsClass = 'as-tabs';
 
+  function log(msg){
+    console.log(msg);
+  }
+
   function applyMode($cmp){
     $cmp.addClass(tabsClass);
     if($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
@@ -16,6 +20,38 @@ define(['jquery', 'util_resize'], function($){
 
   function deactivate($cmp){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
+  }
+
+  function loadTabs($cmp, template){
+
+    var getTabContent = function(Mustache, tab){
+
+      var url = $(tab).data('content-url');
+
+      $(tab).addClass('loading');
+
+      $.getJSON(url).done(function(data) {
+        log('got tab data...' + data.tab_subtitle + '  (' + data.search_results.length + ')');
+
+        $.each(data.search_results, function(i, item){
+          var rendered = Mustache.render(template, item);
+          $(tab).next('.tab-content').append(rendered);
+        });
+      })
+      .fail(function(msg){
+        log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
+      })
+      .always(function(){
+        $(tab).removeClass('loading');
+      });
+    };
+
+    require(['mustache'], function(Mustache){
+      Mustache.tags = ['[[', ']]'];
+      $.each($cmp.find('.tab-header'), function(i, tabHeader){
+        getTabContent(Mustache, tabHeader);
+      });
+    });
   }
 
   function init($cmp, ops){
@@ -78,6 +114,7 @@ define(['jquery', 'util_resize'], function($){
       });
     },
     activate: activate,
-    deactivate: deactivate
+    deactivate: deactivate,
+    loadTabs: loadTabs
   };
 });

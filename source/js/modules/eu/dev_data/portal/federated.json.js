@@ -641,7 +641,25 @@ define([], function(){
 
   return {
     getData: function(params){
-      var data = federated_results;
+
+      console.log('params (' + params.provider + ') for federated data: ' + JSON.stringify(params, null, 4));
+      var data;
+
+      if(params.provider == 'dpla'){
+        data = federated_results.tab_items[0];
+        console.log('return data...' + data.tab_subtitle);
+      }
+      else if(params.provider == 'internetArchive'){
+        data = federated_results.tab_items[1];
+        console.log('return data...' + data.tab_subtitle);
+      }
+      else if(params.provider == 'digitalNZ'){
+        data = federated_results.tab_items[2];
+        console.log('return data...' + data.tab_subtitle);
+      }
+      else{
+        data = federated_results;
+      }
       data.success = true;
       return data;
     }

@@ -57,7 +57,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{ 'delays' : {'portal_federated':'random'}}"
     }
   ],
   "img": false,
@@ -94,6 +94,22 @@
     "tooltip_text": "Check out our cool new federated search"
   },
   "federated_search_enabled": true,
+  "federated_search_conf": {
+    "tab_items": [
+      {
+        "tab_title": "DPLA",
+        "url":   "/federated.json?provider=dpla"
+      },
+      {
+        "tab_title": "InternetArchive",
+        "url":   "/federated.json?provider=internetArchive"
+      },
+      {
+        "tab_title": "DigitalNZ",
+        "url":   "/federated.json?provider=digitalNZ"
+      }
+    ]
+  },
   "filters": [
     {
       "title": "Channels",

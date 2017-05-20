@@ -14,46 +14,54 @@
   width: 100%;
 }
 /* line 17, style.scss */
+.eu-accordion-tabs .tab-header.loading {
+  background-image: url("spinner.gif");
+  background-position: 92% 40%;
+  background-repeat: no-repeat;
+  background-size: 16px auto;
+  padding-right: 2.1em;
+}
+/* line 25, style.scss */
 .eu-accordion-tabs .tab-header .tab-subtitle {
   color: #777777;
   font-size: 0.75em;
 }
-/* line 23, style.scss */
+/* line 31, style.scss */
 .eu-accordion-tabs .tab-content {
   display: none;
   padding: 0.6em 1.2em;
   width: 100%;
 }
-/* line 28, style.scss */
+/* line 36, style.scss */
 .eu-accordion-tabs .tab-content.active {
   display: block;
 }
-/* line 35, style.scss */
+/* line 43, style.scss */
 .eu-accordion-tabs.as-tabs .tab-content {
   position: absolute;
   top: 4em;
 }
-/* line 40, style.scss */
+/* line 48, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header {
   display: block;
   float: left;
   position: relative;
   width: auto;
 }
-/* line 47, style.scss */
+/* line 55, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active {
   border-bottom: 0;
   font-weight: bold;
 }
-/* line 50, style.scss */
+/* line 58, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active + .tab-content + .tab-header::before {
   background-color: transparent;
 }
-/* line 55, style.scss */
+/* line 63, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.js-last) {
   border-right: 1px solid #CCCCCC;
 }
-/* line 59, style.scss */
+/* line 67, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.active)::before {
   background-color: #FFFFFF;
   bottom: 0;
@@ -64,13 +72,13 @@
   position: absolute;
   width: 1px;
 }
-/* line 70, style.scss */
+/* line 78, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header .tab-title,
 .eu-accordion-tabs.as-tabs .tab-header .tab-subtitle {
   display: block;
   transform: translateY(-0.25em);
 }
-/* line 79, style.scss */
+/* line 87, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .tab-header:first-of-type,
 .eu-accordion-tabs:not(.as-tabs) .tab-content.active + .tab-header {
   border-top: 1px solid #CCCCCC;

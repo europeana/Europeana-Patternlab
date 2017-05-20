@@ -6,29 +6,38 @@ define(['jquery'], function($) {
 
     require.config(data_configs);
 
-    var res      = null;
     var mockAjax = function(options) {
-      var that = {
-        done: function done(callback) {
 
+      var delay = options.delay ? options.delay : timeout;
+      if(delay == 'random'){
+        delay = Math.random() * 10 * 1000 + 3000;
+      }
+
+      var that = {
+        done: function done(callback){
           if(options.success){
-            setTimeout(function(){
-              callback(res);
-            }, timeout);
+            require([options.dependency.path], function(dataSource){
+              setTimeout(function(){
+                callback(dataSource.getData(options.dependency.params));
+              }, delay);
+            });
           }
           return that;
         },
-        error: function error(callback) {
+        error: function error(callback){
           if(!options.success){
-            setTimeout(callback, timeout, res);
+            setTimeout(callback, delay, options.error);
           }
           return that;
         },
-        fail: function fail(callback) {
+        fail: function fail(callback){
           if(!options.success){
-            setTimeout(callback, timeout, res);
+            setTimeout(callback, delay, options.fail);
           }
           return that;
+        },
+        always: function(callback){
+          setTimeout(callback, delay, options.always);
         }
       };
       return that;
@@ -36,20 +45,19 @@ define(['jquery'], function($) {
 
     $.ajax = function(){
 
-      res               = null;
       var url           = arguments[0].url;
       var pathAndParams = data_configs.resolvePathAndParams(url);
-      var ma            = (parseInt(mock_ajax) + '' == mock_ajax) ? {omissions:[]} : JSON.parse(mock_ajax.replace(/'/g, '"'));
+      var ma            = {omissions:[], delays:{}};
 
-      if((ma.omissions.indexOf(pathAndParams.path) < 0)){
-        require([pathAndParams.path], function(dataSource){
-           res = dataSource.getData(pathAndParams.params);
-        });
+      if(parseInt(mock_ajax) + '' != mock_ajax){
+        ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
       }
+      var path = pathAndParams.path;
 
       return mockAjax({
-        success:  ma.omissions.indexOf(pathAndParams.path) < 0,
-        response: res
+        delay: ma.delays[path],
+        dependency: pathAndParams,
+        success: ma.omissions.indexOf(path) < 0
       });
     };
 

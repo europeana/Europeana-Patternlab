@@ -142,7 +142,17 @@
                     <span class="clicktip-wrapper">{{> atoms/text/clicktip}}</span>
                   </h3>
                   <div class="display-grid">
-                    <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-js }}</noscript></div>
+                    {{^federated_search_conf}}
+                      <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-js }}</noscript></div>
+                    {{/federated_search_conf}}
+                    {{#federated_search_conf}}
+                      <div id="template-federated-search-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
+                      <div class="eu-accordion-tabs parallel cf">
+                        {{#tab_items}}
+                          {{> organisms/components/eu-accordion-tab-ajax}}
+                        {{/tab_items}}
+                      </div>
+                    {{/federated_search_conf}}
                   </div>
                 {{/federated_search_enabled}}
             </div>
