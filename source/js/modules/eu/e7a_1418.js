@@ -128,6 +128,12 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         '.contributor-url'
       ]
     },
+    'users/account': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.account'
+      ]
+    },
     'users/password/new': {
       'breadcrumbs': [
         '.contributor-url',
@@ -248,11 +254,20 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
 
     if(user){
       $('.e7a1418-logout').removeClass('js-hidden');
+
+      if(fragment == 'users/account'){
+        $('.e7a1418-account').addClass('js-hidden');
+      }
+      else{
+        $('.e7a1418-account').removeClass('js-hidden');
+      }
+
       $('.e7a1418-register').addClass('js-hidden');
       $('.e7a1418-login').addClass('js-hidden');
     }
     else{
       $('.e7a1418-logout').addClass('js-hidden');
+      $('.e7a1418-account').addClass('js-hidden');
       $('.e7a1418-register').removeClass('js-hidden');
       $('.e7a1418-login').removeClass('js-hidden');
     }
@@ -356,7 +371,8 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     $('.e7a1418-nav a').add('.breadcrumb.contribution-attachment-url a').on('click', function(){
       setSrc($(this).attr('href'));
     });
-    $('.e7a1418-nav a').on('click', function(){
+    $('.e7a1418-nav a').on('click', function(e){
+      e.preventDefault();
       manuallySetHash = $(this).attr('href').split('#')[1];
     });
 

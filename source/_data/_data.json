@@ -681,6 +681,10 @@
                 "sneak-peek":      "Sneak peek",
                 "whats-happening": "What's happening",
                 "designer":        "Designer"
+              },
+              "e7a1418": {
+                "contribute": "Contribute your story",
+                "my-account": "My Account"
               }
             },
             "events":{
@@ -696,6 +700,7 @@
                 }
               },
               "breadcrumb": {
+                "account": "account",
                 "item_detail": "Item Detail",
                 "return_home": "Return to Home",
                 "results_list": "Results List",
@@ -807,7 +812,10 @@
               "next":"next",
               "new":"new",
               "previous":"previous",
+              "register":"Register",
               "share": "Share",
+              "sign-in": "Sign in",
+              "sign-out": "Sign out",
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
               "sort-by": "Order by",
