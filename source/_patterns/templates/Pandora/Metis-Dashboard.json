@@ -91,12 +91,12 @@
           "items": [
             {
               "text": "My Profile",
-              "url": "javascript:alert('images')",
+              "url": "/profile",
               "icon": "icon-image"
             },
             {
               "text": "Log out",
-              "url": "javascript:alert('videos')",
+              "url": "/logout",
               "icon": "icon-video"
             }
           ]
