@@ -1,0 +1,21 @@
+{
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
+  "double_btns":{
+    "btn_left_text": "New Dataset",
+    "btn_right_text": "New Organization",
+    "btn_right_under_text": "Go to ZOHO",
+    "url_left": "http://www.cnn.com",
+    "url_right": "http://www.europeana.eu"
+  }
+}

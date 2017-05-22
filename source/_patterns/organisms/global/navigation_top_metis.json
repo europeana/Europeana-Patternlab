@@ -24,7 +24,7 @@
   },
   "jQuery": false,
   "browse_menu": {
-    "menu_id": "metis-search-menu",
+    "menu_id": "metis_search_menu",
     "items": [
       {
         "url": "#",
@@ -57,7 +57,7 @@
       }
     ]
   },
-  "metis-logged-user": {
+  "metis_logged_user": {
     "menu_id": "loggedin-user",
     "icon_class": "svg-icon-loggedin-user",
     "items": [
@@ -82,7 +82,7 @@
       }
     ]
   },
-  "metis-header-search": true,
+  "metis_header_search": true,
   "metis_header": {
     "navigation":
     {

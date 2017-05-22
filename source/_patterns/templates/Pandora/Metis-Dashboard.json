@@ -32,15 +32,15 @@
     "user_name": "Cecile",
     "text_end": " let's ingest a world of Culture!"
   },
-  "double-btns":{
-    "btn-left-text": "New Dataset",
-    "btn-right-text": "New Organization",
-    "btn-right-under-text": "Go to ZOHO",
-    "url-left": "http://www.cnn.com",
-    "url-right": "http://www.europeana.eu"
+  "double_btns":{
+    "btn_left_text": "New Dataset",
+    "btn_right_text": "New Organization",
+    "btn_right_under_text": "Go to ZOHO",
+    "url_left": "http://www.cnn.com",
+    "url_right": "http://www.europeana.eu"
   },
   "browse_menu": {
-    "menu_id": "metis-search-menu",
+    "menu_id": "metis_search_menu",
     "items": [
       {
         "url": "#",
@@ -79,7 +79,7 @@
     }
   },
   "page_title": "Europeana Metis Dashboard",
-  "metis-logged-user": {
+  "metis_logged_user": {
     "menu_id": "loggedin-user",
     "icon_class": "svg-icon-loggedin-user",
     "items": [
@@ -104,7 +104,7 @@
       }
     ]
   },
-  "metis-header-search": true,
+  "metis_header_search": true,
   "metis_header": {
     "navigation":
     {

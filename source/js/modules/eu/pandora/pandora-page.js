@@ -158,7 +158,7 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
           subMenusMinWidth: null
         });
 
-        $('#metis-search-menu').smartmenus({
+        $('#metis_search_menu').smartmenus({
           mainMenuSubOffsetX: -7, // margin-left
           mainMenuSubOffsetY: 17, // margin-top
           subMenusSubOffsetX: 0,  // left
@@ -184,7 +184,7 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
         });
         $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
         $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-        $('#metis-search-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+        $('#metis_search_menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
         $('#loggedin-user').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
       });
     });
