@@ -450,6 +450,13 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
     var fnClickExpand = function(save){
 
+      if($('.title-federated-results.unclicked').length > 0){
+        $('.title-federated-results.unclicked').removeClass('unclicked');
+        var clickedText = $('.title-federated-results').data('clicked-text');
+        $('.title-federated-results .text').html(clickedText);
+        $('.title-federated-results').unbind('click');
+      }
+
       if(fedSearch){
         if(btnExpand.hasClass('expanded')){
           accordionTabs.deactivate(fedSearch);

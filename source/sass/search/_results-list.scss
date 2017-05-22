@@ -472,7 +472,7 @@
   height:       2rem;
   position:     relative;
   text-align:   center;
-  transform:    translateX(100%);
+  transform:    translate(100%, -0.25em);
   width:        2rem;
 
   &.loading{
@@ -564,15 +564,15 @@
 
 .title-federated-results{
 
-  margin:        3em 3.5em 2em 1em;
-  padding:       $pad 4em $pad $pad;
-  text-align:    center;
-  width:         100%;
+  margin:           3em 3.5em 2em 0em;
+  padding:          $pad 4em $pad $pad;
+  width:            100%;
 
-  &:hover{
-
+  &.unclicked{
     background-color: $eu-blue;
     color:            #fff;
+    cursor:           pointer;
+    text-align:       center;
 
     .fed-res-expand{
       border-color: #fff;
@@ -593,12 +593,15 @@
     .svg-icon-plus{
       display: none;
     }
-
+     
+    &:hover{
+      background-color: $gray-dark;
+    }
   }
 
 
   @media all and (min-width: $bp-med) {
-    margin:        3em 0 2em 1em;
+    margin:        3em 0 2em 0;
     padding-right: 0;
   }
 

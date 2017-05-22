@@ -777,7 +777,8 @@
                 "less_adv":"Less Refinements",
                 "count-and-terms-with-range": "1 - X of 2,283,391 results"
               },
-              "federated": "Click here to see more results"
+              "federated": "Click here to see results from non-Europeana sources",
+              "federated-clicked": "Items from non-Europeana sources"
             },
             "search": {
               "placeholder": {
