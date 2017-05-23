@@ -716,6 +716,17 @@
 
     .search-list-item{
 
+      &.missing-image{
+        .missing-image-text{
+          display: none;
+        }
+       .item-info{
+       	  bottom: 0;
+       	  height: auto;
+       	  width:  auto;
+       }
+      }
+     
       .item-info{
 
         border:     0;

@@ -22,7 +22,7 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
   }
 
-  function loadTabs($cmp, template, callback){
+  function loadTabs($cmp, template, preProcess, callback){
 
     var getTabContent = function(Mustache, tab, index){
 
@@ -35,6 +35,10 @@ define(['jquery', 'util_resize'], function($){
         $(tab).find('.tab-subtitle').html(data.tab_subtitle);
 
         $.each(data.search_results, function(i, item){
+        	
+          if(preProcess){
+        	item = preProcess(item);
+          }
           var rendered = Mustache.render(template, item);
           $(tab).next('.tab-content').append(rendered);
         });

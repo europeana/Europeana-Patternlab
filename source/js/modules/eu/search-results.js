@@ -442,9 +442,34 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           active: 0
         });
         
-        accordionTabs.loadTabs(fedSearch, $('#template-federated-search-tab-content').find('noscript').text(), function(data, index){
-          $('.more-federated-results:eq(' + index + ') a').text(data['more_results_label']).attr('href', data['more_results_url']);
-        });
+        accordionTabs.loadTabs(fedSearch,
+          $('#template-federated-search-tab-content').find('noscript').text(),
+          function(itemData){
+        	
+        	// pre-process should handle missing images
+        	
+            if(itemData){
+              itemData.target = '_new';
+            }
+            return itemData;
+          },
+          function(data, index){
+        	
+            $('.more-federated-results:eq(' + index + ') a').text(data['more_results_label']).attr('href', data['more_results_url']);
+                  
+            fedSearch.find('.tab-content:eq(' + index + ') .missing-image').each(function(i, el){
+
+
+              var text = $(el).find('.missing-image-text').text();
+              var img  = $(el).find('.item-metadata .item-type');
+              
+              $(el).find('.item-info')       .append('<h2><a>' + text + '</a></h2>');
+              $(el).find('.item-image .link').append('<img src="https://www.google.co.uk/images/icons/hpcg/ribbon-black_68.png"/>');
+              
+            });
+            
+          }
+        );
 
         fedSearch.addClass('loaded');
         btnExpand.removeClass('loading');

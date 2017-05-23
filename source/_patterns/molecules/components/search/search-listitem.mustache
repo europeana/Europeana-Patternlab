@@ -32,10 +32,10 @@
 
   <div class="item-info {{^ img.src }}hide-with-grid{{/ img.src }}">
 
-    <h2><a href="{{object_url}}">{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}<span class="hide-with-grid">{{#agent}} | {{ agent }}{{/agent}}</span></a></h2>
+    <h2><a href="{{object_url}}" {{#target}}target="{{.}}"{{/target}}>{{ title }} {{#year.long}}<span class="date">({{ year.long }})</span>{{/year.long}}<span class="hide-with-grid">{{#agent}} | {{ agent }}{{/agent}}</span></a></h2>
 
     {{#agent}}
-      <h3 class="show-with-grid"><a href="{{object_url}}">{{ . }}</a></h3>
+      <h3 class="show-with-grid"><a href="{{object_url}}" {{#target}}target="{{.}}"{{/target}}>{{ . }}</a></h3>
     {{/agent}}
 
     {{#text}}
