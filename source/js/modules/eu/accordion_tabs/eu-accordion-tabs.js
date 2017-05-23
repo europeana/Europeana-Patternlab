@@ -22,9 +22,9 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
   }
 
-  function loadTabs($cmp, template){
+  function loadTabs($cmp, template, callback){
 
-    var getTabContent = function(Mustache, tab){
+    var getTabContent = function(Mustache, tab, index){
 
       var url = $(tab).data('content-url');
 
@@ -38,6 +38,7 @@ define(['jquery', 'util_resize'], function($){
           var rendered = Mustache.render(template, item);
           $(tab).next('.tab-content').append(rendered);
         });
+        callback(data, index);
       })
       .fail(function(msg){
         log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
@@ -50,7 +51,7 @@ define(['jquery', 'util_resize'], function($){
     require(['mustache'], function(Mustache){
       Mustache.tags = ['[[', ']]'];
       $.each($cmp.find('.tab-header'), function(i, tabHeader){
-        getTabContent(Mustache, tabHeader);
+        getTabContent(Mustache, tabHeader, i);
       });
     });
   }

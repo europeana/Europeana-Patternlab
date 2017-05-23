@@ -441,7 +441,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           },
           active: 0
         });
-        accordionTabs.loadTabs(fedSearch, $('#template-federated-search-tab-content').find('noscript').text());
+        
+        accordionTabs.loadTabs(fedSearch, $('#template-federated-search-tab-content').find('noscript').text(), function(data, index){
+          $('.more-federated-results:eq(' + index + ') a').text(data['more_results_label']).attr('href', data['more_results_url']);
+        });
 
         fedSearch.addClass('loaded');
         btnExpand.removeClass('loading');
