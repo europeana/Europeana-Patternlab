@@ -6,40 +6,40 @@
 
         {{#user_id}}
           <div>
-            <label for="user_id">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="user_id" id="user_id">
+            <label for="userId">{{label}}</label>
+            <input type="text" value="{{value}}" readonly name="userId" id="userId">
           </div>
         {{/user_id}}
 
         {{#user_first_name}}
           <div>
-            <label for="user-first-name">{{label}}</label>
+            <label for="userFirstName">{{label}}</label>
             <input type="text" value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-first-name" id="user-first-name">
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userFirstName" id="userFirstName">
           </div>
         {{/user_first_name}}
 
         {{#user_last_name}}
           <div>
-            <label for="user-last-name">{{label}}</label>
+            <label for="userLastName">{{label}}</label>
             <input type="text" value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-last-name" id="user-last-name">
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userLastName" id="userLastName">
           </div>
         {{/user_last_name}}
 
         {{#user_email}}
           <div>
-            <label for="user-email">{{label}}</label>
+            <label for="userEmail">{{label}}</label>
             <input type="text" value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-email" id="user-email">
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userEmail" id="userEmail">
           </div>
         {{/user_email}}
 
         {{#user_skype}}
           <div>
-            <label for="user-skype">{{label}}</label>
+            <label for="userSkype">{{label}}</label>
             <input type="text" value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-skype" id="user-skype">
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userSkype" id="userSkype">
           </div>
         {{/user_skype}}
 
@@ -57,7 +57,7 @@
 
         <div class="org_selection">
           <label for="organizations">Organizations: </label>
-          <input id="searchOrganization" autofocus type="text" {{#view_mode.preview}}readonly{{/view_mode.preview}} name="q" placeholder="Search Organizations ...">
+          <input id="searchOrganization" autofocus type="text" {{#view_mode.preview}}readonly{{/view_mode.preview}} name="organization" placeholder="Search Organizations ...">
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
