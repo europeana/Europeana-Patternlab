@@ -14,7 +14,7 @@
         {{#user_first_name}}
           <div>
             <label for="userFirstName">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov"
+            <input type="text" value="{{value}}"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userFirstName" id="userFirstName">
           </div>
         {{/user_first_name}}
@@ -22,7 +22,7 @@
         {{#user_last_name}}
           <div>
             <label for="userLastName">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov"
+            <input type="text" value="{{value}}"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userLastName" id="userLastName">
           </div>
         {{/user_last_name}}
@@ -30,7 +30,7 @@
         {{#user_email}}
           <div>
             <label for="userEmail">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov"
+            <input type="text" value="{{value}}"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userEmail" id="userEmail">
           </div>
         {{/user_email}}
@@ -38,7 +38,7 @@
         {{#user_skype}}
           <div>
             <label for="userSkype">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov"
+            <input type="text" value="{{value}}"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userSkype" id="userSkype">
           </div>
         {{/user_skype}}
@@ -46,7 +46,7 @@
         {{#countries}}
           <div>
             <label for="country">{{label}}</label>
-            <select name="country" class="eu prov" {{#view_mode.preview}}disabled{{/view_mode.preview}}>
+            <select name="country" {{#view_mode.preview}}disabled{{/view_mode.preview}}>
               <option value="" selected>{{start_value}}</option>
               {{#items}}
                 <option value="{{name}}">{{name}}</option>
@@ -57,7 +57,7 @@
 
         <div class="org_selection">
           <label for="organizations">Organizations: </label>
-          <input id="searchOrganization" autofocus type="text" class="eu prov" {{#view_mode.preview}}readonly{{/view_mode.preview}} name="organization" placeholder="Search Organizations ...">
+          <input id="searchOrganization" autofocus type="text" {{#view_mode.preview}}readonly{{/view_mode.preview}} name="organization" placeholder="Search Organizations ...">
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
@@ -100,7 +100,7 @@
         {{#notes}}
           <div>
             <label for="notes">{{label}}</label>
-            <textarea rows="4" cols="50" name="notes" class="eu prov"
+            <textarea rows="4" cols="50" name="notes"
                       {{#view_mode.preview}}readonly{{/view_mode.preview}} placeholder="{{placeholder}}">
               {{value}}
             </textarea>
