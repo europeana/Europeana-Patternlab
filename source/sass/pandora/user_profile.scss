@@ -197,6 +197,7 @@
 
   .disableLink {
     cursor: default;
+    color: $gray-light;
     pointer-events: none;
   }
 }
