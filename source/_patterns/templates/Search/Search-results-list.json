@@ -95,30 +95,32 @@
   },
   "federated_search_enabled": true,
   "federated_search_conf": {
+    "thumbnail_server": "http://www.europeana.eu/api/v2/thumbnail-by-url.json",
     "tab_items": [
       {
         "tab_title": "DPLA",
-        "xtab_title": "USA (DPLA)",
-        "url":   "/federated.json?provider=dpla"
+        "url":       "/federated.json?provider=dpla",
+        "url_logo":  "https://dp.la/info/wp-content/uploads/2015/02/sticker_3x3_blue_withURL.jpg"
       },
       {
         "tab_title": "Internet Archive",
-        "url":   "/federated.json?provider=internetArchive"
+        "url":       "/federated.json?provider=internetArchive",
+        "url_logo":  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Internet_Archive_logo_and_wordmark.svg/790px-Internet_Archive_logo_and_wordmark.svg.png"
       },
       {
         "tab_title": "DigitalNZ",
-        "xtab_title": "New Zealand (DigitalNZ)",
-        "url":   "/federated.json?provider=digitalNZ"
+        "url":       "/federated.json?provider=digitalNZ",
+        "url_logo":  "http://pro.europeana.eu/files/labs.europeana.eu/labs/blog/whos-using-what-dnzlogo.jpg"
       },
       {
         "tab_title": "Canadiana",
-        "xtab_title": "Canada (Canadiana)",
-        "url":   "/federated.json?provider=canadiana"
+        "url":       "/federated.json?provider=canadiana",
+        "url_logo":  "http://search.canadiana.ca/static/images/logo_square_en.png"
       },
       {
         "tab_title": "Trove",
-        "xtab_title": "Australia (Trove)",
-        "url":   "/federated.json?provider=canadiana"
+        "url":       "/federated.json?provider=trove",
+        "url_logo":  "http://trove.nla.gov.au/static/51223/img/trove-logo-home-v2.gif"
       }
     ]
   },
@@ -1276,13 +1278,6 @@
       "agent": "Rembrandt van Rijn",
       "creator": "Rembrandt van Rijn",
       "title": "The Stoning of Saint Stephen",
-
-            "xxximg": {
-              "src": "http://placeimg.com/400/300/nature",
-              "alt": "Rectangle"
-            },
-
-
       "is_image": true,
       "item_type": {
         "name": "Photograph",

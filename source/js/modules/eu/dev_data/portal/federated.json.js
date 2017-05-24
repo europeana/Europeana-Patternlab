@@ -11,14 +11,10 @@ define([], function(){
           {
             'title': 'The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh',
             'creator': 'Charles Rennie Mackintosh',
-            'is_image': true,
+            'is_video': true,
             'item_type': {
               'name': 'Photograph',
               'url': 'http://europeana.eu/search/paintings'
-            },
-            'img': {
-              'src': '/images/search/search-result-thumb-1.jpg',
-              'alt': 'Rectangle'
             },
             'origin': {
               'url': 'http://urlhere.com',
@@ -131,14 +127,9 @@ define([], function(){
           {
             'title': 'The Lighthouse, Glasgow (Glasgow Herald Building) - Model (on display) | Mackintosh, Charles Rennie',
             'creator': 'Charles Rennie Mackintosh',
-            'is_image': true,
             'item_type': {
               'name': 'Photograph',
               'url': 'http://europeana.eu/search/paintings'
-            },
-            'img': {
-              'src': '/images/search/search-result-thumb-4.jpg',
-              'alt': 'Rectangle'
             },
             'origin': {
               'url': 'http://urlhere.com',
@@ -253,54 +244,8 @@ define([], function(){
               'long': '1896/1909'
             }
           },
-
           {
-            'agent': 'The Elephant Scribbler',
-            'creator': 'Confused Horse',
-            'title': 'An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap',
-            'is_image': true,
-            'item_type': {
-              'name': 'Painting',
-              'url': 'http://europeana.eu/search/paintings'
-            },
-            'img': {
-              'src': '/images/search/search-result-thumb-giraffe.png',
-              'alt': 'Rectangle'
-            },
-            'origin': {
-              'url': 'http://urlhere.com',
-              'text': 'Rijksmuseum'
-            },
-            'concepts': {
-              'items': [
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'prints (visual works)'
-                },
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'paper (fiber product)'
-                }
-              ]
-            },
-            'channels': {
-              'items': [
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'Art History'
-                },
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'Military History'
-                }
-              ]
-            },
-            'text': {
-              'medium': 'This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures...'
-            },
-            'year': {
-              'long': '1637'
-            }
+            'title': 'School of Art - Glasgow'
           },
           {
             'agent': 'Rembrandt van Rijn',
@@ -361,14 +306,14 @@ define([], function(){
           {
             'agent': 'Nicolaes Tulp',
             'creator': 'Nicolaes Tulp',
-            'title': 'The Anatomy Lesson of Dr. Nicolaes Tulp',
+            'title': 'The Doorway with some steps.',
             'is_audio': true,
             'item_type': {
               'name': 'Song',
               'url': 'http://europeana.eu/search/paintings'
             },
             'img': {
-              'src': '/images/search/search-result-thumb-2.jpg',
+              'src': '/images/search/search-result-thumb-1.jpg',
               'alt': 'Rectangle'
             },
             'origin': {
@@ -410,14 +355,9 @@ define([], function(){
             'agent': 'Me',
             'creator': 'Me',
             'title': 'Self portrait',
-            'is_text': true,
             'item_type': {
               'name': 'Poem',
               'url': 'http://europeana.eu/search/paintings'
-            },
-            'img': {
-              'src': 'http://placeimg.com/400/300/people',
-              'alt': 'Rectangle'
             },
             'origin': {
               'url': 'http://urlhere.com',
@@ -564,7 +504,7 @@ define([], function(){
               'url': 'http://europeana.eu/search/paintings'
             },
             'img': {
-              'src': '/images/search/search-result-thumb-2.jpg',
+              'src': '/images/search/search-result-thumb-4.jpg',
               'alt': 'Rectangle'
             },
             'origin': {
@@ -579,41 +519,60 @@ define([], function(){
             }
           },
           {
-            'agent': 'Canadian Me',
-            'creator': 'Me',
-            'title': 'Canadian Self portrait',
-            'is_text': true,
+            'agent': 'The Elephant Scribbler',
+            'creator': 'Confused Horse',
+            'title': 'An Elephant, a photograph, a drawing, a painting and a title that is long enough to line-wrap',
+            'is_image': true,
             'item_type': {
-              'name': 'Poem',
+              'name': 'Painting',
               'url': 'http://europeana.eu/search/paintings'
             },
             'img': {
-              'src': 'http://placeimg.com/400/300/people',
+              'src': '/images/search/search-result-thumb-giraffe.png',
               'alt': 'Rectangle'
             },
             'origin': {
               'url': 'http://urlhere.com',
-              'text': 'Providerhere'
+              'text': 'Rijksmuseum'
+            },
+            'concepts': {
+              'items': [
+                {
+                  'url': 'http://europeana.eu',
+                  'text': 'prints (visual works)'
+                },
+                {
+                  'url': 'http://europeana.eu',
+                  'text': 'paper (fiber product)'
+                }
+              ]
+            },
+            'channels': {
+              'items': [
+                {
+                  'url': 'http://europeana.eu',
+                  'text': 'Art History'
+                },
+                {
+                  'url': 'http://europeana.eu',
+                  'text': 'Military History'
+                }
+              ]
             },
             'text': {
-              'medium': 'Canadian self-portrait with dishevelled hair.'
+              'medium': 'This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures...'
             },
             'year': {
-              'long': '1628'
+              'long': '1637'
             }
           },
           {
             'agent': 'Canadian Rembrandt, in association with Belshazzar',
             'creator': 'Canadian Rembrandt',
             'title': 'Canadian Feast',
-            'is_text': true,
             'item_type': {
               'name': 'Book',
               'url': 'http://europeana.eu/search/books'
-            },
-            'img': {
-              'src': 'http://placeimg.com/400/300/nature',
-              'alt': 'Rectangle'
             },
             'text': {
               'medium': 'Canadian Feast is a painting by Canadian Rembrandt.'
@@ -626,7 +585,7 @@ define([], function(){
             'agent': 'Canadian Rembrandt van Rijn',
             'creator': 'Canadian Rembrandt van Rijn',
             'title': 'The Stoning of Canadian Saint Stephen',
-            'is_image': true,
+            'is_text': true,
             'text': {
               'medium': 'The Stoning of Canadian Saint Stephen is the first painting by Canadian artist Canadian Rembrandt.'
             },
@@ -635,8 +594,89 @@ define([], function(){
             }
           }
         ]
-      }
-    ]
+      },
+      {
+        'tab_title':          'Trove',
+        'tab_subtitle':       '53 Results',
+        'more_results_label': 'View all 5 results on Trove',
+        'more_results_url':   'javascript:alert(\'Link to more Trove results\')',
+        'search_results': [
+          {
+            'agent': 'Trove Nicolaes Tulp',
+            'creator': 'Trove Nicolaes Tulp',
+            'title': 'Trove The Anatomy Lesson of Dr. Nicolaes Tulp',
+            'is_audio': true,
+            'item_type': {
+              'name': 'Trove Song',
+              'url': 'http://europeana.eu/search/paintings'
+            },
+            'img': {
+              'src': '/images/search/search-result-thumb-2.jpg',
+              'alt': 'Rectangle'
+            },
+            'origin': {
+              'url': 'http://urlhere.com',
+              'text': 'Trove  Rijksmuseum'
+            },
+            'text': {
+              'medium': 'Trove: by Rembrandt'
+            },
+            'year': {
+              'long': '1632'
+            }
+          },
+          {
+            'agent': 'Australian Me',
+            'creator': 'Me',
+            'title': 'Australian Self portrait',
+            'item_type': {
+            'name': 'Poem',
+            'url': 'http://europeana.eu/search/paintings'
+          },
+          'origin': {
+            'url': 'http://urlhere.com',
+            'text': 'Providerhere'
+          },
+          'text': {
+            'medium': 'Australian self-portrait with dishevelled hair.'
+          },
+          'year': {
+            'long': '1628'
+          }
+        },
+        {
+          'agent': 'Australian Rembrandt, in association with Belshazzar',
+          'creator': 'Australian Rembrandt',
+          'title': 'Australian Feast',
+          'is_text': true,
+          'item_type': {
+            'name': 'Book',
+            'url': 'http://europeana.eu/search/books'
+          },
+          'img': {
+            'src': 'http://placeimg.com/400/300/nature',
+            'alt': 'Rectangle'
+          },
+          'text': {
+            'medium': 'Australian Feast is a painting by Canadian Rembrandt.'
+          },
+          'year': {
+            'long': '1635'
+          }
+        },
+        {
+          'agent': 'Australian Rembrandt van Rijn',
+          'creator': 'Australian Rembrandt van Rijn',
+          'title': 'The Stoning of Australian Saint Stephen',
+          'text': {
+            'medium': 'The Stoning of Australian Saint Stephen is the first painting by Australian artist Australian Rembrandt.'
+          },
+          'year': {
+            'long': '1625'
+          }
+        }
+      ]
+    }]
   };
 
   return {
@@ -655,6 +695,9 @@ define([], function(){
       }
       else if(params.provider == 'canadiana'){
         data = federated_results.tab_items[3];
+      }
+      else if(params.provider == 'trove'){
+          data = federated_results.tab_items[4];
       }
       else{
         data = federated_results;

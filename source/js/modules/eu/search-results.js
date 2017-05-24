@@ -405,28 +405,19 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   }
 
   function initFederatedSearch(){
-    if($('.eu-accordion-tabs.parallel').length > 0){
-      initFederatedSearchParallel();
-    }
-    else{
-      initFederatedSearchSequential();
-    }
-  }
-
-  function initFederatedSearchParallel(){
-
-    log('init federated search parallel load...');
 
     var accordionTabs = null;
     var fedSearch     = null;
     var btnExpand     = $('.fed-res-expand');
 
-    var initUI = function(){
+    var initUI = function(Mustache){
+      var template        = $('#template-federated-search-tab-content').find('noscript').text();
 
       require(['eu_accordion_tabs'], function(euAccordionTabs){
 
-        accordionTabs = euAccordionTabs;
-        fedSearch = $('.eu-accordion-tabs');
+        accordionTabs       = euAccordionTabs;
+        fedSearch           = $('.eu-accordion-tabs');
+        var thumbnailServer = fedSearch.data('thumbnail-server');
 
         fedSearch.find('.tab-header').on('click', function(){
           fedSearch.find('.tab-content').removeClass('collapsed');
@@ -434,40 +425,41 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
         accordionTabs.init(fedSearch, {
           fnOpenTab: function(index){
-            $('.more-federated-results').hide();
-            $('.more-federated-results:eq(' + index + ')').show();
+            $('.more-federated-results').addClass('js-hidden');
+            $('.more-federated-results:eq(' + index + ')').removeClass('js-hidden');
             btnExpand.addClass('expanded');
             fedSearch.addClass('expanded');
           },
           active: 0
         });
-        
-        accordionTabs.loadTabs(fedSearch,
-          $('#template-federated-search-tab-content').find('noscript').text(),
-          function(itemData){
-        	
-        	// pre-process should handle missing images
-        	
-            if(itemData){
-              itemData.target = '_new';
-            }
-            return itemData;
-          },
-          function(data, index){
-        	
-            $('.more-federated-results:eq(' + index + ') a').text(data['more_results_label']).attr('href', data['more_results_url']);
-                  
-            fedSearch.find('.tab-content:eq(' + index + ') .missing-image').each(function(i, el){
 
+        accordionTabs.loadTabs(
+          fedSearch,
+          function(data, tab, index){
 
-              var text = $(el).find('.missing-image-text').text();
-              var img  = $(el).find('.item-metadata .item-type');
-              
-              $(el).find('.item-info')       .append('<h2><a>' + text + '</a></h2>');
-              $(el).find('.item-image .link').append('<img src="https://www.google.co.uk/images/icons/hpcg/ribbon-black_68.png"/>');
-              
+            tab = $(tab);
+            tab.find('.tab-subtitle').html(data.tab_subtitle);
+            var defLogo = tab.data('content-default-logo');
+
+            $('.more-federated-results:eq(' + index + ') a').attr('href', data.more_results_url).text(data.more_results_label);
+
+            $.each(data.search_results, function(i, itemData){
+
+              if(itemData){
+                itemData.target = '_new';
+              }
+              if(!itemData.img){
+                var type = itemData.is_image ? 'IMAGE' : itemData.is_audio ? 'SOUND' : itemData.is_video ? 'VIDEO' : itemData.is_text ? 'TEXT' : null;
+                itemData.img = {
+                  'src': type ? (thumbnailServer + '?size=w200&uri=image.jpg&type=' + type) : defLogo
+                }
+              }
+              tab.next('.tab-content').append(Mustache.render(template, itemData));
+
+              tab.next('.tab-content').find('h2 a').addClass('svg-icon-external-eu-blue-after');
             });
-            
+
+            return data;
           }
         );
 
@@ -497,8 +489,11 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       btnExpand.toggleClass('expanded');
 
       if(!btnExpand.hasClass('loaded')){
-        initUI();
-        btnExpand.addClass('loading, loaded');
+        require(['mustache'], function(Mustache){
+          Mustache.tags = ['[[', ']]'];
+          initUI(Mustache);
+          btnExpand.addClass('loading, loaded');
+        });
       }
 
       if(save){
@@ -516,99 +511,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       log('federated enabled');
       fnClickExpand();
     }
-  }
-
-
-  // the old way
-
-  function initFederatedSearchSequential(){
-
-    var accordionTabs = null;
-    var fedSearch     = null;
-    var btnExpand     = $('.fed-res-expand');
-
-    var initUI = function(data){
-
-      require(['eu_accordion_tabs', 'mustache'], function(euAccordionTabs, Mustache){
-
-        var templateId = '#organisms-components-eu-accordion-tabs-js';
-        accordionTabs  = euAccordionTabs;
-
-        if(templateId){
-          var template = $(templateId).find('noscript').text();
-
-          Mustache.tags = ['[[', ']]'];
-          var rendered = Mustache.render(template, data);
-          $(templateId).after(rendered);
-
-          fedSearch = $('.eu-accordion-tabs');
-
-          fedSearch.find('.tab-header').on('click', function(){
-            fedSearch.find('.tab-content').removeClass('collapsed');
-          });
-
-          accordionTabs.init(fedSearch, {
-            fnOpenTab: function(index){
-              $('.more-federated-results').hide();
-              $('.more-federated-results:eq(' + index + ')').show();
-              btnExpand.addClass('expanded');
-              fedSearch.addClass('expanded');
-            },
-            active: 0
-          });
-          fedSearch.find('.search-list-item .item-info h2 a').addClass('svg-icon-external-eu-blue-after');
-          fedSearch.addClass('loaded');
-          btnExpand.removeClass('loading');
-          fnClickExpand();
-        }
-      });
-    };
-
-    var fnClickExpand = function(){
-
-      if(fedSearch){
-        if(btnExpand.hasClass('expanded')){
-          accordionTabs.deactivate(fedSearch);
-        }
-        else{
-          accordionTabs.activate(fedSearch, 0);
-        }
-        fedSearch.toggleClass('expanded');
-        btnExpand.toggleClass('expanded');
-
-        //if(!suppressSave){
-        //  saveFederatedSetting(btnExpand.hasClass('expanded'));
-        //}
-      }
-
-      if(!btnExpand.hasClass('loaded')){
-        btnExpand.addClass('loading, loaded');
-
-        var href     = location.href;
-        var url      = $.url(href);
-        var initUrl  = href.split('.html')[0];
-
-        initUrl  = href.replace('.html', '').split('?')[0];
-        initUrl += '/federated.json?q=' + url.param('q');
-
-        $.getJSON(initUrl).done(function(data) {
-          initUI(data);
-        })
-        .fail(function(msg){
-          log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
-        });
-      }
-    };
-
-    $('.fed-res-expand').on('click', fnClickExpand);
-
-    //if(loadFederatedSetting()){
-    //  log('federated enabled');
-    //  fnClickExpand(true);
-    //}
-    //else{
-    //  log('federated is not enabled');
-    //}
   }
 
   return {

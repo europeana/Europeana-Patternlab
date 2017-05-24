@@ -22,27 +22,21 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
   }
 
-  function loadTabs($cmp, template, preProcess, callback){
+  function loadTabs($cmp, preProcess, callback){
 
-    var getTabContent = function(Mustache, tab, index){
-
-      var url = $(tab).data('content-url');
+    var getTabContent = function(tab, index){
 
       $(tab).addClass('loading');
 
+      var url = $(tab).data('content-url');
+
       $.getJSON(url).done(function(data) {
-
-        $(tab).find('.tab-subtitle').html(data.tab_subtitle);
-
-        $.each(data.search_results, function(i, item){
-        	
-          if(preProcess){
-        	item = preProcess(item);
-          }
-          var rendered = Mustache.render(template, item);
-          $(tab).next('.tab-content').append(rendered);
-        });
-        callback(data, index);
+        if(preProcess){
+          data = preProcess(data, tab, index);
+        }
+        if(callback){
+          callback(data, tab, index);
+        }
       })
       .fail(function(msg){
         log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
@@ -52,12 +46,10 @@ define(['jquery', 'util_resize'], function($){
       });
     };
 
-    require(['mustache'], function(Mustache){
-      Mustache.tags = ['[[', ']]'];
-      $.each($cmp.find('.tab-header'), function(i, tabHeader){
-        getTabContent(Mustache, tabHeader, i);
-      });
+    $.each($cmp.find('.tab-header'), function(i, tabHeader){
+      getTabContent(tabHeader, i);
     });
+
   }
 
   function init($cmp, ops){

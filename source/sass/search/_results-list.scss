@@ -593,7 +593,7 @@
     .svg-icon-plus{
       display: none;
     }
-     
+
     &:hover{
       background-color: $gray-dark;
     }
@@ -629,9 +629,10 @@
 .results-list{
 
   .more-federated-results{
-    display:    none;
-    margin:     1em 0 3em 0;
-    text-align: right;
+    bottom:   0;
+    position: absolute;
+    right:    0;
+
   }
 
   .eu-accordion-tabs{
@@ -655,6 +656,16 @@
           display: block;
           float:   none;
           width:   100%;
+
+          .item-info{
+
+            padding: 0.5em 1.8em 0 0;
+
+            .svg-icon{
+              display: inline-block;
+            }
+          }
+
         }
       }
     }
@@ -668,7 +679,7 @@
         height: 24em;
 
         @media all and (max-width: $bp-large) {
-          height: 42em;
+          height: 44em;
         }
       }
 
@@ -708,6 +719,17 @@
           width:          100em;
         }
       }
+      .search-list-item .item-info .svg-icon{
+        display: none;
+      }
+
+      .more-federated-results:not(.js-hidden){
+        display: block;
+      }
+    }
+
+    .more-federated-results{
+      display: none;
     }
 
     .tab-header{
@@ -721,12 +743,12 @@
           display: none;
         }
        .item-info{
-       	  bottom: 0;
-       	  height: auto;
-       	  width:  auto;
+           bottom: 0;
+           height: auto;
+           width:  auto;
        }
       }
-     
+
       .item-info{
 
         border:     0;

@@ -1,6 +1,5 @@
-<div class="tab-header" {{#url}}data-content-url="{{.}}"{{/url}}>
+<div class="tab-header"{{#url}} data-content-url="{{.}}"{{/url}}{{#url_logo}} data-content-default-logo="{{.}}"{{/url_logo}}>
   {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
   <span class="tab-subtitle">{{#tab_subtitle}}{{.}}{{/tab_subtitle}}{{^tab_subtitle}}&nbsp;{{/tab_subtitle}}</span>
 </div>
-<div class="tab-content">
-</div>
+<div class="tab-content"></div>
