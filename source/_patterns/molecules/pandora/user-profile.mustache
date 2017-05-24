@@ -1,0 +1,159 @@
+{{#user_profile}}
+  <div class="user-profile-form">
+    <form action="#" data-role="{{user_role.value}}" data-view-mode="{{view_mode.value}}">
+    <div class="flex-outer">
+      {{#user_fields}}
+
+        {{#user_id}}
+          <div>
+            <label for="user_id">{{label}}</label>
+            <input type="text" value="{{value}}" readonly name="user_id" id="user_id">
+          </div>
+        {{/user_id}}
+
+        {{#user_first_name}}
+          <div>
+            <label for="user-first-name">{{label}}</label>
+            <input type="text" value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-first-name" id="user-first-name">
+          </div>
+        {{/user_first_name}}
+
+        {{#user_last_name}}
+          <div>
+            <label for="user-last-name">{{label}}</label>
+            <input type="text" value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-last-name" id="user-last-name">
+          </div>
+        {{/user_last_name}}
+
+        {{#user_email}}
+          <div>
+            <label for="user-email">{{label}}</label>
+            <input type="text" value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-email" id="user-email">
+          </div>
+        {{/user_email}}
+
+        {{#user_skype}}
+          <div>
+            <label for="user-skype">{{label}}</label>
+            <input type="text" value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="user-skype" id="user-skype">
+          </div>
+        {{/user_skype}}
+
+        {{#countries}}
+          <div>
+            <label for="country">{{label}}</label>
+            <select name="country" {{#view_mode.preview}}disabled{{/view_mode.preview}}>
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/countries}}
+
+        <div class="org_selection">
+          <label for="organizations">Organizations: </label>
+          <input id="searchOrganization" autofocus type="text" name="q" placeholder="Search Organizations ...">
+          <div class="modal-wrapper">
+            <div class="modal">
+              <div class="head">
+                <a class="btn-close trigger"></a>
+                <h3 class="headerRole">Select User's Role for: </h3>
+              </div>
+              <div class="content">
+                <div class="roleWrapper">
+                  <h4 class="currentSelectedOrganization"></h4>
+                  {{#roleTypes}}
+                    <select data-rolesTypeId="{{typeId}}" class="roles hidden">
+                      {{#roles}}
+                        <option value="{{name}}">{{name}}</option>
+                      {{/roles}}
+                    </select>
+                  {{/roleTypes}}
+                </div>
+                <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="selectedOrganizations">
+          <label for="organization">Selected Organizations</label>
+          <div class="selectedOrgs">
+            {{#organizations}}
+              <div class="selectedOrg" id="{{organizationId}}">
+                <a class="selectedOrganization alreadySelected"
+                   name="organization"
+                   data-rolesTypeId="{{rolesTypeId}}"
+                   data-role="{{organizationRole}}"
+                   data-name="{{organizationName}}"
+                   data-organizationId="{{organizationId}}">{{organizationName}}:&nbsp;{{organizationRole}}</a>
+                <b><a class="removeOrganization" data-name="{{organizationName}}">&nbsp;X</a></b>
+              </div>
+            {{/organizations}}
+          </div>
+        </div>
+        {{#notes}}
+          <div>
+            <label for="notes">{{label}}</label>
+            <textarea rows="4" cols="50" name="notes"
+                      {{#view_mode.preview}}readonly{{/view_mode.preview}} placeholder="{{placeholder}}">
+              {{value}}
+            </textarea>
+          </div>
+        {{/notes}}
+
+
+        {{#active}}
+          <div>
+            <label for="active">{{label}}</label>
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="active"
+                   id="active" placeholder="{{placeholder}}">
+          </div>
+        {{/active}}
+
+        {{#approved}}
+          <div>
+            <label for="approved">{{label}}</label>
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="approved"
+                   id="approved" placeholder="{{placeholder}}">
+          </div>
+        {{/approved}}
+
+        {{#created}}
+          <div>
+            <label for="created">{{label}}</label>
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="created"
+                   id="created" placeholder="{{placeholder}}">
+          </div>
+        {{/created}}
+
+        {{#updated}}
+          <div>
+            <label for="updated">{{label}}</label>
+            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="updated"
+                   id="updated" placeholder="{{placeholder}}">
+          </div>
+        {{/updated}}
+
+        <div class="buttons user-profile-preview-btn hidden">
+          <button class="edit-user-profile" type="button">Edit</button>
+        </div>
+
+        <div class="buttons user-profile-edit-btns hidden">
+          <div>
+            <button class="submit" type="button">Submit</button>
+          </div>
+          <div>
+            <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+      {{/user_fields}}
+    </form>
+  </div>
+{{/user_profile}}

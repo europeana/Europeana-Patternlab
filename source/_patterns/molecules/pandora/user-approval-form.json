@@ -1,23 +1,19 @@
 {
-  "css_files":
-  [
+  "css_files": [
     {
       "path": "../../css/pandora/screen.css",
       "media": "all"
     },
-
     {
       "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
       "media": "all"
     },
-
     {
       "path": "../../js/modules/lib/jush/jush.css",
       "media": "all"
     }
   ],
-  "js_files":
-  [
+  "js_files": [
     {
       "path": "../../js/modules/require.js",
       "data_main": "../../js/modules/main/templates/main-pandora"
@@ -26,20 +22,19 @@
   "lastName": "Bággįnš",
   "skype": "bilbo.baggins",
   "fullName": "Bìlbö",
-  "organizations":[
-  	{
-		"organizationName": "Europeana",
-		"organizationId": 12,
-		"organizationRole": "false",
-        "rolesTypeId": 1
-
-	},
-	{
-		"organizationName": "BNF",
-		"organizationId": 23,
-		"organizationRole": "Provider Admin",
-        "rolesTypeId": 2
-	}
+  "organizations": [
+    {
+      "organizationName": "Europeana",
+      "organizationId": 12,
+      "organizationRole": "false",
+      "rolesTypeId": 1
+    },
+    {
+      "organizationName": "BNF",
+      "organizationId": 23,
+      "organizationRole": "Provider Admin",
+      "rolesTypeId": 2
+    }
   ],
   "roleTypes": [
     {
