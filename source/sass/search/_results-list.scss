@@ -658,12 +658,7 @@
           width:   100%;
 
           .item-info{
-
             padding: 0.5em 1.8em 0 0;
-
-            .svg-icon{
-              display: inline-block;
-            }
           }
 
         }
@@ -719,9 +714,6 @@
           width:          100em;
         }
       }
-      .search-list-item .item-info .svg-icon{
-        display: none;
-      }
 
       .more-federated-results:not(.js-hidden){
         display: block;
@@ -738,15 +730,48 @@
 
     .search-list-item{
 
-      &.missing-image{
-        .missing-image-text{
-          display: none;
+      &.default-img{
+        .item-preview img{
+          height:     auto;
+          margin-top: 50%;
+          min-height: auto;
+          object-fit: unset;
+          transform:  translateY(-50%);
+          width:      auto;
         }
-       .item-info{
-           bottom: 0;
-           height: auto;
-           width:  auto;
-       }
+      }
+
+      &.type-img{
+
+        .item-image{
+
+          border:  1px solid $gray-lighter;
+
+          .svg-icon{
+            display: inline-block;
+          }
+
+          .svg-icon-image-grey-lighter{
+            height:    1.5em;
+            transform: scale(4) translateY(82%);
+            width:     1.4em;
+          }
+          .svg-icon-music-grey-lighter{
+            height:    1.8em;
+            transform: scale(3.5) translate(-5%, 83%);
+            width:     1.36em;
+          }
+          .svg-icon-openbook-grey-lighter{
+            height:    1.8em;
+            transform: scale(3.5) translateY(85%);
+            width:     1.36em;
+          }
+          .svg-icon-tv-grey-lighter{
+            height:    1.48em;
+            transform: scale(3.5) translateY(100%);
+            width:     1.4em;
+          }
+        }
       }
 
       .item-info{
@@ -763,7 +788,7 @@
           white-space:  normal;
 
           a{
-            display:    block;
+            display:    inline-block;
             max-height: 2.8em;
             position:   relative;
           }
@@ -777,6 +802,10 @@
 
         > h3{
           transform: translateY(0.5em);
+        }
+
+        .svg-icon{
+          display: none;
         }
 
       }

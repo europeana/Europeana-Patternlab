@@ -121,6 +121,10 @@
         "tab_title": "Trove",
         "url":       "/federated.json?provider=trove",
         "url_logo":  "http://trove.nla.gov.au/static/51223/img/trove-logo-home-v2.gif"
+      },
+      {
+        "tab_title": "Icons",
+        "url":       "/federated.json?provider=icons"
       }
     ]
   },

@@ -9,7 +9,8 @@ define([], function(){
         'more_results_url':   'javascript:alert(\'Link to more DPLA results\')',
         'search_results': [
           {
-            'title': 'The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh',
+            'title': 'The Lighthouse, Glasgow (The Herald Building) - Exterior',
+            'agent': 'Charles Rennie Mackintosh',
             'creator': 'Charles Rennie Mackintosh',
             'is_video': true,
             'item_type': {
@@ -547,18 +548,6 @@ define([], function(){
                 }
               ]
             },
-            'channels': {
-              'items': [
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'Art History'
-                },
-                {
-                  'url': 'http://europeana.eu',
-                  'text': 'Military History'
-                }
-              ]
-            },
             'text': {
               'medium': 'This is one of several drawings by Rembrandt of female elephants in different poses. This elephant may even be one called Hansken, a female despite her name, known to have been in Holland in 1641. Behind and to the right of the animal are the outlines of three figures...'
             },
@@ -676,6 +665,30 @@ define([], function(){
           }
         }
       ]
+    },
+    {
+      'tab_title':          'Icon',
+      'tab_subtitle':       '4 Results',
+      'more_results_label': 'Icon alignment check',
+      'more_results_url':   'javascript:alert(\'I hate svgs\')',
+      'search_results': [
+        {
+          'title': 'Audio',
+          'is_audio': true
+        },
+        {
+          'title': 'Image',
+          'is_image': true
+        },
+        {
+          'title': 'Text',
+          'is_text': true
+        },
+        {
+            'title': 'Video',
+            'is_video': true
+        }
+      ]
     }]
   };
 
@@ -698,6 +711,9 @@ define([], function(){
       }
       else if(params.provider == 'trove'){
           data = federated_results.tab_items[4];
+      }
+      else if(params.provider == 'icons'){
+          data = federated_results.tab_items[5];
       }
       else{
         data = federated_results;

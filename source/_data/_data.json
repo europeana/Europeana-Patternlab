@@ -821,6 +821,7 @@
               "skip-to-section":  "Skip to section",
               "sort-by": "Order by",
               "view": "View",
+              "view-at": "View at",
               "withdraw": "withdraw"
             },
             "channel": {

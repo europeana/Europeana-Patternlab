@@ -1,0 +1,32 @@
+<article class="search-list-item cf[[#default_img]] default-img[[/default_img]][[#type_img]] type-img[[/type_img]]">
+  <div class="item-preview">
+    <div class="item-image">
+      <div class="inner">
+        <a class="link" target="[[target]]" href="[[object_url]]" tabindex="-1">
+          [[# img.src ]]
+            <img src="[[img.src]]" alt="[[ title ]]" />
+          [[/ img.src ]]
+          [[^ img.src ]]
+            [[# is_image ]]
+            <span class="svg-icon svg-icon-image-grey-lighter"></span>
+            [[/ is_image ]]
+            [[# is_audio ]]
+            <span class="svg-icon svg-icon-music-grey-lighter"></span>
+            [[/ is_audio ]]
+            [[# is_text ]]
+            <span class="svg-icon svg-icon-openbook-grey-lighter"></span>
+            [[/ is_text ]]
+            [[# is_video ]]
+            <span class="svg-icon svg-icon-tv-grey-lighter"></span>
+            [[/ is_video ]]
+          [[/ img.src ]]
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-info">
+    <h2><a href="[[object_url]]" [[#target]]target="[[.]]"[[/target]]><span class="only-without-tabs">{{i18n.global.actions.view-at}} [[tab_title]]</span><span class="only-with-tabs">[[ title ]] [[#year.long]]<span class="date">([[ year.long ]])</span>[[/year.long]][[#agent]][[#title]] | [[/title]][[ . ]][[/agent]]</span><span class="svg-icon-external-eu-blue"></span></a></h2>
+  </div>
+
+</article>

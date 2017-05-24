@@ -102,8 +102,24 @@
 .eu-accordion-tabs.as-tabs .tab-header .tab-subtitle {
   display: block;
 }
-/* line 114, style.scss */
+/* line 112, style.scss */
+.eu-accordion-tabs.as-tabs .only-with-tabs {
+  display: block;
+}
+/* line 116, style.scss */
+.eu-accordion-tabs.as-tabs .only-without-tabs {
+  display: none;
+}
+/* line 122, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .tab-header:first-of-type,
 .eu-accordion-tabs:not(.as-tabs) .tab-content.active + .tab-header {
   border-top: 1px solid #CCCCCC;
+}
+/* line 127, style.scss */
+.eu-accordion-tabs:not(.as-tabs) .only-with-tabs {
+  display: none;
+}
+/* line 131, style.scss */
+.eu-accordion-tabs:not(.as-tabs) .only-without-tabs {
+  display: block;
 }

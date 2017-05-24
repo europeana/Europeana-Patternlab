@@ -448,15 +448,20 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
               if(itemData){
                 itemData.target = '_new';
               }
+
               if(!itemData.img){
                 var type = itemData.is_image ? 'IMAGE' : itemData.is_audio ? 'SOUND' : itemData.is_video ? 'VIDEO' : itemData.is_text ? 'TEXT' : null;
-                itemData.img = {
-                  'src': type ? (thumbnailServer + '?size=w200&uri=image.jpg&type=' + type) : defLogo
+                if(type){
+                  itemData.type_img = true;
+                }
+                else{
+                  itemData.default_img = true;
+                  itemData.img = {
+                    'src': defLogo
+                  }
                 }
               }
               tab.next('.tab-content').append(Mustache.render(template, itemData));
-
-              tab.next('.tab-content').find('h2 a').addClass('svg-icon-external-eu-blue-after');
             });
 
             return data;

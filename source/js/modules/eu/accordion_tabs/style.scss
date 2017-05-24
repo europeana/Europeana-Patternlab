@@ -108,6 +108,14 @@ $tabs-pad:           1.2em;
         display:   block;
       }
     }
+
+    .only-with-tabs{
+      display: block;
+    }
+
+    .only-without-tabs{
+      display: none;
+    }
   }
 
   &:not(.as-tabs){
@@ -115,6 +123,15 @@ $tabs-pad:           1.2em;
     .tab-content.active + .tab-header{
       border-top:  1px solid $tabs-border-colour;
     }
+
+    .only-with-tabs{
+      display: none;
+    }
+
+    .only-without-tabs{
+      display: block;
+    }
+
   }
 }
 
