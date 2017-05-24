@@ -57,7 +57,7 @@
 
         <div class="org_selection">
           <label for="organizations">Organizations: </label>
-          <input id="searchOrganization" autofocus type="text" name="q" placeholder="Search Organizations ...">
+          <input id="searchOrganization" autofocus type="text" {{#view_mode.preview}}readonly{{/view_mode.preview}} name="q" placeholder="Search Organizations ...">
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
@@ -85,13 +85,14 @@
           <div class="selectedOrgs">
             {{#organizations}}
               <div class="selectedOrg" id="{{organizationId}}">
-                <a class="selectedOrganization alreadySelected"
+                <a class="selectedOrganization alreadySelected {{#view_mode.preview}}disableLink{{/view_mode.preview}}"
                    name="organization"
                    data-rolesTypeId="{{rolesTypeId}}"
                    data-role="{{organizationRole}}"
                    data-name="{{organizationName}}"
                    data-organizationId="{{organizationId}}">{{organizationName}}:&nbsp;{{organizationRole}}</a>
-                <b><a class="removeOrganization" data-name="{{organizationName}}">&nbsp;X</a></b>
+                <b><a class="removeOrganization {{#view_mode.preview}}disableLink{{/view_mode.preview}}"
+                      data-name="{{organizationName}}">&nbsp;X</a></b>
               </div>
             {{/organizations}}
           </div>

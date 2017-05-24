@@ -194,4 +194,9 @@
   .selectedOrganizations .selectedOrgs .selectedOrg {
     width: 100%;
   }
+
+  .disableLink {
+    pointer-events: none;
+    cursor: default;
+  }
 }
