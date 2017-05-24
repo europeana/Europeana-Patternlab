@@ -27,10 +27,10 @@ require.config({
 });
 
 
-require(['jquery', 'pandoraPage', 'dataset_info_form', 'register', 'login'], function ($, p, datasetForm) {
+require(['jquery', 'pandoraPage', 'dataset_info_form', 'user_profile', 'register', 'login'], function ($, p, datasetForm, userProfile) {
   p.pageInit();
   datasetForm.formInit();
   // register.formInit();
   // login.formInit();
-  // userProfile.formInit();
+  userProfile.formInit();
 });

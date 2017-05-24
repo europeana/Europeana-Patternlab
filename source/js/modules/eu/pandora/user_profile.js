@@ -12,22 +12,20 @@ define(['jquery'], function ($) {
       prov = $('.prov'),
       cancel = $('.cancel'),
       euProv = $('.eu, .prov'),
-      submitBtn = $('.submit');
+      submitBtn = $('.submit'),
+      linkToSelectedOrg = $('.selectedOrganization, .removeOrganization');
 
     if (mode === 'preview') {
-      console.log('before toggling hidden');
       previewBlockBtn.toggleClass('hidden');
-
-      console.log('after toggling hidden');
     } else {
       editableBlockBtns.toggleClass('hidden');
     }
 
     edit.click(function () {
-      $('form').attr('data-view-mode', 'update');
+      form.attr('data-view-mode', 'update');
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
-
+      linkToSelectedOrg.toggleClass('disableLink');
       if (role === 'europeana') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
@@ -45,16 +43,15 @@ define(['jquery'], function ($) {
         cancel.toggleClass('update preview');
         previewBlockBtn.toggleClass('hidden');
         editableBlockBtns.toggleClass('hidden');
+        linkToSelectedOrg.toggleClass('disableLink');
       } else {
         //  TODO: on create mode after canceling the creation the user should be redirected to ?
-        console.log('canceling dataset creation');
+        console.log('canceling operation');
       }
     });
 
     // TODO : define the action to be taken after submitting changes.
     submitBtn.click(function () {
-      console.log('role ', role);
-      console.log('view ', mode);
       console.log('submit form and take me to ...');
     });
   }
