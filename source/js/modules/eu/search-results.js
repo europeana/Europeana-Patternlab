@@ -417,7 +417,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
         accordionTabs       = euAccordionTabs;
         fedSearch           = $('.eu-accordion-tabs');
-        var thumbnailServer = fedSearch.data('thumbnail-server');
 
         fedSearch.find('.tab-header').on('click', function(){
           fedSearch.find('.tab-content').removeClass('collapsed');
