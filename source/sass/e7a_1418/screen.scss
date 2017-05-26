@@ -17,3 +17,15 @@ html{
 }
 
 @import "scss/base/forms";
+
+input[type="submit"],
+button{
+  background-color: $eu-blue;
+  border: none;
+  color: #fff;
+
+  &:focus,
+  &:hover{
+    background-color: $gray-dark;
+  }
+}

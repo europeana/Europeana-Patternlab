@@ -29,6 +29,13 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         '.contributor'
       ]
     },
+    'account/edit': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.account-url',
+        '.edit'
+      ]
+    },
     'admin':{
       'breadcrumbs': [
         '.contributor'
@@ -234,6 +241,9 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       breadcrumbs = pageData[fragment]['breadcrumbs'];
       var params = $.url(lastMessagedUrl).param();
       alert('Search portal with paramters:\n\ncontributor_id:\t' + params.contributor_id + '\nqf:\t' + params.qf);
+    }
+    else if(fragment.match(/contacts\/\d\/edit/) || fragment.match(/users\/edit/)){
+      breadcrumbs = pageData['account/edit']['breadcrumbs'];
     }
     else{
       log('default breadcrumbs for ' + fragment);
