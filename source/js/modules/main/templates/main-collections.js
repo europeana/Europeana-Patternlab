@@ -95,6 +95,8 @@ require.config({
     pinterest:                     '../../lib/pinterest/pinit_main',
 
     util_ellipsis:                 '../../eu/util/ellipsis',
+    util_eu_ellipsis:              '../../eu/util/eu-ellipsis',
+
     util_foldable:                 '../../eu/util/foldable-list',
     util_filterable:               '../../eu/util/foldable-list-filter',
     util_resize:                   '../../eu/util/resize',

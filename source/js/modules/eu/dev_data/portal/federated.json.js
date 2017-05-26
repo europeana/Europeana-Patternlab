@@ -17,6 +17,7 @@ define([], function(){
               'name': 'Photograph',
               'url': 'http://europeana.eu/search/paintings'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -57,6 +58,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-lincoln.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -97,6 +99,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-3.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -132,6 +135,7 @@ define([], function(){
               'name': 'Photograph',
               'url': 'http://europeana.eu/search/paintings'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -178,6 +182,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-5.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -218,6 +223,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-6.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Glasgow School of Art'
@@ -246,7 +252,8 @@ define([], function(){
             }
           },
           {
-            'title': 'School of Art - Glasgow'
+            'title': 'School of Art - Glasgow',
+            'object_url': "javascript:alert('follow external url...');"
           },
           {
             'agent': 'Rembrandt van Rijn',
@@ -257,10 +264,7 @@ define([], function(){
               'name': 'Recording',
               'url': 'http://europeana.eu/search/paintings'
             },
-            'REMOVED_img': {
-              'src': 'http://placeimg.com/400/300/nature',
-              'alt': 'Rectangle'
-            },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Rijksmuseum'
@@ -317,6 +321,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-1.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Rijksmuseum'
@@ -360,6 +365,7 @@ define([], function(){
               'name': 'Poem',
               'url': 'http://europeana.eu/search/paintings'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Providerhere'
@@ -408,6 +414,7 @@ define([], function(){
               'src': 'http://placeimg.com/400/300/nature',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Providerhere'
@@ -452,6 +459,7 @@ define([], function(){
               'name': 'Photograph',
               'url': 'http://europeana.eu/search/photograph'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Providerhere'
@@ -508,6 +516,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-4.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Canada  Rijksmuseum'
@@ -532,6 +541,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-giraffe.png',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Rijksmuseum'
@@ -563,6 +573,7 @@ define([], function(){
               'name': 'Book',
               'url': 'http://europeana.eu/search/books'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'text': {
               'medium': 'Canadian Feast is a painting by Canadian Rembrandt.'
             },
@@ -573,6 +584,7 @@ define([], function(){
           {
             'agent': 'Canadian Rembrandt van Rijn',
             'creator': 'Canadian Rembrandt van Rijn',
+            'object_url': "javascript:alert('follow external url...');",
             'title': 'The Stoning of Canadian Saint Stephen',
             'is_text': true,
             'text': {
@@ -603,6 +615,7 @@ define([], function(){
               'src': '/images/search/search-result-thumb-2.jpg',
               'alt': 'Rectangle'
             },
+            'object_url': "javascript:alert('follow external url...');",
             'origin': {
               'url': 'http://urlhere.com',
               'text': 'Trove  Rijksmuseum'
@@ -622,6 +635,7 @@ define([], function(){
             'name': 'Poem',
             'url': 'http://europeana.eu/search/paintings'
           },
+          'object_url': "javascript:alert('follow external url...');",
           'origin': {
             'url': 'http://urlhere.com',
             'text': 'Providerhere'
@@ -646,6 +660,7 @@ define([], function(){
             'src': 'http://placeimg.com/400/300/nature',
             'alt': 'Rectangle'
           },
+          'object_url': "javascript:alert('follow external url...');",
           'text': {
             'medium': 'Australian Feast is a painting by Canadian Rembrandt.'
           },
@@ -656,6 +671,7 @@ define([], function(){
         {
           'agent': 'Australian Rembrandt van Rijn',
           'creator': 'Australian Rembrandt van Rijn',
+          'object_url': "javascript:alert('follow external url...');",
           'title': 'The Stoning of Australian Saint Stephen',
           'text': {
             'medium': 'The Stoning of Australian Saint Stephen is the first painting by Australian artist Australian Rembrandt.'
@@ -673,20 +689,24 @@ define([], function(){
       'more_results_url':   'javascript:alert(\'I hate svgs\')',
       'search_results': [
         {
-          'title': 'Audio',
-          'is_audio': true
+          'is_audio': true,
+          'object_url': "javascript:alert('follow external url...');",
+          'title': 'Audio'
         },
         {
-          'title': 'Image',
-          'is_image': true
+          'is_image': true,
+          'object_url': "javascript:alert('follow external url...');",
+          'title': 'Image'
         },
         {
-          'title': 'Text',
-          'is_text': true
+          'is_text': true,
+          'object_url': "javascript:alert('follow external url...');",
+          'title': 'Text'
         },
         {
-            'title': 'Video',
-            'is_video': true
+          'is_video': true,
+          'object_url': "javascript:alert('follow external url...');",
+          'title': 'Video'
         }
       ]
     }]

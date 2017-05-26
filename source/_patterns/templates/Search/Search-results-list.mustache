@@ -131,7 +131,7 @@
                 {{/has_results}}
 
                 {{#federated_search_enabled}}
-                  <h3 class="title-federated-results unclicked" data-clicked-text="{{i18n.site.results.federated-clicked}}">
+                  <h3 class="title-federated-results collapsed">
                     <a class="fed-res-expand">
                       <span class="icon-label-collapse svg-icon-minus"></span>
                       <span class="icon-label-expand svg-icon-plus"></span>
@@ -140,7 +140,8 @@
                       <span class="label-collapse">{{i18n.global.actions.collapse}}</span>
                       <span class="label-expand">{{i18n.global.actions.expand}}</span>
                     </a>
-                    <span class="text">{{i18n.site.results.federated}}</span>
+                    <span class="text collapsed">{{i18n.site.results.federated}}</span>
+                    <span class="text expanded">{{i18n.site.results.federated-clicked}}</span>
                     <span class="clicktip-wrapper">{{> atoms/text/clicktip}}</span>
                   </h3>
                   <div class="display-grid">

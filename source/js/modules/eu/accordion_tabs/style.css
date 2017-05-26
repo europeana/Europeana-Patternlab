@@ -104,7 +104,7 @@
 }
 /* line 112, style.scss */
 .eu-accordion-tabs.as-tabs .only-with-tabs {
-  display: block;
+  display: inline-block;
 }
 /* line 116, style.scss */
 .eu-accordion-tabs.as-tabs .only-without-tabs {

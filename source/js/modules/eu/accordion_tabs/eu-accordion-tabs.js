@@ -62,6 +62,9 @@ define(['jquery', 'util_resize'], function($){
     $(window).europeanaResize(function(){
       applyMode($cmp);
     });
+    $(window).on('eu-accordion-tabs-layout', function(){
+      applyMode($cmp);
+    });
 
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
 

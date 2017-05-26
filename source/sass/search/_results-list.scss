@@ -568,7 +568,7 @@
   padding:          $pad 4em $pad $pad;
   width:            100%;
 
-  &.unclicked{
+  &.collapsed{
     background-color: $eu-blue;
     color:            #fff;
     cursor:           pointer;
@@ -589,6 +589,13 @@
       }
     }
 
+    >.text.collapsed{
+      display: block;
+    }
+    >.text.expanded{
+      display: none;
+    }
+
     .svg-icon-minus,
     .svg-icon-plus{
       display: none;
@@ -597,6 +604,13 @@
     &:hover{
       background-color: $gray-dark;
     }
+  }
+
+  >.text.collapsed{
+    display: none;
+  }
+  >.text.expanded{
+    display: block;
   }
 
 
@@ -632,10 +646,15 @@
     bottom:   0;
     position: absolute;
     right:    0;
-
   }
 
   .eu-accordion-tabs{
+
+    display: none;
+
+    &.expanded{
+      display: block;
+    }
 
     &:not(.as-tabs) .tab-content{
 
@@ -656,11 +675,6 @@
           display: block;
           float:   none;
           width:   100%;
-
-          .item-info{
-            padding: 0.5em 1.8em 0 0;
-          }
-
         }
       }
     }
@@ -671,7 +685,7 @@
       overflow: hidden;
 
       &.expanded{
-        height: 24em;
+        height: 25em;
 
         @media all and (max-width: $bp-large) {
           height: 44em;
@@ -686,10 +700,7 @@
             clear: left;
           }
           h2{
-            height:     2.8em;
-          }
-          h3{
-            display: none;
+            height: 3.2em;
           }
         }
 
@@ -698,10 +709,12 @@
       @media all and (min-width: $bp-large) {
 
         .tab-content.active{
+
           display:         flex;
           justify-content: space-between;
-        }
+          padding:         0.6em 0;
 
+        }
       }
 
       .tab-header{
@@ -732,12 +745,7 @@
 
       &.default-img{
         .item-preview img{
-          height:     auto;
-          margin-top: 50%;
-          min-height: auto;
-          object-fit: unset;
-          transform:  translateY(-50%);
-          width:      auto;
+          object-fit: contain;
         }
       }
 
@@ -779,18 +787,28 @@
         border:     0;
         max-height: 3.2em;
         overflow:   hidden;
-        padding:    0.5em 1em 0 0;
+        padding:    0.5em 0.2em;
 
         > h2{
+          font-weight:  500;
           margin-right: 0;
-          max-height:   2.8em;
+          max-height:   3.2em;
           overflow:     unset;
           white-space:  normal;
 
           a{
-            display:    inline-block;
-            max-height: 2.8em;
-            position:   relative;
+            display:       inline-block;
+            line-height:   1.3em;
+            max-height:    3.2em;
+            position:      relative;
+
+            &:focus,
+            &:hover{
+              border-bottom: none;
+            }
+            &:hover span{
+              text-decoration: underline dotted $eu-blue;
+            }
           }
           a.svg-icon-external-eu-blue-after::after{
             bottom:   1px;
