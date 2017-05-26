@@ -296,7 +296,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         iframe.attr('src', url);
       }
       else{
-        var newHref = (href + defaultPageUrl).replace('##', '#');
+        var newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
         if(window.location.href != newHref){
           window.location.href = newHref;
         }
@@ -304,7 +304,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       }
     }
     else{
-      var newHref = href + defaultPageUrl;
+      var newHref = href.split('#')[0] + defaultPageUrl;
       if(window.location.href != newHref){
         window.location.href = newHref;
       }
