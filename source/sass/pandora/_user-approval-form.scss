@@ -5,14 +5,16 @@
   }
   input {
     border: 2px solid #c3c3c3;
-    background: none;
     color: #666;
     margin-bottom: 10px;
   }
+  input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
   input:focus {
-    border-color: #00aeff;
-    outline: 0;
-    background: #f9f9f9;
+    //border-color: #00aeff;
+    //outline: 0;
+    //background: #f9f9f9;
   }
   input[type=button] {
     width: 200px;

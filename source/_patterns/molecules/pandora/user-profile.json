@@ -32,7 +32,7 @@
     {
       "organizationName": "Europeana",
       "organizationId": 12,
-      "organizationRole": "false",
+      "organizationRole": false,
       "rolesTypeId": 1
     },
     {
