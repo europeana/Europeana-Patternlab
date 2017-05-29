@@ -2,6 +2,7 @@ define(['jquery'], function ($) {
   'use strict';
 
   function handleForm() {
+
     var form = $('form'),
       role = form.data('role'),
       mode = form.data('view-mode'),
@@ -12,8 +13,7 @@ define(['jquery'], function ($) {
       prov = $('.prov'),
       cancel = $('.cancel'),
       euProv = $('.eu, .prov'),
-      submitBtn = $('.submit'),
-      linkToSelectedOrg = $('.selectedOrganization, .removeOrganization');
+      submitBtn = $('.submit');
 
     if (mode === 'preview') {
       previewBlockBtn.toggleClass('hidden');
@@ -25,7 +25,7 @@ define(['jquery'], function ($) {
       form.attr('data-view-mode', 'update');
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
-      linkToSelectedOrg.toggleClass('disableLink');
+      $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
       if (role === 'europeana') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
@@ -43,7 +43,7 @@ define(['jquery'], function ($) {
         cancel.toggleClass('update preview');
         previewBlockBtn.toggleClass('hidden');
         editableBlockBtns.toggleClass('hidden');
-        linkToSelectedOrg.toggleClass('disableLink');
+        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
       } else {
         //  TODO: on create mode after canceling the creation the user should be redirected to ?
         console.log('canceling operation');
