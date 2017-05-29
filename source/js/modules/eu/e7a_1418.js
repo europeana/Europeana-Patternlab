@@ -130,6 +130,12 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         '.contributor'
       ]
     },
+    'reset_password': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.reset'
+      ]
+    },
     'users': {
       'breadcrumbs': [
         '.contributor-url'
@@ -139,6 +145,12 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       'breadcrumbs': [
         '.contributor-url',
         '.account'
+      ]
+    },
+    'users/password/edit': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.reset'
       ]
     },
     'users/password/new': {
@@ -246,13 +258,10 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       breadcrumbs = pageData['account/edit']['breadcrumbs'];
     }
     else{
-      log('default breadcrumbs for ' + fragment);
       breadcrumbs = pageData[fragment]['breadcrumbs'];
     }
 
     $('.breadcrumbs > .breadcrumb').addClass('js-hidden');
-
-    console.log('breacrumbs (for ' + fragment + ') = ' + JSON.stringify(breadcrumbs, null, 4));
 
     $.each(breadcrumbs, function(i, ob){
       $('.breadcrumbs > .breadcrumb' + ob).removeClass('js-hidden');
@@ -295,6 +304,15 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     var href = urlIn ? urlIn : window.location.href;
 
     if(href.indexOf('#') > -1){
+
+      var pwParams = window.location.hash.split('reset_password_token=');
+      if(window.location.href.indexOf('reset_password&' > -1) && pwParams.length == 2){
+        var newUrl = e7aRoot + '/users/password/edit?reset_password_token=' + pwParams[1];
+        iframe.attr('src', newUrl);
+        return;
+      }
+
+
       var hash = href.split('#')[1];
 
       if(hash.indexOf('=') > -1){
@@ -302,7 +320,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         var url      = e7aRoot + '/' + locale + '/' + fragment;
 
         manuallySetHash = fragment;
-
         iframe.attr('src', url);
       }
       else{
@@ -339,7 +356,9 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       window.scrollTo(0, lastScrollPos);
     }
     if(e.data.url){
+
       var fragment    = getUrlFragment(e.data.url);
+
       lastMessagedUrl = e.data.url;
 
       setNavButtons(e.data.user, fragment);
@@ -350,6 +369,8 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       var newHref = window.location.href.split('#')[0] + '#action=' + fragment;
 
       if(window.location.href != newHref){
+
+        // browsers should ignore the diff between the old hash (#action=reset_password&reset_password_token=[TOKEN]) and the new (#action=users/password/edit) and not request a new page
         window.location.href = newHref;
       }
 

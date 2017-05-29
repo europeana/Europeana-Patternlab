@@ -27,5 +27,6 @@ button{
   &:focus,
   &:hover{
     background-color: $gray-dark;
+    color: #fff;
   }
 }
