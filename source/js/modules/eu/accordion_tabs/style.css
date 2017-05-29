@@ -123,3 +123,10 @@
 .eu-accordion-tabs:not(.as-tabs) .only-without-tabs {
   display: block;
 }
+/* line 136, style.scss */
+.eu-accordion-tabs:not(.as-tabs) .tab-content.loading {
+  background-image: url("spinner.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 12em;
+}

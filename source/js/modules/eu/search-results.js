@@ -441,7 +441,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
             tab.find('.tab-subtitle').html(data.tab_subtitle);
             var defLogo = tab.data('content-default-logo');
 
-            $('.more-federated-results:eq(' + index + ') a').attr('href', data.more_results_url).text(data.more_results_label);
+            $('.more-federated-results:eq(' + index + ')').removeClass('js-empty').find('a').attr('href', data.more_results_url).text(data.more_results_label)
 
             $.each(data.search_results, function(i, itemData){
 

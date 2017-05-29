@@ -27,6 +27,7 @@ define(['jquery', 'util_resize'], function($){
     var getTabContent = function(tab, index){
 
       $(tab).addClass('loading');
+      $(tab).next('.tab-content').addClass('loading');
 
       var url = $(tab).data('content-url');
 
@@ -43,6 +44,7 @@ define(['jquery', 'util_resize'], function($){
       })
       .always(function(){
         $(tab).removeClass('loading');
+        $(tab).next('.tab-content').removeClass('loading');
       });
     };
 
@@ -57,15 +59,6 @@ define(['jquery', 'util_resize'], function($){
     var active    = ops.active ? ops.active : 0;
     var fnOpenTab = ops.fnOpenTab;
 
-    applyMode($cmp);
-
-    $(window).europeanaResize(function(){
-      applyMode($cmp);
-    });
-    $(window).on('eu-accordion-tabs-layout', function(){
-      applyMode($cmp);
-    });
-
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
 
     if(active > -1){
@@ -78,6 +71,14 @@ define(['jquery', 'util_resize'], function($){
       $('.tab-content:eq(0)').add('.tab-header:eq(0)').addClass('active');
     }
 
+    applyMode($cmp);
+
+    $(window).europeanaResize(function(){
+      applyMode($cmp);
+    });
+    $(window).on('eu-accordion-tabs-layout', function(){
+      applyMode($cmp);
+    });
     function headerClick(){
       if($cmp.hasClass(tabsClass)){
         $cmp.find('.tab-content').add($cmp.find('.tab-header')).removeClass('active');

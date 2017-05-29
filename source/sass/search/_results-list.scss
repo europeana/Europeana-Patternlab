@@ -519,9 +519,8 @@
 
     font-size:    1.2em;
     height:       1.2em;
-    margin-right: 2em;
-    margin-top:   -0.18em;
-    transform:    none;
+    margin-right: 1em;
+    transform:    translateY(-0.18em);
     width:        1.2em;
 
     .label-collapse,
@@ -558,6 +557,10 @@
     &:not(.expanded) .label-collapse{
       display: none;
     }
+  }
+
+  @media all and (min-width: $bp-large) {
+    margin-right: 2em;
   }
 }
 
@@ -612,11 +615,19 @@
   >.text.expanded{
     display: block;
   }
-
+  >.text.expanded,
+  >.text.collapsed{
+    @media all and (min-width: $bp-med) {
+      padding-right: 8em;
+    }
+    @media all and (min-width: $bp-large) {
+      padding-right: 9em;
+    }
+  }
 
   @media all and (min-width: $bp-med) {
-    margin:        3em 0 2em 0;
-    padding-right: 0;
+    margin:        3em -1em 2em 0;
+    padding:       $pad;
   }
 
   .clicktip-wrapper{
@@ -685,10 +696,11 @@
       overflow: hidden;
 
       &.expanded{
-        height: 25em;
+        height: 44em;
 
-        @media all and (max-width: $bp-large) {
-          height: 44em;
+        @media all and (min-width: $bp-large) {
+          height:        25em;
+          margin-bottom: 1.6em;
         }
       }
 
@@ -728,7 +740,7 @@
         }
       }
 
-      .more-federated-results:not(.js-hidden){
+      .more-federated-results:not(.js-hidden):not(.js-empty){
         display: block;
       }
     }
@@ -790,7 +802,6 @@
         padding:    0.5em 0.2em;
 
         > h2{
-          font-weight:  500;
           margin-right: 0;
           max-height:   3.2em;
           overflow:     unset;

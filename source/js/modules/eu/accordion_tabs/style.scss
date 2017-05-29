@@ -132,6 +132,14 @@ $tabs-pad:           1.2em;
       display: block;
     }
 
+    .tab-content{
+      &.loading{
+        background-image:    url('spinner.gif');
+        background-position: center;
+        background-repeat:   no-repeat;
+        height:              12em;
+      }
+    }
   }
 }
 
