@@ -470,9 +470,13 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
               tab.next('.tab-content').append(Mustache.render(template, itemData));
             });
+
+            if(!data.search_results || data.search_results.length == 0){
+              tab.addClass('disabled');
+            }
             return data;
           },
-          function(data, tab){
+          function(data, tab, index, completed){
             var ellipsisConf = {textSelectors:['.only-with-tabs', '.only-without-tabs']};
             var tabContent   = $(tab).next('.tab-content');
             var texts        = tabContent.find('.search-list-item .item-info h2 a');
@@ -480,6 +484,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
             texts.each(function(i, ob){
               Ellipsis.create($(ob), ellipsisConf);
             });
+
+            if(completed){
+              $('.tab-header:not(.disabled)').first().click();
+            }
           }
         );
 

@@ -88,6 +88,13 @@ $tabs-pad:           1.2em;
         }
       }
 
+      &.disabled{
+        cursor: default;
+        .tab-title,
+        .tab-subtitle{
+          color: $tabs-border-colour;
+        }
+      }
       &:not(.js-last){
         border-right: 1px solid $tabs-border-colour;
       }

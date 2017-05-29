@@ -24,6 +24,9 @@ define(['jquery', 'util_resize'], function($){
 
   function loadTabs($cmp, preProcess, callback){
 
+    var totalCompleted = 0;
+    var totalExpected  = $cmp.find('.tab-header').length;
+
     var getTabContent = function(tab, index){
 
       $(tab).addClass('loading');
@@ -32,14 +35,16 @@ define(['jquery', 'util_resize'], function($){
       var url = $(tab).data('content-url');
 
       $.getJSON(url).done(function(data) {
+        totalCompleted ++;
         if(preProcess){
           data = preProcess(data, tab, index);
         }
         if(callback){
-          callback(data, tab, index);
+          callback(data, tab, index, totalCompleted == totalExpected);
         }
       })
       .fail(function(msg){
+        totalCompleted ++;
         log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
       })
       .always(function(){
@@ -80,6 +85,10 @@ define(['jquery', 'util_resize'], function($){
       applyMode($cmp);
     });
     function headerClick(){
+
+      if($(this).hasClass('disabled')){
+        return;
+      }
       if($cmp.hasClass(tabsClass)){
         $cmp.find('.tab-content').add($cmp.find('.tab-header')).removeClass('active');
         $(this).addClass('active');
