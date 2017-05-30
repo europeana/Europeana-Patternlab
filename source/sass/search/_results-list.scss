@@ -472,7 +472,7 @@
   height:       2rem;
   position:     relative;
   text-align:   center;
-  transform:    translate(100%, -0.25em);
+  transformX:   translate(100%);
   width:        2rem;
 
   &.loading{
