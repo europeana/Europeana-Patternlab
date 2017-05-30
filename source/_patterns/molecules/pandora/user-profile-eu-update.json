@@ -23,10 +23,10 @@
     "value": "europeana"
   },
   "view_mode": {
-    "update": false,
-    "create": true,
+    "update": true,
+    "create": false,
     "preview": false,
-    "value": "create"
+    "value": "update"
   },
   "user_profile": {
     "roleTypes": [

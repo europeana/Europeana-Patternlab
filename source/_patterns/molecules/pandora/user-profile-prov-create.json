@@ -18,30 +18,16 @@
   "jQuery": false,
   "page_title": "Metis User Profile",
   "user_role": {
-    "europeana": true,
-    "provider": false,
-    "value": "europeana"
+    "europeana": false,
+    "provider": true,
+    "value": "provider"
   },
   "view_mode": {
-    "update": true,
-    "create": false,
+    "update": false,
+    "create": true,
     "preview": false,
-    "value": "update"
+    "value": "create"
   },
-  "organizations": [
-    {
-      "organizationName": "Europeana",
-      "organizationId": 12,
-      "organizationRole": "false",
-      "rolesTypeId": 1
-    },
-    {
-      "organizationName": "BNF",
-      "organizationId": 23,
-      "organizationRole": "Provider Admin",
-      "rolesTypeId": 2
-    }
-  ],
   "user_profile": {
     "roleTypes": [
       {
@@ -85,25 +71,33 @@
       }
     ],
     "user_fields": {
+      "selectedOrganizations": {
+        "label": "Selected Organizations",
+        "organizations": false
+      },
       "user_id": {
         "label": "User ID",
         "value": "12345"
       },
       "user_first_name": {
         "label": "First Name *",
-        "value": "Bilbo"
+        "placeholder": "name",
+        "value": ""
       },
       "user_last_name": {
         "label": "Last Name *",
-        "value": "Baggins"
+        "placeholder": "lastname",
+        "value": ""
       },
       "user_email": {
         "label": "Email *",
-        "value": "testing.this.email@europeana.eu"
+        "placeholder": "your@email.com",
+        "value": ""
       },
       "user_skype": {
         "label": "Skype",
-        "value": "bilbo.baggings"
+        "placeholder": "skype ID",
+        "value": ""
       },
       "active": {
         "label": "Active",
@@ -127,7 +121,7 @@
       },
       "notes": {
         "label": "Notes",
-        "placeholder": "I did a complex mapping for edm:rights",
+        "placeholder": "Add your own notes",
         "value": ""
       },
       "countries": {
