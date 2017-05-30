@@ -135,6 +135,9 @@
       background-color: #fff;
       color:            $blue-dark;
     }
+    &:focus{
+      outline: none;
+    }
   }
 }
 
