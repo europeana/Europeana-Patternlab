@@ -87,12 +87,6 @@
   "hero": {
       "hero_image": "../../images/pro/home_image_test.jpg"
   },
-  "clicktip": {
-    "direction": "right",
-    "id": "clicktip-fed-search",
-    "persistent": true,
-    "tooltip_text": "Check out our cool new federated search"
-  },
   "federated_search_enabled": true,
   "federated_search_conf": {
     "thumbnail_server": "http://www.europeana.eu/api/v2/thumbnail-by-url.json",
