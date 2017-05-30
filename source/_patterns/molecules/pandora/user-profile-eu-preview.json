@@ -24,9 +24,9 @@
   },
   "view_mode": {
     "update": false,
-    "create": true,
-    "preview": false,
-    "value": "create"
+    "create": false,
+    "preview": true,
+    "value": "preview"
   },
   "user_profile": {
     "roleTypes": [
@@ -73,20 +73,7 @@
     "user_fields": {
       "selectedOrganizations": {
         "label": "Selected Organizations",
-        "organizations": [
-          {
-            "organizationName": "Europeana",
-            "organizationId": 12,
-            "organizationRole": false,
-            "rolesTypeId": 1
-          },
-          {
-            "organizationName": "BNF",
-            "organizationId": 23,
-            "organizationRole": "Provider Admin",
-            "rolesTypeId": 2
-          }
-        ]
+        "organizations": false
       },
       "user_id": {
         "label": "User ID",
@@ -94,18 +81,22 @@
       },
       "user_first_name": {
         "label": "First Name *",
+        "placeholder": "name",
         "value": "Bilbo"
       },
       "user_last_name": {
         "label": "Last Name *",
+        "placeholder": "lastname",
         "value": "Baggins"
       },
       "user_email": {
         "label": "Email *",
+        "placeholder": "your@email.com",
         "value": "testing.this.email@europeana.eu"
       },
       "user_skype": {
         "label": "Skype",
+        "placeholder": "skype ID",
         "value": "bilbo.baggings"
       },
       "active": {
@@ -130,8 +121,8 @@
       },
       "notes": {
         "label": "Notes",
-        "placeholder": "I did a complex mapping for edm:rights",
-        "value": ""
+        "placeholder": "Add your own notes",
+        "value": "This notes are here to clarify some points ..."
       },
       "countries": {
         "label": "Country",
@@ -211,8 +202,7 @@
           },
           {
             "name": "France",
-            "code": "FR",
-            "selected": true
+            "code": "FR"
           },
           {
             "name": "French Guiana",

@@ -25,10 +25,11 @@ define(['jquery'], function ($) {
       form.attr('data-view-mode', 'update');
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
-      $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
+
       if (role === 'europeana') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
+        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
       } else {
         prov.attr('readonly', false);
         prov.attr('disabled', false);

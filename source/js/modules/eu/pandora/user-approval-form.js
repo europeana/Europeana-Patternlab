@@ -13,7 +13,8 @@ define(['jquery', 'autocomplete'], function ($) {
     selectedOrgs = $('.selectedOrgs'),
     roles = $('.roles'),
     btnClose = $('.btn-close'),
-    roleSelection = $('#roleSelection');
+    roleSelection = $('#roleSelection'),
+    userRole = $('form').attr('data-role');
 
   Array.prototype.exclude = function (list) {
     return this.filter(function (el) {
@@ -26,10 +27,17 @@ define(['jquery', 'autocomplete'], function ($) {
     minChars: 2,
     onSelect: function (e, term) {
       var result = $.grep(data, function (e) {
-        return (e.organizationName).toUpperCase() === term;
-      });
+          return (e.organizationName).toUpperCase() === term;
+        }),
+        params = {
+          orgName: result[0].organizationName,
+          organizationId: result[0].organizationId,
+          update: false,
+          roles: result,
+          userRole: userRole
+        };
 
-      switchPopUp(term, false, result);
+      switchPopUp(params);
     },
     renderItem: function (item, search) {
       search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -70,29 +78,52 @@ define(['jquery', 'autocomplete'], function ($) {
     }
   });
 
-  function switchPopUp(org, update, roles) {
+  function toggleRolesModal() {
     modalWrapper.toggleClass('open');
     pageWrapper.toggleClass('blur');
+  }
 
-    if (org.orgName) {
-      currentSelectedOrganization.html(org.orgName);
-      currentSelectedOrganization.attr('data-organizationId', org.organizationId);
-    }
+  function switchPopUp(params) {
+    if (params.userRole === 'provider') {
+      var selectedOrg = params.orgName,
+        selectedRole = selectRoles.not('.hidden').find(':selected').text(),
+        rolesTypeId = params.roles[0].rolesTypeId,
+        orgId = params.organizationId,
+        orgContainer = '.selectedOrg[id="' + orgId + '"]';
 
-    // if exist add tag class to avoid duplication.
-    if (update) {
-      modalWrapper.addClass('updatingRole');
-    }
+      var updatedOrg = '<a class="selectedOrganization alreadySelected disableLink" name="organization" data-role="' + selectedRole +
+        '" data-rolestypeid="' + rolesTypeId + '"  data-name="' + selectedOrg + '" data-organizationid="' + orgId +
+        '">' + selectedOrg + ': ' + selectedRole + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg +
+        '"> X</a></b>';
 
-    if (roles) {
-      var rolesSel = 'select[data-rolestypeid="' + roles[0].rolesTypeId + '"]';
+      if ($('.selectedOrganizations .selectedOrg[id="' + orgId + '"]').length) {
+        $(orgContainer).html(updatedOrg);
+        $('.selectOrg[id= ' + orgId + ']').html(updatedOrg);
+      } else {
+        selectedOrgs.append('<div class="selectedOrg" id="' + orgId + '">' + updatedOrg + '</div>');
+        selectedOrganizations.hasClass('hidden') ? selectedOrganizations.removeClass('hidden') : null;
+      }
+    } else {
+      toggleRolesModal();
 
-      currentSelectedOrganization.html(roles[0].organizationName);
-      currentSelectedOrganization.attr('data-organizationid', roles[0].organizationId);
+      if (params.orgName) {
+        currentSelectedOrganization.html(params.orgName);
+        currentSelectedOrganization.attr('data-organizationId', params.organizationId);
+      }
 
-      searchOrganization.val('');
-      searchOrganization.attr('placeholder', 'Search Organizations ...');
-      $(rolesSel).removeClass('hidden');
+      // if exist add tag class to avoid duplication.
+      if (params.update) {
+        modalWrapper.addClass('updatingRole');
+      }
+
+      if (params.roles) {
+        var rolesSel = 'select[data-rolestypeid="' + params.roles[0].rolesTypeId + '"]';
+        currentSelectedOrganization.html(params.roles[0].organizationName);
+        currentSelectedOrganization.attr('data-organizationid', params.roles[0].organizationId);
+        searchOrganization.val('');
+        searchOrganization.attr('placeholder', 'Search Organizations ...');
+        $(rolesSel).removeClass('hidden');
+      }
     }
   }
 
@@ -132,6 +163,8 @@ define(['jquery', 'autocomplete'], function ($) {
   });
 
   selectedOrganizations.on('click', '.removeOrganization', function () {
+    var selectedOrgLength = $('.selectedOrg').length;
+
     $(this).parent().parent().remove();
 
     // TODO: wrap in a fc.
@@ -144,9 +177,14 @@ define(['jquery', 'autocomplete'], function ($) {
     if (indexCurrentKeys > -1) {
       currentKeys.splice(index, 1);
     }
+
+    if (selectedOrgLength === 1) {
+      $('.selectedOrganizations').addClass('hidden');
+    }
   });
 
   // after clicking button the role is assigned to the current organization and the pop-up it's closed
+  // Role selection is only given to Metis Admin users.
   roleSelection.on('click', function () {
     var selectedOrg = currentSelectedOrganization.text(),
       selectedRole = selectRoles.not('.hidden').find(':selected').text(),
@@ -164,9 +202,10 @@ define(['jquery', 'autocomplete'], function ($) {
       $('.selectOrg[id= ' + orgId + ']').html(updatedOrg);
     } else {
       selectedOrgs.append('<div class="selectedOrg" id="' + orgId + '">' + updatedOrg + '</div>');
+      selectedOrganizations.hasClass('hidden') ? selectedOrganizations.removeClass('hidden') : null;
     }
 
     roles.addClass('hidden');
-    switchPopUp(false);
+    toggleRolesModal();
   });
 });

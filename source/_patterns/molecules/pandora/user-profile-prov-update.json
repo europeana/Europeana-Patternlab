@@ -18,15 +18,15 @@
   "jQuery": false,
   "page_title": "Metis User Profile",
   "user_role": {
-    "europeana": true,
-    "provider": false,
-    "value": "europeana"
+    "europeana": false,
+    "provider": true,
+    "value": "provider"
   },
   "view_mode": {
-    "update": false,
-    "create": true,
+    "update": true,
+    "create": false,
     "preview": false,
-    "value": "create"
+    "value": "update"
   },
   "user_profile": {
     "roleTypes": [

@@ -195,6 +195,11 @@
     width: 100%;
   }
 
+  .selectedOrganizations {
+    &.hidden {
+      display: none;
+    }
+  }
   .disableLink {
     color: $gray-light;
     cursor: default;
