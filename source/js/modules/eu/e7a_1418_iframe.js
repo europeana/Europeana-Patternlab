@@ -1,7 +1,7 @@
 window.onload = function() {
 
   window.console.log('1418 loaded');
-  var domains = ['http://localhost', 'http://127.0.0.1', 'http://styleguide.europeana.eu', 'http://test-npc.eanadev.org', 'http://acceptance-npc.eanadev.org', 'http://europeana.eu', 'http://localhost:3000'];
+  var iframeParentDomains = iframeParentDomains ? iframeParentDomains : ['http://localhost:3000', 'http://localhost', 'http://127.0.0.1', 'http://styleguide.europeana.eu', 'http://test-npc.eanadev.org', 'http://acceptance-npc.eanadev.org', 'http://europeana.eu', 'http://www.europeana.eu'];
 
   var eu1418_height = function(){
     var body = document.body;
@@ -32,7 +32,7 @@ window.onload = function() {
   }, 200);
 
   window.addEventListener('message', function(e){
-    if(domains.indexOf(e.origin) == -1){
+    if(iframeParentDomains.indexOf(e.origin) == -1){
       console.log('incoming message from invalid domain (' + e.origin + ')');
       return;
     }
