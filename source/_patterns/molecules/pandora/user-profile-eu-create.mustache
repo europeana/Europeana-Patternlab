@@ -96,7 +96,7 @@
                   <a
                     class="selectedOrganization alreadySelected
                       {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.provider}}disableLink{{/user_role.provider}}{{/view_mode.preview}}"
+                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
                     name="organization"
                     data-rolesTypeId="{{rolesTypeId}}"
                     data-role="{{organizationRole}}"
@@ -105,7 +105,7 @@
                     :&nbsp;{{#organizationRole}} {{.}} {{/organizationRole}}</a>
                   <b><a
                     class="removeOrganization {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.provider}}disableLink{{/user_role.provider}}{{/view_mode.preview}}"
+                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
                     data-name="{{organizationName}}">&nbsp;X</a>
                   </b>
                 </div>

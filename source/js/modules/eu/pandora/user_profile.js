@@ -26,7 +26,7 @@ define(['jquery'], function ($) {
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
 
-      if (role === 'europeana') {
+      if (role === 'metisAdmin') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
         $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
