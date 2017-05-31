@@ -1,7 +1,7 @@
 window.onload = function() {
 
   window.console.log('1418 loaded');
-  var domains = ['http://localhost', 'http://127.0.0.1', 'http://styleguide.europeana.eu', 'http://test-npc.eanadev.org', 'http://acceptance-npc.eanadev.org', 'http://europeana.eu'];
+  var domains = ['http://localhost', 'http://127.0.0.1', 'http://styleguide.europeana.eu', 'http://test-npc.eanadev.org', 'http://acceptance-npc.eanadev.org', 'http://europeana.eu', 'http://ec2-54-154-38-184.eu-west-1.compute.amazonaws.com'];
 
   var eu1418_height = function(){
     var body = document.body;
