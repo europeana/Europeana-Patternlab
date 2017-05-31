@@ -84,7 +84,7 @@ define(['jquery', 'autocomplete'], function ($) {
   }
 
   function switchPopUp(params) {
-    if (params.userRole === 'provider') {
+    if (params.userRole === 'metisUser') {
       var selectedOrg = params.orgName,
         selectedRole = selectRoles.not('.hidden').find(':selected').text(),
         rolesTypeId = params.roles[0].rolesTypeId,

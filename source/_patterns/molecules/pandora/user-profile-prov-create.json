@@ -18,9 +18,9 @@
   "jQuery": false,
   "page_title": "Metis User Profile",
   "user_role": {
-    "europeana": false,
-    "provider": true,
-    "value": "provider"
+    "metisAdmin": false,
+    "metisUser": true,
+    "value": "metisUser"
   },
   "view_mode": {
     "update": false,
