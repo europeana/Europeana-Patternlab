@@ -387,10 +387,11 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
     e7aRoot = $('.e7a1418-nav').data('base-url');
 
-    log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
-
-    $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor"></iframe>');
-    iframe = $('iframe.e7a1418');
+    if(e7aRoot){
+      log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
+      $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor"></iframe>');
+      iframe = $('iframe.e7a1418');
+    }
   }
 
   function initPage(){
