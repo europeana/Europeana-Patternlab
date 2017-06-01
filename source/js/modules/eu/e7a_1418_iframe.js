@@ -32,12 +32,14 @@ window.onload = function() {
   }, 200);
 
   window.addEventListener('message', function(e){
-    if(iframeParentDomains.indexOf(e.origin) == -1){
-      console.log('incoming message from invalid domain (' + e.origin + ')');
-      return;
-    }
+    //if(iframeParentDomains.indexOf(e.origin) == -1){
+    //  console.log('incoming message from invalid domain (' + e.origin + ')');
+    //  return;
+    //}
     console.log('incoming message');
-    parent.postMessage({height: eu1418_height()}, '*');
+    if(e.source == parent){
+      parent.postMessage({height: eu1418_height()}, '*');
+    }
   }, false);
 
   window.onunload = function() {
