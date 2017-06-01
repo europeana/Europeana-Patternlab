@@ -473,8 +473,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       if(name && name != 'undefined'){
         $('#main-menu ul a').each(function(i, ob){
-          var $ob = $(ob);
-          if($ob.attr('href').indexOf('/channels/' + name) >-1){
+          var $ob  = $(ob);
+          var href = $ob.attr('href');
+          if(href && href.indexOf('/channels/' + name) >-1){
             $ob.addClass('is-current');
           }
         });
