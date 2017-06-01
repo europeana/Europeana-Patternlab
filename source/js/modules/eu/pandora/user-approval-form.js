@@ -9,7 +9,6 @@ define(['jquery', 'autocomplete'], function ($) {
     modalWrapper = $('.modal-wrapper'),
     pageWrapper = $('.page-wrapper'),
     selectedOrganizations = $('.selectedOrganizations'),
-    selectRoles = $('select.roles'),
     selectedOrgs = $('.selectedOrgs'),
     roles = $('.roles'),
     btnClose = $('.btn-close'),
@@ -42,6 +41,7 @@ define(['jquery', 'autocomplete'], function ($) {
     renderItem: function (item, search) {
       search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
       var re = new RegExp('(' + search.split(' ').join('|') + ')', 'gi');
+
       return '<div class="autocomplete-suggestion" id="' + item.organizationId + '" data-id="' + item.organizationId +
         '" data-val="' + item.name + '">' + item.name.replace(re, '<b>$1</b>') +
         '</div>';
@@ -50,7 +50,6 @@ define(['jquery', 'autocomplete'], function ($) {
       var typedSearch = searchOrganization.val().toUpperCase(),
         jsonPromise = $.getJSON(
           // TODO: test URL. Get the right URL for production.
-          // 'https://www.europeana.eu/api/v2/search.json?wskey=api2demo&rows=9&query="' + typedSearch + '"',
           'http://metis.webdeveloper-tips.com/organizations.json',
 
           function (data) {
@@ -86,23 +85,29 @@ define(['jquery', 'autocomplete'], function ($) {
   function switchPopUp(params) {
     if (params.userRole === 'metisUser') {
       var selectedOrg = params.orgName,
-        selectedRole = selectRoles.not('.hidden').find(':selected').text(),
+        selectedRole = roles.not('.hidden').find(':selected').text(),
         rolesTypeId = params.roles[0].rolesTypeId,
         orgId = params.organizationId,
-        orgContainer = '.selectedOrg[id="' + orgId + '"]';
-
-      var updatedOrg = '<a class="selectedOrganization alreadySelected disableLink" name="organization" data-role="' + selectedRole +
-        '" data-rolestypeid="' + rolesTypeId + '"  data-name="' + selectedOrg + '" data-organizationid="' + orgId +
-        '">' + selectedOrg + ': ' + selectedRole + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg +
-        '"> X</a></b>';
+        orgContainer = '.selectedOrg[id="' + orgId + '"]',
+        updatedOrg = '<a class="selectedOrganization alreadySelected disableLink" name="organization" data-role="' + selectedRole +
+          '" data-rolestypeid="' + rolesTypeId + '"  data-name="' + selectedOrg + '" data-organizationid="' + orgId +
+          '">' + selectedOrg + ': ' + selectedRole + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg +
+          '"> X</a></b>';
 
       if ($('.selectedOrganizations .selectedOrg[id="' + orgId + '"]').length) {
         $(orgContainer).html(updatedOrg);
         $('.selectOrg[id= ' + orgId + ']').html(updatedOrg);
       } else {
         selectedOrgs.append('<div class="selectedOrg" id="' + orgId + '">' + updatedOrg + '</div>');
-        selectedOrganizations.hasClass('hidden') ? selectedOrganizations.removeClass('hidden') : null;
+        if (selectedOrganizations.hasClass('hidden')) {
+          selectedOrganizations.removeClass('hidden');
+        }
       }
+
+      //clear the organization field after a selection has been done
+      searchOrganization.val('');
+      searchOrganization.attr('placeholder', 'Search Organizations ...');
+
     } else {
       toggleRolesModal();
 
@@ -179,7 +184,7 @@ define(['jquery', 'autocomplete'], function ($) {
     }
 
     if (selectedOrgLength === 1) {
-      $('.selectedOrganizations').addClass('hidden');
+      selectedOrganizations.addClass('hidden');
     }
   });
 
@@ -187,22 +192,23 @@ define(['jquery', 'autocomplete'], function ($) {
   // Role selection is only given to Metis Admin users.
   roleSelection.on('click', function () {
     var selectedOrg = currentSelectedOrganization.text(),
-      selectedRole = selectRoles.not('.hidden').find(':selected').text(),
-      rolesTypeId = selectRoles.not('.hidden').data('rolestypeid'),
+      selectedRole = roles.not('.hidden').find(':selected').text(),
+      rolesTypeId = roles.not('.hidden').data('rolestypeid'),
       orgId = currentSelectedOrganization.attr('data-organizationid'),
-      orgContainer = '.selectedOrg[id="' + orgId + '"]';
-
-    var updatedOrg = '<a class="selectedOrganization alreadySelected" name="organization" data-role="' + selectedRole +
-      '" data-rolestypeid="' + rolesTypeId + '"  data-name="' + selectedOrg + '" data-organizationid="' + orgId +
-      '">' + selectedOrg + ': ' + selectedRole + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg +
-      '"> X</a></b>';
+      orgContainer = '.selectedOrg[id="' + orgId + '"]',
+      updatedOrg = '<a class="selectedOrganization alreadySelected" name="organization" data-role="' + selectedRole +
+        '" data-rolestypeid="' + rolesTypeId + '"  data-name="' + selectedOrg + '" data-organizationid="' + orgId +
+        '">' + selectedOrg + ': ' + selectedRole + '</a> <b><a class="removeOrganization" data-name="' + selectedOrg +
+        '"> X</a></b>';
 
     if ($('.selectedOrganizations .selectedOrg[id="' + orgId + '"]').length) {
       $(orgContainer).html(updatedOrg);
       $('.selectOrg[id= ' + orgId + ']').html(updatedOrg);
     } else {
       selectedOrgs.append('<div class="selectedOrg" id="' + orgId + '">' + updatedOrg + '</div>');
-      selectedOrganizations.hasClass('hidden') ? selectedOrganizations.removeClass('hidden') : null;
+      if (selectedOrganizations.hasClass('hidden')) {
+        selectedOrganizations.removeClass('hidden');
+      }
     }
 
     roles.addClass('hidden');
