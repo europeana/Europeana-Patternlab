@@ -1,6 +1,7 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga, Mustache) {
 
   ga = window.fixGA(ga);
+  var channelData = null;
 
   function log(msg){
     console.log('search-object: ' + msg);
@@ -480,12 +481,21 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           }
         });
       }
-      return {
+
+      channelData = {
         label: label,
         name: name,
         url: url,
         dimension: 'dimension1'
       };
+
+      $('.e7a1418-nav a').each(function(i, ob){
+        var $ob = $(ob);
+        var href = channelData.url + '/contribute#action=' + $ob.data('action');
+        $ob.attr('href', href);
+      });
+
+      return channelData
     }
   };
 
@@ -544,7 +554,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   var getAnalyticsData = function(){
 
-    var gaData           = [channelCheck()];
+    var gaData           = channelData ? channelData : channelCheck();
     var gaDimensions     = $('.ga-data');
     var dimensions       = [];
     var allDimensionData = {};
@@ -732,6 +742,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     bindShowInlineSearch();
     updateTechData({target:$('.single-item-thumb a')[0]});
 
+    if(channelData == null){
+      channelCheck();
+    }
     // set preferred search
     var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
     if(preferredResultCount){

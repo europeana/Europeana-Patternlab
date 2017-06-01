@@ -28,7 +28,7 @@
   ],
   "content": {
     "ugc_content": {
-      "base_1418_url":  "http://test.1418.eanadev.org",
+      "base_1418_url":  "http://ec2-54-154-38-184.eu-west-1.compute.amazonaws.com",
       "portal_url": "javascript:alert('return to landing page')"
     }
   }
