@@ -489,11 +489,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         dimension: 'dimension1'
       };
 
-      $('.e7a1418-nav a').each(function(i, ob){
-        var $ob = $(ob);
-        var href = channelData.url + '/contribute#action=' + $ob.data('action');
-        $ob.attr('href', href);
-      });
+      if(name == 'world-war-I'){
+        require(['e7a_1418'], function(e7a1418){
+          e7a1418.initPageInvisible();
+        });
+        $('.e7a1418-nav a').each(function(i, ob){
+          var $ob = $(ob);
+          var href = channelData.url + '/contribute#action=' + $ob.data('action');
+          $ob.attr('href', href);
+        });
+      }
 
       return channelData
     }
@@ -772,12 +777,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
 
     $('.media-viewer').trigger('media_init');
-
-    if($('.e7a1418-nav').length > 0){
-      require(['e7a_1418'], function(e7a1418){
-        e7a1418.initPageInvisible();
-      });
-    }
 
     $('.single-item-thumb [data-type="oembed"]').trigger('click');
     $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
