@@ -28,6 +28,11 @@ html{
     color:     $medium-gray;
     font-size: 1.375rem;
   }
+
+  @media all and (max-width: $bp-med) {
+    padding: $pad-half $pad $pad-half $pad;
+  }
+
 }
 
 @import "scss/base/forms";
