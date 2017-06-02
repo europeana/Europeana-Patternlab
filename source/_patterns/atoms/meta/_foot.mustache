@@ -11,7 +11,7 @@
 <script>
 {{# js_vars }}
   {{#unquoted}}
-   var {{ name }} = {{ value }};
+   var {{ name }} = {{{ value }}};
   {{/unquoted}}
   {{^unquoted}}
    var {{ name }} = "{{ value }}";
