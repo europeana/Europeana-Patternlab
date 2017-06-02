@@ -1,6 +1,7 @@
 window.onload = function() {
 
   window.console.log('1418 loaded');
+  var iframeParentDomains = iframeParentDomains ? iframeParentDomains : ['http://europeana.eu', 'https://europeana.eu', 'http://www.europeana.eu', 'https://www.europeana.eu'];
 
   var eu1418_height = function(){
     var body = document.body;
@@ -31,8 +32,11 @@ window.onload = function() {
   }, 200);
 
   window.addEventListener('message', function(e){
-    console.log('incoming message from  ' + e.origin);
-    if(parent && e.source == parent){
+    if(iframeParentDomains.indexOf(e.origin) == -1){
+      console.log('incoming message from invalid domain (' + e.origin + ')');
+      return;
+    }
+    if(typeof parent != 'undefined'){
       parent.postMessage({height: eu1418_height()}, '*');
     }
   }, false);
