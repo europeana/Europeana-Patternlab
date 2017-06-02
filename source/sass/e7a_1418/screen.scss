@@ -30,6 +30,12 @@ html{
   }
 
   @media all and (max-width: $bp-med) {
+    td,
+    tr{
+     display: block;
+    }
+  }
+  @media all and (max-width: $bp-xl) {
     padding: $pad-half $pad $pad-half $pad;
   }
 
