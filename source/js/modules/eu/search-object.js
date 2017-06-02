@@ -489,7 +489,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         dimension: 'dimension1'
       };
 
-      if(name == 'world-war-I'){
+      if(typeof ugcEnabledCollections != 'undefined' && ugcEnabledCollections.indexOf(name) > -1){
         require(['e7a_1418'], function(e7a1418){
           e7a1418.initPageInvisible();
         });
