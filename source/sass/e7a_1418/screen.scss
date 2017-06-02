@@ -6,7 +6,6 @@
 html{
 
   background-color: #fff !important;
-
   body{
     font: 16px/1.6 "Open Sans", "Arial", sans-serif;
   }
@@ -14,6 +13,21 @@ html{
 
 #content .section.top{
   padding-bottom: 0;
+}
+
+#content{
+  color:     $medium-gray;
+  margin:    0 auto;
+  max-width: 80rem;
+  padding:   $pad-half;
+
+  a{
+    color: $link-blue;
+  }
+  h2{
+    color:     $medium-gray;
+    font-size: 1.375rem;
+  }
 }
 
 @import "scss/base/forms";
@@ -26,7 +40,7 @@ button{
 
   &:focus,
   &:hover{
-    background-color: $gray-dark;
+    background-color: #053048;
     color: #fff;
   }
 }
