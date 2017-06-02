@@ -29,7 +29,7 @@ html{
     font-size: 1.375rem;
   }
 
-  @media all and (max-width: $bp-med) {
+  @media all and (max-width: $bp-small-3) {
     td,
     tr{
      display: block;
