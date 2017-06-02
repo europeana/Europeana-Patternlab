@@ -1,7 +1,8 @@
 window.onload = function() {
 
   window.console.log('1418 loaded');
-  var iframeParentDomains = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
+  var iframeParentDomains = typeof RunCoCo == 'undefined' ? null : RunCoCo.iframeParentDomains;
+  iframeParentDomains = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
 
   var eu1418_height = function(){
     var body = document.body;
