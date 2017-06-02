@@ -31,7 +31,7 @@ window.onload = function() {
   }, 200);
 
   window.addEventListener('message', function(e){
-    console.log('incoming message');
+    console.log('incoming message from  ' + e.origin);
     if(parent && e.source == parent){
       parent.postMessage({height: eu1418_height()}, '*');
     }
