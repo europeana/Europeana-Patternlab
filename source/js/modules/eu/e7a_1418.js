@@ -1,12 +1,13 @@
 define(['jquery', 'util_scroll', 'purl'], function($) {
 
+  var defaultPageUrl   = '#action=contributor';
   var e7aRoot          = '';
+  var iframe           = $('iframe.e7a1418');
   var locale           = '';
-  var manuallySetHash  = '';
   var lastMessagedUrl  = '';
   var lastScrollPos    = 0;
-  var iframe           = $('iframe.e7a1418');
-  var defaultPageUrl   = '#action=contributor';
+  var manuallySetHash  = '';
+  var theme            = 'theme=v2.1';
 
   var pageData = {
     'about':{

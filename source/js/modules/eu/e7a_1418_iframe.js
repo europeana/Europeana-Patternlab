@@ -1,8 +1,22 @@
 window.onload = function() {
 
-  window.console.log('1418 loaded');
+  var theme               = 'theme=v2.1';
   var iframeParentDomains = typeof RunCoCo == 'undefined' ? null : RunCoCo.iframeParentDomains;
-  iframeParentDomains = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
+  iframeParentDomains     = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
+
+  var parameteriseLinks = function(){
+    var links    = $('a').not('.no-script');
+    var hostname = window.location.hostname;
+    var updated  = 0;
+    links.each(function(i, ob){
+      if(ob.hostname == hostname){
+        ob = $(ob);
+        ob.attr('href', ob.attr('href') + (ob.attr('href').indexOf('?') > -1 ? '&' : '?') + theme);
+        updated ++;
+      }
+    });
+  };
+  parameteriseLinks();
 
   var eu1418_height = function(){
     var body = document.body;
