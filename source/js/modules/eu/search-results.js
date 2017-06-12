@@ -486,7 +486,9 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
             });
 
             if(completed){
-              $('.tab-header:not(.disabled)').first().click();
+              if(!$('.tab-header').index($('.tab-header.active'))>0){
+                $('.tab-header:not(.disabled)').first().click();
+              }
             }
           }
         );
@@ -517,7 +519,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         require(['mustache'], function(Mustache){
           Mustache.tags = ['[[', ']]'];
           initUI(Mustache);
-          btnExpand.addClass('loading, loaded');
+          btnExpand.addClass('loading loaded');
         });
       }
 
