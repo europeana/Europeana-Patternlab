@@ -567,15 +567,15 @@
 
 .title-federated-results{
 
+  line-height:      2rem;
   margin:           3em 3.5em 2em 0em;
-  padding:          $pad 4em $pad $pad;
+  padding:          $pad $pad * 1.5 $pad $pad;
   width:            100%;
 
   &.collapsed{
     background-color: $eu-blue;
     color:            #fff;
     cursor:           pointer;
-    text-align:       center;
 
     .fed-res-expand{
       border-color: #fff;
