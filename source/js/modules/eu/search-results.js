@@ -463,6 +463,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
               if(i==0){
                 itemData.first_item = true;
                 itemData.federated_provider_name = data.tab_title;
+                log('set federated_provider_name = ' + itemData.federated_provider_name);
               }
               if(i==data.search_results.length-1){
                 $(window).trigger('eu-accordion-tabs-layout');
