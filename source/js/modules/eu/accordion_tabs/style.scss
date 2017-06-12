@@ -98,6 +98,9 @@ $tabs-pad:           1.2em;
       &:not(.js-last){
         border-right: 1px solid $tabs-border-colour;
       }
+      &.js-first.js-last{
+        border-right: 1px solid $tabs-border-colour;
+      }
 
       &:not(.active)::before{
         background-color: $white;

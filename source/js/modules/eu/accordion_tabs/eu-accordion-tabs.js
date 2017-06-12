@@ -65,6 +65,7 @@ define(['jquery', 'util_resize'], function($){
     var fnOpenTab = ops.fnOpenTab;
 
     $('.tab-header:eq(' + ($('.tab-header').length-1)  + ')').addClass('js-last');
+    $('.tab-header:eq(0)').addClass('js-first');
 
     if(active > -1){
       activate($cmp, active);
