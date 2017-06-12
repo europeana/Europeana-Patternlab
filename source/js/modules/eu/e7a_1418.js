@@ -308,7 +308,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
 
       var pwParams = window.location.hash.split('reset_password_token=');
       if(window.location.href.indexOf('reset_password&' > -1) && pwParams.length == 2){
-        var newUrl = e7aRoot + '/users/password/edit?reset_password_token=' + pwParams[1];
+        var newUrl = e7aRoot + '/users/password/edit?reset_password_token=' + pwParams[1] + '&' + theme;
         iframe.attr('src', newUrl);
         return;
       }
@@ -319,6 +319,8 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       if(hash.indexOf('=') > -1){
         var fragment = hash.split('=')[1];
         var url      = e7aRoot + '/' + locale + '/' + fragment;
+
+        url += (url.indexOf('?') > -1 ? '&' : '?') + theme;
 
         manuallySetHash = fragment;
         iframe.attr('src', url);
