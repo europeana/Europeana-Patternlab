@@ -625,8 +625,60 @@
       },
       "metadata_schema": {
         "label": "Metadata Schema",
-        "placeholder": "http://www.europeanalabs.eu/svn/europeana/trunk/ROOT/src/main/webapp/sc...",
-        "value": ""
+        "start_value": "Select Metadata Schema",
+        "items": [
+          {
+            "name": "http://www.europeana.eu/schemas/edm/"
+          }
+        ]
+      },
+      "harvest_protocol_http": {
+        "label": "",
+        "start_value": "Havest protocol for HTTP",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "FTP/HTTP user"
+          },
+          {
+            "name": "FTP/HTTP password"
+          },
+          {
+            "name": "URL"
+          }
+        ]
+      },
+      "harvest_protocol_oaipmh": {
+        "label": "",
+        "start_value": "Havest protocol for OAI-PMH",
+        "items": [
+          {
+            "name": "Harvest URL"
+          },
+          {
+            "name": "Setspec"
+          },
+          {
+            "name": "Metadata Format"
+          },
+          {
+            "name": "URL"
+          }
+        ]
+      },
+      "harvest_protocol_folder": {
+        "label": "",
+        "start_value": "Havest protocol for FOLDER",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "Folder path"
+          }
+        ]
       }
     }
   }
