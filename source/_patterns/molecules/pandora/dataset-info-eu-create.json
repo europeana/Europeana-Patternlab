@@ -587,6 +587,11 @@
         "group_name": "harvest-protocol",
         "options": [
           {
+            "name": "ftp",
+            "label": "FTP",
+            "checked": false
+          },
+          {
             "name": "http",
             "label": "HTTP",
             "checked": false
@@ -594,11 +599,6 @@
           {
             "name": "oai-pmh",
             "label": "OAI-PMH",
-            "checked": false
-          },
-          {
-            "name": "iiif",
-            "label": "IIIF",
             "checked": false
           },
           {
@@ -632,6 +632,27 @@
           }
         ]
       },
+      "harvest_protocol_ftp": {
+        "label": "",
+        "start_value": "Havest protocol for FTP",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "FTP user"
+          },
+          {
+            "name": "FTP password"
+          },
+          {
+            "name": "Path"
+          },
+          {
+            "name": "Server address"
+          }
+        ]
+      },
       "harvest_protocol_http": {
         "label": "",
         "start_value": "Havest protocol for HTTP",
@@ -640,10 +661,10 @@
             "name": "Record XPath"
           },
           {
-            "name": "FTP/HTTP user"
+            "name": "HTTP user"
           },
           {
-            "name": "FTP/HTTP password"
+            "name": "HTTP password"
           },
           {
             "name": "URL"
@@ -662,9 +683,6 @@
           },
           {
             "name": "Metadata Format"
-          },
-          {
-            "name": "URL"
           }
         ]
       },

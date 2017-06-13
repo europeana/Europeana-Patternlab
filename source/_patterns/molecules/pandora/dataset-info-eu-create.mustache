@@ -167,6 +167,18 @@
           </div>
         {{/harvest_protocol}}
 
+        {{#harvest_protocol_ftp}}
+          <div>
+            <label for="harvestProtocolFtp">{{label}}</label>
+            <select name="harvestProtocolFtp" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/harvest_protocol_ftp}}
+
         {{#harvest_protocol_http}}
           <div>
             <label for="harvestProtocolHttp">{{label}}</label>
