@@ -470,9 +470,11 @@
   float:        right;
   font-size:    1.6rem;
   height:       2rem;
-  position:     relative;
+  position:     absolute;
+  right:        2em;
   text-align:   center;
-  transformX:   translate(100%);
+  top:          50%;
+  transform:    translate(100%, -50%);
   width:        2rem;
 
   &.loading{
@@ -520,7 +522,10 @@
     font-size:    1.2em;
     height:       1.2em;
     margin-right: 1em;
-    transform:    translateY(-0.18em);
+    position:     relative;
+    right:        auto;
+    top:          auto;
+    transform:    translate(0, -0.18em);
     width:        1.2em;
 
     .label-collapse,
@@ -569,7 +574,8 @@
 
   line-height:      2rem;
   margin:           3em 3.5em 2em 0em;
-  padding:          $pad $pad * 1.5 $pad $pad;
+  padding:          $pad $pad * 3 $pad $pad;
+  position:         relative;
   width:            100%;
 
   &.collapsed{
