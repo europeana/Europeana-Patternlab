@@ -110,7 +110,12 @@
 .e7a1418-nav{
   background-color: $blue-dark;
   color:            #fff;
+  display:          none;
   text-align:       center;
+
+  @media all and (min-width: $bp-small-3) {
+    display:  block;
+  }
 
   a{
     color:         #fff;
@@ -124,7 +129,7 @@
     &.e7a1418-contribute{
       border: 1px solid #fff;
     }
-   
+
     &.js-hidden{
       opacity:  0;
       position: absolute;
