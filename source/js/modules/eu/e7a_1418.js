@@ -7,7 +7,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
   var lastMessagedUrl  = '';
   var lastScrollPos    = 0;
   var manuallySetHash  = '';
-  var theme            = 'theme=v2.1';
+  var theme            = 'theme=minimal';
 
   var pageData = {
     'about':{

@@ -1,6 +1,6 @@
 window.onload = function() {
 
-  var theme               = 'theme=v2.1';
+  var theme               = 'theme=minimal';
   var iframeParentDomains = typeof RunCoCo == 'undefined' ? null : RunCoCo.iframeParentDomains;
   iframeParentDomains     = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
 
@@ -21,7 +21,7 @@ window.onload = function() {
   var eu1418_height = function(){
     var body = document.body;
     var html = document.documentElement;
-    return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
   };
 
   setTimeout(function(){

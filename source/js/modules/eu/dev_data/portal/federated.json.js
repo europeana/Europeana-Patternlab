@@ -719,6 +719,7 @@ define([], function(){
 
       if(params.provider == 'dpla'){
         data = federated_results.tab_items[0];
+        //data.search_results = [];
       }
       else if(params.provider == 'internetArchive'){
         data = federated_results.tab_items[1];

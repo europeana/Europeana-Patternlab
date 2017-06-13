@@ -495,7 +495,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         });
         $('.e7a1418-nav a').each(function(i, ob){
           var $ob = $(ob);
-          var href = channelData.url + '/contribute?theme=v2.1#action=' + $ob.data('action');
+          var href = channelData.url + '/contribute?theme=minimal#action=' + $ob.data('action');
           $ob.attr('href', href);
         });
       }
