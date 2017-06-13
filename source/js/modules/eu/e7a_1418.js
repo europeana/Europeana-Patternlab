@@ -392,7 +392,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
 
     if(e7aRoot){
       log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
-      $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor"></iframe>');
+      $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor?' + theme + '"></iframe>');
       iframe = $('iframe.e7a1418');
     }
   }
