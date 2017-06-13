@@ -681,6 +681,10 @@
                 "sneak-peek":      "Sneak peek",
                 "whats-happening": "What's happening",
                 "designer":        "Designer"
+              },
+              "e7a1418": {
+                "contribute": "Contribute your story",
+                "my-account": "My Account"
               }
             },
             "events":{
@@ -696,6 +700,7 @@
                 }
               },
               "breadcrumb": {
+                "account": "account",
                 "item_detail": "Item Detail",
                 "return_home": "Return to Home",
                 "results_list": "Results List",
@@ -765,15 +770,15 @@
                 }
             },
             "results":{
-                "list":{
-                    "more":"More",
-                    "less":"Less",
-                    "more_adv":"Advanced Filters",
-                    "less_adv":"Less Refinements",
-                    "count-and-terms-with-range": "1 - X of 2,283,391 results"
-                },
-                "federated": "View more items from non-Europeana sources",
-                "federated_more": "View all (X) results on (Provider Y)"
+              "list":{
+                "more":"More",
+                "less":"Less",
+                "more_adv":"Advanced Filters",
+                "less_adv":"Less Refinements",
+                "count-and-terms-with-range": "1 - X of 2,283,391 results"
+              },
+              "federated": "Click here to see results from non-Europeana sources",
+              "federated-clicked": "Items from non-Europeana sources"
             },
             "search": {
               "placeholder": {
@@ -808,11 +813,15 @@
               "next":"next",
               "new":"new",
               "previous":"previous",
+              "register":"Register",
               "share": "Share",
+              "sign-in": "Sign in",
+              "sign-out": "Sign out",
               "skip-to-main":     "Skip to page contents",
               "skip-to-section":  "Skip to section",
               "sort-by": "Order by",
               "view": "View",
+              "view-at": "View at",
               "withdraw": "withdraw"
             },
             "channel": {

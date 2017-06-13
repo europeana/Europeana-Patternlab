@@ -15,18 +15,28 @@
         {{/view_mode.create}}
         {{#provider}}
           <div>
-            <label for="provider">{{label}}</label>
-            <input type="text" value="{{value}}" {{^view_mode.create}}readonly{{/view_mode.create}} name="provider"
-                   id="provider" placeholder="{{placeholder}}">
+            <label for="data-provider">{{label}}</label>
+            <select name="data-provider" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option data-identifier="{{identifier}}" value="{{altname}}">{{altname}}</option>
+              {{/items}}
+            </select>
           </div>
         {{/provider}}
+
         {{#data_provider}}
           <div>
             <label for="data-provider">{{label}}</label>
-            <input type="text" value="{{value}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                   name="data-provider" id="data-provider" class="eu prov" placeholder="{{placeholder}}">
+            <select name="data-provider" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option data-identifier="{{identifier}}" value="{{altname}}">{{altname}}</option>
+              {{/items}}
+            </select>
           </div>
         {{/data_provider}}
+
         {{! DEA Signed checkbox }}
         {{#view_mode.create}}
           {{#user_role.europeana}}
@@ -134,8 +144,12 @@
         {{#language}}
           <div>
             <label for="language">{{label}}</label>
-            <input value="{{value}}" name="language" type="text" id="language" placeholder="{{placeholder}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} class="eu prov">
+            <select name="language" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
           </div>
         {{/language}}
         {{#harvest_protocol}}
@@ -155,14 +169,16 @@
         {{#harvest_url}}
           <div>
             <label for="havest-url">{{label}}</label>
-            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}" class="eu prov"
+            <input value="{{value}}" name="harvest-url" type="url" id="harvest-url" placeholder="{{placeholder}}"
+                   class="eu prov"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/harvest_url}}
         {{#setspec}}
           <div>
             <label for="setspec">{{label}}</label>
-            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}" class="eu prov"
+            <input value="{{value}}" name="setspec" type="tel" id="setspec" placeholder="{{placeholder}}"
+                   class="eu prov"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/setspec}}
@@ -176,7 +192,8 @@
         {{#metadata_schema}}
           <div>
             <label for="provider_url">{{label}}</label>
-            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}" class="eu prov"
+            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}"
+                   class="eu prov"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/metadata_schema}}

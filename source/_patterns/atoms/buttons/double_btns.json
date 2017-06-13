@@ -11,11 +11,11 @@
       "media": "all"
     }
   ],
-  "double-btns":{
-    "btn-left-text": "New Dataset",
-    "btn-right-text": "New Organization",
-    "btn-right-under-text": "Go to ZOHO",
-    "url-left": "http://www.cnn.com",
-    "url-right": "http://www.europeana.eu"
+  "double_btns":{
+    "btn_left_text": "New Dataset",
+    "btn_right_text": "New Organization",
+    "btn_right_under_text": "Go to ZOHO",
+    "url_left": "http://www.cnn.com",
+    "url_right": "http://www.europeana.eu"
   }
 }

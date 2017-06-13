@@ -36,6 +36,6 @@
     "register_success_user_creation": "Account created successfully!",
     "submit_btn_text": "Submit",
     "reset_btn_text": "Reset",
-    "form-requirements-warning": "* needed for registration"
+    "form_requirements_warning": "* needed for registration"
   }
 }

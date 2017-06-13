@@ -110,15 +110,25 @@
 .e7a1418-nav{
   background-color: $blue-dark;
   color:            #fff;
+  display:          none;
   text-align:       center;
+
+  @media all and (min-width: $bp-small-3) {
+    display:  block;
+  }
 
   a{
     color:         #fff;
-    border-bottom: 1px dotted transparent;
     display:       inline-block;
-    opacity:       1;
+    font-size:     $font-size-slightly-smaller;
     margin:        $pad-half $pad;
+    opacity:       1;
+    padding:       0.25em 0.75em;
     transition:    opacity 1.5s ease-in-out;
+
+    &.e7a1418-contribute{
+      border: 1px solid #fff;
+    }
 
     &.js-hidden{
       opacity:  0;
@@ -127,8 +137,11 @@
     }
 
     &:hover{
-      border-bottom: 1px dotted #fff;
-      color: #fff;
+      background-color: #fff;
+      color:            $blue-dark;
+    }
+    &:focus{
+      outline: none;
     }
   }
 }

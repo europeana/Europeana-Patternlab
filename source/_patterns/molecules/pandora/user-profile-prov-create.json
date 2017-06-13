@@ -16,11 +16,11 @@
     }
   ],
   "jQuery": false,
-  "page_title": "Metis Dataset",
+  "page_title": "Metis User Profile",
   "user_role": {
-    "europeana": false,
-    "provider": true,
-    "value": "provider"
+    "metisAdmin": false,
+    "metisUser": true,
+    "value": "metisUser"
   },
   "view_mode": {
     "update": false,
@@ -28,64 +28,100 @@
     "preview": false,
     "value": "create"
   },
-  "dataset_form": {
-    "dataset_fields": {
-      "dataset_name": {
-        "label": "Name",
-        "value": "2024913_Photocons_LPDP"
+  "user_profile": {
+    "roleTypes": [
+      {
+        "typeId": "1",
+        "roles": [
+          {
+            "name": "Europeana Viewer"
+          },
+          {
+            "name": "Europeana Data Officer"
+          },
+          {
+            "name": "Europeana Admin"
+          },
+          {
+            "name": "Europeana Superadmin"
+          }
+        ]
       },
-      "provider": {
-        "label": "Provider",
-        "placeholder": "Europeana Photography",
+      {
+        "typeId": "2",
+        "roles": [
+          {
+            "name": "Provider Viewer"
+          },
+          {
+            "name": "Provider Data Officer"
+          },
+          {
+            "name": "Provider Admin"
+          }
+        ]
+      },
+      {
+        "typeId": "3",
+        "roles": [
+          {
+            "name": "Data Provider Contact"
+          }
+        ]
+      }
+    ],
+    "user_fields": {
+      "selectedOrganizations": {
+        "label": "Selected Organizations",
+        "organizations": false
+      },
+      "user_id": {
+        "label": "User ID",
+        "value": "12345"
+      },
+      "user_first_name": {
+        "label": "First Name *",
+        "placeholder": "name",
         "value": ""
       },
-      "data_provider": {
-        "label": "Data provider",
-        "placeholder": "Parisienne de photographie",
+      "user_last_name": {
+        "label": "Last Name *",
+        "placeholder": "lastname",
         "value": ""
       },
-      "dea_signed": {
-        "label": "DEA signed",
-        "checked": false
+      "user_email": {
+        "label": "Email *",
+        "placeholder": "your@email.com",
+        "value": ""
       },
-      "date_created": {
-        "label": "Date created",
-        "placeholder": "dd/mm/yyyy",
-        "value": "08/16/2010"
+      "user_skype": {
+        "label": "Skype",
+        "placeholder": "skype ID",
+        "value": ""
       },
-      "date_updated": {
-        "label": "Date updated",
-        "placeholder": "dd/mm/yyyy",
-        "value": "02/10/2015"
-      },
-      "replaced_by": {
-        "label": "Replaced by",
+      "active": {
+        "label": "Active",
         "placeholder": "",
-        "value": ""
+        "value": "Yes"
       },
-      "description": {
-        "label": "Description",
-        "placeholder": "This is a great dataset!",
-        "value": ""
+      "approved": {
+        "label": "Approved",
+        "placeholder": "",
+        "value": "No"
+      },
+      "created": {
+        "label": "Created",
+        "placeholder": "",
+        "value": "22 April 2011"
+      },
+      "updated": {
+        "label": "Updated",
+        "placeholder": "",
+        "value": "2 june 2012"
       },
       "notes": {
         "label": "Notes",
-        "placeholder": "I did a complex mapping for edm:rights",
-        "value": ""
-      },
-      "first_published": {
-        "label": "First published",
-        "placeholder": "dd/mm/yyyy",
-        "value": "08/16/2015"
-      },
-      "last_published": {
-        "label": "Last published",
-        "placeholder": "31/01/2017",
-        "value": "04/01/2017"
-      },
-      "assigned_to": {
-        "label": "Assigned to",
-        "placeholder": "Pierre",
+        "placeholder": "Add your own notes",
         "value": ""
       },
       "countries": {
@@ -133,7 +169,7 @@
             "code": "IO"
           },
           {
-            "name": "Bulgaria",
+            "name": "Bbbulgaria",
             "code": "BG"
           },
           {
@@ -365,52 +401,6 @@
             "code": "VG"
           }
         ]
-      },
-      "language": {
-        "label": "Language",
-        "placeholder": "fr",
-        "value": ""
-      },
-      "harvest_protocol": {
-        "label_name": "Harvest protocol",
-        "group_name": "harvest-protocol",
-        "options": [
-          {
-            "name": "http",
-            "label": "HTTP",
-            "checked": false
-          },
-          {
-            "name": "oai-pmh",
-            "label": "OAI-PMH",
-            "checked": false
-          },
-          {
-            "name": "iiif",
-            "label": "IIIF",
-            "checked": false
-          }
-        ]
-      },
-      "harvest_url": {
-        "label": "Harvest URL",
-        "placeholder": "http://panic.image.ece.ntua.gr:9000/photography/oai",
-        "value": ""
-      },
-      "setspec": {
-        "label": "Setspec",
-        "placeholder": "1007",
-        "value": ""
-      },
-      "metadata_format": {
-        "label": "Metadata format",
-        "placeholder": "rdf",
-        "value": ""
-      },
-      "metadata_schema": {
-        "label": "Metadata Schema",
-        "placeholder": "http://www.europeanalabs.eu/svn/europeana/trunk/ROOT/src/main/webapp/sc...",
-        "value": ""
       }
     }
   }

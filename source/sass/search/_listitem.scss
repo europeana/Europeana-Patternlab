@@ -27,7 +27,7 @@
     font-family: $font-secondary;
     font-size: $font-size-med;
     font-weight: normal;
-    line-height: 1.4;
+    line-height: 1.4em;
     margin-bottom: $space-half;
 
     a:hover,
@@ -147,10 +147,6 @@
     }
 
   }
-}
-
-.eu-accordion-tabs .search-list-item .item-info .svg-icon{
-  display: none;
 }
 
 .sneak-peek-content{

@@ -36,13 +36,159 @@
       },
       "provider": {
         "label": "Provider",
-        "placeholder": "Europeana Photography",
-        "value": ""
+        "start_value": "Select provider",
+        "items": [
+          {
+            "altname": "Parisienne de photographie",
+            "identifier": "040"
+          },
+          {
+            "altname": "National Library of the Netherlands",
+            "identifier": "041"
+          },
+          {
+            "altname": "National Archives of the Netherlands",
+            "identifier": "042"
+          },
+          {
+            "altname": "National Library of France",
+            "identifier": "043"
+          },
+          {
+            "altname": "City of Music",
+            "identifier": "044"
+          },
+          {
+            "altname": "Culture.fr/collections",
+            "identifier": "045"
+          },
+          {
+            "altname": "French National Audiovisual Institute",
+            "identifier": "046"
+          },
+          {
+            "altname": "Per Noste",
+            "identifier": "047"
+          },
+          {
+            "altname": "Virtual Humanist Libraries",
+            "identifier": "048"
+          },
+          {
+            "altname": "Centre for Research and Restoration of the Museums of France",
+            "identifier": "049"
+          },
+          {
+            "altname": "Archives départementales de la Gironde",
+            "identifier": "050"
+          },
+          {
+            "altname": "Institute for Music/Acoustic Research and Coordination",
+            "identifier": "051"
+          },
+          {
+            "altname": "Lombardy Region - Direzione Generale Culture, Identità e Autonomie",
+            "identifier": "052"
+          },
+          {
+            "altname": "Federico Zeri Foundation",
+            "identifier": "053"
+          },
+          {
+            "altname": "Ministry for Cultural Heritage and Activities (MiBAC CulturaItalia)",
+            "identifier": "054"
+          },
+          {
+            "altname": "Central National Library of Florence",
+            "identifier": "055"
+          },
+          {
+            "altname": "Bavarian State Library",
+            "identifier": "056"
+          },
+          {
+            "altname": "Bibliographical Institute & F. A. Brockhaus AG",
+            "identifier": "058"
+          }
+        ]
       },
       "data_provider": {
         "label": "Data provider",
-        "placeholder": "Parisienne de photographie",
-        "value": ""
+        "start_value": "Select data provider",
+        "items": [
+          {
+            "altname": "Parisienne de photographie",
+            "identifier": "040"
+          },
+          {
+            "altname": "National Library of the Netherlands",
+            "identifier": "041"
+          },
+          {
+            "altname": "National Archives of the Netherlands",
+            "identifier": "042"
+          },
+          {
+            "altname": "National Library of France",
+            "identifier": "043"
+          },
+          {
+            "altname": "City of Music",
+            "identifier": "044"
+          },
+          {
+            "altname": "Culture.fr/collections",
+            "identifier": "045"
+          },
+          {
+            "altname": "French National Audiovisual Institute",
+            "identifier": "046"
+          },
+          {
+            "altname": "Per Noste",
+            "identifier": "047"
+          },
+          {
+            "altname": "Virtual Humanist Libraries",
+            "identifier": "048"
+          },
+          {
+            "altname": "Centre for Research and Restoration of the Museums of France",
+            "identifier": "049"
+          },
+          {
+            "altname": "Archives départementales de la Gironde",
+            "identifier": "050"
+          },
+          {
+            "altname": "Institute for Music/Acoustic Research and Coordination",
+            "identifier": "051"
+          },
+          {
+            "altname": "Lombardy Region - Direzione Generale Culture, Identità e Autonomie",
+            "identifier": "052"
+          },
+          {
+            "altname": "Federico Zeri Foundation",
+            "identifier": "053"
+          },
+          {
+            "altname": "Ministry for Cultural Heritage and Activities (MiBAC CulturaItalia)",
+            "identifier": "054"
+          },
+          {
+            "altname": "Central National Library of Florence",
+            "identifier": "055"
+          },
+          {
+            "altname": "Bavarian State Library",
+            "identifier": "056"
+          },
+          {
+            "altname": "Bibliographical Institute & F. A. Brockhaus AG",
+            "identifier": "058"
+          }
+        ]
       },
       "dea_signed": {
         "label": "DEA signed",
@@ -368,8 +514,73 @@
       },
       "language": {
         "label": "Language",
-        "placeholder": "fr",
-        "value": ""
+        "start_value": "Select language",
+        "items": [
+          {
+            "name": "Belarusian",
+            "code": "be"
+          },
+          {
+            "name": "Bulgarian",
+            "code": "bg"
+          },
+          {
+            "name": "Catalan; Valencian",
+            "code": "ca"
+          },
+          {
+            "name": "Czech",
+            "code": "cs"
+          },
+          {
+            "name": "Danish",
+            "code": "da"
+          },
+          {
+            "name": "Dutch",
+            "code": "nl"
+          },
+          {
+            "name": "English",
+            "code": "en"
+          },
+          {
+            "name": "Esperanto",
+            "code": "eo"
+          },
+          {
+            "name": "French",
+            "code": "fr"
+          },
+          {
+            "name": "Hungarian",
+            "code": "hu"
+          },
+          {
+            "name": "Italian",
+            "code": "it"
+          },
+          {
+            "name": "Macedonian",
+            "code": "mk"
+          },
+          {
+            "name": "Polish",
+            "code": "pl"
+          },
+          {
+            "name": "Portuguese",
+            "code": "pt"
+          },
+          {
+            "name": "Romansh",
+            "code": "rm"
+          },
+          {
+            "name": "Slovak",
+            "code": "sk"
+          }
+        ]
       },
       "harvest_protocol": {
         "label_name": "Harvest protocol",
@@ -388,6 +599,11 @@
           {
             "name": "iiif",
             "label": "IIIF",
+            "checked": false
+          },
+          {
+            "name": "folder",
+            "label": "FOLDER",
             "checked": false
           }
         ]

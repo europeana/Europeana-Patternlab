@@ -10,7 +10,12 @@
 {{! new format for js variables }}
 <script>
 {{# js_vars }}
+  {{#unquoted}}
+   var {{ name }} = {{{ value }}};
+  {{/unquoted}}
+  {{^unquoted}}
    var {{ name }} = "{{ value }}";
+  {{/unquoted}}
 {{/ js_vars }}
 </script>
 

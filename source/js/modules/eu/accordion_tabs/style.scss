@@ -14,9 +14,45 @@ $tabs-pad:           1.2em;
     padding:        $tabs-pad/2 $tabs-pad;
     width:          100%;
 
+    .tab-title{
+      transform:    none;
+      transition:   transform 0.5s ease-in-out;
+    }
+
+    &.loading{
+      padding-right:       2.1em;
+
+      .tab-title{
+
+        position:          relative;
+        transform:         translateY(30%);
+        transition:        none;
+        width:             100%;
+
+        &::after{
+          background-image:  url('spinner.gif');
+          background-repeat: no-repeat;
+          background-size:   16px auto;
+          content:           ' ';
+          height:            16px;
+          left:              calc(100% + 0.5em);
+          position:          absolute;
+          top:               0.35em;
+          width:             16px;
+        }
+      }
+    }
+
     .tab-subtitle{
-      color: $gray-light;
-      font-size: $font-size-sm;
+      color:      $gray-light;
+      font-size:  $font-size-sm;
+      transition: color 0.75s ease-in-out;
+    }
+
+    &.loading{
+      .tab-subtitle{
+        color: transparent;
+      }
     }
   }
 
@@ -52,7 +88,17 @@ $tabs-pad:           1.2em;
         }
       }
 
+      &.disabled{
+        cursor: default;
+        .tab-title,
+        .tab-subtitle{
+          color: $tabs-border-colour;
+        }
+      }
       &:not(.js-last){
+        border-right: 1px solid $tabs-border-colour;
+      }
+      &.js-first.js-last{
         border-right: 1px solid $tabs-border-colour;
       }
 
@@ -70,8 +116,15 @@ $tabs-pad:           1.2em;
       .tab-title,
       .tab-subtitle{
         display:   block;
-        transform: translateY(-0.25em);
       }
+    }
+
+    .only-with-tabs{
+      display: inline-block;
+    }
+
+    .only-without-tabs{
+      display: none;
     }
   }
 
@@ -79,6 +132,23 @@ $tabs-pad:           1.2em;
     .tab-header:first-of-type,
     .tab-content.active + .tab-header{
       border-top:  1px solid $tabs-border-colour;
+    }
+
+    .only-with-tabs{
+      display: none;
+    }
+
+    .only-without-tabs{
+      display: block;
+    }
+
+    .tab-content{
+      &.loading{
+        background-image:    url('spinner.gif');
+        background-position: center;
+        background-repeat:   no-repeat;
+        height:              12em;
+      }
     }
   }
 }

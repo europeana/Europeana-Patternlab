@@ -1,12 +1,13 @@
 define(['jquery', 'util_scroll', 'purl'], function($) {
 
+  var defaultPageUrl   = '#action=contributor';
   var e7aRoot          = '';
+  var iframe           = $('iframe.e7a1418');
   var locale           = '';
-  var manuallySetHash  = '';
   var lastMessagedUrl  = '';
   var lastScrollPos    = 0;
-  var iframe           = $('iframe.e7a1418');
-  var defaultPageUrl   = '#action=contributor';
+  var manuallySetHash  = '';
+  var theme            = 'theme=minimal';
 
   var pageData = {
     'about':{
@@ -27,6 +28,13 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     'about/terms':{
       'breadcrumbs': [
         '.contributor'
+      ]
+    },
+    'account/edit': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.account-url',
+        '.edit'
       ]
     },
     'admin':{
@@ -123,9 +131,27 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         '.contributor'
       ]
     },
+    'reset_password': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.reset'
+      ]
+    },
     'users': {
       'breadcrumbs': [
         '.contributor-url'
+      ]
+    },
+    'users/account': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.account'
+      ]
+    },
+    'users/password/edit': {
+      'breadcrumbs': [
+        '.contributor-url',
+        '.reset'
       ]
     },
     'users/password/new': {
@@ -229,14 +255,14 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       var params = $.url(lastMessagedUrl).param();
       alert('Search portal with paramters:\n\ncontributor_id:\t' + params.contributor_id + '\nqf:\t' + params.qf);
     }
+    else if(fragment.match(/contacts\/\d\/edit/) || fragment.match(/users\/edit/)){
+      breadcrumbs = pageData['account/edit']['breadcrumbs'];
+    }
     else{
-      log('default breadcrumbs for ' + fragment);
       breadcrumbs = pageData[fragment]['breadcrumbs'];
     }
 
     $('.breadcrumbs > .breadcrumb').addClass('js-hidden');
-
-    console.log('breacrumbs (for ' + fragment + ') = ' + JSON.stringify(breadcrumbs, null, 4));
 
     $.each(breadcrumbs, function(i, ob){
       $('.breadcrumbs > .breadcrumb' + ob).removeClass('js-hidden');
@@ -248,11 +274,20 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
 
     if(user){
       $('.e7a1418-logout').removeClass('js-hidden');
+
+      if(fragment == 'users/account'){
+        $('.e7a1418-account').addClass('js-hidden');
+      }
+      else{
+        $('.e7a1418-account').removeClass('js-hidden');
+      }
+
       $('.e7a1418-register').addClass('js-hidden');
       $('.e7a1418-login').addClass('js-hidden');
     }
     else{
       $('.e7a1418-logout').addClass('js-hidden');
+      $('.e7a1418-account').addClass('js-hidden');
       $('.e7a1418-register').removeClass('js-hidden');
       $('.e7a1418-login').removeClass('js-hidden');
     }
@@ -270,18 +305,28 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     var href = urlIn ? urlIn : window.location.href;
 
     if(href.indexOf('#') > -1){
+
+      var pwParams = window.location.hash.split('reset_password_token=');
+      if(window.location.href.indexOf('reset_password&' > -1) && pwParams.length == 2){
+        var newUrl = e7aRoot + '/users/password/edit?reset_password_token=' + pwParams[1] + '&' + theme;
+        iframe.attr('src', newUrl);
+        return;
+      }
+
+
       var hash = href.split('#')[1];
 
       if(hash.indexOf('=') > -1){
         var fragment = hash.split('=')[1];
         var url      = e7aRoot + '/' + locale + '/' + fragment;
 
-        manuallySetHash = fragment;
+        url += (url.indexOf('?') > -1 ? '&' : '?') + theme;
 
+        manuallySetHash = fragment;
         iframe.attr('src', url);
       }
       else{
-        var newHref = (href + defaultPageUrl).replace('##', '#');
+        var newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
         if(window.location.href != newHref){
           window.location.href = newHref;
         }
@@ -289,7 +334,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       }
     }
     else{
-      var newHref = href + defaultPageUrl;
+      var newHref = href.split('#')[0] + defaultPageUrl;
       if(window.location.href != newHref){
         window.location.href = newHref;
       }
@@ -314,7 +359,9 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       window.scrollTo(0, lastScrollPos);
     }
     if(e.data.url){
+
       var fragment    = getUrlFragment(e.data.url);
+
       lastMessagedUrl = e.data.url;
 
       setNavButtons(e.data.user, fragment);
@@ -325,6 +372,8 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       var newHref = window.location.href.split('#')[0] + '#action=' + fragment;
 
       if(window.location.href != newHref){
+
+        // browsers should ignore the diff between the old hash (#action=reset_password&reset_password_token=[TOKEN]) and the new (#action=users/password/edit) and not request a new page
         window.location.href = newHref;
       }
 
@@ -341,10 +390,11 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     locale  = (loc ? loc[0] : '/en/').replace(/\//g, '');
     e7aRoot = $('.e7a1418-nav').data('base-url');
 
-    log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
-
-    $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor"></iframe>');
-    iframe = $('iframe.e7a1418');
+    if(e7aRoot){
+      log('Init 14-18 hidden iframe (root: ' + e7aRoot + ', locale: ' + locale + ')');
+      $('.pusher').append('<iframe class="e7a1418" style="display:none;" src="' + e7aRoot + '/en/contributor?' + theme + '"></iframe>');
+      iframe = $('iframe.e7a1418');
+    }
   }
 
   function initPage(){
@@ -356,7 +406,8 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     $('.e7a1418-nav a').add('.breadcrumb.contribution-attachment-url a').on('click', function(){
       setSrc($(this).attr('href'));
     });
-    $('.e7a1418-nav a').on('click', function(){
+    $('.e7a1418-nav a').on('click', function(e){
+      e.preventDefault();
       manuallySetHash = $(this).attr('href').split('#')[1];
     });
 
