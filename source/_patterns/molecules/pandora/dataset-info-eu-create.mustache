@@ -152,67 +152,37 @@
             </select>
           </div>
         {{/language}}
+
         {{#harvest_protocol}}
           <div>
             <label for="harvest-radio">{{label_name}}</label>
             <div>
               {{#options}}
                 <div>
-                  <input id="{{name}}" name="{{group_name}}" type="radio" class="with-font eu prov" value="{{name}}"
-                    {{#checked}}checked{{/checked}} {{#view_mode.preview}}disabled{{/view_mode.preview}}/>
+                  <input id="{{name}}" name="{{group_name}}" type="radio" class="with-font eu prov {{name}}"
+                         value="{{name}}"
+                    {{#checked}}checked{{/checked}} {{#view_mode.preview}}disabled="disabled"{{/view_mode.preview}}/>
                   <label for="{{name}}">{{label}}</label>
                 </div>
               {{/options}}
             </div>
           </div>
+          {{#options}}
+            {{#protocol_controlled_list}}
+              <div class="sub-controlledList {{harvest_protocol_name}} {{^checked}}hide{{/checked}}"
+                   id="sub_{{harvest_protocol_name}}">
+                <label for="harvestProtocol{{name}}">{{label}}</label>
+                <select name="harvestProtocol{{name}}" {{^checked}}disabled{{/checked}}
+                        {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+                  <option value="">{{start_value}}</option>
+                  {{#items}}
+                    <option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                  {{/items}}
+                </select>
+              </div>
+            {{/protocol_controlled_list}}
+          {{/options}}
         {{/harvest_protocol}}
-
-        {{#harvest_protocol_ftp}}
-          <div>
-            <label for="harvestProtocolFtp">{{label}}</label>
-            <select name="harvestProtocolFtp" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
-              <option value="" selected>{{start_value}}</option>
-              {{#items}}
-                <option value="{{name}}">{{name}}</option>
-              {{/items}}
-            </select>
-          </div>
-        {{/harvest_protocol_ftp}}
-
-        {{#harvest_protocol_http}}
-          <div>
-            <label for="harvestProtocolHttp">{{label}}</label>
-            <select name="harvestProtocolHttp" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
-              <option value="" selected>{{start_value}}</option>
-              {{#items}}
-                <option value="{{name}}">{{name}}</option>
-              {{/items}}
-            </select>
-          </div>
-        {{/harvest_protocol_http}}
-
-        {{#harvest_protocol_oaipmh}}
-          <div>
-            <label for="harvestProtocolOaipmh">{{label}}</label>
-            <select name="harvestProtocolOaipmh" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
-              <option value="" selected>{{start_value}}</option>
-              {{#items}}
-                <option value="{{name}}">{{name}}</option>
-              {{/items}}
-            </select>
-          </div>
-        {{/harvest_protocol_oaipmh}}
-        {{#harvest_protocol_folder}}
-          <div>
-            <label for="harvestProtocolFolder">{{label}}</label>
-            <select name="harvestProtocolFolder" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
-              <option value="" selected>{{start_value}}</option>
-              {{#items}}
-                <option value="{{name}}">{{name}}</option>
-              {{/items}}
-            </select>
-          </div>
-        {{/harvest_protocol_folder}}
 
         {{#harvest_url}}
           <div>
