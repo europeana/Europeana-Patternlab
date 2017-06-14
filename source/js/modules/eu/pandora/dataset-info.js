@@ -34,6 +34,15 @@ define(['jquery'], function ($) {
       }
     });
 
+    $('.with-font').change(function () {
+      if (this.checked) {
+        $('.sub-controlledList').addClass('hide');
+        $('.sub-controlledList select').attr('disabled', true);
+        $('#sub_' + $(this).val()).toggleClass('hide');
+        $('select[name="harvestProtocol' + $(this).val() + '"]').removeAttr('disabled');
+      }
+    });
+
     cancel.click(function () {
       if (cancel.hasClass('preview') || cancel.hasClass('update')) {
         euProv.attr('readonly', true);
