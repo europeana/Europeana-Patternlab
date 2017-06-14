@@ -755,6 +755,22 @@
               background-position: center center;
               background-repeat:   no-repeat;
               background-size:     contain;
+
+              &.canadiana{
+                background-image:url('/images/foederati_logos/canadiana.png');
+              }
+              &.digitalnz{
+                background-image:url('/images/foederati_logos/digitalnz.png');
+              }
+              &.dpla{
+                background-image:url('/images/foederati_logos/dpla.png');
+              }
+              &.internetarchive{
+                background-image:url('/images/foederati_logos/internetarchive.png');
+              }
+              &.trove{
+                background-image:url('/images/foederati_logos/trove.png');
+              }
             }
           }
         }

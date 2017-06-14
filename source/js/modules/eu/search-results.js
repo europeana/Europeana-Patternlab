@@ -455,8 +455,8 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
                   itemData.type_img = true;
                 }
                 else{
-                  itemData.default_img    = true;
-                  itemData.background_img = defLogo;
+                  itemData.default_img          = true;
+                  itemData.background_img_class = defLogo;
                 }
               }
 
