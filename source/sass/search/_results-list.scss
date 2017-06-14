@@ -574,7 +574,7 @@
 
   line-height:      2rem;
   margin:           3em 3.5em 2em 0em;
-  padding:          $pad $pad * 3 $pad $pad;
+  padding:          $pad $pad * 4 $pad $pad;
   position:         relative;
   width:            100%;
 
@@ -689,7 +689,7 @@
       overflow: hidden;
 
       &.expanded{
-        height: 44em;
+        height: 45em;
 
         @media all and (min-width: $bp-large) {
           height:        25em;
@@ -749,8 +749,30 @@
     .search-list-item{
 
       &.default-img{
-        .item-preview img{
-          object-fit: contain;
+        .item-preview{
+          .item-image{
+            a{
+              background-position: center center;
+              background-repeat:   no-repeat;
+              background-size:     contain;
+
+              &.canadiana{
+                background-image:url('/images/foederati_logos/canadiana.png');
+              }
+              &.digitalnz{
+                background-image:url('/images/foederati_logos/digitalnz.png');
+              }
+              &.dpla{
+                background-image:url('/images/foederati_logos/dpla.png');
+              }
+              &.internetarchive{
+                background-image:url('/images/foederati_logos/internetarchive.png');
+              }
+              &.trove{
+                background-image:url('/images/foederati_logos/trove.png');
+              }
+            }
+          }
         }
       }
 

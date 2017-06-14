@@ -587,6 +587,11 @@
         "group_name": "harvest-protocol",
         "options": [
           {
+            "name": "ftp",
+            "label": "FTP",
+            "checked": false
+          },
+          {
             "name": "http",
             "label": "HTTP",
             "checked": false
@@ -594,11 +599,6 @@
           {
             "name": "oai-pmh",
             "label": "OAI-PMH",
-            "checked": false
-          },
-          {
-            "name": "iiif",
-            "label": "IIIF",
             "checked": false
           },
           {
@@ -625,8 +625,78 @@
       },
       "metadata_schema": {
         "label": "Metadata Schema",
-        "placeholder": "http://www.europeanalabs.eu/svn/europeana/trunk/ROOT/src/main/webapp/sc...",
-        "value": ""
+        "start_value": "Select Metadata Schema",
+        "items": [
+          {
+            "name": "http://www.europeana.eu/schemas/edm/"
+          }
+        ]
+      },
+      "harvest_protocol_ftp": {
+        "label": "",
+        "start_value": "Havest protocol for FTP",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "FTP user"
+          },
+          {
+            "name": "FTP password"
+          },
+          {
+            "name": "Path"
+          },
+          {
+            "name": "Server address"
+          }
+        ]
+      },
+      "harvest_protocol_http": {
+        "label": "",
+        "start_value": "Havest protocol for HTTP",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "HTTP user"
+          },
+          {
+            "name": "HTTP password"
+          },
+          {
+            "name": "URL"
+          }
+        ]
+      },
+      "harvest_protocol_oaipmh": {
+        "label": "",
+        "start_value": "Havest protocol for OAI-PMH",
+        "items": [
+          {
+            "name": "Harvest URL"
+          },
+          {
+            "name": "Setspec"
+          },
+          {
+            "name": "Metadata Format"
+          }
+        ]
+      },
+      "harvest_protocol_folder": {
+        "label": "",
+        "start_value": "Havest protocol for FOLDER",
+        "items": [
+          {
+            "name": "Record XPath"
+          },
+          {
+            "name": "Folder path"
+          }
+        ]
       }
     }
   }

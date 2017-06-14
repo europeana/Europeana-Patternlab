@@ -166,6 +166,54 @@
             </div>
           </div>
         {{/harvest_protocol}}
+
+        {{#harvest_protocol_ftp}}
+          <div>
+            <label for="harvestProtocolFtp">{{label}}</label>
+            <select name="harvestProtocolFtp" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/harvest_protocol_ftp}}
+
+        {{#harvest_protocol_http}}
+          <div>
+            <label for="harvestProtocolHttp">{{label}}</label>
+            <select name="harvestProtocolHttp" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/harvest_protocol_http}}
+
+        {{#harvest_protocol_oaipmh}}
+          <div>
+            <label for="harvestProtocolOaipmh">{{label}}</label>
+            <select name="harvestProtocolOaipmh" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/harvest_protocol_oaipmh}}
+        {{#harvest_protocol_folder}}
+          <div>
+            <label for="harvestProtocolFolder">{{label}}</label>
+            <select name="harvestProtocolFolder" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        {{/harvest_protocol_folder}}
+
         {{#harvest_url}}
           <div>
             <label for="havest-url">{{label}}</label>
@@ -189,12 +237,16 @@
                    placeholder="{{placeholder}}" {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/metadata_format}}
+
         {{#metadata_schema}}
           <div>
-            <label for="provider_url">{{label}}</label>
-            <input value="{{value}}" name="provider-url" type="url" id="provider_url" placeholder="{{placeholder}}"
-                   class="eu prov"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+            <label for="metadataSchema">{{label}}</label>
+            <select name="metadataSchema" {{#view_mode.preview}}disabled{{/view_mode.preview}} class="eu prov">
+              <option value="" selected>{{start_value}}</option>
+              {{#items}}
+                <option value="{{name}}">{{name}}</option>
+              {{/items}}
+            </select>
           </div>
         {{/metadata_schema}}
 

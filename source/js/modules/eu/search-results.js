@@ -292,6 +292,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         facetRoot = facetRoot.find('> .filter-name');
       }
       var facetAction = facetRoot.data('filter-name');
+      if(!facetAction){
+        facetAction = $(e.target).closest('[data-filter-name]').data('filter-name');
+      }
+
       ga('send', {
         hitType: 'event',
         eventCategory: 'Facets',
@@ -312,6 +316,20 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       });
       $('.refine .js-showhide-nested').data('ga-sent', true);
     });
+
+    $(document).on('click', '.eu-accordion-tabs a', function(e){
+      var tgt          = $(e.target);
+      var providerName = tgt.closest('.tab-content').prev('.tab-header').find('.tab-title').text();
+      providerName     = providerName ? providerName : $('.tab-header.active').find('.tab-title').text();
+      var data = {
+        hitType:       'event',
+        eventCategory: 'Federated Search',
+        eventAction:   tgt.closest('.more-federated-results').length > 0 ? 'View external results page' : 'View external item',
+        eventLabel:    providerName
+      };
+      ga('send', data);
+    });
+
   };
 
   var bindfacetOpeners = function(){
@@ -455,8 +473,8 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
                   itemData.type_img = true;
                 }
                 else{
-                  itemData.default_img = true;
-                  itemData.img = { 'src': defLogo };
+                  itemData.default_img          = true;
+                  itemData.background_img_class = defLogo;
                 }
               }
 
