@@ -292,6 +292,10 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         facetRoot = facetRoot.find('> .filter-name');
       }
       var facetAction = facetRoot.data('filter-name');
+      if(!facetAction){
+        facetAction = $(e.target).closest('[data-filter-name]').data('filter-name');
+      }
+
       ga('send', {
         hitType: 'event',
         eventCategory: 'Facets',
@@ -312,7 +316,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       });
       $('.refine .js-showhide-nested').data('ga-sent', true);
     });
-
 
     $(document).on('click', '.eu-accordion-tabs a', function(e){
       var tgt          = $(e.target);
