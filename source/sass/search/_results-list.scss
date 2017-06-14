@@ -749,8 +749,14 @@
     .search-list-item{
 
       &.default-img{
-        .item-preview img{
-          object-fit: contain;
+        .item-preview{
+          .item-image{
+            a{
+              background-position: center center;
+              background-repeat:   no-repeat;
+              background-size:     contain;
+            }
+          }
         }
       }
 
