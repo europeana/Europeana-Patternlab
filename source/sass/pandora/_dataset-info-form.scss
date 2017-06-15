@@ -32,6 +32,10 @@
   .flex-outer {
     margin: 0 auto;
     max-width: 800px;
+
+    .hide {
+      display: none;
+    }
   }
 
   .flex-outer div,
@@ -138,7 +142,3 @@
     }
   }
 }
-
-
-
-
