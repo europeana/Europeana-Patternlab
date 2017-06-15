@@ -18,7 +18,7 @@ window.onload = function() {
     var url  = location.href;
     var lang = url.match(/\/[a-z][a-z]\//) + '';
     var hash = url.substr(url.indexOf(lang) + lang.length).split('?')[0];
-    location.href = iframeParentDomains[0] + '/portal/collections/world-war-I/contribute#' + hash;
+    location.href = iframeParentDomains[0] + '/portal/collections/world-war-I/contribute#action=' + hash;
     return;
   }
 
