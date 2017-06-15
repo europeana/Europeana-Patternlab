@@ -1,8 +1,26 @@
 window.onload = function() {
 
+  /*
+  var anchors = document.getElementsByTagName('a');
+  for(var i=0; i<anchors.length; i++){
+    var anchor = anchors[i];
+    anchor.addEventListener('click', function(event){
+      history.replaceState(null, null, anchor.href);
+    }, false);
+  }
+  */
+
   var theme               = 'theme=minimal';
   var iframeParentDomains = typeof RunCoCo == 'undefined' ? null : RunCoCo.iframeParentDomains;
   iframeParentDomains     = iframeParentDomains ? iframeParentDomains : ['http://www.europeana.eu', 'https://www.europeana.eu'];
+
+  if(location.href.indexOf(theme) > 0 && self==top){
+    var url  = location.href;
+    var lang = url.match(/\/[a-z][a-z]\//) + '';
+    var hash = url.substr(url.indexOf(lang) + lang.length).split('?')[0];
+    location.href = iframeParentDomains[0] + '/portal/collections/world-war-I/contribute#' + hash;
+    return;
+  }
 
   var parameteriseLinks = function(){
     var links    = $('a').not('.no-script');
@@ -84,6 +102,7 @@ window.onload = function() {
       return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
     };
   })($, 'europeanaResize');
+
   $(window).europeanaResize(function(){
     parent.postMessage({height: eu1418_height()}, '*');
   });
