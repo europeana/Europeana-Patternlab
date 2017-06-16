@@ -114,7 +114,7 @@
         window.sneakPeekData = [];
           {{#preview_search_data}}
             var entry = {};
-            entry['title'] = '{{preview_search_title}}';
+            entry['title'] = '{{{preview_search_title}}}';
             entry['type']  = '{{preview_search_type}}';
             entry['url']   = '{{preview_search_url}}';
             entry['extra'] = '{{preview_search_more_link}}';
@@ -122,8 +122,8 @@
           {{/preview_search_data}}
         </script>
 
-        <h2 class="section-header sneak-peek-header">{{i18n.site.collections.labels.sneak-peek}}</h2>
-        <span class="sneak-peek-subheader"><span id="js-sneak-peek-title">{{preview_search_title}}</span></span>
+        <h2 class="section-header js-sneak-peek-header">{{{preview_search_title}}} </h2>
+
       {{/preview_search_data_present}}
     {{/content}}
 
