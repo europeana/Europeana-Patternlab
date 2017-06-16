@@ -589,22 +589,106 @@
           {
             "name": "ftp",
             "label": "FTP",
-            "checked": false
+            "checked": false,
+            "protocol_controlled_list": {
+              "label": "",
+              "harvest_protocol_name": "ftp",
+              "start_value": "Havest protocol for FTP",
+              "items": [
+                {
+                  "name": "Record XPath",
+                  "selected": false
+                },
+                {
+                  "name": "FTP user",
+                  "selected": false
+                },
+                {
+                  "name": "FTP password",
+                  "selected": false
+                },
+                {
+                  "name": "Path",
+                  "selected": false
+                },
+                {
+                  "name": "Server address",
+                  "selected": false
+                }
+              ]
+            }
           },
           {
             "name": "http",
             "label": "HTTP",
-            "checked": false
+            "checked": true,
+            "protocol_controlled_list": {
+              "label": "",
+              "harvest_protocol_name": "http",
+              "start_value": "Havest protocol for HTTP",
+              "items": [
+                {
+                  "name": "Record XPath",
+                  "selected": true
+                },
+                {
+                  "name": "HTTP user",
+                  "selected": false
+                },
+                {
+                  "name": "HTTP password",
+                  "selected": false
+                },
+                {
+                  "name": "URL",
+                  "selected": false
+                }
+              ]
+            }
           },
           {
             "name": "oai-pmh",
             "label": "OAI-PMH",
-            "checked": false
+            "checked": false,
+            "protocol_controlled_list": {
+              "label": "",
+              "harvest_protocol_name": "oai-pmh",
+              "start_value": "Havest protocol for OAI-PMH",
+              "items": [
+                {
+                  "name": "Harvest URL",
+                  "selected": false
+                },
+                {
+                  "name": "Setspec",
+                  "selected": false
+                },
+                {
+                  "name": "Metadata Format",
+                  "selected": false
+                }
+              ]
+            }
           },
           {
             "name": "folder",
             "label": "FOLDER",
-            "checked": false
+            "checked": false,
+            "protocol_controlled_list": {
+              "label": "",
+              "harvest_protocol_name": "folder",
+              "start_value": "Havest protocol for FOLDER",
+              "items": [
+                {
+                  "name": "Record XPath",
+                  "selected": false
+                },
+                {
+                  "name": "Folder path",
+                  "selected": false
+                }
+              ]
+            }
           }
         ]
       },
@@ -629,72 +713,6 @@
         "items": [
           {
             "name": "http://www.europeana.eu/schemas/edm/"
-          }
-        ]
-      },
-      "harvest_protocol_ftp": {
-        "label": "",
-        "start_value": "Havest protocol for FTP",
-        "items": [
-          {
-            "name": "Record XPath"
-          },
-          {
-            "name": "FTP user"
-          },
-          {
-            "name": "FTP password"
-          },
-          {
-            "name": "Path"
-          },
-          {
-            "name": "Server address"
-          }
-        ]
-      },
-      "harvest_protocol_http": {
-        "label": "",
-        "start_value": "Havest protocol for HTTP",
-        "items": [
-          {
-            "name": "Record XPath"
-          },
-          {
-            "name": "HTTP user"
-          },
-          {
-            "name": "HTTP password"
-          },
-          {
-            "name": "URL"
-          }
-        ]
-      },
-      "harvest_protocol_oaipmh": {
-        "label": "",
-        "start_value": "Havest protocol for OAI-PMH",
-        "items": [
-          {
-            "name": "Harvest URL"
-          },
-          {
-            "name": "Setspec"
-          },
-          {
-            "name": "Metadata Format"
-          }
-        ]
-      },
-      "harvest_protocol_folder": {
-        "label": "",
-        "start_value": "Havest protocol for FOLDER",
-        "items": [
-          {
-            "name": "Record XPath"
-          },
-          {
-            "name": "Folder path"
           }
         ]
       }
