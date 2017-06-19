@@ -10,9 +10,9 @@ require(['jquery', 'eu_accordion_tabs'], function($, euAccordionTabs) {
   euAccordionTabs.init(
     $('.eu-accordion-tabs'),
     {
-      "active": 0,
-      "fnOpenTab": function(index){
-        // $('body').append('<div style="position:relative; top:18em;">opened tab ' + index + '</div>');
+      'active': 0,
+      'fnOpenTab': function(){
+
       }
     });
 });

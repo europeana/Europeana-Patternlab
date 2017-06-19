@@ -7,7 +7,7 @@ body {
   background-color: $gray-lighter;
 }
 .metis-accordion-wrapper {
-  background-color: white;
+  background-color: $white;
   margin: 0 auto;
   max-width: 1440px;
   padding-top: 5px;
@@ -23,7 +23,7 @@ body {
     cursor:         pointer;
     display:        block;
     min-width:      16rem;
-    padding:        $tabs-pad/2 $tabs-pad;
+    padding:        $tabs-pad /2 $tabs-pad;
     width:          100%;
 
     .tab-title{
