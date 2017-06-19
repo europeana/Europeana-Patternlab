@@ -17,7 +17,8 @@ require.config({
     dataset_info_form: '../../eu/pandora/dataset-info',
     register: '../../eu/pandora/register-form',
     login: '../../eu/pandora/login-form',
-    user_profile: '../../eu/pandora/user_profile'
+    user_profile: '../../eu/pandora/user_profile',
+    metis_tabs: '../../eu/metis_accordion_tabs/metis-accordion-tabs'
   },
   'shim': {
     'smartmenus': ['jquery'],
@@ -27,10 +28,18 @@ require.config({
 });
 
 
-require(['jquery', 'pandoraPage', 'dataset_info_form', 'user_profile', 'register', 'login'], function ($, p, datasetForm, userProfile) {
+require(['jquery', 'pandoraPage', 'dataset_info_form', 'user_profile','metis_tabs', 'register', 'login'], function ($, p, datasetForm, userProfile, metisTabs) {
   p.pageInit();
   datasetForm.formInit();
   // register.formInit();
   // login.formInit();
   userProfile.formInit();
+  metisTabs.init(
+    $('.eu-accordion-tabs'),
+    {
+      "active": 0,
+      "fnOpenTab": function(index){
+        console.log('action to be performed on clicking tabs');
+      }
+    });
 });

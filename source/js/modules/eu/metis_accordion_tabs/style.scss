@@ -1,0 +1,170 @@
+@import '../../../../sass/scss/generic/variables';
+
+$tabs-border-colour: $gray-lighter;
+$tabs-pad:           1.2em;
+
+body {
+  background-color: $gray-lighter;
+}
+.metis-accordion-wrapper {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 5px;
+}
+
+.eu-accordion-tabs{
+  background-color: $white;
+  border-bottom:  5px solid $eu-jade;
+  position: relative;
+
+
+  .tab-header{
+    cursor:         pointer;
+    display:        block;
+    min-width:      16rem;
+    padding:        $tabs-pad/2 $tabs-pad;
+    width:          100%;
+
+    .tab-title{
+      font-weight: bold;
+      line-height: 1rem;
+    }
+
+    &.loading{
+      padding-right:       2.1em;
+
+      .tab-title{
+
+        position:          relative;
+        transform:         translateY(30%);
+        transition:        none;
+        width:             100%;
+
+        &::after{
+          background-image:  url('spinner.gif');
+          background-repeat: no-repeat;
+          background-size:   16px auto;
+          content:           ' ';
+          height:            16px;
+          left:              calc(100% + 0.5em);
+          position:          absolute;
+          top:               0.35em;
+          width:             16px;
+        }
+      }
+    }
+
+    .tab-subtitle{
+      color:      $gray-light;
+      font-size:  $font-size-sm;
+      font-weight: normal;
+      line-height: 1rem;
+    }
+
+    &.loading{
+      .tab-subtitle{
+        color: transparent;
+      }
+    }
+  }
+
+  .tab-content{
+    display: none;
+    padding: $tabs-pad / 2 $tabs-pad;
+    width:   100%;
+
+    &.active{
+      display: block;
+    }
+  }
+
+  .tab-extension {
+    font-weight: bold;
+    line-height: 1rem;
+  }
+
+  &.as-tabs{
+
+    .tab-content{
+      position: absolute;
+      top:      4em;
+    }
+
+    .tab-header{
+
+      display:  block;
+      float:    left;
+      position: relative;
+      width:    auto;
+
+      &.active{
+        background-color: $eu-jade;
+        border-bottom: 0;
+        color: $white;
+        font-weight: bold;
+        height: 4.2rem;
+        + .tab-content + .tab-header::before{
+          background-color: transparent;
+        }
+
+        .tab-subtitle {
+          color: $white;
+        }
+      }
+
+      &.disabled{
+        cursor: default;
+        .tab-title,
+        .tab-subtitle{
+          color: $tabs-border-colour;
+        }
+      }
+      &:not(.js-last){
+        border-right: 1px solid $tabs-border-colour;
+        height: 4.2rem;
+      }
+      &.js-first.js-last{
+        border-right: 1px solid $tabs-border-colour;
+      }
+
+      .tab-title,
+      .tab-subtitle{
+        display:   block;
+      }
+    }
+
+    .only-with-tabs{
+      display: inline-block;
+    }
+
+    .only-without-tabs{
+      display: none;
+    }
+  }
+
+  &:not(.as-tabs){
+    .tab-header:first-of-type,
+    .tab-content.active + .tab-header{
+      border-top:  1px solid $tabs-border-colour;
+    }
+
+    .only-with-tabs{
+      display: none;
+    }
+
+    .only-without-tabs{
+      display: block;
+    }
+
+    .tab-content{
+      &.loading{
+        background-image:    url('spinner.gif');
+        background-position: center;
+        background-repeat:   no-repeat;
+        height:              12em;
+      }
+    }
+  }
+}
+
