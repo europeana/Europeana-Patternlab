@@ -22,6 +22,9 @@
     }
   ],
   "jQuery": false,
+  "metis-dataset-page": {
+    "metis_dataset_name": "2024913_Ag_EU_ParisiennePhotographie"
+  },
   "tab_items": [
     {
       "tab_title":    "Dataset Information",

@@ -1,0 +1,17 @@
+{
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css",
+      "media": "all"
+    }
+  ],
+  "metis-dataset-page": {
+    "metis_dataset_name": "2024913_Ag_EU_ParisiennePhotographie"
+  }
+
+}

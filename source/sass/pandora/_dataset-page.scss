@@ -1,0 +1,32 @@
+.metis-collapse-block {
+  margin: 0 auto;
+  margin-top: 6rem;
+  max-width: 1440px;
+  padding-top: 5px;
+
+  hr {
+    background-color: $gray-lighter;
+    margin-bottom: 1rem;
+  }
+}
+
+.metis-info-toggle {
+  margin-right: 1rem;
+
+  i.fa.fa-expand {
+    margin-right: 1rem;
+  }
+}
+
+.metis-dataset-name,
+.metis-dataset-collapse-toggle {
+  display: inline-block;
+}
+
+.metis-dataset-name {
+ float: left;
+}
+
+.metis-dataset-collapse-toggle {
+ float: right;
+}
