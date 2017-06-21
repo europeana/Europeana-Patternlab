@@ -153,7 +153,7 @@
     float: right;
     height: 10px;
     margin-left: $pad-quarter;
-    margin-top: 0.5em;
+    margin-top: 0.525em;
     overflow: hidden;
     right: 12px;
     top: 50%;
@@ -161,9 +161,11 @@
   }
 }
 
-_::-webkit-full-page-media .sm .sub-arrow {
+_::-webkit-full-page-media, _:future, :root .sm .sub-arrow {
   margin-right: -12px;
-  padding-right: 22px;
+}
+_::-webkit-full-page-media, _:future, :root .has-submenu {
+  padding-right: 14px;
 }
 
 .sm{
