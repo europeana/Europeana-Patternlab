@@ -1,0 +1,18 @@
+{{#metis_dataset_info_block}}
+  <div class="metis-dataset-info-block">
+    <div class="general-info-header">
+      {{general_info_header}}
+    </div>
+
+    <div class="dataset-info-fields">
+      {{#general_info_fields}}
+        <div class="label">{{label}}</div>
+        <div>{{value}}</div>
+        <hr>
+      {{/general_info_fields}}
+    </div>
+    <div class="dataset-btns">
+      {{>atoms/buttons/double_btns}}
+    </div>
+  </div>
+{{/metis_dataset_info_block}}
