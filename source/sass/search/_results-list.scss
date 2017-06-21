@@ -223,14 +223,18 @@
   }
 }
 
+.results-list .no-results{
+  float:  none;
+}
+
 .no-results{
   @include push(1 of 12);
   @include span(10 of 12);
 
   background-color: $gray97;
-  border: 1px dashed $gray-lighter;
-  margin-bottom: $pad-double;
-  padding: $space;
+  border:           1px dashed $gray-lighter;
+  margin-bottom:    $pad-double;
+  padding:          $space;
 
   @media all and (min-width: $bp-small-3) {
     @include push(1 of 18);
@@ -757,19 +761,19 @@
               background-size:     contain;
 
               &.canadiana{
-                background-image:url('/images/foederati_logos/canadiana.png');
+                background-image:url('../../images/foederati_logos/canadiana.png');
               }
               &.digitalnz{
-                background-image:url('/images/foederati_logos/digitalnz.png');
+                background-image:url('../../images/foederati_logos/digitalnz.png');
               }
               &.dpla{
-                background-image:url('/images/foederati_logos/dpla.png');
+                background-image:url('../../images/foederati_logos/dpla.png');
               }
               &.internetarchive{
-                background-image:url('/images/foederati_logos/internetarchive.png');
+                background-image:url('../../images/foederati_logos/internetarchive.png');
               }
               &.trove{
-                background-image:url('/images/foederati_logos/trove.png');
+                background-image:url('../../images/foederati_logos/trove.png');
               }
             }
           }

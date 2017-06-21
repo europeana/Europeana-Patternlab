@@ -20,29 +20,6 @@
 
 .gallery-header{
 
-  // begin tooltip specific
-  position: relative;
-
-  .eu-clicktip-container.showing{
-    background-color: #1676aa;
-    color:            #fff;
-    margin-left:      3em;
-    position:         absolute;
-    top:              2em;
-    z-index:          4;
-
-    @media all and (min-width: $bp-small-3) {
-      left:        5em;
-      margin-left: 0;
-      max-width:   none;
-    }
-  }
-
-  // end begin tooltip specific
-}
-
-.gallery-header{
-
   margin:     2rem auto 0;
   max-width:  90%;
   text-align: center;

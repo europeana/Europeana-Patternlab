@@ -124,10 +124,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
-    
+
     if($('.e7a1418-nav').length > 0){
       require(['e7a_1418'], function(e7a1418){
-    	e7a1418.initPageInvisible();
+      e7a1418.initPageInvisible();
      });
     }
 
@@ -174,7 +174,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       return;
     }
 
-    $('#js-sneak-peek-title').html(random.title.replace(random.type + ': ', ''));
+    $('.js-sneak-peek-header').html(random.title);
     $('.sneak-peek-list').next('.show-more-mlt').find('a').attr('href', random.extra);
 
     $.ajax({

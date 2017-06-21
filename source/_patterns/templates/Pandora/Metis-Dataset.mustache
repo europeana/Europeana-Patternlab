@@ -1,0 +1,18 @@
+{{#is_java}}
+    {{>atoms/meta/_head}}
+{{/is_java}}
+
+<!-- Start Metis Dashboard Header -->
+{{>organisms/global/navigation_top_metis}}
+<!-- End Metis Dashboard Header -->
+
+<!-- Start Main page content -->
+<div class="dashboard-wrapper">
+  {{>organisms/pandora/metis-collapse-info-block}}
+  {{>organisms/components/metis-tabs}}
+</div>
+<!-- End main content -->
+
+{{#is_java}}
+    {{>atoms/meta/_foot}}
+{{/is_java}}
