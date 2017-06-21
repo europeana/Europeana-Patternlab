@@ -35,7 +35,7 @@
     },
     {
       "tab_title":    "Pandora",
-      "tab_subtitle": "(the data model)",
+      "tab_subtitle": "",
       "tab_extension": "",
       "tab_content":  "<br/>The tab content can be supplied with a <code>tab_content</code> entry in the model.  A <code>search_result</code> model can also be supplied.  Other data structures can be added to the template as needed.<br/><br/>Click the next tab to learn more."
     },
@@ -47,13 +47,13 @@
     },
     {
       "tab_title":    "Preview",
-      "tab_subtitle": "(event callback)",
+      "tab_subtitle": "",
       "tab_extension": "",
       "tab_content":  "<br/>When the user changes the active tab the (optional) function <code>fnOpenTab</code> (passed in the ops parameter of the <code>init</code> function) will be called - the active tab index is passed into this function as its only parameter.<br/><br/>(in this example text is written to the document body)"
     },
     {
       "tab_title":    "Data Quality Assurance",
-      "tab_subtitle": "(event callback)",
+      "tab_subtitle": "",
       "tab_extension": "",
       "tab_content":  "<br/>When the user changes the active tab the (optional) function <code>fnOpenTab</code> (passed in the ops parameter of the <code>init</code> function) will be called - the active tab index is passed into this function as its only parameter.<br/><br/>(in this example text is written to the document body)"
     }
@@ -66,18 +66,6 @@
   "version":{
     "is_alpha": false,
     "is_beta": true
-  },
-  "welcome_message":{
-    "text_first": "Welcome ",
-    "user_name": "Cecile",
-    "text_end": " let's ingest a world of Culture!"
-  },
-  "double_btns":{
-    "btn_left_text": "New Dataset",
-    "btn_right_text": "New Organization",
-    "btn_right_under_text": "Go to ZOHO",
-    "url_left": "http://www.cnn.com",
-    "url_right": "http://www.europeana.eu"
   },
   "browse_menu": {
     "menu_id": "metis_search_menu",
