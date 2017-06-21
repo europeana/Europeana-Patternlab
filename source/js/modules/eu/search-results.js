@@ -176,11 +176,13 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
-      masonry = new Masonry( '.result-items', {
-        itemSelector: '.search-list-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-      });
+      if($('.result-items').length > 0){
+        masonry = new Masonry( '.result-items', {
+          itemSelector: '.search-list-item',
+          columnWidth: '.grid-sizer',
+          percentPosition: true
+        });
+      }
 
       $('.result-items').imagesLoaded().progress( function(/*instance, image*/){
         if(masonry){

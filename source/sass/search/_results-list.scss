@@ -223,14 +223,18 @@
   }
 }
 
+.results-list .no-results{
+  float:  none;
+}
+
 .no-results{
   @include push(1 of 12);
   @include span(10 of 12);
 
   background-color: $gray97;
-  border: 1px dashed $gray-lighter;
-  margin-bottom: $pad-double;
-  padding: $space;
+  border:           1px dashed $gray-lighter;
+  margin-bottom:    $pad-double;
+  padding:          $space;
 
   @media all and (min-width: $bp-small-3) {
     @include push(1 of 18);
