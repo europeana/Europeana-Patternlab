@@ -159,7 +159,14 @@
     top: 50%;
     width: 0;
   }
+}
 
+_::-webkit-full-page-media .sm .sub-arrow {
+  margin-right: -12px;
+  padding-right: 22px;
+}
+
+.sm{
   .highlighted
   .sub-arrow::before {
     display: none;
