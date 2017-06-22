@@ -6,13 +6,42 @@
 {{>organisms/global/navigation_top_metis}}
 <!-- End Metis Dashboard Header -->
 
-<!-- Start Main page content -->
 <div class="dashboard-wrapper">
   {{>organisms/pandora/metis-collapse-info-block}}
-  {{>organisms/components/metis-tabs}}
+
+  <div aria-hidden="true">
+    <div id="js-template-tab-create">
+      <noscript>
+        {{>organisms/components/eu-accordion-tabs-metis-dataset-info-create.mustache}}
+      </noscript>
+    </div>
+    <div id="js-template-tab-pandora">
+      <noscript>
+        {{>organisms/components/eu-accordion-tabs-metis-pandora}}
+      </noscript>
+    </div>
+    <div id="js-template-tab-processing">
+      <noscript>
+        {{>organisms/components/eu-accordion-tabs-metis-dataset-processing}}
+      </noscript>
+    </div>
+    <div id="js-template-tab-preview">
+      <noscript>
+        {{>organisms/components/eu-accordion-tabs-metis-dataset-preview}}
+      </noscript>
+    </div>
+    <div id="js-template-tab-data-quality">
+      <noscript>
+        {{>organisms/components/eu-accordion-tabs-metis-data-quality}}
+      </noscript>
+    </div>
+  </div>
+
+  <div class="metis-accordion-wrapper">
+    {{>organisms/components/eu-accordion-tabs}}
+  </div>
 </div>
-<!-- End main content -->
 
 {{#is_java}}
-    {{>atoms/meta/_foot}}
+  {{>atoms/meta/_foot}}
 {{/is_java}}

@@ -1,8 +1,9 @@
 <div class="eu-accordion-tabs cf">
   {{#tab_items}}
-    <div class="tab-header">
+    <div class="tab-header"{{#url}} data-content-url="{{.}}"{{/url}}>
       {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
       {{#tab_subtitle}}<span class="tab-subtitle">{{.}}</span>{{/tab_subtitle}}
+      {{#tab_title_suffix}}<span class="tab-title-suffix">{{.}}</span>{{/tab_title_suffix}}
     </div>
     <div class="tab-content">
       {{#tab_content}}

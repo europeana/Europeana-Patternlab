@@ -25,3 +25,33 @@
 .metis-dataset-collapse-toggle {
  float: right;
 }
+
+.metis-accordion-wrapper{
+
+  margin:    auto;
+  max-width: 1440px;
+
+  .tab-content{
+    background-color: $white;
+  }
+
+  .eu-accordion-tabs.as-tabs .tab-header{
+
+    border-bottom:  5px solid $eu-jade;
+    height:         4.2em;
+
+    &.active{
+      background-color: $eu-jade;
+      border-bottom:  5px solid $eu-jade;
+      color:            $white;
+
+      .tab-subtitle{
+        color:            $white;
+      }
+    }
+    &:not(.active)::before{
+      background-color: transparent;
+    }
+  }
+
+}
