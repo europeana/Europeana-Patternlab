@@ -366,8 +366,9 @@
     left: 0;
 }
 
-.radiobuttons > ul > li .filter-item:before{
-    background-position: -88px 0;
+.radiobuttons > ul > li .filter-item:before,
+.radiobuttons .filter-extrafields li .filter-item:before{
+  background-position: -88px 0;
 }
 
 .filter-boolean{
