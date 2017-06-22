@@ -393,7 +393,9 @@
     }
 }
 
-.radiobuttons > ul > li .filter-item{
+.radiobuttons > ul > li .filter-item,
+.radiobuttons .filter-extrafields li .filter-item{
+
     &.is-checked:before {
         background-position: -110px 0;
     }
