@@ -81,7 +81,7 @@ require.config({
     NOFremote:                     '../../lib/904Labs/noflogging-0.2.min',
 //    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',
 
-    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
+//    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
 
     pdfjs:                         '../../lib/pdfjs/pdf',
@@ -136,7 +136,7 @@ require.config({
     featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
-    optimizely:     ['jquery'],
+  //  optimizely:     ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
@@ -158,7 +158,7 @@ window.fixGA = function(ga){
 }
 
 require(['jquery'], function( $ ) {
-  require(['optimizely']);
+  // require(['optimizely']);
 
   if(typeof mock_ajax != 'undefined'){
     require(['eu_mock_ajax']);
