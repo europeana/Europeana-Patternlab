@@ -1,7 +1,7 @@
 define([], function(){
   var data = {
     "modification": {
-      "action": "last modified",
+      "action": "last action",
       "date": "23/06/2017"
     },
     "dataset_form": {
