@@ -39,10 +39,11 @@
 
     border-bottom:  5px solid $eu-jade;
     height:         4.2em;
+    z-index:        1;
 
     &.active{
       background-color: $eu-jade;
-      border-bottom:  5px solid $eu-jade;
+      border-bottom:    5px solid $eu-jade;
       color:            $white;
 
       .tab-subtitle{
@@ -51,6 +52,10 @@
     }
     &:not(.active)::before{
       background-color: transparent;
+    }
+
+    .tab-subtitle{
+      transition: none;
     }
   }
 
