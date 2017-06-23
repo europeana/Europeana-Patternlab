@@ -19,6 +19,7 @@ require.config({
     user_profile:        '../../eu/pandora/user_profile',
     util_ellipsis:       '../../eu/util/ellipsis',
     util_resize:         '../../eu/util/resize',
+
     // search filter selection files
     search_form:         '../../eu/search-form'
   },
@@ -50,13 +51,15 @@ function initPage(){
     else if( $('.metis-accordion-wrapper').length > 0 ){
 
       var fixTabContentHeight = function(){
-        console.log('fix the tab height here...');
-      }
-      var domObserver = new MutationObserver(function(mutations){
-          fixTabContentHeight();
+        $('.eu-accordion-tabs').removeAttr('style');
+        if(!$('.eu-accordion-tabs').hasClass('as-tabs')){
+          return;
         }
-      );
-      domObserver.observe($('.eu-accordion-tabs')[0], {attributes: true, childList: true, characterData: true});
+        var h1 = $('.eu-accordion-tabs').height();
+        var h2 = $('.tab-content.active').height();
+        $('.eu-accordion-tabs').attr('style', 'height:' + (h1 + h2) + 'px');
+        console.log('fixed the tab height here...');
+      }
 
       require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
         console.log('init tabs....');
@@ -94,6 +97,7 @@ function initPage(){
                   $.getJSON(url, null).done(function(data){
                     $tabContent.append(Mustache.render(template.text(), data));
                     header.addClass('js-loaded');
+                    fixTabContentHeight();
                   });
                 }
               }
@@ -102,6 +106,12 @@ function initPage(){
           }
         );
       });
+
+      require(['util_resize'], function(){
+        $(window).europeanaResize(function(){
+          fixTabContentHeight();
+        });
+      })
     }
   });
 }
