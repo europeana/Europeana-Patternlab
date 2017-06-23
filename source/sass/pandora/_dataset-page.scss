@@ -1,3 +1,5 @@
+$header-height: 4.9em;
+
 .metis-collapse-block {
   margin: 0 auto;
   margin-top: 6rem;
@@ -19,9 +21,57 @@
 }
 
 .metis-dataset-name {
- float: left;
+  float: left;
 }
 
 .metis-dataset-collapse-toggle {
- float: right;
+  float: right;
+}
+
+.metis-accordion-wrapper{
+
+  margin:    auto;
+  max-width: 1440px;
+
+  .eu-accordion-tabs.as-tabs .tab-content{
+    top: calc(#{$header-height} - 5px);
+  }
+
+  .tab-content{
+    background-color: $white;
+    border-top:       5px solid $eu-jade;
+  }
+
+  .eu-accordion-tabs.as-tabs .tab-header{
+
+    border-bottom:  5px solid $eu-jade;
+    height:         $header-height;
+    padding:        0.4em 1.2em;
+    z-index:        1;
+
+    &.active{
+      background-color: $eu-jade;
+      border-bottom:    5px solid $eu-jade;
+      color:            $white;
+
+      .tab-subtitle{
+        color:            $white;
+      }
+    }
+    &:not(.active)::before{
+      background-color: transparent;
+    }
+
+    &.loading{
+      .tab-title::after{
+        left:      50%;
+        top:       0.75em;
+        transform: translate(-50%, 100%);
+      }
+    }
+
+    .tab-subtitle{
+      transition: none;
+    }
+  }
 }

@@ -70,7 +70,7 @@ define(['jquery', 'util_resize'], function($){
     if(active > -1){
       activate($cmp, active);
       if(fnOpenTab){
-        fnOpenTab(active);
+        fnOpenTab(active, $cmp.find('.tab-content:eq(' + active + ')'));
       }
     }
     else{
@@ -107,7 +107,7 @@ define(['jquery', 'util_resize'], function($){
       if(fnOpenTab){
         $.each($cmp.find('.tab-content'), function(i, ob){
           if($(ob).hasClass('active')){
-            fnOpenTab(i);
+            fnOpenTab(i, $(ob));
           }
         });
       }
