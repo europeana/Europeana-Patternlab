@@ -1,3 +1,5 @@
+$header-height: 4.9em;
+
 .metis-collapse-block {
   margin: 0 auto;
   margin-top: 6rem;
@@ -32,7 +34,7 @@
   max-width: 1440px;
 
   .eu-accordion-tabs.as-tabs .tab-content{
-    top: calc(4.2em - 5px);
+    top: calc(#{$header-height} - 5px);
   }
 
   .tab-content{
@@ -43,7 +45,8 @@
   .eu-accordion-tabs.as-tabs .tab-header{
 
     border-bottom:  5px solid $eu-jade;
-    height:         4.2em;
+    height:         $header-height;
+    padding:        0.4em 1.2em;
     z-index:        1;
 
     &.active{
@@ -57,6 +60,14 @@
     }
     &:not(.active)::before{
       background-color: transparent;
+    }
+
+    &.loading{
+      .tab-title::after{
+        left:      50%;
+        top:       0.75em;
+        transform: translate(-50%, 100%);
+      }
     }
 
     .tab-subtitle{

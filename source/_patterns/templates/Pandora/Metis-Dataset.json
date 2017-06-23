@@ -24,7 +24,7 @@
   "js_vars": [
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{ 'delays' : {'metis-pandora':'3000', 'metis-dataset-info-create':'1000', 'metis-preview':'8000', 'metis-data-quality': 2000}}"
     }
   ],
   "jQuery": false,
@@ -34,32 +34,22 @@
   "tab_items": [
     {
       "tab_title":     "Dataset Information",
-      "tab_subtitle":  "last modified",
-      "tab_extension": "04/05/17",
       "url":           "metis-dataset-info-create"
     },
     {
       "tab_title":    "Pandora",
-      "tab_subtitle": "",
-      "tab_extension": "",
       "url":           "metis-pandora"
     },
     {
       "tab_title":    "Processing History",
-      "tab_subtitle": "last action",
-      "tab_extension": "04/05/17",
       "url":           "metis-processing"
     },
     {
       "tab_title":    "Preview",
-      "tab_subtitle": "",
-      "tab_extension": "",
       "url":           "metis-preview"
     },
     {
       "tab_title":     "Data Quality Assurance",
-      "tab_subtitle":  "",
-      "tab_extension": "",
       "url":           "metis-data-quality"
     }
   ],

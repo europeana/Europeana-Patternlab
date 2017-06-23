@@ -32,11 +32,12 @@ require.config({
 
 function initPage(){
   require(['pandoraPage', 'dataset_info_form', 'user_profile'], function (p, datasetForm, userProfile) {
+
+    // TODO: load / init only as per the actual page we're on.
+
     p.pageInit();
     datasetForm.formInit();
     userProfile.formInit();
-
-    console.log('console check...');
 
     if( $('.metis-login-form').length > 0 ){
       require(['login'], function(login){
@@ -50,20 +51,27 @@ function initPage(){
     }
     else if( $('.metis-accordion-wrapper').length > 0 ){
 
-      var fixTabContentHeight = function(){
-        $('.eu-accordion-tabs').removeAttr('style');
-        if(!$('.eu-accordion-tabs').hasClass('as-tabs')){
-          return;
-        }
-        var h1 = $('.eu-accordion-tabs').height();
-        var h2 = $('.tab-content.active').height();
-        $('.eu-accordion-tabs').attr('style', 'height:' + (h1 + h2) + 'px');
-        console.log('fixed the tab height here...');
-      }
-
       require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
-        console.log('init tabs....');
         Mustache.tags = ['[[', ']]'];
+
+        var setHeaderInfo = function($tabHeader, data){
+          if(data && data.modification){
+            data.modification.title = $tabHeader.find('.tab-title').text();
+            var template = $('#js-template-tab-header');
+            $tabHeader.html(Mustache.render(template.text(), data));
+          }
+        };
+
+        var fixTabContentHeight = function(){
+          $('.eu-accordion-tabs').removeAttr('style');
+          if(!$('.eu-accordion-tabs').hasClass('as-tabs')){
+            return;
+          }
+          var h1 = $('.eu-accordion-tabs').height();
+          var h2 = $('.tab-content.active').height();
+          $('.eu-accordion-tabs').attr('style', 'height:' + (h1 + h2) + 'px');
+        };
+
         euAccordionTabs.init(
           $('.eu-accordion-tabs'),
           {
@@ -94,9 +102,11 @@ function initPage(){
                 }
 
                 if(template.length > 0){
+                  header.addClass('loading');
                   $.getJSON(url, null).done(function(data){
                     $tabContent.append(Mustache.render(template.text(), data));
-                    header.addClass('js-loaded');
+                    header.removeClass('loading').addClass('js-loaded');
+                    setHeaderInfo(header, data);
                     fixTabContentHeight();
                   });
                 }

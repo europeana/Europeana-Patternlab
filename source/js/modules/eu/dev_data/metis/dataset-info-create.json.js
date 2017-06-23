@@ -1,5 +1,9 @@
 define([], function(){
   var data = {
+    "modification": {
+      "action": "last modified",
+      "date": "23/06/2017"
+    },
     "dataset_form": {
       "last_modified": "04/05/17",
       "dataset_fields": {
