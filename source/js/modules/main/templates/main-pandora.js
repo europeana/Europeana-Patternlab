@@ -30,7 +30,17 @@ require.config({
   waitSeconds: 200
 });
 
-function initPage(){
+function fixTabContentHeight($){
+  $('.eu-accordion-tabs').removeAttr('style');
+  if(!$('.eu-accordion-tabs').hasClass('as-tabs')){
+    return;
+  }
+  var h1 = $('.eu-accordion-tabs').height();
+  var h2 = $('.tab-content.active').height();
+  $('.eu-accordion-tabs').attr('style', 'height:' + (h1 + h2) + 'px');
+}
+
+function initPage($){
   require(['pandoraPage', 'dataset_info_form', 'user_profile'], function (p, datasetForm, userProfile) {
 
     // TODO: load / init only as per the actual page we're on.
@@ -45,8 +55,8 @@ function initPage(){
       });
     }
     else if( $('.metis-register-form').length > 0 ){
-      require(['register'], function(){
-         register.formInit();
+      require(['register'], function(register){
+        register.formInit();
       });
     }
     else if( $('.metis-accordion-wrapper').length > 0 ){
@@ -62,21 +72,11 @@ function initPage(){
           }
         };
 
-        var fixTabContentHeight = function(){
-          $('.eu-accordion-tabs').removeAttr('style');
-          if(!$('.eu-accordion-tabs').hasClass('as-tabs')){
-            return;
-          }
-          var h1 = $('.eu-accordion-tabs').height();
-          var h2 = $('.tab-content.active').height();
-          $('.eu-accordion-tabs').attr('style', 'height:' + (h1 + h2) + 'px');
-        };
-
         euAccordionTabs.init(
           $('.eu-accordion-tabs'),
           {
-            "active": 0,
-            "fnOpenTab": function(index, $tabContent){
+            'active': 0,
+            'fnOpenTab': function(index, $tabContent){
 
               var header = $('.metis-accordion-wrapper .tab-header:eq(' + index + ')');
 
@@ -107,7 +107,7 @@ function initPage(){
                     $tabContent.append(Mustache.render(template.text(), data));
                     header.removeClass('loading').addClass('js-loaded');
                     setHeaderInfo(header, data);
-                    fixTabContentHeight();
+                    fixTabContentHeight($);
                   });
                 }
               }
@@ -119,19 +119,19 @@ function initPage(){
 
       require(['util_resize'], function(){
         $(window).europeanaResize(function(){
-          fixTabContentHeight();
+          fixTabContentHeight($);
         });
-      })
+      });
     }
   });
 }
 
-require(['jquery'], function ($){
+require(['jquery'], function($){
   if(typeof mock_ajax != 'undefined'){
     require(['eu_mock_ajax']);
-    initPage();
+    initPage($);
   }
   else{
-    initPage();
+    initPage($);
   }
 });
