@@ -48,6 +48,16 @@ function initPage(){
       });
     }
     else if( $('.metis-accordion-wrapper').length > 0 ){
+
+      var fixTabContentHeight = function(){
+        console.log('fix the tab height here...');
+      }
+      var domObserver = new MutationObserver(function(mutations){
+          fixTabContentHeight();
+        }
+      );
+      domObserver.observe($('.eu-accordion-tabs')[0], {attributes: true, childList: true, characterData: true});
+
       require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
         console.log('init tabs....');
         Mustache.tags = ['[[', ']]'];
@@ -57,37 +67,37 @@ function initPage(){
             "active": 0,
             "fnOpenTab": function(index, $tabContent){
 
-              console.log('action to be performed on clicking tab ' + index);
-
               var header = $('.metis-accordion-wrapper .tab-header:eq(' + index + ')');
-              var url    = header.data('content-url');
-              var template;
 
-              if(header.hasClass('js-loaded')){
-                return;
-              }
-              if(index == 0){
+              if(!header.hasClass('js-loaded')){
+
+                var url    = header.data('content-url');
+                var template;
+
+                if(index == 0){
                   template = $('#js-template-tab-create noscript');
-              }
-              else if(index == 1){
-                template = $('#js-template-tab-pandora noscript');
-              }
-              else if(index == 2){
-                template = $('#js-template-tab-processing noscript');
-              }
-              else if(index == 3){
-                template = $('#js-template-tab-preview noscript');
-              }
-              else if(index == 4){
-                template = $('#js-template-tab-data-quality noscript');
+                }
+                else if(index == 1){
+                  template = $('#js-template-tab-pandora noscript');
+                }
+                else if(index == 2){
+                  template = $('#js-template-tab-processing noscript');
+                }
+                else if(index == 3){
+                  template = $('#js-template-tab-preview noscript');
+                }
+                else if(index == 4){
+                  template = $('#js-template-tab-data-quality noscript');
+                }
+
+                if(template.length > 0){
+                  $.getJSON(url, null).done(function(data){
+                    $tabContent.append(Mustache.render(template.text(), data));
+                    header.addClass('js-loaded');
+                  });
+                }
               }
 
-              if(template.length > 0){
-                $.getJSON(url, null).done(function(data){
-                  $tabContent.append(Mustache.render(template.text(), data));
-                  header.addClass('js-loaded');
-                });
-              }
             }
           }
         );
