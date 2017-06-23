@@ -31,8 +31,13 @@
   margin:    auto;
   max-width: 1440px;
 
+  .eu-accordion-tabs.as-tabs .tab-content{
+    top: calc(4.2em - 5px);
+  }
+
   .tab-content{
     background-color: $white;
+    border-top:       5px solid $eu-jade;
   }
 
   .eu-accordion-tabs.as-tabs .tab-header{
