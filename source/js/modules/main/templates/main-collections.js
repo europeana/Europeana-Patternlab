@@ -81,7 +81,7 @@ require.config({
     NOFremote:                     '../../lib/904Labs/noflogging-0.2.min',
 //    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',
 
-    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
+//    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
 
     pdfjs:                         '../../lib/pdfjs/pdf',
@@ -136,7 +136,7 @@ require.config({
     featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
-    optimizely:     ['jquery'],
+  //  optimizely:     ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
@@ -158,7 +158,7 @@ window.fixGA = function(ga){
 }
 
 require(['jquery'], function( $ ) {
-  require(['optimizely']);
+  // require(['optimizely']);
 
   if(typeof mock_ajax != 'undefined'){
     require(['eu_mock_ajax']);
@@ -170,7 +170,7 @@ require(['jquery'], function( $ ) {
       $.holdReady(false);
       $('html').addClass('styled');
 
-      require(["ga"], function(ga) {
+      require(['ga'], function(ga) {
         ga = window.fixGA(ga);
         channels.getPromisedPageJS().done(function(page){
           if(page && typeof page.getAnalyticsData != 'undefined'){
@@ -181,7 +181,17 @@ require(['jquery'], function( $ ) {
               }
             }
           }
-          ga("send", "pageview");
+
+          if(typeof googleOptimizeContainerID != 'undefined' && googleOptimizeContainerID){
+            $('head').append('<style>.async-hide { opacity: 0 !important}</style>');
+            (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+            h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+            (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+            })(window,document.documentElement, 'async-hide', 'dataLayer', 4000, {googleOptimizeContainerID:true});
+            ga('require', googleOptimizeContainerID);
+          }
+
+          ga('send', 'pageview');
         });
       });
 

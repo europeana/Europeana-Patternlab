@@ -35,9 +35,14 @@ define(['jquery', 'purl'], function($){
 
   return {
     'paths': {
-      'portal_federated':     '../../eu/dev_data/portal/federated.json',
-      'portal_hierarchy':     '../../eu/dev_data/portal/hierarchy.json',
-      'portal_similar_items': '../../eu/dev_data/portal/mlt.json'
+      'metis-data-quality':        '../../eu/dev_data/metis/data-quality.json',
+      'metis-dataset-info-create': '../../eu/dev_data/metis/dataset-info-create.json',
+      'metis-pandora':             '../../eu/dev_data/metis/pandora.json',
+      'metis-preview':             '../../eu/dev_data/metis/preview.json',
+      'metis-processing':          '../../eu/dev_data/metis/processing.json',
+      'portal_federated':          '../../eu/dev_data/portal/federated.json',
+      'portal_hierarchy':          '../../eu/dev_data/portal/hierarchy.json',
+      'portal_similar_items':      '../../eu/dev_data/portal/mlt.json'
     },
     resolvePathAndParams: function(url){
       return resolvePathAndParams(url);

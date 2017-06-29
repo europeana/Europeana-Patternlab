@@ -1,9 +1,8 @@
 .dashboard-wrapper {
   background-color: $off-white;
-  height: 100vh; // TODO: remove temp stylings.
   margin-top: 4.8em;
+  min-height: 100vh; // TODO: remove temp stylings.
   padding: 0 1.2rem;
-
 
   .btns-set {
     background-color: $white;
