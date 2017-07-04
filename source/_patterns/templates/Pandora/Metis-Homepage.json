@@ -25,6 +25,7 @@
   },
   "landing_page_content": {
     "is_home": false,
+    "user_profile_url": "javascript:alert('submit user profile form');",
     "is_profile": true,
     "user_profile": {
       "roleTypes": [
