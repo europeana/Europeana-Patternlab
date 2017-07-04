@@ -29,6 +29,7 @@
     "value": "create"
   },
   "user_profile": {
+    "user_profile_url" : "/profile",
     "roleTypes": [
       {
         "typeId": "1",
