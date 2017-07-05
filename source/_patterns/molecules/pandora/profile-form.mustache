@@ -1,4 +1,4 @@
-<form action="profile" method="post" role="form" class="metis-profile-form" accept-charset="utf-8">
+<form action="{{user_profile_url}}" method="post" role="form" class="metis-profile-form" accept-charset="utf-8">
 	<fieldset>
 		<legend  class="profile-form-header">Your Profile</legend>
 		<div class="error_missing error-message">Error: a new password and the confirmed password are not the same</div>
@@ -46,11 +46,11 @@
 		<div class="field-container user-profile-password">
 			<label for="password_old">Old Password:</label>
 			<input id="password_old" type='password' name='password_old' placeholder="Old password"/>
-		</div>		
+		</div>
 		<div class="field-container user-profile-password">
 			<label for="password_new">New Password:</label>
 			<input id="password_new" type='password' name='password_new' placeholder="New password"/>
-		</div>		
+		</div>
 		<div class="field-container user-profile-password">
 			<label for="password_new2">Confirm Password:</label>
 			<input id="password_new2" type='password' name='password' placeholder="New password"/>

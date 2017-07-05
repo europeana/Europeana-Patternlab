@@ -20,6 +20,7 @@
     }
   ],
   "login_form": {
+    "login_url" : "/login",
     "form_title": "Sign in to Metis",
     "email_field": {
       "label": "Email",

@@ -1,5 +1,5 @@
 {
-	"css_files": 
+	"css_files":
 	[
 		{
 			"path": "../../css/pandora/screen.css",
@@ -10,19 +10,20 @@
 			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
 			"media": "all"
 		},
-		
+
 		{
 			"path": "../../js/modules/lib/jush/jush.css",
 			"media": "all"
 		}
 	],
-	"js_files": 
+	"js_files":
 	[
 		{
 			"path": "../../js/modules/require.js",
 			"data_main": "../../js/modules/main/templates/main-pandora"
 		}
 	],
+	"userProfileUrl" : "/profile",
   "countries": [
   	{
   	  "text": "France"
