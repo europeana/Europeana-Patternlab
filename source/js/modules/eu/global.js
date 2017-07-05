@@ -41,11 +41,11 @@ define(['jquery', 'jqDropdown', 'menus', 'featureDetect', 'util_scrollEvents'], 
         $('.js-showhide-nested').on('click', function(e){
           e.preventDefault();
 
-          var $tgt       = $(e.target);
-          var hidden     = swapText($tgt);
-          var toShowHide = $tgt.prev('.filter-list').find('.js-nested-filters');
-
+          var $tgt         = $(e.target);
+          var toShowHide   = $tgt.prev('.filter-list').find('.js-nested-filters');
           var parentFilter = $tgt.closest('.filter')
+          var hidden       = $(this).attr('aria-expanded') == 'true';
+          swapText($tgt);
 
           if(hidden){
             toShowHide.addClass('is-jshidden').attr('aria-hidden', true);
