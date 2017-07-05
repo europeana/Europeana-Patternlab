@@ -15,26 +15,34 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "metisLoginPage"
+    }
+  ],
   "jQuery": false,
   "version": {
     "is_alpha": false,
     "is_beta": true
   },
   "login_form": {
-    "form_title": "Sign in to Metis",
+
     "email_field": {
       "label": "Email",
       "placeholder": "your@email"
     },
+    "form_title": "Sign in to Metis",
     "password_field": {
       "label": "New Password",
       "placeholder": "Type your password"
     },
-    "register_err_duplicate_user": "User already exists",
     "forgot_login_credentials": {
       "text": "Forgot your account?",
-      "url": "#"
+      "url": "javascript:alert('send reminder')"
     },
+    "login_url": "javascript:alert('submit form')",
+    "register_err_duplicate_user": "User already exists",
     "submit_btn": "Sign In"
   },
   "page_config": {

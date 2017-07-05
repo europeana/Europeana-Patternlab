@@ -15,6 +15,12 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "metisHomePage"
+    }
+  ],
   "jQuery": false,
   "version": {
     "is_alpha": false,
@@ -411,6 +417,10 @@
             }
           ]
         }
+      },
+      "view_mode": {
+        "XXXvalue": "preview",
+        "value": "update"
       }
     }
   },

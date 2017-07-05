@@ -3,7 +3,7 @@ define(['jquery'], function ($) {
 
   function handleForm() {
 
-    var form = $('form'),
+    var form = $('.user-profile-form form'),
       role = form.data('role'),
       mode = form.data('view-mode'),
       previewBlockBtn = $('.user-profile-preview-btn'),
@@ -15,13 +15,14 @@ define(['jquery'], function ($) {
       euProv = $('.eu, .prov'),
       submitBtn = $('.submit');
 
-    if (mode === 'preview') {
+    if(mode === 'preview'){
       previewBlockBtn.toggleClass('hidden');
-    } else {
+    }
+    else{
       editableBlockBtns.toggleClass('hidden');
     }
 
-    edit.click(function () {
+    edit.click(function(){
       form.attr('data-view-mode', 'update');
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
@@ -52,14 +53,17 @@ define(['jquery'], function ($) {
     });
 
     // TODO : define the action to be taken after submitting changes.
-    submitBtn.click(function () {
-      console.log('submit form and take me to ...');
-    });
+    //submitBtn.click(function () {
+    //  console.log('submit form and take me to ...');
+    //});
   }
+
+  console.log('loaded user_profile.js')
 
   return {
     formInit: function () {
       handleForm();
     }
   };
+
 });

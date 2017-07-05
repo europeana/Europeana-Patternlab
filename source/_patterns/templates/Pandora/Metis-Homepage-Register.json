@@ -15,6 +15,12 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "metisRegisterPage"
+    }
+  ],
   "jQuery": false,
   "version": {
     "is_alpha": false,
@@ -27,6 +33,7 @@
     "is_register": true
   },
   "register_form": {
+    "form_action": "javascript:alert('submit form')",
     "form_title": "Register to Metis",
     "full_name_field": {
       "label": "Name *",

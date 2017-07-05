@@ -1,5 +1,5 @@
 define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
-
+/*
   function setFieldValueStatus(id, status) {
     $('#' + id).removeClass('field_value_valid field_value_invalid field_value_suspicious');
     switch (status) {
@@ -17,7 +17,6 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
     }
     setMappingCardColor();
   }
-
   function bindTableCellClick() {
     $('.mapping-field .flag').on('click', function (e) {
       var $cell = $(e.target).closest('.mapping-field'),
@@ -34,7 +33,9 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
       setFieldValueStatus(cellId, val);
     });
   }
+ */
 
+    /*
   function setMappingCardColor() {
     // count number of suspicious or invalid and change mapping card color code
     var numItems = $('.field_value_suspicious, .field_value_invalid').length;
@@ -51,7 +52,6 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
       $('.card-editing').removeClass('invalidOptionsBar');
     }
   }
-
   function expandCollapseMappingCard() {
     $('.widget-expanded').hide();
     $('.values-expand').click(function () {
@@ -81,7 +81,7 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
       }
     });
   }
-
+*/
   function applyXmlBeautify() {
     require(['jush'], function () {
       jush.style('../../js/modules/lib/jush/jush.css');
@@ -97,6 +97,7 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
     });
   }
 
+  /*
   function validateProfileForm() {
     $('.user-profile-password').hide();
     $('.error_nonequal').hide();
@@ -132,61 +133,11 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
       }
     });
   }
-
+*/
   function pageInit() {
+      /*
     $(window).on('scroll', function () {
       console.log('close open menus here...');
-    });
-
-    require(['smartmenus'], function () {
-      require(['smartmenus_keyboard'], function () {
-        $('.nav_primary>ul').smartmenus({
-          mainMenuSubOffsetX: -1,
-          mainMenuSubOffsetY: 4,
-          subMenusSubOffsetX: 6,
-          subMenusSubOffsetY: -6,
-          subMenusMaxWidth: null,
-          subMenusMinWidth: null
-        });
-
-        $('#settings-menu').smartmenus({
-          mainMenuSubOffsetX: -62,
-          mainMenuSubOffsetY: 4,
-          subMenusSubOffsetX: 0,
-          subMenusSubOffsetY: -6,
-          subMenusMaxWidth: null,
-          subMenusMinWidth: null
-        });
-
-        $('#metis_search_menu').smartmenus({
-          mainMenuSubOffsetX: -7, // margin-left
-          mainMenuSubOffsetY: 17, // margin-top
-          subMenusSubOffsetX: 0,  // left
-          subMenusSubOffsetY: null,
-          subMenusMaxWidth: 240,
-          subMenusMinWidth: 190
-        });
-
-        $('#loggedin-user').smartmenus({
-          mainMenuSubOffsetX: -25, // margin-left
-          mainMenuSubOffsetY: 44, // margin-top
-          subMenusSubOffsetX: 0,  // left
-          subMenusSubOffsetY: null,
-          subMenusMaxWidth: 110,
-          subMenusMinWidth: 100
-        });
-
-        $('.js-hack-smartmenu a').click(function () {
-          var href = $(this).attr('href');
-          if (href != '#') {
-            window.location = $(this).attr('href');
-          }
-        });
-        $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-        $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-        $('#metis_search_menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-        $('#loggedin-user').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-      });
     });
 
     //'channels_metis'
@@ -202,17 +153,20 @@ define(['jquery', 'search_form', 'smartmenus', 'user_approval'], function ($) {
     initTableRowsAsLinks();
     validateProfileForm();
     setMappingCardColor();
+       */
+
     var pageName = pageName || '';
     if (pageName && pageName === 'itemCard') {
       applyXmlBeautify();
     }
   }
-
+/*
   function initTableRowsAsLinks() {
     $('.clickable-row').click(function () {
       window.location = $(this).data('href');
     });
   }
+  */
 
   return {
     pageInit: function () {

@@ -25,6 +25,10 @@
     {
       "name": "mock_ajax",
       "value": "{ 'delays' : {'metis-pandora':'3000', 'metis-dataset-info-create':'1000', 'metis-preview':'8000', 'metis-data-quality': 2000}}"
+    },
+    {
+      "name": "pageName",
+      "value": "metisDatasetPage"
     }
   ],
   "jQuery": false,
