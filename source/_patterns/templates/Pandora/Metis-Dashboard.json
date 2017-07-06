@@ -17,6 +17,12 @@
       "data_main": "../../js/modules/main/templates/main-pandora"
     }
   ],
+  "js_vars": [
+    {
+      "name":  "pageName",
+      "value": "metisDashboardPage"
+    }
+  ],
   "jQuery": false,
   "input_search": {
     "title": "Search for dataset",
@@ -36,8 +42,8 @@
     "btn_left_text": "New Dataset",
     "btn_right_text": "New Organization",
     "btn_right_under_text": "Go to ZOHO",
-    "url_left": "http://www.cnn.com",
-    "url_right": "http://www.europeana.eu"
+    "url_left":  "javascript:alert('New Data Set')",
+    "url_right": "javascript:alert('New Organisation')"
   },
   "browse_menu": {
     "menu_id": "metis_search_menu",

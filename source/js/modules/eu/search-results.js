@@ -5,7 +5,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   var $url            = $.url();
   var euSearchForm    = null;
   var masonry         = null;
-  var ellipsisObjects = [];
   var btnGrid         = $('.icon-view-grid').closest('a');
   var btnList         = $('.icon-view-list').closest('a');
 
@@ -167,10 +166,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       saveView('grid');
     }
 
-    for(var i=0; i<ellipsisObjects.length; i++){
-      ellipsisObjects[i].enable();
-    }
-
     updateViewParamInLinks('grid');
     handleIE();
 
@@ -216,10 +211,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       saveView('list');
     }
     updateViewParamInLinks('list');
-
-    for(var i=0; i<ellipsisObjects.length; i++){
-      ellipsisObjects[i].disable();
-    }
   };
 
   var bindResultSizeLinks = function(){

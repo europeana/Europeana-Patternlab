@@ -1,6 +1,6 @@
 {{#user_profile}}
   <div class="user-profile-form">
-    <form action="{{user_profile_url}}" data-role="{{user_role.value}}" data-view-mode="{{view_mode.value}}">
+    <form action="{{user_profile_url}}" data-role="{{user_role.value}}" data-view-mode="{{#view_mode.value}}{{.}}{{/view_mode.value}}{{^view_mode.value}}preview{{/view_mode.value}}">
     <div class="flex-outer">
       {{#user_fields}}
 
@@ -14,42 +14,74 @@
         {{#user_first_name}}
           <div>
             <label for="userFirstName">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov" placeholder="{{placeholder}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userFirstName" id="userFirstName">
+            <input class="js-editable"
+                   data-orig-value="{{value}}"
+                   id="userFirstName"
+                   name="userFirstName"
+                   placeholder="{{placeholder}}"
+                   type="text"
+                   value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/user_first_name}}
 
         {{#user_last_name}}
           <div>
             <label for="userLastName">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov" placeholder="{{placeholder}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userLastName" id="userLastName">
+            <input class="js-editable"
+                   data-orig-value="{{value}}"
+                   id="userLastName"
+                   name="userLastName"
+                   placeholder="{{placeholder}}"
+                   type="text"
+                   value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                   >
           </div>
         {{/user_last_name}}
 
         {{#user_email}}
           <div>
             <label for="userEmail">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov" placeholder="{{placeholder}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userEmail" id="userEmail">
+            <input class="js-editable"
+                   data-orig-value="{{value}}"
+                   id="userEmail"
+                   name="userEmail"
+                   placeholder="{{placeholder}}"
+                   type="text"
+                   value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/user_email}}
 
         {{#user_skype}}
           <div>
             <label for="userSkype">{{label}}</label>
-            <input type="text" value="{{value}}" class="eu prov" placeholder="{{placeholder}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}} name="userSkype" id="userSkype">
+            <input class="js-editable"
+                   data-orig-value="{{value}}"
+                   id="userSkype"
+                   name="userSkype"
+                   placeholder="{{placeholder}}"
+                   type="text"
+                   value="{{value}}"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           </div>
         {{/user_skype}}
 
         {{#countries}}
           <div>
             <label for="country">{{label}}</label>
-            <select name="country" class="eu prov" {{#view_mode.preview}}disabled{{/view_mode.preview}}>
+            <select autocomplete="off"
+                    class="js-editable"
+                    name="country"
+                    {{#items}}
+                      {{#selected}}data-orig-value="{{name}}"{{/selected}}
+                    {{/items}}
+                    {{#view_mode.preview}}disabled{{/view_mode.preview}}
+                    >
               <option value="" {{^selectedCountry}}selected{{/selectedCountry}}>{{start_value}}</option>
               {{#items}}
-                <option value="{{name}}"  {{#selected}}selected{{/selected}}>{{name}}</option>
+                <option value="{{name}}"{{#selected}}selected="selected"{{/selected}}>{{name}}</option>
               {{/items}}
             </select>
           </div>
@@ -57,11 +89,13 @@
 
         <div class="org_selection">
           <label for="organizations">Organizations: </label>
-          <input id="searchOrganization" autofocus type="text" class="svg-icon-search eu"
-                 {{#view_mode.preview}}readonly{{/view_mode.preview}}
-
+          <input autofocus
+                 class="svg-icon-search eu"
+                 id="searchOrganization"
                  name="organization"
-                 placeholder="Search Organizations ...">
+                 placeholder="Search Organizations ..."
+                 type="text"
+                 {{#view_mode.preview}}readonly{{/view_mode.preview}}>
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
@@ -113,7 +147,7 @@
         {{#notes}}
           <div>
             <label for="notes">{{label}}</label>
-            <textarea rows="4" cols="50" name="notes" class="eu prov"
+            <textarea rows="4" cols="50" name="notes" class="js-editable"
                       {{#view_mode.preview}}readonly{{/view_mode.preview}} placeholder="{{placeholder}}">
               {{value}}
             </textarea>
