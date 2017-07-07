@@ -1,0 +1,412 @@
+{
+  "bodyclass":        "channel_landing",
+  "page_title":       "Europeana Entities",
+  "collection_title": "Fashion",
+  "version": {
+    "is_alpha": true
+  },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
+
+  "navigation": {
+    "back_label": false,
+    "last_label" : "Europeana Fashion",
+    "next_prev": false,
+    "global": {
+      "options": {
+       }
+    }
+  },
+
+  "include_nav_searchbar": true,
+
+  "form_search": {
+    "action": "javascript:alert('submit form');"
+  },
+
+  "js_slsb_ld":{
+    "context": "http://schema.org",
+    "type": "WebSite",
+    "url": "http://www.europeana.eu/portal",
+    "potentialAction": {
+      "type": "SearchAction",
+      "target": "http://www.europeana.eu/portal/search?q={q}",
+      "query_input": "required name=q"
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/entity"
+    },
+    {
+      "name": "mock_ajax",
+      "value": true
+    }
+  ],
+  "input_search": {
+    "title": "Search Europeana",
+    "input_name": "q",
+    "placeholder": "Search Europeana"
+  },
+  "entity_thumbnail": {
+    "src": "/images/search/entity_main_thumb.jpg",
+    "alt": "thumbnail alt text here"
+  },
+  "entity_description": [
+    "Gabrielle Bonheur \"Coco\" Chanel (19 August 1883 – 10 January 1971) was a French fashion designer and businesswoman. She was the founder and namesake of the Chanel brand. Along with Paul Poiret, Chanel was credited in the post-World War I era with liberating women from the constraints of the \"corseted silhouette\" and popularizing a sporty, casual chic as the feminine standard of style. A prolific fashion creator, Chanel extended her influence beyond couture clothing, realising her design aesthetic in jewellery, handbags, and fragrance. Her signature scent, Chanel No. 5, has become an iconic product. She is the only fashion designer listed on TIME magazine's list of the 100 most influential people of the 20th century. Chanel designed her iconic interlocked-CC monograph, meaning Coco Chanel, using it since the 1920s.",
+    "Chanel was known for her lifelong determination, ambition, and energy which she applied to her professional and social life. She achieved both financial success as a businesswoman and catapulted to social prominence in French high society, thanks to the connections she made through her work. These included many artists and craftspeople to whom she became a patron.",
+    "Her social connections appeared to encourage a highly conservative personal outlook. Rumors arose about Chanel's activities in the course of the German occupation of France during World War II, and she was criticised for being too comfortable with the Germans but never thoroughly investigated. One of Chanel's liaisons was with a German diplomat, Baron (Freiherr) Hans Günther von Dincklage (de). After the war ended, Chanel was interrogated about her relationship with von Dincklage, but she was not charged as a collaborator. After several years in Switzerland after the war, she returned to Paris and revived her fashion house. In 2011, Hal Vaughan published a book on Chanel based on newly declassified documents of that era, revealing that she had collaborated with Germans in intelligence activities. One plan in late 1943 was for her to carry an SS separate peace overture to British Prime Minister Winston Churchill to end the war."
+  ],
+  "entity_title": "Gabrielle Bonheur 'Coco' Chanel - (Coco Chanel for short)",
+  "entity_anagraphical":[
+    {
+      "label": "Born",
+      "value": "19 August 1883, Saumur, France"
+    },
+    {
+      "label": "Died",
+      "value": "10 January 1971, Paris, France"
+    },
+    {
+      "label": "Occupation",
+      "value": "Fashion Designer"
+    }
+  ],
+  "entity_external_link": {
+    "text": [
+      "Gabrielle \"Coco\" Chanel, 1920",
+      "Hal Vaughan, Sleeping with the enemy: Coco Chanel's Secret War.  Random House (2011), p20"
+    ],
+    "href": "javscript:alert('go to the external page')"
+  },
+  "tab_items": [
+    {
+      "tab_title":     "Items by Coco Chanel",
+      "url":           "portal_entity?type=by"
+    },
+    {
+      "tab_title":     "Items about Coco Chanel",
+      "url":           "portal_entity?type=about"
+    }
+  ],
+  "content": {
+    "channel_info": {
+      "description": "<b>Europeana Fashion</b> brings together more than 30 public and private archives and museums form across Europe in order to give public access to high quality digital fashion content.",
+      "summary": "Records ranging from historical dresses to accessories, catwalk photographs, drawings, sketches, videos and fashion catalogues.",
+      "about" : {
+        "text" : "About Europeana Fashion",
+        "link_text" : "Europeana Fashion International Association",
+        "link_url"  : "javascript(alert('follow link'))"
+      },
+      "credits": {
+        "title": "About Europeana Fashion",
+        "items": [
+          {
+            "text": "Credit 1",
+            "url": "javascript:alert('follow credit link 1')"
+          },
+          {
+            "text": "Credit 2",
+            "url": "javascript:alert('follow credit link 2')"
+          }
+        ]
+      }
+    },
+    "subscribe_url": "javascript:alert('follow subscribe link...')",
+    "promoted": {
+      "title": "Promoted title",
+      "items": [
+        {
+          "featured":           true,
+          "hide_branding_text": true,
+          "title":              "Tidskrift för den eleganta werlden 1851",
+          "url":                "javascript:alert('Link to featured promotion');",
+          "category_label":     "App",
+          "bg_image":           "../../images/sample/channel_hero_fashion.jpg"
+        },
+        {
+          "title": "Royal Book Collections",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/royal-book-collections-en",
+          "category_label": "Blogs",
+          "bg_image": "../../images/sample/thumb-book.jpg"
+        },
+        {
+          "title": "From Dada to Surrealism",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+          "category_label": "Blog",
+          "bg_image": "../../images/sample/thumb-dada.jpg"
+        },
+        {
+          "title": "Art Nouveau",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/art-nouveau-en%C2%A0",
+          "category_label": "Exhibitions",
+          "bg_image": "../../images/sample/thumb-artnouveau.jpg"
+        },
+        {
+          "title": "Explore the World of Musical Instruments",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/musical-instruments-en",
+          "category_label": "Exhibition",
+          "bg_image": "../../images/sample/thumb-instruments.jpg"
+        },
+        {
+          "title": "Pablo Picasso",
+          "url": "http://dizbi.hazu.hr/picasso/",
+          "category_label": "Partner",
+          "bg_image": "../../images/sample/thumb-picasso.jpg"
+        },
+        {
+          "title": "From Dada to Surrealism",
+          "url": "http://exhibitions.europeana.eu/exhibits/show/dada-to-surrealism-en",
+          "category_label": "Partners",
+          "bg_image": "../../images/sample/thumb-dada.jpg"
+        }
+      ]
+    },
+    "social": {
+      "social_title": "Follow Europeana Fashion",
+      "style_blue": "true",
+      "facebook": {
+        "url": "https://www.facebook.com/EuropeanaFashion",
+        "text": "Facebook"
+      },
+      "twitter": {
+        "url": "https://twitter.com/eu_sounds",
+        "text": "Twitter"
+      },
+      "pinterest": {
+        "url": "https://uk.pinterest.com/europeana/",
+        "text": "Pinterest"
+      },
+      "googleplus": {
+        "url": "https://plus.google.com/+europeana/posts",
+        "text": "Google Plus"
+      },
+      "instagram": {
+        "url": "http://www.instagram.com/europeanafashionofficial/",
+        "text": "Instagram"
+      },
+      "tumblr": {
+        "url": "http://www.europeanafashion.tumblr.com",
+        "text": "Tumblr"
+      },
+      "linkedin": {
+        "url": "http://www.linkedin.com",
+        "text": "LinkedIn"
+      }
+    },
+    "clicktip": {
+      "activator": ".show-feeds",
+      "direction": "top",
+      "has_tooltip_links": true,
+      "tooltip_links": [
+        {
+          "text": "tumblr",
+          "url": "javascript:alert('Open feed');"
+        },
+        {
+          "text": "news",
+          "url": "javascript:alert('Open feed');"
+        }
+      ]
+    },
+    "carousel": {
+      "more_items_load"  : "url-for-extra-entities",
+      "more_items_total" : 7,
+      "more_items_total_formatted" : 7,
+      "items": [
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+             "alt": "The Lace Maker",
+             "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a terrible Tumblr title that's totally taking too much height and is technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "14/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
+          }
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Title II",
+          "type": "events",
+          "date": "15/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed also has text and a date"
+          }
+        },
+        {
+          "url": "?q=Delft",
+          "img": {
+            "alt": "Delft",
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "tumblr",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text but no date"
+          }
+        },
+        {
+          "url": "?q=Girl+with+the+pearl+earring",
+          "img": {
+            "alt": "Girl with the pearl earring",
+            "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "17/12/2016"
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        }
+      ]
+    },
+    "entry_points": [
+      {
+        "title": "Designer",
+        "items": [
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Alexander McQueen",
+            "image_url": "../../images/sample/entry_fashion_7.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Agath Ruiz de la Prada",
+            "image_url": "../../images/sample/entry_fashion_8.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Vivienne Westwood",
+            "image_url": "../../images/sample/entry_fashion_9.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Christian Dior",
+            "image_url": "../../images/sample/entry_fashion_10.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Armani",
+            "image_url": "../../images/sample/entry_fashion_11.png"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Burberry",
+            "image_url": "../../images/sample/entry_fashion_12.png"
+          }
+        ]
+      },
+      {
+        "title": "Item Type",
+        "items": [
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Shoes",
+            "image_url": false
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Couture Collections"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Hats"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Jewellery"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Sketches"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "label": "Illlustrations"
+          }
+        ]
+      },
+      {
+        "title": "Technique",
+        "items": [
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_13.png",
+            "label": "Patterns"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_14.png",
+            "label": "Winter"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_15.png",
+            "label": "Zoolander"
+          },
+          {
+            "url": "javascript:alert('follow link');",
+            "image_url": "../../images/sample/entry_fashion_16.png",
+            "label": "Ga-ga-Gangnam"
+          }
+        ]
+      }
+    ],
+    "banner": {
+      "title": "This is an Alpha release of our new collections search and Music Channel",
+      "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+      "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
+      "cta_text": "Help us improve the site"
+    },
+    "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."
+  }
+}

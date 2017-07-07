@@ -233,6 +233,13 @@ define(['jquery', 'smartmenus'], function ($) {
         });
       }
       break;
+    case 'portal/entity':
+      require(['search_entity'], function(page){
+        page.initPage();
+        promisedPageJS.resolve(page);
+        doForAllPages();
+      });
+      break;
     case 'portal/show':
       require(['search_object'], function(page){
         page.initPage();

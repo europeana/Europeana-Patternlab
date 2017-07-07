@@ -40,6 +40,7 @@ define(['jquery', 'purl'], function($){
       'metis-pandora':             '../../eu/dev_data/metis/pandora.json',
       'metis-preview':             '../../eu/dev_data/metis/preview.json',
       'metis-processing':          '../../eu/dev_data/metis/processing.json',
+      'portal_entity':             '../../eu/dev_data/portal/entity.json',
       'portal_federated':          '../../eu/dev_data/portal/federated.json',
       'portal_hierarchy':          '../../eu/dev_data/portal/hierarchy.json',
       'portal_similar_items':      '../../eu/dev_data/portal/mlt.json'

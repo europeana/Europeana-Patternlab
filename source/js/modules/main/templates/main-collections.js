@@ -5,8 +5,8 @@ if(typeof googleAnalyticsKey == 'undefined'){
 }
 
 window.__ga__ = {
-    q: [['create', googleAnalyticsKey, 'auto']],
-    l: Date.now()
+  q: [['create', googleAnalyticsKey, 'auto']],
+  l: Date.now()
 };
 
 require.config({
@@ -106,6 +106,7 @@ require.config({
     settings:                      '../../eu/settings',
 
     search_landing:                '../../eu/channel-landing',
+    search_entity:                 '../../eu/search-entity',
     search_form:                   '../../eu/search-form',
     search_blog:                   '../../eu/search-blog',
     search_events:                 '../../eu/search-events',
@@ -140,7 +141,7 @@ require.config({
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
-      exports: "__ga__"
+      exports: '__ga__'
     }
   }
 });
@@ -152,10 +153,10 @@ window.fixGA = function(ga){
     console.log('make fake ga');
     return function(){
       console.log('ga disabled on this machine');
-    }
+    };
   }
   return ga;
-}
+};
 
 require(['jquery'], function( $ ) {
   // require(['optimizely']);
@@ -165,7 +166,7 @@ require(['jquery'], function( $ ) {
   }
 
   $.holdReady( true );
-  require(['blacklight'], function( blacklight ) {
+  require(['blacklight'], function() {
     require(['channels', 'global'], function(channels) {
       $.holdReady(false);
       $('html').addClass('styled');
@@ -183,9 +184,9 @@ require(['jquery'], function( $ ) {
           }
 
           if(typeof googleOptimizeContainerID != 'undefined' && googleOptimizeContainerID){
-            (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
-            h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
-            (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+            (function(a,s,y,n,c,h,i){s.className+=' '+y;h.start=1*new Date;
+              h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'');};
+              (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null;},c);h.timeout=c;
             })(window,document.documentElement, 'async-hide', 'dataLayer', 4000, {googleOptimizeContainerID:true});
             ga('require', googleOptimizeContainerID);
           }
@@ -221,7 +222,7 @@ require(['jquery'], function( $ ) {
                   var url = $('meta[property="og:url"]').attr('content');
                   if($('.tmp-pinterest').size()==0){
                     PinUtils.pinOne({
-                      media: data.media ? data.media : "http://styleguide.europeana.eu/images/europeana-logo-collections.svg",
+                      media: data.media ? data.media : 'http://styleguide.europeana.eu/images/europeana-logo-collections.svg',
                       description: data.desc ? data.desc : 'Europeana Record',
                       url: url
                     });
