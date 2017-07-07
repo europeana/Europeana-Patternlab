@@ -1,6 +1,6 @@
 {{#user_profile}}
   <div class="user-profile-form">
-    <form action="{{user_profile_url}}" data-role="{{user_role.value}}" data-view-mode="{{#view_mode.value}}{{.}}{{/view_mode.value}}{{^view_mode.value}}preview{{/view_mode.value}}">
+    <form action="{{user_profile_url}}" method="POST" data-role="{{user_role.value}}" data-view-mode="{{#view_mode.value}}{{.}}{{/view_mode.value}}{{^view_mode.value}}preview{{/view_mode.value}}">
     <div class="flex-outer">
       {{#user_fields}}
 

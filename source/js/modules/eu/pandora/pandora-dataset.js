@@ -35,41 +35,42 @@ define(['jquery'], function ($) {
           'active': 0,
           'fnOpenTab': function(index, $tabContent){
 
-          var header = $('.metis-accordion-wrapper .tab-header:eq(' + index + ')');
+            var header = $('.metis-accordion-wrapper .tab-header:eq(' + index + ')');
 
-          if(!header.hasClass('js-loaded')){
+            if(!header.hasClass('js-loaded')){
 
-            var url    = header.data('content-url');
-            var template;
+              var url    = header.data('content-url');
+              var template;
 
-            if(index == 0){
-              template = $('#js-template-tab-create noscript');
-            }
-            else if(index == 1){
-              template = $('#js-template-tab-pandora noscript');
-            }
-            else if(index == 2){
-              template = $('#js-template-tab-processing noscript');
-            }
-            else if(index == 3){
-              template = $('#js-template-tab-preview noscript');
-            }
-            else if(index == 4){
-              template = $('#js-template-tab-data-quality noscript');
-            }
+              if(index == 0){
+                template = $('#js-template-tab-create noscript');
+              }
+              else if(index == 1){
+                template = $('#js-template-tab-pandora noscript');
+              }
+              else if(index == 2){
+                template = $('#js-template-tab-processing noscript');
+              }
+              else if(index == 3){
+                template = $('#js-template-tab-preview noscript');
+              }
+              else if(index == 4){
+                template = $('#js-template-tab-data-quality noscript');
+              }
 
-            if(template.length > 0){
-              header.addClass('loading');
-              $.getJSON(url, null).done(function(data){
-                $tabContent.append(Mustache.render(template.text(), data));
-                header.removeClass('loading').addClass('js-loaded');
-                setHeaderInfo(header, data);
-                fixTabContentHeight($);
-              });
+              if(template.length > 0){
+                header.addClass('loading');
+                $.getJSON(url, null).done(function(data){
+                  $tabContent.append(Mustache.render(template.text(), data));
+                  header.removeClass('loading').addClass('js-loaded');
+                  setHeaderInfo(header, data);
+                  fixTabContentHeight($);
+                });
+              }
             }
           }
         }
-      });
+      );
     });
 
     require(['util_resize'], function(){
