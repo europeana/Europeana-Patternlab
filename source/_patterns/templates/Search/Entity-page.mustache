@@ -6,22 +6,6 @@
 
   <div class="lc relative">
 
-    <div class="anagraphical desktop">
-      {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
-
-      {{#entity_anagraphical}}
-        <div class="anagraphical-datum">
-          {{#label}}
-            <h3>
-              {{.}}
-            </h3>
-          {{/label}}
-          {{value}}
-        </div>
-      {{/entity_anagraphical}}
-
-    </div>
-
     <div class="summary-column">
       <div class="cf">
         {{#entity_title}}<h1 class="entity-title narrow">{{.}}</h1>{{/entity_title}}
@@ -49,54 +33,49 @@
         </div>
       </div>
       {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
+      
+      {{#content}}
+        {{# social_share }}
+          <div class="object-social">
+            <h4>{{{ i18n.global.actions.share }}}</h4>
+            {{> molecules/controls/share-social }}
+          </div>
+        {{/ social_share }}
+      {{/content}}
+      
     </div>
 
     <div class="entity-main">
 
+      <div class="anagraphical desktop">
+        {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
+        {{#entity_anagraphical}}
+          <div class="anagraphical-datum">
+            {{#label}}
+              <h3>
+                {{.}}
+              </h3>
+            {{/label}}
+            {{value}}
+          </div>
+        {{/entity_anagraphical}}
+      </div>
+
       <div id="js-template-entity-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
       <div class="eu-accordion-tabs cf">
         {{#tab_items}}
-          {{> organisms/components/eu-accordion-tab-fed-search}}
+          {{> organisms/components/eu-accordion-tabs-entity}}
         {{/tab_items}}
       </div>
 
-      {{#content.andy}}
-        {{#preview_search_data_present}}
-          <a class="scroll-trigger"
-             data-enabled="true"
-             data-fire-on-open="loadPreview"
-             data-disable-when-fired="loadPreview"
-             id="scroll-trigger-preview">
-          </a>
-          <h2 class="section-header js-sneak-peek-header">{{{preview_search_title}}} </h2>
-        {{/preview_search_data_present}}
-
-        {{#preview_items}}
-          <ol class="result-items display-grid cf not-loaded">
-            <li class="grid-sizer"></li>
-            {{#items }}
-              <li>
-                {{> molecules/components/search/search-listitem }}
-              </li>
-            {{/items }}
-          </ol>
-          <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… ({{more_items_total_formatted}})</a></div>
-        {{/preview_items }}
-
-      {{/content.andy}}
       <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
     </div>
 
   </div>
 
-  {{#content}}
-    <div class="lc cf">
-      {{>organisms/sections/social-share}}
-    </div>
-  {{/content}}
 </section>
 
-<section class="lc relative">
+<section class="lc relative entity-related-outer">
   <h2 class="section-header related-header">{{i18n.site.entity.labels.similar}}</h2>
 
   {{#content.carousel}}
