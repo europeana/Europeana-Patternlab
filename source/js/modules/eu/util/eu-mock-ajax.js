@@ -1,6 +1,7 @@
 define(['jquery', 'purl'], function($) {
 
-  var timeout = 500;
+  var timeout  = 500;
+  var origPath = '';
 
   var resolvePathAndParams = function(url){
 
@@ -9,20 +10,7 @@ define(['jquery', 'purl'], function($) {
     var params = $url.param();
 
     if(path.indexOf('hierarchy/') > -1){
-
-      var key = path.split(/[\S]*\/templates[^\/]*\//);
-      key = key[key.length-1].replace('hierarchy/', '');
-
-      if(key.indexOf('/')>-1){
-        params['id']     = key.split('/')[0].replace('record', '');
-        params['action'] = key.split('/')[1];
-      }
-      else{
-        params['action'] = key;
-      }
-      if(!params['id']){
-        params['id'] = '1';
-      }
+      origPath = path;
       path = 'portal_hierarchy';
     }
 
@@ -44,12 +32,17 @@ define(['jquery', 'purl'], function($) {
       done: function done(callback){
         if(options.success){
 
-          var dir_file = options.dependency.path.split('_');
+          var dir_file = options.path.split('_');
           var path = '../../eu/dev_data/' + dir_file[0] + '/' + dir_file[1] + '.json';
 
           require([path], function(dataSource){
+
+            if(typeof dataSource.processParams != 'undefined'){
+              options.params = dataSource.processParams(origPath, options.params);
+            }
+
             setTimeout(function(){
-              callback(dataSource.getData(options.dependency.params));
+              callback(dataSource.getData(options.params));
             }, delay);
           });
         }
@@ -78,16 +71,18 @@ define(['jquery', 'purl'], function($) {
 
     var url           = arguments[0].url;
     var pathAndParams = resolvePathAndParams(url);
+    var path          = pathAndParams.path;
+    var params        = pathAndParams.params;
     var ma            = {omissions:[], delays:{}};
 
     if(parseInt(mock_ajax) + '' != mock_ajax){
       ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
     }
-    var path = pathAndParams.path;
 
     return mockAjax({
       delay: ma.delays[path],
-      dependency: pathAndParams,
+      path: path,
+      params: params,
       success: ma.omissions.indexOf(path) < 0
     });
   };
