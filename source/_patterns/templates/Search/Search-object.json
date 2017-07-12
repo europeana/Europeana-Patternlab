@@ -418,7 +418,7 @@
     {
       "title": "Similar items",
       "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "portal_similar_items",
+      "more_items_load"  : "portal_object-similar",
 
       "XXX_more_items_total" : 12,
       "XXX_more_items_total_formatted" : 12,

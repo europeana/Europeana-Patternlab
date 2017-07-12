@@ -166,6 +166,24 @@ define([], function(){
       var data = dataGen.search(params.id, params.action, params.limit ? parseInt(params.limit) : 10)
       data.success = true;
       return data;
+    },
+    processParams: function(path, params){
+      params = params ? params : {};
+
+      var key = path.split(/[\S]*\/templates[^\/]*\//);
+      key = key[key.length-1].replace('hierarchy/', '');
+
+      if(key.indexOf('/')>-1){
+        params['id']     = key.split('/')[0].replace('record', '');
+        params['action'] = key.split('/')[1];
+      }
+      else{
+        params['action'] = key;
+      }
+      if(!params['id']){
+        params['id'] = '1';
+      }
+      return params;
     }
   };
 });

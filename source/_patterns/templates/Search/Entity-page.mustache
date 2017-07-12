@@ -1,0 +1,124 @@
+{{> atoms/iconography/svgicons-search }}
+
+{{> organisms/global/header_v2}}
+
+<section class="after-header-with-search">
+
+  <div class="lc relative">
+
+    <div class="summary-column">
+      <div class="cf">
+        {{#entity_title}}<h1 class="entity-title narrow">{{.}}</h1>{{/entity_title}}
+        <div class="anagraphical narrow">
+          {{#entity_anagraphical}}
+            <div class="anagraphical-datum">
+              {{#label}}
+                <h3>
+                  {{.}}
+                </h3>
+              {{/label}}
+              {{value}}
+            </div>
+          {{/entity_anagraphical}}
+        </div>
+        <div class="entity-main-thumb-titled">
+          {{#entity_thumbnail}}
+            <div class="height-to-width entity-main-thumb" {{#src}}style="background-image:url('{{.}}')"{{/src}}"></div>
+          {{/entity_thumbnail}}
+          {{#entity_external_link}}
+            {{#href}}<a href="{{.}}">{{/href}}
+              {{#text}}<span class="entity-external-link">{{.}}</span>{{/text}}
+            {{#href}}</a>{{/href}}
+          {{/entity_external_link}}
+        </div>
+      </div>
+      {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
+
+      {{#content}}
+        {{# social_share }}
+          <div class="object-social">
+            <h4>{{{ i18n.global.actions.share }}}</h4>
+            {{> molecules/controls/share-social }}
+          </div>
+        {{/ social_share }}
+      {{/content}}
+
+    </div>
+
+    <div class="entity-main">
+
+      <div class="anagraphical desktop">
+        {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
+        {{#entity_anagraphical}}
+          <div class="anagraphical-datum">
+            {{#label}}
+              <h3>
+                {{.}}
+              </h3>
+            {{/label}}
+            {{value}}
+          </div>
+        {{/entity_anagraphical}}
+      </div>
+
+      <div id="js-template-entity-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
+      <div class="eu-accordion-tabs cf">
+        {{#tab_items}}
+          {{> organisms/components/eu-accordion-tabs-entity}}
+        {{/tab_items}}
+      </div>
+
+      <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="lc">
+  <div class="entity-related-outer js-hidden">
+    <h2 class="section-header related-header">{{i18n.site.entity.labels.related}}</h2>
+
+    {{#content.carousel}}
+      <div class="cf lc entity-related-container mlt">
+        <a id="scroll-trigger-carousel"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="showCarousel"
+           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "entity", "perPage":5, "arrowClass": "linkblue", "minSpacingPx": 130}'
+        ></a>
+
+        <div class="entity-related js-carousel">
+          <ul class="cf">
+            {{#items}}
+              <li class="js-carousel-item">
+                <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                  <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                </div>
+                {{#title}}
+                  <span class="js-carousel-title">
+                {{/title}}
+                  {{#url}}<a href="{{.}}">{{/url}}
+                    {{title}}
+                  {{#url}}</a>{{/url}}
+                {{#title}}
+                  </span>
+                {{/title}}
+              </li>
+            {{/items}}
+          </ul>
+        </div>
+
+        <a class="scroll-trigger trigger-chain"
+           data-enabled="true"
+           data-disable-when-fired="showCarousel"
+           data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
+      </div>
+    {{/content.carousel}}
+  </div>
+</section>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}
+

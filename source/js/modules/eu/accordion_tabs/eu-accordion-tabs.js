@@ -22,6 +22,18 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
   }
 
+  function fixTabContentHeight($cmp){
+    $cmp.removeAttr('style');
+    if(!$cmp.hasClass('as-tabs')){
+      return;
+    }
+    var pad = 40;
+    var h1  = $cmp.height();
+    var h2  = $cmp.find('.tab-content.active').height();
+    $cmp.attr('style', 'height:' + (h1 + h2 + pad) + 'px');
+    log('set height to ' + (h1 + h2));
+  }
+
   function loadTabs($cmp, preProcess, callback){
 
     var totalCompleted = 0;
@@ -127,6 +139,7 @@ define(['jquery', 'util_resize'], function($){
     },
     activate: activate,
     deactivate: deactivate,
+    fixTabContentHeight: fixTabContentHeight,
     loadTabs: loadTabs
   };
 });

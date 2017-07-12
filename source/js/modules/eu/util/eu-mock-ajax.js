@@ -1,65 +1,90 @@
-define(['jquery'], function($) {
+define(['jquery', 'purl'], function($) {
 
-  var timeout = 500;
+  var timeout  = 500;
+  var origPath = '';
 
-  require(['../../eu/dev_data/require-config'], function(data_configs){
+  var resolvePathAndParams = function(url){
 
-    require.config(data_configs);
+    var path   = url.split('?')[0];
+    var $url   = $.url(url);
+    var params = $url.param();
 
-    var mockAjax = function(options) {
+    if(path.indexOf('hierarchy/') > -1){
+      origPath = path;
+      path = 'portal_hierarchy';
+    }
 
-      var delay = options.delay ? options.delay : timeout;
-      if(delay == 'random'){
-        delay = Math.random() * 10 * 1000 + 3000;
-      }
+    console.log('path = ' + path + ', url = ' + url);
+    return {
+      'path': path,
+      'params': params
+    };
+  };
 
-      var that = {
-        done: function done(callback){
-          if(options.success){
-            require([options.dependency.path], function(dataSource){
-              setTimeout(function(){
-                callback(dataSource.getData(options.dependency.params));
-              }, delay);
-            });
-          }
-          return that;
-        },
-        error: function error(callback){
-          if(!options.success){
-            setTimeout(callback, delay, options.error);
-          }
-          return that;
-        },
-        fail: function fail(callback){
-          if(!options.success){
-            setTimeout(callback, delay, options.fail);
-          }
-          return that;
-        },
-        always: function(callback){
-          setTimeout(callback, delay, options.always);
+  var mockAjax = function(options) {
+
+    var delay = options.delay ? options.delay : timeout;
+    if(delay == 'random'){
+      delay = Math.random() * 10 * 1000 + 3000;
+    }
+
+    var that = {
+      done: function done(callback){
+        if(options.success){
+
+          var dir_file = options.path.split('_');
+          var path = '../../eu/dev_data/' + dir_file[0] + '/' + dir_file[1] + '.json';
+
+          require([path], function(dataSource){
+
+            if(typeof dataSource.processParams != 'undefined'){
+              options.params = dataSource.processParams(origPath, options.params);
+            }
+
+            setTimeout(function(){
+              callback(dataSource.getData(options.params));
+            }, delay);
+          });
         }
-      };
-      return that;
-    };
-
-    $.ajax = function(){
-
-      var url           = arguments[0].url;
-      var pathAndParams = data_configs.resolvePathAndParams(url);
-      var ma            = {omissions:[], delays:{}};
-
-      if(parseInt(mock_ajax) + '' != mock_ajax){
-        ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
+        return that;
+      },
+      error: function error(callback){
+        if(!options.success){
+          setTimeout(callback, delay, options.error);
+        }
+        return that;
+      },
+      fail: function fail(callback){
+        if(!options.success){
+          setTimeout(callback, delay, options.fail);
+        }
+        return that;
+      },
+      always: function(callback){
+        setTimeout(callback, delay, options.always);
       }
-      var path = pathAndParams.path;
-
-      return mockAjax({
-        delay: ma.delays[path],
-        dependency: pathAndParams,
-        success: ma.omissions.indexOf(path) < 0
-      });
     };
+    return that;
+  };
 
-  });
+  $.ajax = function(){
+
+    var url           = arguments[0].url;
+    var pathAndParams = resolvePathAndParams(url);
+    var path          = pathAndParams.path;
+    var params        = pathAndParams.params;
+    var ma            = {omissions:[], delays:{}};
+
+    if(parseInt(mock_ajax) + '' != mock_ajax){
+      ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
+    }
+
+    return mockAjax({
+      delay: ma.delays[path],
+      path: path,
+      params: params,
+      success: ma.omissions.indexOf(path) < 0
+    });
+  };
+
 });

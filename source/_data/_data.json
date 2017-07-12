@@ -679,6 +679,12 @@
                 "my-account": "My Account"
               }
             },
+            "entity":{
+              "labels": {
+                "similar": "Similar",
+                "related": "Related"
+              }
+            },
             "events":{
               "list": {
                 "count-and-terms-with-range": "1 - X of 321 events"
