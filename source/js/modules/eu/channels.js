@@ -233,7 +233,8 @@ define(['jquery', 'smartmenus'], function ($) {
         });
       }
       break;
-    case 'portal/entity':
+    //case 'portal/entity':
+    case 'entities/show':
       require(['search_entity'], function(page){
         page.initPage();
         promisedPageJS.resolve(page);

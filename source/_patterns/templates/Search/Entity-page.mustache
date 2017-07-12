@@ -5,11 +5,48 @@
 <section class="after-header-with-search">
 
   <div class="lc relative">
+    {{#content}}
+      <div class="summary-column">
+        <div class="cf">
+          {{#entity_title}}<h1 class="entity-title narrow">{{.}}</h1>{{/entity_title}}
+          <div class="anagraphical narrow">
+            {{#entity_anagraphical}}
+              <div class="anagraphical-datum">
+                {{#label}}
+                  <h3>
+                    {{.}}
+                  </h3>
+                {{/label}}
+                {{value}}
+              </div>
+            {{/entity_anagraphical}}
+          </div>
+          <div class="entity-main-thumb-titled">
+            {{#entity_thumbnail}}
+              <div class="height-to-width entity-main-thumb" {{#src}}style="background-image:url('{{.}}')"{{/src}}"></div>
+            {{/entity_thumbnail}}
+            {{#entity_external_link}}
+              {{#href}}<a href="{{.}}">{{/href}}
+                {{#text}}<span class="entity-external-link">{{.}}</span>{{/text}}
+              {{#href}}</a>{{/href}}
+            {{/entity_external_link}}
+          </div>
+        </div>
+        {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
 
-    <div class="summary-column">
-      <div class="cf">
-        {{#entity_title}}<h1 class="entity-title narrow">{{.}}</h1>{{/entity_title}}
-        <div class="anagraphical narrow">
+        {{# social_share }}
+          <div class="object-social">
+            <h4>{{{ i18n.global.actions.share }}}</h4>
+            {{> molecules/controls/share-social }}
+          </div>
+        {{/ social_share }}
+
+      </div>
+
+      <div class="entity-main">
+
+        <div class="anagraphical desktop">
+          {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
           {{#entity_anagraphical}}
             <div class="anagraphical-datum">
               {{#label}}
@@ -21,55 +58,17 @@
             </div>
           {{/entity_anagraphical}}
         </div>
-        <div class="entity-main-thumb-titled">
-          {{#entity_thumbnail}}
-            <div class="height-to-width entity-main-thumb" {{#src}}style="background-image:url('{{.}}')"{{/src}}"></div>
-          {{/entity_thumbnail}}
-          {{#entity_external_link}}
-            {{#href}}<a href="{{.}}">{{/href}}
-              {{#text}}<span class="entity-external-link">{{.}}</span>{{/text}}
-            {{#href}}</a>{{/href}}
-          {{/entity_external_link}}
+
+        <div id="js-template-entity-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
+        <div class="eu-accordion-tabs cf">
+          {{#tab_items}}
+            {{> organisms/components/eu-accordion-tabs-entity}}
+          {{/tab_items}}
         </div>
+
+        <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
       </div>
-      {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
-
-      {{#content}}
-        {{# social_share }}
-          <div class="object-social">
-            <h4>{{{ i18n.global.actions.share }}}</h4>
-            {{> molecules/controls/share-social }}
-          </div>
-        {{/ social_share }}
-      {{/content}}
-
-    </div>
-
-    <div class="entity-main">
-
-      <div class="anagraphical desktop">
-        {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
-        {{#entity_anagraphical}}
-          <div class="anagraphical-datum">
-            {{#label}}
-              <h3>
-                {{.}}
-              </h3>
-            {{/label}}
-            {{value}}
-          </div>
-        {{/entity_anagraphical}}
-      </div>
-
-      <div id="js-template-entity-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
-      <div class="eu-accordion-tabs cf">
-        {{#tab_items}}
-          {{> organisms/components/eu-accordion-tabs-entity}}
-        {{/tab_items}}
-      </div>
-
-      <div id="molecules-components-search-search-listitem-js"><noscript>{{> molecules/components/search/search-listitem-js }}</noscript></div>
-    </div>
+    {{/content}}
 
   </div>
 
