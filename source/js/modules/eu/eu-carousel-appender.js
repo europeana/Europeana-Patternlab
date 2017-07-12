@@ -99,7 +99,36 @@ define(['jquery'], function($){
       return {
         'markup': markup,
         'added':  data.documents
-      };
+      }
+    },
+
+    'entity': function(data){
+
+        var markup = '';
+
+        $.each(data.documents, function(i, item){
+          markup += ''
+            + '<li class="js-carousel-item">'
+            +   '<div class="mlt-img-div height-to-width" '
+            +     (item.img.src ? 'style="background-image: url(' + item.img.src + ')"' : '')
+            +   '>'
+            +     '<div class="inner">'
+            +       (item.url  ? '<a class="link" href="' + item.url  + '">&nbsp;</a>' : '')
+            +       (item.type ? '<span class="entity-type entity-type-' + item.type + '">' + item.type + '</span>' : '')
+            +     '</div>'
+            +   '</div>'
+            +   '<span class="js-carousel-title">'
+            +     (item.url ? '<a href="' + item.url + '">' : '')
+            +       (item.title ? item.title : '')
+            +     (item.url ? '</a>' : '')
+            +     (item.subtitle ? '<span class="subtitle">' + item.subtitle + '</span>' : '')
+            +   '</span>'
+            + '</li>';
+        });
+        return {
+          'markup': markup,
+          'added':  data.documents
+        };
     },
 
     'media_thumb': function(data){

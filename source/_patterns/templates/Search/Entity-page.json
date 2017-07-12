@@ -58,7 +58,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'portal_entity':'1000'}}"
+      "value": "{ 'delays' : {'portal_entity': '1000', 'portal_entity-similar':'2000'}}"
     }
   ],
   "input_search": {
@@ -119,10 +119,10 @@
       "tumblr": true
     },
     "carousel": {
-      "more_items_load"  : "url-for-extra-entities",
-      "more_items_total" : 7,
-      "more_items_total_formatted" : 7,
-      "items": [
+      "more_items_load"  : "portal_entity-similar",
+      "XXXmore_items_total" : 7,
+      "XXXmore_items_total_formatted" : 7,
+      "XXXXitems": [
         {
           "url":  "?q=The+Lace+Maker",
           "img": {

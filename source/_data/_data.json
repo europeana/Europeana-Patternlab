@@ -681,7 +681,8 @@
             },
             "entity":{
               "labels": {
-                "similar": "Similar"
+                "similar": "Similar",
+                "related": "Related"
               }
             },
             "events":{

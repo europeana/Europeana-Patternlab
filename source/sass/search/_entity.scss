@@ -2,20 +2,26 @@ $width-similar-entity-carousel: 225px;
 $entity-panel-colour:           #eee;
 
 .channel_entity{
-  background-color: $entity-panel-colour;  
+  background-color: $entity-panel-colour;
   .after-header-with-search {
-    overflow-x: hidden;
+    overflow: hidden;
   }
+}
+
+.entity-title{
+  color: $eu-blue;
 }
 
 .entity-main,
 .summary-column{
-  padding:    0;
+  padding:    1em;
   width:      100%;
 }
 
 .related-header{
-  margin: $space 0;
+  margin:    $space 0;
+  transform: translateX(-1.6em);
+
   &.section-header{
     text-transform: none;
   }
@@ -23,54 +29,75 @@ $entity-panel-colour:           #eee;
 
 .entity-main .eu-accordion-tabs{
   background-color: #fff;
-  
+
   .tab-header.loading .tab-title{
     transform: none;
   }
 }
 
 .entity-related-container.mlt{
-	
+
   .js-carousel-arrows{
+
     a{
       color:       #fff;
       font-weight: bold;
-      text-shadow: 0 0 1px #000;
+      opacity:     0;
+      top:         90px;
+      transition:  opacity .5s ease-in-out;
       width:       1em;
 
       &.left{
-        background-position: 10px 88px;
+        background-position: 0.15em 0.3em;
+        box-shadow:          -2px 3px 0.2em $gray-light;
       }
       &.right{
-        background-position: -5px 0.25em;
-        right:               -0.5em;
+        background-position: 0.215em 0.3em;
+        box-shadow:          2px 3px 0.2em  $gray-light;
       }
       &.disabled{
         color:  $gray-lighter;
         cursor: default;
       }
     }
-   
+
     &.h{
       .left,
       .right{
-        background-color: transparent;
-        background-color: $entity-panel-colour;
-        
-        box-shadow:       0 0 0.5em;
-        height:           1.8em;
-        width:            1.3em;
-        
+        background-color: #fff;
+        height:           1.5em;
+        width:            1.2em;
+      }
+
+      .right{
+        right: -1.6em;
+        @media all and (min-width: $bp-med) {
+          right: -0.5em;
+        }
+        @media all and (min-width: $bp-xxl) {
+          right: -1.6em;
+        }
       }
 
       .left{
+        left: -1.6em;
         @media all and (min-width: $bp-med) {
-          left: 0;
+          left: -0.7em;
+        }
+        @media all and (min-width: $bp-xxl) {
+          left: -1.6em;
         }
       }
     }
-   
   }
+
+
+  &.loaded{
+    .js-carousel-arrows a{
+      opacity: 1;
+    }
+  }
+
 }
 
 .anagraphical{
@@ -78,19 +105,23 @@ $entity-panel-colour:           #eee;
   &.narrow{
     float: left;
     width: 50%;
+
+    .anagraphical-datum{
+      padding: 0 0 1em 0;
+    }
   }
 
   &.desktop{
     background-color: #fff;
     display:          none;
     justify-content:  space-between;
-    margin-bottom:    1em;
+    margin-bottom:    1.5em;
     overflow-x:       visible;
-    padding-top:      1rem;
+    padding-top:      1.6rem;
     position:         relative;
-    
+
     &::after,
-    &::before{
+      &::before{
       background-color: #fff;
       content:          ' ';
       display:          inline-block;
@@ -100,23 +131,19 @@ $entity-panel-colour:           #eee;
       width:            100%;
       z-index:          -1;
     }
-   
+
     &::after{
-      left: 100%;      
+      left: 100%;
     }
-   
+
     &::before{
       right: 100%;
     }
-   
-    .entity-title{
-      color: $eu-blue;
-    }
- 
+
   }
 
   .anagraphical-datum{
-    padding: 0 0 1em $pad;
+    padding: 0 0 1em 0.75em;
     h3{
       text-transform: uppercase;
       white-space:    nowrap;
@@ -127,6 +154,11 @@ $entity-panel-colour:           #eee;
 .entity-main-thumb-titled{
   float: right;
   width: 50%;
+
+  a{
+    display: inline-block;
+    margin:  $pad 0;
+  }
 }
 
 .entity-main-thumb{
@@ -144,45 +176,45 @@ $entity-panel-colour:           #eee;
 
 .entity-related-outer{
   background-color: #fff;
+  padding:          1em 4em;
+  margin:           2em 0;
+
+  @media all and (min-width: $bp-med) {
+    padding: 1em 2.5em;
+  }
 }
 
 .entity-related{
-  margin-bottom:    3.2em;
+
+  margin-bottom:    $pad;
   position:         relative;
 
   .js-carousel-item{
+
     width: $width-similar-entity-carousel;
-  }
 
-  .js-carousel-date{
-    color:       $gray-light;
-    font-size:   $font-size-sm;
-    margin-left: 0.25em;
-  }
+    .entity-type{
+      background-color: $eu-blue;
+      border-radius:    0 0.8em 0.8em 0;
+      bottom:           0.75em;
+      color:            #fff;
+      font-size:        $font-size-slightly-smaller;
+      font-weight:      bold;
+      left:             0;
+      line-height:      $font-size-slightly-smaller;
+      padding:          0.4em 0.75em 0.4em 0.5em;
+      position:         absolute;
+      text-transform:   uppercase;
+    }
 
-  .js-carousel-type{
-    border-radius:  4px;
-    bottom:         $pad;
-    color:          #fff;
-    font-size:      $font-size-sm;
-    font-weight:    normal;
-    padding:        0.1em 0.6em;
-    position:       absolute;
-    right:          2em;
-    text-transform: uppercase;
-  }
+    .js-carousel-title{
+      height: 2.6em;
+    }
 
-  .js-carousel-type-blog,
-  .js-carousel-type-news{
-    background-color: $eu-red;
-  }
-
-  .js-carousel-type-events{
-    background-color: $eu-purple;
-  }
-
-  .js-carousel-type-tumblr{
-    background-color: $brand-tumblr;
+    .subtitle{
+      display:        block;
+      font-size:      $font-size-slightly-smaller;
+    }
   }
 
 }
@@ -194,8 +226,9 @@ $entity-panel-colour:           #eee;
     clear:         both;
     float:         left;
     overflow:      visible;
-    padding-right: $pad;
-    width:         75%;    
+    padding:       0 1.6rem $pad 1.6rem;
+
+    width:         75%;
   }
 
   .entity-main-thumb-titled{
@@ -203,26 +236,31 @@ $entity-panel-colour:           #eee;
     width: 100%;
   }
 
-  .entity-title.narrow{
-    display: none;
+  .entity-title{
+    font-size: $font-size-large;
+    &.narrow{
+      display: none;
+    }
   }
 
   .summary-column{
-  	display:    inline-block;
+    display:    inline-block;
     float:      none;
-    margin-top: 1em;
+    margin-top: 1.5em;
+    padding:    0 1.6rem 0 0;
     width:      25%;
   }
 
   .related-header{
-    margin: 0;
+    margin:        0;
     margin-bottom: $space;
+    transform:     none;
   }
 
   .anagraphical.desktop{
     display:       flex;
   }
- 
+
   .anagraphical.narrow{
     display: none;
   }
@@ -230,7 +268,22 @@ $entity-panel-colour:           #eee;
 }
 
 @media all and (min-width: $bp-large) {
+
   .entity-main{
-    padding-right: $space;
+    .entity-title{
+      font-size: $font-size-large;
+    }
+  }
+}
+
+
+@media all and (min-width: $bp-xxl) {
+
+  .entity-main{
+    padding:       0 1.6rem $pad 0;
+  }
+
+  .summary-column{
+    padding: 0;
   }
 }

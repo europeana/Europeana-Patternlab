@@ -33,7 +33,7 @@
         </div>
       </div>
       {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
-      
+
       {{#content}}
         {{# social_share }}
           <div class="object-social">
@@ -42,7 +42,7 @@
           </div>
         {{/ social_share }}
       {{/content}}
-      
+
     </div>
 
     <div class="entity-main">
@@ -75,41 +75,47 @@
 
 </section>
 
-<section class="lc relative entity-related-outer">
-  <h2 class="section-header related-header">{{i18n.site.entity.labels.similar}}</h2>
+<section class="lc">
+  <div class="entity-related-outer js-hidden">
+    <h2 class="section-header related-header">{{i18n.site.entity.labels.related}}</h2>
 
-  {{#content.carousel}}
-    <div class="cf lc entity-related-container mlt">
-      <a id="scroll-trigger-carousel"
-         class="scroll-trigger"
-         data-enabled="true"
-         data-fire-on-open="showCarousel"
-         data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "aggregated", "arrowClass": "white-grey", "minSpacingPx": 130}'
-      ></a>
+    {{#content.carousel}}
+      <div class="cf lc entity-related-container mlt">
+        <a id="scroll-trigger-carousel"
+           class="scroll-trigger"
+           data-enabled="true"
+           data-fire-on-open="showCarousel"
+           data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "entity", "perPage":5, "arrowClass": "linkblue", "minSpacingPx": 130}'
+        ></a>
 
-      <div class="js-carousel entity-related">
-        <ul class="cf">
-          {{#items}}
-            <li class="js-carousel-item">
-              <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-                <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
-              </div>
-              {{#title}}
-              <span class="js-carousel-title">
-                <a href="{{url}}">{{.}}</a>
-              </span>
-              {{/title}}
-            </li>
-          {{/items}}
-        </ul>
+        <div class="entity-related js-carousel">
+          <ul class="cf">
+            {{#items}}
+              <li class="js-carousel-item">
+                <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
+                  <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
+                </div>
+                {{#title}}
+                  <span class="js-carousel-title">
+                {{/title}}
+                  {{#url}}<a href="{{.}}">{{/url}}
+                    {{title}}
+                  {{#url}}</a>{{/url}}
+                {{#title}}
+                  </span>
+                {{/title}}
+              </li>
+            {{/items}}
+          </ul>
+        </div>
+
+        <a class="scroll-trigger trigger-chain"
+           data-enabled="true"
+           data-disable-when-fired="showCarousel"
+           data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
       </div>
-
-      <a class="scroll-trigger trigger-chain"
-         data-enabled="true"
-         data-disable-when-fired="showCarousel"
-         data-fire-on-open-params='{ "trigger": "scroll-trigger-carousel"}'></a>
-    </div>
-  {{/content.carousel}}
+    {{/content.carousel}}
+  </div>
 </section>
 
 {{> organisms/sections/banner }}

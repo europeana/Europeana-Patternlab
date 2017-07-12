@@ -8,10 +8,19 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     console.log('Entity: ' + msg);
   }
 
+  function showCarouselIfAvailable(ops){
+
+    log('TODO: pre-flight request to check if available...');
+
+    if(true){
+      $('.entity-related-outer').removeClass('js-hidden');
+      showCarousel(ops);
+    }
+  }
+
   function showCarousel(ops){
 
     var entitySimilar   = $('.entity-related');
-    var fnProcessImages = false;
     var portraitClass   = 'portrait-1';
 
     if(entitySimilar.length != 1){
@@ -20,21 +29,20 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     $('.entity-related').removeClass('not-loaded');
 
-    fnProcessImages = function(){
+    var fnProcessImages = function(){
       var fnProcessImage = function(img){
         var w = img.width();
         var h = img.height();
         img.closest('.js-carousel-item').addClass('js-img-processed ' + (w > h ? 'landscape' : portraitClass));
       };
       require(['jqImagesLoaded'], function(){
-        $('.entity-related .js-carousel-item:not(.js-img-processed) img').imagesLoaded(   function($images){
+        $('.entity-related .js-carousel-item:not(.js-img-processed) img').imagesLoaded(function($images){
           $images.each(function(i, img){
             fnProcessImage($(img));
           });
         });
       });
     };
-
     fnProcessImages();
 
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
@@ -42,31 +50,16 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         'cmp':             entitySimilar.find('ul'),
         'loadUrl':         ops.loadUrl,
         'template':        ops.template,
-        'total_available': ops.total_available
-      });
-      $.Deferred().resolve(Carousel.create(entitySimilar, appender, ops));
-    });
-  }
-
-  function addAutocomplete(data){
-    require(['eu_autocomplete', 'util_resize'], function(autocomplete){
-      autocomplete.init({
-        evtResize    : 'europeanaResize',
-        selInput     : '.search-input',
-        selWidthEl   : '.js-hitarea',
-        selAnchor    : '.search-multiterm',
-        searchForm   : euSearchForm,
-        translations : data.translations,
-        url          : data.url,
-        fnOnShow     : function(){
-          $('.attribution-content').hide();
-          $('.attribution-toggle').show();
-        },
-        fnOnHide : function(){
-          $('.attribution-content').show();
-          $('.attribution-toggle').hide();
+        'total_available': ops.total_available,
+        'doAfter':         function(){
+          $('.entity-related-container').addClass('loaded');
         }
       });
+      var carousel = Carousel.create(entitySimilar, appender, ops);
+
+      if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length == 0)){
+        carousel.loadMore();
+      }
     });
   }
 
@@ -104,7 +97,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               var url      = header.data('content-url');
               var template = $('#js-template-entity-tab-content noscript');
 
-              if(template.length > 0){
+              if(url && url.length > 0 && template.length > 0){
                 header.addClass('loading');
                 $.getJSON(url, null).done(function(data){
 
@@ -121,7 +114,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   );
                   header.removeClass('loading').addClass('js-loaded');
                   $tabContent.find('.result-items').on('layoutComplete', function(){
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                    setTimeout(function(){
+                      euAccordionTabs.fixTabContentHeight(cmpTabs);
+                    }, 100);
                   });
                   initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
                 });
@@ -141,15 +136,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       );
     });
 
-    $(window).bind('showCarousel', function(e, data){
-      showCarousel(data);
+    $(window).bind('showCarousel', function(e, ops){
+      showCarouselIfAvailable(ops);
     });
 
-    $(window).bind('addAutocomplete', function(e, data){
-      addAutocomplete(data);
-    });
-
-    require(['eu_clicktip']);
+    // require(['eu_clicktip']);
 
     bindShowInlineSearch();
     scrollEvents.fireAllVisible();
@@ -182,9 +173,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
         });
 
-        if(hasSuperTall){
+        //if(hasSuperTall){
           masonry.layout();
-        }
+        //}
       });
       masonries.push(masonry);
     });

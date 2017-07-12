@@ -3,6 +3,8 @@ define([], function(){
     {
       'url':   '?q=The+Lace+Maker',
       'title': 'The Lace Maker',
+      'subtitle': 'Also made clothes',
+      'type': 'person',
       'img': {
         'alt': 'The Lace Maker',
         'src': 'http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg'
@@ -10,7 +12,9 @@ define([], function(){
     },
     {
       'url':   '?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links',
-      'title': 'Zittende jongeman bij ton met het hoofd naar links',
+      'title': 'A young man sitting next to a barrel looking off to his left and having a rest',
+      'subtitle': 'He looks tired',
+      'type': 'person',
       'img': {
         'alt': 'Zittende jongeman bij ton met het hoofd naar links',
         'src': 'http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg'
@@ -19,6 +23,8 @@ define([], function(){
     {
       'url':   '?q=Delft',
       'title': 'Delft',
+      'subtitle': 'They have an IKEA',
+      'type': 'place',
       'img': {
         'alt': 'Delft',
         'src': 'http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg'
@@ -27,6 +33,8 @@ define([], function(){
     {
       'url':   '?q=Girl+with+the+pearl+earring',
       'title': 'Girl with the pearl earring',
+      'subtitle': 'She lost the other one last week',
+      'type': 'person',
       'img': {
         'alt': 'Girl with the pearl earring',
         'src': '/images/sample/object_full.jpg'
@@ -34,7 +42,8 @@ define([], function(){
     },
     {
       'url':  '/portal/en/record/2020718/DR_9995.html',
-      'title':'Rijksmonument: Test a terrible Tumblr title that\'s totally taking too much height and is technically too tall (when line wrapped)',
+      'subtitle':'Test a title that\'s totally taking too much height and is technically too tall (when line wrapped)',
+      'type': 'place',
       'img': {
         'alt': 'Rijksmonument',
         'src': null
@@ -42,7 +51,9 @@ define([], function(){
     },
     {
       'url': '/portal/en/record/2020718/DR_9974.html',
-      'title': 'Rijksmonument',
+      'title': 'Another Rijksmonument',
+      'subtitle': 'Monument',
+      'type': 'place',
       'img': {
         'alt': 'Rijksmonument',
         'src': null
@@ -51,6 +62,8 @@ define([], function(){
     {
       'url': '/portal/en/record/2020718/DR_9962.html',
       'title': 'Rijksmonument',
+      'subtitle': 'Monument',
+      'type': 'place',
       'img': {
         'alt': 'Rijksmonument',
         'src': null
@@ -58,7 +71,9 @@ define([], function(){
     },
     {
       'url': '/portal/en/record/2020718/DR_9904.html',
-      'title': 'Rijksmonument',
+      'title': 'Another Rijksmonument',
+      'subtitle': 'Monument',
+      'type': 'place',
       'img': {
         'alt': 'Rijksmonument',
         'src': null
