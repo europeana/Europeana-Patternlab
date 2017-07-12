@@ -106,6 +106,11 @@ define(['jquery'], function($){
 
         var markup = '';
 
+        var typeIcons = {
+          'person' : 'svg-icon-user-after-white',
+          'place'  : 'svg-icon-location-after-white'
+        }
+
         $.each(data.documents, function(i, item){
           markup += ''
             + '<li class="js-carousel-item">'
@@ -114,14 +119,14 @@ define(['jquery'], function($){
             +   '>'
             +     '<div class="inner">'
             +       (item.url  ? '<a class="link" href="' + item.url  + '">&nbsp;</a>' : '')
-            +       (item.type ? '<span class="entity-type entity-type-' + item.type + '">' + item.type + '</span>' : '')
+            +       (item.type ? '<span class="entity-type ' + (typeIcons[item.type]) + '">' + item.type + '</span>' : '')
             +     '</div>'
             +   '</div>'
             +   '<span class="js-carousel-title">'
-            +     (item.url ? '<a href="' + item.url + '">' : '')
+            +     (item.url && item.title ? '<a class="ellipsable" href="' + item.url + '">' : '')
             +       (item.title ? item.title : '')
-            +     (item.url ? '</a>' : '')
-            +     (item.subtitle ? '<span class="subtitle">' + item.subtitle + '</span>' : '')
+            +     (item.url && item.title ? '</a>' : '')
+            +     (item.subtitle ? '<span class="subtitle ellipsable">' + item.subtitle + '</span>' : '')
             +   '</span>'
             + '</li>';
         });

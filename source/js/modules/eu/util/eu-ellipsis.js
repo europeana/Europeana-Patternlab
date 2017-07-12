@@ -175,14 +175,12 @@ define(['jquery', 'util_resize'], function($){
       }
       exitLookup = false;
 
-      if(fluidCmp.length == 1){
+      if(!ops.multiNode){
         var max      = locateMax(fluidCmp, fluidText, 20, 16, false);
         var theText  = fluidText.substr(0, max);
         replaceTextNode(fluidCmp, theText + (max < fluidText.length ? fluidText.length > 0 ? suffix : '' : ''));
       }
-      else if(fluidCmp.length > 1){
-
-
+      else{
         var index = fluidCmp.length-1;
 
         for(var i=0; i<fluidCmp.length; i++){

@@ -205,10 +205,29 @@ $entity-panel-colour:           #eee;
       padding:          0.4em 0.75em 0.4em 0.5em;
       position:         absolute;
       text-transform:   uppercase;
+
+      &.svg-icon-user-after-white,
+      &.svg-icon-location-after-white{
+        padding-right: 1.85em;
+        &:after{
+          content:       ' ';
+          height:        2.1em;
+          position:      absolute;
+          top:           -3px;
+          transform:     scale(0.52);
+          width:         2em;
+        }
+      }
+
+      &.svg-icon-user-after-white::after{
+        top:           -2px;
+      }
+
     }
 
     .js-carousel-title{
       height: 2.6em;
+      max-height: 2.6em;
     }
 
     .subtitle{

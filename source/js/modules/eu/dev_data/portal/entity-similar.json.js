@@ -62,7 +62,7 @@ define([], function(){
     {
       'url': '/portal/en/record/2020718/DR_9962.html',
       'title': 'Rijksmonument',
-      'subtitle': 'Monument',
+      'subtitle': 'The original monument of the Rijk - aka the Rijksmonument',
       'type': 'place',
       'img': {
         'alt': 'Rijksmonument',

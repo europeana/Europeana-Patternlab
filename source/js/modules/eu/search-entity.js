@@ -45,6 +45,23 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     };
     fnProcessImages();
 
+    var addEllipsis = function(){
+
+
+      require(['util_eu_ellipsis'], function(Ellipsis){
+
+        var conf = { multiNode: true, textSelectors: ['.ellipsable']};
+
+        $('.js-carousel-title:not(.ellipsis-added)').each(function(i, ob){
+          ob = $(ob);
+          log('create Ellipsis...' + ob.find('.ellipsable').length);
+          ob.addClass('ellipsis-added');
+          Ellipsis.create(ob, conf);
+        });
+      });
+
+    }
+
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
       var appender = CarouselAppender.create({
         'cmp':             entitySimilar.find('ul'),
@@ -55,6 +72,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           $('.entity-related-container').addClass('loaded');
         }
       });
+      ops.alwaysAfterLoad = addEllipsis;
       var carousel = Carousel.create(entitySimilar, appender, ops);
 
       if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length == 0)){
