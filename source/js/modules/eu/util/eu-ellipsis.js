@@ -2,14 +2,13 @@ define(['jquery', 'util_resize'], function($){
 
   var Ellipsis = function(cmp, opsIn) {
 
-    var ops        = $.extend({}, opsIn);
+    var ops              = $.extend({}, opsIn);
     var $cmp             = $(cmp);
     var suffix           = '...';
     var totalText        = '';
     var origTextMulti    = [];
     var totalTexts       = {};
     var exitLookup       = false;
-    var multiTextLengths = [];
 
     var getTextNodeValue = function(el, text){
       var nText = el.contents().filter(function() {
@@ -26,6 +25,7 @@ define(['jquery', 'util_resize'], function($){
       var nText = el.contents().filter(function() {
         return this.nodeType === 3;
       });
+
       if(nText.length == 1){
         nText.first().replaceWith(text);
         return true;
@@ -41,8 +41,8 @@ define(['jquery', 'util_resize'], function($){
       return ($cmp[0].scrollHeight > $cmp[0].offsetHeight + 3);
     };
 
-    var tryForSize = function(fluidCmp, fluidText, length, suppressSuffix){
-      var ok = replaceTextNode(fluidCmp, fluidText.substr(0, length) +  (suppressSuffix ? '' : suffix));
+    var tryForSize = function(cmp, txt, length, suppressSuffix){
+      var ok = replaceTextNode(cmp, txt.substr(0, length) +  (suppressSuffix ? '' : suffix));
       if(!ok){
         exitLookup = true;
         console.log('Exit - mixed content not supported - exitLookup = ' + exitLookup);
@@ -51,22 +51,31 @@ define(['jquery', 'util_resize'], function($){
       return !fn();
     };
 
-    var locateMax = function(fluidCmp, fluidText, guess, bite, hone){
-      var newHone = hone;
-      var newBite = 0;
-      var newGuess = 0;
+    var locateMax = function(tgtCmp, nodeIndex, text, guess, bite, hone){
 
-      if(guess > fluidText.length){
-        newBite = Math.max(1, bite/2);
+      var newHone  = hone;
+      var newBite  = 0;
+      var newGuess = 0;
+      var $node    = $(tgtCmp[nodeIndex]);
+
+      if(guess > text.length){
+        newBite  = Math.max(1, bite/2);
         newGuess = guess - newBite;
       }
       else{
-        if(tryForSize(fluidCmp, fluidText, guess)){
+        if(tryForSize($node, text, guess, guess == text.length)){
           if(exitLookup){
-            return guess;
+            return {
+              guess: guess,
+              index: nodeIndex
+            }
           }
+
           if(bite==1){
-            return guess;
+            return {
+              guess: guess,
+              index: nodeIndex
+            };
           }
           else{
             newBite = hone ? Math.max(1, bite/2) : bite;
@@ -74,64 +83,21 @@ define(['jquery', 'util_resize'], function($){
           }
         }
         else{
+          if(guess < 1){
+
+            replaceTextNode($node, '');
+            return {
+              guess: 0,
+              index: nodeIndex
+            };
+          }
           newHone = true;
           newBite = hone ? Math.max(1, bite/2) : bite;
           newGuess = guess - newBite;
         }
       }
-      return locateMax(fluidCmp, fluidText, newGuess, newBite, newHone);
+      return locateMax(tgtCmp, nodeIndex, text, newGuess, newBite, newHone);
     };
-
-    var locateMaxMultiple = function(fluidCmp, nodeIndex, text, guess, bite, hone){
-
-        var newHone = hone;
-        var newBite = 0;
-        var newGuess = 0;
-
-        var $node = $(fluidCmp[nodeIndex]);
-
-        if(guess > text.length){
-          newBite  = Math.max(1, bite/2);
-          newGuess = guess - newBite;
-        }
-        else{
-          if(tryForSize($node, text, guess, guess == text.length)){
-            if(exitLookup){
-              return {
-                guess: guess,
-                index: nodeIndex
-              }
-            }
-
-            if(bite==1){
-              return {
-                guess: guess,
-                index: nodeIndex
-              };
-            }
-            else{
-              newBite = hone ? Math.max(1, bite/2) : bite;
-              newGuess = guess + newBite;
-            }
-          }
-          else{
-            if(guess < 1){
-
-              replaceTextNode($node, '');
-              return {
-                guess: 0,
-                index: nodeIndex
-              };
-            }
-
-            newHone = true;
-            newBite = hone ? Math.max(1, bite/2) : bite;
-            newGuess = guess - newBite;
-          }
-        }
-        return locateMaxMultiple(fluidCmp, nodeIndex, text, newGuess, newBite, newHone);
-    };
-
 
     var getCmpData = function(){
 
@@ -159,32 +125,32 @@ define(['jquery', 'util_resize'], function($){
       }
 
       return {
-        fluidCmp: cmp,
-        fluidText: txt
+        tgtCmp: cmp,
+        tgtTxt: txt
       }
     }
 
     var respond = function(){
 
-      var cmpData   = getCmpData();
-      var fluidCmp  = cmpData.fluidCmp;
-      var fluidText = cmpData.fluidText;
+      var cmpData = getCmpData();
+      var tgtCmp  = cmpData.tgtCmp;
+      var tgtTxt  = cmpData.tgtTxt;
 
-      if(!fluidCmp){
+      if(!tgtCmp){
         return;
       }
       exitLookup = false;
 
       if(!ops.multiNode){
-        var max      = locateMax(fluidCmp, fluidText, 20, 16, false);
-        var theText  = fluidText.substr(0, max);
-        replaceTextNode(fluidCmp, theText + (max < fluidText.length ? fluidText.length > 0 ? suffix : '' : ''));
+        var max      = locateMax([tgtCmp], 0, tgtTxt, 20, 16, false).guess;
+        var theText  = tgtTxt.substr(0, max);
+        replaceTextNode(tgtCmp, theText + (max < tgtTxt.length ? tgtTxt.length > 0 ? suffix : '' : ''));
       }
       else{
-        var index = fluidCmp.length-1;
+        var index = tgtCmp.length-1;
 
-        for(var i=0; i<fluidCmp.length; i++){
-          if($(fluidCmp[i]).text().length == 0){
+        for(var i=0; i<tgtCmp.length; i++){
+          if($(tgtCmp[i]).text().length == 0){
             index --;
           }
         }
@@ -199,26 +165,22 @@ define(['jquery', 'util_resize'], function($){
             console.log('too much recursion!');
             return;
           }
-          var max   = locateMaxMultiple(cmp, index, text, text.length, 16, false);
-          if(max.guess == 0){
-            if(index > 0){
+          var max   = locateMax(cmp, index, text, text.length, 16, false);
 
-              if(triedIndexes.indexOf(index-1) > -1){
-                replaceTextNode($(cmp[index]), suffix);
-              }
-              else{
-                replaceTextNode($(cmp[index]), '');
-                triedIndexes.push(index);
-                index --;
-                text = origTextMulti[index];
-                writeNode(cmp, index, text, triedIndexes);
-              }
+          if(max.guess == 0 && index > 0){
+            if(triedIndexes.indexOf(index-1) > -1){
+              replaceTextNode($(cmp[index]), suffix);
+            }
+            else{
+              replaceTextNode($(cmp[index]), '');
+              triedIndexes.push(index);
+              index --;
+              text = origTextMulti[index];
+              writeNode(cmp, index, text, triedIndexes);
             }
           }
           else if(max.guess >= text.length){
-
             if(index+1 < cmp.length){
-
               if(triedIndexes.indexOf(index+1) > -1){
                 replaceTextNode($(cmp[index]), text + suffix);
               }
@@ -235,7 +197,7 @@ define(['jquery', 'util_resize'], function($){
             }
           }
         }
-        writeNode(fluidCmp, index, text, []);
+        writeNode(tgtCmp, index, text, []);
       }
     };
 
@@ -244,7 +206,6 @@ define(['jquery', 'util_resize'], function($){
       totalText = getTextNodeValue($cmp);
 
       if(ops.textSelectors){
-
         if(ops.multiNode){
           if(ops.textSelectors.length > 1){
             console.error('cannot use multiple selectors in multiNode mode');
@@ -254,12 +215,11 @@ define(['jquery', 'util_resize'], function($){
           $cmp.find(selector).each(function(i, ob){
             origTextMulti.push($(ob).text());
           });
-
         }
         else{
           for(var i=0; i < ops.textSelectors.length; i++){
-            var selector         = ops.textSelectors[i];
-            var node             = $cmp.find(selector);
+            var selector = ops.textSelectors[i];
+            var node     = $cmp.find(selector);
 
             if(node.length > 1){
               console.error('multiple elements found - please configure multiNode mode');
@@ -270,12 +230,15 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       respond();
+
       $(window).europeanaResize(function(){
         respond();
       });
+
       $(window).on('ellipsis-update', function(){
         respond();
       });
+
     };
     init();
   };

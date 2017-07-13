@@ -140,6 +140,9 @@ $entity-panel-colour:           #eee;
       right: 100%;
     }
 
+    .datum-val{
+      display: block;
+    }
   }
 
   .anagraphical-datum{
@@ -257,6 +260,9 @@ $entity-panel-colour:           #eee;
 
   .entity-title{
     font-size: $font-size-large;
+    max-width: 40%;
+    mix-width: 30%;
+
     &.narrow{
       display: none;
     }
@@ -283,23 +289,12 @@ $entity-panel-colour:           #eee;
   .anagraphical.narrow{
     display: none;
   }
-
 }
-
-@media all and (min-width: $bp-large) {
-
-  .entity-main{
-    .entity-title{
-      font-size: $font-size-large;
-    }
-  }
-}
-
 
 @media all and (min-width: $bp-xxl) {
 
   .entity-main{
-    padding:       0 1.6rem $pad 0;
+    padding: 0 1.6rem $pad 0;
   }
 
   .summary-column{

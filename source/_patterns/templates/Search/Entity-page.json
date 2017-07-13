@@ -81,15 +81,23 @@
     "entity_anagraphical":[
       {
         "label": "Born",
-        "value": "19 August 1883, Saumur, France"
+        "value": [
+          "19 August 1883",
+          "Saumur, France"
+        ]
       },
       {
         "label": "Died",
-        "value": "10 January 1971, Paris, France"
+        "value": [
+          "10 January 1971",
+          "Paris, France"
+        ]
       },
       {
         "label": "Occupation",
-        "value": "Fashion Designer"
+        "value": [
+          "Fashion Designer"
+        ]
       }
     ],
     "entity_external_link": {

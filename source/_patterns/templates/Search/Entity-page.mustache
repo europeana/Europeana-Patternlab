@@ -17,7 +17,9 @@
                     {{.}}
                   </h3>
                 {{/label}}
-                {{value}}
+                {{#value}}
+                  {{.}}
+                {{/value}}
               </div>
             {{/entity_anagraphical}}
           </div>
@@ -54,7 +56,9 @@
                   {{.}}
                 </h3>
               {{/label}}
-              {{value}}
+              {{#value}}
+                <span class="datum-val">{{.}}</span>
+              {{/value}}
             </div>
           {{/entity_anagraphical}}
         </div>
