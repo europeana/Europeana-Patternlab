@@ -89,9 +89,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function initPage(form){
-
-    euSearchForm = form;
+  function initAccordionTabs(){
 
     require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
       Mustache.tags = ['[[', ']]'];
@@ -127,38 +125,29 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                     +   rendered
                     + '</ol>'
                   );
+
                   header.removeClass('loading').addClass('js-loaded');
                   $tabContent.find('.result-items').on('layoutComplete', function(){
                     setTimeout(function(){
                       euAccordionTabs.fixTabContentHeight(cmpTabs);
-                    }, 100);
-                  });
-                  initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
+                  }, 100);
                 });
+                initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
+              });
 
-                require(['util_resize'], function(){
-                  $(window).europeanaResize(function(){
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  });
+              require(['util_resize'], function(){
+                $(window).europeanaResize(function(){
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
-              }
-              else{
-                log('no template found for tab content');
-              }
+              });
+            }
+            else{
+              log('no template found for tab content');
             }
           }
         }
-      );
+      });
     });
-
-    $(window).bind('showCarousel', function(e, ops){
-      showCarouselIfAvailable(ops);
-    });
-
-    // require(['eu_clicktip']);
-
-    bindShowInlineSearch();
-    scrollEvents.fireAllVisible();
   }
 
   function initMasonry(cmpSel){
@@ -188,12 +177,44 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
         });
 
-        //if(hasSuperTall){
-          masonry.layout();
-        //}
+        masonry.layout();
       });
       masonries.push(masonry);
     });
+  }
+
+  function checkThumbnail(){
+    require(['jqImagesLoaded'], function(){
+      $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
+        if($broken.length == 1){
+          require(['util_resize'], function(){
+            var thumblessLayout = function(){
+              var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
+              $('.summary-column').css('top',
+                ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px'
+              );
+            }
+            $(window).europeanaResize(function(){
+              thumblessLayout();
+            });
+            $('.entity-main-thumb').remove();
+            $('.summary-column').css('position', 'relative');
+            thumblessLayout();
+          });
+        }
+      });
+    });
+  }
+
+  function initPage(form){
+    euSearchForm = form;
+    $(window).bind('showCarousel', function(e, ops){
+      showCarouselIfAvailable(ops);
+    });
+    bindShowInlineSearch();
+    initAccordionTabs();
+    checkThumbnail();
+    scrollEvents.fireAllVisible();
   }
 
   return {

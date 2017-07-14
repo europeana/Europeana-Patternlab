@@ -24,6 +24,7 @@
             {{/entity_anagraphical}}
           </div>
           <div class="entity-main-thumb-titled">
+            <img class="js-test-thumb js-hidden" src="{{#entity_thumbnail}}{{src}}{{/entity_thumbnail}}"/>
             {{#entity_thumbnail}}
               <div class="height-to-width entity-main-thumb" {{#src}}style="background-image:url('{{.}}')" data-src-full="{{full}}"{{/src}}></div>
             {{/entity_thumbnail}}
