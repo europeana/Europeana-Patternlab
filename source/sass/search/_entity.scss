@@ -29,13 +29,34 @@ $entity-panel-colour:           #eee;
 
 .entity-main .eu-accordion-tabs{
   background-color: #fff;
+  overflow-x: hidden;
+
+  &.as-tabs{
+    .tab-header{
+      border-right: 1px solid #ccc;
+    }
+  }
 
   .tab-header.loading .tab-title{
     transform: none;
   }
+
+  .tab-header.js-last::after{
+    border-bottom: 1px solid #ccc;
+    bottom: -1px;
+    content: " ";
+    left: 100%;
+    position: absolute;
+    width: 100em;
+  }
+
 }
 
 .entity-related-container.mlt{
+
+  .js-carousel.startup ul{
+    height: 4em;
+  }
 
   .js-carousel-arrows{
 
@@ -140,16 +161,38 @@ $entity-panel-colour:           #eee;
       right: 100%;
     }
 
+    h3{
+      font-size: $font-size-slightly-smaller;
+    }
+
     .datum-val{
-      display: block;
+      display:   block;
+      font-size: $font-size-slightly-smaller;
+      min-width: 9.5em;
+
+      &:not(:last-child):after {
+        content: ',';
+      }
     }
   }
 
-  .anagraphical-datum{
-    padding: 0 0 1em 0.75em;
-    h3{
-      text-transform: uppercase;
-      white-space:    nowrap;
+  .wrapper{
+
+    .anagraphical-data{
+
+      display:         flex;
+      justify-content: flex-start;
+
+      .anagraphical-datum{
+
+        flex-grow: 1;
+        padding:   0 0 1em 0.75em;
+
+        h3{
+          text-transform: uppercase;
+          white-space:    nowrap;
+        }
+      }
     }
   }
 }
@@ -260,8 +303,7 @@ $entity-panel-colour:           #eee;
 
   .entity-title{
     font-size: $font-size-large;
-    max-width: 40%;
-    mix-width: 30%;
+    flex-grow: 1;
 
     &.narrow{
       display: none;
@@ -283,13 +325,21 @@ $entity-panel-colour:           #eee;
   }
 
   .anagraphical.desktop{
-    display:       flex;
+    display:       block;
   }
 
   .anagraphical.narrow{
     display: none;
   }
 }
+
+@media all and (min-width: $bp-xl) {
+  .anagraphical.desktop{
+    display:         flex;
+    justify-content: flex-start;
+  }
+}
+
 
 @media all and (min-width: $bp-xxl) {
 
