@@ -27,8 +27,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       return;
     }
 
-    $('.entity-related').removeClass('not-loaded');
-
     var fnProcessImages = function(){
       var fnProcessImage = function(img){
         var w = img.width();
@@ -47,14 +45,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     var addEllipsis = function(){
 
-
       require(['util_eu_ellipsis'], function(Ellipsis){
 
         var conf = { multiNode: true, textSelectors: ['.ellipsable']};
 
         $('.js-carousel-title:not(.ellipsis-added)').each(function(i, ob){
           ob = $(ob);
-          log('create Ellipsis...' + ob.find('.ellipsable').length);
           ob.addClass('ellipsis-added');
           Ellipsis.create(ob, conf);
         });
@@ -70,6 +66,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         'total_available': ops.total_available,
         'doAfter':         function(){
           $('.entity-related-container').addClass('loaded');
+          entitySimilar.removeClass('startup');
         }
       });
       ops.alwaysAfterLoad = addEllipsis;

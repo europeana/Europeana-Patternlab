@@ -49,18 +49,23 @@
 
         <div class="anagraphical desktop">
           {{#entity_title}}<h1 class="entity-title">{{.}}</h1>{{/entity_title}}
-          {{#entity_anagraphical}}
-            <div class="anagraphical-datum">
-              {{#label}}
-                <h3>
-                  {{.}}
-                </h3>
-              {{/label}}
-              {{#value}}
-                <span class="datum-val">{{.}}</span>
-              {{/value}}
+
+          <div class="wrapper">
+            <div class="anagraphical-data">
+              {{#entity_anagraphical}}
+                <div class="anagraphical-datum">
+                  {{#label}}
+                    <h3>
+                      {{.}}
+                    </h3>
+                  {{/label}}
+                  {{#value}}
+                    <span class="datum-val">{{.}}</span>
+                  {{/value}}
+                </div>
+              {{/entity_anagraphical}}
             </div>
-          {{/entity_anagraphical}}
+          </div>
         </div>
 
         <div id="js-template-entity-tab-content"><noscript>{{> molecules/components/search/search-listitem-js}}</noscript></div>
@@ -91,7 +96,7 @@
            data-fire-on-open-params='{ "loadUrl": "{{more_items_load}}", "total_available": "{{more_items_total}}", "template": "entity", "perPage":5, "arrowClass": "linkblue", "minSpacingPx": 130}'
         ></a>
 
-        <div class="entity-related js-carousel">
+        <div class="entity-related js-carousel startup">
           <ul class="cf">
             {{#items}}
               <li class="js-carousel-item">

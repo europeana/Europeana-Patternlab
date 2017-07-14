@@ -19,5 +19,6 @@ require(['jquery'], function($){
     Ellipsis.create($('.test-4'));
     Ellipsis.create($('.test-5'), {textSelectors:['a']});
     Ellipsis.create($('.test-6'));
+    Ellipsis.create($('.test-7'), {multiNode:true, textSelectors:['.several']});
   });
 });

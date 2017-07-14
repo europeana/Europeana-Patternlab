@@ -106,6 +106,15 @@
 </div>
 
 
+<h4>Mixed Content Workaround</h4>
+
+<p>The eu-ellipsis can be applied to mixed or differing (sibling) elements when they are assigned a common selector and the "multiNode" option is set to true.  Note that the multiNode option can only be used with a single text-selector.</p>
+
+<div class="container">
+  <div class="test test-7"><span class="several">This </span><a class="several" href="javascript:alert('follow link...');">link</a><span class="several"> should not break the ellipsis, as it uses the same </span><b class="several">common class</b><span class="several"> as the text.</span><span class="svg-icon-external-eu-blue"></span></div>
+</div>
+
+
 <br/>
 <br/>
 <br/>

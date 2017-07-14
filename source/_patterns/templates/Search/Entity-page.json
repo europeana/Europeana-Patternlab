@@ -59,7 +59,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'portal_entity': '1000', 'portal_entity-similar':'2000'}}"
+      "value": "{ 'delays' : {'portal_entity': '1000', 'portal_entity-similar':'5000'}}"
     }
   ],
   "input_search": {
