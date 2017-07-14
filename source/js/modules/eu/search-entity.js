@@ -91,8 +91,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function initAccordionTabs(){
 
-    require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
-      Mustache.tags = ['[[', ']]'];
+    require(['eu_accordion_tabs'], function(euAccordionTabs){
       euAccordionTabs.init(
         cmpTabs,
         {
@@ -110,29 +109,40 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               var url      = header.data('content-url');
               var template = $('#js-template-entity-tab-content noscript');
 
-              if(url && url.length > 0 && template.length > 0){
+              $tabContent.find('.show-more-mlt a').on('click', function(e){
+                e.preventDefault();
+
                 header.addClass('loading');
-                $.getJSON(url, null).done(function(data){
+                require(['purl'], function(){
+                  var params      = $.url(url).param();
+                  params['start'] = $tabContent.find('.search-list-item').length + 1;
 
-                  var rendered = '';
-                  $.each(data.items, function(i, ob){
-                    rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
+                  loadMasonryItems(url, template, function(rendered){
+                    rendered = $(rendered);
+                    $tabContent.find('.results .result-items').append(rendered);
+                    masonries[index].appended(rendered);
+                    masonries[index].layout();
+                    header.removeClass('loading').addClass('js-loaded');
                   });
+                });
+              });
 
-                  $tabContent.append(''
-                    + '<ol class="result-items display-grid cf not-loaded">'
-                    +   '<li class="grid-sizer"></li>'
-                    +   rendered
-                    + '</ol>'
-                  );
+              header.addClass('loading');
 
-                  header.removeClass('loading').addClass('js-loaded');
-                  $tabContent.find('.result-items').on('layoutComplete', function(){
-                    setTimeout(function(){
-                      euAccordionTabs.fixTabContentHeight(cmpTabs);
+              loadMasonryItems(url, template, function(rendered){
+                $tabContent.find('.results').append(''
+                  + '<ol class="result-items display-grid cf not-loaded">'
+                  +   '<li class="grid-sizer"></li>'
+                  +   rendered
+                  + '</ol>'
+                );
+                initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
+                header.removeClass('loading').addClass('js-loaded');
+                $tabContent.find('.result-items').on('layoutComplete', function(){
+                  setTimeout(function(){
+                    euAccordionTabs.fixTabContentHeight(cmpTabs);
                   }, 100);
                 });
-                initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
               });
 
               require(['util_resize'], function(){
@@ -141,12 +151,28 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 });
               });
             }
-            else{
-              log('no template found for tab content');
-            }
           }
         }
-      });
+      );
+    });
+  }
+
+  function loadMasonryItems(url, template, callback){
+    require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
+      Mustache.tags = ['[[', ']]'];
+
+      if(url && url.length > 0 && template.length > 0){
+        $.getJSON(url, null).done(function(data){
+          var rendered = '';
+          $.each(data.items, function(i, ob){
+            rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
+          });
+          callback(rendered);
+        });
+      }
+      else{
+        log('no template found for tab content');
+      }
     });
   }
 
@@ -200,7 +226,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               thumblessLayout();
             });
             $('.entity-main-thumb').remove();
-            $('.summary-column').css('position', 'relative');
+            $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
             thumblessLayout();
           });
         }

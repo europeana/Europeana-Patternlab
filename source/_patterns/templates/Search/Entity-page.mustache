@@ -29,12 +29,13 @@
               <div class="height-to-width entity-main-thumb" {{#src}}style="background-image:url('{{.}}')" data-src-full="{{full}}"{{/src}}></div>
             {{/entity_thumbnail}}
             {{#entity_external_link}}
-              {{#href}}<a href="{{.}}">{{/href}}
+              {{#href}}<a class="external" href="{{.}}">{{/href}}
                 {{#text}}<span class="entity-external-link">{{.}}</span>{{/text}}
               {{#href}}</a>{{/href}}
             {{/entity_external_link}}
           </div>
         </div>
+        <span class="header-bio js-hidden">{{i18n.entity.labels.bio}}</span>
         {{#entity_description}}<p>{{.}}</p>{{/entity_description}}
 
         {{# social_share }}
@@ -61,7 +62,7 @@
                     </h3>
                   {{/label}}
                   {{#value}}
-                    <span class="datum-val">{{.}}</span>
+                    <span class="datum-val{{#use_commas}} commas{{/use_commas}}">{{.}}</span>
                   {{/value}}
                 </div>
               {{/entity_anagraphical}}

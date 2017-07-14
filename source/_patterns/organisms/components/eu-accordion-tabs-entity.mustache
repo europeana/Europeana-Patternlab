@@ -1,4 +1,7 @@
-<div class="tab-header"{{#url}} data-content-url="{{.}}"{{/url}}{{#key}} data-content-default-logo="{{.}}"{{/key}}>
+<div class="tab-header"{{#url}} data-content-url="{{.}}"{{/url}}>
   {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
 </div>
-<div class="tab-content"></div>
+<div class="tab-content">
+  <div class="results"></div>
+  <div class="show-more-mlt"><a href="{{more_items_query}}">{{ i18n.global.more.show-more }}… {{#more_items_total_formatted}}({{.}}){{/more_items_total_formatted}}</a></div>
+</div>

@@ -27,10 +27,10 @@ define(['jquery', 'util_resize'], function($){
     if(!$cmp.hasClass('as-tabs')){
       return;
     }
-    var pad = 40;
+    var pad = 45;
     var h1  = $cmp.height();
     var h2  = $cmp.find('.tab-content.active').height();
-    $cmp.attr('style', 'height:' + (h1 + h2 + pad) + 'px');
+    $cmp.attr('style', 'height:' + (h1 + h2 + pad) + 'px; overflow-y:hidden;');
     log('set height to ' + (h1 + h2));
   }
 

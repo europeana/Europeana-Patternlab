@@ -54,12 +54,11 @@
   "js_vars": [
     {
       "name": "pageName",
-      "XXXvalue": "portal/entity",
       "value": "entities/show"
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'portal_entity': '1000', 'portal_entity-similar':'5000'}}"
+      "value": "{ 'delays' : {'portal_entity': '2000', 'portal_entity-similar':'5000'}}"
     }
   ],
   "input_search": {
@@ -110,14 +109,16 @@
     },
     "tab_items": [
       {
-        "tab_subtitle":   false,
-        "tab_title":     "Items by Coco Chanel",
-        "url":           "portal_entity?type=by"
+        "more_items_total_formatted": "4567",
+        "tab_subtitle":               false,
+        "tab_title":                  "Items by Coco Chanel",
+        "url":                        "portal_entity?type=by"
       },
       {
-        "tab_subtitle":   false,
-        "tab_title":     "Items about Coco Chanel",
-        "url":           "portal_entity?type=about"
+        "more_items_total_formatted": "7654",
+        "tab_subtitle":               false,
+        "tab_title":                  "Items about Coco Chanel",
+        "url":                        "portal_entity?type=about"
       }
     ],
     "social_share": {

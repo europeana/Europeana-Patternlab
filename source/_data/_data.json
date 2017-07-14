@@ -681,6 +681,7 @@
             },
             "entity":{
               "labels": {
+                "bio": "Bio",
                 "similar": "Similar",
                 "related": "Related"
               }
