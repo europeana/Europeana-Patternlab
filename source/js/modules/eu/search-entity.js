@@ -190,9 +190,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           require(['util_resize'], function(){
             var thumblessLayout = function(){
               var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
-              $('.summary-column').css('top',
-                ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px'
-              );
+              var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
+              $('.summary-column').css({
+                'top': offset,
+                'margin-bottom': offset
+              });
             }
             $(window).europeanaResize(function(){
               thumblessLayout();
