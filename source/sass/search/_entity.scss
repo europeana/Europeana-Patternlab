@@ -57,13 +57,13 @@ $entity-panel-colour:           #eee;
   }
 
   .tab-header.loading + .tab-content::after{
-    background-color: $dim;
-    bottom:           0;
+    background-color: rgba(22, 118, 170, 0.4);
+    bottom:           -2em;
     content:          ' ';
     left:             0;
     position:         absolute;
     right:            0;
-    top:              0;
+    top:              -1.175em;
   }
 
   .tab-header.js-last::after{
@@ -79,6 +79,10 @@ $entity-panel-colour:           #eee;
     bottom:   0;
     position: absolute;
     right:    1em;
+
+    &.js-hidden{
+      display: none;
+    }
   }
 
 }

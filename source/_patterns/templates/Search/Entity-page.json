@@ -109,13 +109,11 @@
     },
     "tab_items": [
       {
-        "more_items_total_formatted": "4567",
         "tab_subtitle":               false,
         "tab_title":                  "Items by Coco Chanel",
         "url":                        "portal_entity?type=by"
       },
       {
-        "more_items_total_formatted": "7654",
         "tab_subtitle":               false,
         "tab_title":                  "Items about Coco Chanel",
         "url":                        "portal_entity?type=about"

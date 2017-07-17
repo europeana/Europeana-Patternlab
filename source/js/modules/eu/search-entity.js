@@ -99,43 +99,56 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           'fnOpenTab': function(index, $tabContent){
 
             var header = $('.entity-main .tab-header:eq(' + index + ')');
-
             if(header.hasClass('js-loaded')){
-              $.each(masonries, function(i, ob){
-                ob.layout();
-              });
+              masonries[index].layout();
             }
             else {
               var url      = header.data('content-url');
               var template = $('#js-template-entity-tab-content noscript');
 
-              $tabContent.find('.show-more-mlt a').on('click', function(e){
+              $tabContent.find('.show-more-mlt').on('click', function(e){
                 e.preventDefault();
 
-                header.addClass('loading');
                 require(['purl'], function(){
-                  var params      = $.url(url).param();
-                  params['start'] = $tabContent.find('.search-list-item').length + 1;
+                  var params = $.url(url).param();
+                  var items  = $tabContent.find('.results .result-items');
+                  var start  = items.find('.search-list-item').length + 1;
+                  var total  = header.data('content-items-total');
+                  url        = url.split('?')[0] + '?start=' + start + '&' + $.param(params);
 
-                  loadMasonryItems(url, template, function(rendered){
-                    rendered = $(rendered);
-                    $tabContent.find('.results .result-items').append(rendered);
+                  header.addClass('loading');
+                  loadMasonryItems(url, template, function(res){
+                    rendered = $(res.rendered);
+                    items.append(rendered);
                     masonries[index].appended(rendered);
                     masonries[index].layout();
                     header.removeClass('loading').addClass('js-loaded');
+                    if(items.find('.search-list-item').length >= total){
+                      $tabContent.find('.show-more-mlt').addClass('js-hidden');
+                    }
                   });
                 });
               });
 
               header.addClass('loading');
-
-              loadMasonryItems(url, template, function(rendered){
+              loadMasonryItems(url, template, function(res){
                 $tabContent.find('.results').append(''
                   + '<ol class="result-items display-grid cf not-loaded">'
                   +   '<li class="grid-sizer"></li>'
-                  +   rendered
+                  +   res.rendered
                   + '</ol>'
                 );
+
+                if(typeof res.total == 'undefined' || typeof res.totalFormatted == 'undefined'){
+                  console.warn('Expected @total from ' + url);
+                }
+                else{
+                  var linkMore = $tabContent.find('.show-more-mlt');
+                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + res.totalFormatted + ')'));
+                  linkMore.removeClass('js-hidden');
+                  header.data('content-items-total', res.total);
+                }
+
                 initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
                 header.removeClass('loading').addClass('js-loaded');
                 $tabContent.find('.result-items').on('layoutComplete', function(){
@@ -167,7 +180,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           $.each(data.items, function(i, ob){
             rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
           });
-          callback(rendered);
+          callback({
+            rendered:       rendered,
+            total:          data.content_items_total,
+            totalFormatted: data.content_items_total_formatted
+          });
         });
       }
       else{

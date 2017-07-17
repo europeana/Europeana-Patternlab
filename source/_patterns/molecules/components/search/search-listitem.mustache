@@ -62,39 +62,13 @@
 
     <footer>
       <div class="item-metadata">
-
         {{>molecules/components/search/_search-listitem-icon}}
-
-        {{# channels.disabled }}
-          <span class="item-themes">
-            {{i18n.site.results.list.in-channel}}:
-            {{# items }}
-            <a href="{{url}}" class="highlight">{{text}}</a>,
-            {{/ items }}
-          </span>
-        {{/ channels.disabled }}
       </div>
-
-      {{# menus.actions_disabled }}
-      <div class="item-actions">
-
-        <a href="path/to/save" class="action-save">
-          <svg class="icon icon-star">
-            <use xlink:href="#icon-star"></use>
-          </svg>{{i18n.site.results.actions.product-save}}
-        </a>
-
-        <div class="action-select">
-          <input type="checkbox" name="selected[]" id="itemx">
-        </div>
-      </div>
-      {{/ menus.actions_disabled }}
-
     </footer>
   </div>
 
   <div class="item-agent-data show-with-grid">
-      <div class="item-agent">{{#agent}}{{.}}{{/agent}}{{^agent}}<br/>{{/agent}}</div>
+    <div class="item-agent">{{#agent}}{{.}}{{/agent}}{{^agent}}<br/>{{/agent}}</div>
   </div>
 
 </article>
