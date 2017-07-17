@@ -11,8 +11,21 @@
   },
 
   "navigation": {
-    "back_label": false,
-    "last_label" : "Europeana Fashion",
+    "breadcrumbs": [
+      {
+        "label": "Explore",
+        "url": "javascript:alert('follow breadcrumb link 1');"
+      },
+      {
+        "label": "Topics",
+        "url": "javascript:alert('follow breadcrumb link 2');"
+      },
+      {
+        "label": "Coco Chanel",
+        "url": false
+      }
+    ],
+
     "next_prev": false,
     "global": {
       "options": {
