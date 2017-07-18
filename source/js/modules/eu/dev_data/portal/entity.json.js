@@ -74,8 +74,12 @@ define([], function(){
     getData: function(params){
       console.log('incoming params ' + JSON.stringify(params, null, 4) );
       var res     = data[params.type];
+      if(params.per_page != null){
+        res.items = res.items.slice(0, parseInt(params.per_page));
+      }
       res.success = res != null;
       return res;
     }
   };
+
 });

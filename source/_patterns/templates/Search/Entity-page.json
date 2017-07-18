@@ -124,12 +124,14 @@
       {
         "tab_subtitle":               false,
         "tab_title":                  "Items by Coco Chanel",
-        "url":                        "portal_entity?type=by"
+        "url":                        "portal_entity?type=by",
+        "search_url":                 "javascript:alert('load all by')"
       },
       {
         "tab_subtitle":               false,
         "tab_title":                  "Items about Coco Chanel",
-        "url":                        "portal_entity?type=about"
+        "url":                        "portal_entity?type=about",
+        "search_url":                 "javascript:alert('load all about')"
       }
     ],
     "social_share": {

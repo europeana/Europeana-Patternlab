@@ -91,6 +91,52 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function initAccordionTabs(){
 
+    var getLoadParams = function(base, present){
+
+      var params  = $.url(base).param();
+      var initial = 4;
+      var extra   = 2
+
+      params['per_page'] = present ? extra : initial;
+      params['page']     = (present / extra ) + 1;
+
+      return base.split('?')[0] + '?' + $.param(params);
+    };
+
+    var loadMoreItems = function(url, $tabContent, header, template, index){
+
+      var heightL = $tabContent.height();
+      var heightR = $('.summary-column').height();
+
+      if(heightL < heightR){
+        var params = $.url(url).param();
+        var items  = $tabContent.find('.results .result-items');
+        var total  = header.data('content-items-total');
+
+        url = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
+
+        header.addClass('loading');
+
+        loadMasonryItems(url, template, function(res){
+
+          rendered = $(res.rendered);
+          items.append(rendered);
+
+          masonries[index].appended(rendered);
+          masonries[index].layout();
+
+          header.removeClass('loading');
+
+          if(items.find('.search-list-item').length >= total){
+            $tabContent.find('.show-more-mlt').addClass('js-hidden');
+          }
+          else{
+            loadMoreItems(url, $tabContent, header, template, index)
+          }
+        });
+      }
+    };
+
     require(['eu_accordion_tabs'], function(euAccordionTabs){
       euAccordionTabs.init(
         cmpTabs,
@@ -103,32 +149,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               masonries[index].layout();
             }
             else {
-              var url      = header.data('content-url');
+
+              var url      = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
               var template = $('#js-template-entity-tab-content noscript');
-
-              $tabContent.find('.show-more-mlt').on('click', function(e){
-                e.preventDefault();
-
-                require(['purl'], function(){
-                  var params = $.url(url).param();
-                  var items  = $tabContent.find('.results .result-items');
-                  var start  = items.find('.search-list-item').length + 1;
-                  var total  = header.data('content-items-total');
-                  url        = url.split('?')[0] + '?start=' + start + '&' + $.param(params);
-
-                  header.addClass('loading');
-                  loadMasonryItems(url, template, function(res){
-                    rendered = $(res.rendered);
-                    items.append(rendered);
-                    masonries[index].appended(rendered);
-                    masonries[index].layout();
-                    header.removeClass('loading').addClass('js-loaded');
-                    if(items.find('.search-list-item').length >= total){
-                      $tabContent.find('.show-more-mlt').addClass('js-hidden');
-                    }
-                  });
-                });
-              });
 
               header.addClass('loading');
               loadMasonryItems(url, template, function(res){
@@ -151,11 +174,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                 initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
                 header.removeClass('loading').addClass('js-loaded');
+
                 $tabContent.find('.result-items').on('layoutComplete', function(){
-                  setTimeout(function(){
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  }, 100);
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
+
+                loadMoreItems(url, $tabContent, header, template, index);
               });
 
               require(['util_resize'], function(){
@@ -220,7 +244,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
         });
 
-        masonry.layout();
+//        masonry.layout();
       });
       masonries.push(masonry);
     });
