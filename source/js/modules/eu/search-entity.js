@@ -207,7 +207,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           });
           callback({
             rendered: rendered,
-            total:    data.content_items_total
+            total:    data.total
           });
         });
       }
