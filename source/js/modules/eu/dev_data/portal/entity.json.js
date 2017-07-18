@@ -8,7 +8,7 @@ define([], function(){
     "by": {
       "content_items_total_formatted": 11,
       "content_items_total": 11,
-      "items": [
+      "search_results": [
         {
           "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",
           "is_image": true,
@@ -68,14 +68,14 @@ define([], function(){
       ]
     },
   };
-  data.about.items = data.by.items.slice(0).splice(2, 4);
+  data.about.search_results = data.by.search_results.slice(0).splice(2, 4);
 
   return {
     getData: function(params){
       console.log('incoming params ' + JSON.stringify(params, null, 4) );
       var res     = data[params.type];
       if(params.per_page != null){
-        res.items = res.items.slice(0, parseInt(params.per_page));
+        res.search_results = res.search_results.slice(0, parseInt(params.per_page));
       }
       res.success = res != null;
       return res;

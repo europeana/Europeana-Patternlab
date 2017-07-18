@@ -105,7 +105,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     var loadMoreItems = function(url, $tabContent, header, template, index){
 
-      var heightL = $tabContent.height();
+      var margin  = 220;
+      var heightL = $tabContent.height() + margin;
       var heightR = $('.summary-column').height();
 
       if(heightL < heightR){
@@ -113,7 +114,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         var items  = $tabContent.find('.results .result-items');
         var total  = header.data('content-items-total');
 
-        url = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
+        url = getLoadParams(header.data('content-url'), $tabContent.find('.search-list-item').length);
 
         header.addClass('loading');
 
@@ -201,7 +202,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       if(url && url.length > 0 && template.length > 0){
         $.getJSON(url, null).done(function(data){
           var rendered = '';
-          $.each(data.items, function(i, ob){
+          $.each(data.search_results, function(i, ob){
             rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
           });
           callback({

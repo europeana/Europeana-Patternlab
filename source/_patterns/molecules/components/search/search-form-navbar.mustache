@@ -7,7 +7,7 @@
         <li class="js-return"><a href="">{{i18n.site.navigation.breadcrumb.results_list}}</a></li>
 
         {{#navigation.breadcrumbs}}
-          <li>{{#url}}<a href="{{.}}">{{/url}}{{label}}{{#url}}</a>{{/url}}</li>
+          <li>{{#url}}<a href="{{.}}">{{/url}}{{^url}}<span class="lastitem"><strong>{{/url}}{{label}}{{^url}}</strong></span>{{/url}}{{#url}}</a>{{/url}}</li>
         {{/navigation.breadcrumbs}}
 
         {{#navigation.last_label}}<li><span class="lastitem"><strong>{{.}}</strong></span></li>{{/navigation.last_label}}
