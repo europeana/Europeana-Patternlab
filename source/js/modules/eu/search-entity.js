@@ -163,12 +163,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   + '</ol>'
                 );
 
-                if(typeof res.total == 'undefined' || typeof res.totalFormatted == 'undefined'){
+                if(typeof res.total == 'undefined'){
                   console.warn('Expected @total from ' + url);
                 }
                 else{
                   var linkMore = $tabContent.find('.show-more-mlt');
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + res.totalFormatted + ')'));
+                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + res.total + ')'));
                   linkMore.removeClass('js-hidden');
                   header.data('content-items-total', res.total);
                 }
@@ -206,9 +206,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
           });
           callback({
-            rendered:       rendered,
-            total:          data.content_items_total,
-            totalFormatted: data.content_items_total_formatted
+            rendered: rendered,
+            total:    data.content_items_total
           });
         });
       }

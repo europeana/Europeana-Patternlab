@@ -2,7 +2,6 @@ define([], function(){
 
   var data = {
     "about": {
-      "content_items_total_formatted": 16,
       "content_items_total": 16
     },
     "by": {
