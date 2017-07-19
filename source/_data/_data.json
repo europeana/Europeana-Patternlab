@@ -679,7 +679,7 @@
                 "my-account": "My Account"
               }
             },
-            "entity":{
+            "entities":{
               "labels": {
                 "bio": "Bio",
                 "similar": "Similar",
