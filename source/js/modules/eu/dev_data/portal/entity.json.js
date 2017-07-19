@@ -2,11 +2,16 @@ define([], function(){
 
   var data = {
     "about": {
-      "content_items_total": 16
+      "total": {
+        "value": 4,
+        "formatted": "IV"
+      }
     },
     "by": {
-      "total_formatted": '11...',
-      "total": 11,
+      "total": {
+        "value": 11,
+        "formatted": "XI"
+      },
       "search_results": [
         {
           "title": "The Lighthouse, Glasgow (Glasgow Herald Building) - Exterior, stonework over entrance | Mackintosh, Charles Rennie and Charles Rennie Mackintosh",

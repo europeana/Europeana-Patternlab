@@ -210,8 +210,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           });
           callback({
             rendered:        rendered,
-            total:           data.total,
-            total_formatted: data.total_formatted
+            total:           data.total ? data.total.value : 0,
+            total_formatted: data.total ? data.total.formatted : ''
           });
         });
       }
