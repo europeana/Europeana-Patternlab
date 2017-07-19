@@ -70,36 +70,37 @@
 .eu-accordion-tabs.as-tabs .tab-header {
   display: block;
   float: left;
+  margin-bottom: 4em;
   position: relative;
   width: auto;
 }
-/* line 83, style.scss */
+/* line 84, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active {
   border-bottom: 0;
   font-weight: bold;
 }
-/* line 86, style.scss */
+/* line 87, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.active + .tab-content + .tab-header::before {
   background-color: transparent;
 }
-/* line 91, style.scss */
+/* line 92, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.disabled {
   cursor: default;
 }
-/* line 93, style.scss */
+/* line 94, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.disabled .tab-title,
 .eu-accordion-tabs.as-tabs .tab-header.disabled .tab-subtitle {
   color: #CCCCCC;
 }
-/* line 98, style.scss */
+/* line 99, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.js-last) {
   border-right: 1px solid #CCCCCC;
 }
-/* line 101, style.scss */
+/* line 102, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header.js-first.js-last {
   border-right: 1px solid #CCCCCC;
 }
-/* line 105, style.scss */
+/* line 106, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header:not(.active)::before {
   background-color: #FFFFFF;
   bottom: 0;
@@ -110,33 +111,33 @@
   position: absolute;
   width: 1px;
 }
-/* line 116, style.scss */
+/* line 117, style.scss */
 .eu-accordion-tabs.as-tabs .tab-header .tab-title,
 .eu-accordion-tabs.as-tabs .tab-header .tab-subtitle {
   display: block;
 }
-/* line 122, style.scss */
+/* line 123, style.scss */
 .eu-accordion-tabs.as-tabs .only-with-tabs {
   display: inline-block;
 }
-/* line 126, style.scss */
+/* line 127, style.scss */
 .eu-accordion-tabs.as-tabs .only-without-tabs {
   display: none;
 }
-/* line 132, style.scss */
+/* line 133, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .tab-header:first-of-type,
 .eu-accordion-tabs:not(.as-tabs) .tab-content.active + .tab-header {
   border-top: 1px solid #CCCCCC;
 }
-/* line 137, style.scss */
+/* line 138, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .only-with-tabs {
   display: none;
 }
-/* line 141, style.scss */
+/* line 142, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .only-without-tabs {
   display: block;
 }
-/* line 146, style.scss */
+/* line 147, style.scss */
 .eu-accordion-tabs:not(.as-tabs) .tab-content.loading {
   background-image: url("spinner.gif");
   background-position: center;

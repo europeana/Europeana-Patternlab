@@ -22,6 +22,10 @@ $entity-panel-colour:           #eee;
   .header-bio{
     display:        block;
     text-transform: uppercase;
+
+    &.js-hidden{
+      display: none;
+    }
   }
 
   @media all and (min-width: $bp-med) and (max-width: $bp-xl){
@@ -58,7 +62,7 @@ $entity-panel-colour:           #eee;
 
   .tab-header.loading + .tab-content::after{
     background-color: rgba(22, 118, 170, 0.4);
-    bottom:           -2em;
+    bottom:           -1.65em;
     content:          ' ';
     left:             0;
     position:         absolute;

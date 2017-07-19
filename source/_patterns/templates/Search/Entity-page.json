@@ -82,7 +82,6 @@
   "content": {
     "entity_thumbnail": {
       "src": "/images/search/entity_main_thumb.jpg",
-      "full": "/images/search/entity_main_thumb_big.jpg",
       "alt": "thumbnail alt text here"
     },
     "entity_description": [

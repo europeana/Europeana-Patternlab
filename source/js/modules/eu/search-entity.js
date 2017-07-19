@@ -155,6 +155,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               var template = $('#js-template-entity-tab-content noscript');
 
               header.addClass('loading');
+
               loadMasonryItems(url, template, function(res){
                 $tabContent.find('.results').append(''
                   + '<ol class="result-items display-grid cf not-loaded">'
@@ -162,6 +163,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   +   res.rendered
                   + '</ol>'
                 );
+                cmpTabs.scrollTop(0);
 
                 if(typeof res.total == 'undefined'){
                   console.warn('Expected @total from ' + url);
