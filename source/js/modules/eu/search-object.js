@@ -7,6 +7,23 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     console.log('search-object: ' + msg);
   }
 
+  function loadAnnotations(){
+
+    var templateId = 'js-template-object-data-section';
+    var template   = $('#' + templateId + ' noscript');
+
+    if(template.length > 0){
+
+      require(['mustache'], function(){
+        Mustache.tags = ['[[', ']]'];
+
+        $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+          template.parent().after(Mustache.render(template.text(), data));
+        });
+      });
+    }
+  }
+
   function loadHierarchy(params, callbackOnFail){
 
     var href     = window.location.href;
@@ -771,6 +788,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         showMLT(data.mlt);
       });
     });
+
+    loadAnnotations();
 
     $(window).bind('updateTechData', function(e, data){
       updateTechData(data);

@@ -261,6 +261,10 @@
               {{> organisms/sections/object-data-section }}
             {{/places }}
 
+            {{#annotations_later}}
+              <div class="js-hidden" id="js-template-object-data-section"><noscript>{{> organisms/sections/object-data-section-js }}</noscript></div>
+            {{/annotations_later}}
+
             {{#annotations}}
               {{> organisms/sections/object-data-section }}
             {{/annotations}}

@@ -14,7 +14,10 @@ define(['jquery', 'purl'], function($) {
       path = 'portal_hierarchy';
     }
 
-    console.log('path = ' + path + ', url = ' + url);
+    if(path.indexOf('_') == -1){
+      path = 'portal_' + path.split('/').pop().replace('.json', '');
+    }
+
     return {
       'path': path,
       'params': params
