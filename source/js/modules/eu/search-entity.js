@@ -168,7 +168,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 }
                 else{
                   var linkMore = $tabContent.find('.show-more-mlt');
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + res.total + ')'));
+
+                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
                   linkMore.removeClass('js-hidden');
                   header.data('content-items-total', res.total);
                 }
@@ -206,8 +207,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             rendered += '<li>' + Mustache.render(template.text(), ob) + '</li>';
           });
           callback({
-            rendered: rendered,
-            total:    data.total
+            rendered:        rendered,
+            total:           data.total,
+            total_formatted: data.total_formatted
           });
         });
       }
