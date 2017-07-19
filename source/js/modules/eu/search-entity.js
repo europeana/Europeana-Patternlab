@@ -100,7 +100,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       params['per_page'] = present ? extra : initial;
       params['page']     = (present / extra ) + 1;
 
-      return base.split('?')[0] + '?' + $.param(params);
+      return base ? base.split('?')[0] + '?' + $.param(params) : '';
     };
 
     var loadMoreItems = function(url, $tabContent, header, template, index){
@@ -238,7 +238,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         if(masonry){
           masonry.layout();
         }
-      }).done( function(){
+      }).done(function(){
+
         var hasSuperTall = false;
         $('.item-image').each(function(i, ob){
           var $ob = $(ob);
@@ -248,7 +249,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
         });
 
-//        masonry.layout();
+        masonry.layout();
       });
       masonries.push(masonry);
     });
