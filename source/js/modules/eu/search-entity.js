@@ -276,6 +276,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             thumblessLayout();
           });
         }
+        else{
+          $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
+        }
       });
     });
   }

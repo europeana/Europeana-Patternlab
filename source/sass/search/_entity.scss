@@ -245,6 +245,10 @@ $entity-panel-colour:           #eee;
   a{
     display: inline-block;
     margin:  1.6em 0;
+
+    &.js-hidden{
+      display: none;
+    }
   }
 }
 
@@ -254,10 +258,13 @@ $entity-panel-colour:           #eee;
   background-size:     cover;
 }
 
-.entity-external-link:first-of-type{
-  font-weight: bold;
-  &::after{
-    content: ' ';
+.entity-external-link{
+
+  &:first-of-type{
+    font-weight: bold;
+    &::after{
+      content: ' ';
+    }
   }
 }
 
