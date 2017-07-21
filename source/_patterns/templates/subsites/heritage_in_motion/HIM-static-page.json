@@ -42,6 +42,7 @@
         "items": [
           {
             "text": "About HIM",
+            "submenu": false,
             "is_current": true
           },
           {
@@ -59,28 +60,35 @@
               "items": [
                 {
                   "url": "#",
+                  "submenu": false,
                   "text": "New Entries 2015"
                 },
                 {
+                  "submenu": false,
                   "is_divider": true
                 },
                 {
                   "url": "#",
+                  "submenu": false,
                   "text": "Entries 2014"
                 },
                 {
                   "url": "#",
+                  "submenu": false,
                   "text": "Entries 2013"
                 },
                 {
                   "url": "#",
+                  "submenu": false,
                   "text": "Entries 2012"
                 },
                 {
+                  "submenu": false,
                   "is_divider": true
                 },
                 {
                   "url": "url to all entries",
+                  "submenu": false,
                   "text": "All Entries",
                   "is_morelink": true
                 }

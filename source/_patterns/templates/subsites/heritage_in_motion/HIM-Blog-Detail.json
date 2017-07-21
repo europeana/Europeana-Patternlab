@@ -44,9 +44,11 @@
           "primary_nav":
           {
             "menu_id": "main-menu",
+            "submenu": false,
             "items": [
               {
                 "text": "About HIM",
+                "submenu": false,
                 "is_current": true
               },
               {
@@ -64,27 +66,34 @@
                   "items": [
                     {
                       "url": "#",
-                      "text": "New Entries 2015"
+                      "text": "New Entries 2015",
+                      "submenu": false
                     },
                     {
-                      "is_divider": true
+                      "is_divider": true,
+                      "submenu": false
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2014"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2013"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2012"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
+                      "submenu": false,
                       "url": "url to all entries",
                       "text": "All Entries",
                       "is_morelink": true

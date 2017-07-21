@@ -44,16 +44,20 @@
           "primary_nav":
           {
             "menu_id": "main-menu",
+            "submenu": false,
             "items": [
               {
+                "submenu": false,
                 "text": "About HIM",
                 "is_current": true
               },
               {
+                "submenu": false,
                 "text": "Contest Rules",
                 "submenu": false
               },
               {
+                "submenu": false,
                 "text": "Enter the Contest",
                 "submenu": false
               },
@@ -63,29 +67,36 @@
                 "submenu": {
                   "items": [
                     {
+                      "submenu": false,
                       "url": "#",
                       "text": "New Entries 2015"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2014"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2013"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2012"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
                       "url": "url to all entries",
+                      "submenu": false,
                       "text": "All Entries",
                       "is_morelink": true
                     }
