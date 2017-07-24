@@ -46,7 +46,7 @@
     padding: 0 8px;
   }
 
-  .flex-outer > div:not(:last-child) {
+  .flex-outer > div:not(.buttons) {
     margin-bottom: 20px;
   }
 

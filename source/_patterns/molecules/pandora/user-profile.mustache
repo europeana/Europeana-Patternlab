@@ -43,8 +43,7 @@
         {{#user_email}}
           <div>
             <label for="userEmail">{{label}}</label>
-            <input class="js-editable"
-                   data-orig-value="{{value}}"
+            <input data-orig-value="{{value}}"
                    id="userEmail"
                    name="userEmail"
                    placeholder="{{placeholder}}"
@@ -147,10 +146,10 @@
         {{#notes}}
           <div>
             <label for="notes">{{label}}</label>
-            <textarea rows="4" cols="50" name="notes" class="js-editable"
-                      {{#view_mode.preview}}readonly{{/view_mode.preview}} placeholder="{{placeholder}}">
-              {{value}}
-            </textarea>
+            <textarea rows="4" cols="50" name="notes"
+              class="js-editable"
+              {{#view_mode.preview}}readonly{{/view_mode.preview}}
+              placeholder="{{placeholder}}">{{value}}</textarea>
           </div>
         {{/notes}}
 

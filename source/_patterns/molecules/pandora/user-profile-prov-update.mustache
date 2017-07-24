@@ -116,10 +116,10 @@
         {{#notes}}
           <div>
             <label for="notes">{{label}}</label>
-            <textarea rows="4" cols="50" name="notes" class="eu prov"
-                      {{#view_mode.preview}}readonly{{/view_mode.preview}} placeholder="{{placeholder}}">
-              {{value}}
-            </textarea>
+            <textarea rows="4" cols="50"
+              name="notes" class="eu prov"
+              {{#view_mode.preview}}readonly{{/view_mode.preview}}
+              placeholder="{{placeholder}}">{{value}}</textarea>
           </div>
         {{/notes}}
 
