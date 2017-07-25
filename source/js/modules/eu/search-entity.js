@@ -186,10 +186,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 initMasonry('.eu-accordion-tabs .tab-content.active .result-items');
                 header.removeClass('loading').addClass('js-loaded');
 
-                $tabContent.find('.result-items').on('layoutComplete', function(){
-                  log('layout complete: fix height');
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
-                });
+                //$tabContent.find('.result-items').on('layoutComplete', function(){
+                //  log('layout complete: fix height');
+                //  euAccordionTabs.fixTabContentHeight(cmpTabs);
+                //});
 
                 loadMoreItems(url, $tabContent, header, template, index);
               });
@@ -243,9 +243,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         percentPosition: true
       });
       $cmp.on('layoutComplete', function(){
-
         log('layout complete: new handler: cmpTabs = ' + cmpTabs);
-        accordionTabs.fixTabContentHeight(cmpTabs);
+        setTimeout(function(){
+          accordionTabs.fixTabContentHeight(cmpTabs);
+        }, 200);
       });
 
       $cmp.imagesLoaded().progress(function(){
