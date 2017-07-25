@@ -88,31 +88,24 @@ define([], function() {
   }
 
   function doPlay(media_item){
-      player.src([ { type: media_item.mime_type, src: media_item.url } ]);
+    player.src([ { type: media_item.mime_type, src: media_item.url } ]);
 
-      if(media_item.thumbnail){
-        $('.vjs-poster').css('background-image',    'url(' + media_item.thumbnail + ')');
-        $('.vjs-poster').css('background-repeat',   'no-repeat');
-        $('.vjs-poster').css('background-position', 'center');
-        $('.vjs-poster').removeClass('vjs-hidden');
-      }
-      else{
-          $('.vjs-poster').css('background-image', '');
-          $('.vjs-poster').addClass('vjs-hidden');
-      }
+    log('set player src');
 
+    if(media_item.thumbnail){
+      $('.vjs-poster').css('background-image',    'url(' + media_item.thumbnail + ')');
+      $('.vjs-poster').css('background-repeat',   'no-repeat');
+      $('.vjs-poster').css('background-position', 'center');
+      $('.vjs-poster').removeClass('vjs-hidden');
+    }
+    else{
+      $('.vjs-poster').css('background-image', '');
+      $('.vjs-poster').addClass('vjs-hidden');
+    }
 
-      player.play();
+    log('call player play');
 
-      /*
-      $('.vjs-fullscreen-control').css('visibility', 'hidden');
-      $viewer.append('<div class="eufs">FS 4</div>')
-      $('.eufs').click(function(){
-          $('.vjs-fullscreen-control').click();
-      });
-      log('added fs 2');
-      */
-
+    player.play();
   }
 
   /**
@@ -163,6 +156,7 @@ define([], function() {
             //
             // The height option here applies only to audio - videos will override this
 
+            log('init player');
             player = videojs( $viewer[0], {
               height: media_item.thumbnail ? 340 : 150
               /*              ,
@@ -207,7 +201,7 @@ define([], function() {
             });
             log('added fs 1');
             */
-
+            log('call doPlay');
             doPlay(media_item);
 
             $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
