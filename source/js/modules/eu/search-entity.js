@@ -1,8 +1,9 @@
 define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
-  var euSearchForm = null;
-  var masonries    = [];
-  var cmpTabs      = $('.eu-accordion-tabs');
+  var euSearchForm  = null;
+  var masonries     = [];
+  var cmpTabs       = $('.eu-accordion-tabs');
+  var accordionTabs = null;
 
   function log(msg){
     console.log('Entity: ' + msg);
@@ -124,6 +125,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           items.append(rendered);
 
           masonries[index].appended(rendered);
+          log('call masonry layout (load more)');
           masonries[index].layout();
 
           header.removeClass('loading');
@@ -139,6 +141,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     };
 
     require(['eu_accordion_tabs'], function(euAccordionTabs){
+
+      accordionTabs = euAccordionTabs;
+
       euAccordionTabs.init(
         cmpTabs,
         {
@@ -147,6 +152,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
             var header = $('.entity-main .tab-header:eq(' + index + ')');
             if(header.hasClass('js-loaded')){
+              log('call masonry layout (open tab)');
               masonries[index].layout();
             }
             else {
@@ -180,6 +186,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 header.removeClass('loading').addClass('js-loaded');
 
                 $tabContent.find('.result-items').on('layoutComplete', function(){
+                  log('layout complete: fix height');
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
 
@@ -188,6 +195,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
+                  log('resize: fix height');
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
               });
@@ -233,9 +241,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         columnWidth:     '.grid-sizer',
         percentPosition: true
       });
+      $cmp.on('layoutComplete', function(){
+
+        log('layout complete: new handler: cmpTabs = ' + cmpTabs);
+        accordionTabs.fixTabContentHeight(cmpTabs);
+      });
 
       $cmp.imagesLoaded().progress(function(){
         if(masonry){
+          log('call masonry layout (progress)');
           masonry.layout();
         }
       }).done(function(){
@@ -249,6 +263,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
         });
 
+        log('call masonry layout (done)');
         masonry.layout();
       });
       masonries.push(masonry);
