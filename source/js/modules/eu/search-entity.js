@@ -106,11 +106,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     var loadMoreItems = function(url, $tabContent, header, template, index){
 
-      var margin  = 220;
-      var heightL = $tabContent.height() + margin;
-      var heightR = $('.summary-column').height();
+      var margin     = 220;
+      var heightL    = $tabContent.height() + margin;
+      var heightR    = $('.summary-column').height();
+      var spaceOnRow = $('.grid-sizer').width() * 2 <= $('.grid-sizer').parent().width() && $('.search-list-item').last().css('left') == '0px';
 
-      if(heightL < heightR){
+      if(heightL < heightR || spaceOnRow){
         var params = $.url(url).param();
         var items  = $tabContent.find('.results .result-items');
         var total  = header.data('content-items-total');
