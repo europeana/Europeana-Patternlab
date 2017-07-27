@@ -2,6 +2,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   var euSearchForm  = null;
   var masonries     = [];
+  var totals        = [];
   var cmpTabs       = $('.eu-accordion-tabs');
   var accordionTabs = null;
 
@@ -114,7 +115,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       if(heightL < heightR || spaceOnRow){
         var params = $.url(url).param();
         var items  = $tabContent.find('.results .result-items');
-        var total  = header.data('content-items-total');
+        //var total  = header.data('content-items-total');
 
         url = getLoadParams(header.data('content-url'), $tabContent.find('.search-list-item').length);
 
@@ -123,18 +124,36 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         loadMasonryItems(url, template, function(res){
 
           rendered = $(res.rendered);
-          items.append(rendered);
+
+
+          if($(rendered).find('img').length > 0){
+
+            $(rendered).imagesLoaded(function(){
+              setTimeout(function(){
+                masonries[index].layout();
+              }, 200);
+            });
+            items.append(rendered);
+            masonries[index].appended(rendered);
+          }
+          else{
+            items.append(rendered);
+            masonries[index].appended(rendered);
+            setTimeout(function(){
+              masonries[index].layout();
+            }, 200);
+          }
 
           log('masonries[' + index + ']');
-
-          masonries[index].appended(rendered);
           log('call masonry layout (load more)');
 
+          //    setTimeout(function(){
+          //    masonries[index].layout();
+          //  }, 1200);
 
-          masonries[index].layout();
           header.removeClass('loading');
 
-          if(items.find('.search-list-item').length >= total){
+          if(items.find('.search-list-item').length >= totals[index]){
             $tabContent.find('.show-more-mlt').addClass('js-hidden');
           }
           else{
@@ -142,6 +161,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
 
         });
+      }
+      else{
+        //setTimeout(function(){
+        //  masonries[index].layout();
+        //}, 200);
       }
     };
 
@@ -184,7 +208,14 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                   linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
                   linkMore.removeClass('js-hidden');
-                  header.data('content-items-total', res.total);
+
+                  totals[index] = res.total;
+                  //header.data('content-items-total', res.total);
+
+                  if($tabContent.find('.results .search-list-item').length >= totals[index]){
+                    $tabContent.find('.show-more-mlt').addClass('js-hidden');
+                  }
+
                 }
 
                 initMasonry('.eu-accordion-tabs .tab-content.active .result-items', function(){
