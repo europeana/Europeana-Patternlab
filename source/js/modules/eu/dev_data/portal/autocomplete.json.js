@@ -1,6 +1,6 @@
 define([], function(){
 
-  var paramName = 'text'; //'term';
+  var paramName = 'text';
 
   function log(msg){
     console.log('Autocomplete: ' + msg);
@@ -432,18 +432,23 @@ define([], function(){
     }
   ];
 
+  var escapeRegExp = function(str){
+    return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  };
+
   return {
     getData: function(params){
 
       var res  = [];
-      var term = params[paramName].toUpperCase();
+      var term = params[paramName];
+      var re   = new RegExp('\\b' + escapeRegExp(term), 'i');
 
       $(data).each(function(i, ob){
 
         var cpy = false;
 
         for(key_name in ob['prefLabel']){
-          if(ob['prefLabel'][key_name].toUpperCase().indexOf(term) == 0){
+          if(ob['prefLabel'][key_name].match(re)){
             cpy = true;
             break;
           }
@@ -459,5 +464,4 @@ define([], function(){
       };
     }
   };
-
 });

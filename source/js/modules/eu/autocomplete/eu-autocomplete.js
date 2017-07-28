@@ -50,6 +50,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
   function scrollUpNeeded(el){
 
+    log('up ' + $input.val());
+
     var selItem = $list.find('.selected');
     var offset  = $('.header-wrapper').height();
 
@@ -78,6 +80,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       if(inV > 0){
         log('update scroll')
         $(window).scrollTop($(window).scrollTop() + inV);
+      }
+      if(ops.fnOnSelect){
+        ops.fnOnSelect($input.val());
       }
     }
   }
@@ -118,7 +123,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
         else{
           $list.find('.selected').removeClass('selected');
-          $input.val(typeof typedTerm == null ? '' : typedTerm);
+          $input.val(typedTerm == null ? '' : typedTerm);
+          if(ops.fnOnDeselect()){
+            ops.fnOnDeselect();
+          }
         }
       }
     }
@@ -150,7 +158,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
         else{
           $list.find('.selected').removeClass('selected');
-          $input.val(typeof typedTerm == null ? '' : typedTerm);
+          $input.val(typedTerm == null ? '' : typedTerm);
+          if(ops.fnOnDeselect()){
+            ops.fnOnDeselect();
+          }
         }
       }
     }
@@ -163,6 +174,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     }
     if(ops.fnPreProcess){
       data = ops.fnPreProcess(term, data, ops);
+    }
+    if(!data){
+      return;
     }
 
     var template = $('#js-template-autocomplete  noscript').text();
@@ -239,9 +253,13 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       else if(key==27){
         // esc
         $list.empty();
-        $input.val(typeof typedTerm == null ? '-x-x-x-'+typeof typedTerm : typedTerm);
+        $input.val(typedTerm == null ? '' : typedTerm);
+        if(ops.fnOnDeselect()){
+          ops.fnOnDeselect();
+        }
       }
       else{
+        typedTerm = $input.val();
         $(window).trigger('getSuggestions');
       }
     };

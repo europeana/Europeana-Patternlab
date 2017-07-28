@@ -401,6 +401,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
         console.log('init autocomplete... ' + data.url);
 
         var languages = (i18nLocale && i18nDefaultLocale) ? [i18nLocale, i18nDefaultLocale] : i18nLocale ? [i18nLocale] :['en'];
+        var inputName = $('.search-input').attr('name');
 
         Autocomplete.init({
           evtResize       : 'europeanaResize',
@@ -411,6 +412,14 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           fnOnHide        : function(){
             $('.attribution-content').show();
             $('.attribution-toggle').hide();
+          },
+          fnOnSelect       : function(val){
+            log('selected an autocomplete val: ' + val);
+            $('.search-input').attr('name', 'qe');
+          },
+          fnOnDeselect     : function(){
+            log('deselected autocomplete val');
+            $('.search-input').attr('name', inputName);
           },
           fnPreProcess    : AutocompleteProcessor.process,
           form            : euSearchForm,
@@ -423,7 +432,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           selAnchor       : '.search-multiterm',
           theme           : 'style-entities',
           translations    : data.translations,
-          url             : data.url
+          url             : data.url ? data.url : 'entities/suggest.json'
         });
       });
     });
@@ -567,7 +576,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     });
 
     if(loadFederatedSetting()){
-      log('federated enabled');
       fnClickExpand();
     }
   }

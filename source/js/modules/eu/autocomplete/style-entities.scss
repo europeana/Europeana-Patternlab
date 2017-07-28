@@ -1,11 +1,9 @@
 @import '../../../../sass/scss/generic/variables';
 
-
 .eu-autocomplete{
 
   border:     1px solid $gray-lighter;
   border-top: 0;
-
   overflow:   hidden;
 
   li{
@@ -20,9 +18,10 @@
   }
 
   .suggest-life{
+    color:         $gray65;
+    display:       flex;
     float:         right;
-    padding-right: 0.8em;
-    white-space:   nowrap;
+    padding-right: 0.4em;
 
     .label{
       font-weight:    bold;
@@ -30,14 +29,12 @@
     }
   }
 
-  .suggest-life,
   .suggest-prof,
   .suggest-type{
     color: $gray-light;
   }
 
   .suggest-dob,
-  .suggest-dox,
   .suggest-dod{
     display: table-cell;
     white-space: nowrap;
@@ -60,6 +57,13 @@
   }
 
   .suggest-dob,
+  .suggest-dod{
+    display:         flex;
+    justify-content: space-between;
+    min-width:       10em;
+  }
+
+  .suggest-dob,
   .suggest-dod,
   .suggest-locale,
   .suggest-prof,
@@ -67,12 +71,13 @@
     font-size: 0.8em;
   }
 
-  //.suggest-dob{
-  //  width: 8em;
-  //}
-  //.suggest-dox{
-  //  width: 6.4em;
-  //}
+  .suggest-locale{
+    color:          $gray65;
+    display:        inline-block;
+    font-weight:    bold;
+    text-transform: uppercase;
+    transform:      translateY(-0.05em);
+  }
 
   .suggest-prof{
     display:    block;
@@ -84,7 +89,6 @@
   }
 
   .group-begin .suggest-type{
-
     display:        block;
     font-size:      0.65em;
     font-weight:    bold;

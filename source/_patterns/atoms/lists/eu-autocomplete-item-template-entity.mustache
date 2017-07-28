@@ -1,20 +1,14 @@
 <li data-term="[[directHit]]"[[#groupBegin]] class="group-begin"[[/groupBegin]]>
   <span class="suggest-type[[#type_lc]] suggest-[[.]][[/type_lc]]">[[type_translated]] </span>
-  [[#directMatch]]<span class="match"><b>[[.]]</b>[[/directMatch]][[directHitMinusMatch]]</span>
+  [[#directMatch]][[directHitPreMatch]]<span class="match"><b>[[.]]</b>[[directHitPostMatch]][[/directMatch]]</span>
   [[^directMatch]]
-    [[#indirectMatch]] ( <span class="match"><b>[[.]]</b>[[indirectHitMinusMatch]]</span>[[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )[[/indirectMatch]]
+    [[#indirectMatch]][[unmatched]] ( [[indirectHitPreMatch]]<span class="match"><b>[[.]]</b>[[indirectHitPostMatch]]</span>[[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )[[/indirectMatch]]
   [[/directMatch]]
 
   [[#life]]<span class="suggest-life">[[/life]]
-    [[#dateOfBirth]]<span class="suggest-dob"><span class="label">{{i18n.site.entities.labels.born}}</span> [[.]]</span>[[/dateOfBirth]]
+    [[#dateOfBirth]]<span class="suggest-dob"><span class="label">{{i18n.site.entities.labels.born}}</span><span class="value"> [[.]]</span></span>[[/dateOfBirth]]
     [[#dateOfDeath]]
-
-      [[#remove]]
-        [[^dateOfBirth]]<span class="suggest-dox"></span>[[/dateOfBirth]]
-      [[/remove]]
-
-
-      <span class="suggest-dod"><span class="label">{{i18n.site.entities.labels.died}}</span> [[.]]</span>
+      <span class="suggest-dod"><span class="label">{{i18n.site.entities.labels.died}}</span><span class="value"> [[.]]</span></span>
     [[/dateOfDeath]]
   [[#life]]</span>[[/life]]
 

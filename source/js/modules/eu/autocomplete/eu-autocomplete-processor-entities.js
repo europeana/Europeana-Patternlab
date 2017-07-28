@@ -24,9 +24,13 @@ define(['jquery'], function($){
     return 0;
   };
 
+  var escapeRegExp = function(str){
+    return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  };
+
   function process(term, data, ops){
 
-    log('translations:\n' + JSON.stringify(ops.translations), null, 4);
+    // log('translations:\n' + JSON.stringify(ops.translations), null, 4);
 
     var dataList = data['contains'];
 
@@ -36,7 +40,7 @@ define(['jquery'], function($){
     }
 
     var res      = [].concat(dataList);
-    var re       = new RegExp('(?:\s|^)' + term, 'i'); //('^' + term, 'i');
+    var re       = new RegExp('\\b' + escapeRegExp(term), 'i');
     var lastType = '';
     res.sort(compare);
 
@@ -51,13 +55,22 @@ define(['jquery'], function($){
         if(inLangs){
           res[i].directHit           = val;
           res[i].directMatch         = match;
-          res[i].directHitMinusMatch = val.replace(re, '');
+          if(match){
+            res[i].directHitPreMatch   = val.substr(0, val.indexOf(match));
+            res[i].directHitPostMatch  = val.substr(val.indexOf(match) + (match+'').length);
+          }
+          else{
+            res[i].unmatched         = val;
+          }
         }
         else{
           res[i].indirectHit           = val;
           res[i].indirectMatch         = match;
-          res[i].indirectHitMinusMatch = val.replace(re, '');
           res[i].indirectLocale        = locale;
+
+          res[i].indirectHitPreMatch   = val.substr(0, val.indexOf(match));
+          res[i].indirectHitPostMatch  = val.substr(val.indexOf(match) + (match+'').length);
+
         }
       }
 
@@ -74,7 +87,6 @@ define(['jquery'], function($){
         res[i]['life_summary'] = getFirst(res[i].professionOrOccupation, ops.languages);
       }
     }
-
 
     return res;
   }
