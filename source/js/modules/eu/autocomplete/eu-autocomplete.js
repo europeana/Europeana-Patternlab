@@ -1,28 +1,24 @@
-define(['jquery', 'util_resize'], function($){
+define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
-  var css_path = require.toUrl('../../eu/autocomplete/style.css');
+  Mustache.tags = ['[[', ']]'];
 
-  $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
-
-  function log(msg){
-    console.log('Autocomplete: ' + msg);
-  };
-
-  var form               = null;
-  var translations       = { 'Agent': 'Person', 'Place' : 'Place', 'Concept': 'Topic' };
+  var ops                = null;
   var typedTerm          = null;
-  var urlStem            = null;
-
-  var fnOnShow           = null;
-  var fnOnHide           = null;
-
   var $input             = null;
   var $list              = null;
   var $anchor            = null;
   var $widthEl           = null;
 
+  function appendStyle(theme){
+    $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/autocomplete/' + theme) + '" type="text/css"/>');
+  }
 
-  function init(ops){
+  function log(msg){
+    console.log('Autocomplete: ' + msg);
+  };
+
+  function init(opsIn){
+    ops          = opsIn;
     $input       = $(ops.selInput);
     $anchor      = ops.selAnchor  ? $(ops.selAnchor)  : $input;
     $widthEl     = ops.selWidthEl ? $(ops.selWidthEl) : $anchor;
@@ -30,11 +26,10 @@ define(['jquery', 'util_resize'], function($){
     $list = $anchor.next('.eu-autocomplete');
     $input.attr('autocomplete', 'off');
 
-    fnOnShow     = ops.fnOnShow;
-    fnOnHide     = ops.fnOnHide;
-    form         = ops.searchForm;
-    translations = ops.translations;
-    urlStem      = ops.url;
+    appendStyle('style.css');
+    if(ops.theme){
+      appendStyle(ops.theme + '.css');
+    }
 
     bindKeyboard();
     bindMouse();
@@ -47,20 +42,32 @@ define(['jquery', 'util_resize'], function($){
     $list.width(($widthEl.outerWidth()-4) + 'px');
   }
 
-  function escapeRegExp(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-  }
-
   function isElementInViewport(el){
     el = el[0];
     var rect = el.getBoundingClientRect();
     return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight)
   }
 
+  function scrollUpNeeded(el){
+
+    var selItem = $list.find('.selected');
+    var offset  = $('.header-wrapper').height();
+
+    if(selItem.length > 0){
+      var itemTop = $(selItem)[0].getBoundingClientRect().top;
+      if(itemTop - offset < 0){
+        $(window).scrollTop( $(window).scrollTop() + (itemTop - offset));
+      }
+    }
+    else{
+      $(window).scrollTop( $(window).scrollTop() - offset);
+    }
+  }
+
   function hide(){
     $list.empty();
-    if(fnOnHide){
-      fnOnHide();
+    if(ops.fnOnHide){
+      ops.fnOnHide();
     }
   }
 
@@ -87,7 +94,7 @@ define(['jquery', 'util_resize'], function($){
     $list.find('li').removeClass('selected');
     $el.addClass('selected');
     select();
-    form.submit();
+    ops.form.submit();
   }
 
   function back(first){
@@ -144,52 +151,47 @@ define(['jquery', 'util_resize'], function($){
         else{
           $list.find('.selected').removeClass('selected');
           $input.val(typeof typedTerm == null ? '' : typedTerm);
-          $(window).scrollTop(0);
         }
       }
     }
-  }
-
-  function processItem(value, item){
-    return '<span class="suggest-val">' + value + '</span><br>'
-    + (item.dateOfBirth || item.dateOfDeath ?                                             '<span class="suggest-life">' : '')
-    + (item.dateOfBirth ?                                                                 '<span class="suggest-dob">'  +  item.dateOfBirth + '</span><br>'  : '')
-    + (item.dateOfDeath ? (item.dateOfBirth ? '' : '<span class="suggest-dox"></span>') + '<span class="suggest-dod">'  +  item.dateOfDeath + '</span><br>' : '')
-    + (item.dateOfBirth || item.dateOfDeath ? '</span>' : '')
-    + (item.professionOrOccupation ? '<span class="suggest-prof">' +  item.professionOrOccupation + '</span><br>' : '')
-    + '<span class="suggest-type'   + (item.type ? (' suggest-' + item.type.toLowerCase() ) : '') + '">' + (translations[item.type] || item.type) + '</span>';
   }
 
   function processResult(data, term){
     $list.empty();
-    if(fnOnHide){
-      fnOnHide();
+    if(ops.fnOnHide){
+      ops.fnOnHide();
     }
-    var dataList = data['contains'];
-    if(!dataList){
-      return;
+    if(ops.fnPreProcess){
+      data = ops.fnPreProcess(term, data, ops);
     }
-    dataList = [].concat(data['contains']);
-    var valPath  = 'prefLabel';
 
-    $.each(dataList, function(i, item){
-      var value   = item[valPath];
-      var escaped = escapeRegExp(term);
-      var display = (escapeRegExp(value + "")).replace(new RegExp("(" + escaped + ")", "gi") , "<b>$1</b>").replace('\\(', '(').replace('\\)', ')');
-      $list.append('<li data-term="' + value + '">' + processItem(display, item) + '</li>');
+    var template = $('#js-template-autocomplete  noscript').text();
+
+    $.each(data, function(i, item){
+      $list.append(Mustache.render(template, item));
     });
   }
 
-  function getSuggestions(term){
-    $.getJSON(urlStem + term, function(data){
-      processResult(data, term);
+  function getSuggestions(){
 
+    var term = $input.val();
+
+    if(ops.minTermLength && term.length < ops.minTermLength){
+      hide();
+      return;
+    }
+    var url  = ops.url + (ops.url.indexOf('?' + ops.paramName + '=') == -1 ? '?' + ops.paramName + '=' + term : '');
+        url = ops.paramAdditional ? url + ops.paramAdditional : url;
+
+    log('getSuggestions: url = ' + url);
+
+    $.getJSON(url + term).done(function(data){
+      processResult(data, term);
       if($list.find('li').length > 0){
-        if(fnOnShow){
-          fnOnShow();
+        if(ops.fnOnShow){
+          ops.fnOnShow();
         }
       }
-
     })
     .error(function(e, f){
       log('Error: ' + e + '  ' + f);
@@ -197,9 +199,18 @@ define(['jquery', 'util_resize'], function($){
     });
   };
 
-  function bindKeyboard(){
-    $input.on('keyup', function(e){
 
+  function bindKeyboard(){
+
+    $input.on('keydown', function(e){
+      var key = window.event ? e.keyCode : e.which;
+      if(key == 40 || key == 38){
+        e.preventDefault(); // stop scroll up jump before scrolling down
+        return false;
+      }
+    });
+
+    var fnKeyup = function(e){
       if(!$list.is(":visible")){
         log('exit (hidden)');
         return;
@@ -213,6 +224,8 @@ define(['jquery', 'util_resize'], function($){
       else if(key == 38){
         // up
         back(e.ctrlKey || e.shiftKey);
+
+        scrollUpNeeded($input);
       }
       else if(e.keyCode == 13){
         // carriage return
@@ -226,14 +239,39 @@ define(['jquery', 'util_resize'], function($){
       else if(key==27){
         // esc
         $list.empty();
-        $input.val(typeof typedTerm == null ? '' : typedTerm);
+        $input.val(typeof typedTerm == null ? '-x-x-x-'+typeof typedTerm : typedTerm);
       }
       else{
-        var val = $(this).val();
-        typedTerm = val;
-        getSuggestions(val);
+        $(window).trigger('getSuggestions');
       }
-    });
+    };
+
+    var debounce = function(func, threshold, execAsap){
+
+      var timeout;
+      return function debounced(){
+
+        var obj = this , args = arguments;
+        function delayed(){
+
+          if(!execAsap){
+            func.apply(obj, args);
+          }
+          timeout = null;
+        };
+
+        if(timeout){
+          clearTimeout(timeout);
+        }
+        else if(execAsap){
+          func.apply(obj, args);
+        }
+        timeout = setTimeout(delayed, threshold || 500);
+      };
+    };
+
+    $input.on('keyup', fnKeyup);
+    $(window).on('getSuggestions', debounce(getSuggestions));
   }
 
   function bindMouse(){

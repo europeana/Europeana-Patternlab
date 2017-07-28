@@ -37,7 +37,7 @@
 /* line 36, eu-tooltip-style.scss */
 .eu-tooltip-container .eu-tooltip {
   background: #1676aa;
-  color: #FFFFFF;
+  color: #ffffff;
   display: none;
   font-size: 0.75rem;
   font-weight: normal;
@@ -55,7 +55,7 @@
 }
 /* line 55, eu-tooltip-style.scss */
 .eu-tooltip-container .eu-tooltip a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 /* line 57, eu-tooltip-style.scss */
 .eu-tooltip-container .eu-tooltip a[href] {

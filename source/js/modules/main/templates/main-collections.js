@@ -20,6 +20,7 @@ require.config({
     eu_accordion_tabs:             '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
+    eu_autocomplete_processor:     '../../eu/autocomplete/eu-autocomplete-processor-entities',
     eu_carousel:                   '../../eu/eu-carousel',
     eu_carousel_appender:          '../../eu/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/eu-hierarchy',

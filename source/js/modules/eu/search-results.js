@@ -394,23 +394,37 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   };
 
   function addAutocomplete(data){
-    require(['eu_autocomplete', 'util_resize'], function(autocomplete){
-      autocomplete.init({
-        evtResize    : 'europeanaResize',
-        selInput     : '.search-input',
-        selWidthEl   : '.js-hitarea',
-        selAnchor    : '.search-multiterm',
-        searchForm   : euSearchForm,
-        translations : data.translations,
-        url          : data.url,
-        fnOnShow     : function(){
-          $('.attribution-content').hide();
-          $('.attribution-toggle').show();
-        },
-        fnOnHide : function(){
-          $('.attribution-content').show();
-          $('.attribution-toggle').hide();
-        }
+
+    require(['eu_autocomplete_processor'], function(AutocompleteProcessor){
+      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+
+        console.log('init autocomplete... ' + data.url);
+
+        var languages = (i18nLocale && i18nDefaultLocale) ? [i18nLocale, i18nDefaultLocale] : i18nLocale ? [i18nLocale] :['en'];
+
+        Autocomplete.init({
+          evtResize       : 'europeanaResize',
+          fnOnShow        : function(){
+            $('.attribution-content').hide();
+            $('.attribution-toggle').show();
+          },
+          fnOnHide        : function(){
+            $('.attribution-content').show();
+            $('.attribution-toggle').hide();
+          },
+          fnPreProcess    : AutocompleteProcessor.process,
+          form            : euSearchForm,
+          languages       : languages,
+          minTermLength   : data.min_chars ? data.min_chars : 3,
+          paramName       : 'text',
+          paramAdditional : '&language=' + languages.join(','),
+          selInput        : '.search-input',
+          selWidthEl      : '.js-hitarea',
+          selAnchor       : '.search-multiterm',
+          theme           : 'style-entities',
+          translations    : data.translations,
+          url             : data.url
+        });
       });
     });
   }

@@ -32,7 +32,7 @@
 /* line 34, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip {
   background-color: #1676aa;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.6;
@@ -72,7 +72,7 @@
 }
 /* line 78, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: underline;
 }
 /* line 83, eu-clicktip-style.scss */
@@ -85,7 +85,7 @@
 }
 /* line 91, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove'] {
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   height: 1em;
   line-height: 1em;
@@ -96,7 +96,7 @@
 }
 /* line 102, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove']:hover {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 /* line 106, eu-clicktip-style.scss */
 .eu-clicktip-container .eu-clicktip a[data-role='remove']::after {
