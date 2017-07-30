@@ -1,6 +1,6 @@
-define(['jquery', 'smartmenus'], function ($) {
+define(['jquery', 'smartmenus'], function($){
 
-  var promisedPageJS = jQuery.Deferred();
+  var promisedPageJS = $.Deferred();
 
   var log = function(msg){
     console.log('Channels: ' + msg);
@@ -235,14 +235,14 @@ define(['jquery', 'smartmenus'], function ($) {
       break;
     //case 'portal/entity':
     case 'entities/show':
-      require(['search_entity'], function(page){
+      require(['search_entity', 'search_form'], function(page){
         page.initPage();
         promisedPageJS.resolve(page);
         doForAllPages();
       });
       break;
     case 'portal/show':
-      require(['search_object'], function(page){
+      require(['search_object', 'search_form'], function(page){
         page.initPage();
         promisedPageJS.resolve(page);
         doForAllPages();

@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function ($){
 
-  var form     = $('.search-multiterm');
+  var form = $('.search-multiterm');
 
   function log(msg){
     console.log('SearchForm: ' + msg);
@@ -8,6 +8,10 @@ define(['jquery', 'util_resize'], function ($){
 
   function sizeInput(){
     var input = form.find('.js-search-input');
+
+    if(input.length == 0){
+      return;
+    }
 
     input.width('auto');
 
@@ -47,6 +51,54 @@ define(['jquery', 'util_resize'], function ($){
     input.focus();
   }
 
+  function addAutocomplete(data){
+    require(['eu_autocomplete_processor'], function(AutocompleteProcessor){
+      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+
+        console.log('init autocomplete... ' + data.url);
+
+        var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale] : typeof i18nLocale == 'string' ? [i18nLocale] :['en'];
+        var selInput         = $('.search-input').length > 0 ? '.search-input' : '.item-search-input';
+        var inputName        = $(selInput).attr('name');
+        var itemTemplateText = $('#js-template-autocomplete noscript').text();
+
+        Autocomplete.init({
+          evtResize       : 'europeanaResize',
+          fnOnShow        : function(){
+            $('.attribution-content').hide();
+            $('.attribution-toggle').show();
+          },
+          fnOnHide        : function(){
+            $('.attribution-content').show();
+            $('.attribution-toggle').hide();
+          },
+          fnOnSelect       : function(){
+            $('.search-input').attr('name', 'qe');
+          },
+          fnOnDeselect     : function(){
+            $('.search-input').attr('name', inputName);
+          },
+          fnPreProcess     : AutocompleteProcessor.process,
+          form             : form,
+          itemTemplateText : itemTemplateText,
+          languages        : languages,
+          minTermLength    : data.min_chars ? data.min_chars : 3,
+          paramName        : 'text',
+          paramAdditional  : '&language=' + languages.join(','),
+          selInput         : selInput,
+          selWidthEl       : '.js-hitarea',
+          selAnchor        : '.search-multiterm',
+          theme            : 'style-entities',
+          url              : data.url ? data.url : 'entities/suggest.json'
+        });
+      });
+    });
+  }
+
+  $(window).bind('addAutocomplete', function(e, data){
+    addAutocomplete(data);
+  });
+
   initSearchForm();
 
   /**
@@ -55,30 +107,31 @@ define(['jquery', 'util_resize'], function ($){
    *   sizeInput();
    * if / when we stop loading stylesheets asynchronously
    * */
-  //if($('.search-tag').size()>0){
-  var cssnum = document.styleSheets.length;
-  var ti = setInterval(function() {
-    if (document.styleSheets.length > cssnum) {
-      for(var i=0; i<document.styleSheets.length; i++){
-        if(document.styleSheets[i].href && document.styleSheets[i].href.indexOf('screen.css')>-1){
-          clearInterval(ti);
-          // additional timeout to allow rendering
-          setTimeout(function(){
-            sizeInput();
-          }, 100);
+  if($('.js-search-input').length > 0){
+    var cssnum = document.styleSheets.length;
+    var ti = setInterval(function() {
+      if (document.styleSheets.length > cssnum) {
+        for(var i=0; i<document.styleSheets.length; i++){
+          if(document.styleSheets[i].href && document.styleSheets[i].href.indexOf('screen.css')>-1){
+            clearInterval(ti);
+            // additional timeout to allow rendering
+            setTimeout(function(){
+              sizeInput();
+            }, 100);
+          }
         }
       }
-    }
-  }, 100);
+    }, 100);
+  }
 
   $(window).europeanaResize(function(){
-    sizeInput()
+    sizeInput();
   });
 
   return {
     submit : function(){
       form.submit();
     }
-  }
+  };
 
 });

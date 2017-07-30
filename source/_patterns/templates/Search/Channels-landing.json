@@ -23,12 +23,21 @@
     {
       "name": "pageName",
       "value": "collections/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'portal_autocomplete': 100}}"
     }
   ],
   "input_search": {
     "title": "Search Europeana Music",
     "input_name": "q",
     "placeholder": "Search Europeana Music"
+  },
+  "form_search": {
+    "autocomplete": true,
+    "url": "portal_autocomplete",
+    "min_chars": "0"
   },
   "content": {
     "ugc_content": {

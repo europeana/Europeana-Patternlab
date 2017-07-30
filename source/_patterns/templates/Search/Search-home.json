@@ -24,8 +24,18 @@
     {
       "name": "pageName",
       "value": "home/index"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'portal_autocomplete': 100}}"
     }
   ],
+  "form_search": {
+    "action": "javascript:alert('submit form');",
+    "autocomplete": true,
+    "url": "portal_autocomplete",
+    "min_chars": "0"
+  },
   "input_search": {
     "title": "Search Europeana",
     "input_name": "search",

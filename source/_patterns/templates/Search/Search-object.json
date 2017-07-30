@@ -41,7 +41,10 @@
   ],
 
   "form_search": {
-    "action": "javascript:alert('submit form');"
+    "action": "javascript:alert('submit form');",
+    "autocomplete": true,
+    "url": "portal_autocomplete",
+    "min_chars": "0"
   },
 
   "navigation":{

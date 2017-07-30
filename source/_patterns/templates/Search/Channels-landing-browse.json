@@ -19,13 +19,7 @@
        }
     }
   },
-
   "include_nav_searchbar": true,
-
-  "form_search": {
-    "action": "javascript:alert('submit form');"
-  },
-
   "js_slsb_ld":{
     "context": "http://schema.org",
     "type": "WebSite",
@@ -55,12 +49,22 @@
     {
       "name": "pageName",
       "value": "collections/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'portal_autocomplete': 100}}"
     }
   ],
   "input_search": {
     "title": "Search Europeana Fashion",
     "input_name": "q",
     "placeholder": "Search Europeana Fashion"
+  },
+  "form_search": {
+    "action": "javascript:alert('submit form');",
+    "autocomplete": true,
+    "url": "portal_autocomplete",
+    "min_chars": "0"
   },
   "browse_menu": {
     "menu_id": "browse-menu",

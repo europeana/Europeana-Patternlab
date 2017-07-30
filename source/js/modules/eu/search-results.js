@@ -371,12 +371,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     bindGA();
     bindfacetOpeners();
     bindDateFacetInputs();
-
     initFederatedSearch();
-
-    $(window).bind('addAutocomplete', function(e, data){
-      addAutocomplete(data);
-    });
 
     scrollEvents.fireAllVisible();
 
@@ -392,51 +387,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       });
     }
   };
-
-  function addAutocomplete(data){
-
-    require(['eu_autocomplete_processor'], function(AutocompleteProcessor){
-      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
-
-        console.log('init autocomplete... ' + data.url);
-
-        var languages = (i18nLocale && i18nDefaultLocale) ? [i18nLocale, i18nDefaultLocale] : i18nLocale ? [i18nLocale] :['en'];
-        var inputName = $('.search-input').attr('name');
-
-        Autocomplete.init({
-          evtResize       : 'europeanaResize',
-          fnOnShow        : function(){
-            $('.attribution-content').hide();
-            $('.attribution-toggle').show();
-          },
-          fnOnHide        : function(){
-            $('.attribution-content').show();
-            $('.attribution-toggle').hide();
-          },
-          fnOnSelect       : function(val){
-            log('selected an autocomplete val: ' + val);
-            $('.search-input').attr('name', 'qe');
-          },
-          fnOnDeselect     : function(){
-            log('deselected autocomplete val');
-            $('.search-input').attr('name', inputName);
-          },
-          fnPreProcess    : AutocompleteProcessor.process,
-          form            : euSearchForm,
-          languages       : languages,
-          minTermLength   : data.min_chars ? data.min_chars : 3,
-          paramName       : 'text',
-          paramAdditional : '&language=' + languages.join(','),
-          selInput        : '.search-input',
-          selWidthEl      : '.js-hitarea',
-          selAnchor       : '.search-multiterm',
-          theme           : 'style-entities',
-          translations    : data.translations,
-          url             : data.url ? data.url : 'entities/suggest.json'
-        });
-      });
-    });
-  }
 
   function initFederatedSearch(){
 
@@ -475,7 +425,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
             tab.find('.tab-subtitle').html(data.tab_subtitle);
             var defLogo = tab.data('content-default-logo');
 
-            $('.more-federated-results:eq(' + index + ')').removeClass('js-empty').find('a').attr('href', data.more_results_url).text(data.more_results_label)
+            $('.more-federated-results:eq(' + index + ')').removeClass('js-empty').find('a').attr('href', data.more_results_url).text(data.more_results_label);
 
             $.each(data.search_results, function(i, itemData){
 

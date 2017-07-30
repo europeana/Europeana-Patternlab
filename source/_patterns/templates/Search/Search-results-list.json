@@ -94,7 +94,8 @@
   },
   "form_search": {
     "autocomplete": true,
-    "url": "portal_autocomplete"
+    "url": "portal_autocomplete",
+    "min_chars": "0"
   },
   "hero": {
       "hero_image": "../../images/pro/home_image_test.jpg"

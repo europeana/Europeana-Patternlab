@@ -1,307 +1,306 @@
 define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
-  Mustache.tags = ['[[', ']]'];
+  function EuAutocomplete(){
 
-  var ops                = null;
-  var typedTerm          = null;
-  var $input             = null;
-  var $list              = null;
-  var $anchor            = null;
-  var $widthEl           = null;
+    Mustache.tags = ['[[', ']]'];
 
-  function appendStyle(theme){
-    $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/autocomplete/' + theme) + '" type="text/css"/>');
-  }
+    var self            = this;
+    self.ops            = null;
+    self.typedTerm      = null;
+    self.$input         = null;
+    self.$list          = null;
+    self.$anchor        = null;
+    self.$widthEl       = null;
 
-  function log(msg){
-    console.log('Autocomplete: ' + msg);
-  };
+    this.init = function(opsIn){
+      self.ops          = opsIn;
+      self.$input       = $(self.ops.selInput);
+      self.$anchor      = self.ops.selAnchor  ? $(self.ops.selAnchor)  : self.$input;
+      self.$widthEl     = self.ops.selWidthEl ? $(self.ops.selWidthEl) : self.$anchor;
+      self.$anchor.after('<ul class="eu-autocomplete" style="top:' + self.$anchor.outerHeight() + 'px"></ul>');
+      self.$list        = self.$anchor.next('.eu-autocomplete');
+      self.$input.attr('autocomplete', 'off');
 
-  function init(opsIn){
-    ops          = opsIn;
-    $input       = $(ops.selInput);
-    $anchor      = ops.selAnchor  ? $(ops.selAnchor)  : $input;
-    $widthEl     = ops.selWidthEl ? $(ops.selWidthEl) : $anchor;
-    $anchor.after('<ul class="eu-autocomplete" style="top:' + $anchor.outerHeight() + 'px"></ul>');
-    $list = $anchor.next('.eu-autocomplete');
-    $input.attr('autocomplete', 'off');
-
-    appendStyle('style.css');
-    if(ops.theme){
-      appendStyle(ops.theme + '.css');
-    }
-
-    bindKeyboard();
-    bindMouse();
-
-    $(window).europeanaResize(resize);
-    resize();
-  }
-
-  function resize(){
-    $list.width(($widthEl.outerWidth()-4) + 'px');
-  }
-
-  function isElementInViewport(el){
-    el = el[0];
-    var rect = el.getBoundingClientRect();
-    return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight)
-  }
-
-  function scrollUpNeeded(el){
-
-    log('up ' + $input.val());
-
-    var selItem = $list.find('.selected');
-    var offset  = $('.header-wrapper').height();
-
-    if(selItem.length > 0){
-      var itemTop = $(selItem)[0].getBoundingClientRect().top;
-      if(itemTop - offset < 0){
-        $(window).scrollTop( $(window).scrollTop() + (itemTop - offset));
+      self.appendStyle('style.css');
+      if(self.ops.theme){
+        self.appendStyle(self.ops.theme + '.css');
       }
-    }
-    else{
-      $(window).scrollTop( $(window).scrollTop() - offset);
-    }
-  }
 
-  function hide(){
-    $list.empty();
-    if(ops.fnOnHide){
-      ops.fnOnHide();
-    }
-  }
+      self.bindKeyboard();
+      self.bindMouse();
 
-  function updateInput($el){
-    if($el){
-      $input.val($el.data('term'));
-      var inV = isElementInViewport($el);
-      if(inV > 0){
-        log('update scroll')
-        $(window).scrollTop($(window).scrollTop() + inV);
-      }
-      if(ops.fnOnSelect){
-        ops.fnOnSelect($input.val());
-      }
-    }
-  }
+      $(window).europeanaResize(self.resize);
+      self.resize();
+    };
 
-  function select(){
-    var sel = $list.find('.selected');
-    if(sel.length){
-      updateInput(sel);
-      hide();
-    }
-  }
+    this.resize = function(){
+      self.$list.width((self.$widthEl.outerWidth()-4) + 'px');
+    };
 
-  function setSelected($el){
-    $list.find('li').removeClass('selected');
-    $el.addClass('selected');
-    select();
-    ops.form.submit();
-  }
+    this.bindKeyboard = function(){
 
-  function back(first){
-    if($list.find('li').length == 0){
-      return;
-    }
-    if(first){
-      $list.find('li').removeClass('selected');
-      var $f = $list.find('li:first')
-      $f.addClass('selected');
-      updateInput($f);
-    }
-    else{
-      var $sel = $list.find('.selected');
-      if($sel.length>0){
-        var $prev = $sel.prev('li');
-        if($prev.length > 0){
-          $sel.removeClass('selected');
-          $prev.addClass('selected');
-          updateInput($prev);
+      self.$input.on('keydown', function(e){
+        var key = window.event ? e.keyCode : e.which;
+        if(key == 40 || key == 38){
+          e.preventDefault(); // stop scroll up jump before scrolling down
+          return false;
         }
-        else{
-          $list.find('.selected').removeClass('selected');
-          $input.val(typedTerm == null ? '' : typedTerm);
-          if(ops.fnOnDeselect()){
-            ops.fnOnDeselect();
+      });
+
+      var fnKeyup = function(e){
+        if(!self.$list.is(':visible')){
+          self.log('exit (hidden)');
+          return;
+        }
+
+        var key = window.event ? e.keyCode : e.which;
+        if(key == 40){
+          // down
+          self.fwd(e.ctrlKey || e.shiftKey);
+        }
+        else if(key == 38){
+          // up
+          self.back(e.ctrlKey || e.shiftKey);
+          self.scrollUpNeeded();
+        }
+        else if(e.keyCode == 13){
+          // carriage return
+          e.stopPropagation();
+          e.preventDefault();
+          self.select();
+        }
+        else if(e.keyCode == 9){
+          // tab
+        }
+        else if(key==27){
+          // esc
+          self.$list.empty();
+          self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+          if(self.ops.fnOnDeselect){
+            self.ops.fnOnDeselect();
           }
         }
-      }
-    }
-  }
+        else{
+          self.typedTerm = self.$input.val();
+          self.$input.trigger('getSuggestions');
+        }
+      };
 
-  function fwd(last){
-    if($list.find('li').length == 0){
-      return;
-    }
-    if(last){
-      var $l = $list.find('li:last')
-      $list.find('li').removeClass('selected');
-      $l.addClass('selected');
-      updateInput($l);
-    }
-    else{
-      var $sel = $list.find('.selected');
-      if($sel.length == 0){
-        var $f = $list.find('li:first')
-        $f.addClass('selected');
-        updateInput($f);
+      var debounce = function(func, threshold, execAsap){
+        var timeout;
+        return function debounced(){
+          var obj = this , args = arguments;
+          function delayed(){
+            if(!execAsap){
+              func.apply(obj, args);
+            }
+            timeout = null;
+          }
+
+          if(timeout){
+            clearTimeout(timeout);
+          }
+          else if(execAsap){
+            func.apply(obj, args);
+          }
+          timeout = setTimeout(delayed, threshold || 500);
+        };
+      };
+
+      self.$input.on('keyup', fnKeyup);
+      self.$input.on('getSuggestions', debounce(self.getSuggestions));
+    };
+
+    this.appendStyle = function (theme){
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/autocomplete/' + theme) + '" type="text/css"/>');
+    };
+
+    this.log = function(msg){
+      console.log('Autocomplete: ' + msg);
+    };
+
+    this.isElementInViewport = function(el){
+      el = el[0];
+      var rect = el.getBoundingClientRect();
+      return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight);
+    };
+
+    this.scrollUpNeeded = function(){
+
+      self.log('up ' + self.$input.val());
+
+      var selItem = self.$list.find('.selected');
+      var offset  = $('.header-wrapper').height();
+
+      if(selItem.length > 0){
+        var itemTop = $(selItem)[0].getBoundingClientRect().top;
+        if(itemTop - offset < 0){
+          $(window).scrollTop( $(window).scrollTop() + (itemTop - offset));
+        }
       }
       else{
-        var $next = $sel.next('li');
-        if($next.length > 0){
-          $sel.removeClass('selected');
-          $next.addClass('selected');
-          updateInput($next);
+        $(window).scrollTop( $(window).scrollTop() - offset);
+      }
+    };
+
+    this.hide = function(){
+      self.$list.empty();
+      if(self.ops.fnOnHide){
+        self.ops.fnOnHide();
+      }
+    };
+
+    this.updateInput = function($el){
+      if($el){
+        self.$input.val($el.data('term'));
+        var inV = this.isElementInViewport($el);
+        if(inV > 0){
+          self.log('update scroll');
+          $(window).scrollTop($(window).scrollTop() + inV);
         }
-        else{
-          $list.find('.selected').removeClass('selected');
-          $input.val(typedTerm == null ? '' : typedTerm);
-          if(ops.fnOnDeselect()){
-            ops.fnOnDeselect();
+        if(self.ops.fnOnSelect){
+          self.ops.fnOnSelect(self.$input.val());
+        }
+      }
+    };
+
+    this.select = function(){
+      var sel = self.$list.find('.selected');
+      if(sel.length){
+        self.updateInput(sel);
+        self.hide();
+      }
+    };
+
+    this.setSelected = function($el){
+      self.$list.find('li').removeClass('selected');
+      $el.addClass('selected');
+      self.select();
+      if(self.ops.form){
+        self.ops.form.submit();
+      }
+    };
+
+    this.back = function(first){
+      if(self.$list.find('li').length == 0){
+        return;
+      }
+      if(first){
+        self.$list.find('li').removeClass('selected');
+        var $f = self.$list.find('li:first');
+        $f.addClass('selected');
+        self.updateInput($f);
+      }
+      else{
+        var $sel = self.$list.find('.selected');
+        if($sel.length>0){
+          var $prev = $sel.prev('li');
+          if($prev.length > 0){
+            $sel.removeClass('selected');
+            $prev.addClass('selected');
+            self.updateInput($prev);
+          }
+          else{
+            self.$list.find('.selected').removeClass('selected');
+            self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+            if(self.ops.fnOnDeselect){
+              self.ops.fnOnDeselect();
+            }
           }
         }
       }
-    }
-  }
+    };
 
-  function processResult(data, term){
-    $list.empty();
-    if(ops.fnOnHide){
-      ops.fnOnHide();
-    }
-    if(ops.fnPreProcess){
-      data = ops.fnPreProcess(term, data, ops);
-    }
-    if(!data){
-      return;
-    }
-
-    var template = $('#js-template-autocomplete  noscript').text();
-
-    $.each(data, function(i, item){
-      $list.append(Mustache.render(template, item));
-    });
-  }
-
-  function getSuggestions(){
-
-    var term = $input.val();
-
-    if(ops.minTermLength && term.length < ops.minTermLength){
-      hide();
-      return;
-    }
-    var url  = ops.url + (ops.url.indexOf('?' + ops.paramName + '=') == -1 ? '?' + ops.paramName + '=' + term : '');
-        url = ops.paramAdditional ? url + ops.paramAdditional : url;
-
-    log('getSuggestions: url = ' + url);
-
-    $.getJSON(url + term).done(function(data){
-      processResult(data, term);
-      if($list.find('li').length > 0){
-        if(ops.fnOnShow){
-          ops.fnOnShow();
+    this.fwd = function(last){
+      if(self.$list.find('li').length == 0){
+        return;
+      }
+      if(last){
+        var $l = self.$list.find('li:last');
+        self.$list.find('li').removeClass('selected');
+        $l.addClass('selected');
+        self.updateInput($l);
+      }
+      else{
+        var $sel = self.$list.find('.selected');
+        if($sel.length == 0){
+          var $f = self.$list.find('li:first');
+          $f.addClass('selected');
+          self.updateInput($f);
+        }
+        else{
+          var $next = $sel.next('li');
+          if($next.length > 0){
+            $sel.removeClass('selected');
+            $next.addClass('selected');
+            this.updateInput($next);
+          }
+          else{
+            self.$list.find('.selected').removeClass('selected');
+            self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+            if(self.ops.fnOnDeselect()){
+              self.ops.fnOnDeselect();
+            }
+          }
         }
       }
-    })
-    .error(function(e, f){
-      log('Error: ' + e + '  ' + f);
-      hide();
-    });
-  };
+    };
 
-
-  function bindKeyboard(){
-
-    $input.on('keydown', function(e){
-      var key = window.event ? e.keyCode : e.which;
-      if(key == 40 || key == 38){
-        e.preventDefault(); // stop scroll up jump before scrolling down
-        return false;
+    this.processResult = function(data, term){
+      self.$list.empty();
+      if(self.ops.fnOnHide){
+        self.ops.fnOnHide();
       }
-    });
-
-    var fnKeyup = function(e){
-      if(!$list.is(":visible")){
-        log('exit (hidden)');
+      if(self.ops.fnPreProcess){
+        data = self.ops.fnPreProcess(term, data, self.ops);
+      }
+      if(!data){
         return;
       }
 
-      var key = window.event ? e.keyCode : e.which;
-      if(key == 40){
-        // down
-        fwd(e.ctrlKey || e.shiftKey);
-      }
-      else if(key == 38){
-        // up
-        back(e.ctrlKey || e.shiftKey);
-
-        scrollUpNeeded($input);
-      }
-      else if(e.keyCode == 13){
-        // carriage return
-        e.stopPropagation();
-        e.preventDefault();
-        select();
-      }
-      else if(e.keyCode == 9){
-        // tab
-      }
-      else if(key==27){
-        // esc
-        $list.empty();
-        $input.val(typedTerm == null ? '' : typedTerm);
-        if(ops.fnOnDeselect()){
-          ops.fnOnDeselect();
-        }
-      }
-      else{
-        typedTerm = $input.val();
-        $(window).trigger('getSuggestions');
-      }
+      $.each(data, function(i, item){
+        self.$list.append(Mustache.render(self.ops.itemTemplateText, item));
+      });
     };
 
-    var debounce = function(func, threshold, execAsap){
+    this.getSuggestions = function(){
 
-      var timeout;
-      return function debounced(){
+      var term = self.$input.val();
 
-        var obj = this , args = arguments;
-        function delayed(){
+      if(self.ops.minTermLength && term.length < self.ops.minTermLength){
+        self.hide();
+        return;
+      }
 
-          if(!execAsap){
-            func.apply(obj, args);
+      var paramName = self.ops.paramName || 'term';
+      var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') == -1 ? '?' + paramName + '=' + term : '');
+      url = self.ops.paramAdditional ? url + self.ops.paramAdditional : url;
+
+      $.getJSON(url).done(function(data){
+        self.processResult(data, term);
+        if(self.$list.find('li').length > 0){
+          if(self.ops.fnOnShow){
+            self.ops.fnOnShow();
           }
-          timeout = null;
-        };
-
-        if(timeout){
-          clearTimeout(timeout);
         }
-        else if(execAsap){
-          func.apply(obj, args);
-        }
-        timeout = setTimeout(delayed, threshold || 500);
-      };
+      })
+      .error(function(e, f){
+        self.log('Error: ' + e + '  ' + f);
+        self.hide();
+      });
     };
 
-    $input.on('keyup', fnKeyup);
-    $(window).on('getSuggestions', debounce(getSuggestions));
-  }
-
-  function bindMouse(){
-    $(document).on('click', '.eu-autocomplete li', function(e){
-      setSelected($(this));
-    });
+    self.bindMouse = function(){
+      $(document).on('click', '.eu-autocomplete li', function(){
+        self.setSelected($(this));
+      });
+    };
   }
 
   return {
     init: function(ops){
-      init(ops);
+      new EuAutocomplete().init(ops);
     }
-  }
+  };
 
 });

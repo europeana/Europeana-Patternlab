@@ -1,5 +1,8 @@
 <li data-term="[[directHit]]"[[#groupBegin]] class="group-begin"[[/groupBegin]]>
-  <span class="suggest-type[[#type_lc]] suggest-[[.]][[/type_lc]]">[[type_translated]] </span>
+  <span class="suggest-type[[#type_lc]] suggest-[[.]][[/type_lc]]">
+  [[#is_concept]]{{i18n.site.entities.types.concept}}[[/is_concept]]
+  [[#is_person]]{{i18n.site.entities.types.agent}}[[/is_person]]
+  [[#is_place]]{{i18n.site.entities.types.place}}[[/is_place]]</span>
   [[#directMatch]][[directHitPreMatch]]<span class="match"><b>[[.]]</b>[[directHitPostMatch]][[/directMatch]]</span>
   [[^directMatch]]
     [[#indirectMatch]][[unmatched]] ( [[indirectHitPreMatch]]<span class="match"><b>[[.]]</b>[[indirectHitPostMatch]]</span>[[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )[[/indirectMatch]]

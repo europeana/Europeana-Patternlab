@@ -14,9 +14,8 @@
     data-enabled="true"
     data-fire-on-open="addAutocomplete"
     data-fire-on-open-params='{
-     "min_chars": "0",
-     "url": "{{form_search.url}}",
-     "translations":{ "Agent":"{{i18n.site.entities.types.agent}}", "Born":"{{i18n.site.entities.labels.born}}", "Died":"{{i18n.site.entities.labels.died}}", "Place":"{{i18n.site.entities.types.place}}", "Concept":"{{i18n.site.entities.types.concept}}" }
+     "min_chars": "{{form_search.min_chars}}",
+     "url": "{{form_search.url}}"
     }'
   {{/form_search.autocomplete}}
   >
