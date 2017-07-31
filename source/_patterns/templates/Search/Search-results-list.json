@@ -93,12 +93,13 @@
     }
   },
   "form_search": {
-    "autocomplete": true,
-    "url": "portal_autocomplete",
-    "min_chars": "0"
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "4"
+    }
   },
   "hero": {
-      "hero_image": "../../images/pro/home_image_test.jpg"
+    "hero_image": "../../images/pro/home_image_test.jpg"
   },
   "federated_search_enabled": true,
   "federated_search_conf": {

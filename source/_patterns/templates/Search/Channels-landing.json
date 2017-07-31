@@ -35,9 +35,10 @@
     "placeholder": "Search Europeana Music"
   },
   "form_search": {
-    "autocomplete": true,
-    "url": "portal_autocomplete",
-    "min_chars": "0"
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "0"
+    }
   },
   "content": {
     "ugc_content": {
