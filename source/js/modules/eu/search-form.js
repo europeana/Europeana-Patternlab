@@ -66,11 +66,11 @@ define(['jquery', 'util_resize'], function ($){
             $('#qe').remove();
             return;
           }
-          var hiddenInput = form.find('#qe');
-          if(hiddenInput.length == 0){
-            hiddenInput = $('<input id="qe" name="qe" type="hidden">').appendTo(form);
+          var qeParam = form.find('#qe');
+          if(qeParam.length == 0){
+            qeParam = $('<input id="qe" name="qe[' + val + ']" type="hidden">').appendTo(form);
           }
-          hiddenInput.val(val);
+          qeParam.attr('name', 'qe[' + val + ']').val($(selInput).val());
         };
 
         Autocomplete.init({
