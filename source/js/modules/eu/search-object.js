@@ -92,7 +92,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       require(['leaflet'], function(L){
 
-        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         // var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
         $('.map').after('<div id="' + mapInfoId + '"></div>');
