@@ -71,13 +71,13 @@ define(['jquery', 'util_resize'], function ($){
           fnOnHide        : function(){
             $('.attribution-content').show();
             $('.attribution-toggle').hide();
-          },
-          fnOnSelect       : function(){
-            $('.search-input').attr('name', 'qe');
-          },
-          fnOnDeselect     : function(){
             $('.search-input').attr('name', inputName);
           },
+          fnOnUpdate       : function(){
+            $('.search-input').attr('name', 'qe');
+          },
+          //fnOnType         : function(){
+          //},
           fnPreProcess     : AutocompleteProcessor.process,
           form             : form,
           itemTemplateText : itemTemplateText,

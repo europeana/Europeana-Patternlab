@@ -54,6 +54,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
 
         var key = window.event ? e.keyCode : e.which;
+
         if(key == 40){
           // down
           self.fwd(e.ctrlKey || e.shiftKey);
@@ -69,14 +70,14 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.preventDefault();
           self.select();
         }
-        else if(e.keyCode == 9){
-          // tab
+        else if([9, 17, 16].indexOf(e.keyCode) > -1){
+          // tab, ctrl, shift
         }
         else if(key==27){
           // esc
           self.$list.empty();
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
-          if(self.ops.fnOnDeselect){
+          if(typeof self.ops.fnOnDeselect != 'undefined'){
             self.ops.fnOnDeselect();
           }
         }
@@ -125,21 +126,19 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight);
     };
 
-    this.scrollUpNeeded = function(){
+    this.scrollUpNeeded = function(selItem){
 
-      self.log('up ' + self.$input.val());
-
-      var selItem = self.$list.find('.selected');
+      var selItem = selItem || self.$list.find('.selected');
       var offset  = $('.header-wrapper').height();
 
       if(selItem.length > 0){
         var itemTop = $(selItem)[0].getBoundingClientRect().top;
         if(itemTop - offset < 0){
-          $(window).scrollTop( $(window).scrollTop() + (itemTop - offset));
+          $(window).scrollTop($(window).scrollTop() + (itemTop - offset));
         }
       }
       else{
-        $(window).scrollTop( $(window).scrollTop() - offset);
+        $(window).scrollTop($(window).scrollTop() - offset);
       }
     };
 
@@ -155,11 +154,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         self.$input.val($el.data('term'));
         var inV = this.isElementInViewport($el);
         if(inV > 0){
-          self.log('update scroll');
           $(window).scrollTop($(window).scrollTop() + inV);
         }
-        if(self.ops.fnOnSelect){
-          self.ops.fnOnSelect(self.$input.val());
+        if(self.ops.fnOnUpdate){
+          self.ops.fnOnUpdate(self.$input.val());
         }
       }
     };
@@ -203,7 +201,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           else{
             self.$list.find('.selected').removeClass('selected');
             self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
-            if(self.ops.fnOnDeselect){
+            if(typeof self.ops.fnOnDeselect != 'undefined'){
               self.ops.fnOnDeselect();
             }
           }
@@ -233,14 +231,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           if($next.length > 0){
             $sel.removeClass('selected');
             $next.addClass('selected');
-            this.updateInput($next);
+            self.updateInput($next);
           }
           else{
             self.$list.find('.selected').removeClass('selected');
             self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
-            if(self.ops.fnOnDeselect()){
+            if(typeof self.ops.fnOnDeselect != 'undefined'){
               self.ops.fnOnDeselect();
             }
+            self.scrollUpNeeded(self.$input);
           }
         }
       }
@@ -273,7 +272,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       }
 
       var paramName = self.ops.paramName || 'term';
-      var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') == -1 ? '?' + paramName + '=' + term : '');
+      var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') == -1 ? '?' + paramName + '=' + term : term);
       url = self.ops.paramAdditional ? url + self.ops.paramAdditional : url;
 
       $.getJSON(url).done(function(data){
@@ -291,8 +290,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     self.bindMouse = function(){
-      $(document).on('click', '.eu-autocomplete li', function(){
-        self.setSelected($(this));
+      $(document).on('click', function(e){
+        var tgt = $(e.target);
+        if(tgt.closest('.eu-autocomplete li').length){
+          self.setSelected(tgt);
+        }
+        else if(tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
+          self.log('the input? ' + tgt[0] == self.$input[0]);
+          self.hide();
+        }
       });
     };
   }

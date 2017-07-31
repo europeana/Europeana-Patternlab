@@ -1,24 +1,24 @@
 <table class="table-horizontal user-request-table">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>User email</th>
-			<th>Organization</th>
-			<th>Request Date</th>
-			<th>Request Type</th>
-			<th>Request Status</th>
-		</tr>
-	</thead>
-	<tbody>
-	{{#request}}
-	<tr  class="user-request-row clickable-row" data-href={{url}}>
-		<td>{{id}}</td>
-		<td>{{email}}</td>
-		<td>{{organization}}</td>
-		<td>{{date}}</td>
-		<td class="{{request_type}}">{{type}}</td>
-		<td class="{{status_type}}">{{status}}</td>
-	</tr>
-	{{/request}}
-	</tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User email</th>
+      <th>Organisation</th>
+      <th>Request Date</th>
+      <th>Request Type</th>
+      <th>Request Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#request}}
+  <tr  class="user-request-row clickable-row" data-href={{url}}>
+    <td>{{id}}</td>
+    <td>{{email}}</td>
+    <td>{{organization}}</td>
+    <td>{{date}}</td>
+    <td class="{{request_type}}">{{type}}</td>
+    <td class="{{status_type}}">{{status}}</td>
+  </tr>
+  {{/request}}
+  </tbody>
 </table>

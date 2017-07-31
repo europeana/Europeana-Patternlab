@@ -86,15 +86,23 @@
           </div>
         {{/countries}}
 
-        <div class="org_selection">
-          <label for="organizations">Organizations: </label>
-          <input autofocus
-                 class="svg-icon-search eu"
-                 id="searchOrganization"
-                 name="organization"
-                 placeholder="Search Organizations ..."
-                 type="text"
-                 {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+        <div class="org-selection">
+          <label for="organizations">Organisations: </label>
+          <div class="searchOrganisationWrap">
+            <input autofocus
+                   class="svg-icon-search eu"
+                   id="searchOrganisation"
+                   name="organization"
+                   placeholder="Search Organisations ..."
+                   type="text"
+                   {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                   {{#autocomplete}}
+                     data-autocomplete-url="{{url}}"
+                     data-autocomplete-min-chars="{{min_chars}}"
+                   {{/autocomplete}}
+            >
+          </div>
+
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
@@ -121,6 +129,8 @@
           <div class="selectedOrganizations {{^organizations}}hidden{{/organizations}}">
             <label for="organization">{{#label}}{{.}}{{/label}}</label>
             <div class="selectedOrgs">
+
+<!--
               {{#organizations}}
                 <div class="selectedOrg" id="{{organizationId}}">
                   <a
@@ -140,6 +150,7 @@
                   </b>
                 </div>
               {{/organizations}}
+  -->
             </div>
           </div>
         {{/selectedOrganizations}}

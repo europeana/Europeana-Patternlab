@@ -3,6 +3,7 @@ require.config({
     autocomplete:        '../../lib/autocomplete/autocomplete',
     dataset_info_form:   '../../eu/pandora/dataset-info',
     eu_accordion_tabs:   '../../eu/accordion_tabs/eu-accordion-tabs',
+    eu_autocomplete:     '../../eu/autocomplete/eu-autocomplete',
     eu_mock_ajax:        '../../eu/util/eu-mock-ajax',
     eu_tooltip:          '../../eu/tooltip/eu-tooltip',
     jqDropdown:          '../../lib/jquery/jquery.dropdown',

@@ -11,6 +11,26 @@
   padding: 2em;
   width: 80%;
 
+/*
+  .tag{
+    background-clip: padding-box;
+    background-color: #eeeeee;
+    background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-repeat: repeat-x;
+    background-size: 100% 19px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+    color: #333;
+    cursor: default;
+    line-height: 13px;
+    margin: 3px 5px 3px 0;
+    max-width: 100%;
+    padding: 3px 20px 3px 5px;
+    position: relative;
+  }
+*/
+
   // overwrite default icon styling.
   .svg-icon-search {
     background-position: 98% 50%;
@@ -138,18 +158,25 @@
     }
   }
 
-  .org_selection .modal-wrapper {
-    background-color: $light-gray;
+  .org-selection{
+    .modal-wrapper {
+      background-color: $light-gray;
+
+      &.open .modal{
+        margin-top: 0;
+      }
+    }
+
+    .searchOrganisationWrap{
+      position: relative;
+    }
   }
 
-  .org_selection > .modal-wrapper.open > div {
+  .org-selection > .modal-wrapper.open > div {
     top: 0;
   }
-  .org_selection .modal-wrapper.open .modal {
-    margin-top: 0;
-  }
 
-  .org_selection input[type=button] {
+  .org-selection input[type=button] {
     background: $eu-jade;
     border-color: $eu-jade;
   }

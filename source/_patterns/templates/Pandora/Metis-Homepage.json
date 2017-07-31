@@ -19,6 +19,10 @@
     {
       "name": "pageName",
       "value": "metisHomePage"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "true"
     }
   ],
   "jQuery": false,
@@ -76,6 +80,10 @@
         }
       ],
       "user_fields": {
+        "autocomplete":{
+          "url":       "metis_autocomplete",
+          "min_chars": "1"
+        },
         "selectedOrganizations": {
           "label": "Selected Organizations",
           "organizations": [
@@ -135,7 +143,7 @@
         },
         "notes": {
           "label": "Notes",
-          "placeholder": "I did a complex mapping for edm:rights",
+          "placeholder": "Mapping for edm:rights",
           "value": ""
         },
         "countries": {

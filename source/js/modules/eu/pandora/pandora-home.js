@@ -49,6 +49,67 @@ define(['jquery'], function ($) {
   }
 
 
+  function addAutocomplete(data){
+    require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+
+      console.log('init autocomplete... ' + JSON.stringify(data, null, 4));
+
+      var selInput         = '#searchOrganisation';
+
+      Autocomplete.init({
+        evtResize       : 'europeanaResize',
+        fnOnShow        : function(){
+          log('do on show');
+        },
+        fnOnHide        : function(){
+          log('do on hide');
+        },
+        fnOnSubmit      : function(val){
+
+          console.log('fn on submit: ' + val);
+
+          var orgId = $(selInput).next('.eu-autocomplete li[data-term="' + val + '"]').data('id');
+
+          if($('.selectedOrganizations li [value="' + orgId + '"]').length > 0){
+            console.log('org ' + orgId + ' already added');
+            return;
+          }
+
+          console.log('sel ' + orgId + ', ' + val);
+
+          $('<li class="tag"><input type="hidden" name="organisation_id" value="' + orgId + '">' + val + '</li>').appendTo($('.selectedOrganizations')).on('click', function(){
+            console.log('clicked to remove...');
+            $(this).remove();
+          });
+
+        },
+        fnOnDeselect     : function(){
+          log('do on deselect');
+        },
+        fnPreProcess     : function(term, data, ops){
+          var escapeRegExp = function(str){
+            return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+          };
+          var re = new RegExp('\\b' + escapeRegExp(term), 'i');
+          for(var i=0; i<data.length; i++){
+            var val     = data[i].text;
+            var match   = val.match(re);
+            data[i].textPreMatch  = val.substr(0, val.indexOf(match));
+            data[i].textPostMatch = val.substr(val.indexOf(match) + (match+'').length);
+            data[i].textMatch     = match;
+          }
+          return data;
+        },
+        itemTemplateText : '<li data-term="[[text]]" data-id="[[organisation_id]]"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
+        minTermLength    : data.min_chars ? data.min_chars : 3,
+        paramName        : 'text',
+        selInput         : selInput,
+        submitOnEnter    : true,
+        url              : data.url
+      });
+    });
+  }
+
 
   function initPage(){
 
@@ -69,6 +130,18 @@ define(['jquery'], function ($) {
     }
     else{
       enableEditMode();
+    }
+
+    var orgInput = $('#searchOrganisation');
+
+    if(orgInput.length > 0 && orgInput.data('autocomplete-url').length > 0){
+      addAutocomplete({
+        selInput:   '#searchOrganisation',
+        url:        orgInput.data('autocomplete-url'),
+        min_chars:  orgInput.data('autocomplete-min-chars'),
+        selWidthEl: '.searchOrganisationWrap',
+        selAnchor:  '.searchOrganisationWrap'
+      });
     }
 
     form.find('.edit-user-profile').on('click', enableEditMode);
