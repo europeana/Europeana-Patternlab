@@ -30,6 +30,7 @@ define(['jquery'], function($){
     var lastType = '';
     var res      = [].concat(dataList);
     var re       = new RegExp('\\b' + escapeRegExp(term), 'i');
+    var reId     = new RegExp(/[a-z]*\/[a-z]*\/\d+/);
     var typesOb  = {};
     var typesAr  = [];
 
@@ -81,6 +82,7 @@ define(['jquery'], function($){
         }
       }
 
+      res[i].id            = res[i].id.match(reId) + '';
       res[i].life          = res[i].dateOfBirth || res[i].dateOfDeath;
       res[i].dateDeathOnly = res[i].dateOfDeath && !res[i].dateOfBirth;
       res[i].type_lc       = res[i].type ? res[i].type.toLowerCase() : '';

@@ -42,12 +42,13 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       self.$input.on('keydown', function(e){
         var key = window.event ? e.keyCode : e.which;
         if(key == 40 || key == 38){
-          e.preventDefault(); // stop scroll up jump before scrolling down
+          e.preventDefault(); // down / up (stop scroll up jump before scrolling down)
           return false;
         }
       });
 
       var fnKeyup = function(e){
+
         if(!self.$list.is(':visible')){
           self.log('exit (hidden)');
           return;
@@ -73,17 +74,29 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         else if([9, 17, 16].indexOf(e.keyCode) > -1){
           // tab, ctrl, shift
         }
+        else if([37, 39].indexOf(e.keyCode) > -1){
+          // left, right
+          self.$list.empty();
+          self.$input.focus();
+          self.scrollUpNeeded(self.$input);
+        }
         else if(key==27){
           // esc
           self.$list.empty();
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+
           if(typeof self.ops.fnOnDeselect != 'undefined'){
             self.ops.fnOnDeselect();
           }
         }
         else{
+          // normal characters
           self.typedTerm = self.$input.val();
           self.$input.trigger('getSuggestions');
+
+          if(typeof self.ops.fnOnDeselect != 'undefined'){
+            self.ops.fnOnDeselect();
+          }
         }
       };
 
@@ -129,7 +142,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.scrollUpNeeded = function(selItem){
 
       var selItem = selItem || self.$list.find('.selected');
-      var offset  = $('.header-wrapper').height();
+      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset();
 
       if(selItem.length > 0){
         var itemTop = $(selItem)[0].getBoundingClientRect().top;
@@ -163,6 +176,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.select = function(){
+
+      self.log('this.select');
+
       var sel = self.$list.find('.selected');
       if(sel.length){
         self.updateInput(sel);
@@ -171,6 +187,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.setSelected = function($el){
+
+      self.log('this.setSelected');
+
       self.$list.find('li').removeClass('selected');
       $el.addClass('selected');
       self.select();
@@ -296,8 +315,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.setSelected(tgt);
         }
         else if(tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
-          self.log('the input? ' + tgt[0] == self.$input[0]);
           self.hide();
+          self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+          self.scrollUpNeeded(self.$input);
         }
       });
     };

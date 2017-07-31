@@ -95,7 +95,7 @@
   "form_search": {
     "autocomplete": {
       "url": "portal_autocomplete",
-      "min_chars": "4"
+      "min_chars": "1"
     }
   },
   "hero": {

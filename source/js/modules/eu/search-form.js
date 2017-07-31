@@ -61,6 +61,17 @@ define(['jquery', 'util_resize'], function ($){
         var selInput         = $('.search-input').length > 0 ? '.search-input' : '.item-search-input';
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete noscript').text();
+        var setQeParam       = function(val){
+          if(!val){
+            $('#qe').remove();
+            return;
+          }
+          var hiddenInput = form.find('#qe');
+          if(!hiddenInput){
+            hiddenInput = $('<input id="qe" name="qe" type="hidden">').appendTo(form);
+          }
+          hiddenInput.val(val);
+        };
 
         Autocomplete.init({
           evtResize       : 'europeanaResize',
@@ -73,11 +84,20 @@ define(['jquery', 'util_resize'], function ($){
             $('.attribution-toggle').hide();
             $('.search-input').attr('name', inputName);
           },
-          fnOnUpdate       : function(){
-            $('.search-input').attr('name', 'qe');
+          fnGetTopOffset : function(){
+            return $('.header-wrapper').height();
           },
-          //fnOnType         : function(){
-          //},
+          fnOnUpdate       : function(){
+            var sel = $('.eu-autocomplete li.selected');
+            if(sel.length == 1){
+              setQeParam(sel.data('id'));
+              $('.search-input').addClass('mode-entity');
+            }
+          },
+          fnOnDeselect     : function(){
+            $('.search-input').removeClass('mode-entity');
+            setQeParam();
+          },
           fnPreProcess     : AutocompleteProcessor.process,
           form             : form,
           itemTemplateText : itemTemplateText,
