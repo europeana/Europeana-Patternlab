@@ -67,7 +67,7 @@ define(['jquery', 'util_resize'], function ($){
             return;
           }
           var hiddenInput = form.find('#qe');
-          if(!hiddenInput){
+          if(hiddenInput.length == 0){
             hiddenInput = $('<input id="qe" name="qe" type="hidden">').appendTo(form);
           }
           hiddenInput.val(val);
