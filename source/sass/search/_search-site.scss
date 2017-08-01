@@ -327,6 +327,14 @@ html.redirecting{
 
   text-align: center;
 
+  .btn{
+    &:hover,
+    &:focus{
+      border-color: $white;
+      color:        $white;
+    }
+  }
+
   @media all and (min-width: $bp-med) {
     @include flexbox();
     -webkit-align-items: center;
