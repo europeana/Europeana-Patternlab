@@ -130,8 +130,10 @@
             <label for="organization">{{#label}}{{.}}{{/label}}</label>
             <div class="selectedOrgs">
 
-<!--
+
               {{#organizations}}
+                <li class="tag"><input type="hidden" name="organisation_id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                <!--
                 <div class="selectedOrg" id="{{organizationId}}">
                   <a
                     class="selectedOrganisation alreadySelected
@@ -149,8 +151,9 @@
                     data-name="{{organizationName}}">&nbsp;X</a>
                   </b>
                 </div>
+                 -->
               {{/organizations}}
-  -->
+
             </div>
           </div>
         {{/selectedOrganizations}}

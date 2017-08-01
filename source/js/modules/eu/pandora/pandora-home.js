@@ -58,15 +58,9 @@ define(['jquery'], function ($) {
 
       Autocomplete.init({
         evtResize       : 'europeanaResize',
-        fnOnDeselect     : function(){
-          log('do on deselect');
-        },
-        fnOnHide        : function(){
-          log('do on hide');
-        },
+        fnOnDeselect     : function(){},
+        fnOnHide        : function(){},
         fnOnSelect     : function(sel){
-          log('do on Select');
-
           var val   = sel.data('term');
           var orgId = sel.data('id');
 
@@ -76,7 +70,6 @@ define(['jquery'], function ($) {
             console.log('org ' + orgId + ' already added');
             return;
           }
-
           console.log('sel ' + orgId + ', ' + val);
 
           var tag = $('<li class="tag"><input type="hidden" name="organisation_id" value="' + orgId + '">' + val + '</li>')
@@ -146,6 +139,9 @@ define(['jquery'], function ($) {
         min_chars:  orgInput.data('autocomplete-min-chars'),
         selWidthEl: '.searchOrganisationWrap',
         selAnchor:  '.searchOrganisationWrap'
+      });
+      $('.tag .icon-delete').on('click', function(){
+        $(this).closest('.tag').remove();
       });
     }
 
