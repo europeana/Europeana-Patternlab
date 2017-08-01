@@ -62,15 +62,7 @@ define(['jquery', 'util_resize'], function ($){
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete noscript').text();
         var setQeParam       = function(val){
-          if(!val){
-            $('#qe').remove();
-            return;
-          }
-          var qeParam = form.find('#qe');
-          if(qeParam.length == 0){
-            qeParam = $('<input id="qe" name="qe[' + val + ']" type="hidden">').appendTo(form);
-          }
-          qeParam.attr('name', 'qe[' + val + ']').val($(selInput).val());
+          $(selInput).attr('name', val ? val : 'q');
         };
 
         Autocomplete.init({
