@@ -27,7 +27,7 @@ define(['jquery'], function ($) {
     previewBlockBtn.removeClass('hidden');
     editableBlockBtns.addClass('hidden');
 
-    $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
+    $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
 
   }
 
@@ -41,7 +41,7 @@ define(['jquery'], function ($) {
 
     if(role === 'metisAdmin') {
       eu.attr('readonly', false).attr('disabled', false);
-      $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
+      $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
     }
     else {
       prov.attr('readonly', false).attr('disabled', false);
@@ -58,33 +58,37 @@ define(['jquery'], function ($) {
 
       Autocomplete.init({
         evtResize       : 'europeanaResize',
-        fnOnShow        : function(){
-          log('do on show');
+        fnOnDeselect     : function(){
+          log('do on deselect');
         },
         fnOnHide        : function(){
           log('do on hide');
         },
-        fnOnSubmit      : function(val){
+        fnOnSelect     : function(sel){
+          log('do on Select');
 
-          console.log('fn on submit: ' + val);
+          var val   = sel.data('term');
+          var orgId = sel.data('id');
 
-          var orgId = $(selInput).next('.eu-autocomplete li[data-term="' + val + '"]').data('id');
+          $(selInput).val('');
 
-          if($('.selectedOrganizations li [value="' + orgId + '"]').length > 0){
+          if($('.selectedOrganisations li [value="' + orgId + '"]').length > 0){
             console.log('org ' + orgId + ' already added');
             return;
           }
 
           console.log('sel ' + orgId + ', ' + val);
 
-          $('<li class="tag"><input type="hidden" name="organisation_id" value="' + orgId + '">' + val + '</li>').appendTo($('.selectedOrganizations')).on('click', function(){
-            console.log('clicked to remove...');
-            $(this).remove();
+          var tag = $('<li class="tag"><input type="hidden" name="organisation_id" value="' + orgId + '">' + val + '</li>')
+            .appendTo($('.selectedOrganisations .selectedOrgs'));
+          $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
+            .appendTo(tag)
+            .on('click', function(){
+              $(this).closest('.tag').remove();
           });
-
         },
-        fnOnDeselect     : function(){
-          log('do on deselect');
+        fnOnShow        : function(){
+          log('do on show');
         },
         fnPreProcess     : function(term, data, ops){
           var escapeRegExp = function(str){
@@ -100,6 +104,7 @@ define(['jquery'], function ($) {
           }
           return data;
         },
+        hideOnSelect     : true,
         itemTemplateText : '<li data-term="[[text]]" data-id="[[organisation_id]]"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
         minTermLength    : data.min_chars ? data.min_chars : 3,
         paramName        : 'text',

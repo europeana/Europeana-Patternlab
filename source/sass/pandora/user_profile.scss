@@ -11,25 +11,10 @@
   padding: 2em;
   width: 80%;
 
-/*
-  .tag{
-    background-clip: padding-box;
-    background-color: #eeeeee;
-    background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-    background-repeat: repeat-x;
-    background-size: 100% 19px;
-    border: 1px solid #aaa;
-    border-radius: 3px;
-    box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-    color: #333;
-    cursor: default;
-    line-height: 13px;
-    margin: 3px 5px 3px 0;
-    max-width: 100%;
-    padding: 3px 20px 3px 5px;
-    position: relative;
+  .tag svg{
+    cursor:      pointer;
+    margin-left: 1em;
   }
-*/
 
   // overwrite default icon styling.
   .svg-icon-search {
@@ -211,18 +196,18 @@
     margin: 0 auto;
   }
 
-  .currentSelectedOrganization {
+  .currentSelectedOrganisation {
     margin-right: 1rem;
   }
 
   .roles {
     width: 40%;
   }
-  .selectedOrganizations .selectedOrgs .selectedOrg {
+  .selectedOrganisations .selectedOrgs .selectedOrg {
     width: 100%;
   }
 
-  .selectedOrganizations {
+  .selectedOrganisations {
     &.hidden {
       display: none;
     }
@@ -233,7 +218,7 @@
     pointer-events: none;
   }
 
-  .removeOrganization {
+  .removeOrganisation {
     margin-left: 1rem;
   }
 }

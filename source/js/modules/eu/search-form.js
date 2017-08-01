@@ -57,7 +57,7 @@ define(['jquery', 'util_resize'], function ($){
 
         console.log('init autocomplete... ' + data.url);
 
-        var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale] : typeof i18nLocale == 'string' ? [i18nLocale] :['en'];
+        var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
         var selInput         = $('.search-input').length > 0 ? '.search-input' : '.item-search-input';
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete noscript').text();

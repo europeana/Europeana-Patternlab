@@ -189,8 +189,13 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       var sel = self.$list.find('.selected');
       if(sel.length){
         self.updateInput(sel);
+
         if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
           self.hide();
+        }
+        if(typeof self.ops.fnOnSelect != 'undefined'){
+          console.log('call do on select....');
+          self.ops.fnOnSelect(sel);
         }
       }
     };

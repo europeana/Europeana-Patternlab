@@ -431,7 +431,7 @@ define([], function(){
       "type": "Agent"
     },
     {
-      "id": "http://data.europeana.eu/concept/base/140",
+      "id": "http://data.europeana.eu/concept/base/79",
       "prefLabel": {
         "en": "Biology",
         "is": "Líffræði"
