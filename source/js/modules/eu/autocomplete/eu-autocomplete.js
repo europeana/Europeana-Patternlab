@@ -310,9 +310,17 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     self.bindMouse = function(){
       $(document).on('click', function(e){
-        var tgt = $(e.target);
-        if(tgt.closest('.eu-autocomplete li').length){
-          self.setSelected(tgt);
+        var tgt   = $(e.target);
+        var tgtLi = tgt.closest('.eu-autocomplete li');
+        if(tgtLi.length > 0){
+
+          if(typeof self.ops.fnOnItemClick != 'undefined'){
+            var block = self.ops.fnOnItemClick(tgtLi);
+            if(block){
+              return;
+            }
+          }
+          self.setSelected(tgtLi);
         }
         else if(tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
           self.hide();

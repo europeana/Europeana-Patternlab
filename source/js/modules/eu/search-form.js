@@ -62,7 +62,7 @@ define(['jquery', 'util_resize'], function ($){
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete noscript').text();
         var setQeParam       = function(val){
-          $(selInput).attr('name', val ? val : 'q');
+          $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
         };
 
         Autocomplete.init({
@@ -83,6 +83,12 @@ define(['jquery', 'util_resize'], function ($){
             var sel = $('.eu-autocomplete li.selected');
             if(sel.length == 1){
               setQeParam(sel.data('id'));
+              $('.search-input').addClass('mode-entity');
+            }
+          },
+          fnOnItemClick    : function(el){
+            if(el.length == 1){
+              setQeParam(el.data('id'));
               $('.search-input').addClass('mode-entity');
             }
           },

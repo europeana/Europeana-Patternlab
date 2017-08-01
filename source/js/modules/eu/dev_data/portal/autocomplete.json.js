@@ -429,6 +429,14 @@ define([], function(){
       "id": "http://data.europeana.eu/agent/base/78",
       "prefLabel": {"en": "Zoolander"},
       "type": "Agent"
+    },
+    {
+      "id": "http://data.europeana.eu/concept/base/140",
+      "prefLabel": {
+        "en": "Biology",
+        "is": "Líffræði"
+      },
+      "type": "Concept"
     }
   ];
 
