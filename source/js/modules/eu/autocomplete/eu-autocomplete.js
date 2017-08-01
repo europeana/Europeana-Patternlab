@@ -45,6 +45,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.preventDefault(); // down / up (stop scroll up jump before scrolling down)
           return false;
         }
+
+        if(key == 13){
+          e.preventDefault();
+          e.stopPropagation();
+        }
       });
 
       var fnKeyup = function(e){
@@ -69,7 +74,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           // carriage return
           e.stopPropagation();
           e.preventDefault();
-          self.select();
+
+          // self.select();
+          self.setSelected(self.$list.find('.selected'));
         }
         else if([9, 17, 16].indexOf(e.keyCode) > -1){
           // tab, ctrl, shift
@@ -182,7 +189,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       var sel = self.$list.find('.selected');
       if(sel.length){
         self.updateInput(sel);
-        self.hide();
+        if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
+          self.hide();
+        }
       }
     };
 
@@ -230,6 +239,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     this.fwd = function(last){
       if(self.$list.find('li').length == 0){
+        self.$input.trigger('getSuggestions');
         return;
       }
       if(last){
@@ -310,6 +320,20 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     self.bindMouse = function(){
       $(document).on('click', function(e){
+
+        var isRightMB;
+        e = e || window.event;
+
+        if("which" in e){
+          isRightMB = e.which == 3;  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+        }
+        else if("button" in e){
+          isRightMB = e.button == 2; // IE, Opera
+        }
+        if(isRightMB){
+          return;
+        }
+
         var tgt   = $(e.target);
         var tgtLi = tgt.closest('.eu-autocomplete li');
         if(tgtLi.length > 0){
