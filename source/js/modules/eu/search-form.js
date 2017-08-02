@@ -58,7 +58,8 @@ define(['jquery', 'util_resize'], function ($){
         console.log('init autocomplete... ' + data.url);
 
         var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
-        var selInput         = $('.search-input').length > 0 ? '.search-input' : '.item-search-input';
+        var narrowMode       = ['collections/show', 'portal/show'].indexOf(pageName) > -1;
+        var selInput         = narrowMode ? '.item-search-input' : '.search-input';
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete noscript').text();
         var setQeParam       = function(val){
@@ -76,8 +77,11 @@ define(['jquery', 'util_resize'], function ($){
             $('.attribution-toggle').hide();
             $('.search-input').attr('name', inputName);
           },
-          fnGetTopOffset : function(){
-            return $('.header-wrapper').height();
+          fnGetTopOffset : function(el){
+            if(el[0]==$(selInput)[0]){
+              return $('.header-wrapper').height() + 20;
+            }
+            return $('.header-wrapper').height() - 2;
           },
           fnOnUpdate       : function(){
             var sel = $('.eu-autocomplete li.selected');
@@ -104,8 +108,8 @@ define(['jquery', 'util_resize'], function ($){
           paramName        : 'text',
           paramAdditional  : '&language=' + languages.join(','),
           selInput         : selInput,
-          selWidthEl       : '.js-hitarea',
-          selAnchor        : '.search-multiterm',
+          selWidthEl       : narrowMode ? null : '.js-hitarea',
+          selAnchor        : narrowMode ? null : '.search-multiterm',
           theme            : 'style-entities',
           url              : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });

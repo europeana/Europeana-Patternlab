@@ -1,5 +1,9 @@
 @import '../../../../sass/scss/generic/variables';
 
+.object-nav .eu-autocomplete{
+  left: 1.34em;
+}
+
 .eu-autocomplete{
 
   border:     1px solid $gray-lighter;
@@ -14,6 +18,21 @@
     }
     &:first-of-type{
       margin-top: 2em;
+    }
+  }
+
+  .match{
+    display:        inline-block;
+    max-width:      100%;
+    overflow:       hidden;
+    text-overflow:  ellipsis;
+
+    &.d1,
+    &.d2{
+      max-width: 80%;
+    }
+    &.d1.d2{
+      max-width: 60%;
     }
   }
 

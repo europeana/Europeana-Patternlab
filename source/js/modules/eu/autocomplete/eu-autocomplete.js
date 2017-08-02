@@ -28,6 +28,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
       self.bindKeyboard();
       self.bindMouse();
+      self.bindUnload();
 
       $(window).europeanaResize(self.resize);
       self.resize();
@@ -149,7 +150,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.scrollUpNeeded = function(selItem){
 
       var selItem = selItem || self.$list.find('.selected');
-      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset();
+      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset(selItem);
 
       if(selItem.length > 0){
         var itemTop = $(selItem)[0].getBoundingClientRect().top;
@@ -321,6 +322,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       .error(function(e, f){
         self.log('Error: ' + e + '  ' + f);
         self.hide();
+      });
+    };
+
+    self.bindUnload = function(){
+      $(window).on('unload', function(){
+        self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
       });
     };
 

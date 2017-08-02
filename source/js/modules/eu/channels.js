@@ -72,8 +72,8 @@ define(['jquery', 'smartmenus'], function($){
         }
 
         var newParams = $.param(params);
-        var newUrl = window.location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
-        window.location.href = newUrl;
+        var newUrl    = location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
+        location.href = newUrl;
       });
     });
   };
@@ -210,7 +210,7 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
     case 'collections/show':
-      if((window.location.href.indexOf('?q=') == -1) && (window.location.href.indexOf('&q=') == -1)){
+      if((location.href.indexOf('?q=') == -1) && (location.href.indexOf('&q=') == -1)){
         require(['fashion_redirect'], function(fr){
           fr.redirectOrCallback(function(){
             require(['search_landing', 'search_form'], function(page, euSearchForm){
