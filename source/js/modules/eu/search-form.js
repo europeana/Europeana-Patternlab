@@ -81,7 +81,7 @@ define(['jquery', 'util_resize'], function ($){
             if(el[0]==$(selInput)[0]){
               return $('.header-wrapper').height() + 20;
             }
-            return $('.header-wrapper').height() - 2;
+            return $('.header-wrapper').height();
           },
           fnOnUpdate       : function(){
             var sel = $('.eu-autocomplete li.selected');
