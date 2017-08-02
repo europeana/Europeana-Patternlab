@@ -308,6 +308,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       var paramName = self.ops.paramName || 'term';
       var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') == -1 ? '?' + paramName + '=' + term : term);
       url = self.ops.paramAdditional ? url + self.ops.paramAdditional : url;
+      url = url.replace(/^https?:/, location.protocol);
 
       $.getJSON(url).done(function(data){
         self.processResult(data, term);
@@ -342,7 +343,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         var tgt   = $(e.target);
         var tgtLi = tgt.closest('.eu-autocomplete li');
         if(tgtLi.length > 0){
-
           if(typeof self.ops.fnOnItemClick != 'undefined'){
             var block = self.ops.fnOnItemClick(tgtLi);
             if(block){
@@ -351,7 +351,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           }
           self.setSelected(tgtLi);
         }
-        else if(tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
+        else if(self.$list.find('li').length > 0 && tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
           self.hide();
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
           self.scrollUpNeeded(self.$input);
