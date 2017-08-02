@@ -1,4 +1,4 @@
-define(['jquery'], function($){
+define(['jquery', 'purl'], function($){
 
   var log = function(msg){
     console.log('carousel-appender: ' + msg);
@@ -220,11 +220,9 @@ define(['jquery'], function($){
     }
   };
 
-
   var EuCarouselAppender = function(conf){
-
     var cmp            = conf.cmp;
-    var loadUrl        = conf.loadUrl;
+    var loadUrl        = conf.loadUrl.replace(/^https?:/, location.protocol);
     var template       = conf.template;
     var totalLoaded    = cmp.find('li').size();
     var totalAvailable = null;
@@ -250,13 +248,17 @@ define(['jquery'], function($){
     var load = function(callback, perPage){
 
       // url needs params set
-      var per_page = perPage || 4;
-      var page_param = parseInt(Math.floor(totalLoaded / per_page)) + 1;
-      var url = loadUrl + '?page=' + page_param + '&per_page=' + per_page;
+      var per_page       = perPage || 4;
+      var page_param     = parseInt(Math.floor(totalLoaded / per_page)) + 1;
+      var params         = $.url(loadUrl).param();
+
+      params['per_page'] = per_page;
+      params['page']     = page_param;
+      var url            =  loadUrl + '?' + $.param(params);
 
       log('load more from: ' + url);
 
-      $.getJSON( url, null)
+      $.getJSON(url)
         .done(
           function( data ) {
             var appendedData = append(data);
