@@ -83,7 +83,7 @@ define(['jquery'], function($){
               xhr.setRequestHeader("X-CSRF-Token", csrfToken);
             }
           },
-          url : url,
+          url : url.replace(/^https?:/, location.protocol),
           type : 'POST',
           data: data,
           success : function(data){
@@ -104,7 +104,7 @@ define(['jquery'], function($){
           }
         });
       }
-      
+
       var metaToken = $('meta[name="csrf-token"]').attr('content');
       if(typeof metaToken != 'undefined'){
       doSubmit(metaToken);

@@ -159,10 +159,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     $('.sneak-peek-list').next('.show-more-mlt').find('a').attr('href', random.extra);
 
     $.ajax({
-      beforeSend : function(xhr){
-        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-      },
-      url : random.url,
+      //beforeSend : function(xhr){
+      //  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      //},
+      url : random.url.replace(/^https?:/, location.protocol),
       type : 'GET',
       contentType : 'application/json; charset=utf-8',
       success : function(data){

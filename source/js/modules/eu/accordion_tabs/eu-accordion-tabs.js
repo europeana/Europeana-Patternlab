@@ -44,7 +44,7 @@ define(['jquery', 'util_resize'], function($){
       $(tab).addClass('loading');
       $(tab).next('.tab-content').addClass('loading');
 
-      var url = $(tab).data('content-url');
+      var url = $(tab).data('content-url').replace(/^https?:/, location.protocol);
 
       $.getJSON(url).done(function(data) {
         totalCompleted ++;

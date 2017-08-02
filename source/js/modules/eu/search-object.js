@@ -26,7 +26,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function loadHierarchy(params, callbackOnFail){
 
-    var href     = window.location.href;
+    var href     = location.href;
     var baseUrl  = href.split('/record')[0] + '/record';
     var initUrl  = href.split('.html')[0];
 
@@ -92,10 +92,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       require(['leaflet'], function(L){
 
-        var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        // var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+        var osmUrl = location.protocol + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
         $('.map').after('<div id="' + mapInfoId + '"></div>');
+
         var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
         var map = L.map($('.map')[0], {
@@ -106,6 +106,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         });
 
         var imagePath = require.toUrl('').split('/');
+
         imagePath.pop();
         imagePath.pop();
         imagePath.pop();
@@ -182,7 +183,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             return;
           }
           else if(totalAvailable > data.length){
+
             var fmttd = String(totalAvailable).replace(/(.)(?=(\d{3})+$)/g,'$1,');
+
             $('.show-more-mlt').find('.number').html(fmttd);
             $('.show-more-mlt').removeAttr('style');
           }
@@ -192,7 +195,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           var template = $('.colour-navigation.js-template');
 
           $.each(data, function(i, item){
+
             var newEntry = template.clone();
+
             addToDom.push(newEntry);
 
             newEntry.removeClass('js-template');
@@ -228,13 +233,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         'total_available': ops.total_available,
         'doAfter':         fnAfterLoad
       });
+
       var mltCarousel = Carousel.create(el, appender, ops);
+
       carousel.resolve(mltCarousel);
 
       if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length == 0)){
         mltCarousel.loadMore();
       }
     });
+
     return carousel.promise();
   };
 
@@ -249,6 +257,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     // colour browse
     var clickedThumb = tgt.data('thumbnail');
+
     if(clickedThumb){
       $('.colour-navigation').not('[data-thumbnail="' + clickedThumb + '"]').addClass('js-hidden');
       $('.colour-navigation[data-thumbnail="' + clickedThumb + '"]').removeClass('js-hidden');
@@ -392,12 +401,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
 
   var showMediaThumbs = function(data){
+
     if($('.object-media-nav li').length > 1){
 
       // keep reference to carousel for thumb strip updates
       var promisedCarousel = initCarousel($('.media-thumbs'), data);
-      promisedCarousel.done(
 
+      promisedCarousel.done(
         function(carousel){
           // disabled unused vertical functionality
           /*
@@ -605,6 +615,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
 
     var keys = Object.keys(allDimensionData);
+
     for(var j=0; j<keys.length; j++){
       dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] });
     }

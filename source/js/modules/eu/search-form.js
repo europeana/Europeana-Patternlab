@@ -107,7 +107,7 @@ define(['jquery', 'util_resize'], function ($){
           selWidthEl       : '.js-hitarea',
           selAnchor        : '.search-multiterm',
           theme            : 'style-entities',
-          url              : data.url ? data.url : 'entities/suggest.json'
+          url              : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });
       });
     });
