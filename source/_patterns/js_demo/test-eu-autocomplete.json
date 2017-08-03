@@ -15,6 +15,10 @@
     {
       "path":  "/css/search/screen.css",
       "media": "all"
+    },
+    {
+      "path": "/css/jsdemo/jsdemo.css",
+      "media": "all"
     }
   ]
 }
