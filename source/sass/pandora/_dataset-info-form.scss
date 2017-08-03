@@ -74,27 +74,28 @@
           margin-right: 1rem;
         }
       }
+    }
 
-      > div > label,
-      div p {
-        flex: 1 0 120px;
-        max-width: 190px;
+    > div > label,
+    div p {
+      flex: 1 0 120px;
+      max-width: 190px;
+    }
+
+    > div > input {
+      border: 1px solid $gray-light;
+      color: $eu-blue;
+
+      &::placeholder {
+        color: $eu-blue;
       }
 
-      > div > input {
-        border: 1px solid $gray-light;
-        color: $eu-blue;
-
-        &::placeholder {
-          color: $eu-blue;
-        }
-
-        &:read-only,
-        &:read-only::placeholder {
-          color: $gray-light;
-        }
+      &:read-only,
+      &:read-only::placeholder {
+        color: $gray-light;
       }
     }
+
   }
 
   .flex-inner {
