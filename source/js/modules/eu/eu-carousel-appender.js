@@ -259,7 +259,7 @@ define(['jquery', 'purl'], function($){
       for(var param in params){
         p.push(param + '=' + params[param]);
       }
-      var url = loadUrl + '?' + p.join('&');
+      var url = loadUrl.split('?')[0] + '?' + p.join('&');
 
       log('load more from: ' + url);
 
