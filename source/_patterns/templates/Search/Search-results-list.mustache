@@ -144,11 +144,8 @@
                     <span class="text expanded">{{i18n.site.results.federated-clicked}}</span>
                   </h3>
                   <div class="display-grid">
-                    {{^federated_search_conf}}
-                      <div id="organisms-components-eu-accordion-tabs-js"><noscript>{{> organisms/components/eu-accordion-tabs-fed-search-template }}</noscript></div>
-                    {{/federated_search_conf}}
                     {{#federated_search_conf}}
-                      <div id="template-federated-search-tab-content"><noscript>{{> molecules/components/search/search-listitem-federated-js}}</noscript></div>
+                      <script id="template-federated-search-tab-content" type="text/x-mustache">{{> molecules/components/search/search-listitem-federated-js}}</script>
                       <div class="eu-accordion-tabs cf">
                         {{#tab_items}}
                           {{> organisms/components/eu-accordion-tabs-fed-search}}

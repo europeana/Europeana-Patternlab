@@ -9,14 +9,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function loadAnnotations(){
 
-    var templateId = 'js-template-object-data-section';
-    var template   = $('#' + templateId + ' noscript');
+    var template = $('#js-template-object-data-section');
 
     if(template.length > 0){
 
       require(['mustache'], function(){
         Mustache.tags = ['[[', ']]'];
-
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
           template.parent().after(Mustache.render(template.text(), data));
         });

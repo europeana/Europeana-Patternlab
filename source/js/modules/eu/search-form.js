@@ -58,10 +58,10 @@ define(['jquery', 'util_resize'], function ($){
         log('init autocomplete... ' + data.url);
 
         var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
-        var narrowMode       = ['collections/show', 'portal/show'].indexOf(pageName) > -1;
+        var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1;
         var selInput         = narrowMode ? '.item-search-input' : '.search-input';
         var inputName        = $(selInput).attr('name');
-        var itemTemplateText = $('#js-template-autocomplete noscript').text();
+        var itemTemplateText = $('#js-template-autocomplete').text();
         var setQeParam       = function(val){
           $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
         };
