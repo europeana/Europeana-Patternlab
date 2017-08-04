@@ -3,66 +3,71 @@
 \*------------------------------------*/
 /* line 3, style-entities.scss */
 .object-nav .eu-autocomplete {
+  border-top: 1px solid #ccc;
   left: 1.34em;
 }
 
-/* line 7, style-entities.scss */
+/* line 8, style-entities.scss */
 .eu-autocomplete {
   border: 1px solid #ccc;
   border-top: 0;
   overflow: hidden;
 }
-/* line 13, style-entities.scss */
+/* line 14, style-entities.scss */
+.eu-autocomplete:empty {
+  border-color: transparent;
+}
+/* line 18, style-entities.scss */
 .eu-autocomplete li {
   border-bottom: 0;
 }
-/* line 16, style-entities.scss */
+/* line 21, style-entities.scss */
 .eu-autocomplete li.group-begin {
   margin-top: 1.5em;
 }
-/* line 19, style-entities.scss */
+/* line 24, style-entities.scss */
 .eu-autocomplete li:first-of-type {
   margin-top: 2em;
 }
-/* line 24, style-entities.scss */
+/* line 29, style-entities.scss */
 .eu-autocomplete .match {
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 30, style-entities.scss */
+/* line 35, style-entities.scss */
 .eu-autocomplete .match.d1, .eu-autocomplete .match.d2 {
   max-width: 80%;
 }
-/* line 34, style-entities.scss */
+/* line 39, style-entities.scss */
 .eu-autocomplete .match.d1.d2 {
   max-width: 55%;
 }
-/* line 39, style-entities.scss */
+/* line 44, style-entities.scss */
 .eu-autocomplete .suggest-life {
   color: #A6A6A6;
   display: flex;
   float: right;
   padding-right: 0.4em;
 }
-/* line 45, style-entities.scss */
+/* line 50, style-entities.scss */
 .eu-autocomplete .suggest-life .label {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 51, style-entities.scss */
+/* line 56, style-entities.scss */
 .eu-autocomplete .suggest-prof,
 .eu-autocomplete .suggest-type {
   color: #777777;
 }
-/* line 56, style-entities.scss */
+/* line 61, style-entities.scss */
 .eu-autocomplete .suggest-dob,
 .eu-autocomplete .suggest-dod {
   display: table-cell;
   white-space: nowrap;
 }
-/* line 62, style-entities.scss */
+/* line 67, style-entities.scss */
 .eu-autocomplete .suggest-agent::after,
 .eu-autocomplete .suggest-concept::after,
 .eu-autocomplete .suggest-place::after {
@@ -74,18 +79,18 @@
   top: 2px;
   width: 1em;
 }
-/* line 74, style-entities.scss */
+/* line 79, style-entities.scss */
 .eu-autocomplete .suggest-dod {
   padding-left: 1em;
 }
-/* line 78, style-entities.scss */
+/* line 83, style-entities.scss */
 .eu-autocomplete .suggest-dob,
 .eu-autocomplete .suggest-dod {
   display: flex;
   justify-content: space-between;
   min-width: 10em;
 }
-/* line 85, style-entities.scss */
+/* line 90, style-entities.scss */
 .eu-autocomplete .suggest-dob,
 .eu-autocomplete .suggest-dod,
 .eu-autocomplete .suggest-locale,
@@ -93,7 +98,7 @@
 .eu-autocomplete .suggest-type {
   font-size: 0.8em;
 }
-/* line 93, style-entities.scss */
+/* line 98, style-entities.scss */
 .eu-autocomplete .suggest-locale {
   color: #A6A6A6;
   display: inline-block;
@@ -101,16 +106,16 @@
   text-transform: uppercase;
   transform: translateY(-0.05em);
 }
-/* line 101, style-entities.scss */
+/* line 106, style-entities.scss */
 .eu-autocomplete .suggest-prof {
   display: block;
   font-style: italic;
 }
-/* line 106, style-entities.scss */
+/* line 111, style-entities.scss */
 .eu-autocomplete .suggest-type {
   display: none;
 }
-/* line 110, style-entities.scss */
+/* line 115, style-entities.scss */
 .eu-autocomplete .group-begin .suggest-type {
   display: block;
   font-size: 0.65em;
@@ -122,7 +127,7 @@
   text-transform: uppercase;
   top: -35%;
 }
-/* line 121, style-entities.scss */
+/* line 126, style-entities.scss */
 .eu-autocomplete .group-begin .suggest-type::before {
   background-color: #ccc;
   content: ' ';
@@ -133,21 +138,21 @@
   transform: translate(0, 0.75em);
   width: 1000px;
 }
-/* line 133, style-entities.scss */
+/* line 138, style-entities.scss */
 .eu-autocomplete .suggest-place::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 30'%3E%3Cpath fill='%23777' d='M13.091 1.636q3.606 0 6.167 2.561t2.561 6.167q0 2.273-1.121 4.273l-7.121 12.909q-0.152 0.273-0.485 0.273t-0.485-0.273l-7.121-12.909q-1.121-1.909-1.121-4.273 0-3.606 2.561-6.167t6.167-2.561zM13.091 13.636q1.364 0 2.318-0.955t0.955-2.318-0.955-2.318-2.318-0.955-2.318 0.955-0.955 2.318 0.955 2.318 2.318 0.955z'%3E%3C/path%3E%3C/svg%3E");
   height: 1.38em;
   margin-right: 0.3em;
   width: 1.2em;
 }
-/* line 140, style-entities.scss */
+/* line 145, style-entities.scss */
 .eu-autocomplete .suggest-agent::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cpath fill='%23777' d='M707.3,573.1C649,614.3,577.4,638.6,500,638.6c-77.4,0-149-24.3-207.3-65.4C163.1,654.9,75.5,810.9,75.5,990h848.9C924.5,810.9,836.9,654.9,707.3,573.1z'%3E%3C/path%3E%3Cpath fill='%23777' d='M219.9,290.1c0,154.7,125.4,280.1,280.1,280.1c154.7,0,280.1-125.4,280.1-280.1S654.7,10,500,10C345.3,10,219.9,135.4,219.9,290.1z'%3E%3C/path%3E%3C/svg%3E");
   height: 1.2em;
   margin-right: 0.3em;
   width: 1.2em;
 }
-/* line 147, style-entities.scss */
+/* line 152, style-entities.scss */
 .eu-autocomplete .suggest-concept::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 29'%3E%3Cpath fill='%23777' d='M26.182 13.909q0 4.424-3.833 7.53t-9.258 3.106q-1.061 0-2.212-0.152-3.424 3.424-7.061 3.424-0.364 0-0.515-0.333-0.121-0.364 0.121-0.606 0.182-0.182 0.47-0.545t0.818-1.485 0.682-2.333q-2.515-1.485-3.955-3.742t-1.439-4.864q0-4.424 3.833-7.53t9.258-3.106 9.258 3.106 3.833 7.53z'%3E%3C/path%3E%3C/svg%3E");
   height: 1.2em;

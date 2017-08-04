@@ -38,11 +38,11 @@ define(['jquery', 'util_resize'], function ($){
 
   function initSearchForm(){
     var input = form.find('.js-search-input');
-    form.on('click', '.js-hitarea', function(event) {
+    form.on('click', '.js-hitarea', function() {
       input.focus();
     });
 
-    form.on('submit', function(event) {
+    form.on('submit', function() {
       if(input.attr('name')=='qf[]' && input.val().length==0){
         return false;
       }
@@ -55,7 +55,7 @@ define(['jquery', 'util_resize'], function ($){
     require(['eu_autocomplete_processor'], function(AutocompleteProcessor){
       require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
-        console.log('init autocomplete... ' + data.url);
+        log('init autocomplete... ' + data.url);
 
         var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
         var narrowMode       = ['collections/show', 'portal/show'].indexOf(pageName) > -1;
@@ -65,6 +65,9 @@ define(['jquery', 'util_resize'], function ($){
         var setQeParam       = function(val){
           $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
         };
+        if(narrowMode){
+          $('.object-nav').addClass('with-autocomplete');
+        }
 
         Autocomplete.init({
           evtResize       : 'europeanaResize',
@@ -79,7 +82,7 @@ define(['jquery', 'util_resize'], function ($){
           },
           fnGetTopOffset : function(el){
             if(el[0]==$(selInput)[0]){
-              return $('.header-wrapper').height() + 20;
+              return $('.header-wrapper').height() + 16;
             }
             return $('.header-wrapper').height();
           },
@@ -87,31 +90,32 @@ define(['jquery', 'util_resize'], function ($){
             var sel = $('.eu-autocomplete li.selected');
             if(sel.length == 1){
               setQeParam(sel.data('id'));
-              $('.search-input').addClass('mode-entity');
+              $(selInput).addClass('mode-entity');
             }
           },
           fnOnItemClick    : function(el){
             if(el.length == 1){
               setQeParam(el.data('id'));
-              $('.search-input').addClass('mode-entity');
+              $(selInput).addClass('mode-entity');
             }
           },
           fnOnDeselect     : function(){
-            $('.search-input').removeClass('mode-entity');
+            $(selInput).removeClass('mode-entity');
             setQeParam();
           },
-          fnPreProcess     : AutocompleteProcessor.process,
-          form             : form,
-          itemTemplateText : itemTemplateText,
-          languages        : languages,
-          minTermLength    : data.min_chars ? data.min_chars : 3,
-          paramName        : 'text',
-          paramAdditional  : '&language=' + languages.join(','),
-          selInput         : selInput,
-          selWidthEl       : narrowMode ? null : '.js-hitarea',
-          selAnchor        : narrowMode ? null : '.search-multiterm',
-          theme            : 'style-entities',
-          url              : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
+          fnPreProcess      : AutocompleteProcessor.process,
+          form              : form,
+          itemTemplateText  : itemTemplateText,
+          languages         : languages,
+          minTermLength     : data.min_chars ? data.min_chars : 3,
+          paramName         : 'text',
+          paramAdditional   : '&language=' + languages.join(','),
+          scrollPolicyFixed : narrowMode,
+          selInput          : selInput,
+          selWidthEl        : narrowMode ? null : '.js-hitarea',
+          selAnchor         : narrowMode ? null : '.search-multiterm',
+          theme             : 'style-entities',
+          url               : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });
       });
     });
