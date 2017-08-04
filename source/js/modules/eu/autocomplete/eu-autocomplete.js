@@ -159,7 +159,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
       }
       else{
-        $(window).scrollTop($(window).scrollTop() - offset);
+        var itemTop = $(self.ops.selInput)[0].getBoundingClientRect().top;
+        if(itemTop < offset){
+          $(window).scrollTop($(window).scrollTop() - offset);
+        }
       }
     };
 
