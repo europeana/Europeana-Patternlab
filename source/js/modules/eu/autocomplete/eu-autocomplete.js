@@ -253,7 +253,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         self.updateInput($f);
       }
       else{
+
         var $sel = self.$list.find('.selected');
+
         if($sel.length>0){
           var $prev = $sel.prev('li');
           if($prev.length > 0){
@@ -310,7 +312,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.processResult = function(data, term){
+
       self.$list.empty();
+
       if(self.ops.fnOnHide){
         self.ops.fnOnHide();
       }
@@ -368,8 +372,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
         else{
           var rect   = self.$input[0].getBoundingClientRect();
-          var minTop = (window.innerHeight || document.documentElement.clientHeight) - 2 - (self.$list.height() + rect.top);
-          self.$list.css('top', Math.max(listTop - 10, minTop));
+          var space  = (window.innerHeight || document.documentElement.clientHeight);
+          var height = self.$list.height() + rect.top;
+          if(space > height){
+            return;
+          }
+          self.$list.css('top', Math.max(listTop - 10, space - (height + 2)));
         }
       });
     };
