@@ -64,44 +64,49 @@ define(['jquery', 'util_resize'], function ($){
         var itemTemplateText = $('#js-template-autocomplete').text();
         var setQeParam       = function(val){
           $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
+          if(val){
+            $(selInput).addClass('mode-entity');
+          }
+          else{
+            $(selInput).removeClass('mode-entity');
+          }
         };
+
         if(narrowMode){
           $('.object-nav').addClass('with-autocomplete');
         }
 
         Autocomplete.init({
-          evtResize       : 'europeanaResize',
-          fnOnShow        : function(){
-            $('.attribution-content').hide();
-            $('.attribution-toggle').show();
-          },
-          fnOnHide        : function(){
-            $('.attribution-content').show();
-            $('.attribution-toggle').hide();
-            $('.search-input').attr('name', inputName);
-          },
-          fnGetTopOffset : function(el){
+          evtResize: 'europeanaResize',
+          fnGetTopOffset: function(el){
             if(el[0]==$(selInput)[0]){
               return $('.header-wrapper').height() + 16;
             }
             return $('.header-wrapper').height();
           },
-          fnOnUpdate       : function(){
+          fnOnDeselect: function(){
+            setQeParam();
+          },
+          fnOnHide: function(){
+            $('.attribution-content').show();
+            $('.attribution-toggle').hide();
+            $('.search-input').attr('name', inputName);
+            setQeParam();
+          },
+          fnOnItemClick: function(el){
+            if(el.length == 1){
+              setQeParam(el.data('id'));
+            }
+          },
+          fnOnShow: function(){
+            $('.attribution-content').hide();
+            $('.attribution-toggle').show();
+          },
+          fnOnUpdate: function(){
             var sel = $('.eu-autocomplete li.selected');
             if(sel.length == 1){
               setQeParam(sel.data('id'));
-              $(selInput).addClass('mode-entity');
             }
-          },
-          fnOnItemClick    : function(el){
-            if(el.length == 1){
-              setQeParam(el.data('id'));
-              $(selInput).addClass('mode-entity');
-            }
-          },
-          fnOnDeselect     : function(){
-            $(selInput).removeClass('mode-entity');
-            setQeParam();
           },
           fnPreProcess      : AutocompleteProcessor.process,
           form              : form,
@@ -111,9 +116,9 @@ define(['jquery', 'util_resize'], function ($){
           paramName         : 'text',
           paramAdditional   : '&language=' + languages.join(','),
           scrollPolicyFixed : narrowMode,
+          selAnchor         : narrowMode ? null : '.search-multiterm',
           selInput          : selInput,
           selWidthEl        : narrowMode ? null : '.js-hitarea',
-          selAnchor         : narrowMode ? null : '.search-multiterm',
           theme             : 'style-entities',
           url               : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });
