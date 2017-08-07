@@ -1,11 +1,39 @@
-.test-eu-autocomplete {
-  input {
-    width: 40em;
-	}
+
+@import '../scss/generic/variables';
+
+$header-height: 4em;
+
+.header-fixed {
+  align-items: center;
+  background: $eu-blue;
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+
+  h4 {
+    color: $white;
+    display: inline-block;
+    margin: 0 0 0 1em;
+    max-width: 50%;
+  }
 
   .container {
-    margin: 3em auto;
+    margin-right: 1em;
     position: relative;
-    width: 40%;
+    width: 40em;
+  }
+}
+
+.test-eu-autocomplete {
+
+  padding: calc(#{$header-height} + 2em) 1em 1em;
+
+  .container {
+    margin: 1em 0 4em;
+    position: relative;
+    width: 40em;
 	}
 }

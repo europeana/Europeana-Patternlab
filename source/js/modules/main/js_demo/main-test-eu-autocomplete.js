@@ -48,6 +48,16 @@ require(['jquery'], function($){
       url              : 'demo_autocomplete',
     });
 
+    // example 3
+
+    Autocomplete.init({
+      selInput         : '#example-3',
+      url              : 'demo_autocomplete',
+      scrollPolicyFixed: true, 
+      itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
+    });
+
+
   });
 
 });
