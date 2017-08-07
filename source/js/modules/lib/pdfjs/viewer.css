@@ -17,9 +17,6 @@
  *   - #mainContainer renamed to #main-container-pdf
  *   - body renamed to .pdf-ui-wrappper
  */
-/*------------------------------------*\
-    $VARIABLES
-\*------------------------------------*/
 /* line 24, viewer.scss */
 .textLayer {
   position: absolute;
