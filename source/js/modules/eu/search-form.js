@@ -114,7 +114,7 @@ define(['jquery', 'util_resize'], function ($){
           languages         : languages,
           minTermLength     : data.min_chars ? data.min_chars : 3,
           paramName         : 'text',
-          paramAdditional   : '&language=' + languages.join(','),
+          paramAdditional   : '&language=' + languages.join(',').replace(/,$/, ''),
           scrollPolicyFixed : narrowMode,
           selAnchor         : narrowMode ? null : '.search-multiterm',
           selInput          : selInput,

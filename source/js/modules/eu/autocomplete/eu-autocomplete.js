@@ -4,13 +4,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     Mustache.tags = ['[[', ']]'];
 
-    var self            = this;
-    self.ops            = null;
-    self.typedTerm      = null;
-    self.$input         = null;
-    self.$list          = null;
-    self.$anchor        = null;
-    self.$widthEl       = null;
+    var self              = this;
+    self.lastSearchTerm   = null;
+    self.lastSearchResult = null;
+    self.ops              = null;
+    self.typedTerm        = null;
+    self.$input           = null;
+    self.$list            = null;
+    self.$anchor          = null;
+    self.$widthEl         = null;
 
     this.init = function(opsIn){
       self.ops          = opsIn;
@@ -65,7 +67,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
 
         var key = window.event ? e.keyCode : e.which;
-
         if(key == 40){
           // down
           self.fwd(e.ctrlKey || e.shiftKey);
@@ -83,8 +84,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           // self.select();
           self.setSelected(self.$list.find('.selected'));
         }
-        else if([9, 17, 16].indexOf(e.keyCode) > -1){
-          // tab, ctrl, shift
+        else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
+          // tab, shift, ctrl, alt, caps-lock, pageUp, pageDown, end, home, printScreen, windows
+        }
+        else if(e.keyCode >= 112 && e.keyCode <= 123){
+            // function key
         }
         else if([37, 39].indexOf(e.keyCode) > -1){
           // left, right
@@ -344,13 +348,24 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       url = self.ops.paramAdditional ? url + self.ops.paramAdditional : url;
       url = url.replace(/^https?:/, location.protocol);
 
-      $.getJSON(url).done(function(data){
+      var doOnDone = function(data){
         self.processResult(data, term);
         if(self.$list.find('li').length > 0){
           if(self.ops.fnOnShow){
             self.ops.fnOnShow();
           }
         }
+      };
+
+      if(term == self.lastSearchTerm){
+        doOnDone(self.lastSearchResult);
+        return;
+      }
+
+      $.getJSON(url).done(function(data){
+        self.lastSearchTerm = term;
+        self.lastSearchResult = data;
+        doOnDone(data);
       })
       .error(function(e, f){
         self.log('Error: ' + e + '  ' + f);
