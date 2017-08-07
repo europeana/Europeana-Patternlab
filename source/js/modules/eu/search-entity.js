@@ -187,7 +187,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             else {
 
               var url      = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
-              var template = $('#js-template-entity-tab-content noscript');
+              var template = $('#js-template-entity-tab-content');
 
               header.addClass('loading');
 

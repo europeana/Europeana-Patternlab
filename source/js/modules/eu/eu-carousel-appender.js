@@ -254,7 +254,12 @@ define(['jquery', 'purl'], function($){
 
       params['per_page'] = per_page;
       params['page']     = page_param;
-      var url            =  loadUrl + '?' + $.param(params);
+
+      var p = [];
+      for(var param in params){
+        p.push(param + '=' + params[param]);
+      }
+      var url = loadUrl.split('?')[0] + '?' + p.join('&');
 
       log('load more from: ' + url);
 

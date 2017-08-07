@@ -395,7 +395,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     var btnExpand     = $('.fed-res-expand');
 
     var initUI = function(Mustache){
-      var template        = $('#template-federated-search-tab-content').find('noscript').text();
+      var template        = $('#template-federated-search-tab-content').text();
 
       require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(euAccordionTabs, Ellipsis){
 

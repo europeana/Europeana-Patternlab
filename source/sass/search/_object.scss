@@ -82,6 +82,19 @@
     }
   }
 
+  &.with-autocomplete{
+    .object-nav-search{
+      @media all and (min-width: $bp-med) {
+        @include span(last 10);
+      }
+    }
+    .object-nav-lists{
+      @media all and (min-width: $bp-med) {
+        @include span(first 14);
+      }
+    }
+  }
+
   .next-previous,
   .breadcrumbs{
     display: inline;

@@ -30,6 +30,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       self.bindMouse();
       self.bindUnload();
 
+      if(self.ops.scrollPolicyFixed){
+        self.bindWheel();
+      }
+
       $(window).europeanaResize(self.resize);
       self.resize();
     };
@@ -147,19 +151,42 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight);
     };
 
-    this.scrollUpNeeded = function(selItem){
+    this.scrollUpFixed = function(selItem){
 
-      var selItem = selItem || self.$list.find('.selected');
-      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset(selItem);
+      if(selItem[0] == $(this.selInput)[0]){
+        return;
+      }
 
       if(selItem.length > 0){
-        var itemTop = $(selItem)[0].getBoundingClientRect().top;
+        var listTop = parseInt(self.$list.css('top'));
+
+        if(listTop < self.$anchor.outerHeight()){
+          var inV = self.isElementInViewport(selItem);
+          self.$list.css('top', Math.min(listTop-inV, self.$anchor.outerHeight()));
+        }
+      }
+    },
+
+    this.scrollUpNeeded = function(selItemIn){
+
+      var selItem = selItemIn || self.$list.find('.selected');
+      if(self.ops.scrollPolicyFixed){
+        this.scrollUpFixed(selItem);
+        return;
+      }
+
+      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset(selItem);
+      var itemTop = selItem.length > 0 ? $(selItem)[0].getBoundingClientRect().top : $(self.$input)[0].getBoundingClientRect().top;
+
+      if(selItem.length > 0){
         if(itemTop - offset < 0){
           $(window).scrollTop($(window).scrollTop() + (itemTop - offset));
         }
       }
       else{
-        $(window).scrollTop($(window).scrollTop() - offset);
+        if(itemTop < offset){
+          $(window).scrollTop($(window).scrollTop() - offset);
+        }
       }
     };
 
@@ -173,9 +200,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.updateInput = function($el){
       if($el){
         self.$input.val($el.data('term'));
-        var inV = this.isElementInViewport($el);
+        var inV = self.isElementInViewport($el);
         if(inV > 0){
-          $(window).scrollTop($(window).scrollTop() + inV);
+          if(self.ops.scrollPolicyFixed){
+            var top = parseInt(self.$list.css('top'));
+            self.$list.css('top', top - inV);
+          }
+          else{
+            $(window).scrollTop($(window).scrollTop() + inV);
+          }
         }
         if(self.ops.fnOnUpdate){
           self.ops.fnOnUpdate(self.$input.val());
@@ -195,16 +228,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.hide();
         }
         if(typeof self.ops.fnOnSelect != 'undefined'){
-          console.log('call do on select....');
           self.ops.fnOnSelect(sel);
         }
       }
     };
 
     this.setSelected = function($el){
-
-      self.log('this.setSelected');
-
       self.$list.find('li').removeClass('selected');
       $el.addClass('selected');
       self.select();
@@ -224,7 +253,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         self.updateInput($f);
       }
       else{
+
         var $sel = self.$list.find('.selected');
+
         if($sel.length>0){
           var $prev = $sel.prev('li');
           if($prev.length > 0){
@@ -281,7 +312,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.processResult = function(data, term){
+
       self.$list.empty();
+
       if(self.ops.fnOnHide){
         self.ops.fnOnHide();
       }
@@ -325,6 +358,30 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       });
     };
 
+    self.bindWheel = function(){
+
+      self.$list.bind('mousewheel DOMMouseScroll', function(e){
+
+        e.preventDefault();
+
+        var listTop = parseInt(self.$list.css('top'));
+
+        if(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+          var maxTop  = self.$anchor.outerHeight();
+          self.$list.css('top', Math.min(maxTop, listTop + 10));
+        }
+        else{
+          var rect   = self.$input[0].getBoundingClientRect();
+          var space  = (window.innerHeight || document.documentElement.clientHeight);
+          var height = self.$list.height() + rect.top;
+          if(space > height){
+            return;
+          }
+          self.$list.css('top', Math.max(listTop - 10, space - (height + 2)));
+        }
+      });
+    };
+
     self.bindUnload = function(){
       $(window).on('unload', function(){
         self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
@@ -337,10 +394,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         var isRightMB;
         e = e || window.event;
 
-        if("which" in e){
+        if('which' in e){
           isRightMB = e.which == 3;  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
         }
-        else if("button" in e){
+        else if('button' in e){
           isRightMB = e.button == 2; // IE, Opera
         }
         if(isRightMB){

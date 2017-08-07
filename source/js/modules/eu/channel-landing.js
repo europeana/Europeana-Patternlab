@@ -170,8 +170,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         require(['mustache'], function(Mustache){
 
           Mustache.tags = ['[[', ']]'];
-          var templateId = '#molecules-components-search-search-listitem-js';
-          var template = $(templateId).find('noscript').text();
+          var template  = $('#molecules-components-search-search-listitem-js').text();
 
           initPreviewMasonry();
 

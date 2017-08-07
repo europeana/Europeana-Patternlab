@@ -247,6 +247,9 @@ input[type="search"]::-webkit-search-decoration {
     &:focus{
       border-color: $textcolour_link;
     }
+    &.mode-entity{
+      background-color: #e3e3e3;
+    }
   }
 
   .item-nav-show,
