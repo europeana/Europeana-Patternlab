@@ -10,6 +10,7 @@
   .login-form {
     min-width: 25rem;
   }
+
   .error-message {
     color: $white;
     font-size: $font-size-slightly-smaller;
@@ -21,10 +22,17 @@
     }
   }
 
-  .hidden {
-    display: none;
+  // formheader
+  .form-header {
+    font-weight: bold;
+    width: auto;
+
+    h2 {
+      margin-bottom: .6rem;
+    }
   }
 
+  // messages/notifications
   .messages {
     height: 2rem;
   }
@@ -36,16 +44,9 @@
     background-color: $eu-red;
   }
 
-  .form-header {
-    font-weight: bold;
-    width: auto;
-
-    h2 {
-      margin-bottom: .6rem;
-    }
-  }
+  // fields
   .form-fields {
-    background-color: $off-white;
+    background-color: $offwhite;
     padding: 2rem 0;
     width: auto;
 

@@ -14,6 +14,10 @@
   }
 }
 
+.hidden {
+  display: none;
+}
+
 #settings-menu {
   .svg-icon-user-signin,
   .svg-icon-notifications,
@@ -225,9 +229,9 @@
 }
 
 .invalid-card {
-  background: $google-plus-red;
+  background: $brand-google;
 }
 
 .invalidOptionsBar {
-  background: $pinterest-red;
+  background: $brand-pinterest;
 }
