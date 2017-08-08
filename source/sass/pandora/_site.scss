@@ -14,51 +14,39 @@
   }
 }
 
-.no-js {
-  // style / hide things for no javascript
-}
+#settings-menu {
+  .svg-icon-user-signin,
+  .svg-icon-notifications,
+  .svg-icon-loggedin-user,
+  .svg-icon-configuration,
+  .svg-icon-form-field-calendar   {
+    float: left;
+    height: 3em;
+    margin-right: .8rem;
+    width: 3em;
+  }
 
-#settings-menu .svg-icon-user-signin {
-  float: left;
-  height: 2em;
-  margin-bottom: -1em;
-  margin-right: -.3em;
-  transform: scale(.7) translateY(-.3em);
-  width: 2em;
-}
+  .svg-icon-user-signin {
+    height: 2em;
+    margin-bottom: -1em;
+    margin-right: -.3em;
+    transform: scale(.7) translateY(-.3em);
+    width: 2em;
+  }
 
-.svg-icon-notifications {
-  float: left;
-  height: 3em;
-  margin-right: .8rem;
-  transform: scale(0.6) translateY(-0.5em);
-  width: 3em;
-}
+  .svg-icon-notifications {
+    transform: scale(0.6) translateY(-0.5em);
+  }
 
-.svg-icon-loggedin-user {
-  float: left;
-  height: 3em;
-  margin-bottom: -1em;
-  margin-right: .8rem;
-  transform: scale(.7) translateY(-.3em);
-  width: 3em;
-}
+  .svg-icon-loggedin-user,
+  .svg-icon-configuration  {
+    margin-bottom: -1em;
+    transform: scale(.7) translateY(-.3em);
+  }
 
-.svg-icon-configuration {
-  float: left;
-  height: 3em;
-  margin-bottom: -1em;
-  margin-right: .8rem;
-  transform: scale(.7) translateY(-.3em);
-  width: 3em;
-}
-
-.svg-icon-form-field-calendar {
-  float: left;
-  height: 3em;
-  margin-right: .8rem;
-  transform: scale(.6) translateY(-.3em);
-  width: 3em;
+  .svg-icon-form-field-calendar {
+    transform: scale(.6) translateY(-.3em);
+  }
 }
 
 .ve-anchor {
@@ -71,11 +59,11 @@
 
 .nav-toggle-sites {
   background-color: $eu-lightblue;
-}
 
-.nav-toggle-sites:hover {
-  background-color: $eu-blue;
-  color: $eu-lightblue;
+  &:hover {
+    background-color: $eu-blue;
+    color: $eu-lightblue;
+  }
 }
 
 .nav_primary a:hover::after {

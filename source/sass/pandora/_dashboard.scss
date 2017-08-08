@@ -1,8 +1,10 @@
 .dashboard-wrapper {
   background-color: $off-white;
+  display: inline-block;
   margin-top: 4.8em;
   min-height: 100vh; // TODO: remove temp stylings.
   padding: 0 1.2rem;
+  width: 100%;
 
   .btns-set {
     background-color: $white;
@@ -82,42 +84,83 @@
   margin-left: 1.2rem;
   padding-top: .4rem;
 
-  .js-hitarea {
-    border: 1px solid $gray-lighter;
-    border-bottom-right-radius: 0;
-    border-right: 0;
-    border-top-right-radius: 0;
-    box-shadow: none;
-    order: 1;
-    width: 40%;
-
-    ul {
-      margin-bottom: 8px;
-      margin-top: 3px;
-      min-width: 11rem;
-      padding: 0;
-
-      li {
-        width: 100%;
-
-        input {
-          max-width: 50rem;
-        }
-      }
-    }
-  }
-
+  // searchbox
   .search-multiterm {
     display: flex;
     flex-flow: row;
     justify-content: center;
-  }
-  .submitarea {
-    margin-left: 6px;
-    order: 4;
-  }
-  .search-submit {
-    height: 100%;
+
+    // searchinput
+    .js-hitarea {
+      border: 1px solid $gray-lighter;
+      border-bottom-right-radius: 0;
+      border-right: 0;
+      border-top-right-radius: 0;
+      box-shadow: none;
+      order: 1;
+      width: 40%;
+
+      ul {
+        margin-bottom: 8px;
+        margin-top: 3px;
+        min-width: 11rem;
+        padding: 0;
+
+        li {
+          width: 100%;
+
+          input {
+            max-width: 50rem;
+          }
+        }
+      }
+    }
+
+    // searchbutton
+    .submitarea {
+      margin-left: 6px;
+      order: 4;
+
+      .search-submit {
+        height: 100%;
+      }
+    }
+
+    // searchmenu
+    nav {
+      background-color: $white;
+      border: 1px solid $gray-lighter;
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+      cursor: text;
+      font-size: 1rem;
+      line-height: 2rem;
+      margin: 0;
+      order: 3;
+      padding: .2rem .4rem;
+
+      #metis_search_menu{
+        margin-top: 8px;
+        min-width: 11rem;
+        padding: 0;
+        padding-left: 1px;
+
+        &.nav-access > li {
+          float: left;
+          min-width: 10.5rem;
+
+          a > .link-text {
+            padding-left: 5px;
+          }
+        }
+
+        .menu-sublevel.caret::before,
+        .menu-sublevel.caret::after {
+          content: none;
+        }
+      }
+    }
+
   }
 
   #browse-menu {
@@ -143,39 +186,5 @@
 
   .link-text {
     color: $light-gray;
-  }
-
-  nav {
-    background-color: $white;
-    border: 1px solid $gray-lighter;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-    cursor: text;
-    font-size: 1rem;
-    line-height: 2rem;
-    margin: 0;
-    order: 3;
-    padding: .2rem .4rem;
-
-    #metis_search_menu{
-      margin-top: 8px;
-      min-width: 11rem;
-      padding: 0;
-      padding-left: 1px;
-
-      &.nav-access > li {
-        float: left;
-        min-width: 10.5rem;
-
-        a > .link-text {
-          padding-left: 5px;
-        }
-      }
-
-      .menu-sublevel.caret::before,
-      .menu-sublevel.caret::after {
-        content: none;
-      }
-    }
   }
 }
