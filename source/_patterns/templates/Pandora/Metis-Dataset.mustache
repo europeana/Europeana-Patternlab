@@ -10,36 +10,24 @@
   {{>organisms/pandora/metis-collapse-info-block}}
 
   <div aria-hidden="true">
-    <div id="js-template-tab-header">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-header.mustache}}
-      </noscript>
-    </div>
-    <div id="js-template-tab-create">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-dataset-info-create.mustache}}
-      </noscript>
-    </div>
-    <div id="js-template-tab-pandora">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-pandora}}
-      </noscript>
-    </div>
-    <div id="js-template-tab-processing">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-dataset-processing}}
-      </noscript>
-    </div>
-    <div id="js-template-tab-preview">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-dataset-preview}}
-      </noscript>
-    </div>
-    <div id="js-template-tab-data-quality">
-      <noscript>
-        {{>organisms/components/eu-accordion-tabs-metis-data-quality}}
-      </noscript>
-    </div>
+    <script id="js-template-tab-header" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-header.mustache}}
+    </script>
+    <script id="js-template-tab-create" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-dataset-info-create.mustache}}
+    </script>
+    <script id="js-template-tab-pandora" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-pandora}}
+    </script>
+    <script id="js-template-tab-processing" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-dataset-processing}}
+    </script>
+    <script id="js-template-tab-preview" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-dataset-preview}}
+    </script>
+    <script id="js-template-tab-data-quality" type="text/x-mustache">
+      {{>organisms/components/eu-accordion-tabs-metis-data-quality}}
+    </script>
   </div>
 
   <div class="metis-accordion-wrapper">
