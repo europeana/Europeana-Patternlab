@@ -17,27 +17,30 @@
     //background: #f9f9f9;
   }
   input[type=button] {
-    width: 200px;
     background: #00aeff;
     border-color: #00aeff;
     color: #eee;
     cursor: pointer;
+    width: 200px;
   }
   span.zip {
-    margin: 1em 0;
-    display: block;
-    text-transform: uppercase;
-    font-size: 0.9em;
     color: #999;
+    display: block;
+    font-size: 0.9em;
+    margin: 1em 0;
+    text-transform: uppercase;
+
+    &::before {
+      content: 'Selected: ';
+    }
+
   }
-  span.zip:before {
-    content: 'Selected: '
-  }
+
   .page-wrapper {
-    width: 100%;
-    height: 100%;
-    background: url(http://i.imgur.com/2ZgHKbQ.jpg) center no-repeat;
+    background: url('http://i.imgur.com/2ZgHKbQ.jpg') center no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%;
   }
 
   .blur {
@@ -45,32 +48,32 @@
   }
 
   a.btn {
-    width: 150px;
+    background: rgba(217, 67, 86, 1);
+    border-radius: 5px;
+    color: $white;
     display: block;
+    font: 1.125em 'Arial', sans-serif;
+    font-weight: 700;
+    left: 50%;
     margin: -25px 0 0 -75px;
     padding: 1em 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    font: 1.125em 'Arial', sans-serif;
-    font-weight: 700;
     text-align: center;
     text-decoration: none;
-    color: #fff;
-    border-radius: 5px;
-    background: rgba(217, 67, 86, 1);
+    top: 50%;
+    width: 150px;
   }
 
   .modal-wrapper {
-    width: 100%;
+    background: rgba(255, 257, 153, 0.75);
     height: 100%;
+    left: 0;
+    opacity: 0;
     position: fixed;
     top: 0;
-    left: 0;
-    background: rgba(255, 257, 153, 0.75);
-    visibility: hidden;
-    opacity: 0;
     transition: all 0.25s ease-in-out;
+    visibility: hidden;
+    width: 100%;
   }
 
   .hidden {
@@ -83,17 +86,17 @@
   }
 
   .modal {
-    width: 600px;
-    height: 400px;
+    background: $white;
     display: block;
+    height: 400px;
+    left: 50%;
     margin: 50% 0 0 -300px;
+    opacity: 0;
     padding: 0;
     position: relative;
     top: 50%;
-    left: 50%;
-    background: #fff;
-    opacity: 0;
     transition: all 0.5s ease-in-out;
+    width: 600px;
   }
 
   .modal-wrapper.open .modal {
@@ -102,35 +105,34 @@
   }
 
   .head {
-    width: 100%;
-    padding: 1.5em 5%;
-    overflow: hidden;
     background: #01bce5;
+    overflow: hidden;
+    padding: 1.5em 5%;
+    width: 100%;
   }
 
   .btn-close {
-    width: 32px;
-    height: 32px;
     display: block;
     float: right;
-  }
-
-  .btn-close::before, .btn-close::after {
-    content: '';
+    height: 32px;
     width: 32px;
-    height: 6px;
-    display: block;
-    background: #fff;
-  }
 
-  .btn-close::before {
-    margin-top: 12px;
-    transform: rotate(45deg);
-  }
+    &::before,
+    &::after {
+      background: #fff;
+      content: '';
+      display: block;
+      height: 6px;
+      margin-top: 12px;
+      transform: rotate(45deg);
+      width: 32px;
+    }
 
-  .btn-close::after {
-    margin-top: -6px;
-    transform: rotate(-45deg);
+    &::after {
+      margin-top: -6px;
+      transform: rotate(-45deg);
+    }
+
   }
 
   .content {
@@ -144,14 +146,14 @@
 
 // autocomplete stylings.
 .autocomplete-suggestions {
-  text-align: left;
-  cursor: default;
+  background: #fff;
   border: 1px solid #ccc;
   border-top: 0;
-  background: #fff;
   box-shadow: -1px 1px 3px rgba(0, 0, 0, .1);
+  cursor: default;
+  text-align: left;
 
-  /* core styles should not be changed */
+  // core styles should not be changed */
   position: absolute;
   display: none;
   z-index: 9999;
@@ -162,19 +164,19 @@
 }
 
 .autocomplete-suggestion {
-  position: relative;
-  padding: 0 .6em;
-  line-height: 23px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1.02em;
   color: #333;
+  font-size: 1.02em;
+  line-height: 23px;
+  overflow: hidden;
+  padding: 0 .6em;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .autocomplete-suggestion b {
-  font-weight: normal;
   color: #1f8dd6;
+  font-weight: normal;
 }
 
 .autocomplete-suggestion.selected {
