@@ -148,7 +148,9 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           }
         }
         else{
-          $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
+          if($anchor.length > 0){
+            $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
+          }
         }
       }
     };
