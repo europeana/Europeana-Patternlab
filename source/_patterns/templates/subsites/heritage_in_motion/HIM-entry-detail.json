@@ -47,7 +47,8 @@
             "items": [
               {
                 "text": "About HIM",
-                "is_current": true
+                "is_current": true,
+                "submenu": false
               },
               {
                 "text": "Contest Rules",
@@ -64,27 +65,34 @@
                   "items": [
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "New Entries 2015"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2014"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2013"
                     },
                     {
                       "url": "#",
+                      "submenu": false,
                       "text": "Entries 2012"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
+                      "submenu": false,
                       "url": "url to all entries",
                       "text": "All Entries",
                       "is_morelink": true

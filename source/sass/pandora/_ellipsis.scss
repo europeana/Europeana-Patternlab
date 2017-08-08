@@ -1,4 +1,4 @@
-/* mixin for multiline */
+// mixin for multiline
 @mixin multiLineEllipsis($maxWidth, $lineHeight: 1.2em, $lineCount: 1){
   line-height: $lineHeight;
   max-height: $lineHeight * $lineCount;
@@ -7,20 +7,20 @@
   margin-right: -1em;
   padding-right: 1em;
 
-  &:before {
+  &::before {
+    bottom: 0;
+    color: #0000ff;
     content: '...';
     position: absolute;
     right: 0;
-    bottom: 0;
-    color: blue;
   }
-  &:after {
+  &::after {
     content: '';
+    height: 1em;
+    margin-top: 0.2em;
     position: absolute;
     right: 0;
     width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
   }
   &.eu-tooltip-container {
     &.block-with-text {

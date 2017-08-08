@@ -75,10 +75,11 @@ $tabs-pad:           1.2em;
 
     .tab-header{
 
-      display:  block;
-      float:    left;
-      position: relative;
-      width:    auto;
+      display:       block;
+      float:         left;
+      margin-bottom: 4em;
+      position:      relative;
+      width:         auto;
 
       &.active{
         border-bottom: 0;

@@ -56,8 +56,16 @@
       "value": "portal/index"
     },
     {
+      "name": "i18nLocale",
+      "value": "en"
+    },
+    {
+      "name": "i18nDefaultLocale",
+      "value": "en"
+    },
+    {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'portal_federated':'random'}}"
+      "value": "{ 'delays' : {'portal_federated':'random', 'portal_autocomplete': 100}}"
     }
   ],
   "img": false,
@@ -84,8 +92,14 @@
       "base_1418_url": "http://test.1418.eanadev.org"
     }
   },
+  "form_search": {
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "1"
+    }
+  },
   "hero": {
-      "hero_image": "../../images/pro/home_image_test.jpg"
+    "hero_image": "../../images/pro/home_image_test.jpg"
   },
   "federated_search_enabled": true,
   "federated_search_conf": {
@@ -93,32 +107,32 @@
     "tab_items": [
       {
         "tab_title": "DPLA",
-        "url":       "/federated.json?provider=dpla",
+        "url":       "portal_federated?provider=dpla",
         "key":       "dpla"
       },
       {
         "tab_title": "Internet Archive",
-        "url":       "/federated.json?provider=internetArchive",
+        "url":       "portal_federated?provider=internetArchive",
         "key":       "internetarchive"
       },
       {
         "tab_title": "DigitalNZ",
-        "url":       "/federated.json?provider=digitalNZ",
+        "url":       "portal_federated?provider=digitalNZ",
         "key":       "digitalnz"
       },
       {
         "tab_title": "Canadiana",
-        "url":       "/federated.json?provider=canadiana",
+        "url":       "portal_federated?provider=canadiana",
         "key":       "canadiana"
       },
       {
         "tab_title": "Trove",
-        "url":       "/federated.json?provider=trove",
+        "url":       "portal_federated?provider=trove",
         "key":       "trove"
       },
       {
         "tab_title": "Icons",
-        "url":       "/federated.json?provider=icons"
+        "url":       "portal_federated?provider=icons"
       }
     ]
   },

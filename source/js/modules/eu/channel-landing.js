@@ -1,11 +1,12 @@
-define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
+define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
-  var euSearchForm  = null;
+  var euSearchForm = null;
 
   function showCarousel(ops){
+
     // normalise "what's happening" images
 
-    var happeningFeed   = $('.happening-feed').length == 1;
+    var happeningFeed = $('.happening-feed').length == 1;
     var fnProcessImages = false;
 
     if(happeningFeed){
@@ -14,22 +15,25 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
       var portraitClass = 'portrait-1';
 
-      fnProcessImages = function(images){
+      fnProcessImages = function(){
         var fnProcessImage = function(img){
+
           var w = img.width();
           var h = img.height();
           img.closest('.js-carousel-item').addClass('js-img-processed ' + (w > h ? 'landscape' : portraitClass));
         };
         require(['jqImagesLoaded'], function(){
-          $('.happening-feed .js-carousel-item:not(.js-img-processed) img').imagesLoaded(   function($images){
+          $('.happening-feed .js-carousel-item:not(.js-img-processed) img').imagesLoaded(function($images){
+
             $images.each(function(i, img){
+
               fnProcessImage($(img));
             });
           });
         });
       };
 
-      var purl            = $.url(window.location.href);
+      var purl = $.url(window.location.href);
       var carouselDisplay = purl.param('carousel-display');
 
       if(carouselDisplay == '1'){
@@ -49,38 +53,17 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     el = el.length == 1 ? el : $('.happening-feed');
 
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
+
       var appender = CarouselAppender.create({
-        'cmp':             el.find('ul'),
-        'loadUrl':         ops.loadUrl,
-        'template':        ops.template,
-        'total_available': ops.total_available,
-        'doAfter':         !happeningFeed ? null : function(){
+        'cmp' : el.find('ul'),
+        'loadUrl' : ops.loadUrl,
+        'template' : ops.template,
+        'total_available' : ops.total_available,
+        'doAfter' : !happeningFeed ? null : function(){
           fnProcessImages();
         }
       });
-      jQuery.Deferred().resolve(Carousel.create(el, appender, ops));
-    });
-  }
-
-  function addAutocomplete(data){
-    require(['eu_autocomplete', 'util_resize'], function(autocomplete){
-      autocomplete.init({
-        evtResize    : 'europeanaResize',
-        selInput     : '.search-input',
-        selWidthEl   : '.js-hitarea',
-        selAnchor    : '.search-multiterm',
-        searchForm   : euSearchForm,
-        translations : data.translations,
-        url          : data.url,
-        fnOnShow     : function(){
-          $('.attribution-content').hide();
-          $('.attribution-toggle').show();
-        },
-        fnOnHide : function(){
-          $('.attribution-content').show();
-          $('.attribution-toggle').hide();
-        }
-      });
+      $.Deferred().resolve(Carousel.create(el, appender, ops));
     });
   }
 
@@ -107,16 +90,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       showCarousel(data);
     });
 
-    $(window).bind('addAutocomplete', function(e, data){
-      addAutocomplete(data);
-    });
-
     $(window).bind('loadPreview', function(e, data){
       loadPreview(data);
     });
 
     // init masonry for non-ajax loaded images
-    if( $('.result-items li').length > 1 ){
+    if($('.result-items li').length > 1){
       initPreviewMasonry();
     }
 
@@ -127,11 +106,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     if($('.e7a1418-nav').length > 0){
       require(['e7a_1418'], function(e7a1418){
-      e7a1418.initPageInvisible();
-     });
+        e7a1418.initPageInvisible();
+      });
     }
-
-  };
+  }
 
   function initPreviewMasonry(){
 
@@ -139,18 +117,20 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
-      masonry = new Masonry( '.result-items', {
-        itemSelector: '.search-list-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
+      var masonry = new Masonry('.result-items', {
+        itemSelector : '.search-list-item',
+        columnWidth : '.grid-sizer',
+        percentPosition : true
       });
 
-      $('.result-items').imagesLoaded().progress( function(instance, image){
+      $('.result-items').imagesLoaded().progress(function(){
         if(masonry){
           masonry.layout();
         }
-      }).done( function(){
+      }).done(function(){
+
         var hasSuperTall = false;
+
         $('.item-image').each(function(i, ob){
           var $ob = $(ob);
           if($ob.height() > 650){
@@ -168,8 +148,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function loadPreview(){
 
-    var data   = window.sneakPeekData;
+    var data = window.sneakPeekData;
     var random = data[Math.floor((Math.random() * data.length) + 1)];
+
     if(!random){
       return;
     }
@@ -178,18 +159,18 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     $('.sneak-peek-list').next('.show-more-mlt').find('a').attr('href', random.extra);
 
     $.ajax({
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
-      },
-      url: random.url,
-      type: 'GET',
-      contentType: "application/json; charset=utf-8",
-      success: function(data) {
+      //beforeSend : function(xhr){
+      //  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      //},
+      url : random.url.replace(/^https?:/, location.protocol),
+      type : 'GET',
+      contentType : 'application/json; charset=utf-8',
+      success : function(data){
+
         require(['mustache'], function(Mustache){
 
           Mustache.tags = ['[[', ']]'];
-          var templateId = '#molecules-components-search-search-listitem-js';
-          var template   = $(templateId).find('noscript').text();
+          var template  = $('#molecules-components-search-search-listitem-js').text();
 
           initPreviewMasonry();
 
@@ -202,8 +183,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   return {
-    initPage: function(euSearchForm){
+    initPage : function(euSearchForm){
+
       initPage(euSearchForm);
     }
-  }
+  };
+
 });

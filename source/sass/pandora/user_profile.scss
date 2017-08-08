@@ -11,6 +11,11 @@
   padding: 2em;
   width: 80%;
 
+  .tag svg{
+    cursor:      pointer;
+    margin-left: 1em;
+  }
+
   // overwrite default icon styling.
   .svg-icon-search {
     background-position: 98% 50%;
@@ -46,7 +51,7 @@
     padding: 0 8px;
   }
 
-  .flex-outer > div:not(:last-child) {
+  .flex-outer > div:not(.buttons) {
     margin-bottom: 20px;
   }
 
@@ -138,18 +143,25 @@
     }
   }
 
-  .org_selection .modal-wrapper {
-    background-color: $light-gray;
+  .org-selection{
+    .modal-wrapper {
+      background-color: $light-gray;
+
+      &.open .modal{
+        margin-top: 0;
+      }
+    }
+
+    .searchOrganisationWrap{
+      position: relative;
+    }
   }
 
-  .org_selection > .modal-wrapper.open > div {
+  .org-selection > .modal-wrapper.open > div {
     top: 0;
   }
-  .org_selection .modal-wrapper.open .modal {
-    margin-top: 0;
-  }
 
-  .org_selection input[type=button] {
+  .org-selection input[type=button] {
     background: $eu-jade;
     border-color: $eu-jade;
   }
@@ -184,18 +196,18 @@
     margin: 0 auto;
   }
 
-  .currentSelectedOrganization {
+  .currentSelectedOrganisation {
     margin-right: 1rem;
   }
 
   .roles {
     width: 40%;
   }
-  .selectedOrganizations .selectedOrgs .selectedOrg {
+  .selectedOrganisations .selectedOrgs .selectedOrg {
     width: 100%;
   }
 
-  .selectedOrganizations {
+  .selectedOrganisations {
     &.hidden {
       display: none;
     }
@@ -206,7 +218,7 @@
     pointer-events: none;
   }
 
-  .removeOrganization {
+  .removeOrganisation {
     margin-left: 1rem;
   }
 }

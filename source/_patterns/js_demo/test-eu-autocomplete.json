@@ -1,0 +1,24 @@
+{
+  "js_files": [
+    {
+      "path":      "/js/modules/require.js",
+      "data_main": "/js/modules/main/js_demo/main-test-eu-autocomplete.js"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'demo_autocomplete': 100}}"
+    }
+  ],
+  "css_files": [
+    {
+      "path":  "/css/search/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "/css/jsdemo/jsdemo.css",
+      "media": "all"
+    }
+  ]
+}

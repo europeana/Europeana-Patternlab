@@ -44,9 +44,11 @@
           "primary_nav":
           {
             "menu_id": "main-menu",
+            "submenu": false,
             "items": [
               {
-                "text": "About HIM"
+                "text": "About HIM",
+                "submenu": false
               },
               {
                 "text": "Contest Rules",
@@ -63,28 +65,35 @@
                 "submenu": {
                   "items": [
                     {
+                      "submenu": false,
                       "url": "#",
                       "text": "New Entries 2015"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
+                      "submenu": false,
                       "url": "#",
                       "text": "Entries 2014"
                     },
                     {
+                      "submenu": false,
                       "url": "#",
                       "text": "Entries 2013"
                     },
                     {
+                      "submenu": false,
                       "url": "#",
                       "text": "Entries 2012"
                     },
                     {
+                      "submenu": false,
                       "is_divider": true
                     },
                     {
+                      "submenu": false,
                       "url": "url to all entries",
                       "text": "All Entries",
                       "is_morelink": true

@@ -5,7 +5,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   var $url            = $.url();
   var euSearchForm    = null;
   var masonry         = null;
-  var ellipsisObjects = [];
   var btnGrid         = $('.icon-view-grid').closest('a');
   var btnList         = $('.icon-view-list').closest('a');
 
@@ -149,7 +148,9 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           }
         }
         else{
-          $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
+          if($anchor.length > 0){
+            $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
+          }
         }
       }
     };
@@ -165,10 +166,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     btnList.removeClass('is-active');
     if(save){
       saveView('grid');
-    }
-
-    for(var i=0; i<ellipsisObjects.length; i++){
-      ellipsisObjects[i].enable();
     }
 
     updateViewParamInLinks('grid');
@@ -216,10 +213,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       saveView('list');
     }
     updateViewParamInLinks('list');
-
-    for(var i=0; i<ellipsisObjects.length; i++){
-      ellipsisObjects[i].disable();
-    }
   };
 
   var bindResultSizeLinks = function(){
@@ -380,12 +373,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     bindGA();
     bindfacetOpeners();
     bindDateFacetInputs();
-
     initFederatedSearch();
-
-    $(window).bind('addAutocomplete', function(e, data){
-      addAutocomplete(data);
-    });
 
     scrollEvents.fireAllVisible();
 
@@ -402,28 +390,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     }
   };
 
-  function addAutocomplete(data){
-    require(['eu_autocomplete', 'util_resize'], function(autocomplete){
-      autocomplete.init({
-        evtResize    : 'europeanaResize',
-        selInput     : '.search-input',
-        selWidthEl   : '.js-hitarea',
-        selAnchor    : '.search-multiterm',
-        searchForm   : euSearchForm,
-        translations : data.translations,
-        url          : data.url,
-        fnOnShow     : function(){
-          $('.attribution-content').hide();
-          $('.attribution-toggle').show();
-        },
-        fnOnHide : function(){
-          $('.attribution-content').show();
-          $('.attribution-toggle').hide();
-        }
-      });
-    });
-  }
-
   function initFederatedSearch(){
 
     var accordionTabs = null;
@@ -431,7 +397,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     var btnExpand     = $('.fed-res-expand');
 
     var initUI = function(Mustache){
-      var template        = $('#template-federated-search-tab-content').find('noscript').text();
+      var template        = $('#template-federated-search-tab-content').text();
 
       require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(euAccordionTabs, Ellipsis){
 
@@ -461,7 +427,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
             tab.find('.tab-subtitle').html(data.tab_subtitle);
             var defLogo = tab.data('content-default-logo');
 
-            $('.more-federated-results:eq(' + index + ')').removeClass('js-empty').find('a').attr('href', data.more_results_url).text(data.more_results_label)
+            $('.more-federated-results:eq(' + index + ')').removeClass('js-empty').find('a').attr('href', data.more_results_url).text(data.more_results_label);
 
             $.each(data.search_results, function(i, itemData){
 
@@ -562,7 +528,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     });
 
     if(loadFederatedSetting()){
-      log('federated enabled');
       fnClickExpand();
     }
   }

@@ -41,7 +41,11 @@
   ],
 
   "form_search": {
-    "action": "javascript:alert('submit form');"
+    "action": "javascript:alert('submit form');",
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "0"
+    }
   },
 
   "navigation":{
@@ -162,7 +166,8 @@
         "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
-      "annotations":
+      "annotations_later": true,
+      "XXXannotations":
       {
         "title": "Annotations",
         "info": "javascript:alert('link to info');",
@@ -418,7 +423,7 @@
     {
       "title": "Similar items",
       "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "portal_similar_items",
+      "more_items_load"  : "portal_object-similar",
 
       "XXX_more_items_total" : 12,
       "XXX_more_items_total_formatted" : 12,

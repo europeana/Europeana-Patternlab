@@ -1,5 +1,8 @@
-<form action="{{form_search.action}}"
+{{#form_search.autocomplete}}
+  <script id="js-template-autocomplete" type="text/x-mustache">{{> atoms/lists/eu-autocomplete-item-template-entity }}</script>
+{{/form_search.autocomplete}}
 
+<form action="{{form_search.action}}"
   {{^form_search.autocomplete}}
     class="search-multiterm"
   {{/form_search.autocomplete}}
@@ -7,14 +10,12 @@
   {{#form_search.autocomplete}}
     class="search-multiterm scroll-trigger"
     data-enabled="true"
-    data-enabled="true"
     data-fire-on-open="addAutocomplete"
     data-fire-on-open-params='{
-     "url": "{{url}}",
-     "translations":{ "Agent":"{{translations.agents}}", "Place":"{{translations.places}}", "Concepts":"{{translations.concepts}}" }
+     "min_chars": "{{min_chars}}",
+     "url": "{{url}}"
     }'
   {{/form_search.autocomplete}}
-
   >
   <div class="inputarea js-hitarea">
 

@@ -3,7 +3,7 @@ define(['jquery'], function ($) {
 
   function handleForm() {
 
-    var form = $('form'),
+    var form = $('.user-profile-form form'),
       role = form.data('role'),
       mode = form.data('view-mode'),
       previewBlockBtn = $('.user-profile-preview-btn'),
@@ -15,13 +15,14 @@ define(['jquery'], function ($) {
       euProv = $('.eu, .prov'),
       submitBtn = $('.submit');
 
-    if (mode === 'preview') {
+    if(mode === 'preview'){
       previewBlockBtn.toggleClass('hidden');
-    } else {
+    }
+    else{
       editableBlockBtns.toggleClass('hidden');
     }
 
-    edit.click(function () {
+    edit.click(function(){
       form.attr('data-view-mode', 'update');
       previewBlockBtn.toggleClass('hidden');
       editableBlockBtns.toggleClass('hidden');
@@ -29,7 +30,7 @@ define(['jquery'], function ($) {
       if (role === 'metisAdmin') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
-        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
+        $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
       } else {
         prov.attr('readonly', false);
         prov.attr('disabled', false);
@@ -44,7 +45,7 @@ define(['jquery'], function ($) {
         cancel.toggleClass('update preview');
         previewBlockBtn.toggleClass('hidden');
         editableBlockBtns.toggleClass('hidden');
-        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
+        $('.selectedOrganization, .removeOrganisation').toggleClass('disableLink');
       } else {
         //  TODO: on create mode after canceling the creation the user should be redirected to ?
         console.log('canceling operation');
@@ -52,14 +53,17 @@ define(['jquery'], function ($) {
     });
 
     // TODO : define the action to be taken after submitting changes.
-    submitBtn.click(function () {
-      console.log('submit form and take me to ...');
-    });
+    //submitBtn.click(function () {
+    //  console.log('submit form and take me to ...');
+    //});
   }
+
+  console.log('loaded user_profile.js')
 
   return {
     formInit: function () {
       handleForm();
     }
   };
+
 });

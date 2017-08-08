@@ -36,9 +36,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       var inView         = 0; // num items currently visible in viewport
       var position       = 1; // index of currently viewed item
 
-      var perPage        = appender.getDataCount();
-
-      var totalLoaded    = perPage;
+      var perPage        = (opsIn.perPage && typeof parseInt(opsIn.perPage) == 'number') ? parseInt(opsIn.perPage) : appender.getDataCount();
+      var totalLoaded    = appender.getDataCount();
       var totalAvailable = null;
 
       var scrollTime     = 400;

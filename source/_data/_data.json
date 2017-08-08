@@ -679,6 +679,20 @@
                 "my-account": "My Account"
               }
             },
+            "entities": {
+              "labels": {
+                "bio": "Bio",
+                "born": "Born",
+                "died": "Died",
+                "similar": "Similar",
+                "related": "Related"
+              },
+              "types": {
+                "agent": "Person",
+                "concept": "Concept",
+                "place": "Place"
+              }
+            },
             "events":{
               "list": {
                 "count-and-terms-with-range": "1 - X of 321 events"

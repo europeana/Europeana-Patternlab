@@ -1,0 +1,238 @@
+{
+  "bodyclass":        "channel_entity",
+  "page_title":       "Europeana Entities",
+  "collection_title": "Fashion",
+  "version": {
+    "is_alpha": true
+  },
+  "globalnav_options": {
+    "search": false,
+    "myeuropeana": true
+  },
+
+  "navigation": {
+    "breadcrumbs": [
+      {
+        "label": "Explore",
+        "url": "javascript:alert('follow breadcrumb link 1');"
+      },
+      {
+        "label": "Topics",
+        "url": "javascript:alert('follow breadcrumb link 2');"
+      },
+      {
+        "label": "Coco Chanel",
+        "url": false
+      }
+    ],
+
+    "next_prev": false,
+    "global": {
+      "options": {
+       }
+    }
+  },
+
+  "include_nav_searchbar": true,
+
+  "form_search": {
+    "action": "javascript:alert('submit form');",
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "0"
+    }
+  },
+
+  "js_slsb_ld":{
+    "context": "http://schema.org",
+    "type": "WebSite",
+    "url": "http://www.europeana.eu/portal",
+    "potentialAction": {
+      "type": "SearchAction",
+      "target": "http://www.europeana.eu/portal/search?q={q}",
+      "query_input": "required name=q"
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "entities/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'portal_entity': '2000', 'portal_entity-similar':'5000'}}"
+    }
+  ],
+  "input_search": {
+    "title": "Search Europeana",
+    "input_name": "q",
+    "placeholder": "Search Europeana"
+  },
+  "content": {
+    "entity_thumbnail": {
+      "src": "/images/search/entity_main_thumb.jpg",
+      "alt": "thumbnail alt text here"
+    },
+    "entity_description": [
+      "Gabrielle Bonheur \"Coco\" Chanel (19 August 1883 – 10 January 1971) was a French fashion designer and businesswoman. She was the founder and namesake of the Chanel brand. Along with Paul Poiret, Chanel was credited in the post-World War I era with liberating women from the constraints of the \"corseted silhouette\" and popularizing a sporty, casual chic as the feminine standard of style. A prolific fashion creator, Chanel extended her influence beyond couture clothing, realising her design aesthetic in jewellery, handbags, and fragrance. Her signature scent, Chanel No. 5, has become an iconic product. She is the only fashion designer listed on TIME magazine's list of the 100 most influential people of the 20th century. Chanel designed her iconic interlocked-CC monograph, meaning Coco Chanel, using it since the 1920s.",
+      "Chanel was known for her lifelong determination, ambition, and energy which she applied to her professional and social life. She achieved both financial success as a businesswoman and catapulted to social prominence in French high society, thanks to the connections she made through her work. These included many artists and craftspeople to whom she became a patron.",
+      "Her social connections appeared to encourage a highly conservative personal outlook. Rumors arose about Chanel's activities in the course of the German occupation of France during World War II, and she was criticised for being too comfortable with the Germans but never thoroughly investigated. One of Chanel's liaisons was with a German diplomat, Baron (Freiherr) Hans Günther von Dincklage (de). After the war ended, Chanel was interrogated about her relationship with von Dincklage, but she was not charged as a collaborator. After several years in Switzerland after the war, she returned to Paris and revived her fashion house. In 2011, Hal Vaughan published a book on Chanel based on newly declassified documents of that era, revealing that she had collaborated with Germans in intelligence activities. One plan in late 1943 was for her to carry an SS separate peace overture to British Prime Minister Winston Churchill to end the war."
+    ],
+    "entity_title": "Gabrielle Bonheur 'Coco' Chanel - (Coco Chanel for short)",
+    "entity_anagraphical":[
+      {
+        "label": "Born",
+        "value": [
+          "19 August 1883",
+          "Saumur, France"
+        ]
+      },
+      {
+        "label": "Died",
+        "value": [
+          "10 January 1971",
+          "Paris, France"
+        ]
+      },
+      {
+        "label": "Occupation",
+        "value": [
+          "Fashion Designer"
+        ]
+      }
+    ],
+    "entity_external_link": {
+      "text": [
+        "Gabrielle \"Coco\" Chanel, 1920",
+        "Hal Vaughan, Sleeping with the enemy: Coco Chanel's Secret War.  Random House (2011), p20"
+      ],
+      "href": "javscript:alert('go to the external page')"
+    },
+    "tab_items": [
+      {
+        "tab_subtitle":               false,
+        "tab_title":                  "Items by Coco Chanel",
+        "url":                        "portal_entity?type=by",
+        "search_url":                 "javascript:alert('load all by')"
+      },
+      {
+        "tab_subtitle":               false,
+        "tab_title":                  "Items about Coco Chanel",
+        "url":                        "portal_entity?type=about",
+        "search_url":                 "javascript:alert('load all about')"
+      }
+    ],
+    "social_share": {
+      "url": "this page url for share links",
+      "twitter": true,
+      "facebook": true,
+      "pinterest": true,
+      "googleplus": true,
+      "tumblr": true
+    },
+    "carousel": {
+      "more_items_load"  : "portal_entity-similar",
+      "XXXmore_items_total" : 7,
+      "XXXmore_items_total_formatted" : 7,
+      "XXXXitems": [
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+             "alt": "The Lace Maker",
+             "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a terrible Tumblr title that's totally taking too much height and is technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "14/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
+          }
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Title II",
+          "type": "events",
+          "date": "15/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed also has text and a date"
+          }
+        },
+        {
+          "url": "?q=Delft",
+          "img": {
+            "alt": "Delft",
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "tumblr",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text but no date"
+          }
+        },
+        {
+          "url": "?q=Girl+with+the+pearl+earring",
+          "img": {
+            "alt": "Girl with the pearl earring",
+            "src": "/images/search/carousel1.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news",
+          "date": "17/12/2016"
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        },
+        {
+          "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
+          "img": {
+            "alt": "Zittende jongeman bij ton met het hoofd naar links",
+            "src": "/images/search/carousel3.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        },
+        {
+          "url":  "?q=The+Lace+Maker",
+          "img": {
+            "alt": "The Lace Maker",
+            "src": "/images/search/carousel2.jpg"
+          },
+          "title": "Test a Tumblr title that's totally technically too tall (when line wrapped)",
+          "type": "news"
+        }
+      ]
+    },
+    "banner": {
+      "title": "This is an Alpha release of our new collections search and Music Channel",
+      "text": "An Alpha release means that this website is in active development and will be updated regularly. It may sometimes be offline. Your feedback will help us improve our site.",
+      "cta_url": "http://insights.hotjar.com/s?siteId=54631&surveyId=2939",
+      "cta_text": "Help us improve the site"
+    },
+    "strapline": "Discover 673,726 historical dresses, accessories and catwalk photographs from across Europe."
+  }
+}

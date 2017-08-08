@@ -1,39 +1,39 @@
 {
-	"css_files": 
-	[
-		{
-			"path": "../../css/pandora/screen.css",
-			"media": "all"
-		},
+  "css_files":
+  [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
 
-		{
-			"path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
-			"media": "all"
-		},
-		
-		{
-			"path": "../../js/modules/lib/jush/jush.css",
-			"media": "all"
-		}
-	],
-    "js_vars": [
-      {
-        "name": "pageName",
-        "value": "itemCard"
-      }
-    ],
-	"js_files": 
-	[
-		{
-			"path": "../../js/modules/require.js",
-			"data_main": "../../js/modules/main/templates/main-pandora"
-		}
-	],
-	"record_item": "Item instance 1",
-	
-	"edm": [
-	  {
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    },
+
+    {
+      "path": "../../js/modules/lib/jush/jush.css",
+      "media": "all"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "itemCard"
+    }
+  ],
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+  "record_item": "Item instance 1",
+
+  "edm": [
+    {
         "data": "<rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" \nxmlns:cc=\"http://creativecommons.org/ns#\" \nxmlns:dc=\"http://purl.org/dc/elements/1.1/\" \nxmlns:dcterms=\"http://purl.org/dc/terms/\" \nxmlns:edm=\"http://www.europeana.eu/schemas/edm/\" \nxmlns:foaf=\"http://xmlns.com/foaf/0.1/\" \nxmlns:odrl=\"http://www.w3.org/ns/odrl/2/\" \nxmlns:ore=\"http://www.openarchives.org/ore/terms/\" \nxmlns:owl=\"http://www.w3.org/2002/07/owl#\" xmlns:rdaGr2=\"http://rdvocab.info/ElementsGr2/\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core#\" xmlns:wgs84_pos=\"http://www.w3.org/2003/01/geo/wgs84_pos#\" \nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n<edm:ProvidedCHO rdf:about=\"http://data.theeuropeanlibrary.org/BibliographicResource/3000059065526\">\n<dcterms:spatial rdf:resource=\"http://data.theeuropeanlibrary.org/Context/1000005603517\"/>\n<dcterms:issued>1826</dcterms:issued>\n<dcterms:extent>908, 197 S.</dcterms:extent>\n<dcterms:alternative>˜William Shakespeare'sœ sämtliche dramatische Werke</dcterms:alternative>\n<dcterms:isPartOf>http://data.theeuropeanlibrary.org/Collection/a1194</dcterms:isPartOf>\n<dc:type xml:lang=\"en\">Monograph</dc:type>\n<dc:creator rdf:resource=\"http://d-nb.info/gnd/118613723\"/>\n<dc:publisher>Sollinger</dc:publisher>\n<dc:identifier>BDR-BV001648452-5536</dc:identifier>\n<dc:language>mul</dc:language>\n<dc:format xml:lang=\"en\">Printed</dc:format>\n<dc:description>übers. im Metrum des Originals</dc:description>\n<dc:description>Besitzer: München, Bayerische Staatsbibliothek -- 4 P.o.angl. 23 k</dc:description>\n<dc:title>William Shakespeare's saemmtliche dramatische Werke in einem Bande</dc:title>\n<edm:currentLocation rdf:resource=\"http://lod.b3kat.de/bib/DE-12\"/>\n<edm:isSimilarTo rdf:resource=\"http://lod.b3kat.de/title/BV001648452\"/>\n<edm:type>TEXT</edm:type>\n</edm:ProvidedCHO>\n<ore:Aggregation rdf:about=\"http://data.theeuropeanlibrary.org/BibliographicResource/3000059065526#aggregation\">\n<edm:aggregatedCHO rdf:resource=\"http://data.theeuropeanlibrary.org/BibliographicResource/3000059065526\"/>\n<edm:dataProvider>P01352</edm:dataProvider>\n<edm:isShownAt rdf:resource=\"http://www.mdz-nbn-resolving.de/urn/resolver.pl?urn=urn:nbn:de:bvb:12-bsb10686338-1\"/>\n<edm:object rdf:resource=\"http://bsb0mdz-upload.bsb.lrz.de/~europeana/bsb10686338/download/thumbs/bsb10686338_00007.jpg\"/>\n<edm:provider xml:lang=\"en\">The European Library</edm:provider>\n<edm:rights rdf:resource=\"http://www.europeana.eu/rights/out-of-copyright-non-commercial/\"/>\n</ore:Aggregation>\n<edm:Place rdf:about=\"http://data.theeuropeanlibrary.org/Context/1000005603517\">\n<skos:prefLabel>Wien</skos:prefLabel>\n</edm:Place>\n<edm:Agent rdf:about=\"http://d-nb.info/gnd/118613723\">\n<foaf:name>Shakespeare, William</foaf:name>\n<rdaGr2:dateOfBirth>1564</rdaGr2:dateOfBirth>\n<rdaGr2:dateOfDeath>1616</rdaGr2:dateOfDeath>\n</edm:Agent>\n<edm:Place rdf:about=\"http://lod.b3kat.de/bib/DE-12\"/>\n<edm:WebResource rdf:about=\"http://www.mdz-nbn-resolving.de/urn/resolver.pl?urn=urn:nbn:de:bvb:12-bsb10686338-1\">\n<edm:rights rdf:resource=\"http://www.europeana.eu/rights/out-of-copyright-non-commercial/\"/>\n</edm:WebResource>\n<edm:WebResource rdf:about=\"http://bsb0mdz-upload.bsb.lrz.de/~europeana/bsb10686338/download/thumbs/bsb10686338_00007.jpg\">\n<edm:rights rdf:resource=\"http://www.europeana.eu/rights/out-of-copyright-non-commercial/\"/>\n</edm:WebResource>\n</rdf:RDF>"
-	  }
-	]
+    }
+  ]
 }

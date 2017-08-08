@@ -141,6 +141,8 @@
   }
 }
 
+
+.js-carousel.startup ul::after,
 .js-carousel.loading ul::after {
   background: rgba(22, 118, 170, 0.4);
   content:    ' ';
@@ -154,6 +156,12 @@
   top:        0;
   width:      100%;
   z-index:    9;
+}
+
+.js-carousel.startup ul::after{
+  background-image:    url('../../images/icons/spinner.gif');
+  background-repeat:   no-repeat;
+  background-position: center 0.5em;
 }
 
 .js-carousel ul::after {
