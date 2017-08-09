@@ -52,11 +52,16 @@ $entity-panel-colour:           #eee;
 
 .entity-main .eu-accordion-tabs{
   background-color: #fff;
-  overflow-x: hidden;
+  overflow:         hidden;
 
   &.as-tabs{
     .tab-header{
       border-right: 1px solid #ccc;
+    }
+  }
+  &:not(.as-tabs){
+    .show-more-mlt{
+      transform: translateY(-0.65em);
     }
   }
 
