@@ -6,8 +6,11 @@ define(['jquery'], function ($) {
 
   function initPage(){
     log('initPage');
+    require(['pandora_table'], function(p){
+      p.sortTable();
+    });
   }
-
+ 
   return {
     initPage: function () {
       initPage();

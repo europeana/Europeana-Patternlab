@@ -20,7 +20,7 @@
   "js_vars": [
     {
       "name":  "pageName",
-      "value": "metisDashboardPage"
+      "value": "metisDashboard"
     }
   ],
   "jQuery": false,
@@ -129,5 +129,39 @@
         }
       }
     }
-  }
+  },
+  "request": [ 
+  { 
+    "id": 1,
+    "email": "alena.fedasenka@europeana.eu",
+    "organization": "Europeana",
+    "date": "15-02-2017",
+    "type": "Add",
+    "status": "Pending",
+    "status_type": "user-request-pending",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    }, 
+    { 
+        "id": 2,
+    "email": "yorgos.mamakis@europeana.eu",
+    "organization": "BNF",
+    "date": "14-02-2017",
+    "type": "Delete",
+    "status": "Rejected",
+    "status_type": "user-request-rejected",
+    "request_type":"user-request-type-delete",
+    "url": "#"
+    }, 
+    {
+        "id": 1,
+    "email": "cecile.devarenne@europeana.eu",
+    "organization": "Europeana",
+    "date": "15-01-2017",
+    "type": "Add",
+    "status": "Accepted",
+    "status_type": "user-request-accepted",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    } ]
 }

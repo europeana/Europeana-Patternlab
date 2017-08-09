@@ -16,6 +16,7 @@ require.config({
     pandora_home:        '../../eu/pandora/pandora-home',
     pandora_mapping:     '../../eu/pandora/pandora-mapping',
     pandora_register:    '../../eu/pandora/pandora-register',
+    pandora_table:       '../../eu/pandora/pandora-sortable-table',   
     pandora:             '../../eu/pandora/pandora',
     purl:                '../../lib/purl/purl',
     search_form:         '../../eu/search-form',
@@ -34,7 +35,7 @@ require.config({
 });
 
 
-function initPage($){
+function initPage($) {
   require(['pandora'], function (p){
     p.initPage();
   });
@@ -44,7 +45,6 @@ function XXXinitPage($){
   require(['pandoraPage', 'dataset_info_form', 'user_profile'], function (p, datasetForm, userProfile) {
 
     // TODO: load / init only as per the actual page we're on.
-
     p.pageInit();
     datasetForm.formInit();
     userProfile.formInit();

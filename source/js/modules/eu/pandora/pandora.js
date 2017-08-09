@@ -1,10 +1,11 @@
-define(['jquery', 'smartmenus'], function(){
+define(['jquery', 'smartmenus', 'pandora'], function(){
 
   var log = function(msg){
     console.log('Pandora: ' + msg);
   };
 
   function initMenus(){
+
     require(['smartmenus'], function () {
       require(['smartmenus_keyboard'], function () {
         $('.nav_primary>ul').smartmenus({
@@ -57,7 +58,7 @@ define(['jquery', 'smartmenus'], function(){
     });
   }
 
-  function initPage(){
+  function initPage() {
 
     initMenus();
 
@@ -110,26 +111,6 @@ define(['jquery', 'smartmenus'], function(){
         console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
     }
 
-    /*
-    var applyXmlBeautify = function(){
-      require(['jush'], function(){
-        jush.style('../../js/modules/lib/jush/jush.css');
-        jush.highlight_tag('code');
-        document.getElementById('xml-formatted').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
-          .highlight('xml', document.getElementById('xml').value)
-          .replace(/\t/g, '')
-          .replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-        document.getElementById('xml-formatted-expanded').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
-          .highlight('xml', document.getElementById('xml').value)
-          .replace(/\t/g, '')
-          .replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-      });
-    };
-    var pageName = pageName || '';
-    if (pageName && pageName === 'itemCard') {
-      applyXmlBeautify();
-    }
-    */
   }
 
   return {
