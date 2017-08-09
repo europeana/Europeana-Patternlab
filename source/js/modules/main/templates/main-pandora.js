@@ -34,45 +34,12 @@ require.config({
   waitSeconds: 200
 });
 
-
-function initPage($) {
-  require(['pandora'], function (p){
-    p.initPage();
-  });
-}
-
-function XXXinitPage($){
-  require(['pandoraPage', 'dataset_info_form', 'user_profile'], function (p, datasetForm, userProfile) {
-
-    // TODO: load / init only as per the actual page we're on.
-    p.pageInit();
-    datasetForm.formInit();
-    userProfile.formInit();
-
-    /*
-    if( $('.metis-login-form').length > 0 ){
-      require(['login'], function(login){
-        login.formInit();
-      });
-    }
-    else if( $('.metis-register-form').length > 0 ){
-      require(['register'], function(register){
-        register.formInit();
-      });
-    }
-    else if( $('.metis-accordion-wrapper').length > 0 ){
-
-    }
-    */
-  });
-}
-
 require(['jquery'], function($){
   if(typeof mock_ajax != 'undefined'){
     require(['eu_mock_ajax']);
-    initPage($);
+    require(['pandora']);
   }
   else{
-    initPage($);
+    require(['pandora']);
   }
 });

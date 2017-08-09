@@ -1,18 +1,14 @@
 define(['jquery'], function ($) {
 
-  var tableToSort;
-
   var log = function(msg){
     console.log('Pandora Table: ' + msg);
   };
 
   function sortTable() {
       
-    tableToSort = $('.table-sortable');
-    
-    if (tableToSort.length === 0) return false;
+    if ($('.table-sortable').length === 0) return false;
 
-    tableToSort.find('th').each (function(i, h) {
+    $('.table-sortable').find('th').each (function(i, h) {
       $(h).on( "click", function() {
         sortColumn(i);
       });
@@ -21,17 +17,27 @@ define(['jquery'], function ($) {
 
   function sortColumn (clicked) {
 
-    var tableRows = tableToSort.find('tr').not(":first");
+    var sorting = true;
 
-    for(var i=0; i<tableRows.length;i++) {
-      console.log(i, $(tableRows[i]));
-      if ($(tableRows[i]).find('td').eq(clicked).text().toLowerCase() > $(tableRows[i+1]).find('td').eq(clicked).text().toLowerCase()) {
-        console.log('switch');
-        $(tableRows[i+1]).insertBefore($(tableRows[i]));
-      } else {
-        console.log('no switch');
-      }
+    while(sorting) {
+
+      var tableRows = $('.table-sortable').find('tr').not(":first");
+      console.log('hier');
+    
+      for(var i=0; i<tableRows.length-1;i++) {
+        console.log($(tableRows[i]).find('td').eq(clicked).text().toLowerCase(), $(tableRows[i+1]).find('td').eq(clicked).text().toLowerCase());
+        if ($(tableRows[i]).find('td').eq(clicked).text().toLowerCase() > $(tableRows[i+1]).find('td').eq(clicked).text().toLowerCase()) {
+          console.log('switch');
+          $(tableRows[i+1]).insertBefore($(tableRows[i]));
+          sorting = true;
+          break;
+        } else {
+          console.log('no switch');
+          sorting = false;
+        }
+      }    
     }
+
   }
 
   return {

@@ -58,64 +58,55 @@ define(['jquery', 'smartmenus', 'pandora'], function(){
     });
   }
 
-  function initPage() {
+  initMenus();
 
-    initMenus();
-
-    if(typeof pageName == 'undefined'){
-      log('Expected parameter "pageName" not found');
-      return;
-    }
-
-    switch(pageName){
-      case 'metisHomePage':
-        require(['pandora_home'], function(page){
-          log('loaded pandora home');
-          page.initPage();
-        });
-        break;
-
-      case 'metisLoginPage':
-        log('login page - no page-specific js needed');
-        break;
-
-      case 'metisRegisterPage':
-        require(['pandora_register'], function(page){
-          log('loaded pandora register');
-          page.initPage();
-        });
-        break;
-
-      case 'metisMappingPage':
-        require(['pandora_mapping'], function(page){
-          log('loaded pandora mapping');
-          page.initPage();
-        });
-        break;
-
-      case 'metisDashboard':
-        require(['pandora_dashboard'], function(page){
-          log('loaded pandora dashboard');
-          page.initPage();
-        });
-        break;
-
-      case 'metisDatasetPage':
-        require(['pandora_dataset'], function(page){
-          log('loaded pandora dataset');
-          page.initPage();
-        });
-        break;
-
-      default:
-        console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
-    }
-
+  if(typeof pageName == 'undefined'){
+    log('Expected parameter "pageName" not found');
+    return;
   }
 
-  return {
-    initPage: function () {
-      initPage();
-    }
-  };
+  switch(pageName){
+    case 'metisHomePage':
+      require(['pandora_home'], function(page){
+        log('loaded pandora home');
+        page.initPage();
+      });
+      break;
+
+    case 'metisLoginPage':
+      log('login page - no page-specific js needed');
+      break;
+
+    case 'metisRegisterPage':
+      require(['pandora_register'], function(page){
+        log('loaded pandora register');
+        page.initPage();
+      });
+      break;
+
+    case 'metisMappingPage':
+      require(['pandora_mapping'], function(page){
+        log('loaded pandora mapping');
+        page.initPage();
+      });
+      break;
+
+    case 'metisDashboardPage':
+      require(['pandora_dashboard'], function(page){
+        log('loaded pandora dashboard');
+        page.initPage();
+      });
+      break;
+
+    case 'metisDatasetPage':
+      require(['pandora_dataset'], function(page){
+        log('loaded pandora dataset');
+        page.initPage();
+      });
+      break;
+
+    default:
+      console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
+  }
+
 });
