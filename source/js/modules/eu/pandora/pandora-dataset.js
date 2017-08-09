@@ -35,19 +35,19 @@ define(['jquery'], function ($) {
               var template;
 
               if(index == 0){
-                template = $('#js-template-tab-create noscript');
+                template = $('#js-template-tab-create');
               }
               else if(index == 1){
-                template = $('#js-template-tab-pandora noscript');
+                template = $('#js-template-tab-pandora');
               }
               else if(index == 2){
-                template = $('#js-template-tab-processing noscript');
+                template = $('#js-template-tab-processing');
               }
               else if(index == 3){
-                template = $('#js-template-tab-preview noscript');
+                template = $('#js-template-tab-preview');
               }
               else if(index == 4){
-                template = $('#js-template-tab-data-quality noscript');
+                template = $('#js-template-tab-data-quality');
               }
 
               if(template.length > 0){
