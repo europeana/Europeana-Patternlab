@@ -1,5 +1,5 @@
 
-// Right floated Search and menu butons
+// Right floated Search and menu buttons
 .nav-global{
   float: right;
   z-index: 20;
@@ -75,6 +75,20 @@
     }
   }
 }
+
+
+// col override
+
+#settings-menu.sm{
+  .menu-sublevel{
+    min-width: 25em;
+    li{
+      float: left;
+      width: 33.3%;
+    }
+  }
+}
+
 
 // OFF CANVAS MENUS
 
