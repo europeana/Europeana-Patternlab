@@ -49,28 +49,6 @@ define(['jquery', 'smartmenus'], function($){
     $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '16', 'shiftKey');
     $('#settings-menu').smartmenus('keyboardSetHotkey', '16', 'shiftKey');
 
-    $('#settings-menu').bind('mousewheel DOMMouseScroll', function(e){
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      var listTop = parseInt($('#settings-menu').css('top'));
-
-      if(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-        var maxTop  = $('#settings-menu').outerHeight();
-        $('#settings-menu').css('top', Math.min(maxTop, listTop + 10));
-      }
-      else{
-        var rect   = $('#settings-menu')[0].getBoundingClientRect();
-        var space  = (window.innerHeight || document.documentElement.clientHeight);
-        var height = $('#settings-menu').height() + rect.top;
-        if(space > height){
-          return;
-        }
-        $('#settings-menu').css('top', Math.max(listTop - 10, space - (height + 2)));
-      }
-    });
-
   });
 
   var initCollectionsFilter = function(){
