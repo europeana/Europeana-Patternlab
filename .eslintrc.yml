@@ -4,6 +4,7 @@ extends:
   'eslint:recommended'
 globals:
   define: false
+  pageName: false
   require: false
   window: false
 rules:
