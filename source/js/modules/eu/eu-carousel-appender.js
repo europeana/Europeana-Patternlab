@@ -250,14 +250,14 @@ define(['jquery', 'purl'], function($){
       // url needs params set
       var per_page       = perPage || 4;
       var page_param     = parseInt(Math.floor(totalLoaded / per_page)) + 1;
-      var params         = $.url(encodeURIComponent(decodeURIComponent(loadUrl))).param();
+      var params         = $.url(loadUrl).param();
 
       params['per_page'] = per_page;
       params['page']     = page_param;
 
       var p = [];
       for(var param in params){
-        p.push(param + '=' + params[param]);
+        p.push(param + '=' + (params[param] + '').replace(/;/g, '%3B'));
       }
       var url = loadUrl.split('?')[0] + '?' + p.join('&');
 
