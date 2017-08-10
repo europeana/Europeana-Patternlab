@@ -1,9 +1,5 @@
 define(['jquery'], function ($) {
-
-  var log = function(msg){
-    console.log('Pandora Table: ' + msg);
-  };
-
+  
   function sortTable() {
       
     if ($('.table-sortable').length === 0) return false;
