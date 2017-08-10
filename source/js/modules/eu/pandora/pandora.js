@@ -60,9 +60,9 @@ define(['jquery', 'smartmenus', 'pandora'], function(){
 
   initMenus();
 
-  if(typeof pageName == 'undefined'){
+  if(typeof pageName == 'undefined' || !pageName){
     log('Expected parameter "pageName" not found');
-    return false;
+    return;
   }
 
   switch(pageName){
