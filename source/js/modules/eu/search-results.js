@@ -3,7 +3,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   ga = window.fixGA(ga);
 
   var $url            = $.url();
-  var euSearchForm    = null;
   var masonry         = null;
   var btnGrid         = $('.icon-view-grid').closest('a');
   var btnList         = $('.icon-view-list').closest('a');
@@ -73,7 +72,6 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
       if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
         return;
       }
-      showList();
     }
   };
 
@@ -148,7 +146,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
           }
         }
         else{
-          if($anchor.length > 0){
+          if($anchor.length > 0 && $anchor.attr('href')){
             $anchor.attr('href', $anchor.attr('href').replace('&view=' + currParam, '&view=' + param));
           }
         }
@@ -346,9 +344,7 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
     });
   };
 
-  var initPage = function(form){
-
-    euSearchForm = form;
+  var initPage = function(){
 
     var defView;
 
