@@ -250,7 +250,7 @@ define(['jquery', 'purl'], function($){
       // url needs params set
       var per_page       = perPage || 4;
       var page_param     = parseInt(Math.floor(totalLoaded / per_page)) + 1;
-      var params         = $.url(loadUrl).param();
+      var params         = $.url(encodeURIComponent(decodeURIComponent(loadUrl))).param();
 
       params['per_page'] = per_page;
       params['page']     = page_param;
