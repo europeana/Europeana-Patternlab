@@ -129,5 +129,94 @@
         }
       }
     }
-  }
+  },
+  "request": [ 
+  { 
+    "id": 1,
+    "email": "alena.fedasenka@europeana.eu",
+    "organization": "Europeana",
+    "date": "15/02/2017 - 15:15",
+    "type": "Add",
+    "status": "Pending",
+    "status_type": "user-request-pending",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    }, 
+    { 
+        "id": 2,
+    "email": "yorgos.mamakis@europeana.eu",
+    "organization": "BNF",
+    "date": "14/02/2017 - 15:18",
+    "type": "Delete",
+    "status": "Rejected",
+    "status_type": "user-request-rejected",
+    "request_type":"user-request-type-delete",
+    "url": "#"
+    }, 
+    {
+    "id": 3,
+    "email": "cecile.devarenne@europeana.eu",
+    "organization": "Europeana",
+    "date": "15/01/2017 - 15:25",
+    "type": "Add",
+    "status": "Accepted",
+    "status_type": "user-request-accepted",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    },
+    { 
+    "id": 5,
+    "email": "alena.fedasenka@europeana.eu",
+    "organization": "Van Gogh Museum",
+    "date": "15/02/2017 - 15:35",
+    "type": "Add",
+    "status": "Pending",
+    "status_type": "user-request-pending",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    }, 
+    { 
+    "id": 4,
+    "email": "lll@europeana.eu",
+    "organization": "BNF",
+    "date": "14/02/2017 - 15:45",
+    "type": "Delete",
+    "status": "Rejected",
+    "status_type": "user-request-rejected",
+    "request_type":"user-request-type-delete",
+    "url": "#"
+    }, 
+    {
+        "id": 3,
+    "email": "xxx@europeana.eu",
+    "organization": "Mauritshuis",
+    "date": "15/01/2017 - 15:55",
+    "type": "Add",
+    "status": "Accepted",
+    "status_type": "user-request-accepted",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    },
+    {
+    "id": 3,
+    "email": "zzz@europeana.eu",
+    "organization": "Mauritshuis",
+    "date": "15/01/2017 - 15:10",
+    "type": "Add",
+    "status": "Accepted",
+    "status_type": "user-request-accepted",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    },
+    { 
+    "id": 5,
+    "email": "aaa@europeana.eu",
+    "organization": "Gemeentemuseum",
+    "date": "15/02/2017 - 15:05",
+    "type": "Add",
+    "status": "Pending",
+    "status_type": "user-request-pending",
+    "request_type":"user-request-type-add",
+    "url": "#"
+    }]
 }
