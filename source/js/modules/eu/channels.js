@@ -45,10 +45,6 @@ define(['jquery', 'smartmenus'], function($){
         window.location = $(this).attr('href');
       }
     });
-
-    $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '16', 'shiftKey');
-    $('#settings-menu').smartmenus('keyboardSetHotkey', '16', 'shiftKey');
-
   });
 
   var initCollectionsFilter = function(){
