@@ -99,41 +99,41 @@ define(['jquery', 'purl'], function($){
       return {
         'markup': markup,
         'added':  data.documents
-      }
+      };
     },
 
     'entity': function(data){
 
-        var markup = '';
+      var markup = '';
 
-        var typeIcons = {
-          'person' : 'svg-icon-user-after-white',
-          'place'  : 'svg-icon-location-after-white'
-        }
+      var typeIcons = {
+        'person' : 'svg-icon-user-after-white',
+        'place'  : 'svg-icon-location-after-white'
+      };
 
-        $.each(data.documents, function(i, item){
-          markup += ''
-            + '<li class="js-carousel-item">'
-            +   '<div class="mlt-img-div height-to-width" '
-            +     (item.img.src ? 'style="background-image: url(' + item.img.src + ')"' : '')
-            +   '>'
-            +     '<div class="inner">'
-            +       (item.url  ? '<a class="link" href="' + item.url  + '">&nbsp;</a>' : '')
-            +       (item.type ? '<span class="entity-type ' + (typeIcons[item.type]) + '">' + item.type + '</span>' : '')
-            +     '</div>'
-            +   '</div>'
-            +   '<span class="js-carousel-title">'
-            +     (item.url && item.title ? '<a class="ellipsable" href="' + item.url + '">' : '')
-            +       (item.title ? item.title : '')
-            +     (item.url && item.title ? '</a>' : '')
-            +     (item.subtitle ? '<span class="subtitle ellipsable">' + item.subtitle + '</span>' : '')
-            +   '</span>'
-            + '</li>';
-        });
-        return {
-          'markup': markup,
-          'added':  data.documents
-        };
+      $.each(data.documents, function(i, item){
+        markup += ''
+          + '<li class="js-carousel-item">'
+          +   '<div class="mlt-img-div height-to-width" '
+          +     (item.img.src ? 'style="background-image: url(' + item.img.src + ')"' : '')
+          +   '>'
+          +     '<div class="inner">'
+          +       (item.url  ? '<a class="link" href="' + item.url  + '">&nbsp;</a>' : '')
+          +       (item.type ? '<span class="entity-type ' + (typeIcons[item.type]) + '">' + item.type + '</span>' : '')
+          +     '</div>'
+          +   '</div>'
+          +   '<span class="js-carousel-title">'
+          +     (item.url && item.title ? '<a class="ellipsable" href="' + item.url + '">' : '')
+          +       (item.title ? item.title : '')
+          +     (item.url && item.title ? '</a>' : '')
+          +     (item.subtitle ? '<span class="subtitle ellipsable">' + item.subtitle + '</span>' : '')
+          +   '</span>'
+          + '</li>';
+      });
+      return {
+        'markup': markup,
+        'added':  data.documents
+      };
     },
 
     'media_thumb': function(data){
@@ -227,6 +227,7 @@ define(['jquery', 'purl'], function($){
     var totalLoaded    = cmp.find('li').size();
     var totalAvailable = null;
     var doAfter        = conf.doAfter ? conf.doAfter : false;
+    var doOnLoadError  = conf.doOnLoadError ? conf.doOnLoadError : false;
 
     if(!templates[template]){
       warn('no valid template found (' + template + ')');
@@ -257,7 +258,7 @@ define(['jquery', 'purl'], function($){
 
       var p = [];
       for(var param in params){
-        p.push(param + '=' + (params[param] + '').replace(/;/g, '%3B'));
+        p.push(param + '=' + (params[param] + '').replace(/;/g, '%3B').replace(/&/g, '%26'));
       }
       var url = loadUrl.split('?')[0] + '?' + p.join('&');
 
@@ -274,6 +275,9 @@ define(['jquery', 'purl'], function($){
           cmp.removeClass('loading');
           log('failed to load data (' + JSON.stringify(msg) + ') from url: ' + url);
           callback(false);
+          if(doOnLoadError){
+            doOnLoadError();
+          }
         });
     };
 

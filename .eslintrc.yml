@@ -6,6 +6,7 @@ globals:
   define: false
   pageName: false
   require: false
+  ugcEnabledCollections: false
   window: false
 rules:
   no-console:
