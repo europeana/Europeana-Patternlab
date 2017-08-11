@@ -45,6 +45,11 @@ define(['jquery', 'smartmenus'], function($){
         window.location = $(this).attr('href');
       }
     });
+
+    if($('#settings-menu li').length > 6 && !$('#settings-menu .menu-divider').length > 0){
+      $('#settings-menu').addClass('as-cols');
+    }
+
   });
 
   var initCollectionsFilter = function(){

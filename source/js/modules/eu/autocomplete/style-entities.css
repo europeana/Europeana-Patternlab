@@ -12,7 +12,7 @@
 }
 /* line 14, style-entities.scss */
 .eu-autocomplete:empty {
-  border-color: transparent;
+  border-width: 0;
 }
 /* line 18, style-entities.scss */
 .eu-autocomplete li {
