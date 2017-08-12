@@ -1,11 +1,13 @@
 define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
-  var euSearchForm  = null;
-  var masonries     = [];
-  var totals        = [];
-  var cmpTabs       = $('.eu-accordion-tabs');
-  var accordionTabs = null;
-  var template      = null;
+  var euSearchForm      = null;
+  var masonries         = [];
+  var totals            = [];
+  var selActiveResult   = '.eu-accordion-tabs .tab-content.active .result-items';
+  var cmpTabs           = $('.eu-accordion-tabs');
+  var accordionTabs     = null;
+  var template          = null;
+  var heightAddedByLast = 0;
 
   function log(msg){
     console.log('Entity: ' + msg);
@@ -111,15 +113,14 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
       loadMasonryItems(url, function(res){
 
-        //var rowSize   = getItemsPerRow();
-        var toAppend  = res.rendered;
+        var toAppend     = res.rendered;
+        var lastAppended = null;
+        var dripFeed     = function(index){
 
-        var dripFeed = function(index){
+          index           = index + 1;
+          var spaceToFill = hasSpaceToFill($tabContent);
 
-          index = index + 1;
-
-          if(hasSpaceToFill($tabContent)){
-
+          if(spaceToFill > 0){
             if(index < toAppend.length){
               appendItem(index);
               return;
@@ -130,6 +131,17 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 loadMoreItems(newUrl, $tabContent, header, tabIndex);
                 return;
               }
+            }
+          }
+          else{
+            if(heightAddedByLast > 200 && spaceToFill < -200){
+              lastAppended.empty().remove();
+              cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
+              require(['masonry', 'jqImagesLoaded'], function(Masonry){
+                masonries[tabIndex].destroy();
+                masonries[tabIndex] = makeMasonry(Masonry);
+                masonries[tabIndex].layout();
+              });
             }
           }
           header.removeClass('loading');
@@ -157,6 +169,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             masonries[tabIndex].layout();
             dripFeed(index);
           }
+          lastAppended = item;
         };
         appendItem(0);
       });
@@ -210,7 +223,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                 }
 
-                initMasonry('.eu-accordion-tabs .tab-content.active .result-items', function(){
+                initMasonry(function(){
                   header.removeClass('loading').addClass('js-loaded');
                   if(hasSpaceToFill($tabContent)){
                     loadMoreItems(url, $tabContent, header, tabIndex);
@@ -232,7 +245,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function hasSpaceToFill($tabContent){
     var margin = 220;
-    return $tabContent.height() + margin < $('.summary-column').height();
+    return $('.summary-column').height() - ($tabContent.height() + margin);
   }
 
   function applyImgStyling($item){
@@ -265,34 +278,33 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function initMasonry(cmpSel, callback){
+  function makeMasonry(Masonry){
+    return new Masonry(selActiveResult, {
+      itemSelector:       '.search-list-item',
+      columnWidth:        '.grid-sizer',
+      percentPosition:    true,
+      horizontalOrder:    false,
+      transitionDuration: 0
+    });
+  }
 
-    var $cmp = $(cmpSel);
+  function initMasonry(callback){
+
+    var $cmp = $(selActiveResult);
     $cmp.removeClass('not-loaded');
-
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
-      var masonry = new Masonry(cmpSel, {
-        itemSelector:       '.search-list-item',
-        columnWidth:        '.grid-sizer',
-        percentPosition:    true,
-        horizontalOrder:    false,
-        transitionDuration: 0
-      });
-
+      var masonry = makeMasonry(Masonry);
       masonries.push(masonry);
 
       $cmp.on('layoutComplete', function(){
-        setTimeout(function(){
-          accordionTabs.fixTabContentHeight(cmpTabs);
-        }, 400);
+        var prevHeight = parseInt(cmpTabs.css('height'));
+        accordionTabs.fixTabContentHeight(cmpTabs);
+        var newHeight  = parseInt(cmpTabs.css('height'));
+        heightAddedByLast = newHeight - prevHeight;
       });
 
-      $cmp.imagesLoaded().progress(function(){
-        if(masonry){
-          masonry.layout();
-        }
-      }).done(function(){
+      $cmp.imagesLoaded().done(function(){
         $('.item-image').each(function(i, ob){
           applyImgStyling($(ob));
         });

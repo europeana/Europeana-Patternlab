@@ -31,7 +31,6 @@ define(['jquery', 'util_resize'], function($){
     var h1  = $cmp.height();
     var h2  = $cmp.find('.tab-content.active').height();
     $cmp.attr('style', 'height:' + (h1 + h2 + pad) + 'px; overflow-y:hidden;');
-    log('set height to ' + (h1 + h2));
   }
 
   function loadTabs($cmp, preProcess, callback){
