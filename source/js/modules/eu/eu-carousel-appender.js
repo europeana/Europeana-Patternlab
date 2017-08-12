@@ -258,7 +258,10 @@ define(['jquery', 'purl'], function($){
 
       var p = [];
       for(var param in params){
-        p.push(param + '=' + (params[param] + '').replace(/;/g, '%3B').replace(/&/g, '%26'));
+        var escaped = escape(params[param] + '');
+        escaped = escaped.replace(new RegExp('%5C%26%2339%3B', 'g'), '\'').replace(new RegExp('%5C%26', 'g'), '');
+        escaped = unescape(escaped).replace(/;/g, '%3B');
+        p.push(param + '=' + escaped);
       }
       var url = loadUrl.split('?')[0] + '?' + p.join('&');
 
