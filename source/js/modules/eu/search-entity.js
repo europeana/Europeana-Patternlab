@@ -106,103 +106,99 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       return base ? base.split('?')[0] + '?' + $.param(params) : '';
     };
 
-    var loadMoreItems = function(url, $tabContent, header, tabIndex){
-      var items  = $tabContent.find('.results .result-items');
 
+    var loadMoreItems = function($tabContent, contentUrl, tabIndex, callback){
 
-//alert('loadMoreItems - present are ' + items.length);
-
-
-      url = getLoadParams(header.data('content-url'), $tabContent.find('.search-list-item').length);
-
-      header.addClass('loading');
+      var items = $(selActiveResult);
+      var url   = getLoadParams(contentUrl, $tabContent.find('.search-list-item').length);
 
       loadMasonryItems(url, function(res){
 
+        totals[tabIndex] = res.total;
+
         var toAppend     = res.rendered;
         var lastAppended = null;
-        var dripFeed     = function(index){
-
-          index           = index + 1;
-          var spaceToFill = hasSpaceToFill($tabContent);
-
-          if(spaceToFill > 0){
-
-console.log('spaceToFill > 0 ' + spaceToFill);
-
-            if(index < toAppend.length){
-
-//                alert('append ' + index);
-
-              appendItem(index);
-              return;
-            }
-            else{
-              if($tabContent.find('.search-list-item').length < totals[tabIndex]){
-
-                log('DO load more');
-
-                var newUrl = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
-                loadMoreItems(newUrl, $tabContent, header, tabIndex);
-                return;
-
-              }
-            }
-          }
-          else{
-
-log('spaceToFill < 0, lastAppended =  ' + lastAppended + ', heightAddedByLast = ' + heightAddedByLast);
-
-            if(lastAppended && heightAddedByLast > 200 && spaceToFill < -200){
-
-              log('remove condition met - REMOVE!!!');
-
-              lastAppended.empty().remove();
-              cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
-              require(['masonry', 'jqImagesLoaded'], function(Masonry){
-                masonries[tabIndex].destroy();
-                masonries[tabIndex] = makeMasonry(Masonry);
-                if(masonries[tabIndex]){
-                  masonries[tabIndex].layout();
-                }
-              });
-            }
-            else{
-              log('remove condition not met');
-            }
-          }
-          header.removeClass('loading');
-          if(items.find('.search-list-item').length >= totals[tabIndex]){
-            $tabContent.find('.show-more-mlt').addClass('js-hidden');
-          }
-        };
 
         var appendItem = function(index){
+
           var item   = $(toAppend[index]);
           var hasImg = item.find('img').length > 0;
 
+          var afterAppend = function(){
+
+            var spaceToFill = hasSpaceToFill($tabContent);
+            lastAppended    = item;
+            index           = index + 1;
+
+            if($(selActiveResult + ' .search-list-item').length < 13 || spaceToFill > 0){
+
+              if(index < toAppend.length){
+                appendItem(index);
+                return;
+              }
+              else{
+                if($tabContent.find('.search-list-item').length < totals[tabIndex]){
+                  loadMoreItems($tabContent, contentUrl, tabIndex, callback);
+                  return;
+                }
+                else{
+                  if(callback){
+                    callback(res);
+                  }
+                }
+              }
+
+            }
+            else{
+
+              if(lastAppended && heightAddedByLast > 30){
+
+                lastAppended.empty().remove();
+                cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
+                require(['masonry', 'jqImagesLoaded'], function(Masonry){
+                  masonries[tabIndex].destroy();
+                  masonries[tabIndex] = makeMasonry(Masonry);
+                  if(masonries[tabIndex]){
+                    masonries[tabIndex].layout();
+                  }
+                  if(callback){
+                    callback(res);
+                  }
+                });
+              }
+              else{
+                if(callback){
+                  callback(res);
+                }
+              }
+
+            }
+          };
+
           if(hasImg){
             item.imagesLoaded(function(){
+              applyImgStyling(item.find('.item-image'));
               if(masonries[tabIndex]){
+                masonries[tabIndex].appended(item);
                 masonries[tabIndex].layout();
               }
-              dripFeed(index);
+              afterAppend();
             });
+
             items.append(item);
-            applyImgStyling(item.find('.item-image'));
-            if(masonries[tabIndex]){
-              masonries[tabIndex].appended(item);
-            }
+
           }
           else{
             items.append(item);
             masonries[tabIndex].appended(item);
             masonries[tabIndex].layout();
-            dripFeed(index);
+            afterAppend();
           }
-          lastAppended = item;
+
         };
+
         appendItem(0);
+
       });
     };
 
@@ -225,49 +221,43 @@ log('spaceToFill < 0, lastAppended =  ' + lastAppended + ', heightAddedByLast = 
             }
             else {
 
-              var url  = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
+              var url  = getLoadParams(header.data('content-url'), $(selActiveResult).length);
               template = $('#js-template-entity-tab-content');
 
               header.addClass('loading');
 
-              loadMasonryItems(url, function(res){
-                $tabContent.find('.results').append(''
-                  + '<ol class="result-items display-grid cf not-loaded">'
-                  +   '<li class="grid-sizer"></li>'
-                  +   res.rendered.join('')
-                  + '</ol>'
-                );
-                cmpTabs.scrollTop(0);
+              $tabContent.find('.results').append(''
+                + '<ol class="result-items display-grid cf not-loaded">'
+                +   '<li class="grid-sizer"></li>'
+                + '</ol>'
+              );
 
-                if(typeof res.total == 'undefined'){
-                  console.warn('Expected @total from ' + url);
-                }
-                else{
-                  var linkMore = $tabContent.find('.show-more-mlt');
+              initMasonry(function(){
 
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
-                  linkMore.removeClass('js-hidden');
+                header.removeClass('loading').addClass('js-loaded');
 
-                  totals[tabIndex] = res.total;
+                loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
 
-                  if($tabContent.find('.results .search-list-item').length >= totals[tabIndex]){
+                  if(typeof res.total == 'undefined'){
+                    console.warn('Expected @total from ' + url);
+                  }
+                  else{
+
+                    if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
+                      var linkMore = $tabContent.find('.show-more-mlt');
+                      linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
+                      linkMore.removeClass('js-hidden');
+                    }
+                  }
+
+                  if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
 
-                }
-
-                initMasonry(function(){
-                  header.removeClass('loading').addClass('js-loaded');
-
-                  var spaceToFill = hasSpaceToFill($tabContent);
-
-//                  alert(spaceToFill);
-
-                  if(spaceToFill){
-                    loadMoreItems(url, $tabContent, header, tabIndex);
-                  }
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
 
                 });
+
               });
 
               require(['util_resize'], function(){
@@ -296,8 +286,7 @@ log('spaceToFill < 0, lastAppended =  ' + lastAppended + ', heightAddedByLast = 
     if($('.nav-toggle-menu').is(':visible')){
       0;
     }
-    var margin = 220;
-    return $('.summary-column').height() - ($tabContent.height() + margin);
+    return $('.summary-column').height() - $tabContent.height();
   }
 
   function applyImgStyling($item){
@@ -340,36 +329,30 @@ log('spaceToFill < 0, lastAppended =  ' + lastAppended + ', heightAddedByLast = 
     });
   }
 
+
   function initMasonry(callback){
 
     var $cmp = $(selActiveResult);
     $cmp.removeClass('not-loaded');
+
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
       var masonry = makeMasonry(Masonry);
       masonries.push(masonry);
 
       $cmp.on('layoutComplete', function(){
-        var prevHeight = parseInt(cmpTabs.css('height'));
+        var prevHeight    = parseInt(cmpTabs.css('height'));
         accordionTabs.fixTabContentHeight(cmpTabs);
-        var newHeight  = parseInt(cmpTabs.css('height'));
+        var newHeight     = parseInt(cmpTabs.css('height'));
         heightAddedByLast = newHeight - prevHeight;
       });
 
-      $cmp.imagesLoaded().done(function(){
-        $('.item-image').each(function(i, ob){
-          applyImgStyling($(ob));
-        });
-        log('call masonry layout (done)');
+      if(callback){
+        callback(masonry);
+      }
 
-        if(masonry){
-          masonry.layout();
-        }
-        if(callback){
-          callback();
-        }
-      });
     });
+
   }
 
   function getImgRedirectSrc(callback){
