@@ -1,0 +1,105 @@
+.metis-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem 0;
+
+  // formheader
+  .form-header {
+    font-weight: bold;
+    width: auto;
+
+    h2 {
+      margin-bottom: .6rem;
+    }
+  }
+
+  // messages
+  .messages {
+    height: 2rem;
+
+    .error-message,
+    .success-message {
+      color: $white;
+      font-size: $font-size-slightly-smaller;
+      margin-bottom: .6rem;
+      padding: .1rem 1.2rem;
+
+      i {
+        padding-right: .6rem;
+        }
+      }
+
+    .success-message {
+      background-color: $eu-jade;
+    }
+
+    .error-message {
+      background-color: $eu-red;
+    }
+  }
+
+  // fields
+  .form-fields {
+    background-color: $offwhite;
+    padding: 2rem 0;
+    width: auto;
+
+    .form-group {
+      color: $white;
+      margin-bottom: 0;
+      padding: .4rem 1.2rem;
+
+      legend {
+        color: $gray-light;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: left;
+      }
+
+      input {
+        margin-bottom: 1rem;
+        &::placeholder {
+          color: $gray-light;
+        }
+      }
+
+      // buttons
+      &.form-group-btns {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        button {
+          background: $eu-jade;
+          border-radius: 0;
+          font-size: $font-size-slightly-smaller;
+          font-weight: bold;
+          margin: 0 .6rem;
+
+          &.reset-btn {
+            background-color: $white;
+            color: $gray-dark;
+          }
+        }
+      }
+    }
+
+    // extra line of text
+    .forgot-credentials,
+    .form-requirements-warning {
+      padding: 0 1.2rem 1rem;
+
+      p {
+        align-items: center;
+        color: $gray-light;
+        display: flex;
+        font-size: $font-size-slightly-smaller;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
