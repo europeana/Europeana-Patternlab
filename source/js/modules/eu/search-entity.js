@@ -107,8 +107,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     };
 
     var loadMoreItems = function(url, $tabContent, header, tabIndex){
-
       var items  = $tabContent.find('.results .result-items');
+
+
+//alert('loadMoreItems - present are ' + items.length);
+
 
       url = getLoadParams(header.data('content-url'), $tabContent.find('.search-list-item').length);
 
@@ -124,20 +127,36 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           var spaceToFill = hasSpaceToFill($tabContent);
 
           if(spaceToFill > 0){
+
+console.log('spaceToFill > 0 ' + spaceToFill);
+
             if(index < toAppend.length){
+
+//                alert('append ' + index);
+
               appendItem(index);
               return;
             }
             else{
               if($tabContent.find('.search-list-item').length < totals[tabIndex]){
+
+                log('DO load more');
+
                 var newUrl = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
                 loadMoreItems(newUrl, $tabContent, header, tabIndex);
                 return;
+
               }
             }
           }
           else{
+
+log('spaceToFill < 0, lastAppended =  ' + lastAppended + ', heightAddedByLast = ' + heightAddedByLast);
+
             if(lastAppended && heightAddedByLast > 200 && spaceToFill < -200){
+
+              log('remove condition met - REMOVE!!!');
+
               lastAppended.empty().remove();
               cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
               require(['masonry', 'jqImagesLoaded'], function(Masonry){
@@ -147,6 +166,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   masonries[tabIndex].layout();
                 }
               });
+            }
+            else{
+              log('remove condition not met');
             }
           }
           header.removeClass('loading');
@@ -236,9 +258,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                 initMasonry(function(){
                   header.removeClass('loading').addClass('js-loaded');
-                  if(hasSpaceToFill($tabContent)){
+
+                  var spaceToFill = hasSpaceToFill($tabContent);
+
+//                  alert(spaceToFill);
+
+                  if(spaceToFill){
                     loadMoreItems(url, $tabContent, header, tabIndex);
                   }
+
                 });
               });
 
@@ -248,12 +276,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   var h = $(document).height();
                   var w = $(document).width();
 
-                  if(w != pageW && h != pageH){
+                  if(w != pageW || h != pageH){
 
                     pageW = w;
                     pageH = h;
 
-                    console.log('resize- height: ' + $(document).height() );
                     euAccordionTabs.fixTabContentHeight(cmpTabs);
                   }
                 });
@@ -266,9 +293,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function hasSpaceToFill($tabContent){
-    //if($('.nav-toggle-menu').is(':visible')){
-    //  0;
-   // }
+    if($('.nav-toggle-menu').is(':visible')){
+      0;
+    }
     var margin = 220;
     return $('.summary-column').height() - ($tabContent.height() + margin);
   }
@@ -355,7 +382,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       }
     };
 
-    req.open('GET', $('.js-test-thumb').prop('src'), true);
+    req.open('GET', $('.js-test-thumb').prop('src').replace('\'', '%27'), true);
     req.send();
   }
 
@@ -379,10 +406,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               var h = $(document).height();
               var w = $(document).width();
 
-              if(w != pageW && h != pageH){
+              if(w != pageW || h != pageH){
                 pageW = w;
                 pageH = h;
-                console.log('resize- height: ' + $(document).height() );
                 thumblessLayout();
               }
             });
