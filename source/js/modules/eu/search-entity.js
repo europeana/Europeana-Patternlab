@@ -9,6 +9,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   var template          = null;
   var heightAddedByLast = 0;
 
+  var pageH             = $(document).height();
+  var pageW             = $(document).width();
+
   function log(msg){
     console.log('Entity: ' + msg);
   }
@@ -242,9 +245,17 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
 
-                  console.log('fix content height disabled');
+                  var h = $(document).height();
+                  var w = $(document).width();
 
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  if(w != pageW && h != pageH){
+
+                    pageW = w;
+                    pageH = h;
+
+                    console.log('resize- height: ' + $(document).height() );
+                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  }
                 });
               });
             }
@@ -255,6 +266,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function hasSpaceToFill($tabContent){
+    //if($('.nav-toggle-menu').is(':visible')){
+    //  0;
+   // }
     var margin = 220;
     return $('.summary-column').height() - ($tabContent.height() + margin);
   }
@@ -362,7 +376,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             };
 
             $(window).europeanaResize(function(){
-              thumblessLayout();
+              var h = $(document).height();
+              var w = $(document).width();
+
+              if(w != pageW && h != pageH){
+                pageW = w;
+                pageH = h;
+                console.log('resize- height: ' + $(document).height() );
+                thumblessLayout();
+              }
             });
 
             $('.entity-main-thumb').remove();
