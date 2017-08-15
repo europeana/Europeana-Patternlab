@@ -129,6 +129,14 @@
         "tab_title":                  "Items by Coco Chanel",
         "url":                        "portal_entity?type=by",
         "search_url":                 "javascript:alert('load all by')"
+      }
+    ],
+    "XXXXtab_items": [
+      {
+        "tab_subtitle":               false,
+        "tab_title":                  "Items by Coco Chanel",
+        "url":                        "portal_entity?type=by",
+        "search_url":                 "javascript:alert('load all by')"
       },
       {
         "tab_subtitle":               false,

@@ -290,7 +290,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function makeMasonry(Masonry){
-    return null;
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
@@ -310,7 +309,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       masonries.push(masonry);
 
       $cmp.on('layoutComplete', function(){
-        alert('layout complete');
         var prevHeight = parseInt(cmpTabs.css('height'));
         accordionTabs.fixTabContentHeight(cmpTabs);
         var newHeight  = parseInt(cmpTabs.css('height'));
