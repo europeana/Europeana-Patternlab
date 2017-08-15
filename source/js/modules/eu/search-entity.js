@@ -134,13 +134,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             }
           }
           else{
-            if(heightAddedByLast > 200 && spaceToFill < -200){
+            if(lastAppended && heightAddedByLast > 200 && spaceToFill < -200){
               lastAppended.empty().remove();
               cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
               require(['masonry', 'jqImagesLoaded'], function(Masonry){
                 masonries[tabIndex].destroy();
                 masonries[tabIndex] = makeMasonry(Masonry);
-                masonries[tabIndex].layout();
+                if(masonries[tabIndex]){
+                  masonries[tabIndex].layout();
+                }
               });
             }
           }
@@ -156,12 +158,16 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
           if(hasImg){
             item.imagesLoaded(function(){
-              masonries[tabIndex].layout();
+              if(masonries[tabIndex]){
+                masonries[tabIndex].layout();
+              }
               dripFeed(index);
             });
             items.append(item);
             applyImgStyling(item.find('.item-image'));
-            masonries[tabIndex].appended(item);
+            if(masonries[tabIndex]){
+              masonries[tabIndex].appended(item);
+            }
           }
           else{
             items.append(item);
@@ -188,7 +194,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             var header = $('.entity-main .tab-header:eq(' + tabIndex + ')');
             if(header.hasClass('js-loaded')){
               log('call masonry layout (open tab)');
-              masonries[tabIndex].layout();
+              if(masonries[tabIndex]){
+                masonries[tabIndex].layout();
+              }
             }
             else {
 
@@ -233,6 +241,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
+
+                  console.log('fix content height disabled');
+
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
               });
@@ -279,6 +290,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function makeMasonry(Masonry){
+    return null;
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
@@ -298,6 +310,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       masonries.push(masonry);
 
       $cmp.on('layoutComplete', function(){
+        alert('layout complete');
         var prevHeight = parseInt(cmpTabs.css('height'));
         accordionTabs.fixTabContentHeight(cmpTabs);
         var newHeight  = parseInt(cmpTabs.css('height'));
@@ -309,7 +322,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           applyImgStyling($(ob));
         });
         log('call masonry layout (done)');
-        masonry.layout();
+
+        if(masonry){
+          masonry.layout();
+        }
         if(callback){
           callback();
         }
@@ -317,11 +333,27 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function checkThumbnail(){
+  function getImgRedirectSrc(callback){
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function() {
+      if (req.readyState === 4){
+        callback(req.responseURL);
+      }
+    };
+
+    req.open('GET', $('.js-test-thumb').prop('src'), true);
+    req.send();
+  }
+
+  function checkThumbnail(trueSrc){
+
     require(['jqImagesLoaded'], function(){
       $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
         if($broken.length == 1){
           require(['util_resize'], function(){
+
             var thumblessLayout = function(){
               var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
               var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
@@ -330,15 +362,21 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 'margin-bottom': offset
               });
             };
+
             $(window).europeanaResize(function(){
               thumblessLayout();
             });
+
             $('.entity-main-thumb').remove();
             $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
+
             thumblessLayout();
           });
         }
         else{
+          if($('.js-test-thumb').attr('src') != trueSrc){
+            $('.entity-main-thumb').css('background-image', 'url("' + trueSrc + '")');
+          }
           $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
         }
       });
@@ -352,7 +390,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
     bindShowInlineSearch();
     initAccordionTabs();
-    checkThumbnail();
+
+    getImgRedirectSrc(checkThumbnail);
+
     scrollEvents.fireAllVisible();
   }
 
