@@ -254,7 +254,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
 
-                  $('.search-list-item').unwrap().removeAttr('style');
+//                  $('.search-list-item').unwrap().removeAttr('style');
 
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
 
@@ -286,7 +286,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function hasSpaceToFill($tabContent){
     if($('.nav-toggle-menu').is(':visible')){
-      0;
+      return 0;
     }
     return $('.summary-column').height() - $tabContent.height();
   }
@@ -323,6 +323,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function makeMasonry(Masonry){
+    if($('.nav-toggle-menu').is(':visible')){
+      return null;
+    }
+
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
