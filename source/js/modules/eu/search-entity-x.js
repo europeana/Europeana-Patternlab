@@ -190,8 +190,12 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
           else{
             items.append(item);
-            masonries[tabIndex].appended(item);
-            masonries[tabIndex].layout();
+
+            if(masonries[tabIndex]){
+              masonries[tabIndex].appended(item);
+              masonries[tabIndex].layout();
+            }
+
             afterAppend();
           }
 
@@ -253,8 +257,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
-
-//                  $('.search-list-item').unwrap().removeAttr('style');
 
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
 
