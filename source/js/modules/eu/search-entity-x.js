@@ -304,7 +304,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         $.getJSON(url).done(function(data){
           var rendered = [];
           $.each(data.search_results, function(i, ob){
-            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
+//            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
+            rendered.push('<li><div class="search-list-item">(' + i + ') - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text.</div></li>');
           });
           callback({
             rendered:        rendered,
