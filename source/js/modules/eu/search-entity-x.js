@@ -254,6 +254,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
 
+                  $('.search-list-item').unwrap().removeAttr('style');
+
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
 
                 });
@@ -305,7 +307,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           var rendered = [];
           $.each(data.search_results, function(i, ob){
 //            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
-            rendered.push('<li><div class="search-list-item">(' + i + ') - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text.</div></li>');
+            rendered.push('<div class="search-list-item">(' + i + ') - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text.</div>');
           });
           callback({
             rendered:        rendered,
