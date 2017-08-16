@@ -8,24 +8,40 @@
     cursor: pointer;
   }
 
-}
+  .user-request-pending {
+    color: $eu-blue;
+  }
 
-.user-request-pending {
-  color: $eu-blue;
-}
+  .user-request-accepted {
+    color: $eu-jade;
+  }
 
-.user-request-accepted {
-  color: $eu-jade;
-}
+  .user-request-rejected {
+    color: $peachy;
+  }
 
-.user-request-rejected {
-  color: $peachy;
-}
+  .user-request-type-add {
+    color: $eu-blue;
+  }
 
-.user-request-type-add {
-  color: $eu-blue;
-}
+  .user-request-type-delete {
+    color: $peachy;
+  }
 
-.user-request-type-delete {
-  color: $peachy;
+  &.table-sortable {
+    th::after {
+      content: '\f0d7';
+      display: inline-block;
+      font-family: FontAwesome;
+      padding-left: 1rem;
+    }
+
+    th.sorting-desc {
+      &::after {
+        content: '\f0d8';
+      }
+    }
+
+  }
+
 }

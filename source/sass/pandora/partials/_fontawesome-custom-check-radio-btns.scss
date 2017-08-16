@@ -1,50 +1,43 @@
 @import '../../scss/generic/variables';
 
-// custom checkboxes
+// to hide the checkbox itself
 input[type=checkbox],
 input[type=radio] {
   display: none;
 }
 
-// to hide the checkbox itself
+// custom layout, unchecked
 input[type=checkbox] + label::before,
-input[type=radio] + label::before{
-  display: inline-block;
-  font-family: FontAwesome;
-}
-
-input[type=checkbox] + label::before {
-  color: $gray-light;
-  content: '\f096';
-  font-size: 1.4rem;
-  font-weight: 100;
-}
-
 input[type=radio] + label::before {
   color: $gray-light;
-  content: '\f1db';
+  display: inline-block;
+  font-family: FontAwesome;
   font-size: 1.4rem;
   font-weight: 100;
-  width: 2rem;
-}
-// unchecked icon
-input[type=checkbox] + label::before,
-input[type=radio] + label::before{
   letter-spacing: 0.7rem;
 }
 
-// space between checkbox and label
-input[type=checkbox]:checked + label::before {
+input[type=checkbox] + label::before {
+  content: '\f096';
+}
+
+input[type=radio] + label::before {
+  content: '\f1db';
+  width: 2rem;
+}
+
+// checked
+input[type=checkbox]:checked + label::before,
+input[type=radio]:checked + label::before {
   color:     $eu-jade;
-  content:   '\f046';
   display:   inline-block;
   font-size: 1.4rem;
 }
 
+input[type=checkbox]:checked + label::before {
+  content:   '\f046';
+}
+
 input[type=radio]:checked + label::before {
-  color:     $eu-jade;
   content:   '\f192';
-  display:   inline-block;
-  font-size: 1.4rem;
-  width:     2rem;
 }
