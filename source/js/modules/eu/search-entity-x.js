@@ -307,7 +307,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           var rendered = [];
           $.each(data.search_results, function(i, ob){
 //            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
-            rendered.push('<div class="search-list-item">(' + i + ') - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text.</div>');
+            rendered.push('<div class="search-list-item">(' + i + ') - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text - here is a whole load of text</div>');
           });
           callback({
             rendered:        rendered,
