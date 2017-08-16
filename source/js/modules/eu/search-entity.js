@@ -9,9 +9,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   var template          = null;
   var heightAddedByLast = 0;
 
-  var pageH             = $(document).height();
-  var pageW             = $(document).width();
-
   function log(msg){
     console.log('Entity: ' + msg);
   }
@@ -190,15 +187,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           }
           else{
             items.append(item);
-            masonries[tabIndex].appended(item);
-            masonries[tabIndex].layout();
+
+            if(masonries[tabIndex]){
+              masonries[tabIndex].appended(item);
+              masonries[tabIndex].layout();
+            }
             afterAppend();
           }
-
         };
-
         appendItem(0);
-
       });
     };
 
@@ -262,17 +259,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
-
-                  var h = $(document).height();
-                  var w = $(document).width();
-
-                  if(w != pageW || h != pageH){
-
-                    pageW = w;
-                    pageH = h;
-
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
-                  }
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
               });
             }
@@ -284,7 +271,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function hasSpaceToFill($tabContent){
     if($('.nav-toggle-menu').is(':visible')){
-      0;
+      return 0;
     }
     return $('.summary-column').height() - $tabContent.height();
   }
@@ -320,6 +307,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function makeMasonry(Masonry){
+
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
@@ -386,14 +374,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             };
 
             $(window).europeanaResize(function(){
-              var h = $(document).height();
-              var w = $(document).width();
-
-              if(w != pageW || h != pageH){
-                pageW = w;
-                pageH = h;
-                thumblessLayout();
-              }
+              thumblessLayout();
             });
 
             $('.entity-main-thumb').remove();

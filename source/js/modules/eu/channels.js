@@ -235,13 +235,6 @@ define(['jquery', 'smartmenus'], function($){
       }
       break;
 
-    case 'entities/x':
-      require(['search_entity_x', 'search_form'], function(page){
-        page.initPage();
-        promisedPageJS.resolve(page);
-        doForAllPages();
-      });
-      break;
     case 'entities/show':
       require(['search_entity', 'search_form'], function(page){
         page.initPage();
