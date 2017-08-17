@@ -79,17 +79,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function bindShowInlineSearch(){
-    $('.item-nav-show').on('click', function(e){
-      e.preventDefault();
-      var btn = $(e.target);
-      btn.hide();
-      btn.prev('.content').show();
-      btn.prev('.content').find('form .item-search-input').focus();
-      $('.after-header-with-search').addClass('search-open');
-    });
-  }
-
   function initAccordionTabs(){
 
     var getLoadParams = function(base, present){
@@ -408,7 +397,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     $(window).bind('showCarousel', function(e, ops){
       showCarouselIfAvailable(ops);
     });
-    bindShowInlineSearch();
+    form.bindShowInlineSearch();
     initAccordionTabs();
 
     getImgRedirectSrc(checkThumbnail);

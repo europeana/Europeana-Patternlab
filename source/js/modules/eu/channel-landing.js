@@ -1,7 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
-  var euSearchForm = null;
-
   function showCarousel(ops){
 
     // normalise "what's happening" images
@@ -67,20 +65,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     });
   }
 
-  function bindShowInlineSearch(){
-    $('.item-nav-show').on('click', function(e){
-      e.preventDefault();
-      var btn = $(e.target);
-      btn.hide();
-      btn.prev('.content').show();
-      btn.prev('.content').find('form .item-search-input').focus();
-      $('.after-header-with-search').addClass('search-open');
-    });
-  }
-
   function initPage(form){
-
-    euSearchForm = form;
 
     $('.filter .filter-name').on('click', function(){
       $(this).closest('.filter').toggleClass('filter-closed');
@@ -101,7 +86,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
     require(['eu_clicktip']);
 
-    bindShowInlineSearch();
+    form.bindShowInlineSearch();
     scrollEvents.fireAllVisible();
 
     if($('.e7a1418-nav').length > 0){

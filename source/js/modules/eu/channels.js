@@ -236,15 +236,15 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'entities/show':
-      require(['search_entity', 'search_form'], function(page){
-        page.initPage();
+      require(['search_entity', 'search_form'], function(page, euSearchForm){
+        page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();
       });
       break;
     case 'portal/show':
-      require(['search_object', 'search_form'], function(page){
-        page.initPage();
+      require(['search_object', 'search_form'], function(page, euSearchForm){
+        page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();
       });
