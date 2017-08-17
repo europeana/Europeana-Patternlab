@@ -118,6 +118,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             lastAppended    = item;
             index           = index + 1;
 
+            item.removeAttr('style');
+
             if($(selActiveResult + ' .search-list-item').length < 13 || spaceToFill > 0){
 
               if(index < toAppend.length){
@@ -222,8 +224,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               initMasonry(function(){
 
-                header.removeClass('loading').addClass('js-loaded');
-
                 loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
 
                   if(typeof res.total == 'undefined'){
@@ -242,6 +242,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
 
+                  header.removeClass('loading').addClass('js-loaded');
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
 
                 });
@@ -254,7 +255,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   if(w != pageW){
                     pageW = w;
                     thumblessLayout();
-                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                    setTimeout(function(){
+                      euAccordionTabs.fixTabContentHeight(cmpTabs);
+                    }, 100);
                   }
                 });
               });
@@ -301,7 +304,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         $.getJSON(url).done(function(data){
           var rendered = [];
           $.each(data.search_results, function(i, ob){
-            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
+            rendered.push('<li style="visibility:hidden;">' + Mustache.render(template.text(), ob) + '</li>');
           });
           callback({
             rendered:        rendered,
