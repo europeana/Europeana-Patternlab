@@ -7,6 +7,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   var cmpTabs           = $('.eu-accordion-tabs');
   var accordionTabs     = null;
   var template          = null;
+  var thumbless         = false;
   var heightAddedByLast = 0;
   var pageW             = $(document).width();
 
@@ -249,15 +250,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
-
                   var w = $(document).width();
                   if(w != pageW){
                     pageW = w;
+                    thumblessLayout();
                     euAccordionTabs.fixTabContentHeight(cmpTabs);
                   }
-
                 });
               });
+
             }
           }
         }
@@ -276,6 +277,19 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     if($item.height() > 650){
       $item.addClass('super-tall');
     }
+  }
+
+  function thumblessLayout(){
+    if(!thumbless){
+      return;
+    }
+    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
+    var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
+
+    $('.summary-column').css({
+      'top': offset,
+      'margin-bottom': offset
+    });
   }
 
   function loadMasonryItems(url, callback){
@@ -356,31 +370,14 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
     require(['jqImagesLoaded'], function(){
       $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
+
         if($broken.length == 1){
-          require(['util_resize'], function(){
 
-            var thumblessLayout = function(){
-              var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
-              var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
+          $('.entity-main-thumb').remove();
+          $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
 
-              $('.summary-column').css({
-                'top': offset,
-                'margin-bottom': offset
-              });
-            };
-
-            $(window).europeanaResize(function(){
-              var w = $(document).width();
-              if(w != pageW){
-                thumblessLayout();
-              }
-            });
-
-            $('.entity-main-thumb').remove();
-            $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
-
-            thumblessLayout();
-          });
+          thumbless = true;
+          thumblessLayout();
         }
         else{
           if($('.js-test-thumb').attr('src') != trueSrc){
@@ -410,4 +407,5 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       initPage(euSearchForm);
     }
   };
+
 });
