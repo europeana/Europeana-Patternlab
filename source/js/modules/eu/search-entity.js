@@ -8,6 +8,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   var accordionTabs     = null;
   var template          = null;
   var heightAddedByLast = 0;
+  var pageW             = $(document).width();
 
   function log(msg){
     console.log('Entity: ' + msg);
@@ -259,7 +260,13 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+
+                  var w = $(document).width();
+                  if(w != pageW){
+                    pageW = w;
+                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  }
+
                 });
               });
             }
@@ -307,7 +314,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function makeMasonry(Masonry){
-
     return new Masonry(selActiveResult, {
       itemSelector:       '.search-list-item',
       columnWidth:        '.grid-sizer',
@@ -367,6 +373,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             var thumblessLayout = function(){
               var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
               var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
+
               $('.summary-column').css({
                 'top': offset,
                 'margin-bottom': offset
@@ -374,7 +381,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             };
 
             $(window).europeanaResize(function(){
-              thumblessLayout();
+              var w = $(document).width();
+              if(w != pageW){
+                thumblessLayout();
+              }
             });
 
             $('.entity-main-thumb').remove();
