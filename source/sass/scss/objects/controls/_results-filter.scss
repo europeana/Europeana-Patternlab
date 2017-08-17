@@ -13,7 +13,7 @@
 }
 
 .filter{
-  .filter-moreless:after{
+  .filter-moreless::after{
     border-color: $textcolour_body transparent transparent;
     border-style: solid;
     border-width: 5px;
@@ -24,7 +24,7 @@
     top: 3px;
   }
   &.is-expanded{
-    .filter-moreless:after{
+    .filter-moreless::after{
       border-color: transparent transparent $textcolour_body;
       top: -1px;
     }
@@ -32,53 +32,52 @@
 }
 
 .filter{
-  background-color: $offwhite;
-
-  border-top: 1px solid $gray87;
-  margin-bottom: $space-half;
   @include fontSize(14px);
+  background-color: $offwhite;
+  border-top: 1px solid $gray87;
+  margin-bottom: 0;
 
-  @media all and (max-width: $bp-med) {
-    margin-bottom: 0;
+  &:nth-of-type(1){
+    border-top: 0;
+  }
+
+  @media all and (min-width: $bp-med) {
+    margin-bottom: $space-half;
     &:nth-of-type(1){
-      border-top: 0;
+      border-top: 1px solid $gray87;
     }
   }
 
   .subfilters &{
-    border-top: none;
+    border-top: 0;
   }
 }
 
 .filter-advanced{
   .filter-moreless{
     @include fontSize(16px);
-    top: 0.8rem;
     position: relative;
+    top: 0.8rem;
   }
 }
 
 .filter-name{
+  background-color: #fff;
+  box-sizing: content-box;
   color: $textcolour_body;
   cursor: pointer;
-
-  @media all and (max-width: $bp-med) {
-    box-sizing: content-box;
-
-    margin: -$space-half;
-    padding: $space-half;
-
-    background-color: #fff;
-  }
+  font-weight: bold;
+  margin: -$space-half;
+  padding: $space-half;
+  text-transform: uppercase;
+  width: 100%;
 
   @media all and (min-width: $bp-med) {
+    background: none;
     margin: $space-half 0;
+    padding: 0;
     top: 1em;
   }
-
-  text-transform: uppercase;
-  font-weight: bold;
-  width: 100%;
 
   .subfilters &{
     @include fontSize(12px);
@@ -89,14 +88,14 @@
 .refine{
   > .filter{
     position: relative;
-    > .filter-name:after{
+    > .filter-name::after{
       border-color: transparent transparent $textcolour_body;
       border-style: solid;
       border-width: 5px;
       content: '';
       display: inline-block;
-      right: 1em;
       position: absolute;
+      right: 1em;
       top: 1.6em;
 
       @media all and (min-width: $bp-med) {
@@ -105,9 +104,10 @@
     }
 
     &.filter-closed{
-      > .filter-name:after{
-        top: 2em;
+      > .filter-name::after{
         border-color: $textcolour_body transparent transparent;
+        top: 2em;
+
         @media all and (min-width: $bp-med) {
           top: 1.6em;
         }
@@ -135,26 +135,32 @@
   margin: 0.5em 0;
 }
 
+
+
 .refine.open .filter-mobile-summary{
   display: block;
   font-weight: normal;
-  text-transform: initial;
   opacity: 0.5;
+  text-transform: initial;
+  @media all and (min-width: $bp-med) {
+    display: none;
+  }
+
   li{
     display: inline;
-    &:after{
-      content: ", ";
+    &::after{
+      content: ', ';
     }
-    &:last-child:after{
-      content: "";
+    &:last-child::after{
+      content: '';
     }
   }
 }
 
-.filter-wrap{
-  position: relative;
-  padding-left: $space;
 
+.filter-wrap{
+  padding-left: $space;
+  position: relative;
 }
 
 .filter-list li{
@@ -180,7 +186,8 @@
   display: inline-block;
 }
 
-.filter-extrafields, .filter-adv{
+.filter-extrafields,
+.filter-adv{
   margin-top: $space-half;
   padding-top: $space-half;
 }
@@ -202,12 +209,11 @@
 
 .subfilters{
   border-left: 1px solid $gray87;
-  //background-color: rgba($gray87, 0.2);
+  margin-bottom: $space-half;
+  margin-left: 10px;
+  margin-top: $space-quarter;
   padding: $space-half;
   padding-bottom: $space-quarter;
-  margin-bottom: $space-half;
-  margin-top: $space-quarter;
-  margin-left: 10px;
 
   .filter-name{
     margin-top: 0;
@@ -217,18 +223,17 @@
 // Date specific filter
 .filter-date .filter-controls{
 
-  & > .control-group{
+  > .control-group{
+
+    float: left;
+    margin-bottom: .5rem;
+    margin-top:    .5rem;
+    padding-right: 1em;
 
     input,
     label{
       width: 5.2em;
     }
-
-    padding-right: 1em;
-    float:         left;
-    margin-bottom: .5rem;
-    margin-top:    .5rem;
-
     &:last-of-type{
       float: right;
       padding-right: 0;
@@ -312,24 +317,24 @@
   }
 
   .filter-item{
-    width: 40px;
-    height: 40px;
-    display: block;
-    position: relative;
     border: 1px solid $gray87;
+    display: block;
+    height: 40px;
+    position: relative;
+    width: 40px;
   }
 
-  .filter-item:before{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  .filter-item::before{
     @include translate (-50%, -50%);
     background-image: none;
+    left: 50%;
+    position: absolute;
+    top: 50%;
   }
 
-  .filter-item.is-checked:before {
-        background: url(../../images/formcontrols.png) no-repeat;
-    }
+  .filter-item.is-checked::before {
+    background: url('../../images/formcontrols.png') no-repeat;
+  }
 }
 
 
@@ -337,43 +342,43 @@
 // js needed to switch on/off
 
 .filter-item{
+  border-radius: 5px;
   display: block;
   padding: 8px;
-  border-radius: 5px;
 
   @media all and (min-width: $bp-med) {
     padding: 5px;
   }
 
-  &:hover, &:focus{
+  &:hover,
+  &:focus{
     background-color: $white;
   }
 }
 
-.filter-item:before{
-  content:'';
-    display: inline-block;
-    *display: inline;
-    vertical-align: middle;
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5em;
-    background: url(../../images/formcontrols.png) no-repeat;
-    border: none;
-    cursor: pointer;
-    background-position: 0 0;
-    position: absolute;
-    left: 0;
+.filter-item::before{
+  background: url('../../images/formcontrols.png') no-repeat;
+  background-position: 0 0;
+  border: 0;
+  content: '';
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  left: 0;
+  margin-right: 0.5em;
+  position: absolute;
+  vertical-align: middle;
+  width: 20px;
 }
 
-.radiobuttons > ul > li .filter-item:before,
-.radiobuttons .filter-extrafields li .filter-item:before{
+.radiobuttons > ul > li .filter-item::before,
+.radiobuttons .filter-extrafields li .filter-item::before{
   background-position: -88px 0;
 }
 
 .filter-boolean{
   @media all and (max-width: $bp-med) {
-    .filter-item:before{
+    .filter-item::before{
       left: 16px;
     }
   }
@@ -381,34 +386,32 @@
 
 .filter-boolean .filter-item,
 .checkboxes > ul > li .filter-item{
-    &.is-checked:before {
-        background-position: -22px 0;
-    }
-    &.is-disabled:before {
-        background-position: -44px 0;
-        cursor: default;
-    }
-    &.is-checked.is-disabled:before {
-        background-position: -66px 0;
-    }
+  &.is-checked::before {
+    background-position: -22px 0;
+  }
+  &.is-disabled::before {
+    background-position: -44px 0;
+    cursor: default;
+  }
+  &.is-checked.is-disabled::before {
+    background-position: -66px 0;
+  }
 }
 
 .radiobuttons > ul > li .filter-item,
 .radiobuttons .filter-extrafields li .filter-item{
 
-    &.is-checked:before {
-        background-position: -110px 0;
-    }
-    &.is-disabled:before {
-        background-position: -132px 0;
-        cursor: default;
-    }
-    &.is-checked.is-disabled:before {
-        background-position: -154px 0;
-    }
+  &.is-checked::before {
+    background-position: -110px 0;
+  }
+  &.is-disabled::before {
+    background-position: -132px 0;
+    cursor: default;
+  }
+  &.is-checked.is-disabled::before {
+    background-position: -154px 0;
+  }
 }
-
-
 .filter-hierarchical > .filter-list > li{
   //only top level of hierarchical filters
   display: block;

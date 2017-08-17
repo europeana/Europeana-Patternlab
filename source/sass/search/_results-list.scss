@@ -41,8 +41,8 @@
   }
 
   @media all and (min-width: $bp-med) {
-    background: $offwhite; // fallback
     @include background(linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%));
+    background: $offwhite;
   }
 
   .container{
@@ -71,45 +71,73 @@
 }
 
 // Filters and secondary content
-.refine{
+.refine {
 
-  @media all and (max-width: $bp-med) {
-    background: #fff;
-    border: 1px solid $offwhite;
-    display: none;
-    width: 70%;
+  background: #fff;
+  border: 1px solid $offwhite;
+  display: none;
+  width: 70%;
 
-    &.open{
-      display: block;
+  &.open {
+    display: block;
+    position: absolute;
+    right: 0;
+    top:   4.5em;
+    z-index: 2;
+
+    &::before{
+      border-color: transparent transparent $offwhite;
+      border-style: solid;
+      border-width: 12px;
+      content: ' ';
+      display: inline-block;
       position: absolute;
-      right: 0;
-      top:   4.5em;
-      z-index: 2;
+      right: 40px;
+      top: -23px;
+    }
 
-      &::before{
-        border-color: transparent transparent $offwhite;
-        border-style: solid;
-        border-width: 12px;
-        content: ' ';
-        display: inline-block;
-        position: absolute;
-        right: 40px;
-        top: -23px;
+    .filter,
+    h2{
+      padding: $space / 2;
+    }
+    h2{
+      background: $offwhite;
+      border: 0;
+    }
+    >h2{
+      margin-bottom: 0;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    display: inline;
+
+    &.open {
+      position: static;
+      right: auto;
+      top: auto;
+
+      &::before {
+        display: none;
       }
 
       .filter,
       h2{
-        padding: $space / 2;
+        padding: 0;
       }
-      h2{
-        background: $offwhite;
-        border: 0;
+
+      h2 {
+        background: none;
       }
-      &>h2{
-        margin-bottom: 0;
+
+      >h2 {
+        margin-bottom: 1rem;
       }
+
     }
+
   }
+
   @media all and (max-width: $bp-small-3) {
     width: 90%;
     &.open{
@@ -127,8 +155,6 @@
     @include span(6);
 
     background: $offwhite;
-    margin-left: -$space;
-    margin-right: -$space;
     margin: 0;
     padding: $space-half + $space-quarter 0 $space-double 0;
 
@@ -151,7 +177,7 @@
   }
 
 
-  &>h2{
+  >h2{
     @include fontSize(16px);
     color: $textcolour_body;
     font-weight: bold;
@@ -202,15 +228,15 @@
   }
 
   .dropdown{
-    min-width:   3.5em;
     margin-left: -1.2em;
+    min-width:   3.5em;
   }
   .dropdown-trigger{
-    text-transform: inherit;
-    font-weight: normal;
-    color: $linkblue;
     border-bottom: 1px dotted #1a8ac7;
+    color: $linkblue;
+    font-weight: normal;
     padding-right: 0;
+    text-transform: inherit;
   }
   .dropdown-trigger::after{
     display: none;
@@ -376,8 +402,8 @@
   }
 
   @media all and (min-width: $bp-small-3) {
-    top: 2.5em;
     margin-top: 2em;
+    top: 2.5em;
   }
 
   @media all and (min-width: $bp-med) {
@@ -440,6 +466,7 @@
 
 .action-select{
 
+  @include span(1 of 12 wide no-gutters);
   text-align: center;
 
   .search-list-item &{
@@ -452,9 +479,6 @@
     display: inline-block;
     margin: 0;
   }
-
-
-  @include span(1 of 12 wide no-gutters);
 
   @media all and (min-width: $bp-small-3) {
     @include span(1 of 18 wide no-gutters);
@@ -537,8 +561,8 @@
       display:     block;
       font-size:   0.75em;
       position:    absolute;
-      transform:   translateX(-120%);
       top:         0.22em;
+      transform:   translateX(-120%);
       white-space: nowrap;
     }
 
@@ -550,9 +574,9 @@
     }
 
     .icon-label-collapse{
-      transform: scale(0.6);
       left:      -0.039em;
       top:       -0.05em;
+      transform: scale(0.6);
     }
 
     .icon-label-expand{
@@ -577,7 +601,7 @@
 .title-federated-results{
 
   line-height:      2rem;
-  margin:           3em 3.5em 2em 0em;
+  margin:           3em 3.5em 2em 0;
   padding:          $pad $pad * 4 $pad $pad;
   position:         relative;
   width:            100%;
@@ -753,33 +777,28 @@
     .search-list-item{
 
       &.default-img{
-        .item-preview{
-          .item-image{
-            a{
-              background-position: center center;
-              background-repeat:   no-repeat;
-              background-size:     contain;
+        .item-preview .item-image  a{
+          background-position: center center;
+          background-repeat:   no-repeat;
+          background-size:     contain;
 
-              &.canadiana{
-                background-image:url('../../images/foederati_logos/canadiana.png');
-              }
-              &.digitalnz{
-                background-image:url('../../images/foederati_logos/digitalnz.png');
-              }
-              &.dpla{
-                background-image:url('../../images/foederati_logos/dpla.png');
-              }
-              &.internetarchive{
-                background-image:url('../../images/foederati_logos/internetarchive.png');
-              }
-              &.trove{
-                background-image:url('../../images/foederati_logos/trove.png');
-              }
-            }
+          &.canadiana{
+            background-image: url('../../images/foederati_logos/canadiana.png');
+          }
+          &.digitalnz{
+            background-image: url('../../images/foederati_logos/digitalnz.png');
+          }
+          &.dpla{
+            background-image: url('../../images/foederati_logos/dpla.png');
+          }
+          &.internetarchive{
+            background-image: url('../../images/foederati_logos/internetarchive.png');
+          }
+          &.trove{
+            background-image: url('../../images/foederati_logos/trove.png');
+          }
           }
         }
-      }
-
       &.type-img{
 
         .item-image{
@@ -831,15 +850,15 @@
             line-height:   1.3em;
             max-height:    3.2em;
             position:      relative;
-
-            &:focus,
-            &:hover{
-              border-bottom: none;
-            }
-            &:hover span{
-              text-decoration: underline dotted $eu-blue;
-            }
           }
+          a:focus,
+          a:hover{
+            border-bottom: 0;
+          }
+          a:hover span{
+            text-decoration: underline dotted $eu-blue;
+          }
+
           a.svg-icon-external-eu-blue-after::after{
             bottom:   1px;
             position: absolute;
