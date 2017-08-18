@@ -306,6 +306,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           $.each(data.search_results, function(i, ob){
             rendered.push('<li style="visibility:hidden;">' + Mustache.render(template.text(), ob) + '</li>');
           });
+
+          if(url.indexOf('&page=1')>-1){
+            $('body').append('<ul style="visibility:hidden;">' + rendered.join() + '</ul>');
+          }
+
           callback({
             rendered:        rendered,
             total:           data.total ? data.total.value : 0,
