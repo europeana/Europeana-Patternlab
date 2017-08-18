@@ -51,6 +51,12 @@ body {
 .btn.btn-light {
   border-color: $eu-jade;
   color: $eu-jade;
+
+  &:hover {
+    background-color: $eu-jade;
+    color: $white;
+  }
+
 }
 
 // link on homepage banner.

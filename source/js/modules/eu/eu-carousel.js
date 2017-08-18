@@ -43,7 +43,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       var scrollTime     = 400;
 
       var first          = cmp.find('.js-carousel-item:first');
-      var itemW          = first ? first.width() : (opsIn.itemWidth && typeof parseInt(opsIn.itemWidth) == 'number') ? parseInt(opsIn.itemWidth) : 200;
+      var itemW          = first.length > 0 ? first.width() : (opsIn.itemWidth && typeof parseInt(opsIn.itemWidth) == 'number') ? parseInt(opsIn.itemWidth) : 200;
 
       var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
       var swiping        = false;

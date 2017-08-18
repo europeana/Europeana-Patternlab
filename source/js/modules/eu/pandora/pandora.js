@@ -1,10 +1,11 @@
-define(['jquery', 'smartmenus'], function(){
+define(['jquery', 'smartmenus', 'pandora'], function(){
 
   var log = function(msg){
     console.log('Pandora: ' + msg);
   };
 
   function initMenus(){
+
     require(['smartmenus'], function () {
       require(['smartmenus_keyboard'], function () {
         $('.nav_primary>ul').smartmenus({
@@ -57,84 +58,55 @@ define(['jquery', 'smartmenus'], function(){
     });
   }
 
-  function initPage(){
+  initMenus();
 
-    initMenus();
-
-    if(typeof pageName == 'undefined'){
-      log('Expected parameter "pageName" not found');
-      return;
-    }
-
-    switch(pageName){
-      case 'metisHomePage':
-        require(['pandora_home'], function(page){
-          log('loaded pandora home');
-          page.initPage();
-        });
-        break;
-
-      case 'metisLoginPage':
-        log('login page - no page-specific js needed');
-        break;
-
-      case 'metisRegisterPage':
-        require(['pandora_register'], function(page){
-          log('loaded pandora register');
-          page.initPage();
-        });
-        break;
-
-      case 'metisMappingPage':
-        require(['pandora_mapping'], function(page){
-          log('loaded pandora mapping');
-          page.initPage();
-        });
-        break;
-
-      case 'metisDashboard':
-        require(['pandora_dashboard'], function(page){
-          log('loaded pandora dashboard');
-          page.initPage();
-        });
-        break;
-
-      case 'metisDatasetPage':
-        require(['pandora_dataset'], function(page){
-          log('loaded pandora dataset');
-          page.initPage();
-        });
-        break;
-
-      default:
-        console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
-    }
-
-    /*
-    var applyXmlBeautify = function(){
-      require(['jush'], function(){
-        jush.style('../../js/modules/lib/jush/jush.css');
-        jush.highlight_tag('code');
-        document.getElementById('xml-formatted').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
-          .highlight('xml', document.getElementById('xml').value)
-          .replace(/\t/g, '')
-          .replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-        document.getElementById('xml-formatted-expanded').innerHTML = '<pre><code class=\'xml-view-div\'>' + jush
-          .highlight('xml', document.getElementById('xml').value)
-          .replace(/\t/g, '')
-          .replace(/(^|\n| ) /g, '$1 ') + '</code></pre>';
-      });
-    };
-    var pageName = pageName || '';
-    if (pageName && pageName === 'itemCard') {
-      applyXmlBeautify();
-    }
-    */
+  if(typeof pageName == 'undefined' || !pageName){
+    log('Expected parameter "pageName" not found');
+    return;
   }
 
-  return {
-    initPage: function () {
-      initPage();
-    }
-  };
+  switch(pageName){
+    case 'metisHomePage':
+      require(['pandora_home'], function(page){
+        log('loaded pandora home');
+        page.initPage();
+      });
+      break;
+
+    case 'metisLoginPage':
+      log('login page - no page-specific js needed');
+      break;
+
+    case 'metisRegisterPage':
+      require(['pandora_register'], function(page){
+        log('loaded pandora register');
+        page.initPage();
+      });
+      break;
+
+    case 'metisMappingPage':
+      require(['pandora_mapping'], function(page){
+        log('loaded pandora mapping');
+        page.initPage();
+      });
+      break;
+
+    case 'metisDashboardPage':
+      require(['pandora_dashboard'], function(page){
+        log('loaded pandora dashboard');
+        page.initPage();
+      });
+      break;
+
+    case 'metisDatasetPage':
+      require(['pandora_dataset'], function(page){
+        log('loaded pandora dataset');
+        page.initPage();
+      });
+      break;
+
+    default:
+      console.warn('pageName not recognised (' + pageName + ') - cannot bootstrap app');
+  }
+
 });

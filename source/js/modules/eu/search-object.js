@@ -16,7 +16,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       require(['mustache'], function(){
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          template.parent().after(Mustache.render(template.text(), data));
+          template.after(Mustache.render(template.text(), data));
         });
       });
     }
@@ -139,11 +139,11 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     if(latitude && longitude){
       // replace any comma-delimited decimals with decimal points / make decimal format
-
-      for(var i = 0; i < latitude.length; i++){
+      var i;
+      for(i = 0; i < latitude.length; i++){
         latitude[i] = latitude[i].replace(/,/g, '.').indexOf('.') > -1 ? latitude[i] : latitude[i] + '.00';
       }
-      for(var i = 0; i < longitude.length; i++){
+      for(i = 0; i < longitude.length; i++){
         longitude[i] + longitude[i].replace(/,/g, '.').indexOf('.') > -1 ? longitude[i] : longitude[i] + '.00';
       }
 
@@ -151,7 +151,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       var latitudes = [];
 
       // sanity check
-      for(var i = 0; i < Math.min(latitude.length, longitude.length); i++){
+      for(i = 0; i < Math.min(latitude.length, longitude.length); i++){
         if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)){
           longitudes.push(longitude[i]);
           latitudes.push(latitude[i]);
@@ -229,7 +229,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         'loadUrl':         ops.loadUrl,
         'template':        ops.template,
         'total_available': ops.total_available,
-        'doAfter':         fnAfterLoad
+        'doAfter':         fnAfterLoad,
+        'doOnLoadError':   ops.doOnLoadError
       });
 
       var mltCarousel = Carousel.create(el, appender, ops);
@@ -465,6 +466,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       });
     };
     data.alwaysAfterLoad = function(added){addEllipsis(added);};
+    data.doOnLoadError   = function(){
+      $('.more-like-this').closest('.lc').remove();
+    };
+
     var promisedCarousel = initCarousel($('.more-like-this'), data);
 
     promisedCarousel.done(function(carousel){
@@ -525,7 +530,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         });
       }
 
-      return channelData
+      return channelData;
     }
   };
 
@@ -753,24 +758,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   }
 
-  function bindShowInlineSearch(){
-    $('.item-nav-show').on('click', function(e){
-      e.preventDefault();
-      var btn = $(e.target);
-      btn.hide();
-      btn.prev('.content').show();
-      btn.prev('.content').find('form .item-search-input').focus();
-      $('.after-header-with-search').addClass('search-open');
-    });
-  }
-
-  function initPage(){
+  function initPage(searchForm){
     bindAnalyticsEvents();
     bindAnalyticsEventsSocial();
     bindAttributionToggle();
     bindDownloadButton();
     bindMetadataButton();
-    bindShowInlineSearch();
+
+    searchForm.bindShowInlineSearch();
+
     updateTechData({target:$('.single-item-thumb a')[0]});
 
     if(channelData == null){
@@ -843,8 +839,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   return {
-    initPage: function(){
-      initPage();
+    initPage: function(searchForm){
+      initPage(searchForm);
     },
     getAnalyticsData: function(){
       return getAnalyticsData();

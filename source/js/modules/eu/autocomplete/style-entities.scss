@@ -12,7 +12,7 @@
   overflow:   hidden;
 
   &:empty{
-    border-color: transparent;
+    border-width: 0;
   }
 
   li{

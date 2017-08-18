@@ -46,8 +46,9 @@ define(['jquery', 'smartmenus'], function($){
       }
     });
 
-    $('.nav_primary>ul').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
-    $('#settings-menu').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+    if($('#settings-menu li').length > 6 && !$('#settings-menu .menu-divider').length > 0){
+      $('#settings-menu').addClass('as-cols');
+    }
 
   });
 
@@ -233,17 +234,17 @@ define(['jquery', 'smartmenus'], function($){
         });
       }
       break;
-    //case 'portal/entity':
+
     case 'entities/show':
-      require(['search_entity', 'search_form'], function(page){
-        page.initPage();
+      require(['search_entity', 'search_form'], function(page, euSearchForm){
+        page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();
       });
       break;
     case 'portal/show':
-      require(['search_object', 'search_form'], function(page){
-        page.initPage();
+      require(['search_object', 'search_form'], function(page, euSearchForm){
+        page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();
       });
