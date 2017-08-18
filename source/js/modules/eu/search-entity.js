@@ -308,7 +308,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           });
 
           if(url.indexOf('&page=1')>-1){
-            $('body').append('<ul style="visibility:hidden;">' + rendered.join() + '</ul>');
+            $('body').append('<ul style="visibility:hidden; position:absolute; top:-1000%;">' + rendered.join() + '</ul>');
           }
 
           callback({
