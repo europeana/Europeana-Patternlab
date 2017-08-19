@@ -21,6 +21,7 @@ $entity-panel-colour:           #eee;
 .summary-column{
   .header-bio{
     display:        block;
+    margin-bottom:  2.6em;
     text-transform: uppercase;
 
     &.js-hidden{
@@ -52,6 +53,7 @@ $entity-panel-colour:           #eee;
 
 .entity-main .eu-accordion-tabs{
   background-color: #fff;
+  margin-bottom:    $space-double;
   overflow:         hidden;
 
   &.as-tabs{

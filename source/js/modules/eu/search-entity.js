@@ -286,7 +286,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     if(!thumbless){
       return;
     }
-    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
+    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 40;
     var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
 
     $('.summary-column').css({
