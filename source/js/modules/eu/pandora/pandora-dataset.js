@@ -28,7 +28,7 @@ define(['jquery'], function ($) {
           'fnOpenTab': function(index, $tabContent){
 
             var header = $('.metis-accordion-wrapper .tab-header:eq(' + index + ')');
-
+            
             if(!header.hasClass('js-loaded')){
 
               var url    = header.data('content-url');
@@ -50,7 +50,7 @@ define(['jquery'], function ($) {
                 template = $('#js-template-tab-data-quality');
               }
 
-              if(template.length > 0){
+              if(template.length > 0) {
                 header.addClass('loading');
                 $.getJSON(url, null).done(function(data){
                   $tabContent.append(Mustache.render(template.text(), data));
@@ -59,6 +59,11 @@ define(['jquery'], function ($) {
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
                 });
               }
+
+              cmpTabs.find('.tab-header').on('click', function() {
+                euAccordionTabs.fixTabContentHeight(cmpTabs);
+              });
+
             }
           }
         }

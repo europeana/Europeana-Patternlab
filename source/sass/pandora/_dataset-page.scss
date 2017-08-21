@@ -28,19 +28,20 @@ $header-height: 4.9em;
   margin:    auto;
   max-width: 1440px;
 
-  .eu-accordion-tabs.as-tabs .tab-content{
-    top: calc(#{$header-height} - 5px);
-  }
-
-  .tab-content {
+  .eu-accordion-tabs.as-tabs {
     background-color: $white;
-    border-top: 5px solid $eu-jade;
+    display: flex;
   }
 
   .eu-accordion-tabs.as-tabs .tab-header {
     border-bottom: 5px solid $eu-jade;
+    border-right: 0;
+    border-top: 5px solid $white;
+    flex: 1;
     height: $header-height;
+    line-height: 1.3em;
     padding: 0.4em 1.2em;
+    position: relative;
     z-index: 1;
 
     &.active{
@@ -51,6 +52,26 @@ $header-height: 4.9em;
       .tab-subtitle{
         color: $white;
       }
+
+      &::after {
+        display: none;
+      }
+
+    }
+
+    &:not(.js-last) {
+      border-right: 0;
+
+      &::after {
+        background: $gray87;
+        content: '';
+        height: 80%;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 1px;
+      }
+
     }
 
     &:not(.active)::before{
@@ -64,9 +85,19 @@ $header-height: 4.9em;
         transform: translate(-50%, 100%);
       }
     }
-
     .tab-subtitle{
+      font-weight: normal;
       transition: none;
     }
   }
+
+  .eu-accordion-tabs.as-tabs .tab-content{
+    top: calc(#{$header-height} - 5px);
+  }
+
+  .tab-content {
+    background-color: $white;
+    border-top: 5px solid $eu-jade;
+  }
+
 }

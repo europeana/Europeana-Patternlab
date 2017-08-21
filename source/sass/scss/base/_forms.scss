@@ -225,6 +225,7 @@ input[type="search"]::-webkit-search-decoration {
 
   .content{
     display: none;
+    position: relative;
     @media all and (max-width: $bp-med) {
       margin-top: $pad;
     }

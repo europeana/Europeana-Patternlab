@@ -1,7 +1,7 @@
-@import "../../../../sass/scss/generic/variables";
+@import '../../../../sass/scss/generic/variables';
 
 .feedback {
-  background: white none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0;
   bottom: 0;
   font-size: 16px;
   position: fixed;
@@ -21,7 +21,6 @@
     border-width: 1px medium 1px 1px;
     right: 0;
     transform: translateX(100%);
-    -webkit-transform: translateX(100%);
   }
   &.loaded{
     transition: all 0.2s ease-out 0s;
@@ -37,17 +36,17 @@
 
   .open,
   .close {
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-size: 0.65em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   .feedback-text{
     border-radius: 0.5em 0.5em 0 0;
-   }
+  }
   .feedback-cancel,
   .feedback-send{
-      border-radius: 0.25em;
+    border-radius: 0.25em;
   }
 
   &.open{
@@ -59,25 +58,23 @@
       display: block;
     }
 
-
     @media all and (max-width: $bp-med) {
       top: auto;
     }
 
     @media all and (min-width: $bp-med) {
       transform: translateX(0);
-      -webkit-transform: translateX(0);
     }
   }
 
   .feedback-toggle {
     color: #fff;
-    position: absolute;
     left: 0;
+    position: absolute;
 
     @media all and (max-width: $bp-med) {
-      width:  100%;
-      top:     0;
+      top:   0;
+      width: 100%;
     }
 
     @media all and (min-width: $bp-med) {
@@ -86,7 +83,6 @@
 
     @media all and (min-width: $bp-med) {
       transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
     }
 
     a {
@@ -94,31 +90,29 @@
       cursor: pointer;
       position: relative;
 
-
       text-align: center;
       text-decoration: none;
       vertical-align: middle;
 
       @media all and (min-width: $bp-med) {
-        transform: rotate(270deg);
-        -webkit-transform: rotate(270deg);
+
+        left:              100%;
+        transform:         rotate(270deg);
+        transform-origin:  bottom left;
+
         &.open {
-          left: 23px;
-          top: -23px;
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             background: $gray-dark;
           }
         }
         &.close {
-          left: 23px;
-          top: -23px;
           background-color: $blue-dark;
         }
       }
 
       @media all and (max-width: $bp-med) {
         transform: translateY(-100%);
-        -webkit-transform: translateY(-100%);
       }
     }
   }
@@ -132,25 +126,25 @@
 
     &.close{
       @media all and (max-width: $bp-med) {
-        width:  100%;
-        top:     0;
+        top:   0;
+        width: 100%;
       }
     }
   }
 
   .feedback-toggle a{
-    padding: 0.75em 1em,
+    padding: 0.75em 1em;
   }
 
   .feedback-cancel,
   .feedback-send{
-    color: #fff;
+    color:    #fff;
+    height:   2.45em;
     position: absolute;
-    width: 2.45em;
-    height: 2.45em;
+    width:    2.45em;
     svg.icon{
-      width: 1.4em;
       height: 1.4em;
+      width:  1.4em;
     }
   }
 
@@ -170,9 +164,9 @@
     }
 
     .step2{
-      visibility: hidden;
       position: absolute;
       top: 0;
+      visibility: hidden;
     }
 
     h2 .step2{
@@ -195,7 +189,7 @@
       border-style:  none solid solid;
       border-width:  medium 1px 1px;
       color:         $gray-lighter;
-      font-size: $font-size-slightly-smaller;
+      font-size:     $font-size-slightly-smaller;
       margin-bottom: 0.5em;
       padding:       0 0.5em 0.5em;
       position:      relative;
@@ -204,16 +198,16 @@
     }
 
     .feedback-error{
-      color: red;
+      color: $error;
       position: absolute;
-      visibility: hidden;
       top: 0;
+      visibility: hidden;
     }
     .feedback-counter,
     .feedback-text{
-       &.error{
-         border-color: red;
-       }
+      &.error{
+        border-color: $error;
+      }
      }
 
     .feedback-text {
@@ -254,9 +248,9 @@
 
   .feedback-spinner {
     background-color:    rgba(0, 0, 0, 0.75);
-    background-image:    url(spinner.gif);
-    background-repeat:   no-repeat;
+    background-image:    url('spinner.gif');
     background-position: center center;
+    background-repeat:   no-repeat;
     bottom:              0;
     color:               #fff;
     display:             none;

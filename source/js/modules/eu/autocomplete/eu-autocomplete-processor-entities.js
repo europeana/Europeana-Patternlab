@@ -116,7 +116,7 @@ define(['jquery'], function($){
 
   function process(term, data, ops){
 
-    var dataList = data['contains'];
+    var dataList = data['items'] ? data['items'] : data['contains'];
 
     if(!dataList){
       log('no result (return)');

@@ -21,6 +21,7 @@ $entity-panel-colour:           #eee;
 .summary-column{
   .header-bio{
     display:        block;
+    margin-bottom:  2.6em;
     text-transform: uppercase;
 
     &.js-hidden{
@@ -52,6 +53,7 @@ $entity-panel-colour:           #eee;
 
 .entity-main .eu-accordion-tabs{
   background-color: #fff;
+  margin-bottom:    $space-double;
   overflow:         hidden;
 
   &.as-tabs{
@@ -70,7 +72,7 @@ $entity-panel-colour:           #eee;
   }
 
   .tab-content{
-    padding: 0.6em 0 0.6em 1.2em
+    padding: 0.6em 0 0.6em 0;
   }
 
   .tab-header.loading + .tab-content::after{
@@ -86,7 +88,7 @@ $entity-panel-colour:           #eee;
   .tab-header.js-last::after{
     border-bottom: 1px solid #ccc;
     bottom: -1px;
-    content: " ";
+    content: ' ';
     left: 100%;
     position: absolute;
     width: 100em;
@@ -99,6 +101,12 @@ $entity-panel-colour:           #eee;
 
     &.js-hidden{
       display: none;
+    }
+  }
+
+  @media all and (min-width: $bp-large){
+    .tab-content{
+      padding: 0.6em 0 0.6em 1.2em;
     }
   }
 
@@ -223,7 +231,7 @@ $entity-panel-colour:           #eee;
       min-width: 9.5em;
 
       &.commas{
-        &:not(:last-child):after {
+        &:not(:last-child)::after{
           content: ',';
         }
       }
@@ -283,8 +291,8 @@ $entity-panel-colour:           #eee;
 
 .entity-related-outer{
   background-color: #fff;
-  padding:          1em 4em;
   margin:           2em 0;
+  padding:          1em 4em;
 
   @media all and (min-width: $bp-med) {
     padding: 1em 2.5em;
@@ -316,7 +324,7 @@ $entity-panel-colour:           #eee;
       &.svg-icon-user-after-white,
       &.svg-icon-location-after-white{
         padding-right: 1.85em;
-        &:after{
+        &::after{
           content:       ' ';
           height:        2.1em;
           position:      absolute;

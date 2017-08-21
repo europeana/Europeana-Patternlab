@@ -1,52 +1,45 @@
-//Pagination
 .pagination {
-	overflow: hidden;
-	margin-bottom: $space;
-	text-align: center;
-	font-size: 0;
+  font-size: 0;
+  margin: $space 0 $space-double 0;
+  overflow: hidden;
+  text-align: center;
 
-	li {
-		display: inline-block;
-		border-right: 1px solid $grey2;
-		@include fontSize(16px);
+  li {
+    @include fontSize(16px);
 
-		&:last-child {
-			border: 0;
-		}
-	}
+    border-right: 1px solid $grey2;
+    display: inline-block;
 
-	a {
-		padding: $pad-half $pad;
-		display: block;
-		font-weight: bold;
-		color: $textcolour_body;
-		&:hover{
-			background-color: $offwhite;
-			color: $textcolour_body;
-		}
-	}
+    &:last-child {
+      border: 0;
+    }
+  }
 
+  a {
+    color: $textcolour_body;
+    display: block;
+    font-weight: bold;
+    padding: $pad-half $pad;
 
-	.is-disabled a{
+    &:hover{
+      background-color: $offwhite;
+      color: $textcolour_body;
+    }
+  }
 
-		cursor: default;
-		pointer-events: none;
-		cursor: default;
-		/*
-		&:hover{
-			background-color: inherit;
-			color: inherit;
-		}
-		*/
-	}
+  .is-disabled a{
+    cursor: default;
+    pointer-events: none;
+  }
 
-	.current a, .is-current a{
-		color: $white;
-		font-weight: bold;
-		background-color: $textcolour_body;
+  .current a,
+  .is-current a{
+    background-color: $textcolour_body;
+    color: $white;
+    font-weight: bold;
 
-		&:hover{
-			background-color: $textcolour_link;
-		}
-	}
+    &:hover{
+      background-color: $textcolour_link;
+    }
+  }
 }

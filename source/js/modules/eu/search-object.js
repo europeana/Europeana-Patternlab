@@ -758,24 +758,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   }
 
-  function bindShowInlineSearch(){
-    $('.item-nav-show').on('click', function(e){
-      e.preventDefault();
-      var btn = $(e.target);
-      btn.hide();
-      btn.prev('.content').show();
-      btn.prev('.content').find('form .item-search-input').focus();
-      $('.after-header-with-search').addClass('search-open');
-    });
-  }
-
-  function initPage(){
+  function initPage(searchForm){
     bindAnalyticsEvents();
     bindAnalyticsEventsSocial();
     bindAttributionToggle();
     bindDownloadButton();
     bindMetadataButton();
-    bindShowInlineSearch();
+
+    searchForm.bindShowInlineSearch();
+
     updateTechData({target:$('.single-item-thumb a')[0]});
 
     if(channelData == null){
@@ -848,8 +839,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   return {
-    initPage: function(){
-      initPage();
+    initPage: function(searchForm){
+      initPage(searchForm);
     },
     getAnalyticsData: function(){
       return getAnalyticsData();

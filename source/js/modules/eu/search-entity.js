@@ -7,7 +7,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   var cmpTabs           = $('.eu-accordion-tabs');
   var accordionTabs     = null;
   var template          = null;
+  var thumbless         = false;
   var heightAddedByLast = 0;
+  var pageW             = $(document).width();
 
   function log(msg){
     console.log('Entity: ' + msg);
@@ -78,17 +80,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
-  function bindShowInlineSearch(){
-    $('.item-nav-show').on('click', function(e){
-      e.preventDefault();
-      var btn = $(e.target);
-      btn.hide();
-      btn.prev('.content').show();
-      btn.prev('.content').find('form .item-search-input').focus();
-      $('.after-header-with-search').addClass('search-open');
-    });
-  }
-
   function initAccordionTabs(){
 
     var getLoadParams = function(base, present){
@@ -103,73 +94,99 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       return base ? base.split('?')[0] + '?' + $.param(params) : '';
     };
 
-    var loadMoreItems = function(url, $tabContent, header, tabIndex){
 
-      var items  = $tabContent.find('.results .result-items');
+    var loadMoreItems = function($tabContent, contentUrl, tabIndex, callback){
 
-      url = getLoadParams(header.data('content-url'), $tabContent.find('.search-list-item').length);
-
-      header.addClass('loading');
+      var items = $(selActiveResult);
+      var url   = getLoadParams(contentUrl, $tabContent.find('.search-list-item').length);
 
       loadMasonryItems(url, function(res){
 
+        totals[tabIndex] = res.total;
+
         var toAppend     = res.rendered;
         var lastAppended = null;
-        var dripFeed     = function(index){
-
-          index           = index + 1;
-          var spaceToFill = hasSpaceToFill($tabContent);
-
-          if(spaceToFill > 0){
-            if(index < toAppend.length){
-              appendItem(index);
-              return;
-            }
-            else{
-              if($tabContent.find('.search-list-item').length < totals[tabIndex]){
-                var newUrl = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
-                loadMoreItems(newUrl, $tabContent, header, tabIndex);
-                return;
-              }
-            }
-          }
-          else{
-            if(heightAddedByLast > 200 && spaceToFill < -200){
-              lastAppended.empty().remove();
-              cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
-              require(['masonry', 'jqImagesLoaded'], function(Masonry){
-                masonries[tabIndex].destroy();
-                masonries[tabIndex] = makeMasonry(Masonry);
-                masonries[tabIndex].layout();
-              });
-            }
-          }
-          header.removeClass('loading');
-          if(items.find('.search-list-item').length >= totals[tabIndex]){
-            $tabContent.find('.show-more-mlt').addClass('js-hidden');
-          }
-        };
 
         var appendItem = function(index){
+
           var item   = $(toAppend[index]);
           var hasImg = item.find('img').length > 0;
 
+          var afterAppend = function(){
+
+            var spaceToFill = hasSpaceToFill($tabContent);
+            lastAppended    = item;
+            index           = index + 1;
+
+            item.removeAttr('style');
+
+            if($(selActiveResult + ' .search-list-item').length < 13 || spaceToFill > 0){
+
+              if(index < toAppend.length){
+                appendItem(index);
+                return;
+              }
+              else{
+                if($tabContent.find('.search-list-item').length < totals[tabIndex]){
+                  loadMoreItems($tabContent, contentUrl, tabIndex, callback);
+                  return;
+                }
+                else{
+                  if(callback){
+                    callback(res);
+                  }
+                }
+              }
+
+            }
+            else{
+
+              if(lastAppended && heightAddedByLast > 30){
+
+                lastAppended.empty().remove();
+                cmpTabs.css('height', (parseInt(cmpTabs.css('height')) - heightAddedByLast) + 'px');
+                require(['masonry', 'jqImagesLoaded'], function(Masonry){
+                  masonries[tabIndex].destroy();
+                  masonries[tabIndex] = makeMasonry(Masonry);
+                  if(masonries[tabIndex]){
+                    masonries[tabIndex].layout();
+                  }
+                  if(callback){
+                    callback(res);
+                  }
+                });
+              }
+              else{
+                if(callback){
+                  callback(res);
+                }
+              }
+
+            }
+          };
+
           if(hasImg){
             item.imagesLoaded(function(){
-              masonries[tabIndex].layout();
-              dripFeed(index);
+              applyImgStyling(item.find('.item-image'));
+              if(masonries[tabIndex]){
+                masonries[tabIndex].appended(item);
+                masonries[tabIndex].layout();
+              }
+              afterAppend();
             });
+
             items.append(item);
-            applyImgStyling(item.find('.item-image'));
-            masonries[tabIndex].appended(item);
+
           }
           else{
             items.append(item);
-            masonries[tabIndex].appended(item);
-            masonries[tabIndex].layout();
-            dripFeed(index);
+
+            if(masonries[tabIndex]){
+              masonries[tabIndex].appended(item);
+              masonries[tabIndex].layout();
+            }
+            afterAppend();
           }
-          lastAppended = item;
         };
         appendItem(0);
       });
@@ -188,54 +205,63 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             var header = $('.entity-main .tab-header:eq(' + tabIndex + ')');
             if(header.hasClass('js-loaded')){
               log('call masonry layout (open tab)');
-              masonries[tabIndex].layout();
+              if(masonries[tabIndex]){
+                masonries[tabIndex].layout();
+              }
             }
             else {
 
-              var url  = getLoadParams(header.data('content-url'), $tabContent.find('.results .result-items').length);
+              var url  = getLoadParams(header.data('content-url'), $(selActiveResult).length);
               template = $('#js-template-entity-tab-content');
 
               header.addClass('loading');
 
-              loadMasonryItems(url, function(res){
-                $tabContent.find('.results').append(''
-                  + '<ol class="result-items display-grid cf not-loaded">'
-                  +   '<li class="grid-sizer"></li>'
-                  +   res.rendered.join('')
-                  + '</ol>'
-                );
-                cmpTabs.scrollTop(0);
+              $tabContent.find('.results').append(''
+                + '<ol class="result-items display-grid cf not-loaded">'
+                +   '<li class="grid-sizer"></li>'
+                + '</ol>'
+              );
 
-                if(typeof res.total == 'undefined'){
-                  console.warn('Expected @total from ' + url);
-                }
-                else{
-                  var linkMore = $tabContent.find('.show-more-mlt');
+              initMasonry(function(){
 
-                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
-                  linkMore.removeClass('js-hidden');
+                loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
 
-                  totals[tabIndex] = res.total;
+                  if(typeof res.total == 'undefined'){
+                    console.warn('Expected @total from ' + url);
+                  }
+                  else{
 
-                  if($tabContent.find('.results .search-list-item').length >= totals[tabIndex]){
+                    if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
+                      var linkMore = $tabContent.find('.show-more-mlt');
+                      linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
+                      linkMore.removeClass('js-hidden');
+                    }
+                  }
+
+                  if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
                     $tabContent.find('.show-more-mlt').addClass('js-hidden');
                   }
 
-                }
-
-                initMasonry(function(){
                   header.removeClass('loading').addClass('js-loaded');
-                  if(hasSpaceToFill($tabContent)){
-                    loadMoreItems(url, $tabContent, header, tabIndex);
-                  }
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+
                 });
+
               });
 
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  var w = $(document).width();
+                  if(w != pageW){
+                    pageW = w;
+                    thumblessLayout();
+                    setTimeout(function(){
+                      euAccordionTabs.fixTabContentHeight(cmpTabs);
+                    }, 100);
+                  }
                 });
               });
+
             }
           }
         }
@@ -244,14 +270,29 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function hasSpaceToFill($tabContent){
-    var margin = 220;
-    return $('.summary-column').height() - ($tabContent.height() + margin);
+    if($('.nav-toggle-menu').is(':visible')){
+      return 0;
+    }
+    return $('.summary-column').height() - $tabContent.height();
   }
 
   function applyImgStyling($item){
     if($item.height() > 650){
       $item.addClass('super-tall');
     }
+  }
+
+  function thumblessLayout(){
+    if(!thumbless){
+      return;
+    }
+    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 40;
+    var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
+
+    $('.summary-column').css({
+      'top': offset,
+      'margin-bottom': offset
+    });
   }
 
   function loadMasonryItems(url, callback){
@@ -263,8 +304,13 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         $.getJSON(url).done(function(data){
           var rendered = [];
           $.each(data.search_results, function(i, ob){
-            rendered.push('<li>' + Mustache.render(template.text(), ob) + '</li>');
+            rendered.push('<li style="visibility:hidden;">' + Mustache.render(template.text(), ob) + '</li>');
           });
+
+          if(url.indexOf('&page=1')>-1){
+            $('body').append('<ul style="visibility:hidden; position:absolute; top:-1000%;">' + rendered.join() + '</ul>');
+          }
+
           callback({
             rendered:        rendered,
             total:           data.total ? data.total.value : 0,
@@ -288,57 +334,63 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     });
   }
 
+
   function initMasonry(callback){
 
     var $cmp = $(selActiveResult);
     $cmp.removeClass('not-loaded');
+
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
       var masonry = makeMasonry(Masonry);
       masonries.push(masonry);
 
       $cmp.on('layoutComplete', function(){
-        var prevHeight = parseInt(cmpTabs.css('height'));
+        var prevHeight    = parseInt(cmpTabs.css('height'));
         accordionTabs.fixTabContentHeight(cmpTabs);
-        var newHeight  = parseInt(cmpTabs.css('height'));
+        var newHeight     = parseInt(cmpTabs.css('height'));
         heightAddedByLast = newHeight - prevHeight;
       });
 
-      $cmp.imagesLoaded().done(function(){
-        $('.item-image').each(function(i, ob){
-          applyImgStyling($(ob));
-        });
-        log('call masonry layout (done)');
-        masonry.layout();
-        if(callback){
-          callback();
-        }
-      });
+      if(callback){
+        callback(masonry);
+      }
+
     });
+
   }
 
-  function checkThumbnail(){
+  function getImgRedirectSrc(callback){
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function() {
+      if (req.readyState === 4){
+        callback(req.responseURL);
+      }
+    };
+
+    req.open('GET', $('.js-test-thumb').prop('src').replace('\'', '%27'), true);
+    req.send();
+  }
+
+  function checkThumbnail(trueSrc){
+
     require(['jqImagesLoaded'], function(){
       $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
+
         if($broken.length == 1){
-          require(['util_resize'], function(){
-            var thumblessLayout = function(){
-              var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
-              var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
-              $('.summary-column').css({
-                'top': offset,
-                'margin-bottom': offset
-              });
-            };
-            $(window).europeanaResize(function(){
-              thumblessLayout();
-            });
-            $('.entity-main-thumb').remove();
-            $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
-            thumblessLayout();
-          });
+
+          $('.entity-main-thumb').remove();
+          $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
+
+          thumbless = true;
+          thumblessLayout();
         }
         else{
+          if($('.js-test-thumb').attr('src') != trueSrc){
+            $('.entity-main-thumb').css('background-image', 'url("' + trueSrc + '")');
+          }
           $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
         }
       });
@@ -350,9 +402,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     $(window).bind('showCarousel', function(e, ops){
       showCarouselIfAvailable(ops);
     });
-    bindShowInlineSearch();
+    form.bindShowInlineSearch();
     initAccordionTabs();
-    checkThumbnail();
+
+    getImgRedirectSrc(checkThumbnail);
+
     scrollEvents.fireAllVisible();
   }
 
@@ -361,4 +415,5 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       initPage(euSearchForm);
     }
   };
+
 });

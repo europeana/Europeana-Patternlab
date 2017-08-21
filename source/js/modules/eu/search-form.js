@@ -6,6 +6,17 @@ define(['jquery', 'util_resize'], function ($){
     console.log('SearchForm: ' + msg);
   }
 
+  function bindShowInlineSearch(){
+    $('.item-nav-show').on('click', function(e){
+      e.preventDefault();
+      var btn = $(e.target)[0].nodeName.toUpperCase() == 'BUTTON' ? $(e.target) : $(e.target).closest('button');
+      btn.hide();
+      btn.prev('.content').show();
+      btn.prev('.content').find('form .item-search-input').focus();
+      $('.after-header-with-search').addClass('search-open');
+    });
+  }
+
   function sizeInput(){
     var input = form.find('.js-search-input');
 
@@ -162,6 +173,9 @@ define(['jquery', 'util_resize'], function ($){
   return {
     submit : function(){
       form.submit();
+    },
+    bindShowInlineSearch : function(){
+      bindShowInlineSearch();
     }
   };
 
