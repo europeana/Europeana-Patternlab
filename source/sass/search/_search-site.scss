@@ -335,9 +335,7 @@ html.redirecting{
       }
     }
   }
-
 }
-
 
 .channel-hero{
   background-position: 50% 80%;
@@ -367,7 +365,6 @@ html.redirecting{
   > .channel-newstuff,
   .channel-description,
   .channel-stats{
-    //margin-bottom: $space;
     padding-top: $space;
     @media all and (max-width: $bp-med) {
       margin-bottom: 0;
@@ -960,7 +957,7 @@ html.redirecting{
   .entry-point-link {
     font-size: $font-size-slightly-smaller;
   }
-  
+
   .entry-point-image {
     height: 2.5em;
     object-fit: contain;
@@ -1321,7 +1318,7 @@ html.redirecting{
 
 
 // LANGUAGE SELECTION PAGE
-.language-selection{
+.language-selection {
   background: $white;
   padding: 0 $space;
 
