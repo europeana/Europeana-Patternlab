@@ -1,4 +1,4 @@
-@import "../scss/iconography/_svg-icons-channels";
+@import '../scss/iconography/svg-icons-channels';
 
 html.redirecting{
   display: table;
@@ -9,7 +9,7 @@ html.redirecting{
     min-height: 100vh;
     position: relative;
   }
-  body:after{
+  body::after{
     background-color: rgba(0, 0, 0, 0.5);
     color:      #fff;
     content:    ' ';
@@ -23,14 +23,14 @@ html.redirecting{
 }
 
 .logo {
-  background-image: url("../../images/europeana-logo-collections.png");
+  background-image: url('../../images/europeana-logo-collections.png');
   .svg &{
-    background-image: url("../../images/europeana-logo-collections.svg");
-      @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        background-image: url("../../images/europeana-logo-symbol.svg");
-        min-width:50px;
-        max-width:50px;
-      }
+    background-image: url('../../images/europeana-logo-collections.svg');
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+      background-image: url('../../images/europeana-logo-symbol.svg');
+      max-width: 50px;
+      min-width: 50px;
+    }
   }
 }
 
@@ -52,17 +52,15 @@ html.redirecting{
 
 .hero-contents{
 
+  @include translate (0, -50%);
   position: relative;
-
+  top: 50%;
   z-index: 9;
 
-  top: 50%;
-  @include translate (0, -50%);
-
   @media all and (min-width: $bp-med) {
-    position: absolute;
-    left: 50%;
     @include translate (-50%, -50%);
+    left: 50%;
+    position: absolute;
     width: 50em;
   }
 
@@ -72,16 +70,16 @@ html.redirecting{
 
   .strapline{
     display: none;
-    max-width: 50em;
     margin: 0 auto;
+    max-width: 50em;
+    padding: $space-half $space;
     word-wrap: normal;
 
-    padding: $space-half $space;
-
     @media all and (min-width: $bp-med) {
-      padding: $pad;
       display: block;
+      padding: $pad;
     }
+
   }
 }
 
@@ -100,16 +98,17 @@ html.redirecting{
   }
 }
 
-.section, .promo-topcontent{
-  @include pad(1/4);
+.section,
+.promo-topcontent {
+  @include pad(1 / 4);
 }
 .section-box{
   padding: $space;
 }
 
 .section-divider {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 3.2rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 3.2rem;
 }
 
 .promo-topcontent{
@@ -117,16 +116,15 @@ html.redirecting{
   border-bottom: 3px solid $gray-lighter;
 
   > .lc {
-    text-align: center;
-    padding: $space;
     margin: $space-half auto;
+    padding: $space;
+    text-align: center;
   }
 
   h2{
-    margin: 0;
     font-weight: normal;
     line-height: 1.2;
-  }
+    margin: 0;}
 
   a{
     background-image: linear-gradient(to top,
@@ -144,25 +142,18 @@ html.redirecting{
 }
 
 .promo-list{
-
-  padding-top: $space-quarter;
   padding-top: 1.05634vw;
 
   @media all and (min-width: $bp-med) {
-    padding-top: $space-half;
     padding-top: 1.05634vw;
   }
 }
 
 .promo-list .list-item{
-
-  margin-bottom: $space-half;
-  margin-bottom: 1.634vw;
-  position: relative;
-
-  min-height: 10em;
-  min-height: 49vw;
   font-size: 5vw;
+  margin-bottom: 1.634vw;
+  min-height: 49vw;
+  position: relative;
 
   @media all and (min-width: $bp-small) {
     font-size: 3.5vw;
@@ -170,27 +161,27 @@ html.redirecting{
   }
 
   @media all and (min-width: $bp-small-3) {
-    min-height: 32vw;
     font-size: 2vw;
+    min-height: 32vw;
   }
 
   @media all and (min-width: $bp-large) {
     @include span(6 of 24 split);
-    min-height: 24vw;
     font-size: 1.4vw;
+    min-height: 24vw;
   }
 
   @media all and (min-width: 80em) {
-    min-height: 16vw;
     font-size: 1.25vw;
+    min-height: 16vw;
   }
 }
 
 .home-promo .list-item{
   @media all and (min-width: 120em) {
     @include span(6 of 48 split);
-    min-height: 11.5vw;
     font-size: 0.8vw;
+    min-height: 11.5vw;
   }
 
   &.list-item-wide{
@@ -258,34 +249,28 @@ html.redirecting{
 
 // Channel landing specific
 .above-hero {
-  /*
-  @media all and (min-width: $bp-small) {
-    margin-top: $globalnavheight;
-  }
-  */
   margin-top: $globalnavheight;
 }
 
-.exhibitions-list .list-item{
-
-  width: 100%;
-  min-height: 39vw;
+.exhibitions-list .list-item {
   margin-left: 0;
   margin-right: 0;
+  min-height: 39vw;
+  width: 100%;
 
   @media all and (min-width: $bp-med) {
     float: left;
-    min-height: 39vw;
     margin-left: 1%;
     margin-right: 1%;
+    min-height: 39vw;
     width: 48%;
   }
 
   @media all and (min-width: $bp-large) {
     float: left;
-    min-height: 16vw;
     margin-left: 1%;
     margin-right: 1%;
+    min-height: 16vw;
     width: 18%;
   }
 
@@ -295,27 +280,25 @@ html.redirecting{
     }
 
     @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-      width: 48%;
       margin-left: 1%;
       margin-right: 1%;
+      width: 48%;
     }
 
     @media all and (min-width: $bp-large) {
-      width: 38%;
       margin-left: 1%;
       margin-right: 1%;
+      width: 38%;
     }
 
   }
 }
 
 .soundcloud{
-  background-color: #FC5B1F;
-  //border: 1px solid $gray-lighter;
-  background-size: inherit;
-  background-repeat: no-repeat;
+  background-color: #fc5b1f;
   background-position: 84% 50%;
-
+  background-repeat: no-repeat;
+  background-size: inherit;
   .inner{
     @media all and (min-width: $bp-small) {
       width: 50%;
@@ -341,7 +324,7 @@ html.redirecting{
     align-items: center;
   }
 
-  & > div{
+  > div{
     @media all and (min-width: $bp-med) {
       @include span(12 of 24);
       text-align: left;
@@ -364,9 +347,9 @@ html.redirecting{
 }
 
 .channel-info{
-  padding: 0 $space;
-  margin-top: $space;
   margin-bottom: 0;
+  margin-top: $space;
+  padding: 0 $space;
 }
 
 .channel-intro{
@@ -381,7 +364,7 @@ html.redirecting{
     line-height: inherit;
   }
 
-  & > .channel-newstuff,
+  > .channel-newstuff,
   .channel-description,
   .channel-stats{
     //margin-bottom: $space;
@@ -396,9 +379,9 @@ html.redirecting{
     display: flex;
     .link-text{
       @media all and (min-width: $bp-large) {
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
         width: 11em;
       }
       @media all and (min-width: $bp-xl){
@@ -409,12 +392,12 @@ html.redirecting{
       }
     }
     .link-date{
-        margin-left: $pad-half;
+      margin-left: $pad-half;
     }
 
     .link-number{
-        margin-left: $pad-half;
-      }
+      margin-left: $pad-half;
+    }
 
     @media all and (min-width: $bp-med) {
       display: inline-flex;
@@ -460,8 +443,8 @@ html.redirecting{
 }
 
 .channel-social{
-  padding-left: 0;
   margin-bottom: $space;
+  padding-left: 0;
 }
 
 .collection-social{
@@ -476,9 +459,9 @@ html.redirecting{
   .icon-github,
   .icon-pinterest{
     color: $linkblue;
-    width: 2.4em;
     height: 2.4em;
     margin-right: 0.5em;
+    width: 2.4em;
   }
 }
 
@@ -491,8 +474,8 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include span(last 10 of 24);
-    padding: $space;
     border-left: 1px solid $gray-lighter;
+    padding: $space;
   }
   @media all and (min-width: $bp-large) {
     @include span(last 5 of 24);
@@ -503,7 +486,8 @@ html.redirecting{
     font-weight: bold;
   }
 
-  a:hover, a:focus{
+  a:hover,
+  a:focus{
     border-bottom: 1px dotted $textcolour_link_hover;
   }
 }
@@ -524,26 +508,27 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include span(19 of 24);
+    padding-left: $pad;
+
     .filter-list li {
       width: 18%;
     }
-    padding-left: $pad;
   }
 
   @media all and (min-width: $bp-small) and (max-width: $bp-med) {
     @include span(24 of 24);
+    padding-left: $pad;
     .filter-list li {
       width: 25%;
     }
-    padding-left: $pad;
   }
 
   @media all and (max-width: $bp-small) {
     @include span(24 of 24);
+    padding-left: $pad;
     .filter-list li {
       width: 50%;
     }
-    padding-left: $pad;
   }
 
   ul{
@@ -554,11 +539,9 @@ html.redirecting{
 
   li > a{
     display: table;
-    width: 100%;
-    //line-height: 1;
-    margin-bottom: $space-quarter;
     height: 4em;
-
+    margin-bottom: $space-quarter;
+    width: 100%;
   }
 
   span{
@@ -567,14 +550,14 @@ html.redirecting{
 
   .filter-list li {
     display: inline-block;
-    padding-right: 1em;
     margin-bottom: $space;
+    padding-right: 1em;
   }
 
   .link-text{
-    width: 40%;
     font-weight: bold;
     padding-right: 0.5em;
+    width: 40%;
   }
   .link-number{
     width: 30%;
@@ -584,12 +567,12 @@ html.redirecting{
   }
 
   .colour-results{
+    height: 1px;
+    left: auto;
+    overflow: hidden;
     position: absolute;
     top: -999999em;
-    left: auto;
     width: 1px;
-    height: 1px;
-    overflow:hidden;
 }
 
   .colour-name{
@@ -598,8 +581,8 @@ html.redirecting{
 }
 
 .colour-hex{
-    font-size: $font-size-slightly-smaller;
-  }
+  font-size: $font-size-slightly-smaller;
+}
 
 
 .channel-info{
@@ -613,9 +596,8 @@ html.redirecting{
 
 
 .browse-entry-list{
-
-  margin-bottom: $space;
   display:       block;
+  margin-bottom: $space;
   position:      relative;
 
   .list-item-more{
@@ -623,9 +605,8 @@ html.redirecting{
   }
   .list-item-more,
   .list-item {
-    position: relative;
     min-height: 0;
-
+    position: relative;
     @media all and (min-width: $bp-small) and (max-width: $bp-med) {
       @include gallery(12 of 24);
     }
@@ -642,16 +623,16 @@ html.redirecting{
     text-align:   right;
 
     @media all and (min-width: $bp-small) and (max-width: $bp-small-2){
-      border-top:    1px solid $eu-blue;
       border-bottom: 1px solid $eu-blue;
+      border-top:    1px solid $eu-blue;
       margin-left:   -100%;
       width:         200%;
     }
 
     @media all and (min-width: $bp-small-2){
       bottom:       0;
-      position:     absolute;
       margin-right: 1em;
+      position:     absolute;
       right:        0;
     }
 
@@ -659,8 +640,8 @@ html.redirecting{
       font-size:    small;
     }
 
-    &:after{
-      content: "..."
+    &::after{
+      content: '...';
     }
   }
 
@@ -736,11 +717,11 @@ html.redirecting{
 }
 
 
-.channel-social{
-  .lc{
+.channel-social {
+  .lc {
     border-top: 6px solid $offwhite;
-    text-align: center;
     padding: $space-double;
+    text-align: center;
   }
 }
 
@@ -815,8 +796,8 @@ html.redirecting{
     padding-right: 0;
 
     @media all and (min-width: $bp-med) {
-      width: 25%;
       float: left;
+      width: 25%;
     }
 
     h4{
@@ -825,9 +806,8 @@ html.redirecting{
 
     .social-share{
       display:         flex;
-      justify-content: space-between;
-
       font-size:     0.6em;
+      justify-content: space-between;
       margin-bottom: 0;
       margin-top:    $pad;
       padding-right: 0;
@@ -895,8 +875,8 @@ html.redirecting{
   text-transform: uppercase;
 }
 
-.editor-picks-header{
-
+.editor-picks-header {
+  margin-bottom:  0;
   padding: $pad-double 0 $pad-half 0;
 
   @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
@@ -906,8 +886,6 @@ html.redirecting{
   @media all and (min-width: $bp-med) {
     padding: $pad-double 0 $pad-half 0.75%;
   }
-
-  margin-bottom:  0;
 }
 
 .landing-featured{
@@ -956,72 +934,88 @@ html.redirecting{
 }
 
 .entry-points{
-
-  &:first-of-type{
-    border-top:   1px solid #dedede;
-    margin-top:   1.5em;
-  }
-
-  margin-bottom:  0.75em;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 0.75em;
   padding-bottom: 1em;
-  border-bottom:  1px solid #dedede;
 
-  .entry-point{
-    position:     relative;
+  &:first-of-type {
+    border-top: 1px solid #dedede;
+    margin-top: 1.5em;
   }
 
-  .entry-points-title{
-    color:            $medium-gray;
-    display:          inline-block;
-    font-size:        $font-size-slightly-smaller;
-    font-weight:      bold;
-    margin:           0.4rem 0 1.25em 0;
-    text-transform:   uppercase;
+  .entry-point {
+    position: relative;
+  }
+
+  .entry-points-title {
+    color: $medium-gray;
+    display: inline-block;
+    font-size: $font-size-slightly-smaller;
+    font-weight: bold;
+    margin: 0.4rem 0 1.25em 0;
+    text-transform: uppercase;
   }
 
   .entry-points-title,
-  .entry-point-link{
+  .entry-point-link {
     font-size: $font-size-slightly-smaller;
   }
-
-  .entry-point-image{
-    width:      2.5em;
-    height:     2.5em;
+  
+  .entry-point-image {
+    height: 2.5em;
     object-fit: contain;
+    width: 2.5em;
   }
 
-  .entry-point-link{
-    position:  relative;
+  .entry-point-link {
+    position: relative;
   }
 
-  .entry-point-text{
-    display:     inline-block;
-    margin:      0.2em 0 0.2em 0;
-    position:    relative;
-    top:         50%;
-    transform:   translateY(-50%);
+  .entry-point-text {
+    display: inline-block;
+    margin: 0.2em 0 0.2em 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 
     @media all and (min-width: $bp-med){
       margin-left: $pad-half;
     }
   }
 
-  @media all and (min-width: $bp-small-3) and (max-width: $bp-med){
-
-    margin-top:   1em;
-    margin-left:  1%;
+  @media all and (min-width: $bp-small-3) and (max-width: $bp-med) {
+    margin-left: 1%;
     margin-right: 1%;
-    width:      48%;
+    margin-top: 1em;
+    width: 48%;
 
-    &:first-of-type{
-      border-top: none;
-      margin-top:   1em;
+    &:first-of-type {
+      border-top: 0;
+      margin-top: 1em;
     }
-    &:last-of-type{
+
+    &:last-of-type {
       margin-top: 0;
-      position:   absolute;
-      right:      0;
-      top:        0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    margin: 0 0 0.75em 0;
+    width: 100%;
+
+    &:first-of-type {
+      border-top: 1px solid #dedede;
+      margin-top: 1.5em;
+    }
+
+    &:last-of-type {
+      margin-top: 0;
+      position: relative;
+      right: auto;
+      top: auto;
     }
 
   }
@@ -1059,8 +1053,8 @@ html.redirecting{
   }
 
   .js-carousel-date{
-    font-size: $font-size-sm;
     color: $gray-light;
+    font-size: $font-size-sm;
     margin-left: 0.25em;
   }
 
@@ -1070,8 +1064,8 @@ html.redirecting{
     color:          #fff;
     font-size:      $font-size-sm;
     font-weight:    normal;
-    position:       absolute;
     padding:        0.1em 0.6em;
+    position:       absolute;
     right:          2em;
     text-transform: uppercase;
   }
@@ -1120,12 +1114,11 @@ html.redirecting{
   }
 
   .landing-text-inner{
-
-    position:        relative;
     display:         flex;
-    height:          100%;
     flex-direction:  column;
+    height:          100%;
     justify-content: space-between;
+    position:        relative;
 
     .opening{
       align-self: flex-start;
@@ -1158,10 +1151,10 @@ html.redirecting{
       border-top: 1px solid #dedede;
       padding-top: $pad;
 
-      &:after{
-        background: linear-gradient(top, rgba(255, 255, 255,0), rgba(255, 255, 255,1));
+      &::after{
+        background: linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
         bottom: 0;
-        content: " ";
+        content: ' ';
         height: 24em;
         pointer-events: none;
         position: absolute;
@@ -1197,7 +1190,7 @@ html.redirecting{
 
 @media all and (min-width: $bp-large) {
   .channels-landing-browse{
-    padding: $space $space $space*2;
+    padding: $space $space $space * 2;
   }
 
   .main-content{
@@ -1276,11 +1269,11 @@ html.redirecting{
     }
     padding-bottom: $space-triple;
 
-    & p{
+    p{
       padding-left: 0;
     }
 
-    & p:first-child{
+    p:first-child{
       font-size: 1.5625em;
     }
   }
@@ -1292,23 +1285,22 @@ html.redirecting{
 
   .opus-img {
     background-image: url('../../images/search/europeana_opus.png');
-    background-size: contain;
     background-repeat: no-repeat;
-    width: 100%;
+    background-size: contain;
     height: 0;
-    padding-top: 70.88%; /* (img-height / img-width * container-width) */
-                /* (853 / 1280 * 100) */
+    padding-top: 70.88%;
+    width: 100%;
   }
 
 }
 
 .block-content-header {
-  background-color: #DDEBEE;
+  background-color: #ddebee;
   padding: $space-double $space;
   h1{
+    color: $accent;
     margin-bottom: 0;
     margin-left: 0;
-    color: $accent;
   }
 }
 
@@ -1317,34 +1309,31 @@ html.redirecting{
     padding-top: $space-triple;
   }
 
-  & > .lc{
+  > .lc{
     max-width: 40em;
   }
 }
 
 
 .prose li {
-    margin-bottom: 0;
-  }
+  margin-bottom: 0;
+}
 
 
 // LANGUAGE SELECTION PAGE
-
-
 .language-selection{
+  background: $white;
   padding: 0 $space;
 
-  background: $white; // fallback
-
   @media all and (min-width: $bp-med) {
-    background: $offwhite; // fallback
-    @include background(linear-gradient(to right, $offwhite 0%,$offwhite 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%));
+    background: $offwhite;
+    @include background(linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%));
   }
 
   .container{
     @include container($max-width);
     @media all and (min-width: $bp-med) {
-      overflow:hidden;
+      overflow: hidden;
     }
   }
 }
@@ -1352,18 +1341,18 @@ html.redirecting{
 #settings-form{
 
   h1{
-    font-size: $font-size-norm;
-    margin-bottom: $space-half;
     font-family: $font-primary;
+    font-size: $font-size-norm;
     font-weight: bold;
+    margin-bottom: $space-half;
   }
-  .check-language{
-    .control-group{
+  .check-language {
+    .control-group {
       margin-bottom: $pad-half;
-      .title{
-        padding-top: $pad;
-        margin-bottom: $pad-half;
+      .title {
         font-size: $font-size-slightly-smaller;
+        margin-bottom: $pad-half;
+        padding-top: $pad;
       }
     }
     .field-container{
@@ -1372,20 +1361,20 @@ html.redirecting{
           font-weight: normal;
         }
         select{
-          margin-top: $pad;
           margin-left: $pad-half;
+          margin-top: $pad;
         }
       }
       label{
-        padding-top: $pad;
-        margin-bottom: $pad-half;
         font-size: $font-size-slightly-smaller;
         font-weight: bold;
+        margin-bottom: $pad-half;
+        padding-top: $pad;
       }
     }
     p{
       font-size: $font-size-slightly-smaller;
-      margin-bottom: $pad-half
+      margin-bottom: $pad-half;
     }
 
     input{
@@ -1399,13 +1388,13 @@ html.redirecting{
     }
 
     .pushbutton{
-      color: $gray-med;
-      margin-bottom: $pad;
       background: $white;
+      color: $gray-med;
+      cursor: pointer;
       font-size: $font-size-sm;
+      margin-bottom: $pad;
       padding: $pad-half;
       width: auto;
-      cursor: pointer;
       &:hover {
         background: $offwhite;
       }
@@ -1413,8 +1402,8 @@ html.redirecting{
   }
 
   .group-item {
-      padding-left: 0;
-      font-size: $font-size-slightly-smaller;
+    font-size: $font-size-slightly-smaller;
+    padding-left: 0;
   }
   .group-checkbox {
     margin: 0;
@@ -1423,9 +1412,9 @@ html.redirecting{
 }
 
 .settings-nav {
-    .level1 > li > a {
-      color: $gray87;
-    }
+  .level1 > li > a {
+    color: $gray87;
+  }
 }
 
 // clear language selection button
@@ -1434,12 +1423,12 @@ html.redirecting{
   padding: 0 $pad;
   @media all and (min-width: $bp-small-3) {
     .table-responsive-break tbody:nth-of-type(even) {
-      background-color: #F1F1EE;
+      background-color: #f1f1ee;
     }
   }
   @media all and (max-width: $bp-small-3) {
     td{
-      border-left: none;
+      border-left: 0;
     }
   }
 }
