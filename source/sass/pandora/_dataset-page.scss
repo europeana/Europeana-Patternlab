@@ -1,5 +1,3 @@
-$header-height: 4.9em;
-
 .metis-collapse-block {
   margin: 6rem auto 0;
   max-width: 1440px;
@@ -38,7 +36,7 @@ $header-height: 4.9em;
     border-right: 0;
     border-top: 5px solid $white;
     flex: 1;
-    height: $header-height;
+    height: $tab-header-height;
     line-height: 1.3em;
     padding: 0.4em 1.2em;
     position: relative;
@@ -92,7 +90,7 @@ $header-height: 4.9em;
   }
 
   .eu-accordion-tabs.as-tabs .tab-content{
-    top: calc(#{$header-height} - 5px);
+    top: calc(#{$tab-header-height} - 5px);
   }
 
   .tab-content {

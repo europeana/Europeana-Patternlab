@@ -1,0 +1,231 @@
+.header-wrapper header {
+
+  .cf {
+    border-top-color: $eu-jade;
+
+    &.loggedin-metis {
+      display: flex;
+      flex: 1;
+    }
+
+    // logo
+    .metis-logo  {
+      .logo {
+        background-image: url('../../images/metis/europeana-metis-logo.png');
+        margin-left: 1.2rem;
+        width: 100%;
+
+        .svg & {
+          background-image: url('../../images/metis/europeana-metis-logo.svg');
+
+          @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+            background-image: url('../../images/europeana-logo-symbol.svg');
+            max-width: 50px;
+            min-width: 50px;
+          }
+        }
+      }
+    }
+
+    // dashboard header: search
+    .dashboard-header {
+      flex: 2;
+      margin-left: 1.2rem;
+      padding-top: .4rem;
+
+      // searchbox
+      .search-multiterm {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+
+        // searchinput
+        .js-hitarea {
+          border: 1px solid $gray-lighter;
+          border-bottom-right-radius: 0;
+          border-right: 0;
+          border-top-right-radius: 0;
+          box-shadow: none;
+          order: 1;
+          width: 40%;
+
+          ul {
+            margin-bottom: 8px;
+            margin-top: 3px;
+            min-width: 11rem;
+            padding: 0;
+          }
+
+          li {
+            width: 100%;
+          }
+
+          input {
+            max-width: 50rem;
+          }
+
+        }
+
+        // searchbutton
+        .submitarea {
+          margin-left: 6px;
+          order: 4;
+
+          .search-submit {
+            height: 100%;
+          }
+        }
+
+        // searchmenu
+        nav {
+          background-color: $white;
+          border: 1px solid $gray-lighter;
+          border-bottom-right-radius: 4px;
+          border-top-right-radius: 4px;
+          cursor: text;
+          font-size: 1rem;
+          line-height: 2rem;
+          margin: 0;
+          order: 3;
+          padding: .2rem .4rem;
+        }
+
+        #metis_search_menu {
+          margin-top: 8px;
+          min-width: 11rem;
+          padding: 0;
+          padding-left: 1px;
+
+          &.nav-access > li {
+            float: left;
+            min-width: 10.5rem;
+          }
+
+          .link-text {
+            padding-left: 5px;
+          }
+
+          .menu-sublevel.caret::before,
+          .menu-sublevel.caret::after {
+            content: none;
+          }
+        }
+      }
+
+      #browse-menu {
+        margin-left: 0;
+
+        .sub-arrow {
+          border-color: $opacity-black transparent transparent;
+        }
+
+        li {
+          background-color: $white;
+
+          a {
+            background-color: $white;
+          }
+        }
+      }
+
+      button,
+      input[type="submit"] {
+        background: $eu-jade;
+      }
+
+      .link-text {
+        color: $gray-light;
+      }
+    }
+
+    // dashboard header: settings menu
+
+    .dashboard-header-links {
+
+      flex: 1;
+      padding-right: 1rem;
+      padding-top: .8rem;
+
+      #settings-menu {
+        float: right;
+        min-width: 11.5rem;
+
+        // notifications
+        .notifications {
+          position: relative;
+
+          .circle {
+            background-color: $eu-jade;
+            border-radius: 50%;
+            color: $white;
+            font-size: 10px;
+            font-weight: bold;
+            height: 18px;
+            left: -36px;
+            line-height: 18px;
+            margin: 0 auto 10px;
+            position: absolute;
+            text-align: center;
+            top: 21px;
+            width: 18px;
+          }
+
+          @-moz-document url-prefix() {
+            .circle {
+              left: -97px;
+              top: 40px;
+            }
+          }
+        }
+
+        .svg-icon-user-signin,
+        .svg-icon-notifications,
+        .svg-icon-loggedin-user,
+        .svg-icon-configuration,
+        .svg-icon-form-field-calendar   {
+          float: left;
+          height: 3em;
+          margin-right: .8rem;
+          width: 3em;
+        }
+
+        .svg-icon-user-signin {
+          height: 2em;
+          margin-bottom: -1em;
+          margin-right: -.3em;
+          transform: scale(.7) translateY(-.3em);
+          width: 2em;
+        }
+
+        .svg-icon-notifications {
+          transform: scale(0.6) translateY(-0.5em);
+        }
+
+        .svg-icon-loggedin-user,
+        .svg-icon-configuration  {
+          margin-bottom: -1em;
+          transform: scale(.7) translateY(-.3em);
+        }
+
+        .svg-icon-form-field-calendar {
+          transform: scale(.6) translateY(-.3em);
+        }
+
+        // user details
+        .metis-user {
+          .sub-arrow {
+            display: none;
+          }
+
+          ul li ul.menu-sublevel::before {
+            left: 38px;
+          }
+          ul li ul.menu-sublevel::after {
+            left: 39px;
+          }
+        }
+      }
+    }
+  }
+}
+

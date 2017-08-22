@@ -1,0 +1,13 @@
+.hidden {
+  display: none;
+}
+
+.block-with-text {
+  @include multiLineEllipsis($maxWidth: 10.3em, $lineHeight: 1.2em, $lineCount: 3);
+}
+
+.dropdown {
+  margin-left: -1em;
+  margin-top: 10px;
+}
+

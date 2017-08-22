@@ -1,0 +1,70 @@
+// mapping card related layout
+.working-space {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-large {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-menu {
+  background-color: $white;
+  display: inline-block;
+  float: left;
+  font-size: .75em;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  width: 11em;
+}
+
+.container-search-box {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  width: 17.5em;
+}
+
+.flex-container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+    float: left;
+  }
+
+  .flex-item,
+  .flex-inner-item {
+    color: $white;
+    height: 50px;
+    line-height: 50px;
+    padding: 5px;
+    text-align: center;
+    width: 230px;
+  }
+
+  .flex-inner-item {
+    padding: 5px;
+    width: 70px;
+
+    &:hover {
+      background: $eu-blue;
+    }
+  }
+
+  .indent {
+    padding-left: 10px;
+  }
+}

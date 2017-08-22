@@ -11,16 +11,16 @@
       </div>
       <div class="form-fields">
         <fieldset class="form-group">
-          <legend class="register-form-header">{{full_name_field.label}}</legend>
+          <label for="firstName">{{full_name_field.label}}</label>
           <input id="firstName" autocomplete="off" name='firstName' placeholder="{{full_name_field.first_name_placeholder}}"/>
           <input id="lastName"  autocomplete="off" name='lastName'  placeholder="{{full_name_field.last_name_placeholder}}"/>
         </fieldset>
         <fieldset class="form-group">
-          <legend class="register-form-header">{{email_field.label}}</legend>
+          <label for="email">{{email_field.label}}</label>
           <input id="email" autocomplete="off" type='email' name='email' placeholder="{{email_field.placeholder}}"/>
         </fieldset>
         <fieldset class="form-group">
-          <legend class="legend-heading">{{password_field.label}}</legend>
+          <label for="password">{{password_field.label}}</label>
           <input id="password" autocomplete="off" type='password' name='password' placeholder="{{password_field.placeholder}}"/>
         </fieldset>
         <div class="form-requirements-warning">
