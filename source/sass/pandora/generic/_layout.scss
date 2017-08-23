@@ -1,3 +1,29 @@
+// metis main content
+.metis-main-content {
+  margin-top: 4.8rem;
+  min-height: calc(100vh - 52rem); // keeping the footer at the bottom even when there is not enough content to push it down.
+}
+
+@-moz-document url-prefix() {
+  .metis-main-content {
+    min-height: calc(100vh - 47rem);
+  }
+}
+
+// dashboard wrapper
+.dashboard-wrapper {
+  background-color: $offwhite;
+  display: inline-block;
+  margin-top: 4.8em;
+  min-height: 100vh; // TODO: remove temp stylings.
+  padding: 0 1.2rem;
+  width: 100%;
+
+  .metis-dashboard {
+    padding: 1rem;
+  }
+}
+
 // mapping card related layout
 .working-space {
   height: 100%;

@@ -115,20 +115,21 @@ $susy: (
 @import './tools/ellipsis-mixin';
 
 @import './generic/form';
+@import './generic/form-custom';
 @import './generic/helpers';
 @import './generic/layout';
 
 @import './components/accordion';
+@import './components/banner';
 @import './components/breadcrumbs';
 @import './components/collapse-block';
 @import './components/dashboard-header';
+@import './components/sitehero';
 
 @import '../search/search-site';
-@import 'select-organizations';
+//@import 'select-organizations';
 @import 'user-approval-form';
 @import 'site';
-@import './homepage-metis';
-@import './dashboard';
 @import './dataset-info-form';
 @import './user_profile';
 @import './partials/dataset-info-block';
