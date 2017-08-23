@@ -1,0 +1,30 @@
+.metis-collapse-block {
+  margin: 6rem auto 0;
+  max-width: 1440px;
+  padding-top: 5px;
+
+  .metis-dataset-name,
+  .metis-dataset-collapse-toggle {
+    display: block;
+    float: left;
+  }
+
+  .metis-dataset-collapse-toggle {
+    float: right;
+
+    .metis-info-toggle {
+      margin-right: 1rem;
+
+      i.fa.fa-expand {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  hr {
+    background: $gray80;
+    height: 1px;
+    margin-bottom: 1rem;
+  }
+
+}

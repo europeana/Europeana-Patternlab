@@ -1,5 +1,9 @@
+body {
+  background-image: none;
+}
+
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .block-with-text {
@@ -10,4 +14,3 @@
   margin-left: -1em;
   margin-top: 10px;
 }
-
