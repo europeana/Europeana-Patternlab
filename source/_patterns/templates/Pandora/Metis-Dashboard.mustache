@@ -8,18 +8,18 @@
 
 <!-- Start Main page content -->
 <div class="dashboard-wrapper">
+
+    {{> atoms/text/welcome-message }}
+
     <div class="metis-dashboard">
-        {{> atoms/text/welcome-message }}
+        <div class="metis-dashboard-left">
+            {{> atoms/buttons/double_btns }}
+        </div>
+        <div class="metis-dashboard-right">
+            {{> atoms/pandora/table/user-requests-table }}
+        </div>
     </div>
-    <div>
-        {{> atoms/buttons/double_btns }}
-    </div>
-    <div>
-    	{{> atoms/pandora/table/user-requests-table }}
-    </div>
-    <div>
-        {{> atoms/pandora/table/user-requests-table }}
-    </div>
+    
 </div>
 <!-- End main content -->
 

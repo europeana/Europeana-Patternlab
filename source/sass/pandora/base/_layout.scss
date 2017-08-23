@@ -1,3 +1,5 @@
+@import '../../scss/grid/susy/layout_susy';
+
 // metis main content
 .metis-main-content {
   margin-top: 4.8rem;
@@ -21,7 +23,17 @@
 
   .metis-dashboard {
     padding: 1rem;
+
+    .metis-dashboard-left {
+      @include span(8);
+    }
+
+    .metis-dashboard-right {
+      @include span(last 16);
+    }
+
   }
+
 }
 
 // mapping card related layout

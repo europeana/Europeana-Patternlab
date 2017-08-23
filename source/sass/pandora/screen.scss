@@ -114,10 +114,10 @@ $susy: (
 @import './settings/metis-variables';
 @import './tools/ellipsis-mixin';
 
-@import './generic/form';
-@import './generic/form-custom';
-@import './generic/helpers';
-@import './generic/layout';
+@import './base/form';
+@import './base/form-custom';
+@import './base/helpers';
+@import './base/layout';
 
 @import './components/accordion';
 @import './components/banner';
