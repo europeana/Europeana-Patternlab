@@ -320,7 +320,6 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include flexbox();
-    -webkit-align-items: center;
     align-items: center;
   }
 
@@ -354,7 +353,6 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include flexbox();
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
@@ -530,7 +528,6 @@ html.redirecting{
 
   ul{
     @include flexbox();
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
@@ -1323,8 +1320,7 @@ html.redirecting{
   padding: 0 $space;
 
   @media all and (min-width: $bp-med) {
-    background: $offwhite;
-    @include background(linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%));
+    background: linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
   }
 
   .container{
