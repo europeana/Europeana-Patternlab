@@ -3,11 +3,14 @@
 
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
-    {{#ugc_content}}
-      {{#include_1418_nav}}
-        {{>molecules/navigation/e7a1418-nav}}
-      {{/include_1418_nav}}
-    {{/ugc_content}}
+    <div style="background-color:red; color:#fff; padding: 0 8px;">The new bar</div>
+    {{#disabled}}
+      {{#ugc_content}}
+        {{#include_1418_nav}}
+          {{>molecules/navigation/e7a1418-nav}}
+        {{/include_1418_nav}}
+      {{/ugc_content}}
+    {{/disabled}}
     {{#object.media}}
       <section class="object-display" id="maincontent">
       </section>
