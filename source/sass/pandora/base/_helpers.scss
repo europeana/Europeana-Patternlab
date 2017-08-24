@@ -18,3 +18,20 @@ body {
 .btns-set {
   background-color: $white;
 }
+
+.load-more-btn {
+  background: none;
+  border-radius: 0;
+  color: $eu-jade;
+
+  &::after {
+    color: $gray80;
+    content: '\f142';
+    display: inline-block;
+    font-family: fontawesome;
+    font-size: 0.8rem;
+    line-height: inherit;
+    padding-left: 1rem;
+  }
+
+}
