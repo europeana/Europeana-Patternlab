@@ -114,13 +114,15 @@
   .feedback .feedback-toggle a {
     left: 100%;
     transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
     transform-origin: bottom left;
+    -webkit-transform-origin: bottom left;
   }
-  /* line 104, style.scss */
+  /* line 106, style.scss */
   .feedback .feedback-toggle a.open:hover, .feedback .feedback-toggle a.open:focus {
     background: #212121;
   }
-  /* line 109, style.scss */
+  /* line 111, style.scss */
   .feedback .feedback-toggle a.close {
     background-color: #293745;
   }
@@ -131,7 +133,7 @@
     transform: translateY(-100%);
   }
 }
-/* line 120, style.scss */
+/* line 122, style.scss */
 .feedback .feedback-toggle a,
 .feedback .feedback-cancel,
 .feedback .feedback-send {
@@ -140,7 +142,7 @@
   padding: 0.5em;
 }
 @media all and (max-width: 50em) {
-  /* line 127, style.scss */
+  /* line 129, style.scss */
   .feedback .feedback-toggle a.close,
   .feedback .feedback-cancel.close,
   .feedback .feedback-send.close {
@@ -148,11 +150,11 @@
     width: 100%;
   }
 }
-/* line 135, style.scss */
+/* line 137, style.scss */
 .feedback .feedback-toggle a {
   padding: 0.75em 1em;
 }
-/* line 139, style.scss */
+/* line 141, style.scss */
 .feedback .feedback-cancel,
 .feedback .feedback-send {
   color: #fff;
@@ -160,50 +162,50 @@
   position: absolute;
   width: 2.45em;
 }
-/* line 145, style.scss */
+/* line 147, style.scss */
 .feedback .feedback-cancel svg.icon,
 .feedback .feedback-send svg.icon {
   height: 1.4em;
   width: 1.4em;
 }
-/* line 151, style.scss */
+/* line 153, style.scss */
 .feedback .feedback-cancel {
   background-color: #ccc;
 }
-/* line 155, style.scss */
+/* line 157, style.scss */
 .feedback .feedback-send {
   right: 0;
 }
-/* line 159, style.scss */
+/* line 161, style.scss */
 .feedback #feedback-form {
   margin: 1em;
   padding-bottom: 3em;
 }
-/* line 162, style.scss */
+/* line 164, style.scss */
 .feedback #feedback-form .controls.step1 {
   position: relative;
 }
-/* line 166, style.scss */
+/* line 168, style.scss */
 .feedback #feedback-form .step2 {
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 172, style.scss */
+/* line 174, style.scss */
 .feedback #feedback-form h2 .step2 {
   color: #1676aa;
 }
-/* line 176, style.scss */
+/* line 178, style.scss */
 .feedback #feedback-form p.step2 {
   position: absolute;
   top: 4em;
 }
-/* line 181, style.scss */
+/* line 183, style.scss */
 .feedback #feedback-form .step2,
 .feedback #feedback-form .feedback-error {
   margin-top: 1.6rem;
 }
-/* line 186, style.scss */
+/* line 188, style.scss */
 .feedback #feedback-form .feedback-counter {
   border-color: #908b85 #908b85;
   border-radius: 0 0 0.5em 0.5em;
@@ -217,19 +219,19 @@
   text-align: right;
   top: -7px;
 }
-/* line 200, style.scss */
+/* line 202, style.scss */
 .feedback #feedback-form .feedback-error {
   color: #f22f24;
   position: absolute;
   top: 0;
   visibility: hidden;
 }
-/* line 208, style.scss */
+/* line 210, style.scss */
 .feedback #feedback-form .feedback-counter.error,
 .feedback #feedback-form .feedback-text.error {
   border-color: #f22f24;
 }
-/* line 213, style.scss */
+/* line 215, style.scss */
 .feedback #feedback-form .feedback-text {
   border-color: #908b85 #908b85 -moz-use-text-color;
   border-image: none;
@@ -243,27 +245,27 @@
   padding: 0.5em 0.5em 0;
   resize: none;
 }
-/* line 227, style.scss */
+/* line 229, style.scss */
 .feedback #feedback-form ul li {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 231, style.scss */
+/* line 233, style.scss */
 .feedback #feedback-form ul li input {
   position: relative;
 }
-/* line 235, style.scss */
+/* line 237, style.scss */
 .feedback #feedback-form ul li label,
 .feedback #feedback-form ul li input {
   display: inline;
   white-space: nowrap;
 }
-/* line 242, style.scss */
+/* line 244, style.scss */
 .feedback #feedback-form h2 {
   font-size: 20px;
   margin: 0;
 }
-/* line 249, style.scss */
+/* line 251, style.scss */
 .feedback .feedback-spinner {
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url("spinner.gif");
