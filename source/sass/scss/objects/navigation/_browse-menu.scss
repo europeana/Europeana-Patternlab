@@ -1,22 +1,24 @@
-#browse-menu{
-  @media all and (max-width: $bp-med) {
-    display: none;
+#browse-menu {
+  display: none;
+  @media all and (min-width: $bp-med) {
+    display: inline;
   }
 
-  >li{
+  >li {
     padding: 0.75rem;
-    ul.menu-sublevel.caret.sm-nowrap{
-        &:after{
-          top: -15px;
-        }
-        &:before{
-          top: -17px;
-        }
+    ul.menu-sublevel.caret.sm-nowrap {
+      &::after {
+        top: -15px;
       }
+      &::before {
+        top: -17px;
+      }
+    }
   }
-  li{
+
+  li {
     background-color: #293745;
-    a{
+    a {
       background-color: #293745;
       color: #fff;
       text-transform: capitalize;
@@ -24,58 +26,56 @@
     }
   }
 
-
-  span.sub-arrow{
+  span.sub-arrow {
     border-color: #fff transparent transparent;
     margin-left:  4em;
   }
-  .menu-sublevel{
+
+  .menu-sublevel {
     background-color: $white;
-
-    min-width: unset;
+    margin-left: 1rem;
     max-width: unset;
+    min-width: unset;
 
-    li{
+    li {
       background-color: #293745;
-      a{
+      a {
         background-color: $white;
         color: $textcolour_body;
-        &:hover{
+        &:hover {
           background-color: $offwhite;
         }
       }
     }
   }
-
-  margin-left: 1rem;
 }
 
-.browse-menu-mobile{
-
+.browse-menu-mobile {
+  background-color: $white;
+  box-sizing: content-box;
+  color: #000;
   display: table;
+  margin-top: $space;
+  padding: 0.5em 3.1rem 0.5em 0.4rem;
+  width: 100%;
+
   @media all and (min-width: $bp-med) {
     display: none;
   }
 
-  background-color: white;
-  box-sizing: content-box;
   @media all and (max-width: $bp-small-3) {
     box-sizing: border-box;
   }
 
-  color: #000;
-  margin-top: $space;
-  padding: 0.5em 3.1rem 0.5em 0.4rem;
   @media all and (max-width: $bp-small-2) {
     padding: 0.5em 0.4rem 0.5em 0.4rem;
   }
-  
-  width: 100%;
+
   .browse-options{
     color: $eu-blue;
     display: table-cell;
-    width: 100%;
     white-space: nowrap;
+    width: 100%;
 
     .browse-option{
       display: inline-block;
@@ -94,7 +94,7 @@
     border-left: 1px solid transparent;
     display: table-cell;
     white-space: nowrap;
-    &:after{
+    &::after{
       content: ':';
       margin-right: 1em;
     }

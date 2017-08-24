@@ -41,8 +41,7 @@
   }
 
   @media all and (min-width: $bp-med) {
-    @include background(linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%));
-    background: $offwhite;
+    background: linear-gradient(to right, $offwhite 0%, $offwhite 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
   }
 
   .container{
