@@ -1,9 +1,11 @@
 .channels-item {
+
   background: $offwhite;
 
   .helpbar {
     background: $white;
-    font-size: $font-size-norm;
+    font-size:  $font-size-norm;
+    padding:    0 $pad;
   }
 
   .object-media-wrap  {
@@ -14,6 +16,12 @@
   h2.object-title,
   .subtitle {
     color: $eu-blue;
+  }
+
+  @media all and (max-width: $bp-med) {
+    .helpbar {
+      padding: 0 2.5rem;
+    }
   }
 
 }
