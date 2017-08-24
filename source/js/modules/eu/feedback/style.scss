@@ -96,9 +96,11 @@
 
       @media all and (min-width: $bp-med) {
 
-        left:              100%;
-        transform:         rotate(270deg);
-        transform-origin:  bottom left;
+        left:                     100%;
+        transform:                rotate(270deg);
+        -webkit-transform:        rotate(270deg);
+        transform-origin:         bottom left;
+        -webkit-transform-origin: bottom left;
 
         &.open {
           &:hover,
