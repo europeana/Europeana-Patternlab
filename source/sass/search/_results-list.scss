@@ -177,9 +177,9 @@
 
 
   >h2{
-    @include fontSize(16px);
-    color: $textcolour_body;
-    font-weight: bold;
+    @include        fontSize(16px);
+    color:          $textcolour_body;
+    font-weight:    bold;
     text-transform: uppercase;
   }
 }
@@ -195,7 +195,8 @@
 }
 
 .refine .eu-tooltip{
-  transform: translate(-0.8em, -1.1em);
+  -webkit-transform: translate(-0.8em, -1.1em);
+  transform:         translate(-0.8em, -1.1em);
 }
 
 .action-select,
@@ -491,18 +492,19 @@
 
 
 .fed-res-expand{
-  border:       1px solid $medium-gray;
-  color:        $medium-gray;
-  display:      block;
-  float:        right;
-  font-size:    1.6rem;
-  height:       2rem;
-  position:     absolute;
-  right:        2em;
-  text-align:   center;
-  top:          50%;
-  transform:    translate(100%, -50%);
-  width:        2rem;
+  border:            1px solid $medium-gray;
+  color:             $medium-gray;
+  display:           block;
+  float:             right;
+  font-size:         1.6rem;
+  height:            2rem;
+  position:          absolute;
+  right:             2em;
+  text-align:        center;
+  top:               50%;
+  -webkit-transform: translate(100%, -50%);
+  transform:         translate(100%, -50%);
+  width:             2rem;
 
   &.loading{
     cursor: progress;
@@ -546,23 +548,25 @@
 
   @media all and (min-width: $bp-med) {
 
-    font-size:    1.2em;
-    height:       1.2em;
-    margin-right: 1em;
-    position:     relative;
-    right:        auto;
-    top:          auto;
-    transform:    translate(0, -0.18em);
-    width:        1.2em;
+    font-size:         1.2em;
+    height:            1.2em;
+    margin-right:      1em;
+    position:          relative;
+    right:             auto;
+    top:               auto;
+    -webkit-transform: translate(0, -0.18em);
+    transform:         translate(0, -0.18em);
+    width:             1.2em;
 
     .label-collapse,
     .label-expand{
-      display:     block;
-      font-size:   0.75em;
-      position:    absolute;
-      top:         0.22em;
-      transform:   translateX(-120%);
-      white-space: nowrap;
+      display:           block;
+      font-size:         0.75em;
+      position:          absolute;
+      top:               0.22em;
+      -webkit-transform: translateX(-120%);
+      transform:         translateX(-120%);
+      white-space:       nowrap;
     }
 
     .icon-label-collapse,
@@ -573,9 +577,10 @@
     }
 
     .icon-label-collapse{
-      left:      -0.039em;
-      top:       -0.05em;
-      transform: scale(0.6);
+      left:              -0.039em;
+      top:               -0.05em;
+      -webkit-transform: scale(0.6);
+      transform:         scale(0.6);
     }
 
     .icon-label-expand{
@@ -809,24 +814,28 @@
           }
 
           .svg-icon-image-grey-lighter{
-            height:    1.5em;
-            transform: scale(4) translateY(82%);
-            width:     1.4em;
+            height:            1.5em;
+            -webkit-transform: scale(4) translateY(82%);
+            transform:         scale(4) translateY(82%);
+            width:             1.4em;
           }
           .svg-icon-music-grey-lighter{
-            height:    1.8em;
-            transform: scale(3.5) translate(-5%, 83%);
-            width:     1.36em;
+            height:            1.8em;
+            -webkit-transform: scale(3.5) translate(-5%, 83%);
+            transform:         scale(3.5) translate(-5%, 83%);
+            width:             1.36em;
           }
           .svg-icon-openbook-grey-lighter{
-            height:    1.8em;
-            transform: scale(3.5) translateY(85%);
-            width:     1.36em;
+            height:            1.8em;
+            -webkit-transform: scale(3.5) translateY(85%);
+            transform:         scale(3.5) translateY(85%);
+            width:             1.36em;
           }
           .svg-icon-tv-grey-lighter{
-            height:    1.48em;
-            transform: scale(3.5) translateY(100%);
-            width:     1.4em;
+            height:            1.48em;
+            -webkit-transform: scale(3.5) translateY(100%);
+            transform:         scale(3.5) translateY(100%);
+            width:             1.4em;
           }
         }
       }
@@ -867,7 +876,8 @@
         }
 
         > h3{
-          transform: translateY(0.5em);
+          -webkit-transform: translateY(0.5em);
+          transform:         translateY(0.5em);
         }
 
         .svg-icon{
