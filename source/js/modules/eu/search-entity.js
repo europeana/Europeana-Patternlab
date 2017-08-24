@@ -286,7 +286,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     if(!thumbless){
       return;
     }
-    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 20;
+    var margin = $('.entity-main-thumb-titled').height() > 0 ? 0 : 40;
     var offset = ($('.anagraphical.desktop').is(':visible') ? ($('.anagraphical.desktop').height() + margin) : 0) + 'px';
 
     $('.summary-column').css({
@@ -306,6 +306,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           $.each(data.search_results, function(i, ob){
             rendered.push('<li style="visibility:hidden;">' + Mustache.render(template.text(), ob) + '</li>');
           });
+
+          if(url.indexOf('&page=1')>-1){
+            $('body').append('<ul style="visibility:hidden; position:absolute; top:-1000%;">' + rendered.join() + '</ul>');
+          }
+
           callback({
             rendered:        rendered,
             total:           data.total ? data.total.value : 0,

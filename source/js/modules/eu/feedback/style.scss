@@ -20,7 +20,8 @@
     border-style: solid none solid solid;
     border-width: 1px medium 1px 1px;
     right: 0;
-    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform:         translateX(100%);
   }
   &.loaded{
     transition: all 0.2s ease-out 0s;
@@ -63,7 +64,8 @@
     }
 
     @media all and (min-width: $bp-med) {
-      transform: translateX(0);
+      transform:         translateX(0);
+      -webkit-transform: translateX(0);
     }
   }
 
@@ -82,7 +84,8 @@
     }
 
     @media all and (min-width: $bp-med) {
-      transform: translateX(-100%);
+      transform:         translateX(-100%);
+      -webkit-transform: translateX(-100%);
     }
 
     a {
@@ -96,9 +99,11 @@
 
       @media all and (min-width: $bp-med) {
 
-        left:              100%;
-        transform:         rotate(270deg);
-        transform-origin:  bottom left;
+        left:                     100%;
+        transform:                rotate(270deg);
+        -webkit-transform:        rotate(270deg);
+        transform-origin:         bottom left;
+        -webkit-transform-origin: bottom left;
 
         &.open {
           &:hover,
@@ -112,7 +117,8 @@
       }
 
       @media all and (max-width: $bp-med) {
-        transform: translateY(-100%);
+        transform:         translateY(-100%);
+        -webkit-transform: translateY(-100%);
       }
     }
   }
