@@ -250,7 +250,7 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
     case 'portal/show-new':
-      require(['search_object', 'search_form'], function(page, euSearchForm){
+      require(['channels_object', 'search_form'], function(page, euSearchForm){
         page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();

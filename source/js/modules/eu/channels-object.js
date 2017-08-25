@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga, Mustache) {
+define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, ga, Mustache) {
 
   ga = window.fixGA(ga);
   var channelData = null;
@@ -7,16 +7,51 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     console.log('channels-object: ' + msg);
   }
 
+  function initTitleBar(){
+    require(['util_scroll'], function(){
+      $(window).europeanaScroll(function(){
+        if($(window).scrollTop() > 500){
+          $('.title-bar').removeClass('js-hidden');
+        }
+        else{
+          $('.title-bar').addClass('js-hidden');
+        }
+      });
+    });
+  }
+
+  function initExtendedInformation(addHandler){
+    $('.channel-object-extended-information .data-section').each(function(i, ob){
+      var $ob = $(ob);
+      if($ob.find('.ctrl').length == 0){
+        $ob.append('<span class="ctrl close"><span class="icon svg-icon-minus"></span></span>');
+        $ob.append('<span class="ctrl  open"><span class="icon svg-icon-plus" ></span></span>');
+      }
+    });
+    if(addHandler){
+      $(document).on('click', '.ctrl', function(){
+        var btn = $(this);
+        if(btn.hasClass('open')){
+          btn.closest('.data-section').removeClass('closed');
+        }
+        else{
+          btn.closest('.data-section').addClass('closed');
+        }
+      });
+    }
+  }
+
   function loadAnnotations(){
 
     var template = $('#js-template-object-data-section');
 
     if(template.length > 0){
-
       require(['mustache'], function(){
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+          data.extended_information = true;
           template.after(Mustache.render(template.text(), data));
+          initExtendedInformation();
         });
       });
     }
@@ -408,43 +443,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       promisedCarousel.done(
         function(carousel){
-          // disabled unused vertical functionality
-          /*
-          var setOptimalHeight = function(v){
-            if(v){
-              var currHeight    = $('.media-thumbs').outerHeight(true);
-              var deduct        = currHeight - $('.media-thumbs').height();
-
-              $('.media-thumbs').removeAttr('style');
-              var newH = $('.media-viewer').height() - deduct;
-
-              $('.media-thumbs').css('height', newH + 'px');
-            }
-            else{
-              $('.media-thumbs').removeAttr('style');
-            }
-            carousel.resize();
-          }
-
-          carousel.vChange(function(v){
-            setOptimalHeight(v);
-          });
-
-          $('.media-viewer').on('refresh-nav-carousel', function(){
-            setOptimalHeight(carousel.isVertical());
-          });
-          */
-
-          /*
-           photoswipe wrapper triggers this when user reaches the last visible image
-           load more into the carousel then hand control back to search-image-viewer
-          */
-
           $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
             log('reached last');
             carousel.loadMore(false, data.doAfterLoad);
           });
-
           //$('.media-thumbs').on('click', 'a', updateTechData);
           //updateTechData({target:$('.media-thumbs a:first')[0]});
         }
@@ -798,7 +800,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       });
     });
 
+    initExtendedInformation(true);
     loadAnnotations();
+    initTitleBar();
 
     //$(window).bind('updateTechData', function(e, data){
     //  updateTechData(data);

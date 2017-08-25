@@ -1,4 +1,4 @@
-{{#thumbnail}}<img src="{{.}}" alt="{{object.title}}" />{{/thumbnail}}{{#playable}}<span title="  {{i18n.site.object.actions.open-media}}"
+{{#thumbnail}}<img src="{{.}}" alt="{{object.title}}" />{{/thumbnail}}{{^channel_object}}{{#playable}}<span title="  {{i18n.site.object.actions.open-media}}"
             {{#is_audio}}  class="media-clickable-indicator audio"  {{/is_audio}}
             {{#is_iiif}}   class="media-clickable-indicator iiif"   {{/is_iiif}}
             {{#is_image}}  class="media-clickable-indicator image"  {{/is_image}}
@@ -14,4 +14,4 @@
             {{#is_oembed}}<svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>  {{/is_oembed}}
             {{#is_text}}  <svg class="icon icon-eye"><use xlink:href="#icon-eye"></use></svg>  {{/is_text}}
             {{#is_video}} <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>  {{/is_video}}
-             </span>{{/playable}}
+             </span>{{/playable}}{{/channel_object}}
