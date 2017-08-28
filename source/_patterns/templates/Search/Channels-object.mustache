@@ -3,7 +3,10 @@
 
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
-    <div class="helpbar">The new bar</div>
+    <div class="helpbar">
+      <p class="helpbar-tip"><strong>Tip:</strong> hover over image for more options</p>
+      <p class="helpbar-video">Tutorial</p>
+    </div>
     {{#disabled}}
       {{#ugc_content}}
         {{#include_1418_nav}}
@@ -220,6 +223,10 @@
                         {{/single_item}}
                       </div>
 
+                      {{#subtitle}}
+                        <h3 class="subtitle">{{subtitle}}</h3>
+                      {{/subtitle}}
+
                       <div class="channel-object-description">
                         {{#description}}
                           {{#sections}}
@@ -229,7 +236,7 @@
                           {{/sections}}
                         {{/description}}
                       </div>
-
+                      
                     </div>
 
 

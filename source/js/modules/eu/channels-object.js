@@ -11,10 +11,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     require(['util_scroll'], function(){
       $(window).europeanaScroll(function(){
         if($(window).scrollTop() > 500){
-          $('.title-bar').removeClass('js-hidden');
+          $('.title-bar').addClass('show');
         }
         else{
-          $('.title-bar').addClass('js-hidden');
+          $('.title-bar').removeClass('show');
         }
       });
     });
