@@ -50,11 +50,13 @@
     }
   }
 
-  // object media + object information + extended information
+  .channel-object-information{
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  }
+
   .channel-object-information,
   .object-media-wrap  {
     background: $white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
     text-align: left;
   }
 
@@ -89,26 +91,45 @@
     }
 
     // carousel
+
     .channel-object-media-nav {
-      background: $white;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-      margin-left: calc((1.05634% + 1rem) * -1);
-      margin-right: calc((1.05634% + 1rem) * -1);
+
+      margin-left:      calc((1.05634% + 1rem) * -1);
+      margin-right:     calc((1.05634% + 1rem) * -1);
+
+      .media-thumb-section::after{
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        content:         ' ';
+        height:         70%;
+        pointer-events: none;
+        position:       absolute;
+        top:            15%;
+        width:          100%;
+      }
 
       .js-carousel-arrows.h {
         line-height: unset;
 
         a.left,
         a.right {
-          background-color: $dim07;
+          background-color:    $dim07;
           background-position: .1em .375em;
+          top:                 1.3em;
         }
       }
 
-      .js-carousel-item {
-        .mlt-img-div:hover {
-          border: 1px solid red;
-          transform: scale(1.05);
+      .mlt-img-div{
+
+        margin-bottom: 20px;
+        margin-top:    20px;
+
+        &.active,
+        &:hover{
+          height:        140px;
+          width:         140px;
+          left:          -20px;
+          margin-bottom: 0;
+          margin-top:    0;
         }
       }
 
