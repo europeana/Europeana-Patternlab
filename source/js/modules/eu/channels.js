@@ -249,6 +249,13 @@ define(['jquery', 'smartmenus'], function($){
         doForAllPages();
       });
       break;
+    case 'portal/show-new':
+      require(['channels_object', 'search_form'], function(page, euSearchForm){
+        page.initPage(euSearchForm);
+        promisedPageJS.resolve(page);
+        doForAllPages();
+     });
+    break;
     case 'portal/index':
       var loadPageJS = function(){
         require(['search_results', 'search_form'], function(page, euSearchForm){

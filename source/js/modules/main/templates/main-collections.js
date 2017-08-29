@@ -14,6 +14,7 @@ require.config({
     aurora:                        '../../lib/audiocogs/aurora',
     blacklight:                    '../../lib/blacklight/blacklight_all',
     channels:                      '../../eu/channels',
+    channels_object:               '../../eu/channels-object',
     cookie_disclaimer:             '../../eu/cookie-disclaimer',
     data_fashion_thesaurus:        '../../data/fashion-thesaurus.json',
     e7a_1418:                      '../../eu/e7a_1418',
