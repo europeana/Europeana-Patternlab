@@ -1,7 +1,3 @@
-#cookie-disclaimer {
-  display: none !important;
-}
-
 .channels-item {
 
   background: $offwhite;
@@ -107,6 +103,10 @@
         width:          100%;
       }
 
+      .js-carousel-item {
+        width: 56px;
+      }
+
       .js-carousel-arrows.h {
         line-height: unset;
 
@@ -124,18 +124,22 @@
 
       .mlt-img-div{
         background-color: transparent;
-        height:           80%;
-        margin-bottom:    20%;
-        margin-top:       20%;
-        width:            80%;
-        z-index:          1;
+        height: 100%;
+        margin-bottom: 35%;
+        margin-top: 35%;
+        transition: all 0.1s ease-out;
+        width: 100%;
+        z-index: 1;
 
-        &.active,
-        &:hover{
-          height:        110%;
-          margin-bottom: 0;
-          margin-top:    5%;
-          width:         110%;
+        &:hover {
+          border: 1px solid $gray80;
+          transform: scale(1.25);
+        }
+
+        &.active {
+          border: 1px solid $brand-twitter;
+          box-shadow: 0 1px 2px 0 $dim02;
+          transform: scale(1.6);
         }
       }
 
