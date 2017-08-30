@@ -2,6 +2,10 @@
 
   background: $offwhite;
 
+  header {
+    z-index: 2;
+  }
+
   // titlebar
   .with-transparency .object-nav {
     background: $offwhite;
@@ -167,7 +171,7 @@
       }
 
       .js-carousel-item {
-        width: 56px;
+        width: 90px;
       }
 
       .js-carousel-arrows.h {
@@ -194,11 +198,11 @@
 
       .mlt-img-div{
         background-color: transparent;
-        height: 100%;
-        margin-bottom: 35%;
-        margin-top: 35%;
+        height: 62%;
+        margin-bottom: 22%;
+        margin-top: 22%;
         transition: all 0.1s ease-out;
-        width: 100%;
+        width: 62%;
         z-index: 1;
 
         &:hover {
