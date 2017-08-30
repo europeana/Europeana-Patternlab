@@ -55,13 +55,59 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       log('init image [' + uri + '] (' + w + '/' + h + ')');
 
+      var bindZoom = function(zoomLevels){
+
+        if(zoomLevels > 0){
+
+          var $el = $('.channel-object-overview');
+
+          $('.media-option.zoom-in').on('click', function(){
+
+            if($el.hasClass('zoom-one') && zoomLevels > 1){
+              $el.addClass('zoom-two');
+              log('TODO: disable the zoom-in button');
+            }
+            else{
+              $('.channel-object-overview').addClass('zoom-one');
+
+              log('TODO: enable the zoom-out button');
+
+              if(zoomLevels < 2){
+                log('TODO: disable the zoom-in button');
+              }
+            }
+          });
+
+          $('.media-option.zoom-out').on('click', function(){
+
+            if($el.hasClass('zoom-two')){
+              $el.removeClass('zoom-two');
+            }
+            else{
+              $el.removeClass('zoom-one');
+              log('TODO: disable the zoom-out button');
+            }
+            log('TODO: enable the zoom-in button');
+          });
+        }
+        else{
+          log('TODO: disable the zoom buttons');
+        }
+      }
+
       require(['jqImagesLoaded'], function(){
-        $('.object-media-nav').append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function($images){
-          $('.media-viewer .playable img').attr('src', uri);
+        var mediaNav = $('.object-media-nav');
+        mediaNav.append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function($images){
+          $('.object-media-viewer .playable img').attr('src', uri);
+          setTimeout(function(){
+            bindZoom(Math.floor($images[0].naturalWidth/1000))
+          }, 500)
         });
       });
 
     }
+
+
   }
 
   function loadAnnotations(){
@@ -468,7 +514,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       promisedCarousel.done(
         function(carousel){
-          $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
+          $('.object-media-viewer').on('object-media-last-image-reached', function(evt, data){
             log('reached last');
             carousel.loadMore(false, data.doAfterLoad);
           });
@@ -695,7 +741,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     // Redirect
 
-    $('.media-viewer .external-media').not('.playable').on('click', function(){
+    $('.object-media-viewer .external-media').not('.playable').on('click', function(){
       var href =  $(this).attr('href');
       ga('send', {
         hitType: 'event',
@@ -851,7 +897,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       var title        = $('h2.object-title').text();
       var canonicalUrl = encodeURIComponent( $('[property="og:url"]').attr('content') );
-      var imageUrl     = $('.media-viewer a').attr('href');
+      var imageUrl     = $('.object-media-viewer a').attr('href');
 
       if(imageUrl){
         imageUrl     = imageUrl.split('?view=')[1];

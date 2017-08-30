@@ -124,7 +124,7 @@
     {{! Main object text info section }}
     <section class="section object-details">
 
-      <div class="object-overview">
+      <div class="channel-object-overview">
         {{#object}}
           <div>
             {{#media}}
@@ -145,7 +145,7 @@
                 {{/empty_item}}
 
                 {{^empty_item}}
-                  <div class="media-viewer">
+                  <div class="object-media-viewer">
                     {{#single_item}}
                       {{#items}}
                         <div class="single-item-thumb">
@@ -157,10 +157,28 @@
                     {{^single_item}}
                       {{#items}}
                         {{#is_current}}
-                          <div class="multi-item-poster{{#playable}} contains-playable{{/playable}}">
-                            <a {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                          <div class="media-poster{{#playable}} contains-playable{{/playable}}">
+                            <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
                               {{>molecules/components/thumb-icon}}
-                            </a>
+                              <span class="media-options">
+
+                                <span class="media-option-group">
+                                  <span class="media-option">share</span>
+                                  <span class="media-option">download</span>
+                                  <span class="media-option">info</span>
+                                </span>
+
+                                <span class="media-option-group">
+                                  <a class="white"><span class="media-option zoom-in  svg-icon-zoom-in"></span></a>
+                                  <a class="white"><span class="media-option zoom-out svg-icon-zoom-out"></span></a>
+                                </span>
+
+                                <span class="media-option-group">
+                                  <span class="media-option">link</span>
+                                </span>
+                              </span>
+                            </div>
+
                           </div>
                         {{/is_current}}
                       {{/items}}
@@ -240,7 +258,7 @@
                       <div class="channel-object-viewmore">
                         <a href="#" class="viewmore-image" style="background-image: url('/images/sample/object_thumbnail.jpg');"></a>
                         <h3>Johannes Vermeer</h3>
-                        <a href="">View more</a>                         
+                        <a href="">View more</a>
                       </div>
 
                     </div>

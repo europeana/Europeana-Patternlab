@@ -6,6 +6,20 @@
     z-index: 2;
   }
 
+  .channel-object-overview:not(.zoom-one) .object-media-wrap:not(.empty){
+    .channel-object-media-nav  .media-thumb-section::after{
+      top: 1.55em;
+    }
+  }
+
+  .channel-object-overview:not(.zoom-two){
+    @media all and (min-width: $bp-med) {
+      @include span(18);
+    }
+  }
+
+
+
   // titlebar
   .with-transparency .object-nav {
     background: $offwhite;
@@ -90,16 +104,75 @@
       }
     }
 
-    .media-viewer {
-      text-align: center;
+    .object-media-viewer {
 
-      @media all and (min-width: $bp-xl) {
-        text-align: left;
-      }
+      box-sizing:    padding-box;
+      margin:        auto;
+      padding-left:  $space;
+      padding-right: $space;
+      position:      relative;
+      text-align:    center;
+      width:         100%;
 
       .title-desc-media-nav{
         text-align: left;
       }
+      .playable{
+
+        position: relative;
+
+        .media-options{
+
+          background-color: $dim;
+          color:            #fff;
+          cursor:           default;
+          display:          flex;
+          margin-left:      -1em;
+          margin-top:       -6em;
+          opacity:          0;
+          padding:          1rem 2rem 3rem 2rem;
+          position:         relative;
+          transition:       opacity 1s ease-out;
+          width:            calc(100% + 2rem);
+
+          .media-option-group{
+
+            display: flex;
+            margin:  0 0.5em;
+
+            &:first-of-type{
+              margin-left:   0;
+              border-right:  1px solid #fff;
+              padding-right: 0.5em;
+            }
+            &:last-of-type{
+              border-left:  1px solid #fff;
+              margin-right: 0;
+              padding-left: 0.5em;
+            }
+          }
+          .media-option{
+
+            cursor:  pointer;
+
+            &.zoom-in,
+            &.zoom-out{
+              display: block;
+              height:  1.5em;
+              width:   1.5em;
+            }
+          }
+        }
+
+        &:hover{
+          .media-options{
+            opacity:   1;
+          }
+        }
+
+      }
+
+
     }
 
     .channel-object-viewmore {
@@ -159,7 +232,7 @@
 
           @media all and (min-width: $bp-xl) {
             left: 1.5%;
-            top: 1.55em;
+//            top: 1.55em;
             width: 97%;
           }
         }
@@ -170,8 +243,13 @@
         margin: 0 2rem;
       }
 
+      .js-carousel {
+        padding-left:  1em;
+        padding-right: 1em;
+      }
+
       .js-carousel-item {
-        width: 90px;
+        width: 56px;
       }
 
       .js-carousel-arrows.h {
@@ -198,11 +276,11 @@
 
       .mlt-img-div{
         background-color: transparent;
-        height: 62%;
-        margin-bottom: 22%;
-        margin-top: 22%;
+        height: 100%;
+        margin-bottom: 35%;
+        margin-top: 35%;
         transition: all 0.1s ease-out;
-        width: 62%;
+        width: 100%;
         z-index: 1;
 
         &:hover {
@@ -305,16 +383,19 @@
 
   @media all and (min-width: $bp-xl) {
 
-    .channel-object-media-nav,
-    .channel-object-description,
-    .channel-object-title {
-      display:       inline-block;
-      position:      relative;
+    .channel-object-overview:not(.zoom-two){
+      .object-media-viewer {
+        max-width: $max-width;
+      }
     }
 
-    .object-media-wrap:not(.empty) {
-      padding-bottom: $pad-double;
-      padding-right: $pad-double;
+    .channel-object-overview:not(.zoom-one){
+
+      .object-media-wrap{
+        padding-bottom: $pad-double;
+        padding-right: $pad-double;
+
+      }
 
       .channel-object-title {
         display: block;
@@ -335,39 +416,35 @@
           margin-right: -0.65em;
           order: 4;
           width: calc(100% + 1.3em);
+
+          .media-thumb-section{
+            margin: 1em 0;
+          }
+
         }
 
         .channel-object-viewmore {
           order: 5;
         }
+      }
 
+      .object-media-viewer {
+        display:         flex;
+        justify-content: space-between;
+        text-align:      left;
+      }
+
+      .single-item-thumb,
+      .media-poster{
+        display:   inline-block;
+        margin:    0;
+        max-width: 400px;
+      }
+      .single-item-thumb-sizer{
+        visibility: hidden;
       }
     }
 
-    .channel-object-media-nav{
-
-      width: 100%;
-
-      .media-thumb-section{
-        margin: 1em 0;
-      }
-    }
-
-    .media-viewer {
-      display:         flex;
-      justify-content: space-between;
-      text-align:      left;
-    }
-
-    .single-item-thumb,
-    .multi-item-poster{
-      display:  inline-block;
-      margin:   0;
-    }
-    .single-item-thumb-sizer{
-      visibility: hidden;
-    }
-
-  }
+  } // end bp-xl
 
 }

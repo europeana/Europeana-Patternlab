@@ -34,6 +34,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       var appender       = appender;
 
       var inView         = 0; // num items currently visible in viewport
+      var paddingSide    = 0;
       var position       = 1; // index of currently viewed item
 
       var perPage        = (opsIn.perPage && typeof parseInt(opsIn.perPage) == 'number') ? parseInt(opsIn.perPage) : appender.getDataCount();
@@ -233,12 +234,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       };
 
       var anchor = function(){
+
         animating = true;
-        items.css(edge, '0');
+        items.css(edge, getZero());
 
         var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
 
         cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
+          'offset' : paddingSide ? 0 - paddingSide : 0,
           'onAfter' : function(){
           var done = function(){
             animating = false;
@@ -249,7 +252,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             items.css(edge, spacing + 'px');
           }
           else{
-            items.css(edge, '0');
+            items.css(edge, getZero());
           }
           done();
         }
@@ -322,7 +325,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       }
       ascertainVerticality();
 
-      var cmpD   = vertical ? cmp.height() : cmp.width();
+      var cmpD      = vertical ? cmp.height() : cmp.width();
+      var cmpDOuter = cmp.outerWidth(false);
+
+      if(cmpD != cmp.outerWidth(false)){
+        paddingSide = (cmpDOuter - cmpD) / 2;
+      }
+
       var itemD  = null;
       var first  = items.find('.' + classData.itemClass + '').first();
 
@@ -348,7 +357,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         cmp.css('margin',  'auto');
         items.css(vertical ? 'height' : 'width', 'auto');
         items.find('.' + classData.itemClass           ).css('margin-left', minSpacingPx + 'px');
-        items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
+        items.find('.' + classData.itemClass + ':first').css('margin-left', getZero() + 'px');
         spacing = minSpacingPx;
         inView  = totalAvailable;
         return;
@@ -356,8 +365,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
           maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
-
-      spacing = minSpacingPx;
 
       if(maxFit == 1){
         spacing = (cmpD - itemD) / 2;
@@ -372,8 +379,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
       if(maxFit != 1){
-        items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
+        items.find('.' + classData.itemClass + ':first').css('margin-' + edge, getZero() + 'px');
       }
+
       items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
       anchor();
 
@@ -407,6 +415,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       items.css(edge, '0');
 
       cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
+        'offset' : paddingSide ? 0 - paddingSide : 0,
         'onAfter' : function(){
           var done = function(){
             animating = false;
@@ -425,6 +434,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       });
     };
 
+    var getZero = function(){
+      if(!vertical && paddingSide){
+        return paddingSide + '';
+      }
+      return '0';
+    }
+
     var scrollForward = function(){
 
       var nextIndex = position + inView;
@@ -438,10 +454,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       position = nextIndex;
 
-      items.css(edge, '0');
+      items.css(edge, getZero());
       animating = true;
 
       cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
+        'offset' : paddingSide ? 0 - paddingSide : 0,
         'onAfter' : function(){
           var done = function(){
             cmp.removeClass('loading');
@@ -453,7 +470,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             items.css(edge, spacing + 'px');
           }
           else{
-            items.css(edge, '0');
+            items.css(edge, getZero());
           }
 
           done();
