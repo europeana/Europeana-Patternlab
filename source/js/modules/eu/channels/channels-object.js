@@ -439,6 +439,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     if($('.object-media-nav li').length > 1){
 
       // keep reference to carousel for thumb strip updates
+
+      data['minSpacingPx'] = 0;
       var promisedCarousel = initCarousel($('.media-thumbs'), data);
 
       promisedCarousel.done(
