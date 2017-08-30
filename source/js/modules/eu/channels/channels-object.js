@@ -41,6 +41,29 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
   }
 
+  function initMedia(index){
+
+    log('initMedia: ' + index);
+    var item = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
+    var type = item.data('type');
+
+    if(type == 'image'){
+
+      var uri  = item.data('uri');
+      var h    = item.data('height');
+      var w    = item.data('width');
+
+      log('init image [' + uri + '] (' + w + '/' + h + ')');
+
+      require(['jqImagesLoaded'], function(){
+        $('.object-media-nav').append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function($images){
+          $('.media-viewer .playable img').attr('src', uri);
+        });
+      });
+
+    }
+  }
+
   function loadAnnotations(){
 
     var template = $('#js-template-object-data-section');
@@ -810,6 +833,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     //  updateTechData(data);
     //});
 
+    initMedia(0);
+
+    /*
     $('.media-viewer').trigger('media_init');
 
     $('.single-item-thumb [data-type="oembed"]').trigger('click');
@@ -817,6 +843,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     $('.single-item-thumb [data-type="iiif"]').trigger('click');
     $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
+    */
 
     scrollEvents.fireAllVisible();
 
