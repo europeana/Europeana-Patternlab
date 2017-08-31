@@ -1,7 +1,8 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, ga, Mustache) {
 
   ga = window.fixGA(ga);
-  var channelData = null;
+  var channelData        = null;
+  var mediaThumbCarousel = null;
 
   function log(msg){
     console.log('channels-object: ' + msg);
@@ -43,9 +44,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function initMedia(index){
 
-    log('initMedia: ' + index);
-    var item = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
-    var type = item.data('type');
+    var item        = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
+    var type        = item.data('type');
+    var downloadUri = item.data('download-uri');
+    var thumbnail   = item.data('thumbnail');
+
+    $('.object-media-nav .js-carousel-item .mlt-img-div').removeClass('active');
+    item.closest('.mlt-img-div').addClass('active');
 
     if(type == 'image'){
 
@@ -100,25 +105,42 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             }
           });
         }
-
-        $('.media-option.download').on('click', function(){
-          alert('download')
-        });
-
       }
+
+      $('.media-option.download').on('click', function(){
+          alert('download')
+      });
 
       require(['jqImagesLoaded'], function(){
         var mediaNav = $('.object-media-nav');
         mediaNav.append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function($images){
           $('.object-media-viewer .playable img').attr('src', uri);
         });
+        bindImgActions();
       });
 
-      setTimeout(function(){
-        bindImgActions();
-      }, 500);
-
     }
+
+    if(downloadUri){
+      $('.channel-object-action-bar .download').show(); // TODO: enable without hiding
+    }
+    else{
+      $('.channel-object-action-bar .download').hide(); // TODO: disable without hiding
+    }
+
+    var reminderImg = $('.title-bar .img-remind');
+    if(reminderImg.length == 0){
+      reminderImg = $('<img class="img-remind" style="max-height: 4em;">').appendTo($('.title-bar'));
+    }
+    reminderImg.attr('src', thumbnail);
+
+    $(window).europeanaResize(function(){
+      $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
+      if(mediaThumbCarousel){
+        mediaThumbCarousel.resize();
+      }
+    });
+
   }
 
   function loadAnnotations(){
@@ -521,16 +543,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       // keep reference to carousel for thumb strip updates
 
       data['minSpacingPx'] = 0;
-      var promisedCarousel = initCarousel($('.media-thumbs'), data);
+      mediaThumbCarousel = initCarousel($('.media-thumbs'), data);
 
-      promisedCarousel.done(
+      mediaThumbCarousel.done(
         function(carousel){
           $('.object-media-viewer').on('object-media-last-image-reached', function(evt, data){
             log('reached last');
             carousel.loadMore(false, data.doAfterLoad);
           });
-          $('.media-thumbs').on('click', 'a', function(){
-            alert($(this).closest('.js-carousel-item').index());
+          $('.media-thumbs').on('click', 'a', function(e){
+            e.preventDefault();
             initMedia($(this).closest('.js-carousel-item').index());
           });
           //$('.media-thumbs').on('click', 'a', updateTechData);
