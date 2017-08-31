@@ -66,7 +66,6 @@
     },
     "object":
     {
-
       "media":
       {
         "required_players": [
@@ -95,7 +94,7 @@
 
             "preview":   "/images/sample/object_preview.jpg",
             "play_url": "/images/sample/object_full.jpg",
-            "xxdownload":{
+            "download":{
               "url":  "/images/sample/object_full.jpg",
               "text": "Original file"
             },
@@ -162,6 +161,7 @@
           },
           {
             "is_iiif": true,
+            "downloadable": false,
             "playable": true,
             "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
             "thumbnail": "/media/iiif.jpg",
@@ -184,6 +184,7 @@
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/falcon.pdf",
+            "downloadable": true,
             "download":{
               "url":  "/media/falcon.pdf",
               "text": "Original file"
@@ -211,6 +212,7 @@
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/PDF2.pdf",
+            "downloadable": true,
             "download":{
               "url":  "/media/PDF2.pdf",
               "text": "2nd PDF file"
@@ -233,6 +235,7 @@
             "playable": true,
             "thumbnail": "/images/sample/object_2_thumbnail.jpg",
             "play_url": "/images/sample/object_2_full.jpg",
+            "downloadable": true,
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
@@ -284,6 +287,7 @@
             "playable": true,
             "thumbnail": "/media/thumb-default-sound.jpg",
             "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
+            "downloadable": true,
             "download": {
               "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
               "text": "Original MP3 file"
@@ -302,6 +306,7 @@
             "playable": true,
             "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
             "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
+            "downloadable": true,
             "download": {
               "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
               "text": "Original MP4 file"
@@ -321,6 +326,7 @@
             "playable": true,
             "thumbnail": "/media/thumb_midi.png",
             "play_url": "/media/imperial-march.mid",
+            "downloadable": true,
             "download": {
               "url": "/media/imperial-march.mid",
               "text": "Original MIDI file"
@@ -340,10 +346,7 @@
             "playable": true,
             "thumbnail": "/media/thumb_midi.png",
             "play_url": "/media/time.mid",
-            "download": {
-              "url": "/media/time.mid",
-              "text": "Original MIDI file"
-            },
+            "downloadable": false,
             "technical_metadata": {
               "mime_type": "video/midi"
             },

@@ -275,6 +275,59 @@
             {{/media}}
           </div>
 
+          <div style="display: flex; justify-content: space-between; padding: 1.6rem 0;" class="channel-object-information channel-object-action-bar">
+
+            <div style="margin: 0 0.8rem; align-self: center;">
+              <button>{{i18n.global.actions.share}}</button>
+            </div>
+
+            <div style="margin: 0 0.8rem; align-self: center;">
+              <button class="download">{{i18n.site.object.actions.download}}</button>
+            </div>
+
+            {{#rights}}
+              <div style="margin: 0 0.8rem; align-self: center;" class="object-rights">
+                <h4>{{ i18n.global.facet.header.reusability }}</h4>
+                {{license_human}}
+                <div class="object-license">{{> molecules/icons/licenses }}</div>
+              </div>
+            {{/rights}}
+
+            <div style="margin: 0 0.8rem; align-self: center;">
+              <button>{{i18n.site.object.actions.annotate}}</button>
+            </div>
+
+            {{#origin}}
+              <div  style="margin: 0 0.8rem 0 auto; align-self: center;" class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+                <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
+
+                {{#institution_logo}}
+                  <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+                {{/institution_logo}}
+
+                {{#logo}}
+                  <a href="{{url}}"><img class="logo-institution" src="{{image_root}}{{logo}}" alt="{{institution_name}} logo"></a>
+                {{/logo}}
+                {{#institution_name_and_link}}
+                  {{{ i18n.site.object.meta-label.provided-by-detail }}}
+                {{/institution_name_and_link}}
+                {{^institution_name_and_link}}
+                  {{#institution_name}}
+                    {{{ i18n.site.object.meta-label.provided-by-detail-no-link }}}
+                    {{#disabled}}
+                      <a href="{{institution_canned_search}}"
+                         property="cc:attributionName"
+                         rel="cc:attributionURL">{{institution_name}}</a>
+                    {{/disabled}}
+                    {{institution_name}}
+                    <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
+                  {{/institution_name}}
+                {{/institution_name_and_link}}
+              </div>
+            {{/origin}}
+
+          </div>
+
           {{#information}}
 
             <div class="channel-object-information">
