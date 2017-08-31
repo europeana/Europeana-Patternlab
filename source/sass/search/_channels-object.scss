@@ -96,7 +96,6 @@
 
       &.top {
         display: block;
-        padding: 0 $space;
       }
 
     }
@@ -120,73 +119,71 @@
       .title-desc-media-nav{
         text-align: left;
       }
-      .playable{
+
+      .playable {
 
         position: relative;
-
+        //&:hover{
         .media-options{
+          opacity:   1;
+        }
+        //}
+      }
 
-          background-color: $dim;
-          color:            #fff;
-          cursor:           default;
-          display:          flex;
-          justify-content:  space-evenly;
-          margin-left:      -1em;
-          margin-top:       -5em;
-          opacity:          0;
-          padding:          1rem 2rem 3rem 2rem;
-          position:         relative;
-          transition:       opacity 1s ease-out;
-          width:            calc(100% + 2rem);
+      .media-options {
 
-          .media-option-group{
+        background-color: $dim;
+        color:            #fff;
+        cursor:           default;
+        display:          flex;
+        justify-content:  space-evenly;
+        margin-left:      -1em;
+        margin-top:       -5em;
+        opacity:          0;
+        padding:          1rem 2rem 3rem 2rem;
+        position:         relative;
+        transition:       opacity 1s ease-out;
+        width:            calc(100% + 2rem);
 
-            display: flex;
-            margin:  0 0.5em;
+        .media-option-group {
 
-            a{
-              display: block;
-            }
-            &:first-of-type{
-              margin-left:   0;
-              border-right:  1px solid #fff;
-              padding-right: 0.5em;
-            }
-            &:last-of-type{
-              border-left:  1px solid #fff;
-              margin-right: 0;
-              padding-left: 0.5em;
-            }
+          display: flex;
+          margin:  0 0.5em;
+
+          a{
+            display: block;
           }
-          .media-option{
-            &:not(.disabled){
-              cursor:  pointer;
-            }
-
-            &.zoom-in,
-            &.zoom-out{
-              display: block;
-              height:  1.5em;
-              width:   1.5em;
-            }
-            &.download{
-              display:   block;
-              height:    1.5em;
-              transform: scale(0.65);
-              width:     1.5em;
-            }
+          &:first-of-type{
+            border-right:  1px solid #fff;
+            margin-left:   0;
+            padding-right: 0.5em;
+          }
+          &:last-of-type{
+            border-left:  1px solid #fff;
+            margin-right: 0;
+            padding-left: 0.5em;
           }
         }
 
-        //&:hover{
-          .media-options{
-            opacity:   1;
+        .media-option{
+          &:not(.disabled){
+            cursor:  pointer;
           }
-        //}
 
+          &.zoom-in,
+          &.zoom-out{
+            display: block;
+            height:  1.5em;
+            width:   1.5em;
+          }
+          &.download{
+            display:   block;
+            height:    1.5em;
+            transform: scale(0.65);
+            width:     1.5em;
+          }
+        }
       }
-
-
     }
 
     .channel-object-viewmore {
@@ -272,20 +269,25 @@
         a.left,
         a.right {
           background-color: $dim07;
-          background-position: .2em .2em;
-          height: 1.25em;
-          left: 0;
-          top: 0.85em;
-          width: 1.25em;
+          background-position: 0.7em 0.7em;
+          height: 2.25em;
+          left: -0.5em;
+          top: 0.3em;
+          transform: scale(0.5);
+          width: 2.25em;
+
+          &:hover {
+            background-color: $black;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+          }
+
         }
 
         a.right {
-          background-position: .25em .2em;
+          background-position: 0.75em 0.7em;
           left: auto;
-          right: 0;
+          right: -0.5em;
         }
-
-
       }
 
       .mlt-img-div{
