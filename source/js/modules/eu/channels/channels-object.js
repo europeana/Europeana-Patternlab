@@ -55,25 +55,34 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       log('init image [' + uri + '] (' + w + '/' + h + ')');
 
-      var bindZoom = function(zoomLevels){
+      var bindImgActions = function(){
 
-        if(zoomLevels > 0){
+        var $el        = $('.object-details');
+        var $img       = $('.playable > img');
+        var zoomLevels = Math.floor($img[0].naturalWidth / 1000);
 
-          var $el = $('.channel-object-overview');
+        $el.removeClass('zoom-one').removeClass('zoom-two');
+
+        if(zoomLevels == 0){
+          $('.media-option.zoom-in').addClass('disabled');
+          $('.media-option.zoom-out').addClass('disabled');
+        }
+        else{
+          $('.media-option.zoom-in').removeClass('disabled');
+          $('.media-option.zoom-out').addClass('disabled');
 
           $('.media-option.zoom-in').on('click', function(){
 
             if($el.hasClass('zoom-one') && zoomLevels > 1){
               $el.addClass('zoom-two');
-              log('TODO: disable the zoom-in button');
+              $('.media-option.zoom-in').addClass('disabled');
             }
             else{
-              $('.channel-object-overview').addClass('zoom-one');
-
-              log('TODO: enable the zoom-out button');
+              $el.addClass('zoom-one');
+              $('.media-option.zoom-out').removeClass('disabled');
 
               if(zoomLevels < 2){
-                log('TODO: disable the zoom-in button');
+                $('.media-option.zoom-in').addClass('disabled');
               }
             }
           });
@@ -82,32 +91,34 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
             if($el.hasClass('zoom-two')){
               $el.removeClass('zoom-two');
+              $('.media-option.zoom-in').removeClass('disabled');
             }
             else{
               $el.removeClass('zoom-one');
-              log('TODO: disable the zoom-out button');
+              $('.media-option.zoom-in').removeClass('disabled');
+              $('.media-option.zoom-out').addClass('disabled');
             }
-            log('TODO: enable the zoom-in button');
           });
         }
-        else{
-          log('TODO: disable the zoom buttons');
-        }
+
+        $('.media-option.download').on('click', function(){
+          alert('download')
+        });
+
       }
 
       require(['jqImagesLoaded'], function(){
         var mediaNav = $('.object-media-nav');
         mediaNav.append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function($images){
           $('.object-media-viewer .playable img').attr('src', uri);
-          setTimeout(function(){
-            bindZoom(Math.floor($images[0].naturalWidth/1000))
-          }, 500)
         });
       });
 
+      setTimeout(function(){
+        bindImgActions();
+      }, 500);
+
     }
-
-
   }
 
   function loadAnnotations(){
@@ -517,6 +528,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           $('.object-media-viewer').on('object-media-last-image-reached', function(evt, data){
             log('reached last');
             carousel.loadMore(false, data.doAfterLoad);
+          });
+          $('.media-thumbs').on('click', 'a', function(){
+            alert($(this).closest('.js-carousel-item').index());
+            initMedia($(this).closest('.js-carousel-item').index());
           });
           //$('.media-thumbs').on('click', 'a', updateTechData);
           //updateTechData({target:$('.media-thumbs a:first')[0]});
