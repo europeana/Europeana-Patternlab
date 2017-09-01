@@ -1,245 +1,259 @@
 define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], function($){
 
-    var log = function(msg){
-        console.log('carousel: ' + msg);
-    };
+  var log = function(msg){
+    console.log('carousel: ' + msg);
+  };
 
-    var mergeHashes = function(array1, array2){
-      //for(item in array1) {
-      //  array2[item] = array1[item];
-      //}
-      //return array2;
-      return $.extend({}, array1, array2);
-    };
+  var mergeHashes = function(array1, array2){
+    //for(item in array1) {
+    //  array2[item] = array1[item];
+    //}
+    //return array2;
+    return $.extend({}, array1, array2);
+  };
 
-    /**
-     * @cmp: the container
-     * @data: initial items
-     * @ops: (optional) overrides
-     *
-     * NOTE: in vertical mode the parent has to have a position of relative
-     */
-    var EuCarousel = function(cmp, appender, opsIn){
+  /**
+   * @cmp: the container
+   * @data: initial items
+   * @ops: (optional) overrides
+   *
+   * NOTE: in vertical mode the parent has to have a position of relative
+   */
+  var EuCarousel = function(cmp, appender, opsIn){
 
-      var dynamic    = null;
-      var vertical   = null;
-      var bpVertical = null;
-      var onOrientationChange = null;
+    cmp            = $(cmp); // the viewport
 
-      var edge     = 'left';
+    var dynamic    = null;
+    var vertical   = null;
+    var bpVertical = null;
+    var onOrientationChange = null;
 
-      var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing, comfortableFit, alwaysAfterLoad;
-      var animating      = false;
-      var cmp            = $(cmp); // the viewport
-      var appender       = appender;
+    var edge     = 'left';
 
-      var inView         = 0; // num items currently visible in viewport
-      var position       = 1; // index of currently viewed item
+    var btnPrev, btnNext, items, minSpacingPx, loadUrl, spacing, comfortableFit, alwaysAfterLoad;
+    var animating      = false;
 
-      var perPage        = (opsIn.perPage && typeof parseInt(opsIn.perPage) == 'number') ? parseInt(opsIn.perPage) : appender.getDataCount();
-      var totalLoaded    = appender.getDataCount();
-      var totalAvailable = null;
+    var inView         = 0; // num items currently visible in viewport
+    var paddingSide    = 0;
+    var position       = 1; // index of currently viewed item
 
-      var scrollTime     = 400;
+    var perPage        = (opsIn.perPage && typeof parseInt(opsIn.perPage) == 'number') ? parseInt(opsIn.perPage) : appender.getDataCount();
+    var totalLoaded    = appender.getDataCount();
+    var totalAvailable = null;
 
-      var first          = cmp.find('.js-carousel-item:first');
-      var itemW          = first.length > 0 ? first.width() : (opsIn.itemWidth && typeof parseInt(opsIn.itemWidth) == 'number') ? parseInt(opsIn.itemWidth) : 200;
+    var scrollTime     = 400;
 
-      var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
-      var swiping        = false;
+    var first          = cmp.find('.js-carousel-item:first');
+    var itemW          = first.length > 0 ? first.width() : (opsIn.itemWidth && typeof parseInt(opsIn.itemWidth) == 'number') ? parseInt(opsIn.itemWidth) : 200;
 
-      var classData      = {};
+    var loadedOnSwipe  = false; // a single swipe can generate only a single load event - track of that's been done or not
+    var swiping        = false;
 
-      if(!vertical){
-        cmp.addClass('h');
+    var classData      = {};
+
+    if(!vertical){
+      cmp.addClass('h');
+    }
+
+    var init = function(){
+
+      var opsDef       = {'dynamic': false, 'svg': false, 'minSpacingPx': 15};
+      var ops          = mergeHashes(opsIn, opsDef);
+      var smallButtons = ops.smallButtons;
+
+      classData = {
+        'arrowClasses' : {
+          'container' : 'js-carousel-arrows',
+          'back' : 'left svg-icon-previous' + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
+          'fwd'  : 'right svg-icon-next'    + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
+          'content' : {
+            'back'  : '&nbsp;',
+            'fwd'   : '&nbsp;',
+            'up'    : '&nbsp;',
+            'down'  : '&nbsp;'
+          }
+        },
+        'itemClass' : 'js-carousel-item',
+        'itemDivClass' : 'mlt-img-div height-to-width',
+        'itemInnerClass' : 'inner',
+        'itemLinkClass' : 'link',
+        'titleClass' : 'js-carousel-title'
+      };
+
+      dynamic         = typeof ops.bpVertical != 'undefined';
+      bpVertical      = ops.bpVertical;
+      alwaysAfterLoad = ops.alwaysAfterLoad;
+
+      if(dynamic){
+        ascertainVerticality();
+        log('carousel will be vertical (' + vertical + ') on breakpoint ' + bpVertical + ' (px)');
       }
+      else{
+        vertical = false;
+      }
+      edge           = vertical ? 'top' : 'left';
+      loadUrl        = ops.loadUrl;
+      minSpacingPx   = ops.minSpacingPx;
+      spacing        = minSpacingPx;
+      totalAvailable = ops.total_available ? ops.total_available : totalAvailable;
 
-      var init = function(){
+      // ui
 
-        var opsDef = {"dynamic": false, "svg": false, "minSpacingPx": 15};
-        var ops = mergeHashes(opsIn, opsDef);
+      items = cmp.find('ul');
+      addButtons(!smallButtons);
 
-        classData = {
-          'arrowClasses' : {
-            'container' : 'js-carousel-arrows',
-            'back' : 'left svg-icon-previous' + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
-            'fwd'  : 'right svg-icon-next'    + (ops.arrowClass ? ' ' + ops.arrowClass : ''),
-            'content' : {
-              'back'  : '&nbsp;',
-              'fwd'   : '&nbsp;',
-              'up'    : '&nbsp;',
-              'down'  : '&nbsp;'
-            }
-          },
-          'itemClass' : 'js-carousel-item',
-          'itemDivClass' : 'mlt-img-div height-to-width',
-          'itemInnerClass' : 'inner',
-          'itemLinkClass' : 'link',
-          'titleClass' : 'js-carousel-title'
-        };
+      var swipeLoadThreshold = Math.min(-100, 0-(itemW / 2));
 
-        dynamic         = typeof ops.bpVertical != 'undefined';
-        bpVertical      = ops.bpVertical;
-        alwaysAfterLoad = ops.alwaysAfterLoad;
-        smallButtons    = ops.smallButtons;
-
-        if(dynamic){
-          ascertainVerticality();
-          log('carousel will be vertical (' + vertical + ') on breakpoint ' + bpVertical + ' (px)');
+      cmp.on('movestart', function(e) {
+        if(comfortableFit){
+          e.preventDefault();
+          return;
         }
-        else{
-          vertical = false;
+
+        var tgt = $(e.target);
+        if(tgt[0].nodeName.toLowerCase()=='a'){
+          tgt.addClass('disabled');
         }
-        edge           = vertical ? 'top' : 'left';
-        loadUrl        = ops.loadUrl;
-        minSpacingPx   = ops.minSpacingPx;
-        spacing        = minSpacingPx;
-        totalAvailable = ops.total_available ? ops.total_available : totalAvailable;
 
-        // ui
+        var mvVertical =  (e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY);
 
-        items = cmp.find('ul');
-        addButtons(!smallButtons);
-
-        var swipeLoadThreshold = Math.min(-100, 0-(itemW / 2));
-        // var swipeLoadThreshold = 0;
-
-        cmp.on('movestart', function(e) {
-          if(comfortableFit){
+        if(vertical){
+          if (!mvVertical) {
             e.preventDefault();
             return;
           }
-
-          var tgt = $(e.target)
-          if(tgt[0].nodeName.toLowerCase()=='a'){
-            tgt.addClass('disabled');
-          }
-
-          var mvVertical =  (e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY);
-
-          if(vertical){
-            if (!mvVertical) {
-              e.preventDefault();
-              return;
-            }
-          }
-          else{
-            if(mvVertical){
-              e.preventDefault();
-              return;
-            }
-          }
-        })
-        .on('move', function(e) {
-          swiping = true;
-
-          if(vertical){
-            if(e.distY < 0) {
-              items.css('top',  e.distY + 'px');
-              if(e.distY < swipeLoadThreshold){
-                if(!loadedOnSwipe){
-                  if((position + inView + inView) > totalLoaded){
-                    loadedOnSwipe = true;
-                    loadMore();
-                  }
-                }
-              }
-            }
-            if(e.distY > 0){
-              items.css('top', e.distY + 'px');
-            }
-          }
-          else{
-            items.css('top', '0px');
-            if(e.distX < 0){
-              items.css('left',  e.distX + 'px');
-              if(e.distX < swipeLoadThreshold){
-                if(!loadedOnSwipe){
-                  if((position + inView + inView) > totalLoaded){
-                    loadedOnSwipe = true;
-                    loadMore();
-                  }
-                }
-              }
-            }
-            if(e.distX > 0){
-              items.css('left',  e.distX + 'px');
-            }
-          }
-        })
-        .on('moveend', function(e) {
-
-          var tgt = $(e.target)
-          if(tgt[0].nodeName.toLowerCase()=='a'){
-            setTimeout(function(){
-              tgt.removeClass('disabled');
-            },1000)
-          }
-          e.stopPropagation();
-
-          if(vertical){
-            var itemH           = tgt.height();
-            //var itemH           = tgt.closest('.inner').height();
-            var positionsPassed = Math.round(e.distY / (itemH + spacing/2));
-            var newPos          = position + (-1 * positionsPassed)
-
-            // less scroll needed to shift one space
-            if(newPos == position && Math.abs(e.distY) >= (itemH / 2.5)){
-              newPos += e.distY > 0 ? -1 : 1;
-            }
-
-            cmp.scrollTo(cmp.scrollTop() - parseInt(items.css('top')), 0);
-            items.css('top', '');
-
-            loadedOnSwipe = false;
-            swiping = false;
-
-            position = Math.max(1, newPos);
-            position = Math.min(position, totalAvailable);
-            resize();
-          }
-          else{
-            var positionsPassed = Math.round(e.distX / (itemW + spacing/2));
-            var newPos          = position + (-1 * positionsPassed)
-
-            // less scroll needed to shift one space
-            if(newPos == position && Math.abs(e.distX) >= (itemW / 2.5)){
-              newPos += e.distX > 0 ? -1 : 1;
-            }
-
-            cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
-            items.css('left', '');
-
-            loadedOnSwipe = false;
-            swiping = false;
-
-            position = Math.max(1, newPos);
-            position = Math.min(position, totalAvailable);
-            resize();
-          }
-        });
-
-        if(typeof $(window).europeanaResize != 'undefined'){
-          $(window).europeanaResize(function(){
-            var scrollTimeRef = scrollTime;
-            scrollTime = 0;
-            resize();
-            scrollTime = scrollTimeRef;
-          });
         }
-        if(totalAvailable != null){
+        else{
+          if(mvVertical){
+            e.preventDefault();
+            return;
+          }
+        }
+      })
+      .on('move', function(e) {
+        swiping = true;
+
+        if(vertical){
+          if(e.distY < 0) {
+            items.css('top',  e.distY + 'px');
+            if(e.distY < swipeLoadThreshold){
+              if(!loadedOnSwipe){
+                if((position + inView + inView) > totalLoaded){
+                  loadedOnSwipe = true;
+                  loadMore();
+                }
+              }
+            }
+          }
+          if(e.distY > 0){
+            items.css('top', e.distY + 'px');
+          }
+        }
+        else{
+          items.css('top', '0px');
+          if(e.distX < 0){
+            items.css('left',  e.distX + 'px');
+            if(e.distX < swipeLoadThreshold){
+              if(!loadedOnSwipe){
+                if((position + inView + inView) > totalLoaded){
+                  loadedOnSwipe = true;
+                  loadMore();
+                }
+              }
+            }
+          }
+          if(e.distX > 0){
+            items.css('left',  e.distX + 'px');
+          }
+        }
+      })
+      .on('moveend', function(e) {
+
+        var tgt = $(e.target);
+        if(tgt[0].nodeName.toLowerCase()=='a'){
+          setTimeout(function(){
+            tgt.removeClass('disabled');
+          },1000);
+        }
+        e.stopPropagation();
+
+        var positionsPassed;
+        var newPos;
+
+        if(vertical){
+          var itemH       = tgt.height();
+          //var itemH       = tgt.closest('.inner').height();
+          positionsPassed = Math.round(e.distY / (itemH + spacing/2));
+          newPos          = position + (-1 * positionsPassed);
+
+          // less scroll needed to shift one space
+          if(newPos == position && Math.abs(e.distY) >= (itemH / 2.5)){
+            newPos += e.distY > 0 ? -1 : 1;
+          }
+
+          cmp.scrollTo(cmp.scrollTop() - parseInt(items.css('top')), 0);
+          items.css('top', '');
+
+          loadedOnSwipe = false;
+          swiping = false;
+
+          position = Math.max(1, newPos);
+          position = Math.min(position, totalAvailable);
           resize();
         }
-      };
+        else{
+          positionsPassed = Math.round(e.distX / (itemW + spacing/2));
+          newPos          = position + (-1 * positionsPassed);
 
-      var anchor = function(){
-        animating = true;
-        items.css(edge, '0');
+          // less scroll needed to shift one space
+          if(newPos == position && Math.abs(e.distX) >= (itemW / 2.5)){
+            newPos += e.distX > 0 ? -1 : 1;
+          }
 
-        var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
+          cmp.scrollTo(cmp.scrollLeft() - parseInt(items.css('left')), 0);
+          items.css('left', '');
 
-        cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
-          'onAfter' : function(){
+          loadedOnSwipe = false;
+          swiping = false;
+
+          position = Math.max(1, newPos);
+          position = Math.min(position, totalAvailable);
+          resize();
+        }
+      });
+
+      if(typeof $(window).europeanaResize != 'undefined'){
+
+        var onResize = function(){
+          var scrollTimeRef = scrollTime;
+          scrollTime = 0;
+          resize();
+          scrollTime = scrollTimeRef;
+        };
+
+        $(window).on('europeanaResize', function(){
+          onResize();
+        });
+        $(window).europeanaResize(function(){
+          onResize();
+        });
+
+      }
+      if(totalAvailable != null){
+        resize();
+      }
+    };
+
+    var anchor = function(){
+
+      animating = true;
+      items.css(edge, getZero());
+
+      var scrollTarget = items.find('.' + classData.itemClass + ':nth-child(' + position + ')');
+
+      cmp.scrollTo(scrollTarget, inView == 1 ? 0 : scrollTime, {
+        'offset' : paddingSide ? 0 - paddingSide : 0,
+        'onAfter' : function(){
           var done = function(){
             animating = false;
             setArrowState();
@@ -249,18 +263,17 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             items.css(edge, spacing + 'px');
           }
           else{
-            items.css(edge, '0');
+            items.css(edge, getZero());
           }
           done();
         }
       });
-    }
+    };
 
     var ascertainVerticality = function(){
 
       // this (+12) hack may be due to the fact the page has a (tiny) horizontal overflow
       var dynamicThreshold = $(document).width() + 12;
-      var changed = false;
 
       if( dynamic && dynamicThreshold < bpVertical && (vertical== null || vertical == true)){
         vertical = false;
@@ -313,7 +326,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
           onOrientationChange(vertical);
         }
       }
-    }
+    };
 
     var resize = function(){
       if(swiping){
@@ -322,8 +335,13 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       }
       ascertainVerticality();
 
-      var cmpD   = vertical ? cmp.height() : cmp.width();
-      var itemD  = null;
+      var cmpD      = vertical ? cmp.height() : cmp.width();
+      var cmpDOuter = cmp.outerWidth(false);
+
+      if(cmpD != cmp.outerWidth(false)){
+        paddingSide = (cmpDOuter - cmpD) / 2;
+      }
+
       var first  = items.find('.' + classData.itemClass + '').first();
 
       if(!first.length){
@@ -348,16 +366,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         cmp.css('margin',  'auto');
         items.css(vertical ? 'height' : 'width', 'auto');
         items.find('.' + classData.itemClass           ).css('margin-left', minSpacingPx + 'px');
-        items.find('.' + classData.itemClass + ':first').css('margin-left', '0px');
+        items.find('.' + classData.itemClass + ':first').css('margin-left', getZero() + 'px');
         spacing = minSpacingPx;
         inView  = totalAvailable;
         return;
       }
 
       var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
-          maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
-
-      spacing = minSpacingPx;
+      maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
 
       if(maxFit == 1){
         spacing = (cmpD - itemD) / 2;
@@ -372,8 +388,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       items.find('.' + classData.itemClass + '').css('margin-' + edge, parseInt(spacing) + 'px');
 
       if(maxFit != 1){
-        items.find('.' + classData.itemClass + ':first').css('margin-' + edge, '0px');
+        items.find('.' + classData.itemClass + ':first').css('margin-' + edge, getZero() + 'px');
       }
+
       items.css(vertical ? 'height' : 'width', cmpD + (totalLoaded * (itemD + spacing)));
       anchor();
 
@@ -386,7 +403,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       }
       if(btnNext){
         if((position-1) + inView < totalAvailable){
-           btnNext.removeClass('disabled');
+          btnNext.removeClass('disabled');
         }
         else{
           btnNext.addClass('disabled');
@@ -407,6 +424,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       items.css(edge, '0');
 
       cmp.scrollTo(prevItem, inView == 1 ? 0 : 1000, {
+        'offset' : paddingSide ? 0 - paddingSide : 0,
         'onAfter' : function(){
           var done = function(){
             animating = false;
@@ -425,6 +443,14 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       });
     };
 
+    var getZero = function(){
+
+      if(!vertical && paddingSide){
+        return paddingSide + '';
+      }
+      return '0';
+    };
+
     var scrollForward = function(){
 
       var nextIndex = position + inView;
@@ -438,10 +464,11 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
       position = nextIndex;
 
-      items.css(edge, '0');
+      items.css(edge, getZero());
       animating = true;
 
       cmp.scrollTo(nextItem, inView == 1 ? 0 : 1000, {
+        'offset' : paddingSide ? 0 - paddingSide : 0,
         'onAfter' : function(){
           var done = function(){
             cmp.removeClass('loading');
@@ -453,26 +480,25 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
             items.css(edge, spacing + 'px');
           }
           else{
-            items.css(edge, '0');
+            items.css(edge, getZero());
           }
 
           done();
         }
       });
-    }
+    };
 
     var goFwd = function(){
 
-      totalLoaded = appender.getDataCount()
+      totalLoaded = appender.getDataCount();
 
       if((position + inView + inView) < totalLoaded){
-        //log('goFwd >> scrollFwd:   (position + inView) < totalLoaded\t\t\t (' + position + ' + ' + inView + ') < ' + totalLoaded );
         scrollForward();
       }
       else{
         loadMore(true);
       }
-    }
+    };
 
     var loadMore = function(scroll, doAfter){
 
@@ -572,7 +598,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         e.stopPropagation();
         return false;
       });
-    }
+    };
 
     init();
 
@@ -586,9 +612,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
       vChange : function(callback){
         onOrientationChange = callback;
       },
-      inView : function(){
-        return fnInView();
-      },
       loadMore: function(scroll, doAfter){
         loadMore(scroll, doAfter);
       },
@@ -600,12 +623,12 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         console.error('deprecated function call in eu-carousel: goRight');
         goFwd();
       }
-    }
+    };
   };
 
   return {
     create : function(cmp, appender, opsIn){
-      return EuCarousel(cmp, appender, opsIn);
+      return new EuCarousel(cmp, appender, opsIn);
     }
-  }
+  };
 });

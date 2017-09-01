@@ -724,6 +724,7 @@
             "news": "News",
             "object": {
                 "actions": {
+                    "annotate": "Annotate",
                     "download": "Download",
                     "download-started": "The download has started",
                     "download-retry": "Retry",

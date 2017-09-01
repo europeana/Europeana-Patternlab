@@ -1,7 +1,8 @@
 define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, ga, Mustache) {
 
   ga = window.fixGA(ga);
-  var channelData = null;
+  var channelData        = null;
+  var mediaThumbCarousel = null;
 
   function log(msg){
     console.log('channels-object: ' + msg);
@@ -40,6 +41,137 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       });
     }
   }
+
+  function initMedia(index){
+
+    var item        = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
+    var type        = item.data('type');
+    var downloadUri = item.data('download-uri');
+    var thumbnail   = item.data('thumbnail');
+
+    $('.object-media-nav .js-carousel-item .mlt-img-div').removeClass('active');
+    item.closest('.mlt-img-div').addClass('active');
+
+    if(type == 'image'){
+
+      var uri  = item.data('uri');
+      var h    = item.data('height');
+      var w    = item.data('width');
+
+      log('init image [' + uri + '] (' + w + '/' + h + ')');
+
+      var bindImgActions = function(){
+
+        var $el        = $('.object-details');
+        var $img       = $('.playable > img');
+        var zoomLevels = Math.floor($img[0].naturalWidth / 1000);
+
+        $el.removeClass('zoom-one').removeClass('zoom-two');
+        $img.removeAttr('style');
+
+        if(zoomLevels == 0){
+          $('.media-option .zoom-in').addClass('disabled');
+          $('.media-option .zoom-out').addClass('disabled');
+        }
+        else{
+          $('.media-option .zoom-in').removeClass('disabled');
+          $('.media-option .zoom-out').addClass('disabled');
+
+          $('.media-option .zoom-in').on('click', function(){
+            if($el.hasClass('zoom-one') && zoomLevels > 1){
+              $el.addClass('zoom-two');
+              $('.media-option .zoom-in').addClass('disabled');
+
+              setTimeout(function(){
+                $img.removeAttr('style');
+              }, 1);
+
+            }
+            else{
+              $el.addClass('zoom-one');
+              $('.media-option .zoom-out').removeClass('disabled');
+
+              setTimeout(function(){
+                $img.removeAttr('style');
+              }, 1);
+
+              if(zoomLevels < 2){
+                $('.media-option .zoom-in').addClass('disabled');
+              }
+            }
+          });
+
+          $('.media-option .zoom-out').on('click', function(){
+
+            if($el.hasClass('zoom-two')){
+              $el.removeClass('zoom-two');
+              setTimeout(function(){
+                $img.removeAttr('style');
+              }, 1);
+            }
+            else{
+              $el.removeClass('zoom-one');
+              $('.media-option .zoom-in').removeClass('disabled');
+              $('.media-option .zoom-out').addClass('disabled');
+
+              setTimeout(function(){
+                $img.removeAttr('style');
+              }, 1);
+            }
+          });
+        }
+      };
+
+      $('.media-option .download').on('click', function(){
+        alert('download');
+      });
+
+      require(['jqImagesLoaded'], function(){
+        var mediaNav = $('.object-media-nav');
+        mediaNav.append('<img style="display:none;" src="' + uri + '">').imagesLoaded(function(){
+          $('.object-media-viewer .playable img').attr('src', uri);
+          bindImgActions();
+          setTimeout(function(){
+            fixZoomableWidth();
+          }, 100);
+        });
+      });
+
+    }
+
+    if(downloadUri){
+      $('.channel-object-action-bar .download').show(); // TODO: enable without hiding
+    }
+    else{
+      $('.channel-object-action-bar .download').hide(); // TODO: disable without hiding
+    }
+
+    var reminderImg = $('.title-bar .img-remind');
+    if(reminderImg.length == 0){
+      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar'));
+    }
+    reminderImg.attr('src', thumbnail);
+    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
+
+    $(window).europeanaResize(function(){
+      $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
+      fixZoomableWidth();
+      $(document).trigger('europeanaResize');
+    });
+  }
+
+  var fixZoomableWidth = function(){
+    var zoomImg  = $('.playable > img');
+    zoomImg.off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+    zoomImg.on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+      zoomImg
+        .off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd')
+        .on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+          fixZoomableWidth();
+        });
+    });
+    zoomImg.css('max-width', zoomImg.width() + 'px');
+  };
 
   function loadAnnotations(){
 
@@ -209,6 +341,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     var carousel = $.Deferred();
 
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
+
       var fnAfterLoad = function(data, totalAvailable){
         if(el.hasClass('more-like-this')){
           if(data.length == 0 && el.find('ul li').length == 0){
@@ -439,13 +572,19 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     if($('.object-media-nav li').length > 1){
 
       // keep reference to carousel for thumb strip updates
-      var promisedCarousel = initCarousel($('.media-thumbs'), data);
 
-      promisedCarousel.done(
+      data['minSpacingPx'] = 0;
+      mediaThumbCarousel = initCarousel($('.media-thumbs'), data);
+
+      mediaThumbCarousel.done(
         function(carousel){
-          $('.media-viewer').on('object-media-last-image-reached', function(evt, data){
+          $('.object-media-viewer').on('object-media-last-image-reached', function(evt, data){
             log('reached last');
             carousel.loadMore(false, data.doAfterLoad);
+          });
+          $('.media-thumbs').on('click', 'a', function(e){
+            e.preventDefault();
+            initMedia($(this).closest('.js-carousel-item').index());
           });
           //$('.media-thumbs').on('click', 'a', updateTechData);
           //updateTechData({target:$('.media-thumbs a:first')[0]});
@@ -670,7 +809,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     // Redirect
 
-    $('.media-viewer .external-media').not('.playable').on('click', function(){
+    $('.object-media-viewer .external-media').not('.playable').on('click', function(){
       var href =  $(this).attr('href');
       ga('send', {
         hitType: 'event',
@@ -808,6 +947,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     //  updateTechData(data);
     //});
 
+    initMedia(0);
+
+    /*
     $('.media-viewer').trigger('media_init');
 
     $('.single-item-thumb [data-type="oembed"]').trigger('click');
@@ -815,6 +957,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     $('.single-item-thumb [data-type="iiif"]').trigger('click');
     $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
+    */
 
     scrollEvents.fireAllVisible();
 
@@ -822,7 +965,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       var title        = $('h2.object-title').text();
       var canonicalUrl = encodeURIComponent( $('[property="og:url"]').attr('content') );
-      var imageUrl     = $('.media-viewer a').attr('href');
+      var imageUrl     = $('.object-media-viewer a').attr('href');
 
       if(imageUrl){
         imageUrl     = imageUrl.split('?view=')[1];
