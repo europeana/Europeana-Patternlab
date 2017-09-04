@@ -343,147 +343,140 @@
                 {{/institution_name_and_link}}
               </div>
             {{/origin}}
-
           </div>
 
-          {{#information}}
+          <div class="channel-object-information">
+            {{#people}}
+              {{> organisms/sections/object-data-section }}
+            {{/people}}
 
-            <div class="channel-object-information">
-              {{#people}}
-                {{> organisms/sections/object-data-section }}
-              {{/people}}
+            {{#concepts }}
+              {{> organisms/sections/object-data-section }}
+            {{/concepts }}
+          </div>
 
-              {{#concepts }}
-                {{> organisms/sections/object-data-section }}
-              {{/concepts }}
+          <div class="channel-object-extended-information">
+
+            {{#properties }}
+              {{> organisms/sections/object-data-section }}
+            {{/properties }}
+
+            {{#dates }}
+              {{> organisms/sections/object-data-section }}
+            {{/dates }}
+
+            {{#places }}
+              {{> organisms/sections/object-data-section }}
+            {{/places }}
+
+            {{#annotations_later}}
+              <script id="js-template-object-data-section" type="text/x-mustache">{{> organisms/sections/object-data-section-js }}</script>
+            {{/annotations_later}}
+
+            {{#annotations}}
+              {{> organisms/sections/object-data-section }}
+            {{/annotations}}
+
+            {{#provenance}}
+              {{> organisms/sections/object-data-section }}
+            {{/provenance}}
+
+            {{#copyright}}
+              {{> organisms/sections/object-data-section }}
+            {{/copyright}}
+
+            {{#refs_rels}}
+              {{> organisms/sections/object-data-section }}
+            {{/refs_rels}}
+
+            {{#meta_additional}}
+              {{#present}}
+                <div class="data-section cf closed">
+                  <h3 class="subsection-label">
+                    {{i18n.site.object.meta-label.location}}
+                  </h3>
+                  <div class="subsection-content">
+                    {{#places}}
+                      <ul class="data-group">
+                        {{#sections}}
+                          <li>
+                            <section>
+                              <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+                              <ul class="comma-list data-group">
+                                {{# items }}
+                                  <li>
+                                    {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
+                                      {{#life}}
+                                        <span class="life-dates">
+                                          ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
+                                        </span>
+                                      {{/life}}
+                                      {{#biography}}
+                                        <div class="biography">
+                                          {{text}}
+                                        </div>
+                                      {{/biography}}
+                                    {{/extra_info}}
+                                  </li>
+                                {{/ items}}
+                              </ul>
+                            </section>
+                          </li>
+                        {{/sections}}
+                      </ul>
+                    {{/places}}
+
+                    {{#geo.long_and_lat}} {{! check both present }}
+                      <a class="scroll-trigger"
+                         id="scroll-trigger-map"
+                         data-enabled="true"
+                         data-fire-on-open="showMap"
+                         data-fire-on-open-params='{
+                           "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+                         }'
+                        ></a>
+                      <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
+                      <a id="map" style="bottom:4.8em; position: relative;"></a>
+                      <div class="map">
+                        <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+                        <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
+                      </div>
+                      <a class="scroll-trigger trigger-chain"
+                        data-enabled="true"
+                        data-disable-when-fired="showMap"
+                        data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+                    {{/geo.long_and_lat}}
+                  </div>
+                </div>
+              {{/present}}
+            {{/meta_additional}}
+
+            <div class="data-section closed">
+              <div class="hierarchy cf">
+                <div class="subsection-label">
+                  {{i18n.site.object.hierarchy.title}}
+                </div>
+                <div class="subsection-content">
+                  <div class="hierarchy-objects" style="display:none;"></div>
+                </div>
+              </div>
             </div>
 
-          {{/information}}
-
-          {{#extended_information}}
-
-            <div class="channel-object-extended-information">
-
-              {{#properties }}
-                {{> organisms/sections/object-data-section }}
-              {{/properties }}
-
-              {{#dates }}
-                {{> organisms/sections/object-data-section }}
-              {{/dates }}
-
-              {{#places }}
-                {{> organisms/sections/object-data-section }}
-              {{/places }}
-
-              {{#annotations_later}}
-                <script id="js-template-object-data-section" type="text/x-mustache">{{> organisms/sections/object-data-section-js }}</script>
-              {{/annotations_later}}
-
-              {{#annotations}}
-                {{> organisms/sections/object-data-section }}
-              {{/annotations}}
-
-              {{#provenance}}
-                {{> organisms/sections/object-data-section }}
-              {{/provenance}}
-
-              {{#copyright}}
-                {{> organisms/sections/object-data-section }}
-              {{/copyright}}
-
-              {{#refs_rels}}
-                {{> organisms/sections/object-data-section }}
-              {{/refs_rels}}
-
-              {{#meta_additional}}
-                {{#present}}
-                  <div class="data-section cf closed">
-                    <h3 class="subsection-label">
-                      {{i18n.site.object.meta-label.location}}
-                    </h3>
-                    <div class="subsection-content">
-                      {{#places}}
-                        <ul class="data-group">
-                          {{#sections}}
-                            <li>
-                              <section>
-                                <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
-                                <ul class="comma-list data-group">
-                                  {{# items }}
-                                    <li>
-                                      {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
-                                        {{#life}}
-                                          <span class="life-dates">
-                                            ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
-                                          </span>
-                                        {{/life}}
-                                        {{#biography}}
-                                          <div class="biography">
-                                            {{text}}
-                                          </div>
-                                        {{/biography}}
-                                      {{/extra_info}}
-                                    </li>
-                                  {{/ items}}
-                                </ul>
-                              </section>
-                            </li>
-                          {{/sections}}
-                        </ul>
-                      {{/places}}
-
-                      {{#geo.long_and_lat}} {{! check both present }}
-                        <a class="scroll-trigger"
-                           id="scroll-trigger-map"
-                           data-enabled="true"
-                           data-fire-on-open="showMap"
-                           data-fire-on-open-params='{
-                            "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-                           }'
-                          ></a>
-                        <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
-                        <a id="map" style="bottom:4.8em; position: relative;"></a>
-                        <div class="map">
-                          <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
-                          <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
-                        </div>
-                        <a class="scroll-trigger trigger-chain"
-                          data-enabled="true"
-                          data-disable-when-fired="showMap"
-                          data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
-                      {{/geo.long_and_lat}}
-                    </div>
-                  </div>
-                {{/present}}
-              {{/meta_additional}}
-
+            {{#content.named_entities}}
               <div class="data-section closed">
-                <div class="hierarchy cf">
+                <div class="cf">
                   <div class="subsection-label">
-                    {{i18n.site.object.hierarchy.title}}
+                    {{i18n.site.object.named-entities.title}}
                   </div>
                   <div class="subsection-content">
-                    <div class="hierarchy-objects" style="display:none;"></div>
+                    {{>molecules/navigation/foldable-list}}
                   </div>
                 </div>
               </div>
+            {{/content.named_entities}}
 
-              {{#content.named_entities}}
-                <div class="data-section closed">
-                  <div class="cf">
-                    <div class="subsection-label">
-                      {{i18n.site.object.named-entities.title}}
-                    </div>
-                    <div class="subsection-content">
-                      {{>molecules/navigation/foldable-list}}
-                    </div>
-                  </div>
-                </div>
-              {{/content.named_entities}}
+          </div>
 
-            </div>
-          {{/extended_information}}
         {{/object}}
 
       </div>

@@ -168,7 +168,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         }
       })
       .on('moveend', function(e) {
-
         var tgt = $(e.target);
         if(tgt[0].nodeName.toLowerCase()=='a'){
           setTimeout(function(){
@@ -202,6 +201,8 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
           resize();
         }
         else{
+          items.css('top', '0px');
+
           positionsPassed = Math.round(e.distX / (itemW + spacing/2));
           newPos          = position + (-1 * positionsPassed);
 
@@ -218,6 +219,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
           position = Math.max(1, newPos);
           position = Math.min(position, totalAvailable);
+          alert(1)
           resize();
         }
       });
@@ -372,7 +374,7 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         return;
       }
 
-      var maxFit = parseInt(cmpD / (itemD + minSpacingPx));
+      var maxFit = parseInt((cmpD - 2 * paddingSide) / (itemD + minSpacingPx));
       maxFit = Math.min(maxFit, totalAvailable);  // space out if less are available than can fit
 
       if(maxFit == 1){

@@ -648,72 +648,70 @@
         }]
       },
 
-      "information": {
-        "people": {
-          "title": "People",
-          "sections": [
-            {
-              "title": false,
-              "items": [
-                {
-                  "text": "Johannes Vermeer",
-                  "url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
-                  "extra_info":{
-                    "life": {
-                        "content_present": true,
-                      "from": {
-                        "long": "31st October 1632",
-                        "short": "1632"
-                      },
-                      "to": {
-                        "long": "December 1675",
-                        "short": "1675"
-                      }
+      "people": {
+        "title": "People",
+        "sections": [
+          {
+            "title": false,
+            "items": [
+              {
+                "text": "Johannes Vermeer",
+                "url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
+                "extra_info":{
+                  "life": {
+                      "content_present": true,
+                    "from": {
+                      "long": "31st October 1632",
+                      "short": "1632"
                     },
-                    "biography":
-                    {
-                      "text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
-                      "source": "Wikipedia",
-                      "source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+                    "to": {
+                      "long": "December 1675",
+                      "short": "1675"
                     }
+                  },
+                  "biography":
+                  {
+                    "text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+                    "source": "Wikipedia",
+                    "source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
                   }
                 }
-              ]
-            }
-          ]
-        },
-        "concepts":
-        {
-          "title": "Categories",
-          "sections": [
-            {
-              "title": "Type",
-              "items": [
-                {
-                  "text":  "paintings",
-                  "url":    "javascript:alert('search concepts')"
-                },
-                {
-                  "text":  "easel paintings",
-                  "url":    "javascript:alert('search concepts')"
-                }
-              ]
-            },
-            {
-              "title": "Subject",
-              "items": [
-                {
-                  "text":  "Kitchen maid",
-                  "url":    "javascript:alert('search concepts')"
-                },
-                {
-                  "text":  "Kitchen servant",
-                  "url":    "javascript:alert('search concepts')"
-                }
-              ]
-            }
-          ]
-        }
+              }
+            ]
+          }
+        ]
+      },
+      "concepts":
+      {
+        "title": "Categories",
+        "sections": [
+          {
+            "title": "Type",
+            "items": [
+              {
+                "text":  "paintings",
+                "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "easel paintings",
+                "url":    "javascript:alert('search concepts')"
+              }
+            ]
+          },
+          {
+            "title": "Subject",
+            "items": [
+              {
+                "text":  "Kitchen maid",
+                "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "Kitchen servant",
+                "url":    "javascript:alert('search concepts')"
+              }
+            ]
+          }
+        ]
       },
       "description": {
         "title": "Description",
@@ -725,110 +723,107 @@
           ]
         }]
       },
-      "extended_information":{
-        "properties": {
-          "title": "Properties",
-          "sections": [
-            {
-              "title": "Extent",
-              "items": [
-                {"text": "41 cm high"},
-                {"text": "30 cm wide"}
-              ]
-            },
-            {
-              "title": "Format",
-              "items": [
-                {"text": "oil paint",  "url": "search"},
-                {"text": "oil paints", "url": "search"}
-              ]
-            }
-          ]
-        },
-        "provenance": {
-          "title": "Source",
-          "sections": [
-            {
-              "title": "Publisher",
-              "items": [
-                { "text": "DC Publisher" }
-              ]
-            },
-            {
-              "title": "Source",
-              "items": [
-                {
-                  "text": "Rijksmuseum",
-                  "url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
-                }
-              ]
-            },
-            {
-              "title": "Provider",
-              "items": [
-                {
-                  "text": "Rijksmuseum"
-                }
-              ]
-            },
-            {
-              "title": "Providing Country",
-              "items": [
-                { "text": "Netherlands" }
-              ]
-            }
-          ]
-        },
+      "properties": {
+        "title": "Properties",
+        "sections": [
+          {
+            "title": "Extent",
+            "items": [
+              {"text": "41 cm high"},
+              {"text": "30 cm wide"}
+            ]
+          },
+          {
+            "title": "Format",
+            "items": [
+              {"text": "oil paint",  "url": "search"},
+              {"text": "oil paints", "url": "search"}
+            ]
+          }
+        ]
+      },
+      "provenance": {
+        "title": "Source",
+        "sections": [
+          {
+            "title": "Publisher",
+            "items": [
+              { "text": "DC Publisher" }
+            ]
+          },
+          {
+            "title": "Source",
+            "items": [
+              {
+                "text": "Rijksmuseum",
+                "url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
+              }
+            ]
+          },
+          {
+            "title": "Provider",
+            "items": [
+              {
+                "text": "Rijksmuseum"
+              }
+            ]
+          },
+          {
+            "title": "Providing Country",
+            "items": [
+              { "text": "Netherlands" }
+            ]
+          }
+        ]
+      },
 
-        "places": {
-          "title": "Place",
-          "sections": [
-            {
-              "title": "Place/Time",
-              "items": [
-                {"text": "third quarter 17th century"}
-              ]
-            },
-            {
-              "title": "Location",
-              "items": [
-                {"text": "Western Europe"}, {"text": "Netherlands"}
-              ]
-            },
-            {
-              "title": "Location",
-              "items": [{"text": "Near Delft"}]
-            }
-          ]
-        },
+      "places": {
+        "title": "Place",
+        "sections": [
+          {
+            "title": "Place/Time",
+            "items": [
+              {"text": "third quarter 17th century"}
+            ]
+          },
+          {
+            "title": "Location",
+            "items": [
+              {"text": "Western Europe"}, {"text": "Netherlands"}
+            ]
+          },
+          {
+            "title": "Location",
+            "items": [{"text": "Near Delft"}]
+          }
+        ]
+      },
+      "refs_rels": {
+        "title": "References and Relationships",
+        "sections": [
+          {
+            "title": "Relations",
+            "items": [{"text": "relation 1"}, {"text": "relation 2"}]
+          },
+          {
+            "title": "References",
+            "items": [{"text": "reference 1"}, {"text": "reference 2"}]
+          }
+        ]
+      },
 
-        "refs_rels": {
-          "title": "References and Relationships",
-          "sections": [
-            {
-              "title": "Relations",
-              "items": [{"text": "relation 1"}, {"text": "relation 2"}]
-            },
-            {
-              "title": "References",
-              "items": [{"text": "reference 1"}, {"text": "reference 2"}]
-            }
-          ]
-        },
-
-        "dates": {
-          "title": "Times",
-          "sections": [
-            {
-              "title": "Issued",
-              "items": [{"text": "17th century"}, {"text": "Seventeenth century"}]
-            },
-            {
-              "title": "Temporal",
-              "items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
-            }
-          ]
-        }
+      "dates": {
+        "title": "Times",
+        "sections": [
+          {
+            "title": "Issued",
+            "items": [{"text": "17th century"}, {"text": "Seventeenth century"}]
+          },
+          {
+            "title": "Temporal",
+            "items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
+          }
+        ]
       },
 
       "tags":
