@@ -11,6 +11,7 @@ require.config({
     jush:                '../../lib/jush/jush',
     login:               '../../eu/pandora/login-form',
     mustache:            '../../lib/mustache/mustache',
+    pandora_autocomplete:'../../eu/pandora/pandora-autocomplete',
     pandora_dashboard:   '../../eu/pandora/pandora-dashboard',
     pandora_dataset:     '../../eu/pandora/pandora-dataset',
     pandora_home:        '../../eu/pandora/pandora-home',

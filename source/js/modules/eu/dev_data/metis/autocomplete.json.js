@@ -211,7 +211,7 @@ define([], function(){
 
       $(data).each(function(i, ob){
         if(ob.match(re)){
-          res.push($.extend(true, {}, {"text": ob, "organisation_id": i}));
+          res.push($.extend(true, {}, {"text": ob, "item-id": i}));
         }
       });
 

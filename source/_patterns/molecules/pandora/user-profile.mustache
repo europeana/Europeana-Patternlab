@@ -86,24 +86,23 @@
           </div>
         {{/countries}}
 
-        <div class="org-selection">
-          <label for="organizations">Organisations: </label>
-          <div class="searchOrganisationWrap">
+        <div class="metis-autocomplete">
+          <label for="search-org">Organisations:</label>
+          <div class="metis-autocomplete-wrap">
             <input autofocus
                    class="svg-icon-search eu"
-                   id="searchOrganisation"
-                   name="organization"
+                   id="search-org"
+                   name="organisations"
                    placeholder="Search Organisations ..."
                    type="text"
                    {{#view_mode.preview}}readonly{{/view_mode.preview}}
                    {{#autocomplete}}
                      data-autocomplete-url="{{url}}"
                      data-autocomplete-min-chars="{{min_chars}}"
-                   {{/autocomplete}}
+                   {{/autocomplete}} 
             >
           </div>
-
-          <div class="modal-wrapper">
+          <div class="modal-wrapper hidden">
             <div class="modal">
               <div class="head">
                 <a class="btn-close trigger"></a>
@@ -124,39 +123,19 @@
               </div>
             </div>
           </div>
-        </div>
-        {{#selectedOrganizations}}
-          <div class="selectedOrganisations {{^organizations}}hidden{{/organizations}}">
-            <label for="organization">{{#label}}{{.}}{{/label}}</label>
-            <div class="selectedOrgs">
+        </div> 
 
-
-              {{#organizations}}
-                <li class="tag"><input type="hidden" name="organisation_id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
-                <!--
-                <div class="selectedOrg" id="{{organizationId}}">
-                  <a
-                    class="selectedOrganisation alreadySelected
-                      {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
-                    name="organization"
-                    data-rolesTypeId="{{rolesTypeId}}"
-                    data-role="{{organizationRole}}"
-                    data-name="{{organizationName}}"
-                    data-organizationId="{{organizationId}}">{{organizationName}}
-                    :&nbsp;{{#organizationRole}} {{.}} {{/organizationRole}}</a>
-                  <b><a
-                    class="removeOrganisation {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
-                    data-name="{{organizationName}}">&nbsp;X</a>
-                  </b>
-                </div>
-                 -->
-              {{/organizations}}
-
-            </div>
+        {{#selectedOrganisations}}
+          <div class="metis-autocomplete-selected {{^organisations}}hidden{{/organisations}}">
+            <label>{{#label}}{{.}}{{/label}}</label>
+            <ul class="metis-autocomplete-selected-wrap">
+              {{#organisations}}
+                <li class="tag"><input type="hidden" name="item-{{organisationId}}" value="{{organisationId}}">{{organisationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+              {{/organisations}}
+            </ul>
           </div>
-        {{/selectedOrganizations}}
+        {{/selectedOrganisations}}       
+
         {{#notes}}
           <div>
             <label for="notes">{{label}}</label>

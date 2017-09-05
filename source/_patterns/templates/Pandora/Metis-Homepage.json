@@ -84,19 +84,19 @@
           "url":       "metis_autocomplete",
           "min_chars": "1"
         },
-        "selectedOrganizations": {
-          "label": "Selected Organizations",
-          "organizations": [
+        "selectedOrganisations": {
+          "label": "Selected Organisations",
+          "organisations": [
             {
-              "organizationName": "Europeana",
-              "organizationId": 12,
-              "organizationRole": false,
+              "organisationName": "Europeana",
+              "organisationId": 12,
+              "organisationRole": false,
               "rolesTypeId": 1
             },
             {
-              "organizationName": "BNF",
-              "organizationId": 23,
-              "organizationRole": "Provider Admin",
+              "organisationName": "BNF",
+              "organisationId": 23,
+              "organisationRole": "Provider Admin",
               "rolesTypeId": 2
             }
           ]
