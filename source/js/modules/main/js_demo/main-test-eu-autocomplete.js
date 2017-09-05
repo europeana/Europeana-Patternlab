@@ -1,7 +1,7 @@
 require.config({
   paths: {
     jquery:                       '../../lib/jquery/jquery',
-    autocomplete:                 '../../eu/autocomplete/eu-autocomplete',
+    eu_autocomplete:                 '../../eu/autocomplete/eu-autocomplete',
     //eu_autocomplete_processor:    '../../eu/autocomplete/eu-autocomplete-processor-entities',
     eu_mock_ajax:                 '../../eu/util/eu-mock-ajax',
     mustache:                     '../../lib/mustache/mustache',
@@ -12,7 +12,7 @@ require.config({
 
 
 require(['jquery'], function($){
-  require(['autocomplete', 'util_resize', 'eu_mock_ajax'], function(Autocomplete){
+  require(['eu_autocomplete', 'util_resize', 'eu_mock_ajax'], function(Autocomplete){
 
     function log(msg){
       console.log('Test autocomplete: ' + msg);

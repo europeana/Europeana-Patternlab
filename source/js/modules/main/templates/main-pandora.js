@@ -1,6 +1,5 @@
 require.config({
   paths: {
-    autocomplete:        '../../lib/autocomplete/autocomplete',
     dataset_info_form:   '../../eu/pandora/dataset-info',
     eu_accordion_tabs:   '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:     '../../eu/autocomplete/eu-autocomplete',

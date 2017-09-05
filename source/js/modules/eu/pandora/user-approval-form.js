@@ -1,4 +1,4 @@
-define(['jquery', 'autocomplete'], function ($) {
+define(['jquery', 'eu_autocomplete'], function ($) {
   'use strict';
 
   var currentKeys = [],
