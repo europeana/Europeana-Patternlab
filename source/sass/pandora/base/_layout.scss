@@ -2,14 +2,8 @@
 
 // metis main content
 .metis-main-content {
-  margin-top: 4.8rem;
-  min-height: calc(100vh - 52rem); // keeping the footer at the bottom even when there is not enough content to push it down.
-}
-
-@-moz-document url-prefix() {
-  .metis-main-content {
-    min-height: calc(100vh - 47rem);
-  }
+  margin: 7rem 0;
+  min-height: calc(100vh - 55rem); // keeping the footer at the bottom even when there is not enough content to push it down.
 }
 
 // dashboard wrapper

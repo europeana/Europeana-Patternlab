@@ -67,6 +67,18 @@
         }
       }
 
+      //  selection box stylings.
+      select {
+        background-color: $white;
+        border: 1px solid $gray-light;
+        color: $gray-light;
+        height: 3rem;
+
+        option {
+          color: $gray-light;
+        }
+      }
+
       // buttons
       &.form-group-btns {
         align-items: center;
@@ -85,6 +97,10 @@
             color: $gray-dark;
           }
         }
+
+        &.hidden {
+          display: none;
+        }
       }
     }
 
@@ -101,5 +117,132 @@
         justify-content: flex-end;
       }
     }
+
+    // autocomplete
+    .metis-autocomplete {
+      .metis-autocomplete-wrap {
+        position: relative;
+
+        .eu-autocomplete {
+          box-sizing: initial;
+          margin-left: -2px;
+          margin-right: -2px;
+          padding-left: 2px;
+          padding-right: 2px;
+        }
+
+      }
+    }
+
+    .metis-autocomplete-selected {
+      .tag svg {
+        cursor: pointer;
+        margin-left: 1em;
+      }
+    }
+
+    // icons
+    .svg-icon-search {
+      background-position: 98% 50%;
+      background-size: 1.2rem;
+      margin-right: 0;
+      padding-right: 48px;
+      transform: none;
+
+      &::placeholder {
+        color: $gray-light;
+      }
+    }
   }
 }
+
+.metis-form-horizontal {
+  background-color: $white;
+  border: 1px solid $offwhite;
+  border-radius: $border-radius;
+  color: $gray-light;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+  padding: 3rem;
+  width: 100%;
+
+  form {
+    width: 100%;
+  }
+
+  .form-fields {
+    background: $white;
+    padding: 0;
+    width: 100%;
+
+    .form-group {
+      align-items: center;
+      background: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding: 0;
+
+      label,
+      p {
+        flex: 1 0 120px;
+        font-weight: normal;
+        max-width: 190px;
+        padding-right: 1rem;
+      }
+
+      label + * {
+        flex: 1 0 220px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      input {
+        border: 1px solid $gray-light;
+        color: $eu-blue;
+
+        &::placeholder {
+          color: $eu-blue;
+        }
+
+        &:read-only,
+        &:read-only::placeholder {
+          color: $gray-light;
+        }
+      }
+
+      input:not([type='checkbox']),
+      textarea {
+        box-shadow: none;
+        padding: 10px;
+
+        &.icon-padding {
+          padding-right: 50px;
+        }
+      }
+
+      &.form-group-btns {
+        height: 7vh;
+        justify-content: flex-end;
+        margin-bottom: 0;
+
+        button {
+          border-radius: 2px;
+          color: $white;
+          display: inline-block;
+          margin: 0;
+          padding: .8rem 5rem;
+
+          &.submit {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
