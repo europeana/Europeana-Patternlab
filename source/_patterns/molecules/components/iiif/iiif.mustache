@@ -1,4 +1,40 @@
-<div id="iiif">
+{{#iiif_transcription}}
+
+  {{> molecules/components/iiif/iiif_transcription_1}}
+
+  <style type="text/css">
+  #full-text-panel{
+    max-height: 36em;
+    overflow:   auto;
+    font-size:  0.875em;
+    width:      35%;
+  }
+
+  #iiif-with-ctrls{
+    width: 64%;
+  }
+  #iiif-with-ctrls,
+  #full-text-panel{
+    float: left;
+  }
+
+  #full-text-panel p.highlight{
+    background-color: #D2E9F7;
+    border-style:     solid;
+    border-color:     #1DA2F5;
+    border-width:     1px;
+    border-radius:    5px;
+  }
+
+  #full-text-panel word.highlight{
+    font-weight: bold;
+  }
+
+  </style>
+  <div id="iiif-with-ctrls">
+{{/iiif_transcription}}
+
+<div id="iiif" {{#iiif_transcription}}class="transcription"{{/iiif_transcription}}>
 </div>
 <div id="iiif-ctrl">
   <div class="iiif-ctrl-group">
@@ -25,3 +61,7 @@
 
   </div>
 </div>
+
+{{#iiif_transcription}}
+  </div>
+{{/iiif_transcription}}

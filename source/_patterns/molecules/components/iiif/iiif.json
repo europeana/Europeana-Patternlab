@@ -8,5 +8,7 @@
     {
       "path": "/js/modules/require.js",
       "data_main": "/js/modules/main/molecules/main-iiif-molecule.js"
-    }]
+    }
+  ],
+  "iiif_transcription": true
 }

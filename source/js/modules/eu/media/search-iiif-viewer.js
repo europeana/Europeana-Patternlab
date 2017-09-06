@@ -54,6 +54,7 @@ define([], function() {
   var load = function(centreIndexIn, singleImageInfo){
 
     if(singleImageInfo){
+
         var layer = L.tileLayer.iiif(singleImageInfo);
         iiifLayers['single'] = layer;
         layer.addTo(iiif);
@@ -245,6 +246,108 @@ define([], function() {
         $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
       });
     }
+
+    if($('#iiif').hasClass('transcription')){
+      initTranscription();
+    }
+  }
+
+  function initTranscription(){
+    var addRectangle = function(pointList){
+
+      // remove previous rectangles - upgrade to leaflet 1.0 to be able to use rect.delete
+      $('.leaflet-overlay-pane g').remove();
+
+      var rect = new L.Rectangle(pointList, {
+        color:       '#1DA2F5',
+        weight:       1,
+        opacity:      0.5,
+        smoothFactor: 1
+      });
+      rect.addTo(iiif);
+    };
+
+    var getParagraphPointList = function($p){
+
+      var x = parseInt($p.attr('xcoord'));
+      var y = parseInt($p.attr('ycoord'));
+      var w = parseInt($p.attr('fwidth'));
+      var h = parseInt($p.attr('fheight'));
+
+      var l       = currentImg ? iiifLayers[currentImg] : iiifLayers['single'];
+      var lData   = l.getData();
+      var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
+
+      return [
+        [0 - y / divider, x / divider],
+        [0 - y / divider, (x + w) / divider],
+        [0 - (y + h) / divider, x / divider],
+        [0 - (y + h) / divider, (x + w) / divider]
+      ];
+    }
+
+    $('#full-text-panel p').click(function(e){
+
+      var p = $(this);
+      $('#full-text-panel p').removeClass('highlight');
+      p.addClass('highlight');
+
+      var pointList = getParagraphPointList(p);
+      addRectangle(pointList);
+      iiif.fitBounds(pointList);
+    });
+
+    iiif.on('click', function(e) {
+
+      var l       = currentImg ? iiifLayers[currentImg] : iiifLayers['single'];
+      var lData   = l.getData();
+      var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
+      var point   = iiif.options.crs.latLngToPoint(e.latlng, 0);
+      var x       = point.x * divider;
+      var y       = point.y * divider;
+
+      // Check if the given coordinate belongs to a certain text fragment
+      var coordBelogsToRect = function(xClick, yClick, x, y, w, h) {
+        return (xClick >= Number(x) &&
+                xClick <= Number(x) + Number(w) &&
+                yClick >= Number(y) &&
+                yClick <= Number(y) + Number(h));
+      }
+
+
+      $('#full-text-panel p[id^="fragment-"]').each(function() {
+        var $p      = $(this);
+        var xCoord  = $p.attr('xcoord');
+        var yCoord  = $p.attr('ycoord');
+        var fWidth  = $p.attr('fwidth');
+        var fHeight = $p.attr('fheight');
+
+        if(coordBelogsToRect(x, y, xCoord, yCoord, fWidth, fHeight)) {
+
+          var alreadyHighlighted = $p.hasClass('highlight');
+
+          if(alreadyHighlighted){
+            $('#full-text-panel word').removeClass('highlight');
+          }
+          else{
+            $('#full-text-panel p').removeClass('highlight');
+            $('#full-text-panel word').removeClass('highlight');
+            $p.addClass('highlight');
+            $('#full-text-panel').scrollTop($p[0].getBoundingClientRect().top);
+            addRectangle(getParagraphPointList($p));
+          }
+
+          $p.find('word').each(function(i, word){
+            word = $(word);
+            if(coordBelogsToRect(x, y, $(word).attr('x'), $(word).attr('y'), $(word).attr('w'), $(word).attr('h'))){
+              $(word).addClass('highlight');
+              return false;
+            }
+          });
+          return false;
+        }
+      });
+    });
   }
 
   return {
