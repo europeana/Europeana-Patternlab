@@ -47,12 +47,12 @@ define(['jquery'], function ($) {
           // create a new tag
           var tagnr = $(selectedItems).find('.metis-autocomplete-selected-wrap .tag').length;
           var tag = $('<li class="tag"><input type="hidden" name="' + $(selInput).attr('name') + '[' + tagnr +  '].id" value="' + itemId + '">' + val + '</li>')
-            .appendTo($(selectedItems).find('.metis-autocomplete-selected-wrap'));
-            $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
-            .appendTo(tag)
-            .on('click', function(){
-              $(this).closest('.tag').remove();
-            });
+          .appendTo($(selectedItems).find('.metis-autocomplete-selected-wrap'));
+          $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
+          .appendTo(tag)
+          .on('click', function(){
+            $(this).closest('.tag').remove();
+          });
         },
         fnPreProcess     : function(term, data) {
           var escapeRegExp = function(str){
@@ -75,7 +75,7 @@ define(['jquery'], function ($) {
         selInput         : selInput,
         submitOnEnter    : true,
         url              : options.url
-        });
+      });
     });
   }  
 
