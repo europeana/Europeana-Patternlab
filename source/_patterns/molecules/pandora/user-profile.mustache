@@ -91,7 +91,7 @@
             <label for="search-org">Organisations</label>
             <div class="metis-autocomplete-wrap">
               <input autofocus
-                     class="svg-icon-search eu"
+                     class="js-editable svg-icon-search eu"
                      id="search-org"
                      name="organisations"
                      placeholder="Search Organisations ..."
@@ -131,7 +131,7 @@
               <label>{{#label}}{{.}}{{/label}}</label>
               <ul class="metis-autocomplete-selected-wrap">
                 {{#organisations}}
-                  <li class="tag"><input type="hidden" name="item-{{organisationId}}" value="{{organisationId}}">{{organisationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                  <li class="tag"><input type="hidden" name="organisations[{{index}}].id" value="{{organisationId}}">{{organisationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
                 {{/organisations}}
               </ul>
             </div>

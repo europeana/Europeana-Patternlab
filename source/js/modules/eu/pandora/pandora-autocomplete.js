@@ -50,7 +50,8 @@ define(['jquery'], function ($) {
           }
 
           // create a new tag
-          var tag = $('<li class="tag"><input type="hidden" name="item-' + itemId + '" value="' + itemId + '">' + val + '</li>')
+          var tagnr = $(selectedItems).find('.metis-autocomplete-selected-wrap .tag').length;
+          var tag = $('<li class="tag"><input type="hidden" name="' + $(selInput).attr('name') + '[' + tagnr +  '].id" value="' + itemId + '">' + val + '</li>')
             .appendTo($(selectedItems).find('.metis-autocomplete-selected-wrap'));
           $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
             .appendTo(tag)

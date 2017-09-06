@@ -14,8 +14,6 @@ define(['jquery'], function ($) {
 
   function disableEditMode(){
 
-    log('disable edit mode');
-
     form.find('.js-editable').attr('readonly', true).attr('disabled', true);
     form.find('.cancel').toggleClass('update preview');
 
@@ -27,7 +25,7 @@ define(['jquery'], function ($) {
     previewBlockBtn.removeClass('hidden');
     editableBlockBtns.addClass('hidden');
 
-    $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
+    form.find('.tag').toggleClass('disable-tag');
 
   }
 
@@ -41,7 +39,7 @@ define(['jquery'], function ($) {
 
     if(role === 'metisAdmin') {
       eu.attr('readonly', false).attr('disabled', false);
-      $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
+      form.find('.tag').toggleClass('disable-tag');
     }
     else {
       prov.attr('readonly', false).attr('disabled', false);
@@ -50,10 +48,8 @@ define(['jquery'], function ($) {
 
   function initPage(){
 
-    log('initPage - user form ' + $('.user-profile-form form').length );
-
-    form              = $('.user-profile-form form');
-    previewBlockBtn   = $('.user-profile-preview-btn');
+    form = $('.user-profile-form form');
+    previewBlockBtn = $('.user-profile-preview-btn');
     editableBlockBtns = $('.user-profile-edit-btns');
 
     role = form.data('role');

@@ -23,7 +23,7 @@ require.config({
     smartmenus:          '../../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard: '../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     user_approval:       '../../eu/pandora/user-approval-form',
-    user_profile:        '../../eu/pandora/user_profile',
+    user_profile:        '../../eu/pandora/user-profile',
     util_ellipsis:       '../../eu/util/ellipsis',
     util_resize:         '../../eu/util/resize'
   },

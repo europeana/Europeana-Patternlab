@@ -67,6 +67,7 @@ define(['jquery', 'smartmenus', 'pandora'], function(){
 
   switch(pageName){
     case 'metisHomePage':
+    case 'metisUserProfile': 
       require(['pandora_home'], function(page){
         log('loaded pandora home');
         page.initPage();

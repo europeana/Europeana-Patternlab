@@ -139,6 +139,13 @@
         cursor: pointer;
         margin-left: 1em;
       }
+
+      .disable-tag {
+        color: $gray-light;
+        cursor: default;
+        pointer-events: none;
+      }
+
     }
 
     // icons
