@@ -12,7 +12,7 @@ define(['jquery'], function ($) {
     console.log('Pandora Home: ' + msg);
   };
 
-  function disableEditMode(){
+  function disableEditMode() {
 
     form.find('.js-editable').attr('readonly', true).attr('disabled', true);
     form.find('.cancel').toggleClass('update preview');
@@ -25,11 +25,11 @@ define(['jquery'], function ($) {
     previewBlockBtn.removeClass('hidden');
     editableBlockBtns.addClass('hidden');
 
-    form.find('.tag').toggleClass('disable-tag');
+    form.find('.tag').addClass('disable-tag');
 
   }
 
-  function enableEditMode(){
+  function enableEditMode() {
 
     form.find('.js-editable').attr('readonly', false).attr('disabled', false);
     form.find('.cancel').toggleClass('update preview');
@@ -37,13 +37,17 @@ define(['jquery'], function ($) {
     previewBlockBtn.addClass('hidden');
     editableBlockBtns.removeClass('hidden');
 
-    if(role === 'metisAdmin') {
-      eu.attr('readonly', false).attr('disabled', false);
-      form.find('.tag').toggleClass('disable-tag');
-    }
-    else {
-      prov.attr('readonly', false).attr('disabled', false);
-    }
+    form.find('.js-editable').attr('readonly', false).attr('disabled', false);
+    form.find('.tag').removeClass('disable-tag');
+
+    //if(role === 'metisAdmin') {
+    //  eu.attr('readonly', false).attr('disabled', false);
+    //  form.find('.tag').removeClass('disable-tag');
+    //}
+    //else {
+    //  prov.attr('readonly', false).attr('disabled', false);
+    //}
+
   }
 
   function initPage(){

@@ -141,7 +141,8 @@
       }
 
       .disable-tag {
-        color: $gray-light;
+        background-color: $gray-lightest;
+        color: $gray-lighter;
         cursor: default;
         pointer-events: none;
       }

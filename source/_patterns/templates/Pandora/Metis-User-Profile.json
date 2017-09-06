@@ -468,6 +468,91 @@
     }
   },
   "page_title": "Europeana Metis",
+  "metis_footer": {
+    "navigation": {
+      "footer": {
+        "linklist1": {
+          "title": "More info",
+          "items": [
+            {
+              "text": "About",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Development updates",
+              "url": "http://google.com"
+            },
+            {
+              "text": "All institutions",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Become our partner",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Contact us",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "linklist2": {
+          "title": "Help",
+          "items": [
+            {
+              "text": "Search tips",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Terms of Use & Policies",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "linklist3": {
+          "title": "Tools",
+          "items": [
+            {
+              "text": "API Docs",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Status",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "social": {
+          "linkedin": false,
+          "github": false,
+          "twitter": true,
+          "facebook": true,
+          "pinterest": true,
+          "googleplus": true
+        },
+        "subfooter": {
+          "items": [
+            {
+              "text": "Home",
+              "url": "./"
+            },
+            {
+              "text": "Terms of use & policies",
+              "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+            },
+            {
+              "text": "Contact us",
+              "url": "./"
+            },
+            {
+              "text": "Sitemap",
+              "url": "./"
+            }
+          ]
+        }
+      }
+    }
+  },
   "metis_logged_user": {
     "menu_id": "loggedin-user",
     "icon_class": "svg-icon-loggedin-user",
