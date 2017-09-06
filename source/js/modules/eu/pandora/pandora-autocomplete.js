@@ -33,28 +33,26 @@ define(['jquery'], function ($) {
       Autocomplete.init({
         evtResize       : 'europeanaResize',
         fnOnSelect     : function(sel) {
+          var val   = sel.data('term');
+          var itemId = sel.data('id');
 
-        var val   = sel.data('term');
-        var itemId = sel.data('id');
+          // clear input
+          $(selInput).val('');
 
-        // clear input
-        $(selInput).val('');
+          // item already selected
+          if($(selectedItems).find('li [value="' + itemId + '"]').length > 0) {
+            return;
+          }
 
-        // item already selected
-        if($(selectedItems).find('li [value="' + itemId + '"]').length > 0) {
-          return;
-        }
-
-        // create a new tag
-        var tagnr = $(selectedItems).find('.metis-autocomplete-selected-wrap .tag').length;
-        var tag = $('<li class="tag"><input type="hidden" name="' + $(selInput).attr('name') + '[' + tagnr +  '].id" value="' + itemId + '">' + val + '</li>')
-          .appendTo($(selectedItems).find('.metis-autocomplete-selected-wrap'));
-          $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
-          .appendTo(tag)
-          .on('click', function(){
-            $(this).closest('.tag').remove();
-          });
-
+          // create a new tag
+          var tagnr = $(selectedItems).find('.metis-autocomplete-selected-wrap .tag').length;
+          var tag = $('<li class="tag"><input type="hidden" name="' + $(selInput).attr('name') + '[' + tagnr +  '].id" value="' + itemId + '">' + val + '</li>')
+            .appendTo($(selectedItems).find('.metis-autocomplete-selected-wrap'));
+            $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
+            .appendTo(tag)
+            .on('click', function(){
+              $(this).closest('.tag').remove();
+            });
         },
         fnPreProcess     : function(term, data) {
           var escapeRegExp = function(str){
