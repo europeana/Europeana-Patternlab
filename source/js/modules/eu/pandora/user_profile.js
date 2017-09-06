@@ -30,7 +30,7 @@ define(['jquery'], function ($) {
       if (role === 'metisAdmin') {
         eu.attr('readonly', false);
         eu.attr('disabled', false);
-        $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
+        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
       } else {
         prov.attr('readonly', false);
         prov.attr('disabled', false);
@@ -45,7 +45,7 @@ define(['jquery'], function ($) {
         cancel.toggleClass('update preview');
         previewBlockBtn.toggleClass('hidden');
         editableBlockBtns.toggleClass('hidden');
-        $('.selectedOrganization, .removeOrganisation').toggleClass('disableLink');
+        $('.selectedOrganization, .removeOrganization').toggleClass('disableLink');
       } else {
         //  TODO: on create mode after canceling the creation the user should be redirected to ?
         console.log('canceling operation');

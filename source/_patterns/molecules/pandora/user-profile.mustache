@@ -88,13 +88,13 @@
           {{/countries}}
 
           <div class="form-group metis-autocomplete">
-            <label for="search-org">Organisations</label>
+            <label for="search-org">Organizations</label>
             <div class="metis-autocomplete-wrap">
               <input autofocus
                      class="js-editable svg-icon-search eu"
                      id="search-org"
-                     name="organisations"
-                     placeholder="Search Organisations ..."
+                     name="organizations"
+                     placeholder="Search Organizations ..."
                      type="text"
                      {{#view_mode.preview}}readonly{{/view_mode.preview}}
                      {{#autocomplete}}
@@ -111,7 +111,7 @@
                 </div>
                 <div class="content">
                   <div class="roleWrapper">
-                    <h4 class="currentSelectedOrganisation"></h4>
+                    <h4 class="currentSelectedOrganization"></h4>
                     {{#roleTypes}}
                       <select data-rolesTypeId="{{typeId}}" class="roles hidden">
                         {{#roles}}
@@ -126,16 +126,16 @@
             </div>
           </div> 
 
-          {{#selectedOrganisations}}
-            <div class="form-group metis-autocomplete-selected {{^organisations}}hidden{{/organisations}}">
+          {{#selectedOrganizations}}
+            <div class="form-group metis-autocomplete-selected {{^organizations}}hidden{{/organizations}}">
               <label>{{#label}}{{.}}{{/label}}</label>
               <ul class="metis-autocomplete-selected-wrap">
-                {{#organisations}}
-                  <li class="tag"><input type="hidden" name="organisations[{{index}}].id" value="{{organisationId}}">{{organisationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
-                {{/organisations}}
+                {{#organizations}}
+                  <li class="tag"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                {{/organizations}}
               </ul>
             </div>
-          {{/selectedOrganisations}}       
+          {{/selectedOrganizations}}       
 
           {{#notes}}
             <div class="form-group">
