@@ -36,7 +36,7 @@ define(['jquery'], function($){
   var currentImg = 0;
   var totalImages;
   var transcriptionUrls = [];
-
+  var selSections  = [];
   var labelledData = {}; // JSON (entire manifest): data.label: data
   var iiifLayers   = {}; // Map layers (loaded): label: layer
   var allCanvases  = [];
@@ -77,7 +77,7 @@ define(['jquery'], function($){
         var data = allCanvases[index];
 
         if(! iiifLayers[index + ''] ){
-          iiifLayers[index + ''] = window.L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
+          iiifLayers[index + ''] = window.L.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
           noLoaded += 1;
         }
         index += 1;
@@ -95,8 +95,9 @@ define(['jquery'], function($){
   };
 
   var updateCtrls = function(){
-    $('#iiif-ctrl .title').html(Object.keys(labelledData)[currentImg]);
-    $('#iiif-ctrl .jump-to-img').val(currentImg+1);
+
+    $('#iiif-ctrl .title').html(Object.keys(labelledData)[currentImg + '']);
+    $('#iiif-ctrl .jump-to-img').val(currentImg + 1);
     $('#iiif-ctrl .first').attr('disabled', currentImg == 0);
     $('#iiif-ctrl .prev').attr('disabled', currentImg == 0);
     $('#iiif-ctrl .next').attr('disabled', currentImg == totalImages-1);
@@ -104,24 +105,36 @@ define(['jquery'], function($){
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages == 1);
 
     if($('#iiif').hasClass('transcription')){
+      updateTranscriptCtrls();
+    }
+  };
 
-      if(transcriptionUrls.length > currentImg){
+  var updateTranscriptCtrls = function(){
 
-        require(['mustache'], function(Mustache){
-          Mustache.tags = ['[[', ']]'];
-          var template = $('#template-iiif-transcription').text();
+    var $transcriptions = $('.transcriptions');
 
-          $.getJSON(transcriptionUrls[currentImg]).done(function(data){
+    $transcriptions.find('.transcription').addClass('hidden');
+    $('.leaflet-overlay-pane g').remove();
 
-            var markup = Mustache.render(template, data);
-            $('.transcriptions').append(markup);
+    if($transcriptions.find(' > .' + currentImg).length == 0){
 
-          });
+      require(['mustache'], function(Mustache){
+        Mustache.tags = ['[[', ']]'];
+
+        var template = $('#template-iiif-transcription').text();
+
+        $.getJSON(transcriptionUrls[currentImg]).done(function(data){
+          data['index'] = currentImg + '';
+          $transcriptions.append(Mustache.render(template, data));
         });
+      });
+    }
+    else{
+      $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
+      var prevSel = selSections[currentImg + ''];
+      if(prevSel){
+        transcriptionClick($('#' + prevSel), true);
       }
-
-      // example manifest here:
-      // http://europeana-pattern-lab/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://gallica.bnf.fr/iiif/ark:/12148/btv1b6000107x/manifest.json
     }
   };
 
@@ -245,8 +258,9 @@ define(['jquery'], function($){
       updateCtrls();
     }
     else{
+
       // Grab a IIIF manifest
-      $.getJSON(manifestUrl, function(data) {
+      $.getJSON(manifestUrl).done(function(data){
 
         $.each(data.sequences[0].canvases, function(_, val) {
           labelledData[val.label] = val;
@@ -280,56 +294,70 @@ define(['jquery'], function($){
     transcriptionUrls = urls;
   }
 
+  function addRectangle(pointList){
+
+    // remove previous rectangles - upgrade to leaflet 1.0 to be able to use rect.delete
+    $('.leaflet-overlay-pane g').remove();
+
+    if(!pointList){
+      return;
+    }
+
+    var rect = new window.L.Rectangle(pointList, {
+      color:       '#1DA2F5',
+      weight:       1,
+      opacity:      0.5,
+      smoothFactor: 1
+    });
+    rect.addTo(iiif);
+  };
+
+  function getParagraphPointList($p){
+
+    var x = parseInt($p.data('x'));
+    var y = parseInt($p.data('y'));
+    var w = parseInt($p.data('w'));
+    var h = parseInt($p.data('h'));
+    var l = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
+
+    var lData   = l.getData();
+    var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
+
+    return [
+      [0 - (y / divider), x / divider],
+      [0 - (y / divider), (x + w) / divider],
+      [0 - (y + h) / divider, x / divider],
+      [0 - (y + h) / divider, (x + w) / divider]
+    ];
+  };
+
+  function transcriptionClick($p, scrollNotZoom){
+    selSections[currentImg + ''] = $p.attr('id');
+
+    $('.transcription:not(.hidden) p').removeClass('highlight');
+    $p.addClass('highlight');
+
+    var pointList = getParagraphPointList($p);
+    addRectangle(pointList);
+
+    if(scrollNotZoom){
+      $('.transcriptions').scrollTo($p, 300, {'offset': -16});
+    }
+    else{
+      iiif.fitBounds(pointList);
+    }
+
+  }
+
   function initTranscription(){
 
-    var addRectangle = function(pointList){
-
-      // remove previous rectangles - upgrade to leaflet 1.0 to be able to use rect.delete
-      $('.leaflet-overlay-pane g').remove();
-
-      var rect = new window.L.Rectangle(pointList, {
-        color:       '#1DA2F5',
-        weight:       1,
-        opacity:      0.5,
-        smoothFactor: 1
-      });
-      rect.addTo(iiif);
-    };
-
-    var getParagraphPointList = function($p){
-
-      var x = parseInt($p.data('x'));
-      var y = parseInt($p.data('y'));
-      var w = parseInt($p.data('w'));
-      var h = parseInt($p.data('h'));
-
-      var l       = currentImg ? iiifLayers[currentImg] : iiifLayers['single'];
-      var lData   = l.getData();
-      var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
-
-      return [
-        [0 - (y / divider), x / divider],
-        [0 - (y / divider), (x + w) / divider],
-        [0 - (y + h) / divider, x / divider],
-        [0 - (y + h) / divider, (x + w) / divider]
-      ];
-    };
-
     $(document).on('click', '.transcriptions p', function(){
-
-      var p = $(this);
-
-      $('.transcriptions p').removeClass('highlight');
-      p.addClass('highlight');
-
-      var pointList = getParagraphPointList(p);
-      addRectangle(pointList);
-      iiif.fitBounds(pointList);
+      transcriptionClick($(this))
     });
 
     iiif.on('click', function(e) {
 
-      var l       = currentImg ? iiifLayers[currentImg] : iiifLayers['single'];
+      var l       = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
       var lData   = l.getData();
       var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
       var point   = iiif.options.crs.latLngToPoint(e.latlng, 0);
@@ -337,7 +365,7 @@ define(['jquery'], function($){
       var y       = point.y * divider;
 
       // Check if the given coordinate belongs to a certain text fragment
-      var coordBelogsToRect = function(xClick, yClick, x, y, w, h) {
+      var coordBelongsToRect = function(xClick, yClick, x, y, w, h) {
         return xClick >= Number(x) &&
         xClick <= Number(x) + Number(w) &&
         yClick >= Number(y) &&
@@ -345,7 +373,7 @@ define(['jquery'], function($){
       };
 
 
-      $('.transcriptions p[id^="fragment-"]').each(function() {
+      $('.transcription:not(.hidden) p[id^="fragment-"]').each(function() {
         var $p      = $(this);
 
         var xCoord  = $p.data('x');
@@ -353,24 +381,25 @@ define(['jquery'], function($){
         var fWidth  = $p.data('w');
         var fHeight = $p.data('h');
 
-        if(coordBelogsToRect(x, y, xCoord, yCoord, fWidth, fHeight)) {
+        if(coordBelongsToRect(x, y, xCoord, yCoord, fWidth, fHeight)) {
 
           var alreadyHighlighted = $p.hasClass('highlight');
 
           if(alreadyHighlighted){
-            $('.transcriptions word').removeClass('highlight');
+            $('.transcription:not(.hidden) word').removeClass('highlight');
           }
           else{
-            $('.transcriptions p').removeClass('highlight');
-            $('.transcriptions word').removeClass('highlight');
+            $('.transcription:not(.hidden) p').removeClass('highlight');
+            $('.transcription:not(.hidden) word').removeClass('highlight');
             $p.addClass('highlight');
+            selSections[currentImg + ''] = $p.attr('id');
             $('.transcriptions').scrollTo($p, 300, {'offset': -16});
             addRectangle(getParagraphPointList($p));
           }
 
           $p.find('word').each(function(i, word){
             word = $(word);
-            if(coordBelogsToRect(x, y, word.data('x'), word.data('y'), word.data('w'), word.data('h'))){
+            if(coordBelongsToRect(x, y, word.data('x'), word.data('y'), word.data('w'), word.data('h'))){
               word.addClass('highlight');
               return false;
             }
