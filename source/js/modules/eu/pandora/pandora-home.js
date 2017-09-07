@@ -52,33 +52,36 @@ define(['jquery'], function ($) {
 
   function initPage(){
 
-    form = $('.user-profile-form form');
-    previewBlockBtn = $('.user-profile-preview-btn');
-    editableBlockBtns = $('.user-profile-edit-btns');
-
-    role = form.data('role');
-    mode = form.data('view-mode');
-
-    eu = $('.eu');
-    prov = $('.prov');
-
-    if(mode === 'preview'){
-      disableEditMode();
-    }
-    else{
-      enableEditMode();
-    }
-
-    form.find('.edit-user-profile').on('click', enableEditMode);
-    form.find('.cancel').on('click', disableEditMode);
-    form.find('.submit').on('click', function(){
-      $(this).closest('form').submit();
-    });
-
     require(['pandora_autocomplete'], function(p){
       p.autoComplete();
     });
 
+    require(['user_approval'], function(p){
+      p.initRoles();
+    });
+
+    // form = $('.user-profile-form form');
+    // previewBlockBtn = $('.user-profile-preview-btn');
+    // editableBlockBtns = $('.user-profile-edit-btns');
+
+    // role = form.data('role');
+    // mode = form.data('view-mode');
+
+    // eu = $('.eu');
+    // prov = $('.prov');
+
+    // if(mode === 'preview'){
+    //   disableEditMode();
+    // }
+    // else{
+    //   enableEditMode();
+    // }
+
+    // form.find('.edit-user-profile').on('click', enableEditMode);
+    // form.find('.cancel').on('click', disableEditMode);
+    // form.find('.submit').on('click', function(){
+    //   $(this).closest('form').submit();
+    // });
   }
 
   return {

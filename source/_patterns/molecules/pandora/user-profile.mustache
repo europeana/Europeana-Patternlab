@@ -1,18 +1,22 @@
 {{#user_profile}}
   <div class="metis-form metis-form-horizontal user-profile-form">
-    <form action="{{user_profile_url}}" method="POST" data-role="{{user_role.value}}" data-view-mode="{{#view_mode.value}}{{.}}{{/view_mode.value}}{{^view_mode.value}}preview{{/view_mode.value}}">
+    <form action="{{user_profile_url}}" method="POST">
     
       <div class="form-fields">
+
         {{#user_fields}}
 
           {{#user_id}}
-            <div class="form-group">
-              <label for="userId">{{label}}</label>
-              <input type="text" value="{{value}}" readonly name="userId" id="userId">
-            </div>
+              {{#visible}}
+              <div class="form-group">
+                <label for="userId">{{label}}</label>
+                <input type="text" value="{{value}}" name="userId" id="userId" {{#readonly}}readonly{{/readonly}} {{^user_fields_editmode}}disabled{{/user_fields_editmode}}/>
+              </div> 
+              {{/visible}}            
           {{/user_id}}
 
           {{#user_first_name}}
+            {{#visible}}
             <div class="form-group">
               <label for="userFirstName">{{label}}</label>
               <input class="js-editable"
@@ -22,11 +26,15 @@
                      placeholder="{{placeholder}}"
                      type="text"
                      value="{{value}}"
-                     {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                     />
             </div>
+            {{/visible}}
           {{/user_first_name}}
 
           {{#user_last_name}}
+            {{#visible}}
             <div class="form-group">
               <label for="userLastName">{{label}}</label>
               <input class="js-editable"
@@ -36,12 +44,15 @@
                      placeholder="{{placeholder}}"
                      type="text"
                      value="{{value}}"
-                     {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                     >
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                     />
+              {{/visible}}
             </div>
           {{/user_last_name}}
 
           {{#user_email}}
+            {{#visible}}
             <div class="form-group">
               <label for="userEmail">{{label}}</label>
               <input data-orig-value="{{value}}"
@@ -50,11 +61,14 @@
                      placeholder="{{placeholder}}"
                      type="text"
                      value="{{value}}"
-                     readonly>
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}} />
             </div>
+            {{/visible}}
           {{/user_email}}
 
           {{#user_skype}}
+            {{#visible}}
             <div class="form-group">
               <label for="userSkype">{{label}}</label>
               <input class="js-editable"
@@ -64,11 +78,14 @@
                      placeholder="{{placeholder}}"
                      type="text"
                      value="{{value}}"
-                     {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}} />
             </div>
+            {{/visible}}
           {{/user_skype}}
 
           {{#countries}}
+            {{#visible}}
             <div class="form-group">
               <label for="country">{{label}}</label>
               <select autocomplete="off"
@@ -77,7 +94,8 @@
                       {{#items}}
                         {{#selected}}data-orig-value="{{name}}"{{/selected}}
                       {{/items}}
-                      {{#view_mode.preview}}disabled{{/view_mode.preview}}
+                      {{#readonly}}readonly{{/readonly}} 
+                      {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
                       >
                 <option value="" {{^selectedCountry}}selected{{/selectedCountry}}>{{start_value}}</option>
                 {{#items}}
@@ -85,97 +103,130 @@
                 {{/items}}
               </select>
             </div>
+            {{/visible}}
           {{/countries}}
 
-          <div class="form-group metis-autocomplete">
-            <label for="search-org">Organizations</label>
-            <div class="metis-autocomplete-wrap">
-              <input autofocus
+          {{#autocomplete}}  
+            {{#visible}}        
+              <div class="form-group metis-autocomplete">
+                <label for="search-org">Organizations</label>
+                <div class="metis-autocomplete-wrap">
+                  <input autofocus
                      class="js-editable svg-icon-search eu"
                      id="search-org"
                      name="organizations"
                      placeholder="Search Organizations ..."
                      type="text"
-                     {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                     {{#autocomplete}}
-                       data-autocomplete-url="{{url}}"
-                       data-autocomplete-min-chars="{{min_chars}}"
-                     {{/autocomplete}} 
-              >
-            </div>
-            <div class="modal-wrapper hidden">
-              <div class="modal">
-                <div class="head">
-                  <a class="btn-close trigger"></a>
-                  <h3 class="headerRole">Select User's Role for: </h3>
+                     data-autocomplete-url="{{url}}"
+                     data-autocomplete-min-chars="{{min_chars}}"
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}} />
                 </div>
-                <div class="content">
-                  <div class="roleWrapper">
-                    <h4 class="currentSelectedOrganization"></h4>
-                    {{#roleTypes}}
-                      <select data-rolesTypeId="{{typeId}}" class="roles hidden">
-                        {{#roles}}
-                          <option value="{{name}}">{{name}}</option>
-                        {{/roles}}
-                      </select>
-                    {{/roleTypes}}
-                  </div>
-                  <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
-                </div>
-              </div>
-            </div>
-          </div> 
+
+                {{#roles}}
+                  {{^readonly}}
+                    <div class="modal-wrapper">
+                      <div class="modal">
+                        <div class="head">
+                          <a class="btn-close trigger"></a>
+                          <h3 class="headerRole">Select User's Role for: </h3>
+                        </div>
+                        <div class="content">
+                          <div class="role-wrapper">
+                            <h4 class="current-selected-organisation"></h4>
+                            {{#roleTypes}}
+                              <select data-rolesTypeId="{{typeId}}" class="roles">
+                                {{#roles}}
+                                  <option value="{{name}}">{{name}}</option>
+                                {{/roles}}
+                              </select>
+                            {{/roleTypes}}
+                          </div>
+                          <button type="button">Confirm role</button>
+                        </div>
+                      </div>
+                    </div>
+                  {{/readonly}}
+                {{/roles}}
+                
+              </div> 
+            {{/visible}}
+          {{/autocomplete}}
 
           {{#selectedOrganizations}}
             <div class="form-group metis-autocomplete-selected {{^organizations}}hidden{{/organizations}}">
               <label>{{#label}}{{.}}{{/label}}</label>
               <ul class="metis-autocomplete-selected-wrap">
                 {{#organizations}}
-                  <li class="tag"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                  <li class="tag {{#readonly}}disable-tag{{/readonly}} {{^user_fields_editmode}}disable-tag{{/user_fields_editmode}}"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}" />{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
                 {{/organizations}}
               </ul>
             </div>
           {{/selectedOrganizations}}       
 
           {{#notes}}
+            {{#visible}}
             <div class="form-group">
               <label for="notes">{{label}}</label>
               <textarea rows="4" cols="50" name="notes"
                 class="js-editable"
                 {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                placeholder="{{placeholder}}">{{value}}</textarea>
+                placeholder="{{placeholder}}"
+                {{#readonly}}readonly{{/readonly}} 
+                {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                >{{value}}</textarea>
             </div>
+            {{/visible}}
           {{/notes}}
 
 
           {{#active}}
+            {{#visible}}
             <div class="form-group">
               <label for="active">{{label}}</label>
               <input type="text" value="{{value}}" readonly name="active"
-                     id="active" placeholder="{{placeholder}}">
+                     id="active" placeholder="{{placeholder}}" 
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                     />
             </div>
+            {{/visible}}
           {{/active}}
 
           {{#approved}}
+            {{#visible}}
             <div class="form-group">
               <label for="approved">{{label}}</label>
               <input type="text" value="{{value}}" readonly name="approved"
-                     id="approved" placeholder="{{placeholder}}">
+                     id="approved" placeholder="{{placeholder}}" 
+                     {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                     />
             </div>
+            {{/visible}}
           {{/approved}}
 
           {{#created}}
+            {{#visible}}
             <div class="form-group">
               <label for="created">{{label}}</label>
-              <input type="text" value="{{value}}" readonly name="created" id="created" placeholder="{{placeholder}}">
+              <input type="text" value="{{value}}" readonly name="created" id="created" placeholder="{{placeholder}}"
+                      {{#readonly}}readonly{{/readonly}} 
+                     {{^user_fields_editmode}}disabled{{/user_fields_editmode}}/>
             </div>
+            {{/visible}}
           {{/created}}
 
           {{#updated}}
+            {{#visible}}
             <div class="form-group">
               <label for="updated">{{label}}</label>
-              <input type="text" value="{{value}}" readonly name="updated" id="updated" placeholder="{{placeholder}}">
+              <input type="text" value="{{value}}" readonly name="updated" id="updated" placeholder="{{placeholder}}"
+                {{#readonly}}readonly{{/readonly}} 
+                {{^user_fields_editmode}}disabled{{/user_fields_editmode}}
+                />
             </div>
+            {{/visible}}
           {{/updated}}
 
           <div class="form-group form-group-btns user-profile-preview-btn hidden">
