@@ -102,7 +102,7 @@
         "visible": true,
         "readonly": true
       },
-      "user_fields_editmode": false,
+      "user_fields_editmode": true,
       "user_fields": {
         "autocomplete":{
           "url":       "metis_autocomplete",
@@ -137,7 +137,7 @@
           "label": "First Name *",
           "value": "Bilbo",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "user_last_name": {
           "label": "Last Name *",
