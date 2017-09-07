@@ -99,9 +99,9 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     $.getJSON(_this._infoUrl)
       .done(function(data) {
 
-        // Europeana modification
-        _this.getData = function(){ return data };
-        // End Europeana modification
+        //  Europeana modification
+        _this.getData = function(){ return data; };
+        //  End Europeana modification
 
         _this.y = data.height;
         _this.x = data.width;
