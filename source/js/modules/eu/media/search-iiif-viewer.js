@@ -1,4 +1,4 @@
-define([], function() {
+define(['jquery'], function($){
   'use strict';
 
   /*
@@ -33,9 +33,9 @@ define([], function() {
   $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/iiif/iiif.css')           + '" type="text/css"/>');
 
   var iiif;
-  var layerCtrl;
   var currentImg = 0;
   var totalImages;
+  var transcriptionUrls = [];
 
   var labelledData = {}; // JSON (entire manifest): data.label: data
   var iiifLayers   = {}; // Map layers (loaded): label: layer
@@ -55,11 +55,10 @@ define([], function() {
 
     if(singleImageInfo){
 
-        var layer = L.tileLayer.iiif(singleImageInfo);
-        iiifLayers['single'] = layer;
-        layer.addTo(iiif);
-        updateCtrls();
-        return;
+      var layer = window.L.tileLayer.iiif(singleImageInfo);
+      iiifLayers['single'] = layer;
+      layer.addTo(iiif);
+      return;
     }
     var noToLoad    = 5;
     var noLoaded    = 0;
@@ -78,14 +77,13 @@ define([], function() {
         var data = allCanvases[index];
 
         if(! iiifLayers[index + ''] ){
-          var layer = L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
-          iiifLayers[index + ''] = layer;
+          iiifLayers[index + ''] = window.L.tileLayer.iiif( data.images[0].resource.service['@id'] + '/info.json' );
           noLoaded += 1;
         }
         index += 1;
       }
     }
-  }
+  };
 
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
@@ -104,7 +102,28 @@ define([], function() {
     $('#iiif-ctrl .next').attr('disabled', currentImg == totalImages-1);
     $('#iiif-ctrl .last').attr('disabled', currentImg == totalImages-1);
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages == 1);
-  }
+
+    if($('#iiif').hasClass('transcription')){
+
+      if(transcriptionUrls.length > currentImg){
+
+        require(['mustache'], function(Mustache){
+          Mustache.tags = ['[[', ']]'];
+          var template = $('#template-iiif-transcription').text();
+
+          $.getJSON(transcriptionUrls[currentImg]).done(function(data){
+
+            var markup = Mustache.render(template, data);
+            $('.transcriptions').append(markup);
+
+          });
+        });
+      }
+
+      // example manifest here:
+      // http://europeana-pattern-lab/patterns/molecules-components-iiif/molecules-components-iiif.html?manifestUrl=http://gallica.bnf.fr/iiif/ark:/12148/btv1b6000107x/manifest.json
+    }
+  };
 
   var nav = function($el, index){
     if($el.attr('disabled')){
@@ -123,22 +142,22 @@ define([], function() {
     switchLayer(layer);
     currentImg = index;
     updateCtrls();
-  }
+  };
 
   var initUI = function(fullScreenAvailable){
 
     $('#iiif').addClass('loading');
 
-    iiif = L.map('iiif', {
+    iiif = window.L.map('iiif', {
       center: [0, 0],
-      crs: L.CRS.Simple,
+      crs: window.L.CRS.Simple,
       zoom: 0,
       maxZoom: 10,
       zoomsliderControl: true
     });
 
     if(fullScreenAvailable){
-      L.control.fullscreen({
+      window.L.control.fullscreen({
         position: 'topright',
         forceSeparateButton: true,
         forcePseudoFullscreen: false
@@ -174,24 +193,24 @@ define([], function() {
     });
 
     $(iiif._container).off('keydown').on('keydown', function(e) {
-        var key = window.event ? e.keyCode : e.which;
-        e = e || window.event;
-        if(e.shiftKey || e.ctrlKey){
-            e.stopPropagation();
-            e.preventDefault();
-            if(key == 37){
-                $('#iiif-ctrl .prev').click();
-            }
-            if(key == 38){
-                $('#iiif-ctrl .first').click();
-            }
-            if(key == 39){
-                $('#iiif-ctrl .next').click();
-            }
-            if(key == 40){
-                $('#iiif-ctrl .last').click();
-            }
+      var key = window.event ? e.keyCode : e.which;
+      e = e || window.event;
+      if(e.shiftKey || e.ctrlKey){
+        e.stopPropagation();
+        e.preventDefault();
+        if(key == 37){
+          $('#iiif-ctrl .prev').click();
         }
+        if(key == 38){
+          $('#iiif-ctrl .first').click();
+        }
+        if(key == 39){
+          $('#iiif-ctrl .next').click();
+        }
+        if(key == 40){
+          $('#iiif-ctrl .last').click();
+        }
+      }
     });
 
     $('#iiif-ctrl .jump-to-img').off('keydown').on('keydown', function(e) {
@@ -206,21 +225,23 @@ define([], function() {
         }
       }
     });
-  }
+  };
 
   var setTotalImages = function(total){
-      totalImages = total;
-      $('#iiif-ctrl .total-images').html('/ ' + totalImages);
-  }
+    totalImages = total;
+    $('#iiif-ctrl .total-images').html('/ ' + totalImages);
+  };
 
   function initViewer(manifestUrl, $thumbnail, fullScreenAvailable) {
+
     initUI(fullScreenAvailable);
 
     if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
-      $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
+      $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
+
       updateCtrls();
     }
     else{
@@ -232,33 +253,41 @@ define([], function() {
           allCanvases.push(val);
         });
 
-        setTotalImages(allCanvases.length)
+        setTotalImages(allCanvases.length);
         load();
 
         $('#iiif').removeClass('loading');
 
         iiifLayers['0'].addTo(iiif);
 
-        $('.media-viewer').trigger("object-media-open", {hide_thumb:true});
+        $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
+
         updateCtrls();
       }).fail(function(jqxhr) {
         log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": $thumbnail, "player": "iiif"});
+        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': $thumbnail, 'player': 'iiif'});
       });
     }
 
     if($('#iiif').hasClass('transcription')){
-      initTranscription();
+      require(['jqScrollto'], function(){
+        initTranscription();
+      });
     }
   }
 
+  function setTranscriptionUrls(urls){
+    transcriptionUrls = urls;
+  }
+
   function initTranscription(){
+
     var addRectangle = function(pointList){
 
       // remove previous rectangles - upgrade to leaflet 1.0 to be able to use rect.delete
       $('.leaflet-overlay-pane g').remove();
 
-      var rect = new L.Rectangle(pointList, {
+      var rect = new window.L.Rectangle(pointList, {
         color:       '#1DA2F5',
         weight:       1,
         opacity:      0.5,
@@ -269,27 +298,28 @@ define([], function() {
 
     var getParagraphPointList = function($p){
 
-      var x = parseInt($p.attr('xcoord'));
-      var y = parseInt($p.attr('ycoord'));
-      var w = parseInt($p.attr('fwidth'));
-      var h = parseInt($p.attr('fheight'));
+      var x = parseInt($p.data('x'));
+      var y = parseInt($p.data('y'));
+      var w = parseInt($p.data('w'));
+      var h = parseInt($p.data('h'));
 
       var l       = currentImg ? iiifLayers[currentImg] : iiifLayers['single'];
       var lData   = l.getData();
       var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
 
       return [
-        [0 - y / divider, x / divider],
-        [0 - y / divider, (x + w) / divider],
+        [0 - (y / divider), x / divider],
+        [0 - (y / divider), (x + w) / divider],
         [0 - (y + h) / divider, x / divider],
         [0 - (y + h) / divider, (x + w) / divider]
       ];
-    }
+    };
 
-    $('#full-text-panel p').click(function(e){
+    $(document).on('click', '.transcriptions p', function(){
 
       var p = $(this);
-      $('#full-text-panel p').removeClass('highlight');
+
+      $('.transcriptions p').removeClass('highlight');
       p.addClass('highlight');
 
       var pointList = getParagraphPointList(p);
@@ -308,39 +338,40 @@ define([], function() {
 
       // Check if the given coordinate belongs to a certain text fragment
       var coordBelogsToRect = function(xClick, yClick, x, y, w, h) {
-        return (xClick >= Number(x) &&
-                xClick <= Number(x) + Number(w) &&
-                yClick >= Number(y) &&
-                yClick <= Number(y) + Number(h));
-      }
+        return xClick >= Number(x) &&
+        xClick <= Number(x) + Number(w) &&
+        yClick >= Number(y) &&
+        yClick <= Number(y) + Number(h);
+      };
 
 
-      $('#full-text-panel p[id^="fragment-"]').each(function() {
+      $('.transcriptions p[id^="fragment-"]').each(function() {
         var $p      = $(this);
-        var xCoord  = $p.attr('xcoord');
-        var yCoord  = $p.attr('ycoord');
-        var fWidth  = $p.attr('fwidth');
-        var fHeight = $p.attr('fheight');
+
+        var xCoord  = $p.data('x');
+        var yCoord  = $p.data('y');
+        var fWidth  = $p.data('w');
+        var fHeight = $p.data('h');
 
         if(coordBelogsToRect(x, y, xCoord, yCoord, fWidth, fHeight)) {
 
           var alreadyHighlighted = $p.hasClass('highlight');
 
           if(alreadyHighlighted){
-            $('#full-text-panel word').removeClass('highlight');
+            $('.transcriptions word').removeClass('highlight');
           }
           else{
-            $('#full-text-panel p').removeClass('highlight');
-            $('#full-text-panel word').removeClass('highlight');
+            $('.transcriptions p').removeClass('highlight');
+            $('.transcriptions word').removeClass('highlight');
             $p.addClass('highlight');
-            $('#full-text-panel').scrollTop($p[0].getBoundingClientRect().top);
+            $('.transcriptions').scrollTo($p, 300, {'offset': -16});
             addRectangle(getParagraphPointList($p));
           }
 
           $p.find('word').each(function(i, word){
             word = $(word);
-            if(coordBelogsToRect(x, y, $(word).attr('x'), $(word).attr('y'), $(word).attr('w'), $(word).attr('h'))){
-              $(word).addClass('highlight');
+            if(coordBelogsToRect(x, y, word.data('x'), word.data('y'), word.data('w'), word.data('h'))){
+              word.addClass('highlight');
               return false;
             }
           });
@@ -356,13 +387,16 @@ define([], function() {
         initViewer(manifestUrl, $thumbnail, fullScreenAvailable);
       });
     },
+    setTranscriptionUrls: function(urls){
+      setTranscriptionUrls(urls);
+    },
     hide: function(){
-        iiif.remove();
-        currentImg   = 0;
-        totalImages  = 0;
-        labelledData = {};
-        allCanvases  = [];
-        iiifLayers   = {};
+      iiif.remove();
+      currentImg   = 0;
+      totalImages  = 0;
+      labelledData = {};
+      allCanvases  = [];
+      iiifLayers   = {};
     }
   };
 });

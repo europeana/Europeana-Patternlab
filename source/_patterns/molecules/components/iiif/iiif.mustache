@@ -1,9 +1,12 @@
 {{#iiif_transcription}}
 
-  {{> molecules/components/iiif/iiif_transcription_1}}
+{{!  {{> molecules/components/iiif/iiif_transcription_1}}  }}
+
+  <div class="transcriptions"></div>
+  <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
 
   <style type="text/css">
-  #full-text-panel{
+  .transcriptions{
     max-height: 36em;
     overflow:   auto;
     font-size:  0.875em;
@@ -14,11 +17,16 @@
     width: 64%;
   }
   #iiif-with-ctrls,
-  #full-text-panel{
+  .transcriptions{
     float: left;
   }
 
-  #full-text-panel p.highlight{
+  .transcriptions p{
+    margin:  1em;
+    padding: 1em;
+  }
+
+  .transcriptions p.highlight{
     background-color: #D2E9F7;
     border-style:     solid;
     border-color:     #1DA2F5;
@@ -26,7 +34,7 @@
     border-radius:    5px;
   }
 
-  #full-text-panel word.highlight{
+  .transcriptions word.highlight{
     font-weight: bold;
   }
 
