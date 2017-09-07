@@ -1,2 +1,2 @@
 **/*.json.js
-
+**/js/modules/lib/*
