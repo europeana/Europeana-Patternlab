@@ -38,7 +38,6 @@ define(['jquery', 'purl'], function($) {
           });
         }
         if(options.success){
-
           var dir_file = options.path.split('_');
           var path = '../../eu/dev_data/' + dir_file[0] + '/' + dir_file[1] + '.json';
 
@@ -100,7 +99,6 @@ define(['jquery', 'purl'], function($) {
 
     }
     else{
-
       return mockAjax({
         delay: ma.delays[path],
         path: path,
@@ -108,9 +106,7 @@ define(['jquery', 'purl'], function($) {
         success: ma.omissions.indexOf(path) < 0
       });
     }
-
   };
-
-  $.getJSON = $.ajax;
+  $.getJSON = $.ajax; // only works if call uses .done() - calls with anonymous function parameters will hang!
 
 });
