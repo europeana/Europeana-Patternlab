@@ -1,5 +1,5 @@
 {{#login_form}}
-  <div class="metis-login-form">
+  <div class="metis-login-form metis-form">
     <form action="{{login_url}}" method="post" role="form" class="login-form">
       <div class="form-header">
         <h2>{{form_title}}</h2>
@@ -11,11 +11,11 @@
       </div>
       <div class="form-fields">
         <fieldset class="form-group">
-          <legend class="register-form-header">{{email_field.label}}</legend>
+          <label for="email">{{email_field.label}}</label>
           <input id="email" type='email' name='email' placeholder="{{email_field.placeholder}}"/>
         </fieldset>
         <fieldset class="form-group">
-          <legend class="legend-heading">{{password_field.label}}</legend>
+          <label for="password">{{password_field.label}}</label>
           <input id="password" type='password' name='password' placeholder="{{password_field.placeholder}}"/>
         </fieldset>
         <div class="forgot-credentials">

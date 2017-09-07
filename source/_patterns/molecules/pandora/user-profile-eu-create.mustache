@@ -59,12 +59,12 @@
         {{/countries}}
 
         <div class="org-selection">
-          <label for="organizations">Organisations: </label>
-          <input id="searchOrganisation" autofocus type="text" class="svg-icon-search eu"
+          <label for="organizations">Organizations: </label>
+          <input id="searchOrganization" autofocus type="text" class="svg-icon-search eu"
                  {{#view_mode.preview}}readonly{{/view_mode.preview}}
 
                  name="organization"
-                 placeholder="Search Organisations ...">
+                 placeholder="Search Organizations ...">
           <div class="modal-wrapper">
             <div class="modal">
               <div class="head">
@@ -73,7 +73,7 @@
               </div>
               <div class="content">
                 <div class="roleWrapper">
-                  <h4 class="currentSelectedOrganisation"></h4>
+                  <h4 class="currentSelectedOrganization"></h4>
                   {{#roleTypes}}
                     <select data-rolesTypeId="{{typeId}}" class="roles hidden">
                       {{#roles}}
@@ -88,13 +88,13 @@
           </div>
         </div>
         {{#selectedOrganizations}}
-          <div class="selectedOrganisations {{^organizations}}hidden{{/organizations}}">
+          <div class="selectedOrganizations {{^organizations}}hidden{{/organizations}}">
             <label for="organization">{{#label}}{{.}}{{/label}}</label>
             <div class="selectedOrgs">
               {{#organizations}}
                 <div class="selectedOrg" id="{{organizationId}}">
                   <a
-                    class="selectedOrganisation alreadySelected
+                    class="selectedOrganization alreadySelected
                       {{#view_mode.preview}}disableLink{{/view_mode.preview}}
                       {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
                     name="organization"
@@ -104,7 +104,7 @@
                     data-organizationId="{{organizationId}}">{{organizationName}}
                     :&nbsp;{{#organizationRole}} {{.}} {{/organizationRole}}</a>
                   <b><a
-                    class="removeOrganisation {{#view_mode.preview}}disableLink{{/view_mode.preview}}
+                    class="removeOrganization {{#view_mode.preview}}disableLink{{/view_mode.preview}}
                       {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
                     data-name="{{organizationName}}">&nbsp;X</a>
                   </b>

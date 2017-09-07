@@ -12,9 +12,7 @@ define(['jquery'], function ($) {
     console.log('Pandora Home: ' + msg);
   };
 
-  function disableEditMode(){
-
-    log('disable edit mode');
+  function disableEditMode() {
 
     form.find('.js-editable').attr('readonly', true).attr('disabled', true);
     form.find('.cancel').toggleClass('update preview');
@@ -27,11 +25,11 @@ define(['jquery'], function ($) {
     previewBlockBtn.removeClass('hidden');
     editableBlockBtns.addClass('hidden');
 
-    $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
+    form.find('.tag').addClass('disable-tag');
 
   }
 
-  function enableEditMode(){
+  function enableEditMode() {
 
     form.find('.js-editable').attr('readonly', false).attr('disabled', false);
     form.find('.cancel').toggleClass('update preview');
@@ -39,82 +37,23 @@ define(['jquery'], function ($) {
     previewBlockBtn.addClass('hidden');
     editableBlockBtns.removeClass('hidden');
 
-    if(role === 'metisAdmin') {
-      eu.attr('readonly', false).attr('disabled', false);
-      $('.selectedOrganisation, .removeOrganisation').toggleClass('disableLink');
-    }
-    else {
-      prov.attr('readonly', false).attr('disabled', false);
-    }
+    form.find('.js-editable').attr('readonly', false).attr('disabled', false);
+    form.find('.tag').removeClass('disable-tag');
+
+    //if(role === 'metisAdmin') {
+    //  eu.attr('readonly', false).attr('disabled', false);
+    //  form.find('.tag').removeClass('disable-tag');
+    //}
+    //else {
+    //  prov.attr('readonly', false).attr('disabled', false);
+    //}
+
   }
-
-
-  function addAutocomplete(data){
-    require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
-
-      console.log('init autocomplete... ' + JSON.stringify(data, null, 4));
-
-      var selInput         = '#searchOrganisation';
-
-      Autocomplete.init({
-        evtResize       : 'europeanaResize',
-        fnOnDeselect     : function(){},
-        fnOnHide        : function(){},
-        fnOnSelect     : function(sel){
-          var val   = sel.data('term');
-          var orgId = sel.data('id');
-
-          $(selInput).val('');
-
-          if($('.selectedOrganisations li [value="' + orgId + '"]').length > 0){
-            console.log('org ' + orgId + ' already added');
-            return;
-          }
-          console.log('sel ' + orgId + ', ' + val);
-
-          var tag = $('<li class="tag"><input type="hidden" name="organisation_id" value="' + orgId + '">' + val + '</li>')
-            .appendTo($('.selectedOrganisations .selectedOrgs'));
-          $('<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg>')
-            .appendTo(tag)
-            .on('click', function(){
-              $(this).closest('.tag').remove();
-          });
-        },
-        fnOnShow        : function(){
-          log('do on show');
-        },
-        fnPreProcess     : function(term, data, ops){
-          var escapeRegExp = function(str){
-            return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-          };
-          var re = new RegExp('\\b' + escapeRegExp(term), 'i');
-          for(var i=0; i<data.length; i++){
-            var val     = data[i].text;
-            var match   = val.match(re);
-            data[i].textPreMatch  = val.substr(0, val.indexOf(match));
-            data[i].textPostMatch = val.substr(val.indexOf(match) + (match+'').length);
-            data[i].textMatch     = match;
-          }
-          return data;
-        },
-        hideOnSelect     : true,
-        itemTemplateText : '<li data-term="[[text]]" data-id="[[organisation_id]]"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
-        minTermLength    : data.min_chars ? data.min_chars : 3,
-        paramName        : 'text',
-        selInput         : selInput,
-        submitOnEnter    : true,
-        url              : data.url
-      });
-    });
-  }
-
 
   function initPage(){
 
-    log('initPage - user form ' + $('.user-profile-form form').length );
-
-    form              = $('.user-profile-form form');
-    previewBlockBtn   = $('.user-profile-preview-btn');
+    form = $('.user-profile-form form');
+    previewBlockBtn = $('.user-profile-preview-btn');
     editableBlockBtns = $('.user-profile-edit-btns');
 
     role = form.data('role');
@@ -130,26 +69,16 @@ define(['jquery'], function ($) {
       enableEditMode();
     }
 
-    var orgInput = $('#searchOrganisation');
-
-    if(orgInput.length > 0 && orgInput.data('autocomplete-url').length > 0){
-      addAutocomplete({
-        selInput:   '#searchOrganisation',
-        url:        orgInput.data('autocomplete-url'),
-        min_chars:  orgInput.data('autocomplete-min-chars'),
-        selWidthEl: '.searchOrganisationWrap',
-        selAnchor:  '.searchOrganisationWrap'
-      });
-      $('.tag .icon-delete').on('click', function(){
-        $(this).closest('.tag').remove();
-      });
-    }
-
     form.find('.edit-user-profile').on('click', enableEditMode);
     form.find('.cancel').on('click', disableEditMode);
     form.find('.submit').on('click', function(){
       $(this).closest('form').submit();
     });
+
+    require(['pandora_autocomplete'], function(p){
+      p.autoComplete();
+    });
+
   }
 
   return {

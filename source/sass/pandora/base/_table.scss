@@ -1,0 +1,35 @@
+.table-layout,
+.table-horizontal-layout {
+
+  border: 0;
+  color: $gray47;
+  font-size: 0.8rem;
+
+  thead {
+    background: $white;
+
+    th {
+      border-bottom: 1px solid $gray87;
+      color: $gray47;
+    }
+  }
+
+  tbody {
+    tr {
+
+      &:nth-child(odd) {
+        background: $gray97;
+      }
+
+      td {
+        border-bottom: 0;
+      }
+
+      &.load-more {
+        text-align: center;
+      }
+
+    }
+  }
+
+}

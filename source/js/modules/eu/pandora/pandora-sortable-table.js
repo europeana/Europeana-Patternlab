@@ -8,9 +8,9 @@ define(['jquery'], function ($) {
       $(t).find('th').each (function(i, h) {
         $(h).on( 'click', function() {
           if (!$(h).data('sorting-order') || $(h).data('sorting-order') === 'asc') {
-            $(h).data('sorting-order', 'desc');
+            $(h).data('sorting-order', 'desc').removeClass('sorting-asc').addClass('sorting-desc');
           } else {
-            $(h).data('sorting-order', 'asc');
+            $(h).data('sorting-order', 'asc').removeClass('sorting-desc').addClass('sorting-asc');
           }
           sortColumn(i, $(t), $(this).hasClass('sort-date'), $(h).data('sorting-order'));
         });

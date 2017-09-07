@@ -1,218 +1,194 @@
 {{#user_profile}}
-  <div class="user-profile-form">
+  <div class="metis-form metis-form-horizontal user-profile-form">
     <form action="{{user_profile_url}}" method="POST" data-role="{{user_role.value}}" data-view-mode="{{#view_mode.value}}{{.}}{{/view_mode.value}}{{^view_mode.value}}preview{{/view_mode.value}}">
-    <div class="flex-outer">
-      {{#user_fields}}
+    
+      <div class="form-fields">
+        {{#user_fields}}
 
-        {{#user_id}}
-          <div>
-            <label for="userId">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="userId" id="userId">
-          </div>
-        {{/user_id}}
+          {{#user_id}}
+            <div class="form-group">
+              <label for="userId">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="userId" id="userId">
+            </div>
+          {{/user_id}}
 
-        {{#user_first_name}}
-          <div>
-            <label for="userFirstName">{{label}}</label>
-            <input class="js-editable"
-                   data-orig-value="{{value}}"
-                   id="userFirstName"
-                   name="userFirstName"
-                   placeholder="{{placeholder}}"
-                   type="text"
-                   value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
-          </div>
-        {{/user_first_name}}
+          {{#user_first_name}}
+            <div class="form-group">
+              <label for="userFirstName">{{label}}</label>
+              <input class="js-editable"
+                     data-orig-value="{{value}}"
+                     id="userFirstName"
+                     name="userFirstName"
+                     placeholder="{{placeholder}}"
+                     type="text"
+                     value="{{value}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+            </div>
+          {{/user_first_name}}
 
-        {{#user_last_name}}
-          <div>
-            <label for="userLastName">{{label}}</label>
-            <input class="js-editable"
-                   data-orig-value="{{value}}"
-                   id="userLastName"
-                   name="userLastName"
-                   placeholder="{{placeholder}}"
-                   type="text"
-                   value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                   >
-          </div>
-        {{/user_last_name}}
+          {{#user_last_name}}
+            <div class="form-group">
+              <label for="userLastName">{{label}}</label>
+              <input class="js-editable"
+                     data-orig-value="{{value}}"
+                     id="userLastName"
+                     name="userLastName"
+                     placeholder="{{placeholder}}"
+                     type="text"
+                     value="{{value}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                     >
+            </div>
+          {{/user_last_name}}
 
-        {{#user_email}}
-          <div>
-            <label for="userEmail">{{label}}</label>
-            <input data-orig-value="{{value}}"
-                   id="userEmail"
-                   name="userEmail"
-                   placeholder="{{placeholder}}"
-                   type="text"
-                   value="{{value}}"
-                   readonly>
-          </div>
-        {{/user_email}}
+          {{#user_email}}
+            <div class="form-group">
+              <label for="userEmail">{{label}}</label>
+              <input data-orig-value="{{value}}"
+                     id="userEmail"
+                     name="userEmail"
+                     placeholder="{{placeholder}}"
+                     type="text"
+                     value="{{value}}"
+                     readonly>
+            </div>
+          {{/user_email}}
 
-        {{#user_skype}}
-          <div>
-            <label for="userSkype">{{label}}</label>
-            <input class="js-editable"
-                   data-orig-value="{{value}}"
-                   id="userSkype"
-                   name="userSkype"
-                   placeholder="{{placeholder}}"
-                   type="text"
-                   value="{{value}}"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}}>
-          </div>
-        {{/user_skype}}
+          {{#user_skype}}
+            <div class="form-group">
+              <label for="userSkype">{{label}}</label>
+              <input class="js-editable"
+                     data-orig-value="{{value}}"
+                     id="userSkype"
+                     name="userSkype"
+                     placeholder="{{placeholder}}"
+                     type="text"
+                     value="{{value}}"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}}>
+            </div>
+          {{/user_skype}}
 
-        {{#countries}}
-          <div>
-            <label for="country">{{label}}</label>
-            <select autocomplete="off"
-                    class="js-editable"
-                    name="country"
-                    {{#items}}
-                      {{#selected}}data-orig-value="{{name}}"{{/selected}}
-                    {{/items}}
-                    {{#view_mode.preview}}disabled{{/view_mode.preview}}
-                    >
-              <option value="" {{^selectedCountry}}selected{{/selectedCountry}}>{{start_value}}</option>
-              {{#items}}
-                <option value="{{name}}"{{#selected}}selected="selected"{{/selected}}>{{name}}</option>
-              {{/items}}
-            </select>
-          </div>
-        {{/countries}}
+          {{#countries}}
+            <div class="form-group">
+              <label for="country">{{label}}</label>
+              <select autocomplete="off"
+                      class="js-editable"
+                      name="country"
+                      {{#items}}
+                        {{#selected}}data-orig-value="{{name}}"{{/selected}}
+                      {{/items}}
+                      {{#view_mode.preview}}disabled{{/view_mode.preview}}
+                      >
+                <option value="" {{^selectedCountry}}selected{{/selectedCountry}}>{{start_value}}</option>
+                {{#items}}
+                  <option value="{{name}}"{{#selected}}selected="selected"{{/selected}}>{{name}}</option>
+                {{/items}}
+              </select>
+            </div>
+          {{/countries}}
 
-        <div class="org-selection">
-          <label for="organizations">Organisations: </label>
-          <div class="searchOrganisationWrap">
-            <input autofocus
-                   class="svg-icon-search eu"
-                   id="searchOrganisation"
-                   name="organization"
-                   placeholder="Search Organisations ..."
-                   type="text"
-                   {{#view_mode.preview}}readonly{{/view_mode.preview}}
-                   {{#autocomplete}}
-                     data-autocomplete-url="{{url}}"
-                     data-autocomplete-min-chars="{{min_chars}}"
-                   {{/autocomplete}}
-            >
-          </div>
-
-          <div class="modal-wrapper">
-            <div class="modal">
-              <div class="head">
-                <a class="btn-close trigger"></a>
-                <h3 class="headerRole">Select User's Role for: </h3>
-              </div>
-              <div class="content">
-                <div class="roleWrapper">
-                  <h4 class="currentSelectedOrganisation"></h4>
-                  {{#roleTypes}}
-                    <select data-rolesTypeId="{{typeId}}" class="roles hidden">
-                      {{#roles}}
-                        <option value="{{name}}">{{name}}</option>
-                      {{/roles}}
-                    </select>
-                  {{/roleTypes}}
+          <div class="form-group metis-autocomplete">
+            <label for="search-org">Organizations</label>
+            <div class="metis-autocomplete-wrap">
+              <input autofocus
+                     class="js-editable svg-icon-search eu"
+                     id="search-org"
+                     name="organizations"
+                     placeholder="Search Organizations ..."
+                     type="text"
+                     {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                     {{#autocomplete}}
+                       data-autocomplete-url="{{url}}"
+                       data-autocomplete-min-chars="{{min_chars}}"
+                     {{/autocomplete}} 
+              >
+            </div>
+            <div class="modal-wrapper hidden">
+              <div class="modal">
+                <div class="head">
+                  <a class="btn-close trigger"></a>
+                  <h3 class="headerRole">Select User's Role for: </h3>
                 </div>
-                <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
+                <div class="content">
+                  <div class="roleWrapper">
+                    <h4 class="currentSelectedOrganization"></h4>
+                    {{#roleTypes}}
+                      <select data-rolesTypeId="{{typeId}}" class="roles hidden">
+                        {{#roles}}
+                          <option value="{{name}}">{{name}}</option>
+                        {{/roles}}
+                      </select>
+                    {{/roleTypes}}
+                  </div>
+                  <input type="button" value="Confirm role" class="btn trigger" id="roleSelection">
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {{#selectedOrganizations}}
-          <div class="selectedOrganisations {{^organizations}}hidden{{/organizations}}">
-            <label for="organization">{{#label}}{{.}}{{/label}}</label>
-            <div class="selectedOrgs">
+          </div> 
 
-
-              {{#organizations}}
-                <li class="tag"><input type="hidden" name="organisation_id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
-                <!--
-                <div class="selectedOrg" id="{{organizationId}}">
-                  <a
-                    class="selectedOrganisation alreadySelected
-                      {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
-                    name="organization"
-                    data-rolesTypeId="{{rolesTypeId}}"
-                    data-role="{{organizationRole}}"
-                    data-name="{{organizationName}}"
-                    data-organizationId="{{organizationId}}">{{organizationName}}
-                    :&nbsp;{{#organizationRole}} {{.}} {{/organizationRole}}</a>
-                  <b><a
-                    class="removeOrganisation {{#view_mode.preview}}disableLink{{/view_mode.preview}}
-                      {{^view_mode.preview}}{{#user_role.metisUser}}disableLink{{/user_role.metisUser}}{{/view_mode.preview}}"
-                    data-name="{{organizationName}}">&nbsp;X</a>
-                  </b>
-                </div>
-                 -->
-              {{/organizations}}
-
+          {{#selectedOrganizations}}
+            <div class="form-group metis-autocomplete-selected {{^organizations}}hidden{{/organizations}}">
+              <label>{{#label}}{{.}}{{/label}}</label>
+              <ul class="metis-autocomplete-selected-wrap">
+                {{#organizations}}
+                  <li class="tag"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}">{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                {{/organizations}}
+              </ul>
             </div>
+          {{/selectedOrganizations}}       
+
+          {{#notes}}
+            <div class="form-group">
+              <label for="notes">{{label}}</label>
+              <textarea rows="4" cols="50" name="notes"
+                class="js-editable"
+                {{#view_mode.preview}}readonly{{/view_mode.preview}}
+                placeholder="{{placeholder}}">{{value}}</textarea>
+            </div>
+          {{/notes}}
+
+
+          {{#active}}
+            <div class="form-group">
+              <label for="active">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="active"
+                     id="active" placeholder="{{placeholder}}">
+            </div>
+          {{/active}}
+
+          {{#approved}}
+            <div class="form-group">
+              <label for="approved">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="approved"
+                     id="approved" placeholder="{{placeholder}}">
+            </div>
+          {{/approved}}
+
+          {{#created}}
+            <div class="form-group">
+              <label for="created">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="created" id="created" placeholder="{{placeholder}}">
+            </div>
+          {{/created}}
+
+          {{#updated}}
+            <div class="form-group">
+              <label for="updated">{{label}}</label>
+              <input type="text" value="{{value}}" readonly name="updated" id="updated" placeholder="{{placeholder}}">
+            </div>
+          {{/updated}}
+
+          <div class="form-group form-group-btns user-profile-preview-btn hidden">
+            <button class="edit-user-profile" type="button">Edit</button>
           </div>
-        {{/selectedOrganizations}}
-        {{#notes}}
-          <div>
-            <label for="notes">{{label}}</label>
-            <textarea rows="4" cols="50" name="notes"
-              class="js-editable"
-              {{#view_mode.preview}}readonly{{/view_mode.preview}}
-              placeholder="{{placeholder}}">{{value}}</textarea>
-          </div>
-        {{/notes}}
 
-
-        {{#active}}
-          <div>
-            <label for="active">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="active"
-                   id="active" placeholder="{{placeholder}}">
-          </div>
-        {{/active}}
-
-        {{#approved}}
-          <div>
-            <label for="approved">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="approved"
-                   id="approved" placeholder="{{placeholder}}">
-          </div>
-        {{/approved}}
-
-        {{#created}}
-          <div>
-            <label for="created">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="created" id="created" placeholder="{{placeholder}}">
-          </div>
-        {{/created}}
-
-        {{#updated}}
-          <div>
-            <label for="updated">{{label}}</label>
-            <input type="text" value="{{value}}" readonly name="updated" id="updated" placeholder="{{placeholder}}">
-          </div>
-        {{/updated}}
-
-        <div class="buttons user-profile-preview-btn hidden">
-          <button class="edit-user-profile" type="button">Edit</button>
-        </div>
-
-        <div class="buttons user-profile-edit-btns hidden">
-          <div>
+          <div class="form-group form-group-btns user-profile-edit-btns hidden">
             <button class="submit" type="button">Submit</button>
-          </div>
-          <div>
             <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
           </div>
-        </div>
 
+        {{/user_fields}}
       </div>
-      {{/user_fields}}
     </form>
   </div>
 {{/user_profile}}

@@ -1,5 +1,5 @@
 .flag {
-  color: $light-gray;
+  color: $gray-light;
   display: inline-block;
   float: right;
   font-size: 1em;
@@ -29,7 +29,7 @@
 }
 
 .mapping-field-occurence {
-  color: $light-gray;
+  color: $gray-light;
   display: inline-block;
   font-size: 1em;
 
@@ -37,7 +37,6 @@
     color: $white;
   }
 }
-
 
 .mapping-field {
   -webkit-box-orient: vertical;
@@ -81,10 +80,10 @@
 }
 
 .field_value_suspicious {
-  background-color: $yellow;
+  background-color: $eu-yellow;
   color: $white;
 
   a {
-    color: $light-gray;
+    color: $gray-light;
   }
 }

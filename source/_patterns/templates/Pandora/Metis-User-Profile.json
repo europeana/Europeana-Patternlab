@@ -18,7 +18,7 @@
   "js_vars": [
     {
       "name": "pageName",
-      "value": "metisHomePage"
+      "value": "metisUserProfile"
     },
     {
       "name": "mock_ajax",
@@ -26,17 +26,51 @@
     }
   ],
   "jQuery": false,
+  "input_search": {
+    "title": "Search for dataset",
+    "input_name": "q",
+    "placeholder": "Search for dataset"
+  },
   "version": {
     "is_alpha": false,
     "is_beta": true
   },
-  "page_config": {
-    "newsletter": true
+  "browse_menu": {
+    "menu_id": "metis_search_menu",
+    "items": [
+      {
+        "url": "#",
+        "text": "Datasets",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "Dataset",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "User",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            },
+            {
+              "text": "Organization",
+              "url": "javascript:alert('sounds')",
+              "icon": "icon-music"
+            },
+            {
+              "text": "All",
+              "url": "javascript:alert('texts')",
+              "icon": "icon-openbook"
+            }
+          ]
+        }
+      }
+    ]
   },
-  "landing_page_content": {
-    "is_home": false,
+  "user_profile": {
     "user_profile_url": "javascript:alert('submit user profile form');",
-    "is_profile": true,
     "user_profile": {
       "roleTypes": [
         {
@@ -433,31 +467,7 @@
       }
     }
   },
-  "i18n": {
-    "global": {
-      "newsletter": {
-        "signup": "Sign up for our newsletter",
-        "submit-alt": "Subscribe",
-        "choose-language": "Choose a language",
-        "email-address-invalid": "Please enter a valid email address.",
-        "email-address-required": "Please enter your email address.",
-        "language-required": "Please choose a language for your newsletter."
-      },
-      "mission": "We transform the world with culture! We want to build on Europe’s rich heritage and make it easier for people to use, whether for work, for learning or just for fun.",
-      "mission-title": "Our mission"
-    }
-  },
-  "headline": {
-    "short": false,
-    "medium": false,
-    "long": false
-  },
-  "excerpt": {
-    "vshort": false,
-    "short": false,
-    "medium": false,
-    "long": false
-  },
+  "page_title": "Europeana Metis",
   "metis_footer": {
     "navigation": {
       "footer": {
@@ -543,59 +553,47 @@
       }
     }
   },
-  "page_title": "Europeana Metis",
+  "metis_logged_user": {
+    "menu_id": "loggedin-user",
+    "icon_class": "svg-icon-loggedin-user",
+    "items": [
+      {
+        "url": "#",
+        "text": "",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "My Profile",
+              "url": "/profile",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Log out",
+              "url": "/logout",
+              "icon": "icon-video"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metis_header_search": true,
   "metis_header": {
-    "navigation": {
-      "home_url": "#",
-      "home_text": "Home",
-      "next_prev": {
-        "next_url": "#",
-        "prev_url": "#",
-        "results_url": "results_url_here"
-      },
-      "footer": true,
-      "global": {
-        "options": {
+    "navigation":
+    {
+      "global":
+      {
+        "options":
+        {
           "search_active": false,
           "settings_active": true,
           "oursites_hidden": true
         },
-        "logo": {
+        "logo":
+        {
           "url": "#",
           "text": "Europeana Pandora"
-        },
-        "primary_nav": {
-          "menu_id": "main-menu",
-          "submenu": false
-        },
-        "utility_nav": {
-          "menu_id": "settings-menu",
-          "style_modifier": "caret-right",
-          "tabindex": "6",
-          "items": [
-            {
-              "url": "#",
-              "text": "Sign In",
-              "icon_class": "svg-icon-user-signin",
-              "submenu": {
-                "items": [
-                  {
-                    "submenu": false,
-                    "text": "Login",
-                    "url": "#"
-                  },
-                  {
-                    "is_divider": true
-                  },
-                  {
-                    "submenu": false,
-                    "text": "Register",
-                    "url": "#"
-                  }
-                ]
-              }
-            }
-          ]
         }
       }
     }

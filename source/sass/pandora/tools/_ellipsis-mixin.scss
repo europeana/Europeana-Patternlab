@@ -1,5 +1,5 @@
 // mixin for multiline
-@mixin multiLineEllipsis($maxWidth, $lineHeight: 1.2em, $lineCount: 1){
+@mixin multiLineEllipsis($maxWidth, $lineHeight: 1.2em, $lineCount: 1) {
   line-height: $lineHeight;
   max-height: $lineHeight * $lineCount;
 
@@ -37,8 +37,4 @@
       max-width: $maxWidth;
     }
   }
-}
-
-.block-with-text {
-  @include multiLineEllipsis($maxWidth: 10.3em, $lineHeight: 1.2em, $lineCount: 3);
 }

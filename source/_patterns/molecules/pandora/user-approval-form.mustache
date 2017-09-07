@@ -36,18 +36,18 @@
 
     <div class="org-selection">
       <label for="organizations">Organizations: </label>
-      <input id="searchOrganisation" autofocus type="text" name="q" placeholder="Search Organisations ...">
-      <div class="selectedOrganisations">
+      <input id="searchOrganization" autofocus type="text" name="q" placeholder="Search Organizations ...">
+      <div class="selectedOrganizations">
         {{#organizations}}
           <div class="selectedOrg" id="{{organizationId}}">
-            <a class="selectedOrganisation alreadySelected"
+            <a class="selectedOrganization alreadySelected"
                name="organization"
                data-rolesTypeId="{{rolesTypeId}}"
                data-role="{{organizationRole}}"
                data-name="{{organizationName}}"
                data-organizationId="{{organizationId}}"
             >{{organizationName}}:&nbsp;{{organizationRole}}</a>
-            <b><a class="removeOrganisation" data-name="{{organizationName}}">&nbsp;X</a></b>
+            <b><a class="removeOrganization" data-name="{{organizationName}}">&nbsp;X</a></b>
           </div>
         {{/organizations}}
       </div>
@@ -64,7 +64,7 @@
 
           </div>
           <div class="content">
-            <h5 class="currentSelectedOrganisation"></h5>
+            <h5 class="currentSelectedOrganization"></h5>
 
             {{#roleTypes}}
               <select data-rolesTypeId="{{typeId}}" class="roles hidden">

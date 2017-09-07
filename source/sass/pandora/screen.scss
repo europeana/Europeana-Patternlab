@@ -1,14 +1,14 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-@import "compass/css3";
-@import "../scss/generic/variables";
-@import "../scss/iconography/_svg-icons-metis";
+@import 'compass/css3';
+@import '../scss/generic/variables';
+@import '../scss/iconography/svg-icons-metis';
 
 // Europeana variables
 
 
 // Mixins
-@import "../scss/generic/mixins";
+@import '../scss/generic/mixins';
 
 
 //SITE SPECIFIC VARIABLE OVERRIDES HERE
@@ -17,33 +17,33 @@ $textcolour_highlight: $accent;
 
 
 // Reset
-@import "../scss/generic/reset";
+@import '../scss/generic/reset';
 
-/*------------------------------------*\
-  $GLOBAL ELEMENTS
-\*------------------------------------*/
-@import "../scss/base/global-classes";
-@import "../scss/base/main";
-@import "../scss/base/links";
-@import "../scss/base/headings_simple";
-@import "../scss/base/text";
-@import "../scss/base/lists";
-@import "../scss/base/media";
-@import "../scss/base/forms";
-@import "../scss/base/utility";
-@import "../scss/base/tables";
+//------------------------------------
+//  $GLOBAL ELEMENTS
+//------------------------------------
+@import '../scss/base/global-classes';
+@import '../scss/base/main';
+@import '../scss/base/links';
+@import '../scss/base/headings_simple';
+@import '../scss/base/text';
+@import '../scss/base/lists';
+@import '../scss/base/media';
+@import '../scss/base/forms';
+@import '../scss/base/utility';
+@import '../scss/base/tables';
 
 
-/*------------------------------------*\
-  $GRIDS
-\*------------------------------------*/
+//------------------------------------
+//  $GRIDS
+//------------------------------------
 
-@import "../scss/grid/susy";
+@import '../scss/grid/susy';
 //module layout using susy grid
 
 $susy: (
   columns: 24,
-  gutters: 1/2,
+  gutters: 1 / 2,
   math: fluid,
   use-custom: (
     box-sizing: false,
@@ -53,68 +53,84 @@ $susy: (
 
 
 
-/*------------------------------------*\
-  $PAGE STRUCTURE
-\*------------------------------------*/
-@import "../scss/objects/header";
-@import "../scss/objects/footer";
-@import "../scss/objects/sections";
-@import "../scss/objects/blocks";
-@import "../scss/objects/blocks/promo-module";
-@import "../scss/objects/blocks/browse-entry";
-@import "../scss/objects/blocks/site-hero";
+//------------------------------------
+//  $PAGE STRUCTURE
+//------------------------------------
+@import '../scss/objects/header';
+@import '../scss/objects/footer';
+@import '../scss/objects/sections';
+@import '../scss/objects/blocks';
+@import '../scss/objects/blocks/promo-module';
+@import '../scss/objects/blocks/browse-entry';
+@import '../scss/objects/blocks/site-hero';
 
-/*------------------------------------*\
-  $NAVIGATION
-\*------------------------------------*/
+//------------------------------------
+//  $NAVIGATION
+//------------------------------------
 //global nav styles - includes primary, secondary, tertiary and global offscreen navigation styles
-@import "../scss/objects/nav";
+@import '../scss/objects/nav';
 
 //navigation types
-@import "../scss/objects/navigation/pagination";
-@import "../scss/objects/navigation/next-previous";
-@import "../scss/objects/navigation/breadcrumbs";
-@import "../scss/objects/navigation/phase-flags";
+@import '../scss/objects/navigation/pagination';
+@import '../scss/objects/navigation/next-previous';
+@import '../scss/objects/navigation/breadcrumbs';
+@import '../scss/objects/navigation/phase-flags';
 
-/*------------------------------------*\
-  Buttons and text Styles
-\*------------------------------------*/
-@import "../scss/objects/buttons";
-@import "../scss/objects/tags";
-@import "../scss/objects/action-links";
-@import "../scss/objects/corner-ribbon";
-@import "../scss/objects/category-flags";
-@import "../scss/objects/file-detail";
-@import "../scss/objects/attribution";
-@import "../scss/objects/social-share";
-@import "../scss/objects/tooltip";
-@import "../scss/theme/hero-branding-v2";
+//------------------------------------
+//  Buttons and text Styles
+//------------------------------------
+@import '../scss/objects/buttons';
+@import '../scss/objects/tags';
+@import '../scss/objects/action-links';
+@import '../scss/objects/corner-ribbon';
+@import '../scss/objects/category-flags';
+@import '../scss/objects/file-detail';
+@import '../scss/objects/attribution';
+@import '../scss/objects/social-share';
+@import '../scss/objects/tooltip';
+@import '../scss/theme/hero-branding-v2';
 
 // Global icons (svg)
-@import "../scss/objects/icons/svgicons";
+@import '../scss/objects/icons/svgicons';
 // license icons
-@import "../scss/objects/icons/icons-licenses";
+@import '../scss/objects/icons/icons-licenses';
 
-/*------------------------------------*\
-  Components
-\*------------------------------------*/
-@import "../scss/objects/controls/dropdown";
-@import "../scss/objects/controls/buttonbar";
-@import "../scss/objects/controls/results-filter";
-@import "../scss/objects/controls/sparkline";
-@import "../scss/objects/controls/search-multiterm";
-@import "../scss/objects/controls/attribution-widget";
-@import "../scss/objects/controls/form-control-groups";
-@import "../scss/objects/controls/sortby";
+//------------------------------------
+//  Components
+//------------------------------------
+@import '../scss/objects/controls/dropdown';
+@import '../scss/objects/controls/buttonbar';
+@import '../scss/objects/controls/results-filter';
+@import '../scss/objects/controls/sparkline';
+@import '../scss/objects/controls/search-multiterm';
+@import '../scss/objects/controls/attribution-widget';
+@import '../scss/objects/controls/form-control-groups';
+@import '../scss/objects/controls/sortby';
 
-@import "../search/search-site";
-@import "select-organizations";
-@import "user-approval-form";
-@import "ellipsis";
-@import "site";
-@import "./homepage-metis";
-@import "./dashboard";
+//------------------------------------
+//  Metis
+//------------------------------------
+
+@import './settings/metis-variables';
+@import './tools/ellipsis-mixin';
+
+@import './base/form';
+@import './base/form-custom';
+@import './base/helpers';
+@import './base/layout';
+@import './base/table';
+
+@import './components/accordion';
+@import './components/banner';
+@import './components/breadcrumbs';
+@import './components/collapse-block';
+@import './components/dashboard-header';
+@import './components/sitehero';
+
+@import '../search/search-site';
+//@import 'select-organizations';
+@import 'user-approval-form';
+@import 'site';
 @import './dataset-info-form';
 @import './user_profile';
-@import './dataset-page';
 @import './partials/dataset-info-block';
