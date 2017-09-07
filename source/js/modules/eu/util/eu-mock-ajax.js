@@ -4,7 +4,6 @@ define(['jquery', 'purl'], function($) {
   var origPath = '';
 
   var resolvePathAndParams = function(url){
-
     var path   = url.split('?')[0];
     var $url   = $.url(url);
     var params = $url.param();
@@ -33,6 +32,11 @@ define(['jquery', 'purl'], function($) {
 
     var that = {
       done: function done(callback){
+        if(options.direct){
+          $.origAjax(options.path).done(function(data){
+            callback(data);
+          });
+        }
         if(options.success){
 
           var dir_file = options.path.split('_');
@@ -70,24 +74,43 @@ define(['jquery', 'purl'], function($) {
     return that;
   };
 
+  $.origAjax = $.ajax;
+
   $.ajax = function(){
 
-    var url           = arguments[0].url;
+    var url           = arguments[0].url ? arguments[0].url : arguments[0];
     var pathAndParams = resolvePathAndParams(url);
     var path          = pathAndParams.path;
     var params        = pathAndParams.params;
     var ma            = {omissions:[], delays:{}};
 
-    if(parseInt(mock_ajax) + '' != mock_ajax){
-      ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
+    if(parseInt(window.mock_ajax) + '' != window.mock_ajax){
+      ma = $.extend(ma, JSON.parse(window.mock_ajax.replace(/'/g, '"')));
     }
 
-    return mockAjax({
-      delay: ma.delays[path],
-      path: path,
-      params: params,
-      success: ma.omissions.indexOf(path) < 0
-    });
+    if(path != 'portal_hierarchy' && url.indexOf('.json') > -1){
+
+      console.log('Mock Ajax: cannot map:\n\t"' + url + '"\n\t (fetching directly)');
+
+      return mockAjax({
+        direct: true,
+        path: url,
+        params: params
+      });
+
+    }
+    else{
+
+      return mockAjax({
+        delay: ma.delays[path],
+        path: path,
+        params: params,
+        success: ma.omissions.indexOf(path) < 0
+      });
+    }
+
   };
+
+  $.getJSON = $.ajax;
 
 });

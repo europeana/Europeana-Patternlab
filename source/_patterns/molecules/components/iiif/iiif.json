@@ -8,5 +8,13 @@
     {
       "path": "/js/modules/require.js",
       "data_main": "/js/modules/main/molecules/main-iiif-molecule.js"
-    }]
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "mock_ajax",
+      "value": true
+    }
+  ],
+  "iiif_transcription": true
 }
