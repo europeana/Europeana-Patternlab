@@ -37,9 +37,9 @@
 
     .content{
       bottom:   0;
+      height:   100%;
       padding:  $pad-quarter $pad;
       position: absolute;
-      height:   100%;
       width:    100%;
 
       .img-remind{
@@ -456,7 +456,44 @@
 
   .channel-object-information,
   .channel-object-extended-information{
+
     margin-top: $space;
+    position:   relative;
+
+    .ctrl,
+    .ctrl .icon{
+      display:  block;
+      height:   1.5em;
+      width:    1.5em;
+    }
+
+    .ctrl{
+      border:   1px solid #ccc;
+      cursor:   pointer;
+      position: absolute;
+      right:    1em;
+      top:      1.6em;
+
+      &.close{
+        padding:           5px;
+
+        .icon{
+          -webkit-transform: scale(0.7) translate(-0.5em, -0.5em);
+          transform:         scale(0.7) translate(-0.5em, -0.5em);
+        }
+      }
+
+      &.open{
+        .icon{
+          background-position: 0.18em 0.14em;
+        }
+      }
+
+      .icon{
+        display:  block;
+      }
+
+    }
 
     .data-section {
       margin:   0 $space;
@@ -468,72 +505,52 @@
         padding-right: 0;
       }
 
-      .ctrl,
-      .ctrl .icon{
-        display:  block;
-        height:   1.5em;
-        width:    1.5em;
-      }
-
-      .ctrl{
-        border:   1px solid #ccc;
-        cursor:   pointer;
-        position: absolute;
-        right:    1em;
-        top:      1.6em;
-
-        &.close{
-
-          padding:           5px;
-
-          .icon{
-            -webkit-transform: scale(0.7) translate(-0.5em, -0.5em);
-            transform:         scale(0.7) translate(-0.5em, -0.5em);
-          }
-        }
-
-        &.open{
-          .icon{
-            background-position: 0.18em 0.14em;
-          }
-        }
-
-        .icon{
-          display:  block;
-        }
-
-      }
-
-      &.closed{
-        .close{
-          display: none;
-        }
-        .open{
-          display: block;
-        }
-      }
-
-      &:not(.closed){
-        .close{
-          display:           block;
-        }
-        .open{
-          display: none;
-        }
-      }
-
       &:first-of-type{
         border-top: 0;
       }
     }
 
+    .closed{
+      .close{
+        display: none;
+      }
+      .open{
+        display: block;
+      }
+    }
+
+    :not(.closed){
+      .close{
+        display: block;
+      }
+      .open{
+        display: none;
+      }
+    }
+
+
+    .title{
+      .close,
+      .open{
+        font-size: 1rem;
+        top: 0;
+      }
+    }
   }
 
   .channel-object-extended-information{
+
     .closed{
       .subsection-content{
         display: none;
       }
+    }
+
+    .subsection-content{
+
+      position: relative;
+      top:      -0.140625rem;
+
     }
   }
 
