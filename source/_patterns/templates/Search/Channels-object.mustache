@@ -273,11 +273,13 @@
                         {{/description}}
                       </div>
 
+                      {{#view_more}}
                       <div class="channel-object-viewmore">
-                        <a href="#" class="viewmore-image" style="background-image: url('/images/sample/object_thumbnail.jpg');"></a>
-                        <h3>Johannes Vermeer</h3>
-                        <a href="">View more</a>
+                        <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
+                        <h3>{{text}}</h3>
+                        <a href="{{url}}">{{label}}</a>
                       </div>
+                      {{/view_more}}
 
                     </div>
                   </div>
@@ -357,7 +359,7 @@
 
           <div class="channel-object-extended-information">
 
-            <h2 class="title">Extended Information</h2>
+            <h2 class="title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">  Extended Information</h2>
 
             {{#properties }}
               {{> organisms/sections/object-data-section }}

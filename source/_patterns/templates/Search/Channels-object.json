@@ -638,17 +638,12 @@
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       "annotations_later": true,
-      "XXXannotations":
-      {
-        "section_id": "annotations",
-        "title": "Annotations",
-        "info": "javascript:alert('link to info');",
-        "sections": [{
-          "title": "Relations",
-          "items": [{"url": "http://www.wikidata.org/entity/Q15847665", "text": "http://www.wikidata.org/entity/Q15847665", "title": false}]
-        }]
+      "view_more": {
+        "img_url": "/images/sample/object_thumbnail.jpg",
+        "url": "javascript:alert('follow link...')",
+        "label": "View more",
+        "text": "Johannes Vermeer"
       },
-
       "people": {
         "section_id": "people",
         "title": "People",

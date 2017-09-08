@@ -475,7 +475,7 @@
       top:      1.6em;
 
       &.close{
-        padding:           5px;
+        padding: 5px;
 
         .icon{
           -webkit-transform: scale(0.7) translate(-0.5em, -0.5em);
@@ -487,6 +487,10 @@
         .icon{
           background-position: 0.18em 0.14em;
         }
+      }
+
+      &:hover{
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
       }
 
       .icon{
@@ -528,12 +532,23 @@
       }
     }
 
-
     .title{
       .close,
       .open{
         font-size: 1rem;
         top: 0;
+
+        &::before{
+          bottom:      0;
+          content:     attr(data-before);
+          font-size:   $font-size-slightly-smaller;
+          font-weight: lighter;
+          position:    absolute;
+          text-align:  right;
+          right:       2rem;
+          line-height: 1.5rem;
+          width:       300px;
+        }
       }
     }
   }

@@ -44,9 +44,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
     var readUserPrefs = function(){
 
+      if(typeof(Storage) == 'undefined'){
+        return;
+      }
+
       var prefs = JSON.parse(localStorage.getItem(keyLS));
 
-      if(typeof(Storage) == 'undefined' || !prefs){
+      if(!prefs){
         return;
       }
 
@@ -97,8 +101,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
 
     if(ei.find('.title .ctrl').length == 0){
-      ei.find('.title').append(sClose);
-      ei.find('.title').append(sOpen);
+      var elTitle = ei.find('.title');
+      $(sClose).appendTo(elTitle).attr('data-before', elTitle.data('label-collapse'));
+      $(sOpen).appendTo(elTitle).attr('data-before', elTitle.data('label-expand'));
     }
 
     ei.find('.data-section').each(function(i, ob){
@@ -329,6 +334,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
           data.extended_information = true;
+          data.section_id = 'annotations';
           template.after(Mustache.render(template.text(), data));
           initExtendedInformation();
         });
