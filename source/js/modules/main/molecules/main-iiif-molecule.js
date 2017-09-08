@@ -24,7 +24,7 @@ require(['jquery'], function(){
         // var manifestoUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000119062998/representations/presentation_images/node-5/image/SBB/Berliner_B%C3%B6rsenzeitung/1927/07/21/F_073_335_0/F_SBB_00007_19270721_073_335_0_001/info.json';
         // var manifestoUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000096309638/representations/presentation_images/node-2/image/SBB/Berliner_Tageblatt/1926/12/12/0/F_SBB_00001_19261212_055_586_0_010/info.json'
 
-        var manifestoUrl = 'iiif_transcriptions?manifest=true';
+        var manifestoUrl = 'iiif_manifest-data?manifest_transcriptions=true';
         var param = window.location.href.split('?manifestUrl=');
 
         if(param.length > 1){

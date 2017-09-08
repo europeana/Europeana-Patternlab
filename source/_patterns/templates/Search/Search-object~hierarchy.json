@@ -28,7 +28,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}]}"
     }
   ],
 

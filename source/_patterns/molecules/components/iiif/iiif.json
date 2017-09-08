@@ -13,7 +13,7 @@
   "js_vars": [
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{'mappings': [{'pattern': 'iiif.europeana.eu', 'resolveTo': 'self'}]}"
     }
   ],
   "iiif_transcription": true
