@@ -640,6 +640,7 @@
       "annotations_later": true,
       "XXXannotations":
       {
+        "section_id": "annotations",
         "title": "Annotations",
         "info": "javascript:alert('link to info');",
         "sections": [{
@@ -649,6 +650,7 @@
       },
 
       "people": {
+        "section_id": "people",
         "title": "People",
         "sections": [
           {
@@ -683,6 +685,7 @@
       },
       "concepts":
       {
+        "section_id": "concepts",
         "title": "Categories",
         "sections": [
           {
@@ -714,6 +717,7 @@
         ]
       },
       "description": {
+        "section_id": "description",
         "title": "Description",
         "sections": [{
           "title": false,
@@ -724,6 +728,7 @@
         }]
       },
       "properties": {
+        "section_id": "properties",
         "title": "Properties",
         "sections": [
           {
@@ -743,6 +748,7 @@
         ]
       },
       "provenance": {
+        "section_id": "provenance",
         "title": "Source",
         "sections": [
           {
@@ -778,6 +784,7 @@
       },
 
       "places": {
+        "section_id": "location",
         "title": "Place",
         "sections": [
           {
@@ -799,6 +806,7 @@
         ]
       },
       "refs_rels": {
+        "section_id": "refs_rels",
         "title": "References and Relationships",
         "sections": [
           {
@@ -813,6 +821,7 @@
       },
 
       "dates": {
+        "section_id": "times",
         "title": "Times",
         "sections": [
           {
@@ -861,6 +870,7 @@
       "meta_additional":
       {
         "present": true,
+        "section_id": "map",
         "geo":
         {
           "long_and_lat": true,

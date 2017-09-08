@@ -40,6 +40,61 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     var ei     = $('.channel-object-extended-information');
     var sClose = '<span class="ctrl close"><span class="icon svg-icon-minus"></span></span>';
     var sOpen  = '<span class="ctrl  open"><span class="icon svg-icon-plus" ></span></span>';
+    var keyLS  = 'eu_portal_object_data_expanded';
+
+    var readUserPrefs = function(){
+
+      var prefs = JSON.parse(localStorage.getItem(keyLS));
+
+      if(typeof(Storage) == 'undefined' || !prefs){
+        return;
+      }
+
+      ei.find('.data-section').each(function(i, ob){
+        ob = $(ob);
+        var sectionId = ob.data('section-id');
+        if(prefs.indexOf(sectionId) > -1){
+          $(ob).addClass('closed');
+        }
+        else{
+          $(ob).removeClass('closed');
+        }
+      });
+    };
+
+    var writeUserPrefs = function(){
+
+      if(typeof(Storage) == 'undefined'){
+        return;
+      }
+
+      var closedItems = [];
+      ei.find('.data-section').each(function(i, ob){
+        ob = $(ob);
+        if(ob.hasClass('closed')){
+          closedItems.push(ob.data('section-id'));
+        }
+      });
+      log('write userPrefs ' + JSON.stringify(closedItems));
+      localStorage.setItem(keyLS, JSON.stringify(closedItems));
+    };
+
+    var checkAllClosed = function(){
+      var ac = true;
+      ei.find('.data-section').each(function(i, ob){
+        ob = $(ob);
+        if(!$(ob).hasClass('closed')){
+          ac = false;
+        }
+      });
+      if(ac){
+        ei.find('.title').addClass('closed');
+      }
+      else{
+        ei.find('.title').removeClass('closed');
+      }
+    };
+
 
     if(ei.find('.title .ctrl').length == 0){
       ei.find('.title').append(sClose);
@@ -53,13 +108,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         $ob.append(sOpen);
       }
     });
+
     if(addHandler){
       $(document).on('click', '.ctrl', function(){
         var btn = $(this);
         var el  = btn.closest('.data-section');
 
         if(el.length == 0){
-          el = $('.channel-object-extended-information .data-section').add('.channel-object-extended-information .title');
+          el = ei.find('.data-section').add(ei.find('.title'));
         }
         if(btn.hasClass('open')){
           el.removeClass('closed');
@@ -67,8 +123,13 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         else{
           el.addClass('closed');
         }
+        writeUserPrefs();
+        checkAllClosed();
       });
     }
+
+    readUserPrefs();
+    checkAllClosed();
   }
 
   function initMedia(index){
