@@ -1,17 +1,16 @@
-@import "../../../../sass/scss/generic/variables";
+@import '../../../../sass/scss/generic/variables';
 
 #iiif{
-  //border: 1px solid #000;
   height: 36em;
-  position: relative;
   margin: 0 auto;
+  position: relative;
 
   .leaflet-control-zoom{
     display: none;
   }
 
   &.loading{
-    cursor:progress
+    cursor: progress;
   }
 }
 
@@ -21,37 +20,35 @@
 }
 
 #iiif-ctrl{
-  //border: 1px solid #000;
+  background: -ms-linear-gradient(
+    top, rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
   background-image: -webkit-gradient(
-    linear, left top, left bottom, from(rgba(0,0,0,0.025)),
-    to(rgba(0,0,0,0.75))
+    linear, left top, left bottom,
+    from(rgba(0, 0, 0, 0.025)),
+    to(rgba(0, 0, 0, 0.75))
   );
   background-image: -moz-linear-gradient(
     rgba(255, 255, 255, 0) 0%,
     rgba(0, 0, 0, 0.7) 95%
   );
-  background: -ms-linear-gradient(
-    top, rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.65) 100%
-  );
+  bottom: 4em;
   filter: progid:DXImageTransform.Microsoft.gradient(
     startColorstr='#00000000',
     endColorstr='#a6000000',
     GradientType=0
   );
-  //padding: 3em 0 0.5em;
+  height: 4em;
+  margin: auto;
+  margin-bottom: -3em;
   padding-top: 1em;
   position: relative;
-  margin: auto;
-  bottom: 4em;
-  height: 4em;
-  margin-bottom: -3em;
   text-align: center;
 
-
   .iiif-ctrl-group{
-    max-width: 40em;
     margin: auto;
+    max-width: 40em;
   }
 
   a{
@@ -68,27 +65,26 @@
     text-decoration: none;
   }
 
-  .first[disabled="disabled"],
-  .prev[disabled="disabled"],
-  .last[disabled="disabled"],
-  .next[disabled="disabled"]{
-    text-decoration: none;
+  .first[disabled='disabled'],
+  .prev[disabled='disabled'],
+  .last[disabled='disabled'],
+  .next[disabled='disabled']{
     color: transparent;
     opacity: 0.4;
+    text-decoration: none;
   }
 
   a,
   .jump-to-img,
   .total-images{
-    //display: inline-block;
-    width: 5%;
     max-width: 5%;
+    width: 5%;
   }
 
   .next,
   .last{
-    text-align: right;
     padding-right: 0.5em;
+    text-align: right;
   }
 
   .prev {
@@ -99,12 +95,12 @@
   .prev,
   .last,
   .next {
+    background-repeat: no-repeat;
     background-size: 14px 14px;
     color: transparent;
-    top: 2px;
-    background-repeat: no-repeat;
-    position: relative;
     opacity: 0.8;
+    position: relative;
+    top: 2px;
   }
 
   .first:hover,
@@ -115,41 +111,41 @@
   }
 
   .first {
-    background-image: url(../map/css/icon-first.svg);
+    background-image: url('../map/css/icon-first.svg');
   }
 
   .prev {
-    background-image: url(../map/css/icon-previous.svg);
+    background-image: url('../map/css/icon-previous.svg');
   }
 
   .next {
-    background-image: url(../map/css/icon-next.svg);
+    background-image: url('../map/css/icon-next.svg');
   }
 
   .last {
-    background-image: url(../map/css/icon-last.svg);
+    background-image: url('../map/css/icon-last.svg');
   }
 
-  a[disabled="disabled"]{
-    color: #aaa;
+  a[disabled='disabled']{
+    color:  #aaa;
     cursor: not-allowed;
   }
 
   .jump-to-img{
-    color: #fff;
-    background-color: rgba(0,0,0,0.85);
-    border: none;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 0;
+    border-radius: 0;
     box-shadow: none;
     box-sizing: padding-box;
+    color: #fff;
     margin: none;
     padding: 1px;
     text-align: right;
-    border-radius: 0;
   }
 
   .jump-to-img:hover:enabled{
-    color: $medium-gray;
     background-color: #fff;
+    color: $medium-gray;
   }
 
   .total-images{
@@ -162,14 +158,49 @@
   }
 
   .title{
-    width: 100%;
-    text-align: center;
     display: none;
-    padding-top: 0.5em;
     font-style: italic;
+    font-weight: bold;
+    padding-top: 0.5em;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.transcriptions{
+  font-size:  $font-size-slightly-smaller;
+  max-height: 36em;
+  overflow:   auto;
+  width:      35%;
+
+  &.hidden{
+    display: none;
+  }
+
+  p{
+    margin:  1em;
+    padding: 1em;
+
+    &.highlight{
+      background-color: #d2e9f7;
+      border-color:     #1da2f5;
+      border-radius:    5px;
+      border-style:     solid;
+      border-width:     1px;
+    }
+  }
+
+  word.highlight{
     font-weight: bold;
   }
 }
 
+#iiif-with-ctrls{
+  width: 64%;
+}
 
+#iiif-with-ctrls,
+.transcriptions{
+  float: left;
+}
 
