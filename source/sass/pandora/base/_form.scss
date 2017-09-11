@@ -49,6 +49,7 @@
     width: auto;
 
     .form-group {
+      align-items: flex-start;
       color: $white;
       margin-bottom: 0;
       padding: .4rem 1.2rem;
@@ -64,6 +65,11 @@
         margin-bottom: 1rem;
         &::placeholder {
           color: $gray-light;
+        }
+
+        &:disabled {
+          border: 0;
+          padding: 0;
         }
       }
 
@@ -135,9 +141,21 @@
     }
 
     .metis-autocomplete-selected {
-      .tag svg {
+
+      .tag {
         cursor: pointer;
-        margin-left: 1em;
+
+        svg {
+          cursor: pointer;
+          margin-left: 1em;
+
+          &:hover {
+            background: $white;
+            border-radius: 10px;
+            fill: $hoverblue;
+          }
+
+        }
       }
 
       .disable-tag {
@@ -187,6 +205,7 @@
     .form-group {
       align-items: center;
       background: none;
+      color: $gray-light;
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 20px;
@@ -229,6 +248,17 @@
 
         &.icon-padding {
           padding-right: 50px;
+        }
+
+        &:disabled {
+          border: 0;
+          padding-bottom: 0;
+          padding-top: 0;
+
+          .svg-icon-search {
+            display: none;
+          }
+
         }
       }
 

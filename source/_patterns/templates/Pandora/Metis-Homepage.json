@@ -34,55 +34,47 @@
     "newsletter": true
   },
   "landing_page_content": {
-    "is_home": false,
+    "is_home": true,
     "user_profile_url": "javascript:alert('submit user profile form');",
-    "is_profile": true,
+    "is_profile": false,
     "user_profile": {
-      "roleTypes": [
-        {
-          "typeId": "1",
-          "roles": [
-            {
-              "name": "Europeana Viewer"
-            },
-            {
-              "name": "Europeana Data Officer"
-            },
-            {
-              "name": "Europeana Admin"
-            },
-            {
-              "name": "Europeana Superadmin"
-            }
-          ]
-        },
-        {
-          "typeId": "2",
-          "roles": [
-            {
-              "name": "Provider Viewer"
-            },
-            {
-              "name": "Provider Data Officer"
-            },
-            {
-              "name": "Provider Admin"
-            }
-          ]
-        },
-        {
-          "typeId": "3",
-          "roles": [
-            {
-              "name": "Data Provider Contact"
-            }
-          ]
-        }
-      ],
+      "roles": {
+        "types": [
+          {
+            "name": "Europeana Viewer"
+          },
+          {
+            "name": "Europeana Data Officer"
+          },
+          {
+            "name": "Europeana Admin"
+          },
+          {
+            "name": "Europeana Superadmin"
+          },
+          {
+            "name": "Provider Viewer"
+          },
+          {
+            "name": "Provider Data Officer"
+          },
+          {
+            "name": "Provider Admin"
+          },
+          {
+            "name": "Data Provider Contact"
+          }
+        ],
+        "visible": true,
+        "readonly": false
+      },
+      "user_fields_editmode": true,
       "user_fields": {
         "autocomplete":{
           "url":       "metis_autocomplete",
-          "min_chars": "1"
+          "min_chars": "1",
+          "visible": true,
+          "readonly": false
         },
         "selectedOrganizations": {
           "label": "Selected Organizations",
@@ -91,62 +83,80 @@
               "index": 0,
               "organizationName": "Europeana",
               "organizationId": 12,
-              "organizationRole": false,
-              "rolesTypeId": 1
+              "organizationRole": false
             },
             {
               "index": 1,
               "organizationName": "BNF",
               "organizationId": 23,
-              "organizationRole": "Provider Admin",
-              "rolesTypeId": 2
+              "organizationRole": "Provider Admin"
             }
           ]
         },
         "user_id": {
           "label": "User ID",
-          "value": "12345"
+          "value": "12345",
+          "visible": true,
+          "readonly": true
         },
         "user_first_name": {
           "label": "First Name *",
-          "value": "Bilbo"
+          "value": "Bilbo",
+          "visible": true,
+          "readonly": false
         },
         "user_last_name": {
           "label": "Last Name *",
-          "value": "Baggins"
+          "value": "Baggins",
+          "visible": true,
+          "readonly": false
         },
         "user_email": {
           "label": "Email *",
-          "value": "testing.this.email@europeana.eu"
+          "value": "testing.this.email@europeana.eu",
+          "visible": true,
+          "readonly": false
         },
         "user_skype": {
           "label": "Skype",
-          "value": "bilbo.baggings"
+          "value": "bilbo.baggings",
+          "visible": true,
+          "readonly": false
         },
         "active": {
           "label": "Active",
           "placeholder": "",
-          "value": "Yes"
+          "value": "Yes",
+          "visible": true,
+          "readonly": false
         },
         "approved": {
           "label": "Approved",
           "placeholder": "",
-          "value": "No"
+          "value": "No",
+          "visible": true,
+          "readonly": false
         },
         "created": {
           "label": "Created",
           "placeholder": "",
-          "value": "22 April 2011"
+          "value": "22 April 2011",
+          "visible": true,
+          "readonly": false
         },
         "updated": {
           "label": "Updated",
           "placeholder": "",
-          "value": "2 june 2012"
+          "value": "2 june 2012",
+          "visible": true,
+          "readonly": false
         },
         "notes": {
           "label": "Notes",
           "placeholder": "Mapping for edm:rights",
-          "value": ""
+          "value": "",
+          "visible": true,
+          "readonly": false
         },
         "countries": {
           "label": "Country",
@@ -427,10 +437,7 @@
             }
           ]
         }
-      },
-      "view_mode": {
-        "value": "update"
-      }
+      }      
     }
   },
   "i18n": {

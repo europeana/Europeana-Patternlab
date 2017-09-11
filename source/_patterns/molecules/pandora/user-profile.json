@@ -76,12 +76,14 @@
         "label": "Selected Organizations",
         "organizations": [
           {
+            "index": 0,
             "organizationName": "Europeana",
             "organizationId": 12,
             "organizationRole": false,
             "rolesTypeId": 1
           },
           {
+            "index": 1,
             "organizationName": "BNF",
             "organizationId": 23,
             "organizationRole": "Provider Admin",
