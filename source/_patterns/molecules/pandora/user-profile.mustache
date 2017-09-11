@@ -134,13 +134,11 @@
                         <div class="content">
                           <div class="role-wrapper">
                             <h4 class="current-selected-organisation"></h4>
-                            {{#roleTypes}}
-                              <select data-rolesTypeId="{{typeId}}" class="roles">
-                                {{#roles}}
-                                  <option value="{{name}}">{{name}}</option>
-                                {{/roles}}
-                              </select>
-                            {{/roleTypes}}
+                            <select class="roles">
+                              {{#types}}
+                                <option value="{{name}}">{{name}}</option>
+                              {{/types}}
+                            </select>
                           </div>
                           <button type="button">Confirm role</button>
                         </div>
@@ -158,7 +156,7 @@
               <label>{{#label}}{{.}}{{/label}}</label>
               <ul class="metis-autocomplete-selected-wrap">
                 {{#organizations}}
-                  <li class="tag {{#readonly}}disable-tag{{/readonly}} {{^user_fields_editmode}}disable-tag{{/user_fields_editmode}}"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}" />{{organizationName}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
+                  <li class="tag {{#readonly}}disable-tag{{/readonly}} {{^user_fields_editmode}}disable-tag{{/user_fields_editmode}}"><input type="hidden" name="organizations[{{index}}].id" value="{{organizationId}}" /><input type="hidden" name="organizations[{{index}}].role" value="{{organizationRole}}" />{{organizationName}}{{#organizationRole}}<span>: {{.}}</span>{{/organizationRole}}<svg class="icon icon-delete"><use xlink:href="#icon-delete"/></svg></li>
                 {{/organizations}}
               </ul>
             </div>
@@ -229,13 +227,8 @@
             {{/visible}}
           {{/updated}}
 
-          <div class="form-group form-group-btns user-profile-preview-btn hidden">
-            <button class="edit-user-profile" type="button">Edit</button>
-          </div>
-
-          <div class="form-group form-group-btns user-profile-edit-btns hidden">
+          <div class="form-group form-group-btns user-profile-edit-btns">
             <button class="submit" type="button">Submit</button>
-            <button class="cancel {{view_mode.value}}" type="button">Cancel</button>
           </div>
 
         {{/user_fields}}

@@ -141,9 +141,21 @@
     }
 
     .metis-autocomplete-selected {
-      .tag svg {
+
+      .tag {
         cursor: pointer;
-        margin-left: 1em;
+
+        svg {
+          cursor: pointer;
+          margin-left: 1em;
+
+          &:hover {
+            background: $white;
+            border-radius: 10px;
+            fill: $hoverblue;
+          }
+
+        }
       }
 
       .disable-tag {

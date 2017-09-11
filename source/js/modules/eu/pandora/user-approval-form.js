@@ -6,8 +6,9 @@ define(['jquery', 'eu_autocomplete'], function ($) {
 
   function initRolesModal() {
 
-    $('.metis-autocomplete-selected').find('.tag').each(function(i, tag) {  
-      $(tag).on('click', function () {
+    $('.metis-autocomplete-selected').each(function(i, autocomplete) {  
+
+      $(autocomplete).on('click', '.tag', function() {
         currentTag = $(this);
         currentModal = $(this).closest('.metis-autocomplete-selected').prev('.metis-autocomplete').find('.modal-wrapper');
         openModal();
@@ -18,6 +19,7 @@ define(['jquery', 'eu_autocomplete'], function ($) {
 
   function openModal() {
     $(currentModal).show();
+    setSelectedRole();
 
     $(currentModal).find('button').off('click');
     $(currentModal).find('button').on('click', function () {
@@ -36,6 +38,12 @@ define(['jquery', 'eu_autocomplete'], function ($) {
     $(currentModal).hide();
   }
 
+  function setSelectedRole() {
+    if (currentTag.find('input[name*="role"]').length> 0){
+      $(currentModal).find('select').val(currentTag.find('input[name*="role"]').val());
+    }
+  }
+
   function selectRole() {
     
     var selectedValue = $(currentModal).find('select').find(':selected').val();
@@ -43,7 +51,7 @@ define(['jquery', 'eu_autocomplete'], function ($) {
 
     if (currentTag.find('input[name*="role"]').length === 0) {
       $('<input type="hidden" name="' + fieldName + '" value="' + selectedValue + '" />').insertAfter(currentTag.find('input[name*="id"]'));
-      $('<span>:' + selectedValue + '</span>').insertBefore(currentTag.find('svg'));
+      $('<span>: ' + selectedValue + '</span>').insertBefore(currentTag.find('svg'));
     } else {
       currentTag.find('input[name="' + fieldName + '"]').val(selectedValue);
       currentTag.find('span').text(': ' + selectedValue);

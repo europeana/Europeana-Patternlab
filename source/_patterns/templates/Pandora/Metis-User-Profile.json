@@ -100,7 +100,7 @@
           }
         ],
         "visible": true,
-        "readonly": true
+        "readonly": false
       },
       "user_fields_editmode": true,
       "user_fields": {
@@ -108,7 +108,7 @@
           "url":       "metis_autocomplete",
           "min_chars": "1",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "selectedOrganizations": {
           "label": "Selected Organizations",
@@ -143,54 +143,54 @@
           "label": "Last Name *",
           "value": "Baggins",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "user_email": {
           "label": "Email *",
           "value": "testing.this.email@europeana.eu",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "user_skype": {
           "label": "Skype",
           "value": "bilbo.baggings",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "active": {
           "label": "Active",
           "placeholder": "",
           "value": "Yes",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "approved": {
           "label": "Approved",
           "placeholder": "",
           "value": "No",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "created": {
           "label": "Created",
           "placeholder": "",
           "value": "22 April 2011",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "updated": {
           "label": "Updated",
           "placeholder": "",
           "value": "2 june 2012",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "notes": {
           "label": "Notes",
           "placeholder": "Mapping for edm:rights",
           "value": "",
           "visible": true,
-          "readonly": true
+          "readonly": false
         },
         "countries": {
           "label": "Country",
