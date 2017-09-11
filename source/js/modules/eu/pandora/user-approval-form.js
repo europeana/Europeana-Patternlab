@@ -34,7 +34,7 @@ define(['jquery', 'eu_autocomplete'], function ($) {
   }
 
 
-  function closeModal(modal) {
+  function closeModal() {
     $(currentModal).hide();
   }
 
