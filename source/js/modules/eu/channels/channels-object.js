@@ -490,7 +490,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
   }
 
-  
+
   function initSuggestions(){
 
     var accordionTabs = null;
@@ -503,10 +503,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         accordionTabs = euAccordionTabs;
         suggestions   = $('.eu-accordion-tabs');
-
-        suggestions.find('.tab-header').on('click', function(){
-          suggestions.find('.tab-content').removeClass('collapsed');
-        });
 
         accordionTabs.init(suggestions, {
           fnOpenTab: function(){
@@ -567,9 +563,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
 
   }
-  
-  
-  
+
+
+
   var initCarousel = function(el, ops){
     var carousel = $.Deferred();
 
@@ -1182,7 +1178,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initMedia(0);
     initActionBar();
     initSuggestions();
-    
+
     /*
     $('.media-viewer').trigger('media_init');
 
