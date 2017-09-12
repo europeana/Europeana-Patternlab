@@ -28,7 +28,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}]}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 
@@ -895,118 +895,97 @@
         "pinterest": true,
         "googleplus": true,
         "tumblr": true
-      }
-    },
-    "similar":
-    {
-      "title": "Similar items",
-      "more_items_query" : "javascript:alert('loads a page of similar items')",
-      "more_items_load"  : "portal_object-similar",
-
-      "XXX_more_items_total" : 12,
-      "XXX_more_items_total_formatted" : 12,
-      "XXX_items": [
-        {
-          "url":  "?q=The+Lace+Maker",
-          "title": "The Lace Maker",
-          "img": {
-             "alt": "The Lace Maker",
-             "src": "http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg"
-          }
-        },
-        {
-        "url":  "?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links",
-        "title": "Zittende jongeman bij ton met het hoofd naar links",
-          "img": {
-              "alt": "Zittende jongeman bij ton met het hoofd naar links",
-              "src": "http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg"
-           }
-        },
-        {
-          "url": "?q=Delft",
-          "title": "Delft",
-          "img": {
-              "alt": "Delft",
-              "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
-           }
-        },
-        {
-          "url": "?q=Girl+with+the+pearl+earring",
-          "title": "Girl with the pearl earring",
-          "img": {
-              "alt": "Girl with the pearl earring",
-              "src": "/images/sample/object_full.jpg"
-           }
-
-        }
-      ]
-    },
-    "named_entities": {
-          "fold_title": "Named Entities",
-          "inline": true,
-          "data": [
+      },
+      "suggestions": {
+        "thumbnail_server": "http://www.europeana.eu/api/v2/thumbnail-by-url.json",
+        "tab_items": [
           {
-            "title": "Who",
-            "fields": [
-              {
-                  "key": "Agent Term",
-                  "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Agent Label",
-                  "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
-                  "multi": true
-              }
-            ]
+            "tab_title": "From Johannes Vermeer",
+            "url":       "portal_suggestions?from=vermeer",
+            "key":       "dpla"
           },
           {
-            "title": "What",
-            "fields": [
-              {
-                  "key": "Concept Term",
-                  "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Concept Label",
-                  "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
-                  "multi": true
-              }
-            ]
+            "tab_title": "From Rijksmuseum",
+            "url":       "portal_suggestions?from=rijks",
+            "key":       "internetarchive"
           },
           {
-            "title": "Where",
-            "fields": [
-              {
-                  "key": "Place Term",
-                  "val": "https://www.google.co.uk/maps",
-                  "foldable_link": true
-              }
-            ]
+            "tab_title": "From the blog",
+            "url":       "portal_suggestions?from=blog",
+            "key":       "digitalnz"
           },
           {
-            "title": "When",
-            "fields": [
-              {
-                  "key": "Period Term",
-                  "val": "http://semium.org/time/17xx_4_quarter",
-                  "foldable_link": true
-              },
-              {
-                  "key": "Period Term",
-                  "vals": [
-                    {"key": "(fr)", "val": "[4e quart 18e siècle]"},
-                    {"key": "(en)", "val": "[4 quarter of the 18th century]"},
-                    {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
-                  ],
-                  "multi": true
-              }
-            ]
+            "tab_title": "From elsewhere",
+            "url":       "portal_suggestions?from=elsewhere",
+            "key":       "canadiana"
           }
         ]
-
-
+      }
+    },
+    "named_entities": {
+      "fold_title": "Named Entities",
+      "inline": true,
+      "data": [
+        {
+          "title": "Who",
+          "fields": [
+            {
+              "key": "Agent Term",
+              "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
+              "foldable_link": true
+            },
+            {
+              "key": "Agent Label",
+              "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
+              "multi": true
+            }
+          ]
+        },
+        {
+          "title": "What",
+          "fields": [
+            {
+              "key": "Concept Term",
+              "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
+              "foldable_link": true
+            },
+            {
+              "key": "Concept Label",
+              "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
+              "multi": true
+            }
+          ]
+        },
+        {
+          "title": "Where",
+          "fields": [
+            {
+              "key": "Place Term",
+              "val": "https://www.google.co.uk/maps",
+              "foldable_link": true
+            }
+          ]
+        },
+        {
+          "title": "When",
+          "fields": [
+            {
+              "key": "Period Term",
+              "val": "http://semium.org/time/17xx_4_quarter",
+              "foldable_link": true
+            },
+            {
+              "key": "Period Term",
+              "vals": [
+                {"key": "(fr)", "val": "[4e quart 18e siècle]"},
+                {"key": "(en)", "val": "[4 quarter of the 18th century]"},
+                {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
+              ],
+              "multi": true
+            }
+          ]
+        }
+      ]
     }
   },
   "page_config":

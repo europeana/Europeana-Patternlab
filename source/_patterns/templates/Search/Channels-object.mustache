@@ -524,38 +524,22 @@
       {{! end object actions }}
 
 
-      <div class="data-full-w">
+      <div class="data-full-w suggestions-section">
 
-        {{#content.similar}}
-          <div class="data-border js-hidden">
-            <div class="data-section closed">
-              <div class="mlt cf">
-                <div class="subsection-label">
-                  {{title}}
-                </div>
-                <div class="subsection-content">
-                  <div class="js-carousel more-like-this">
-                    <ul class="cf">
-                      {{#items}}
-                        <li class="js-carousel-item">
-                          <div class="mlt-img-div height-to-width" style="background-image: url({{img.src}})">
-                            <div class="inner"><a class="link" href="{{url}}">&nbsp;</a></div>
-                          </div>
-                          {{#title}}
-                          <span class="js-carousel-title">
-                            <a href="{{url}}">{{.}}</a>
-                          </span>
-                          {{/title}}
-                        </li>
-                      {{/items}}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="show-more-mlt"{{^more_items_total_formatted}} style="display:none;"{{/more_items_total_formatted}}><a href="{{more_items_query}}">{{ i18n.site.object.show-more-similar-items }}… (<span class="number">{{more_items_total_formatted}}</span>)</a></div>
+        <h2>[More Suggestions]</h2>
+        <div class="display-grid">
+          {{#object.suggestions}}
+            <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/search-listitem-preview-js}}</script>
+            <div class="eu-accordion-tabs suggestions cf">
+              {{#tab_items}}
+                {{> organisms/components/eu-accordion-tabs-fed-search}}
+              {{/tab_items}}
+              {{#tab_items}}
+                <h4 class="more-federated-results js-hidden js-empty"><a href="" class="svg-icon-external-eu-blue-after"></a></h4>
+              {{/tab_items}}
             </div>
-          </div>
-        {{/content.similar}}
+          {{/object.suggestions}}
+        </div>
       </div>
     </section>
   {{/content}}
