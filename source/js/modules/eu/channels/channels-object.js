@@ -509,7 +509,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         });
 
         accordionTabs.init(suggestions, {
-          fnOpenTab: function(index){
+          fnOpenTab: function(){
             $(window).trigger('ellipsis-update');
           },
           active: 0
@@ -517,7 +517,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
         accordionTabs.loadTabs(
           suggestions,
-          function(data, tab, index){
+          function(data, tab){
 
             tab = $(tab);
             tab.find('.tab-subtitle').html(data.tab_subtitle);
