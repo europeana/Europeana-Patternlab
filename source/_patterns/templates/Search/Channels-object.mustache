@@ -129,7 +129,7 @@
           <div>
             {{#media}}
 
-              <div class="object-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
+              <div class="channel-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
 
                 {{#title}}
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
@@ -359,7 +359,7 @@
 
           <div class="channel-object-extended-information">
 
-            <h2 class="title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">  Extended Information</h2>
+            <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">  Extended Information</h2>
 
             {{#properties }}
               {{> organisms/sections/object-data-section }}
@@ -523,22 +523,24 @@
       </div>
       {{! end object actions }}
 
-
-      <div class="data-full-w suggestions-section">
-
-        <h2>[More Suggestions]</h2>
-        <div class="display-grid">
-          {{#object.suggestions}}
-            <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/search-listitem-preview-js}}</script>
-            <div class="eu-accordion-tabs suggestions cf">
-              {{#tab_items}}
-                {{> organisms/components/eu-accordion-tabs-fed-search}}
-              {{/tab_items}}
-              {{#tab_items}}
-                <h4 class="more-federated-results js-hidden js-empty"><a href="" class="svg-icon-external-eu-blue-after"></a></h4>
-              {{/tab_items}}
-            </div>
-          {{/object.suggestions}}
+      <div class="channel-object-similar">
+        <h2 class="channel-object-title">[More Suggestions]</h2>
+        <div class="suggestions-section">
+          <div class="display-grid">
+            {{#object.suggestions}}
+              <div class="slide-rail" style="position: relative;">
+                <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/channel-object-suggestion-js }}</script>
+                <div class="eu-accordion-tabs suggestions cf">
+                  {{#tab_items}}
+                    {{> organisms/components/eu-accordion-tabs-portal-suggestions}}
+                  {{/tab_items}}
+                  {{#tab_items}}
+                    <h4 class="more-federated-results js-hidden js-empty"><a href="" class="svg-icon-external-eu-blue-after"></a></h4>
+                  {{/tab_items}}
+                </div>
+              </div>
+            {{/object.suggestions}}
+          </div>
         </div>
       </div>
     </section>

@@ -6,6 +6,14 @@
     width:    40%;
   }
 
+  .config{
+    background-color: #999;
+    color:            #fff;
+    font-size:        0.875em;
+    margin-top:       1em;
+    padding:          0.5em;
+  }
+
   .show-when-large{
     display: none;
   }
@@ -53,6 +61,11 @@
   <div class="test test-1">
     This text is too long to fit in its container and so should display with ellipsis, indicating to the user that there is more to be seen.
   </div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-1'), {});
+    </code>
+  </div>
 </div>
 
 
@@ -63,6 +76,11 @@
 <div class="container">
   <div class="test test-2">
     <a href="javascript:alert('follow link...');">This text is too long to fit in its container and so should display with ellipsis, indicating to the user that there is more to be seen.</a>
+  </div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-2'), {textSelectors:['a']});
+    </code>
   </div>
 </div>
 
@@ -78,18 +96,28 @@
       <span class="show-when-large">On large viewports this text is visible: it's too long to fit in its container and so should display with ellipsis (when it displays at all)</span>
     </a>
   </div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-3'), {textSelectors:['a .show-when-small', 'a .show-when-large']});
+    </code>
+  </div>
 </div>
 
 
 <h4>Mixed Content Pitfall</h4>
 
-<p>The eu-ellipsis utility updates a single text-node and will not process elments that include more than one text-node as children.</p>
+<p>The eu-ellipsis utility updates a single text-node and will not process elements that include more than one text-node as children.</p>
 
 <p>This can result in strange errors:</p>
 
 <div class="container">
   <p>A bad example:</p>
   <div class="test test-6">The link at the end of this text will always come after any ellipsis, which is weird! <a href="javascript:alert('follow link...');">Link</a></div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-6'));
+    </code>
+  </div>
 </div>
 
 <p>But knowing this behaviour can be useful:</p>
@@ -97,11 +125,20 @@
 <div class="container">
 
   <div class="test test-4">This text should be followed by an icon - even when the ellipsis show.<span class="svg-icon-external-eu-blue"></span></div>
-
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-4'));
+    </code>
+  </div>
   <br/>
   <p>The same but in a link:</p>
 
   <div class="test test-5"><a href="javascript:alert('follow link...');">This text should be followed by an icon - even when the ellipsis show.<span class="svg-icon-external-eu-blue"></span></a></div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-5'), {textSelectors:['a']});
+    </code>
+  </div>
 
 </div>
 
@@ -112,6 +149,11 @@
 
 <div class="container">
   <div class="test test-7"><span class="several">This </span><a class="several" href="javascript:alert('follow link...');">link</a><span class="several"> should not break the ellipsis, as it uses the same </span><b class="several">common class</b><span class="several"> as the text.</span><span class="svg-icon-external-eu-blue"></span></div>
+  <div class="config">
+    <code>
+      Ellipsis.create($('.test-7'), {multiNode:true, textSelectors:['.several']});
+    </code>
+  </div>
 </div>
 
 

@@ -2,22 +2,27 @@
 
   background: $offwhite;
 
-  .object-details.zoom-one .object-media-wrap:not(.empty) .object-media-viewer .playable .media-options{
+  .object-details.zoom-one .channel-media-wrap:not(.empty) .object-media-viewer .playable .media-options{
     margin: -50% auto 50% auto;
     width:  40%;
   }
 
-  .object-details:not(.zoom-one) .object-media-wrap:not(.empty){
+  .object-details:not(.zoom-one) .channel-media-wrap:not(.empty){
     .channel-object-media-nav  .media-thumb-section::after{
       top: 1.6em;
     }
   }
 
-  .object-details:not(.zoom-two){
-    .channel-object-overview{
-      @media all and (min-width: $bp-med) {
+  @media all and (min-width: $bp-med) {
+
+    .object-details:not(.zoom-two){
+      .channel-object-overview{
         @include span(18);
       }
+    }
+    .channel-object-similar{
+      @include span(18);
+
     }
   }
 
@@ -81,23 +86,32 @@
     }
   }
 
+  .suggestions-section,
   .channel-object-information{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
   }
 
+  .channel-media-wrap  {
+
+    position: relative;
+    text-align: center;
+
+  }
+
   .channel-object-information,
-  .object-media-wrap  {
+  .channel-media-wrap  {
     background: $white;
     text-align: left;
   }
 
-  .object-media-wrap:not(.empty) {
+  .channel-object-title,
+  .subtitle {
+    color: $eu-blue;
+  }
 
-    // title, subtitle, description, viewmore
-    .channel-object-title,
-    .subtitle {
-      color: $eu-blue;
-    }
+  .channel-media-wrap:not(.empty) {
+
+    padding: $pad;
 
     .channel-object-title {
       display: none;
@@ -355,29 +369,6 @@
 
       .js-carousel-arrows.h {
         line-height: unset;
-
-        a.left,
-        a.right {
-          background-color: $dim07;
-          background-position: 0.7em 0.7em;
-          height: 2.25em;
-          left: -0.5em;
-          top: 0.35em;
-          transform: scale(0.5);
-          width: 2.25em;
-
-          &:hover {
-            background-color: $black;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-          }
-
-        }
-
-        a.right {
-          background-position: 0.75em 0.7em;
-          left: auto;
-          right: -0.5em;
-        }
       }
 
       .mlt-img-div{
@@ -403,57 +394,69 @@
     }
   }
 
-  .suggestions-section{
-    background-color: #fff;
-    > h2{
-      margin-top: $space;
+  .carousel-arrows.left,
+  .carousel-arrows.right {
+
+    background-color: $dim07;
+    background-position: 0.7em 0.7em;
+    height: 2.25em;
+    left: -0.5em;
+    top: 0.35em;
+    transform: scale(0.5);
+    width: 2.25em;
+
+    &:hover {
+      background-color: $black;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     }
+  }
+
+  .carousel-arrows.right {
+
+    background-position: 0.75em 0.7em;
+    left: auto;
+    right: -0.5em;
+  }
+
+  .channel-object-similar{
+
+    padding-top: $space;
+
+    .channel-object-title{
+
+      padding-left: 1em;
+
+      @media all and (min-width: $bp-med) {
+        padding-left: 0;
+      }
+    }
+
+    .suggestions-section{
+
+      background-color: #fff;
+      padding: $pad;
+
+      > h2{
+        margin-top: $space;
+      }
+      .display-grid{
+        overflow: hidden;
+      }
+    }
+  }
+
+  .js-swipeable{
+    position: relative;
   }
 
   .suggestions{
 
     display: block;
-
-    &:not(.as-tabs) .tab-content{
-      float:    left;
-      position: relative;
-      top:      auto;
-      width:    100%;
-    }
+    padding: 0.6em 0;
 
     &.as-tabs{
 
-      height: 46em;
-      overflow: hidden;
-
-      @media all and (min-width: $bp-large) {
-        height:        25em;
-        margin-bottom: 1.6em;
-      }
-
-      @media all and (max-width: $bp-large) {
-
-        .search-list-item{
-          width:   50%;
-          &:nth-child(1){
-            clear: left;
-          }
-          h2{
-            height: 3.2em;
-          }
-        }
-      }
-
-      @media all and (min-width: $bp-large) {
-
-        .tab-content.active{
-
-          display:         flex;
-          justify-content: space-between;
-          padding:         0.6em 0;
-
-        }
-      }
+      height: 24em;
 
       .tab-header{
         &.js-last::after{
@@ -467,111 +470,29 @@
       }
     }
 
-    .search-list-item{
-
-      &.type-img{
-
-        .item-image{
-
-          border:  1px solid $gray-lighter;
-
-          .svg-icon{
-            display: inline-block;
-          }
-
-          .svg-icon-image-grey-lighter{
-            height:            1.5em;
-            -webkit-transform: scale(4) translateY(82%);
-            transform:         scale(4) translateY(82%);
-            width:             1.4em;
-          }
-          .svg-icon-music-grey-lighter{
-            height:            1.8em;
-            -webkit-transform: scale(3.5) translate(-5%, 83%);
-            transform:         scale(3.5) translate(-5%, 83%);
-            width:             1.36em;
-          }
-          .svg-icon-openbook-grey-lighter{
-            height:            1.8em;
-            -webkit-transform: scale(3.5) translateY(85%);
-            transform:         scale(3.5) translateY(85%);
-            width:             1.36em;
-          }
-          .svg-icon-tv-grey-lighter{
-            height:            1.48em;
-            -webkit-transform: scale(3.5) translateY(100%);
-            transform:         scale(3.5) translateY(100%);
-            width:             1.4em;
-          }
+    &.as-tabs{
+      .tab-content.active{
+        display: table;
+        .suggestion-item{
+          display: table-cell;
         }
       }
+    }
 
-      .item-info{
+    .suggestion-item{
 
-        border:     0;
-        max-height: 3.2em;
-        overflow:   hidden;
-        padding:    0.5em 0.2em;
+      min-width: 200px;
+      padding:   1em 0.5em;
+      width:     200px;
 
-        > h2{
-          margin-right: 0;
-          max-height:   3.2em;
-          overflow:     unset;
-          white-space:  normal;
-
-          a{
-            display:       inline-block;
-            line-height:   1.3em;
-            max-height:    3.2em;
-            position:      relative;
-          }
-          a:focus,
-          a:hover{
-            border-bottom: 0;
-          }
-          a:hover span{
-            text-decoration: underline dotted $eu-blue;
-          }
-
-          a.svg-icon-external-eu-blue-after::after{
-            bottom:   1px;
-            position: absolute;
-            right:    -18px;
-            top:      auto;
-          }
-        }
-
-        > h3{
-          -webkit-transform: translateY(0.5em);
-          transform:         translateY(0.5em);
-        }
-
-        .svg-icon{
-          display: none;
-        }
-
-      }
-
-      .item-preview{
-        border: 0;
-        height: 12em;
-
-        @media all and (min-width: $bp-small) {
-          height: 15em;
-        }
-
-        @media all and (min-width: $bp-small-2) {
-          height: 12em;
-        }
-
-        .item-image,
-        .inner,
-        .link{
-          height: 100%;
-        }
-        img{
-          height: 100%;
-        }
+      h2{
+        font-size:   $font-size-norm;
+        font-weight: normal;
+        line-height: 1.3em;
+        margin:      0;
+        max-height:  3.75em;
+        overflow:    hidden;
+        padding-top: 1em;
       }
     }
   }
@@ -583,6 +504,7 @@
     padding:         1.6rem 0;
 
     .action-ctrl{
+
       align-self: center;
       margin: 0 0.8rem;
 
@@ -715,10 +637,10 @@
           content:     attr(data-before);
           font-size:   $font-size-slightly-smaller;
           font-weight: lighter;
-          position:    absolute;
-          text-align:  right;
-          right:       2rem;
           line-height: 1.5rem;
+          position:    absolute;
+          right:       2rem;
+          text-align:  right;
           width:       300px;
         }
       }
@@ -734,13 +656,9 @@
     }
 
     .subsection-content{
-
-      position: relative;
-      top:      -0.140625rem;
-
-      .data-group{
-        padding-right: 2em;
-      }
+      padding-right: 3.4em;
+      position:      relative;
+      top:           -0.140625rem;
     }
   }
 
@@ -759,7 +677,7 @@
 
     .object-details:not(.zoom-one){
 
-      .object-media-wrap{
+      .channel-media-wrap{
         padding-bottom: $pad-double;
         padding-right: $pad-double;
 

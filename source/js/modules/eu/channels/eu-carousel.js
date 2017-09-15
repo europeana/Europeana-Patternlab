@@ -219,7 +219,6 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
 
           position = Math.max(1, newPos);
           position = Math.min(position, totalAvailable);
-          alert(1)
           resize();
         }
       });
