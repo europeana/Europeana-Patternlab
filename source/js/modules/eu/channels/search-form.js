@@ -73,8 +73,9 @@ define(['jquery', 'util_resize'], function ($){
         var selInput         = narrowMode ? '.item-search-input' : '.search-input';
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete').text();
+
         var setQeParam       = function(val){
-          $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
+          // $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
           if(val){
             $(selInput).addClass('mode-entity');
           }
