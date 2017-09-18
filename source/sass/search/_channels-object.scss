@@ -505,9 +505,12 @@
 
   .channel-object-action-bar{
 
-    display:         flex;
-    justify-content: space-evenly;
-    padding:         $space $space-half;
+    .channel-object-media-actions{
+      display:         flex;
+      justify-content: space-evenly;
+      padding:         $space $space-half;
+      position:        relative;
+    }
 
     .action-ctrl{
       align-self: center;
@@ -527,6 +530,7 @@
         display:     none;
         white-space: nowrap;
       }
+
       .action-icon{
         background-repeat: no-repeat;
         display:           block;
@@ -664,6 +668,115 @@
         order:  0;
       }
 
+    }
+
+    .action-modal{
+
+      background-color: $white;
+      bottom:           0;
+      left:             0;
+      position:         absolute;
+      right:            0;
+      top:              0;
+    }
+
+    .action-modal-section{
+      align-self: center;
+
+      &.centred{
+        text-align: center;
+
+        .action-modal-subheading{
+
+          width: 100%;
+
+          &::after{
+            content: '';
+          }
+        }
+      }
+    }
+
+    .action-modal-subheading{
+
+      display:        inline-block;
+      font-size:      $font-size-slightly-smaller;
+      font-weight:    bold;
+      text-transform: capitalize;
+
+      &::after{
+        content: ': ';
+      }
+    }
+
+    .modal-action{
+      background-color: $eu-blue;
+      color:            $white;
+      font-size:        $font-size-slightly-smaller;
+      .label{
+        font-weight:    bold;
+        text-transform: uppercase;
+        white-space:    nowrap;
+      }
+    }
+
+    .modal-action,
+    .media-modal-close{
+
+      padding: $pad;
+
+      .label{
+        display:   inline-block;
+        position:  relative;
+        top:       50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .media-modal-close{
+      background-color: #f00;
+      .label{
+        background-image: url("data:image/svg+xml,%3Csvg id='icon-delete' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' fill='%23fff' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
+        height: 1.6em;
+        width:  1.5em;
+      }
+    }
+
+    .modal-content{
+      display:         flex;
+      height:          calc(100% - 2.1em);
+      justify-content: space-between;
+
+      .social-share{
+        align-self: center;
+        margin:     0;
+      }
+    }
+
+    .modal-header{
+      background-color: #e1e1e1;
+      font-weight:      bold;
+      height:           2.1em;
+      padding:          $pad-quarter $space-quarter;
+    }
+
+    .file{
+      background-image:      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($eu-blue)}' viewBox='0 0 745 1024'%3E%3Cpath d='M651.636 294.788v449.94q0 18.962-13.79 32.753t-32.755 13.793H139.638q-18.963 0-32.754-13.79t-13.79-32.755V93.09q0-18.962 13.79-32.753t32.754-13.79h263.758q5.172 0 11.205 4.31l232.726 232.726q4.31 6.034 4.31 11.205z' class='path1'%3E%3C/path%3E%3C/svg%3E");
+      background-position-y: 0.24em;
+      background-repeat:     no-repeat;
+      color:                 $eu-blue;
+      display:               block;
+      font-weight:           bold;
+      height:                2.9em;
+      line-height:           2.9em;
+      padding-left:          2.3em;
+    }
+
+    .attribution-heading{
+      display:        inline-block;
+      font-size:      $font-size-sm;
+      font-weight:    bold;
+      padding-bottom: $pad;
     }
   }
 
