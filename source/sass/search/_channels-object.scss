@@ -717,6 +717,17 @@
         font-weight:    bold;
         text-transform: uppercase;
         white-space:    nowrap;
+
+        .label-small{
+          display:        block;
+          font-size:      0.65em;
+          font-weight:    normal;
+          text-transform: none;
+        }
+        a{
+          color:           $white;
+          text-decoration: underline;
+        }
       }
     }
 
@@ -770,6 +781,7 @@
       height:                2.9em;
       line-height:           2.9em;
       padding-left:          2.3em;
+      white-space:           nowrap;
     }
 
     .attribution-heading{
