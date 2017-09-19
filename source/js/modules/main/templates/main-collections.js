@@ -22,6 +22,7 @@ require.config({
     eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
     eu_autocomplete_processor:     '../../eu/autocomplete/eu-autocomplete-processor-entities',
+    eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
     eu_carousel:                   '../../eu/channels/eu-carousel',
     eu_carousel_appender:          '../../eu/channels/eu-carousel-appender',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',

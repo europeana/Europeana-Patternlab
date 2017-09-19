@@ -62,11 +62,12 @@ define(['jquery', 'util_resize'], function ($){
     input.focus();
   }
 
-  function addAutocomplete(data){
-    require(['eu_autocomplete_processor'], function(AutocompleteProcessor){
-      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+  function addAutocomplete(confData){
 
-        log('init autocomplete... ' + data.url);
+    var processor = confData.extended_info ? 'eu_autocomplete_processor' : 'eu_autocomplete_processor_def';
+
+    require([processor], function(AutocompleteProcessor){
+      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
         var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
         var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1;
@@ -124,7 +125,7 @@ define(['jquery', 'util_resize'], function ($){
           form              : form,
           itemTemplateText  : itemTemplateText,
           languages         : languages,
-          minTermLength     : data.min_chars ? data.min_chars : 3,
+          minTermLength     : confData.min_chars ? confData.min_chars : 3,
           paramName         : 'text',
           paramAdditional   : '&language=' + languages.join(',').replace(/,$/, ''),
           scrollPolicyFixed : narrowMode,
@@ -132,7 +133,7 @@ define(['jquery', 'util_resize'], function ($){
           selInput          : selInput,
           selWidthEl        : narrowMode ? null : '.js-hitarea',
           theme             : 'style-entities',
-          url               : data.url ? data.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
+          url               : confData.url ? confData.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });
       });
     });
