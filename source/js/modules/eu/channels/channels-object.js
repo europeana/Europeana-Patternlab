@@ -37,10 +37,11 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function initExtendedInformation(addHandler){
 
-    var ei     = $('.channel-object-extended-information');
-    var sClose = '<span class="ctrl close"><span class="icon svg-icon-minus"></span></span>';
-    var sOpen  = '<span class="ctrl  open"><span class="icon svg-icon-plus" ></span></span>';
-    var keyLS  = 'eu_portal_object_data_expanded';
+    var ei       = $('.channel-object-extended-information');
+    var sClose   = '<span class="ctrl close"><span class="icon svg-icon-minus"></span></span>';
+    var sOpen    = '<span class="ctrl  open"><span class="icon svg-icon-plus" ></span></span>';
+    var keyLS    = 'eu_portal_object_data_expanded';
+    var topTitle = ei.find('.channel-object-title');
 
     var readUserPrefs = function(){
 
@@ -92,18 +93,17 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         }
       });
       if(ac){
-        ei.find('.title').addClass('closed');
+        topTitle.addClass('closed');
       }
       else{
-        ei.find('.title').removeClass('closed');
+        topTitle.removeClass('closed');
       }
     };
 
 
-    if(ei.find('.title .ctrl').length == 0){
-      var elTitle = ei.find('.title');
-      $(sClose).appendTo(elTitle).attr('data-before', elTitle.data('label-collapse'));
-      $(sOpen).appendTo(elTitle).attr('data-before', elTitle.data('label-expand'));
+    if(!topTitle.hasClass('ctrl')){
+      $(sClose).appendTo(topTitle).attr('data-before', topTitle.data('label-collapse'));
+      $(sOpen).appendTo(topTitle).attr('data-before', topTitle.data('label-expand'));
     }
 
     ei.find('.data-section').each(function(i, ob){
@@ -120,7 +120,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         var el  = btn.closest('.data-section');
 
         if(el.length == 0){
-          el = ei.find('.data-section').add(ei.find('.title'));
+          el = ei.find('.data-section').add(topTitle);
         }
         if(btn.hasClass('open')){
           el.removeClass('closed');
