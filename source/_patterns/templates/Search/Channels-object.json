@@ -78,15 +78,16 @@
           {"video": true},
           {"midi": true}
         ],
-        "more_thumbs_total": 25,
-        "more_thumbs_url": "url-to-more-thumbs",
-        "more_thumbs_page": "url-to-page-with-thumbs",
+        "more_thumbs_total": 30,
+        "more_thumbs_url": "portal_object-media",
         "external_media": "#",
         "has_downloadable_media": true,
         "items":
         [
           {
             "is_current": true,
+            "attribution_html": "<a href=\"http://www.europeana.eu/portal/record/xxx\">dc:title</a>. dc:creator. <a href=\"edm:isshownat\">edm:dataProvider</a>. <a href=\"edm:rights\" rel=\"xhv:license http://www.europeana.eu/schemas/edm/rights\">rightslabel</a>",
+            "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ .",
             "playable": true,
             "downloadable": true,
             "is_image": true,
@@ -103,8 +104,7 @@
               "license_CC0": true,
               "license_name": "CC0",
               "license_human": "You can use this image in any way you like",
-              "attribution_html": "<a href=\"http://www.europeana.eu/portal/record/xxx\">dc:title</a>. dc:creator. <a href=\"edm:isshownat\">edm:dataProvider</a>. <a href=\"edm:rights\" rel=\"xhv:license http://www.europeana.eu/schemas/edm/rights\">rightslabel</a>",
-              "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ ."
+              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -125,6 +125,7 @@
               "edm_rights": "EDM rights of the 1st media item",
               "fps": "30",
               "fps_unit": "fps",
+              "mime_type": "image/jpeg",
               "size_unit": "pixels",
               "runtime": "34",
               "runtime_unit": "minutes",
@@ -161,12 +162,18 @@
           },
           {
             "is_iiif": true,
-            "downloadable": false,
+            "downloadable": true,
+            "download":{
+              "url":  "/media/iiif.jpg",
+              "text": "Original file"
+            },
             "playable": true,
+            "attribution_html": "some html",
+            "attribution_plain": "Vincent van Gogh",
             "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
             "thumbnail": "/media/iiif.jpg",
             "technical_metadata": {
-              "mime_type": "video/wmv",
+              "mime_type": "image/iiif",
               "dc_creator": "Media Item (2) Creator",
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
@@ -176,7 +183,8 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this video in any way you like"
+              "license_human": "You can use this video in any way you like",
+              "license_brief": "Yes"
             }
           },
           {
@@ -184,7 +192,7 @@
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/falcon.pdf",
-            "downloadable": true,
+            "downloadable": false,
             "download":{
               "url":  "/media/falcon.pdf",
               "text": "Original file"
@@ -192,7 +200,8 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this pdf in any way you like"
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -220,7 +229,8 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this pdf in any way you like"
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -236,6 +246,8 @@
             "thumbnail": "/images/sample/object_2_thumbnail.jpg",
             "play_url": "/images/sample/object_2_full.jpg",
             "downloadable": true,
+            "attribution_html": "some html",
+            "attribution_plain": "Old Man Sitting (c)",
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
@@ -243,7 +255,8 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this image in any way you like"
+              "license_human": "You can use this image in any way you like",
+              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -251,6 +264,10 @@
 
               "width": "532",
               "height": "768",
+              "format": "jpg",
+              "file_size": "84.25",
+              "file_unit": "KB",
+              "mime_type": "image/jpg",
               "colours": {
                 "present": true,
                 "items": [
@@ -298,7 +315,8 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this audio clip in any way you like"
+              "license_human": "You can use this audio clip in any way you like",
+              "license_brief": "Yes"
             }
           },
           {
@@ -317,302 +335,9 @@
             "rights":
             {
               "license_public": true,
-              "license_human": "You can use this video in any way you like"
+              "license_human": "You can use this video in any way you like",
+              "license_brief": "Yes"
             }
-          },
-
-          {
-            "is_midi": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_midi.png",
-            "play_url": "/media/imperial-march.mid",
-            "downloadable": true,
-            "download": {
-              "url": "/media/imperial-march.mid",
-              "text": "Original MIDI file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/midi"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use the force any way you like"
-            }
-          },
-
-          {
-            "is_midi": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_midi.png",
-            "play_url": "/media/time.mid",
-            "downloadable": false,
-            "technical_metadata": {
-              "mime_type": "video/midi"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this MIDI in any way you like"
-            }
-          },
-          {
-            "is_oembed": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_oembed.png",
-            "play_html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F87091018&show_artwork=true\"></iframe>",
-            "download": {
-            },
-            "technical_metadata": {
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this MIDI in any way you like"
-            }
-          },
-          {
-            "is_oembed": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_oembed.png",
-            "play_html": "<iframe height=\"270\" frameborder=\"0\" width=\"480\" allowfullscreen=\"\" src=\"https://www.youtube.com/embed/J26QY8t4nzc?feature=oembed\"></iframe>",
-            "download": {
-            },
-            "technical_metadata": {
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this MIDI in any way you like"
-            }
-          },
-          {
-            "is_oembed": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_oembed.png",
-            "play_html": "<iframe src=\"https://player.vimeo.com/video/85149968\" width=\"614\" height=\"480\"frameborder=\"0\" title=\"La paura degli aeromobili nemici (Itala Film, 1915)\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-            "download": {
-            },
-            "technical_metadata": {
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this MIDI in any way you like"
-            }
-          },
-          {
-            "is_oembed": true,
-            "playable": true,
-            "thumbnail": "/media/thumb_oembed.png",
-            "play_html": "<iframe width=\"640\" height=\"480\" src=\"https://sketchfab.com/models/fb5512361fed45bea0ebb88f755e4636/embed\" frameborder=\"0\" allowfullscreen mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\" onmousewheel=\"\"></iframe> <p style=\"font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;\"> <a href=\"https://sketchfab.com/models/fb5512361fed45bea0ebb88f755e4636?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">Saint Laurentius church of Ename around 1780</a> by <a href=\"https://sketchfab.com/visualdimension?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">visualdimension</a> on <a href=\"https://sketchfab.com?utm_source=oembed&utm_medium=embed&utm_campaign=fb5512361fed45bea0ebb88f755e4636\" target=\"_blank\" style=\"font-weight: bold; color: #1CAAD9;\">Sketchfab</a> </p>",
-            "download": {
-            },
-            "technical_metadata": {
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this MIDI in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "playable": true,
-            "thumbnail": "/media/thumb-default-sound.jpg",
-            "play_url": "/media/MP3-2.mp3",
-            "download": {
-              "url": "/media/MP3-2.mp3",
-              "text": "Original MP3 file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/mp3"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_audio": true,
-            "playable": true,
-            "thumbnail": "/media/thumb-default-sound.jpg",
-            "play_url": "/media/C_2336_2G_221-2.flac",
-            "download": {
-              "url": "/media/C_2336_2G_221-2.flac",
-              "text": "Original FLAC file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/flac"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this sound clip in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "playable": true,
-            "thumbnail": "/media/thumb-default-video.jpg",
-            "play_url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
-            "download": {
-              "url": "http://cata.cica.es/archivos/digital_resource/4166.flv",
-              "text": "Original FLV file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/x-flv"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "/media/thumb-default-video.jpg",
-            "play_url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-              "text": "Original MPG file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/mpeg"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "/media/thumb-default-video.jpg",
-            "play_url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
-            "download": {
-              "url": "http://www.openbeelden.nl/files/60/60011.60000.WEEKNUMMER594-HRE000169FB.ogv",
-              "text": "Original OGG file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/ogg"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "/media/thumb-default-sound.jpg",
-            "play_url": "/media/Kermis_Santpoort_120803_01.wav",
-            "download": {
-              "url": "/media/Kermis_Santpoort_120803_01.wav",
-              "text": "Original WMV file"
-            },
-            "technical_metadata": {
-              "mime_type": "audio/wav"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this sound clip in any way you like"
-            }
-          },
-          {
-            "is_video": true,
-            "thumbnail": "/media/thumb-default-video.jpg",
-            "play_url": "/media/I018102.wmv",
-            "download": {
-              "url": "/media/I018102.wmv",
-              "text": "Original WMV file"
-            },
-            "technical_metadata": {
-              "mime_type": "video/wmv"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like"
-            }
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
-
-          },
-          {
-              "playable": false,
-              "downloadable": false,
-              "is_image": true,
-              "thumbnail": "/images/sample/object_thumbnail.jpg"
           }
         ]
       },
@@ -622,7 +347,8 @@
         "license_CC0": true,
         "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
-        "license_human": "You can use this image in any way you like"
+        "license_human": "You can use this image in any way you like",
+        "license_brief": "Yes"
       },
       "title": "The Milkmaid",
       "type": "image",
@@ -634,7 +360,7 @@
       {
         "institution_name": "Rijksmuseum",
         "institution_country": "Netherlands",
-        "url": "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344",
+        "url": "javascript:alert('go to institution')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"
       },
       "annotations_later": true,
