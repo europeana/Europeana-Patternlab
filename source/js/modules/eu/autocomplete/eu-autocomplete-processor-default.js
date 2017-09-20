@@ -147,8 +147,6 @@ define(['jquery'], function($){
       return;
     }
 
-    console.log('list = ' + JSON.stringify(dataList, null, 4));
-
     term = removeDiacritics(term);
 
     var lastType = '';
@@ -157,8 +155,8 @@ define(['jquery'], function($){
     var reId     = new RegExp(/[a-z]*\/[a-z]*\/\d+/);
 
     res.sort(function(a, b){
-      var posA = a.hiddenLabel[lang];
-      var posB = b.hiddenLabel[lang];
+      var posA = a.hiddenLabel ? a.hiddenLabel[lang] : -1;
+      var posB = b.hiddenLabel ? b.hiddenLabel[lang] : -1;
 
       if(posA < posB){
         return -1;
