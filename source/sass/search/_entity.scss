@@ -33,8 +33,16 @@ $entity-panel-colour:           #eee;
     margin-top: 3em;
   }
 
-  @media all and (min-width: $bp-med) and (max-width: $bp-xl){
-    .social-share .icon{
+  .social-share .icon{
+    @media all and (max-width: $bp-small-2){
+      height: 2em;
+      width:  2em;
+    }
+    @media all and (max-width: $bp-small-3){
+      height: 2.5em;
+      width:  2.5em;
+    }
+    @media all and (min-width: $bp-med) and (max-width: $bp-xl){
       height: 2em;
       width:  2em;
     }
@@ -59,8 +67,23 @@ $entity-panel-colour:           #eee;
   &.as-tabs{
     .tab-header{
       border-right: 1px solid #ccc;
+
+      &.js-first.js-last{
+        cursor:         default;
+        pointer-events: none;
+      }
+    }
+
+    @media all and (max-width: 300px){
+      .tab-header.js-last.js-first{
+        border-right: 0;
+        ::after{
+          border-bottom: 0;
+        }
+      }
     }
   }
+
   &:not(.as-tabs){
     .show-more-mlt{
       transform: translateY(-0.65em);

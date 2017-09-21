@@ -2,6 +2,15 @@
   {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
 </div>
 <div class="tab-content">
-  <div class="results"></div>
+  <div class="results">
+    {{#referenced_records}}
+      <ol class="result-items display-grid cf not-loaded" {{#total.value}} data-total="{{.}}"{{/total.value}}>
+      <li class="grid-sizer"></li>
+        {{#search_results}}
+          <li>{{> molecules/components/search/search-listitem}}</li>
+        {{/search_results}}
+      </ol>
+    {{/referenced_records}}
+  </div>
   <a href="{{search_url}}" class="show-more-mlt js-hidden">{{ i18n.global.more.show-more }}… ()</a>
 </div>

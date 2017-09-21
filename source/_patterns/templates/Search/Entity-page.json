@@ -129,7 +129,51 @@
         "tab_subtitle":               false,
         "tab_title":                  "Items by Coco Chanel",
         "url":                        "portal_entity?type=by",
-        "search_url":                 "javascript:alert('load all by')"
+        "search_url":                 "javascript:alert('load all by')",
+        "referenced_records": {
+          "total": {
+            "value":     32,
+            "formatted": "32"
+          },
+          "search_results": [
+            {
+              "title": "Pre-loaded: 1"
+            },
+            {
+              "title": "Pre-loaded: 2"
+            },
+            {
+              "title": "Pre-loaded: 3"
+            },
+            {
+              "title": "Pre-loaded: 4"
+            },
+            {
+              "title": "Pre-loaded: 5"
+            },
+            {
+              "title": "Pre-loaded: 6"
+            },
+            {
+              "title": "Pre-loaded: 7"
+            },
+            {
+              "title": "Pre-loaded: 8"
+            },
+            {
+              "title": "Pre-loaded: 9"
+            },
+            {
+              "title": "Pre-loaded: 10"
+            },
+            {
+              "title": "Pre-loaded: 11"
+            },
+            {
+              "title": "Pre-loaded: 12"
+            }
+          ]
+        }
       },
       {
         "tab_subtitle":               false,
