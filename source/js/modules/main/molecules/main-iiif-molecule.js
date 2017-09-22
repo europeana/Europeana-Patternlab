@@ -1,18 +1,20 @@
 require.config({
   paths: {
-    eu_mock_ajax:       '../../eu/util/eu-mock-ajax',
-    jqScrollto:         '../../lib/jquery/jquery.scrollTo',
-    jquery:             '../../lib/jquery/jquery',
-    leaflet:            '../../lib/map/application-map-all',
-    leaflet_iiif:       '../../lib/iiif/leaflet-iiif',
-    media_viewer_iiif:  '../../eu/media/search-iiif-viewer',
-    mustache:           '../../lib/mustache/mustache',
-    purl:               '../../lib/purl/purl'
+    eu_mock_ajax:        '../../eu/util/eu-mock-ajax',
+    jqScrollto:          '../../lib/jquery/jquery.scrollTo',
+    jquery:              '../../lib/jquery/jquery',
+    leaflet:             '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_zoom_slider: '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
+    leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_iiif:        '../../lib/iiif/leaflet-iiif',
+    media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
+    mustache:            '../../lib/mustache/mustache',
+    purl:                '../../lib/purl/purl'
   }
 });
 
 require(['jquery'], function(){
-  require(['leaflet'], function() {
+  require(['leaflet', 'leaflet_zoom_slider'], function() {
     require(['media_viewer_iiif'], function(viewer) {
 
       var init = function(){
@@ -34,9 +36,8 @@ require(['jquery'], function(){
         else{
           console.log('using default manifestoUrl: ' + manifestoUrl);
         }
-
         viewer.setTranscriptionUrls(['iiif_transcriptions?index=1', 'iiif_transcriptions?index=2']);
-        viewer.init(manifestoUrl);
+        viewer.init(manifestoUrl, null, true, true);
       };
 
       if(typeof mock_ajax == 'undefined'){

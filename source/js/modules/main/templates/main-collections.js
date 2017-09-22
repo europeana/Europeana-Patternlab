@@ -36,7 +36,10 @@ require.config({
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
 
-    leaflet:                       '../../lib/map/application-map-all',
+    leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
+
     leaflet_iiif:                  '../../lib/iiif/leaflet-iiif',
 
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',

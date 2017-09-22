@@ -1,5 +1,5 @@
 /*
- * Leaflet-IIIF 1.2.1
+ * Leaflet-IIIF 0.0.7
  * IIIF Viewer for Leaflet
  * by Jack Reed, @mejackreed
  */
@@ -9,28 +9,10 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     continuousWorld: true,
     tileSize: 256,
     updateWhenIdle: true,
-    tileFormat: 'jpg',
-    fitBounds: true,
-    setMaxBounds: false
+    tileFormat: 'jpg'
   },
 
   initialize: function(url, options) {
-    options = typeof options !== 'undefined' ? options : {};
-
-    if (options.maxZoom) {
-      this._customMaxZoom = true;
-    }
-
-    // Check for explicit tileSize set
-    if (options.tileSize) {
-      this._explicitTileSize = true;
-    }
-
-    // Check for an explicit quality
-    if (options.quality) {
-      this._explicitQuality = true;
-    }
-
     options = L.setOptions(this, options);
     this._infoDeferred = new $.Deferred();
     this._infoUrl = url;
@@ -41,14 +23,14 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     var _this = this,
       x = coords.x,
       y = (coords.y),
-      zoom = _this._getZoomForUrl(),
+      zoom = _this._map.getZoom(),
       scale = Math.pow(2, _this.maxNativeZoom - zoom),
       tileBaseSize = _this.options.tileSize * scale,
       minx = (x * tileBaseSize),
       miny = (y * tileBaseSize),
       maxx = Math.min(minx + tileBaseSize, _this.x),
       maxy = Math.min(miny + tileBaseSize, _this.y);
-    
+
     var xDiff = (maxx - minx);
     var yDiff = (maxy - miny);
 
@@ -57,8 +39,22 @@ L.TileLayer.Iiif = L.TileLayer.extend({
       quality: _this.quality,
       region: [minx, miny, xDiff, yDiff].join(','),
       rotation: 0,
-      size: Math.ceil(xDiff / scale) + ','
+      size: _this._iiifSizeParam(Math.ceil(xDiff / scale), Math.ceil(yDiff / scale))
     }, this.options));
+  },
+  /**
+  * Returns a IIIF size parameter based off of the max dimension of
+  * a tile
+  * @param {Number} x - The width of a tile
+  * @param {Number} y - The height of a tile
+  * @returns {String}
+  */
+  _iiifSizeParam: function(x, y) {
+    if (x >= y) {
+      return x + ',';
+    } else {
+      return ',' + y;
+    }
   },
   onAdd: function(map) {
     var _this = this;
@@ -66,19 +62,20 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     // Wait for deferred to complete
     $.when(_this._infoDeferred).done(function() {
 
+      // Find best zoom level and center map
+      var initialZoom = _this._getInitialZoom(map.getSize()),
+        imageSize = _this._imageSizes[initialZoom],
+        sw = map.options.crs.pointToLatLng(L.point(0, imageSize.y), initialZoom),
+        ne = map.options.crs.pointToLatLng(L.point(imageSize.x, 0), initialZoom),
+        bounds = L.latLngBounds(sw, ne);
+
+      map.fitBounds(bounds, true);
+
       // Set maxZoom for map
       map._layersMaxZoom = _this.maxZoom;
 
       // Call add TileLayer
       L.TileLayer.prototype.onAdd.call(_this, map);
-
-      if (_this.options.fitBounds) {
-        _this._fitBounds();
-      }
-
-      if(_this.options.setMaxBounds) {
-        _this._setMaxBounds();
-      }
 
       // Reset tile sizes to handle non 256x256 IIIF tiles
       _this.on('tileload', function(tile, url) {
@@ -95,52 +92,22 @@ L.TileLayer.Iiif = L.TileLayer.extend({
       });
     });
   },
-  onRemove: function(map) {
-    var _this = this;
-    
-    // Remove maxBounds set for this image
-    if(_this.options.setMaxBounds) {
-      map.setMaxBounds(null);
-    }
-
-    // Call remove TileLayer
-    L.TileLayer.prototype.onRemove.call(_this, map);
-
-  },
-  _fitBounds: function() {
-    var _this = this;
-
-    // Find best zoom level and center map
-    var initialZoom = _this._getInitialZoom(_this._map.getSize());
-    var imageSize = _this._imageSizes[initialZoom];
-    var sw = _this._map.options.crs.pointToLatLng(L.point(0, imageSize.y), initialZoom);
-    var ne = _this._map.options.crs.pointToLatLng(L.point(imageSize.x, 0), initialZoom);
-    var bounds = L.latLngBounds(sw, ne);
-
-    _this._map.fitBounds(bounds, true);
-  },
-  _setMaxBounds: function() {
-    var _this = this;
-
-    // Find best zoom level, center map, and constrain viewer
-    var initialZoom = _this._getInitialZoom(_this._map.getSize());
-    var imageSize = _this._imageSizes[initialZoom];
-    var sw = _this._map.options.crs.pointToLatLng(L.point(0, imageSize.y), initialZoom);
-    var ne = _this._map.options.crs.pointToLatLng(L.point(imageSize.x, 0), initialZoom);
-    var bounds = L.latLngBounds(sw, ne);
-
-    _this._map.setMaxBounds(bounds, true);
-  },
   _getInfo: function() {
     var _this = this;
 
     // Look for a way to do this without jQuery
     $.getJSON(_this._infoUrl)
       .done(function(data) {
+
+        //  Europeana modification
+        _this.getData = function(){ return data; };
+        //  End Europeana modification
+
         _this.y = data.height;
         _this.x = data.width;
 
-        var tierSizes = [],
+        var profile,
+          tierSizes = [],
           imageSizes = [],
           scale,
           width_,
@@ -150,42 +117,34 @@ L.TileLayer.Iiif = L.TileLayer.extend({
 
         // Set quality based off of IIIF version
         if (data.profile instanceof Array) {
-          _this.profile = data.profile[0];
+          profile = data.profile[0];
         }else {
-          _this.profile = data.profile;
+          profile = data.profile;
+        }
+        switch (true) {
+          case /^http:\/\/library.stanford.edu\/iiif\/image-api\/1.1\/compliance.html.*$/.test(profile):
+            _this.quality = 'native';
+            break;
+          case /^http:\/\/iiif.io\/api\/image\/2.*$/.test(profile):
+            _this.quality = 'default';
+            break;
         }
 
-        _this._setQuality();
-
-        // Unless an explicit tileSize is set, use a preferred tileSize
-        if (!_this._explicitTileSize) {
-          // Set the default first
-          _this.options.tileSize = 256;
-          if (data.tiles) {
-            // Image API 2.0 Case
-            _this.options.tileSize = data.tiles[0].width;
-          } else if (data.tile_width){
-            // Image API 1.1 Case
-            _this.options.tileSize = data.tile_width;
-          }
-        }
-
-        function ceilLog2(x) {
+        ceilLog2 = function(x) {
           return Math.ceil(Math.log(x) / Math.LN2);
         };
 
         // Calculates maximum native zoom for the layer
         _this.maxNativeZoom = Math.max(ceilLog2(_this.x / _this.options.tileSize),
           ceilLog2(_this.y / _this.options.tileSize));
-        
-        // Enable zooming further than native if maxZoom option supplied
-        if (_this._customMaxZoom && _this.options.maxZoom > _this.maxNativeZoom) {
+
+        // Enable zooming further than native if needed
+        if (_this.options.maxZoom && _this.options.maxZoom > _this.maxNativeZoom) {
           _this.maxZoom = _this.options.maxZoom;
         }
         else {
           _this.maxZoom = _this.maxNativeZoom;
         }
-        
         for (var i = 0; i <= _this.maxZoom; i++) {
           scale = Math.pow(2, _this.maxNativeZoom - i);
           width_ = Math.ceil(_this.x / scale);
@@ -203,41 +162,15 @@ L.TileLayer.Iiif = L.TileLayer.extend({
         _this._infoDeferred.resolve();
       });
   },
-
-  _setQuality: function() {
-    var _this = this;
-    var profileToCheck = _this.profile;
-
-    if (_this._explicitQuality) {
-      return;
-    }
-
-    // If profile is an object
-    if (typeof(profileToCheck) === 'object') {
-      profileToCheck = profileToCheck['@id'];
-    }
-
-    // Set the quality based on the IIIF compliance level
-    switch (true) {
-      case /^http:\/\/library.stanford.edu\/iiif\/image-api\/1.1\/compliance.html.*$/.test(profileToCheck):
-        _this.options.quality = 'native';
-        break;
-      // Assume later profiles and set to default
-      default:
-        _this.options.quality = 'default';
-        break;
-    }
-  },
-
   _infoToBaseUrl: function() {
     return this._infoUrl.replace('info.json', '');
   },
   _templateUrl: function() {
     return this._infoToBaseUrl() + '{region}/{size}/{rotation}/{quality}.{format}';
   },
-  _isValidTile: function(coords) {
+  _tileShouldBeLoaded: function(coords) {
     var _this = this,
-      zoom = _this._getZoomForUrl(),
+      zoom = _this._map.getZoom(),
       sizes = _this._tierSizes[zoom],
       x = coords.x,
       y = (coords.y);

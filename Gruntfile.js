@@ -26,12 +26,14 @@ module.exports = function(grunt) {
           ]
         }
       },
+/*
       map:{
         options: {
           separator: ';\n'
         },
         files: {
           'source/js/modules/lib/map/application-map-all.js': [
+            'source/js/modules/lib/map/leaflet-0.7.3/leaflet.js',
             'source/js/modules/lib/map/leaflet-0.7.3/leaflet.js',
             'source/js/modules/lib/map/Leaflet-Pan/L.Control.Pan.js',
             'source/js/modules/lib/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js',
@@ -54,6 +56,42 @@ module.exports = function(grunt) {
             'source/js/modules/lib/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css',
             'source/js/modules/lib/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.css',
             'source/js/modules/lib/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.css'
+          ]
+        }
+      }
+*/
+      leaflet:{
+        options: {
+          separator: ';\n'
+        },
+        files: {
+          'source/js/modules/lib/leaflet/leaflet-all.js': [
+
+            'source/js/modules/lib/leaflet/leaflet-1.2.0/leaflet.js',
+//            'source/js/modules/lib/leaflet/fullscreen/Leaflet.fullscreen.js'
+
+//            'source/js/modules/lib/leaflet/Leaflet-Pan/L.Control.Pan.js',
+//            'source/js/modules/lib/leaflet/Leaflet.markercluster-master/dist/leaflet.markercluster.js',
+//            'source/js/modules/lib/leaflet/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.js'
+          ]
+        }
+      },
+      leaflet_css: {
+        options: {
+          separator: '\n'
+        },
+        files: {
+          'source/js/modules/lib/leaflet/css/leaflet-all.css': [
+
+            'source/js/modules/lib/leaflet/leaflet-1.2.0/leaflet.css',
+//            'source/js/modules/lib/leaflet/fullscreen/leaflet.fullscreen.css'
+
+//          'source/js/modules/lib/leaflet/Leaflet-MiniMap-master/src/Control.MiniMap.css',
+//          'source/js/modules/lib/leaflet/leaflet.fullscreen-master/Control.FullScreen.css',
+//          'source/js/modules/lib/leaflet/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
+//          'source/js/modules/lib/leaflet/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css',
+//          'source/js/modules/lib/leaflet/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.css',
+//          'source/js/modules/lib/leaflet/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.css'
           ]
         }
       }
@@ -87,6 +125,7 @@ module.exports = function(grunt) {
         flatten: true,
         expand:  true
       },
+      /*
       map_img_all: {
         files:[
           {
@@ -118,6 +157,41 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
+      },
+      */
+      leaflet_img_all: {
+        files:[
+          {
+            'src' : '**.png',
+            'cwd' : 'source/js/modules/lib/leaflet/leaflet-1.2.0/images/',
+            'dest' : 'source/js/modules/lib/leaflet/css/',
+             flatten: true,
+             expand: true
+          },
+         /*
+                 {
+                     'src' : '**.svg',
+                     'cwd' : 'source/js/modules/lib/map/leaflet-0.7.3/images/',
+                     'dest' : 'source/js/modules/lib/map/css/',
+                     flatten: true,
+                     expand: true
+                 },
+                 {
+                     'src' : '**.png',
+                     'cwd' : 'source/js/modules/lib/map/leaflet.fullscreen-master/',
+                     'dest' : 'source/js/modules/lib/map/css/',
+                     flatten: true,
+                     expand: true
+                 },
+                 {
+                     'src' : '**.svg',
+                     'cwd' : 'source/js/modules/lib/map/leaflet.fullscreen-master/',
+                     'dest' : 'source/js/modules/lib/map/css/',
+                     flatten: true,
+                     expand: true
+                 }
+          */
+                 ]
       },
       production_js_assets: {
         cwd: 'source/js/modules',
@@ -408,10 +482,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'concat:blacklight',
-    'concat:map',
-    'concat:map_css',
+    'concat:leaflet',
+    //'concat:map',
+    // 'concat:map_css',
+    'concat:leaflet_css',
     'copy:dev_css',
     'copy:global_dependencies',
-    'copy:map_img_all'
+    // 'copy:map_img_all',
+    'copy:leaflet_img_all'
   ]);
 }
