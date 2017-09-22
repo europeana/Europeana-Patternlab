@@ -409,7 +409,7 @@ define(['jquery'], function($){
     init: function(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider) {
 
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/iiif/iiif.css')                     + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
 
       require(['leaflet'], function(LeafletIn) {
 

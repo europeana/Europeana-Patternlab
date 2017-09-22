@@ -145,7 +145,7 @@ define(['jquery', 'ga'], function($, ga) {
       imagePath.pop();
       imagePath.pop();
       imagePath.pop();
-      L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
+      L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
 
       map.addLayer(new L.TileLayer(osmUrl, {
         minZoom : 4,
@@ -159,8 +159,7 @@ define(['jquery', 'ga'], function($, ga) {
       var offset = map.getSize().x*0.35;
       map.panBy(new L.Point(-offset, 0), {animate: false});
 
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
-
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
     });
   }
 

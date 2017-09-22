@@ -22,8 +22,7 @@ require(['jquery'], function() {
       $('#' + el_map_id).css(
         {
           'height': h + 'px',
-          'width':  w + 'px',
-          'background-color': 'red'
+          'width':  w + 'px'
         }
       );
 

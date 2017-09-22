@@ -109,8 +109,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         imagePath.pop();
         imagePath.pop();
 
-        //L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/css/';
+        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
 
         map.addLayer(new L.TileLayer(osmUrl, {
           minZoom : 4,
