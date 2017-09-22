@@ -1,0 +1,286 @@
+.metis-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem 0;
+
+  // formheader
+  .form-header {
+    font-weight: bold;
+    width: auto;
+
+    h2 {
+      margin-bottom: .6rem;
+    }
+  }
+
+  // messages
+  .messages {
+    height: 2rem;
+
+    .error-message,
+    .success-message {
+      color: $white;
+      font-size: $font-size-slightly-smaller;
+      margin-bottom: .6rem;
+      padding: .1rem 1.2rem;
+
+      i {
+        padding-right: .6rem;
+        }
+      }
+
+    .success-message {
+      background-color: $eu-jade;
+    }
+
+    .error-message {
+      background-color: $eu-red;
+    }
+  }
+
+  // fields
+  .form-fields {
+    background-color: $offwhite;
+    padding: 2rem 0;
+    width: auto;
+
+    .form-group {
+      align-items: flex-start;
+      color: $white;
+      margin-bottom: 0;
+      padding: .4rem 1.2rem;
+
+      label {
+        color: $gray-light;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: left;
+      }
+
+      input {
+        margin-bottom: 1rem;
+        &::placeholder {
+          color: $gray-light;
+        }
+
+        &:disabled {
+          border: 0;
+          padding: 0;
+        }
+      }
+
+      //  selection box stylings.
+      select {
+        background-color: $white;
+        border: 1px solid $gray-light;
+        color: $gray-light;
+        height: 3rem;
+
+        option {
+          color: $gray-light;
+        }
+      }
+
+      // buttons
+      &.form-group-btns {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        button {
+          background: $eu-jade;
+          border-radius: 0;
+          font-size: $font-size-slightly-smaller;
+          font-weight: bold;
+          margin: 0 .6rem;
+
+          &.reset-btn {
+            background-color: $white;
+            color: $gray-dark;
+          }
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+
+    // extra line of text
+    .forgot-credentials,
+    .form-requirements-warning {
+      padding: 0 1.2rem 1rem;
+
+      p {
+        align-items: center;
+        color: $gray-light;
+        display: flex;
+        font-size: $font-size-slightly-smaller;
+        justify-content: flex-end;
+      }
+    }
+
+    // autocomplete
+    .metis-autocomplete {
+      .metis-autocomplete-wrap {
+        position: relative;
+
+        .eu-autocomplete {
+          box-sizing: initial;
+          margin-left: -2px;
+          margin-right: -2px;
+          padding-left: 2px;
+          padding-right: 2px;
+        }
+
+      }
+    }
+
+    .metis-autocomplete-selected {
+
+      .tag {
+        cursor: pointer;
+
+        svg {
+          cursor: pointer;
+          margin-left: 1em;
+
+          &:hover {
+            background: $white;
+            border-radius: 10px;
+            fill: $hoverblue;
+          }
+
+        }
+      }
+
+      .disable-tag {
+        background-color: $gray-lightest;
+        color: $gray-lighter;
+        cursor: default;
+        pointer-events: none;
+      }
+
+    }
+
+    // icons
+    .svg-icon-search {
+      background-position: 98% 50%;
+      background-size: 1.2rem;
+      margin-right: 0;
+      padding-right: 48px;
+      transform: none;
+
+      &::placeholder {
+        color: $gray-light;
+      }
+    }
+  }
+}
+
+.metis-form-horizontal {
+  background-color: $white;
+  border: 1px solid $offwhite;
+  border-radius: $border-radius;
+  color: $gray-light;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+  padding: 3rem;
+  width: 100%;
+
+  form {
+    width: 100%;
+  }
+
+  .form-fields {
+    background: $white;
+    padding: 0;
+    width: 100%;
+
+    .form-group {
+      align-items: center;
+      background: none;
+      color: $gray-light;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding: 0;
+
+      label,
+      p {
+        flex: 1 0 120px;
+        font-weight: normal;
+        max-width: 190px;
+        padding-right: 1rem;
+      }
+
+      label + * {
+        flex: 1 0 220px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      input {
+        border: 1px solid $gray-light;
+        color: $eu-blue;
+
+        &::placeholder {
+          color: $eu-blue;
+        }
+
+        &:read-only,
+        &:read-only::placeholder {
+          color: $gray-light;
+        }
+      }
+
+      input:not([type='checkbox']),
+      textarea {
+        box-shadow: none;
+        padding: 10px;
+
+        &.icon-padding {
+          padding-right: 50px;
+        }
+
+        &:disabled {
+          border: 0;
+          padding-bottom: 0;
+          padding-top: 0;
+
+          .svg-icon-search {
+            display: none;
+          }
+
+        }
+      }
+
+      &.form-group-btns {
+        height: 7vh;
+        justify-content: flex-end;
+        margin-bottom: 0;
+
+        button {
+          border-radius: 2px;
+          color: $white;
+          display: inline-block;
+          margin: 0;
+          padding: .8rem 5rem;
+
+          &.submit {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+

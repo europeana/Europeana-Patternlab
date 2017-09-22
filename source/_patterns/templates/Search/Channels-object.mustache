@@ -1,0 +1,507 @@
+{{> atoms/iconography/svgicons-search }}
+{{> organisms/global/header_v2}}
+
+<div role="main" class="search-object after-header-with-search">
+  {{#content}}
+    <div class="helpbar">
+      <p class="helpbar-tip"><strong>Tip:</strong> hover over image for more options</p>
+      <p class="helpbar-video">Tutorial</p>
+    </div>
+    {{#disabled}}
+      {{#ugc_content}}
+        {{#include_1418_nav}}
+          {{>molecules/navigation/e7a1418-nav}}
+        {{/include_1418_nav}}
+      {{/ugc_content}}
+    {{/disabled}}
+    {{#object.media}}
+      {{^items}}
+        <section>
+          <div class="object-media-info section is-current">
+            <div class="object-downloads">
+            </div>
+          </div>
+        </section>
+      {{/items}}
+    {{/object.media}}
+
+    {{! Main object text info section }}
+    <section class="section object-details">
+
+      <div class="channel-object-overview">
+        {{#object}}
+          <div>
+            {{#media}}
+
+              <div class="channel-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
+
+                {{#title}}
+                  <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
+                {{/title}}
+
+                <a class="scroll-trigger trigger-chain"
+                   data-enabled="true"
+                   data-disable-when-fired="showMediaThumbs"
+                   data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
+
+                {{#empty_item}}
+                  <span class="no-preview">{{{empty_item_more_link}}}</span>
+                {{/empty_item}}
+
+                {{^empty_item}}
+                  <div class="object-media-viewer">
+                    {{#single_item}}
+                      {{#items}}
+                        <div class="single-item-thumb">
+                          {{> molecules/components/media-nav-item}}
+                        </div>
+                      {{/items}}
+                    {{/single_item}}
+
+                    {{^single_item}}
+                      {{#items}}
+                        {{#is_current}}
+                          <div class="media-poster{{#playable}} contains-playable{{/playable}}">
+                            <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                              {{>molecules/components/thumb-icon}}
+                              <span class="media-options">
+
+                                <span class="media-option-group">
+                                  <span class="media-option  media-share">
+                                    <span class="share svg-icon-share"></span>
+                                    <span class="media-option-label">Share</span>
+                                  </span>
+                                  <a class="media-option media-download" download="Europeana-Media">
+                                    <span class="download svg-icon-download white"></span>
+                                    <span class="media-option-label">Download</span>
+                                  </a>
+                                  <span class="media-option media-annotate">
+                                    <span class="info svg-icon-info"></span>
+                                    <span class="media-option-label">Info</span>
+                                  </span>
+                                </span>
+
+                                <span class="media-option-group">
+                                  <span class="media-option media-zoom-in">
+                                    <span class="zoom-in svg-icon-zoom-in"></span>
+                                    <span class="media-option-label">Zoom in</span>
+                                  </span>
+                                  <span class="media-option media-zoom-out">
+                                    <span class="zoom-out svg-icon-zoom-out"></span>
+                                    <span class="media-option-label">Zoom out</span>
+                                  </span>
+                                </span>
+
+                                <span class="media-option-group">
+                                  <span class="media-option  media-link">
+                                    <span class="link svg-icon-link-out"></span>
+                                    <span class="media-option-label">Link</span>
+                                  </span>
+                                </span>
+                              </span>
+                            </div>
+
+                          </div>
+                        {{/is_current}}
+                      {{/items}}
+                    {{/single_item}}
+
+                    {{#required_players}}
+
+                      {{#iiif}}
+                        <div class="object-media-iiif is-hidden">
+                          {{> molecules/components/iiif/iiif }}
+                        </div>
+                      {{/iiif}}
+
+                      {{#video}}
+                        <div class="object-media-video is-hidden">
+                          {{> molecules/components/videojs/videojs }}
+                        </div>
+                      {{/video}}
+
+                      {{#midi}}
+                        <div class="object-media-midi is-hidden">
+                          {{> molecules/components/midi/midi }}
+                        </div>
+                      {{/midi}}
+
+                      {{#oembed}}
+                        <div class="object-media-oembed is-hidden" data-fullscreen-enter="{{i18n.global.actions.fullscreen-enter}}" data-fullscreen-exit="{{i18n.global.actions.fullscreen-exit}}">
+                          {{> molecules/components/oembed/oembed }}
+                        </div>
+                      {{/oembed}}
+
+                      {{#text}}
+                        <div class="object-media-text is-hidden">
+                          Text viewer here
+                        </div>
+                      {{/text}}
+
+                      {{#audio}}
+                        <div class="object-media-audio is-hidden">
+                         {{> molecules/components/videojs/videojs }}
+                        </div>
+                      {{/audio}}
+
+                      {{#pdf}}
+                        <div class="object-media-pdf is-hidden">
+                          {{> molecules/components/pdfjs/pdfjs-ui-thumbs-right }}
+                        </div>
+                      {{/pdf}}
+                    {{/required_players}}
+
+                    <div class="title-desc-media-nav">
+
+                      {{#title}}
+                        <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
+                      {{/title}}
+
+                      <div class="channel-object-media-nav">
+                        {{^single_item}}
+                          {{> molecules/components/media-nav}}
+                        {{/single_item}}
+                      </div>
+
+                      {{#subtitle}}
+                        <h3 class="subtitle">{{subtitle}}</h3>
+                      {{/subtitle}}
+
+                      <div class="channel-object-description">
+                        {{#description}}
+                          {{#sections}}
+                            {{#items}}
+                              <p>{{text}}</p>
+                            {{/items}}
+                          {{/sections}}
+                        {{/description}}
+                      </div>
+
+                      {{#view_more}}
+                      <div class="channel-object-viewmore">
+                        <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
+                        <h3>{{text}}</h3>
+                        <a href="{{url}}">{{label}}</a>
+                      </div>
+                      {{/view_more}}
+
+                    </div>
+                  </div>
+
+                {{/empty_item}}
+
+                {{#empty_item}}
+                  {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
+                  {{^thumbnail}}<br/><br/>{{/thumbnail}}
+                {{/empty_item}}
+
+              </div>
+            {{/media}}
+          </div>
+
+          <div class="channel-object-information channel-object-action-bar">
+
+            <div class="channel-object-media-actions">
+              <div class="action-ctrl">
+                <a class="action-ctrl-btn share" title="{{i18n.global.actions.share}}" data-modal-selector=".modal-share"><span class="action-icon svg-icon-share"></span><span class="action-label">{{i18n.global.actions.share}}</span></a>
+              </div>
+
+              <div class="action-ctrl">
+                <a class="action-ctrl-btn media-download {{#media}}{{#items}}{{#is_current}}{{^downloadable}} disabled {{/downloadable}}{{/is_current}}{{/items}}{{/media}}"
+                   {{#media}}{{#items}}{{#is_current}}{{#download}} href="{{url}}" {{/download}}{{/is_current}}{{/items}}{{/media}}
+                   title="{{i18n.site.object.actions.download}}"
+                   data-modal-selector=".modal-download"
+                   download="Europeana-Media"><span class="action-icon svg-icon-download"></span><span class="action-label">{{i18n.site.object.actions.download}}</span></a>
+              </div>
+
+              {{#rights}}
+                <div class="action-ctrl object-rights">
+                  <h4>{{ i18n.global.facet.header.reusability }}</h4>
+                  <div class="object-license">{{license_brief}} {{> molecules/icons/licenses }}</div>
+                </div>
+              {{/rights}}
+
+              <div class="action-ctrl">
+                <a class="action-ctrl-btn media-annotate" title="{{i18n.site.object.actions.annotate}}"><span class="action-icon svg-icon-info"></span><span class="action-label">{{i18n.site.object.actions.annotate}}</span></a>
+              </div>
+
+              {{#origin}}
+                <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+                  <h4 class="object-origin-detail">{{ i18n.site.object.meta-label.provided-by }}</h4>
+
+                  {{#institution_logo}}
+                    <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+                  {{/institution_logo}}
+
+                  {{#institution_name}}
+                    <span class="object-origin-detail small">
+                      {{#url}}{{i18n.site.object.actions.view-more-at}}{{/url}}
+                      {{#url}}<a href="{{.}}">{{institution_name}} <span class="svg-icon-linkout"></span></a>{{/url}}
+                      {{^url}}{{institution_name}}{{/url}}
+                      <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
+                    </span>
+                  {{/institution_name}}
+                </div>
+              {{/origin}}
+            </div>
+
+
+            <!-- TODO: the label keys are not consistent -->
+
+            <script id="template-download-ops-js" type="text/x-mustache">
+              <div class="action-modal modal-download js-hidden">
+                <div class="modal-header">{{i18n.site.object.actions.download}}</div>
+                <div class="modal-content">
+                  <div class="modal-action">
+                    <span class="label">
+                        Downloading
+                        <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
+                      </span>
+                  </div>
+
+                  <div class="action-modal-section">
+                    <span class="file">[[data-mime-type]]</span>
+                    <ul>
+                      <li><span class="action-modal-subheading">format</span> [[data-format]]</li>
+                      <li><span class="action-modal-subheading">file size</span> [[data-file-size]] [[data-file-unit]]</li>
+                    </ul>
+                  </div>
+
+                  <div class="action-modal-section">
+                    <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
+                    <input value="[[data-attribution-plain]]">
+                  </div>
+
+                  <div class="action-modal-section centred">
+                    <span class="action-modal-subheading">other formats</span>
+                    [[formats]]
+                    <ul>
+                      <li><a href="[[url]]">[[text]]</a></li>
+                    </ul>
+                    [[formats]]
+                  </div>
+
+                  <a class="media-modal-close">
+                    <span class="label"></span>
+                  </a>
+                </div>
+              </div>
+            </script>
+
+            <div class="action-modal modal-share js-hidden">
+              <div class="modal-header">{{i18n.global.share}}</div>
+              <div class="modal-content">
+                <div class="modal-action">
+                  <span class="label">
+                    {{i18n.global.share}}
+                  </span>
+                </div>
+
+                {{#social_share }}
+                  {{> molecules/controls/share-social }}
+                {{/social_share }}
+
+                <a class="media-modal-close">
+                  <span class="label"></span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="channel-object-information">
+            {{#people}}
+              {{> organisms/sections/object-data-section }}
+            {{/people}}
+
+            {{#concepts }}
+              {{> organisms/sections/object-data-section }}
+            {{/concepts }}
+          </div>
+
+          <div class="channel-object-extended-information">
+
+            <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">  Extended Information</h2>
+
+            {{#properties }}
+              {{> organisms/sections/object-data-section }}
+            {{/properties }}
+
+            {{#dates }}
+              {{> organisms/sections/object-data-section }}
+            {{/dates }}
+
+            {{#places }}
+              {{> organisms/sections/object-data-section }}
+            {{/places }}
+
+            {{#annotations_later}}
+              <script id="js-template-object-data-section" type="text/x-mustache">{{> organisms/sections/object-data-section-js }}</script>
+            {{/annotations_later}}
+
+            {{#annotations}}
+              {{> organisms/sections/object-data-section }}
+            {{/annotations}}
+
+            {{#provenance}}
+              {{> organisms/sections/object-data-section }}
+            {{/provenance}}
+
+            {{#copyright}}
+              {{> organisms/sections/object-data-section }}
+            {{/copyright}}
+
+            {{#refs_rels}}
+              {{> organisms/sections/object-data-section }}
+            {{/refs_rels}}
+
+            {{#meta_additional}}
+              {{#present}}
+                <div class="data-section cf closed" {{#section_id}} data-section-id="{{.}}"{{/section_id}}>
+                  <h3 class="subsection-label">
+                    {{i18n.site.object.meta-label.location}}
+                  </h3>
+                  <div class="subsection-content">
+                    {{#places}}
+                      <ul class="data-group">
+                        {{#sections}}
+                          <li>
+                            <section>
+                              <h4 class="data-header">{{#title }}{{.}}:{{/title }}</h4>
+                              <ul class="comma-list data-group">
+                                {{# items }}
+                                  <li>
+                                    {{#url }}<a href="{{.}}">{{/url }}{{ text }}{{#url }}</a>{{/url }}{{#extra_info}}
+                                      {{#life}}
+                                        <span class="life-dates">
+                                          ({{from.short}} {{#to.short}} — {{.}}{{/to.short}})
+                                        </span>
+                                      {{/life}}
+                                      {{#biography}}
+                                        <div class="biography">
+                                          {{text}}
+                                        </div>
+                                      {{/biography}}
+                                    {{/extra_info}}
+                                  </li>
+                                {{/ items}}
+                              </ul>
+                            </section>
+                          </li>
+                        {{/sections}}
+                      </ul>
+                    {{/places}}
+
+                    {{#geo.long_and_lat}} {{! check both present }}
+                      <a class="scroll-trigger"
+                         id="scroll-trigger-map"
+                         data-enabled="true"
+                         data-fire-on-open="showMap"
+                         data-fire-on-open-params='{
+                           "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
+                         }'
+                        ></a>
+                      <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
+                      <a id="map" style="bottom:4.8em; position: relative;"></a>
+                      <div class="map">
+                        <div><b>{{geo.labels.longitude}}</b> {{#geo.longitude}}{{.}}{{/geo.longitude}}</div>
+                        <div><b>{{geo.labels.latitude}}</b> {{#geo.latitude}}{{.}}{{/geo.latitude}}</div>
+                      </div>
+                      <a class="scroll-trigger trigger-chain"
+                        data-enabled="true"
+                        data-disable-when-fired="showMap"
+                        data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
+                    {{/geo.long_and_lat}}
+                  </div>
+                </div>
+              {{/present}}
+            {{/meta_additional}}
+
+            <div class="data-section closed" data-section-id="hierarchy">
+              <div class="hierarchy cf">
+                <div class="subsection-label">
+                  {{i18n.site.object.hierarchy.title}}
+                </div>
+                <div class="subsection-content">
+                  <div class="hierarchy-objects" style="display:none;"></div>
+                </div>
+              </div>
+            </div>
+
+            {{#content.named_entities}}
+              <div class="data-section closed" data-section-id="named-entities">
+                <div class="cf">
+                  <div class="subsection-label">
+                    {{i18n.site.object.named-entities.title}}
+                  </div>
+                  <div class="subsection-content">
+                    {{>molecules/navigation/foldable-list}}
+                  </div>
+                </div>
+              </div>
+            {{/content.named_entities}}
+
+          </div>
+
+        {{/object}}
+
+      </div>
+
+      {{! end of object info column }}
+
+      <div class="channel-object-actions cf">
+        <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
+        {{# object.tags }}
+          <div class="object-tags">
+            <ul class="nav">
+              {{#items}}
+                <li><a href="{{url}}" class="tag">{{text}}</a></li>
+              {{/items}}
+            </ul>
+          </div>
+        {{/ object.tags }}
+
+        {{#object.media}}
+          {{#items}}
+            {{#technical_metadata.colours}}
+              {{> molecules/controls/colour-search }}
+            {{/technical_metadata.colours}}
+          {{/items}}
+          {{> molecules/controls/colour-search-template }}
+        {{/object.media}}
+
+        {{# object.further_actions }}
+          <div class="object-furtheractions">
+            {{> molecules/controls/dropdown-menu }}
+          </div>
+        {{/ object.further_actions }}
+
+      </div>
+      {{! end object actions }}
+
+      <div class="channel-object-similar">
+        <h2 class="channel-object-title">[More Suggestions]</h2>
+        <div class="suggestions-section">
+          <div class="display-grid">
+            {{#object.suggestions}}
+              <div class="slide-rail" style="position: relative;">
+                <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/channel-object-suggestion-js }}</script>
+                <div class="eu-accordion-tabs suggestions cf">
+                  {{#tab_items}}
+                    {{> organisms/components/eu-accordion-tabs-portal-suggestions}}
+                  {{/tab_items}}
+                  {{#tab_items}}
+                    <h4 class="more-federated-results js-hidden js-empty"><a href="" class="svg-icon-external-eu-blue-after"></a></h4>
+                  {{/tab_items}}
+                </div>
+              </div>
+            {{/object.suggestions}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/content}}
+</div>
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

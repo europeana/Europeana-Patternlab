@@ -320,7 +320,8 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include flexbox();
-    align-items: center;
+    -webkit-align-items: center;
+    align-items:         center;
   }
 
   > div{
@@ -353,7 +354,8 @@ html.redirecting{
 
   @media all and (min-width: $bp-med) {
     @include flexbox();
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap:         wrap;
   }
 
   .title{
@@ -528,7 +530,8 @@ html.redirecting{
 
   ul{
     @include flexbox();
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap:         wrap;
   }
 
   li > a{
@@ -771,7 +774,8 @@ html.redirecting{
         }
       }
       form {
-        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+        transform:         translateY(50%);
       }
     }
 
@@ -966,11 +970,12 @@ html.redirecting{
   }
 
   .entry-point-text {
-    display: inline-block;
-    margin: 0.2em 0 0.2em 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    display:           inline-block;
+    margin:            0.2em 0 0.2em 0;
+    position:          relative;
+    top:               50%;
+    -webkit-transform: translateY(-50%);
+    transform:         translateY(-50%);
 
     @media all and (min-width: $bp-med){
       margin-left: $pad-half;
@@ -1115,7 +1120,8 @@ html.redirecting{
     position:        relative;
 
     .opening{
-      align-self: flex-start;
+      -webkit-align-self: flex-start;
+      align-self:         flex-start;
     }
 
     .zoomed{
@@ -1123,8 +1129,9 @@ html.redirecting{
     }
 
     .about{
-      align-self:       flex-end;
-      margin-bottom:    0;
+      -webkit-align-self: flex-end;
+      align-self:         flex-end;
+      margin-bottom:      0;
 
       .text{
         font-size:      0.9em;

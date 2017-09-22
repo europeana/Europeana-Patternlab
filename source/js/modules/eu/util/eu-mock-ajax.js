@@ -1,22 +1,25 @@
 define(['jquery', 'purl'], function($) {
 
-  var timeout  = 500;
-  var origPath = '';
+  var timeout      = 500;
+  var origPath     = '';
+  var mockAjaxConf = {omissions:[], delays:{}, mappings:[]};
+
+  if(parseInt(window.mock_ajax) + '' != window.mock_ajax){
+    mockAjaxConf = $.extend(mockAjaxConf, JSON.parse(window.mock_ajax.replace(/'/g, '"')));
+  }
 
   var resolvePathAndParams = function(url){
-
     var path   = url.split('?')[0];
     var $url   = $.url(url);
     var params = $url.param();
 
-    if(path.indexOf('hierarchy/') > -1){
-      origPath = path;
-      path = 'portal_hierarchy';
-    }
-
-    if(path.indexOf('_') == -1){
-      path = 'portal_' + path.split('/').pop().replace('.json', '');
-    }
+    $(mockAjaxConf.mappings).each(function(i, mapping){
+      if(path.indexOf(mapping.pattern) > -1){
+        origPath = path;
+        path     = mapping.resolveTo;
+        return false;
+      }
+    });
 
     return {
       'path': path,
@@ -33,8 +36,12 @@ define(['jquery', 'purl'], function($) {
 
     var that = {
       done: function done(callback){
+        if(options.direct){
+          $.origAjax(options.path).done(function(data){
+            callback(data);
+          });
+        }
         if(options.success){
-
           var dir_file = options.path.split('_');
           var path = '../../eu/dev_data/' + dir_file[0] + '/' + dir_file[1] + '.json';
 
@@ -70,24 +77,34 @@ define(['jquery', 'purl'], function($) {
     return that;
   };
 
+  $.origAjax = $.ajax;
+
   $.ajax = function(){
 
-    var url           = arguments[0].url;
+    var url           = arguments[0].url ? arguments[0].url : arguments[0];
     var pathAndParams = resolvePathAndParams(url);
     var path          = pathAndParams.path;
     var params        = pathAndParams.params;
-    var ma            = {omissions:[], delays:{}};
 
-    if(parseInt(mock_ajax) + '' != mock_ajax){
-      ma = $.extend(ma, JSON.parse(mock_ajax.replace(/'/g, '"')));
+    if(path == 'self'){
+
+      console.log('Mock Ajax: cannot map:\n\t"' + url + '"\n\t (fetching directly)');
+
+      return mockAjax({
+        direct: true,
+        path: url,
+        params: params
+      });
     }
-
-    return mockAjax({
-      delay: ma.delays[path],
-      path: path,
-      params: params,
-      success: ma.omissions.indexOf(path) < 0
-    });
+    else{
+      return mockAjax({
+        delay: mockAjaxConf.delays[path],
+        path: path,
+        params: params,
+        success: mockAjaxConf.omissions.indexOf(path) < 0
+      });
+    }
   };
+  $.getJSON = $.ajax; // only works if call uses .done() - calls with anonymous function parameters will hang!
 
 });

@@ -1,0 +1,609 @@
+{
+  "css_files": [
+    {
+      "path": "../../css/pandora/screen.css",
+      "media": "all"
+    },
+    {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-pandora"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "metisUserProfile"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "true"
+    }
+  ],
+  "jQuery": false,
+  "input_search": {
+    "title": "Search for dataset",
+    "input_name": "q",
+    "placeholder": "Search for dataset"
+  },
+  "version": {
+    "is_alpha": false,
+    "is_beta": true
+  },
+  "browse_menu": {
+    "menu_id": "metis_search_menu",
+    "items": [
+      {
+        "url": "#",
+        "text": "Datasets",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "Dataset",
+              "url": "javascript:alert('images')",
+              "icon": "icon-image"
+            },
+            {
+              "text": "User",
+              "url": "javascript:alert('videos')",
+              "icon": "icon-video"
+            },
+            {
+              "text": "Organization",
+              "url": "javascript:alert('sounds')",
+              "icon": "icon-music"
+            },
+            {
+              "text": "All",
+              "url": "javascript:alert('texts')",
+              "icon": "icon-openbook"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "user_profile": {
+    "user_profile_url": "javascript:alert('submit user profile form');",
+    "user_profile": {
+      "roles": {
+        "types": [
+          {
+            "name": "Europeana Viewer"
+          },
+          {
+            "name": "Europeana Data Officer"
+          },
+          {
+            "name": "Europeana Admin"
+          },
+          {
+            "name": "Europeana Superadmin"
+          },
+          {
+            "name": "Provider Viewer"
+          },
+          {
+            "name": "Provider Data Officer"
+          },
+          {
+            "name": "Provider Admin"
+          },
+          {
+            "name": "Data Provider Contact"
+          }
+        ],
+        "visible": true,
+        "readonly": false
+      },
+      "user_fields_editmode": true,
+      "user_fields": {
+        "autocomplete":{
+          "url":       "metis_autocomplete",
+          "min_chars": "1",
+          "visible": true,
+          "readonly": false
+        },
+        "selectedOrganizations": {
+          "label": "Selected Organizations",
+          "organizations": [
+            {
+              "index": 0,
+              "organizationName": "Europeana",
+              "organizationId": 12,
+              "organizationRole": false
+            },
+            {
+              "index": 1,
+              "organizationName": "BNF",
+              "organizationId": 23,
+              "organizationRole": "Provider Admin"
+            }
+          ]
+        },
+        "user_id": {
+          "label": "User ID",
+          "value": "12345",
+          "visible": true,
+          "readonly": true
+        },
+        "user_first_name": {
+          "label": "First Name *",
+          "value": "Bilbo",
+          "visible": true,
+          "readonly": false
+        },
+        "user_last_name": {
+          "label": "Last Name *",
+          "value": "Baggins",
+          "visible": true,
+          "readonly": false
+        },
+        "user_email": {
+          "label": "Email *",
+          "value": "testing.this.email@europeana.eu",
+          "visible": true,
+          "readonly": false
+        },
+        "user_skype": {
+          "label": "Skype",
+          "value": "bilbo.baggings",
+          "visible": true,
+          "readonly": false
+        },
+        "active": {
+          "label": "Active",
+          "placeholder": "",
+          "value": "Yes",
+          "visible": true,
+          "readonly": false
+        },
+        "approved": {
+          "label": "Approved",
+          "placeholder": "",
+          "value": "No",
+          "visible": true,
+          "readonly": false
+        },
+        "created": {
+          "label": "Created",
+          "placeholder": "",
+          "value": "22 April 2011",
+          "visible": true,
+          "readonly": false
+        },
+        "updated": {
+          "label": "Updated",
+          "placeholder": "",
+          "value": "2 june 2012",
+          "visible": true,
+          "readonly": false
+        },
+        "notes": {
+          "label": "Notes",
+          "placeholder": "Mapping for edm:rights",
+          "value": "",
+          "visible": true,
+          "readonly": false
+        },
+        "countries": {
+          "label": "Country",
+          "start_value": "Select country",
+          "items": [
+            {
+              "name": "Albania",
+              "code": "AL"
+            },
+            {
+              "name": "Algeria",
+              "code": "DZ"
+            },
+            {
+              "name": "Armenia",
+              "code": "AM"
+            },
+            {
+              "name": "Aruba",
+              "code": "AW"
+            },
+            {
+              "name": "Austria",
+              "code": "AT"
+            },
+            {
+              "name": "Azerbaijan",
+              "code": "AZ"
+            },
+            {
+              "name": "Belarus",
+              "code": "BY"
+            },
+            {
+              "name": "Belgium",
+              "code": "BE"
+            },
+            {
+              "name": "Bosnia and Herzegovina",
+              "code": "BA"
+            },
+            {
+              "name": "British Indian Ocean Territory",
+              "code": "IO"
+            },
+            {
+              "name": "Bbbulgaria",
+              "code": "BG"
+            },
+            {
+              "name": "Canada",
+              "code": "CA"
+            },
+            {
+              "name": "Croatia",
+              "code": "HR"
+            },
+            {
+              "name": "Cyprus",
+              "code": "CY"
+            },
+            {
+              "name": "Czech Republic",
+              "code": "CZ"
+            },
+            {
+              "name": "Denmark",
+              "code": "DK"
+            },
+            {
+              "name": "Estonia",
+              "code": "EE"
+            },
+            {
+              "name": "Finland",
+              "code": "FI"
+            },
+            {
+              "name": "France",
+              "code": "FR",
+              "selected": true
+            },
+            {
+              "name": "French Guiana",
+              "code": "GF"
+            },
+            {
+              "name": "French Polynesia",
+              "code": "PF"
+            },
+            {
+              "name": "Georgia",
+              "code": "GE"
+            },
+            {
+              "name": "Germany",
+              "code": "DE"
+            },
+            {
+              "name": "Gibraltar",
+              "code": "GI"
+            },
+            {
+              "name": "Greece",
+              "code": "GR"
+            },
+            {
+              "name": "Greenland",
+              "code": "GL"
+            },
+            {
+              "name": "Holy See (Vatican City State)",
+              "code": "VA"
+            },
+            {
+              "name": "Hungary",
+              "code": "HU"
+            },
+            {
+              "name": "Iceland",
+              "code": "IS"
+            },
+            {
+              "name": "Ireland",
+              "code": "IE"
+            },
+            {
+              "name": "Isle of Man",
+              "code": "IM"
+            },
+            {
+              "name": "Italy",
+              "code": "IT"
+            },
+            {
+              "name": "Kazakhstan",
+              "code": "KZ"
+            },
+            {
+              "name": "Kyrgyzstan",
+              "code": "KG"
+            },
+            {
+              "name": "Lao People\"S Democratic Republic",
+              "code": "LA"
+            },
+            {
+              "name": "Latvia",
+              "code": "LV"
+            },
+            {
+              "name": "Liechtenstein",
+              "code": "LI"
+            },
+            {
+              "name": "Lithuania",
+              "code": "LT"
+            },
+            {
+              "name": "Luxembourg",
+              "code": "LU"
+            },
+            {
+              "name": "Macedonia, The Former Yugoslav Republic of",
+              "code": "MK"
+            },
+            {
+              "name": "Maldives",
+              "code": "MV"
+            },
+            {
+              "name": "Marshall Islands",
+              "code": "MH"
+            },
+            {
+              "name": "Micronesia, Federated States of",
+              "code": "FM"
+            },
+            {
+              "name": "Moldova, Republic of",
+              "code": "MD"
+            },
+            {
+              "name": "Monaco",
+              "code": "MC"
+            },
+            {
+              "name": "Netherlands",
+              "code": "NL"
+            },
+            {
+              "name": "Netherlands Antilles",
+              "code": "AN"
+            },
+            {
+              "name": "Norfolk Island",
+              "code": "NF"
+            },
+            {
+              "name": "Northern Mariana Islands",
+              "code": "MP"
+            },
+            {
+              "name": "Norway",
+              "code": "NO"
+            },
+            {
+              "name": "Poland",
+              "code": "PL"
+            },
+            {
+              "name": "Portugal",
+              "code": "PT"
+            },
+            {
+              "name": "Russian Federation",
+              "code": "RU"
+            },
+            {
+              "name": "San Marino",
+              "code": "SM"
+            },
+            {
+              "name": "Serbia and Montenegro",
+              "code": "CS"
+            },
+            {
+              "name": "Seychelles",
+              "code": "SC"
+            },
+            {
+              "name": "Slovakia",
+              "code": "SK"
+            },
+            {
+              "name": "Slovenia",
+              "code": "SI"
+            },
+            {
+              "name": "Solomon Islands",
+              "code": "SB"
+            },
+            {
+              "name": "Spain",
+              "code": "ES"
+            },
+            {
+              "name": "Swaziland",
+              "code": "SZ"
+            },
+            {
+              "name": "Sweden",
+              "code": "SE"
+            },
+            {
+              "name": "Switzerland",
+              "code": "CH"
+            },
+            {
+              "name": "Tajikistan",
+              "code": "TJ"
+            },
+            {
+              "name": "Ukraine",
+              "code": "UA"
+            },
+            {
+              "name": "United Kingdom",
+              "code": "GB"
+            },
+            {
+              "name": "Uzbekistan",
+              "code": "UZ"
+            },
+            {
+              "name": "Virgin Islands, British",
+              "code": "VG"
+            }
+          ]
+        }
+      }      
+    }
+  },
+  "page_title": "Europeana Metis",
+  "metis_footer": {
+    "navigation": {
+      "footer": {
+        "linklist1": {
+          "title": "More info",
+          "items": [
+            {
+              "text": "About",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Development updates",
+              "url": "http://google.com"
+            },
+            {
+              "text": "All institutions",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Become our partner",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Contact us",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "linklist2": {
+          "title": "Help",
+          "items": [
+            {
+              "text": "Search tips",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Terms of Use & Policies",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "linklist3": {
+          "title": "Tools",
+          "items": [
+            {
+              "text": "API Docs",
+              "url": "http://google.com"
+            },
+            {
+              "text": "Status",
+              "url": "http://google.com"
+            }
+          ]
+        },
+        "social": {
+          "linkedin": false,
+          "github": false,
+          "twitter": true,
+          "facebook": true,
+          "pinterest": true,
+          "googleplus": true
+        },
+        "subfooter": {
+          "items": [
+            {
+              "text": "Home",
+              "url": "./"
+            },
+            {
+              "text": "Terms of use & policies",
+              "url": "http://europeana.eu/portal/rights/terms-and-policies.html"
+            },
+            {
+              "text": "Contact us",
+              "url": "./"
+            },
+            {
+              "text": "Sitemap",
+              "url": "./"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "metis_logged_user": {
+    "menu_id": "loggedin-user",
+    "icon_class": "svg-icon-loggedin-user",
+    "items": [
+      {
+        "url": "#",
+        "text": "",
+        "text_mobile": "or browse",
+        "submenu": {
+          "items": [
+            {
+              "text": "My Profile",
+              "url": "/profile",
+              "icon": "icon-image"
+            },
+            {
+              "text": "Log out",
+              "url": "/logout",
+              "icon": "icon-video"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metis_header_search": true,
+  "metis_header": {
+    "navigation":
+    {
+      "global":
+      {
+        "options":
+        {
+          "search_active": false,
+          "settings_active": true,
+          "oursites_hidden": true
+        },
+        "logo":
+        {
+          "url": "#",
+          "text": "Europeana Pandora"
+        }
+      }
+    }
+  }
+}
+

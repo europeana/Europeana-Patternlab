@@ -1,0 +1,717 @@
+{
+  "bodyclass": "channels-item",
+  "page_title": "Europeana Search",
+  "page_locale": "en",
+  "version":{
+      "is_alpha": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "head_links": {
+    "items": [
+      {
+        "hreflang": "x-default",
+        "href": "http://page-url"
+      }
+    ]
+  },
+  "fb_campaigns_on": true,
+  "fb_campaigns": ["test", "these", "campaigns"],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/show-new"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+    }
+  ],
+
+  "js_files":
+  [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+
+  "form_search": {
+    "action": "javascript:alert('submit form');",
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "0"
+    }
+  },
+
+  "navigation":{
+    "back_url": "javascript:alert('go back');",
+    "back_label": "Return",
+    "last_label" : "item detail",
+    "next_prev": false
+  },
+
+  "include_nav_searchbar": true,
+  "include_nav_title": true,
+  "channel_object": true,
+  "content":
+  {
+    "ugc_content":{
+      "include_1418_nav": true,
+      "base_1418_url": "http://test.1418.eanadev.org"
+    },
+    "object":
+    {
+      "media":
+      {
+        "required_players": [
+          {"audio": true},
+          {"image": true},
+          {"iiif":  true},
+          {"oembed": true},
+          {"pdf":   true},
+          {"text":  true},
+          {"video": true},
+          {"midi": true}
+        ],
+        "more_thumbs_total": 30,
+        "more_thumbs_url": "portal_object-media",
+        "external_media": "#",
+        "has_downloadable_media": true,
+        "items":
+        [
+          {
+            "is_current": true,
+            "attribution_html": "<a href=\"http://www.europeana.eu/portal/record/xxx\">dc:title</a>. dc:creator. <a href=\"edm:isshownat\">edm:dataProvider</a>. <a href=\"edm:rights\" rel=\"xhv:license http://www.europeana.eu/schemas/edm/rights\">rightslabel</a>",
+            "attribution_plain": "The Milkmaid - http://www.europeana.eu/portal/record/90402/SK_A_2344.html . Vermeer, Johannes. Rijksmuseum - http://www.rijksmuseum.nl/collectie/SK-A-2344. Public Domain - http://creativecommons.org/publicdomain/mark/1.0/ .",
+            "playable": true,
+            "downloadable": true,
+            "is_image": true,
+            "thumbnail": "/images/sample/object_thumbnail.jpg",
+
+            "preview":   "/images/sample/object_preview.jpg",
+            "play_url": "/images/sample/object_full.jpg",
+            "download":{
+              "url":  "/images/sample/object_full.jpg",
+              "text": "Original file"
+            },
+            "rights":
+            {
+              "license_CC0": true,
+              "license_name": "CC0",
+              "license_human": "You can use this image in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "NOTE:": "width and height used for image viewer",
+
+              "width": "2261",
+              "height": "2548",
+
+              "language":"English",
+              "format": "jpg",
+              "file_size": "23.2",
+              "file_unit": "MB",
+              "codec": "MPEG-2",
+              "dc_creator": "Media Item (1) Creator",
+              "dc_description": "Description of the 1st media item",
+              "dc_rights": "DC rights of the 1st media item",
+              "dc_source": "Source of the 1st media item",
+              "edm_rights": "EDM rights of the 1st media item",
+              "fps": "30",
+              "fps_unit": "fps",
+              "mime_type": "image/jpeg",
+              "size_unit": "pixels",
+              "runtime": "34",
+              "runtime_unit": "minutes",
+              "colours": {
+                "present": true,
+                "items": [
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#800000",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#696969",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#8B4513",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#556B2F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "is_iiif": true,
+            "downloadable": true,
+            "download":{
+              "url":  "/media/iiif.jpg",
+              "text": "Original file"
+            },
+            "playable": true,
+            "attribution_html": "some html",
+            "attribution_plain": "Vincent van Gogh",
+            "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
+            "thumbnail": "/media/iiif.jpg",
+            "technical_metadata": {
+              "mime_type": "image/iiif",
+              "dc_creator": "Media Item (2) Creator",
+              "dc_description": "Description of the 2nd media item",
+              "dc_rights": "DC rights of the 2nd media item",
+              "dc_source": "Source of the 2nd media item",
+              "edm_rights": "EDM rights of the 2nd media item"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like",
+              "license_brief": "Yes"
+            }
+          },
+          {
+            "thumbnail": "/media/falcon-thumb.png",
+            "playable": true,
+            "is_pdf": true,
+            "play_url": "/media/falcon.pdf",
+            "downloadable": false,
+            "download":{
+              "url":  "/media/falcon.pdf",
+              "text": "Original file"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "dc_creator": "Media Item (3) Creator",
+              "dc_description": "Description of the 3rd media item",
+              "dc_rights": "DC rights of the 3rd media item",
+              "dc_source": "Source of the 3rd media item",
+              "edm_rights": "EDM rights of the 3rd media item",
+              "language":"English",
+              "format": "png",
+              "file_size": "7.3",
+              "file_unit": "MB"
+            }
+          },
+          {
+            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "playable": true,
+            "is_pdf": true,
+            "play_url": "/media/PDF2.pdf",
+            "downloadable": true,
+            "download":{
+              "url":  "/media/PDF2.pdf",
+              "text": "2nd PDF file"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "language":"English",
+              "format": "png",
+              "file_size": "23.2",
+              "file_unit": "MB"
+            }
+          },
+          {
+            "is_image": true,
+            "playable": true,
+            "thumbnail": "/images/sample/object_2_thumbnail.jpg",
+            "play_url": "/images/sample/object_2_full.jpg",
+            "downloadable": true,
+            "attribution_html": "some html",
+            "attribution_plain": "Old Man Sitting (c)",
+            "download":{
+              "url": "/images/sample/object_2_full.jpg",
+              "text": "Original file"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this image in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "NOTE:": "width and height used for image viewer",
+
+              "width": "532",
+              "height": "768",
+              "format": "jpg",
+              "file_size": "84.25",
+              "file_unit": "KB",
+              "mime_type": "image/jpg",
+              "colours": {
+                "present": true,
+                "items": [
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#556B2F",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#8B4513",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#696969",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#800000",
+                    "url": "javascript: alert('search on colour');"
+                  },
+                  {
+                    "hex": "#2F4F4F",
+                    "url": "javascript: alert('search on colour');"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "is_audio": true,
+            "playable": true,
+            "thumbnail": "/media/thumb-default-sound.jpg",
+            "play_url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
+            "downloadable": true,
+            "download": {
+              "url": "http://www.dismarc-audio.org/LLTI/LTRF_mg_2-2.mp3",
+              "text": "Original MP3 file"
+            },
+            "technical_metadata": {
+              "mime_type": "audio/mp3"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this audio clip in any way you like",
+              "license_brief": "Yes"
+            }
+          },
+          {
+            "is_video": true,
+            "playable": true,
+            "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+            "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
+            "downloadable": true,
+            "download": {
+              "url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
+              "text": "Original MP4 file"
+            },
+            "technical_metadata": {
+              "mime_type": "video/mp4"
+            },
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like",
+              "license_brief": "Yes"
+            }
+          }
+        ]
+      },
+
+      "rights":
+      {
+        "license_CC0": true,
+        "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "license_name": "CC0",
+        "license_human": "You can use this image in any way you like",
+        "license_brief": "Yes"
+      },
+      "title": "The Milkmaid",
+      "type": "image",
+      "is_image": true,
+      "subtitle": "Het melkmeisje",
+      "creation_date": "1660",
+      "creator": "Johannes Vermeer",
+      "origin":
+      {
+        "institution_name": "Rijksmuseum",
+        "institution_country": "Netherlands",
+        "url": "javascript:alert('go to institution')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
+      },
+      "annotations_later": true,
+      "view_more": {
+        "img_url": "/images/sample/object_thumbnail.jpg",
+        "url": "javascript:alert('follow link...')",
+        "label": "View more",
+        "text": "Johannes Vermeer"
+      },
+      "people": {
+        "section_id": "people",
+        "title": "People",
+        "sections": [
+          {
+            "title": false,
+            "items": [
+              {
+                "text": "Johannes Vermeer",
+                "url": "www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
+                "extra_info":{
+                  "life": {
+                      "content_present": true,
+                    "from": {
+                      "long": "31st October 1632",
+                      "short": "1632"
+                    },
+                    "to": {
+                      "long": "December 1675",
+                      "short": "1675"
+                    }
+                  },
+                  "biography":
+                  {
+                    "text": "Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+                    "source": "Wikipedia",
+                    "source_url": "http://en.wikipedia.org/wiki/Johannes_Vermeer"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "concepts":
+      {
+        "section_id": "concepts",
+        "title": "Categories",
+        "sections": [
+          {
+            "title": "Type",
+            "items": [
+              {
+                "text":  "paintings",
+                "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "easel paintings",
+                "url":    "javascript:alert('search concepts')"
+              }
+            ]
+          },
+          {
+            "title": "Subject",
+            "items": [
+              {
+                "text":  "Kitchen maid",
+                "url":    "javascript:alert('search concepts')"
+              },
+              {
+                "text":  "Kitchen servant",
+                "url":    "javascript:alert('search concepts')"
+              }
+            ]
+          }
+        ]
+      },
+      "description": {
+        "section_id": "description",
+        "title": "Description",
+        "sections": [{
+          "title": false,
+          "items": [
+            {"text": "Girl pouring milk into bowl", "url":false},
+            {"text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.", "url":false}
+          ]
+        }]
+      },
+      "properties": {
+        "section_id": "properties",
+        "title": "Properties",
+        "sections": [
+          {
+            "title": "Extent",
+            "items": [
+              {"text": "41 cm high"},
+              {"text": "30 cm wide"}
+            ]
+          },
+          {
+            "title": "Format",
+            "items": [
+              {"text": "oil paint",  "url": "search"},
+              {"text": "oil paints", "url": "search"}
+            ]
+          }
+        ]
+      },
+      "provenance": {
+        "section_id": "provenance",
+        "title": "Source",
+        "sections": [
+          {
+            "title": "Publisher",
+            "items": [
+              { "text": "DC Publisher" }
+            ]
+          },
+          {
+            "title": "Source",
+            "items": [
+              {
+                "text": "Rijksmuseum",
+                "url":  "http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
+              }
+            ]
+          },
+          {
+            "title": "Provider",
+            "items": [
+              {
+                "text": "Rijksmuseum"
+              }
+            ]
+          },
+          {
+            "title": "Providing Country",
+            "items": [
+              { "text": "Netherlands" }
+            ]
+          }
+        ]
+      },
+
+      "places": {
+        "section_id": "location",
+        "title": "Place",
+        "sections": [
+          {
+            "title": "Place/Time",
+            "items": [
+              {"text": "third quarter 17th century"}
+            ]
+          },
+          {
+            "title": "Location",
+            "items": [
+              {"text": "Western Europe"}, {"text": "Netherlands"}
+            ]
+          },
+          {
+            "title": "Location",
+            "items": [{"text": "Near Delft"}]
+          }
+        ]
+      },
+      "refs_rels": {
+        "section_id": "refs_rels",
+        "title": "References and Relationships",
+        "sections": [
+          {
+            "title": "Relations",
+            "items": [{"text": "relation 1"}, {"text": "relation 2"}]
+          },
+          {
+            "title": "References",
+            "items": [{"text": "reference 1"}, {"text": "reference 2"}]
+          }
+        ]
+      },
+
+      "dates": {
+        "section_id": "times",
+        "title": "Times",
+        "sections": [
+          {
+            "title": "Issued",
+            "items": [{"text": "17th century"}, {"text": "Seventeenth century"}]
+          },
+          {
+            "title": "Temporal",
+            "items": [{"text": "1700s"}, {"text": "Mid-second millennium"}]
+          }
+        ]
+      },
+
+      "tags":
+      {
+        "items":
+        [
+          {
+            "text": "tagtext",
+            "url": "javascript:alert('follow link url...')"
+          },
+
+          {
+            "text": "tagtext",
+            "url": "javascript:alert('follow link url...')"
+          },
+
+          {
+            "text": "tagtext",
+            "url": "javascript:alert('follow link url...')"
+          },
+
+          {
+            "text": "tagtext",
+            "url": "javascript:alert('follow link url...')"
+          },
+
+          {
+            "text": "tagtext",
+            "url": "javascript:alert('follow link url...')"
+          }
+        ],
+
+        "add_url": "add_new_tag_url_here"
+      },
+      "meta_additional":
+      {
+        "present": true,
+        "section_id": "map",
+        "geo":
+        {
+          "long_and_lat": true,
+          "longitude": "3.1",
+
+          "latitude": "39.2",
+
+          "labels":
+          {
+            "map": "Map",
+            "longitude": "Longitude",
+            "latitude": "Latitude",
+            "points":
+            {
+              "n": "North",
+              "e": "East",
+              "s": "South",
+              "w": "West"
+            }
+          }
+        }
+      },
+      "social_share":{
+        "url": "this page url for share links",
+        "twitter": true,
+        "facebook": true,
+        "pinterest": true,
+        "googleplus": true,
+        "tumblr": true
+      },
+      "suggestions": {
+        "tab_items": [
+          {
+            "tab_title": "From Johannes Vermeer",
+            "url":       "portal_suggestions?from=vermeer"
+          },
+          {
+            "tab_title": "From Rijksmuseum",
+            "url":       "portal_suggestions?from=rijks"
+          },
+          {
+            "tab_title": "From the blog",
+            "url":       "portal_suggestions?from=blog"
+          },
+          {
+            "tab_title": "From elsewhere",
+            "url":       "portal_suggestions?from=elsewhere"
+          }
+        ]
+      }
+    },
+    "named_entities": {
+      "fold_title": "Named Entities",
+      "inline": true,
+      "data": [
+        {
+          "title": "Who",
+          "fields": [
+            {
+              "key": "Agent Term",
+              "val": "http://www.mimo-db.eu/InstrumentMaker/Person/3149",
+              "foldable_link": true
+            },
+            {
+              "key": "Agent Label",
+              "vals": [{"key": "def", "val": "Johann Andreas Stein"}, {"key": "en", "val": "John Andrew Stein"}],
+              "multi": true
+            }
+          ]
+        },
+        {
+          "title": "What",
+          "fields": [
+            {
+              "key": "Concept Term",
+              "val": "http://www.mimo-db.eu/InstrumentsKeywords/2284",
+              "foldable_link": true
+            },
+            {
+              "key": "Concept Label",
+              "vals": [{"key": "def", "val": "Object"}, {"key": "fr", "val": "Objet d'art"}],
+              "multi": true
+            }
+          ]
+        },
+        {
+          "title": "Where",
+          "fields": [
+            {
+              "key": "Place Term",
+              "val": "https://www.google.co.uk/maps",
+              "foldable_link": true
+            }
+          ]
+        },
+        {
+          "title": "When",
+          "fields": [
+            {
+              "key": "Period Term",
+              "val": "http://semium.org/time/17xx_4_quarter",
+              "foldable_link": true
+            },
+            {
+              "key": "Period Term",
+              "vals": [
+                {"key": "(fr)", "val": "[4e quart 18e siècle]"},
+                {"key": "(en)", "val": "[4 quarter of the 18th century]"},
+                {"key": "(ru)", "val": "[4-я четверть 18-го века]"}
+              ],
+              "multi": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "page_config":
+  {
+    "newsletter": true
+  },
+  "debug": ""
+}

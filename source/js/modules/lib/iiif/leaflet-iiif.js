@@ -30,7 +30,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
       miny = (y * tileBaseSize),
       maxx = Math.min(minx + tileBaseSize, _this.x),
       maxy = Math.min(miny + tileBaseSize, _this.y);
-    
+
     var xDiff = (maxx - minx);
     var yDiff = (maxy - miny);
 
@@ -98,6 +98,11 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     // Look for a way to do this without jQuery
     $.getJSON(_this._infoUrl)
       .done(function(data) {
+
+        //  Europeana modification
+        _this.getData = function(){ return data; };
+        //  End Europeana modification
+
         _this.y = data.height;
         _this.x = data.width;
 
@@ -132,7 +137,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
         // Calculates maximum native zoom for the layer
         _this.maxNativeZoom = Math.max(ceilLog2(_this.x / _this.options.tileSize),
           ceilLog2(_this.y / _this.options.tileSize));
-        
+
         // Enable zooming further than native if needed
         if (_this.options.maxZoom && _this.options.maxZoom > _this.maxNativeZoom) {
           _this.maxZoom = _this.options.maxZoom;
@@ -140,7 +145,6 @@ L.TileLayer.Iiif = L.TileLayer.extend({
         else {
           _this.maxZoom = _this.maxNativeZoom;
         }
-        
         for (var i = 0; i <= _this.maxZoom; i++) {
           scale = Math.pow(2, _this.maxNativeZoom - i);
           width_ = Math.ceil(_this.x / scale);

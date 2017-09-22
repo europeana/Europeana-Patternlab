@@ -1,0 +1,102 @@
+@import '../../scss/grid/susy/layout_susy';
+
+// metis main content
+.metis-main-content {
+  margin: 7rem 0;
+  min-height: calc(100vh - 55rem); // keeping the footer at the bottom even when there is not enough content to push it down.
+}
+
+// dashboard wrapper
+.dashboard-wrapper {
+  background-color: $offwhite;
+  display: inline-block;
+  margin-top: 4.8em;
+  min-height: 100vh; // TODO: remove temp stylings.
+  padding: 0 1.2rem;
+  width: 100%;
+
+  .metis-dashboard {
+    padding: 1rem;
+
+    .metis-dashboard-left {
+      @include span(8);
+    }
+
+    .metis-dashboard-right {
+      @include span(last 16);
+    }
+
+  }
+
+}
+
+// mapping card related layout
+.working-space {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-large {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-menu {
+  background-color: $white;
+  display: inline-block;
+  float: left;
+  font-size: .75em;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  width: 11em;
+}
+
+.container-search-box {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  width: 17.5em;
+}
+
+.flex-container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+    float: left;
+  }
+
+  .flex-item,
+  .flex-inner-item {
+    color: $white;
+    height: 50px;
+    line-height: 50px;
+    padding: 5px;
+    text-align: center;
+    width: 230px;
+  }
+
+  .flex-inner-item {
+    padding: 5px;
+    width: 70px;
+
+    &:hover {
+      background: $eu-blue;
+    }
+  }
+
+  .indent {
+    padding-left: 10px;
+  }
+}

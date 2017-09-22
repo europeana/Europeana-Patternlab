@@ -49,9 +49,11 @@ $gray-lightest: $gray97;
 $gray-lighter: $gray80;
 $gray-light: $gray47;
 $gray-med: $gray30;
+$medium-gray: $gray30;
 
 $gray-dark: #212121; //13
 $black: #1a1a1a;
+$opacity-black: rgba(0, 0, 0, 0.7);
 
 //Europeana brand colours
 $eu-yellow: #ffae00;
@@ -70,7 +72,7 @@ $blue-grey: #c8d5d7;
 $peachy: #d12d1e; // previously #e96e62, replaced for WCAG AA compliance
 
 $linkblue: #095f90; // WCAG AA All text + AAA for text > 18pt
-
+$link-blue: $linkblue;
 
 /////////////////////////////////////////////////////////
 
@@ -129,8 +131,9 @@ $icon_primary: $accent !default;
 $error: $eu-red;
 $valid: $eu-jade;
 
-
+$dim02: rgba(0, 0, 0, 0.2);
 $dim: rgba(0, 0, 0, 0.5);
+$dim07: rgba(0, 0, 0, 0.7);
 $dimmer: rgba(0, 0, 0, 0.8);
 
 
@@ -201,12 +204,3 @@ $bp-large: 60em;
 $bp-xl: 70em;
 $bp-xxl: 90em;
 
-// Metis colors
-$opacity-black: rgba(0, 0, 0, 0.7);
-$light-gray: #777;
-$medium-gray: #4d4d4d;
-$collections-blue: #1a8ac7;
-$link-blue: #095f90;
-$yellow: #ffae00;
-$color-name: #444;
-$facebook-blue: #03539e;

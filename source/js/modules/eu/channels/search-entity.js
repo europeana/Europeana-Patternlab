@@ -1,6 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
-  var euSearchForm      = null;
   var masonries         = [];
   var totals            = [];
   var selActiveResult   = '.eu-accordion-tabs .tab-content.active .result-items';
@@ -211,42 +210,56 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
             }
             else {
 
-              var url  = getLoadParams(header.data('content-url'), $(selActiveResult).length);
-              template = $('#js-template-entity-tab-content');
+              var hasPreloaded = $tabContent.find('.result-items').length > 0;
+              var allPreloaded = false;
+              template         = $('#js-template-entity-tab-content');
 
               header.addClass('loading');
 
-              $tabContent.find('.results').append(''
-                + '<ol class="result-items display-grid cf not-loaded">'
-                +   '<li class="grid-sizer"></li>'
-                + '</ol>'
-              );
+              if(hasPreloaded){
+                var items = $tabContent.find('.results .item-image');
+                items.each(function(i, ob){
+                  applyImgStyling($(ob));
+                });
+                allPreloaded = items.length >= $tabContent.find('.display-grid').data('total');
+              }
+              else{
+                $tabContent.find('.results').append(''
+                  + '<ol class="result-items display-grid cf not-loaded">'
+                  +   '<li class="grid-sizer"></li>'
+                  + '</ol>'
+                );
+              }
 
               initMasonry(function(){
 
-                loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
-
-                  if(typeof res.total == 'undefined'){
-                    console.warn('Expected @total from ' + url);
-                  }
-                  else{
-
-                    if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
-                      var linkMore = $tabContent.find('.show-more-mlt');
-                      linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
-                      linkMore.removeClass('js-hidden');
-                    }
-                  }
-
-                  if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
-                    $tabContent.find('.show-more-mlt').addClass('js-hidden');
-                  }
-
+                if(allPreloaded){
                   header.removeClass('loading').addClass('js-loaded');
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
+                }
+                else{
 
-                });
+                  loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
+                    if(typeof res.total == 'undefined'){
+                      console.warn('Expected @total');
+                    }
+                    else{
+                      if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
+                        var linkMore = $tabContent.find('.show-more-mlt');
+                        linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
+                        linkMore.removeClass('js-hidden');
+                      }
+                    }
 
+                    if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
+                      $tabContent.find('.show-more-mlt').addClass('js-hidden');
+                    }
+
+                    header.removeClass('loading').addClass('js-loaded');
+                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  });
+
+                }
               });
 
               require(['util_resize'], function(){
@@ -297,7 +310,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
   function loadMasonryItems(url, callback){
 
-    require(['mustache', 'eu_accordion_tabs'], function(Mustache, euAccordionTabs){
+    require(['mustache'], function(Mustache){
       Mustache.tags = ['[[', ']]'];
 
       if(url && url.length > 0 && template.length > 0){
@@ -398,7 +411,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function initPage(form){
-    euSearchForm = form;
     $(window).bind('showCarousel', function(e, ops){
       showCarouselIfAvailable(ops);
     });

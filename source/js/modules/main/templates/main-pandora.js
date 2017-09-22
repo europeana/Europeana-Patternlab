@@ -1,6 +1,5 @@
 require.config({
   paths: {
-    autocomplete:        '../../lib/autocomplete/autocomplete',
     dataset_info_form:   '../../eu/pandora/dataset-info',
     eu_accordion_tabs:   '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:     '../../eu/autocomplete/eu-autocomplete',
@@ -11,6 +10,7 @@ require.config({
     jush:                '../../lib/jush/jush',
     login:               '../../eu/pandora/login-form',
     mustache:            '../../lib/mustache/mustache',
+    pandora_autocomplete:'../../eu/pandora/pandora-autocomplete',
     pandora_dashboard:   '../../eu/pandora/pandora-dashboard',
     pandora_dataset:     '../../eu/pandora/pandora-dataset',
     pandora_home:        '../../eu/pandora/pandora-home',
@@ -23,7 +23,6 @@ require.config({
     smartmenus:          '../../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard: '../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
     user_approval:       '../../eu/pandora/user-approval-form',
-    user_profile:        '../../eu/pandora/user_profile',
     util_ellipsis:       '../../eu/util/ellipsis',
     util_resize:         '../../eu/util/resize'
   },

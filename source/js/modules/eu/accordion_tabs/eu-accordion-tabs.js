@@ -8,8 +8,37 @@ define(['jquery', 'util_resize'], function($){
     console.log(msg);
   }
 
-  function applyMode($cmp){
+  function setOptimalSize($cmp){
+
     $cmp.addClass(tabsClass);
+
+    var i      = 0;
+    var newW   = 0;
+    var active = $cmp.find('.tab-header.active');
+    $cmp.find('.tab-header').addClass('active');
+
+    $cmp.css('width', 'auto');
+
+    while($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
+      i++;
+      newW = $cmp.width() + 15 + 'px';
+      $cmp.css('width', newW);
+      if(i > 100){
+        break;
+      }
+    }
+    $cmp.find('.tab-header').not(active).removeClass('active');
+
+    return newW;
+  }
+
+  function applyMode($cmp, ops){
+    $cmp.addClass(tabsClass);
+
+    if(ops.lockTabs){
+      return;
+    }
+
     if($cmp.find('.tab-header:first')[0].offsetTop != $cmp.find('.tab-header:last')[0].offsetTop){
       $cmp.removeClass(tabsClass);
     }
@@ -89,18 +118,18 @@ define(['jquery', 'util_resize'], function($){
       $('.tab-content:eq(0)').add('.tab-header:eq(0)').addClass('active');
     }
 
-    applyMode($cmp);
+    applyMode($cmp, ops);
 
     $(window).europeanaResize(function(){
       var w = $(document).width();
       if(w != pageW){
         pageW = w;
-        applyMode($cmp);
+        applyMode($cmp, ops);
       }
     });
 
     $(window).on('eu-accordion-tabs-layout', function(){
-      applyMode($cmp);
+      applyMode($cmp, ops);
     });
 
     var headerClick = function(){
@@ -147,6 +176,7 @@ define(['jquery', 'util_resize'], function($){
     activate: activate,
     deactivate: deactivate,
     fixTabContentHeight: fixTabContentHeight,
-    loadTabs: loadTabs
+    loadTabs: loadTabs,
+    setOptimalSize: setOptimalSize
   };
 });

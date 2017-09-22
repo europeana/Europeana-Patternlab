@@ -724,16 +724,20 @@
             "news": "News",
             "object": {
                 "actions": {
+                    "annotate": "Annotate",
+                    "collapse-extended": "collapse extended information",
                     "download": "Download",
                     "download-started": "The download has started",
                     "download-retry": "Retry",
+                    "expand-extended": "expand extended information",
                     "media-metadata": "Media Metadata",
                     "technicalmetadata": "Technical Metadata",
                     "open-media": "Open this media item",
                     "attribute-author":"Attribute the author",
                     "attribute-plaintext": "Plain Text",
                     "attribute-html": "HTML",
-                    "explore-by-colour": "Explore by colour"
+                    "explore-by-colour": "Explore by colour",
+                    "view-more-at": "View more at"
                 },
                 "hierarchy": {
                   "title": "Hierarchy",

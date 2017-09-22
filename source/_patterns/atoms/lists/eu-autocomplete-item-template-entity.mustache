@@ -1,18 +1,31 @@
-<li data-term="[[directHit]]" data-id="[[id]]" [[#groupBegin]] class="group-begin"[[/groupBegin]]>
-  <span class="suggest-type[[#type_lc]] suggest-[[.]][[/type_lc]]">
-  [[#is_concept]]{{i18n.site.entities.types.concept}}[[/is_concept]]
-  [[#is_person]]{{i18n.site.entities.types.agent}}[[/is_person]]
-  [[#is_place]]{{i18n.site.entities.types.place}}[[/is_place]]</span>
-  [[#directMatch]]<span class="match[[#life]][[#dateOfBirth]] d1[[/dateOfBirth]][[#dateOfDeath]] d2[[/dateOfDeath]][[/life]]">[[directHitPreMatch]]<b>[[.]]</b>[[directHitPostMatch]][[/directMatch]]</span>
+[[#extended_info]]
+  <li data-term="[[directHit]]" data-id="[[id]]" [[#groupBegin]] class="group-begin"[[/groupBegin]]>
+    <span class="suggest-type[[#type_lc]] suggest-[[.]][[/type_lc]]">
+    [[#is_concept]]{{i18n.site.entities.types.concept}}[[/is_concept]]
+    [[#is_person]]{{i18n.site.entities.types.agent}}[[/is_person]]
+    [[#is_place]]{{i18n.site.entities.types.place}}[[/is_place]]</span>
+
+    [[#directMatch]]<span class="match[[#life]][[#dateOfBirth]] d1[[/dateOfBirth]][[#dateOfDeath]] d2[[/dateOfDeath]][[/life]]">[[directHitPreMatch]]<b>[[.]]</b>[[directHitPostMatch]][[/directMatch]]</span>
+    [[^directMatch]]
+      [[#indirectMatch]]<span class="match[[#life]][[#dateOfBirth]] d1[[/dateOfBirth]][[#dateOfDeath]] d2[[/dateOfDeath]][[/life]]">[[unmatched]] ( [[indirectHitPreMatch]]<b>[[.]]</b>[[indirectHitPostMatch]][[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )</span>[[/indirectMatch]]
+      [[^indirectMatch]]<span class="use-data-term">[[directHit]]</span>[[/indirectMatch]]
+    [[/directMatch]]
+    [[#life]]<span class="suggest-life">[[/life]]
+      [[#dateOfBirth]]<span class="suggest-dob"><span class="label">{{i18n.site.entities.labels.born}}</span><span class="value"> [[.]]</span></span>[[/dateOfBirth]]
+      [[#dateOfDeath]]
+        <span class="suggest-dod"><span class="label">{{i18n.site.entities.labels.died}}</span><span class="value"> [[.]]</span></span>
+      [[/dateOfDeath]]
+    [[#life]]</span>[[/life]]
+    [[#life_summary]]<span class="suggest-prof">[[.]]</span>[[/life_summary]]
+  </li>
+[[/extended_info]]
+
+[[^extended_info]]
+ <li data-term="[[directHit]]" data-id="[[id]]">
+  [[#directMatch]]<span class="match">[[directHitPreMatch]]<b>[[.]]</b>[[directHitPostMatch]][[/directMatch]]</span>
   [[^directMatch]]
-    [[#indirectMatch]]<span class="match[[#life]][[#dateOfBirth]] d1[[/dateOfBirth]][[#dateOfDeath]] d2[[/dateOfDeath]][[/life]]">[[unmatched]] ( [[indirectHitPreMatch]]<b>[[.]]</b>[[indirectHitPostMatch]][[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )</span>[[/indirectMatch]]
+    [[#indirectMatch]]<span class="match">[[unmatched]] ( [[indirectHitPreMatch]]<b>[[.]]</b>[[indirectHitPostMatch]][[#indirectLocale]] | <span class="suggest-locale">[[.]]</span>[[/indirectLocale]] )</span>[[/indirectMatch]]
     [[^indirectMatch]]<span class="use-data-term">[[directHit]]</span>[[/indirectMatch]]
   [[/directMatch]]
-  [[#life]]<span class="suggest-life">[[/life]]
-    [[#dateOfBirth]]<span class="suggest-dob"><span class="label">{{i18n.site.entities.labels.born}}</span><span class="value"> [[.]]</span></span>[[/dateOfBirth]]
-    [[#dateOfDeath]]
-      <span class="suggest-dod"><span class="label">{{i18n.site.entities.labels.died}}</span><span class="value"> [[.]]</span></span>
-    [[/dateOfDeath]]
-  [[#life]]</span>[[/life]]
-  [[#life_summary]]<span class="suggest-prof">[[.]]</span>[[/life_summary]]
-</li>
+  </li>
+[[/extended_info]]

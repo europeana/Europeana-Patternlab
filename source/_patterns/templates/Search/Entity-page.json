@@ -88,6 +88,7 @@
       "src": "/images/search/entity_main_thumb.jpg",
       "alt": "thumbnail alt text here"
     },
+    "entity_description_title": "Biography",
     "entity_description": [
       "Gabrielle Bonheur \"Coco\" Chanel (19 August 1883 – 10 January 1971) was a French fashion designer and businesswoman. She was the founder and namesake of the Chanel brand. Along with Paul Poiret, Chanel was credited in the post-World War I era with liberating women from the constraints of the \"corseted silhouette\" and popularizing a sporty, casual chic as the feminine standard of style. A prolific fashion creator, Chanel extended her influence beyond couture clothing, realising her design aesthetic in jewellery, handbags, and fragrance. Her signature scent, Chanel No. 5, has become an iconic product. She is the only fashion designer listed on TIME magazine's list of the 100 most influential people of the 20th century. Chanel designed her iconic interlocked-CC monograph, meaning Coco Chanel, using it since the 1920s.",
       "Chanel was known for her lifelong determination, ambition, and energy which she applied to her professional and social life. She achieved both financial success as a businesswoman and catapulted to social prominence in French high society, thanks to the connections she made through her work. These included many artists and craftspeople to whom she became a patron.",
@@ -128,7 +129,51 @@
         "tab_subtitle":               false,
         "tab_title":                  "Items by Coco Chanel",
         "url":                        "portal_entity?type=by",
-        "search_url":                 "javascript:alert('load all by')"
+        "search_url":                 "javascript:alert('load all by')",
+        "referenced_records": {
+          "total": {
+            "value":     32,
+            "formatted": "32"
+          },
+          "search_results": [
+            {
+              "title": "Pre-loaded: 1"
+            },
+            {
+              "title": "Pre-loaded: 2"
+            },
+            {
+              "title": "Pre-loaded: 3"
+            },
+            {
+              "title": "Pre-loaded: 4"
+            },
+            {
+              "title": "Pre-loaded: 5"
+            },
+            {
+              "title": "Pre-loaded: 6"
+            },
+            {
+              "title": "Pre-loaded: 7"
+            },
+            {
+              "title": "Pre-loaded: 8"
+            },
+            {
+              "title": "Pre-loaded: 9"
+            },
+            {
+              "title": "Pre-loaded: 10"
+            },
+            {
+              "title": "Pre-loaded: 11"
+            },
+            {
+              "title": "Pre-loaded: 12"
+            }
+          ]
+        }
       },
       {
         "tab_subtitle":               false,
