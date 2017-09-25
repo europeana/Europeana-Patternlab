@@ -36990,15 +36990,57 @@ define([], function(){
       }
     ];
 
+  var fmtGeoJSON = function(dataList){
+
+    var res = {
+      "type": "FeatureCollection",
+      "features": []
+    }
+
+    $.each(dataList, function(i, data){
+
+      var getC = function(x, y, w, h){
+
+        var divider = 32;
+
+        x = parseInt(x);
+        y = parseInt(y);
+        w = parseInt(w);
+        h = parseInt(h);
+
+        return [[
+          [ x      / divider, 0 - (y      / divider)],
+          [(x + w) / divider, 0 - (y      / divider)],
+          [(x + w) / divider, 0 - (y + h) / divider],
+          [ x      / divider, 0 - (y + h) / divider],
+          [ x      / divider, 0 - (y      / divider)]
+        ]];
+      };
+
+      var feature = {
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": getC(data.x, data.y, data.w, data.h)
+        }
+      }
+      res.features.push(feature);
+    });
+
+    return res;
+  }
+
+  var transcripts = {1: transcript1, 2: transcript2};
 
   return {
     getData: function(params){
-
-      if(params.index == 1){
-        return {'transcript': transcript1};
-      }
-      if(params.index == 2){
-        return {'transcript': transcript2};
+      if(params.index){
+        if(params.fmt == 'geoJSON'){
+          return fmtGeoJSON(transcripts[params.index]);
+        }
+        else{
+          return {'transcript': transcripts[params.index]};
+        }
       }
       else{
         console.log('Transcription mock-data: do nothing');
@@ -37007,4 +37049,3 @@ define([], function(){
   };
 
 });
-
