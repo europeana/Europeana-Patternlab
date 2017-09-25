@@ -78,8 +78,8 @@ define(['jquery'], function($){
         var data = allCanvases[index];
         if(! iiifLayers[index + ''] ){
 
-          var layer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
-          iiifLayers[index + ''] = layer;
+          var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+          iiifLayers[index + ''] = iiifLayer;
           noLoaded += 1;
           loadFeatures();
         }
@@ -439,10 +439,10 @@ define(['jquery'], function($){
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/fullscreen/leaflet.fullscreen.css') + '" type="text/css"/>');
         }
         if(zoomSlider){
-          requirements.push('leaflet_zoom_slider')
+          requirements.push('leaflet_zoom_slider');
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
         }
-        require(requirements, function(Leaflet) {
+        require(requirements, function() {
           initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider);
         });
       });
