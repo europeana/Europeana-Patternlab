@@ -19,7 +19,7 @@ require.config({
     data_fashion_thesaurus:        '../../data/fashion-thesaurus.json',
     e7a_1418:                      '../../eu/channels/e7a_1418',
     eu_accordion_tabs:             '../../eu/accordion_tabs/eu-accordion-tabs',
-    eu_activate_on_shrink:         '../../eu/eu-activate-on-shrink',
+    eu_activate_on_shrink:         '../../eu/channels/eu-activate-on-shrink',
     eu_autocomplete:               '../../eu/autocomplete/eu-autocomplete',
     eu_autocomplete_processor:     '../../eu/autocomplete/eu-autocomplete-processor-entities',
     eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
@@ -36,8 +36,11 @@ require.config({
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
 
-    leaflet:                       '../../lib/map/application-map-all',
-    leaflet_iiif:                  '../../lib/iiif/leaflet-iiif',
+    leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
+
+    leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
 
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jquery:                        '../../lib/jquery/jquery',

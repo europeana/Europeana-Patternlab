@@ -1,0 +1,15 @@
+{
+  "js_files": [
+    {
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/molecules/main-leaflet-map-molecule"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "el_map_id",
+      "value": "map"
+    }
+  ]
+}
+
