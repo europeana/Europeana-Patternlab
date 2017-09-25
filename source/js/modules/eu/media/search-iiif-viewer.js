@@ -49,16 +49,17 @@ define(['jquery'], function($){
    *
    * Called on init and after navigation operations
    * */
-
   var load = function(centreIndexIn, singleImageInfo){
 
     if(singleImageInfo){
 
       var layer = Leaflet.tileLayer.iiif(singleImageInfo);
+
       iiifLayers['single'] = layer;
       layer.addTo(iiif);
       return;
     }
+
     var noToLoad    = 5;
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
@@ -66,6 +67,7 @@ define(['jquery'], function($){
     var done = false;
 
     while(!done){
+
       if(noLoaded == noToLoad){
         done = true;
       }
@@ -75,8 +77,11 @@ define(['jquery'], function($){
       else{
         var data = allCanvases[index];
         if(! iiifLayers[index + ''] ){
-          iiifLayers[index + ''] = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+
+          var layer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+          iiifLayers[index + ''] = layer;
           noLoaded += 1;
+          loadFeatures();
         }
         index += 1;
       }
@@ -285,8 +290,19 @@ define(['jquery'], function($){
     }
   }
 
+
   function setTranscriptionUrls(urls){
     transcriptionUrls = urls;
+  }
+
+  function loadFeatures() {
+    // disbaled for now
+    /*
+    var geoJsonUrl = transcriptionUrls[currentImg] + '&fmt=geoJSON';
+    $.getJSON(geoJsonUrl).done(function(itemJSON){
+      L.geoJson(itemJSON).addTo(iiif);
+    });
+    */
   }
 
   function addRectangle(pointList){
@@ -306,6 +322,7 @@ define(['jquery'], function($){
       smoothFactor: 1
     });
     selectedRegion.addTo(iiif);
+    log('added rect at ' + JSON.stringify(pointList));
     //selectedRegion.addTo(iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + '']);
   }
 
