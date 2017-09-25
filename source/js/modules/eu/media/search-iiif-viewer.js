@@ -174,14 +174,15 @@ define(['jquery'], function($){
 
     if(fullScreenAvailable){
       window.L.control.fullscreen({
-      maxZoom: 5,
-      zoomsliderControl: zoomSlider,
-      fullscreenControl: fullScreenAvailable ? true : false,
-      fullscreenControlOptions: {
-        position: 'topright',
-        forceSeparateButton: true
-      }
-    });
+        maxZoom: 5,
+        zoomsliderControl: zoomSlider,
+        fullscreenControl: fullScreenAvailable ? true : false,
+        fullscreenControlOptions: {
+          position: 'topright',
+          forceSeparateButton: true
+        }
+      });
+    }
 
     iiif.on('enterFullscreen', function(){
       $('.leaflet-container').css('background-color', '#000');
