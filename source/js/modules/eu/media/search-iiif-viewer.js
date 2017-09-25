@@ -165,7 +165,7 @@ define(['jquery'], function($){
       center: [0, 0],
       crs: window.L.CRS.Simple,
       zoom: 0,
-      maxZoom: 10,
+      maxZoom: 5,
       zoomsliderControl: true
     });
 
