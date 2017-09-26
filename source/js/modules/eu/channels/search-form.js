@@ -70,7 +70,7 @@ define(['jquery', 'util_resize'], function ($){
       require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
         var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
-        var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1;
+        var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1 && $('.item-search-input').length > 0;
         var selInput         = narrowMode ? '.item-search-input' : '.search-input';
         var inputName        = $(selInput).attr('name');
         var itemTemplateText = $('#js-template-autocomplete').text();
