@@ -203,7 +203,18 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     this.updateInput = function($el){
       if($el){
-        self.$input.val($el.data('term'));
+
+        if(self.ops.textMatch == true){
+          var val = $el.text().trim();
+          if(val.indexOf('(') > 0){
+            val = val.substr(0, val.indexOf('('));
+          }
+          self.$input.val(val);
+        }
+        else{
+          self.$input.val($el.data('term'));
+        }
+
         var inV = self.isElementInViewport($el);
         if(inV > 0){
           if(self.ops.scrollPolicyFixed){
@@ -221,8 +232,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.select = function(){
-
-      self.log('this.select');
 
       var sel = self.$list.find('.selected');
       if(sel.length){
@@ -330,6 +339,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       }
 
       $.each(data, function(i, item){
+        if(self.ops.extended_info == true){
+          item.extended_info = true;
+        }
         self.$list.append(Mustache.render(self.ops.itemTemplateText, item));
       });
     };
