@@ -91,6 +91,7 @@ define(['jquery', 'util_resize'], function ($){
 
         Autocomplete.init({
           evtResize: 'europeanaResize',
+          extended_info: confData.extended_info,
           fnGetTopOffset: function(el){
             if(el[0]==$(selInput)[0]){
               return $('.header-wrapper').height() + 16;
@@ -126,6 +127,7 @@ define(['jquery', 'util_resize'], function ($){
           itemTemplateText  : itemTemplateText,
           languages         : languages,
           minTermLength     : confData.min_chars ? confData.min_chars : 3,
+          textMatch         : confData.extended_info == true ? false: true,
           paramName         : 'text',
           paramAdditional   : '&language=' + languages.join(',').replace(/,$/, ''),
           scrollPolicyFixed : narrowMode,
