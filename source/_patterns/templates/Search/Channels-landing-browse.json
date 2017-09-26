@@ -64,7 +64,8 @@
     "action": "javascript:alert('submit form');",
     "autocomplete": {
       "url": "portal_autocomplete",
-      "min_chars": "0"
+      "min_chars": "0",
+      "extended_info": 1
     }
   },
   "browse_menu": {
