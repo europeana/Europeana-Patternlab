@@ -52,10 +52,12 @@ define(['jquery', 'util_resize'], function($){
     $cmp.find('.tab-content.active').add($cmp.find('.tab-header.active')).removeClass('active');
   }
 
-  function fixTabContentHeight($cmp){
+  function fixTabContentHeight($cmp, force){
     $cmp.removeAttr('style');
     if(!$cmp.hasClass('as-tabs')){
-      return;
+      if(!force){
+        return;
+      }
     }
     var pad = 45;
     var h1  = $cmp.height();
