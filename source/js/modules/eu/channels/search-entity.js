@@ -230,6 +230,16 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 );
               }
 
+              var fixMasonry = function(repeat){
+                setTimeout(function(){
+                  masonries[tabIndex].layout();
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  if(repeat){
+                    fixMasonry();
+                  }
+                }, 500);
+              };
+
               initMasonry(function(){
 
                 if(allPreloaded || (hasPreloaded && hasSpaceToFill($tabContent) < 0)){
@@ -237,10 +247,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
                   if(masonries[tabIndex]){
                     masonries[tabIndex].layout();
-                    setTimeout(function(){
-                      masonries[tabIndex].layout();
-                      euAccordionTabs.fixTabContentHeight(cmpTabs);
-                    }, 500);
+                    fixMasonry(true);
                   }
                   else{
                     euAccordionTabs.fixTabContentHeight(cmpTabs);
