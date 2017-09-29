@@ -235,6 +235,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 if(allPreloaded || (hasPreloaded && hasSpaceToFill($tabContent) < 0)){
                   header.removeClass('loading').addClass('js-loaded');
                   euAccordionTabs.fixTabContentHeight(cmpTabs);
+
+                  if(masonries[tabIndex]){
+                    masonries[tabIndex].layout();
+                  }
                 }
                 else{
                   header.addClass('loading');
