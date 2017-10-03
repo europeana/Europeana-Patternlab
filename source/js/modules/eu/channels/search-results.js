@@ -332,13 +332,16 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   };
 
   var bindDateFacetInputs = function(){
+
     var s = $('#date-range-start');
     var e = $('#date-range-end');
+
     e.attr('max', new Date().getFullYear());
     s.attr('max', new Date().getFullYear());
+
     e.on('change', function(){
-      s.attr('max', e.val());
-      if(s.val()>e.val()){
+      s.attr('max', parseInt(e.val()));
+      if( parseInt(s.val()) > parseInt(e.val())){
         s.val(e.val());
       }
     });
