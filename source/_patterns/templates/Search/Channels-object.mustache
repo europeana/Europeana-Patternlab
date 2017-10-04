@@ -455,46 +455,42 @@
 
       {{! end of object info column }}
 
-      <div class="channel-object-actions cf">
+      <div class="channel-object-actions">
 
-        <div class="collections_extra cf">
+        {{#object.next_item}}
+          <span class="next-item-title">
+            {{ i18n.site.object.next-item }}
+          </span>
+        {{/object.next_item}}
 
-          {{#object.exhibition_link}}
-            {{> organisms/virtual-exhibitions/foyer-card}}
-          {{/object.exhibition_link}}
+        <div class="slide-rail">
 
-          {{#object.gallery_link}}
-            {{> molecules/components/image-set }}
-          {{/object.gallery_link}}
+          <div class="collections-extra">
 
+            {{#object.next_item}}
+              <div class="channel-object-next collections-extra-item">
+                <div class="content-inner">
+                  <a href="{{url}}">
+                    <img src="{{img}}"/>
+                  </a>
+                </div>
+              </div>
+            {{/object.next_item}}
+
+            {{#object.exhibition_link}}
+              <div class="collections-extra-item">
+                {{> organisms/virtual-exhibitions/foyer-card}}
+              </div>
+            {{/object.exhibition_link}}
+
+            {{#object.gallery_link}}
+              <div class="collections-extra-item">
+                {{> molecules/components/image-set}}
+              </div>
+            {{/object.gallery_link}}
+
+          </div>
         </div>
-
-        <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-
-        {{#object.tags }}
-          <div class="object-tags">
-            <ul class="nav">
-              {{#items}}
-                <li><a href="{{url}}" class="tag">{{text}}</a></li>
-              {{/items}}
-            </ul>
-          </div>
-        {{/object.tags }}
-
-        {{#object.media}}
-          {{#items}}
-            {{#technical_metadata.colours}}
-              {{> molecules/controls/colour-search }}
-            {{/technical_metadata.colours}}
-          {{/items}}
-          {{> molecules/controls/colour-search-template }}
-        {{/object.media}}
-
-        {{# object.further_actions }}
-          <div class="object-furtheractions">
-            {{> molecules/controls/dropdown-menu }}
-          </div>
-        {{/ object.further_actions }}
 
       </div>
       {{! end object actions }}

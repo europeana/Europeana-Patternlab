@@ -150,7 +150,8 @@ require.config({
     ga: {
       exports: '__ga__'
     }
-  }
+  },
+  waitSeconds: 20
 });
 
 // stop the ghostery browser plugin breaking the site

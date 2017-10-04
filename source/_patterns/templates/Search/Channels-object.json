@@ -563,6 +563,12 @@
           }
         ]
       },
+
+      "next_item": {
+        "url": "javascript:alert('open next item')",
+        "img": "/images/sample/object_thumbnail.jpg"
+      },
+
       "exhibition_link": {
         "url": "javascript:alert('open this exhibition (1)')",
         "state_1_title": "Wiki Loves Art Nouveau",
@@ -589,22 +595,25 @@
           }
         }
       },
+
       "gallery_link": {
         "count": "6",
         "images":[
           {
+            "link": "javascript:alert('Open gallery 1');",
             "url": "../../images/search/search-result-thumb-1.jpg"
           },
           {
+            "link": "javascript:alert('Open gallery 2');",
             "url": "../../images/search/search-result-thumb-lincoln.jpg"
           },
           {
+            "link": "javascript:alert('Open gallery 3');",
             "url": "../../images/search/search-result-thumb-3.jpg"
           }
         ],
         "label": "Channel",
         "title": "Gallery with a fairly long title",
-        "link": "javascript:alert('Open gallery 1');",
         "info": "Gallery of American presidents"
       },
       "tags":
