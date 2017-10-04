@@ -97,28 +97,6 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
     });
 
     require(['jqImagesLoaded'], function(){
-
-      /*
-      var el, bg, index = 0, logos = $('.institution-logo');
-      var measured = {};
-
-      var bump = function(){
-        if(index < logos.length){
-          el = $(logos[index]);
-          bg = el.data('institution-logo');
-          var ms = $('<img class="img-measure" style="position:absolute; visibility:hidden;">').appendTo('body');
-          ms.imagesLoaded(function(){
-            el.css('background-image', 'url(' + bg +')');
-            el.css('width',  20 + (ms[0].naturalWidth  || 200));
-            el.css('height', 20 + (ms[0].naturalHeight || 100));
-            index++;
-            bump();
-          });
-          ms.attr('src', bg);
-        }
-      }
-      bump();
-      */
       require(['lightgallery'], function(){
         require(['lightgallery_zoom', 'lightgallery_hash'], function(){
           require(['lightgallery_fs', 'lightgallery_share'], function(){
@@ -127,13 +105,12 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
             $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
-            lightGallery(gallery[0], {
+            window.lightGallery(gallery[0], {
               selector: itemSelector
             });
 
             $('.image-info a').on('click', function(e){
-              var tgt   = $(e.target);
-              var img   = tgt.closest('.masonry-item').find('img').click();
+              $(e.target).closest('.masonry-item').find('img').click();
             });
           });
         });
@@ -149,6 +126,8 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
     require(['masonry', 'jqImagesLoaded'], function(Masonry){
 
+      $('.image-set').addClass('masonry-item');
+
       var masonry = new Masonry('.masonry-items', {
         itemSelector: '.masonry-item',
         columnWidth: '.grid-sizer',
@@ -156,14 +135,14 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
         percentPosition: true
       });
 
-      $('.masonry-items').imagesLoaded().progress( function(instance, image){
+      $('.masonry-items').imagesLoaded().progress(function(){
         masonry.layout();
       }).done( function(){
         masonry.layout();
 
         $('.image-set').each(function(i, imgSet){
           var portraits = [];
-          var imgSet    = $(imgSet);
+          imgSet        = $(imgSet);
 
           imgSet.find('img').each(function(i, img){
             if(i>0){
@@ -184,25 +163,17 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
 
     $('.tumblr-share-button').on('click', function(){
 
-      var title  = $('h2.object-title').text();
-      var canonicalUrl = $('[property="og:url"]').attr('content');
-          canonicalUrl = encodeURIComponent( canonicalUrl );
+      var title        = $('h2.object-title').text();
+      var canonicalUrl = encodeURIComponent($('[property="og:url"]').attr('content'));
+      var imageUrl     = encodeURIComponent($('[property="og:image"]').attr('content'));
+      var params       = '';
 
-      var imageUrl = $('[property="og:image"]').attr('content');
-          imageUrl = encodeURIComponent( imageUrl );
-
-      log('');
-      log('canonicalUrl = ' + canonicalUrl);
-      log('imageUrl = '     + imageUrl);
-      log('');
-
-      var params = '';
       params += '?content='      + imageUrl;
       params += '&canonicalUrl=' + canonicalUrl;
       params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
       params += '&posttype='     + 'photo';
 
-      log('widget params = ' + params);
+      // log('widget params = ' + params);
 
       window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
 

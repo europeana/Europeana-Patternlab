@@ -32,7 +32,8 @@ require.config({
 
     util_ellipsis:          '../../eu/util/ellipsis',
     util_resize:            '../../eu/util/resize',
-    util_scrollEvents:      '../../eu/util/scrollEvents'
+    util_scrollEvents:      '../../eu/util/scrollEvents',
+    ve_state_card:          '../../eu/ve-state-card'
   },
   shim: {
     featureDetect:  ['jquery'],
@@ -40,12 +41,12 @@ require.config({
     menus:          ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
-      exports: "__ga__"
+      exports: '__ga__'
     }
   }
 });
 
-require(['jquery'], function( $ ) {
+require(['jquery'], function($) {
 
   var gaCode = $('main').data('ga-code');
 
@@ -54,8 +55,8 @@ require(['jquery'], function( $ ) {
       q: [['create', gaCode, 'auto']],
       l: Date.now()
     };
-    require(["ga"], function(ga) {
-      ga("send", "pageview");
+    require(['ga'], function(ga) {
+      ga('send', 'pageview');
     });
   }
 
@@ -63,10 +64,10 @@ require(['jquery'], function( $ ) {
   var href = window.location.href;
   if(href.indexOf('europeana.eu') > -1){
     window.hj = function(){
-      (window.hj.q = window.hj.q || []).push(arguments)
+      (window.hj.q = window.hj.q || []).push(arguments);
     };
     window._hjSettings = { hjid:54631, hjsv:5};
-    require(['hotjar'], function(hj) {});
+    require(['hotjar'], function(){});
   }
 
   require(['exhibitions', 'global'], function( exhibitions ) {

@@ -1,5 +1,5 @@
-@import "../scss/generic/variables";
-@import "variables";
+@import '../scss/generic/variables';
+@import 'variables';
 
 .no-js{
   .ve-foyer-card .ve-card-nav{
@@ -36,6 +36,32 @@
       background-color: rgba($accent, .8);
     }
   }
+}
+
+.ve-state-buttons{
+  bottom:     1em;
+  position:   absolute;
+  text-align: center;
+  width:      100%;
+  z-index:    2;
+}
+
+.ve-state-button-on,
+.ve-state-button-off{
+  background-image: url('../../images/formcontrols.png');
+  background-size:  155px 19px;
+  display:          inline-block;
+  height:           19px;
+  width:            20px;
+}
+
+.ve-state-button-off{
+  background-position: -76px 0;
+}
+
+a:hover > .ve-state-button-off,
+.ve-state-button-on{
+  background-position: -96px 0;
 }
 
 .ve-chapter-selection-container{
@@ -135,7 +161,7 @@
     width:    100%;
 
     &::before{
-      content:     "";
+      content:     '';
       display:     block;
       padding-top: 100%;
     }
@@ -243,7 +269,7 @@
     }
 
     .ve-foyer-card-state.shaded::before{
-      content:  "";
+      content:  '';
       display:  block;
       height:   100%;
       left:     0;

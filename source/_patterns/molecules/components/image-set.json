@@ -1,0 +1,24 @@
+{
+  "css_files": [
+    {
+      "path":  "../../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "count": "6",
+  "images":[
+    {
+      "url": "../../images/search/search-result-thumb-1.jpg"
+    },
+    {
+      "url": "../../images/search/search-result-thumb-lincoln.jpg"
+    },
+    {
+      "url": "../../images/search/search-result-thumb-3.jpg"
+    }
+  ],
+  "label": "Channel",
+  "title": "Gallery with a fairly long title",
+  "link": "javascript:alert('Open gallery 1');",
+  "info": "Gallery of American presidents"
+}

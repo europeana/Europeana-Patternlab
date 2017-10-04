@@ -3,10 +3,16 @@
 
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
+    {{#helpbar}}
     <div class="helpbar">
-      <p class="helpbar-tip"><strong>Tip:</strong> hover over image for more options</p>
-      <p class="helpbar-video">Tutorial</p>
+      {{#tip}}
+        <p class="helpbar-tip">{{{.}}}</p>
+      {{/tip}}
+      {{#tutorial}}
+        <a class="helpbar-video" href="{{url}}">{{text}}</a>
+      {{/tutorial}}
     </div>
+    {{/helpbar}}
     {{#disabled}}
       {{#ugc_content}}
         {{#include_1418_nav}}
@@ -450,8 +456,22 @@
       {{! end of object info column }}
 
       <div class="channel-object-actions cf">
+
+        <div class="collections_extra cf">
+
+          {{#object.exhibition_link}}
+            {{> organisms/virtual-exhibitions/foyer-card}}
+          {{/object.exhibition_link}}
+
+          {{#object.gallery_link}}
+            {{> molecules/components/image-set }}
+          {{/object.gallery_link}}
+
+        </div>
+
         <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
-        {{# object.tags }}
+
+        {{#object.tags }}
           <div class="object-tags">
             <ul class="nav">
               {{#items}}
@@ -459,7 +479,7 @@
               {{/items}}
             </ul>
           </div>
-        {{/ object.tags }}
+        {{/object.tags }}
 
         {{#object.media}}
           {{#items}}

@@ -35,6 +35,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   }
 
+  function initFoyerCards(){
+    require(['ve_state_card'], function(Card){
+      $('.ve-foyer-card').each(function(){
+        new Card($(this));
+      });
+    });
+  }
+
   function initExtendedInformation(addHandler){
 
     var ei       = $('.channel-object-extended-information');
@@ -1140,7 +1148,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initExtendedInformation(true);
     loadAnnotations();
     initTitleBar();
-
+    initFoyerCards();
     bindMediaUI();
 
     initMedia(0);

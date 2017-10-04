@@ -1,16 +1,16 @@
 define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
-  var inEditor            = false;
+  var inEditor       = false;
 
-  var $firstSlide       = $('.ve-slide.first');
-  var $introE           = $('.ve-exhibition .ve-slide.first .ve-intro');
-  var $introC           = $('.ve-chapter .ve-slide.first .ve-intro');
-  var $url              = $.url();
+  var $firstSlide    = $('.ve-slide.first');
+  var $introE        = $('.ve-exhibition .ve-slide.first .ve-intro');
+  var $introC        = $('.ve-chapter .ve-slide.first .ve-intro');
+  var $url           = $.url();
 
-  var tabletOrPhone     = 'ontouchstart' in document.documentElement && window.orientation;
+  var tabletOrPhone  = 'ontouchstart' in document.documentElement && window.orientation;
 
-  var sfxScenes         = [];
-  var introDuration     = 400;
+  var sfxScenes      = [];
+  var introDuration  = 400;
 
   if($url.param('introDuration')){
     if($url.param('introDuration') == parseInt($url.param('introDuration')) + ''){
@@ -27,12 +27,12 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var scrollDuration   = 1400;
 
   if($url.param('scrollDuration')){
-      if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
-          scrollDuration = parseInt($url.param('scrollDuration'));
-      }
-      else{
-          alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
-      }
+    if($url.param('scrollDuration') == parseInt($url.param('scrollDuration')) + ''){
+      scrollDuration = parseInt($url.param('scrollDuration'));
+    }
+    else{
+      alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
+    }
   }
 
   var scrollExecuting     = false;
@@ -41,11 +41,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   var textTweenTargets    = '.ve-base-intro-texts .ve-title-group, .ve-base-intro-texts .ve-description, .ve-base-intro-texts .ve-image-credit';
   var sassVars            = {
     ve_image_column_width: '75%'
-  }
-
-  function log(msg){
-    // console.log('Virtual-Exhibitions: ' + msg);
-  }
+  };
 
   function initExhibitions(){
     var doneSfx, doneProgressState;
@@ -101,11 +97,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           $('.ve-slide.first')
             .closest('.scrollmagic-pin-spacer')
             .removeAttr('style')
-            .css(
-              {
-                'box-sizing': 'content-box',
-                'min-height': '100vh'
-              });
+            .css({
+              'box-sizing': 'content-box',
+              'min-height': '100vh'
+            });
           smCleanup();
         }
       }
@@ -126,7 +121,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           initSFX();
         }
       }
-    }
+    };
 
     $(window).europeanaResize(function(){
       if(!tabletOrPhone){
@@ -138,7 +133,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(growlMsg){
       growl(growlMsg);
     }
-  };
+  }
 
   function isDesktop(){
     return $('#desktop_detect').width()>0;
@@ -149,12 +144,12 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       require(['feedback'], function(fb){
         fb.init($('.feedback'), {
           beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-CSRF-Token", $('meta[name="csrf-token"]').attr('content'));
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
           }
         });
       });
     }
-  }
+  };
 
   function growl(msg){
 
@@ -197,15 +192,15 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initKeyCtrl(){
-    $(document).on( "keydown", function(e) {
+    $(document).on('keydown', function(e) {
 
       if(e.ctrlKey){
-        log('ctrl held');
         return;
       }
 
       if([33, 34, 37, 38, 39, 40].indexOf(e.keyCode)>-1){
-          /* pgUp, pgDn, left, up, right, down */
+
+        /* pgUp, pgDn, left, up, right, down */
 
         if(scrollExecuting){
           $(window).stop(true);
@@ -226,7 +221,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
   function showLightbox(imgUrl){
     var imgUrls = [imgUrl];
-    var imgData = [];
 
     require(['imagesloaded'], function(){
       require(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default){
@@ -234,11 +228,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         $('body').append('<div id="img-measure" style="position:absolute; visibility:hidden;">');
 
         for(var i=0; i < imgUrls.length; i++){
-         $('#img-measure').append('<img src="' + imgUrls[i]+ '">');
+          $('#img-measure').append('<img src="' + imgUrls[i]+ '">');
         }
         var imgData = [];
 
-        $('#img-measure').imagesLoaded( function($images, $proper, $broken) {
+        $('#img-measure').imagesLoaded( function($images){
           for(var i=0; i< $images.length; i++){
             var img = $( $images[i] );
             imgData.push({
@@ -251,15 +245,16 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           $('#img-measure').remove();
 
           var options  = {index: 0};
-          var hash     = gotoAnchor(true);
+
+          gotoAnchor(true);
 
           lightboxOpen = true;
           var gallery  = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, imgData, options);
 
           gallery.listen('close', function() {
-              setTimeout(function(){
-                  lightboxOpen = false;
-              }, 500);
+            setTimeout(function(){
+              lightboxOpen = false;
+            }, 500);
           });
 
           setTimeout(function(){
@@ -272,11 +267,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function initLightbox(){
-    var css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css'),
-        css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
-        min_width_pixels = 400,
-        gallery = null,
-        $poster = $('.photoswipe-wrapper > img');
+    var css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css');
+    var css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css');
 
     $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
     $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
@@ -306,7 +298,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         $(window).stop(true);
       }
       gotoAnchor();
-    }
+    };
   }
 
   function gotoAnchor(getHashOnly){
@@ -320,7 +312,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(hash){
       var $hash = $(hash);
       if($hash.size()>0){
-        if($hash.hasClass("ve-element-anchor")){
+        if($hash.hasClass('ve-element-anchor')){
           hash  = $hash.closest('.ve-slide').find('.ve-anchor').attr('id');
           $hash = $('#' + hash);
         }
@@ -345,13 +337,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       ob.removeAttr('height style width');
 
       if(ob.is('.ve-base-small, .ve-base-medium, .ve-base-large')){
-          return;
+        return;
       }
       if(ob.is('.ve-soundcloud')){
-          return;
+        return;
       }
       else{
-          ob.addClass('ve-base-medium');
+        ob.addClass('ve-base-medium');
       }
     });
   }
@@ -391,11 +383,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     var def = $.Deferred();
 
     if(!isDesktop()) {
-        def.resolve();
-        return def;
+      def.resolve();
+      return def;
     }
 
-    require(['ScrollMagic', 'TweenMax'], function(ScrollMagic){
+    require(['ScrollMagic', 'TweenMax'], function(ScrollMagic, TweenMax){
       require(['gsap'], function(){
 
         smCtrl.removeScene(sfxScenes);
@@ -430,9 +422,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             );
             sfxScenes.push(
               new ScrollMagic.Scene({
-                triggerElement:  $firstSlide,
-                triggerHook:     'onLeave',
-                duration:        isIntroE ? introDuration * 1.2 : introDuration
+                triggerElement: $firstSlide,
+                triggerHook:    'onLeave',
+                duration:       isIntroE ? introDuration * 1.2 : introDuration
               })
               .setTween(
                 TweenMax.to(
@@ -515,9 +507,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             .setPin($introE[0])
             .addTo(smCtrl)
             .on('progress', function(e){
-                var val = e.progress;
-                $introE.css('filter',         'grayScale(' + val + ')');
-                $introE.css('-webkit-filter', 'grayScale(' + val + ')');
+              var val = e.progress;
+              $introE.css('filter',         'grayScale(' + val + ')');
+              $introE.css('-webkit-filter', 'grayScale(' + val + ')');
             })
           );
 
@@ -547,7 +539,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           );
         }
         else{
-          log('first slide is not an intro!');
+          console.log('first slide is not an intro!');
         }
 
         // Pin (rich) images
@@ -596,7 +588,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   })
                   .setPin(qte[0])
                   .setTween(
-
                     TweenMax.fromTo(
                       qte[0],
                       1,
@@ -604,8 +595,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                         opacity: 0
                       },
                       {
-                          opacity: 1,
-                          ease:    Cubic.easeIn
+                        opacity: 1,
+                        ease:    Cubic.easeIn
                       }
                     )
                   )
@@ -642,10 +633,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
       $(window).scrollTo($target,
         afterResize ? scrollDuration / 2 : scrollDuration,  {
-        onAfter: function(){
-          scrollExecuting = false;
+          onAfter: function(){
+            scrollExecuting = false;
+          }
         }
-      });
+      );
     };
 
     if(afterResize || $('.ve-progress-nav a:first .ve-state-button').hasClass('ve-state-button-on')){
@@ -658,7 +650,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             easing:  'linear',
             offset:  0 - $(window).height() / 2,
             onAfter: function(){
-                finalScroll();
+              finalScroll();
             }
           }
         );
@@ -715,93 +707,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         }
       });
     }
-  };
+  }
 
   function initFoyerCards(){
-    function Card($el){
-      var self        = this;
-      self.stateIndex = 0;
-      self.cardStates = $el.find('.ve-foyer-card-state');
-      self.label      = $el.find('.ve-label');
-      self.$el        = $el;
-
-      $el.find('.ve-card-nav-left').on('click', function(){
-          self.left();
+    require(['ve_state_card'], function(Card){
+      $('.ve-foyer-card').each(function(){
+        new Card($(this));
       });
-      $el.find('.ve-card-nav-right').on('click', function(){
-          self.right();
-      });
-      this.prepNextShift();
-    };
-    Card.prototype.updateButton = function(index){
-      this.$el.find('.ve-state-button-on').removeClass('ve-state-button-on').addClass('ve-state-button-off')
-      this.$el.find('.ve-state-'  + index).removeClass('ve-state-button-off').addClass('ve-state-button-on')
-    }
-    Card.prototype.prepNextShift = function(shift){
-      var next = this.stateIndex == this.states.length -1 ? 0 : this.stateIndex + 1;
-      var prev = this.stateIndex == 0 ? this.states.length -1 : this.stateIndex - 1;
-
-      next = $(this.cardStates.get(next));
-      prev = $(this.cardStates.get(prev));
-
-      if(next.hasClass('hide-left')){
-        next.removeClass('animating hide-left').addClass('hide-right');
-      }
-      if(prev.hasClass('hide-right')){
-        prev.removeClass('animating hide-right').addClass('hide-left');
-      }
-    }
-    Card.prototype.shiftState = function(shift){
-
-      // hide the current
-      var text = $(this.cardStates.get(this.stateIndex));
-      text.addClass('animating ' + (shift > 0 ? 'hide-left' : 'hide-right'));
-
-      // show the next
-
-      var newStateIndex = this.stateIndex + shift;
-      if(newStateIndex == this.states.length){
-        newStateIndex = 0;
-      }
-      else if(newStateIndex < 0){
-        newStateIndex = this.states.length -1;
-      }
-      this.stateIndex = newStateIndex;
-      if(this.stateIndex==0){
-        this.label.show();
-      }
-      else{
-        this.label.hide();
-      }
-      var next = $(this.cardStates.get(this.stateIndex));
-
-      next.removeClass('animating');
-      if(shift > 0){
-        next.addClass('hide-right').removeClass('hide-left');
-        next.addClass('animating');
-        next.removeClass('hide-right');
-      }
-      else{
-        next.addClass('hide-left').removeClass('hide-right');
-        next.addClass('animating');
-        next.removeClass('hide-left');
-      }
-      this.prepNextShift();
-      this.updateButton(this.stateIndex);
-    }
-
-    Card.prototype.left = function(){
-      this.shiftState(-1);
-    }
-
-    Card.prototype.right = function(){
-      this.shiftState(1);
-    }
-
-    Card.prototype.states = ['title', 'description', 'credits'];
-
-    $('.ve-foyer-card').each(function(){
-      new Card($(this));
     });
   }
 
@@ -856,11 +768,10 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     var def = $.Deferred();
 
     if(!isDesktop()) {
-      log('too small for scroll-magic');
       def.resolve();
       return def;
     }
-    require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic){
+    require(['ScrollMagic', 'TweenMax', 'jqScrollto'], function(ScrollMagic, TweenMax){
       require(['gsap'], function(){
 
         smCtrl = new ScrollMagic.Controller();
@@ -870,19 +781,19 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           $('.ve-progress-nav .ve-state-button-on').removeClass('ve-state-button-on').addClass('ve-state-button-off');
 
           var active = $('.ve-progress-nav .ve-state-button').get(index);
-              active = $(active);
+
+          active = $(active);
           active.addClass('ve-state-button-on').removeClass('ve-state-button-off');
 
           if(pageInitComplete){
             if(!scrollExecuting){
-              log('pushing state...  not scrolling and pageInitComplete ');
               var anchor = active.closest('a').attr('href');
               window.history.pushState({}, '', anchor);
             }
           }
         }
 
-        $('.ve-slide-container section').each(function(i, ob) {
+        $('.ve-slide-container section').each(function(i) {
           new ScrollMagic.Scene({
             triggerElement: this,
             triggerHook:    'onCenter'
@@ -914,21 +825,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
         ).addTo(smCtrl)
         .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}))
         .on('enter', function(){
-            progNavActive = false;
-            $('.slide-nav-next:first').hide();
+          progNavActive = false;
+          $('.slide-nav-next:first').hide();
         })
         .on('leave', function(){
-            progNavActive = true;
-            $('.slide-nav-next:first').show();
+          progNavActive = true;
+          $('.slide-nav-next:first').show();
         });
 
         $('.ve-progress-nav a').on('click', function(e){
+          e.preventDefault();
 
-           e.preventDefault();
-
-           var anchor = $(this).attr('href');
-           window.history.pushState({}, '', anchor);
-           scrollToAdaptedForPin($(anchor));
+          var anchor = $(this).attr('href');
+          window.history.pushState({}, '', anchor);
+          scrollToAdaptedForPin($(anchor));
         });
 
         initKeyCtrl();
@@ -942,7 +852,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     initPage: function(){
       initExhibitions();
     }
-  }
+  };
 
 });
-
