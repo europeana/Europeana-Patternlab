@@ -1,0 +1,207 @@
+@import '../../../../../sass/scss/generic/variables';
+
+#iiif{
+  height: 36em;
+  margin: 0 auto;
+  position: relative;
+
+  .leaflet-control-zoom{
+    display: none;
+  }
+
+  &.loading{
+    cursor: progress;
+  }
+}
+
+#iiif,
+#iiif-ctrl{
+  font-size: $font-size-slightly-smaller;
+}
+
+#iiif-ctrl{
+  background: -ms-linear-gradient(
+    top, rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  background-image: -webkit-gradient(
+    linear, left top, left bottom,
+    from(rgba(0, 0, 0, 0.025)),
+    to(rgba(0, 0, 0, 0.75))
+  );
+  background-image: -moz-linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.7) 95%
+  );
+  bottom: 4em;
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr='#00000000',
+    endColorstr='#a6000000',
+    GradientType=0
+  );
+  height: 4em;
+  margin: auto;
+  margin-bottom: -3em;
+  padding-top: 1em;
+  position: relative;
+  text-align: center;
+  z-index: 400;  // determined by .leaflet-pane in leaflet.scss
+
+  .iiif-ctrl-group{
+    margin: auto;
+    max-width: 40em;
+  }
+
+  a{
+    color: #fff;
+    text-align: center;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  a,
+  a[disabled="disabled"]:hover{
+    text-decoration: none;
+  }
+
+  .first[disabled='disabled'],
+  .prev[disabled='disabled'],
+  .last[disabled='disabled'],
+  .next[disabled='disabled']{
+    color: transparent;
+    opacity: 0.4;
+    text-decoration: none;
+  }
+
+  a,
+  .jump-to-img,
+  .total-images{
+    max-width: 5%;
+    width: 5%;
+  }
+
+  .next,
+  .last{
+    padding-right: 0.5em;
+    text-align: right;
+  }
+
+  .prev {
+    padding-right: 0.5em;
+  }
+
+  .first,
+  .prev,
+  .last,
+  .next {
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    color: transparent;
+    opacity: 0.8;
+    position: relative;
+    top: 2px;
+  }
+
+  .first:hover,
+  .prev:hover,
+  .last:hover,
+  .next:hover {
+    opacity: 1;
+  }
+
+  .first {
+    background-image: url('icon-first.svg');
+  }
+
+  .prev {
+    background-image: url('icon-previous.svg');
+  }
+
+  .next {
+    background-image: url('icon-next.svg');
+  }
+
+  .last {
+    background-image: url('icon-last.svg');
+  }
+
+  a[disabled='disabled']{
+    color:  #aaa;
+    cursor: not-allowed;
+  }
+
+  .jump-to-img{
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: padding-box;
+    color: #fff;
+    margin: none;
+    padding: 1px;
+    text-align: right;
+  }
+
+  .jump-to-img:hover:enabled{
+    background-color: #fff;
+    color: $medium-gray;
+  }
+
+  .total-images{
+    text-align: left;
+  }
+
+  .total-images,
+  .title{
+    color: #fff;
+  }
+
+  .title{
+    display: none;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 0.5em;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.transcriptions{
+  font-size:  $font-size-slightly-smaller;
+  max-height: 36em;
+  overflow:   auto;
+  width:      35%;
+
+  &.hidden{
+    display: none;
+  }
+
+  p{
+    margin:  1em;
+    padding: 1em;
+
+    &.highlight{
+      background-color: #d2e9f7;
+      border-color:     #1da2f5;
+      border-radius:    5px;
+      border-style:     solid;
+      border-width:     1px;
+    }
+  }
+
+  word.highlight{
+    font-weight: bold;
+  }
+}
+
+#iiif-with-ctrls{
+  width: 64%;
+}
+
+#iiif-with-ctrls,
+.transcriptions{
+  float: left;
+}
+

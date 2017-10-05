@@ -3,6 +3,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   ga = window.fixGA(ga);
   var channelData        = null;
   var mediaThumbCarousel = null;
+  var suggestions        = null;
+  var collectionsExtra   = null;
 
   function log(msg){
     console.log('channels-object: ' + msg);
@@ -31,6 +33,14 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           $('.title-bar').removeClass('show');
         }
 
+      });
+    });
+  }
+
+  function initFoyerCards(){
+    require(['ve_state_card'], function(Card){
+      $('.ve-foyer-card').each(function(){
+        new Card($(this));
       });
     });
   }
@@ -462,7 +472,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         imagePath.pop();
         imagePath.pop();
         imagePath.pop();
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/map/css';
+        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
 
         map.addLayer(new L.TileLayer(osmUrl, {
           minZoom : 4,
@@ -482,7 +492,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
         $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
+        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
+        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+
       });
     };
 
@@ -525,8 +537,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function updateSwipeables(cmp){
-    if(typeof cmp.updateSwipe == 'function'){
-      cmp.updateSwipe();
+    if(typeof cmp != 'undefined'){
+      if(typeof cmp.updateSwipe == 'function'){
+        cmp.updateSwipe();
+      }
       cmp.find('.slide-rail').css('width', cmp.parents('.slide-rail').last().parent().width());
     }
   }
@@ -623,17 +637,49 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   }
 
+  function initCollectionsExtra(){
+
+    collectionsExtra = $('.collections-extra');
+
+    collectionsExtra.updateSwipe = function(){
+      var totalW = (collectionsExtra.children().length - 1) * 32;
+      collectionsExtra.children().each(function(){
+        totalW += $(this).outerWidth(true);
+      });
+      collectionsExtra.css('width', totalW + 'px');
+    };
+
+    makeSwipeable(collectionsExtra);
+
+    var imageSet = collectionsExtra.find('.image-set');
+
+    if(imageSet.length > 0){
+
+      require(['jqImagesLoaded'], function(){
+
+        imageSet.imagesLoaded(function(){
+
+          var portraits = [];
+
+          collectionsExtra.find('img').each(function(i, img){
+            if(i>0){
+              portraits.push(img.naturalHeight > img.naturalWidth);
+            }
+          });
+
+          if(portraits[0] && !portraits[1]){
+            imageSet.addClass('layout-portrait');
+          }
+        });
+      });
+    }
+  }
+
   function initSuggestions(){
 
-    var suggestions   = $('.eu-accordion-tabs');
+    suggestions = $('.eu-accordion-tabs');
 
     suggestions.css('width', '5000px');
-
-    $(window).europeanaResize(function(){
-      $('.slide-rail').css('left', 0);
-      $('.js-swipeable').css('left', 0);
-      updateSwipeables(suggestions);
-    });
 
     var initUI = function(Mustache){
 
@@ -724,40 +770,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
             $('.show-more-mlt').find('.number').html(fmttd);
             $('.show-more-mlt').removeAttr('style');
-          }
-        }
-        else if(el.hasClass('media-thumbs')){
-          var addToDom = [];
-          var template = $('.colour-navigation.js-template');
-
-          $.each(data, function(i, item){
-
-            var newEntry = template.clone();
-
-            addToDom.push(newEntry);
-
-            newEntry.removeClass('js-template');
-            newEntry.removeAttr('style');
-            newEntry.attr('data-thumbnail', item.thumbnail);
-
-            var tm = item.technical_metadata;
-
-            if(tm && tm.colours && tm.colours.present){
-
-              $.each(tm.colours.items, function(i, item){
-                var itemTemplate = newEntry.find('li.js-template');
-                var newItem = itemTemplate.clone();
-
-                itemTemplate.before(newItem);
-                newItem.removeAttr('style');
-                newItem.removeClass('js-template');
-                newItem.find('a').css('background-color', item.hex);
-                newItem.find('a').attr('href', item.url);
-              });
-            }
-          });
-          if(addToDom.length > 0){
-            template.before(addToDom);
           }
         }
       };
@@ -889,58 +901,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
 
   /*
-  var setBreadcrumbs = function(){
-
-    var url = window.location.href.split('.html')[0] + '/navigation.json';
-    if(url.indexOf('/patterns/')>-1){
-      return;
-    }
-
-    $.ajax({
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('X-CSRF-Token', $('meta[name='csrf-token']').attr('content'));
-      },
-      url:   url,
-      type:  'GET',
-      contentType: 'application/json; charset=utf-8',
-      success: function(data) {
-        if(data.back_url){
-          var crumb = $('.breadcrumbs li.js-return');
-          var link  = crumb.find('a');
-          link.attr('href', data.back_url);
-          crumb.removeClass('js-return');
-          channelCheck();
-        }
-        if(data.next_prev){
-          if(data.next_prev.next_url){
-            var crumb = $('.object-nav-lists li.js-next');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.next_url);
-            crumb.removeClass('js-next');
-            $(data.next_prev.next_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-          if(data.next_prev.prev_url){
-            var crumb = $('.object-nav-lists li.js-previous');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.prev_url);
-            crumb.removeClass('js-previous');
-
-            $(data.next_prev.prev_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-        }
-        Blacklight.activate();
-      },
-      error: function(msg){
-        log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
-      }
-    });
-  }
-  */
-
   var getAnalyticsData = function(){
 
     var gaData           = channelData ? channelData : channelCheck();
@@ -978,6 +938,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
     return dimensions.concat(gaData);
   };
+  */
 
   var bindAnalyticsEventsSocial = function(){
     $('.object-social .social-share a').on('click', function(){
@@ -1019,23 +980,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       log('GA: Redirect, Action = ' + href);
     });
 
-    // Downloads
-    /*
-    $('.download-button').on('click', function(){
-      if(!$(this).hasClass('ga-sent')){
-        var href =  $(this).attr('href');
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'Download',
-          eventAction: href,
-          eventLabel: 'Media Download'
-        });
-        $(this).addClass('ga-sent');
-        log('GA: Download, Action = ' + href);
-      }
-    });
-    */
-
     // Media View
     $('.media-thumbs, .single-item-thumb').on('click', 'a.playable', function(){
       var href =  $(this).data('uri');
@@ -1061,6 +1005,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   };
 
+  /*
   function bindAttributionToggle(){
     $('.attribution-fmt').on('click', function(e){
       e.preventDefault();
@@ -1073,6 +1018,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       btn.addClass('is-active');
     });
   }
+  */
 
   /*
   function bindDownloadButton(){
@@ -1106,7 +1052,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   function initPage(searchForm){
     bindAnalyticsEvents();
     bindAnalyticsEventsSocial();
-    bindAttributionToggle();
+    // bindAttributionToggle();
 
     searchForm.bindShowInlineSearch();
 
@@ -1138,26 +1084,25 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initExtendedInformation(true);
     loadAnnotations();
     initTitleBar();
-
+    initFoyerCards();
     bindMediaUI();
 
     initMedia(0);
 
     initActionBar();
+    initCollectionsExtra();
     initSuggestions();
 
-    /*
-    $('.media-viewer').trigger('media_init');
-
-    $('.single-item-thumb [data-type="oembed"]').trigger('click');
-    $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
-
-    $('.single-item-thumb [data-type="iiif"]').trigger('click');
-    $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
-    */
+    $(window).europeanaResize(function(){
+      $('.slide-rail').css('left', 0);
+      $('.js-swipeable').css('left', 0);
+      updateSwipeables(suggestions);
+      updateSwipeables(collectionsExtra);
+    });
 
     scrollEvents.fireAllVisible();
 
+    /*
     $('.tumblr-share-button').on('click', function(){
 
       var title        = $('h2.object-title').text();
@@ -1184,15 +1129,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       return false;
     });
+    */
   }
 
   return {
     initPage: function(searchForm){
       initPage(searchForm);
     },
-    getAnalyticsData: function(){
-      return getAnalyticsData();
-    },
+    //getAnalyticsData: function(){
+    //  return getAnalyticsData();
+    //},
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
       var media = $('.single-item-thumb .external-media.playable').attr('href')

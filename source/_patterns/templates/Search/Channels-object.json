@@ -60,7 +60,15 @@
   "channel_object": true,
   "content":
   {
-    "ugc_content":{
+    "helpbar": {
+      "tip":      "<strong>Tip:</strong> hover over image for more options",
+      "tutorial": {
+        "text": "tutorial",
+        "url":  "javascript:alert('tutorial link')"
+      }
+    },
+
+    "XXXXugc_content":{
       "include_1418_nav": true,
       "base_1418_url": "http://test.1418.eanadev.org"
     },
@@ -556,6 +564,59 @@
         ]
       },
 
+      "next_item": {
+        "url": "javascript:alert('open next item')",
+        "img": "/images/sample/object_thumbnail.jpg"
+      },
+
+      "exhibition_link": {
+        "url": "javascript:alert('open this exhibition (1)')",
+        "state_1_title": "Wiki Loves Art Nouveau",
+        "state_2_body": "<p>Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces</p>",
+        "state_3_logo": {
+          "thumbnail": {
+            "url": "../../images/europeana-logo-collections.svg"
+          }
+        },
+        "state_1_label": false,
+        "state_1_image": {
+          "thumbnail": {
+            "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+          }
+        },
+        "state_2_image": {
+          "thumbnail": {
+            "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+          }
+        },
+        "state_3_image": {
+          "thumbnail":{
+            "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+          }
+        }
+      },
+
+      "gallery_link": {
+        "count": "6",
+        "images":[
+          {
+            "link": "javascript:alert('Open gallery 1');",
+            "url": "../../images/search/search-result-thumb-1.jpg"
+          },
+          {
+            "link": "javascript:alert('Open gallery 2');",
+            "url": "../../images/search/search-result-thumb-lincoln.jpg"
+          },
+          {
+            "link": "javascript:alert('Open gallery 3');",
+            "url": "../../images/search/search-result-thumb-3.jpg"
+          }
+        ],
+        "label": "Channel",
+        "link": "javascript:alert('Open gallery 1');",
+        "title": "Gallery with a fairly long title",
+        "info": "Gallery of American presidents"
+      },
       "tags":
       {
         "items":

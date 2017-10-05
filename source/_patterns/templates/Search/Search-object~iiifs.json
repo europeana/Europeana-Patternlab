@@ -384,7 +384,7 @@
           "title": "Girl with the pearl earring",
           "img": {
               "alt": "Girl with the pearl earring",
-              "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+              "src": "/images/sample/object_thumbnail.jpg"
            }
 
         },
@@ -417,7 +417,7 @@
           "title": "Girl with the pearl earring",
           "img": {
               "alt": "Girl with the pearl earring",
-              "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+              "src": "/images/sample/object_thumbnail.jpg"
            }
 
         }

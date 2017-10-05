@@ -29,17 +29,16 @@ define(['jquery'], function($){
   */
 
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/map/css/application-map-all.css') + '" type="text/css"/>');
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/iiif/iiif.css')           + '" type="text/css"/>');
-
   var iiif;
-  var currentImg = 0;
+  var currentImg        = 0;
+  var Leaflet           = null;
+  var selectedRegion    = null;
   var totalImages;
   var transcriptionUrls = [];
-  var selSections  = [];
-  var labelledData = {}; // JSON (entire manifest): data.label: data
-  var iiifLayers   = {}; // Map layers (loaded): label: layer
-  var allCanvases  = [];
+  var selSections       = [];
+  var labelledData      = {}; // JSON (entire manifest): data.label: data
+  var iiifLayers        = {}; // Map layers (loaded): label: layer
+  var allCanvases       = [];
 
   function log(msg) {
     console.log(msg);
@@ -50,16 +49,17 @@ define(['jquery'], function($){
    *
    * Called on init and after navigation operations
    * */
-
   var load = function(centreIndexIn, singleImageInfo){
 
     if(singleImageInfo){
 
-      var layer = window.L.tileLayer.iiif(singleImageInfo);
+      var layer = Leaflet.tileLayer.iiif(singleImageInfo);
+
       iiifLayers['single'] = layer;
       layer.addTo(iiif);
       return;
     }
+
     var noToLoad    = 5;
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
@@ -67,6 +67,7 @@ define(['jquery'], function($){
     var done = false;
 
     while(!done){
+
       if(noLoaded == noToLoad){
         done = true;
       }
@@ -75,10 +76,12 @@ define(['jquery'], function($){
       }
       else{
         var data = allCanvases[index];
-
         if(! iiifLayers[index + ''] ){
-          iiifLayers[index + ''] = window.L.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+
+          var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+          iiifLayers[index + ''] = iiifLayer;
           noLoaded += 1;
+          loadFeatures();
         }
         index += 1;
       }
@@ -157,24 +160,28 @@ define(['jquery'], function($){
     updateCtrls();
   };
 
-  var initUI = function(fullScreenAvailable){
+  var initUI = function(fullScreenAvailable, zoomSlider){
 
     $('#iiif').addClass('loading');
 
-    iiif = window.L.map('iiif', {
+    iiif = Leaflet.map('iiif', {
       center: [0, 0],
-      crs: window.L.CRS.Simple,
+      crs: Leaflet.CRS.Simple,
       zoom: 0,
-      maxZoom: 10,
+      maxZoom: 5,
       zoomsliderControl: true
     });
 
     if(fullScreenAvailable){
       window.L.control.fullscreen({
-        position: 'topright',
-        forceSeparateButton: true,
-        forcePseudoFullscreen: false
-      }).addTo(iiif);
+        maxZoom: 5,
+        zoomsliderControl: zoomSlider,
+        fullscreenControl: fullScreenAvailable ? true : false,
+        fullscreenControlOptions: {
+          position: 'topright',
+          forceSeparateButton: true
+        }
+      });
     }
 
     iiif.on('enterFullscreen', function(){
@@ -245,9 +252,9 @@ define(['jquery'], function($){
     $('#iiif-ctrl .total-images').html('/ ' + totalImages);
   };
 
-  function initViewer(manifestUrl, $thumbnail, fullScreenAvailable) {
+  function initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider) {
 
-    initUI(fullScreenAvailable);
+    initUI(fullScreenAvailable, zoomSlider);
 
     if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
       setTotalImages(1);
@@ -290,27 +297,41 @@ define(['jquery'], function($){
     }
   }
 
+
   function setTranscriptionUrls(urls){
     transcriptionUrls = urls;
   }
 
+  function loadFeatures() {
+    // disbaled for now
+    /*
+    var geoJsonUrl = transcriptionUrls[currentImg] + '&fmt=geoJSON';
+    $.getJSON(geoJsonUrl).done(function(itemJSON){
+      L.geoJson(itemJSON).addTo(iiif);
+    });
+    */
+  }
+
   function addRectangle(pointList){
 
-    // remove previous rectangles - upgrade to leaflet 1.0 to be able to use rect.delete
-    $('.leaflet-overlay-pane g').remove();
+    if(selectedRegion){
+      selectedRegion.remove();
+    }
 
     if(!pointList){
       return;
     }
 
-    var rect = new window.L.Rectangle(pointList, {
+    selectedRegion = new Leaflet.Rectangle(pointList, {
       color:       '#1DA2F5',
       weight:       1,
       opacity:      0.5,
       smoothFactor: 1
     });
-    rect.addTo(iiif);
-  };
+    selectedRegion.addTo(iiif);
+    log('added rect at ' + JSON.stringify(pointList));
+    //selectedRegion.addTo(iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + '']);
+  }
 
   function getParagraphPointList($p){
 
@@ -318,10 +339,9 @@ define(['jquery'], function($){
     var y = parseInt($p.data('y'));
     var w = parseInt($p.data('w'));
     var h = parseInt($p.data('h'));
-    var l = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
+    // var l = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
 
-    var lData   = l.getData();
-    var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
+    var divider = 32;
 
     return [
       [0 - (y / divider), x / divider],
@@ -329,7 +349,7 @@ define(['jquery'], function($){
       [0 - (y + h) / divider, x / divider],
       [0 - (y + h) / divider, (x + w) / divider]
     ];
-  };
+  }
 
   function transcriptionClick($p, scrollNotZoom){
     selSections[currentImg + ''] = $p.attr('id');
@@ -352,14 +372,13 @@ define(['jquery'], function($){
   function initTranscription(){
 
     $(document).on('click', '.transcriptions p', function(){
-      transcriptionClick($(this))
+      transcriptionClick($(this));
     });
 
     iiif.on('click', function(e) {
 
-      var l       = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
-      var lData   = l.getData();
-      var divider = lData.tiles[0].scaleFactors[lData.tiles[0].scaleFactors.length-1];
+      //var l       = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
+      var divider = 32;
       var point   = iiif.options.crs.latLngToPoint(e.latlng, 0);
       var x       = point.x * divider;
       var y       = point.y * divider;
@@ -411,9 +430,28 @@ define(['jquery'], function($){
   }
 
   return {
-    init: function(manifestUrl, $thumbnail, fullScreenAvailable) {
-      require(['leaflet_iiif'], function(){
-        initViewer(manifestUrl, $thumbnail, fullScreenAvailable);
+    init: function(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider) {
+
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
+
+      require(['leaflet'], function(LeafletIn) {
+
+        Leaflet = LeafletIn;
+
+        var requirements = ['leaflet_iiif'];
+
+        if(fullScreenAvailable){
+          requirements.push('leaflet_fullscreen');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/fullscreen/leaflet.fullscreen.css') + '" type="text/css"/>');
+        }
+        if(zoomSlider){
+          requirements.push('leaflet_zoom_slider');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+        }
+        require(requirements, function() {
+          initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider);
+        });
       });
     },
     setTranscriptionUrls: function(urls){

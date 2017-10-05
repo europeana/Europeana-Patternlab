@@ -25,37 +25,6 @@ module.exports = function(grunt) {
             // 'source/js/modules/lib/blacklight/collapsable.js',
           ]
         }
-      },
-      map:{
-        options: {
-          separator: ';\n'
-        },
-        files: {
-          'source/js/modules/lib/map/application-map-all.js': [
-            'source/js/modules/lib/map/leaflet-0.7.3/leaflet.js',
-            'source/js/modules/lib/map/Leaflet-Pan/L.Control.Pan.js',
-            'source/js/modules/lib/map/Leaflet.markercluster-master/dist/leaflet.markercluster.js',
-            'source/js/modules/lib/map/leaflet.fullscreen-master/Control.FullScreen.js',
-            'source/js/modules/lib/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.js'
-          ]
-        }
-      },
-      map_css:{
-        options: {
-          separator: '\n'
-        },
-        files: {
-          'source/js/modules/lib/map/css/application-map-all.css': [
-            'source/js/modules/lib/map/leaflet-0.7.3/leaflet.css',
-            // 'source/js/modules/map/leaflet.ie.css',
-            'source/js/modules/lib/map/Leaflet-MiniMap-master/src/Control.MiniMap.css',
-            'source/js/modules/lib/map/leaflet.fullscreen-master/Control.FullScreen.css',
-            'source/js/modules/lib/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.css',
-            'source/js/modules/lib/map/Leaflet.markercluster-master/dist/MarkerCluster.Default.ie.css',
-            'source/js/modules/lib/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.css',
-            'source/js/modules/lib/map/Leaflet.zoomslider-0.6.1/src/L.Control.Zoomslider.ie.css'
-          ]
-        }
       }
     },
     copy: {
@@ -86,38 +55,6 @@ module.exports = function(grunt) {
         dest:   'source/js/modules/global',
         flatten: true,
         expand:  true
-      },
-      map_img_all: {
-        files:[
-          {
-            'src' : '**.png',
-            'cwd' : 'source/js/modules/lib/map/leaflet-0.7.3/images/',
-            'dest' : 'source/js/modules/lib/map/css/',
-            flatten: true,
-            expand: true
-          },
-          {
-            'src' : '**.svg',
-            'cwd' : 'source/js/modules/lib/map/leaflet-0.7.3/images/',
-            'dest' : 'source/js/modules/lib/map/css/',
-            flatten: true,
-            expand: true
-          },
-          {
-            'src' : '**.png',
-            'cwd' : 'source/js/modules/lib/map/leaflet.fullscreen-master/',
-            'dest' : 'source/js/modules/lib/map/css/',
-            flatten: true,
-            expand: true
-          },
-          {
-            'src' : '**.svg',
-            'cwd' : 'source/js/modules/lib/map/leaflet.fullscreen-master/',
-            'dest' : 'source/js/modules/lib/map/css/',
-            flatten: true,
-            expand: true
-          }
-        ]
       },
       production_js_assets: {
         cwd: 'source/js/modules',
@@ -170,14 +107,9 @@ module.exports = function(grunt) {
     watch: {
       // trigger compass to compile the sass
       compass: {
-        files: ['source/**/*.{scss,sass}', '!source/js/dist/**'],
+        files: ['source/**/*.{scss,sass}'],
         tasks: ['compass:js_components', 'compass:dev', 'copy:dev_css', 'shell:patternlab_full']
       },
-      // Move the JavaScript to dist using the default grunt task
-      //scripts: {
-      //  files: ['source/js/**/*.js', '!**/dist/**'],
-      //  tasks: ['default']
-      //},
       // Fire the patternlab markup build process
       patternlab_markup: {
         files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json'],
@@ -185,7 +117,7 @@ module.exports = function(grunt) {
       },
       // Fire the patternlab build process
       patternlab_full: {
-        files: ['source/js/**/*.js', 'source/images/**/*.{jpg,jpeg,png,gif}'],
+        files: ['source/js/**/*.js', 'source/images/**/*.{jpg,jpeg,png,gif,svg}'],
         tasks: ['shell:patternlab_full']
       },
       //reload the browser
@@ -408,10 +340,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'concat:blacklight',
-    'concat:map',
-    'concat:map_css',
     'copy:dev_css',
-    'copy:global_dependencies',
-    'copy:map_img_all'
+    'copy:global_dependencies'
   ]);
 }

@@ -194,6 +194,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     require(['eu_accordion_tabs'], function(euAccordionTabs){
 
       accordionTabs = euAccordionTabs;
+      euAccordionTabs.fixTabContentHeight(cmpTabs, true);
 
       euAccordionTabs.init(
         cmpTabs,
@@ -214,8 +215,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               var allPreloaded = false;
               template         = $('#js-template-entity-tab-content');
 
-              header.addClass('loading');
-
               if(hasPreloaded){
                 var items = $tabContent.find('.results .item-image');
                 items.each(function(i, ob){
@@ -231,14 +230,31 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 );
               }
 
+              var fixMasonry = function(repeat){
+                setTimeout(function(){
+                  masonries[tabIndex].layout();
+                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  if(repeat){
+                    fixMasonry();
+                  }
+                }, 500);
+              };
+
               initMasonry(function(){
 
-                if(allPreloaded){
+                if(allPreloaded || (hasPreloaded && hasSpaceToFill($tabContent) < 0)){
                   header.removeClass('loading').addClass('js-loaded');
-                  euAccordionTabs.fixTabContentHeight(cmpTabs);
+
+                  if(masonries[tabIndex]){
+                    masonries[tabIndex].layout();
+                    fixMasonry(true);
+                  }
+                  else{
+                    euAccordionTabs.fixTabContentHeight(cmpTabs);
+                  }
                 }
                 else{
-
+                  header.addClass('loading');
                   loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
                     if(typeof res.total == 'undefined'){
                       console.warn('Expected @total');
