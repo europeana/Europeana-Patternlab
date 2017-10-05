@@ -1,0 +1,155 @@
+<style>
+
+  .outer-container{
+    background-color: #e1e1e1;
+    margin:           auto;
+    max-width:        400px;
+    overflow:         hidden;
+    position:         relative;
+  }
+
+  .color{
+    color:       #fff;
+    font-weight: bold;
+  }
+  .color .label{
+    padding:  0.25em 1em;
+  }
+  .color .label .sub{
+    display:     inline-block;
+    font-size:   0.6em;
+    font-weight: normal;
+    padding:     0 3em;
+  }
+
+  .color.yellow{
+    color: green;
+  }
+
+  .slide-rail,
+  .color{
+    position:    relative;
+  }
+
+  .dsg{
+    width: 650px;
+  }
+  .yellow{
+    width: 700px;
+  }
+  .gold{
+    width: 750px;
+  }
+  .orange{
+    width: 800px;
+  }
+  .red{
+    width: 850px;
+  }
+  .crimson{
+    width: 900px;
+  }
+  .purple{
+    width: 950px;
+  }
+  .pvr{
+    width: 1000px;
+  }
+
+  .dsg{
+    background-color: darkseagreen;
+  }
+  .yellow{
+    background-color: yellow;
+  }
+  .red{
+    background-color: red;
+  }
+  .gold{
+    background-color: gold;
+  }
+  .orange{
+    background-color: orange;
+  }
+  .crimson{
+    background-color: crimson;
+  }
+  .purple{
+    background-color: mediumvioletred;
+  }
+  .pvr{
+    background-color: palevioletred;
+  }
+
+</style>
+
+<h3>EU Slide Example</h3>
+
+<p>Drag the element to see it in action.</p>
+
+<div class="outer-container">
+  <div class="slide-rail">
+    <div class="color dsg">
+      <div class="label">
+        Sea Green<span class="sub">sea green</span> <span class="sub">sea green</span> <span class="sub">sea green</span>
+      </div>
+      <div class="slide-rail">
+        <div class="color yellow">
+          <div class="label">
+            Yellow <span class="sub">yellow</span> <span class="sub">yellow</span> <span class="sub">yellow</span>
+          </div>
+          <div class="slide-rail">
+            <div class="color gold">
+              <div class="label">
+                Gold <span class="sub">gold</span> <span class="sub">gold</span> <span class="sub">gold</span>
+              </div>
+              <div class="slide-rail">
+                <div class="color orange">
+                  <div class="label">
+                    Orange <span class="sub">orange</span> <span class="sub">orange</span> <span class="sub">orange</span>
+                  </div>
+                  <div class="slide-rail">
+                    <div class="color red">
+                      <div class="label">
+                        Red <span class="sub">red</span> <span class="sub">red</span> <span class="sub">red</span>
+                      </div>
+                      <div class="slide-rail">
+                        <div class="color crimson">
+                          <div class="label">
+                            Crimson <span class="sub">crimson</span> <span class="sub">crimson</span> <span class="sub">crimson</span>
+                          </div>
+                          <div class="slide-rail">
+                            <div class="color purple">
+                              <div class="label">
+                                Purple <span class="sub">purple</span> <span class="sub">purple</span> <span class="sub">purple</span>
+                              </div>
+                              <div class="slide-rail">
+                                <div class="color pvr">
+                                  <div class="label">
+                                    Violet Red<span class="sub">violet red</span> <span class="sub">violet red</span> <span class="sub">violet red</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+The above example calls "makeSwipeable" on each of the .color elements.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

@@ -613,6 +613,7 @@
           }
         ],
         "label": "Channel",
+        "link": "javascript:alert('Open gallery 1');",
         "title": "Gallery with a fairly long title",
         "info": "Gallery of American presidents"
       },

@@ -3,6 +3,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   ga = window.fixGA(ga);
   var channelData        = null;
   var mediaThumbCarousel = null;
+  var suggestions        = null;
+  var collectionsExtra   = null;
 
   function log(msg){
     console.log('channels-object: ' + msg);
@@ -535,8 +537,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function updateSwipeables(cmp){
-    if(typeof cmp.updateSwipe == 'function'){
-      cmp.updateSwipe();
+    if(typeof cmp != 'undefined'){
+      if(typeof cmp.updateSwipe == 'function'){
+        cmp.updateSwipe();
+      }
       cmp.find('.slide-rail').css('width', cmp.parents('.slide-rail').last().parent().width());
     }
   }
@@ -635,10 +639,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function initCollectionsExtra(){
 
-    var collectionsExtra = $('.collections-extra');
+    collectionsExtra = $('.collections-extra');
 
     collectionsExtra.updateSwipe = function(){
-
       var totalW = (collectionsExtra.children().length - 1) * 32;
       collectionsExtra.children().each(function(){
         totalW += $(this).outerWidth(true);
@@ -674,15 +677,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
   function initSuggestions(){
 
-    var suggestions   = $('.eu-accordion-tabs');
+    suggestions = $('.eu-accordion-tabs');
 
     suggestions.css('width', '5000px');
-
-    $(window).europeanaResize(function(){
-      $('.slide-rail').css('left', 0);
-      $('.js-swipeable').css('left', 0);
-      updateSwipeables(suggestions);
-    });
 
     var initUI = function(Mustache){
 
@@ -904,58 +901,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
 
   /*
-  var setBreadcrumbs = function(){
-
-    var url = window.location.href.split('.html')[0] + '/navigation.json';
-    if(url.indexOf('/patterns/')>-1){
-      return;
-    }
-
-    $.ajax({
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('X-CSRF-Token', $('meta[name='csrf-token']').attr('content'));
-      },
-      url:   url,
-      type:  'GET',
-      contentType: 'application/json; charset=utf-8',
-      success: function(data) {
-        if(data.back_url){
-          var crumb = $('.breadcrumbs li.js-return');
-          var link  = crumb.find('a');
-          link.attr('href', data.back_url);
-          crumb.removeClass('js-return');
-          channelCheck();
-        }
-        if(data.next_prev){
-          if(data.next_prev.next_url){
-            var crumb = $('.object-nav-lists li.js-next');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.next_url);
-            crumb.removeClass('js-next');
-            $(data.next_prev.next_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-          if(data.next_prev.prev_url){
-            var crumb = $('.object-nav-lists li.js-previous');
-            var link  = crumb.find('a');
-            link.attr('href', data.next_prev.prev_url);
-            crumb.removeClass('js-previous');
-
-            $(data.next_prev.prev_link_attrs).each(function(i, ob){
-              link.attr(ob.name, ob.value);
-            });
-          }
-        }
-        Blacklight.activate();
-      },
-      error: function(msg){
-        log('failed to load breadcrumbs (' + JSON.stringify(msg) + ') from url: ' + url);
-      }
-    });
-  }
-  */
-
   var getAnalyticsData = function(){
 
     var gaData           = channelData ? channelData : channelCheck();
@@ -993,6 +938,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
     return dimensions.concat(gaData);
   };
+  */
 
   var bindAnalyticsEventsSocial = function(){
     $('.object-social .social-share a').on('click', function(){
@@ -1059,6 +1005,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   };
 
+  /*
   function bindAttributionToggle(){
     $('.attribution-fmt').on('click', function(e){
       e.preventDefault();
@@ -1071,6 +1018,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       btn.addClass('is-active');
     });
   }
+  */
 
   /*
   function bindDownloadButton(){
@@ -1104,7 +1052,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   function initPage(searchForm){
     bindAnalyticsEvents();
     bindAnalyticsEventsSocial();
-    bindAttributionToggle();
+    // bindAttributionToggle();
 
     searchForm.bindShowInlineSearch();
 
@@ -1145,18 +1093,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     initCollectionsExtra();
     initSuggestions();
 
-    /*
-    $('.media-viewer').trigger('media_init');
-
-    $('.single-item-thumb [data-type="oembed"]').trigger('click');
-    $('.multi-item .js-carousel-item:first-child a[data-type="oembed"]').first().trigger('click');
-
-    $('.single-item-thumb [data-type="iiif"]').trigger('click');
-    $('.multi-item .js-carousel-item:first-child a[data-type="iiif"]').first().trigger('click');
-    */
+    $(window).europeanaResize(function(){
+      $('.slide-rail').css('left', 0);
+      $('.js-swipeable').css('left', 0);
+      updateSwipeables(suggestions);
+      updateSwipeables(collectionsExtra);
+    });
 
     scrollEvents.fireAllVisible();
 
+    /*
     $('.tumblr-share-button').on('click', function(){
 
       var title        = $('h2.object-title').text();
@@ -1183,15 +1129,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
 
       return false;
     });
+    */
   }
 
   return {
     initPage: function(searchForm){
       initPage(searchForm);
     },
-    getAnalyticsData: function(){
-      return getAnalyticsData();
-    },
+    //getAnalyticsData: function(){
+    //  return getAnalyticsData();
+    //},
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
       var media = $('.single-item-thumb .external-media.playable').attr('href')
