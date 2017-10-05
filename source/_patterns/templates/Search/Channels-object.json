@@ -566,7 +566,10 @@
 
       "next_item": {
         "url": "javascript:alert('open next item')",
-        "img": "/images/sample/object_thumbnail.jpg"
+        "img": "/images/sample/object_thumbnail.jpg",
+        "title": "Het melkmeisje and Hollandse meesters (but where are the meesters?)",
+        "excerpt": false,
+        "relation": "Feautues Johann Vermeer"
       },
 
       "exhibition_link": {
@@ -593,11 +596,16 @@
           "thumbnail":{
             "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
-        }
+        },
+
+
+        "excerpt": false,
+        "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
+        "relation": "Feautues Johann Vermeer"
       },
 
       "gallery_link": {
-        "count": "6",
+        "count": "12",
         "images":[
           {
             "link": "javascript:alert('Open gallery 1');",
@@ -617,6 +625,35 @@
         "title": "Gallery with a fairly long title",
         "info": "Gallery of American presidents"
       },
+
+      "news_links": [
+        {
+          "url": "javascript:alert('follow link')",
+          "img": {
+             "src": "/images/search/carousel1.jpg"
+          },
+          "title": "The Lace Maker: a Dutch woman doing embroidery - they didn't have sewing machines back then",
+          "type": "news",
+          "date": "14/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date <br><br> The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) but I think they should be removed"
+          },
+          "relation": "Feautues other Vermeer"
+        },
+        {
+          "url": false,
+          "img": {
+             "src": "/images/search/carousel3.jpg"
+          },
+          "title": "This one has no url",
+          "type": "tumblr",
+          "date": "14/12/2016",
+          "attribution": "Andy",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show"
+          }
+        }
+      ],
       "tags":
       {
         "items":

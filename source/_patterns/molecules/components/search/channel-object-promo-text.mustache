@@ -1,0 +1,38 @@
+<div class="content-text">
+  <div class="content-text-inner">
+
+    {{#title}}
+      <div class="promo-title">
+        {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
+      </div>
+    {{/title}}
+
+    {{#excerpt}}
+      {{#short}}
+        <div class="text-main">
+          {{{.}}}
+        </div>
+      {{/short}}
+    {{/excerpt}}
+
+    <div class="text-footer">
+
+      <div class="date-and-type">
+        {{#date}}
+          {{.}}
+          {{#attribution}}|{{/attribution}}
+        {{/date}}
+        {{#attribution}}{{.}}{{/attribution}}
+        {{#type}}
+          <span class="type type-{{.}}">{{.}}</span>
+        {{/type}}
+      </div>
+
+      {{#relation}}
+        <div class="relation">{{.}}</div>
+      {{/relation}}
+
+    </div>
+  </div>
+</div>
+

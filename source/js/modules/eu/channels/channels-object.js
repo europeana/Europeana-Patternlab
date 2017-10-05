@@ -1,6 +1,5 @@
-define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, ga, Mustache) {
+define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
 
-  ga = window.fixGA(ga);
   var channelData        = null;
   var mediaThumbCarousel = null;
   var suggestions        = null;
@@ -673,6 +672,26 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         });
       });
     }
+
+    var promoBoxes = collectionsExtra.find('.collections-promo-item');
+
+    if(promoBoxes.length > 0){
+
+      require(['util_eu_ellipsis'], function(Ellipsis){
+
+        promoBoxes.find('.promo-title').each(function(i, ob){
+          Ellipsis.create($(ob), {textSelectors:['a']});
+        });
+
+        promoBoxes.find('.text-main').each(function(i, ob){
+          ob = $(ob);
+          ob.html(ob.text());
+          Ellipsis.create(ob);
+        });
+
+      });
+    }
+
   }
 
   function initSuggestions(){
@@ -940,7 +959,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
   */
 
-  var bindAnalyticsEventsSocial = function(){
+  var bindAnalyticsEventsSocial = function(ga){
     $('.object-social .social-share a').on('click', function(){
       var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
       ga('send', {
@@ -952,7 +971,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     });
   };
 
-  var bindAnalyticsEvents = function(){
+  var bindAnalyticsEvents = function(ga){
 
     // Redirect
 
@@ -1049,9 +1068,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
    */
 
-  function initPage(searchForm){
-    bindAnalyticsEvents();
-    bindAnalyticsEventsSocial();
+  function initPage(searchForm, ga){
+    bindAnalyticsEvents(ga);
+    bindAnalyticsEventsSocial(ga);
     // bindAttributionToggle();
 
     searchForm.bindShowInlineSearch();
@@ -1133,8 +1152,8 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   return {
-    initPage: function(searchForm){
-      initPage(searchForm);
+    initPage: function(searchForm, ga){
+      initPage(searchForm, ga);
     },
     //getAnalyticsData: function(){
     //  return getAnalyticsData();
