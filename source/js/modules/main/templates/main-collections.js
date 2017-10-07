@@ -108,6 +108,7 @@ require.config({
     util_resize:                   '../../eu/util/resize',
     util_scroll:                   '../../eu/util/scroll',
     util_scrollEvents:             '../../eu/util/scrollEvents',
+    util_slide:                    '../../eu/util/eu-slide',
 
     settings:                      '../../eu/settings',
 

@@ -487,9 +487,17 @@
             {{/object.next_item}}
 
             {{#object.exhibition_link}}
-              <div class="collections-promo-item">
-                {{> organisms/virtual-exhibitions/foyer-card}}
-                {{> molecules/components/search/channel-object-promo-text}}
+              <div class="collections-promo-item exhibition">
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        {{> organisms/virtual-exhibitions/foyer-card}}
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
+                </div>
               </div>
             {{/object.exhibition_link}}
 

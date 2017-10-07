@@ -1,11 +1,19 @@
 <div class="content-text">
-  <div class="content-text-inner">
+  <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}">
 
     {{#title}}
-      <div class="promo-title">
+      {{#icon}}
+        <div>
+      {{/icon}}
+      <div class="promo-title{{#icon}} with-icon{{/icon}}">
         {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
       </div>
+      {{#icon}}
+          <span class="icon icon-{{.}}"></span>
+        </div>
+      {{/icon}}
     {{/title}}
+
 
     {{#excerpt}}
       {{#short}}

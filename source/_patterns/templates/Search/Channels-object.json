@@ -566,6 +566,7 @@
 
       "next_item": {
         "url": "javascript:alert('open next item')",
+        "icon": "image",
         "img": "/images/sample/object_thumbnail.jpg",
         "title": "Het melkmeisje and Hollandse meesters (but where are the meesters?)",
         "excerpt": false,
@@ -598,8 +599,9 @@
           }
         },
 
-
         "excerpt": false,
+        "icon": "files",
+"icon": "tv",
         "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
         "relation": "Feautues Johann Vermeer"
       },
@@ -622,8 +624,8 @@
         ],
         "label": "Channel",
         "link": "javascript:alert('Open gallery 1');",
-        "title": "Gallery with a fairly long title",
-        "info": "Gallery of American presidents"
+        "title": "Vermeer didn't make enough paintings to fill a gallery (so this won't take you long)",
+        "info": "Gallery of Vermeer"
       },
 
       "news_links": [
