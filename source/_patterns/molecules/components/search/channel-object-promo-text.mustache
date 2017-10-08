@@ -1,11 +1,11 @@
 <div class="content-text">
-  <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}">
+  <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}{{#tags}} has-tags{{/tags}}">
 
     {{#title}}
       {{#icon}}
         <div>
       {{/icon}}
-      <div class="promo-title{{#icon}} with-icon{{/icon}}">
+      <div class="promo-title{{#icon}} with-icon{{/icon}}{{#tags}} has-tags-after{{/tags}}">
         {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
       </div>
       {{#icon}}
@@ -17,13 +17,23 @@
 
     {{#excerpt}}
       {{#short}}
-        <div class="text-main">
+        <div class="text-main{{^relation}} no-relation{{/relation}}">
           {{{.}}}
         </div>
       {{/short}}
     {{/excerpt}}
 
     <div class="text-footer">
+
+      {{#tags}}
+        <ul class="promo-tags">
+        {{#items}}
+          <li>
+            {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}&nbsp;{{#url}}</a>{{/url}}
+          </li>
+        {{/items}}
+        </ul>
+      {{/tags}}
 
       <div class="date-and-type">
         {{#date}}

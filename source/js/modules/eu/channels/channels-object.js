@@ -537,7 +537,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
   function initCollectionsExtra(){
 
-    collectionsExtra = $('.collections-extra');
+    collectionsExtra = $('.collections-promos');
 
     collectionsExtra.updateSwipe = function(){
       var totalW = (collectionsExtra.children().length - 1) * 32;
@@ -584,6 +584,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
         promoBoxes.find('.image-set-title').each(function(i, ob){
           Ellipsis.create($(ob));
+        });
+
+        promoBoxes.find('.promo-tags').each(function(i, ob){
+          Ellipsis.create($(ob), {multiNode:true, textSelectors:['.promo-tag-link']});
         });
 
         promoBoxes.find('.text-main').each(function(i, ob){
@@ -866,44 +870,12 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
     });
 
     scrollEvents.fireAllVisible();
-
-    /*
-    $('.tumblr-share-button').on('click', function(){
-
-      var title        = $('h2.object-title').text();
-      var canonicalUrl = encodeURIComponent( $('[property="og:url"]').attr('content') );
-      var imageUrl     = $('.object-media-viewer a').attr('href');
-
-      if(imageUrl){
-        imageUrl     = imageUrl.split('?view=')[1];
-      }
-      else{
-        imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
-      }
-
-      log('canonicalUrl = ' + canonicalUrl);
-      log('imageUrl = '     + imageUrl);
-
-      var params = '';
-      params += '?content='      + imageUrl;
-      params += '&canonicalUrl=' + canonicalUrl;
-      params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
-      params += '&posttype='     + 'photo';
-
-      window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
-
-      return false;
-    });
-    */
   }
 
   return {
     initPage: function(searchForm){
       initPage(searchForm);
     },
-    //getAnalyticsData: function(){
-    //  return getAnalyticsData();
-    //},
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
       var media = $('.single-item-thumb .external-media.playable').attr('href')
