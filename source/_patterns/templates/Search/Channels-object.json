@@ -566,7 +566,11 @@
 
       "next_item": {
         "url": "javascript:alert('open next item')",
-        "img": "/images/sample/object_thumbnail.jpg"
+        "icon": "image",
+        "img": "/images/sample/object_thumbnail.jpg",
+        "title": "Het melkmeisje and Hollandse meesters (but where are the meesters?)",
+        "excerpt": false,
+        "relation": "Feautues Johann Vermeer"
       },
 
       "exhibition_link": {
@@ -593,11 +597,32 @@
           "thumbnail":{
             "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
+        },
+
+        "excerpt": false,
+        "icon": "files",
+        "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
+        "relation": "Feautues Johann Vermeer",
+        "tags":{
+          "items": [
+            {
+              "url": "javascript:alert('open tag')",
+              "text": "exhibition"
+            },
+            {
+              "url": "javascript:alert('open tag')",
+              "text": "vermeer"
+            },
+            {
+              "url": "javascript:alert('open tag')",
+              "text": "art"
+            }
+          ]
         }
       },
 
       "gallery_link": {
-        "count": "6",
+        "count": "12",
         "images":[
           {
             "link": "javascript:alert('Open gallery 1');",
@@ -614,41 +639,94 @@
         ],
         "label": "Channel",
         "link": "javascript:alert('Open gallery 1');",
-        "title": "Gallery with a fairly long title",
-        "info": "Gallery of American presidents"
+        "title": "Vermeer didn't make enough paintings to fill a gallery (so this won't take you long)",
+        "info": "Gallery of Vermeer"
       },
-      "tags":
-      {
-        "items":
-        [
-          {
-            "text": "tagtext",
-            "url": "javascript:alert('follow link url...')"
-          },
 
-          {
-            "text": "tagtext",
-            "url": "javascript:alert('follow link url...')"
+      "news_links": [
+        {
+          "url": "javascript:alert('follow link')",
+          "img": {
+             "src": "/images/search/carousel1.jpg"
           },
-
-          {
-            "text": "tagtext",
-            "url": "javascript:alert('follow link url...')"
+          "title": "The Lace Maker: a Dutch woman doing embroidery - they didn't have sewing machines back then",
+          "type": "news",
+          "date": "14/12/2016",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date <br><br> The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) but I think they should be removed"
           },
-
-          {
-            "text": "tagtext",
-            "url": "javascript:alert('follow link url...')"
-          },
-
-          {
-            "text": "tagtext",
-            "url": "javascript:alert('follow link url...')"
+          "relation": "Feautues other Vermeer",
+          "tags":{
+            "items": [
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tag1"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tag2"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tag3"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tag4"
+              }
+            ]
           }
-        ],
-
-        "add_url": "add_new_tag_url_here"
-      },
+        },
+        {
+          "url": false,
+          "img": {
+             "src": "/images/search/carousel3.jpg"
+          },
+          "title": "This one has no url",
+          "type": "tumblr",
+          "date": "14/12/2016",
+          "attribution": "Andy",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  If there is no relation it gets extra height."
+          },
+          "tags":{
+            "items": [
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "painting"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "delft"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "flat landscape"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "scenery"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "water colour"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "cloudy"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "day"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "dutch"
+              }
+            ]
+          }
+        }
+      ],
       "meta_additional":
       {
         "present": true,

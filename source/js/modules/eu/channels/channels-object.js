@@ -1,6 +1,5 @@
-define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, ga, Mustache) {
+define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache, EuSlide) {
 
-  ga = window.fixGA(ga);
   var channelData        = null;
   var mediaThumbCarousel = null;
   var suggestions        = null;
@@ -536,110 +535,9 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
   }
 
-  function updateSwipeables(cmp){
-    if(typeof cmp != 'undefined'){
-      if(typeof cmp.updateSwipe == 'function'){
-        cmp.updateSwipe();
-      }
-      cmp.find('.slide-rail').css('width', cmp.parents('.slide-rail').last().parent().width());
-    }
-  }
-
-  function makeSwipeable(cmp){
-
-    updateSwipeables(cmp);
-
-    var swipeSpaceNeeded = function(){
-      return cmp.width() - cmp.closest('.slide-rail').width();
-    };
-
-    var getNewLeft = function(){
-      var left    = cmp.scrollLeft() - parseInt(cmp.css('left'));
-      var newLeft = parseInt(cmp.closest('.slide-rail').css('left')) - left;
-      return newLeft;
-    };
-
-    cmp.addClass('js-swipeable');
-
-    if(cmp.hasClass('js-swipe-bound')){
-      return;
-    }
-
-    cmp.addClass('js-swipe-bound');
-
-    require(['touch_move', 'touch_swipe'], function(){
-
-      cmp.on('movestart', function(e) {
-
-        var mvVertical = (e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY);
-        if(mvVertical){
-          e.preventDefault();
-          e.stopPropagation();
-          return;
-        }
-        if(swipeSpaceNeeded() < 1){
-          e.stopPropagation();
-        }
-      })
-      .on('move', function(e){
-
-        var delegate     = false;
-        var distX        = e.distX;
-        var hasAncestors = cmp.parents('.slide-rail').length > 1;
-
-        if(e.euOffset){
-          distX += e.euOffset;
-        }
-
-        if(hasAncestors){
-
-          var closestRailLeft = parseInt(cmp.closest('.slide-rail').css('left'));
-
-          if(distX + closestRailLeft > 0){
-            delegate = true;
-            e.euOffset = closestRailLeft;
-          }
-          else{
-            var ssn     = swipeSpaceNeeded();
-            var newLeft = getNewLeft();
-
-            if(newLeft < 0 - ssn){
-              delegate = true;
-              e.euOffset = 0 - (newLeft - closestRailLeft);
-            }
-          }
-        }
-
-        if(!delegate){
-          cmp.css({
-            'top': '0px',
-            'left': distX + 'px'
-          });
-          e.stopPropagation();
-        }
-      })
-      .on('moveend', function(){
-
-        var newLeft = getNewLeft();
-        var ssn     = swipeSpaceNeeded();
-
-        if(ssn < 0){
-          return;
-        }
-
-        cmp.css({
-          'top': 0,
-          'left': 0
-        }).closest('.slide-rail').css({
-          'left': Math.max(Math.min(newLeft, 0), 0 - ssn)
-        });
-      });
-    });
-  }
-
   function initCollectionsExtra(){
 
-    collectionsExtra = $('.collections-extra');
+    collectionsExtra = $('.collections-promos');
 
     collectionsExtra.updateSwipe = function(){
       var totalW = (collectionsExtra.children().length - 1) * 32;
@@ -649,7 +547,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
       collectionsExtra.css('width', totalW + 'px');
     };
 
-    makeSwipeable(collectionsExtra);
+    EuSlide.makeSwipeable(collectionsExtra, {'not-on-stacked': true});
 
     var imageSet = collectionsExtra.find('.image-set');
 
@@ -671,6 +569,33 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
             imageSet.addClass('layout-portrait');
           }
         });
+      });
+    }
+
+    var promoBoxes = collectionsExtra.find('.collections-promo-item');
+
+    if(promoBoxes.length > 0){
+
+      require(['util_eu_ellipsis'], function(Ellipsis){
+
+        promoBoxes.find('.promo-title').each(function(i, ob){
+          Ellipsis.create($(ob), {textSelectors:['a']});
+        });
+
+        promoBoxes.find('.image-set-title').each(function(i, ob){
+          Ellipsis.create($(ob));
+        });
+
+        promoBoxes.find('.promo-tags').each(function(i, ob){
+          Ellipsis.create($(ob), {multiNode:true, textSelectors:['.promo-tag-link']});
+        });
+
+        promoBoxes.find('.text-main').each(function(i, ob){
+          ob = $(ob);
+          ob.html(ob.text());
+          Ellipsis.create(ob);
+        });
+
       });
     }
   }
@@ -717,8 +642,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
               slideContent.css('width', totalW + 'px');
               return totalW;
             };
-            makeSwipeable(slideContent);
-
+            EuSlide.makeSwipeable(slideContent);
             return data;
           },
           function(data, tab, index, completed){
@@ -738,7 +662,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
                 EUAccordionTabs.setOptimalSize(suggestions);
               };
 
-              makeSwipeable(suggestions);
+              EuSlide.makeSwipeable(suggestions);
             }
           }
         );
@@ -846,7 +770,6 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
   };
 
-
   var channelCheck = function(){
     if(typeof(Storage) == 'undefined') {
       log('no storage');
@@ -900,159 +823,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     }
   };
 
-  /*
-  var getAnalyticsData = function(){
-
-    var gaData           = channelData ? channelData : channelCheck();
-    var gaDimensions     = $('.ga-data');
-    var dimensions       = [];
-    var allDimensionData = {};
-
-    gaDimensions.each(function(i, ob){
-      var dimensionName       = $(ob).data('ga-metric');
-      var dimensionData       = [];
-
-      if(!allDimensionData[dimensionName]){
-        gaDimensions.each(function(j, ob){
-          if( $(ob).data('ga-metric') == dimensionName ){
-            var value = $(ob).text();
-            if(dimensionName == 'dimension5'){
-              if(value.indexOf('http') == 0 ){
-                dimensionData.push( value );
-              }
-            }
-            else{
-              dimensionData.push( value );
-            }
-          }
-        });
-        dimensionData.sort();
-        allDimensionData[dimensionName] = dimensionData.join(',');
-      }
-    });
-
-    var keys = Object.keys(allDimensionData);
-
-    for(var j=0; j<keys.length; j++){
-      dimensions.push({'dimension': keys[j], 'name': allDimensionData[keys[j]] });
-    }
-    return dimensions.concat(gaData);
-  };
-  */
-
-  var bindAnalyticsEventsSocial = function(){
-    $('.object-social .social-share a').on('click', function(){
-      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-      ga('send', {
-        hitType: 'social',
-        socialNetwork: socialNetwork,
-        socialAction: 'share',
-        socialTarget: window.location.href
-      });
-    });
-  };
-
-  var bindAnalyticsEvents = function(){
-
-    // Redirect
-
-    $('.object-origin a').on('click', function(){
-      var href =  $(this).attr('href');
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Redirect',
-        eventAction: href,
-        eventLabel: 'CTR Findoutmore'
-      });
-      log('GA: Redirect, Action = ' + href);
-    });
-
-    // Redirect
-
-    $('.object-media-viewer .external-media').not('.playable').on('click', function(){
-      var href =  $(this).attr('href');
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Redirect',
-        eventAction: href,
-        eventLabel: 'CTR Thumbnail'
-      });
-      log('GA: Redirect, Action = ' + href);
-    });
-
-    // Media View
-    $('.media-thumbs, .single-item-thumb').on('click', 'a.playable', function(){
-      var href =  $(this).data('uri');
-      var type =  $(this).data('type');
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Media View',
-        eventAction: href,
-        eventLabel: 'Media ' + type
-      });
-      log('GA: Media View, Action = ' + href + ', Label = ' + type);
-    });
-
-    // colour palette
-
-    $('body').on('click', '.colour-data .link', function () {
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Colour Search',
-        eventAction: $(this).attr('href'),
-        eventLabel: 'Colour ' + $(this).find('span').text()
-      });
-    });
-  };
-
-  /*
-  function bindAttributionToggle(){
-    $('.attribution-fmt').on('click', function(e){
-      e.preventDefault();
-      var btn = $(this);
-      var txt = btn.data('e-licence-content');
-      $('.input-attr').val(
-        btn.hasClass('html') ? $('<textarea>').html(txt).text() : txt
-      );
-      $('.attribution-fmt').removeClass('is-active');
-      btn.addClass('is-active');
-    });
-  }
-  */
-
-  /*
-  function bindDownloadButton(){
-    $('.download-button').on('click', function(e){
-
-      var state = $(this).attr('aria-expanded') === 'false' ? true : false;
-      $(this).attr('aria-expanded', state);
-      $('#panel_download').attr('aria-hidden', !state);
-
-      if($(this).parent().hasClass('is-expanded')){
-        e.preventDefault();
-      }
-      $(this).parent().toggleClass('is-expanded');
-    });
-  }
-
-  function bindMetadataButton(){
-    $('.object-techdata .show-button').on('click', function(e){
-      e.preventDefault();
-
-      var panel_id = '#' + $(this).attr('aria-controls');
-      var state = $(this).attr('aria-expanded') === 'false' ? true : false;
-      $(this).attr('aria-expanded', state);
-      $(panel_id).attr('aria-hidden', !state);
-      $(this).parent().toggleClass('is-expanded');
-
-    });
-  }
-   */
-
   function initPage(searchForm){
-    bindAnalyticsEvents();
-    bindAnalyticsEventsSocial();
-    // bindAttributionToggle();
 
     searchForm.bindShowInlineSearch();
 
@@ -1096,49 +867,15 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
     $(window).europeanaResize(function(){
       $('.slide-rail').css('left', 0);
       $('.js-swipeable').css('left', 0);
-      updateSwipeables(suggestions);
-      updateSwipeables(collectionsExtra);
     });
 
     scrollEvents.fireAllVisible();
-
-    /*
-    $('.tumblr-share-button').on('click', function(){
-
-      var title        = $('h2.object-title').text();
-      var canonicalUrl = encodeURIComponent( $('[property="og:url"]').attr('content') );
-      var imageUrl     = $('.object-media-viewer a').attr('href');
-
-      if(imageUrl){
-        imageUrl     = imageUrl.split('?view=')[1];
-      }
-      else{
-        imageUrl = encodeURIComponent( $('.object-media-nav a.is-current').data('download-uri') );
-      }
-
-      log('canonicalUrl = ' + canonicalUrl);
-      log('imageUrl = '     + imageUrl);
-
-      var params = '';
-      params += '?content='      + imageUrl;
-      params += '&canonicalUrl=' + canonicalUrl;
-      params += '&caption='      + '<a href="' + decodeURIComponent(canonicalUrl) + '">Europeana - ' + title + '</a>';
-      params += '&posttype='     + 'photo';
-
-      window.open('//www.tumblr.com/widgets/share/tool' + params, '', 'width=540,height=600');
-
-      return false;
-    });
-    */
   }
 
   return {
     initPage: function(searchForm){
       initPage(searchForm);
     },
-    //getAnalyticsData: function(){
-    //  return getAnalyticsData();
-    //},
     getPinterestData: function(){
       var desc  = [$('.object-overview .object-title').text(), $('.object-overview object-title').text()].join(' ');
       var media = $('.single-item-thumb .external-media.playable').attr('href')

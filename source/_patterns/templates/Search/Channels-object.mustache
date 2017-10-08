@@ -465,30 +465,76 @@
 
         <div class="slide-rail">
 
-          <div class="collections-extra">
+          <div class="collections-promos">
 
             {{#object.next_item}}
-              <div class="channel-object-next collections-extra-item">
-                <div class="content-inner">
-                  <a href="{{url}}">
-                    <img src="{{img}}"/>
-                  </a>
+              <div class="channel-object-next collections-promo-item">
+
+                <div class="content-outer">
+                  <div class="content-inner">
+
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        <a href="{{url}}">
+                          <img src="{{img}}"/>
+                        </a>
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
                 </div>
               </div>
             {{/object.next_item}}
 
             {{#object.exhibition_link}}
-              <div class="collections-extra-item">
-                {{> organisms/virtual-exhibitions/foyer-card}}
+              <div class="collections-promo-item exhibition">
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        {{> organisms/virtual-exhibitions/foyer-card}}
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
+                </div>
               </div>
             {{/object.exhibition_link}}
 
             {{#object.gallery_link}}
-              <div class="collections-extra-item">
-                {{> molecules/components/image-set}}
+              <div class="collections-promo-item gallery">
+
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        {{> molecules/components/image-set}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             {{/object.gallery_link}}
 
+            {{#object.news_links}}
+
+              <div class="collections-promo-item text-centric">
+
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        <a href="{{url}}" style="background-image:url('{{img.src}}');">
+                        </a>
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
+                </div>
+
+              </div>
+            {{/object.news_links}}
           </div>
         </div>
 
