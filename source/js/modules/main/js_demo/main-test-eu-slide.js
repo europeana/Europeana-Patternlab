@@ -16,11 +16,11 @@ require(['jquery', 'util_slide', 'util_resize'], function($, EuSlide){
       EuSlide.makeSwipeable($(ob));
     });
 
-
     var responsive = $('#responsive');
+
     responsive.updateSwipe = function(){
       responsive.css('width', 800);
-    }
+    };
 
     EuSlide.makeSwipeable(responsive, {'not-on-stacked': true});
   });
