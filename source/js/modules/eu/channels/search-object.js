@@ -192,11 +192,12 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
         }
         else if(el.hasClass('media-thumbs')){
           var addToDom = [];
-          var template = $('.colour-navigation.js-template');
+
+          var template = $('#colour-navigation-template');
 
           $.each(data, function(i, item){
 
-            var newEntry = template.clone();
+            var newEntry = template.html();
 
             addToDom.push(newEntry);
 
@@ -312,7 +313,7 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
           writeEl.next('.val').empty();
 
           if(templateId){
-            var template = $(templateId).html();
+            var template = $(templateId).text();
             var model    = allConcat;
 
             Mustache.tags = ['[[', ']]'];
