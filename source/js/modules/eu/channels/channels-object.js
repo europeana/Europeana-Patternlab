@@ -155,7 +155,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
   function resetZoom(){
 
-    log('reset zoom....');
+    var resetAffectsLayout = $('.object-details').hasClass('zoom-two');
 
     $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
 
@@ -166,6 +166,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
     if($('.object-details').data('zoom-levels') > 0){
       $('.media-zoom-in').removeClass('disabled');
+    }
+
+    if(resetAffectsLayout){
+      $(window).trigger('eu-slide-update');
     }
   }
 

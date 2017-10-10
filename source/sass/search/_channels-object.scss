@@ -12,12 +12,13 @@
   @media all and (min-width: $bp-med) {
 
     .object-details:not(.zoom-two){
+
       .channel-object-overview{
         @include span(18);
       }
-    }
-    .channel-object-similar{
-      @include span(18);
+      .channel-object-similar{
+        @include span(18);
+      }
     }
 
     .object-details:not(.zoom-two) .channel-object-actions{
