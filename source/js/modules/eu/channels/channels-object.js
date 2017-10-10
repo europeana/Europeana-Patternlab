@@ -572,9 +572,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
       });
     }
 
-    var promoBoxes = collectionsExtra.find('.collections-promo-item');
-
-    if(promoBoxes.length > 0){
+    var applyEllipsis = function(){
 
       require(['util_eu_ellipsis'], function(Ellipsis){
 
@@ -596,8 +594,117 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
           Ellipsis.create(ob);
         });
 
+        promoBoxes.find('.collections-promo-overlay .title').each(function(i, ob){
+          Ellipsis.create(ob);
+        });
+
+      });
+    };
+
+    var promoBoxes        = collectionsExtra.find('.collections-promo-item');
+    var promoBoxesGeneric = collectionsExtra.find('.collections-promo-item.generic-promo');
+
+    if(promoBoxesGeneric.length > 0){
+      require(['jqImagesLoaded'], function(){
+        promoBoxesGeneric.each(function(i, ob){
+          ob = $(ob);
+          ob.imagesLoaded(function($images){
+            var textEl        = ob.find('.content-text-inner');
+            var textMain      = ob.find('.text-main');
+
+            var hasPortrait         = $images[0].naturalHeight > $images[0].naturalWidth;
+            var hasDateAuthorOrType = !textEl.hasClass('no-date-and-type');
+            var hasTags             = textEl.hasClass('has-tags');
+            var hasTitle            = textEl.hasClass('has-title');
+            var hasTitleShort       = hasTitle && (ob.find('.promo-title a').text().length < 20);
+            var hasText             = textEl.hasClass('has-text');
+            var hasTextShort        = hasText && (textMain.text().length < 25);
+            var hasRelation         = !textMain.hasClass('no-relation');
+
+            ob.find('.js-remove').remove();
+
+            var score = 0;
+
+            if(hasPortrait){
+              score += 75;
+            }
+            else{
+              //score += 38;
+              score += 75;
+            }
+
+            if(hasTitle){
+              if(hasTitleShort){
+                score += 7;
+              }
+              else{
+                score += 14;
+              }
+            }
+            if(hasText){
+              if(hasTextShort){
+                score += 7;
+              }
+              else{
+                score += 21;
+              }
+            }
+            if(hasRelation){
+              score += 7;
+            }
+            if(hasTags){
+              score += 8;
+            }
+            if(hasDateAuthorOrType){
+              score += 10;
+            }
+
+            /*
+            log('card data summary:\n'
+              + hasPortrait         + '\t hasPortrait\n'
+              + hasDateAuthorOrType + '\t hasDateAuthorOrType\n'
+              + hasTags             + '\t hasTags\n'
+              + hasTitle            + '\t hasTitle\n'
+              + hasTitleShort       + '\t hasTitleShort\n'
+              + hasText             + '\t hasText\n'
+              + hasTextShort        + '\t hasTextShort\n'
+              + hasRelation         + '\t hasRelation\n\n\t'
+              + score               + '%');
+            */
+
+            if(score > 100){
+              ob.addClass('text-centric');
+            }
+            applyEllipsis();
+
+          }); // end img loaded
+        }); // end each
       });
     }
+    else{
+      if(promoBoxes.length > 0){
+        applyEllipsis();
+      }
+    }
+
+    /*
+    var promoOverlays = collectionsExtra.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
+    if(promoOverlays.length > 0){
+      promoOverlays.each(function(i, ob){
+
+        ob = $(ob);
+
+        var nText = ob.contents().filter(function() {
+          return this.nodeType === 3;
+        });
+
+        log('nText ' + JSON.stringify(nText.first()));
+        nText.first().replaceWith('svsdv sdv sdvsd vs');
+
+      })
+
+    }
+    */
   }
 
   function initSuggestions(){

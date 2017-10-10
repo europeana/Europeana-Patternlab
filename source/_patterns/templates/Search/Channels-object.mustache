@@ -457,17 +457,17 @@
 
       <div class="channel-object-actions">
 
-        {{#object.next_item}}
+        {{#object.next_promo}}
           <span class="next-item-title">
             {{ i18n.site.object.next-item }}
           </span>
-        {{/object.next_item}}
+        {{/object.next_promo}}
 
         <div class="slide-rail">
 
           <div class="collections-promos">
 
-            {{#object.next_item}}
+            {{#object.next_promo}}
               <div class="channel-object-next collections-promo-item">
 
                 <div class="content-outer">
@@ -476,7 +476,9 @@
                     <div class="content-outer">
                       <div class="content-inner">
                         <a href="{{url}}">
-                          <img src="{{img}}"/>
+                          {{#img}}
+                            <img src="{{src}}"/>
+                          {{/img}}
                         </a>
                       </div>
                     </div>
@@ -484,9 +486,9 @@
                   </div>
                 </div>
               </div>
-            {{/object.next_item}}
+            {{/object.next_promo}}
 
-            {{#object.exhibition_link}}
+            {{#object.exhibition_promo}}
               <div class="collections-promo-item exhibition">
                 <div class="content-outer">
                   <div class="content-inner">
@@ -499,9 +501,9 @@
                   </div>
                 </div>
               </div>
-            {{/object.exhibition_link}}
+            {{/object.exhibition_promo}}
 
-            {{#object.gallery_link}}
+            {{#object.gallery_promo}}
               <div class="collections-promo-item gallery">
 
                 <div class="content-outer">
@@ -511,21 +513,21 @@
                         {{> molecules/components/image-set}}
                       </div>
                     </div>
+                    <span class="gallery-image-count">{{count}} {{i18n.global.labels.images}}</span>
                   </div>
                 </div>
-
               </div>
-            {{/object.gallery_link}}
+            {{/object.gallery_promo}}
 
-            {{#object.news_links}}
+            {{#object.news_promos}}
 
-              <div class="collections-promo-item text-centric">
+              <div class="collections-promo-item img-as-bg text-centric">
 
                 <div class="content-outer">
                   <div class="content-inner">
                     <div class="content-outer">
                       <div class="content-inner">
-                        <a href="{{url}}" style="background-image:url('{{img.src}}');">
+                        <a href="{{url}}{{^url}}#{{/url}}" class="bg-img" style="background-image:url('{{img.src}}');">
                         </a>
                       </div>
                     </div>
@@ -534,7 +536,40 @@
                 </div>
 
               </div>
-            {{/object.news_links}}
+            {{/object.news_promos}}
+
+            {{#object.entity_promo}}
+              <div class="collections-promo-item entity-promo img-as-bg">
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        <span class="bg-img" style="background-image:url('{{img.src}}');"></span>
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
+                </div>
+              </div>
+            {{/object.entity_promo}}
+
+            {{#object.generic_promos}}
+              <div class="collections-promo-item generic-promo img-as-bg">
+                <div class="content-outer">
+                  <div class="content-inner">
+                    <div class="content-outer">
+                      <div class="content-inner">
+                        {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
+                        <img src="{{img.src}}" class="js-remove">
+                        <a href="{{url}}" class="bg-img" style="background-image:url('{{img.src}}');"></a>
+                      </div>
+                    </div>
+                    {{> molecules/components/search/channel-object-promo-text}}
+                  </div>
+                </div>
+              </div>
+            {{/object.generic_promos}}
+
           </div>
         </div>
 

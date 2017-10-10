@@ -2,6 +2,12 @@ $collections-promo-item-min-width: 275px;
 $next-item-bg:                     #f9efe4;
 $green-grey-bg:                    #f4f4f4;
 
+.no-js{
+  .js-remove{
+    display: none;
+  }
+}
+
 .collections-promos{
 
   display:         flex;
@@ -18,6 +24,10 @@ $green-grey-bg:                    #f4f4f4;
     margin:           auto;
     min-width:        $collections-promo-item-min-width;
     width:            $collections-promo-item-min-width;
+
+    .category-flag{
+      box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.25);
+    }
 
     .content-text{
       background-color: $green-grey-bg;
@@ -74,8 +84,69 @@ $green-grey-bg:                    #f4f4f4;
         max-height: 30%;
       }
 
-      .text-footer{
+      .has-tags .text-footer{
         flex-grow: 1;
+      }
+    }
+
+    &.entity-promo{
+
+      background-color: transparent;
+      box-shadow:       1px 2px 2px -1px rgba(0, 0, 0, 0.25);
+
+      transform: translateX(-2px);
+
+      .content-inner .content-inner{
+        margin-left: $space;
+      }
+
+      .content-outer .content-outer{
+
+        background-color: transparent;
+
+        &::before{
+          padding-top: 110%;
+        }
+      }
+
+      .content-text{
+        background-color: $green-grey-bg;
+        box-shadow:       -2px 0 4px -2px rgba(0, 0, 0, 0.25);
+        height:           100%;
+        left:             3px;
+        max-height:       19%;
+        position:         relative;
+        width:            calc(100% - 3px);
+      }
+
+      .text-footer{
+        bottom:   0;
+        position: absolute;
+        width:    100%;
+      }
+    }
+
+    &.img-as-bg{
+      .content-inner .content-inner{
+        .bg-img{
+          background-position: center;
+          background-repeat:   no-repeat;
+          background-size:     cover;
+          display:             block;
+          height:              100%;
+        }
+      }
+    }
+
+    &.img-centric{
+
+      .content-outer .content-outer::before{
+        padding-top: 150%;
+      }
+
+      .content-text{
+        height:     100%;
+        max-height: 63%;
       }
     }
 
@@ -83,15 +154,6 @@ $green-grey-bg:                    #f4f4f4;
 
       .content-outer .content-outer::before{
         padding-top: 50%;
-      }
-
-      .content-inner .content-inner{
-        a{
-          background-position: center;
-          background-size:     cover;
-          display:             block;
-          height:              100%;
-        }
       }
 
       .content-text{
@@ -105,6 +167,12 @@ $green-grey-bg:                    #f4f4f4;
       flex-direction:  column;
       height:          100%;
       justify-content: space-between;
+    }
+
+    .content-text-inner.has-text:not(.has-title){
+      .text-main{
+        transform: translateY(1em);
+      }
     }
 
     .text-main{
@@ -176,8 +244,20 @@ $green-grey-bg:                    #f4f4f4;
       font-size:      $font-size-slightly-smaller;
       font-weight:    bold;
       padding-bottom: $pad-quarter;
-      padding-top:    $pad;
+      padding-top:    1em;
       position:       relative;
+
+      .date{
+        max-height:     2.125em;
+        max-width:      100%;
+        overflow:       hidden;
+        text-overflow:  ellipsis;
+        white-space:    nowrap;
+
+        &.with-type{
+          max-width: 75%;
+        }
+      }
     }
 
     .no-date-and-type .date-and-type{
@@ -185,10 +265,13 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     .relation{
-      border-top: 1px solid  $gray87;
-      font-size:  $font-size-sm;
-      font-style: italic;
-      padding:    0.25em 1.3em 0.25em 1.3em;
+      border-top:    1px solid  $gray87;
+      font-size:     $font-size-sm;
+      font-style:    italic;
+      overflow:      hidden;
+      padding:       0.25em 1.3em 0.25em 1.3em;
+      text-overflow: ellipsis;
+      white-space:   nowrap;
     }
 
     .promo-tags{
@@ -224,6 +307,63 @@ $green-grey-bg:                    #f4f4f4;
 
     a{
       color: $gray-med;
+    }
+  }
+
+  .collections-promo-overlay{
+
+    background-color: #f1f0ee;
+    bottom:           2.4rem;
+    font-size:        0.875em;
+    left:             -4px;
+    position:         absolute;
+    width:            calc(100% - (1.6rem + 2px));
+
+    .collections-promo-overlay-inner{
+      background-color: #f1f0ee;
+      box-shadow: -2px 0 4px -2px rgba(0, 0, 0, 0.25);
+      left:       4px;
+      padding:    1em 1em 0.25em 1em;
+      position:   relative;
+    }
+
+    .description{
+      line-height: 1.8em;
+      max-height:  7.2em;
+      overflow:    hidden;
+    }
+
+    .title{
+      display:       block;
+      font-size:     $font-size-med;
+      line-height:   1,4em;
+      margin-bottom: 0.8em;
+      max-height:    2.8em;
+      overflow:      hidden;
+    }
+
+    .links{
+
+      display:         flex;
+      justify-content: space-between;
+      margin-top:      $space-half;
+      text-align:      center;
+
+      a{
+        color: $eu-blue;
+
+        &:last-child{
+          bottom:    0.2em;
+          font-size: $font-size-med;
+          position:  relative;
+        }
+      }
+    }
+
+    .viewmore-image {
+      height:      5em;
+      margin-left: 0.8em;
+      width:       5em;
     }
 
   }
@@ -282,16 +422,20 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     .image-set-data{
-      left:      1em;
-      position:  absolute;
-      top:       100%;
-      transform: translateY(50%);
+      display: none;
     }
 
     .svg-icon-info{
-      bottom: -33%;
+      bottom: -34%;
       right:  0.2em;
     }
+  }
+
+  .gallery-image-count{
+    bottom:    0.25em;
+    font-size: 0.875em;
+    left:      1em;
+    position:  absolute;
   }
 
   .image-set{
@@ -352,6 +496,7 @@ $green-grey-bg:                    #f4f4f4;
   }
 
   @media all and (min-width: $bp-med) {
+
     flex-direction: column;
     max-width: 100%;
 
@@ -368,7 +513,7 @@ $green-grey-bg:                    #f4f4f4;
       width:         98%;
 
       &.exhibition{
-        .text-footer{
+        .has-tags .text-footer{
           flex-grow: 0.2;
         }
       }
@@ -378,14 +523,41 @@ $green-grey-bg:                    #f4f4f4;
         }
       }
 
+      .content-text-inner.has-text:not(.has-title){
+        .text-main{
+          transform: translateY(0.5em);
+        }
+      }
+
       .promo-tags{
         font-size:  $font-size-slightly-smaller;
       }
+
+      .promo-title{
+        padding-top: 0.75em;
+      }
+
+      .image-set-info{
+        padding: 0.75em 1em 0.75em 1em;
+      }
+
+      .date-and-type{
+        padding-top: 0.25em;
+        .date.with-type{
+          max-width: 66%;
+        }
+      }
     }
 
-    .image-set .image-set-data{
-      top:       90%;
-      transform: none;
+    .collections-promo-overlay{
+      .links{
+        font-size: 0.875em;
+
+        a:last-child{
+          bottom:    0;
+          font-size: $font-size-norm;
+        }
+      }
     }
 
     .icon-files{
@@ -407,30 +579,61 @@ $green-grey-bg:                    #f4f4f4;
 
   @media all and (min-width: $bp-large) {
 
-    .image-set .image-set-data{
-      top:   95%;
-    }
-
     .collections-promo-item{
 
       font-size:  $font-size-slightly-smaller;
 
       &.exhibition{
-        .text-footer{
+        .has-tags .text-footer{
           flex-grow: 0;
         }
       }
+
+      .date-and-type .date.with-type{
+        max-width: 70%;
+      }
+
     }
+
   }
 
   @media all and (min-width: $bp-xl) {
 
     .collections-promo-item{
       width:     100%;
+
+      .content-text-inner.has-text:not(.has-title){
+        .text-main{
+          transform: translateY(1em);
+        }
+      }
+
+      .date-and-type{
+        padding-top: 1em;
+        .date.with-type{
+          max-width: 75%;
+        }
+      }
+
+      .promo-title{
+        padding-top: 1em;
+      }
+
+      .image-set-info{
+        padding: 1em;
+      }
+
     }
 
-    .image-set .image-set-data{
-      top:   88%;
+    .collections-promo-overlay{
+      .links{
+        font-size: $font-size-norm;
+
+        a:last-child{
+          bottom:    0.2em;
+          font-size: $font-size-med;
+        }
+      }
     }
 
     .icon-files{
@@ -462,16 +665,15 @@ $green-grey-bg:                    #f4f4f4;
       width:     100%;
     }
 
-    .image-set .image-set-data{
-      top:       95%;
-      transform: translateY(75%);
-    }
   }
 
   @media all and (min-width: $bp-xxxl) {
-    .image-set .image-set-data{
-      top:       110%;
-      transform: translateY(100%);
+
+    .collections-promo-item{
+      .date-and-type .date.with-type{
+        max-width: 80%;
+      }
     }
+
   }
 }

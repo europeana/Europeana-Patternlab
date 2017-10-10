@@ -28,7 +28,8 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+      "XXXXX": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}",
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'10',     'portal_autocomplete': 100}}"
     }
   ],
 
@@ -564,16 +565,18 @@
         ]
       },
 
-      "next_item": {
+      "next_promo": {
         "url": "javascript:alert('open next item')",
         "icon": "image",
-        "img": "/images/sample/object_thumbnail.jpg",
+        "img":{
+          "src": "/images/sample/object_thumbnail.jpg"
+        },
         "title": "Het melkmeisje and Hollandse meesters (but where are the meesters?)",
         "excerpt": false,
         "relation": "Feautues Johann Vermeer"
       },
 
-      "exhibition_link": {
+      "exhibition_promo": {
         "url": "javascript:alert('open this exhibition (1)')",
         "state_1_title": "Wiki Loves Art Nouveau",
         "state_2_body": "<p>Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces</p>",
@@ -621,7 +624,7 @@
         }
       },
 
-      "gallery_link": {
+      "gallery_promo": {
         "count": "12",
         "images":[
           {
@@ -643,7 +646,7 @@
         "info": "Gallery of Vermeer"
       },
 
-      "news_links": [
+      "news_promos": [
         {
           "url": "javascript:alert('follow link')",
           "img": {
@@ -685,46 +688,121 @@
           "title": "This one has no url",
           "type": "tumblr",
           "date": "14/12/2016",
-          "attribution": "Andy",
+          "attribution": "Andy MacLean - copyright: all rights reserved",
           "excerpt": {
             "short": "This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  If there is no relation it gets extra height."
           },
           "tags":{
             "items": [
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 1')",
                 "text": "painting"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 2')",
                 "text": "delft"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 3')",
                 "text": "flat landscape"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 4')",
                 "text": "scenery"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 5')",
                 "text": "water colour"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 6')",
                 "text": "cloudy"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 7')",
                 "text": "day"
               },
               {
-                "url": "javascript:alert('open tag')",
+                "url": "javascript:alert('open tag 8')",
                 "text": "dutch"
               }
             ]
           }
+        }
+      ],
+      "entity_promo":{
+        "url": "javascript:alert('follow link')",
+        "img": {
+           "src": "/images/sample/object_thumbnail2.jpg"
+        },
+        "title": false,
+        "excerpt": false,
+        "relation": "Features The Milkmaid and Johannes Vermeer",
+        "overlay":{
+          "title": "Johannes Vermeer",
+          "img": "/images/sample/vermeer.png",
+          "description": "This text flows around the image because it's a text node.  The length should be limited to something like this.",
+          "link_related": {
+            "url": "javascript:alert('open entity')",
+            "text": "1,098 related records"
+          },
+          "link_more":{
+            "url": "javascript:alert('open more')",
+            "text": "View More"
+          }
+        }
+      },
+      "generic_promos": [
+        {
+          "url": "javascript:alert('follow link')",
+          "img": {
+             "src": "/images/sample/object_thumbnail2.jpg"
+          },
+          "title": "The Lace Maker",
+          "type": "events",
+          "date": "14/12/2016",
+          "label": "Das Label",
+          "attribution": "Joey Jones",
+          "excerpt": {
+            "short": "This carousel item for the aggregated feed has text and a date <br><br> The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) but I think they should be removed"
+          },
+          "relation": "Feautues other Vermeer",
+          "tags":{
+            "items": [
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tagged"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "object"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "tags"
+              },
+              {
+                "url": "javascript:alert('open tag')",
+                "text": "generic"
+              }
+            ]
+          }
+        },
+        {
+          "url": false,
+          "img": {
+             "src": "/images/sample/object_thumbnail3.jpg"
+          },
+          "title": false,
+          "type": "blog",
+          "date": "14/12/2016",
+          "label": "Generic",
+          "attribution": "Andy MacLean - copyright: all rights reserved",
+          "excerpt": {
+            "short": "Text but no title"
+          },
+          "tags": false,
+          "relation": "Features The Milkmaid and Johannes Vermeer"
         }
       ],
       "meta_additional":
