@@ -196,6 +196,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
           $zoomEl.addClass('zoom-two');
           zoomIn.addClass('disabled');
           resetImg($zoomImg);
+
+          $(window).trigger('eu-slide-update');
+          $(window).trigger('ellipsis-update');
         }
         else{
           $zoomEl.addClass('zoom-one');
@@ -219,6 +222,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
         if($zoomEl.hasClass('zoom-two')){
           $zoomEl.removeClass('zoom-two');
           resetImg($zoomImg);
+
+          $(window).trigger('eu-slide-update');
+          $(window).trigger('ellipsis-update');
         }
         else{
           $zoomEl.removeClass('zoom-one');
@@ -675,10 +681,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
             if(score > 100){
               ob.addClass('text-centric');
             }
-            applyEllipsis();
 
           }); // end img loaded
         }); // end each
+        applyEllipsis();
       });
     }
     else{

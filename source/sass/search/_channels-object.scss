@@ -1,4 +1,4 @@
-@import 'channel-object-promos';
+@import 'channel-object-promos-base';
 
 .channels-item {
 
@@ -20,7 +20,7 @@
       @include span(18);
     }
 
-    .object-details .channel-object-actions{
+    .object-details:not(.zoom-two) .channel-object-actions{
       .next-item-title{
         display:        block;
         font-size:      $font-size-slightly-smaller;

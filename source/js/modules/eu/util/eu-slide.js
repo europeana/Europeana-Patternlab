@@ -206,6 +206,8 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
   $(window).europeanaResize(onResize);
 
+  $(window).on('eu-slide-update', onResize);
+
   return {
     makeSwipeable: function(cmp, conf){
       makeSwipeable(cmp, conf);
