@@ -5,6 +5,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
   var suggestions        = null;
   var collectionsExtra   = null;
 
+  var viewerIIIF         = null;
+
   function log(msg){
     console.log('channels-object: ' + msg);
   }
@@ -147,9 +149,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
   }
 
 
-  function resetImg($img){
+  function resetZoomable(){
     setTimeout(function(){
-      $img.removeAttr('style');
+      $('.zoomable').css('width', '100%');
     }, 1);
   }
 
@@ -159,7 +161,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
     $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
 
-    resetImg($('.playable > img'));
+    resetZoomable();
 
     $('.media-zoom-in').addClass('disabled');
     $('.media-zoom-out').addClass('disabled');
@@ -181,7 +183,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
     var bindZoomCtrls = function(){
 
       var $zoomEl    = $('.object-details');
-      var $zoomImg   = $('.playable > img');
+      var $zoomable  = $('.zoomable');
       var zoomIn     = $('.media-zoom-in');
       var zoomOut    = $('.media-zoom-out');
 
@@ -199,7 +201,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
         if($zoomEl.hasClass('zoom-one') && zoomLevels > 1){
           $zoomEl.addClass('zoom-two');
           zoomIn.addClass('disabled');
-          resetImg($zoomImg);
+          resetZoomable();
 
           $(window).trigger('eu-slide-update');
           $(window).trigger('ellipsis-update');
@@ -207,7 +209,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
         else{
           $zoomEl.addClass('zoom-one');
           zoomOut.removeClass('disabled');
-          resetImg($zoomImg);
+          resetZoomable();
 
           if(zoomLevels < 2){
             zoomIn.addClass('disabled');
@@ -225,7 +227,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
         if($zoomEl.hasClass('zoom-two')){
           $zoomEl.removeClass('zoom-two');
-          resetImg($zoomImg);
+          resetZoomable();
 
           $(window).trigger('eu-slide-update');
           $(window).trigger('ellipsis-update');
@@ -233,11 +235,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
         else{
           $zoomEl.removeClass('zoom-one');
           zoomOut.addClass('disabled');
-          resetImg($zoomImg);
+          resetZoomable();
         }
       });
 
-      $zoomImg.on('update-zoom-ctrls', function(){
+      $zoomable.on('update-zoom-ctrls', function(){
 
         var zoomLevels = getZoomLevels();
         $('.object-details').data('zoom-levels', zoomLevels);
@@ -270,11 +272,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
   }
 
   function initMedia(index){
-
     var item        = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
     var thumbnail   = item.data('thumbnail');
+    var uri         = item.data('uri');
 
     $('.object-media-nav .js-carousel-item .mlt-img-div').removeClass('active');
     $('.object-media-nav .js-carousel-item .is-current').removeClass('is-current');
@@ -285,17 +287,25 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
     $('.modal-share').addClass('js-hidden');
     updateTechData(item);
 
+
+    // move or remove current player
+
+    $('.zoomable > img').remove();
+    $('.zoomable').children().addClass('is-hidden');
+    $('.object-media-viewer').append($('.zoomable').children());
+
+
     if(type == 'image'){
 
-      var uri  = item.data('uri');
-      var h    = item.data('height');
-      var w    = item.data('width');
+      var h   = item.data('height');
+      var w   = item.data('width');
 
       log('init image [' + uri + '] (' + w + '/' + h + ')');
 
+      $('<img>').appendTo('.zoomable').attr('src', uri);
+
       var updateDisplayImage = function(){
-        $('.object-media-viewer .playable img').attr('src', uri);
-        $('.playable > img').trigger('update-zoom-ctrls');
+        $('.zoomable').trigger('update-zoom-ctrls');
         fixZoomableWidth();
       };
 
@@ -331,6 +341,36 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
         });
       }
     }
+    else if(type == 'iiif'){
+
+      $('.zoomable').append( $('.object-media-iiif') );
+
+      var fsAvailable = function(){
+        var db = document.body;
+        return db.requestFullScreen
+        || db.webkitRequestFullscreen
+        || db.webkitRequestFullscreen
+        || db.mozRequestFullScreen
+        || db.mozRequestFullScreen
+        || db.msRequestFullscreen
+        || db.msRequestFullscreen;
+      };
+
+      if(viewerIIIF){
+        viewerIIIF.remove();
+        viewerIIIF.init(uri, thumbnail, fsAvailable(), true);
+        $('.object-media-iiif').removeClass('is-hidden');
+      }
+      else{
+        require(['media_viewer_iiif'], function(viewer) {
+          viewerIIIF = viewer;
+          viewerIIIF.remove();
+          viewer.init(uri, thumbnail, fsAvailable(), true);
+          $('.object-media-iiif').removeClass('is-hidden');
+        });
+      }
+
+    }
 
     if(downloadUri){
       $('.media-download').attr('href', downloadUri);
@@ -363,10 +403,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
   function fixZoomableWidth(){
 
-    var zoomImg  = $('.playable > img');
-    zoomImg.off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
-    zoomImg.on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
-      zoomImg
+    var zoomable = $('.zoomable');
+
+    zoomable.off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+    zoomable.on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+      zoomable
         .off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd')
         .on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
           fixZoomableWidth();
@@ -374,7 +415,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
     });
 
     setTimeout(function(){
-      zoomImg.css('max-width', zoomImg.width() + 'px');
+      zoomable.css('width', zoomable.width() + 'px');
     }, 1);
   }
 

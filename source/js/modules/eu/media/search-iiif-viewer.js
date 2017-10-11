@@ -142,6 +142,7 @@ define(['jquery'], function($){
   };
 
   var nav = function($el, index){
+
     if($el.attr('disabled')){
       return;
     }
@@ -464,6 +465,12 @@ define(['jquery'], function($){
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
+    },
+    remove: function(){
+      if(iiif){
+        iiif.off();
+        iiif.remove();
+      }
     }
   };
 });

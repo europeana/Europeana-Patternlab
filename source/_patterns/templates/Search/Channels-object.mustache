@@ -69,9 +69,10 @@
                         {{#is_current}}
                           <div class="media-poster{{#playable}} contains-playable{{/playable}}">
                             <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
-                              {{>molecules/components/thumb-icon}}
+                              <div class="zoomable">
+                                {{>molecules/components/thumb-icon}}
+                              </div>
                               <span class="media-options">
-
                                 <span class="media-option-group">
                                   <span class="media-option  media-share">
                                     <span class="share svg-icon-share"></span>
