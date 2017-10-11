@@ -22,7 +22,9 @@
     }
 
     .object-details:not(.zoom-two) .channel-object-actions{
-      .next-item-title{
+
+      .next-item-title,
+      .previous-item-title{
         display:        block;
         font-size:      $font-size-slightly-smaller;
         font-weight:    bold;
@@ -498,7 +500,8 @@
 
     overflow: hidden;
 
-    .next-item-title{
+    .next-item-title,
+    .previous-item-title{
       display: none;
     }
 

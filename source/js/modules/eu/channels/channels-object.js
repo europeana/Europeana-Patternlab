@@ -551,8 +551,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
 
     collectionsExtra.updateSwipe = function(){
       var totalW = (collectionsExtra.children().length - 1) * 32;
-      collectionsExtra.children().each(function(){
-        totalW += $(this).outerWidth(true);
+      collectionsExtra.children('.collections-promo-item').each(function(){
+        totalW += $(this).outerWidth();
       });
       collectionsExtra.css('width', totalW + 'px');
     };
@@ -585,7 +585,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
     var applyEllipsis = function(){
 
       require(['util_eu_ellipsis'], function(Ellipsis){
+/*
+         promoBoxes.find('.collections-promo-overlay').each(function(i, ob){
+            $(ob).css('max-height', '9em');
+            $(ob).css('overflow', 'hidden');
+          Ellipsis.create($(ob), {textSelectors:['.collections-promo-overlay-inner']});
+        });
 
+ */
         promoBoxes.find('.promo-title').each(function(i, ob){
           Ellipsis.create($(ob), {textSelectors:['a']});
         });
@@ -697,24 +704,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_slide', 'util_foldable'
       }
     }
 
-    /*
     var promoOverlays = collectionsExtra.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
     if(promoOverlays.length > 0){
       promoOverlays.each(function(i, ob){
-
         ob = $(ob);
-
-        var nText = ob.contents().filter(function() {
+        var nText = ob.contents().filter(function(){
           return this.nodeType === 3;
         });
-
-        log('nText ' + JSON.stringify(nText.first()));
-        nText.first().replaceWith('svsdv sdv sdvsd vs');
-
-      })
-
+        var newVal = nText[nText.length-1].nodeValue.replace(/\s+/, '');
+        newVal = newVal.slice(0, 100) + (newVal.length > 100 ? '...' : '');
+        nText[nText.length-1].nodeValue = newVal;
+      });
     }
-    */
   }
 
   function initSuggestions(){

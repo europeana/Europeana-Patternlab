@@ -28,8 +28,7 @@
     },
     {
       "name": "mock_ajax",
-      "XXXXX": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'10',     'portal_autocomplete': 100}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 
@@ -575,6 +574,16 @@
         "excerpt": false,
         "relation": "Feautues Johann Vermeer"
       },
+      "prev_promo": {
+        "url": "javascript:alert('open previous item')",
+        "icon": "text",
+        "img":{
+          "src": "/images/sample/object_thumbnail_reversed.jpg"
+        },
+        "title": "The Previous Item: suspiciously like the next item, from which it is separated - disruptive design and all that",
+        "excerpt": false,
+        "relation": "Feautues Johann Vermeer"
+      },
 
       "exhibition_promo": {
         "url": "javascript:alert('open this exhibition (1)')",
@@ -741,7 +750,7 @@
         "overlay":{
           "title": "Johannes Vermeer",
           "img": "/images/sample/vermeer.png",
-          "description": "This text flows around the image because it's a text node.  The length should be limited to something like this.",
+          "description": "This flows around the image because it's a text node - smart Ellipsis unavailable, limited to 100 characters.",
           "link_related": {
             "url": "javascript:alert('open entity')",
             "text": "1,098 related records"
@@ -756,17 +765,17 @@
         {
           "url": "javascript:alert('follow link')",
           "img": {
-             "src": "/images/sample/object_thumbnail2.jpg"
+             "src": "/images/sample/object_thumbnail4.jpg"
           },
-          "title": "The Lace Maker",
+          "title": "To Summarise:",
           "type": "events",
           "date": "14/12/2016",
           "label": "Das Label",
-          "attribution": "Joey Jones",
+          "attribution": "Europeana",
           "excerpt": {
-            "short": "This carousel item for the aggregated feed has text and a date <br><br> The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) but I think they should be removed"
+            "short": "(1) Next comes top if available (2) Prev comes last (in practice that will usually mean \"2nd\") (3) Other cards - when available - come between prev and last (breaking the monotony) (4) Prev comes first when Next is unavailable"
           },
-          "relation": "Feautues other Vermeer",
+          "XXXrelation": "Feautues other Vermeer",
           "tags":{
             "items": [
               {
@@ -799,10 +808,10 @@
           "label": "Generic",
           "attribution": "Andy MacLean - copyright: all rights reserved",
           "excerpt": {
-            "short": "Text but no title"
+            "short": "Text but no title."
           },
           "tags": false,
-          "relation": "Features The Milkmaid and Johannes Vermeer"
+          "relation": "All data fields accepted in generic card apart from icons (will show but may collide with text)"
         }
       ],
       "meta_additional":

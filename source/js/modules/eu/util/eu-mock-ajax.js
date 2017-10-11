@@ -31,7 +31,7 @@ define(['jquery', 'purl'], function($) {
 
     var delay = options.delay ? options.delay : timeout;
     if(delay == 'random'){
-      delay = Math.random() * 10 * 1000 + 3000;
+      delay = Math.random() * 5 * 1000;
     }
 
     var that = {

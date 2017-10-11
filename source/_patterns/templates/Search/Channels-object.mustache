@@ -468,7 +468,7 @@
           <div class="collections-promos">
 
             {{#object.next_promo}}
-              <div class="channel-object-next collections-promo-item">
+              <div class="channel-object-next-prev collections-promo-item">
 
                 <div class="content-outer">
                   <div class="content-inner">
@@ -486,6 +486,31 @@
                   </div>
                 </div>
               </div>
+            {{/object.next_promo}}
+
+            {{^object.next_promo}}
+              {{! repeats again as last item}}
+              {{#object.prev_promo}}
+                <span class="previous-item-title">
+                  {{ i18n.site.object.previous-item }}
+                </span>
+                <div class="channel-object-next-prev collections-promo-item">
+                  <div class="content-outer">
+                    <div class="content-inner">
+                      <div class="content-outer">
+                        <div class="content-inner">
+                          <a href="{{url}}">
+                            {{#img}}
+                              <img src="{{src}}"/>
+                            {{/img}}
+                          </a>
+                        </div>
+                      </div>
+                      {{> molecules/components/search/channel-object-promo-text}}
+                    </div>
+                  </div>
+                </div>
+              {{/object.prev_promo}}
             {{/object.next_promo}}
 
             {{#object.exhibition_promo}}
@@ -569,6 +594,31 @@
                 </div>
               </div>
             {{/object.generic_promos}}
+
+            {{#object.next_promo}}
+              {{! repeat of 2nd (1st) item}}
+              {{#object.prev_promo}}
+                <span class="previous-item-title">
+                  {{ i18n.site.object.previous-item }}
+                </span>
+                <div class="channel-object-next-prev collections-promo-item">
+                  <div class="content-outer">
+                    <div class="content-inner">
+                      <div class="content-outer">
+                        <div class="content-inner">
+                          <a href="{{url}}">
+                            {{#img}}
+                              <img src="{{src}}"/>
+                            {{/img}}
+                          </a>
+                        </div>
+                      </div>
+                      {{> molecules/components/search/channel-object-promo-text}}
+                    </div>
+                  </div>
+                </div>
+              {{/object.prev_promo}}
+            {{/object.next_promo}}
 
           </div>
         </div>

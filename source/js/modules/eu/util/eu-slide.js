@@ -143,6 +143,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
       if(ob.hasClass('js-swipe-not-stacked')){
         if(isStacked(ob)){
           if(ob.hasClass('js-swipe-bound')){
+            ob.off('movestart');
             ob.off('move');
             ob.off('moveend');
             ob.removeClass('js-swipe-bound');
@@ -157,7 +158,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
       ob.addClass('js-swipe-bound');
 
-      ob.on('movestart', function(e){ // without this function being present swipes on anchors don't work
+      ob.on('movestart', function(e){ // without this function being present - even with an empty definition - swipes on anchors don't work
 
         if(mvVertical(e)){
           ob.data('movingVertically', true);

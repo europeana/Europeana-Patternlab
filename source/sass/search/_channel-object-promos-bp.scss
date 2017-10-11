@@ -8,7 +8,7 @@ $green-grey-bg:                    #f4f4f4;
   flex-direction: column;
   max-width: 100%;
 
-  .channel-object-next,
+  .channel-object-next-prev,
   .image-set,
   .ve-foyer-card{
     width:  100%;
@@ -78,7 +78,7 @@ $green-grey-bg:                    #f4f4f4;
     transform: translate(-0.5em, 1.4em) scale(0.7);
   }
   .icon-text{
-    transform: translate(-0.45em, 1.3em) scale(0.6);
+    transform: translate(-0.8em, 1em) scale(0.65);
   }
   .icon-tv{
     transform: translate(-0.5em, 1.45em) scale(0.7);
@@ -128,7 +128,6 @@ $green-grey-bg:                    #f4f4f4;
     .image-set-info{
       padding: 1em;
     }
-
   }
 
   .collections-promo-overlay{
@@ -155,7 +154,7 @@ $green-grey-bg:                    #f4f4f4;
   }
 
   .icon-text{
-    transform: translate(-1.2em, 2em);
+    transform: translate(-0.9em, 1.5em);
   }
 
   .icon-tv{
