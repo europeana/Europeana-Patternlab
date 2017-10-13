@@ -1,6 +1,5 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
-
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
     {{#helpbar}}
@@ -32,14 +31,14 @@
     {{/object.media}}
 
     {{! Main object text info section }}
-    <section class="section object-details">
+    <section class="section object-details{{#object.promos}} has-right-column{{/object.promos}}{{^object.promos}} no-right-column{{/object.promos}}">
 
       <div class="channel-object-overview">
         {{#object}}
           <div>
             {{#media}}
 
-              <div class="channel-media-wrap {{#empty_item}} empty{{/empty_item}}{{#single_item}}single-item{{/single_item}} {{^single_item}}{{^empty_item}}multi-item{{/empty_item}}{{/single_item}}">
+              <div class="channel-media-wrap {{#empty_item}} empty{{/empty_item}}{{^empty_item}} multi-item{{/empty_item}}">
 
                 {{#title}}
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
@@ -56,62 +55,53 @@
 
                 {{^empty_item}}
                   <div class="object-media-viewer">
-                    {{#single_item}}
-                      {{#items}}
-                        <div class="single-item-thumb">
-                          {{> molecules/components/media-nav-item}}
-                        </div>
-                      {{/items}}
-                    {{/single_item}}
 
-                    {{^single_item}}
-                      {{#items}}
-                        {{#is_current}}
-                          <div class="media-poster{{#playable}} contains-playable{{/playable}}">
-                            <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
-                              <div class="zoomable">
-                                {{>molecules/components/thumb-icon}}
-                              </div>
-                              <span class="media-options">
-                                <span class="media-option-group">
-                                  <span class="media-option  media-share">
-                                    <span class="share svg-icon-share"></span>
-                                    <span class="media-option-label">Share</span>
-                                  </span>
-                                  <a class="media-option media-download" download="Europeana-Media">
-                                    <span class="download svg-icon-download white"></span>
-                                    <span class="media-option-label">Download</span>
-                                  </a>
-                                  <span class="media-option media-annotate">
-                                    <span class="info svg-icon-info"></span>
-                                    <span class="media-option-label">Info</span>
-                                  </span>
+                    {{#items}}
+                      {{#is_current}}
+                        <div class="media-poster{{#playable}} contains-playable{{/playable}}">
+                          <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                            <div class="zoomable">
+                              {{>molecules/components/thumb-icon}}
+                            </div>
+                            <span class="media-options">
+                              <span class="media-option-group">
+                                <span class="media-option  media-share">
+                                  <span class="share svg-icon-share"></span>
+                                  <span class="media-option-label">Share</span>
                                 </span>
-
-                                <span class="media-option-group">
-                                  <span class="media-option media-zoom-in">
-                                    <span class="zoom-in svg-icon-zoom-in"></span>
-                                    <span class="media-option-label">Zoom in</span>
-                                  </span>
-                                  <span class="media-option media-zoom-out">
-                                    <span class="zoom-out svg-icon-zoom-out"></span>
-                                    <span class="media-option-label">Zoom out</span>
-                                  </span>
-                                </span>
-
-                                <span class="media-option-group">
-                                  <span class="media-option  media-link">
-                                    <span class="link svg-icon-link-out"></span>
-                                    <span class="media-option-label">Link</span>
-                                  </span>
+                                <a class="media-option media-download" download="Europeana-Media">
+                                  <span class="download svg-icon-download white"></span>
+                                  <span class="media-option-label">Download</span>
+                                </a>
+                                <span class="media-option media-annotate">
+                                  <span class="info svg-icon-info"></span>
+                                  <span class="media-option-label">Info</span>
                                 </span>
                               </span>
-                            </div>
 
+                              <span class="media-option-group">
+                                <span class="media-option media-zoom-in">
+                                  <span class="zoom-in svg-icon-zoom-in"></span>
+                                  <span class="media-option-label">Zoom in</span>
+                                </span>
+                                <span class="media-option media-zoom-out">
+                                  <span class="zoom-out svg-icon-zoom-out"></span>
+                                  <span class="media-option-label">Zoom out</span>
+                                </span>
+                              </span>
+
+                              <span class="media-option-group">
+                                <span class="media-option  media-link">
+                                  <span class="link svg-icon-link-out"></span>
+                                  <span class="media-option-label">Link</span>
+                                </span>
+                              </span>
+                            </span>
                           </div>
-                        {{/is_current}}
-                      {{/items}}
-                    {{/single_item}}
+
+                        </div>
+                      {{/is_current}}
+                    {{/items}}
 
                     {{#required_players}}
 
@@ -165,9 +155,7 @@
                       {{/title}}
 
                       <div class="channel-object-media-nav">
-                        {{^single_item}}
-                          {{> molecules/components/media-nav}}
-                        {{/single_item}}
+                        {{> molecules/components/media-nav}}
                       </div>
 
                       {{#subtitle}}
@@ -455,20 +443,20 @@
       </div>
 
       {{! end of object info column }}
-
+      {{#object.promos}}
       <div class="channel-object-actions">
 
-        {{#object.next_promo}}
+        {{#next_promo}}
           <span class="next-item-title">
             {{ i18n.site.object.next-item }}
           </span>
-        {{/object.next_promo}}
+        {{/next_promo}}
 
         <div class="slide-rail">
 
-          <div class="collections-promos">
+          <div class="collections-promos js-swipe-not-stacked">
 
-            {{#object.next_promo}}
+            {{#next_promo}}
               <div class="channel-object-next-prev collections-promo-item">
 
                 <div class="content-outer">
@@ -487,11 +475,11 @@
                   </div>
                 </div>
               </div>
-            {{/object.next_promo}}
+            {{/next_promo}}
 
-            {{^object.next_promo}}
+            {{^next_promo}}
               {{! repeats again as last item}}
-              {{#object.prev_promo}}
+              {{#prev_promo}}
                 <span class="previous-item-title">
                   {{ i18n.site.object.previous-item }}
                 </span>
@@ -511,10 +499,10 @@
                     </div>
                   </div>
                 </div>
-              {{/object.prev_promo}}
-            {{/object.next_promo}}
+              {{/prev_promo}}
+            {{/next_promo}}
 
-            {{#object.exhibition_promo}}
+            {{#exhibition_promo}}
               <div class="collections-promo-item exhibition">
                 <div class="content-outer">
                   <div class="content-inner">
@@ -527,9 +515,9 @@
                   </div>
                 </div>
               </div>
-            {{/object.exhibition_promo}}
+            {{/exhibition_promo}}
 
-            {{#object.gallery_promo}}
+            {{#gallery_promo}}
               <div class="collections-promo-item gallery">
 
                 <div class="content-outer">
@@ -543,9 +531,9 @@
                   </div>
                 </div>
               </div>
-            {{/object.gallery_promo}}
+            {{/gallery_promo}}
 
-            {{#object.news_promos}}
+            {{#news_promos}}
 
               <div class="collections-promo-item img-as-bg text-centric">
 
@@ -562,9 +550,9 @@
                 </div>
 
               </div>
-            {{/object.news_promos}}
+            {{/news_promos}}
 
-            {{#object.entity_promo}}
+            {{#entity_promo}}
               <div class="collections-promo-item entity-promo img-as-bg">
                 <div class="content-outer">
                   <div class="content-inner">
@@ -577,9 +565,9 @@
                   </div>
                 </div>
               </div>
-            {{/object.entity_promo}}
+            {{/entity_promo}}
 
-            {{#object.generic_promos}}
+            {{#generic_promos}}
               <div class="collections-promo-item generic-promo img-as-bg">
                 <div class="content-outer">
                   <div class="content-inner">
@@ -594,11 +582,11 @@
                   </div>
                 </div>
               </div>
-            {{/object.generic_promos}}
+            {{/generic_promos}}
 
-            {{#object.next_promo}}
+            {{#next_promo}}
               {{! repeat of 2nd (1st) item}}
-              {{#object.prev_promo}}
+              {{#prev_promo}}
                 <span class="previous-item-title">
                   {{ i18n.site.object.previous-item }}
                 </span>
@@ -618,13 +606,14 @@
                     </div>
                   </div>
                 </div>
-              {{/object.prev_promo}}
-            {{/object.next_promo}}
+              {{/prev_promo}}
+            {{/next_promo}}
 
           </div>
         </div>
 
       </div>
+      {{/object.promos}}
       {{! end object actions }}
 
       <div class="channel-object-similar">

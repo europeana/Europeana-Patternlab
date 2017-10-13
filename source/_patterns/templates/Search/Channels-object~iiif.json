@@ -1,0 +1,888 @@
+{
+  "bodyclass":"channels-item",
+  "page_title":"Europeana Search",
+  "page_locale":"en",
+  "version":{
+    "is_alpha":true
+  },
+  "css_files":[
+    {
+      "path":"../../css/search/screen.css",
+      "media":"all"
+    }
+  ],
+  "head_links":{
+    "items":[
+      {
+        "hreflang":"x-default",
+        "href":"http://page-url"
+      }
+    ]
+  },
+  "fb_campaigns_on":true,
+  "fb_campaigns":[
+    "test",
+    "these",
+    "campaigns"
+  ],
+  "js_vars":[
+    {
+      "name":"pageName",
+      "value":"portal/show-new"
+    },
+    {
+      "name":"mock_ajax",
+      "value":"{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+    }
+  ],
+  "js_files":[
+    {
+      "path":"../../js/modules/require.js",
+      "data_main":"../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "form_search":{
+    "action":"javascript:alert('submit form');",
+    "autocomplete":{
+      "url":"portal_autocomplete",
+      "min_chars":"0"
+    }
+  },
+  "navigation":{
+    "back_url":"javascript:alert('go back');",
+    "back_label":"Return",
+    "last_label":"item detail",
+    "next_prev":false,
+    "global":{
+      "options":{
+        "search_active":false,
+        "settings_active":true
+      },
+      "logo":{
+        "url":"http://europeana.eu",
+        "text":"Europeana Collections"
+      },
+      "primary_nav":{
+        "submenu":false,
+        "menu_id":"main-menu",
+        "items":[
+          {
+            "text":"Home",
+            "is_current":false,
+            "submenu":false
+          },
+          {
+            "text":"Collections",
+            "url":"#",
+            "submenu":{
+              "items":[
+                {
+                  "url":"music",
+                  "text":"Music",
+                  "submenu":false
+                },
+                {
+                  "url":"fashion",
+                  "text":"Fashion",
+                  "submenu":false
+                },
+                {
+                  "url":"art-history",
+                  "text":"Art History",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Galleries",
+                  "submenu":{
+                    "items":[
+                      {
+                        "url":"javascript:alert('photography');",
+                        "text":"Photography",
+                        "submenu":false
+                      },
+                      {
+                        "url":"javascript:alert('uniforms');",
+                        "text":"Uniforms",
+                        "submenu":false
+                      },
+                      {
+                        "url":"javascript:alert('rome');",
+                        "text":"Rome",
+                        "submenu":false
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "text":"Exhibitions",
+            "url":"#",
+            "submenu":{
+              "items":[
+                {
+                  "url":false,
+                  "text":"Exhibitions Title",
+                  "subtitle":true,
+                  "submenu":false
+                },
+                {
+                  "url":false,
+                  "text":"This is some text for a message",
+                  "message":true,
+                  "submenu":false
+                },
+                {
+                  "url":"www.exhibitions.eu",
+                  "text":"We know this war by heart",
+                  "submenu":false
+                },
+                {
+                  "is_divider":true,
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"European Film and the First World War",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"A Voyage with the Gods",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Weddings in Eastern Europe",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Explore the World of Musical Instruments",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Untold stories of the First World War",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Darwinism: Reception in Spain and Catalonia",
+                  "submenu":false
+                },
+                {
+                  "url":"url to all exhibitions",
+                  "text":"All Exhibitions…",
+                  "is_morelink":true,
+                  "submenu":false
+                }
+              ]
+            }
+          },
+          {
+            "url":"",
+            "text":"Blog",
+            "submenu":{
+              "items":[
+                {
+                  "url":"#",
+                  "text":"Introduction to the Europeana Access and Re-use Framework",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Exploring Vienna’s historic Ringstrasse in Field Trip",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Choosing a country’s top 10 artworks for Europeana 280",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Details make the design: an interview with Chris Wild",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Writing the past: transcribing handwritten documents from World War One",
+                  "submenu":false
+                },
+                {
+                  "url":"#",
+                  "text":"Exploring big visual cultural data: an interview with Lev Manovich",
+                  "submenu":false
+                },
+                {
+                  "url":"url to all blog posts",
+                  "text":"All Posts…",
+                  "is_morelink":true,
+                  "submenu":false
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "utility_nav":{
+        "menu_id":"settings-menu",
+        "style_modifier":"caret-right",
+        "items":[
+          {
+            "url":"#",
+            "text":"Settings",
+            "icon_class":"svg-icon-language",
+            "submenu":{
+              "items":[
+                {
+                  "text":"Settings",
+                  "subtitle":true,
+                  "submenu":false,
+                  "url":false
+                },
+                {
+                  "text":"Language",
+                  "url":"url to language settings page",
+                  "submenu":false
+                },
+                {
+                  "text":"My Profile",
+                  "url":"url to profile page",
+                  "submenu":false
+                },
+                {
+                  "text":"Advanced",
+                  "url":"url to settings page",
+                  "submenu":false
+                },
+                {
+                  "is_divider":true,
+                  "submenu":false
+                },
+                {
+                  "text":"Admin",
+                  "subtitle":true,
+                  "submenu":false,
+                  "url":false
+                },
+                {
+                  "text":"Channel Admin",
+                  "url":"url to admin page",
+                  "submenu":false
+                },
+                {
+                  "is_divider":true,
+                  "submenu":false
+                },
+                {
+                  "text":"Account",
+                  "subtitle":true,
+                  "submenu":false,
+                  "url":false
+                },
+                {
+                  "text":"Log Out",
+                  "url":"url to login page",
+                  "submenu":false
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "XXXXXXsecondary":{
+      "items":[
+        {
+          "url":"#",
+          "text":"Parent #1",
+          "submenu":{
+            "items":[
+              {
+                "url":"#",
+                "text":"Child #1",
+                "submenu":false,
+                "is_current":true
+              },
+              {
+                "url":"#",
+                "text":"Child #2",
+                "submenu":false
+              },
+              {
+                "url":"#",
+                "text":"Child #3",
+                "submenu":{
+                  "items":[
+                    {
+                      "url":"#",
+                      "text":"Grandchild #1"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #2"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #3"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #4"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "url":"#",
+          "text":"Parent #2"
+        },
+        {
+          "url":"#",
+          "text":"Parent #3",
+          "submenu":{
+            "items":[
+              {
+                "url":"#",
+                "text":"Child #1",
+                "submenu":false
+              },
+              {
+                "url":"#",
+                "text":"Child #2",
+                "submenu":false
+              },
+              {
+                "url":"#",
+                "text":"Child #3",
+                "submenu":{
+                  "items":[
+                    {
+                      "url":"#",
+                      "text":"Grandchild #1"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #2"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #3"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #4"
+                    }
+                  ]
+                }
+              },
+              {
+                "url":"#",
+                "text":"Child #4",
+                "submenu":{
+                  "items":[
+                    {
+                      "url":"#",
+                      "text":"Grandchild #1"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #2"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #3"
+                    },
+                    {
+                      "url":"#",
+                      "text":"Grandchild #4"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "url":"#",
+          "text":"Parent #4"
+        }
+      ]
+    }
+  },
+  "include_nav_searchbar":true,
+  "include_nav_title":true,
+  "channel_object":true,
+  "content":{
+    "helpbar":{
+      "tip":"<strong>Tip:</strong> hover over image for more options",
+      "tutorial":{
+        "text":"tutorial",
+        "url":"javascript:alert('tutorial link')"
+      }
+    },
+    "ugc_content":false,
+    "object":{
+      "media":{
+        "required_players":[
+          {
+            "iiif":true
+          }
+        ],
+        "single_item":true,
+        "more_thumbs_total":30,
+        "more_thumbs_url":"portal_object-media",
+        "external_media":"#",
+        "has_downloadable_media":true,
+        "items":[
+          {
+            "is_current":true,
+            "is_iiif":true,
+            "downloadable":true,
+            "download":{
+              "url":"/media/iiif.jpg",
+              "text":"Original file"
+            },
+            "playable":true,
+            "attribution_html":"some html",
+            "attribution_plain":"Vincent van Gogh",
+            "play_url":"http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
+            "thumbnail":"/media/iiif.jpg",
+            "technical_metadata":{
+              "mime_type":"image/iiif",
+              "dc_creator":"Media Item (2) Creator",
+              "dc_description":"Description of the 2nd media item",
+              "dc_rights":"DC rights of the 2nd media item",
+              "dc_source":"Source of the 2nd media item",
+              "edm_rights":"EDM rights of the 2nd media item"
+            },
+            "rights":{
+              "license_public":true,
+              "license_human":"You can use this video in any way you like",
+              "license_brief":"Yes"
+            }
+          }
+        ]
+      },
+      "rights":{
+        "license_CC0":true,
+        "license_url":"http://creativecommons.org/publicdomain/mark/1.0/",
+        "license_name":"CC0",
+        "license_human":"You can use this image in any way you like",
+        "license_brief":"Yes"
+      },
+      "title":"The Milkmaid",
+      "type":"image",
+      "is_image":true,
+      "subtitle":"Het melkmeisje",
+      "creation_date":"1660",
+      "creator":"Johannes Vermeer",
+      "origin":{
+        "institution_name":"Rijksmuseum",
+        "institution_country":"Netherlands",
+        "url":"javascript:alert('go to institution')",
+        "institution_logo":"/images/sample/beeld-en-geluid.png"
+      },
+      "annotations_later":true,
+      "view_more":{
+        "img_url":"/images/sample/object_thumbnail.jpg",
+        "url":"javascript:alert('follow link...')",
+        "label":"View more",
+        "text":"Johannes Vermeer"
+      },
+      "people":{
+        "section_id":"people",
+        "title":"People",
+        "sections":[
+          {
+            "title":false,
+            "items":[
+              {
+                "text":"Johannes Vermeer",
+                "url":"www.europeana.eu/portal/search.html?query=Johannes+Vermeer",
+                "extra_info":{
+                  "life":{
+                    "content_present":true,
+                    "from":{
+                      "long":"31st October 1632",
+                      "short":"1632"
+                    },
+                    "to":{
+                      "long":"December 1675",
+                      "short":"1675"
+                    }
+                  },
+                  "biography":{
+                    "text":"Johannes, Jan or Johan Vermeer was a Dutch painter who specialized in domestic interior scenes of middle-class life. Vermeer was a moderately successful provincial genre painter in his lifetime.",
+                    "source":"Wikipedia",
+                    "source_url":"http://en.wikipedia.org/wiki/Johannes_Vermeer"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "concepts":{
+        "section_id":"concepts",
+        "title":"Categories",
+        "sections":[
+          {
+            "title":"Type",
+            "items":[
+              {
+                "text":"paintings",
+                "url":"javascript:alert('search concepts')"
+              },
+              {
+                "text":"easel paintings",
+                "url":"javascript:alert('search concepts')"
+              }
+            ]
+          },
+          {
+            "title":"Subject",
+            "items":[
+              {
+                "text":"Kitchen maid",
+                "url":"javascript:alert('search concepts')"
+              },
+              {
+                "text":"Kitchen servant",
+                "url":"javascript:alert('search concepts')"
+              }
+            ]
+          }
+        ]
+      },
+      "description":{
+        "section_id":"description",
+        "title":"Description",
+        "sections":[
+          {
+            "title":false,
+            "items":[
+              {
+                "text":"Girl pouring milk into bowl",
+                "url":false
+              },
+              {
+                "text":"A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.",
+                "url":false
+              }
+            ]
+          }
+        ]
+      },
+      "properties":{
+        "section_id":"properties",
+        "title":"Properties",
+        "sections":[
+          {
+            "title":"Extent",
+            "items":[
+              {
+                "text":"41 cm high"
+              },
+              {
+                "text":"30 cm wide"
+              }
+            ]
+          },
+          {
+            "title":"Format",
+            "items":[
+              {
+                "text":"oil paint",
+                "url":"search"
+              },
+              {
+                "text":"oil paints",
+                "url":"search"
+              }
+            ]
+          }
+        ]
+      },
+      "provenance":{
+        "section_id":"provenance",
+        "title":"Source",
+        "sections":[
+          {
+            "title":"Publisher",
+            "items":[
+              {
+                "text":"DC Publisher"
+              }
+            ]
+          },
+          {
+            "title":"Source",
+            "items":[
+              {
+                "text":"Rijksmuseum",
+                "url":"http://www.europeana.eu/portal/redirect.html?shownAt=http%3A%2F%2Fwww.rijksmuseum.nl%2Fcollectie%2FSK-A-2344&provider=Rijksmuseum&id=/90402/SK_A_2344"
+              }
+            ]
+          },
+          {
+            "title":"Provider",
+            "items":[
+              {
+                "text":"Rijksmuseum"
+              }
+            ]
+          },
+          {
+            "title":"Providing Country",
+            "items":[
+              {
+                "text":"Netherlands"
+              }
+            ]
+          }
+        ]
+      },
+      "places":{
+        "section_id":"location",
+        "title":"Place",
+        "sections":[
+          {
+            "title":"Place/Time",
+            "items":[
+              {
+                "text":"third quarter 17th century"
+              }
+            ]
+          },
+          {
+            "title":"Location",
+            "items":[
+              {
+                "text":"Western Europe"
+              },
+              {
+                "text":"Netherlands"
+              }
+            ]
+          },
+          {
+            "title":"Location",
+            "items":[
+              {
+                "text":"Near Delft"
+              }
+            ]
+          }
+        ]
+      },
+      "refs_rels":{
+        "section_id":"refs_rels",
+        "title":"References and Relationships",
+        "sections":[
+          {
+            "title":"Relations",
+            "items":[
+              {
+                "text":"relation 1"
+              },
+              {
+                "text":"relation 2"
+              }
+            ]
+          },
+          {
+            "title":"References",
+            "items":[
+              {
+                "text":"reference 1"
+              },
+              {
+                "text":"reference 2"
+              }
+            ]
+          }
+        ]
+      },
+      "dates":{
+        "section_id":"times",
+        "title":"Times",
+        "sections":[
+          {
+            "title":"Issued",
+            "items":[
+              {
+                "text":"17th century"
+              },
+              {
+                "text":"Seventeenth century"
+              }
+            ]
+          },
+          {
+            "title":"Temporal",
+            "items":[
+              {
+                "text":"1700s"
+              },
+              {
+                "text":"Mid-second millennium"
+              }
+            ]
+          }
+        ]
+      },
+      "meta_additional":{
+        "present":true,
+        "section_id":"map",
+        "geo":{
+          "long_and_lat":true,
+          "longitude":"3.1",
+          "latitude":"39.2",
+          "labels":{
+            "map":"Map",
+            "longitude":"Longitude",
+            "latitude":"Latitude",
+            "points":{
+              "n":"North",
+              "e":"East",
+              "s":"South",
+              "w":"West"
+            }
+          }
+        }
+      },
+      "social_share":{
+        "url":"this page url for share links",
+        "twitter":true,
+        "facebook":true,
+        "pinterest":true,
+        "googleplus":true,
+        "tumblr":true
+      },
+      "suggestions":{
+        "tab_items":[
+          {
+            "tab_title":"From Johannes Vermeer",
+            "url":"portal_suggestions?from=vermeer"
+          },
+          {
+            "tab_title":"From Rijksmuseum",
+            "url":"portal_suggestions?from=rijks"
+          },
+          {
+            "tab_title":"From the blog",
+            "url":"portal_suggestions?from=blog"
+          },
+          {
+            "tab_title":"From elsewhere",
+            "url":"portal_suggestions?from=elsewhere"
+          }
+        ]
+      }
+    },
+    "named_entities":{
+      "fold_title":"Named Entities",
+      "inline":true,
+      "data":[
+        {
+          "title":"Who",
+          "fields":[
+            {
+              "key":"Agent Term",
+              "val":"http://www.mimo-db.eu/InstrumentMaker/Person/3149",
+              "foldable_link":true
+            },
+            {
+              "key":"Agent Label",
+              "vals":[
+                {
+                  "key":"def",
+                  "val":"Johann Andreas Stein"
+                },
+                {
+                  "key":"en",
+                  "val":"John Andrew Stein"
+                }
+              ],
+              "multi":true
+            }
+          ]
+        },
+        {
+          "title":"What",
+          "fields":[
+            {
+              "key":"Concept Term",
+              "val":"http://www.mimo-db.eu/InstrumentsKeywords/2284",
+              "foldable_link":true
+            },
+            {
+              "key":"Concept Label",
+              "vals":[
+                {
+                  "key":"def",
+                  "val":"Object"
+                },
+                {
+                  "key":"fr",
+                  "val":"Objet d'art"
+                }
+              ],
+              "multi":true
+            }
+          ]
+        },
+        {
+          "title":"Where",
+          "fields":[
+            {
+              "key":"Place Term",
+              "val":"https://www.google.co.uk/maps",
+              "foldable_link":true
+            }
+          ]
+        },
+        {
+          "title":"When",
+          "fields":[
+            {
+              "key":"Period Term",
+              "val":"http://semium.org/time/17xx_4_quarter",
+              "foldable_link":true
+            },
+            {
+              "key":"Period Term",
+              "vals":[
+                {
+                  "key":"(fr)",
+                  "val":"[4e quart 18e siècle]"
+                },
+                {
+                  "key":"(en)",
+                  "val":"[4 quarter of the 18th century]"
+                },
+                {
+                  "key":"(ru)",
+                  "val":"[4-я четверть 18-го века]"
+                }
+              ],
+              "multi":true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "page_config":{
+    "newsletter":true
+  },
+  "debug":""
+}

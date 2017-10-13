@@ -5,21 +5,48 @@
   background: $offwhite;
 
   .object-details.zoom-one .channel-media-wrap:not(.empty) .object-media-viewer .playable .media-options{
-    margin: -50% auto 50% auto;
-    width:  40%;
+
+    flex-direction: column;
+    left:           0;
+    margin:         0;
+    padding:        1.6rem 0.4rem 1.6rem 2.4rem;
+    position:       fixed;
+    top:            9em;
+    width:          auto;
+
+    .media-option-group{
+      border-left:    0;
+      border-right:   0;
+      flex-direction: column;
+      padding-left:   0;
+      padding-right:  0;
+    }
   }
 
   @media all and (min-width: $bp-med) {
 
     .object-details:not(.zoom-two){
 
-      .channel-object-overview{
-        @include span(18);
-      }
+      .channel-object-overview,
       .channel-object-similar{
-        @include span(18);
+        @include span(24);
+      }
+
+      &.has-right-column{
+        .channel-object-overview,
+        .channel-object-similar{
+          @include span(18);
+        }
       }
     }
+
+    .object-details.no-right-column.zoom-one{
+      .channel-object-overview,
+      .channel-object-similar{
+        padding: 0;
+      }
+    }
+
 
     .object-details:not(.zoom-two) .channel-object-actions{
 
@@ -222,7 +249,8 @@
 
         &:hover{
           .media-options{
-            opacity:   1;
+            opacity:    1;
+            visibility: visible;
           }
         }
 
@@ -237,12 +265,12 @@
         background-color: $dim;
         display:          flex;
         justify-content:  space-evenly;
-        margin-left:      -1em;
-        margin-top:       -6.2em;
+        margin:           -6.2em 0 -0.8em -1em;
         opacity:          0;
         padding:          1.75rem 2rem 2.25rem 2rem;
         position:         relative;
         transition:       opacity 1s ease-out;
+        visibility:       hidden;
         width:            calc(100% + 2rem);
         z-index:          2;
 
@@ -371,6 +399,10 @@
       .object-media-iiif{
         position: relative;
         z-index:  2;
+
+        #iiif{
+          background-color: #333;
+        }
       }
     }
 
@@ -405,6 +437,9 @@
             left:  2%;
             width: 96%;
           }
+        }
+        &.js-remove{
+          display: none;
         }
       }
 
@@ -988,6 +1023,12 @@
     .object-details:not(.zoom-two){
       .object-media-viewer {
         max-width: $max-width;
+      }
+
+      &.no-right-column.zoom-one{
+        .object-media-viewer {
+          max-width: none;
+        }
       }
     }
 
