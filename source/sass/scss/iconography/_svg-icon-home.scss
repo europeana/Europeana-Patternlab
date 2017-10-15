@@ -6,6 +6,7 @@
   display:           inline-block;
   height:            2em;
   position:          absolute;
+  -webkit-transform: scale(0.5) translateX(-2 * $space);
   transform:         scale(0.5) translateX(-2 * $space);
   width:             2em;
 }

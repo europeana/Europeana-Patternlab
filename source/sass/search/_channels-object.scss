@@ -78,6 +78,7 @@
     height:     0;
     overflow:   hidden;
     position:   relative;
+    -webkit-transition: height 0.3s ease-out;
     transition: height 0.3s ease-out;
 
     &.show {
@@ -254,24 +255,26 @@
         }
 
         .zoomable{
-          transition: width 0.3s ease-out;
-          width:      100%;
+          -webkit-transition: width 0.3s ease-out;
+          transition:         width 0.3s ease-out;
+          width:              100%;
         }
       }
 
       .media-options {
 
-        background-color: $dim;
-        display:          flex;
-        justify-content:  space-evenly;
-        margin:           -6.2em 0 -0.8em -1em;
-        opacity:          0;
-        padding:          1.75rem 2rem 2.25rem 2rem;
-        position:         relative;
-        transition:       opacity 1s ease-out;
-        visibility:       hidden;
-        width:            calc(100% + 2rem);
-        z-index:          2;
+        background-color:   $dim;
+        display:            flex;
+        justify-content:    space-evenly;
+        margin:             -6.2em 0 -0.8em -1em;
+        opacity:            0;
+        padding:            1.75rem 2rem 2.25rem 2rem;
+        position:           relative;
+        -webkit-transition: opacity 1s ease-out;
+        transition:         opacity 1s ease-out;
+        visibility:         hidden;
+        width:              calc(100% + 2rem);
+        z-index:            2;
 
         .media-option-group {
 
@@ -460,23 +463,26 @@
       }
 
       .mlt-img-div{
-        background-color: transparent;
-        height:           100%;
-        margin-bottom:    35%;
-        margin-top:       35%;
-        transition:       all 0.1s ease-out;
-        width:            100%;
-        z-index:          1;
+        background-color:   transparent;
+        height:             100%;
+        margin-bottom:      35%;
+        margin-top:         35%;
+        -webkit-transition: all 0.1s ease-out;
+        transition:         all 0.1s ease-out;
+        width:              100%;
+        z-index:            1;
 
         &:hover {
-          border: 1px solid $gray-lighter;
-          transform: scale(1.25);
+          border:            1px solid $gray-lighter;
+          -webkit-transform: scale(1.25);
+          transform:         scale(1.25);
         }
 
         &.active {
-          border: 1px solid $brand-twitter;
-          box-shadow: 0 1px 2px 0 $dim02;
-          transform: scale(1.52);
+          border:            1px solid $brand-twitter;
+          box-shadow:        0 1px 2px 0 $dim02;
+          -webkit-transform: scale(1.52);
+          transform:         scale(1.52);
         }
       }
     }
@@ -485,13 +491,14 @@
   .carousel-arrows.left,
   .carousel-arrows.right {
 
-    background-color: $dim07;
+    background-color:    $dim07;
     background-position: 0.7em 0.7em;
-    height: 2.25em;
-    left: -0.5em;
-    top: 0.35em;
-    transform: scale(0.5);
-    width: 2.25em;
+    height:              2.25em;
+    left:                -0.5em;
+    top:                 0.35em;
+    -webkit-transform:   scale(0.5);
+    transform:           scale(0.5);
+    width:               2.25em;
 
     &:hover {
       background-color: $black;
@@ -632,6 +639,7 @@
         display:           block;
         height:            1.5em;
         margin:            auto;
+        -webkit-transform: scale(1.4);
         transform:         scale(1.4);
         width:             1.5em;
       }
@@ -701,12 +709,13 @@
     }
 
     .svg-icon-linkout{
-      display:       inline-block;
-      height:        2em;
-      margin-bottom: -0.55em;
-      margin-top:    -0.55em;
-      transform:     scale(0.6);
-      width:         2em;
+      display:           inline-block;
+      height:            2em;
+      margin-bottom:     -0.55em;
+      margin-top:        -0.55em;
+      -webkit-transform: scale(0.6);
+      transform:         scale(0.6);
+      width:             2em;
     }
 
     @media all and (min-width: $bp-large) {
@@ -833,10 +842,11 @@
       padding: $pad;
 
       .label{
-        display:   inline-block;
-        position:  relative;
-        top:       50%;
-        transform: translateY(-50%);
+        display:           inline-block;
+        position:          relative;
+        top:               50%;
+        -webkit-transform: translateY(-50%);
+        transform:         translateY(-50%);
       }
     }
 
