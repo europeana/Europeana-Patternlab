@@ -386,6 +386,36 @@ $green-grey-bg:                    #f4f4f4;
         filter:         grayscale(0%);
       }
     }
+
+    &.separator-after{
+
+      margin-right: 48px;
+
+      position:     relative;
+
+      &::after{
+        border-right:  1px solid $gray87;
+        bottom:        0;
+        content:       ' ';
+        position:      absolute;
+        right:         -34px;
+        top:           0;
+      }
+    }
+
+    &.separator-before{
+      margin-left:  48px;
+      position:     relative;
+
+      &::before{
+        border-right:  1px solid $gray87;
+        bottom:        0;
+        content:       ' ';
+        left:          -34px;
+        position:      absolute;
+        top:           0;
+      }
+    }
   }
 
   .image-set{

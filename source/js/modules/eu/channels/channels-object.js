@@ -1,16 +1,13 @@
 define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
 
   var channelData        = null;
-  //var mediaThumbCarousel = null;
   var suggestions        = null;
   var collectionsExtra   = null;
 
   var viewerIIIF         = null;
 
   function log(msg){
-    if(msg == 'x'){
-      console.log('channels-object: ' + msg);
-    }
+    console.log('channels-object: ' + msg);
   }
 
   function initTitleBar(){
@@ -228,16 +225,21 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       if(zoomIn.hasClass('disabled')){
         return;
       }
-
-      var zoomLevels = getZoomLevels();
-
-      if($zoomEl.hasClass('zoom-one') && zoomLevels.length > 1){
-        $zoomEl.addClass('zoom-two');
-        resetZoomable();
+      if($zoomEl.hasClass('js-busy')){
+        return;
       }
       else{
-        $zoomEl.addClass(zoomLevels[0]);
-        resetZoomable();
+        $zoomEl.addClass('js-busy');
+
+        var zoomLevels = getZoomLevels();
+        if($zoomEl.hasClass('zoom-one') && zoomLevels.length > 1){
+          $zoomEl.addClass('zoom-two');
+          resetZoomable();
+        }
+        else{
+          $zoomEl.addClass(zoomLevels[0]);
+          resetZoomable();
+        }
       }
     });
 
@@ -250,7 +252,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         return;
       }
       else{
-
         $zoomEl.addClass('js-busy');
 
         if($zoomEl.hasClass('zoom-two')){
@@ -458,19 +459,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   function fixZoomableWidth(){
 
-    console.warn('fzw...');
     var zoomable    = $('.zoomable');
 
-    zoomable.off('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+    zoomable.off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+    zoomable.css('width', zoomable.width() + 'px');
     setTimeout(function(){
-      zoomable.css('width', zoomable.width() + 'px');
-      zoomable.on('transitionEnd transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+      zoomable.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
         updateCtrls();
         fixZoomableWidth();
       });
     }, 1);
   }
-  $(window).on('fz', fixZoomableWidth);
 
   function loadAnnotations(){
 
@@ -643,6 +642,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     collectionsExtra.updateSwipe = function(){
       var totalW = (collectionsExtra.children().length - 1) * 32;
+      totalW += collectionsExtra.children('.separator-after, .separator-before').length * 32;
+
       collectionsExtra.children('.collections-promo-item').each(function(){
         totalW += $(this).outerWidth();
       });

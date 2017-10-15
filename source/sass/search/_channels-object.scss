@@ -47,13 +47,12 @@
       }
     }
 
-
     .object-details:not(.zoom-two) .channel-object-actions{
 
       .next-item-title,
       .previous-item-title{
         display:        block;
-        font-size:      $font-size-slightly-smaller;
+        font-size:      $font-size-sm;
         font-weight:    bold;
         margin-bottom:  $space;
         text-transform: uppercase;

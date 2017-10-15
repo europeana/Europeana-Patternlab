@@ -224,7 +224,7 @@
             }
           },
           {
-            "thumbnail": "x",
+            "thumbnail": "/images/sample/object_thumbnail4.jpg",
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/PDF2.pdf",
@@ -825,9 +825,8 @@
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "3.1",
-
-          "latitude": "39.2",
+          "longitude": "4.21",
+          "latitude": "52.0",
 
           "labels":
           {

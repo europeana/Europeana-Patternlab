@@ -14,6 +14,43 @@ $green-grey-bg:                    #f4f4f4;
     width:  100%;
   }
 
+  .channel-object-next-prev{
+
+    &.separator-after{
+
+      margin-bottom: 3.2em;
+      margin-right:  0;
+
+      &::after{
+        border-bottom: 1px solid $gray87;
+        border-right:  0;
+        bottom:        -1.6em;
+        left:          0;
+        right:         0;
+        top:           0;
+      }
+    }
+
+    &.separator-before{
+
+      margin-left: 0;
+      margin-top:  1.6em;
+
+      &::before{
+        border-right: 0;
+        border-top:   1px solid $gray87;
+        bottom:       0;
+        left:         0;
+        right:        0;
+        top:          -4em;
+      }
+    }
+  }
+
+  .previous-item-title{
+    transform: translateY(1.6em);
+  }
+
   .collections-promo-item{
     font-size:     $font-size-sm;
     margin-bottom: $space;
