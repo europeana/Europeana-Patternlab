@@ -3,22 +3,20 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var channelData        = null;
   var suggestions        = null;
   var collectionsExtra   = null;
-
   var viewerIIIF         = null;
-
 
   var transitionEvent    = (function (){
     var t;
     var el = document.createElement('fakeelement');
     var transitions = {
-      'transition'       :'transitionEnd',
+      'transition'       :'transitionend',
       'OTransition'      :'oTransitionEnd',
       'MSTransition'     :'msTransitionEnd',
       'MozTransition'    :'transitionend',
       'WebkitTransition' :'webkitTransitionEnd'
     }
     for(t in transitions){
-      if( el.style[t] !== undefined ){
+      if(el.style[t] !== undefined){
         return transitions[t];
       }
     }
@@ -441,7 +439,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var zoomOut    = $('.media-zoom-out');
     var zoomLevels = getZoomLevels();
 
-
     if($zoomEl.hasClass('zoom-two')){
       zoomIn.addClass('disabled');
       log('disable zoomIn (A)');
@@ -477,7 +474,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   function fixZoomableWidth(){
 
-    var zoomable    = $('.zoomable');
+    var zoomable = $('.zoomable');
 
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
