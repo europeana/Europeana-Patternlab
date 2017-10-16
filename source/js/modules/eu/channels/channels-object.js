@@ -6,6 +6,24 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   var viewerIIIF         = null;
 
+
+  var transitionEvent    = (function (){
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition'       :'transitionEnd',
+      'OTransition'      :'oTransitionEnd',
+      'MSTransition'     :'msTransitionEnd',
+      'MozTransition'    :'transitionend',
+      'WebkitTransition' :'webkitTransitionEnd'
+    }
+    for(t in transitions){
+      if( el.style[t] !== undefined ){
+        return transitions[t];
+      }
+    }
+  }());
+
   function log(msg){
     console.log('channels-object: ' + msg);
   }
@@ -461,10 +479,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var zoomable    = $('.zoomable');
 
-    zoomable.off('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+    zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
     setTimeout(function(){
-      zoomable.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+      zoomable.on(transitionEvent, function(){
         updateCtrls();
         fixZoomableWidth();
       });

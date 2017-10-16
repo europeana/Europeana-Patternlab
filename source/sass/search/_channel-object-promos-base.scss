@@ -10,20 +10,23 @@ $green-grey-bg:                    #f4f4f4;
 
 .collections-promos{
 
-  display:         flex;
-  justify-content: space-between;
-  margin-bottom:   3px;
-  position:        relative;
+  display:                 -webkit-flex;
+  display:                 flex;
+  -webkit-justify-content: space-between;
+  justify-content:         space-between;
+  margin-bottom:           3px;
+  position:                relative;
 
   .collections-promo-item{
 
-    align-self:       start;
-    background-color: $green-grey-bg;
-    box-shadow:       $box-shadow-panel;
-    font-size:        $font-size-slightly-smaller;
-    margin:           auto;
-    min-width:        $collections-promo-item-min-width;
-    width:            $collections-promo-item-min-width;
+    -webkit-align-self: start;
+    align-self:         start;
+    background-color:   $green-grey-bg;
+    box-shadow:         $box-shadow-panel;
+    font-size:          $font-size-slightly-smaller;
+    margin:             auto;
+    min-width:          $collections-promo-item-min-width;
+    width:              $collections-promo-item-min-width;
 
     .category-flag{
       box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.25);
@@ -163,10 +166,12 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     .content-text-inner{
-      display:         flex;
-      flex-direction:  column;
-      height:          100%;
-      justify-content: space-between;
+      display:                 -webkit-flex;
+      display:                 flex;
+      flex-direction:          column;
+      height:                  100%;
+      -webkit-justify-content: space-between;
+      justify-content:         space-between;
     }
 
     .content-text-inner.has-text:not(.has-title){
@@ -347,10 +352,12 @@ $green-grey-bg:                    #f4f4f4;
 
     .links{
 
-      display:         flex;
-      justify-content: space-between;
-      margin-top:      $space-half;
-      text-align:      center;
+      display:                 -webkit-flex;
+      display:                 flex;
+      -webkit-justify-content: space-between;
+      justify-content:         space-between;
+      margin-top:              $space-half;
+      text-align:              center;
 
       a{
         color: $eu-blue;
