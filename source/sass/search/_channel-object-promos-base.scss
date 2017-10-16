@@ -381,7 +381,6 @@ $green-grey-bg:                    #f4f4f4;
   .channel-object-next-prev{
 
     img{
-      -webkit-filter: grayscale(100%);
       filter:         grayscale(100%);
       margin:         0 auto .8rem auto;
       max-height:     100%;
@@ -389,7 +388,6 @@ $green-grey-bg:                    #f4f4f4;
       transition:     filter 0.3s ease-out;
 
       &:hover{
-        -webkit-filter: grayscale(0%);
         filter:         grayscale(0%);
       }
     }
