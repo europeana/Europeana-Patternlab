@@ -45,7 +45,7 @@ define(['jquery', 'util_resize'], function($){
       var ok = replaceTextNode(cmp, txt.substr(0, length) +  (suppressSuffix ? '' : suffix));
       if(!ok){
         exitLookup = true;
-
+/*
         var debug = function(depth, s){
           console.log('debug...');
           var xCmp = cmp;
@@ -62,8 +62,10 @@ define(['jquery', 'util_resize'], function($){
           }
           return s;
         };
-
-        console.log('Exit - mixed content not supported - exitLookup - ' + debug());
+        console.log('Exit - mixed content not supported - exitLookup - ');
+        console.log('\t' + cmp.attr('class'));
+        console.log('\t' + cmp.parent().attr('class'));
+ */
         return true;
       }
       return !fn();

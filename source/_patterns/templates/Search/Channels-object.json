@@ -19,8 +19,7 @@
       }
     ]
   },
-  "fb_campaigns_on": true,
-  "fb_campaigns": ["test", "these", "campaigns"],
+  "fb_campaigns_on": false,
   "js_vars": [
     {
       "name": "pageName",
@@ -28,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 
@@ -225,7 +224,7 @@
             }
           },
           {
-            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "thumbnail": "/images/sample/object_thumbnail4.jpg",
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/PDF2.pdf",
@@ -330,7 +329,7 @@
           {
             "is_video": true,
             "playable": true,
-            "thumbnail": "http://europeanastatic.eu/api/image?uri=http://www.openbeelden.nl/images/602785/Het_5000ste_huis_gereed_%25280_36%2529.png&size=LARGE&type=VIDEO",
+            "thumbnail": "/images/sample/object_thumbnail4.jpg",
             "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
             "downloadable": true,
             "download": {
@@ -563,6 +562,8 @@
           }
         ]
       },
+
+      "promos": {
 
       "next_promo": {
         "url": "javascript:alert('open next item')",
@@ -813,7 +814,10 @@
           "tags": false,
           "relation": "All data fields accepted in generic card apart from icons (will show but may collide with text)"
         }
-      ],
+      ]
+
+      },
+
       "meta_additional":
       {
         "present": true,
@@ -821,9 +825,8 @@
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "3.1",
-
-          "latitude": "39.2",
+          "longitude": "4.21",
+          "latitude": "52.0",
 
           "labels":
           {
