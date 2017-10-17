@@ -1,4 +1,4 @@
-define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
+define(['jquery', 'purl'], function($) {
 
   function log(msg){
     console.log('search-galleries: ' + msg);
@@ -16,70 +16,76 @@ define(['jquery', 'purl', 'ga'], function($, scrollEvents, ga) {
   }
 
   function initGA(){
+    require(['ga'],
+      function(ga){
+        $(document).on('click', '#lg-download', function(){
+          var url = $(this).attr('href');
+          var data = {
+            hitType:       'event',
+            eventCategory: 'Download',
+            eventAction:   url,
+            eventLabel:    'Gallery Item Download'
+          };
+          ga('send', data);
+          logGA(data);
+        });
 
-    $(document).on('click', '#lg-download', function(){
-      var url = $(this).attr('href');
-      var data = {
-        hitType:       'event',
-        eventCategory: 'Download',
-        eventAction:   url,
-        eventLabel:    'Gallery Item Download'
-      };
-      ga('send', data);
-      logGA(data);
-    });
+        var shareImage = function(socialNetwork){
+          log('share ' + socialNetwork + ': ' + window.location.href);
+          var data = {
+            hitType: 'social',
+            socialNetwork: socialNetwork,
+            socialAction: 'share (gallery image)',
+            socialTarget: window.location.href
+          };
+          ga('send', data);
+          logGA(data);
+        };
 
-    var shareImage = function(socialNetwork){
-      log('share ' + socialNetwork + ': ' + window.location.href);
-      var data = {
-        hitType: 'social',
-        socialNetwork: socialNetwork,
-        socialAction: 'share (gallery image)',
-        socialTarget: window.location.href
-      };
-      ga('send', data);
-      logGA(data);
-    };
+        $(document).on('click', '#lg-share-facebook', function(){
+          shareImage('facebook');
+        });
 
-    $(document).on('click', '#lg-share-facebook', function(){
-      shareImage('facebook');
-    });
+        $(document).on('click', '#lg-share-twitter', function(){
+          shareImage('twitter');
+        });
 
-    $(document).on('click', '#lg-share-twitter', function(){
-      shareImage('twitter');
-    });
+        $(document).on('click', '#lg-share-googleplus', function(){
+          shareImage('googleplus');
+        });
 
-    $(document).on('click', '#lg-share-googleplus', function(){
-      shareImage('googleplus');
-    });
+        $(document).on('click', '#lg-share-pinterest', function(){
+          shareImage('pinterest');
+        });
 
-    $(document).on('click', '#lg-share-pinterest', function(){
-      shareImage('pinterest');
-    });
+        $('.gallery').on('onAfterSlide.lg', function(){
+          var current = $('.lg-current img').attr('src');
+          var data    = {
+            hitType: 'event',
+            eventCategory: 'Media View',
+            eventAction: current,
+            eventLabel: 'Gallery Image'
+          };
+          ga('send', data);
+          logGA(data);
+        });
 
-    $('.gallery').on('onAfterSlide.lg', function(){
-      var current = $('.lg-current img').attr('src');
-      var data    = {
-        hitType: 'event',
-        eventCategory: 'Media View',
-        eventAction: current,
-        eventLabel: 'Gallery Image'
-      };
-      ga('send', data);
-      logGA(data);
-    });
-
-    $('.social-share a').on('click', function(){
-      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-      var data = {
-        hitType: 'social',
-        socialNetwork: socialNetwork,
-        socialAction: $('.gallery-foyer').length == 0 ? 'share (gallery foyer)' : 'share (gallery)',
-        socialTarget: window.location.href
-      };
-      ga('send', data);
-      logGA(data);
-    });
+        $('.social-share a').on('click', function(){
+          var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+          var data = {
+            hitType: 'social',
+            socialNetwork: socialNetwork,
+            socialAction: $('.gallery-foyer').length == 0 ? 'share (gallery foyer)' : 'share (gallery)',
+            socialTarget: window.location.href
+          };
+          ga('send', data);
+          logGA(data);
+        });
+      },
+      function(){
+        log('Failed to load ga');
+      }
+    );
   }
 
   function initLightbox(){
