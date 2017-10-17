@@ -1,6 +1,6 @@
-define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, ga, Mustache) {
+define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, Mustache) {
 
-  ga = window.fixGA(ga);
+  var ga = window.fixGA(ga);
   var channelData = null;
 
   function log(msg){
@@ -641,14 +641,16 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   };
 
   var bindAnalyticsEventsMLT = function(){
-    $('.mlt .left').add($('.mlt .right')).on('click', function(){
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Browse',
-        eventAction: 'Similar items scroll',
-        eventLabel: 'Similar items scroll'
+    require(['ga'], function(){
+      $('.mlt .left').add($('.mlt .right')).on('click', function(){
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Browse',
+          eventAction: 'Similar items scroll',
+          eventLabel: 'Similar items scroll'
+        });
+        log('GA: Browse');
       });
-      log('GA: Browse');
     });
   };
 
@@ -762,8 +764,10 @@ define(['jquery', 'util_scrollEvents', 'ga', 'mustache', 'util_foldable', 'black
   }
 
   function initPage(searchForm){
-    bindAnalyticsEvents();
-    bindAnalyticsEventsSocial();
+    require(['ga'], function(){
+      bindAnalyticsEvents();
+      bindAnalyticsEventsSocial();
+    });
     bindAttributionToggle();
     bindDownloadButton();
     bindMetadataButton();
