@@ -2537,31 +2537,36 @@ var WorkerTransport = (function WorkerTransportClosure() {
         var messageHandler = new MessageHandler('main', worker);
         this.messageHandler = messageHandler;
 
-        messageHandler.on('test', function transportTest(data) {
-          var supportTypedArray = data && data.supportTypedArray;
-          if (supportTypedArray) {
-            this.worker = worker;
-            if (!data.supportTransfers) {
-              PDFJS.postMessageTransfers = false;
+        // Europeana disable
+        if(false){
+          messageHandler.on('test', function transportTest(data) {
+            var supportTypedArray = data && data.supportTypedArray;
+            if (supportTypedArray) {
+              this.worker = worker;
+              if (!data.supportTransfers) {
+                PDFJS.postMessageTransfers = false;
+              }
+              this.setupMessageHandler(messageHandler);
+              workerInitializedCapability.resolve();
+            } else {
+              this.setupFakeWorker();
             }
-            this.setupMessageHandler(messageHandler);
-            workerInitializedCapability.resolve();
-          } else {
-            this.setupFakeWorker();
-          }
-        }.bind(this));
+          }.bind(this));
 
-        var testObj = new Uint8Array([PDFJS.postMessageTransfers ? 255 : 0]);
-        // Some versions of Opera throw a DATA_CLONE_ERR on serializing the
-        // typed array. Also, checking if we can use transfers.
-        try {
-          messageHandler.send('test', testObj, [testObj.buffer]);
-        } catch (ex) {
-          info('Cannot use postMessage transfers');
-          testObj[0] = 0;
-          messageHandler.send('test', testObj);
+          var testObj = new Uint8Array([PDFJS.postMessageTransfers ? 255 : 0]);
+          // Some versions of Opera throw a DATA_CLONE_ERR on serializing the
+          // typed array. Also, checking if we can use transfers.
+          try {
+            messageHandler.send('test', testObj, [testObj.buffer]);
+          } catch (ex) {
+            info('Cannot use postMessage transfers');
+            testObj[0] = 0;
+            messageHandler.send('test', testObj);
+          }
+          return;
         }
-        return;
+        // end Europeana disable
+
       } catch (e) {
         info('The worker has been disabled.');
       }
