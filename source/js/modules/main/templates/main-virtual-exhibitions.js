@@ -55,9 +55,14 @@ require(['jquery'], function($) {
       q: [['create', gaCode, 'auto']],
       l: Date.now()
     };
-    require(['ga'], function(ga) {
-      ga('send', 'pageview');
-    });
+    require(['ga'],
+      function(ga) {
+        ga('send', 'pageview');
+      },
+      function(){
+        console.log('failed to load ga');
+      }
+    );
   }
 
   // is this a test site?

@@ -1,6 +1,4 @@
-define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEvents){
-
-  ga = window.fixGA(ga);
+define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
   var $url            = $.url();
   var masonry         = null;
@@ -268,61 +266,69 @@ define(['jquery', 'ga', 'util_scrollEvents', 'purl'], function($, ga, scrollEven
   };
 
   var bindGA = function(){
-    $('.item-origin .external').on('click', function(){
-      var href =  $(this).attr('href');
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Redirect',
-        eventAction: href,
-        eventLabel: 'CTR List'
+
+    require(['ga'], function(ga){
+
+      ga = window.fixGA(ga);
+
+      $('.item-origin .external').on('click', function(){
+        var href =  $(this).attr('href');
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Redirect',
+          eventAction: href,
+          eventLabel: 'CTR List'
+        });
       });
-    });
 
-    $('.refine a:not(.js-showhide-nested)').on('click', function(e){
-      var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
-      if(facetRoot.length == 0){
-        facetRoot = $(e.target).closest('.filter').parent().closest('.filter');
-        facetRoot = facetRoot.find('> .filter-name');
-      }
-      var facetAction = facetRoot.data('filter-name');
-      if(!facetAction){
-        facetAction = $(e.target).closest('[data-filter-name]').data('filter-name');
-      }
+      $('.refine a:not(.js-showhide-nested)').on('click', function(e){
+        var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
+        if(facetRoot.length == 0){
+          facetRoot = $(e.target).closest('.filter').parent().closest('.filter');
+          facetRoot = facetRoot.find('> .filter-name');
+        }
+        var facetAction = facetRoot.data('filter-name');
+        if(!facetAction){
+          facetAction = $(e.target).closest('[data-filter-name]').data('filter-name');
+        }
 
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Facets',
-        eventAction: facetAction,
-        eventLabel: 'Facet selection'
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Facets',
+          eventAction: facetAction,
+          eventLabel: 'Facet selection'
+        });
       });
-    });
 
-    $('.refine .js-showhide-nested').on('click', function(){
-      if($('.refine .js-showhide-nested').data('ga-sent')){
-        return;
-      }
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'Licenses',
-        eventAction: 'Showing specific licenses to users',
-        eventLabel: 'Specific licenses'
+      $('.refine .js-showhide-nested').on('click', function(){
+        if($('.refine .js-showhide-nested').data('ga-sent')){
+          return;
+        }
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'Licenses',
+          eventAction: 'Showing specific licenses to users',
+          eventLabel: 'Specific licenses'
+        });
+        $('.refine .js-showhide-nested').data('ga-sent', true);
       });
-      $('.refine .js-showhide-nested').data('ga-sent', true);
-    });
 
-    $(document).on('click', '.eu-accordion-tabs a', function(e){
-      var tgt          = $(e.target);
-      var providerName = tgt.closest('.tab-content').prev('.tab-header').find('.tab-title').text();
-      providerName     = providerName ? providerName : $('.tab-header.active').find('.tab-title').text();
-      var data = {
-        hitType:       'event',
-        eventCategory: 'Federated Search',
-        eventAction:   tgt.closest('.more-federated-results').length > 0 ? 'View external results page' : 'View external item',
-        eventLabel:    providerName
-      };
-      ga('send', data);
+      $(document).on('click', '.eu-accordion-tabs a', function(e){
+        var tgt          = $(e.target);
+        var providerName = tgt.closest('.tab-content').prev('.tab-header').find('.tab-title').text();
+        providerName     = providerName ? providerName : $('.tab-header.active').find('.tab-title').text();
+        var data = {
+          hitType:       'event',
+          eventCategory: 'Federated Search',
+          eventAction:   tgt.closest('.more-federated-results').length > 0 ? 'View external results page' : 'View external item',
+          eventLabel:    providerName
+        };
+        ga('send', data);
+      });
+    },
+    function(){
+      log('Failed to load ga');
     });
-
   };
 
   var bindfacetOpeners = function(){

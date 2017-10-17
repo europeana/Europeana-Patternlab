@@ -1,4 +1,4 @@
-define(['jquery', 'ga'], function($, ga) {
+define(['jquery'], function($) {
 
   var lightboxOnWidth = 600;
   var imgData         = [];
@@ -24,22 +24,29 @@ define(['jquery', 'ga'], function($, ga) {
   }
 
   function initGA(){
-    $('.social-share a').on('click', function(){
-      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-      ga('send', {
-        hitType: 'social',
-        socialNetwork: socialNetwork,
-        socialAction: 'share (event)',
-        socialTarget: window.location.href
-      });
-      log('sent ga event data ' + socialNetwork);
-    });
+    require(['ga'],
+      function(ga){
+        $('.social-share a').on('click', function(){
+          var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+          ga('send', {
+            hitType: 'social',
+            socialNetwork: socialNetwork,
+            socialAction: 'share (event)',
+            socialTarget: window.location.href
+          });
+          log('sent ga event data ' + socialNetwork);
+        });
+      },
+      function(){
+        log('Failed to load ga');
+      }
+    );
   }
 
   function initPinterest(){
     require(['pinterest'], function() {
       $('.pinit').on('click', function() {
-        PinUtils.pinOne({
+        window.PinUtils.pinOne({
           media: $('meta[property="og:image"]').attr('content'),
           description: $('meta[property="og:description"]').attr('content'),
           url: $('meta[property="og:url"]').attr('content')
@@ -62,42 +69,42 @@ define(['jquery', 'ga'], function($, ga) {
 
   function getFormatDate(date){
 
-      var rMonth       = /[a-zA-Z]+/;
-      var rDate        = /^[0-9]+/;
-      var rYear        = /[0-9]+$/;
-      var displayDate  = '';
-      var displayMY    = '';
+    var rMonth       = /[a-zA-Z]+/;
+    var rDate        = /^[0-9]+/;
+    var rYear        = /[0-9]+$/;
+    var displayDate  = '';
+    var displayMY    = '';
 
-      var split = date.split('-');
+    var split = date.split('-');
 
-      var begin       = split[0].trim();
-      var month1      = '' + rMonth.exec(begin);
-      var date1       = '' + rDate.exec(begin);
-      var year1       = '' + rYear.exec(begin);
+    var begin       = split[0].trim();
+    var month1      = '' + rMonth.exec(begin);
+    var date1       = '' + rDate.exec(begin);
+    var year1       = '' + rYear.exec(begin);
 
-      if(split.length == 1){
-        displayDate = date1;
-        displayMY   = month1 + ' ' + year1;
-        return [displayDate, displayMY];
-      }
-
-      var end    = split[1].trim();
-      var month2 = '' + rMonth.exec(end);
-      var date2  = '' + rDate.exec(end);
-      var year2  = '' + rYear.exec(end);
-
-      displayDate  = date1  == date2  ? date1  : date1 + ' - ' + date2;
-      displayMY    = month1 + ' ' + year1;
-
-      if(month1 != month2){
-        if(year1 != year2){
-          displayMY += ' - ' + month2 + ' ' + year2;
-        }
-        else{
-          displayMY = month1 + ' - ' + month2 + ' ' + year1;
-        }
-      }
+    if(split.length == 1){
+      displayDate = date1;
+      displayMY   = month1 + ' ' + year1;
       return [displayDate, displayMY];
+    }
+
+    var end    = split[1].trim();
+    var month2 = '' + rMonth.exec(end);
+    var date2  = '' + rDate.exec(end);
+    var year2  = '' + rYear.exec(end);
+
+    displayDate  = date1  == date2  ? date1  : date1 + ' - ' + date2;
+    displayMY    = month1 + ' ' + year1;
+
+    if(month1 != month2){
+      if(year1 != year2){
+        displayMY += ' - ' + month2 + ' ' + year2;
+      }
+      else{
+        displayMY = month1 + ' - ' + month2 + ' ' + year1;
+      }
+    }
+    return [displayDate, displayMY];
   }
 
   function initExpandables(){
@@ -105,7 +112,7 @@ define(['jquery', 'ga'], function($, ga) {
       e.preventDefault();
       $(this).toggleClass('expanded');
       $(this).next('.blog-item-tags').toggleClass('js-hidden');
-    })
+    });
   }
 
   function initAOS(){
@@ -127,12 +134,11 @@ define(['jquery', 'ga'], function($, ga) {
       longitude = 4.288788;
     }
 
-    require(['leaflet'], function(){
+    require(['leaflet'], function(L){
 
-      var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-      var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-
-      var osmAttr = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+      var osmUrl    = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      // var osmAttrib = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+      var osmAttr   = '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
       var map = L.map($('.map')[0], {
         center : new L.LatLng(latitude, longitude),
@@ -204,6 +210,6 @@ define(['jquery', 'ga'], function($, ga) {
 
   return {
     initPage: initPage
-  }
+  };
 
 });

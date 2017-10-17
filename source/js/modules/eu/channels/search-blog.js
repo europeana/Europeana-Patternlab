@@ -1,4 +1,4 @@
-define(['jquery', 'ga'], function($, ga) {
+define(['jquery'], function($) {
 
   var lightboxOnWidth = 600;
   var imgData         = [];
@@ -21,21 +21,28 @@ define(['jquery', 'ga'], function($, ga) {
   }
 
   function initGA(){
-    $('.social-share a').on('click', function(){
-      var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
-      ga('send', {
-        hitType: 'social',
-        socialNetwork: socialNetwork,
-        socialAction: 'share (blog post)',
-        socialTarget: window.location.href
-      });
-    });
+    require(['ga'],
+      function(ga){
+        $('.social-share a').on('click', function(){
+          var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
+          ga('send', {
+            hitType: 'social',
+            socialNetwork: socialNetwork,
+            socialAction: 'share (blog post)',
+            socialTarget: window.location.href
+          });
+        });
+      },
+      function(){
+        log('Failed to load ga');
+      }
+    );
   }
 
   function initPinterest(){
     require(['pinterest'], function() {
       $('.pinit').on('click', function() {
-        PinUtils.pinOne({
+        window.PinUtils.pinOne({
           media: $('meta[property="og:image"]').attr('content'),
           description: $('meta[property="og:description"]').attr('content'),
           url: $('meta[property="og:url"]').attr('content')
@@ -49,7 +56,7 @@ define(['jquery', 'ga'], function($, ga) {
       e.preventDefault();
       $(this).toggleClass('expanded');
       $(this).next('.blog-item-tags').toggleClass('js-hidden');
-    })
+    });
   }
 
   function initAOS(){
@@ -137,6 +144,6 @@ define(['jquery', 'ga'], function($, ga) {
 
   return {
     initPage: initPage
-  }
+  };
 
 });
