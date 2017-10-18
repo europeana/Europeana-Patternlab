@@ -421,7 +421,6 @@
       .object-media-audio{
         background-color: #333;
         display:          block;
-        min-width:        400px;
         width:            100%;
 
         .vjs-live-controls{
@@ -431,6 +430,10 @@
           .vjs-mute-control{
             width: 3em;
           }
+        }
+
+        @media all and (min-width: $bp-small-3) {
+          min-width: 400px;
         }
       }
     }

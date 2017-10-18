@@ -353,7 +353,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       setZoom();
       $('.media-options').show();
 
-      $('<img>').appendTo('.zoomable').attr('src', uri);
+      $('<img style="max-width:400px;">').appendTo('.zoomable').attr('src', uri);
+      resetZoomable();
+      $('.zoomable > img').removeAttr('style');
 
       if(item.data('natural-width')){
         updateCtrls();
