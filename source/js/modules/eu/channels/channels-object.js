@@ -4,6 +4,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var suggestions        = null;
   var collectionsExtra   = null;
   var viewerIIIF         = null;
+  var videoPlayer        = null;
+  var audioPlayer        = null;
 
   var transitionEvent    = (function (){
     var t;
@@ -14,7 +16,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       'MSTransition'     :'msTransitionEnd',
       'MozTransition'    :'transitionend',
       'WebkitTransition' :'webkitTransitionEnd'
-    }
+    };
     for(t in transitions){
       if(el.style[t] !== undefined){
         return transitions[t];
@@ -155,6 +157,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     checkAllClosed();
   }
 
+  function setZoom(zoomClass, lock){
+    if(zoomClass){
+      $('.object-details').addClass(zoomClass);
+    }
+    if(lock){
+      $('.object-details').addClass('locked');
+    }
+    if(!zoomClass && !lock){
+      $('.object-details').removeClass('locked zoom-one zoom-two');
+    }
+  }
 
   function resetZoomable(){
     setTimeout(function(){
@@ -228,7 +241,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   function bindMediaUI(){
 
     $(window).europeanaResize(function(){
-      $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
+      if(!$('.object-details').hasClass('locked')){
+        $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
+      }
       resetZoomable();
     });
 
@@ -326,14 +341,21 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     $('.zoomable').children().addClass('is-hidden');
     $('.object-media-viewer').append($('.zoomable').children());
 
+    if(audioPlayer){
+      audioPlayer.hide();
+    }
+    if(videoPlayer){
+      videoPlayer.hide();
+    }
+
     if(type == 'image'){
 
-      var h   = item.data('height');
-      var w   = item.data('width');
+      setZoom();
+      $('.media-options').show();
 
-      log('init image [' + uri + '] (' + w + '/' + h + ')');
-
-      $('<img>').appendTo('.zoomable').attr('src', uri);
+      $('<img style="max-width:400px;">').appendTo('.zoomable').attr('src', uri);
+      resetZoomable();
+      $('.zoomable > img').removeAttr('style');
 
       if(item.data('natural-width')){
         updateCtrls();
@@ -369,8 +391,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     else if(type == 'iiif'){
 
       $('.zoomable').append($('.object-media-iiif'));
+      $('.media-options').show();
 
-      $('.media-zoom-in').click();
+      setZoom('zoom-one', true);
       updateCtrls();
       resetZoomable();
 
@@ -398,6 +421,63 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           $('.object-media-iiif').removeClass('is-hidden');
         });
       }
+    }
+    else if(type == 'audio'){
+
+      $('.media-options').hide();
+      setZoom();
+      $('.zoomable').append($('.object-media-audio'));
+      $('.object-media-audio').removeClass('is-hidden');
+
+      require(['media_viewer_videojs'], function(player) {
+        audioPlayer = player;
+
+        var media = {
+          url:       uri,
+          data_type: type,
+          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          thumbnail: thumbnail,
+          height:    '400px'
+        };
+
+        if(media.mime_type == 'audio/x-flac'){
+          media.mime_type = 'audio/flac';
+        }
+
+        if(media.url && media.mime_type){
+          audioPlayer.init(media);
+        }
+        else{
+          alert('invalid');
+        }
+        resetZoomable();
+      });
+    }
+    else if(type == 'video'){
+
+      $('.media-options').hide();
+      setZoom('zoom-one', true);
+      resetZoomable();
+
+      $('.zoomable').append($('.object-media-video'));
+      $('.object-media-video').removeClass('is-hidden');
+
+      require(['media_viewer_videojs'], function(player){
+
+        videoPlayer = player;
+        var media = {
+          url:       uri,
+          data_type: type,
+          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          thumbnail: thumbnail,
+          height:    '400px'
+        };
+
+        if(media.url && media.mime_type){
+          videoPlayer.init(media);
+        }
+
+      });
     }
 
     if(downloadUri){

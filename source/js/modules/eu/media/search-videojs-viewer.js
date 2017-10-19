@@ -1,4 +1,4 @@
-define([], function() {
+define(['jquery'], function($){
   'use strict';
 
   var player          = null;
@@ -8,9 +8,10 @@ define([], function() {
   var silverlight_xap = require.toUrl('../../lib/videojs-silverlight/video-js.xap');
 
   var html = {
-      "audio": $('.object-media-audio').length > 0 ? $('.object-media-audio audio')[0].outerHTML : '',
-      "video": $('.object-media-video').length > 0 ? $('.object-media-video video')[0].outerHTML : ''
-  }
+    'audio': $('.object-media-audio').length > 0 ? $('.object-media-audio audio')[0].outerHTML : '',
+    'video': $('.object-media-video').length > 0 ? $('.object-media-video video')[0].outerHTML : ''
+  };
+
   $('head').append('<link rel="stylesheet" href="' + css_path + '" type="text/css"/>');
 
   function log(msg) {
@@ -19,30 +20,29 @@ define([], function() {
 
   function getItemFromMarkup( $el ) {
 
-      if(!$el){
-        log('no element to get item from');
-        return null;
-      }
-
-      var item = {
-        url:       $el.attr( 'data-uri' ),
-        data_type: $el.attr( 'data-type' ),
-        mime_type: $el.attr( 'data-mime-type' ),
-        thumbnail: $el.attr( 'data-thumbnail' )
-      };
-
-      if(item.mime_type == 'audio/x-flac'){
-          item.mime_type = 'audio/flac'
-      }
-
-      var valid = item.url && item.mime_type && item.data_type;
-      if ( ! valid ) {
-          log('invalid item markup: missing [url, mime_type, data_type] [' + item.url + ', ' + item.mime_type + ', ' + item.data_type + ']');
-          item = null;
-      }
-      return item;
+    if(!$el){
+      log('no element to get item from');
+      return null;
     }
 
+    var item = {
+      url:       $el.attr( 'data-uri' ),
+      data_type: $el.attr( 'data-type' ),
+      mime_type: $el.attr( 'data-mime-type' ),
+      thumbnail: $el.attr( 'data-thumbnail' )
+    };
+
+    if(item.mime_type == 'audio/x-flac'){
+      item.mime_type = 'audio/flac';
+    }
+
+    var valid = item.url && item.mime_type && item.data_type;
+    if(!valid){
+      log('invalid item markup: missing [url, mime_type, data_type] [' + item.url + ', ' + item.mime_type + ', ' + item.data_type + ']');
+      item = null;
+    }
+    return item;
+  }
 
   function initFlac(callback) {
 
@@ -61,15 +61,14 @@ define([], function() {
     });
   }
 
-
   function initSilverlight(callback) {
 
     log('initSilverlight');
 
     require(['videojs_silverlight'], function() {
       callback({
-          "silverlight": { "xap": silverlight_xap },
-          "techOrder": ["silverlight"]
+        'silverlight': {'xap': silverlight_xap},
+        'techOrder': ['silverlight']
       });
     });
   }
@@ -118,12 +117,12 @@ define([], function() {
     $viewer = $(media_item.data_type);
 
     if(media_item.mime_type == 'audio/x-flac'){
-        media_item.mime_type = 'audio/flac';
+      media_item.mime_type = 'audio/flac';
     }
 
     if(!media_item.mime_type){
-        log('no mime type available');
-        return;
+      log('no mime type available');
+      return;
     }
 
     if($viewer.length == 0){
@@ -133,8 +132,8 @@ define([], function() {
       $('.object-media-' + media_item.data_type).append(html[media_item.data_type]);
       $viewer = $('.object-media-' + media_item.data_type + ' ' + media_item.data_type);
       if($viewer.length == 0){
-          log('missing player markup');
-          return;
+        log('missing player markup');
+        return;
       }
     }
 
@@ -142,7 +141,7 @@ define([], function() {
       //require(['wavesurfer'], function(){
       //  require(['videojs_wavesurfer'], function(WaveSurfer){
 
-          determineMediaViewer(media_item.mime_type, function(playerOptions){
+      determineMediaViewer(media_item.mime_type, function(playerOptions){
 
             // it would be nice to set the tech order via the player options here:
             // but I can't verify it works.
@@ -156,76 +155,72 @@ define([], function() {
             //
             // The height option here applies only to audio - videos will override this
 
-            log('init player');
-            player = videojs( $viewer[0], {
-              height: media_item.thumbnail ? 340 : 150
-              /*              ,
-              autoplay: true,
-              plugins: {
-                wavesurfer: {
-                  src: media_item.url,
-                  debug: true,
-                  waveColor: '#fff',
-                  progressColor: '#1676aa',
-                  cursorColor: 'black',
-                  cursorWidth: 0,
-                  autoplay: true,
-                  interact: false
-                }
-              }
-              */
-            });
+        log('init player');
+        player = videojs( $viewer[0], {
+          height: media_item.height ? media_item.height : media_item.thumbnail ? 340 : 150
+          //  autoplay: true,
+          //  plugins: {
+          //    wavesurfer: {
+          //      src: media_item.url,
+          //      debug: true,
+          //      waveColor: '#fff',
+          //      progressColor: '#1676aa',
+          //      cursorColor: 'black',
+          //      cursorWidth: 0,
+          //      autoplay: true,
+          //      interact: false
+          //    }
+          //  }
+        });
 
-            // $('.vjs-waveform').css('background-color', '#dedede');
+        // $('.vjs-waveform').css('background-color', '#dedede');
 
-            //player.on('error', function() {
-            //    alert('player.dispose();\netc;');
-            //});
+        //player.on('error', function() {
+        //    alert('player.dispose();\netc;');
+        //});
 
-            // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
-            // see:
-            //    http://europeana-pattern-lab/patterns/molecules-components-videojs-wmv/molecules-components-videojs-wmv.html
+        // Another technique to set tech order - the hash merge works - but that wmv still doesn't play
+        // see:
+        //    http://europeana-pattern-lab/patterns/molecules-components-videojs-wmv/molecules-components-videojs-wmv.html
 
-            if(playerOptions){
-              for (var attrname in playerOptions){
-                videojs.options[attrname] = playerOptions[attrname];
-                log('set player option:\t' + attrname + ' = ' + playerOptions[attrname]);
-              }
-            }
+        if(playerOptions){
+          for (var attrname in playerOptions){
+            videojs.options[attrname] = playerOptions[attrname];
+            log('set player option:\t' + attrname + ' = ' + playerOptions[attrname]);
+          }
+        }
 
-            /*
-            $('.vjs-fullscreen-control').css('visibility', 'hidden');
-            $viewer.append('<div class="eufs">FS 3</div>')
-            $('.eufs').click(function(){
-                $('.vjs-fullscreen-control').click();
-            });
-            log('added fs 1');
-            */
-            log('call doPlay');
-            doPlay(media_item);
+        /*
+        $('.vjs-fullscreen-control').css('visibility', 'hidden');
+        $viewer.append('<div class="eufs">FS 3</div>')
+        $('.eufs').click(function(){
+          $('.vjs-fullscreen-control').click();
+        });
+        log('added fs 1');
+        */
+        log('call doPlay');
+        doPlay(media_item);
 
-            $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
-          });
+        $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
+      });
       //  });
       //});
     });
   }
 
-
   return {
-      init: function(media_item) {
-          init(media_item);
-      },
-      hide: function(media_item) {
-          console.log('video - hiding.... ' + player);
-          if(player){
-              player.dispose();
-              $(player.el).remove();
-              player = null;
-          }
-      },
-      getItemFromMarkup: function($el){
-          return getItemFromMarkup($el);
+    init: function(media_item) {
+      init(media_item);
+    },
+    hide: function() {
+      if(player){
+        player.dispose();
+        $(player.el).remove();
+        player = null;
       }
-    };
+    },
+    getItemFromMarkup: function($el){
+      return getItemFromMarkup($el);
+    }
+  };
 });
