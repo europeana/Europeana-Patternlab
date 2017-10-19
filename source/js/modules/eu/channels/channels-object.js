@@ -175,27 +175,22 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }, 1);
   }
 
+  function isStacked(cmp, childSelector){
+    var tallest = 0;
+    cmp.children(childSelector).each(function(i, element) {
+      var $el = $(element);
+      var h   = $el.height();
+      if(h > tallest){
+        tallest = h;
+      }
+    });
+    return cmp.height() > tallest;
+  };
+
   function getZoomLevels(){
-
-    var isStacked = function(cmp, childSelector){
-
-      var tallest = 0;
-      cmp.children(childSelector).each(function(i, element) {
-        var $el = $(element);
-        var h   = $el.height();
-        if(h > tallest){
-          tallest = h;
-        }
-      });
-
-      log('is stacked (' + childSelector + '): ' + cmp.height() + ' > ' + tallest + '  ' +    (cmp.height() > tallest)   );
-
-      return cmp.height() > tallest;
-    };
-
     var current       = $('.object-media-nav a.is-current');
     var colRight      = $('.zoom-two').length > 0 || ($('.collections-promos').length > -1 && isStacked($('.js-swipe-not-stacked'), '.collections-promo-item'));
-    var colMiddle     = !isStacked($('.object-media-viewer'), '.media-poster, .title-desc-media-nav');
+    var colMiddle     = $('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .title-desc-media-nav');
     var colsAvailable = 1 + (colRight ? 1 : 0) + (colMiddle ? 1 : 0);
 
     log('colRight      = ' + colRight);
@@ -207,41 +202,49 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     switch (colsAvailable){
       case 1:{
-        log('1 col, no zoom');
+        //log('1 col, no zoom');
         return [];
       }
       case 2:{
         if(!isImage || naturalWidth > $('.media-poster').width()){
-          log('2 cols, 1 zoom level (zoom-two)');
+          //log('2 cols, 1 zoom level (zoom-two)');
           return colRight ? ['zoom-two'] : ['zoom-one'];
         }
         else{
-          log('2 cols, no zoom');
+          //log('2 cols, no zoom');
           return [];
         }
       }
       case 3: {
         if(!isImage || naturalWidth > ($('.object-details').width() - $('.channel-object-actions').width())){
-          log('3 cols, 2 zoom levels (zoom-one, zoom-two)');
+          //log('3 cols, 2 zoom levels (zoom-one, zoom-two)');
           return ['zoom-one', 'zoom-two'];
         }
         else if(isImage && naturalWidth > $('.media-poster').width()){
-          log('3 cols, 1 zoom level (zoom-one)');
+          //log('3 cols, 1 zoom level (zoom-one)');
           return ['zoom-one'];
         }
         else{
-          log('3 cols, no zoom');
+          //log('3 cols, no zoom');
           return [];
         }
       }
     }
   }
-  $(window).on('x', getZoomLevels);
 
   function bindMediaUI(){
 
     $(window).europeanaResize(function(){
-      if(!$('.object-details').hasClass('locked')){
+      if($('.object-details').hasClass('locked')){
+        var zoomLevels = getZoomLevels();
+        if(zoomLevels.indexOf('zoom-one') == -1){
+          $('.object-details').removeClass('zoom-one');
+        }
+        if(zoomLevels.indexOf('zoom-two') == -1){
+          $('.object-details').removeClass('zoom-two');
+        }
+      }
+      else{
         $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
       }
       resetZoomable();
@@ -271,6 +274,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           $zoomEl.addClass(zoomLevels[0]);
           resetZoomable();
         }
+        $zoomEl.removeClass('locked');
       }
     });
 
@@ -291,6 +295,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         else{
           $zoomEl.removeClass('zoom-one');
         }
+        $zoomEl.removeClass('locked');
       }
       resetZoomable();
     });
@@ -336,7 +341,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     updateTechData(item);
 
     // move or remove current player
-
     $('.zoomable > img').remove();
     $('.zoomable').children().addClass('is-hidden');
     $('.object-media-viewer').append($('.zoomable').children());
@@ -351,11 +355,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     if(type == 'image'){
 
       setZoom();
+
+      if(!isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
+        $('.zoomable').css('width', '400px');
+      }
+
       $('.media-options').show();
 
-      $('<img style="max-width:400px;">').appendTo('.zoomable').attr('src', uri);
-      resetZoomable();
-      $('.zoomable > img').removeAttr('style');
+      $('<img>').appendTo('.zoomable').attr('src', uri);
 
       if(item.data('natural-width')){
         updateCtrls();
@@ -393,7 +400,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.zoomable').append($('.object-media-iiif'));
       $('.media-options').show();
 
-      setZoom('zoom-one', true);
+      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
+        setZoom('zoom-one', true);
+      }
+      else{
+        setZoom();
+      }
+
       updateCtrls();
       resetZoomable();
 
@@ -510,7 +523,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   }
 
   function updateCtrls(){
-
     $(window).trigger('eu-slide-update');
     $(window).trigger('ellipsis-update');
 
@@ -519,35 +531,34 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var zoomOut    = $('.media-zoom-out');
     var zoomLevels = getZoomLevels();
 
-    if($zoomEl.hasClass('zoom-two')){
+    if(zoomLevels.indexOf('zoom-two') > -1 && !$zoomEl.hasClass('zoom-two') || zoomLevels.indexOf('zoom-one') > -1 && !$zoomEl.hasClass('zoom-one')){
+      zoomIn.removeClass('disabled');
+    }
+    else{
       zoomIn.addClass('disabled');
-      log('disable zoomIn (A)');
+    }
+
+    if($zoomEl.hasClass('zoom-two')){
+      zoomOut.removeClass('disabled');
     }
     else if($zoomEl.hasClass('zoom-one')){
-
-      if(zoomLevels.length == 1){
-        zoomIn.removeClass('disabled');
-        log('enable zoomIn (S)');
+      if(zoomLevels.length == 2){
+        zoomOut.removeClass('disabled');
       }
-    }
-    if($zoomEl.hasClass('zoom-two') || $zoomEl.hasClass('zoom-one')){
-
-      zoomOut.removeClass('disabled');
-
-      if(zoomLevels.length == 0){
-        zoomIn.addClass('disabled');
-        log('disable zoomIn (B)');
+      else if(zoomLevels.length == 1){
+        if(zoomLevels.indexOf('zoom-two') == -1){
+          zoomOut.removeClass('disabled');
+        }
+        if(zoomLevels.indexOf('zoom-one') > -1){
+          zoomOut.addClass('disabled');
+        }
+      }
+      else{
+        zoomOut.removeClass('disabled');
       }
     }
     else{
       zoomOut.addClass('disabled');
-      if(zoomLevels.length > 0){
-        zoomIn.removeClass('disabled');
-      }
-      else{
-        log('disable zoomIn (C)');
-        zoomIn.addClass('disabled');
-      }
     }
     $zoomEl.removeClass('js-busy');
   }
@@ -559,9 +570,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
     setTimeout(function(){
-      zoomable.on(transitionEvent, function(){
-        updateCtrls();
-        fixZoomableWidth();
+      zoomable.on(transitionEvent, function(e){
+        if(e.originalEvent.propertyName == 'width'){
+          updateCtrls();
+          fixZoomableWidth();
+        }
       });
     }, 1);
   }
@@ -737,10 +750,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     collectionsExtra.updateSwipe = function(){
       var totalW = (collectionsExtra.children().length - 1) * 32;
-      totalW += collectionsExtra.children('.separator-after, .separator-before').length * 32;
+      totalW = totalW + collectionsExtra.children('.separator-after, .separator-before').length * 32;
 
       collectionsExtra.children('.collections-promo-item').each(function(){
-        totalW += $(this).outerWidth();
+        totalW = totalW + $(this).outerWidth();
       });
       collectionsExtra.css('width', totalW + 'px');
     };
@@ -1035,26 +1048,37 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
   };
 
-
   var showMediaThumbs = function(data){
 
-    if($('.object-media-nav li').length > 1){
+    var noItems = $('.object-media-nav li').length;
+
+    if(noItems > 1){
 
       data['minSpacingPx'] = 0;
       data['arrowClass'] = data['arrowClass'] ? data['arrowClass'] + ' carousel-arrows' : ' carousel-arrows';
 
-      initCarousel($('.media-thumbs'), data).done(
+      var mediaThumbs = $('.media-thumbs');
+
+      initCarousel(mediaThumbs, data).done(
         function(carousel){
-          $('.object-media-viewer').on('object-media-last-image-reached', function(evt, data){
-            log('reached last');
-            carousel.loadMore(false, data.doAfterLoad);
-          });
 
           $('.media-thumbs').on('click', 'a', function(e){
             e.preventDefault();
             var el = $(this);
             initMedia(el.closest('.js-carousel-item').index());
           });
+
+          // TODO: this should be triggered on zoom completion and unbound once row is filled
+          var totalItemW = 0;
+
+          $('.object-media-nav li').each(function(i, ob){
+            var ob = $(ob);
+            totalItemW = totalItemW + (ob.outerWidth(true) - ob.outerWidth()) + ob.find('.mlt-img-div').width();
+          });
+
+          if((mediaThumbs.outerWidth(true) - totalItemW) > (totalItemW / noItems)){
+            carousel.loadMore();
+          }
         }
       );
     }
