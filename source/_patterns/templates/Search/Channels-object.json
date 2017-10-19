@@ -327,9 +327,10 @@
             }
           },
           {
+            "is_image": false,
             "is_video": true,
             "playable": true,
-            "thumbnail": "/images/sample/object_thumbnail4.jpg",
+            "thumbnail": "/images/sample/object_thumbnail5.jpg",
             "play_url": "http://www.openbeelden.nl/files/60/60014.60000.WEEKNUMMER594-HRE000169FB.mp4",
             "downloadable": true,
             "download": {
