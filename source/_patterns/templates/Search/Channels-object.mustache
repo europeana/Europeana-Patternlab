@@ -44,7 +44,7 @@
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
                 {{/title}}
                 {{^title}}
-                  <h2 class="channel-object-title top">Sorry.  No title was given.</h2>
+                  <h2 class="channel-object-title top">{{i18n.site.object.title_unavailable}}</h2>
                 {{/title}}
 
                 <a class="scroll-trigger trigger-chain"
@@ -156,7 +156,7 @@
                       <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
                     {{/title}}
                     {{^title}}
-                      <h2 class="channel-object-title">Sorry.  No title was given.</h2>
+                      <h2 class="channel-object-title">{{i18n.site.object.title_unavailable}}</h2>
                     {{/title}}
 
                     <div class="channel-object-media-nav">
@@ -167,14 +167,14 @@
                       <h3 class="subtitle">{{subtitle}}</h3>
                     {{/subtitle}}
 
-                    <div class="channel-object-description">
+                    <div class="channel-object-description cf">
                       {{#description}}
                         {{#sections}}
                           {{#items}}
                             <p>{{text}}</p>
                           {{/items}}
                           {{^items}}
-                            <div class="missing">Sorry.  No description was provided.</div>
+                            <div class="missing">{{i18n.site.object.description_unavailable}}</div>
                           {{/items}}
                         {{/sections}}
                       {{/description}}

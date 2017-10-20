@@ -185,7 +185,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
     });
     return cmp.height() > tallest;
-  };
+  }
 
   function getZoomLevels(){
     var current       = $('.object-media-nav a.is-current');
@@ -1072,7 +1072,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           var totalItemW = 0;
 
           $('.object-media-nav li').each(function(i, ob){
-            var ob = $(ob);
+            ob = $(ob);
             totalItemW = totalItemW + (ob.outerWidth(true) - ob.outerWidth()) + ob.find('.mlt-img-div').width();
           });
 
@@ -1171,10 +1171,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     initExtendedInformation(true);
     loadAnnotations();
-    initTitleBar();
-    bindMediaUI();
 
-    initMedia(0);
+    if(!$('.channel-media-wrap').hasClass('empty')){
+      initTitleBar();
+      bindMediaUI();
+      initMedia(0);
+    }
+
     initActionBar();
 
     if($('.collections-promos').length > 0){
