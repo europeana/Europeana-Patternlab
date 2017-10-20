@@ -10,7 +10,7 @@ define(['jquery', 'util_resize'], function($){
     var totalTexts       = {};
     var exitLookup       = false;
 
-    var getTextNodeValue = function(el, text){
+    var getTextNodeValue = function(el){
       var nText = el.contents().filter(function() {
         return this.nodeType === 3;
       });
@@ -45,7 +45,27 @@ define(['jquery', 'util_resize'], function($){
       var ok = replaceTextNode(cmp, txt.substr(0, length) +  (suppressSuffix ? '' : suffix));
       if(!ok){
         exitLookup = true;
-        console.log('Exit - mixed content not supported - exitLookup = ' + exitLookup);
+/*
+        var debug = function(depth, s){
+          console.log('debug...');
+          var xCmp = cmp;
+          s = s ? s : '';
+          depth = depth ? depth : 5;
+
+          for(var i=0; i<depth; i++){
+            xCmp = xCmp.parent();
+            s =  '.' + xCmp.attr('class').replace(' ', '.')  + ' ' + s;
+          }
+          if(depth > 0){
+            s = ' > ' + s;
+            return debug(depth-1, s);
+          }
+          return s;
+        };
+        console.log('Exit - mixed content not supported - exitLookup - ');
+        console.log('\t' + cmp.attr('class'));
+        console.log('\t' + cmp.parent().attr('class'));
+ */
         return true;
       }
       return !fn();
@@ -68,7 +88,7 @@ define(['jquery', 'util_resize'], function($){
             return {
               guess: guess,
               index: nodeIndex
-            }
+            };
           }
 
           if(bite==1){
@@ -127,8 +147,8 @@ define(['jquery', 'util_resize'], function($){
       return {
         tgtCmp: cmp,
         tgtTxt: txt
-      }
-    }
+      };
+    };
 
     var respond = function(){
 
@@ -196,7 +216,7 @@ define(['jquery', 'util_resize'], function($){
               replaceTextNode($(cmp[index]), text);
             }
           }
-        }
+        };
         writeNode(tgtCmp, index, text, []);
       }
     };
@@ -204,6 +224,7 @@ define(['jquery', 'util_resize'], function($){
     var init = function(){
 
       totalText = getTextNodeValue($cmp);
+      var selector;
 
       if(ops.textSelectors){
         if(ops.multiNode){
@@ -211,15 +232,15 @@ define(['jquery', 'util_resize'], function($){
             console.error('cannot use multiple selectors in multiNode mode');
             return;
           }
-          var selector         = ops.textSelectors[0];
+          selector = ops.textSelectors[0];
           $cmp.find(selector).each(function(i, ob){
             origTextMulti.push($(ob).text());
           });
         }
         else{
           for(var i=0; i < ops.textSelectors.length; i++){
-            var selector = ops.textSelectors[i];
-            var node     = $cmp.find(selector);
+            selector = ops.textSelectors[i];
+            var node = $cmp.find(selector);
 
             if(node.length > 1){
               console.error('multiple elements found - please configure multiNode mode');

@@ -108,6 +108,7 @@ require.config({
     util_resize:                   '../../eu/util/resize',
     util_scroll:                   '../../eu/util/scroll',
     util_scrollEvents:             '../../eu/util/scrollEvents',
+    util_slide:                    '../../eu/util/eu-slide',
 
     settings:                      '../../eu/settings',
 
@@ -179,29 +180,33 @@ require(['jquery'], function( $ ) {
       $.holdReady(false);
       $('html').addClass('styled');
 
-      require(['ga'], function(ga) {
-        ga = window.fixGA(ga);
-        channels.getPromisedPageJS().done(function(page){
-          if(page && typeof page.getAnalyticsData != 'undefined'){
-            var analyticsData = page.getAnalyticsData();
-            for(var i=0; i<analyticsData.length; i++){
-              if(analyticsData[i].name != 'undefined'){
-                ga('set', analyticsData[i].dimension, analyticsData[i].name);
+      require(['ga'],
+        function(ga) {
+          ga = window.fixGA(ga);
+          channels.getPromisedPageJS().done(function(page){
+            if(page && typeof page.getAnalyticsData != 'undefined'){
+              var analyticsData = page.getAnalyticsData();
+              for(var i=0; i<analyticsData.length; i++){
+                if(analyticsData[i].name != 'undefined'){
+                  ga('set', analyticsData[i].dimension, analyticsData[i].name);
+                }
               }
             }
-          }
 
-          if(typeof googleOptimizeContainerID != 'undefined' && window.googleOptimizeContainerID){
-            (function(a,s,y,n,c,h,i){s.className+=' '+y;h.start=1*new Date;
-              h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'');};
-              (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null;},c);h.timeout=c;
-            })(window,document.documentElement, 'async-hide', 'dataLayer', 4000, {googleOptimizeContainerID:true});
-            ga('require', window.googleOptimizeContainerID);
-          }
-
-          ga('send', 'pageview');
-        });
-      });
+            if(typeof googleOptimizeContainerID != 'undefined' && window.googleOptimizeContainerID){
+              (function(a,s,y,n,c,h,i){s.className+=' '+y;h.start=1*new Date;
+                h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'');};
+                (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null;},c);h.timeout=c;
+              })(window,document.documentElement, 'async-hide', 'dataLayer', 4000, {googleOptimizeContainerID:true});
+              ga('require', window.googleOptimizeContainerID);
+            }
+            ga('send', 'pageview');
+          });
+        },
+        function(){
+          console.log('failed to load ga');
+        }
+      );
 
       // is this a test site?
       var href = window.location.href;

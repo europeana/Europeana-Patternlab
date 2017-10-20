@@ -1,0 +1,81 @@
+<div class="content-text">
+  <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}{{#tags}} has-tags{{/tags}}{{#title}} has-title{{/title}}{{#excerpt}}{{#short}} has-text{{/short}}{{/excerpt}}">
+
+    {{#title}}
+      {{#icon}}
+        <div>
+      {{/icon}}
+      <div class="promo-title{{#icon}} with-icon{{/icon}}{{#tags}} has-tags-after{{/tags}}">
+        {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
+      </div>
+      {{#icon}}
+          <span class="icon icon-{{.}}"></span>
+        </div>
+      {{/icon}}
+    {{/title}}
+    {{#excerpt}}
+      {{#short}}
+        <div class="text-main{{^relation}} no-relation{{/relation}}">{{{.}}}</div>
+      {{/short}}
+    {{/excerpt}}
+
+    <div class="text-footer">
+      {{#overlay}}
+        <div class="collections-promo-overlay">
+          <div class="collections-promo-overlay-inner">
+            {{#img}}
+              <div class="channel-object-viewmore">
+                <span class="viewmore-image" style="background-image: url('{{.}}');"></span>
+              </div>
+            {{/img}}
+            {{#title}}
+               <span class="title">
+                 {{.}}
+               </span>
+            {{/title}}
+            {{#description}}
+              {{.}}
+            {{/description}}
+            <span class="links">
+              {{#link_related}}
+                {{#url}}
+                  <a href="{{.}}">{{text}}</a>
+                {{/url}}
+              {{/link_related}}
+              {{#link_more}}
+                {{#url}}
+                  <a href="{{.}}">{{text}}</a>
+                {{/url}}
+              {{/link_more}}
+            </span><!--
+            comment to eliminate last text node
+       --></div>
+        </div>
+      {{/overlay}}
+      {{#tags}}
+        <ul class="promo-tags">
+        {{#items}}
+          <li>
+            {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}&nbsp;{{#url}}</a>{{/url}}
+          </li>
+        {{/items}}
+        </ul>
+      {{/tags}}
+      <div class="date-and-type">
+        <div class="date{{#type}} with-type{{/type}}">
+          {{#date}}
+            {{.}}
+            {{#attribution}}|{{/attribution}}
+          {{/date}}
+          {{#attribution}}{{.}}{{/attribution}}
+        </div>
+        {{#type}}
+          <span class="type type-{{.}}">{{.}}</span>
+        {{/type}}
+      </div>
+      {{#relation}}
+        <div class="relation">{{.}}</div>
+      {{/relation}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,232 @@
+$collections-promo-item-min-width: 275px;
+$next-item-bg:                     #f9efe4;
+$green-grey-bg:                    #f4f4f4;
+
+
+@media all and (min-width: $bp-med) {
+
+  flex-direction: column;
+  max-width: 100%;
+
+  .channel-object-next-prev,
+  .image-set,
+  .ve-foyer-card{
+    width:  100%;
+  }
+
+  .channel-object-next-prev{
+
+    &.separator-after{
+
+      margin-bottom: 3.2em;
+      margin-right:  0;
+
+      &::after{
+        border-bottom: 1px solid $gray87;
+        border-right:  0;
+        bottom:        -1.6em;
+        left:          0;
+        right:         0;
+        top:           0;
+      }
+    }
+
+    &.separator-before{
+
+      margin-left: 0;
+      margin-top:  1.6em;
+
+      &::before{
+        border-right: 0;
+        border-top:   1px solid $gray87;
+        bottom:       0;
+        left:         0;
+        right:        0;
+        top:          -4em;
+      }
+    }
+  }
+
+  .previous-item-title{
+    -webkit-transform: translateY(1.6em);
+    transform:         translateY(1.6em);
+  }
+
+  .collections-promo-item{
+    font-size:     $font-size-sm;
+    margin-bottom: $space;
+    min-width:     auto;
+    width:         98%;
+
+    &.exhibition{
+      .has-tags .text-footer{
+        flex-grow: 0.2;
+      }
+    }
+    &:not(.exhibition){
+      .promo-tags{
+        padding-bottom: 0;
+      }
+    }
+
+    .content-text-inner.has-text:not(.has-title){
+      .text-main{
+        -webkit-transform: translateY(0.5em);
+        transform:         translateY(0.5em);
+      }
+    }
+
+    .promo-tags{
+      font-size:  $font-size-slightly-smaller;
+    }
+
+    .promo-title{
+      padding-top: 0.75em;
+    }
+
+    .image-set-info{
+      padding: 0.75em 1em 0.75em 1em;
+    }
+
+    .date-and-type{
+      padding-top: 0.25em;
+      .date.with-type{
+        max-width: 66%;
+      }
+    }
+  }
+
+  .collections-promo-overlay{
+    .links{
+      font-size: 0.875em;
+
+      a:last-child{
+        bottom:    0;
+        font-size: $font-size-norm;
+      }
+    }
+  }
+
+  .icon-files{
+    -webkit-transform: translate(-0.6em, 1.65em) scale(1.2);
+    transform:         translate(-0.6em, 1.65em) scale(1.2);
+  }
+  .icon-image{
+    -webkit-transform: translate(-0.6em, 1.4em) scale(0.8);
+    transform:         translate(-0.6em, 1.4em) scale(0.8);
+  }
+  .icon-music{
+    -webkit-transform: translate(-0.5em, 1.4em) scale(0.7);
+    transform:         translate(-0.5em, 1.4em) scale(0.7);
+  }
+  .icon-text{
+    -webkit-transform: translate(-0.8em, 1em) scale(0.65);
+    transform:         translate(-0.8em, 1em) scale(0.65);
+  }
+  .icon-tv{
+    -webkit-transform: translate(-0.5em, 1.45em) scale(0.7);
+    transform:         translate(-0.5em, 1.45em) scale(0.7);
+  }
+}
+
+@media all and (min-width: $bp-large) {
+
+  .collections-promo-item{
+
+    font-size:  $font-size-slightly-smaller;
+
+    &.exhibition{
+      .has-tags .text-footer{
+        flex-grow: 0;
+      }
+    }
+
+    .date-and-type .date.with-type{
+      max-width: 70%;
+    }
+  }
+}
+
+@media all and (min-width: $bp-xl) {
+
+  .collections-promo-item{
+    width:     100%;
+
+    .content-text-inner.has-text:not(.has-title){
+      .text-main{
+        -webkit-transform: translateY(1em);
+        transform:         translateY(1em);
+      }
+    }
+
+    .date-and-type{
+      padding-top: 1em;
+      .date.with-type{
+        max-width: 75%;
+      }
+    }
+
+    .promo-title{
+      padding-top: 1em;
+    }
+
+    .image-set-info{
+      padding: 1em;
+    }
+  }
+
+  .collections-promo-overlay{
+    .links{
+      font-size: $font-size-norm;
+
+      a:last-child{
+        bottom:    0.2em;
+        font-size: $font-size-med;
+      }
+    }
+  }
+
+  .icon-files{
+    -webkit-transform: translate(-1em, 2em) scale(1.5);
+    transform:         translate(-1em, 2em) scale(1.5);
+  }
+
+  .icon-image{
+    -webkit-transform: translate(-1em, 1.5em) scale(1.1);
+    transform:         translate(-1em, 1.5em) scale(1.1);
+  }
+
+  .icon-music{
+    -webkit-transform: translate(-0.75em, 1.6em);
+    transform:         translate(-0.75em, 1.6em);
+  }
+
+  .icon-text{
+    -webkit-transform: translate(-0.9em, 1.5em);
+    transform:         translate(-0.9em, 1.5em);
+  }
+
+  .icon-tv{
+    -webkit-transform: translate(-0.7em, 1.65em) scale(0.9);
+    transform:         translate(-0.7em, 1.65em) scale(0.9);
+  }
+
+}
+
+@media all and (min-width: $bp-xxl) {
+
+  .collections-promo-item{
+    font-size: $font-size-norm;
+    width:     100%;
+  }
+
+}
+
+@media all and (min-width: $bp-xxxl) {
+
+  .collections-promo-item{
+    .date-and-type .date.with-type{
+      max-width: 80%;
+    }
+  }
+}

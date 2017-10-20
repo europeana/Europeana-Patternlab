@@ -1068,19 +1068,19 @@ html.redirecting{
     right:          2em;
     text-transform: uppercase;
   }
+}
 
-  .js-carousel-type-blog,
-  .js-carousel-type-news{
-    background-color: $eu-red;
-  }
+.type-blog,
+.type-news{
+  background-color: $eu-red;
+}
 
-  .js-carousel-type-events{
-    background-color: $eu-purple;
-  }
+.type-events{
+  background-color: $eu-purple;
+}
 
-  .js-carousel-type-tumblr{
-    background-color: $brand-tumblr;
-  }
+.type-tumblr{
+  background-color: $brand-tumblr;
 }
 
 @media all and (min-width: $bp-med) {

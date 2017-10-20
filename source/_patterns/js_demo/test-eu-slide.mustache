@@ -8,6 +8,8 @@
     position:         relative;
   }
 
+  .white,
+  .white a,
   .color{
     color:       #fff;
     font-weight: bold;
@@ -26,6 +28,7 @@
     color: green;
   }
 
+   #responsive,
   .slide-rail,
   .color{
     position:    relative;
@@ -81,11 +84,35 @@
     background-color: palevioletred;
   }
 
+
+  .row-bp-narrow{
+    display: inline-block;
+  }
+
+  .row-bp-narrow{
+    height:     100px;
+    text-align: center;
+    width:      150px;
+  }
+
+  .row-bp-narrow .label{
+    position:  relative;
+    top:       50%;
+    transform: translate(0, -50%);
+  }
+
+  @media all and (min-width: 40em){
+    .row-bp-narrow{
+      display: block;
+    }
+  }
+
+
 </style>
 
 <h3>EU Slide Example</h3>
 
-<p>Drag the element to see it in action.</p>
+<p>Drag the elements to see them in action.</p>
 
 <div class="outer-container">
   <div class="slide-rail">
@@ -147,7 +174,68 @@
 </div>
 
 <br/>
-The above example calls "makeSwipeable" on each of the .color elements.
+<b>Multiple Nesting</b>
+<br/>
+The above example calls "makeSwipeable" on each of the (nested) .color elements.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="outer-container">
+
+  <div class="slide-rail responsive">
+
+    <div id="responsive">
+
+      <div class="white orange row-bp-narrow">
+        <div class="label">
+          <a href="javascript:alert('follow link')">
+            Orange
+          </a>
+        </div>
+      </div>
+
+      <div class="white red row-bp-narrow">
+        <div class="label">
+          <a href="javascript:alert('follow link')">
+            Red
+          </a>
+        </div>
+      </div>
+
+      <div class="white crimson row-bp-narrow">
+        <div class="label">
+          <a href="javascript:alert('follow link')">
+            Crimson
+          </a>
+        </div>
+      </div>
+
+      <div class="white purple row-bp-narrow">
+        <div class="label">
+          <a href="javascript:alert('follow link')">
+            Purple
+          </a>
+        </div>
+      </div>
+
+      <div class="white pvr row-bp-narrow">
+        <div class="label">
+          <a href="javascript:alert('follow link')">
+            Violet
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<br/>
+The above example is swipeable only when the contents are arranged in a row - i.e. on narrow viewports.
 <br/>
 <br/>
 <br/>

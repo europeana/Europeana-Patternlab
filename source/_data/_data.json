@@ -774,6 +774,7 @@
                     "provided-by-detail": "Europeana is displaying this item via <a href='#' target='_blank' class='cap'>Rijksmuseum <svg class='icon icon-linkout'><use xlink:href='#icon-linkout'/></svg></a>. Visit their site for more information."
                 },
                 "next-item": "next item",
+                "previous-item": "previous item",
                 "preview_unavailable": "Item preview not available, to access the full image and more information about the item go to <a href=\"javascript:alert('link to provider');\">The Provider</a>",
                 "show-more-similar-items": "Show more similar items",
                 "named-entities": {

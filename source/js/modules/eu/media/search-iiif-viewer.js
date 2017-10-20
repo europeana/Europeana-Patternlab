@@ -32,6 +32,7 @@ define(['jquery'], function($){
   var iiif;
   var currentImg        = 0;
   var Leaflet           = null;
+  var maxZoom           = 5;
   var selectedRegion    = null;
   var totalImages;
   var transcriptionUrls = [];
@@ -39,6 +40,7 @@ define(['jquery'], function($){
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var allCanvases       = [];
+  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: false};
 
   function log(msg) {
     console.log(msg);
@@ -53,7 +55,7 @@ define(['jquery'], function($){
 
     if(singleImageInfo){
 
-      var layer = Leaflet.tileLayer.iiif(singleImageInfo);
+      var layer = Leaflet.tileLayer.iiif(singleImageInfo, iiifConf);
 
       iiifLayers['single'] = layer;
       layer.addTo(iiif);
@@ -78,7 +80,7 @@ define(['jquery'], function($){
         var data = allCanvases[index];
         if(! iiifLayers[index + ''] ){
 
-          var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json');
+          var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
           iiifLayers[index + ''] = iiifLayer;
           noLoaded += 1;
           loadFeatures();
@@ -142,6 +144,7 @@ define(['jquery'], function($){
   };
 
   var nav = function($el, index){
+
     if($el.attr('disabled')){
       return;
     }
@@ -168,13 +171,13 @@ define(['jquery'], function($){
       center: [0, 0],
       crs: Leaflet.CRS.Simple,
       zoom: 0,
-      maxZoom: 5,
+      maxZoom: maxZoom,
       zoomsliderControl: true
     });
 
     if(fullScreenAvailable){
       window.L.control.fullscreen({
-        maxZoom: 5,
+        maxZoom: maxZoom,
         zoomsliderControl: zoomSlider,
         fullscreenControl: fullScreenAvailable ? true : false,
         fullscreenControlOptions: {
@@ -216,8 +219,6 @@ define(['jquery'], function($){
       var key = window.event ? e.keyCode : e.which;
       e = e || window.event;
       if(e.shiftKey || e.ctrlKey){
-        e.stopPropagation();
-        e.preventDefault();
         if(key == 37){
           $('#iiif-ctrl .prev').click();
         }
@@ -229,6 +230,10 @@ define(['jquery'], function($){
         }
         if(key == 40){
           $('#iiif-ctrl .last').click();
+        }
+        if([37, 38, 39, 40].indexOf(key) > -1){
+          e.stopPropagation();
+          e.preventDefault();
         }
       }
     });
@@ -464,6 +469,18 @@ define(['jquery'], function($){
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
+    },
+    remove: function(){
+      if(iiif){
+        iiif.off();
+        iiif.remove();
+      }
+    },
+    centre: function(){
+      console.log('TODO: centre the image');
+      //if(iiif){
+      //  iiif.setView(L.latLng(0, 0), 1);
+      //}
     }
   };
 });
