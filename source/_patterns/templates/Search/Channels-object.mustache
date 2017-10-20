@@ -43,19 +43,20 @@
                 {{#title}}
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
                 {{/title}}
+                {{^title}}
+                  <h2 class="channel-object-title top">Sorry.  No title was given.</h2>
+                {{/title}}
 
                 <a class="scroll-trigger trigger-chain"
                    data-enabled="true"
                    data-disable-when-fired="showMediaThumbs"
                    data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
 
-                {{#empty_item}}
-                  <span class="no-preview">{{{empty_item_more_link}}}</span>
-                {{/empty_item}}
-
-                {{^empty_item}}
-                  <div class="object-media-viewer">
-
+                <div class="object-media-viewer">
+                  {{#empty_item}}
+                    <div class="channel-object-no-preview">{{{empty_item_more_link}}}</div>
+                  {{/empty_item}}
+                  {{^empty_item}}
                     {{#items}}
                       {{#is_current}}
                         <div class="media-poster{{#playable}} contains-playable{{/playable}}">
@@ -147,43 +148,49 @@
                         </div>
                       {{/pdf}}
                     {{/required_players}}
+                  {{/empty_item}}
 
-                    <div class="title-desc-media-nav">
+                  <div class="title-desc-media-nav">
 
-                      {{#title}}
-                        <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
-                      {{/title}}
+                    {{#title}}
+                      <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
+                    {{/title}}
+                    {{^title}}
+                      <h2 class="channel-object-title">Sorry.  No title was given.</h2>
+                    {{/title}}
 
-                      <div class="channel-object-media-nav">
-                        {{> molecules/components/media-nav}}
-                      </div>
-
-                      {{#subtitle}}
-                        <h3 class="subtitle">{{subtitle}}</h3>
-                      {{/subtitle}}
-
-                      <div class="channel-object-description">
-                        {{#description}}
-                          {{#sections}}
-                            {{#items}}
-                              <p>{{text}}</p>
-                            {{/items}}
-                          {{/sections}}
-                        {{/description}}
-                      </div>
-
-                      {{#view_more}}
-                      <div class="channel-object-viewmore">
-                        <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
-                        <h3>{{text}}</h3>
-                        <a href="{{url}}">{{label}}</a>
-                      </div>
-                      {{/view_more}}
-
+                    <div class="channel-object-media-nav">
+                      {{> molecules/components/media-nav}}
                     </div>
-                  </div>
 
-                {{/empty_item}}
+                    {{#subtitle}}
+                      <h3 class="subtitle">{{subtitle}}</h3>
+                    {{/subtitle}}
+
+                    <div class="channel-object-description">
+                      {{#description}}
+                        {{#sections}}
+                          {{#items}}
+                            <p>{{text}}</p>
+                          {{/items}}
+                          {{^items}}
+                            <div class="missing">Sorry.  No description was provided.</div>
+                          {{/items}}
+                        {{/sections}}
+                      {{/description}}
+                    </div>
+
+                    {{#view_more}}
+                    <div class="channel-object-viewmore">
+                      <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
+                      <h3>{{text}}</h3>
+                      <a href="{{url}}">{{label}}</a>
+                    </div>
+                    {{/view_more}}
+
+                  </div>
+                </div>
+
 
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
