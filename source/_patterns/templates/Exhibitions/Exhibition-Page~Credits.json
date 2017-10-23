@@ -212,31 +212,31 @@
         "partner_url": "javascript:alert('go to (optional) partner url')",
         "image":{
             "original": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "full": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "fullx2": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "half": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "halfx2": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "small": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "smallx2": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "thumbnail": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             },
             "thumbnailx2": {
-              "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+              "url": "/images/virtual-exhibitions/dada/logo.png"
             }
           }
         }
@@ -267,141 +267,141 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
               }
             },
             "title": "Faces of Europe",
             "subtitle": "The first chapter of this amazing virtual exhibition",
             "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
-        },        
+        },
         {
            "image_compare_data":[
              {
-	            "id": "x0_1_image_credit",
-	            "type": "ve-intro",
-	            "is_first": true,
-	            "is_intro": true,
-	            "image_credit": {
-	              "attribution_title": "Battle of Grunweald",
-	              "attribution_creator": "Jan Matejko",
-	              "attribution_institution": "Muzeum Narodowe W Warszawie 1",
-	              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
-	              "country": "Brasil",
-	              "license_CC0": true,
-	              "license_CC_BY": true,
-	              "license_CC_BY_SA": true,
-	              "license_CC_BY_ND": true,
-	              "license_CC_BY_NC": true,
-	              "license_CC_BY_NC_SA": true,
-	              "license_CC_BY_NC_ND": true
-	            },
-	            "image":
-	            {
-	              "full": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png?image=1"
-	              },
-	              "fullx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=1"
-	              },
-	              "half": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png?image=1"
-	              },
-	              "halfx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=1"
-	              },
-	              "small": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png?image=1"
-	              },
-	              "smallx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=1"
-	              },
-	              "thumbnail": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=1"
-	              },
-	              "thumbnailx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png?image=1"
-	              }
-	            },
-	            "title": "Faces of Europe",
-	            "subtitle": "The first chapter of this amazing virtual exhibition",
-	            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+              "id": "x0_1_image_credit",
+              "type": "ve-intro",
+              "is_first": true,
+              "is_intro": true,
+              "image_credit": {
+                "attribution_title": "Battle of Grunweald",
+                "attribution_creator": "Jan Matejko",
+                "attribution_institution": "Muzeum Narodowe W Warszawie 1",
+                "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+                "country": "Brasil",
+                "license_CC0": true,
+                "license_CC_BY": true,
+                "license_CC_BY_SA": true,
+                "license_CC_BY_ND": true,
+                "license_CC_BY_NC": true,
+                "license_CC_BY_NC_SA": true,
+                "license_CC_BY_NC_ND": true
+              },
+              "image":
+              {
+                "full": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png?image=1"
+                },
+                "fullx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=1"
+                },
+                "half": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png?image=1"
+                },
+                "halfx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=1"
+                },
+                "small": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png?image=1"
+                },
+                "smallx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=1"
+                },
+                "thumbnail": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=1"
+                },
+                "thumbnailx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png?image=1"
+                }
+              },
+              "title": "Faces of Europe",
+              "subtitle": "The first chapter of this amazing virtual exhibition",
+              "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
             },
             {
-	            "id": "x0_2_image_credit",
-	            "type": "ve-intro",
-	            "is_first": true,
-	            "is_intro": true,
-	            "image_credit": {
-	              "attribution_title": "Battle of Grunweald 2",
-	              "attribution_creator": "Jan Matejko",
-	              "attribution_institution": "Muzeum Narodowe W Warszawie",
-	              "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
-	              "country": "Brasil",
-	              "license_CC0": true,
-	              "license_CC_BY": true,
-	              "license_CC_BY_SA": true,
-	              "license_CC_BY_ND": true,
-	              "license_CC_BY_NC": true,
-	              "license_CC_BY_NC_SA": true,
-	              "license_CC_BY_NC_ND": true
-	            },
-	            "image":
-	            {
-	              "full": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png?image=2"
-	              },
-	              "fullx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=2"
-	              },
-	              "half": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png?image=2"
-	              },
-	              "halfx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=2"
-	              },
-	              "small": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png?image=2"
-	              },
-	              "smallx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=2"
-	              },
-	              "thumbnail": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=2"
-	              },
-	              "thumbnailx2": {
-	                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png?image=2"
-	              }
-	            },
-	            "title": "Faces of Europe",
-	            "subtitle": "The first chapter of this amazing virtual exhibition",
-	            "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
+              "id": "x0_2_image_credit",
+              "type": "ve-intro",
+              "is_first": true,
+              "is_intro": true,
+              "image_credit": {
+                "attribution_title": "Battle of Grunweald 2",
+                "attribution_creator": "Jan Matejko",
+                "attribution_institution": "Muzeum Narodowe W Warszawie",
+                "attribution_url": "http://europeana.eu/portal/record/2063613/POL_280_002.html",
+                "country": "Brasil",
+                "license_CC0": true,
+                "license_CC_BY": true,
+                "license_CC_BY_SA": true,
+                "license_CC_BY_ND": true,
+                "license_CC_BY_NC": true,
+                "license_CC_BY_NC_SA": true,
+                "license_CC_BY_NC_ND": true
+              },
+              "image":
+              {
+                "full": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png?image=2"
+                },
+                "fullx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png?image=2"
+                },
+                "half": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png?image=2"
+                },
+                "halfx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png?image=2"
+                },
+                "small": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png?image=2"
+                },
+                "smallx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png?image=2"
+                },
+                "thumbnail": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png?image=2"
+                },
+                "thumbnailx2": {
+                  "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png?image=2"
+                }
+              },
+              "title": "Faces of Europe",
+              "subtitle": "The first chapter of this amazing virtual exhibition",
+              "intro_description": "<p>The alliance of the Kingdom of Poland and the Grand Duchy of Lithuania, led respectively by King Władysław II Jagiełło (Jogaila) and Grand Duke Vytautas (Witold; Vitaŭt), decisively defeated the German–Prussian Teutonic Knights, led by Grand Master Ulrich von Jungingen.</p><p>A haloed Jesus watches from the background.</p><p>It's not clear which side he's rooting for.</p>"
             }
           ]
         },
-        
-        
-        
+
+
+
         {
             "id": "1",
             "type": "ve-intro",
@@ -424,28 +424,28 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-full.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-fullx2.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-half.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-halfx2.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-small.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-smallx2.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
+                "url" : "/images/virtual-exhibitions/faces-of-europe/portugal-thumbnailx2.png"
               }
             },
             "title": false
@@ -478,42 +478,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
                     "alt": "Japan (thumbnail)",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "fullx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 }
@@ -527,42 +527,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-thumbnail.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnail.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-thumbnailx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-small.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-small.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-smallx2.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-smallx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-half.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-half.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-halfx2.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-halfx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-full.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-full.png",
                     "alt": "Arcimboldo",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/280/fruit-face-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/280/fruit-face-fullx2.png",
                     "alt": "Arcimboldo",
                     "orientation": "landscape"
                 }
@@ -588,28 +588,28 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             },
             "title": "Art Nouveau",
@@ -626,42 +626,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-thumbnail.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnail.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "thumbnailx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-thumbnailx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-thumbnailx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-small.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-small.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "smallx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-smallx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-smallx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-half.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-half.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "halfx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-halfx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-halfx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-full.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-full.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/adameve-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/dada/adameve-fullx2.png",
                     "alt": "Adam and Eve",
                     "orientation": "landscape"
                 }
@@ -686,25 +686,25 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 200,
                     "height": 213,
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/dada/arthur-segal.png",
+                    "url" : "/images/virtual-exhibitions/dada/arthur-segal.png",
                     "width": 16000,
                     "height": 1698,
                     "orientation": "landscape"
@@ -725,42 +725,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnailx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-small.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-smallx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-half.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-halfx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-full.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "landscape"
                 },
                 "fullx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-fullx2.png",
                     "alt": "SagradaFamilia Sostre",
                     "orientation": "landscape"
                 }
@@ -781,7 +781,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -791,7 +791,7 @@
           "title": "But Isn't Keen on Art Deco",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -800,7 +800,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         },
@@ -809,7 +809,7 @@
           "title": "Wiki Loves Art Nouveau",
           "label": "Art history collection",
           "image": {
-            "thumbnail" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "thumbnail" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           },
           "url": "javascript:alert('navigate to chapter')"
         }
