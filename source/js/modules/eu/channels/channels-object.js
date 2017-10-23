@@ -588,7 +588,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
           data.extended_information = true;
-          data.section_id = 'annotations';
+          data.id = 'annotations';
           template.after(Mustache.render(template.text(), data));
           initExtendedInformation();
         });

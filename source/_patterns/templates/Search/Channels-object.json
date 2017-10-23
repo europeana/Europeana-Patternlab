@@ -379,7 +379,7 @@
         "text": "Johannes Vermeer"
       },
       "people": {
-        "section_id": "people",
+        "id": "people",
         "title": "People",
         "sections": [
           {
@@ -414,7 +414,7 @@
       },
       "concepts":
       {
-        "section_id": "concepts",
+        "id": "concepts",
         "title": "Categories",
         "sections": [
           {
@@ -446,7 +446,7 @@
         ]
       },
       "description": {
-        "section_id": "description",
+        "id": "description",
         "title": "Description",
         "sections": [{
           "title": false,
@@ -457,7 +457,7 @@
         }]
       },
       "properties": {
-        "section_id": "properties",
+        "id": "properties",
         "title": "Properties",
         "sections": [
           {
@@ -477,7 +477,7 @@
         ]
       },
       "provenance": {
-        "section_id": "provenance",
+        "id": "provenance",
         "title": "Source",
         "sections": [
           {
@@ -513,7 +513,7 @@
       },
 
       "places": {
-        "section_id": "location",
+        "id": "location",
         "title": "Place",
         "sections": [
           {
@@ -535,7 +535,7 @@
         ]
       },
       "refs_rels": {
-        "section_id": "refs_rels",
+        "id": "refs_rels",
         "title": "References and Relationships",
         "sections": [
           {
@@ -550,7 +550,7 @@
       },
 
       "dates": {
-        "section_id": "times",
+        "id": "times",
         "title": "Times",
         "sections": [
           {
@@ -821,7 +821,7 @@
       "meta_additional":
       {
         "present": true,
-        "section_id": "map",
+        "id": "map",
         "geo":
         {
           "long_and_lat": true,
