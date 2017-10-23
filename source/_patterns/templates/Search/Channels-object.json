@@ -599,17 +599,17 @@
           "state_1_label": false,
           "state_1_image": {
             "thumbnail": {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "state_2_image": {
             "thumbnail": {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
             }
           },
           "state_3_image": {
             "thumbnail":{
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
             }
           },
 

@@ -203,7 +203,7 @@
             "label": "Art history collection",
             "partner_image": {
               "thumbnail": {
-                "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+                "url": "/images/virtual-exhibitions/dada/logo.png"
               }
             },
             "partner_url": "javascript:alert('link to curator site')",
@@ -221,28 +221,28 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
               }
             }
         }
@@ -257,7 +257,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -269,7 +269,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -280,7 +280,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -291,7 +291,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
