@@ -321,7 +321,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $(e.target).closest('.action-modal').addClass('js-hidden');
     });
 
-    fixZoomableWidth();
+    if(confirm('animations?')){
+      fixZoomableWidth();
+    }
   }
 
   function initMedia(index){
