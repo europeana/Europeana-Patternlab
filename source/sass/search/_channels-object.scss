@@ -360,7 +360,8 @@
         z-index:                 2;
 
         .media-option-group-wrap {
-          margin:  0 0.5em;
+          flex-grow: 1;
+          margin:    0 0.5em;
 
           a{
             display: block;
