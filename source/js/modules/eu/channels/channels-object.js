@@ -321,9 +321,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $(e.target).closest('.action-modal').addClass('js-hidden');
     });
 
-    if(confirm('animations?')){
-      fixZoomableWidth();
-    }
+    fixZoomableWidth();
   }
 
   function initMedia(index){
@@ -1142,7 +1140,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   };
 
-  function xxxinitPage(searchForm){
+  function initPage(searchForm){
 
     searchForm.bindShowInlineSearch();
 
@@ -1210,89 +1208,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
 
     scrollEvents.fireAllVisible();
-  }
-
-  function initPage(searchForm){
-
-if(confirm('bind inline search?')){
-      searchForm.bindShowInlineSearch();
-}
-
-      if(channelData == null){
-          channelCheck();
-      }
-      // set preferred search
-      var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
-      if(preferredResultCount){
-          $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
-      }
-
-      // event binding
-
-      $(window).bind('showMediaThumbs', function(e, data){
-          showMediaThumbs(data);
-      });
-
-      $(window).bind('showMap', function(e, data){
-          showMap(data);
-      });
-
-      $(window).bind('loadHierarchy', function(e, data){
-          loadHierarchy(data, function(){
-              log('hierarchy load error');
-          });
-      });
-if(confirm('init extended?')){
-      initExtendedInformation(true);
-      loadAnnotations();
-}
-
-if(confirm('init media?')){
-      if(!$('.channel-media-wrap').hasClass('empty')){
-          initTitleBar();
-          bindMediaUI();
-          initMedia(0);
-      }
-}
-
-if(confirm('init actions?')){
-      initActionBar();
-}
-
-if(confirm('init promos?')){
-      if($('.collections-promos').length > 0){
-
-          collectionsExtra = $('.collections-promos');
-
-          require(['util_slide'], function(EuSlide){
-              initCollectionsExtra(EuSlide);
-          });
-          require(['ve_state_card'], function(Card){
-              $('.ve-foyer-card').each(function(){
-                  new Card($(this));
-              });
-          });
-
-      }
-}
-
-if(confirm('init suggestions?')){
-
-      if($('.eu-accordion-tabs').length > 0){
-          suggestions = $('.eu-accordion-tabs');
-          require(['util_slide'], function(EuSlide){
-              initSuggestions(EuSlide);
-          });
-      }
-
-}
-
-      $(window).europeanaResize(function(){
-          $('.slide-rail').css('left', 0);
-          $('.js-swipeable').css('left', 0);
-      });
-
-      scrollEvents.fireAllVisible();
   }
 
   return {
