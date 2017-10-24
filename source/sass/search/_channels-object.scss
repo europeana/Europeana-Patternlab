@@ -756,6 +756,7 @@
     .action-ctrl{
       -webkit-align-self: center;
       align-self:         center;
+      flex-grow:          1;
       margin:             0 $space-half;
     }
 
