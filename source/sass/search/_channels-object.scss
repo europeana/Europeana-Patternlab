@@ -379,8 +379,9 @@
         }
 
         .media-option-group {
-          display: -webkit-flex;
-          display: flex;
+          display:         -webkit-flex;
+          display:         flex;
+          justify-content: space-around;
         }
 
         .media-option{
