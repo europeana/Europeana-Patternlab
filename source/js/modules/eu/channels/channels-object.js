@@ -1,13 +1,13 @@
 define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
 
-  var channelData        = null;
-  var suggestions        = null;
-  var collectionsExtra   = null;
-  var viewerIIIF         = null;
-  var videoPlayer        = null;
-  var audioPlayer        = null;
+  var channelData     = null;
+  var suggestions     = null;
+  var promotions      = null;
+  var viewerIIIF      = null;
+  var videoPlayer     = null;
+  var audioPlayer     = null;
 
-  var transitionEvent    = (function (){
+  var transitionEvent = (function (){
     var t;
     var el = document.createElement('fakeelement');
     var transitions = {
@@ -546,14 +546,16 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         zoomOut.removeClass('disabled');
       }
       else if(zoomLevels.length == 1){
+
         if(zoomLevels.indexOf('zoom-two') == -1){
           zoomOut.removeClass('disabled');
         }
         if(zoomLevels.indexOf('zoom-one') > -1){
-          zoomOut.addClass('disabled');
+          zoomOut.removeClass('disabled');
         }
       }
       else{
+        // no zoom levels but we have zoom-one applied: user has resized to narrow
         zoomOut.removeClass('disabled');
       }
     }
@@ -746,21 +748,21 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   }
 
-  function initCollectionsExtra(EuSlide){
+  function initPromos(EuSlide){
 
-    collectionsExtra.updateSwipe = function(){
-      var totalW = (collectionsExtra.children().length - 1) * 32;
-      totalW = totalW + collectionsExtra.children('.separator-after, .separator-before').length * 32;
+    promotions.updateSwipe = function(){
+      var totalW = (promotions.children().length - 1) * 32;
+      totalW = totalW + promotions.children('.separator-after, .separator-before').length * 32;
 
-      collectionsExtra.children('.collections-promo-item').each(function(){
+      promotions.children('.collections-promo-item').each(function(){
         totalW = totalW + $(this).outerWidth();
       });
-      collectionsExtra.css('width', totalW + 'px');
+      promotions.css('width', totalW + 'px');
     };
 
-    EuSlide.makeSwipeable(collectionsExtra, {'not-on-stacked': true});
+    EuSlide.makeSwipeable(promotions, {'not-on-stacked': true});
 
-    var imageSet = collectionsExtra.find('.image-set');
+    var imageSet = promotions.find('.image-set');
 
     if(imageSet.length > 0){
 
@@ -770,7 +772,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
           var portraits = [];
 
-          collectionsExtra.find('img').each(function(i, img){
+          promotions.find('img').each(function(i, img){
             if(i>0){
               portraits.push(img.naturalHeight > img.naturalWidth);
             }
@@ -812,8 +814,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       });
     };
 
-    var promoBoxes        = collectionsExtra.find('.collections-promo-item');
-    var promoBoxesGeneric = collectionsExtra.find('.collections-promo-item.generic-promo');
+    var promoBoxes        = promotions.find('.collections-promo-item');
+    var promoBoxesGeneric = promotions.find('.collections-promo-item.generic-promo');
 
     if(promoBoxesGeneric.length > 0){
       require(['jqImagesLoaded'], function(){
@@ -898,7 +900,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
     }
 
-    var promoOverlays = collectionsExtra.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
+    var promoOverlays = promotions.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
     if(promoOverlays.length > 0){
       promoOverlays.each(function(i, ob){
         ob = $(ob);
@@ -1182,10 +1184,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     if($('.collections-promos').length > 0){
 
-      collectionsExtra = $('.collections-promos');
+      promotions = $('.collections-promos');
 
       require(['util_slide'], function(EuSlide){
-        initCollectionsExtra(EuSlide);
+        initPromos(EuSlide);
       });
       require(['ve_state_card'], function(Card){
         $('.ve-foyer-card').each(function(){
