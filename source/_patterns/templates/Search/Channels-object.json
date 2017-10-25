@@ -27,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'gallery.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'nextprev.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 

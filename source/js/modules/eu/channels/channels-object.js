@@ -748,6 +748,68 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   }
 
+  function requestPromos(){
+
+    var href          = location.href;
+    var baseUrl       = href.replace('.html', '').split('?')[0];
+    var expected      = 5;
+    var returned      = 0;
+
+    var entityUrl     = baseUrl + '/entity.json';
+    var exhibitionUrl = baseUrl + '/exhibition.json';
+    var galleryUrl    = baseUrl + '/gallery.json';
+    var nextprevUrl   = baseUrl + '/nextprev.json';
+    var newsUrl       = baseUrl + '/news.json';
+
+    var processCallback = function(Mustache, data, templateId){
+
+      var template = $('#' + templateId).text();
+      var innerHTML = Mustache.render(template, data);
+
+      log('data: ' + JSON.stringify(data, null, 4));
+
+      $('.collections-promos').prepend(innerHTML);
+
+      if(returned == expected){
+        alert('done all');
+      }
+    };
+
+    require(['mustache'], function(Mustache){
+
+      Mustache.tags = ['[[', ']]'];
+
+      $.getJSON(entityUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.entity_promo, 'template-promo-entity');
+      });
+
+      $.getJSON(exhibitionUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition');
+      });
+
+      $.getJSON(galleryUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.gallery_promo, 'template-promo-gallery');
+      });
+
+      $.getJSON(nextprevUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.prev_promo, 'template-promo-next-prev');
+        processCallback(Mustache, data.next_promo, 'template-promo-next-prev');
+      });
+
+      $.getJSON(newsUrl).done(function(data){
+        returned ++;
+        $.each(data, function(i, ob){
+          processCallback(Mustache, ob, 'template-promo-news');
+        });
+      });
+    });
+  }
+
+
   function initPromos(EuSlide){
 
     promotions.updateSwipe = function(){
@@ -1182,6 +1244,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     initActionBar();
 
+
+    //requestPromos();
+
+    //setTimeout(function(){
     if($('.collections-promos').length > 0){
 
       promotions = $('.collections-promos');
@@ -1196,6 +1262,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       });
 
     }
+    //}, 3000);
 
     if($('.eu-accordion-tabs').length > 0){
       suggestions = $('.eu-accordion-tabs');

@@ -457,6 +457,87 @@
       </div>
 
       {{! end of object info column }}
+
+      <script id="template-promo-entity" type="text/x-mustache">
+        <div class="collections-promo-item entity-promo img-as-bg">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <span class="bg-img" style="background-image:url('[[img.src]]');"></span>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-exhibition" type="text/x-mustache">
+        <div class="collections-promo-item exhibition">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  {{> organisms/virtual-exhibitions/foyer-card-js}}
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-gallery" type="text/x-mustache">
+        <div class="collections-promo-item gallery">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  {{> molecules/components/image-set-js}}
+                </div>
+              </div>
+              <span class="gallery-image-count">[[count]] {{i18n.global.labels.images}}</span>
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-next-prev" type="text/x-mustache">
+        <div class="channel-object-next-prev collections-promo-item separator-after">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <a href="[[url]]">
+                    [[#img]]
+                      <img src="[[src]]"/>
+                    [[/img]]
+                  </a>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-news" type="text/x-mustache">
+        <div class="collections-promo-item img-as-bg text-centric">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <a href="[[url]][[^url]]#[[/url]]" class="bg-img" style="background-image:url('[[img.src]]');">
+                  </a>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
       {{#object.promos}}
       <div class="channel-object-actions">
 
@@ -548,9 +629,7 @@
             {{/gallery_promo}}
 
             {{#news_promos}}
-
               <div class="collections-promo-item img-as-bg text-centric">
-
                 <div class="content-outer">
                   <div class="content-inner">
                     <div class="content-outer">
@@ -562,7 +641,6 @@
                     {{> molecules/components/search/channel-object-promo-text}}
                   </div>
                 </div>
-
               </div>
             {{/news_promos}}
 
