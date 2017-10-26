@@ -748,30 +748,59 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   }
 
-  function requestPromos(){
+  function requestPromos(callback){
 
     var href          = location.href;
     var baseUrl       = href.replace('.html', '').split('?')[0];
-    var expected      = 5;
+    var expected      = 6;
     var returned      = 0;
 
     var entityUrl     = baseUrl + '/entity.json';
     var exhibitionUrl = baseUrl + '/exhibition.json';
     var galleryUrl    = baseUrl + '/gallery.json';
+    var genericUrl    = baseUrl + '/promoted.json';
     var nextprevUrl   = baseUrl + '/nextprev.json';
     var newsUrl       = baseUrl + '/news.json';
 
-    var processCallback = function(Mustache, data, templateId){
+    var elements      = {};
+
+    var processCallback = function(Mustache, data, templateId, id){
 
       var template = $('#' + templateId).text();
-      var innerHTML = Mustache.render(template, data);
+      var html     = Mustache.render(template, data);
 
-      log('data: ' + JSON.stringify(data, null, 4));
+      if(elements[id]){
+        elements[id].push(html);
+      }
+      else{
+        elements[id] = [html];
+      }
+    };
 
-      $('.collections-promos').prepend(innerHTML);
-
+    var done = function(){
       if(returned == expected){
-        alert('done all');
+
+        var slideRail = $('<div class="slide-rail"><div class="collections-promos js-swipe-not-stacked"></div></div>');
+        var sequence  = ['next', 'exhibition', 'gallery', 'news', 'entity', 'generic', 'previous'];
+
+        if(!elements['next']){
+          sequence.shift();
+          sequence.unshift(sequence.pop());
+        }
+
+        $(sequence).each(function(){
+
+          var key = this;
+          if(elements[key]){
+            $.each(elements[key], function(){
+              slideRail.find('.collections-promos').append(this);
+            });
+          }
+          else{
+            log('no element for key ' + key);
+          }
+        });
+        callback(slideRail);
       }
     };
 
@@ -781,34 +810,52 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       $.getJSON(entityUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data.entity_promo, 'template-promo-entity');
+        processCallback(Mustache, data.entity_promo, 'template-promo-entity', 'entity');
+        done();
       });
 
       $.getJSON(exhibitionUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition');
+        processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition', 'exhibition');
+        done();
       });
 
       $.getJSON(galleryUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data.gallery_promo, 'template-promo-gallery');
+        processCallback(Mustache, data.gallery_promo, 'template-promo-gallery', 'gallery');
+        done();
       });
 
       $.getJSON(nextprevUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data.prev_promo, 'template-promo-next-prev');
-        processCallback(Mustache, data.next_promo, 'template-promo-next-prev');
+        if(data.next_promo){
+          data.next_promo.is_next = true;
+          processCallback(Mustache, data.next_promo, 'template-promo-next-prev', 'next');
+        }
+        if(data.prev_promo){
+          data.prev_promo.is_prev = true;
+          processCallback(Mustache, data.prev_promo, 'template-promo-next-prev', 'previous');
+        }
+        done();
       });
 
       $.getJSON(newsUrl).done(function(data){
         returned ++;
         $.each(data, function(i, ob){
-          processCallback(Mustache, ob, 'template-promo-news');
+          processCallback(Mustache, ob, 'template-promo-news', 'news');
         });
+        done();
+      });
+
+      $.getJSON(genericUrl).done(function(data){
+        returned ++;
+        $.each(data, function(i, ob){
+          processCallback(Mustache, ob, 'template-promo-generic', 'generic');
+        });
+        done();
       });
     });
   }
-
 
   function initPromos(EuSlide){
 
@@ -1244,25 +1291,27 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     initActionBar();
 
+    requestPromos(function(markup){
 
-    //requestPromos();
+      if(markup && markup.length > 0){
 
-    //setTimeout(function(){
-    if($('.collections-promos').length > 0){
+        $('.object-details').removeClass('no-right-column').addClass('has-right-column');
+        $('<div class="channel-object-actions">').insertAfter('.channel-object-overview').append(markup);
 
-      promotions = $('.collections-promos');
+        promotions = $('.collections-promos');
 
-      require(['util_slide'], function(EuSlide){
-        initPromos(EuSlide);
-      });
-      require(['ve_state_card'], function(Card){
-        $('.ve-foyer-card').each(function(){
-          new Card($(this));
+        require(['util_slide'], function(EuSlide){
+          initPromos(EuSlide);
         });
-      });
 
-    }
-    //}, 3000);
+        require(['ve_state_card'], function(Card){
+          $('.ve-foyer-card').each(function(){
+            new Card($(this));
+          });
+        });
+        resetZoomable();
+      }
+    });
 
     if($('.eu-accordion-tabs').length > 0){
       suggestions = $('.eu-accordion-tabs');
