@@ -194,6 +194,15 @@
                       <a href="{{url}}">{{label}}</a>
                     </div>
                     {{/view_more}}
+                    {{^view_more}}
+                      <script id="template-concept-js" type="text/x-mustache">
+                        <div class="channel-object-viewmore">
+                          <a href="[[url]]" class="viewmore-image" style="background-image: url('[[img_url]]');"></a>
+                          <h3>[[text]]</h3>
+                          <a href="[[url]]">[[label]]</a>
+                        </div>
+                      </script>
+                    {{/view_more}}
 
                   </div>
                 </div>

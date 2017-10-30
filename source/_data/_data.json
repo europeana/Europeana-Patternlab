@@ -737,7 +737,8 @@
                     "attribute-plaintext": "Plain Text",
                     "attribute-html": "HTML",
                     "explore-by-colour": "Explore by colour",
-                    "view-more-at": "View more at"
+                    "view-more-at": "View more at",
+                    "view-more": "View more at"
                 },
                 "hierarchy": {
                   "title": "Hierarchy",

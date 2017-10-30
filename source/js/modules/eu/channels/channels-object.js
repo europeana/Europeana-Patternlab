@@ -522,6 +522,50 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     //$('.action-ctrl-btn.share').on('click', function(){ alert('share'); });
   }
 
+  function initEntity(){
+
+    var entityLinks = $('.named-entity-section .eu-foldable-data a');
+    var agentData   = {};
+
+    $.each(entityLinks, function(i, ob){
+
+      var url = $(ob).attr('href');
+
+      if(url.indexOf('/agent/') >-1){
+
+        var locale = typeof window.i18nLocale == 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale == 'string' ? window.i18nDefaultLocale : 'en';
+
+        $.getJSON(url).done(function(data){
+
+          var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
+          var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+          agentData.text     = label;
+          agentData.img_url  = depiction;
+          agentData.url      = url;
+
+          require(['mustache'], function(Mustache){
+            Mustache.tags = ['[[', ']]'];
+            var template  = $('#template-concept-js');
+            var html      = Mustache.render(template.text(), agentData);
+            template.after(html);
+          });
+
+          /*
+          var domain         = 'https://www.europeana.eu/portal';
+          var searchOnEntity = domain + '/' + 'search.json?q=proxy_dc_creator:+"' + url + '"+OR+proxy_dc_contributor:+"' + url + '"per_page=12&page=1';
+
+          $.getJSON(searchOnEntity).done(function(data){
+            alert(JSON.stringify(data, null, 4));
+          });
+          */
+
+        });
+        return false;
+      }
+
+    });
+  }
+
   function updateCtrls(){
     $(window).trigger('eu-slide-update');
     $(window).trigger('ellipsis-update');
@@ -1290,6 +1334,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
 
     initActionBar();
+    initEntity();
 
     requestPromos(function(markup){
 
@@ -1302,6 +1347,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
         require(['util_slide'], function(EuSlide){
           initPromos(EuSlide);
+          $(window).trigger('carouselResize');
         });
 
         require(['ve_state_card'], function(Card){
