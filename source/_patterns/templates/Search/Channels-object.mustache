@@ -19,6 +19,7 @@
         {{/include_1418_nav}}
       {{/ugc_content}}
     {{/disabled}}
+
     {{#object.media}}
       {{^items}}
         <section>
@@ -199,7 +200,7 @@
                         <div class="channel-object-viewmore">
                           <a href="[[url]]" class="viewmore-image" style="background-image: url('[[img_url]]');"></a>
                           <h3>[[text]]</h3>
-                          <a href="[[url]]">[[label]]</a>
+                          <a href="[[url]]">{{i18n.object.actions.view-more}}</a>
                         </div>
                       </script>
                     {{/view_more}}
@@ -523,7 +524,7 @@
                   <a href="[[url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
                 </div>
               </div>
-              {{> molecules/components/search/channel-object-promo-text}}
+              {{> molecules/components/search/channel-object-promo-text-js}}
             </div>
           </div>
         </div>
