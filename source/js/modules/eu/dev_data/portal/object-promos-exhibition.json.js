@@ -29,7 +29,7 @@ define([], function(){
       },
 
       "excerpt": false,
-      "icon": "files",
+      "icon": "multi-page",
       "title": "The Exhibition: Johann Vermeer can be found here too along with other objets d'art including some Art Nouveau",
       "relation": "Feautues Johann Vermeer",
       "tags":{

@@ -283,19 +283,20 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     .promo-tags{
-
       font-size:      0.875em;
       max-height:     2.1em;
       overflow:       hidden;
-      padding-bottom: 0.25em;
-      padding-top:    0.25em;
+      padding-bottom: 0.3em;
+      padding-top:    0.2em;
 
       li{
         display: inline-block;
 
         a:not(:empty){
+          border-bottom:  1px dashed $black;
+          margin-right:   3px;
           &:hover{
-            text-decoration: underline;
+            color: $eu-blue;
           }
         }
       }
@@ -491,12 +492,20 @@ $green-grey-bg:                    #f4f4f4;
     float:   right;
   }
 
-  .icon-files{
-    background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' viewBox='0 0 745 1024'%3E%3Cpath d='M651.636 294.788v449.94q0 18.962-13.79 32.753t-32.755 13.793H139.638q-18.963 0-32.754-13.79t-13.79-32.755V93.09q0-18.962 13.79-32.753t32.754-13.79h263.758q5.172 0 11.205 4.31l232.726 232.726q4.31 6.034 4.31 11.205z' class='path1'%3E%3C/path%3E%3C/svg%3E");
+//  .icon-files{
+//    background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' viewBox='0 0 745 1024'%3E%3Cpath d='M651.636 294.788v449.94q0 18.962-13.79 32.753t-32.755 13.793H139.638q-18.963 0-32.754-13.79t-13.79-32.755V93.09q0-18.962 13.79-32.753t32.754-13.79h263.758q5.172 0 11.205 4.31l232.726 232.726q4.31 6.034 4.31 11.205z' class='path1'%3E%3C/path%3E%3C/svg%3E");
+//    background-repeat: no-repeat;
+//    height:            1.4em;
+//    transform:         translate(-0.9em, 2.1em) scale(1.5);
+//    width:             1.3em;
+//  }
+
+  .icon-multi-page{
+    background-image:  url("data:image/svg+xml,%3Csvg id='icon-multi-page' viewBox='0 0 23 32' fill='#{url-encode-color($gray-med)}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.3 24.9c-.7 0-1.3-.6-1.3-1.3v-13c0-.7.6-1.3 1.3-1.3h8.2c.5 0 .9.4.9.9v13.4c0 .7-.6 1.3-1.3 1.3H3.3zM14 20.8V10.3c0-1.4-1.2-2.6-2.6-2.6H5.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H14zm4-3.9V6.4c0-1.4-1.2-2.6-2.6-2.6H9.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H18z'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    height:            1.4em;
-    transform:         translate(-0.9em, 2.1em) scale(1.5);
-    width:             1.3em;
+    height:            2em;
+    transform:         translate(-0.8em, 1.5em);
+    width:             2em;
   }
 
   .icon-image{
