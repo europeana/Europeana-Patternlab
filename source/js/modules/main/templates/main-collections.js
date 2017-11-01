@@ -4,10 +4,20 @@ if(typeof googleAnalyticsKey == 'undefined'){
   window.googleAnalyticsKey = '';
 }
 
-window.__ga__ = {
-  q: [['create', window.googleAnalyticsKey, 'auto']],
-  l: Date.now()
-};
+if(typeof window.googleAnalyticsLinkedDomains == 'undefined'){
+  window.__ga__ = {
+    q: [['create', window.googleAnalyticsKey, 'auto']],
+    l: Date.now()
+  };
+}
+else{
+  window.__ga__ = {
+    q: [['create', window.googleAnalyticsKey, 'auto', {'allowLinker': true}], ['require', 'linker'], ['linker:autoLink', [window.googleAnalyticsLinkedDomains.join(',')]] ],
+    l: Date.now()
+  };
+  console.log('googleAnalyticsLinkedDomains: ' + JSON.stringify(window.googleAnalyticsLinkedDomains, null, 4));
+  console.log('ga cmd: ' + JSON.stringify(window.__ga__, null, 4));
+}
 
 require.config({
   paths: {
@@ -183,6 +193,7 @@ require(['jquery'], function( $ ) {
       require(['ga'],
         function(ga) {
           ga = window.fixGA(ga);
+
           channels.getPromisedPageJS().done(function(page){
             if(page && typeof page.getAnalyticsData != 'undefined'){
               var analyticsData = page.getAnalyticsData();
