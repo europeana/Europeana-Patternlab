@@ -296,7 +296,8 @@ $green-grey-bg:                    #f4f4f4;
           border-bottom:  1px dashed $black;
           margin-right:   3px;
           &:hover{
-            color: $eu-blue;
+            border-color: $eu-blue;
+            color:        $eu-blue;
           }
         }
       }

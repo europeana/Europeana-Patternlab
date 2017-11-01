@@ -625,7 +625,23 @@
           <div class="display-grid">
             {{#object.suggestions}}
               <div class="slide-rail" style="position: relative;">
-                <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/channel-object-suggestion-js }}</script>
+                <script id="template-preview-tab-content" type="text/x-mustache">
+                  <article class="suggestion-item">
+                    <div class="item-preview">
+                      <div class="item-image">
+                        <div class="inner">
+                          <a target="[[target]]" href="[[url]]" tabindex="-1">
+                            <div class="mlt-img-div height-to-width" [[#img.src]]style="background-image:url('[[.]]');"[[/img.src]]></div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-info">
+                      {{! no whitespace here - eu-ellipsis js to be applied }}
+                      <h2><a class="link-black-blue" [[#url]]href="[[.]]"[[/url]] [[#target]]target="[[.]]"[[/target]]>[[#title]]<span class="link-text">[[.]]</span>[[#external]]<span title="[[title]]" class="svg-icon-external"></span>[[/external]][[/title]]</a></h2>
+                    </div>
+                  </article>
+                </script>
                 <div class="eu-accordion-tabs suggestions cf">
                   {{#tab_items}}
                     {{> organisms/components/eu-accordion-tabs-portal-suggestions}}
