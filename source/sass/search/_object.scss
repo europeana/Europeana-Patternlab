@@ -610,7 +610,6 @@
 .object-downloads.is-expanded + .object-techdata > a.show-button{
   color: $gray30;
   &:hover{
-    color: #ff0000;
     color: $textcolour_link_hover;
   }
 }
