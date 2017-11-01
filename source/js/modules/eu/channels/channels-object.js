@@ -437,7 +437,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'audio'){
 
-      $('.media-options').hide();
+      $('.media-options').show();
       setZoom();
       $('.zoomable').append($('.object-media-audio'));
       $('.object-media-audio').removeClass('is-hidden');
@@ -468,7 +468,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'video'){
 
-      $('.media-options').hide();
+      $('.media-options').show();
       setZoom('zoom-one', true);
       resetZoomable();
 
