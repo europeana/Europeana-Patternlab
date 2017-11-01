@@ -1,13 +1,13 @@
 define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
 
-  var channelData        = null;
-  var suggestions        = null;
-  var collectionsExtra   = null;
-  var viewerIIIF         = null;
-  var videoPlayer        = null;
-  var audioPlayer        = null;
+  var channelData     = null;
+  var suggestions     = null;
+  var promotions      = null;
+  var viewerIIIF      = null;
+  var videoPlayer     = null;
+  var audioPlayer     = null;
 
-  var transitionEvent    = (function (){
+  var transitionEvent = (function (){
     var t;
     var el = document.createElement('fakeelement');
     var transitions = {
@@ -185,7 +185,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
     });
     return cmp.height() > tallest;
-  };
+  }
 
   function getZoomLevels(){
     var current       = $('.object-media-nav a.is-current');
@@ -522,6 +522,50 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     //$('.action-ctrl-btn.share').on('click', function(){ alert('share'); });
   }
 
+  function initEntity(){
+
+    var entityLinks = $('.named-entity-section .eu-foldable-data a');
+    var agentData   = {};
+
+    $.each(entityLinks, function(i, ob){
+
+      var url = $(ob).attr('href');
+
+      if(url.indexOf('/agent/') >-1){
+
+        var locale = typeof window.i18nLocale == 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale == 'string' ? window.i18nDefaultLocale : 'en';
+
+        $.getJSON(url).done(function(data){
+
+          var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
+          var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+          agentData.text     = label;
+          agentData.img_url  = depiction;
+          agentData.url      = url;
+
+          require(['mustache'], function(Mustache){
+            Mustache.tags = ['[[', ']]'];
+            var template  = $('#template-concept-js');
+            var html      = Mustache.render(template.text(), agentData);
+            template.after(html);
+          });
+
+          /*
+          var domain         = 'https://www.europeana.eu/portal';
+          var searchOnEntity = domain + '/' + 'search.json?q=proxy_dc_creator:+"' + url + '"+OR+proxy_dc_contributor:+"' + url + '"per_page=12&page=1';
+
+          $.getJSON(searchOnEntity).done(function(data){
+            alert(JSON.stringify(data, null, 4));
+          });
+          */
+
+        });
+        return false;
+      }
+
+    });
+  }
+
   function updateCtrls(){
     $(window).trigger('eu-slide-update');
     $(window).trigger('ellipsis-update');
@@ -546,14 +590,16 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         zoomOut.removeClass('disabled');
       }
       else if(zoomLevels.length == 1){
+
         if(zoomLevels.indexOf('zoom-two') == -1){
           zoomOut.removeClass('disabled');
         }
         if(zoomLevels.indexOf('zoom-one') > -1){
-          zoomOut.addClass('disabled');
+          zoomOut.removeClass('disabled');
         }
       }
       else{
+        // no zoom levels but we have zoom-one applied: user has resized to narrow
         zoomOut.removeClass('disabled');
       }
     }
@@ -588,7 +634,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
           data.extended_information = true;
-          data.section_id = 'annotations';
+          data.id = 'annotations';
           template.after(Mustache.render(template.text(), data));
           initExtendedInformation();
         });
@@ -746,21 +792,130 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   }
 
-  function initCollectionsExtra(EuSlide){
+  function requestPromos(callback){
 
-    collectionsExtra.updateSwipe = function(){
-      var totalW = (collectionsExtra.children().length - 1) * 32;
-      totalW = totalW + collectionsExtra.children('.separator-after, .separator-before').length * 32;
+    var href          = location.href;
+    var baseUrl       = href.replace('.html', '').split('?')[0];
+    var expected      = 6;
+    var returned      = 0;
 
-      collectionsExtra.children('.collections-promo-item').each(function(){
-        totalW = totalW + $(this).outerWidth();
-      });
-      collectionsExtra.css('width', totalW + 'px');
+    var entityUrl     = baseUrl + '/entity.json';
+    var exhibitionUrl = baseUrl + '/exhibition.json';
+    var galleryUrl    = baseUrl + '/gallery.json';
+    var genericUrl    = baseUrl + '/promoted.json';
+    var nextprevUrl   = baseUrl + '/nextprev.json';
+    var newsUrl       = baseUrl + '/news.json';
+
+    var elements      = {};
+
+    var processCallback = function(Mustache, data, templateId, id){
+
+      var template = $('#' + templateId).text();
+      var html     = Mustache.render(template, data);
+
+      if(elements[id]){
+        elements[id].push(html);
+      }
+      else{
+        elements[id] = [html];
+      }
     };
 
-    EuSlide.makeSwipeable(collectionsExtra, {'not-on-stacked': true});
+    var done = function(){
+      if(returned == expected){
 
-    var imageSet = collectionsExtra.find('.image-set');
+        var slideRail = $('<div class="slide-rail"><div class="collections-promos js-swipe-not-stacked"></div></div>');
+        var sequence  = ['next', 'exhibition', 'gallery', 'news', 'entity', 'generic', 'previous'];
+
+        if(!elements['next']){
+          sequence.shift();
+          sequence.unshift(sequence.pop());
+        }
+
+        $(sequence).each(function(){
+
+          var key = this;
+          if(elements[key]){
+            $.each(elements[key], function(){
+              slideRail.find('.collections-promos').append(this);
+            });
+          }
+          else{
+            log('no element for key ' + key);
+          }
+        });
+        callback(slideRail);
+      }
+    };
+
+    require(['mustache'], function(Mustache){
+
+      Mustache.tags = ['[[', ']]'];
+
+      $.getJSON(entityUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.entity_promo, 'template-promo-entity', 'entity');
+        done();
+      });
+
+      $.getJSON(exhibitionUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition', 'exhibition');
+        done();
+      });
+
+      $.getJSON(galleryUrl).done(function(data){
+        returned ++;
+        processCallback(Mustache, data.gallery_promo, 'template-promo-gallery', 'gallery');
+        done();
+      });
+
+      $.getJSON(nextprevUrl).done(function(data){
+        returned ++;
+        if(data.next_promo){
+          data.next_promo.is_next = true;
+          processCallback(Mustache, data.next_promo, 'template-promo-next-prev', 'next');
+        }
+        if(data.prev_promo){
+          data.prev_promo.is_prev = true;
+          processCallback(Mustache, data.prev_promo, 'template-promo-next-prev', 'previous');
+        }
+        done();
+      });
+
+      $.getJSON(newsUrl).done(function(data){
+        returned ++;
+        $.each(data, function(i, ob){
+          processCallback(Mustache, ob, 'template-promo-news', 'news');
+        });
+        done();
+      });
+
+      $.getJSON(genericUrl).done(function(data){
+        returned ++;
+        $.each(data, function(i, ob){
+          processCallback(Mustache, ob, 'template-promo-generic', 'generic');
+        });
+        done();
+      });
+    });
+  }
+
+  function initPromos(EuSlide){
+
+    promotions.updateSwipe = function(){
+      var totalW = (promotions.children().length - 1) * 32;
+      totalW = totalW + promotions.children('.separator-after, .separator-before').length * 32;
+
+      promotions.children('.collections-promo-item').each(function(){
+        totalW = totalW + $(this).outerWidth();
+      });
+      promotions.css('width', totalW + 'px');
+    };
+
+    EuSlide.makeSwipeable(promotions, {'not-on-stacked': true});
+
+    var imageSet = promotions.find('.image-set');
 
     if(imageSet.length > 0){
 
@@ -770,7 +925,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
           var portraits = [];
 
-          collectionsExtra.find('img').each(function(i, img){
+          promotions.find('img').each(function(i, img){
             if(i>0){
               portraits.push(img.naturalHeight > img.naturalWidth);
             }
@@ -812,8 +967,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       });
     };
 
-    var promoBoxes        = collectionsExtra.find('.collections-promo-item');
-    var promoBoxesGeneric = collectionsExtra.find('.collections-promo-item.generic-promo');
+    var promoBoxes        = promotions.find('.collections-promo-item');
+    var promoBoxesGeneric = promotions.find('.collections-promo-item.generic-promo');
 
     if(promoBoxesGeneric.length > 0){
       require(['jqImagesLoaded'], function(){
@@ -898,7 +1053,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
     }
 
-    var promoOverlays = collectionsExtra.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
+    var promoOverlays = promotions.find('.collections-promo-item.entity-promo .collections-promo-overlay-inner');
     if(promoOverlays.length > 0){
       promoOverlays.each(function(i, ob){
         ob = $(ob);
@@ -1072,7 +1227,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           var totalItemW = 0;
 
           $('.object-media-nav li').each(function(i, ob){
-            var ob = $(ob);
+            ob = $(ob);
             totalItemW = totalItemW + (ob.outerWidth(true) - ob.outerWidth()) + ob.find('.mlt-img-div').width();
           });
 
@@ -1171,26 +1326,38 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     initExtendedInformation(true);
     loadAnnotations();
-    initTitleBar();
-    bindMediaUI();
 
-    initMedia(0);
-    initActionBar();
-
-    if($('.collections-promos').length > 0){
-
-      collectionsExtra = $('.collections-promos');
-
-      require(['util_slide'], function(EuSlide){
-        initCollectionsExtra(EuSlide);
-      });
-      require(['ve_state_card'], function(Card){
-        $('.ve-foyer-card').each(function(){
-          new Card($(this));
-        });
-      });
-
+    if(!$('.channel-media-wrap').hasClass('empty')){
+      initTitleBar();
+      bindMediaUI();
+      initMedia(0);
     }
+
+    initActionBar();
+    initEntity();
+
+    requestPromos(function(markup){
+
+      if(markup && markup.length > 0){
+
+        $('.object-details').removeClass('no-right-column').addClass('has-right-column');
+        $('<div class="channel-object-actions">').insertAfter('.channel-object-overview').append(markup);
+
+        promotions = $('.collections-promos');
+
+        require(['util_slide'], function(EuSlide){
+          initPromos(EuSlide);
+          $(window).trigger('carouselResize');
+        });
+
+        require(['ve_state_card'], function(Card){
+          $('.ve-foyer-card').each(function(){
+            new Card($(this));
+          });
+        });
+        resetZoomable();
+      }
+    });
 
     if($('.eu-accordion-tabs').length > 0){
       suggestions = $('.eu-accordion-tabs');

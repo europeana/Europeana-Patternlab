@@ -25,7 +25,7 @@ $green-grey-bg:                    #f4f4f4;
     box-shadow:         $box-shadow-panel;
     font-size:          $font-size-slightly-smaller;
     margin:             auto;
-    min-width:          $collections-promo-item-min-width;
+
     width:              $collections-promo-item-min-width;
 
     .category-flag{
@@ -344,7 +344,7 @@ $green-grey-bg:                    #f4f4f4;
     .title{
       display:       block;
       font-size:     $font-size-med;
-      line-height:   1,4em;
+      line-height:   1.4em;
       margin-bottom: 0.8em;
       max-height:    2.8em;
       overflow:      hidden;
@@ -381,30 +381,30 @@ $green-grey-bg:                    #f4f4f4;
   .channel-object-next-prev{
 
     img{
-      filter:         grayscale(100%);
-      margin:         0 auto .8rem auto;
-      max-height:     100%;
-      max-width:      100%;
-      transition:     filter 0.3s ease-out;
+      filter:     grayscale(100%);
+      margin:     0 auto .8rem auto;
+      max-height: 100%;
+      max-width:  100%;
+      transition: filter 0.3s ease-out;
 
       &:hover{
-        filter:         grayscale(0%);
+        filter: grayscale(0%);
       }
     }
 
     &.separator-after{
 
       margin-right: 48px;
-
       position:     relative;
 
       &::after{
-        border-right:  1px solid $gray87;
-        bottom:        0;
-        content:       ' ';
-        position:      absolute;
-        right:         -34px;
-        top:           0;
+        border-right:   1px solid $gray87;
+        bottom:         0;
+        content:        ' ';
+        pointer-events: none;
+        position:       absolute;
+        right:          -34px;
+        top:            0;
       }
     }
 

@@ -156,6 +156,20 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     });
   };
 
+  var adaptForNewItemPage = function(param){
+
+    if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+      var updateUrl = function($anchor){
+        $anchor.attr('href', $anchor.attr('href') + '&design=new');
+      };
+
+      $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
+        updateUrl($(this));
+      });
+    }
+
+  };
+
   var showGrid = function(save){
     $('body').addClass('display-grid');
     btnGrid.addClass('is-active');
@@ -358,9 +372,11 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     var defView;
 
     if(typeof(Storage) !== 'undefined') {
+
       var label = $('.breadcrumbs').data('store-channel-label');
       var name  = $('.breadcrumbs').data('store-channel-name');
       var url   = $('.breadcrumbs').data('store-channel-url');
+
       defView   = $('.breadcrumbs').data('store-channel-def-view');
 
       sessionStorage.eu_portal_channel_label = label;
@@ -393,6 +409,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         e7a1418.initPageInvisible();
       });
     }
+
+    adaptForNewItemPage();
   };
 
   function initFederatedSearch(){

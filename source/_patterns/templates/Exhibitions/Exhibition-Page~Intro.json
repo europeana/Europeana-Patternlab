@@ -202,7 +202,7 @@
             "label": "Art history collection",
             "partner_image": {
               "thumbnail": {
-                "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+                "url": "/images/virtual-exhibitions/dada/logo.png"
               }
             },
             "partner_url": "javascript:alert('link to curator site')",
@@ -220,28 +220,28 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-full.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-fullx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-half.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-halfx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-small.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-smallx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldem-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/280/Grunwaldemx2.png"
+                "url" : "/images/virtual-exhibitions/280/Grunwaldemx2.png"
               }
             }
         },
@@ -275,42 +275,42 @@
             "image":
             {
                 "thumbnail": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnail.png",
                     "alt": "Japan (thumbnail)",
                     "orientation": "portrait"
                 },
                 "thumbnailx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-thumbnailx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "small": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-small.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-small.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "smallx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-smallx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-smallx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "half": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-half.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-half.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "halfx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-halfx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-halfx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "full": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-full.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-full.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 },
                 "fullx2": {
-                    "url" : "/images_versionless/virtual-exhibitions/art-nouveau/japan-fullx2.png",
+                    "url" : "/images/virtual-exhibitions/art-nouveau/japan-fullx2.png",
                     "alt": "Japan",
                     "orientation": "portrait"
                 }
@@ -340,28 +340,28 @@
             "image":
             {
               "full": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-full.png"
               },
               "fullx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-fullx2.png"
               },
               "half": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-half.png"
               },
               "halfx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-halfx2.png"
               },
               "small": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-small.png"
               },
               "smallx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-smallx2.png"
               },
               "thumbnail": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
               },
               "thumbnailx2": {
-                "url" : "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
+                "url" : "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnailx2.png"
               }
             }
         },
@@ -388,28 +388,28 @@
           "text2": "Then check out the full exhibition.",
           "image": {
             "full": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "fullx2": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "half": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "halfx2": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "small": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "smallx2": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "thumbnail": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             },
             "thumbnailx2": {
-              "url" : "/images_versionless/virtual-exhibitions/view-full-exhibition.png"
+              "url" : "/images/virtual-exhibitions/view-full-exhibition.png"
             }
           }
         }
@@ -424,7 +424,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -436,7 +436,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -447,7 +447,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url" : "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+              "url" : "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"
@@ -458,7 +458,7 @@
           "label": "Art history collection",
           "image": {
             "thumbnail" : {
-              "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+              "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
             }
           },
           "url": "javascript:alert('navigate to chapter')"

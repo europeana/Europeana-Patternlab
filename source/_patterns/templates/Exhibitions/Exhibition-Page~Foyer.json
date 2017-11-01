@@ -77,28 +77,28 @@
         },
         "image": {
           "full": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-full.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-full.png"
           },
           "fullx2": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-fullx2.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-fullx2.png"
           },
           "half": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-half.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-half.png"
           },
           "halfx2": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-halfx2.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-halfx2.png"
           },
           "small": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-small.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-small.png"
           },
           "smallx2": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-smallx2.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-smallx2.png"
           },
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-thumbnail.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnail.png"
           },
           "thumbnailx2": {
-            "url": "/images_versionless/virtual-exhibitions/280/fruit-face-landscape-thumbnailx2.png"
+            "url": "/images/virtual-exhibitions/280/fruit-face-landscape-thumbnailx2.png"
           }
         },
         "title": "The sacred and divine in the age of discovery",
@@ -106,7 +106,7 @@
         "intro_description": "<p>From the late 14th century, the Renaissance spread from Italy through France and Northern Europe.</p><p>This brought a level of technical skill that raised the status of the artist in society and affected many fields of intellectual pursuit.</p>",
         "partner_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+            "url": "/images/virtual-exhibitions/dada/logo.png"
           }
         },
         "partner_url": "javascript:alert('link to curator site')",
@@ -128,28 +128,28 @@
         },
         "image": {
           "full": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-full.png"
+            "url": "/images/virtual-exhibitions/dada/red-full.png"
           },
           "fullx2": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-fullx2.png"
+            "url": "/images/virtual-exhibitions/dada/red-fullx2.png"
           },
           "half": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-half.png"
+            "url": "/images/virtual-exhibitions/dada/red-half.png"
           },
           "halfx2": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-halfx2.png"
+            "url": "/images/virtual-exhibitions/dada/red-halfx2.png"
           },
           "small": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-small.png"
+            "url": "/images/virtual-exhibitions/dada/red-small.png"
           },
           "smallx2": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-smallx2.png"
+            "url": "/images/virtual-exhibitions/dada/red-smallx2.png"
           },
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/dada/red-thumbnail.png"
+            "url": "/images/virtual-exhibitions/dada/red-thumbnail.png"
           },
           "thumbnailx2": {
-            "url": "/itext-boxmages_versionless/virtual-exhibitions/dada/red-thumbnailx2.png"
+            "url": "/itext-boxmages/virtual-exhibitions/dada/red-thumbnailx2.png"
           }
         },
         "label": "Art history collection",
@@ -157,7 +157,7 @@
         "subtitle": false,
         "partner_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/dada/logo.png"
+            "url": "/images/virtual-exhibitions/dada/logo.png"
           }
         },
         "partner_url": "javascript:alert('link to curator site')",
@@ -178,19 +178,19 @@
 
         "state_1_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           }
         },
 
         "state_2_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
           }
         },
 
         "state_3_image": {
           "thumbnail":{
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
         }
       },
@@ -210,19 +210,19 @@
 
         "state_1_image": {
           "thumbnail":{
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           }
         },
 
         "state_2_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
           }
         },
 
         "state_3_image": {
           "thumbnail":{
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
         }
       },
@@ -242,19 +242,19 @@
 
         "state_1_image": {
           "thumbnail":{
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/wiki-art-nouveau-thumbnail.png"
           }
         },
 
         "state_2_image": {
           "thumbnail":{
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/sagrada-familia-thumbnail.png"
           }
         },
 
         "state_3_image": {
           "thumbnail": {
-            "url": "/images_versionless/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
+            "url": "/images/virtual-exhibitions/art-nouveau/stairs-thumbnail.png"
           }
         }
       }

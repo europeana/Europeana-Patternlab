@@ -1103,10 +1103,6 @@
         "name": "Recording",
         "url": "http://europeana.eu/search/paintings"
       },
-      "REMOVED_img": {
-        "src": "http://placeimg.com/400/300/nature",
-        "alt": "Rectangle"
-      },
       "origin": {
         "url": "http://urlhere.com",
         "text": "Rijksmuseum"
@@ -1200,7 +1196,7 @@
         "url": "http://europeana.eu/search/paintings"
       },
       "img": {
-        "src": "http://placeimg.com/400/300/people",
+        "src": "/images/sample/400-300.jpg",
         "alt": "Rectangle"
       },
       "origin": {
@@ -1248,7 +1244,7 @@
         "url": "http://europeana.eu/search/books"
       },
       "img": {
-        "src": "http://placeimg.com/400/300/nature",
+        "src": "/source/images/sample/400-300.jpg",
         "alt": "Rectangle"
       },
       "origin": {

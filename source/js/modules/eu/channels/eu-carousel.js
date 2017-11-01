@@ -238,7 +238,9 @@ define(['jquery', 'jqScrollto', 'touch_move', 'touch_swipe', 'util_resize'], fun
         $(window).europeanaResize(function(){
           onResize();
         });
-
+        $(window).on('carouselResize', function(){
+          onResize();
+        });
       }
       if(totalAvailable != null){
         resize();

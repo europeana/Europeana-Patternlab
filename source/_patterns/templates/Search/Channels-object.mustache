@@ -19,6 +19,7 @@
         {{/include_1418_nav}}
       {{/ugc_content}}
     {{/disabled}}
+
     {{#object.media}}
       {{^items}}
         <section>
@@ -31,8 +32,8 @@
     {{/object.media}}
 
     {{! Main object text info section }}
-    <section class="section object-details{{#object.promos}} has-right-column{{/object.promos}}{{^object.promos}} no-right-column{{/object.promos}}">
 
+    <section class="section object-details no-right-column">
       <div class="channel-object-overview">
         {{#object}}
           <div>
@@ -43,19 +44,20 @@
                 {{#title}}
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
                 {{/title}}
+                {{^title}}
+                  <h2 class="channel-object-title top">{{i18n.site.object.title_unavailable}}</h2>
+                {{/title}}
 
                 <a class="scroll-trigger trigger-chain"
                    data-enabled="true"
                    data-disable-when-fired="showMediaThumbs"
                    data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
 
-                {{#empty_item}}
-                  <span class="no-preview">{{{empty_item_more_link}}}</span>
-                {{/empty_item}}
-
-                {{^empty_item}}
-                  <div class="object-media-viewer">
-
+                <div class="object-media-viewer">
+                  {{#empty_item}}
+                    <div class="channel-object-no-preview">{{{empty_item_more_link}}}</div>
+                  {{/empty_item}}
+                  {{^empty_item}}
                     {{#items}}
                       {{#is_current}}
                         <div class="media-poster{{#playable}} contains-playable{{/playable}}">
@@ -63,40 +65,47 @@
                             <div class="zoomable">
                               {{>molecules/components/thumb-icon}}
                             </div>
-                            <span class="media-options">
-                              <span class="media-option-group">
-                                <span class="media-option  media-share">
-                                  <span class="share svg-icon-share"></span>
-                                  <span class="media-option-label">Share</span>
-                                </span>
-                                <a class="media-option media-download" download="Europeana-Media">
-                                  <span class="download svg-icon-download white"></span>
-                                  <span class="media-option-label">Download</span>
-                                </a>
-                                <span class="media-option media-annotate">
-                                  <span class="info svg-icon-info"></span>
-                                  <span class="media-option-label">Info</span>
-                                </span>
-                              </span>
+                            <div class="media-options">
 
-                              <span class="media-option-group">
-                                <span class="media-option media-zoom-in">
-                                  <span class="zoom-in svg-icon-zoom-in"></span>
-                                  <span class="media-option-label">Zoom in</span>
+                              <div class="media-option-group-wrap">
+                                <span class="media-option-group">
+                                  <span class="media-option  media-share">
+                                    <span class="share svg-icon-share"></span>
+                                    <span class="media-option-label">Share</span>
+                                  </span>
+                                  <a class="media-option media-download" download="Europeana-Media">
+                                    <span class="download svg-icon-download white"></span>
+                                    <span class="media-option-label">Download</span>
+                                  </a>
+                                  <span class="media-option media-annotate">
+                                    <span class="info svg-icon-info"></span>
+                                    <span class="media-option-label">Info</span>
+                                  </span>
                                 </span>
-                                <span class="media-option media-zoom-out">
-                                  <span class="zoom-out svg-icon-zoom-out"></span>
-                                  <span class="media-option-label">Zoom out</span>
-                                </span>
-                              </span>
+                              </div>
 
-                              <span class="media-option-group">
-                                <span class="media-option  media-link">
-                                  <span class="link svg-icon-link-out"></span>
-                                  <span class="media-option-label">Link</span>
+                              <div class="media-option-group-wrap">
+                                <span class="media-option-group">
+                                  <span class="media-option media-zoom-in">
+                                    <span class="zoom-in svg-icon-zoom-in"></span>
+                                    <span class="media-option-label">Zoom in</span>
+                                  </span>
+                                  <span class="media-option media-zoom-out">
+                                    <span class="zoom-out svg-icon-zoom-out"></span>
+                                    <span class="media-option-label">Zoom out</span>
+                                  </span>
                                 </span>
-                              </span>
-                            </span>
+                              </div>
+
+                              <div class="media-option-group-wrap">
+                                <span class="media-option-group">
+                                  <span class="media-option  media-link">
+                                    <span class="link svg-icon-link-out"></span>
+                                    <span class="media-option-label">Link</span>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
                           </div>
 
                         </div>
@@ -147,43 +156,58 @@
                         </div>
                       {{/pdf}}
                     {{/required_players}}
+                  {{/empty_item}}
 
-                    <div class="title-desc-media-nav">
+                  <div class="title-desc-media-nav">
 
-                      {{#title}}
-                        <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
-                      {{/title}}
+                    {{#title}}
+                      <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
+                    {{/title}}
+                    {{^title}}
+                      <h2 class="channel-object-title">{{i18n.site.object.title_unavailable}}</h2>
+                    {{/title}}
 
-                      <div class="channel-object-media-nav">
-                        {{> molecules/components/media-nav}}
-                      </div>
-
-                      {{#subtitle}}
-                        <h3 class="subtitle">{{subtitle}}</h3>
-                      {{/subtitle}}
-
-                      <div class="channel-object-description">
-                        {{#description}}
-                          {{#sections}}
-                            {{#items}}
-                              <p>{{text}}</p>
-                            {{/items}}
-                          {{/sections}}
-                        {{/description}}
-                      </div>
-
-                      {{#view_more}}
-                      <div class="channel-object-viewmore">
-                        <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
-                        <h3>{{text}}</h3>
-                        <a href="{{url}}">{{label}}</a>
-                      </div>
-                      {{/view_more}}
-
+                    <div class="channel-object-media-nav">
+                      {{> molecules/components/media-nav}}
                     </div>
-                  </div>
 
-                {{/empty_item}}
+                    {{#subtitle}}
+                      <h3 class="subtitle">{{subtitle}}</h3>
+                    {{/subtitle}}
+
+                    <div class="channel-object-description cf">
+                      {{#description}}
+                        {{#sections}}
+                          {{#items}}
+                            <p>{{text}}</p>
+                          {{/items}}
+                          {{^items}}
+                            <div class="missing">{{i18n.site.object.description_unavailable}}</div>
+                          {{/items}}
+                        {{/sections}}
+                      {{/description}}
+                    </div>
+
+                    {{#view_more}}
+                    <div class="channel-object-viewmore">
+                      <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
+                      <h3>{{text}}</h3>
+                      <a href="{{url}}">{{label}}</a>
+                    </div>
+                    {{/view_more}}
+                    {{^view_more}}
+                      <script id="template-concept-js" type="text/x-mustache">
+                        <div class="channel-object-viewmore">
+                          <a href="[[url]]" class="viewmore-image" style="background-image: url('[[img_url]]');"></a>
+                          <h3>[[text]]</h3>
+                          <a href="[[url]]">{{i18n.object.actions.view-more}}</a>
+                        </div>
+                      </script>
+                    {{/view_more}}
+
+                  </div>
+                </div>
+
 
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
@@ -352,7 +376,7 @@
 
             {{#meta_additional}}
               {{#present}}
-                <div class="data-section cf closed" {{#section_id}} data-section-id="{{.}}"{{/section_id}}>
+                <div class="data-section cf closed" {{#id}} data-section-id="{{.}}"{{/id}}>
                   <h3 class="subsection-label">
                     {{i18n.site.object.meta-label.location}}
                   </h3>
@@ -443,145 +467,124 @@
       </div>
 
       {{! end of object info column }}
-      {{#object.promos}}
-      <div class="channel-object-actions">
 
-        {{#next_promo}}
+      <script id="template-promo-entity" type="text/x-mustache">
+        <div class="collections-promo-item entity-promo img-as-bg">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <span class="bg-img" style="background-image:url('[[img.src]]');"></span>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-exhibition" type="text/x-mustache">
+        <div class="collections-promo-item exhibition">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  {{> organisms/virtual-exhibitions/foyer-card-js}}
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-gallery" type="text/x-mustache">
+        <div class="collections-promo-item gallery">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  {{> molecules/components/image-set-js}}
+                </div>
+              </div>
+              <span class="gallery-image-count">[[count]] {{i18n.global.labels.images}}</span>
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-generic" type="text/x-mustache">
+        <div class="collections-promo-item generic-promo img-as-bg">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  [[#label]]<div class="category-flag">[[.]]</div>[[/label]]
+                  <img src="[[img.src]]" class="js-remove">
+                  <a href="[[url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-next-prev" type="text/x-mustache">
+        [[#is_next]]
           <span class="next-item-title">
             {{ i18n.site.object.next-item }}
           </span>
-        {{/next_promo}}
+        [[/is_next]]
+        [[#is_prev]]
+          <span class="previous-item-title">
+            {{ i18n.site.object.previous-item }}
+          </span>
+        [[/is_prev]]
+        <div class="channel-object-next-prev collections-promo-item separator-after">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <a href="[[url]]">
+                    [[#img]]
+                      <img src="[[src]]"/>
+                    [[/img]]
+                  </a>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      <script id="template-promo-news" type="text/x-mustache">
+        <div class="collections-promo-item img-as-bg text-centric">
+          <div class="content-outer">
+            <div class="content-inner">
+              <div class="content-outer">
+                <div class="content-inner">
+                  <a href="[[url]][[^url]]#[[/url]]" class="bg-img" style="background-image:url('[[img.src]]');">
+                  </a>
+                </div>
+              </div>
+              {{> molecules/components/search/channel-object-promo-text-js}}
+            </div>
+          </div>
+        </div>
+      </script>
+
+      {{#object.promos}}
+      <div class="channel-object-actions">
+
 
         <div class="slide-rail">
 
           <div class="collections-promos js-swipe-not-stacked">
 
-            {{#next_promo}}
-              <div class="channel-object-next-prev collections-promo-item separator-after">
-
-                <div class="content-outer">
-                  <div class="content-inner">
-
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        <a href="{{url}}">
-                          {{#img}}
-                            <img src="{{src}}"/>
-                          {{/img}}
-                        </a>
-                      </div>
-                    </div>
-                    {{> molecules/components/search/channel-object-promo-text}}
-                  </div>
-                </div>
-              </div>
-            {{/next_promo}}
-
-            {{^next_promo}}
-              {{! repeats again as last item}}
-              {{#prev_promo}}
-                <span class="previous-item-title">
-                  {{ i18n.site.object.previous-item }}
-                </span>
-                <div class="channel-object-next-prev collections-promo-item separator-after">
-                  <div class="content-outer">
-                    <div class="content-inner">
-                      <div class="content-outer">
-                        <div class="content-inner">
-                          <a href="{{url}}">
-                            {{#img}}
-                              <img src="{{src}}"/>
-                            {{/img}}
-                          </a>
-                        </div>
-                      </div>
-                      {{> molecules/components/search/channel-object-promo-text}}
-                    </div>
-                  </div>
-                </div>
-              {{/prev_promo}}
-            {{/next_promo}}
-
-            {{#exhibition_promo}}
-              <div class="collections-promo-item exhibition">
-                <div class="content-outer">
-                  <div class="content-inner">
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        {{> organisms/virtual-exhibitions/foyer-card}}
-                      </div>
-                    </div>
-                    {{> molecules/components/search/channel-object-promo-text}}
-                  </div>
-                </div>
-              </div>
-            {{/exhibition_promo}}
-
-            {{#gallery_promo}}
-              <div class="collections-promo-item gallery">
-
-                <div class="content-outer">
-                  <div class="content-inner">
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        {{> molecules/components/image-set}}
-                      </div>
-                    </div>
-                    <span class="gallery-image-count">{{count}} {{i18n.global.labels.images}}</span>
-                  </div>
-                </div>
-              </div>
-            {{/gallery_promo}}
-
-            {{#news_promos}}
-
-              <div class="collections-promo-item img-as-bg text-centric">
-
-                <div class="content-outer">
-                  <div class="content-inner">
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        <a href="{{url}}{{^url}}#{{/url}}" class="bg-img" style="background-image:url('{{img.src}}');">
-                        </a>
-                      </div>
-                    </div>
-                    {{> molecules/components/search/channel-object-promo-text}}
-                  </div>
-                </div>
-
-              </div>
-            {{/news_promos}}
-
-            {{#entity_promo}}
-              <div class="collections-promo-item entity-promo img-as-bg">
-                <div class="content-outer">
-                  <div class="content-inner">
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        <span class="bg-img" style="background-image:url('{{img.src}}');"></span>
-                      </div>
-                    </div>
-                    {{> molecules/components/search/channel-object-promo-text}}
-                  </div>
-                </div>
-              </div>
-            {{/entity_promo}}
 
             {{#generic_promos}}
-              <div class="collections-promo-item generic-promo img-as-bg">
-                <div class="content-outer">
-                  <div class="content-inner">
-                    <div class="content-outer">
-                      <div class="content-inner">
-                        {{#label}}<div class="category-flag">{{.}}</div>{{/label}}
-                        <img src="{{img.src}}" class="js-remove">
-                        <a href="{{url}}" class="bg-img" style="background-image:url('{{img.src}}');"></a>
-                      </div>
-                    </div>
-                    {{> molecules/components/search/channel-object-promo-text}}
-                  </div>
-                </div>
-              </div>
             {{/generic_promos}}
 
             {{#next_promo}}
