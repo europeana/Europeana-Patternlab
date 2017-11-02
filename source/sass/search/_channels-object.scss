@@ -1,5 +1,8 @@
 @import 'channel-object-promos-base';
 
+$green-grey-bg:                    #f4f4f4;
+
+
 .channels-item {
 
   background: $offwhite;
@@ -322,20 +325,18 @@
     text-align: right;
 
     h3 {
-      border-bottom: 1px solid $gray87;
-      color: $gray30;
-      display: inline;
-      font-weight: normal;
-      line-height: 2.2;
-      padding-bottom: 0.5em;
-      width: auto;
+      color:         $gray30;
+      display:       block;
+      font-weight:   normal;
+      line-height:   50px;
+      margin-bottom: 0;
+      width:         auto;
     }
 
     a {
       color: $linkblue;
       display: block;
       font-size: $font-size-sm;
-      margin-top: 0.5em;
     }
   }
 
@@ -542,27 +543,28 @@
 
         margin-bottom: 1.5rem;
 
-        &::after{
-          background:     $white;
-          box-shadow:     0 2px 4px 0 rgba(0, 0, 0, 0.5);
-          content:        ' ';
-          height:         4.7em;
-          left:           3%;
-          pointer-events: none;
-          position:       absolute;
-          top:            0.6em;
-          width:          94%;
+//        &::after{
+//          background:     $white;
+//          box-shadow:     0 2px 4px 0 rgba(0, 0, 0, 0.5);
+//          content:        ' ';
+//          height:         4.7em;
+//          left:           3%;
+//          pointer-events: none;
+//          position:       absolute;
+//          top:            0.6em;
+//          width:          94%;
 
-          @media all and (min-width: $bp-med) {
-            left:  0;
-            width: 100%;
-          }
+//          @media all and (min-width: $bp-med) {
+//            left:  0;
+//            width: 100%;
+//          }
 
-          @media all and (min-width: $bp-xl) {
-            left:  2%;
-            width: 96%;
-          }
-        }
+//          @media all and (min-width: $bp-xl) {
+//            left:  2%;
+//            width: 96%;
+//          }
+//        }
+
         &.js-remove{
           display: none;
         }
@@ -614,33 +616,36 @@
   .carousel-arrows.left,
   .carousel-arrows.right {
 
-    background-color:    $dim07;
-    background-position: 0.7em 0.7em;
+    background-color:    rgba(255, 255, 255, 0.8);
+
+    background-position: 0.55em 0.59em;
     border-radius:       1.125em;
-    height:              2.25em;
-    left:                -0.5em;
+    box-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    height:              66px;
+    left:                -0.2em;
     opacity:             1;
-    top:                 0.35em;
-    -webkit-transform:   scale(0.5);
-    transform:           scale(0.5);
+    top:                 0.42em;
+
+    -webkit-transform:   scale(0.75);
+    transform:           scale(0.75);
+
+
     -webkit-transition:  opacity 0.3s ease-in;
     transition:          opacity 0.3s ease-in;
-    width:               2.25em;
+    width:               66px;
 
     &.disabled{
       opacity: 0;
     }
     &:hover {
-      background-color: $black;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+      background-color:  $offwhite;
     }
   }
 
   .carousel-arrows.right {
-
-    background-position: 0.75em 0.7em;
-    left: auto;
-    right: -0.5em;
+    background-position: 0.65em 0.59em;
+    left:                auto;
+    right:               0;
   }
 
   .channel-object-similar{
@@ -740,18 +745,23 @@
   .channel-object-action-bar{
 
     .channel-object-media-actions{
+      background-color:        $green-grey-bg;
       display:                 -webkit-flex;
       display:                 flex;
       -webkit-justify-content: space-evenly;
       justify-content:         space-evenly;
       padding:                 $space $space-half;
       position:                relative;
+
+      @media all and (min-width: $bp-xl) {
+        justify-content:       flex-start;
+      }
+
     }
 
     .action-ctrl{
       -webkit-align-self: center;
       align-self:         center;
-      flex-grow:          1;
       margin:             0 $space-half;
     }
 
@@ -822,20 +832,35 @@
       }
 
       .institution-logo{
-        display:        block;
-        -webkit-filter: grayscale(100%);
-        filter:         grayscale(100%);
-        margin-bottom:  0.8rem;
-        max-height:     50px;
-        max-width:      7em;
-        object-fit:     contain;
+        background-color: $white;
+        background-size:  cover;
+        border-radius:    25px;
+        display:          block;
+        -webkit-filter:   grayscale(100%);
+        filter:           grayscale(100%);
+        float:            right;
+        height:           50px;
+        margin-bottom:    0.8rem;
+        position:         relative;
+        width:            50px;
+
+        &::before{
+          content:     attr(data-provided-by);
+          font-size:   $font-size-sm;
+          position:    absolute;
+          right:       115%;
+          top:         50%;
+          transform:   translateY(-50%);
+          white-space: nowrap;
+          &:hover{
+            color:  $eu-blue;
+            filter: unset;
+          }
+        }
       }
 
-      .object-origin-detail{
-        display:   none;
-        &.small{
-          font-size: $font-size-sm;
-        }
+      @media all and (min-width: $bp-xl) {
+        flex-grow:          1;
       }
     }
 
@@ -852,6 +877,10 @@
       -webkit-transform: scale(0.6);
       transform:         scale(0.6);
       width:             2em;
+    }
+
+    .object-origin .object-origin-detail{
+      display: none;
     }
 
     @media all and (min-width: $bp-large) {
@@ -897,11 +926,13 @@
 
         margin: 0 0 0 auto;
 
-        .institution-logo{
-          max-width:  140px;
-        }
         .object-origin-detail{
-          display: block;
+          display:     block;
+          font-size:   $font-size-sm;
+          position:    absolute;
+          right:       1em;
+          top:         7em;
+          white-space: nowrap;
         }
       }
 
@@ -1194,8 +1225,6 @@
 
       .channel-media-wrap{
         padding-bottom: $pad-double;
-        padding-right: $pad-double;
-
       }
 
       .channel-object-title {

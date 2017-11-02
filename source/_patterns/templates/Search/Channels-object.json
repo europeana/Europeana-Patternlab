@@ -375,7 +375,6 @@
       "view_more": {
         "img_url": "/images/sample/object_thumbnail.jpg",
         "url": "javascript:alert('follow link...')",
-        "label": "View more",
         "text": "Johannes Vermeer"
       },
       "people": {
