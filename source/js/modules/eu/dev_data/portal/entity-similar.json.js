@@ -7,7 +7,7 @@ define([], function(){
       'type': 'person',
       'img': {
         'alt': 'The Lace Maker',
-        'src': 'http://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg'
+        'src': '/images/search/carousel1.jpg'
       }
     },
     {
@@ -17,7 +17,7 @@ define([], function(){
       'type': 'person',
       'img': {
         'alt': 'Zittende jongeman bij ton met het hoofd naar links',
-        'src': 'http://teylers.adlibhosting.com/wwwopacx/wwwopac.ashx?command=getcontent&server=images&value=R%20010.jpg'
+        'src': '/images/search/carousel2.jpg'
       }
     },
     {
@@ -27,7 +27,7 @@ define([], function(){
       'type': 'place',
       'img': {
         'alt': 'Delft',
-        'src': 'http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg'
+        'src': '/images/search/carousel3.jpg'
       }
     },
     {
