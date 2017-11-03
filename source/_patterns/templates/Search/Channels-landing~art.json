@@ -115,14 +115,14 @@
           "url": "?q=Delft",
           "img": {
             "alt": "Delft",
-            "src": "http://upload.wikimedia.org/wikipedia/commons/a/a2/Vermeer-view-of-delft.jpg"
+            "src": "/images/search/carousel3.jpg"
           }
         },
         {
           "url": "?q=Girl+with+the+pearl+earring",
           "img": {
             "alt": "Girl with the pearl earring",
-            "src": "http://resources21.kb.nl/gvn/MAU01/MAU01_0670_W.JPG"
+            "src": "/images/sample/object_thumbnail2.jpg"
           }
         },
         {
