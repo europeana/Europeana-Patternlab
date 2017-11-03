@@ -328,6 +328,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var item        = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
+    var playable    = item.hasClass('playable');
     var thumbnail   = item.data('thumbnail');
     var uri         = item.data('uri');
 
@@ -352,7 +353,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       videoPlayer.hide();
     }
 
-    if(type == 'image'){
+    if(!playable){
+      log('media not playable');
+    }
+    else if(type == 'image'){
 
       setZoom();
 
@@ -468,29 +472,32 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'video'){
 
-      $('.media-options').show();
-      setZoom('zoom-one', true);
-      resetZoomable();
+      if(playable){
 
-      $('.zoomable').append($('.object-media-video'));
-      $('.object-media-video').removeClass('is-hidden');
+        $('.media-options').show();
+        setZoom('zoom-one', true);
+        resetZoomable();
 
-      require(['media_viewer_videojs'], function(player){
+        $('.zoomable').append($('.object-media-video'));
+        $('.object-media-video').removeClass('is-hidden');
 
-        videoPlayer = player;
-        var media = {
-          url:       uri,
-          data_type: type,
-          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
-          thumbnail: thumbnail,
-          height:    '400px'
-        };
+        require(['media_viewer_videojs'], function(player){
 
-        if(media.url && media.mime_type){
-          videoPlayer.init(media);
-        }
+          videoPlayer = player;
+          var media = {
+            url:       uri,
+            data_type: type,
+            mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+            thumbnail: thumbnail,
+            height:    '400px'
+          };
 
-      });
+          if(media.url && media.mime_type){
+            videoPlayer.init(media);
+          }
+
+        });
+      }
     }
 
     if(downloadUri){
