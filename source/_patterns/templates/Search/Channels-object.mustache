@@ -55,7 +55,7 @@
 
                 <div class="object-media-viewer">
                   {{#empty_item}}
-                    <div class="channel-object-no-preview">{{{empty_item_more_link}}}</div>
+                    <div class="channel-object-no-preview svg-icon-external-white-child-link-after">{{{empty_item_more_link}}}</div>
                   {{/empty_item}}
                   {{^empty_item}}
                     {{#items}}
@@ -253,9 +253,9 @@
                   {{/institution_logo}}
 
                   {{#institution_name}}
-                    <span class="object-origin-detail small">
+                    <span class="object-origin-detail small svg-icon-external-eu-blue-child-link-after">
                       {{#url}}{{i18n.site.object.actions.view-more-at}}{{/url}}
-                      {{#url}}<a href="{{.}}">{{institution_name}} <span class="svg-icon-linkout"></span></a>{{/url}}
+                      {{#url}}<a href="{{.}}">{{institution_name}}</a>{{/url}}
                       {{^url}}{{institution_name}}{{/url}}
                       <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
                     </span>

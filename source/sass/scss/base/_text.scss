@@ -1,202 +1,189 @@
-/* Text-Related Elements */
+// Text-Related Elements
 p {
-    margin-bottom: $space;
-    &:last-child {
-        margin-bottom: 0;
-    }
+  margin-bottom: $space;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
-/* Blockquote */
 blockquote {
-    font-style:italic;
-    border-left: 1px solid $textcolour_heavy;
-    color: $textcolour_heavy;
-    padding-left: $pad;
-    margin-bottom: $space;
+  border-left: 1px solid $textcolour_heavy;
+  color: $textcolour_heavy;
+  font-style: italic;
+  margin-bottom: $space;
+  padding-left: $pad;
 }
 
-
-/**
- *
- * =======================================================================
- * Drop Capitals:
- * Extend this object into your markup.
-
-     <p class="drop-cap">What a wonderful day it is out there wouldn't you'd say?</p>
-
-    * =======================================================================
- */
-
-.drop-cap:first-letter {
-    float: left;
-    margin: auto .25em auto auto;
-    padding: inherit;
-    font-size: 4em;
-    font-family: inherit;
-    line-height: 1;
-    text-indent: 0;
-    background: transparent;
-    color: inherit;
+.drop-cap::first-letter {
+  background: transparent;
+  color: inherit;
+  float: left;
+  font-family: inherit;
+  font-size: 4em;
+  line-height: 1;
+  margin: auto .25em auto auto;
+  padding: inherit;
+  text-indent: 0;
 }
 
 p + .drop-cap {
-    text-indent: 0;
-    margin-top: 0;
+  margin-top: 0;
+  text-indent: 0;
 }
 
-/* Horizontal Rule */
-hr {
-    border: 0;
-    height: 2px;
-    background: $gray-light;
-    margin: $space-double 0;
+hr{
+  background: $gray-light;
+  border: 0;
+  height: 2px;
+  margin: $space-double 0;
 }
 
-abbr {
-    border-bottom: 1px dotted $textcolour_heavy;
-    cursor: help;
+abbr{
+  border-bottom: 1px dotted $textcolour_heavy;
+  cursor: help;
 }
 
 small{
-    font-size: $font-size-sm;
+  font-size: $font-size-sm;
 }
 
+.prose{
+  color: $textcolour_body;
 
-//Text Passages
-.prose {
+  section,
+  .section{
+    margin-bottom: 3.2em;
+    padding: 0 $pad;
+  }
 
-    color: $textcolour_body;
+  a:not(.btn) {
+    color: $textcolour_link;
 
-    section, .section{
-        margin-bottom: 3.2em;
-        padding: 0 $pad;
+    &:hover,
+    &:focus{
+      border-bottom: 1px dotted $textcolour_link;
     }
+  }
 
-    a:not(.btn) {
-        color: $textcolour_link;
+  h1,
+  h2{
+    line-height: 1.2;
+  }
+  h3,
+  h4,
+  h5{
+    line-height: 1.6;
+  }
 
-        &:hover,&:focus{
-            border-bottom: 1px dotted $textcolour_link;
-        }
-    }
+  // Anchor with fixed header
+  a[name]::before {
+    $offset: $globalnavheight + $space;
+    content: '';
+    display: block;
+    height: $offset;
+    margin: -$offset 0 0;
+  }
 
-    // Headings - add back line height
-    h1,h2{
-        line-height: 1.2;
-    }
-    h3,h4,h5{
-        line-height: 1.6;
-    }
+  li{
+    margin-bottom: $space-half;
+  }
 
-    // Anchor with fixed header
-    a[name]:before {
-        $offset: $globalnavheight + $space;
-        content: "";
-        display: block;
-        margin: -$offset 0 0;
-        height: $offset;
-    }
+  ul{
+    list-style: disc;
+    margin: 0 0 $space $space;
+  }
 
-    li{
-        margin-bottom: $space-half;
-    }
+  ol{
+    list-style: decimal;
+    margin: 0 0 $space $space;
+  }
 
-    ul {
-        list-style: disc;
-        margin: 0 0 $space $space;
-    }
+  ul ul,
+  ul ul>li,
+  ol ol,
+  ol ol>li{
+    margin-bottom: 0;
+  }
 
-    ol {
-        list-style: decimal;
-        margin: 0 0 $space $space;
-    }
+  p + ul,
+  p + ol{
+    margin-top: -$space-half;
+  }
 
-    ul ul, ul ul>li, ol ol, ol ol>li{
-        margin-bottom: 0;
-    }
+  ul ul>li {
+    list-style: circle;
+  }
 
-    p + ul, p + ol{
-        margin-top: -$space-half;
-    }
+  ol ol>li {
+    list-style: lower-latin;
+  }
 
-    ul ul>li {
-        list-style: circle;
-    }
+  img{
+    margin-bottom: $space;
+  }
 
-    ol ol>li {
-        list-style: lower-latin;
-    }
-
-    img{
-        margin-bottom: $space;
-    }
-
-    // External link list
-    .ext-link-list {
-        margin-left: 0;
-        list-style: none;
-    }
+  // External link list
+  .ext-link-list {
+    list-style: none;
+    margin-left: 0;
+  }
 
 
-    // Categorization
-    .categories-list{
-      margin-left: 0;
-      list-style: none;
-    }
+  // Categorization
+  .categories-list{
+    list-style: none;
+    margin-left: 0;
+  }
 }
 
 .title-category{
-    font-size: $font-size-slightly-smaller;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-// Letter space those capitals people, Jan Tschichold would be proud.
-.upper {
-    text-transform: uppercase;
-    //letter-spacing: 0.1rem;
+  font-size: $font-size-slightly-smaller;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.cap, .caps {
-    text-transform: capitalize;
+.upper {
+  text-transform: uppercase;
+}
+
+.cap,
+.caps {
+  text-transform: capitalize;
 }
 
 // Real small caps.
 .small-caps {
-    -moz-font-feature-settings: 'smcp=1, kern=1';
-    -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
-    -webkit-font-feature-settings: 'smcp' 1, 'kern' 1;
-    -o-font-feature-settings: 'smcp' 1, 'kern' 1;
-    font-feature-settings: 'smcp' 1, 'kern' 1;
-    letter-spacing: 0.1rem;
+  -moz-font-feature-settings: 'smcp=1, kern=1';
+  -ms-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -o-font-feature-settings: 'smcp' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'smcp' 1, 'kern' 1;
+  font-feature-settings: 'smcp' 1, 'kern' 1;
+  letter-spacing: 0.1rem;
 }
 
 // Consistent height numbers with OpenType.
 .lining-numerals {
-    -moz-font-feature-settings: 'lnum=1, kern=1';
-    -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
-    -webkit-font-feature-settings: 'lnum' 1, 'kern' 1;
-    -o-font-feature-settings: 'lnum' 1, 'kern' 1;
-    font-feature-settings: 'lnum' 1, 'kern' 1;
+  -moz-font-feature-settings: 'lnum=1, kern=1';
+  -ms-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -o-font-feature-settings: 'lnum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'lnum' 1, 'kern' 1;
+  font-feature-settings: 'lnum' 1, 'kern' 1;
 }
 
 // Ascending and descending numbers with OpenType.
 .oldstyle-numerals {
-    -moz-font-feature-settings: 'onum=1, kern=1';
-    -ms-font-feature-settings: 'onum' 1, 'kern' 1;
-    -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
-    -o-font-feature-settings: 'onum' 1, 'kern' 1;
-    font-feature-settings: 'onum' 1, 'kern' 1;
+  -moz-font-feature-settings: 'onum=1, kern=1';
+  -ms-font-feature-settings: 'onum' 1, 'kern' 1;
+  -o-font-feature-settings: 'onum' 1, 'kern' 1;
+  -webkit-font-feature-settings: 'onum' 1, 'kern' 1;
+  font-feature-settings: 'onum' 1, 'kern' 1;
 }
 
 .inabox{
-    background-color: $black;
-    color: $offwhite;
-    display: inline;
-    padding: 0.2em 0.5em;
-
-    /* Needs prefixing */
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+  background-color: $black;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: $offwhite;
+  display: inline;
+  padding: 0.2em 0.5em;
 }
-
