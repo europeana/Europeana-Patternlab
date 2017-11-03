@@ -55,7 +55,7 @@
 
                 <div class="object-media-viewer">
                   {{#empty_item}}
-                    <div class="channel-object-no-preview">{{{empty_item_more_link}}}</div>
+                    <div class="channel-object-no-preview svg-icon-external-white-child-link-after">{{{empty_item_more_link}}}</div>
                   {{/empty_item}}
                   {{^empty_item}}
                     {{#items}}
@@ -192,7 +192,6 @@
                     <div class="channel-object-viewmore">
                       <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
                       <h3>{{text}}</h3>
-                      <a href="{{url}}">{{label}}</a>
                     </div>
                     {{/view_more}}
                     {{^view_more}}
@@ -236,26 +235,26 @@
               {{#rights}}
                 <div class="action-ctrl object-rights">
                   <h4>{{ i18n.global.facet.header.reusability }}</h4>
-                  <div class="object-license">{{license_brief}} {{> molecules/icons/licenses }}</div>
+                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-no-linkout }}</div>
                 </div>
               {{/rights}}
 
+              <!--
               <div class="action-ctrl">
                 <a class="action-ctrl-btn media-annotate" title="{{i18n.site.object.actions.annotate}}"><span class="action-icon svg-icon-info"></span><span class="action-label">{{i18n.site.object.actions.annotate}}</span></a>
               </div>
+              -->
 
               {{#origin}}
                 <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
-                  <h4 class="object-origin-detail">{{ i18n.site.object.meta-label.provided-by }}</h4>
-
                   {{#institution_logo}}
-                    <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+                    <a href="{{url}}" class="institution-logo cf" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
                   {{/institution_logo}}
 
                   {{#institution_name}}
-                    <span class="object-origin-detail small">
+                    <span class="object-origin-detail">
                       {{#url}}{{i18n.site.object.actions.view-more-at}}{{/url}}
-                      {{#url}}<a href="{{.}}">{{institution_name}} <span class="svg-icon-linkout"></span></a>{{/url}}
+                      {{#url}}<a class="link-black-blue" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
                       {{^url}}{{institution_name}}{{/url}}
                       <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
                     </span>
@@ -625,7 +624,23 @@
           <div class="display-grid">
             {{#object.suggestions}}
               <div class="slide-rail" style="position: relative;">
-                <script id="template-preview-tab-content" type="text/x-mustache">{{> molecules/components/search/channel-object-suggestion-js }}</script>
+                <script id="template-preview-tab-content" type="text/x-mustache">
+                  <article class="suggestion-item">
+                    <div class="item-preview">
+                      <div class="item-image">
+                        <div class="inner">
+                          <a target="[[target]]" href="[[url]]" tabindex="-1">
+                            <div class="mlt-img-div height-to-width" [[#img.src]]style="background-image:url('[[.]]');"[[/img.src]]></div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-info">
+                      {{! no whitespace here - eu-ellipsis js to be applied }}
+                      <h2><a class="link-black-blue decorated" [[#url]]href="[[.]]"[[/url]] [[#target]]target="[[.]]"[[/target]]>[[#title]]<span class="link-text">[[.]]</span>[[#external]]<span title="[[title]]" class="svg-icon-external"></span>[[/external]][[/title]]</a></h2>
+                    </div>
+                  </article>
+                </script>
                 <div class="eu-accordion-tabs suggestions cf">
                   {{#tab_items}}
                     {{> organisms/components/eu-accordion-tabs-portal-suggestions}}

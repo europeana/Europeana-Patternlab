@@ -23,7 +23,7 @@
              data-fire-on-open-params='{ "trigger": "scroll-trigger-media-items"}'></a>
 
           {{#empty_item}}
-           <span class="no-preview">{{{empty_item_more_link}}}</span>
+           <span class="no-preview svg-icon-external-white-child-link-after">{{{empty_item_more_link}}}</span>
           {{/empty_item}}
           {{^empty_item}}
             <div class="media-viewer">
@@ -349,11 +349,11 @@
         <div class="object-actions cf">
           <input type="hidden" name="js_edm_is_shown_by" value="{{data.edm_is_shown_by}}"/>
           {{# object.origin }}
-            <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+            <div class="object-origin svg-icon-external-eu-blue-child-link-after" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
               <h4>{{ i18n.site.object.meta-label.provided-by }}</h4>
 
               {{#institution_logo}}
-                <a href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
+                <a class="nothing-after" href="{{url}}"><img class="institution-logo" src="{{.}}" alt="{{institution_name}} logo"></a>
               {{/institution_logo}}
 
               {{#logo}}

@@ -610,7 +610,6 @@
 .object-downloads.is-expanded + .object-techdata > a.show-button{
   color: $gray30;
   &:hover{
-    color: #ff0000;
     color: $textcolour_link_hover;
   }
 }
@@ -1111,7 +1110,7 @@
       border-color: transparent transparent transparent #a4cde1; // override when opened
       border-style: dashed dashed dashed solid;                  // override when opened
       border-width: 5px;                                         // tweak size of the arrow
-      bottom:       8%;                                          // override when opened
+      bottom:       0.45em;                                          // override when opened
       content:      ' ';
       height:       0;
       margin-left:  5px;
@@ -1140,7 +1139,7 @@
   >a {
     white-space: normal;
     &::after{
-      bottom: 8%;
+      bottom: 0.25em;
       margin-top: 0;
     }
   }

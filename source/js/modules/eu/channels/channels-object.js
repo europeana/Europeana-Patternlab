@@ -437,7 +437,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'audio'){
 
-      $('.media-options').hide();
+      $('.media-options').show();
       setZoom();
       $('.zoomable').append($('.object-media-audio'));
       $('.object-media-audio').removeClass('is-hidden');
@@ -468,7 +468,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'video'){
 
-      $('.media-options').hide();
+      $('.media-options').show();
       setZoom('zoom-one', true);
       resetZoomable();
 
@@ -913,6 +913,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       promotions.css('width', totalW + 'px');
     };
 
+    promotions.css('width', '5000px');
+
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true});
 
     var imageSet = promotions.find('.image-set');
@@ -1210,7 +1212,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     if(noItems > 1){
 
       data['minSpacingPx'] = 0;
-      data['arrowClass'] = data['arrowClass'] ? data['arrowClass'] + ' carousel-arrows' : ' carousel-arrows';
+      data['arrowClass'] = ' carousel-arrows  blue-black';
 
       var mediaThumbs = $('.media-thumbs');
 
