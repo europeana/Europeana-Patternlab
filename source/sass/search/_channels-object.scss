@@ -47,8 +47,9 @@ $green-grey-bg:                    #f4f4f4;
     z-index:                 2;
 
     .media-option-group-wrap {
-      flex-grow: 1;
-      margin:    0 0.5em;
+      -webkit-flex-grow: 1;
+      flex-grow:         1;
+      margin:            0 0.5em;
 
       a{
         display: block;
@@ -255,6 +256,7 @@ $green-grey-bg:                    #f4f4f4;
     background:              $white;
     display:                 -webkit-flex;
     display:                 flex;
+    -webkit-flex-grow:       1;
     flex-grow:               1;
     font-size:               $font-size-sm;
     -webkit-justify-content: space-between;
@@ -754,7 +756,8 @@ $green-grey-bg:                    #f4f4f4;
       position:                relative;
 
       @media all and (min-width: $bp-xl) {
-        justify-content:       flex-start;
+        -webkit-justify-content: flex-start;
+        justify-content:         flex-start;
       }
 
     }
@@ -860,7 +863,8 @@ $green-grey-bg:                    #f4f4f4;
       }
 
       @media all and (min-width: $bp-xl) {
-        flex-grow:          1;
+        -webkit-flex-grow: 1;
+        flex-grow:         1;
       }
     }
 
