@@ -155,7 +155,7 @@
   right:      0;
   top:        0;
   width:      100%;
-  z-index:    9;
+  z-index:    8;
 }
 
 .js-carousel.startup ul::after{
@@ -175,7 +175,7 @@
 .js-carousel-arrows{
 
   overflow: visible;
-  z-index:  2;
+  z-index:  9;
 
   > a{
     float:     none;

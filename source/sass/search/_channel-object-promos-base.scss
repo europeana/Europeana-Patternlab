@@ -1,5 +1,4 @@
 $collections-promo-item-min-width: 275px;
-$next-item-bg:                     #f9efe4;
 $green-grey-bg:                    #f4f4f4;
 
 .no-js{
@@ -49,7 +48,6 @@ $green-grey-bg:                    #f4f4f4;
       }
 
       .content-outer{
-        background-color: $next-item-bg;
         &::before{
           padding-top: 100%;
         }
@@ -382,12 +380,13 @@ $green-grey-bg:                    #f4f4f4;
 
   .channel-object-next-prev{
 
-    img{
-      filter:     grayscale(100%);
-      margin:     0 auto .8rem auto;
-      max-height: 100%;
-      max-width:  100%;
-      transition: filter 0.3s ease-out;
+    .bg-link{
+      background-size: cover;
+      display:         block;
+      filter:          grayscale(100%);
+      height:          100%;
+      transition:      filter 0.3s ease-out;
+      width:           100%;
 
       &:hover{
         filter: grayscale(0%);

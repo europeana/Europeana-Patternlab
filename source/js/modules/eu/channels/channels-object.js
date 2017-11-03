@@ -341,6 +341,20 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     $('.modal-share').addClass('js-hidden');
     updateTechData(item);
 
+    var reminderImg = $('.title-bar .img-remind');
+    if(reminderImg.length == 0){
+      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
+    }
+    reminderImg.attr('src', thumbnail);
+
+    require(['jqScrollto'], function(){
+      reminderImg.off('click').on('click', function(){
+        $(document).scrollTo('.playable', 333, {'offset' : 0 - $('.header-wrapper').height()});
+      });
+    });
+
+    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
+
     // move or remove current player
     $('.zoomable > img').remove();
     $('.zoomable').children().addClass('is-hidden');
@@ -349,14 +363,19 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     if(audioPlayer){
       audioPlayer.hide();
     }
+
     if(videoPlayer){
       videoPlayer.hide();
     }
 
     if(!playable){
-      log('media not playable');
+      $('<img src="' + thumbnail + '">').appendTo('.zoomable');
+      setZoom();
+      resetZoomable();
+      return;
     }
-    else if(type == 'image'){
+
+    if(type == 'image'){
 
       setZoom();
 
@@ -472,32 +491,29 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'video'){
 
-      if(playable){
+      $('.media-options').show();
+      setZoom('zoom-one', true);
+      resetZoomable();
 
-        $('.media-options').show();
-        setZoom('zoom-one', true);
-        resetZoomable();
+      $('.zoomable').append($('.object-media-video'));
+      $('.object-media-video').removeClass('is-hidden');
 
-        $('.zoomable').append($('.object-media-video'));
-        $('.object-media-video').removeClass('is-hidden');
+      require(['media_viewer_videojs'], function(player){
 
-        require(['media_viewer_videojs'], function(player){
+        videoPlayer = player;
+        var media = {
+          url:       uri,
+          data_type: type,
+          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          thumbnail: thumbnail,
+          height:    '400px'
+        };
 
-          videoPlayer = player;
-          var media = {
-            url:       uri,
-            data_type: type,
-            mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
-            thumbnail: thumbnail,
-            height:    '400px'
-          };
+        if(media.url && media.mime_type){
+          videoPlayer.init(media);
+        }
 
-          if(media.url && media.mime_type){
-            videoPlayer.init(media);
-          }
-
-        });
-      }
+      });
     }
 
     if(downloadUri){
@@ -509,19 +525,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.media-download').addClass('disabled');
     }
 
-    var reminderImg = $('.title-bar .img-remind');
-    if(reminderImg.length == 0){
-      reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
-    }
-    reminderImg.attr('src', thumbnail);
-
-    require(['jqScrollto'], function(){
-      reminderImg.off('click').on('click', function(){
-        $(document).scrollTo('.playable', 333, {'offset' : 0 - $('.header-wrapper').height()});
-      });
-    });
-
-    $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
   }
 
   function initActionBar(){
@@ -1359,11 +1362,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           $(window).trigger('carouselResize');
         });
 
-        require(['ve_state_card'], function(Card){
-          $('.ve-foyer-card').each(function(){
-            new Card($(this));
+        var foyerCards = $('.ve-foyer-card');
+        if(foyerCards.length > 0){
+          require(['ve_state_card'], function(Card){
+            foyerCards.each(function(){
+              new Card($(this), {slideshow: true});
+            });
           });
-        });
+        }
         resetZoomable();
       }
     });
