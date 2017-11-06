@@ -295,10 +295,8 @@ $green-grey-bg:                    #f4f4f4;
         display: inline-block;
 
         a:not(:empty){
-          border-bottom:  1px dashed $black;
           margin-right:   3px;
           &:hover{
-            border-color: $eu-blue;
             color:        $eu-blue;
           }
         }

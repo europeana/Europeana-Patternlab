@@ -16,17 +16,12 @@ define(['jquery'], function ($){
       self.ssInterval = ops.ssInterval ? ops.ssInterval : 5000;
       self.ssTimer    = null;
 
-      $el.find('.ve-foyer-card-state').on('mouseenter', function(){
+      $el.on('mouseenter', function(){
         self.startSlideshow(self);
+      }).on('mouseleave', function(){
+        self.stopSlideshow(self);
       });
-
-      //.on('mouseleave', function(e){
-      //  if($(e.target).closest('.ve-foyer-card-state').length == 0){
-      //    self.stopSlideshow(self);
-      //  }
-      //});
     }
-
     $el.find('.ve-card-nav-left').on('click', function(){
       self.left();
     });
