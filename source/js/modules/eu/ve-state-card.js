@@ -11,7 +11,7 @@ define(['jquery'], function ($){
 
     if(ops && ops.slideshow){
 
-      $el.find('.ve-card-nav-left, .ve-card-nav-right').remove();
+      $el.find('.ve-card-nav-left, .ve-card-nav-right').addClass('hover-only');
 
       self.ssInterval = ops.ssInterval ? ops.ssInterval : 5000;
       self.ssTimer    = null;
@@ -19,20 +19,20 @@ define(['jquery'], function ($){
       $el.find('.ve-foyer-card-state').on('mouseenter', function(){
         self.startSlideshow(self);
       });
+
       //.on('mouseleave', function(e){
       //  if($(e.target).closest('.ve-foyer-card-state').length == 0){
       //    self.stopSlideshow(self);
       //  }
       //});
     }
-    else{
-      $el.find('.ve-card-nav-left').on('click', function(){
-        self.left();
-      });
-      $el.find('.ve-card-nav-right').on('click', function(){
-        self.right();
-      });
-    }
+
+    $el.find('.ve-card-nav-left').on('click', function(){
+      self.left();
+    });
+    $el.find('.ve-card-nav-right').on('click', function(){
+      self.right();
+    });
 
     $el.find('.ve-state-buttons span').each(function(i, ob){
       $(ob).click(function(){

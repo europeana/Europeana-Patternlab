@@ -45,7 +45,7 @@ $state-button-height-half: $state-button-height / 2;
 .ve-state-buttons{
   bottom:      0;
   height:      $state-button-height;
-  padding-top: 1.5em;
+  padding-top: 1.2em;
   position:    absolute;
   text-align:  center;
   width:       100%;
@@ -68,6 +68,76 @@ $state-button-height-half: $state-button-height / 2;
 a:hover > .ve-state-button-off,
 .ve-state-button-on{
   background-position: -96px 0;
+}
+
+.ve-foyer-card.dark{
+
+  .ve-card-nav-left,
+  .ve-card-nav-right{
+    opacity:            0;
+    -webkit-transition: opacity 0.3s ease-in;
+    transition:         opacity 0.3s ease-in;
+  }
+
+  &:hover{
+    .ve-card-nav-left,
+    .ve-card-nav-right{
+      opacity: 1;
+    }
+  }
+
+  .ve-card-nav-left{
+    left: 0;
+  }
+
+  .ve-card-nav-right{
+    right: -0.25em;
+  }
+
+  .ve-card-nav-left,
+  .ve-card-nav-right{
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius:    1em;
+    box-shadow:       0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    height:           2em;
+    width:            2em;
+
+    &:hover{
+      background-color: $offwhite;
+    }
+  }
+
+  .ve-card-nav-left{
+    left:    3px;
+    padding: 0.15em 0.15em 0.15em 0.05em;
+  }
+
+  .ve-card-nav-right{
+    padding: 0.15em 0.05em 0.15em 0.15em;
+    right:   3px;
+  }
+
+  .svg-icon-next,
+  .svg-icon-previous{
+    transform: scale(0.5);
+  }
+
+  .ve-state-button-on,
+  .ve-state-button-off{
+    background-image: none;
+    border-radius:    8px;
+    cursor:           pointer;
+    height:           16px;
+    width:            16px;
+
+  }
+  .ve-state-button-off{
+    background-color: $gray-light;
+  }
+  .ve-state-button-on{
+    background-color: $black;
+  }
 }
 
 .ve-chapter-selection-container{
@@ -263,7 +333,7 @@ a:hover > .ve-state-button-off,
   .text-box{
     color:          $colour_overlaid_text;
     left:           0;
-    padding:        0.75em 2.1em;
+    padding:        0.75em 2.75em;
     position:       absolute;
     width:          100%;
 
@@ -294,6 +364,7 @@ a:hover > .ve-state-button-off,
     }
 
     .text-box.credits{
+      padding:        0.75em 2.1em;
       top: 50%;
       transform: translateY(-50%);
     }
@@ -309,7 +380,7 @@ a:hover > .ve-state-button-off,
 
   .ve-state-button-off,
   .ve-state-button-on{
-    margin: 0 0.25em;
+    margin: 0 0.6em;
   }
 }
 
@@ -318,15 +389,7 @@ a:hover > .ve-state-button-off,
 .ve-foyer-card{
 
   .ve-foyer-card-state{
-
     height: $max-height-state;
-
-//    & > img,
- //   .text-box.description{
-  //    max-height: $max-height-state;
-   // }
-
-
   }
 }
 

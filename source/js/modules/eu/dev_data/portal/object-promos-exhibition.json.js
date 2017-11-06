@@ -4,7 +4,7 @@ define([], function(){
 
     "exhibition_promo": {
       "url": "javascript:alert('open this exhibition (1)')",
-      "state_1_title": "Wiki Loves Art Nouveau",
+      "state_1_title": false,
       "state_2_body": "<p>Tired of the old conventions, Art Nouveau artists readily embraced glass in their projects. It became an essential tool in creating luminous living areas and spaces</p>",
       "state_3_logo": {
         "thumbnail": {
