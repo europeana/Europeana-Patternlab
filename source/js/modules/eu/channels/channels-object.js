@@ -178,7 +178,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   function resetZoomable(){
 
-    log('resetZoomable');
+    // log('resetZoomable');
 
     setTimeout(function(){
       $('.zoomable').css('width', '100%');
@@ -257,7 +257,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       else{
         $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
       }
-      log('bindMediaUI')
       resetZoomable();
     });
 
@@ -573,15 +572,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             var html      = Mustache.render(template.text(), agentData);
             template.after(html);
           });
-
-          /*
-          var domain         = 'https://www.europeana.eu/portal';
-          var searchOnEntity = domain + '/' + 'search.json?q=proxy_dc_creator:+"' + url + '"+OR+proxy_dc_contributor:+"' + url + '"per_page=12&page=1';
-
-          $.getJSON(searchOnEntity).done(function(data){
-            alert(JSON.stringify(data, null, 4));
-          });
-          */
 
         });
         return false;
@@ -1143,7 +1133,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
   }
 
-  function makePromoRequest(callback){
+  function makePromoRequest(){
 
     requestPromos(function(markup){
 
@@ -1167,7 +1157,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             });
           });
         }
-        log('done promo req');
         resetZoomable();
       }
     });
@@ -1206,7 +1195,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         prevItem = items[current - 1];
         nextItem = items[current + 1];
         callback();
-        return
+        return;
       }
 
       var params     = $.url(searchUrl).param();
@@ -1219,10 +1208,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       params['page'] = parseInt(page) + (nextNeeded ? 1 : -1);
 
       if(!per_page){
-        per_page           = preferredResultCount;
-        params['per_page'] = preferredResultCount;
+        per_page           = preferredResultCount ? preferredResultCount : 12;
+        params['per_page'] = per_page;
       }
-
       var nextResUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?' + $.param(params);
 
       $.getJSON(nextResUrl).done(function(data){
@@ -1242,9 +1230,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
               'relation': 'What goes here? (relation)'
             });
           }
-
           return res;
-        }
+        };
 
         if(data){
           data = convertData(data['search_results']);
@@ -1255,9 +1242,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           return;
         }
 
-
-        log('search res: ' + JSON.stringify(data, null, 4));
-
         if(nextNeeded){
           items = items.concat(data);
           nextItem = items[current + 1];
@@ -1267,34 +1251,12 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           current  = current + data.length;
           prevItem = items[current - 1];
 
-          alert(JSON.stringify(prevItem, null, 4));
-
           sessionStorage.eu_portal_last_results_current = current;
           sessionStorage.eu_portal_last_results_from    = from - data.length;
         }
 
         sessionStorage.eu_portal_last_results_items = JSON.stringify(items);
         callback();
-
-        /*
-      var items     = JSON.parse(sessionStorage.eu_portal_last_results_items);
-      var from      = parseInt(sessionStorage.eu_portal_last_results_from);
-      var count     = items.length;
-      var current   = parseInt(sessionStorage.eu_portal_last_results_current);
-      var total     = parseInt(sessionStorage.eu_portal_last_results_total);
-
-
-        newItems = data;
-        if(nextNeeded){
-          nextItem = data[0];
-        }
-        else{
-          prevItem = data[data.length - 1];
-        }
-        sessionStorage.eu_portal_last_results_items = JSON.stringify(data);
-        */
-
-
       });
     }
     else{
@@ -1573,7 +1535,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     require(['purl'], function(){
       getNextPrevItems(makePromoRequest, preferredResultCount);
-    })
+    });
 
     if($('.eu-accordion-tabs').length > 0){
       suggestions = $('.eu-accordion-tabs');
