@@ -207,6 +207,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
           sessionStorage.eu_portal_last_results_current = $(this).index('.result-items .search-list-item');
         });
 
+        sessionStorage.eu_portal_last_results_url   = location.href;
         sessionStorage.eu_portal_last_results_items = JSON.stringify(lastResults);
         sessionStorage.eu_portal_last_results_from  = resInfo.match(/\d+/);
         sessionStorage.eu_portal_last_results_total = resInfo.match(/[\d,\,]+(?=\D*$)/);
