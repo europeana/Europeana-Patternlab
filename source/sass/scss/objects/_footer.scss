@@ -54,12 +54,16 @@
 
   .logo-footer-2018{
     background-image: url('../../images/portal_footer_logo_2018.png');
-    float:            right;
     height:           172px;
+    margin:           auto;
     position:         relative;
     right:            -16px;
     top:              -12px;
     width:            218px;
+
+    @media all and (min-width: $bp-med) {
+      float: right;
+    }
   }
 
   .newsletter-form .inline-container{
