@@ -72,7 +72,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var prefs = JSON.parse(localStorage.getItem(keyLS));
 
       if(!prefs){
+        log('no user prefs for extended info!');
         return;
+      }
+      else{
+        log('User prefs: ' + localStorage.getItem(keyLS));
       }
 
       ei.find('.data-section').each(function(i, ob){
@@ -100,7 +104,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           closedItems.push(ob.data('section-id'));
         }
       });
-      log('write userPrefs ' + JSON.stringify(closedItems));
+      log('write userPrefs (key: ' + keyLS + ') ' + JSON.stringify(closedItems));
       localStorage.setItem(keyLS, JSON.stringify(closedItems));
     };
 
@@ -193,9 +197,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var colMiddle     = $('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .title-desc-media-nav');
     var colsAvailable = 1 + (colRight ? 1 : 0) + (colMiddle ? 1 : 0);
 
-    log('colRight      = ' + colRight);
-    log('colMiddle     = ' + colMiddle);
-    log('colsAvailable = ' + colsAvailable);
+    //log('colRight      = ' + colRight);
+    //log('colMiddle     = ' + colMiddle);
+    //log('colsAvailable = ' + colsAvailable);
 
     var isImage       = current.data('type') == 'image';
     var naturalWidth  = current.data('natural-width');
@@ -832,7 +836,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     };
 
     var done = function(){
-      if(returned == expected){
+      if(returned == expected && Object.keys(elements).length > 0){
 
         var slideRail = $('<div class="slide-rail"><div class="collections-promos js-swipe-not-stacked"></div></div>');
         var sequence  = ['next', 'exhibition', 'gallery', 'news', 'entity', 'generic', 'previous'];
@@ -862,9 +866,49 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       Mustache.tags = ['[[', ']]'];
 
+      var storedNav = function(){
+
+        if(typeof(Storage) !== 'undefined') {
+
+          if(sessionStorage && sessionStorage.eu_portal_last_results_items){
+
+            var items   = JSON.parse(sessionStorage.eu_portal_last_results_items);
+            var from    = parseInt(sessionStorage.eu_portal_last_results_from);
+            var count   = items.length;
+            var current = parseInt(sessionStorage.eu_portal_last_results_current);
+            var total   = parseInt(sessionStorage.eu_portal_last_results_total);
+
+            if((current + 1) == count && (current + 1) < total){
+              log('ajax call needed for nav (A)');
+              return null;
+            }
+            else if(current == 0 && from > 1){
+              log('ajax call needed for nav (B)');
+              return null;
+            }
+            else{
+              return {
+                'prev_promo': items[current - 1],
+                'next_promo': items[current + 1]
+              };
+            }
+          }
+          else{
+            return null;
+          }
+        }
+        else{
+          return null;
+        }
+      }();
+
       $.getJSON(entityUrl).done(function(data){
         returned ++;
         processCallback(Mustache, data.entity_promo, 'template-promo-entity', 'entity');
+        done();
+      }).error(function(){
+        log('no result for entities');
+        returned ++;
         done();
       });
 
@@ -872,32 +916,62 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         returned ++;
         processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition', 'exhibition');
         done();
+      }).error(function(){
+        log('no result for exhibitions');
+        returned ++;
+        done();
       });
 
       $.getJSON(galleryUrl).done(function(data){
         returned ++;
         processCallback(Mustache, data.gallery_promo, 'template-promo-gallery', 'gallery');
         done();
-      });
-
-      $.getJSON(nextprevUrl).done(function(data){
+      }).error(function(){
+        log('no result for galleries');
         returned ++;
-        if(data.next_promo){
-          data.next_promo.is_next = true;
-          processCallback(Mustache, data.next_promo, 'template-promo-next-prev', 'next');
-        }
-        if(data.prev_promo){
-          data.prev_promo.is_prev = true;
-          processCallback(Mustache, data.prev_promo, 'template-promo-next-prev', 'previous');
-        }
         done();
       });
+
+      if(storedNav){
+        returned ++;
+        if(storedNav.next_promo){
+          storedNav.next_promo.is_next = true;
+          processCallback(Mustache, storedNav.next_promo, 'template-promo-next-prev', 'next');
+        }
+        if(storedNav.prev_promo){
+          storedNav.prev_promo.is_prev = true;
+          processCallback(Mustache, storedNav.prev_promo, 'template-promo-next-prev', 'previous');
+        }
+        done();
+      }
+      else{
+        $.getJSON(nextprevUrl).done(function(data){
+          returned ++;
+          if(data.next_promo){
+            data.next_promo.is_next = true;
+            processCallback(Mustache, data.next_promo, 'template-promo-next-prev', 'next');
+          }
+          if(data.prev_promo){
+            data.prev_promo.is_prev = true;
+            processCallback(Mustache, data.prev_promo, 'template-promo-next-prev', 'previous');
+          }
+          done();
+        }).error(function(){
+          log('no result for nav');
+          returned ++;
+          done();
+        });
+      }
 
       $.getJSON(newsUrl).done(function(data){
         returned ++;
         $.each(data, function(i, ob){
           processCallback(Mustache, ob, 'template-promo-news', 'news');
         });
+        done();
+      }).error(function(){
+        log('no result for news');
+        returned ++;
         done();
       });
 
@@ -906,6 +980,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         $.each(data, function(i, ob){
           processCallback(Mustache, ob, 'template-promo-generic', 'generic');
         });
+        done();
+      }).error(function(){
+        log('no result for generic');
+        returned ++;
         done();
       });
     });
@@ -926,6 +1004,19 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     promotions.css('width', '5000px');
 
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true});
+
+    if(typeof(Storage) != 'undefined') {
+
+      promotions.find('.channel-object-next-prev.object-next a').on('click', function(){
+        var current = parseInt(sessionStorage.eu_portal_last_results_current);
+        sessionStorage.eu_portal_last_results_current = current + 1;
+      });
+
+      promotions.find('.channel-object-next-prev.object-prev a').on('click', function(){
+        var current = parseInt(sessionStorage.eu_portal_last_results_current);
+        sessionStorage.eu_portal_last_results_current = current - 1;
+      });
+    }
 
     var imageSet = promotions.find('.image-set');
 
