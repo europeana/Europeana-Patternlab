@@ -540,15 +540,12 @@
             {{ i18n.site.object.previous-item }}
           </span>
         [[/is_prev]]
-        <div class="channel-object-next-prev collections-promo-item separator-after">
+        <div class="channel-object-next-prev collections-promo-item separator-after[[#is_next]] object-next[[/is_next]][[#is_prev]] object-prev[[/is_prev]]">
           <div class="content-outer">
             <div class="content-inner">
               <div class="content-outer">
                 <div class="content-inner">
-                  <a href="[[url]]">
-                    [[#img]]
-                      <img src="[[src]]"/>
-                    [[/img]]
+                  <a href="[[url]]" [[#img]]class="bg-link" style="background-image:url('[[src]]');"[[/img]]>
                   </a>
                 </div>
               </div>

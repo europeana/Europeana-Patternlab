@@ -156,7 +156,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     });
   };
 
-  var adaptForNewItemPage = function(param){
+  var adaptForNewItemPage = function(){
 
     if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
       var updateUrl = function($anchor){
@@ -166,8 +166,52 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
       $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
         updateUrl($(this));
       });
-    }
 
+      var fnGetText = function($el){
+        return $el.contents().filter(function(){
+          return this.nodeType == 3;
+        })[0].nodeValue;
+      };
+
+      var fnGetAttr = function($el, childPath, attrName){
+        var subEl = childPath ? $el.find(childPath) : $el;
+        if(subEl.length > 0){
+          return subEl.attr(attrName);
+        }
+        return '';
+      };
+
+      var fnItemStorage = function($el){
+        return {
+          'url':  fnGetAttr($el, '.link',     'href'),
+          'icon': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
+          'img':{
+            'src': fnGetAttr($el, 'img', 'src')
+          },
+          'title': fnGetText($el.find('.item-info a')),
+          'relation': 'What goes here?'
+        };
+      };
+
+      if(typeof(Storage) !== 'undefined') {
+
+        var lastResults = [];
+        var items       = $('.result-items .search-list-item');
+        var resInfo     = $('.result-info').text();
+
+        items.each(function(i, ob){
+          lastResults.push(fnItemStorage($(ob)));
+        });
+
+        items.on('click', function(){
+          sessionStorage.eu_portal_last_results_current = $(this).index('.result-items .search-list-item');
+        });
+
+        sessionStorage.eu_portal_last_results_items = JSON.stringify(lastResults);
+        sessionStorage.eu_portal_last_results_from  = resInfo.match(/\d+/);
+        sessionStorage.eu_portal_last_results_total = resInfo.match(/[\d,\,]+(?=\D*$)/);
+      }
+    }
   };
 
   var showGrid = function(save){

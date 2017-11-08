@@ -1,134 +1,131 @@
-/*------------------------------------*\
-    $FOOTER
-\*------------------------------------*/
-
 .footer {
+  background: $grey2;
+  border-top: 6px solid $blue-dark;
+  clear: both;
+  color: $footer_text;
+  font-size: $font-size-slightly-smaller;
+  overflow: hidden;
+  padding: $space-triple $space;
 
+  .title{
+    color: $footer_headings;
+    font-size: $font-size-norm;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: $space;
+    text-transform: uppercase;
+  }
 
-	clear: both;
-	overflow: hidden;
-	background: $grey2;
-	padding: $space-triple $space;
-	color: $footer_text;
-	border-top: 6px solid $blue-dark;
-	font-size: $font-size-slightly-smaller;
+  .margin-bottom{
+    margin-bottom: $space;
+  }
 
-	.title{
-		color: $footer_headings;
-		font-size: $font-size-norm;
-		text-transform: uppercase;
-		font-weight: bold;
-		line-height: 1;
-		margin-bottom: $space;
-	}
+  .l-linklist a {
+    border-bottom: 1px dotted $footer_text;
+    color: $footer_text;
+    font-size: $font-size-med;
+    font-weight: bold;
 
-    .margin-bottom{
-      margin-bottom: $space;
+    &:hover{
+      color: $textcolour_link;
     }
+  }
 
-	.l-linklist a {
-		color: $footer_text;
-		font-size: $font-size-med;
-		font-weight: bold;
-		border-bottom: 1px dotted $footer_text;
+  div[class^='l-'],
+  .signup{
+    margin-bottom: $space;
+  }
 
-		&:hover{
-			color: $textcolour_link;
-		}
-	}
+  .l-mission p{
+    font-size: $font-size-med;
+    font-style: italic;
+  }
 
-
-
-	//layout styles
-	div[class^='l-'], .signup{
-		margin-bottom: $space;
-	}
-
-
-	.l-mission p{
-		font-size: $font-size-med;
-		font-style: italic;
-	}
-
-	.copyright {
-		background-image: url("../../images/eu_flag_cef.svg");
-		background-position: 0 50%;
-  		background-size: contain;
-  		background-repeat: no-repeat;
-		padding-top: 3em;
-		font-size: $font-size-sm;
-		color: transparent;
+  .copyright {
+    background-image: url('../../images/eu_flag_cef.svg');
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent;
+    font-size: $font-size-sm;
     height: 3.34em;
-	}
+    padding-top: 3em;
+  }
 
-	.newsletter-form .inline-container{
-		margin-bottom: $space-quarter;
-	}
+  .logo-footer-2018{
+    background-image: url('../../images/portal_footer_logo_2018.png');
+    height:           172px;
+    margin:           auto;
+    position:         relative;
+    right:            -16px;
+    top:              -12px;
+    width:            218px;
+
+    @media all and (min-width: $bp-med) {
+      float: right;
+    }
+  }
+
+  .newsletter-form .inline-container{
+    margin-bottom: $space-quarter;
+  }
 
 }
 
 .footer_logo{
-	//margin-left: -$space;
 
-  @media all and (min-width: $bp-xl) {
-		margin-right: $pad-double*2 ;
-	}
+  @media all and (min-width: $bp-xl){
+    margin-right: $pad-double * 2;
+  }
 
-  @media all and (max-width: $bp-med) {
-		width: $pad-double*8;
-	}
+  @media all and (max-width: $bp-med){
+    width: $pad-double * 8;
+  }
 }
-
 
 
 .social-links{
 
-	text-align: center;
+  text-align: center;
 
-	@media all and (min-width: $bp-med) {
-		text-align: left;
-	}
+  @media all and (min-width: $bp-med) {
+    text-align: left;
+  }
 
-	a{
-		font-size: 3em;
-		color: $blue-dark;
-		display: inline-block;
+  a{
+    color: $blue-dark;
+    display: inline-block;
+    font-size: 3em;
 
-		&:hover {
-			color: $textcolour_link;
-		}
+    &:hover {
+      color: $textcolour_link;
+    }
 
-		svg{
-			margin: 0;
-			display: block;
-		}
-	}
+    svg{
+      display: block;
+      margin: 0;
+    }
+  }
 
 }
 
 .sub-footer{
-	border-top: 1px solid #a0a0a0;
-	padding: $space 0;
+  border-top: 1px solid #a0a0a0;
+  padding: $space 0;
 
-	.nav{
+  .nav{
 
-		margin-bottom: $space-half;
+    margin-bottom: $space-half;
 
-		a{
-			display: block;
-			color: $footer_text;
-			border-bottom: 1px dotted $blue-dark;
-			margin-right: $space-half;
+    a{
+      border-bottom: 1px dotted $blue-dark;
+      color: $footer_text;
+      display: block;
+      margin-right: $space-half;
 
-			&:hover{
-				color: $textcolour_link;
-			}
-		}
-
-	}
+      &:hover{
+        color: $textcolour_link;
+      }
+    }
+  }
 }
-
-
-
-
-

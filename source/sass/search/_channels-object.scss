@@ -513,6 +513,10 @@ $green-grey-bg:                    #f4f4f4;
         margin-bottom: 1em;
       }
 
+      .object-media-audio{
+        position: relative;
+      }
+
       .object-media-video,
       .object-media-audio{
         background-color: #333;
@@ -606,7 +610,6 @@ $green-grey-bg:                    #f4f4f4;
         }
 
         &.active {
-          border:            1px solid $brand-twitter;
           box-shadow:        0 1px 2px 0 $dim02;
           -webkit-transform: scale(1.52);
           transform:         scale(1.52);

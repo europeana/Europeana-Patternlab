@@ -7,7 +7,7 @@ define([], function(){
         "src": "/images/search/carousel1.jpg"
       },
       "title": "The Lace Maker: a Dutch woman doing embroidery - they didn't have sewing machines back then",
-      "type": "news",
+      "xxxtype": "news",
       "date": "14/12/2016",
       "excerpt": {
         "short": "This carousel item for the aggregated feed has text and a date <br><br> The text contains markup (linebreaks) and should not exceed 5 (or 6) rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date<br><br>The text contains markup (linebreaks) but I think they should be removed"
@@ -15,6 +15,10 @@ define([], function(){
       "relation": "Feautues other Vermeer",
       "tags":{
         "items": [
+          {
+            "url": "javascript:alert('open tag')",
+            "text": "News"
+          },
           {
             "url": "javascript:alert('open tag')",
             "text": "tag1"
@@ -40,7 +44,7 @@ define([], function(){
         "src": "/images/search/carousel3.jpg"
       },
       "title": "This one has no url",
-      "type": "tumblr",
+      "XXXtype": "tumblr",
       "date": "14/12/2016",
       "attribution": "Andy MacLean - copyright: all rights reserved",
       "excerpt": {
@@ -50,7 +54,11 @@ define([], function(){
         "items": [
           {
             "url": "javascript:alert('open tag 1')",
-            "text": "painting"
+            "text": "News"
+          },
+          {
+              "url": "javascript:alert('open tag 1')",
+              "text": "painting"
           },
           {
             "url": "javascript:alert('open tag 2')",
