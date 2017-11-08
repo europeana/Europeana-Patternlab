@@ -16,7 +16,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       require(['mustache'], function(){
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          template.after(Mustache.render(template.text(), data));
+          if(data){
+            template.after(Mustache.render(template.text(), data));
+          }
         });
       });
     }
