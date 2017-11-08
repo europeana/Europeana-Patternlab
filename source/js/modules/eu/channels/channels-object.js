@@ -174,6 +174,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   }
 
   function resetZoomable(){
+
+    log('resetZoomable');
+
     setTimeout(function(){
       $('.zoomable').css('width', '100%');
     }, 1);
@@ -251,6 +254,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       else{
         $('.object-details').removeClass('zoom-one').removeClass('zoom-two');
       }
+      log('bindMediaUI')
       resetZoomable();
     });
 
@@ -375,6 +379,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     if(!playable){
       $('<img src="' + thumbnail + '">').appendTo('.zoomable');
       setZoom();
+      log('not playable');
       resetZoomable();
       return;
     }
@@ -392,6 +397,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('<img>').appendTo('.zoomable').attr('src', uri);
 
       if(item.data('natural-width')){
+        log('img natural-width found');
         updateCtrls();
       }
       else{
@@ -406,6 +412,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
                 item.data('natural-width', nWidth);
                 $('#img-measure').remove();
                 updateCtrls();
+                log('image measured...');
+                resetZoomable();
               }
               else{
                 if(attempt > 5){
@@ -1463,6 +1471,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             });
           });
         }
+        log('done promo req');
         resetZoomable();
       }
     });
