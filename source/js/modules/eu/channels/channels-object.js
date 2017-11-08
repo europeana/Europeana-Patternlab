@@ -924,7 +924,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       $.getJSON(galleryUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data, 'template-promo-gallery', 'gallery');
+        if(data){
+          processCallback(Mustache, data, 'template-promo-gallery', 'gallery');
+        }
         done();
       }).error(function(){
         log('no result for galleries');
