@@ -159,8 +159,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
   var adaptForNewItemPage = function(){
 
     if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+      var page = $.url(location.href).param('page');
       var updateUrl = function($anchor){
-        $anchor.attr('href', $anchor.attr('href') + '&design=new');
+        $anchor.attr('href', $anchor.attr('href') + '&design=new' + (page ? ('&page=' + page) : ''));
       };
 
       $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
@@ -204,13 +205,13 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         });
 
         items.on('click', function(){
-          sessionStorage.eu_portal_last_results_current = $(this).index('.result-items .search-list-item');
+          var current = $(this).index('.result-items .search-list-item');
+          sessionStorage.eu_portal_last_results_current = current;
         });
 
-        sessionStorage.eu_portal_last_results_url   = location.href;
-        sessionStorage.eu_portal_last_results_items = JSON.stringify(lastResults);
-        sessionStorage.eu_portal_last_results_from  = resInfo.match(/\d+/);
-        sessionStorage.eu_portal_last_results_total = resInfo.match(/[\d,\,]+(?=\D*$)/);
+        sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
+        sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
+        sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
       }
     }
   };

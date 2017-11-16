@@ -1,25 +1,33 @@
 define([], function(){
 
   var promos = {
-    "next_promo": {
-      "url": "javascript:alert('open next item')",
-      "icon": "image",
-      "img":{
-        "src": "/images/sample/object_thumbnail.jpg"
+    'search_results': [
+      {
+        'object_url': 'javascript:alert(\'open next item\')',
+        'is_video': 'image',
+        'img':{
+          'src': '/images/sample/object_thumbnail.jpg'
+        },
+        'title': 'Het melkmeisje and Hollandse meesters (but where are the meesters?)',
+        'excerpt': false,
+        'relation': 'Feautues Johann Vermeer'
       },
-      "title": "Het melkmeisje and Hollandse meesters (but where are the meesters?)",
-      "excerpt": false,
-      "relation": "Feautues Johann Vermeer"
-    },
-    "prev_promo": {
-      "url": "javascript:alert('open previous item')",
-      "icon": "text",
-      "img":{
-        "src": "/images/sample/object_thumbnail_reversed.jpg"
+      {
+        'object_url': location.href.replace(location.protocol + '//', '').replace(location.hostname, '')
       },
-      "title": "The Previous Item: suspiciously like the next item, from which it is separated - disruptive design and all that",
-      "excerpt": false,
-      "relation": "Feautues Johann Vermeer"
+      {
+        'object_url': 'javascript:alert(\'open next item\')',
+        'is_text': 'text',
+        'img':{
+          'src': '/images/sample/object_thumbnail_reversed.jpg'
+        },
+        'title': 'The Previous Item: suspiciously like the next item, from which it is separated - disruptive design and all that',
+        'excerpt': false,
+        'relation': 'Feautues Johann Vermeer'
+      }
+    ],
+    'total': {
+      'value': 3
     }
   };
 
