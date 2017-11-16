@@ -1275,6 +1275,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }, '', '');
     }
 
+    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded);
+
     if(nextNeeded){
       prevItem = items[offsetIndex + current - 1];
     }
@@ -1609,6 +1611,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           link.attr('href', searchUrl);
           crumb.css('display', 'inline');
         }
+        else{
+          params = $.extend({}, params, $.url($('.breadcrumbs .back-url a').attr('href')).param());
+        }
 
         searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
 
@@ -1620,10 +1625,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
           /*
           log('current here - no calculation needed '
-            + ' curr: ' + typeof s.eu_portal_last_results_current
-            + ' lrt: '  + typeof s.eu_portal_last_results_total
-            + ' offs: ' + typeof s.eu_portal_last_results_offset
-            + ' ite: '  + typeof s.eu_portal_last_results_items
+            + ' curr: ' + s.eu_portal_last_results_current
+            + ' lrt: '  + s.eu_portal_last_results_total
+            + ' offs: ' + s.eu_portal_last_results_offset
+            + ' ite: '  + s.eu_portal_last_results_items
           );
           */
 

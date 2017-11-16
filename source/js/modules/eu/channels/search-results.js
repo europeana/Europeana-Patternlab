@@ -159,9 +159,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
   var adaptForNewItemPage = function(){
 
     if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
-      var page = $.url(location.href).param('page');
+      //var page = $.url(location.href).param('page');
       var updateUrl = function($anchor){
-        $anchor.attr('href', $anchor.attr('href') + '&design=new' + (page ? ('&page=' + page) : ''));
+        // $anchor.attr('href', $anchor.attr('href') + '&design=new' + (page ? ('&page=' + page) : ''));
+        $anchor.attr('href', $anchor.attr('href') + '&design=new');
       };
 
       $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
