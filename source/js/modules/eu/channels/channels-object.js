@@ -672,10 +672,12 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       require(['mustache'], function(){
         Mustache.tags = ['[[', ']]'];
         $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          data.extended_information = true;
-          data.id = 'annotations';
-          template.after(Mustache.render(template.text(), data));
-          initExtendedInformation();
+          if(data){
+            data.extended_information = true;
+            data.id = 'annotations';
+            template.after(Mustache.render(template.text(), data));
+            initExtendedInformation();
+          }
         });
       });
     }
