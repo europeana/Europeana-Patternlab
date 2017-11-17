@@ -159,12 +159,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
   var adaptForNewItemPage = function(){
 
     if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+
       //var page = $.url(location.href).param('page');
       var updateUrl = function($anchor){
         // $anchor.attr('href', $anchor.attr('href') + '&design=new' + (page ? ('&page=' + page) : ''));
-        $anchor.attr('href', $anchor.attr('href') + '&design=new');
+        if($anchor.attr('href') && $anchor.attr('href').indexOf('design=new') == -1){
+          $anchor.attr('href', $anchor.attr('href') + '&design=new');
+        }
       };
-
+      
       $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
         updateUrl($(this));
       });
@@ -174,7 +177,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
           return this.nodeType == 3;
         })[0].nodeValue;
       };
-
+      
       var fnGetAttr = function($el, childPath, attrName){
         var subEl = childPath ? $el.find(childPath) : $el;
         if(subEl.length > 0){
@@ -200,7 +203,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         var lastResults = [];
         var items       = $('.result-items .search-list-item');
         var resInfo     = $('.result-info').text();
-
+        
         items.each(function(i, ob){
           lastResults.push(fnItemStorage($(ob)));
         });
@@ -211,6 +214,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         });
 
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
+        
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
         sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
       }

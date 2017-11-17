@@ -1162,6 +1162,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   function makePromoRequest(){
 
+    // log('makePromoRequest: next = ' + nextItem + ', prev = ' + prevItem);
+	
     requestPromos(function(markup){
 
       if(markup && markup.length > 0){
@@ -1218,8 +1220,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var fixOffset = function(){
       var per_page = params['per_page'] ? parseInt(params['per_page']) : 12;
-      var offset   = (per_page * parseInt(params['page'])) - per_page;
+      var page     = params['page'] ? parseInt(params['page']) : 1;
+      var offset   = (per_page * page) - per_page;
       s.eu_portal_last_results_offset = offset;
+
+      log('write offset (1) ' + offset);
     };
 
     $.getJSON(searchUrl + $.param(params)).done(function(data){
@@ -1250,6 +1255,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
   }
 
+  function removeUrlParams(ob, newParams){
+  
+    if(ob){
+      var url = $.url(decodeURI(ob.url));
+      var params = url.param();
+      delete params['l'];
+      ob.url = ob.url.split('?')[0] + '?' + $.param( $.extend({}, params, newParams));  
+    }
+    return ob;
+  }
+  
   function getNextPrevItems(callback, searchUrl, params){
 
     var s           = sessionStorage;
@@ -1275,18 +1291,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }, '', '');
     }
 
-    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded);
+    log('nextNeeded = ' + nextNeeded + ', prevNeeded = ' + prevNeeded + ', offset = ' + offset + ', offsetIndex = ' + offsetIndex);
 
     if(nextNeeded){
-      prevItem = items[offsetIndex + current - 1];
+      prevItem = removeUrlParams(items[offsetIndex + current - 1], params);
     }
     if(prevNeeded){
-      nextItem = items[offsetIndex + current + 1];
+      nextItem = removeUrlParams(items[offsetIndex + current + 1], params);
     }
 
     if(!(nextNeeded || prevNeeded)){
-      prevItem = items[offsetIndex + current - 1];
-      nextItem = items[offsetIndex + current + 1];
+      prevItem = removeUrlParams(items[offsetIndex + current - 1], params);
+      nextItem = removeUrlParams(items[offsetIndex + current + 1], params);
       callback();
       return;
     }
@@ -1307,14 +1323,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
 
       if(nextNeeded){
-        items = items.concat(data);
-        nextItem = items[offsetIndex + current + 1];
+        items    = items.concat(data);
+        nextItem = removeUrlParams(items[offsetIndex + current + 1], params);
       }
       else{
         items  = data.concat(items);
         offset = offset - data.length;
+        
+        log('write offset (2) ' + offset);
+        
         s.eu_portal_last_results_offset = offset;
-        prevItem = items[data.length - 1];
+        prevItem = removeUrlParams(items[data.length - 1], params);
       }
       s.eu_portal_last_results_items = JSON.stringify(items);
       callback();
@@ -1601,10 +1620,29 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           return;
         }
 
+        var channelCheck = function(url){
+        
+          var cIndex = url.indexOf('/collections/');
+          
+          if(cIndex > -1){
+            var cName = url.substr(cIndex + 13).split('?')[0];
+            params['collection'] = cName;
+            return true;
+          }
+          else if(url.indexOf('?collection=') > -1 || url.indexOf('&collection=') > -1){
+            params['collection'] = $.url(url).param('collection');
+            return true;
+          }
+          return false;
+        };
+        
         var s         = sessionStorage;
-        var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/search.html?' + $.param(params);
+        var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
         var per_page  = params['per_page'] ? parseInt(params['per_page']) : 12;
-
+        
+        channelCheck(searchUrl);
+        
+        
         if($('.breadcrumbs .back-url').length == 0){
           var crumb = $('.breadcrumbs li.js-return');
           var link  = crumb.find('a');
@@ -1612,8 +1650,15 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           crumb.css('display', 'inline');
         }
         else{
-          params = $.extend({}, params, $.url($('.breadcrumbs .back-url a').attr('href')).param());
+          var backUrl = $('.breadcrumbs .back-url a').attr('href');
+          searchUrl   = backUrl;
+          channelCheck(searchUrl);
+          params = $.extend({}, params, $.url(backUrl).param());
         }
+        
+        delete params['l[r]'];
+        delete params['l[t]'];
+        delete params['l[p][q]'];
 
         searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
 
@@ -1621,16 +1666,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 
-        if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items){
+        if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
 
-          /*
-          log('current here - no calculation needed '
+          /*log('current here - no calculation needed '
             + ' curr: ' + s.eu_portal_last_results_current
             + ' lrt: '  + s.eu_portal_last_results_total
-            + ' offs: ' + s.eu_portal_last_results_offset
-            + ' ite: '  + s.eu_portal_last_results_items
-          );
-          */
+            + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
+          );*/
 
           if(parseInt(s.eu_portal_last_results_current) < 0){
             log('correction needed A (set to ' + (per_page - 1) + ')');
