@@ -23,12 +23,13 @@
     position: relative;
     top: 3px;
   }
-  &.is-expanded{
-    .filter-moreless::after{
+
+  .filter-moreless[aria-expanded="true"]{
+    &::after{
       border-color: transparent transparent $textcolour_body;
       top: -1px;
     }
-  }
+  } 
 }
 
 .filter{
