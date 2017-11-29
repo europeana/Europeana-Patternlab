@@ -159,8 +159,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
   var adaptForNewItemPage = function(){
 
     if(location.href.indexOf('&design=new') > -1 || location.href.indexOf('?design=new') > -1){
+
+      var page    = $.url(location.href).param('page');
+      var channel = $('.breadcrumbs').data('store-channel-name');
+
       var updateUrl = function($anchor){
-        $anchor.attr('href', $anchor.attr('href') + '&design=new');
+        var url = $anchor.attr('href');
+        if(url && url.indexOf('design=new') == -1){
+          $anchor.attr('href', url + '&design=new');
+        }
       };
 
       $('#results_menu .dropdown-menu a, .results-list .pagination a, .searchbar a, .refine a, #settings-menu .menu-sublevel a, .search-list-item a').not('.filter-name-icon, .mlt_remove').each(function(){
@@ -181,9 +188,25 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         return '';
       };
 
+      var fnItemStorageUrl = function(url){
+        if(url){
+          var params = $.url(url).param();
+          delete params['l'];
+
+          params['page']   = page ? page : 1;
+          params['design'] = 'new';
+
+          if(channel){
+            params['channel'] = channel;
+          }
+
+          return url.split('?')[0] + '?' + $.param(params);
+        }
+      }
       var fnItemStorage = function($el){
+
         return {
-          'url':  fnGetAttr($el, '.link',     'href'),
+          'url':  fnItemStorageUrl(fnGetAttr($el, '.link', 'href')),
           'icon': fnGetAttr($el, '.svg-icon', 'class').replace('svg-icon', '').replace('svg-icon-', '').trim(),
           'img':{
             'src': fnGetAttr($el, 'img', 'src')
@@ -204,12 +227,14 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         });
 
         items.on('click', function(){
-          sessionStorage.eu_portal_last_results_current = $(this).index('.result-items .search-list-item');
+          var current = $(this).index('.result-items .search-list-item');
+          sessionStorage.eu_portal_last_results_current = current;
         });
 
-        sessionStorage.eu_portal_last_results_items = JSON.stringify(lastResults);
-        sessionStorage.eu_portal_last_results_from  = resInfo.match(/\d+/);
-        sessionStorage.eu_portal_last_results_total = resInfo.match(/[\d,\,]+(?=\D*$)/);
+        sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
+
+        sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
+        sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
       }
     }
   };

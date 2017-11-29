@@ -439,7 +439,7 @@
 
         "empty_item": true,
         "single_item": false,
-        "empty_item_more_link": "Item preview not available, to access the full image and more information about the item go to <a href=\"javascript:alert('link to provider');\">The Provider</a>",
+        "empty_item_more_link": "Item preview not available, to access the full image and more information about the item <a href=\"javascript:alert('link to provider');\">go to source</a>.  This link will take you to <a href=\"javascript:alert('link to provider');\">Institute of blah blah blah</a>",
         "items": false
       },
       "rights": {

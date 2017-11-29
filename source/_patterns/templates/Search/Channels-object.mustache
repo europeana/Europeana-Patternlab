@@ -55,7 +55,25 @@
 
                 <div class="object-media-viewer">
                   {{#empty_item}}
-                    <div class="channel-object-no-preview svg-icon-external-white-child-link-after">{{{empty_item_more_link}}}</div>
+
+                    <div class="channel-object-no-preview">
+
+                      {{#origin}}
+                        {{#url}}
+                          <span class="go-to-source-intro">
+                            {{i18n.site.object.preview_unavailable_intro}}
+                          </span>
+                          <a class="go-to-source" href="{{.}}">{{i18n.site.object.preview_unavailable_source}}</a>
+                        {{/url}}
+                        {{#institution_name}}
+                          <span class="go-to-source-explanation">
+                            {{i18n.site.object.preview_unavailable_explanation}}
+                            <a class="link-black-blue" href="{{url}}">{{.}}<span class="svg-icon-external"></span></a>
+                          </span>
+                        {{/institution_name}}
+                      {{/origin}}
+
+                    </div>
                   {{/empty_item}}
                   {{^empty_item}}
                     {{#items}}
@@ -63,7 +81,6 @@
                         <div class="media-poster{{#playable}} contains-playable{{/playable}}">
                           <div {{#playable}}class="playable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
                             <div class="zoomable">
-                              {{>molecules/components/thumb-icon}}
                             </div>
                             <div class="media-options">
 
