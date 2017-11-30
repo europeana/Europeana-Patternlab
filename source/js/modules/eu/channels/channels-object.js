@@ -1665,9 +1665,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           params = $.extend({}, params, $.url(backUrl).param());
         }
 
-        //delete params['l[r]'];
-        //delete params['l[t]'];
-        //delete params['l[p][q]'];
         delete params['l'];
 
         searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
