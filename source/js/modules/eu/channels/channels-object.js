@@ -6,7 +6,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var viewerIIIF      = null;
   var videoPlayer     = null;
   var audioPlayer     = null;
-
+  var oembedPlayer    = null;
+  
   var nextItem        = null;
   var prevItem        = null;
 
@@ -541,7 +542,24 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       });
     }
+    else if(type == 'oembed'){
+
+      var container = $('.object-media-viewer .object-media-oembed');
+
+      if(oembedPlayer){
+        container.removeClass('is-hidden');
+        oembedPlayer.init(container, data.html);
+      }
+      else{
+        require(['media_player_oembed'], function(viewer){
+          oembedPlayer = viewer;
+          container.removeClass('is-hidden');
+          oembedPlayer.init(container, item.data('html'));
+        });
+      }
+    }
     else{
+      alert('type not implemented: ' + type)
       removeOldMedia();
     }
 
