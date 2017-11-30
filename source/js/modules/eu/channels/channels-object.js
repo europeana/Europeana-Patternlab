@@ -530,7 +530,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         var media = {
           url:       uri,
           data_type: type,
-          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          mime_type: item.data('mime-type'),
           thumbnail: thumbnail,
           height:    '400px'
         };
