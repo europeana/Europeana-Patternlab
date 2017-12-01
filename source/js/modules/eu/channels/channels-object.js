@@ -6,7 +6,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var viewerIIIF      = null;
   var videoPlayer     = null;
   var audioPlayer     = null;
-
+  var oembedPlayer    = null;
+  
   var nextItem        = null;
   var prevItem        = null;
 
@@ -530,7 +531,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         var media = {
           url:       uri,
           data_type: type,
-          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          mime_type: item.data('mime-type'),
           thumbnail: thumbnail,
           height:    '400px'
         };
@@ -541,7 +542,24 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       });
     }
+    else if(type == 'oembed'){
+
+      var container = $('.object-media-viewer .object-media-oembed');
+
+      if(oembedPlayer){
+        container.removeClass('is-hidden');
+        oembedPlayer.init(container, data.html);
+      }
+      else{
+        require(['media_player_oembed'], function(viewer){
+          oembedPlayer = viewer;
+          container.removeClass('is-hidden');
+          oembedPlayer.init(container, item.data('html'));
+        });
+      }
+    }
     else{
+      alert('type not implemented: ' + type)
       removeOldMedia();
     }
 
@@ -1647,9 +1665,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           params = $.extend({}, params, $.url(backUrl).param());
         }
 
-        delete params['l[r]'];
-        delete params['l[t]'];
-        delete params['l[p][q]'];
+        delete params['l'];
 
         searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
 
