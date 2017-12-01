@@ -563,11 +563,18 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     // carousel
+
     .channel-object-media-nav {
-      margin-left:      calc((1.05634% + 1rem) * -1);
-      margin-right:     calc((1.05634% + 1rem) * -1);
-      position:         relative;
-      width: calc(100% + ((1.05634% + 1rem) * 2));
+      margin-left:        calc((1.05634% + 1rem) * -1);
+      margin-right:       calc((1.05634% + 1rem) * -1);
+      position:           relative;
+      -webkit-transition: opacity 0.5s ease-in;
+      transition:         opacity 0.5s ease-in;
+      width:              calc(100% + ((1.05634% + 1rem) * 2));
+
+      &.js-transparent{
+        opacity: 0;
+      }
 
       .media-thumb-section {
 

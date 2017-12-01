@@ -7,7 +7,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var videoPlayer     = null;
   var audioPlayer     = null;
   var oembedPlayer    = null;
-  
+
   var nextItem        = null;
   var prevItem        = null;
 
@@ -548,7 +548,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       if(oembedPlayer){
         container.removeClass('is-hidden');
-        oembedPlayer.init(container, data.html);
+        oembedPlayer.init(container, item.data('html'));
       }
       else{
         require(['media_player_oembed'], function(viewer){
@@ -559,7 +559,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       }
     }
     else{
-      alert('type not implemented: ' + type)
+      log('type not implemented: ' + type);
       removeOldMedia();
     }
 
@@ -862,7 +862,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var exhibitionUrl = baseUrl + '/exhibition.json';
     var galleryUrl    = baseUrl + '/gallery.json';
     var genericUrl    = baseUrl + '/promoted.json';
-//    var nextprevUrl   = baseUrl + '/nextprev.json';
     var newsUrl       = baseUrl + '/news.json';
 
     var elements      = {};
@@ -1184,7 +1183,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       if(markup && markup.length > 0){
 
-        $('.object-details').removeClass('no-right-column').addClass('has-right-column');
         $('<div class="channel-object-actions">').insertAfter('.channel-object-overview').append(markup);
 
         promotions = $('.collections-promos');
@@ -1203,6 +1201,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           });
         }
         resetZoomable();
+      }
+      else{
+        $('.object-details').removeClass('has-right-column').addClass('no-right-column');
       }
     });
   }
@@ -1485,6 +1486,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   var showMediaThumbs = function(data){
 
+    // alert('smt 1');
+
     var noItems = $('.object-media-nav li').length;
 
     if(noItems > 1){
@@ -1514,6 +1517,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           if((mediaThumbs.outerWidth(true) - totalItemW) > (totalItemW / noItems)){
             carousel.loadMore();
           }
+
+          setTimeout(function(){
+            $('.channel-object-media-nav').removeClass('js-transparent');
+          }, 2100);
         }
       );
     }
