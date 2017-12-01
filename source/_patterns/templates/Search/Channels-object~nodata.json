@@ -49,7 +49,7 @@
     }
   },
   "navigation": {
-    "back_url": "javascript:alert('go back');",
+    "back_url": "search.json",
     "back_label": "Return",
     "last_label": "item detail",
     "next_prev": false,

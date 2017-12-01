@@ -882,7 +882,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var done = function(){
       if(returned == expected && Object.keys(elements).length > 0){
 
-        var slideRail = $('<div class="slide-rail"><div class="collections-promos js-swipe-not-stacked"></div></div>');
+        var markup    = $('<div class="collections-promos js-swipe-not-stacked"></div>');
         var sequence  = ['next', 'exhibition', 'gallery', 'news', 'entity', 'generic', 'previous'];
 
         if(!elements['next']){
@@ -895,11 +895,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           var key = this;
           if(elements[key]){
             $.each(elements[key], function(){
-              slideRail.find('.collections-promos').append(this);
+              markup.append(this);
             });
           }
         });
-        callback(slideRail);
+        callback(markup);
       }
     };
 
@@ -909,7 +909,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       $.getJSON(entityUrl).done(function(data){
         returned ++;
-        processCallback(Mustache, data.entity_promo, 'template-promo-entity', 'entity');
+        processCallback(Mustache, data, 'template-promo-entity', 'entity');
         done();
       }).error(function(){
         log('no result for entities');
@@ -1183,7 +1183,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       if(markup && markup.length > 0){
 
-        $('<div class="channel-object-actions">').insertAfter('.channel-object-overview').append(markup);
+
+        $('.channel-object-actions .slide-rail').empty().append(markup);
 
         promotions = $('.collections-promos');
 
