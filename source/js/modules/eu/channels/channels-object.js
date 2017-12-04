@@ -860,7 +860,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var entityUrl     = baseUrl + '/entity.json';
     var exhibitionUrl = baseUrl + '/exhibition.json';
-    var galleryUrl    = baseUrl + '/gallery.json';
+    var galleryUrl    = baseUrl + '/galleries.json';
     var genericUrl    = baseUrl + '/promoted.json';
     var newsUrl       = baseUrl + '/news.json';
 
@@ -933,8 +933,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $.getJSON(galleryUrl).done(function(data){
         returned ++;
         if(data){
-          processCallback(Mustache, data, 'template-promo-gallery', 'gallery');
-        }
+          $.each(data, function(i, ob){
+            processCallback(Mustache, ob, 'template-promo-gallery', 'gallery');
+          });
+        }        
         done();
       }).error(function(){
         log('no result for galleries');

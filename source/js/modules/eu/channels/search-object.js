@@ -198,7 +198,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
           $.each(data, function(i, item){
 
-            var newEntry = template.html();
+            var newEntry = $(template.html());
 
             addToDom.push(newEntry);
 
@@ -629,7 +629,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     return dimensions.concat(gaData);
   };
 
-  var bindAnalyticsEventsSocial = function(){
+  var bindAnalyticsEventsSocial = function(ga){
     $('.object-social .social-share a').on('click', function(){
       var socialNetwork = $(this).find('.icon').attr('class').replace('icon ', '').replace(' icon', '').replace('icon-', '');
       ga('send', {
@@ -642,7 +642,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   };
 
   var bindAnalyticsEventsMLT = function(){
-    require(['ga'], function(){
+    require(['ga'], function(ga){
       $('.mlt .left').add($('.mlt .right')).on('click', function(){
         ga('send', {
           hitType: 'event',
@@ -655,7 +655,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
   };
 
-  var bindAnalyticsEvents = function(){
+  var bindAnalyticsEvents = function(ga){
 
     // Redirect
 
@@ -765,9 +765,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   }
 
   function initPage(searchForm){
-    require(['ga'], function(){
-      bindAnalyticsEvents();
-      bindAnalyticsEventsSocial();
+    require(['ga'], function(ga){
+      bindAnalyticsEvents(ga);
+      bindAnalyticsEventsSocial(ga);
     });
     bindAttributionToggle();
     bindDownloadButton();

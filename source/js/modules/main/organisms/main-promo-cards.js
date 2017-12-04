@@ -69,7 +69,7 @@ require(['jquery'], function($) {
           else if(window.template_id == 'template-promo-exhibition'){
             template.after(Mustache.render(template.text(), data['exhibition_promo']));
           }
-          else if(window.template_id == 'template-promo-generic' || window.template_id == 'template-promo-news'){
+          else if(window.template_id == 'template-promo-generic' || window.template_id == 'template-promo-gallery' || window.template_id == 'template-promo-news'){
             template.after(Mustache.render(template.text(), data[0]));
           }
           else{
