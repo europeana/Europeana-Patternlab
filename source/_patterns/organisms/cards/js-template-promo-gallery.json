@@ -1,0 +1,29 @@
+{
+  "css_files":
+  [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path":      "/js/modules/require.js",
+      "data_main": "/js/modules/main/organisms/main-promo-cards"
+    }
+  ],
+  "js_vars": [
+    {
+      "name":  "mock_ajax",
+      "value": "{ 'mappings': [{'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'gallery.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-generic'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'search.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100, 'portal_object-promos-exhibition': 1500}}"
+    },
+    {
+      "name":  "ajax_call",
+      "value": "gallery.json"
+    },
+    {
+      "name":  "template_id",
+      "value": "template-promo-gallery"
+    }
+  ]
+}

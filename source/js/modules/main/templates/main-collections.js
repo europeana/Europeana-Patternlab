@@ -165,18 +165,6 @@ require.config({
   waitSeconds: 20
 });
 
-// stop the ghostery browser plugin breaking the site
-window.fixGA = function(ga){
-  var gaType = (typeof ga).toUpperCase();
-  if(gaType != 'FUNCTION'){
-    console.log('make fake ga');
-    return function(){
-      console.log('ga disabled on this machine');
-    };
-  }
-  return ga;
-};
-
 require(['jquery'], function( $ ) {
   // require(['optimizely']);
 
@@ -192,8 +180,6 @@ require(['jquery'], function( $ ) {
 
       require(['ga'],
         function(ga) {
-          ga = window.fixGA(ga);
-
           channels.getPromisedPageJS().done(function(page){
             if(page && typeof page.getAnalyticsData != 'undefined'){
               var analyticsData = page.getAnalyticsData();

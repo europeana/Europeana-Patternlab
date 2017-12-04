@@ -33,7 +33,7 @@
 
     {{! Main object text info section }}
 
-    <section class="section object-details no-right-column">
+    <section class="section object-details has-right-column">
       <div class="channel-object-overview">
         {{#object}}
           <div>
@@ -184,7 +184,7 @@
                       <h2 class="channel-object-title">{{i18n.site.object.title_unavailable}}</h2>
                     {{/title}}
 
-                    <div class="channel-object-media-nav">
+                    <div class="channel-object-media-nav js-transparent">
                       {{> molecules/components/media-nav}}
                     </div>
 
@@ -484,122 +484,30 @@
 
       {{! end of object info column }}
 
-      <script id="template-promo-entity" type="text/x-mustache">
-        <div class="collections-promo-item entity-promo img-as-bg">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  <span class="bg-img" style="background-image:url('[[img.src]]');"></span>
-                </div>
-              </div>
-              {{> molecules/components/search/channel-object-promo-text-js}}
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-entity}}
 
-      <script id="template-promo-exhibition" type="text/x-mustache">
-        <div class="collections-promo-item exhibition">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  {{> organisms/virtual-exhibitions/foyer-card-js}}
-                </div>
-              </div>
-              {{> molecules/components/search/channel-object-promo-text-js}}
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-exhibition}}
 
-      <script id="template-promo-gallery" type="text/x-mustache">
-        <div class="collections-promo-item gallery">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  {{> molecules/components/image-set-js}}
-                </div>
-              </div>
-              <span class="gallery-image-count">[[count]] {{i18n.global.labels.images}}</span>
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-gallery}}
 
-      <script id="template-promo-generic" type="text/x-mustache">
-        <div class="collections-promo-item generic-promo img-as-bg">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  [[#label]]<div class="category-flag">[[.]]</div>[[/label]]
-                  <img src="[[img.src]]" class="js-remove">
-                  <a href="[[url]]" class="bg-img" style="background-image:url('[[img.src]]');"></a>
-                </div>
-              </div>
-              {{> molecules/components/search/channel-object-promo-text-js}}
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-generic}}
 
-      <script id="template-promo-next-prev" type="text/x-mustache">
-        [[#is_next]]
-          <span class="next-item-title">
-            {{ i18n.site.object.next-item }}
-          </span>
-        [[/is_next]]
-        [[#is_prev]]
-          <span class="previous-item-title">
-            {{ i18n.site.object.previous-item }}
-          </span>
-        [[/is_prev]]
-        <div class="channel-object-next-prev collections-promo-item separator-after[[#is_next]] object-next[[/is_next]][[#is_prev]] object-prev[[/is_prev]]">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  <a href="[[url]]" [[#img]]class="bg-link" style="background-image:url('[[src]]');"[[/img]]>
-                  </a>
-                </div>
-              </div>
-              {{> molecules/components/search/channel-object-promo-text-js}}
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-next-prev}}
 
-      <script id="template-promo-news" type="text/x-mustache">
-        <div class="collections-promo-item img-as-bg text-centric">
-          <div class="content-outer">
-            <div class="content-inner">
-              <div class="content-outer">
-                <div class="content-inner">
-                  <a href="[[url]][[^url]]#[[/url]]" class="bg-img" style="background-image:url('[[img.src]]');">
-                  </a>
-                </div>
-              </div>
-              {{> molecules/components/search/channel-object-promo-text-js}}
-            </div>
-          </div>
-        </div>
-      </script>
+      {{> organisms/cards/js-template-promo-news}}
 
-      {{#object.promos}}
       <div class="channel-object-actions">
-
-
         <div class="slide-rail">
+          {{> organisms/cards/template-promo-preload }}
+        </div>
+      </div>
 
+      {{#XXXobject.promos}}
+      <div class="channel-object-actions">
+        <div class="slide-rail">
           <div class="collections-promos js-swipe-not-stacked">
-
-
             {{#generic_promos}}
             {{/generic_promos}}
-
             {{#next_promo}}
               {{! repeat of 2nd (1st) item}}
               {{#prev_promo}}
@@ -624,12 +532,10 @@
                 </div>
               {{/prev_promo}}
             {{/next_promo}}
-
           </div>
         </div>
-
       </div>
-      {{/object.promos}}
+      {{/XXXobject.promos}}
       {{! end object actions }}
 
       <div class="channel-object-similar">

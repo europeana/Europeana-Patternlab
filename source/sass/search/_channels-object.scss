@@ -2,6 +2,36 @@
 
 $green-grey-bg:                    #f4f4f4;
 
+.channel-object-viewmore {
+  text-align: right;
+
+  h3 {
+    color:         $gray30;
+    display:       block;
+    font-weight:   normal;
+    line-height:   50px;
+    margin-bottom: 0;
+    width:         auto;
+  }
+
+  a {
+    color: $linkblue;
+    display: block;
+    font-size: $font-size-sm;
+  }
+}
+
+.viewmore-image {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  display: block;
+  float: right;
+  height: 50px;
+  margin-left: 2em;
+  width: 50px;
+}
+
 
 .channels-item {
 
@@ -327,36 +357,6 @@ $green-grey-bg:                    #f4f4f4;
     color: $gray-light;
   }
 
-  .channel-object-viewmore {
-    text-align: right;
-
-    h3 {
-      color:         $gray30;
-      display:       block;
-      font-weight:   normal;
-      line-height:   50px;
-      margin-bottom: 0;
-      width:         auto;
-    }
-
-    a {
-      color: $linkblue;
-      display: block;
-      font-size: $font-size-sm;
-    }
-  }
-
-  .viewmore-image {
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    display: block;
-    float: right;
-    height: 50px;
-    margin-left: 2em;
-    width: 50px;
-  }
-
   .channel-object-no-preview,
   .object-origin{
     .svg-icon-external{
@@ -563,11 +563,18 @@ $green-grey-bg:                    #f4f4f4;
     }
 
     // carousel
+
     .channel-object-media-nav {
-      margin-left:      calc((1.05634% + 1rem) * -1);
-      margin-right:     calc((1.05634% + 1rem) * -1);
-      position:         relative;
-      width: calc(100% + ((1.05634% + 1rem) * 2));
+      margin-left:        calc((1.05634% + 1rem) * -1);
+      margin-right:       calc((1.05634% + 1rem) * -1);
+      position:           relative;
+      -webkit-transition: opacity 0.5s ease-in;
+      transition:         opacity 0.5s ease-in;
+      width:              calc(100% + ((1.05634% + 1rem) * 2));
+
+      &.js-transparent{
+        opacity: 0;
+      }
 
       .media-thumb-section {
 
