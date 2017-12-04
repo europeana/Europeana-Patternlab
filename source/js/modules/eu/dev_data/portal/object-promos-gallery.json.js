@@ -24,7 +24,7 @@ define([], function(){
 
   return {
     getData: function(params){
-      return promo;
+      return [promo, promo];
     }
   };
 });
