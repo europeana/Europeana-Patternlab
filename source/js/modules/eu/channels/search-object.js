@@ -198,7 +198,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
           $.each(data, function(i, item){
 
-            var newEntry = template.html();
+            var newEntry = $(template.html());
 
             addToDom.push(newEntry);
 
