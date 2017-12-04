@@ -352,8 +352,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
     require(['ga'], function(ga){
 
-      ga = window.fixGA(ga);
-
       $('.item-origin .external').on('click', function(){
         var href =  $(this).attr('href');
         ga('send', {

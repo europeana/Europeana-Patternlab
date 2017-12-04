@@ -1,6 +1,5 @@
 define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, Mustache) {
 
-  var ga = window.fixGA(ga);
   var channelData = null;
 
   function log(msg){
