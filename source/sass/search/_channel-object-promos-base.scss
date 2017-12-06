@@ -245,15 +245,16 @@ $grey-preload-text:                $gray-lightest;
   .promo-tags,
   .promo-title,
   .text-main{
-    padding: 0 1em;
+    padding: 0 1.125rem;
   }
+
 
   .promo-title{
     display:     inline-block;
     line-height: 1.4em;
     max-height:  3.8em;
     overflow:    hidden;
-    padding-top: 1em;
+    padding-top: 0.75em;
 
     &.with-icon{
       padding-right: 0;
@@ -264,7 +265,7 @@ $grey-preload-text:                $gray-lightest;
         max-height: 2.4em;
       }
       @media all and (min-width: $bp-xl){
-        max-height:  3.8em;
+        max-height:  2.8em;
       }
     }
   }
@@ -277,7 +278,7 @@ $grey-preload-text:                $gray-lightest;
   .date-and-type{
     font-size:      $font-size-slightly-smaller;
     font-weight:    bold;
-    padding-bottom: $pad-quarter;
+    padding-bottom: 0.938rem;
     padding-top:    1em;
     position:       relative;
 
@@ -303,7 +304,7 @@ $grey-preload-text:                $gray-lightest;
     font-size:     $font-size-sm;
     font-style:    italic;
     overflow:      hidden;
-    padding:       0.25em 1.3em 0.25em 1.3em;
+    padding:       0.938em 1.125rem;
     text-overflow: ellipsis;
     white-space:   nowrap;
   }
@@ -312,8 +313,8 @@ $grey-preload-text:                $gray-lightest;
     font-size:      0.875em;
     max-height:     2.1em;
     overflow:       hidden;
-    padding-bottom: 0.3em;
-    padding-top:    0.2em;
+    padding-bottom: 0.15em;
+    padding-top:    0.15em;
 
     li{
       display: inline-block;
@@ -329,7 +330,7 @@ $grey-preload-text:                $gray-lightest;
 
   .type{
     border-radius:  4px;
-    bottom:         4px;
+    bottom:         0.9rem;
     color:          #fff;
     font-size:      $font-size-slightly-smaller;
     font-weight:    normal;
@@ -347,7 +348,7 @@ $grey-preload-text:                $gray-lightest;
 .collections-promo-overlay{
 
   background-color: #f1f0ee;
-  bottom:           2.4rem;
+  bottom:           3.8rem;
   font-size:        0.875em;
   left:             -4px;
   position:         absolute;
@@ -357,7 +358,7 @@ $grey-preload-text:                $gray-lightest;
     background-color: #f1f0ee;
     box-shadow: -2px 0 4px -2px rgba(0, 0, 0, 0.25);
     left:       4px;
-    padding:    1em 1em 0.25em 1em;
+    padding:    0.938rem 1.125rem 0.25em 1.125rem;
     position:   relative;
   }
 
@@ -410,14 +411,9 @@ $grey-preload-text:                $gray-lightest;
     background-position: center;
     background-size:     cover;
     display:             block;
-    filter:              grayscale(100%);
     height:              100%;
     transition:          filter 0.3s ease-out;
     width:               100%;
-
-    &:hover{
-      filter: grayscale(0%);
-    }
   }
 
   &.separator-after{
@@ -566,7 +562,7 @@ $grey-preload-text:                $gray-lightest;
     width:            1.7rem;
   }
 
-  .icon-tv{
+  .icon-video{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' %3E%3Cpath d='M20.455 1.364q.556 0 .96.404t.404.96v15q0 .556-.407.96t-.96.404h-6.818v1.313l3.813 1.92q.277.075.277.403 0 .202-.126.328t-.328.126H4.547q-.354 0-.455-.354-.05-.354.253-.505l3.838-1.92V19.09H1.365q-.556 0-.96-.402T0 17.728v-15q0-.557.405-.96t.96-.405h19.09zm-1.364 15V4.09H2.73v12.274h16.36z'%3E%3C/path%3E%3C/svg%3E");
     height:           1.9em;
     transform:        translate(-0.8em, 1.4em) scale(0.7);
