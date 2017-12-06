@@ -1132,14 +1132,16 @@ $green-grey-bg:                    #f4f4f4;
         padding: 5px;
 
         .icon{
-          -webkit-transform: scale(0.7) translate(-0.5em, -0.5em);
-          transform:         scale(0.7) translate(-0.5em, -0.5em);
+          -webkit-transform: scale(0.45) translate(-0.85em, -0.85em);
+          transform:         scale(0.45) translate(-0.85em, -0.85em);
         }
       }
 
       &.open{
         .icon{
           background-position: 0.18em 0.14em;
+          -webkit-transform:   scale(0.7) translate(-0.05em, -0.05em);
+          transform:           scale(0.7) translate(-0.05em, -0.05em);
         }
       }
 
