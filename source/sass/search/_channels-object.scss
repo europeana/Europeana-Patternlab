@@ -35,7 +35,11 @@ $green-grey-bg:                    #f4f4f4;
 
 .channels-item {
 
-  background: $offwhite;
+  .with-transparency .object-nav{
+    background: rgba(241, 241, 241, 0.85);
+  }
+
+  background: #ededed;
 
   .channel-object-extended-information,
   .channel-object-information{
