@@ -572,8 +572,8 @@ $green-grey-bg:                    #f4f4f4;
       margin-left:        calc((1.05634% + 0.5rem) * -1);
       margin-right:       calc((1.05634% + 0.5rem) * -1);
       position:           relative;
-      -webkit-transition: opacity 0.5s ease-in;
-      transition:         opacity 0.5s ease-in;
+      -webkit-transition: opacity 0.3s linear;
+      transition:         opacity 0.3s linear;
       width:              calc(100% + (1.05634% + 1rem));
 
       &.js-transparent{
