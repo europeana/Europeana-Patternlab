@@ -82,7 +82,8 @@
       {
         "value": "Paintings",
         "remove": "removeurl",
-        "name": "fieldname"
+        "name": "fieldname",
+        "text": "what: Paintings"
       }
     ]
   },
