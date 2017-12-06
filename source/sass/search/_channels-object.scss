@@ -35,11 +35,11 @@ $green-grey-bg:                    #f4f4f4;
 
 .channels-item {
 
+  background: #ededed;
+
   .with-transparency .object-nav{
     background: rgba(241, 241, 241, 0.85);
   }
-
-  background: #ededed;
 
   .channel-object-extended-information,
   .channel-object-information{
@@ -569,12 +569,12 @@ $green-grey-bg:                    #f4f4f4;
     // carousel
 
     .channel-object-media-nav {
-      margin-left:        calc((1.05634% + 1rem) * -1);
-      margin-right:       calc((1.05634% + 1rem) * -1);
+      margin-left:        calc((1.05634% + 0.5rem) * -1);
+      margin-right:       calc((1.05634% + 0.5rem) * -1);
       position:           relative;
       -webkit-transition: opacity 0.5s ease-in;
       transition:         opacity 0.5s ease-in;
-      width:              calc(100% + ((1.05634% + 1rem) * 2));
+      width:              calc(100% + (1.05634% + 1rem));
 
       &.js-transparent{
         opacity: 0;
@@ -662,13 +662,13 @@ $green-grey-bg:                    #f4f4f4;
     border-radius:       1.125em;
     box-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.5);
     height:              66px;
-    left:                -0.2em;
+    left:                0;
     opacity:             1;
     top:                 0.42em;
 
     -webkit-transform:   scale(0.75);
     transform:           scale(0.75);
-
+    transform-origin:    left;
 
     -webkit-transition:  opacity 0.3s ease-in;
     transition:          opacity 0.3s ease-in;
@@ -686,6 +686,7 @@ $green-grey-bg:                    #f4f4f4;
     background-position: 0.65em 0.59em;
     left:                auto;
     right:               0;
+    transform-origin:    right;
   }
 
   .channel-object-similar{
@@ -1289,14 +1290,14 @@ $green-grey-bg:                    #f4f4f4;
         display:        -webkit-flex;
         display:        flex;
         flex-direction: column;
-        margin-left:    1em;
+        margin-left:    1rem;
         width:          calc(100% - (400px + 2rem));
 
         .channel-object-media-nav {
-          margin-left: -0.65em;
-          margin-right: -0.65em;
-          order: 4;
-          width: calc(100% + 1.3em);
+          margin-left:  0;
+          margin-right: 0;
+          order:        4;
+          width:        100%;
 
           .media-thumb-section{
             margin: 1em 0;

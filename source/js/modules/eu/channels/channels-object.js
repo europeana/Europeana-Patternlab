@@ -694,10 +694,15 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             data.extended_information = true;
             data.id = 'annotations';
             template.after(Mustache.render(template.text(), data));
-            initExtendedInformation();
           }
+          initExtendedInformation(true);
+        }).error(function(){
+          initExtendedInformation(true);
         });
       });
+    }
+    else{
+      initExtendedInformation(true);
     }
   }
 
@@ -936,7 +941,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           $.each(data, function(i, ob){
             processCallback(Mustache, ob, 'template-promo-gallery', 'gallery');
           });
-        }        
+        }
         done();
       }).error(function(){
         log('no result for galleries');
@@ -1493,8 +1498,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   var showMediaThumbs = function(data){
 
-    // alert('smt 1');
-
     var noItems = $('.object-media-nav li').length;
 
     if(noItems > 1){
@@ -1618,7 +1621,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       });
     });
 
-    initExtendedInformation(true);
     loadAnnotations();
 
     if(!$('.channel-media-wrap').hasClass('empty')){
