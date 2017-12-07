@@ -1206,7 +1206,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         if(foyerCards.length > 0){
           require(['ve_state_card'], function(Card){
             foyerCards.each(function(){
-              new Card($(this), {slideshow: true});
+              new Card($(this), {slideshow: false});
             });
           });
         }
