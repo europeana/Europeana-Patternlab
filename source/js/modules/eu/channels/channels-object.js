@@ -992,7 +992,40 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
   }
 
+  function updateSlideNav(EuSlide, cmp, fwd, back){
+
+    var nav = EuSlide.getNavOptions(cmp);
+
+    if(nav[0]){
+      fwd.removeClass('disabled');
+    }
+    else{
+      fwd.addClass('disabled');
+    }
+    if(nav[1]){
+      back.removeClass('disabled');
+    }
+    else{
+      back.addClass('disabled');
+    }
+  }
+
   function initPromos(EuSlide){
+
+    var fwd  = $('.channel-object-actions .eu-slide-nav-right');
+    var back = $('.channel-object-actions .eu-slide-nav-left');
+
+    fwd.data('dir', 1);
+    back.data('dir', -1);
+
+    var navClick = function(){
+      if(promotions.length > 0){
+        EuSlide.simulateSwipe(promotions, $(this).data('dir'), null, function(){ updateSlideNav(EuSlide, promotions, fwd, back); });
+      }
+    };
+
+    back.on('click', navClick);
+    fwd.on('click', navClick);
 
     promotions.updateSwipe = function(){
       var totalW = (promotions.children().length - 1) * 32;
@@ -1002,11 +1035,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         totalW = totalW + $(this).outerWidth();
       });
       promotions.css('width', totalW + 'px');
+      updateSlideNav(EuSlide, promotions, fwd, back);
     };
 
     promotions.css('width', '5000px');
-
-    EuSlide.makeSwipeable(promotions, {'not-on-stacked': true});
+    promotions.on('eu-swiped', function(){
+      updateSlideNav(EuSlide, promotions, fwd, back);
+    });
+    EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
 
     if(typeof(Storage) != 'undefined') {
 
@@ -1370,10 +1406,24 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(EUAccordionTabs, Ellipsis){
 
+        var back = $('.suggestions-section .eu-slide-nav-left');
+        var fwd  = $('.suggestions-section .eu-slide-nav-right');
+
+        var updateActiveSwipeableNav = function(){
+          var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+          if(activeSwipeable.length > 0){
+            updateSlideNav(EuSlide, activeSwipeable, fwd, back);
+          }
+        };
+
+        back.data('dir', -1);
+        fwd.data('dir', 1);
+
         EUAccordionTabs.init(suggestions, {
           active: 0,
           fnOpenTab: function(){
             $(window).trigger('ellipsis-update');
+            updateActiveSwipeableNav();
           },
           lockTabs: true
         });
@@ -1388,7 +1438,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             var slideContent = tab.next('.tab-content').find('.slide-content');
 
             $.each(data.items, function(i, itemData){
-
               slideContent.append(Mustache.render(template, itemData));
             });
 
@@ -1400,7 +1449,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
               slideContent.css('width', totalW + 'px');
               return totalW;
             };
-            EuSlide.makeSwipeable(slideContent);
+            EuSlide.makeSwipeable(slideContent, {'transition-on-simulate': true});
+            slideContent.on('eu-swiped', updateActiveSwipeableNav);
             return data;
           },
           function(data, tab, index, completed){
@@ -1414,12 +1464,27 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             });
 
             if(completed){
+
               suggestions.closest('.slide-rail').css('left', '0px');
 
               suggestions.updateSwipe = function(){
+
                 EUAccordionTabs.setOptimalSize(suggestions);
+
+                setTimeout(function(){
+                  updateActiveSwipeableNav();
+                }, 1);
               };
 
+              var navClick = function(){
+                var activeSwipeable = $('.suggestions .tab-content.active .js-swipeable');
+                if(activeSwipeable.length > 0){
+                  EuSlide.simulateSwipe(activeSwipeable, $(this).data('dir'), null, updateActiveSwipeableNav);
+                }
+              };
+
+              back.on('click', navClick);
+              fwd.on('click', navClick);
               EuSlide.makeSwipeable(suggestions);
             }
           }

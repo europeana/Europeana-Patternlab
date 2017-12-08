@@ -1,6 +1,22 @@
 define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
-  var swipeables = [];
+  var swipeables      = [];
+  var transitionEvent = (function (){
+    var t;
+    var el = document.createElement('fakeelement');
+    var transitions = {
+      'transition'       :'transitionend',
+      'OTransition'      :'oTransitionEnd',
+      'MSTransition'     :'msTransitionEnd',
+      'MozTransition'    :'transitionend',
+      'WebkitTransition' :'webkitTransitionEnd'
+    };
+    for(t in transitions){
+      if(el.style[t] !== undefined){
+        return transitions[t];
+      }
+    }
+  }());
 
   function log(msg){
     console.log('EuSlide: ' + msg);
@@ -135,6 +151,7 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
       'left': Math.max(Math.min(newLeft, 0), 0 - ssn)
     });
     cmp.find('.slide-rail.reset-needed').css('left', 0).removeClass('reset-needed');
+    cmp.trigger('eu-swiped');
   }
 
   function handleBinding(){
@@ -192,10 +209,82 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
 
     swipeables.push(cmp);
 
-    if(conf && conf['not-on-stacked']){
-      cmp.addClass('js-swipe-not-stacked');
+    if(conf){
+      if(conf['not-on-stacked']){
+        cmp.addClass('js-swipe-not-stacked');
+      }
+      if(conf['transition-on-simulate']){
+        cmp.data('js-swipe-transition', true);
+      }
     }
+
     handleBinding();
+  }
+
+  function getNavOptions(cmp){
+
+    var sr   = cmp.closest('.slide-rail');
+    var l    = parseInt(sr.css('left'));
+    var ssn  = swipeSpaceNeeded(cmp);
+    var back = false;
+
+    cmp.parents('.slide-rail').each(function(){
+      if(parseInt($(this).css('left')) < 0){
+        back = true;
+      }
+    });
+    return [(ssn + l) > 0, back];
+  }
+
+  function simulateSwipe(cmp, dir, dist, callback){
+
+    var sCmp      = cmp.closest('.slide-rail');
+    var ssn       = swipeSpaceNeeded(cmp);
+    var left      = parseInt(sCmp.css('left'));
+    dist          = dist ? dist : sCmp.width();
+    var available = dir == 1 ? Math.min((ssn + left), dist) : Math.min((-1 * left), dist);
+
+    var recurseOrCallback = function(){
+      setTimeout(function(){
+        if(available < dist){
+          var p = sCmp.closest('.js-swipeable');
+          if(p.length > 0){
+            simulateSwipe(p, dir, dist - available, callback);
+          }
+          else if(callback){
+            callback();
+          }
+        }
+        else if(callback){
+          callback();
+        }
+      }, 100);
+    };
+
+    var transitionEnd = function(){
+      sCmp.off(transitionEvent);
+      sCmp.removeClass('js-swipe-transition');
+      recurseOrCallback();
+    };
+
+    if(cmp.data('js-swipe-transition')){
+      sCmp.addClass('js-swipe-transition');
+      cmp.parents('.js-swipeable').data('js-swipe-transition', true);
+      sCmp.on(transitionEvent, transitionEnd);
+    }
+
+    var newVal = dir == 1 ? left - available : left + available;
+
+    if(parseInt(sCmp.css('left')) == newVal){
+      transitionEnd();
+    }
+    else{
+      sCmp.css('left', newVal);
+    }
+
+    if(!cmp.data('js-swipe-transition')){
+      recurseOrCallback();
+    }
   }
 
   function onResize(){
@@ -210,9 +299,9 @@ define(['jquery', 'util_resize', 'touch_move', 'touch_swipe'], function($){
   $(window).on('eu-slide-update', onResize);
 
   return {
-    makeSwipeable: function(cmp, conf){
-      makeSwipeable(cmp, conf);
-    }
+    makeSwipeable: makeSwipeable,
+    simulateSwipe: simulateSwipe,
+    getNavOptions: getNavOptions
   };
 
 });

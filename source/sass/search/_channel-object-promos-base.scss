@@ -15,7 +15,6 @@ $grey-preload-text:                $gray-lightest;
   background-color:   $green-grey-bg;
   box-shadow:         $box-shadow-panel;
   font-size:          $font-size-slightly-smaller;
-  margin:             auto;
 
   width:              $collections-promo-item-min-width;
 
@@ -304,7 +303,7 @@ $grey-preload-text:                $gray-lightest;
     font-size:     $font-size-sm;
     font-style:    italic;
     overflow:      hidden;
-    padding:       0.938em 1.125rem;
+    padding:       0.35em 1.125rem;
     text-overflow: ellipsis;
     white-space:   nowrap;
   }
@@ -348,7 +347,7 @@ $grey-preload-text:                $gray-lightest;
 .collections-promo-overlay{
 
   background-color: #f1f0ee;
-  bottom:           3.8rem;
+  bottom:           3.8em;
   font-size:        0.875em;
   left:             -4px;
   position:         absolute;

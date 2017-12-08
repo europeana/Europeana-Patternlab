@@ -139,13 +139,20 @@ $green-grey-bg:                    #f4f4f4;
     .date-and-type .date.with-type{
       max-width: 70%;
     }
+
+    .relation{
+      padding: 0.938em 1.125rem;
+    }
   }
 }
 
 @media all and (min-width: $bp-xl) {
 
   .collections-promo-item{
-    width:     100%;
+
+    margin-left:  auto;
+    margin-right: auto;
+    width:        100%;
 
     .content-text-inner.has-text:not(.has-title){
       .text-main{
