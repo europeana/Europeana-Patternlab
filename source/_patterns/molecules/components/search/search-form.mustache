@@ -36,7 +36,7 @@
             <li class="search-tag mlt">
               {{i18n.site.navigation.breadcrumb.results_list_mlt}}
               <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
-              <a href="{{remove}}" class="mlt_remove" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
+              <a href="{{remove}}" class="mlt_remove" data-role="remove"><span class="is-vishidden">{{i18n.global.actions.remove}} {{text}}{{^text}}{{value}}{{/text}}</span></a>
             </li>
         {{/is_mlt}}
         {{/input_values}}
@@ -44,15 +44,18 @@
         {{#input_values}}
           {{^is_mlt}}
             <li class="search-tag">
-              {{value}}
+              {{text}}
+              {{^text}}
+                {{value}}
+              {{/text}}
               <input type="hidden" name="{{name}}" value="{{value}}" class="js-hidden-search-term"/>
-              <a href="{{remove}}" data-role="remove"><span class="is-vishidden">Remove {{value}}</span></a>
+              <a href="{{remove}}" data-role="remove"><span class="is-vishidden">{{i18n.global.actions.remove}} {{text}}{{^text}}{{value}}{{/text}}</span></a>
             </li>
           {{/is_mlt}}
         {{/input_values}}
 
         {{#input_original.value}}
-          <li class="search-tag">{{.}}<a href="{{input_original.remove}}" data-role="remove"><span class="is-vishidden">Remove {{.}}</span></a></li>
+          <li class="search-tag">{{.}}<a href="{{input_original.remove}}" data-role="remove"><span class="is-vishidden">{{i18n.global.actions.remove}} {{.}}</span></a></li>
         {{/input_original.value}}
 
         <li class="search-input-item">

@@ -746,6 +746,11 @@ define(['jquery', 'jqScrollto'], function($) {
 
     var doScrollTo = function(el, callback) {
 
+      if(!self.initialised){
+        callback();
+        return;
+      }
+
       addCustomClasses();
 
       if(typeof el == 'undefined') {
@@ -780,7 +785,6 @@ define(['jquery', 'jqScrollto'], function($) {
      * @callback - fn
      * */
     var loadAndScroll = function(initiatingNode, backwards, keyedNode, callback){
-
       if(self.isLoading){
         return;
       }
@@ -1094,7 +1098,9 @@ define(['jquery', 'jqScrollto'], function($) {
             togglePrevNextLinks();
             setLoadPoint(node.id);
 
-            $('#' + node.id + '>a').focus();
+            if(self.initialised){
+              $('#' + node.id + '>a').focus();
+            }
             if(callback){
               callback();
             }
@@ -1177,7 +1183,6 @@ define(['jquery', 'jqScrollto'], function($) {
                   // we're on the root - remove the link
                   wrapper.find('.hierarchy-title a').wrapInner('<span/>');
                   wrapper.find('.hierarchy-title a span').unwrap();
-
                   self.treeCmp.jstree('open_node', pageNode);
                 }
                 else{
@@ -1298,17 +1303,12 @@ define(['jquery', 'jqScrollto'], function($) {
         log('openNode lfc ' + fChild.id);
 
         var prevNextCallback = function(){
-          // the root node is auto-opened - this may be the final act of initialisation
-          // TODO: test this after refactor
-          if(!self.initialised){
-            log('open_node handles onInit() call');
-            onInit();
-          }
 
           setLoadPoint(node.id);
-          hideSpinner();
-
-          $('#' + node.id + '>a').focus();
+          // hideSpinner();
+          if(self.initialised){
+            $('#' + node.id + '>a').focus();
+          }
           togglePrevNextLinks();
 
           addCustomClasses();
@@ -1318,6 +1318,7 @@ define(['jquery', 'jqScrollto'], function($) {
 
           if(!self.initialised){
             onInit();
+            hideSpinner();
           }
         };
 

@@ -110,17 +110,16 @@ a:hover > .ve-state-button-off,
 
   .ve-card-nav-left{
     left:    3px;
-    padding: 0.15em 0.15em 0.15em 0.05em;
+    .blue-black{
+      transform: translate(-0.275em, -0.15em) scale(0.5);
+    }
   }
 
   .ve-card-nav-right{
-    padding: 0.15em 0.05em 0.15em 0.15em;
     right:   3px;
-  }
-
-  .svg-icon-next,
-  .svg-icon-previous{
-    transform: scale(0.5);
+    .blue-black{
+      transform: translate(-0.15em, -0.15em) scale(0.5);
+    }
   }
 
   .ve-state-button-on,
