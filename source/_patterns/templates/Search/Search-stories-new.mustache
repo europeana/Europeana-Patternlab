@@ -24,16 +24,17 @@
 <section class="ugc-content section">
   <div class="lc">
     <div class="prose">
-    {{#content}}
-      {{#legend}}{{.}}{{/legend}}
-      {{#fields}}
-        {{#items}}
-          {{> molecules/forms/generic-field }}
-        {{/items}}
-      {{/fields}}
-
-      <input name="commit" value="{{i18n.site.ugc.actions.submit}}" class="btn inline-form-button submit" type="submit">
-    {{/content}}
+      {{#content}}
+        <form action="create">
+          {{#legend}}{{.}}{{/legend}}
+          {{#fields}}
+            {{#items}}
+              {{> molecules/forms/generic-field }}
+            {{/items}}
+          {{/fields}}
+          <input name="commit" value="{{i18n.site.ugc.actions.submit}}" class="btn inline-form-button submit" type="submit">
+        </form>
+      {{/content}}
     </div>
   </div>
 </section>
