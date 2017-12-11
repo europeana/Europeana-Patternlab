@@ -1,0 +1,47 @@
+{{> atoms/iconography/svgicons-search }}
+{{> organisms/global/header_v2}}
+
+<div role="main" id="maincontent">
+
+<section class="search-object">
+  <div class="object-nav cf">
+    <div class="object-nav-lists">
+      <ul class="breadcrumbs">
+        <li><a href="{{navigation.home_url}}"><span class="svg-icon-home"></span>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
+        <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="static-header">
+  <div class="lc">
+    <h1 class="title">{{ content.title }}</h1>
+    <p>{{ content.description }}</p>
+  </div>
+</section>
+
+<section class="ugc-content section">
+  <div class="lc">
+    <div class="prose">
+    {{#content}}
+      {{#legend}}{{.}}{{/legend}}
+      {{#fields}}
+        {{#items}}
+          {{> molecules/forms/generic-field }}
+        {{/items}}
+      {{/fields}}
+
+      <input name="commit" value="{{i18n.site.ugc.actions.submit}}" class="btn inline-form-button submit" type="submit">
+    {{/content}}
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- End Main -->
+
+{{> organisms/sections/banner }}
+
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

@@ -816,6 +816,11 @@
                 "auto-translate-page-short" : "Auto-translate items into",
                 "auto-translate-limit": "A maximum of 6 can be selected"
               }
+            },
+            "ugc":{
+              "actions": {
+                "submit": "Submit"
+              }
             }
         },
         "global": {

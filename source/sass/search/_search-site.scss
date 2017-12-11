@@ -1254,6 +1254,50 @@ html.redirecting{
 }
 
 
+// UGC / Stories
+
+.ugc-content{
+
+  label{
+    color:       $eu-blue;
+    font-weight: bold;
+    margin-top:  $space;
+
+    &.required::before{
+      content: '*';
+    }
+  }
+
+  .submit{
+    display: block;
+    margin-top: $space;
+  }
+
+  p{
+    padding: 0 $space;
+  }
+
+  .lc > .prose{
+    @media all and (min-width: $bp-med) {
+      @include span(18 of 24);
+      max-width: 40em;
+    }
+    padding-bottom: $space-triple;
+
+    p{
+      padding-left: 0;
+    }
+
+    p:first-child{
+      font-size: 1.5625em;
+    }
+  }
+  .sidebar{
+    @media all and (min-width: $bp-med) {
+      @include span(last 6 of 24);
+    }
+  }
+}
 
 
 
