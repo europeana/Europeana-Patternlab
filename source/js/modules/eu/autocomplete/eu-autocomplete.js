@@ -380,7 +380,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         doOnDone(data);
       })
       .error(function(e, f){
-        self.log('Error: ' + e + '  ' + f);
+        self.log('Error: ' + e.status + '  ' + f);
         self.hide();
       });
     };

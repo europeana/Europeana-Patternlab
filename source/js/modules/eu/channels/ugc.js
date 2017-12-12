@@ -5,17 +5,8 @@ define(['jquery', 'util_resize'], function ($){
     var autocompletes = $('[data-url]');
 
     if(autocompletes.length > 0){
-      require(['eu_autocomplete', 'util_resize', 'eu_mock_ajax'], function(Autocomplete){
+      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
         autocompletes.each(function(){
-
-          /*
-          Autocomplete.init({
-            selInput         : $(this),
-            url              : $(this).data('url'),
-            itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
-          });
-          */
-
           Autocomplete.init({
             fnPreProcess     : function(term, data){
               var escapeRegExp = function(str){
@@ -33,6 +24,7 @@ define(['jquery', 'util_resize'], function ($){
             },
             itemTemplateText : '<li data-term="[[text]]"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
             minTermLength    : 2,
+            paramName        : $(this).data('param'),
             selInput         : $(this),
             url              : $(this).data('url'),
           });

@@ -20,7 +20,7 @@
   {{/is_textarea}}
   {{^is_textarea}}
     {{#data_url}}<div class="relative">{{/data_url}}
-      <input class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#type}} type="{{.}}"{{/type}}{{#value}} value="{{.}}"{{/value}}{{#data_url}} data-url="{{.}}"{{/data_url}}>
+      <input class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#type}} type="{{.}}"{{/type}}{{#value}} value="{{.}}"{{/value}}{{#data_url}} data-url="{{.}}"{{/data_url}}{{#data_param}} data-param="{{.}}"{{/data_param}}>
     {{#data_url}}</div>{{/data_url}}
   {{/is_textarea}}
 {{/is_select}}

@@ -27,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'demo_autocomplete': 100}}"
+      "value": "{ 'delays' : {'demo_autocomplete': 100}, {'mappings': [{'pattern': 'http', 'resolveTo': 'self'}]}}"
     }
   ],
   "content":{
@@ -93,7 +93,8 @@
               "value": "video"
             }
           ],
-          "data-url": "https://restcountries.eu/rest/v2/all"
+          "data_url": "http://autocomplete-data-url",
+          "data_param": "param-name"
         },
         {
           "label": "What's your name?",
@@ -118,7 +119,8 @@
           "label": "Where is the item currently located?",
           "hint": "The city, region or country of the item",
           "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]",
-          "data_url": "demo_autocomplete"
+          "data_url": "demo_autocomplete",
+          "data_param": "search-param-name"
         },
         {
           "is_required": true,
