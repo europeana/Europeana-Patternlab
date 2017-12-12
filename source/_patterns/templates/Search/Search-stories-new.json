@@ -39,7 +39,9 @@
         },
         {
           "label":      "Define a title for this item",
-          "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_title]"
+          "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_title]",
+          "hint":       "The title should be brief",
+          "value":      "A title"
         },
         {
           "items":      "language_items",
@@ -63,9 +65,11 @@
           ]
         },
         {
+          "error":       "The description is too boring",
           "label":       "Tell us the story of this object - including a description",
           "name":        "ore_aggregation[edm_aggregatedCHO_attributes][dc_description]",
-          "is_textarea": "true"
+          "is_textarea": "true",
+          "value":       "Once upon a time there was an item"
         },
         {
           "label":       "Type",
@@ -89,13 +93,15 @@
         },
         {
           "label": "What's your name?",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_contributor_attributes][foaf_name]"
+          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_contributor_attributes][foaf_name]",
+          "error": "Name should not be numeric"
         },
         {
           "label": "Who created this item?",
           "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_creator_attributes][foaf_name]"
         },
         {
+          "error": "The creation date cannot be in the future",
           "label": "When was this item created?",
           "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]"
         },
@@ -106,6 +112,7 @@
         },
         {
           "label": "Where is the item currently located?",
+          "hint": "The city, region or country of the item",
           "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]"
         },
         {

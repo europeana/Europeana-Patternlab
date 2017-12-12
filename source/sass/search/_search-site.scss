@@ -1268,6 +1268,16 @@ html.redirecting{
     }
   }
 
+  .hint{
+    font-size:  $font-size-slightly-smaller;
+    font-style: italic;
+  }
+
+  .error{
+    color:  $eu-red;
+    font-size:  $font-size-slightly-smaller;
+  }
+
   .submit{
     display: block;
     margin-top: $space;

@@ -1,8 +1,14 @@
 {{#label}}
   <label{{#id}} for="{{.}}"{{/id}}{{^id}}{{#name}} for="{{.}}"{{/name}}{{/id}}{{#is_required}} class="required"{{/is_required}}>{{.}}</label>
 {{/label}}
+{{#error}}
+  <span class="error">{{.}}</span>
+{{/error}}
+{{#hint}}
+  <span class="hint">{{.}}</span>
+{{/hint}}
 {{#is_select}}
-  <select {{#is_required}} class="required"{{/is_required}}{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#data_url}} data-url=""{{/data_url}} autocomplete="off">
+  <select class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#data_url}} data-url=""{{/data_url}} autocomplete="off">
     {{#items}}
       <option{{#value}} value="{{.}}"{{/value}}{{#is_selected}} selected="selected"{{/is_selected}}>{{label}}</option>
     {{/items}}
@@ -10,10 +16,11 @@
 {{/is_select}}
 {{^is_select}}
   {{#is_textarea}}
-    <textarea {{#is_required}} class="required"{{/is_required}}{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}>
+    <textarea class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}>
+      {{#value}}{{.}}{{/value}}
     </textarea>
   {{/is_textarea}}
   {{^is_textarea}}
-    <input {{#is_required}} class="required"{{/is_required}}{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#type}} type="{{.}}"{{/type}}>
+    <input class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#type}} type="{{.}}"{{/type}}{{#value}} value="{{.}}"{{/value}}>
   {{/is_textarea}}
 {{/is_select}}
