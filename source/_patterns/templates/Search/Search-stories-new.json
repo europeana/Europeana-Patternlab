@@ -24,6 +24,10 @@
     {
       "name": "pageName",
       "value": "migration/new"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'delays' : {'demo_autocomplete': 100}}"
     }
   ],
   "content":{
@@ -113,7 +117,8 @@
         {
           "label": "Where is the item currently located?",
           "hint": "The city, region or country of the item",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]"
+          "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]",
+          "data_url": "demo_autocomplete"
         },
         {
           "is_required": true,

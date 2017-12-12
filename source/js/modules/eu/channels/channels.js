@@ -251,7 +251,8 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/new':
       console.log('load js for migration/new here');
 
-      require(['ugc'], function(){
+      require(['ugc'], function(page){
+        page.initPage();
         doForAllPages();
       });
       break;
