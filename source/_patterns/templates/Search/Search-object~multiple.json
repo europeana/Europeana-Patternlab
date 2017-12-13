@@ -278,7 +278,20 @@
               "license_human": "You can use this video in any way you like"
             }
           },
-
+          {
+            "is_video": true,
+            "playable": true,
+            "thumbnail": "http://www.webmfiles.org/wp-content/uploads/2010/05/webm-file.jpg",
+            "play_url": "http://video.webmfiles.org/big-buck-bunny_trailer.webm",
+            "download": false,
+            "technical_metadata": {
+              "mime_type": "video/webm"
+            },
+            "rights": {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
           {
             "is_midi": true,
             "playable": true,
