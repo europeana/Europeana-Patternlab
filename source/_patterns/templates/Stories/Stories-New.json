@@ -33,8 +33,8 @@
   "content": {
     "description": "A brief description here...",
     "title": "Tell your story",
-    "generic_form": true,
-    "form":{
+    "form": "escaped alternative here",
+    "generic_form": {
       "attributes": [
         {
           "name": "action",
@@ -50,7 +50,8 @@
         "items": [
           {
             "label":      "Define a title for this item",
-            "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_title]",
+            "name":       "dc_title",
+            "id":         "dc_title",
             "hint":       "The title should be brief",
             "value":      "A title"
           },
@@ -61,14 +62,16 @@
               "items": [
                 {
                   "label":      "Media",
-                  "name":       "ore_aggregation[edm_isShownBy_attributes][media]",
+                  "name":       "media",
+                  "id":         "media",
                   "is_subset":  false,
                   "type":       "file"
                 },
                 {
                   "label":      "Media Rights",
                   "is_subset":  false,
-                  "name":       "media_rights"
+                  "name":       "media_rights",
+                  "id":         "media_rights"
                 }
               ]
             }
@@ -76,7 +79,8 @@
           {
             "items":      "language_items",
             "label":      "What is the language of the text in this item?",
-            "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_language]",
+            "name":       "dc_language",
+            "id":         "dc_language",
             "is_select":  "true",
             "items": [
               {
@@ -97,13 +101,15 @@
           {
             "error":       "The description is too boring",
             "label":       "Tell us the story of this object - including a description",
-            "name":        "ore_aggregation[edm_aggregatedCHO_attributes][dc_description]",
+            "name":        "dc_description",
+            "id":          "dc_description",
             "is_textarea": "true",
             "value":       "Once upon a time there was an item"
           },
           {
             "label":       "Type",
-            "name":        "ore_aggregation[edm_aggregatedCHO_attributes][edm_type]",
+            "name":        "edm_type",
+            "id":          "edm_type",
             "is_select":   "true",
             "items": [
               {
@@ -122,27 +128,26 @@
           },
           {
             "label": "What's your name?",
-            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_contributor_attributes][foaf_name]",
+            "name":  "foaf_name",
+            "id":    "foaf_name",
             "error": "Name should not be numeric"
           },
           {
             "label": "Who created this item?",
-            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_creator_attributes][foaf_name]"
+            "name": "creator_name",
+            "id": "creator_name"
           },
           {
             "error": "The creation date cannot be in the future",
             "label": "When was this item created?",
-            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]"
-          },
-          {
-            "label": "When was the item created?",
-            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]",
-            "type": "date"
+            "name": "dcterms_created",
+            "id": "dcterms_created"
           },
           {
             "label": "Where is the item currently located?",
             "hint": "The city, region or country of the item",
             "name": "ore_aggregation",
+            "id": "ore_aggregation",
             "value": "139",
             "data_url": "stories_autocomplete",
             "data_param": "term",
@@ -171,7 +176,8 @@
               }
             ],
             "label": "EDM Rights",
-            "name": "ore_aggregation[edm_rights]"
+            "name": "ore_edm_rights",
+            "id": "ore_edm_rights"
           }
         ]
       }
