@@ -27,126 +27,154 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'demo_autocomplete': 100}, 'mappings': [{'pattern': 'demo_autocomplete/', 'resolveTo': 'demo_autocomplete'}]}"
+      "value": "{ 'delays' : {'stories_autocomplete': 100}, 'mappings': [{'pattern': 'stories_autocomplete/', 'resolveTo': 'stories_autocomplete'}]}"
     }
   ],
-  "content":{
+  "content": {
     "description": "A brief description here...",
     "title": "Tell your story",
-    "fields": {
-      "items": [
+    "generic_form": true,
+    "form":{
+      "attributes": [
         {
-          "is_required": true,
-          "label":      "Media",
-          "name":       "ore_aggregation[edm_isShownBy_attributes][media]",
-          "type":       "file"
+          "name": "action",
+          "value": "create"
         },
         {
-          "label":      "Define a title for this item",
-          "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_title]",
-          "hint":       "The title should be brief",
-          "value":      "A title"
-        },
-        {
-          "items":      "language_items",
-          "label":      "What is the language of the text in this item?",
-          "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_language]",
-          "is_select":  "true",
-          "items": [
-            {
-              "label": "English",
-              "value": "en"
-            },
-            {
-              "is_selected": true,
-              "label": "Greek",
-              "value": "hl"
-            },
-            {
-              "label": "Italian",
-              "value": "it"
-            }
-          ]
-        },
-        {
-          "error":       "The description is too boring",
-          "label":       "Tell us the story of this object - including a description",
-          "name":        "ore_aggregation[edm_aggregatedCHO_attributes][dc_description]",
-          "is_textarea": "true",
-          "value":       "Once upon a time there was an item"
-        },
-        {
-          "label":       "Type",
-          "name":        "ore_aggregation[edm_aggregatedCHO_attributes][edm_type]",
-          "is_select":   "true",
-          "items": [
-            {
-              "label": "Image",
-              "value": "image"
-            },
-            {
-              "label": "Text",
-              "value": "text"
-            },
-            {
-              "label": "Video",
-              "value": "video"
-            }
-          ],
-          "data_url": "stories_autocomplete",
-          "data_param": "term"
-        },
-        {
-          "label": "What's your name?",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_contributor_attributes][foaf_name]",
-          "error": "Name should not be numeric"
-        },
-        {
-          "label": "Who created this item?",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_creator_attributes][foaf_name]"
-        },
-        {
-          "error": "The creation date cannot be in the future",
-          "label": "When was this item created?",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]"
-        },
-        {
-          "label": "When was the item created?",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]",
-          "type": "date"
-        },
-        {
-          "label": "Where is the item currently located?",
-          "hint": "The city, region or country of the item",
-          "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]",
-          "data_url": "stories_autocomplete",
-          "data_param": "term"
-        },
-        {
-          "is_required": true,
-          "is_select":  "true",
-          "items": [
-            {
-              "label": "https://creativecommons.org/licenses/by-sa/4.0",
-              "value": "A"
-            },
-            {
-              "label": "https://creativecommons.org/licenses/by/4.0",
-              "value": "A"
-            },
-            {
-              "label": "https://creativecommons.org/publicdomain/mark/1.0/",
-              "value": "A"
-            },
-            {
-              "label": "https://creativecommons.org/publicdomain/zero/1.0/",
-              "value": "A"
-            }
-          ],
-          "label": "EDM Rights",
-          "name": "ore_aggregation[edm_rights]"
+          "name": "method",
+          "value": "get"
         }
-      ]
+      ],
+      "fields": {
+        "legend": "Basic data",
+        "items": [
+          {
+            "label":      "Define a title for this item",
+            "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_title]",
+            "hint":       "The title should be brief",
+            "value":      "A title"
+          },
+          {
+            "is_subset": true,
+            "fields": {
+              "legend": "Media",
+              "items": [
+                {
+                  "label":      "Media",
+                  "name":       "ore_aggregation[edm_isShownBy_attributes][media]",
+                  "is_subset":  false,
+                  "type":       "file"
+                },
+                {
+                  "label":      "Media Rights",
+                  "is_subset":  false,
+                  "name":       "media_rights"
+                }
+              ]
+            }
+          },
+          {
+            "items":      "language_items",
+            "label":      "What is the language of the text in this item?",
+            "name":       "ore_aggregation[edm_aggregatedCHO_attributes][dc_language]",
+            "is_select":  "true",
+            "items": [
+              {
+                "label": "English",
+                "value": "en"
+              },
+              {
+                "is_selected": true,
+                "label": "Greek",
+                "value": "hl"
+              },
+              {
+                "label": "Italian",
+                "value": "it"
+              }
+            ]
+          },
+          {
+            "error":       "The description is too boring",
+            "label":       "Tell us the story of this object - including a description",
+            "name":        "ore_aggregation[edm_aggregatedCHO_attributes][dc_description]",
+            "is_textarea": "true",
+            "value":       "Once upon a time there was an item"
+          },
+          {
+            "label":       "Type",
+            "name":        "ore_aggregation[edm_aggregatedCHO_attributes][edm_type]",
+            "is_select":   "true",
+            "items": [
+              {
+                "label": "Image",
+                "value": "image"
+              },
+              {
+                "label": "Text",
+                "value": "text"
+              },
+              {
+                "label": "Video",
+                "value": "video"
+              }
+            ]
+          },
+          {
+            "label": "What's your name?",
+            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_contributor_attributes][foaf_name]",
+            "error": "Name should not be numeric"
+          },
+          {
+            "label": "Who created this item?",
+            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dc_creator_attributes][foaf_name]"
+          },
+          {
+            "error": "The creation date cannot be in the future",
+            "label": "When was this item created?",
+            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]"
+          },
+          {
+            "label": "When was the item created?",
+            "name": "ore_aggregation[edm_aggregatedCHO_attributes][dcterms_created]",
+            "type": "date"
+          },
+          {
+            "label": "Where is the item currently located?",
+            "hint": "The city, region or country of the item",
+            "name": "ore_aggregation",
+            "value": "139",
+            "data_url": "stories_autocomplete",
+            "data_param": "term",
+            "name_text": "ore_aggregation_text",
+            "value_text": "Edinburgh"
+          },
+          {
+            "is_required": true,
+            "is_select":  "true",
+            "items": [
+              {
+                "label": "https://creativecommons.org/licenses/by-sa/4.0",
+                "value": "A"
+              },
+              {
+                "label": "https://creativecommons.org/licenses/by/4.0",
+                "value": "A"
+              },
+              {
+                "label": "https://creativecommons.org/publicdomain/mark/1.0/",
+                "value": "A"
+              },
+              {
+                "label": "https://creativecommons.org/publicdomain/zero/1.0/",
+                "value": "A"
+              }
+            ],
+            "label": "EDM Rights",
+            "name": "ore_aggregation[edm_rights]"
+          }
+        ]
+      }
     }
   }
 }

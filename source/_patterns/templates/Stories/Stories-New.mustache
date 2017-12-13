@@ -25,15 +25,12 @@
   <div class="lc">
     <div class="prose">
       {{#content}}
-        <form action="create">
-          {{#legend}}{{.}}{{/legend}}
-          {{#fields}}
-            {{#items}}
-              {{> molecules/forms/generic-field }}
-            {{/items}}
-          {{/fields}}
-          <input name="commit" value="{{i18n.site.ugc.actions.submit}}" class="btn inline-form-button submit" type="submit">
-        </form>
+        {{#generic_form}}
+          {{> molecules/forms/generic-form }}
+        {{/generic_form}}
+        {{^generic_form}}
+          {{#form}}{{{.}}}{{/form}}
+        {{^generic_form}}
       {{/content}}
     </div>
   </div>

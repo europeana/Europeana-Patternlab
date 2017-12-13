@@ -1258,6 +1258,23 @@ html.redirecting{
 
 .ugc-content{
 
+  legend{
+    font-size:   $font-size-large;
+    font-weight: bold;
+  }
+
+  fieldset fieldset{
+    border:     1px solid $eu-blue;
+    margin-top: $space;
+    padding:    0 $space $space-and-half $space;
+
+    legend{
+      font-size: $font-size-med;
+      margin:    0;
+      padding:   0 $space-half;
+    }
+  }
+
   label{
     color:       $eu-blue;
     font-weight: bold;

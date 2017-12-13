@@ -8,7 +8,7 @@
   <span class="hint">{{.}}</span>
 {{/hint}}
 {{#is_select}}
-  <select class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}} autocomplete="off">
+  <select class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}} autocomplete="off">
     {{#items}}
       <option{{#value}} value="{{.}}"{{/value}}{{#is_selected}} selected="selected"{{/is_selected}}>{{label}}</option>
     {{/items}}
@@ -16,11 +16,11 @@
 {{/is_select}}
 {{^is_select}}
   {{#is_textarea}}
-    <textarea class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}>{{#value}}{{.}}{{/value}}</textarea>
+    <textarea class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}>{{#value}}{{.}}{{/value}}</textarea>
   {{/is_textarea}}
   {{^is_textarea}}
     {{#data_url}}<div class="relative">{{/data_url}}
-      <input class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{^id}}{{#name}} id="{{.}}"{{/name}}{{/id}}{{#type}} type="{{.}}"{{/type}}{{#value}} value="{{.}}"{{/value}}{{#data_url}} data-url="{{.}}"{{/data_url}}{{#data_param}} data-param="{{.}}"{{/data_param}}{{#name_text}} data-name-text="{{.}}"{{/name_text}}>
+      <input class="{{#is_required}}required{{/is_required}}{{#error}} is-error{{/error}}"{{#name}} name="{{.}}"{{/name}}{{#id}} id="{{.}}"{{/id}}{{#type}} type="{{.}}"{{/type}}{{#value}} value="{{.}}"{{/value}}{{#data_url}} data-url="{{.}}"{{/data_url}}{{#data_param}} data-param="{{.}}" autocomplete="off"{{/data_param}}{{#name_text}} data-name-text="{{.}}"{{/name_text}}{{#value_text}} data-value-text="{{.}}"{{/value_text}}>
     {{#data_url}}</div>{{/data_url}}
   {{/is_textarea}}
 {{/is_select}}
