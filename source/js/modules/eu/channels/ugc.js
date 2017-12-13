@@ -43,6 +43,7 @@ define(['jquery', 'util_resize'], function ($){
             minTermLength    : 2,
             paramName        : $(this).data('param'),
             selInput         : $(this),
+            threshold        : 150,
             url              : $(this).data('url'),
             hideOnSelect     : true
           });

@@ -138,7 +138,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       };
 
       self.$input.on('keyup', fnKeyup);
-      self.$input.on('getSuggestions', debounce(self.getSuggestions));
+      self.$input.on('getSuggestions', debounce(self.getSuggestions, self.ops.threshold));
     };
 
     this.appendStyle = function (theme){
