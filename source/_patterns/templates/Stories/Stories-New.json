@@ -27,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'demo_autocomplete': 100}, {'mappings': [{'pattern': 'http', 'resolveTo': 'self'}]}}"
+      "value": "{ 'delays' : {'demo_autocomplete': 100}, 'mappings': [{'pattern': 'demo_autocomplete/', 'resolveTo': 'demo_autocomplete'}]}"
     }
   ],
   "content":{
@@ -93,8 +93,8 @@
               "value": "video"
             }
           ],
-          "data_url": "http://autocomplete-data-url",
-          "data_param": "param-name"
+          "data_url": "stories_autocomplete",
+          "data_param": "term"
         },
         {
           "label": "What's your name?",
@@ -119,8 +119,8 @@
           "label": "Where is the item currently located?",
           "hint": "The city, region or country of the item",
           "name": "ore_aggregation[edm_aggregatedCHO_attributes][edm_currentLocation]",
-          "data_url": "demo_autocomplete",
-          "data_param": "search-param-name"
+          "data_url": "stories_autocomplete",
+          "data_param": "term"
         },
         {
           "is_required": true,
