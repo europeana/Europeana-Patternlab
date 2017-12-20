@@ -248,12 +248,21 @@ define(['jquery', 'smartmenus'], function($){
       doForAllPages();
       break;
 
-    case 'migration/new':
+    case 'migration/create':
       console.log('load js for migration/new here');
 
       require(['ugc'], function(page){
         page.initPage();
         doForAllPages();
+      });
+      break;
+
+    case 'migration/new':
+      console.log('load js for migration/new here');
+
+      require(['ugc'], function(page){
+          page.initPage();
+          doForAllPages();
       });
       break;
 

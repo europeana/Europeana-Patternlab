@@ -24,10 +24,14 @@
 <section class="ugc-content section">
   <div class="lc">
     <div class="prose">
-      {{#content}}
+      {{#xxx_content}}
         {{#form}}
           {{> molecules/forms/generic-form }}
         {{/form}}
+      {{/xxx_content}}
+
+      {{#content}}
+        {{{form}}}
       {{/content}}
     </div>
   </div>
