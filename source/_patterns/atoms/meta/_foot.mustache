@@ -1,7 +1,3 @@
-
-  </div>
-  <!-- End of pusher div - wraps the site to allow offcanvas menus-->
-
 {{! deprecated: move to json formatted model for js variables }}
 {{# js_variables }}
     <script>{{{ . }}}</script>
@@ -18,7 +14,6 @@
   {{/unquoted}}
 {{/ js_vars }}
 </script>
-
 
 {{# jQuery }}
   <script src="{{src_CDN}}"></script>
@@ -52,10 +47,10 @@
   </script>
 {{/ js_slsb_ld }}
 
-{{# patternlab }}
-  <!--DO NOT REMOVE-->
-  {% pattern-lab-foot %}
-{{/ patternlab }}
+  {{# patternlab }}
+    <!--DO NOT REMOVE-->
+    {{{ patternLabFoot }}}
+  {{/ patternlab }}
 
   </body>
 </html>

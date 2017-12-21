@@ -24,30 +24,12 @@ a {
     }
   }
 
-  &.external:after{
-    @extend %external_link_icon;
-    margin-left: 0.2em;
-  }
 }
 
 .highlight{
   color: $icon_primary;
 }
 
-// External link icon - indicates that a link is external to europeana
-//
-// Should be extended from site specific scss due to url in the css
-// using this code: a[href*="//"]:not([href*="pro.europeana.com"]):after
-//
-// Styleguide 1.0.0
-
-%external_link_icon{
-  content: '';
-  background: center right no-repeat;
-    @include svg-bg-with-fallback("icons/link_external");
-    background-size: contain;
-    padding-right: 1.2em;
-}
 
 // Skip to main link (uses is-vishidden)
 
