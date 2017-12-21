@@ -67,17 +67,6 @@ class Template {
     $patternHeadPath         = $metaDir."_head.".$patternExtension;
     $patternFootPath         = $metaDir."_foot.".$patternExtension;
 
-    echo('\n');
-    echo('\n');
-    echo('\n');
-    echo('\n');
-    echo($patternHeadPath);
-    echo($patternFootPath);
-    echo('\n');
-    echo('\n');
-    echo('\n');
-    echo('\n');
-
    // End Europeana change
 
     self::$patternHead       = (file_exists($patternHeadPath)) ? file_get_contents($patternHeadPath) : "";
