@@ -137,10 +137,10 @@ module.exports = function(grunt) {
     },
     shell: {
       patternlab_full: {
-        command: "php core/builder.php --generate"
+        command: "php core/console --generate"
       },
       patternlab_markup: {
-        command: "php core/builder.php --generate --patternsonly"
+        command: "php core/console --generate"
       },
       generate_icon_ref: {
         command: 'cd source/sass/scss/iconography/; ls *.scss',

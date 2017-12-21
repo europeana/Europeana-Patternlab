@@ -1,0 +1,40 @@
+{
+  "name":             "pattern-lab/patternengine-mustache",
+  "description":      "Mustache-based PatternEngine for Pattern Lab.",
+  "keywords":         ["mustache", "pattern lab", "pattern engine"],
+  "homepage":         "http://patternlab.io",
+  "license":          "MIT",
+  "type":             "patternlab-patternengine",
+  "authors": [
+    {
+      "name":         "Dave Olsen",
+      "email":        "dmolsen@gmail.com",
+      "homepage":     "http://dmolsen.com",
+      "role":         "Lead Developer"
+    }
+  ],
+  "support": {
+    "issues":         "https://github.com/pattern-lab/patternengine-php-mustache/issues",
+    "wiki":           "http://patternlab.io/docs/",
+    "source":         "https://github.com/pattern-lab/patternengine-php-mustache/releases"
+  },
+  "autoload": {
+    "psr-0": {
+      "PatternLab\\PatternEngine\\Mustache": "src/"
+    }
+  },
+  "require": {
+    "pattern-lab/core":  "^2.0.0",
+    "mustache/mustache": "~2.6"
+  },
+  "extra": {
+    "patternlab": {
+      "config": {
+        "lineageMatch": "{{>([ ]+)?([A-Za-z0-9-_]+)(?:\\:[A-Za-z0-9-]+)?(?:(| )\\(.*)?([ ]+)?}}",
+        "lineageMatchKey": 2,
+        "patternExtension": "mustache",
+        "mustacheHelperExt": "helper.php"
+      }
+    }
+  }
+}
