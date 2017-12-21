@@ -242,6 +242,44 @@ define(['jquery', 'smartmenus'], function($){
         doForAllPages();
       });
       break;
+
+    case 'migration/index':
+      console.log('load js for migration/index here');
+      doForAllPages();
+      break;
+
+    case 'migration/create':
+      console.log('load js for migration/new here');
+
+      require(['ugc'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+      break;
+
+    case 'migration/new':
+      console.log('load js for migration/new here');
+
+      require(['ugc'], function(page){
+          page.initPage();
+          doForAllPages();
+      });
+      break;
+
+    case 'ugc/index':
+      console.log('load js for ugc/index here');
+
+      doForAllPages();
+      break;
+
+    case 'ugc/new':
+      console.log('load js for ugc/new here');
+
+      require(['ugc'], function(){
+        doForAllPages();
+      });
+      break;
+
     case 'portal/show':
       require(['search_object', 'search_form'], function(page, euSearchForm){
         page.initPage(euSearchForm);
@@ -254,8 +292,8 @@ define(['jquery', 'smartmenus'], function($){
         page.initPage(euSearchForm);
         promisedPageJS.resolve(page);
         doForAllPages();
-     });
-    break;
+      });
+      break;
     case 'portal/index':
       var loadPageJS = function(){
         require(['search_results', 'search_form'], function(page, euSearchForm){
@@ -275,7 +313,6 @@ define(['jquery', 'smartmenus'], function($){
       else{
         loadPageJS();
       }
-
       break;
 
     case 'pages/show':

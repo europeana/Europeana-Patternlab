@@ -19,21 +19,26 @@
   }
 }
 /* line 19, style.scss */
+.eu-autocomplete ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 24, style.scss */
 .eu-autocomplete li {
   border-bottom: 1px solid #eee;
   cursor: pointer;
   padding: 0.6rem 0.4rem;
   position: relative;
 }
-/* line 25, style.scss */
+/* line 30, style.scss */
 .eu-autocomplete li.selected, .eu-autocomplete li:hover {
   background-color: #e3e3e3;
 }
-/* line 30, style.scss */
+/* line 35, style.scss */
 .eu-autocomplete li b {
   color: #1676aa;
 }
-/* line 35, style.scss */
+/* line 40, style.scss */
 .eu-autocomplete .match {
   white-space: nowrap;
 }

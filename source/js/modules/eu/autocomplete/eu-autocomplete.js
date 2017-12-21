@@ -138,7 +138,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       };
 
       self.$input.on('keyup', fnKeyup);
-      self.$input.on('getSuggestions', debounce(self.getSuggestions));
+      self.$input.on('getSuggestions', debounce(self.getSuggestions, self.ops.threshold));
     };
 
     this.appendStyle = function (theme){
@@ -380,7 +380,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         doOnDone(data);
       })
       .error(function(e, f){
-        self.log('Error: ' + e + '  ' + f);
+        self.log('Error: ' + e.status + '  ' + f);
         self.hide();
       });
     };

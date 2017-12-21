@@ -98,10 +98,10 @@ a:hover > .ve-state-button-off,
   .ve-card-nav-right{
 
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius:    1em;
+    border-radius:    1rem;
     box-shadow:       0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    height:           2em;
-    width:            2em;
+    height:           2rem;
+    width:            2rem;
 
     &:hover{
       background-color: $offwhite;
@@ -111,14 +111,14 @@ a:hover > .ve-state-button-off,
   .ve-card-nav-left{
     left:    3px;
     .blue-black{
-      transform: translate(-0.275em, -0.15em) scale(0.5);
+      transform: translate(-0.275rem, -0.15rem) scale(0.5);
     }
   }
 
   .ve-card-nav-right{
     right:   3px;
     .blue-black{
-      transform: translate(-0.15em, -0.15em) scale(0.5);
+      transform: translate(-0.15rem, -0.15rem) scale(0.5);
     }
   }
 
@@ -267,7 +267,7 @@ a:hover > .ve-state-button-off,
   .ve-card-nav{
     color:             $colour_overlaid_text;
     cursor:            pointer;
-    font-size:         1em;
+    font-size:         1rem;
     font-weight:       bold;
     padding:           0.25em;
     position:          absolute;
@@ -281,11 +281,11 @@ a:hover > .ve-state-button-off,
   .svg-icon-next,
   .svg-icon-previous{
     display:       inline-block;
-    height:        2em;
-    margin-bottom: -0.75em;
-    margin-top:    -0.75em;
+    height:        2rem;
+    margin-bottom: -0.75rem;
+    margin-top:    -0.75rem;
     transform:     scale(0.7);
-    width:         2em;
+    width:         2rem;
   }
 
   .ve-card-nav-left{

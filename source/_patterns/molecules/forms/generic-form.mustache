@@ -1,0 +1,4 @@
+<form {{#attributes}}{{#name}}{{#value}}{{name}}={{.}} {{/value}}{{/name}}{{/attributes}}>
+  {{> molecules/forms/generic-fieldset }}
+  <input name="commit" value="{{i18n.site.ugc.actions.submit}}" class="btn inline-form-button submit" type="submit">
+</form>

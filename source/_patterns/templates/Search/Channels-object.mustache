@@ -500,49 +500,19 @@
         <div class="slide-rail">
           {{> organisms/cards/template-promo-preload }}
         </div>
-      </div>
-
-      {{#XXXobject.promos}}
-      <div class="channel-object-actions">
-        <div class="slide-rail">
-          <div class="collections-promos js-swipe-not-stacked">
-            {{#generic_promos}}
-            {{/generic_promos}}
-            {{#next_promo}}
-              {{! repeat of 2nd (1st) item}}
-              {{#prev_promo}}
-                <span class="previous-item-title">
-                  {{ i18n.site.object.previous-item }}
-                </span>
-                <div class="channel-object-next-prev collections-promo-item separator-before">
-                  <div class="content-outer">
-                    <div class="content-inner">
-                      <div class="content-outer">
-                        <div class="content-inner">
-                          <a href="{{url}}">
-                            {{#img}}
-                              <img src="{{src}}"/>
-                            {{/img}}
-                          </a>
-                        </div>
-                      </div>
-                      {{> molecules/components/search/channel-object-promo-text}}
-                    </div>
-                  </div>
-                </div>
-              {{/prev_promo}}
-            {{/next_promo}}
-          </div>
+        <div class="eu-slide-navs">
+          <a class="svg-icon-previous carousel-arrows blue-black    eu-slide-nav eu-slide-nav-left disabled">&nbsp;</a>
+          <a class="svg-icon-next carousel-arrows blue-black    eu-slide-nav eu-slide-nav-right disabled">&nbsp;</a>
         </div>
       </div>
-      {{/XXXobject.promos}}
+
       {{! end object actions }}
 
-      <div class="channel-object-similar">
-        <h2 class="channel-object-title">[More Suggestions]</h2>
-        <div class="suggestions-section">
-          <div class="display-grid">
-            {{#object.suggestions}}
+      {{#object.suggestions}}
+        <div class="channel-object-similar">
+          <h2 class="channel-object-title">[More Suggestions]</h2>
+          <div class="suggestions-section">
+            <div class="display-grid">
               <div class="slide-rail" style="position: relative;">
                 <script id="template-preview-tab-content" type="text/x-mustache">
                   <article class="suggestion-item">
@@ -570,10 +540,12 @@
                   {{/tab_items}}
                 </div>
               </div>
-            {{/object.suggestions}}
+              <a class="svg-icon-previous carousel-arrows blue-black    eu-slide-nav eu-slide-nav-left disabled">&nbsp;</a>
+              <a class="svg-icon-next carousel-arrows blue-black    eu-slide-nav eu-slide-nav-right disabled">&nbsp;</a>
+            </div>
           </div>
         </div>
-      </div>
+      {{/object.suggestions}}
     </section>
   {{/content}}
 </div>

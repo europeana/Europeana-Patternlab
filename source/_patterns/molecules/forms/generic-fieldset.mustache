@@ -1,0 +1,13 @@
+{{#fields}}
+  <fieldset>
+    {{#legend}}<legend>{{.}}</legend>{{/legend}}
+    {{#items}}
+      {{#is_subset}}
+        {{> molecules/forms/generic-fieldset }}
+      {{/is_subset}}
+      {{^is_subset}}
+        {{> molecules/forms/generic-field }}
+      {{/is_subset}}
+    {{/items}}
+  </fieldset>
+{{/fields}}

@@ -1254,6 +1254,82 @@ html.redirecting{
 }
 
 
+// UGC / Stories
+
+.ugc-content{
+
+  legend{
+    font-size:   $font-size-large;
+    font-weight: bold;
+  }
+
+  fieldset fieldset{
+    border:     1px solid $eu-blue;
+    margin-top: $space;
+    padding:    0 $space $space-and-half $space;
+
+    legend{
+      font-size: $font-size-med;
+      margin:    0;
+      padding:   0 $space-half;
+    }
+  }
+
+  label{
+    color:       $eu-blue;
+    font-weight: bold;
+    margin-top:  $space;
+
+    &.required::before{
+      content: '*';
+    }
+  }
+
+  .hint{
+    font-size:  $font-size-slightly-smaller;
+    font-style: italic;
+  }
+
+  .error{
+    color:  $eu-red;
+    font-size:  $font-size-slightly-smaller;
+  }
+
+  .submit{
+    display: block;
+    margin-top: $space;
+  }
+
+  p{
+    padding: 0 $space;
+  }
+
+  .lc > .prose{
+    @media all and (min-width: $bp-med) {
+      @include span(18 of 24);
+      max-width: 40em;
+    }
+    padding-bottom: $space-triple;
+
+    p{
+      padding-left: 0;
+    }
+
+    p:first-child{
+      font-size: 1.5625em;
+    }
+
+    ul.eu-autocomplete{
+      list-style: none;
+      margin:     0;
+    }
+  }
+  .sidebar{
+    @media all and (min-width: $bp-med) {
+      @include span(last 6 of 24);
+    }
+  }
+}
 
 
 

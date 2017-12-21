@@ -1,6 +1,8 @@
 @import 'channel-object-promos-base';
 
-$green-grey-bg:                    #f4f4f4;
+$carousel-arrow-bg:         rgba(255, 255, 255, 0.8);
+$carousel-arrow-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+$green-grey-bg:             #f4f4f4;
 
 .channel-object-viewmore {
   text-align: right;
@@ -38,7 +40,7 @@ $green-grey-bg:                    #f4f4f4;
   background: #ededed;
 
   .with-transparency .object-nav{
-    background: rgba(241, 241, 241, 0.85);
+    background: rgba(237, 237, 237, 0.85);
   }
 
   .channel-object-extended-information,
@@ -653,23 +655,15 @@ $green-grey-bg:                    #f4f4f4;
     }
   }
 
-  .carousel-arrows.left,
-  .carousel-arrows.right {
+  .carousel-arrows{
 
-    background-color:    rgba(255, 255, 255, 0.8);
-
+    background-color:    $carousel-arrow-bg;
     background-position: 0.55em 0.59em;
-    border-radius:       1.125em;
-    box-shadow:          0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius:       33px;
+    box-shadow:          $carousel-arrow-box-shadow;
     height:              66px;
-    left:                0;
     opacity:             1;
-    top:                 0.42em;
-
-    -webkit-transform:   scale(0.75);
-    transform:           scale(0.75);
     transform-origin:    left;
-
     -webkit-transition:  opacity 0.3s ease-in;
     transition:          opacity 0.3s ease-in;
     width:               66px;
@@ -682,11 +676,40 @@ $green-grey-bg:                    #f4f4f4;
     }
   }
 
+  .carousel-arrows.left,
+  .carousel-arrows.right{
+    left:                0;
+    top:                 0.42em;
+    -webkit-transform:   scale(0.75);
+    transform:           scale(0.75);
+  }
+
   .carousel-arrows.right {
     background-position: 0.65em 0.59em;
     left:                auto;
     right:               0;
     transform-origin:    right;
+  }
+
+  .eu-slide-nav {
+    position:           absolute;
+    top:                50%;
+    -webkit-transform:  translateY(-50%) scale(0.75);
+    transform:          translateY(-50%) scale(0.75);
+
+    &.eu-slide-nav-left{
+      background-position: 1em 1.15em;
+      left: 0.5em;
+    }
+
+    &.eu-slide-nav-right{
+      background-position: 1.25em 1.15em;
+      right: -0.5em;
+    }
+
+    &.disabled{
+      visibility: hidden;
+    }
   }
 
   .channel-object-similar{
@@ -705,7 +728,8 @@ $green-grey-bg:                    #f4f4f4;
     .suggestions-section{
 
       background-color: #fff;
-      padding: $pad;
+      padding:          $pad $space;
+      position:         relative;
 
       > h2{
         margin-top: $space;
@@ -723,14 +747,21 @@ $green-grey-bg:                    #f4f4f4;
   .channel-object-actions{
 
     overflow: hidden;
+    position: relative;
 
     .next-item-title,
     .previous-item-title{
       display: none;
     }
 
-    .slide-rail{
-      position: relative;
+  }
+
+  .slide-rail{
+    left:     0;
+    position: relative;
+
+    &.js-swipe-transition{
+      transition: left 0.3s linear;
     }
   }
 
@@ -764,6 +795,10 @@ $green-grey-bg:                    #f4f4f4;
       }
     }
 
+    .tab-content{
+      padding: 0.6em 0;
+    }
+
     .suggestion-item{
 
       min-width: 200px;
@@ -778,7 +813,7 @@ $green-grey-bg:                    #f4f4f4;
         max-height:  3.75em;
         overflow:    hidden;
         padding:     0.5em 0;
-
+        word-break:  break-all;
       }
     }
   }
@@ -1241,6 +1276,10 @@ $green-grey-bg:                    #f4f4f4;
     .object-details:not(.zoom-two){
       .channel-object-actions{
         @include span(last 6);
+
+        .eu-slide-navs{
+          display: none;
+        }
       }
     }
 

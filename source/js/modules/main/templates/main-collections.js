@@ -140,6 +140,9 @@ require.config({
 
     touch_move:                    '../../lib/jquery/jquery.event.move',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
+    
+    ugc:                           '../../eu/channels/ugc',
+    
     ve_state_card:                 '../../eu/ve-state-card',
     videojs:                       '//vjs.zencdn.net/4.12/video',
     //videojs:                       '//vjs.zencdn.net/5.2.4/video',
