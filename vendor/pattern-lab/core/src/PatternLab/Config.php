@@ -215,7 +215,7 @@ class Config {
     // Europeana change
     // self::$options["metaDir"]          = isset(self::$options["metaDir"])          ? self::$options["sourceDir"].DIRECTORY_SEPARATOR.self::cleanDir(self::$options["metaDir"]) : self::$options["sourceDir"].DIRECTORY_SEPARATOR."_meta/";
 
-    self::$options["metaDir"]          = isset(self::$options["metaDir"])          ? self::$options["sourceDir"].DIRECTORY_SEPARATOR.self::cleanDir(self::$options["metaDir"]) : self::$options["sourceDir"].DIRECTORY_SEPARATOR."_patterns".DIRECTORY_SEPARATOR."atoms".DIRECTORY_SEPARATOR."meta/";
+    self::$options["metaDir"]          = self::$options["sourceDir"].DIRECTORY_SEPARATOR."_patterns".DIRECTORY_SEPARATOR."atoms".DIRECTORY_SEPARATOR."meta/";
 
     // End Europeana change
 
