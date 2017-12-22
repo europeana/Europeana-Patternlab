@@ -12,6 +12,8 @@ define(['jquery', 'util_resize'], function ($){
           var value    = $(this).val();
           var nameText = $(this).data('name-text');
 
+          $(this).wrap('<div class="relative">');
+
           $(this).before('<input type="hidden" name="' + name + '"' + (value.length > 0 ? ' value="' + value + '"' : '') + '/>');
 
           if(typeof nameText != 'undefined'){

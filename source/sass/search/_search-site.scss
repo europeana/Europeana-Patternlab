@@ -1279,10 +1279,6 @@ html.redirecting{
     color:       $eu-blue;
     font-weight: bold;
     margin-top:  $space;
-
-    &.required::before{
-      content: '*';
-    }
   }
 
   .hint{
@@ -1324,10 +1320,15 @@ html.redirecting{
       margin:     0;
     }
   }
+
   .sidebar{
     @media all and (min-width: $bp-med) {
       @include span(last 6 of 24);
     }
+  }
+
+  .eu-autocomplete{
+    display: block;
   }
 }
 
