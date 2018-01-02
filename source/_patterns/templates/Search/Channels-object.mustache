@@ -41,12 +41,12 @@
 
               <div class="channel-media-wrap {{#empty_item}} empty{{/empty_item}}{{^empty_item}} multi-item{{/empty_item}}">
 
-                {{#title}}
+                {{#display_title}}
                   <h2 class="channel-object-title top" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
-                {{/title}}
-                {{^title}}
+                {{/display_title}}
+                {{^display_title}}
                   <h2 class="channel-object-title top">{{i18n.site.object.title_unavailable}}</h2>
-                {{/title}}
+                {{/display_title}}
 
                 <a class="scroll-trigger trigger-chain"
                    data-enabled="true"
@@ -177,12 +177,12 @@
 
                   <div class="title-desc-media-nav">
 
-                    {{#title}}
+                    {{#display_title}}
                       <h2 class="channel-object-title" property="http://purl.org/dc/elements/1.1/title dc:title">{{.}}</h2>
-                    {{/title}}
-                    {{^title}}
+                    {{/display_title}}
+                    {{^display_title}}
                       <h2 class="channel-object-title">{{i18n.site.object.title_unavailable}}</h2>
-                    {{/title}}
+                    {{/display_title}}
 
                     <div class="channel-object-media-nav js-transparent">
                       {{> molecules/components/media-nav}}

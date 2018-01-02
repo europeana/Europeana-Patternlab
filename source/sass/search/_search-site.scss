@@ -1257,6 +1257,10 @@ html.redirecting{
 // UGC / Stories
 
 .ugc-content{
+	
+  abbr{
+    border-bottom: 0;
+  }
 
   legend{
     font-size:   $font-size-large;
