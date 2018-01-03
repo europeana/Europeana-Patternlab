@@ -102,7 +102,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
 
           if(typeof self.ops.fnOnDeselect != 'undefined'){
-            self.ops.fnOnDeselect();
+            self.ops.fnOnDeselect(self.$input);
           }
         }
         else{
@@ -111,7 +111,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.$input.trigger('getSuggestions');
 
           if(typeof self.ops.fnOnDeselect != 'undefined'){
-            self.ops.fnOnDeselect();
+            self.ops.fnOnDeselect(self.$input);
           }
         }
       };
@@ -241,7 +241,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.hide();
         }
         if(typeof self.ops.fnOnSelect != 'undefined'){
-          self.ops.fnOnSelect(sel);
+          self.ops.fnOnSelect(sel, self.$input);
         }
       }
     };
@@ -280,7 +280,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
             self.$list.find('.selected').removeClass('selected');
             self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
             if(typeof self.ops.fnOnDeselect != 'undefined'){
-              self.ops.fnOnDeselect();
+              self.ops.fnOnDeselect(self.$input);
             }
           }
         }
@@ -316,7 +316,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
             self.$list.find('.selected').removeClass('selected');
             self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
             if(typeof self.ops.fnOnDeselect != 'undefined'){
-              self.ops.fnOnDeselect();
+              self.ops.fnOnDeselect(self.$input);
             }
             self.scrollUpNeeded(self.$input);
           }
