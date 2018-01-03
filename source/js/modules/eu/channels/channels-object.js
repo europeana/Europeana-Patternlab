@@ -592,31 +592,40 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
         var locale = typeof window.i18nLocale == 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale == 'string' ? window.i18nDefaultLocale : 'en';
 
-        $.getJSON(url).done(function(data){
+        var matches = url.match(/agent\/base\/(.*)/);
+        if(matches.length == 2){
 
-          var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
-          var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
-          agentData.text     = label;
-          agentData.img_url  = depiction;
-          agentData.url      = url;
+          url = location.href.split('portal/' + locale + '/')[0] + 'portal/' + locale + '/explore/people/' + matches[1] + '.json';
 
-          require(['mustache'], function(Mustache){
-            Mustache.tags = ['[[', ']]'];
-            var template  = $('#template-concept-js');
-            var html      = Mustache.render(template.text(), agentData);
-            template.after(html);
-          });
+          var req = new XMLHttpRequest();
 
-          /*
-          var domain         = 'https://www.europeana.eu/portal';
-          var searchOnEntity = domain + '/' + 'search.json?q=proxy_dc_creator:+"' + url + '"+OR+proxy_dc_contributor:+"' + url + '"per_page=12&page=1';
+          req.onreadystatechange = function() {
 
-          $.getJSON(searchOnEntity).done(function(data){
-            alert(JSON.stringify(data, null, 4));
-          });
-          */
+            if(req.readyState === 4){
 
-        });
+              log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
+
+              $.getJSON(req.responseURL).done(function(data){
+                data               = data.api_response;
+
+                var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
+                var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+                agentData.text     = label;
+                agentData.img_url  = depiction;
+                agentData.url      = url;
+
+                require(['mustache'], function(Mustache){
+                  Mustache.tags = ['[[', ']]'];
+                  var template  = $('#template-concept-js');
+                  var html      = Mustache.render(template.text(), agentData);
+                  template.after(html);
+                });
+              });
+            }
+          };
+          req.open('GET', url, true);
+          req.send();
+        }
         return false;
       }
 
