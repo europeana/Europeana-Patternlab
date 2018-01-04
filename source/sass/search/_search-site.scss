@@ -1334,6 +1334,27 @@ html.redirecting{
   .eu-autocomplete{
     display: block;
   }
+ 
+  .ore_aggregation_edm_aggregatedCHO_dc_contributor_skos_prefLabel{
+  	position: relative;
+  }
+ 
+  .btn-copy-name{
+    font-size:      $font-size-slightly-smaller;
+    font-weight:    bold;
+    opacity:        0.1;
+    pointer-events: none;
+    position:       absolute;
+    right:          0;
+    top:            0.25em;
+    transition:     opacity 1.5s ease-in-ease-out;
+      
+    &.enabled{
+      opacity:        1;
+      pointer-events: auto;
+    }
+  }
+ 
 }
 
 

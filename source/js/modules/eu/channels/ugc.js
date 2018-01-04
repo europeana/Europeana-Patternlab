@@ -1,5 +1,32 @@
 define(['jquery', 'util_resize'], function ($){
 
+  function initCopyField(){
+
+    var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
+    var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
+    
+    $('#' + copyToId).before('<a class="btn-copy-name">Use name</a>');
+    
+    $('.btn-copy-name').on('click', function(){
+      $('#' + copyToId).val( $('#' + copyFromId).val() );
+    });
+    
+    $('#' + copyFromId).on('keyup', function(){
+
+      if($(this).val().length > 0){
+        $('.btn-copy-name').addClass('enabled');
+      }
+      else{
+        $('.btn-copy-name').removeClass('enabled');
+      }
+    });
+
+    if($('#' + copyFromId).val().length > 0){
+      $('.btn-copy-name').addClass('enabled');
+    }
+    
+  }
+
   function initPage(){
 
     var autocompletes = $('[data-url]');
@@ -58,6 +85,9 @@ define(['jquery', 'util_resize'], function ($){
         });
       });
     }
+    
+    initCopyField();
+    
   }
 
   return {

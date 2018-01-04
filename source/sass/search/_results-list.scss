@@ -700,11 +700,12 @@
       top:      auto;
       width:    100%;
 
-      @media all and (min-width: $bp-small-2) {
-        width:    50%;
+      @media all and (min-width: $bp-small-2){
+        width: 50%;
       }
 
       .search-list-item{
+      	
         display: none;
 
         &:first-child{
