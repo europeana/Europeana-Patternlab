@@ -294,6 +294,20 @@
             }
           },
           {
+            "is_video": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_vp9.png",
+            "play_url": "https://base-n.de/webm/out9.webm",
+            "download": false,
+            "technical_metadata": {
+              "mime_type": "video/webm"
+            },
+            "rights": {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+          {
             "is_midi": true,
             "playable": true,
             "thumbnail": "/media/thumb_midi.png",
