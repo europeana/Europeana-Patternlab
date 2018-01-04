@@ -96,10 +96,6 @@ define(['jquery', 'smartmenus'], function($){
       });
     }
     
-    if((typeof requirementsLoaded).toLowerCase() == 'function'){
-      requirementsLoaded();
-    }
-
     initFeedback();
   };
 
@@ -108,7 +104,7 @@ define(['jquery', 'smartmenus'], function($){
     return;
   }
   log('pageName ' + pageName);
-
+  
   switch(pageName){
     case 'explore/people':
       promisedPageJS.resolve();
@@ -264,9 +260,14 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'migration/new':
       console.log('load js for migration/new here');
-
       require(['ugc'], function(page){
         page.initPage();
+        if((typeof window.requirementsApplication).toLowerCase() == 'string'){
+          console.log('load extra: ' + window.requirementsApplication);
+          require([window.requirementsApplication], function(){
+            console.log('loaded application.js');
+          });
+        }
         doForAllPages();
       });
       break;
