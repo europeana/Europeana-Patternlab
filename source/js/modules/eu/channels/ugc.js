@@ -16,7 +16,7 @@ define(['jquery', 'util_resize'], function ($){
               $('#' + $input.data('for')).val($el.data('value'));
               console.log('set hidden val to ' + $el.data('value'));
             },
-            fnPreProcess     : function(term, data){
+            fnPreProcess     : function(term, data, ops){
               var escapeRegExp = function(str){
                 return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
               };
@@ -25,6 +25,10 @@ define(['jquery', 'util_resize'], function ($){
                 var val        = data[i].text;
                 var match      = val.match(re);
                 var matchIndex = val.indexOf(match);
+                
+                if(val.toLowerCase() == term.toLowerCase()){
+                  $('#' + ops.selInput.data('for')).val(data[i].value);
+                }
                 
                 if(matchIndex && matchIndex > -1){
                   data[i].textPreMatch  = val.substr(0, matchIndex);
