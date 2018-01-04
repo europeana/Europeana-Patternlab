@@ -95,6 +95,11 @@ define(['jquery', 'smartmenus'], function($){
         euTooltip.configure();
       });
     }
+    
+    if((typeof requirementsLoaded).toLowerCase() == 'function'){
+      requirementsLoaded();
+    }
+
     initFeedback();
   };
 
@@ -261,8 +266,8 @@ define(['jquery', 'smartmenus'], function($){
       console.log('load js for migration/new here');
 
       require(['ugc'], function(page){
-          page.initPage();
-          doForAllPages();
+        page.initPage();
+        doForAllPages();
       });
       break;
 
