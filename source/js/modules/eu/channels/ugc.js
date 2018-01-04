@@ -30,7 +30,7 @@ define(['jquery', 'util_resize'], function ($){
                   $('#' + ops.selInput.data('for')).val(data[i].value);
                 }
                 
-                if(matchIndex && matchIndex > -1){
+                if(matchIndex > -1){
                   data[i].textPreMatch  = val.substr(0, matchIndex);
                   data[i].textPostMatch = val.substr(matchIndex + (match+'').length);
                   data[i].textMatch     = match;
