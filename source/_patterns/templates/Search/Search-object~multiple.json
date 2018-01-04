@@ -47,6 +47,7 @@
         "more_thumbs_page": "url-to-page-with-thumbs",
         "external_media": "#",
         "has_downloadable_media": true,
+        "single_item": false,
         "items":
         [
           {
