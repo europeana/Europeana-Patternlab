@@ -3,7 +3,6 @@ window.GoogleAnalyticsObject = '__ga__';
 require.config({
   paths: {
     exhibitions:            '../../eu/exhibitions',
-    featureDetect:          '../../global/feature-detect',
     feedback:               '../../eu/feedback/eu-feedback',
     ga:                     '//www.google-analytics.com/analytics',
     global:                 '../../eu/global',
@@ -36,7 +35,6 @@ require.config({
     ve_state_card:          '../../eu/ve-state-card'
   },
   shim: {
-    featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
     smartmenus:     ['jquery'],

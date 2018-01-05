@@ -39,7 +39,6 @@ require.config({
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
     fashion_redirect:              '../../eu/util/fashion-redirect',
     fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
-    featureDetect:                 '../../global/feature-detect',
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',
@@ -140,9 +139,9 @@ require.config({
 
     touch_move:                    '../../lib/jquery/jquery.event.move',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
-    
+
     ugc:                           '../../eu/channels/ugc',
-    
+
     ve_state_card:                 '../../eu/ve-state-card',
     videojs:                       '//vjs.zencdn.net/4.12/video',
     //videojs:                       '//vjs.zencdn.net/5.2.4/video',
@@ -155,7 +154,6 @@ require.config({
   },
   shim: {
     blacklight:     ['jquery'],
-    featureDetect:  ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
   //  optimizely:     ['jquery'],
