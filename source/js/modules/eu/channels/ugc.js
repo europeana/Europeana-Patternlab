@@ -1,16 +1,31 @@
 define(['jquery', 'util_resize'], function ($){
 
+
+  function initTicketField(){
+    var hiddenEl   = $('.ore_aggregation_edm_aggregatedCHO_dc_identifier');
+    var activateEl = $('#ore_aggregation_edm_aggregatedCHO_attributes_edm_wasPresentAt_id');
+
+    activateEl.change(function(){
+      if($(this).val()){
+        hiddenEl.addClass('enabled');
+      }
+      else{
+        hiddenEl.removeClass('enabled');
+      }
+    });
+  }
+
   function initCopyField(){
 
     var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
     var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
-    
+
     $('#' + copyToId).before('<a class="btn-copy-name">Use name</a>');
-    
+
     $('.btn-copy-name').on('click', function(){
       $('#' + copyToId).val( $('#' + copyFromId).val() );
     });
-    
+
     $('#' + copyFromId).on('keyup', function(){
 
       if($(this).val().length > 0){
@@ -24,7 +39,7 @@ define(['jquery', 'util_resize'], function ($){
     if($('#' + copyFromId).val().length > 0){
       $('.btn-copy-name').addClass('enabled');
     }
-    
+
   }
 
   function initPage(){
@@ -52,11 +67,11 @@ define(['jquery', 'util_resize'], function ($){
                 var val        = data[i].text;
                 var match      = val.match(re);
                 var matchIndex = val.indexOf(match);
-                
+
                 if(val.toLowerCase() == term.toLowerCase()){
                   $('#' + ops.selInput.data('for')).val(data[i].value);
                 }
-                
+
                 if(matchIndex > -1){
                   data[i].textPreMatch  = val.substr(0, matchIndex);
                   data[i].textPostMatch = val.substr(matchIndex + (match+'').length);
@@ -66,7 +81,7 @@ define(['jquery', 'util_resize'], function ($){
                   data[i].textPreMatch  = val;
                 }
               }
-              
+
               return data;
             },
             fnOnDeselect: function($input){
@@ -85,9 +100,9 @@ define(['jquery', 'util_resize'], function ($){
         });
       });
     }
-    
+
     initCopyField();
-    
+    initTicketField();
   }
 
   return {

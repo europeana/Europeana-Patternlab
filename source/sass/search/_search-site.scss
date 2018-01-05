@@ -1257,7 +1257,7 @@ html.redirecting{
 // UGC / Stories
 
 .ugc-content{
-	
+
   abbr{
     border-bottom: 0;
   }
@@ -1267,15 +1267,20 @@ html.redirecting{
     font-weight: bold;
   }
 
-  fieldset fieldset{
-    border:     1px solid $eu-blue;
-    margin-top: $space;
-    padding:    0 $space $space-and-half $space;
+  fieldset{
 
-    legend{
-      font-size: $font-size-med;
-      margin:    0;
-      padding:   0 $space-half;
+    margin-bottom: $space;
+
+    fieldset{
+      border:     1px solid $eu-blue;
+      margin-top: $space;
+      padding:    0 $space $space-and-half $space;
+
+      legend{
+        font-size: $font-size-med;
+        margin:    0;
+        padding:   0 $space-half;
+      }
     }
   }
 
@@ -1334,27 +1339,41 @@ html.redirecting{
   .eu-autocomplete{
     display: block;
   }
- 
+
   .ore_aggregation_edm_aggregatedCHO_dc_contributor_skos_prefLabel{
-  	position: relative;
+    position: relative;
   }
- 
-  .btn-copy-name{
-    font-size:      $font-size-slightly-smaller;
+
+  .prose .btn-copy-name{
+    background:     $eu-blue;
+    border-radius:  0.5em;
+    color:          $white;
+    font-size:      $font-size-sm;
     font-weight:    bold;
-    opacity:        0.1;
+    opacity:        0;
+    padding:        0.5em;
     pointer-events: none;
     position:       absolute;
-    right:          0;
-    top:            0.25em;
-    transition:     opacity 1.5s ease-in-ease-out;
-      
+    right:          -1em;
+    top:            3.1em;
+    transform:      translateX(100%);
+    transition:     opacity 0.3s ease;
+
     &.enabled{
       opacity:        1;
       pointer-events: auto;
     }
   }
- 
+
+  .ore_aggregation_edm_aggregatedCHO_dc_identifier{
+
+    display: none;
+
+    &.enabled{
+      display: block;
+    }
+  }
+
 }
 
 
