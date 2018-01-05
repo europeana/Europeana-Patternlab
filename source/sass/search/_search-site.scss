@@ -1271,6 +1271,12 @@ html.redirecting{
 
     margin-bottom: $space;
 
+    &.sequenced_object_fieldset{
+      legend::after{
+        content: attr(index);
+      }
+    }
+
     fieldset{
       border:     1px solid $eu-blue;
       margin-top: $space;

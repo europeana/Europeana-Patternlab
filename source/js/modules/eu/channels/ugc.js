@@ -1,5 +1,21 @@
 define(['jquery', 'util_resize'], function ($){
 
+  function bindDynamicFieldset(){
+
+    var reindex = function(){
+      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object_fieldset').each(function(i){
+        $(this).find('legend').attr('index', i + 2);
+      });
+    };
+
+    $(document).on('fields_added.nested_form_fields', function(){
+      reindex();
+    });
+
+    $(document).on('fields_removed.nested_form_fields', function(){
+      reindex();
+    });
+  }
 
   function initTicketField(){
     var hiddenEl   = $('.ore_aggregation_edm_aggregatedCHO_dc_identifier');
@@ -101,6 +117,7 @@ define(['jquery', 'util_resize'], function ($){
       });
     }
 
+    bindDynamicFieldset();
     initCopyField();
     initTicketField();
   }
