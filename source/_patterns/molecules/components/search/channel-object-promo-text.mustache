@@ -2,20 +2,33 @@
   <div class="content-text-inner{{^date}}{{^attribution}}{{^type}} no-date-and-type{{/type}}{{/attribution}}{{/date}}{{#tags}} has-tags{{/tags}}{{#title}} has-title{{/title}}{{#excerpt}}{{#short}} has-text{{/short}}{{/excerpt}}">
 
     {{#title}}
-      {{#icon}}
-        <div>
-      {{/icon}}
-      <div class="promo-title{{#icon}} with-icon{{/icon}}{{#tags}} has-tags-after{{/tags}}">
-        {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
-      </div>
-      {{#icon}}
-          <span class="icon icon-{{.}}"></span>
+
+      <div class="content-text-upper">
+        <div class="promo-title-wrap">
+          <div class="promo-title{{#icon}} with-icon{{/icon}}{{#tags}} has-tags-after{{/tags}}{{#relation}} has-relation-after{{/relation}}">
+            {{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}
+          </div>
+          {{#icon}}
+              <span class="icon icon-{{.}}"></span>
+          {{/icon}}
         </div>
-      {{/icon}}
+
+        {{#tags}}
+          <ul class="promo-tags">
+            {{#items}}
+              <li>
+                {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}{{#url}}</a>{{/url}}
+              </li>
+            {{/items}}
+          </ul>
+        {{/tags}}
+
+      </div>
     {{/title}}
+
     {{#excerpt}}
       {{#short}}
-        <div class="text-main{{^relation}} no-relation{{/relation}}">{{{.}}}</div>
+        <div class="text-main{{^relation}} no-relation{{/relation}}">{{& . }}</div>
       {{/short}}
     {{/excerpt}}
 
@@ -52,15 +65,7 @@
        --></div>
         </div>
       {{/overlay}}
-      {{#tags}}
-        <ul class="promo-tags">
-        {{#items}}
-          <li>
-            {{#url}}<a class="promo-tag-link" href="{{.}}">{{/url}}#{{text}}&nbsp;{{#url}}</a>{{/url}}
-          </li>
-        {{/items}}
-        </ul>
-      {{/tags}}
+
       <div class="date-and-type">
         <div class="date{{#type}} with-type{{/type}}">
           {{#date}}
@@ -77,5 +82,6 @@
         <div class="relation">{{.}}</div>
       {{/relation}}
     </div>
+
   </div>
 </div>

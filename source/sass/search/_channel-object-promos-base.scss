@@ -28,6 +28,11 @@ $grey-preload-text:                $gray-lightest;
     max-height:       25%;
   }
 
+  .content-text-upper{
+    display:        flex;
+    flex-direction: column;
+  }
+
   .content-outer{
 
     position:   relative;
@@ -35,7 +40,7 @@ $grey-preload-text:                $gray-lightest;
     &::before{
       content:     ' ';
       display:     block;
-      padding-top: 135%;
+      padding-top: 133%;
     }
 
     .content-outer{
@@ -80,9 +85,6 @@ $grey-preload-text:                $gray-lightest;
       }
     }
 
-    .has-tags .text-footer{
-      flex-grow: 1;
-    }
   }
 
   &.entity-promo{
@@ -110,7 +112,7 @@ $grey-preload-text:                $gray-lightest;
       box-shadow:       -2px 0 4px -2px rgba(0, 0, 0, 0.25);
       height:           100%;
       left:             3px;
-      max-height:       19%;
+      max-height:       18%;
       position:         relative;
       width:            calc(100% - 3px);
     }
@@ -267,6 +269,13 @@ $grey-preload-text:                $gray-lightest;
         max-height:  2.8em;
       }
     }
+
+    &.has-tags-after.has-relation-after{
+      @media all and (min-width: 67em) and (max-width: 84em){
+        max-height:  2.4em;
+      }
+    }
+
   }
 
   .image-set-title{
@@ -303,14 +312,17 @@ $grey-preload-text:                $gray-lightest;
     font-size:     $font-size-sm;
     font-style:    italic;
     overflow:      hidden;
-    padding:       0.35em 1.125rem;
+    padding:       0.325em 1.125rem;
     text-overflow: ellipsis;
     white-space:   nowrap;
   }
 
   .promo-tags{
     font-size:      0.875em;
-    max-height:     2.1em;
+    height:         2em;
+    line-height:    1.4em;
+    max-height:     2em;
+    min-height:     2em;
     overflow:       hidden;
     padding-bottom: 0.15em;
     padding-top:    0.15em;
@@ -497,7 +509,7 @@ $grey-preload-text:                $gray-lightest;
     }
 
     .svg-icon-info{
-      bottom: -34%;
+      bottom: -32%;
       right:  0.2em;
     }
   }
