@@ -15,6 +15,8 @@ define(['jquery', 'util_resize'], function ($){
     $(document).on('fields_removed.nested_form_fields', function(){
       reindex();
     });
+
+    reindex();
   }
 
   function initTicketField(){
