@@ -98,11 +98,19 @@ define(['jquery', 'smartmenus'], function($){
 
     initFeedback();
 
-    if((typeof window.requirementsApplication).toLowerCase() == 'string'){
-      console.log('load extra: ' + window.requirementsApplication);
-      require([window.requirementsApplication], function(){
-        console.log('loaded application.js');
-      });
+    if((typeof window.requirementsApplication).toLowerCase() != 'undefined'){
+      if((typeof window.requirementsApplication).toLowerCase() == 'string'){
+        console.log('load extra: ' + window.requirementsApplication);
+        require([window.requirementsApplication], function(){
+          console.log('loaded application.js');
+        });
+      }
+      if((typeof window.requirementsApplication).toLowerCase() == 'array'){
+        console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
+        $.each(window.requirementsApplication, function(){
+          require(this);
+        });
+      }
     }
 
   };
