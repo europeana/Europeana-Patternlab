@@ -47,6 +47,7 @@
         "more_thumbs_page": "url-to-page-with-thumbs",
         "external_media": "#",
         "has_downloadable_media": true,
+        "single_item": false,
         "items":
         [
           {
@@ -283,6 +284,20 @@
             "playable": true,
             "thumbnail": "http://www.webmfiles.org/wp-content/uploads/2010/05/webm-file.jpg",
             "play_url": "http://video.webmfiles.org/big-buck-bunny_trailer.webm",
+            "download": false,
+            "technical_metadata": {
+              "mime_type": "video/webm"
+            },
+            "rights": {
+              "license_public": true,
+              "license_human": "You can use this video in any way you like"
+            }
+          },
+          {
+            "is_video": true,
+            "playable": true,
+            "thumbnail": "/media/thumb_vp9.png",
+            "play_url": "https://base-n.de/webm/out9.webm",
             "download": false,
             "technical_metadata": {
               "mime_type": "video/webm"

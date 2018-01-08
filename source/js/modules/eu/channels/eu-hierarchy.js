@@ -1095,7 +1095,11 @@ define(['jquery', 'jqScrollto'], function($) {
 
         var onLoad = function(){
           doScrollTo($('#' + node.id), function(){
-            togglePrevNextLinks();
+
+        	setTimeout(function(){
+              togglePrevNextLinks();
+        	}, 1500);
+        	  
             setLoadPoint(node.id);
 
             if(self.initialised){

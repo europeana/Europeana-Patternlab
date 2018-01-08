@@ -1258,20 +1258,35 @@ html.redirecting{
 
 .ugc-content{
 
+  abbr{
+    border-bottom: 0;
+  }
+
   legend{
     font-size:   $font-size-large;
     font-weight: bold;
   }
 
-  fieldset fieldset{
-    border:     1px solid $eu-blue;
-    margin-top: $space;
-    padding:    0 $space $space-and-half $space;
+  fieldset{
 
-    legend{
-      font-size: $font-size-med;
-      margin:    0;
-      padding:   0 $space-half;
+    margin-bottom: $space;
+
+    &.sequenced_object_fieldset{
+      legend::after{
+        content: attr(index);
+      }
+    }
+
+    fieldset{
+      border:     1px solid $eu-blue;
+      margin-top: $space;
+      padding:    0 $space $space-and-half $space;
+
+      legend{
+        font-size: $font-size-med;
+        margin:    0;
+        padding:   0 $space-half;
+      }
     }
   }
 
@@ -1279,10 +1294,6 @@ html.redirecting{
     color:       $eu-blue;
     font-weight: bold;
     margin-top:  $space;
-
-    &.required::before{
-      content: '*';
-    }
   }
 
   .hint{
@@ -1324,11 +1335,51 @@ html.redirecting{
       margin:     0;
     }
   }
+
   .sidebar{
     @media all and (min-width: $bp-med) {
       @include span(last 6 of 24);
     }
   }
+
+  .eu-autocomplete{
+    display: block;
+  }
+
+  .ore_aggregation_edm_aggregatedCHO_dc_contributor_skos_prefLabel{
+    position: relative;
+  }
+
+  .prose .btn-copy-name{
+    background:     $eu-blue;
+    border-radius:  0.5em;
+    color:          $white;
+    font-size:      $font-size-sm;
+    font-weight:    bold;
+    opacity:        0;
+    padding:        0.5em;
+    pointer-events: none;
+    position:       absolute;
+    right:          -1em;
+    top:            3.1em;
+    transform:      translateX(100%);
+    transition:     opacity 0.3s ease;
+
+    &.enabled{
+      opacity:        1;
+      pointer-events: auto;
+    }
+  }
+
+  .ore_aggregation_edm_aggregatedCHO_dc_identifier{
+
+    display: none;
+
+    &.enabled{
+      display: block;
+    }
+  }
+
 }
 
 

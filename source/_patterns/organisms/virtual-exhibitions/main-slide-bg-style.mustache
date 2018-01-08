@@ -3,17 +3,17 @@
     {{#bg}}
       @media only screen and (min-width: {{show_small}}) and (max-width: {{show_half}}) {
         .ve-{{id}}{
-          background-image: url({{small.url}});
+          background-image: url('{{small.url}}');
         }
       }
       @media only screen and (min-width: {{show_half}}) and (max-width: {{show_full}}) {
         .ve-{{id}}{
-          background-image: url({{half.url}});
+          background-image: url('{{half.url}}');
         }
       }
       @media only screen and (min-width: {{show_full}}) {
         .ve-{{id}}{
-          background-image: url({{full.url}});
+          background-image: url('{{full.url}}');
         }
       }
     {{/bg}}
@@ -25,7 +25,7 @@
                          and (min-device-pixel-ratio: {{dpr}})
                          and (min-width: {{show_small}}) {
         .ve-{{id}}{
-          background-image: url({{smallx2.url}})
+          background-image: url('{{smallx2.url}}')
         }
       }
       @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
@@ -34,7 +34,7 @@
                          and (min-device-pixel-ratio: {{dpr}})
                          and (min-width: {{show_half}}) {
         .ve-{{id}}{
-          background-image: url({{halfx2.url}})
+          background-image: url('{{halfx2.url}}')
         }
       }
       @media only screen and (-webkit-min-device-pixel-ratio: {{dpr}})
@@ -43,7 +43,7 @@
                          and (min-device-pixel-ratio: {{dpr}})
                          and (min-width: {{show_full}}) {
         .ve-{{id}}{
-          background-image: url({{fullx2.url}})
+          background-image: url('{{fullx2.url}}')
         }
       }
     {{/bg-hr}}

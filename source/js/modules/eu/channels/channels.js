@@ -95,7 +95,16 @@ define(['jquery', 'smartmenus'], function($){
         euTooltip.configure();
       });
     }
+
     initFeedback();
+
+    if((typeof window.requirementsApplication).toLowerCase() == 'string'){
+      console.log('load extra: ' + window.requirementsApplication);
+      require([window.requirementsApplication], function(){
+        console.log('loaded application.js');
+      });
+    }
+
   };
 
   if(typeof pageName == 'undefined' || !pageName){
@@ -259,10 +268,9 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'migration/new':
       console.log('load js for migration/new here');
-
       require(['ugc'], function(page){
-          page.initPage();
-          doForAllPages();
+        page.initPage();
+        doForAllPages();
       });
       break;
 
