@@ -105,7 +105,7 @@ define(['jquery', 'smartmenus'], function($){
           console.log('loaded application.js');
         });
       }
-      if((typeof window.requirementsApplication).toLowerCase() == 'array'){
+      if((typeof window.requirementsApplication).toLowerCase() == 'object'){
         console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
         $.each(window.requirementsApplication, function(){
           require(this);
