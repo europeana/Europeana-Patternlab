@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize'], function ($){
+define(['jquery', 'util_resize'], function($){
 
   function bindDynamicFieldset(){
 
@@ -60,7 +60,7 @@ define(['jquery', 'util_resize'], function ($){
 
   }
 
-  function initPage(){
+  function initAutoCompletes(){
 
     var autocompletes = $('[data-url]');
 
@@ -118,10 +118,17 @@ define(['jquery', 'util_resize'], function ($){
         });
       });
     }
+  }
 
+  function initPage(){
+    initAutoCompletes();
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
+
+    require(['eu_form_restore'], function(FormRestore){
+      FormRestore.create($('#new_ore_aggregation'));
+    });
   }
 
   return {
