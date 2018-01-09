@@ -38,10 +38,14 @@ define(['jquery'], function($){
       }
     });
 
-    $form.find(':input[type="hidden"]').each(function(){
-      trackChange(this);
-    });
+    trackHidden($form);
+  };
 
+  var trackHidden = function($form){
+    $form.find(':input[type="hidden"]:not(.js-tracked)').each(function(){
+      trackChange(this);
+      $(this).addClass('js-tracked');
+    });
   };
 
   var trackChange = function(element) {
@@ -103,6 +107,9 @@ define(['jquery'], function($){
       else{
         console.log('form-restore requires localStorage');
       }
+    },
+    trackHidden: function($form){
+      trackHidden($form);
     }
   };
 

@@ -124,7 +124,10 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('external_js_loaded', function(){
       require(['eu_form_restore'], function(FormRestore){
-        FormRestore.create($('#new_ore_aggregation'),
+
+        var form = $('#new_ore_aggregation');
+
+        FormRestore.create(form,
           {
             'fnGetDerivedFieldName': function(fName){
               if(!fName){
@@ -151,8 +154,13 @@ define(['jquery', 'util_resize'], function($){
             'recurseLimit': 5
           }
         );
+
+        $(document).on('fields_added.nested_form_fields', function(){
+          FormRestore.trackHidden(form);
+        });
+
       });
-    })
+    });
 
     initAutoCompletes();
     bindDynamicFieldset();
