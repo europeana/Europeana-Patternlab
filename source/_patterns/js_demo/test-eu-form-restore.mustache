@@ -1,0 +1,102 @@
+<style>
+  body{
+    margin: 2em auto;
+    width:  40%;
+    width:  60%;
+  }
+
+  form{
+    margin: 2em 0;
+  }
+
+  label{
+    align-self:  center;
+    display:     inline-block;
+    font-weight: bold;
+    width:       45%;
+  }
+
+  label::after{
+    content: ': ';
+  }
+
+  .field{
+    display: inline-block;
+    margin:  1em 0;
+    width:   50%;
+  }
+
+  .notice{
+    color:     red;
+    font-size: 75%;
+  }
+
+  .wrap{
+    clear:   both;
+    display: flex;
+  }
+
+  #submit{
+    display: block;
+    margin:  2em auto;
+  }
+
+</style>
+
+<h3>Form Restoration</h3>
+
+<p>Fill in some form fields - close your browser - then come back...</p>
+<p class="notice"></p>
+
+<form enctype="multipart/form-data" method="post" id="test-form-restore">
+  <div class="wrap">
+    <label for="name">Name</label><input class="field" id="name" name="name"/><input type="hidden" id="name-upper" name="name-upper"/>
+  </div>
+  <div class="wrap">
+    <label for="d-o-b">Date of Birth</label><input class="field" type="date" id="d-o-b" name="d-o-b"/>
+  </div>
+  <div class="wrap">
+    <label for="description">Description</label><textarea rows="3" class="field" id="description" name="description"></textarea>
+  </div>
+  <div class="wrap">
+    <label for="type">Type</label>
+    <select class="field" id="type" name="type">
+      <option>Select a type...</option>
+      <option value="a">Type A</option>
+      <option value="b">Type B</option>
+      <option value="c">Type C</option>
+    </select>
+  </div>
+  <div class="wrap">
+    <label for="check-1">Check 1</label>
+    <input type="checkbox" name="check-1" id="check-1" value="c1"/>
+  </div>
+  <div class="wrap">
+    <label for="check-2">Check 2</label>
+    <input type="checkbox" name="check-2" id="check-2" value="c2"/>
+  </div>
+  <div class="wrap">
+    <label for="check-3">Check 3</label>
+    <input type="checkbox" name="check-3" id="check-3" value="c3"/>
+  </div>
+  <div class="wrap">
+    <label for="color">Color</label>
+    <input class="field" type="color" name="color" id="color"/>
+  </div>
+  <div class="wrap">
+    <label for="other-a">Other A</label>
+    <input type="radio" name="other" id="other-a" value="A"/>
+  </div>
+  <div class="wrap">
+    <label for="other-b">Other B</label>
+    <input type="radio" name="other" id="other-b" value="B"/>
+  </div>
+  <div class="wrap">
+    <label for="other-c">Other C</label>
+    <input type="radio" name="other" id="other-c" value="C"/>
+  </div>
+  <input type="submit" id="submit"/>
+</form>
+
+
+
