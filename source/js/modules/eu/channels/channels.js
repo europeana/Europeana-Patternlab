@@ -87,6 +87,18 @@ define(['jquery', 'smartmenus'], function($){
     }
   };
 
+  var requireSynchronously = function(array, cb){
+    var s = array.shift();
+    if(s){
+      require([s], function(){
+        requireSynchronously(array, cb);
+      });
+    }
+    else if(cb){
+      cb();
+    }
+  };
+  
   var doForAllPages = function(){
     initCollectionsFilter();
 
@@ -108,6 +120,10 @@ define(['jquery', 'smartmenus'], function($){
       }
       if((typeof window.requirementsApplication).toLowerCase() == 'object'){
         console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
+        requireSynchronously(window.requirementsApplication, function(){
+          $(document).trigger('external_js_loaded');
+        });
+        /*
         var scriptCount = window.requirementsApplication.length;
         $.each(window.requirementsApplication, function(i, ob){
           require([ob], function(){
@@ -116,6 +132,7 @@ define(['jquery', 'smartmenus'], function($){
             }
           });
         });
+        */
       }
     }
 
