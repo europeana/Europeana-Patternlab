@@ -103,12 +103,18 @@ define(['jquery', 'smartmenus'], function($){
         console.log('load extra: ' + window.requirementsApplication);
         require([window.requirementsApplication], function(){
           console.log('loaded application.js');
+          $(document).trigger('external_js_loaded');
         });
       }
       if((typeof window.requirementsApplication).toLowerCase() == 'object'){
         console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
-        $.each(window.requirementsApplication, function(){
-          require(this);
+        var scriptCount = window.requirementsApplication.length;
+        $.each(window.requirementsApplication, function(i, ob){
+          require([ob], function(){
+            if(i+1==scriptCount){
+              $(document).trigger('external_js_loaded');
+            }
+          });
         });
       }
     }

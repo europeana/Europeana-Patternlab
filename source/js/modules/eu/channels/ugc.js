@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize'], function ($){
+define(['jquery', 'util_resize'], function($){
 
   function bindDynamicFieldset(){
 
@@ -60,7 +60,7 @@ define(['jquery', 'util_resize'], function ($){
 
   }
 
-  function initPage(){
+  function initAutoCompletes(){
 
     var autocompletes = $('[data-url]');
 
@@ -118,7 +118,51 @@ define(['jquery', 'util_resize'], function ($){
         });
       });
     }
+  }
 
+  function initPage(){
+
+    $(document).on('external_js_loaded', function(){
+      require(['eu_form_restore'], function(FormRestore){
+
+        var form = $('#new_ore_aggregation');
+
+        FormRestore.create(form,
+          {
+            'fnGetDerivedFieldName': function(fName){
+              if(!fName){
+                return;
+              }
+              if(fName.indexOf('[edm_isShownBy_attributes]') > -1 || fName.indexOf('[edm_hasViews_attributes]') > -1){
+                if(! fName.match(/\[\d\]/)){
+                  return fName.replace('[edm_isShownBy_attributes]', '[edm_hasViews_attributes][0]');
+                }
+                else{
+                  return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
+                }
+              }
+              else{
+                return null;
+              }
+            },
+            'fnOnDerivedNotFound': function(cb){
+              $('.add_nested_fields_link').click();
+              if(cb){
+                cb();
+              }
+            },
+            'recurseLimit': 5
+          }
+        );
+
+        $(document).on('fields_added.nested_form_fields', function(){
+          FormRestore.trackHidden(form);
+        });
+
+      });
+    });
+
+    initAutoCompletes();
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
