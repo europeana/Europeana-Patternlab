@@ -905,6 +905,10 @@ $green-grey-bg:             #f4f4f4;
       align-self:         center;
       margin:             0 0 0 $space;
 
+      .header-only{
+        display: none;
+      }
+
       .icon{
         margin-right: 0;
       }
@@ -943,6 +947,53 @@ $green-grey-bg:             #f4f4f4;
       }
     }
 
+    .modal-header .object-origin{
+
+      position: absolute;
+      right:    0;
+      top:      0;
+
+      .institution-logo{
+
+        border-radius: 12px;
+        height:        24px;
+        position:    relative;
+        right:       0.3em;
+        top:         0.3em;
+        width:         24px;
+
+        &::before{
+          content: '';
+        }
+      }
+
+      .view-more-at{
+        display: none;
+      }
+
+      .header-only{
+
+        display:     block;
+        line-height: 2.1em;
+        white-space: nowrap;
+
+        &.with-logo{
+          margin-right: 2.3em;
+        }
+
+        &::before{
+          content:      attr(data-provided-by);
+          font-weight:  normal;
+          margin-right: 0.4em;
+        }
+      }
+
+      .overview-only{
+        display: none;
+      }
+
+    }
+
     .object-rights{
       margin: 0 $space 0 0;
       order:  -1;
@@ -958,7 +1009,7 @@ $green-grey-bg:             #f4f4f4;
       width:             2em;
     }
 
-    .object-origin .object-origin-detail{
+    .channel-object-media-actions > .object-origin .object-origin-detail{
       display: none;
     }
 
@@ -979,7 +1030,7 @@ $green-grey-bg:             #f4f4f4;
       -webkit-justify-content: space-between;
       justify-content:         space-between;
 
-      .action-ctrl-btn{
+      .channel-object-media-actions .action-ctrl-btn{
         background-color: $eu-blue;
         border:           0;
         border-radius:    4px;
@@ -1001,8 +1052,8 @@ $green-grey-bg:             #f4f4f4;
         }
       }
 
-      .object-origin{
-
+      .channel-object-media-actions > .object-origin{
+        	
         margin: 0 0 0 auto;
 
         .object-origin-detail{

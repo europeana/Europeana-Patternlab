@@ -319,13 +319,34 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       alert('link');
     });
 
+    
+    
+    /*
+     
     $('.action-ctrl-btn').on('click', function(e){
+    	
+    	alert('click on action ctrl')
+    	
       var tgt   = $(e.target).closest('.action-ctrl-btn');
       var modal = tgt.data('modal-selector');
 
       if(modal){
         $(modal).removeClass('js-hidden');
       }
+    });
+    
+     */
+
+    $(document).on('click', '.action-ctrl-btn', function(e){
+
+      var tgt   = $(e.target).closest('.action-ctrl-btn');
+      var modal = tgt.data('modal-selector');
+
+      if(modal){
+        $('.action-modal').addClass('js-hidden');
+        $(modal).removeClass('js-hidden');
+      }
+
     });
 
     $(document).on('click', '.media-modal-close', function(e){
@@ -1558,15 +1579,16 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       attrs[ob.name] = ob.value;
     });
 
-    require(['mustache'], function(Mustache){
+    if(attrs['data-download-uri']){
+      $('.share-modal-header-download-link').attr('href', attrs['data-download-uri']);
+    }
 
+    require(['mustache'], function(Mustache){
       Mustache.tags = ['[[', ']]'];
       var template  = $('#template-download-ops-js');
       var html      = Mustache.render(template.text(), attrs);
-
       $('.modal-download').remove();
-      $('.channel-object-media-actions').append(html);
-
+      template.after(html);
     });
   };
 

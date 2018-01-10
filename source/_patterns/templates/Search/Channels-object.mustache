@@ -256,36 +256,17 @@
                 </div>
               {{/rights}}
 
-              <!--
-              <div class="action-ctrl">
-                <a class="action-ctrl-btn media-annotate" title="{{i18n.site.object.actions.annotate}}"><span class="action-icon svg-icon-info"></span><span class="action-label">{{i18n.site.object.actions.annotate}}</span></a>
-              </div>
-              -->
+              {{> molecules/controls/channels-object-origin }}
 
-              {{#origin}}
-                <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
-                  {{#institution_logo}}
-                    <a href="{{url}}" class="institution-logo cf" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
-                  {{/institution_logo}}
-
-                  {{#institution_name}}
-                    <span class="object-origin-detail">
-                      {{#url}}{{i18n.site.object.actions.view-more-at}}{{/url}}
-                      {{#url}}<a class="link-black-blue" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
-                      {{^url}}{{institution_name}}{{/url}}
-                      <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
-                    </span>
-                  {{/institution_name}}
-                </div>
-              {{/origin}}
             </div>
 
 
             <!-- TODO: the label keys are not consistent -->
 
             <script id="template-download-ops-js" type="text/x-mustache">
+            
               <div class="action-modal modal-download js-hidden">
-                <div class="modal-header">{{i18n.site.object.actions.download}}</div>
+                <div class="modal-header"><a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a> {{> molecules/controls/channels-object-origin }}</div>
                 <div class="modal-content">
                   <div class="modal-action">
                     <span class="label">
@@ -324,7 +305,7 @@
             </script>
 
             <div class="action-modal modal-share js-hidden">
-              <div class="modal-header">{{i18n.global.share}}</div>
+              <div class="modal-header"><a download="Europeana-Media" href="[[data-download-uri]]" class="action-ctrl-btn share-modal-header-download-link" data-modal-selector=".modal-download"><span>{{i18n.site.object.actions.download}}</span></a> {{> molecules/controls/channels-object-origin }}</div>
               <div class="modal-content">
                 <div class="modal-action">
                   <span class="label">
