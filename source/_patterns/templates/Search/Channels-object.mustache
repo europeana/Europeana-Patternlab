@@ -252,21 +252,44 @@
               {{#rights}}
                 <div class="action-ctrl object-rights">
                   <h4>{{ i18n.global.facet.header.reusability }}</h4>
-                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-no-linkout }}</div>
+                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
                 </div>
               {{/rights}}
-
               {{> molecules/controls/channels-object-origin }}
-
             </div>
 
+            <script id="template-modal-header-js" type="text/x-mustache">
+              <div class="modal-header none">
+                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a>
+                <a class="action-ctrl-btn[[^data-download-uri]] disabled[[/data-download-uri]]" data-modal-selector=".modal-download" download="Europeana-Media" href="[[data-download-uri]]"><span>{{i18n.site.object.actions.download}}</span></a>
+                <a class="action-ctrl-btn" data-modal-selector=".modal-rights"><span>{{i18n.global.facet.header.reusability}} [[license_brief]]</span></a>
+                {{> molecules/controls/channels-object-origin }}
+              </div>
+            </script>
 
-            <!-- TODO: the label keys are not consistent -->
+            <script id="template-modal-rights-js" type="text/x-mustache">
+              <div class="action-modal modal-rights js-hidden">
+                <div class="modal-content">
+                  <div class="modal-action">
+                    <span class="label">
+                      <h4>{{ i18n.global.facet.header.reusability }}</h4>
+                      <label>[[license_brief]]</label>
+                      <h4>[[#with_attribution]]{{i18n.global.facet.reusability.with-attribution}}[[/with_attribution]]</h4>
+                    </span>
+                  </div>
+                  <div class="action-modal-section">
+                    <a target="blank" href="[[license_url]]" class="link-black-blue license-link-full"> {{> molecules/icons/licenses-icon-only-js }} [[license_name]] <span class="svg-icon-external"></span></a>
+                  </div>
+                  <a class="media-modal-close">
+                    <span class="label"></span>
+                  </a>
+                </div>
+              </div>
+            </script>
 
-            <script id="template-download-ops-js" type="text/x-mustache">
-            
+            <script id="template-modal-download-js" type="text/x-mustache">
+
               <div class="action-modal modal-download js-hidden">
-                <div class="modal-header"><a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a> {{> molecules/controls/channels-object-origin }}</div>
                 <div class="modal-content">
                   <div class="modal-action">
                     <span class="label">
@@ -305,7 +328,7 @@
             </script>
 
             <div class="action-modal modal-share js-hidden">
-              <div class="modal-header"><a download="Europeana-Media" href="[[data-download-uri]]" class="action-ctrl-btn share-modal-header-download-link" data-modal-selector=".modal-download"><span>{{i18n.site.object.actions.download}}</span></a> {{> molecules/controls/channels-object-origin }}</div>
+
               <div class="modal-content">
                 <div class="modal-action">
                   <span class="label">

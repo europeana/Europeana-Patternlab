@@ -129,7 +129,7 @@
               "dc_description": "Description of the 1st media item",
               "dc_rights": "DC rights of the 1st media item",
               "dc_source": "Source of the 1st media item",
-              "edm_rights": "EDM rights of the 1st media item",
+              "edm_rights": "{\"model\":{\"license_brief\":\"Yes\",\"license_human\":\"Free open re-use\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}",
               "fps": "30",
               "fps_unit": "fps",
               "mime_type": "image/jpeg",
@@ -185,18 +185,20 @@
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
               "dc_source": "Source of the 2nd media item",
-              "edm_rights": "EDM rights of the 2nd media item"
+              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
             },
             "rights":
             {
-              "license_public": true,
-              "license_human": "You can use this video in any way you like",
-              "license_brief": "Yes"
+              "license_public": false,
+              "license_human": "No reuse",
+              "license_brief": "Yes",
+              "license_name": "CC0"
             }
           },
           {
             "thumbnail": "/media/falcon-thumb.png",
             "playable": true,
+            "is_image": false,
             "is_pdf": true,
             "play_url": "/media/falcon.pdf",
             "downloadable": false,
@@ -216,7 +218,7 @@
               "dc_description": "Description of the 3rd media item",
               "dc_rights": "DC rights of the 3rd media item",
               "dc_source": "Source of the 3rd media item",
-              "edm_rights": "EDM rights of the 3rd media item",
+              "edm_rights": "{\"model\":{\"license_human\":\"Limited Re-use\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}",
               "language":"English",
               "format": "png",
               "file_size": "7.3",
@@ -226,6 +228,7 @@
           {
             "thumbnail": "/images/sample/object_thumbnail4.jpg",
             "playable": true,
+            "is_image": false,
             "is_pdf": true,
             "play_url": "/media/PDF2.pdf",
             "downloadable": true,

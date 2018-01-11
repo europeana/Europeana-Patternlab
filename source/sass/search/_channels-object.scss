@@ -3,6 +3,8 @@
 $carousel-arrow-bg:         rgba(255, 255, 255, 0.8);
 $carousel-arrow-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 $green-grey-bg:             #f4f4f4;
+$modal-header-height:       2.1em;
+
 
 .channel-object-viewmore {
   text-align: right;
@@ -45,7 +47,7 @@ $green-grey-bg:             #f4f4f4;
 
   .channel-object-extended-information,
   .channel-object-information{
-    li > a{
+    ul:not(.social-share) li > a{
       border-bottom: 1px dashed $black;
       color:         $black;
 
@@ -947,54 +949,94 @@ $green-grey-bg:             #f4f4f4;
       }
     }
 
-    .modal-header .object-origin{
 
-      position: absolute;
-      right:    0;
-      top:      0;
+    .modal-header{
+      background-color: #e1e1e1;
+      font-weight:      bold;
+      height:           $modal-header-height;
+      padding:          $pad-quarter $pad;
 
-      .institution-logo{
-
-        border-radius: 12px;
-        height:        24px;
-        position:    relative;
-        right:       0.3em;
-        top:         0.3em;
-        width:         24px;
-
-        &::before{
-          content: '';
+      &.download{
+        [data-modal-selector=".modal-download"]{
+          display: none;
         }
       }
 
-      .view-more-at{
+      &.share{
+        [data-modal-selector=".modal-share"]{
+          display: none;
+        }
+      }
+
+      &.rights{
+        [data-modal-selector=".modal-rights"]{
+          display: none;
+        }
+      }
+
+      &.none{
         display: none;
       }
 
-      .header-only{
+      .action-ctrl-btn{
+        margin-right: $space;
 
-        display:     block;
-        line-height: 2.1em;
-        white-space: nowrap;
-
-        &.with-logo{
-          margin-right: 2.3em;
+        &.disabled{
+          color: #a9a9a9;
         }
 
-        &::before{
-          content:      attr(data-provided-by);
-          font-weight:  normal;
-          margin-right: 0.4em;
+      }
+
+      .object-origin{
+
+        position: absolute;
+        right:    $pad;
+        top:      0;
+
+        .institution-logo{
+
+          border-radius: 12px;
+          height:        24px;
+          position:    relative;
+          right:       0.3em;
+          top:         0.3em;
+          width:         24px;
+
+          &::before{
+            content: '';
+          }
         }
-      }
 
-      .overview-only{
-        display: none;
-      }
+        .view-more-at{
+          display: none;
+        }
 
+        .header-only{
+
+          display:     block;
+          line-height: $modal-header-height;
+          white-space: nowrap;
+
+          &.with-logo{
+            margin-right: 2.3em;
+          }
+
+          &::before{
+            content:      attr(data-provided-by);
+            font-weight:  normal;
+            margin-right: 0.4em;
+          }
+        }
+
+        .overview-only{
+          display: none;
+        }
+
+      }
     }
 
     .object-rights{
+      cursor: pointer;
       margin: 0 $space 0 0;
       order:  -1;
     }
@@ -1031,17 +1073,19 @@ $green-grey-bg:             #f4f4f4;
       justify-content:         space-between;
 
       .channel-object-media-actions .action-ctrl-btn{
-        background-color: $eu-blue;
-        border:           0;
-        border-radius:    4px;
-        color:            $white;
-        padding:          $pad-half $pad;
+        background-color: transparent;
+        border:           1px solid $eu-blue;
+        border-radius:    3px;
+        color:            $eu-blue;
+        font-weight:      bold;
+        padding:          $pad $pad;
 
         &.disabled{
           background-color: $gray-lighter;
         }
         &:hover{
-          background-color: rgb(10, 55, 80);
+          background-color: $eu-blue;
+          color:            $white;
         }
 
         .action-icon{
@@ -1053,7 +1097,7 @@ $green-grey-bg:             #f4f4f4;
       }
 
       .channel-object-media-actions > .object-origin{
-        	
+
         margin: 0 0 0 auto;
 
         .object-origin-detail{
@@ -1069,6 +1113,19 @@ $green-grey-bg:             #f4f4f4;
       .object-rights{
         margin: 0 $space-half;
         order:  0;
+
+        h4{
+          margin-bottom: 0.4em;
+        }
+      }
+
+      .object-license{
+
+        font-size: 1.3em;
+
+        .license{
+          margin-left: 0.5em;
+        }
       }
 
     }
@@ -1080,7 +1137,8 @@ $green-grey-bg:             #f4f4f4;
       left:             0;
       position:         absolute;
       right:            0;
-      top:              0;
+      top:              $modal-header-height;
+
     }
 
     .action-modal-section{
@@ -1150,7 +1208,7 @@ $green-grey-bg:             #f4f4f4;
     }
 
     .media-modal-close{
-      background-color: #f00;
+      background-color: $gray65;
       .label{
         background-image: url("data:image/svg+xml,%3Csvg id='icon-delete' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' fill='%23fff' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
         height: 1.6em;
@@ -1158,10 +1216,54 @@ $green-grey-bg:             #f4f4f4;
       }
     }
 
+    .modal-rights{
+
+      .modal-action{
+
+        background-color: $white;
+        color:            $black;
+        position:         relative;
+        text-align:       center;
+
+        &::after{
+          border-right: 1px solid $gray-light;
+          content:      ' ';
+          display:      block;
+          height:       80%;
+          position:     absolute;
+          right:        0;
+          top:          10%;
+        }
+
+        h4{
+          color: $gray-light;
+        }
+
+        label{
+          color:          $gray-med;
+          font-size:      3em;
+          font-weight:    normal;
+          line-height:    1em;
+          text-transform: capitalize;
+        }
+      }
+
+      .action-modal-section{
+        align-self: center;
+        flex-grow:  1;
+        padding:    1rem;
+      }
+
+
+      .license-link-full{
+        font-size: 1.6rem;
+      }
+    }
+
     .modal-content{
       display:                 -webkit-flex;
       display:                 flex;
-      height:                  calc(100% - 2.1em);
+      height:                  100%;
       -webkit-justify-content: space-between;
       justify-content:         space-between;
 
@@ -1170,13 +1272,6 @@ $green-grey-bg:             #f4f4f4;
         align-self:         center;
         margin:             0;
       }
-    }
-
-    .modal-header{
-      background-color: #e1e1e1;
-      font-weight:      bold;
-      height:           2.1em;
-      padding:          $pad-quarter $space-quarter;
     }
 
     .file{
