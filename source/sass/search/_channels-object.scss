@@ -1142,8 +1142,10 @@ $modal-header-height:       2.1em;
     }
 
     .action-modal-section{
+
       -webkit-align-self: center;
       align-self:         center;
+      padding:            0.8em;
 
       &.centred{
         text-align: center;
@@ -1157,6 +1159,15 @@ $modal-header-height:       2.1em;
           }
         }
       }
+
+      &:not(.padded){
+
+        @media all and (min-width: $bp-modal-collapse) {
+          padding: 0;
+        }
+
+      }
+
     }
 
     .action-modal-subheading{
