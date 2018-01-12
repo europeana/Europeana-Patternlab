@@ -915,24 +915,15 @@ $modal-header-height:       2.1em;
         margin-right: 0;
       }
 
-      .institution-logo,
-      .institution-logo-missing{
-//        display:          block;
-        float:            right;
-        position:         relative;
-      }
-
-      .institution-logo-missing{
-        text-align: center;
-      }
-
       .institution-logo{
         background-color: $white;
         background-size:  cover;
         border-radius:    25px;
         -webkit-filter:   grayscale(100%);
         filter:           grayscale(100%);
+        float:            right;
         height:           50px;
+        position:         relative;
         width:            50px;
 
         &::before{
@@ -1243,6 +1234,9 @@ $modal-header-height:       2.1em;
         h4{
           color:         $gray-light;
           margin-bottom: 0.4em;
+        }
+        a:hover > h4{
+          color:         $eu-blue;
         }
 
         label{
