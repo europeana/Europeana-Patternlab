@@ -1322,6 +1322,7 @@ $modal-header-height:       2.1em;
 
       .action-modal-section{
         display:         flex;
+        flex-grow:       1;
         flex-wrap:       wrap;
         justify-content: space-evenly;
       }
