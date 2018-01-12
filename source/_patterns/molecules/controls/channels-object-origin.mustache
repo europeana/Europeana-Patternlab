@@ -1,7 +1,7 @@
 {{#origin}}
   <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
     {{#institution_logo}}
-      <a href="{{url}}" class="institution-logo" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
+      <a href="{{url}}" target="_blank" class="institution-logo" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
     {{/institution_logo}}
     {{^institution_logo}}
       {{#url}}<span class="institution-logo-missing overview-only"><h4>{{i18n.site.object.actions.view-more-at}}</h4><a href="{{.}}" class="link-black-blue">{{institution_name}}<span class="svg-icon-external"></span></a></span>{{/url}}
@@ -16,7 +16,7 @@
         {{#url}}<a class="link-black-blue header-only{{#institution_logo}} with-logo{{/institution_logo}}" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
 
         {{#institution_logo}}
-          {{#url}}<a class="link-black-blue overview-only" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
+          {{#url}}<a class="link-black-blue overview-only" href="{{.}}" target="_blank">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
         {{/institution_logo}}
 
         {{^url}}{{institution_name}}{{/url}}

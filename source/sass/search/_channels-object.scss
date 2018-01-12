@@ -1260,9 +1260,17 @@ $modal-header-height:       2.1em;
         padding:    1rem;
       }
 
-
       .license-link-full{
-        font-size: 1.6rem;
+
+        font-size: 1.5em;
+
+        .license-icon-fallback{
+          display: none;
+        }
+        .license-icon-fallback:first-child{
+          display: inline-block;
+        }
+
       }
     }
 
