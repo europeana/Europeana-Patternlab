@@ -274,7 +274,7 @@
                     <span class="label">
                       <h4>{{ i18n.global.facet.header.reusability }}</h4>
                       <label>[[license_brief]]</label>
-                      <h4>[[#with_attribution]]{{i18n.global.facet.reusability.with-attribution}}[[/with_attribution]]</h4>
+                      <h4>[[#license_info]][[.]][[/license_info]]</h4>
                     </span>
                   </div>
                   <div class="action-modal-section">
@@ -336,9 +336,18 @@
                   </span>
                 </div>
 
-                {{#social_share }}
-                  {{> molecules/controls/share-social }}
-                {{/social_share }}
+                <div class="action-modal-section">
+
+                  {{#social_share }}
+                    {{> molecules/controls/share-social }}
+                  {{/social_share }}
+
+                  <div class="page-url-fields">
+                    <label class="page-url-label" for="page-url-input">Copy</label>
+                    <input class="page-url-input" id="page-url-input"/>
+                  </div>
+
+                </div>
 
                 <a class="media-modal-close">
                   <span class="label"></span>

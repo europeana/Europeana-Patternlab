@@ -320,7 +320,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
 
     $('.action-ctrl.object-rights').on('click', function(){
+
       $('.action-modal').addClass('js-hidden');
+      $('.channel-object-media-actions').addClass('js-hidden');
+
       $('.modal-rights').removeClass('js-hidden');
       $('.modal-header').attr('class', 'modal-header rights');
     });
@@ -331,7 +334,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var modal = tgt.data('modal-selector');
 
       if(modal){
-        $('.action-modal').addClass('js-hidden');
+        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
         $(modal).removeClass('js-hidden');
         $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
       }
@@ -341,6 +344,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     $(document).on('click', '.media-modal-close', function(e){
       $(e.target).closest('.action-modal').addClass('js-hidden');
       $('.modal-header').attr('class', 'modal-header none');
+      $('.channel-object-media-actions').removeClass('js-hidden');
     });
 
     fixZoomableWidth();
@@ -360,7 +364,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     item.closest('.mlt-img-div').addClass('active');
     item.addClass('is-current');
 
-    $('.modal-share').addClass('js-hidden');
     updateTechData(item);
 
     var reminderImg = $('.title-bar .img-remind');
@@ -1570,8 +1573,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       attrs[ob.name] = ob.value;
     });
 
-
-
     var edmRights = el.data('edm-rights');
 
     if(edmRights && edmRights.model){
@@ -1581,7 +1582,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         console.log(this + ' = ' + edmRights.model[this]);
       });
     }
-
 
     require(['mustache'], function(Mustache){
 
@@ -1604,6 +1604,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       templateD.after(htmlD);
       templateR.after(htmlR);
 
+      $('#page-url-input').val(window.location.href);
+      $('.channel-object-media-actions').removeClass('js-hidden');
     });
   };
 
