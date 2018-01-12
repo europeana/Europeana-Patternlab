@@ -915,16 +915,24 @@ $modal-header-height:       2.1em;
         margin-right: 0;
       }
 
+      .institution-logo,
+      .institution-logo-missing{
+//        display:          block;
+        float:            right;
+        position:         relative;
+      }
+
+      .institution-logo-missing{
+        text-align: center;
+      }
+
       .institution-logo{
         background-color: $white;
         background-size:  cover;
         border-radius:    25px;
-        display:          block;
         -webkit-filter:   grayscale(100%);
         filter:           grayscale(100%);
-        float:            right;
         height:           50px;
-        position:         relative;
         width:            50px;
 
         &::before{
@@ -1008,6 +1016,7 @@ $modal-header-height:       2.1em;
         text-align: right;
 
         [data-provided-by]{
+
           white-space: nowrap;
           &::before{
             content:      attr(data-provided-by);
@@ -1023,7 +1032,8 @@ $modal-header-height:       2.1em;
 
           border-radius: 12px;
           height:        24px;
-          position:      relative;
+          position:      absolute;
+          right:         1em;
           width:         24px;
 
           &::before{

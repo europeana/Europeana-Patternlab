@@ -3,18 +3,26 @@
     {{#institution_logo}}
       <a href="{{url}}" class="institution-logo" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
     {{/institution_logo}}
+    {{^institution_logo}}
+      {{#url}}<span class="institution-logo-missing overview-only"><h4>{{i18n.site.object.actions.view-more-at}}</h4><a href="{{.}}" class="link-black-blue">{{institution_name}}<span class="svg-icon-external"></span></a></span>{{/url}}
+    {{/institution_logo}}
 
     {{#institution_name}}
       <span class="object-origin-detail">
-        {{#url}}<span class="view-more-at">{{i18n.site.object.actions.view-more-at}}</span>{{/url}}
+        {{#institution_logo}}
+          {{#url}}<span class="view-more-at">{{i18n.site.object.actions.view-more-at}}</span>{{/url}}
+        {{/institution_logo}}
 
         {{#url}}<a class="link-black-blue header-only{{#institution_logo}} with-logo{{/institution_logo}}" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
 
-        {{#url}}<a class="link-black-blue overview-only" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
+        {{#institution_logo}}
+          {{#url}}<a class="link-black-blue overview-only" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
+        {{/institution_logo}}
 
         {{^url}}{{institution_name}}{{/url}}
         <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
       </span>
     {{/institution_name}}
+
   </div>
 {{/origin}}
