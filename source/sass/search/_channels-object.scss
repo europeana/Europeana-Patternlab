@@ -1067,12 +1067,36 @@ $modal-header-height:       2.1em;
       width:             2em;
     }
 
-    .channel-object-media-actions > .object-origin .object-origin-detail{
+    .channel-object-media-actions > .object-origin{
 
-      display: none;
+      .object-origin-detail{
 
-      &:first-child{
-        display: block;
+        display: none;
+
+        &:first-child{
+
+          display:    block;
+
+          .view-more-at{
+            display: none;
+          }
+
+          @media all and (min-width: $bp-modal-collapse) {
+
+            text-align: center;
+            .view-more-at{
+              display: block;
+            }
+          }
+
+          @media all and (min-width: $bp-med) {
+
+            .view-more-at{
+              display: inline;
+            }
+          }
+
+        }
       }
     }
 
@@ -1274,6 +1298,13 @@ $modal-header-height:       2.1em;
       }
     }
 
+    .modal-download{
+
+      .modal-action ~ .action-modal-section ~ .action-modal-section{
+        flex-grow: 1;
+      }
+    }
+
     .modal-rights{
 
       .modal-action{
@@ -1298,18 +1329,6 @@ $modal-header-height:       2.1em;
           line-height:    1em;
           text-transform: capitalize;
         }
-
-        @media all and (min-width: $bp-modal-collapse){
-          &::after{
-            border-right: 1px solid $gray-light;
-            content:      ' ';
-            display:      block;
-            height:       80%;
-            position:     absolute;
-            right:        0;
-            top:          10%;
-          }
-        }
       }
 
       .action-modal-section{
@@ -1329,8 +1348,25 @@ $modal-header-height:       2.1em;
         .license-icon-fallback:first-child{
           display: inline-block;
         }
-
       }
+
+      @media all and (min-width: $bp-modal-collapse){
+
+        .modal-action::after{
+          border-right: 1px solid $gray-light;
+          content:      ' ';
+          display:      block;
+          height:       80%;
+          position:     absolute;
+          right:        0;
+          top:          10%;
+        }
+
+        .action-modal-section{
+          text-align:     left;
+        }
+      }
+
     }
 
     .modal-share{
