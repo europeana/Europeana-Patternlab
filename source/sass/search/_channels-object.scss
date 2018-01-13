@@ -1017,11 +1017,7 @@ $modal-header-height:       2.1em;
         [data-provided-by]{
 
           white-space: nowrap;
-          &::before{
-            content:      attr(data-provided-by);
-            font-weight:  normal;
-            margin-right: 0.4em;
-          }
+
           &.with-logo{
             margin-right: 2.3em;
           }
@@ -1086,6 +1082,13 @@ $modal-header-height:       2.1em;
         -webkit-justify-content: space-evenly;
         justify-content:         space-evenly;
       }
+
+      .modal-header [data-provided-by]::before{
+        content:      attr(data-provided-by);
+        font-weight:  normal;
+        margin-right: 0.4em;
+      }
+
     }
 
     @media all and (min-width: $bp-xl) {
