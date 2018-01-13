@@ -822,13 +822,33 @@ $modal-header-height:       2.1em;
       background-color:        $green-grey-bg;
       display:                 -webkit-flex;
       display:                 flex;
-      -webkit-justify-content: space-evenly;
-      justify-content:         space-evenly;
+
+      -webkit-justify-content: space-around;
+      justify-content:         space-around;
+
       padding:                 $space $space-half;
       position:                relative;
 
       &.js-hidden{
         display:  none;
+      }
+
+      @media all and (min-width: $bp-med) {
+
+        .institution-logo::before{
+          content:     attr(data-provided-by);
+          font-size:   $font-size-sm;
+          position:    absolute;
+          right:       115%;
+          top:         50%;
+          transform:   translateY(-50%);
+          white-space: nowrap;
+
+          &:hover{
+            color:  $eu-blue;
+            filter: unset;
+          }
+        }
       }
 
       @media all and (min-width: $bp-xl) {
@@ -927,20 +947,6 @@ $modal-header-height:       2.1em;
         height:           50px;
         position:         relative;
         width:            50px;
-
-        &::before{
-          content:     attr(data-provided-by);
-          font-size:   $font-size-sm;
-          position:    absolute;
-          right:       115%;
-          top:         50%;
-          transform:   translateY(-50%);
-          white-space: nowrap;
-          &:hover{
-            color:  $eu-blue;
-            filter: unset;
-          }
-        }
       }
 
       @media all and (min-width: $bp-xl) {
@@ -1066,21 +1072,23 @@ $modal-header-height:       2.1em;
     }
 
     .channel-object-media-actions > .object-origin .object-origin-detail{
+
       display: none;
+
+      &:first-child{
+        display: block;
+      }
     }
 
-    @media all and (min-width: $bp-large) {
+    @media all and (min-width: $bp-med) {
 
-      .object-origin{
-        margin: 0 0 0 $space-double;
+      .channel-object-media-actions{
+        -webkit-justify-content: space-evenly;
+        justify-content:         space-evenly;
       }
-
     }
 
     @media all and (min-width: $bp-xl) {
-
-      -webkit-justify-content: space-between;
-      justify-content:         space-between;
 
       .channel-object-media-actions .action-ctrl-btn{
         background-color: transparent;
@@ -1108,8 +1116,6 @@ $modal-header-height:       2.1em;
       }
 
       .channel-object-media-actions > .object-origin{
-
-        margin: 0 0 0 auto;
 
         .object-origin-detail{
           display:     block;
