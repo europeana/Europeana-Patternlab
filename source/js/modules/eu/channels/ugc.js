@@ -33,6 +33,37 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  function formSubmit(){
+    grecaptcha.execute();
+
+  }
+  
+  function initCaptcha(){
+	  
+	  
+    window.formSubmit = formSubmit();
+    var captchaContainer = ''
+      + '<div id="g-recaptcha" class="g-recaptcha"'
+      +   'data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"'
+      +   'data-callback="onSubmit"'
+      +   'data-size="invisible">'
+      + '</div>';
+    $('[type=submit]').before(captchaContainer);
+    
+    require(['gcaptcha'], function(){
+
+      console.log('loaded gcaptcha');
+      grecaptcha.render();
+      
+//      <button class="g-recaptcha"
+ //       data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"
+  //      data-callback="YourOnSubmitFn">
+   //      Submit
+    //	x  </button>	  
+
+    });
+  }
+  
   function initCopyField(){
 
     var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
@@ -166,6 +197,7 @@ define(['jquery', 'util_resize'], function($){
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
+    initCaptcha();
   }
 
   return {
