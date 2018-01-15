@@ -88,7 +88,7 @@ define(['jquery', 'util_resize'], function($){
     var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
     var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
 
-    $('#' + copyToId).before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Copy Name') + '</a>');
+    $('#' + copyToId).before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
 
     $('.btn-copy-name').on('click', function(){
       $('#' + copyToId).val( $('#' + copyFromId).val() );
