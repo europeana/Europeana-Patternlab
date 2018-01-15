@@ -54,11 +54,11 @@ define(['jquery', 'util_resize'], function($){
     } 
   }
 
-  /*
+
   function renderRecaptcha(id){
 	  
     recaptchaClientId = grecaptcha.render(id, {
-      'sitekey': '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le',
+      // 'sitekey': '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le',
       'theme': 'light'
     });
   };
@@ -66,7 +66,6 @@ define(['jquery', 'util_resize'], function($){
   function recaptchaOnload(){
     renderRecaptcha('g-recaptcha');
   }
-  */
 
   window.formSubmit      = formSubmit;
   window.recaptchaOnload = recaptchaOnload;
