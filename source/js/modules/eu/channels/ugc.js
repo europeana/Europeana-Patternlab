@@ -71,6 +71,8 @@ define(['jquery', 'util_resize'], function($){
   window.recaptchaOnload = recaptchaOnload;
 
   function initCaptcha(){
+
+	$('#new_ore_aggregation').on('submit', onSubmit);
 	  
     var captchaContainer = ''
       + '<div id="g-recaptcha" class="g-recaptcha"'
