@@ -37,6 +37,7 @@ define(['jquery', 'util_resize'], function($){
 
   function formSubmit(){
 	
+	alert('grecaptcha ' + grecaptcha)
 	if(typeof grecaptcha != 'undefined' && grecaptcha){
       grecaptcha.execute();
 	}
@@ -59,7 +60,7 @@ define(['jquery', 'util_resize'], function($){
     renderRecaptcha('g-recaptcha');
   }
 
-  window.formSubmit      = formSubmit();
+  window.formSubmit      = formSubmit;
   window.recaptchaOnload = recaptchaOnload;
 
   function initCaptcha(){
