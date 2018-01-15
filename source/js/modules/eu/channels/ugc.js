@@ -1,5 +1,7 @@
 define(['jquery', 'util_resize'], function($){
-
+	
+  var grecaptcha = null;
+  
   function bindDynamicFieldset(){
 
     var reindex = function(){
@@ -34,32 +36,31 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function formSubmit(){
-    grecaptcha.execute();
-
+	
+	if(typeof grecaptcha != 'undefined' && grecaptcha){
+      grecaptcha.execute();
+	}
+    
   }
   
   function initCaptcha(){
 	  
-	  
     window.formSubmit = formSubmit();
+    
     var captchaContainer = ''
       + '<div id="g-recaptcha" class="g-recaptcha"'
       +   'data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"'
-      +   'data-callback="onSubmit"'
+      +   'data-callback="formSubmit"'
       +   'data-size="invisible">'
       + '</div>';
     $('[type=submit]').before(captchaContainer);
     
-    require(['gcaptcha'], function(){
+    require(['gcaptcha'], function(grecaptchaIn){
 
-      console.log('loaded gcaptcha');
-      grecaptcha.render();
+      grecaptcha = grecaptchaIn;
       
-//      <button class="g-recaptcha"
- //       data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"
-  //      data-callback="YourOnSubmitFn">
-   //      Submit
-    //	x  </button>	  
+      console.log('loaded gcaptcha: ' + grecaptcha);
+      grecaptcha.render();
 
     });
   }
