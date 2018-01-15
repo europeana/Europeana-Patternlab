@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function($){
 	
-  var grecaptcha = null;
+  //var grecaptcha = null;
   
   function bindDynamicFieldset(){
 
@@ -43,9 +43,27 @@ define(['jquery', 'util_resize'], function($){
     
   }
   
+  
+  function renderRecaptcha(id){
+	  
+    console.log('[info] - render: @id = ' + id);
+    
+    recaptchaClientId = grecaptcha.render(id, {
+      'sitekey': '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le',
+      'theme': 'light'
+    });
+  };
+	
+  function recaptchaOnload(){
+    console.log('recaptchaOnload: = ' + typeof renderRecaptcha);
+    renderRecaptcha('g-recaptcha');
+  }
+
+  window.formSubmit      = formSubmit();
+  window.recaptchaOnload = recaptchaOnload;
+
   function initCaptcha(){
 	  
-    window.formSubmit = formSubmit();
     
     var captchaContainer = ''
       + '<div id="g-recaptcha" class="g-recaptcha"'
@@ -55,12 +73,10 @@ define(['jquery', 'util_resize'], function($){
       + '</div>';
     $('[type=submit]').before(captchaContainer);
     
-    require(['gcaptcha'], function(grecaptchaIn){
-
-      grecaptcha = grecaptchaIn;
-      
-      console.log('loaded gcaptcha: ' + grecaptcha);
-      grecaptcha.render();
+    require(['gcaptcha'], function(grecaptcha){
+      //grecaptcha = grecaptchaIn;
+      //console.log('loaded gcaptcha: ' + grecaptcha);
+      //grecaptcha.render();
 
     });
   }
