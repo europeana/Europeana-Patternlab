@@ -35,20 +35,28 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
-  function formSubmit(){
-	
-	alert('grecaptcha ' + grecaptcha)
-	if(typeof grecaptcha != 'undefined' && grecaptcha){
-      grecaptcha.execute();
-	}
-    
+  function validateForm(){
+    console.log('validate form here....');
+
+    if(false){
+      return false;
+    }
+    return true;  
   }
   
-  
+  function formSubmit(){
+	
+    if(!validateForm()){
+      return false;
+    }
+    if(typeof grecaptcha != 'undefined' && grecaptcha){
+      grecaptcha.execute();
+    } 
+  }
+
+  /*
   function renderRecaptcha(id){
 	  
-    console.log('[info] - render: @id = ' + id);
-    
     recaptchaClientId = grecaptcha.render(id, {
       'sitekey': '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le',
       'theme': 'light'
@@ -56,16 +64,15 @@ define(['jquery', 'util_resize'], function($){
   };
 	
   function recaptchaOnload(){
-    console.log('recaptchaOnload: = ' + typeof renderRecaptcha);
     renderRecaptcha('g-recaptcha');
   }
+  */
 
   window.formSubmit      = formSubmit;
   window.recaptchaOnload = recaptchaOnload;
 
   function initCaptcha(){
 	  
-    
     var captchaContainer = ''
       + '<div id="g-recaptcha" class="g-recaptcha"'
       +   'data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"'
@@ -74,12 +81,7 @@ define(['jquery', 'util_resize'], function($){
       + '</div>';
     $('[type=submit]').before(captchaContainer);
     
-    require(['gcaptcha'], function(grecaptcha){
-      //grecaptcha = grecaptchaIn;
-      //console.log('loaded gcaptcha: ' + grecaptcha);
-      //grecaptcha.render();
-
-    });
+    require(['gcaptcha']);
   }
   
   function initCopyField(){
