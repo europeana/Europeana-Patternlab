@@ -72,7 +72,7 @@ define(['jquery', 'util_resize'], function($){
 
   function initCaptcha(){
 
-	$('#new_ore_aggregation').on('submit', onSubmit);
+	$('#new_ore_aggregation').on('submit', formSubmit);
 	  
     var captchaContainer = ''
       + '<div id="g-recaptcha" class="g-recaptcha"'
