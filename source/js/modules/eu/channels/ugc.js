@@ -65,7 +65,7 @@ define(['jquery', 'util_resize'], function($){
     return {
       fnOnSelect     : function($el, $input){
         $('#' + $input.data('for')).val($el.data('value'));
-        console.log('set hidden val to ' + $el.data('value'));
+        //console.log('set hidden val to ' + $el.data('value'));
       },
       fnPreProcess     : function(term, data, ops){
         var escapeRegExp = function(str){
@@ -95,7 +95,7 @@ define(['jquery', 'util_resize'], function($){
       },
       fnOnDeselect: function($input){
         $('#' + $input.data('for')).val('');
-        console.log('(clear field ' + $input.data('for') + ')');
+        //console.log('(clear field ' + $input.data('for') + ')');
       },
       itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
       minTermLength    : 2,

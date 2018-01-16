@@ -154,7 +154,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.log = function(msg){
-      console.log('Autocomplete: ' + msg);
+      //console.log('Autocomplete: ' + msg);
     };
 
     this.isElementInViewport = function(el){
