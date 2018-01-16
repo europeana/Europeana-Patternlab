@@ -43,7 +43,6 @@ require.config({
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',
-    gcaptcha:                      '//www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit',
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
 

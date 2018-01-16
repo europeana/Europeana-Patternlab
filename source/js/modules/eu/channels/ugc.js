@@ -1,7 +1,5 @@
 define(['jquery', 'util_resize'], function($){
-	
-  //var grecaptcha = null;
-  
+	  
   function bindDynamicFieldset(){
 
     var reindex = function(){
@@ -35,56 +33,6 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
-  function validateForm(){
-    console.log('validate form here....');
-
-    if(false){
-      return false;
-    }
-    return true;  
-  }
-  
-  function formSubmit(){
-	
-    if(!validateForm()){
-      return false;
-    }
-    if(typeof grecaptcha != 'undefined' && grecaptcha){
-      grecaptcha.execute();
-    } 
-  }
-
-
-  function renderRecaptcha(id){
-	  
-    recaptchaClientId = grecaptcha.render(id, {
-      // 'sitekey': '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le',
-      'theme': 'light'
-    });
-  };
-	
-  function recaptchaOnload(){
-    renderRecaptcha('g-recaptcha');
-  }
-
-  window.formSubmit      = formSubmit;
-  window.recaptchaOnload = recaptchaOnload;
-
-  function initCaptcha(){
-
-	$('#new_ore_aggregation').on('submit', formSubmit);
-	  
-    var captchaContainer = ''
-      + '<div id="g-recaptcha" class="g-recaptcha"'
-      +   'data-sitekey="6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le"'
-      +   'data-callback="formSubmit"'
-      +   'data-size="invisible">'
-      + '</div>';
-    $('[type=submit]').before(captchaContainer);
-    
-    require(['gcaptcha']);
-  }
-  
   function initCopyField(){
 
     var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
@@ -218,7 +166,6 @@ define(['jquery', 'util_resize'], function($){
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
-    initCaptcha();
   }
 
   return {
