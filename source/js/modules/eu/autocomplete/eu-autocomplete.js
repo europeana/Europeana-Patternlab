@@ -57,6 +57,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.preventDefault();
           e.stopPropagation();
         }
+
+        if(key == 9){
+          if(self.$list.find('li').length > 0){
+            e.stopPropagation();
+            e.preventDefault();
+            self.setSelected(self.$list.find('.selected'));
+            return;
+          }
+        }
       });
 
       var fnKeyup = function(e){
@@ -81,7 +90,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.stopPropagation();
           e.preventDefault();
 
-          // self.select();
           self.setSelected(self.$list.find('.selected'));
         }
         else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
@@ -234,7 +242,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.select = function(){
 
       var sel = self.$list.find('.selected');
+
       if(sel.length){
+
         self.updateInput(sel);
 
         if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
@@ -416,6 +426,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     self.bindMouse = function(){
+
       $(document).on('click', function(e){
 
         var isRightMB;
@@ -433,6 +444,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
         var tgt   = $(e.target);
         var tgtLi = tgt.closest('.eu-autocomplete li');
+
         if(tgtLi.length > 0){
           if(typeof self.ops.fnOnItemClick != 'undefined'){
             var block = self.ops.fnOnItemClick(tgtLi);
@@ -443,6 +455,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.setSelected(tgtLi);
         }
         else if(self.$list.find('li').length > 0 && tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
+
+          if(tgt.parent().length == 0){
+            self.hide();
+            return;
+          }
+
           self.hide();
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
           self.scrollUpNeeded(self.$input);

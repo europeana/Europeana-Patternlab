@@ -1,5 +1,5 @@
 define(['jquery', 'util_resize'], function($){
-	  
+
   function bindDynamicFieldset(){
 
     var reindex = function(){
@@ -60,62 +60,70 @@ define(['jquery', 'util_resize'], function($){
 
   }
 
+  function getAutocompleteConfig($el){
+
+    return {
+      fnOnSelect     : function($el, $input){
+        $('#' + $input.data('for')).val($el.data('value'));
+        console.log('set hidden val to ' + $el.data('value'));
+      },
+      fnPreProcess     : function(term, data, ops){
+        var escapeRegExp = function(str){
+          return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+        };
+        var re = new RegExp('\\b' + escapeRegExp(term), 'i');
+        for(var i=0; i<data.length; i++){
+          var val        = data[i].text;
+          var match      = val.match(re);
+          var matchIndex = val.indexOf(match);
+
+          if(val.toLowerCase() == term.toLowerCase()){
+            $('#' + ops.selInput.data('for')).val(data[i].value);
+          }
+
+          if(matchIndex > -1){
+            data[i].textPreMatch  = val.substr(0, matchIndex);
+            data[i].textPostMatch = val.substr(matchIndex + (match+'').length);
+            data[i].textMatch     = match;
+          }
+          else{
+            data[i].textPreMatch  = val;
+          }
+        }
+
+        return data;
+      },
+      fnOnDeselect: function($input){
+        $('#' + $input.data('for')).val('');
+        console.log('(clear field ' + $input.data('for') + ')');
+      },
+      itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
+      minTermLength    : 2,
+      paramName        : $el.data('param'),
+      selInput         : $el,
+      threshold        : 150,
+      url              : $el.data('url'),
+      hideOnSelect     : true
+    };
+  }
+
+  function initAutoComplete($el){
+
+    $el.wrap('<div class="relative">');
+    $el.addClass('autocomplete-inititlised');
+
+    require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+      Autocomplete.init(getAutocompleteConfig($el));
+    });
+  }
+
   function initAutoCompletes(){
 
-    var autocompletes = $('[data-url]');
+    var autocompletes = $('[data-url]:not(autocomplete-inititlised)');
 
     if(autocompletes.length > 0){
-      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
-
-        autocompletes.each(function(){
-
-          $(this).wrap('<div class="relative">');
-
-          Autocomplete.init({
-            fnOnSelect     : function($el, $input){
-              $('#' + $input.data('for')).val($el.data('value'));
-              console.log('set hidden val to ' + $el.data('value'));
-            },
-            fnPreProcess     : function(term, data, ops){
-              var escapeRegExp = function(str){
-                return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
-              };
-              var re = new RegExp('\\b' + escapeRegExp(term), 'i');
-              for(var i=0; i<data.length; i++){
-                var val        = data[i].text;
-                var match      = val.match(re);
-                var matchIndex = val.indexOf(match);
-
-                if(val.toLowerCase() == term.toLowerCase()){
-                  $('#' + ops.selInput.data('for')).val(data[i].value);
-                }
-
-                if(matchIndex > -1){
-                  data[i].textPreMatch  = val.substr(0, matchIndex);
-                  data[i].textPostMatch = val.substr(matchIndex + (match+'').length);
-                  data[i].textMatch     = match;
-                }
-                else{
-                  data[i].textPreMatch  = val;
-                }
-              }
-
-              return data;
-            },
-            fnOnDeselect: function($input){
-              $('#' + $input.data('for')).val('');
-              console.log('(clear field ' + $input.data('for') + ')');
-            },
-            itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
-            minTermLength    : 2,
-            paramName        : $(this).data('param'),
-            selInput         : $(this),
-            threshold        : 150,
-            url              : $(this).data('url'),
-            hideOnSelect     : true
-          });
-
-        });
+      autocompletes.each(function(){
+        initAutoComplete($(this));
       });
     }
   }
@@ -163,6 +171,10 @@ define(['jquery', 'util_resize'], function($){
     });
 
     initAutoCompletes();
+    $(document).on('fields_added.nested_form_fields', function(){
+      initAutoCompletes();
+    });
+
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
