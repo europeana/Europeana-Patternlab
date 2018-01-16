@@ -16,12 +16,7 @@ define(['jquery'], function($){
     });
 
     $form.on('submit', function(){
-      $form.find(':input').each(function(){
-        var fName  = $(this).attr('name');
-        var key    = 'eu_form_' + id + '_' + fName;
-        localStorage.removeItem(key);
-        console.log('Removed: ' + key);
-      });
+      clear($form, id);
     });
 
     $(document).on('change keyup', '#' + id + ' :input', function(){
@@ -39,6 +34,31 @@ define(['jquery'], function($){
     });
 
     trackHidden($form);
+  };
+
+  var clear = function($form, id){
+
+    if(!id){
+      id = $form.attr('id');
+    }
+
+    $form.find(':input').each(function(){
+
+      var fName  = $(this).attr('name');
+
+      if(fName){
+
+        var key = 'eu_form_' + id + '_' + fName;
+        localStorage.removeItem(key);
+
+        console.log('Removed: ' + key);
+      }
+      else{
+
+        console.log('input with no name - has id : ' + $(this).attr('name') + ', ' + $(this)[0].nodeName  );
+      }
+
+    });
   };
 
   var trackHidden = function($form){
@@ -70,7 +90,7 @@ define(['jquery'], function($){
     $field     = $field ? $field : $('[name="' + fName + '"]');
 
     if(stored && $field.length == 0 && conf && conf.fnOnDerivedNotFound){
-      conf.fnOnDerivedNotFound(function(){
+      conf.fnOnDerivedNotFound(fName, function(){
         loadSingleField(id, fName, null, conf, recurse ? recurse + 1 : 1);
       });
       return;
@@ -110,6 +130,9 @@ define(['jquery'], function($){
     },
     trackHidden: function($form){
       trackHidden($form);
+    },
+    clear: function($form, formId){
+      clear($form, formId);
     }
   };
 

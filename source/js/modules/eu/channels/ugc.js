@@ -128,9 +128,10 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function initPage(){
+  function initFormRestore(){
 
     $(document).on('external_js_loaded', function(){
+
       require(['eu_form_restore'], function(FormRestore){
 
         var form = $('#new_ore_aggregation');
@@ -153,8 +154,34 @@ define(['jquery', 'util_resize'], function($){
                 return null;
               }
             },
-            'fnOnDerivedNotFound': function(cb){
-              $('.add_nested_fields_link').click();
+            'fnOnDerivedNotFound': function(fName, cb){
+
+              $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_hasViews]').click();
+              if(cb){
+                cb();
+              }
+            },
+            'recurseLimit': 5
+          }
+        );
+
+        FormRestore.create(form,
+          {
+            'fnGetDerivedFieldName': function(fName){
+              if(!fName){
+                return;
+              }
+              if(fName.indexOf('dc_subject_agent_attributes') > -1){
+                return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
+              }
+              else{
+                return null;
+              }
+            },
+            'fnOnDerivedNotFound': function(fName, cb){
+
+              $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_aggregatedCHO_dc_subject_agent]').click();
+
               if(cb){
                 cb();
               }
@@ -169,8 +196,13 @@ define(['jquery', 'util_resize'], function($){
 
       });
     });
+  }
 
+  function initPage(){
+
+    initFormRestore();
     initAutoCompletes();
+
     $(document).on('fields_added.nested_form_fields', function(){
       initAutoCompletes();
     });
