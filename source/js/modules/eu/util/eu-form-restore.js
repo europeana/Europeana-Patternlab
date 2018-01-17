@@ -15,10 +15,6 @@ define(['jquery'], function($){
       loadSingleField(id, $(this).attr('name'), $(this), conf, 0);
     });
 
-    $form.on('submit', function(){
-      clear($form, id);
-    });
-
     $(document).on('change keyup', '#' + id + ' :input', function(){
 
       var fName = $(this).attr('name');
@@ -32,6 +28,12 @@ define(['jquery'], function($){
         localStorage.setItem('eu_form_' + id + '_' + fName, fVal);
       }
     });
+
+    if(conf && conf.clearOnSubmit){
+      $form.on('submit', function(){
+        clear($form, id);
+      });
+    }
 
     trackHidden($form);
   };
@@ -117,6 +119,7 @@ define(['jquery'], function($){
         loadSingleField(id, dFName, null, conf, recurse ? recurse + 1 : 1);
       }
     }
+
   };
 
   return {

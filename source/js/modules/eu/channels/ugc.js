@@ -1,4 +1,10 @@
+
+
 define(['jquery', 'util_resize'], function($){
+
+  //$('input').blur(function(){
+  //  $(this).addClass('had-focus');
+  //});
 
   function bindDynamicFieldset(){
 
@@ -37,14 +43,17 @@ define(['jquery', 'util_resize'], function($){
 
     var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
     var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
+    var copyFrom   = $('#' + copyFromId);
+    var copyTo     = $('#' + copyToId);
 
-    $('#' + copyToId).before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
+    copyTo.before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
 
     $('.btn-copy-name').on('click', function(){
-      $('#' + copyToId).val( $('#' + copyFromId).val() );
+      copyTo.val(copyFrom.val());
+      copyTo.keyup(); // register with form restore
     });
 
-    $('#' + copyFromId).on('keyup', function(){
+    copyFrom.on('keyup', function(){
 
       if($(this).val().length > 0){
         $('.btn-copy-name').addClass('enabled');
@@ -54,7 +63,7 @@ define(['jquery', 'util_resize'], function($){
       }
     });
 
-    if($('#' + copyFromId).val().length > 0){
+    if(copyFrom.val().length > 0){
       $('.btn-copy-name').addClass('enabled');
     }
 
@@ -198,7 +207,69 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  function validateForm(){
+    console.log('passes validation...');
+    return true;
+  }
+
   function initPage(){
+
+    $(document).on('external_js_loaded', function(){
+
+      require(['eu_form_restore'], function(FormRestore){
+
+        var key   = '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le';
+        var $form = $('#new_ore_aggregation');
+
+        console.log('$form ' + $form.length);
+
+        var onSubmit = function(){
+
+          if(validateForm()){
+
+            if(typeof window.grecaptcha != 'undefined'){
+
+              var captchaResponse = window.grecaptcha.getResponse();
+
+              console.log('in submit: response = ' + captchaResponse + ' (' + (typeof captchaResponse) + ')');
+
+              if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
+                window.grecaptcha.execute();
+                return false;
+              }
+              else{
+                console.log('proceed with submission...');
+                alert('proceed with submission...');
+                FormRestore.clear($form);
+                $form.off('submit');
+                $form.submit();
+              }
+            }
+          }
+          else{
+            console.log('validation fails');
+          }
+        };
+
+        window.onloadCallback = function(){
+          console.log('in load: ' + $('input').length);
+
+          window.grecaptcha.render('g-recaptcha', {
+            'sitekey': key,
+            'callback': onSubmit,
+            'size': 'invisible'
+          });
+          //window.grecaptcha.reset();
+        };
+
+        if(location.href.indexOf('no-verify') == -1){
+          $form.append('<div id="g-recaptcha"></div>');
+          $form.on('submit', onSubmit);
+          $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
+        }
+
+      });
+    });
 
     initFormRestore();
     initAutoCompletes();
