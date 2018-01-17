@@ -221,6 +221,10 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   applyImgStyling($(ob));
                 });
                 allPreloaded = items.length >= $tabContent.find('.display-grid').data('total');
+
+                if(typeof totals[tabIndex] == 'undefined' && typeof $tabContent.find('.display-grid').data('total') == 'number'){
+                  totals[tabIndex] = $tabContent.find('.display-grid').data('total');
+                }
               }
               else{
                 $tabContent.find('.results').append(''
@@ -240,9 +244,19 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 }, 500);
               };
 
+              var showMoreLinkIfNecessary = function(){
+
+                if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
+                  var linkMore = $tabContent.find('.show-more-mlt');
+                  linkMore.text(linkMore.text().replace(/\(\)/, '(' + totals[tabIndex] + ')'));
+                  linkMore.removeClass('js-hidden');
+                }
+              };
+
               initMasonry(function(){
 
                 if(allPreloaded || (hasPreloaded && hasSpaceToFill($tabContent) < 0)){
+
                   header.removeClass('loading').addClass('js-loaded');
 
                   if(masonries[tabIndex]){
@@ -252,6 +266,9 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                   else{
                     euAccordionTabs.fixTabContentHeight(cmpTabs);
                   }
+                  if(!allPreloaded){
+                    showMoreLinkIfNecessary();
+                  }
                 }
                 else{
                   header.addClass('loading');
@@ -260,13 +277,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                       console.warn('Expected @total');
                     }
                     else{
-                      if($tabContent.find('.results .search-list-item').length < totals[tabIndex]){
-                        var linkMore = $tabContent.find('.show-more-mlt');
-                        linkMore.text(linkMore.text().replace(/\(\)/, '(' + (res.total_formatted ? res.total_formatted : res.total ) + ')'));
-                        linkMore.removeClass('js-hidden');
-                      }
+                      showMoreLinkIfNecessary();
                     }
-
                     if($(selActiveResult + ' .search-list-item').length >= totals[tabIndex]){
                       $tabContent.find('.show-more-mlt').addClass('js-hidden');
                     }
