@@ -1306,6 +1306,15 @@ html.redirecting{
     font-size:  $font-size-slightly-smaller;
   }
 
+  .hint ~ .error{
+    margin-left: $space;
+  }
+
+  .invalid,
+  .had-focus:invalid{
+    border: 1px solid $eu-red;
+  }
+
   .submit{
     display: block;
     margin-top: $space;

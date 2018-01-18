@@ -2,9 +2,53 @@ define(['jquery', 'util_resize'], function($){
 
   var formId = 'new_ore_aggregation';
 
-  //$('input').blur(function(){
-  //  $(this).addClass('had-focus');
-  //});
+  function addValidationError($el){
+
+    var msg    = null;
+    var defMsg = 'Error';
+
+    if($el.attr('type') == 'date'){
+      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.date-past') : defMsg;
+    }
+    else if($el.attr('type') == 'email'){
+      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
+    }
+    else if($el.attr('required') == 'required'){
+      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
+    }
+
+    removeValidationError($el);
+
+    if(msg){
+      if($el.next('.hint').length > 0){
+        $el = $el.next('.hint');
+      }
+      $el.after('<span class="error">' + msg + '</span>');
+    }
+  }
+
+  function removeValidationError($el){
+
+    $el.removeClass('invalid');
+
+    if($el.next('.hint').length > 0){
+      $el = $el.next('.hint');
+    }
+    $el.next('.error').remove();
+  }
+
+  function initClientSideValidation(){
+    $(document).on('blur', 'input,textarea,select', function(){
+      var $el = $(this);
+      $el.addClass('had-focus');
+      if($el.is(':valid')){
+        removeValidationError($el);
+      }
+      else{
+        addValidationError($el);
+      }
+    });
+  }
 
   function bindDynamicFieldset(){
 
@@ -63,6 +107,7 @@ define(['jquery', 'util_resize'], function($){
     $('.btn-copy-name').on('click', function(){
       copyTo.val(copyFrom.val());
       copyTo.keyup(); // register with form restore
+      copyTo.blur(); // register with form restore
     });
 
     copyFrom.on('keyup', function(){
@@ -237,8 +282,20 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function validateForm(){
-    console.log('passes validation...');
-    return true;
+
+    var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
+    var valid    = invalids.length == 0;
+
+    invalids.addClass('invalid');
+    invalids.each(function(){addValidationError($(this));});
+
+    return valid;
+  }
+
+  function initDateFields(){
+    var maxDate = new Date().toISOString().substring(0,10);
+    $('input[type=date]:not([max])').attr('max', maxDate);
+    console.log('set max date of ' + maxDate + ' on ' + $('input[type=date]').length + ' fields');
   }
 
   function initPage(){
@@ -306,14 +363,17 @@ define(['jquery', 'util_resize'], function($){
 
     initFormRestore();
     initAutoCompletes();
+    initDateFields();
 
     $(document).on('fields_added.nested_form_fields', function(){
       initAutoCompletes();
+      initDateFields();
     });
 
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
+    initClientSideValidation();
   }
 
   return {
