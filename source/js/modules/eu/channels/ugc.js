@@ -168,7 +168,8 @@ define(['jquery', 'util_resize'], function($){
       selInput         : $el,
       threshold        : 150,
       url              : $el.data('url'),
-      hideOnSelect     : true
+      hideOnSelect     : true,
+      disableArrowsLR  : true
     };
   }
 

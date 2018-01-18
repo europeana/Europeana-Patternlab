@@ -85,6 +85,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.back(e.ctrlKey || e.shiftKey);
           self.scrollUpNeeded();
         }
+        else if(key == 38){
+          e.ctrlKey;
+        }
         else if(e.keyCode == 13){
           // carriage return
           e.stopPropagation();
@@ -99,10 +102,13 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
             // function key
         }
         else if([37, 39].indexOf(e.keyCode) > -1){
+
           // left, right
-          self.$list.empty();
-          self.$input.focus();
-          self.scrollUpNeeded(self.$input);
+          if(!self.ops.disableArrowsLR){
+            self.$list.empty();
+            self.$input.focus();
+            self.scrollUpNeeded(self.$input);
+          }
         }
         else if(key==27){
           // esc
@@ -153,7 +159,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/autocomplete/' + theme) + '" type="text/css"/>');
     };
 
-    this.log = function(msg){
+    this.log = function(/*msg*/){
       //console.log('Autocomplete: ' + msg);
     };
 
