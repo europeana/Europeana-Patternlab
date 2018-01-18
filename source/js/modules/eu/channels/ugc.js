@@ -1,6 +1,6 @@
-
-
 define(['jquery', 'util_resize'], function($){
+
+  var formId = 'new_ore_aggregation';
 
   //$('input').blur(function(){
   //  $(this).addClass('had-focus');
@@ -18,7 +18,19 @@ define(['jquery', 'util_resize'], function($){
       reindex();
     });
 
-    $(document).on('fields_removed.nested_form_fields', function(){
+    $(document).on('fields_removed.nested_form_fields', function(e, param){
+
+      if(localStorage){
+
+        var selOb = '[name="' + param['delete_association_field_name'] + '"]';
+        var ob    = $(selOb);
+
+        $(ob).next('.nested_fields').find('input').each(function(){
+          var key = 'eu_form_' + formId + '_' + $(this).attr('name');
+          localStorage.removeItem(key);
+        });
+      }
+
       reindex();
     });
 
@@ -104,7 +116,6 @@ define(['jquery', 'util_resize'], function($){
       },
       fnOnDeselect: function($input){
         $('#' + $input.data('for')).val('');
-        //console.log('(clear field ' + $input.data('for') + ')');
       },
       itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
       minTermLength    : 2,
@@ -139,6 +150,19 @@ define(['jquery', 'util_resize'], function($){
 
   function initFormRestore(){
 
+    var fieldsAreEmpty = function($el){
+
+      var empty = true;
+      $el.find('input, textarea').each(function(){
+        if($(this).val()){
+          empty = false;
+          return false;
+        }
+      });
+
+      return empty;
+    };
+
     $(document).on('external_js_loaded', function(){
 
       require(['eu_form_restore'], function(FormRestore){
@@ -147,54 +171,59 @@ define(['jquery', 'util_resize'], function($){
 
         FormRestore.create(form,
           {
-            'fnGetDerivedFieldName': function(fName){
-              if(!fName){
-                return;
-              }
-              if(fName.indexOf('[edm_isShownBy_attributes]') > -1 || fName.indexOf('[edm_hasViews_attributes]') > -1){
-                if(! fName.match(/\[\d\]/)){
-                  return fName.replace('[edm_isShownBy_attributes]', '[edm_hasViews_attributes][0]');
+            'dynanicFieldsetRules': [
+              {
+                'fnCleanup': function(){
+                  $('.sequenced_object_fieldset').each(function(){
+                    var fieldset = $(this);
+                    if(fieldsAreEmpty(fieldset)){
+                      fieldset.find('.remove_nested_fields_link').click();
+                    }
+                  });
+                },
+                'fnWhen': function(fName){
+                  return fName && (fName.indexOf('[edm_isShownBy_attributes]') > -1 || fName.indexOf('[edm_hasViews_attributes]') > -1);
+                },
+                'fnOnSavedNotFound': function(cb){
+                  $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_hasViews]').click();
+                  if(cb){
+                    cb();
+                  }
+                },
+                'fnGetDerivedFieldName': function(fName){
+                  if(! fName.match(/\[\d\]/)){
+                    return fName.replace('[edm_isShownBy_attributes]', '[edm_hasViews_attributes][0]');
+                  }
+                  else{
+                    return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
+                  }
                 }
-                else{
+              },
+              {
+                'fnCleanup': function(){
+
+                  $('.nested_ore_aggregation_edm_aggregatedCHO_dc_subject_agent').each(function(){
+                    var fieldset = $(this);
+                    if(fieldsAreEmpty(fieldset)){
+                      fieldset.find('.remove_nested_fields_link').click();
+                    }
+                  });
+                },
+                'fnWhen': function(fName){
+                  return fName.indexOf('dc_subject_agent_attributes') > -1;
+                },
+                'fnOnSavedNotFound': function(cb){
+                  $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_aggregatedCHO_dc_subject_agent]').click();
+                  if(cb){
+                    cb();
+                  }
+                },
+                'fnGetDerivedFieldName': function(fName){
                   return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
                 }
-              }
-              else{
-                return null;
-              }
-            },
-            'fnOnDerivedNotFound': function(fName, cb){
 
-              $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_hasViews]').click();
-              if(cb){
-                cb();
               }
-            },
-            'recurseLimit': 5
-          }
-        );
-
-        FormRestore.create(form,
-          {
-            'fnGetDerivedFieldName': function(fName){
-              if(!fName){
-                return;
-              }
-              if(fName.indexOf('dc_subject_agent_attributes') > -1){
-                return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
-              }
-              else{
-                return null;
-              }
-            },
-            'fnOnDerivedNotFound': function(fName, cb){
-
-              $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_aggregatedCHO_dc_subject_agent]').click();
-
-              if(cb){
-                cb();
-              }
-            },
+            ],
             'recurseLimit': 5
           }
         );
@@ -218,10 +247,8 @@ define(['jquery', 'util_resize'], function($){
 
       require(['eu_form_restore'], function(FormRestore){
 
-        var $form = $('#new_ore_aggregation');
+        var $form = $('#' + formId);
         var key   = $form.attr('recaptcha-site-key');
-
-        console.log('$form ' + $form.length);
 
         var onSubmit = function(){
 
@@ -245,7 +272,9 @@ define(['jquery', 'util_resize'], function($){
               }
             }
             else{
-              alert('grecaptcha is undefined');
+              FormRestore.clear($form);
+              $form.off('submit');
+              $form.submit();
             }
           }
           else{
@@ -253,6 +282,8 @@ define(['jquery', 'util_resize'], function($){
             return false;
           }
         };
+
+        $form.on('submit', onSubmit);
 
         window.onloadCallback = function(){
           console.log('in load: ' + $('input').length);
@@ -267,7 +298,6 @@ define(['jquery', 'util_resize'], function($){
 
         if(key && location.href.indexOf('no-verify') == -1){
           $form.append('<div id="g-recaptcha"></div>');
-          $form.on('submit', onSubmit);
           $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
         }
 

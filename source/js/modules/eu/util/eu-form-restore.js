@@ -4,18 +4,31 @@ define(['jquery'], function($){
 
   var FormRestore = function($form, conf){
 
-    var id = $form.attr('id');
+    var self          = this;
+    self.id           = $form.attr('id');
+    self.$form        = $form;
+    self.conf         = conf;
+    self.cleanupRules = {};
 
-    if(!id){
+    if(!self.id){
       console.log('form-restore requires an id');
       return;
     }
+  };
 
-    $('#' + id).find(':input').each(function(){
-      loadSingleField(id, $(this).attr('name'), $(this), conf, 0);
+  FormRestore.prototype.init = function(){
+
+    var self = this;
+
+    $('#' + self.id).find(':input').each(function(){
+      self.loadSingleField(self.id, $(this).attr('name'), $(this), self.conf, 0);
     });
 
-    $(document).on('change keyup', '#' + id + ' :input', function(){
+    $.each(Object.keys(self.cleanupRules), function(){
+      self.cleanupRules[this].fnCleanup();
+    });
+
+    $(document).on('change keyup', '#' + self.id + ' :input', function(){
 
       var fName = $(this).attr('name');
       var fVal  = $(this).val();
@@ -25,17 +38,17 @@ define(['jquery'], function($){
         fVal = $(this).is(':checked');
       }
       if(type != 'file'){
-        localStorage.setItem('eu_form_' + id + '_' + fName, fVal);
+        localStorage.setItem('eu_form_' + self.id + '_' + fName, fVal);
       }
     });
 
-    if(conf && conf.clearOnSubmit){
-      $form.on('submit', function(){
-        clear($form, id);
+    if(self.conf && self.conf.clearOnSubmit){
+      self.$form.on('submit', function(){
+        clear(self.$form, self.id);
       });
     }
 
-    trackHidden($form);
+    trackHidden(self.$form);
   };
 
   var clear = function($form, id){
@@ -56,7 +69,6 @@ define(['jquery'], function($){
         console.log('Removed: ' + key);
       }
       else{
-
         console.log('input with no name - has id : ' + $(this).attr('name') + ', ' + $(this)[0].nodeName  );
       }
 
@@ -81,21 +93,38 @@ define(['jquery'], function($){
     });
   };
 
-  var loadSingleField = function(id, fName, $field, conf, recurse){
+  FormRestore.prototype.loadSingleField = function(id, fName, $field, conf, recurse){
 
     if(recurse > (conf.recurseLimit ? conf.recurseLimit : 5)){
       return;
     }
 
-    var key    = 'eu_form_' + id + '_' + fName;
-    var stored = localStorage.getItem(key);
+    var self     = this;
+    var key      = 'eu_form_' + id + '_' + fName;
+    var stored   = localStorage.getItem(key);
+
     $field     = $field ? $field : $('[name="' + fName + '"]');
 
-    if(stored && $field.length == 0 && conf && conf.fnOnDerivedNotFound){
-      conf.fnOnDerivedNotFound(fName, function(){
-        loadSingleField(id, fName, null, conf, recurse ? recurse + 1 : 1);
+    if(stored && $field.length == 0 && conf && conf.dynanicFieldsetRules){
+
+      var applicableRule      = null;
+      var applicableRuleIndex = null;
+
+      $.each(conf.dynanicFieldsetRules, function(i, rule){
+        if(rule.fnWhen(fName)){
+          applicableRule      = rule;
+          applicableRuleIndex = i;
+          return false;
+        }
       });
-      return;
+
+      if(applicableRule){
+        applicableRule.fnOnSavedNotFound(function(){
+          self.loadSingleField(id, fName, null, conf, recurse ? recurse + 1 : 1);
+          self.cleanupRules[applicableRuleIndex] = applicableRule;
+        });
+        return;
+      }
     }
 
     if(stored && $field.length > 0){
@@ -113,19 +142,19 @@ define(['jquery'], function($){
       }
     }
 
-    if(conf && conf.fnGetDerivedFieldName){
-      var dFName = conf.fnGetDerivedFieldName(fName);
+    $.each(conf.dynanicFieldsetRules, function(i, rule){
+      var dFName = rule.fnGetDerivedFieldName(fName);
       if(dFName){
-        loadSingleField(id, dFName, null, conf, recurse ? recurse + 1 : 1);
+        self.loadSingleField(id, dFName, null, conf, recurse ? recurse + 1 : 1);
       }
-    }
+    });
 
   };
 
   return {
     create: function($form, conf){
       if(localStorage){
-        new FormRestore($form, conf);
+        new FormRestore($form, conf).init();
       }
       else{
         console.log('form-restore requires localStorage');
