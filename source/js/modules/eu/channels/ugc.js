@@ -239,9 +239,6 @@ define(['jquery', 'util_resize'], function($){
               }
               else{
                 console.log('proceed with submission...');
-
-                alert('proceed with submission...');
-
                 FormRestore.clear($form);
                 $form.off('submit');
                 $form.submit();
