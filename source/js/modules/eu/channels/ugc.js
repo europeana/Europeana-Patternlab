@@ -218,8 +218,8 @@ define(['jquery', 'util_resize'], function($){
 
       require(['eu_form_restore'], function(FormRestore){
 
-        var key   = '6Lf3wUAUAAAAAKu8u8EmMcdm6bUEn1fpEkWOa3le';
         var $form = $('#new_ore_aggregation');
+        var key   = $form.attr('recaptcha-site-key');
 
         console.log('$form ' + $form.length);
 
@@ -265,7 +265,7 @@ define(['jquery', 'util_resize'], function($){
           window.grecaptcha.reset();
         };
 
-        if(location.href.indexOf('no-verify') == -1){
+        if(key && location.href.indexOf('no-verify') == -1){
           $form.append('<div id="g-recaptcha"></div>');
           $form.on('submit', onSubmit);
           $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
