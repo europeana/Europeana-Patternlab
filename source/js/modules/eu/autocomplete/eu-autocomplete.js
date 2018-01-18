@@ -60,8 +60,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
         if(key == 9){
           if(self.$list.find('li').length > 0){
-            e.stopPropagation();
-            e.preventDefault();
+            //e.stopPropagation();
+            //e.preventDefault();
             self.setSelected(self.$list.find('.selected'));
             return;
           }
