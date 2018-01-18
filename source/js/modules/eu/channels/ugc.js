@@ -239,14 +239,21 @@ define(['jquery', 'util_resize'], function($){
               }
               else{
                 console.log('proceed with submission...');
+
+                alert('proceed with submission...');
+
                 FormRestore.clear($form);
                 $form.off('submit');
                 $form.submit();
               }
             }
+            else{
+              alert('grecaptcha is undefined');
+            }
           }
           else{
             console.log('validation fails');
+            return false;
           }
         };
 
@@ -258,7 +265,7 @@ define(['jquery', 'util_resize'], function($){
             'callback': onSubmit,
             'size': 'invisible'
           });
-          //window.grecaptcha.reset();
+          window.grecaptcha.reset();
         };
 
         if(location.href.indexOf('no-verify') == -1){
