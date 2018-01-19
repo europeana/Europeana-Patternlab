@@ -284,6 +284,8 @@ define(['jquery', 'util_resize'], function($){
 
   function validateForm(){
 
+    return true;
+    /*
     var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
     var valid    = invalids.length == 0;
 
@@ -291,6 +293,7 @@ define(['jquery', 'util_resize'], function($){
     invalids.each(function(){addValidationError($(this));});
 
     return valid;
+    */
   }
 
   function initDateFields(){
@@ -374,7 +377,7 @@ define(['jquery', 'util_resize'], function($){
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
-    initClientSideValidation();
+    //initClientSideValidation();
   }
 
   return {
