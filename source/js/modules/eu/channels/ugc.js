@@ -1,6 +1,8 @@
+
 define(['jquery', 'util_resize'], function($){
 
-  var formId = 'new_ore_aggregation';
+  var formId   = 'new_ore_aggregation';
+  var formSave = null;
 
   function addValidationError($el){
 
@@ -60,19 +62,18 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('fields_added.nested_form_fields', function(){
       reindex();
+      if(formSave){
+        formSave.trackHidden();
+      }
+      initAutoCompletes();
     });
 
     $(document).on('fields_removed.nested_form_fields', function(e, param){
 
-      if(localStorage){
-
+      if(formSave){
         var selOb = '[name="' + param['delete_association_field_name'] + '"]';
         var ob    = $(selOb);
-
-        $(ob).next('.nested_fields').find('input').each(function(){
-          var key = 'eu_form_' + formId + '_' + $(this).attr('name');
-          localStorage.removeItem(key);
-        });
+        formSave.clearFieldset($(ob).next('.nested_fields'));
       }
 
       reindex();
@@ -106,8 +107,7 @@ define(['jquery', 'util_resize'], function($){
 
     $('.btn-copy-name').on('click', function(){
       copyTo.val(copyFrom.val());
-      copyTo.keyup(); // register with form restore
-      copyTo.blur(); // register with form restore
+      copyTo.blur();
     });
 
     copyFrom.on('keyup', function(){
@@ -194,97 +194,23 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function initFormRestore(){
-
-    var fieldsAreEmpty = function($el){
-
-      var empty = true;
-      $el.find('input, textarea').each(function(){
-        if($(this).val()){
-          empty = false;
-          return false;
-        }
-      });
-
-      return empty;
-    };
+  function initFormSave(){
 
     $(document).on('external_js_loaded', function(){
 
-      require(['eu_form_restore'], function(FormRestore){
+      require(['eu_form_save'], function(FormSave){
 
-        var form = $('#new_ore_aggregation');
-
-        FormRestore.create(form,
-          {
-            'dynanicFieldsetRules': [
-              {
-                'fnCleanup': function(){
-                  $('.sequenced_object_fieldset').each(function(){
-                    var fieldset = $(this);
-                    if(fieldsAreEmpty(fieldset)){
-                      fieldset.find('.remove_nested_fields_link').click();
-                    }
-                  });
-                },
-                'fnWhen': function(fName){
-                  return fName && (fName.indexOf('[edm_isShownBy_attributes]') > -1 || fName.indexOf('[edm_hasViews_attributes]') > -1);
-                },
-                'fnOnSavedNotFound': function(cb){
-                  $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_hasViews]').click();
-                  if(cb){
-                    cb();
-                  }
-                },
-                'fnGetDerivedFieldName': function(fName){
-                  if(! fName.match(/\[\d\]/)){
-                    return fName.replace('[edm_isShownBy_attributes]', '[edm_hasViews_attributes][0]');
-                  }
-                  else{
-                    return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
-                  }
-                }
-              },
-              {
-                'fnCleanup': function(){
-
-                  $('.nested_ore_aggregation_edm_aggregatedCHO_dc_subject_agent').each(function(){
-                    var fieldset = $(this);
-                    if(fieldsAreEmpty(fieldset)){
-                      fieldset.find('.remove_nested_fields_link').click();
-                    }
-                  });
-                },
-                'fnWhen': function(fName){
-                  return fName.indexOf('dc_subject_agent_attributes') > -1;
-                },
-                'fnOnSavedNotFound': function(cb){
-                  $('.add_nested_fields_link[data-association-path=ore_aggregation_edm_aggregatedCHO_dc_subject_agent]').click();
-                  if(cb){
-                    cb();
-                  }
-                },
-                'fnGetDerivedFieldName': function(fName){
-                  return fName.replace(/(\d)/, function(x){ return parseInt(x) + 1; } );
-                }
-
-              }
-            ],
-            'recurseLimit': 5
-          }
-        );
-
-        $(document).on('fields_added.nested_form_fields', function(){
-          FormRestore.trackHidden(form);
-        });
+        var $form = $('form[data-local-storage-id]');
+        formSave  = FormSave.create($form);
 
       });
     });
   }
 
+
+
   function validateForm(){
 
-    return true;
     /*
     var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
     var valid    = invalids.length == 0;
@@ -294,6 +220,7 @@ define(['jquery', 'util_resize'], function($){
 
     return valid;
     */
+    return true;
   }
 
   function initDateFields(){
@@ -304,76 +231,70 @@ define(['jquery', 'util_resize'], function($){
 
   function initPage(){
 
-    $(document).on('external_js_loaded', function(){
+    var $form = $('#' + formId);
+    var key   = $form.attr('recaptcha-site-key');
 
-      require(['eu_form_restore'], function(FormRestore){
+    var onSubmit = function(){
 
-        var $form = $('#' + formId);
-        var key   = $form.attr('recaptcha-site-key');
+      if(validateForm()){
 
-        var onSubmit = function(){
+        if(typeof window.grecaptcha != 'undefined'){
 
-          if(validateForm()){
+          var captchaResponse = window.grecaptcha.getResponse();
 
-            if(typeof window.grecaptcha != 'undefined'){
+          console.log('in submit: response = ' + captchaResponse + ' (' + (typeof captchaResponse) + ')');
 
-              var captchaResponse = window.grecaptcha.getResponse();
-
-              console.log('in submit: response = ' + captchaResponse + ' (' + (typeof captchaResponse) + ')');
-
-              if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
-                window.grecaptcha.execute();
-                return false;
-              }
-              else{
-                console.log('proceed with submission...');
-                FormRestore.clear($form);
-                $form.off('submit');
-                $form.submit();
-              }
-            }
-            else{
-              FormRestore.clear($form);
-              $form.off('submit');
-              $form.submit();
-            }
-          }
-          else{
-            console.log('validation fails');
+          if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
+            window.grecaptcha.execute();
             return false;
           }
-        };
+          else{
+            console.log('proceed with submission...');
 
-        $form.on('submit', onSubmit);
-
-        window.onloadCallback = function(){
-          console.log('in load: ' + $('input').length);
-
-          window.grecaptcha.render('g-recaptcha', {
-            'sitekey': key,
-            'callback': onSubmit,
-            'size': 'invisible'
-          });
-          window.grecaptcha.reset();
-        };
-
-        if(key && location.href.indexOf('no-verify') == -1){
-          $form.append('<div id="g-recaptcha"></div>');
-          $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
+            if(formSave){
+              formSave.clear();
+            }
+            $form.off('submit');
+            $form.submit();
+          }
         }
+        else{
+          if(formSave){
+            formSave.clear();
+          }
+          $form.off('submit');
+          $form.submit();
+        }
+      }
+      else{
+        console.log('validation fails');
+        return false;
+      }
+    };
 
+    $form.on('submit', onSubmit);
+
+    window.onloadCallback = function(){
+      console.log('in load: ' + $('input').length);
+
+      window.grecaptcha.render('g-recaptcha', {
+        'sitekey': key,
+        'callback': onSubmit,
+        'size': 'invisible'
       });
-    });
+      window.grecaptcha.reset();
+    };
 
-    initFormRestore();
+    if(key && location.href.indexOf('no-verify') == -1){
+      $form.append('<div id="g-recaptcha"></div>');
+      $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
+    }
+
+
+    initFormSave();
+
     initAutoCompletes();
     initDateFields();
-
-    $(document).on('fields_added.nested_form_fields', function(){
-      initAutoCompletes();
-      initDateFields();
-    });
-
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
