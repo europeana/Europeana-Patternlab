@@ -133,6 +133,9 @@ define(['jquery', 'util_resize'], function($){
         $('#' + $input.data('for')).val($el.data('value'));
         //console.log('set hidden val to ' + $el.data('value'));
       },
+      fnOnEnter : function($el, $input){
+        $('form[data-local-storage-id]').submit();
+      },
       fnPreProcess     : function(term, data, ops){
         var escapeRegExp = function(str){
           return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');

@@ -76,6 +76,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
 
         var key = window.event ? e.keyCode : e.which;
+
+        if(typeof key == 'undefined'){
+          return;
+        }
+
         if(key == 40){
           // down
           self.fwd(e.ctrlKey || e.shiftKey);
@@ -94,6 +99,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.preventDefault();
 
           self.setSelected(self.$list.find('.selected'));
+
+          if(typeof self.ops.fnOnEnter != 'undefined'){
+            self.ops.fnOnEnter();
+          }
         }
         else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
           // tab, shift, ctrl, alt, caps-lock, pageUp, pageDown, end, home, printScreen, windows
@@ -266,6 +275,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       self.$list.find('li').removeClass('selected');
       $el.addClass('selected');
       self.select();
+
+      if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
+        self.hide();
+      }
+
       if(self.ops.form){
         self.ops.form.submit();
       }
