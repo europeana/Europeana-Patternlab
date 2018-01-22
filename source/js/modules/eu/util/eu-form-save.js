@@ -197,7 +197,7 @@ define(['jquery'], function($){
         fVal = $(this).is(':checked');
       }
 
-      if(type != 'file'){
+      if(type != 'file' && fVal){
 
         var nested       = $(this).closest('.nested_fields');
         var wasGenerated = nested.length > 0;
@@ -298,8 +298,10 @@ define(['jquery'], function($){
       }
 
       var fs = new FormSave($form);
-      fs.init();
-      timedInstances.push(fs);
+      setTimeout(function(){
+        fs.init();
+        timedInstances.push(fs);
+      }, 100);
 
       if(!timer){
         timer = setInterval(function(){
