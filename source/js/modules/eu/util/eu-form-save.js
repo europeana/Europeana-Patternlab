@@ -301,7 +301,7 @@ define(['jquery'], function($){
       setTimeout(function(){
         fs.init();
         timedInstances.push(fs);
-      }, 100);
+      }, 200);
 
       if(!timer){
         timer = setInterval(function(){
