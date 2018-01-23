@@ -98,7 +98,7 @@ define(['jquery', 'smartmenus'], function($){
       cb();
     }
   };
-  
+
   var doForAllPages = function(){
     initCollectionsFilter();
 
@@ -284,8 +284,19 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
-      console.log('load js for migration/index here');
-      doForAllPages();
+
+      // TODO: delete these two lines when the back-end supplies them
+      //window.clearFormData = 'eu-migration';
+
+      if(typeof window.clearFormData != 'undefined'){
+        require(['ugc'], function(page){
+          page.clearStoredFormData(window.clearFormData);
+          doForAllPages();
+        });
+      }
+      else{
+        doForAllPages();
+      }
       break;
 
     case 'migration/create':

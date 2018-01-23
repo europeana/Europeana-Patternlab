@@ -108,6 +108,7 @@ define(['jquery', 'util_resize'], function($){
     $('.btn-copy-name').on('click', function(){
       copyTo.val(copyFrom.val());
       copyTo.blur();
+      copyTo.trigger('change');
     });
 
     copyFrom.on('keyup', function(){
@@ -129,11 +130,12 @@ define(['jquery', 'util_resize'], function($){
   function getAutocompleteConfig($el){
 
     return {
-      fnOnSelect     : function($el, $input){
+      fnOnSelect : function($el, $input){
+        $input.change();
         $('#' + $input.data('for')).val($el.data('value'));
-        //console.log('set hidden val to ' + $el.data('value'));
       },
       fnOnEnter : function($el, $input){
+        $input.change();
         $('form[data-local-storage-id]').submit();
       },
       fnPreProcess     : function(term, data, ops){
@@ -253,9 +255,8 @@ define(['jquery', 'util_resize'], function($){
           }
           else{
             console.log('proceed with submission...');
-
             if(formSave){
-              formSave.clear();
+              formSave.save();
             }
             $form.off('submit');
             $form.submit();
@@ -263,7 +264,7 @@ define(['jquery', 'util_resize'], function($){
         }
         else{
           if(formSave){
-            formSave.clear();
+            formSave.save();
           }
           $form.off('submit');
           $form.submit();
@@ -304,8 +305,15 @@ define(['jquery', 'util_resize'], function($){
     //initClientSideValidation();
   }
 
+  function clearStoredFormData(formId){
+    require(['eu_form_save'], function(FormSave){
+      FormSave.clearStoredFormData(formId);
+    });
+  }
+
   return {
-    initPage : initPage
+    initPage : initPage,
+    clearStoredFormData: clearStoredFormData
   };
 
 });

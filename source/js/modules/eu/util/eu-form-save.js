@@ -1,5 +1,6 @@
 define(['jquery'], function($){
 
+  var formKeyPrefix    = 'eu_form_';
   var timer            = null;
   var timerInterval    = 5000;
   var timedInstances   = [];
@@ -10,8 +11,7 @@ define(['jquery'], function($){
     var self          = this;
     self.id           = $form.data('local-storage-id');
     self.$form        = $form;
-    self.cleanupRules = {};
-    self.formKey      = 'eu_form_' + self.id;
+    self.formKey      = formKeyPrefix + self.id;
     self.model        = null;
     self.origFNames   = {};
 
@@ -189,6 +189,7 @@ define(['jquery'], function($){
     var self = this;
 
     $(document).on('change keyup', '[data-local-storage-id="' + this.id + '"]' + ' :input', function(){
+
       var fName = $(this).attr('name');
       var fVal  = $(this).val();
       var type  = $(this).attr('type');
@@ -197,7 +198,7 @@ define(['jquery'], function($){
         fVal = $(this).is(':checked');
       }
 
-      if(type != 'file' && fVal){
+      if(type != 'file'){
 
         var nested       = $(this).closest('.nested_fields');
         var wasGenerated = nested.length > 0;
@@ -206,8 +207,6 @@ define(['jquery'], function($){
 
           var genLink = nested.siblings('.add_nested_fields_link');
           var link    = genLink.data('association-path');
-
-          console.log('link is ' + link);
 
           if(link){
             self.model.generated[fName] = {
@@ -231,14 +230,6 @@ define(['jquery'], function($){
       $('[data-local-storage-id="' + this.id + '"] :input').trigger('change');
       $('[data-local-storage-id="' + this.id + '"] :input').trigger('keyup');
     }
-  };
-
-  FormSave.prototype.clear = function(){
-    var self = this;
-
-    clearTimeout(timer);
-    localStorage.removeItem(self.formKey);
-    self.model = {generated:{}};
   };
 
   FormSave.prototype.clearFieldset = function($fieldset){
@@ -282,7 +273,17 @@ define(['jquery'], function($){
     });
   };
 
+
   return {
+    clearStoredFormData: function(formId){
+      var key = formKeyPrefix + formId;
+      if(!localStorage.getItem(key)){
+        console.log('eu-form-save: nothing to clear!');
+      }
+      else{
+        localStorage.removeItem(key);
+      }
+    },
     create: function($form){
       if(!localStorage){
         console.error('eu-form-save requires localStorage');
@@ -298,14 +299,11 @@ define(['jquery'], function($){
       }
 
       var fs = new FormSave($form);
-      setTimeout(function(){
-        fs.init();
-        timedInstances.push(fs);
-      }, 200);
+      timedInstances.push(fs);
+      fs.init();
 
       if(!timer){
         timer = setInterval(function(){
-
           $('html').addClass('busy');
           $.each(timedInstances, function(){
             this.save();
