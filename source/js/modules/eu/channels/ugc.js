@@ -4,19 +4,20 @@ define(['jquery', 'util_resize'], function($){
   var formId   = 'new_ore_aggregation';
   var formSave = null;
 
-  function addValidationError($el){
+  function addValidationError($el, msg){
 
-    var msg    = null;
     var defMsg = 'Error';
 
-    if($el.attr('type') == 'date'){
-      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.date-past') : defMsg;
-    }
-    else if($el.attr('type') == 'email'){
-      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
-    }
-    else if($el.attr('required') == 'required'){
-      msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
+    if(!msg){
+      if($el.attr('type') == 'date'){
+        msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.date-past') : defMsg;
+      }
+      else if($el.attr('type') == 'email'){
+        msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
+      }
+      else if($el.attr('required') == 'required'){
+        msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
+      }
     }
 
     removeValidationError($el);
@@ -234,6 +235,35 @@ define(['jquery', 'util_resize'], function($){
     console.log('set max date of ' + maxDate + ' on ' + $('input[type=date]').length + ' fields');
   }
 
+  function initFileFields(){
+
+    $(document).on('change', '[type="file"][accept]', function(){
+
+      removeValidationError($(this));
+
+      var val     = $(this).val();
+      var allowed = $(this).attr('accept').split(',');
+
+      if(val && val.length > 0){
+
+        var ext       = val.slice(val.lastIndexOf('.'));
+        var isAllowed = false;
+
+        if(ext && ext.length > 0){
+          $.each(allowed, function(){
+            if(ext.toUpperCase() == this.toUpperCase()){
+              isAllowed = true;
+            }
+          });
+        }
+        if(!isAllowed){
+          var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: '.jpg'}) : 'Invalid file type';
+          addValidationError($(this), msg);
+        }
+      }
+    });
+  }
+
   function initPage(){
 
     var $form = $('#' + formId);
@@ -299,6 +329,7 @@ define(['jquery', 'util_resize'], function($){
 
     initAutoCompletes();
     initDateFields();
+    initFileFields();
     bindDynamicFieldset();
     initCopyField();
     initTicketField();
