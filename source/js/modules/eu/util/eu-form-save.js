@@ -32,14 +32,14 @@ define(['jquery'], function($){
     localStorage.setItem(this.formKey, s);
   };
 
-  FormSave.prototype.init = function(){
+  FormSave.prototype.init = function(reinit){
 
     var self      = this;
     var recovered = false;
 
     var savedForm = localStorage.getItem(this.formKey);
 
-    if(savedForm){
+    if(savedForm && !reinit){
       try{
         this.model = JSON.parse(savedForm);
       }
@@ -219,7 +219,7 @@ define(['jquery'], function($){
             console.error('No link found for ' + fName);
           }
         }
-        else{
+        else if(fName != 'authenticity_token'){
           self.model[fName] = fVal;
         }
       }
@@ -282,10 +282,11 @@ define(['jquery'], function($){
         console.log('eu-form-save: nothing to clear!');
       }
       else{
+        console.log('eu-form-save: clear ' + key);
         localStorage.removeItem(key);
       }
     },
-    create: function($form){
+    create: function($form, reinit){
       if(!localStorage){
         console.error('eu-form-save requires localStorage');
         return;
@@ -301,10 +302,11 @@ define(['jquery'], function($){
 
       var fs = new FormSave($form);
       timedInstances.push(fs);
-      fs.init();
+      fs.init(reinit);
 
       if(!timer){
         timer = setInterval(function(){
+
           $('html').addClass('busy');
           $.each(timedInstances, function(){
             this.save();

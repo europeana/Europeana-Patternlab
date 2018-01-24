@@ -137,7 +137,7 @@ define(['jquery', 'util_resize'], function($){
       },
       fnOnEnter : function($el, $input){
         $input.change();
-        $('form[data-local-storage-id]').submit();
+        // $('form[data-local-storage-id]').submit();
       },
       fnPreProcess     : function(term, data, ops){
         var escapeRegExp = function(str){
@@ -191,7 +191,7 @@ define(['jquery', 'util_resize'], function($){
 
   function initAutoCompletes(){
 
-    var autocompletes = $('[data-url]:not(autocomplete-inititlised)');
+    var autocompletes = $('[data-url]:not(.autocomplete-inititlised)');
 
     if(autocompletes.length > 0){
       autocompletes.each(function(){
@@ -207,7 +207,7 @@ define(['jquery', 'util_resize'], function($){
       require(['eu_form_save'], function(FormSave){
 
         var $form = $('form[data-local-storage-id]');
-        formSave  = FormSave.create($form);
+        formSave  = FormSave.create($form, window.pageName == 'migration/create');
 
       });
     });
@@ -335,15 +335,8 @@ define(['jquery', 'util_resize'], function($){
     //initClientSideValidation();
   }
 
-  function clearStoredFormData(formId){
-    require(['eu_form_save'], function(FormSave){
-      FormSave.clearStoredFormData(formId);
-    });
-  }
-
   return {
-    initPage : initPage,
-    clearStoredFormData: clearStoredFormData
+    initPage : initPage
   };
 
 });
