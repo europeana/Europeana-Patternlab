@@ -56,6 +56,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         if(key == 13){
           e.preventDefault();
           e.stopPropagation();
+
+          if(typeof self.ops.fnOnEnter != 'undefined'){
+            self.ops.fnOnEnter(self.$list.find('li').length == 0);
+          }
         }
 
         if(key == 9){
@@ -99,17 +103,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           e.preventDefault();
 
           self.setSelected(self.$list.find('.selected'));
-
-          if(typeof self.ops.fnOnEnter != 'undefined'){
-            var sel = self.$list.find('.selected');
-            self.ops.fnOnEnter(sel, self.$input);
-          }
         }
         else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
           // tab, shift, ctrl, alt, caps-lock, pageUp, pageDown, end, home, printScreen, windows
         }
         else if(e.keyCode >= 112 && e.keyCode <= 123){
-            // function key
+          // function key
         }
         else if([37, 39].indexOf(e.keyCode) > -1){
 
