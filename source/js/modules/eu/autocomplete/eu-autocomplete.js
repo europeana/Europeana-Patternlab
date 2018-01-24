@@ -101,7 +101,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.setSelected(self.$list.find('.selected'));
 
           if(typeof self.ops.fnOnEnter != 'undefined'){
-            self.ops.fnOnEnter();
+            var sel = self.$list.find('.selected');
+            self.ops.fnOnEnter(sel, self.$input);
           }
         }
         else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
