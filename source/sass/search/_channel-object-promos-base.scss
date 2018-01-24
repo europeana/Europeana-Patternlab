@@ -43,10 +43,10 @@ $card-img-height-def:              15rem;
   }
 
   &.gallery{
+    position: relative;
     .content-outer{
       position: static;
     }
-    position: relative;
   }
 
   &.exhibition{
@@ -149,11 +149,26 @@ $card-img-height-def:              15rem;
 
   &.collections-promo-item-preload{
 
-    width: 100%;
+    height: $card-img-height-def;
+    width:  100%;
+
+    > .content-outer .content-inner,
+    > .content-inner,
+    > .content-outer{
+      height: 100%;
+    }
+
+    > .content-outer .content-outer{
+      padding: 1.5em;
+    }
+
+    .content-inner .content-outer,
+    .content-inner .content-text{
+      height: 50%;
+    }
 
     .content-inner .content-inner{
       background-color: $grey-preload-text;
-      margin:           1.5em;
     }
 
     .content-inner .content-text-inner{
@@ -161,7 +176,7 @@ $card-img-height-def:              15rem;
     }
 
     .content-inner .content-text{
-      margin:           0 1.5em 1.5em 1.5em;
+      padding: 1.5em;
     }
 
     .dummy-text{
