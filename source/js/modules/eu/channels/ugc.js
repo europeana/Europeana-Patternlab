@@ -251,13 +251,13 @@ define(['jquery', 'util_resize'], function($){
 
         if(ext && ext.length > 0){
           $.each(allowed, function(){
-            if(ext.toUpperCase() == this.toUpperCase()){
+            if(ext.toUpperCase() == this.trim().toUpperCase()){
               isAllowed = true;
             }
           });
         }
         if(!isAllowed){
-          var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: '.jpg'}) : 'Invalid file type';
+          var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
           addValidationError($(this), msg);
         }
       }
@@ -309,7 +309,6 @@ define(['jquery', 'util_resize'], function($){
     $form.on('submit', onSubmit);
 
     window.onloadCallback = function(){
-      console.log('in load: ' + $('input').length);
 
       window.grecaptcha.render('g-recaptcha', {
         'sitekey': key,
