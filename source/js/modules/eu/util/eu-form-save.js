@@ -170,18 +170,19 @@ define(['jquery'], function($){
       return result;
     };
 
-    $('fieldset fieldset').each(function(i, fieldset){
+    setTimeout(function(){
+      $('fieldset fieldset').each(function(i, fieldset){
 
-      var $fieldset = $(fieldset);
+        var $fieldset = $(fieldset);
 
-      if(fieldsAreEmpty($fieldset)){
-        if(!fieldsetIsOriginal($fieldset)){
-          $fieldset.find('.remove_nested_fields_link').click();
+        if(fieldsAreEmpty($fieldset)){
+          if(!fieldsetIsOriginal($fieldset)){
+            $fieldset.find('.remove_nested_fields_link').click();
+          }
         }
-      }
-    });
-
-    this.bind(saveCurrentState);
+      });
+      self.bind(saveCurrentState);
+    }, 0);
   };
 
   FormSave.prototype.bind = function(saveCurrentState){
