@@ -123,16 +123,6 @@ define(['jquery', 'smartmenus'], function($){
         requireSynchronously(window.requirementsApplication, function(){
           $(document).trigger('external_js_loaded');
         });
-        /*
-        var scriptCount = window.requirementsApplication.length;
-        $.each(window.requirementsApplication, function(i, ob){
-          require([ob], function(){
-            if(i+1==scriptCount){
-              $(document).trigger('external_js_loaded');
-            }
-          });
-        });
-        */
       }
     }
 
@@ -284,19 +274,19 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
+      require(['purl'], function(){
 
-      // TODO: delete these two lines when the back-end supplies them
-      //window.clearFormData = 'eu-migration';
+        var purl = $.url(window.location.href);
 
-      if(typeof window.clearFormData != 'undefined'){
-        require(['ugc'], function(page){
-          page.clearStoredFormData(window.clearFormData);
+        if(purl.param('c')){
+          require(['eu_form_save'], function(FormSave){
+            FormSave.clearStoredFormData(purl.param('c'));
+          });
+        }
+        else{
           doForAllPages();
-        });
-      }
-      else{
-        doForAllPages();
-      }
+        }
+      });
       break;
 
     case 'migration/create':
