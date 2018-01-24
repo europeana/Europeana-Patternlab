@@ -181,7 +181,11 @@ define(['jquery'], function($){
           }
         }
       });
+
       self.bind(saveCurrentState);
+
+      $(document).trigger('eu-form-save-initialised');
+
     }, 0);
   };
 
