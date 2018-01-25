@@ -85,6 +85,10 @@ define(['jquery', 'util_resize'], function($){
 
   function initHiddenFieldActivators(){
 
+    $('[data-requires]').each(function(){
+      $(this).closest('.input').addClass('requires-other-field');
+    });
+
     var activateFields = function(f){
 
       var fs = $('[data-requires="' + f.attr('id') + '"]');
@@ -104,7 +108,6 @@ define(['jquery', 'util_resize'], function($){
     $(document).on('change', ':input', function(){
       activateFields($(this));
     });
-
   }
 
 
