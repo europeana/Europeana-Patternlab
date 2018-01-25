@@ -252,49 +252,68 @@
               {{#rights}}
                 <div class="action-ctrl object-rights">
                   <h4>{{ i18n.global.facet.header.reusability }}</h4>
-                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-no-linkout }}</div>
+                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
                 </div>
               {{/rights}}
-
-              <!--
-              <div class="action-ctrl">
-                <a class="action-ctrl-btn media-annotate" title="{{i18n.site.object.actions.annotate}}"><span class="action-icon svg-icon-info"></span><span class="action-label">{{i18n.site.object.actions.annotate}}</span></a>
-              </div>
-              -->
-
-              {{#origin}}
-                <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
-                  {{#institution_logo}}
-                    <a href="{{url}}" class="institution-logo cf" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
-                  {{/institution_logo}}
-
-                  {{#institution_name}}
-                    <span class="object-origin-detail">
-                      {{#url}}{{i18n.site.object.actions.view-more-at}}{{/url}}
-                      {{#url}}<a class="link-black-blue" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
-                      {{^url}}{{institution_name}}{{/url}}
-                      <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>
-                    </span>
-                  {{/institution_name}}
-                </div>
-              {{/origin}}
+              {{> molecules/controls/channels-object-origin }}
             </div>
 
+            <script id="template-modal-header-js" type="text/x-mustache">
+              <div class="modal-header none">
+                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a>
+                <a class="action-ctrl-btn[[^data-download-uri]] disabled[[/data-download-uri]]" data-modal-selector=".modal-download" download="Europeana-Media" href="[[data-download-uri]]"><span>{{i18n.site.object.actions.download}}</span></a>
+                <a class="action-ctrl-btn" data-modal-selector=".modal-rights"><span>{{i18n.global.facet.header.reusability}} [[license_brief]]</span></a>
+                {{> molecules/controls/channels-object-origin }}
+              </div>
+            </script>
 
-            <!-- TODO: the label keys are not consistent -->
-
-            <script id="template-download-ops-js" type="text/x-mustache">
-              <div class="action-modal modal-download js-hidden">
-                <div class="modal-header">{{i18n.site.object.actions.download}}</div>
+            <script id="template-modal-rights-js" type="text/x-mustache">
+              <div class="action-modal modal-rights js-hidden">
                 <div class="modal-content">
                   <div class="modal-action">
+                    <span class="label">
+                      <h4>{{i18n.global.facet.header.reusability}}</h4>
+                      <label>[[license_brief]][[^license_brief]]{{#rights}}{{license_brief}}{{/rights}}[[/license_brief]]</label>
+
+
+                      [[^license_restricted]]
+                        {{#rights}}
+                          {{#license_restricted}}
+                            <a class="link-black-blue" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" target="_blank"><h4>[[license_info]][[^license_info]]{{license_info}}[[/license_info]]<span class="svg-icon-external"></span></h4></a>
+                          {{/license_restricted}}
+                          {{^license_restricted}}
+                            <h4>[[license_info]][[^license_info]]{{license_info}}[[/license_info]]</h4>
+                          {{/license_restricted}}
+                        {{/rights}}
+                      [[/license_restricted]]
+                      [[#license_restricted]]
+                        <a class="link-black-blue" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" target="_blank"><h4>[[license_info]][[^license_info]]{{#rights}}{{license_info}}{{/rights}}[[/license_info]]<span class="svg-icon-external"></span></h4></a>
+                      [[/license_restricted]]
+
+                    </span>
+                  </div>
+                  <div class="action-modal-section">
+                    <a target="blank" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" class="link-black-blue license-link-full"> {{> molecules/icons/licenses-icon-only-js }}[[license_name]][[^license_name]]{{#rights}}{{license_name}}{{/rights}}[[/license_name]]<span class="svg-icon-external"></span></a>
+                  </div>
+                  <a class="media-modal-close rights">
+                    <span class="label"></span>
+                  </a>
+                </div>
+              </div>
+            </script>
+
+            <script id="template-modal-download-js" type="text/x-mustache">
+
+              <div class="action-modal modal-download js-hidden">
+                <div class="modal-content">
+                  <div class="modal-action centred">
                     <span class="label">
                         Downloading
                         <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
                       </span>
                   </div>
 
-                  <div class="action-modal-section">
+                  <div class="action-modal-section padded">
                     <span class="file">[[data-mime-type]]</span>
                     <ul>
                       <li><span class="action-modal-subheading">format</span> [[data-format]]</li>
@@ -302,12 +321,12 @@
                     </ul>
                   </div>
 
-                  <div class="action-modal-section">
+                  <div class="action-modal-section padded">
                     <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
                     <input value="[[data-attribution-plain]]">
                   </div>
 
-                  <div class="action-modal-section centred">
+                  <div class="action-modal-section centred padded">
                     <span class="action-modal-subheading">other formats</span>
                     [[formats]]
                     <ul>
@@ -324,17 +343,26 @@
             </script>
 
             <div class="action-modal modal-share js-hidden">
-              <div class="modal-header">{{i18n.global.share}}</div>
+
               <div class="modal-content">
-                <div class="modal-action">
+                <div class="modal-action centred">
                   <span class="label">
                     {{i18n.global.share}}
                   </span>
                 </div>
 
-                {{#social_share }}
-                  {{> molecules/controls/share-social }}
-                {{/social_share }}
+                <div class="action-modal-section padded">
+
+                  {{#social_share }}
+                    {{> molecules/controls/share-social }}
+                  {{/social_share }}
+
+                  <div class="page-url-fields">
+                    <label class="page-url-label" for="page-url-input">Copy</label>
+                    <input class="page-url-input" id="page-url-input"/>
+                  </div>
+
+                </div>
 
                 <a class="media-modal-close">
                   <span class="label"></span>

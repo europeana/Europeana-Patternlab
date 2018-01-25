@@ -204,10 +204,12 @@ define(['jquery', 'purl'], function($){
           +            (runtimeUnit    ?     ' data-runtime-unit="' + runtimeUnit    + '"' : '')
           +            (sizeUnit       ?     ' data-size-unit="'    + sizeUnit       + '"' : '')
           +            (item.thumbnail ?     ' data-thumbnail="'    + item.thumbnail + '"' : '')
-          +            (item.is_audio  ?     ' data-type="audio"' : '')
-          +            (item.is_iiif   ?     ' data-type="iiif"'  : '')
-          +            (item.is_image  ?     ' data-type="image"' : '')
-          +            (item.is_video  ?     ' data-type="video"' : '')
+          +            (item.is_oembed ?     ' data-html="'         + escape(item.play_html) + '"' : '')
+          +            (item.is_audio  ?     ' data-type="audio"'  : '')
+          +            (item.is_iiif   ?     ' data-type="iiif"'   : '')
+          +            (item.is_image  ?     ' data-type="image"'  : '')
+          +            (item.is_oembed ?     ' data-type="oembed"' : '')
+          +            (item.is_video  ?     ' data-type="video"'  : '')
           +         '>&nbsp;</a>'
           +     '</div>'
           +   '</div>'

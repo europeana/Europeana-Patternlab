@@ -319,17 +319,32 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       alert('link');
     });
 
-    $('.action-ctrl-btn').on('click', function(e){
+    $('.action-ctrl.object-rights').on('click', function(){
+
+      $('.action-modal').addClass('js-hidden');
+      $('.channel-object-media-actions').addClass('js-hidden');
+
+      $('.modal-rights').removeClass('js-hidden');
+      $('.modal-header').attr('class', 'modal-header rights');
+    });
+
+    $(document).on('click', '.action-ctrl-btn', function(e){
+
       var tgt   = $(e.target).closest('.action-ctrl-btn');
       var modal = tgt.data('modal-selector');
 
       if(modal){
+        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
         $(modal).removeClass('js-hidden');
+        $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
       }
+
     });
 
     $(document).on('click', '.media-modal-close', function(e){
       $(e.target).closest('.action-modal').addClass('js-hidden');
+      $('.modal-header').attr('class', 'modal-header none');
+      $('.channel-object-media-actions').removeClass('js-hidden');
     });
 
     fixZoomableWidth();
@@ -349,7 +364,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     item.closest('.mlt-img-div').addClass('active');
     item.addClass('is-current');
 
-    $('.modal-share').addClass('js-hidden');
     updateTechData(item);
 
     var reminderImg = $('.title-bar .img-remind');
@@ -428,7 +442,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
               }
               else{
                 if(attempt > 5){
-                  log('give up on image');
+                  log('give up on image: ' + uri);
                 }
                 else{
                   log('retry for image...');
@@ -545,16 +559,17 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     else if(type == 'oembed'){
 
       var container = $('.object-media-viewer .object-media-oembed');
+      var html      = unescape(item.play_html);
 
       if(oembedPlayer){
         container.removeClass('is-hidden');
-        oembedPlayer.init(container, item.data('html'));
+        oembedPlayer.init(container, html);
       }
       else{
         require(['media_player_oembed'], function(viewer){
           oembedPlayer = viewer;
           container.removeClass('is-hidden');
-          oembedPlayer.init(container, item.data('html'));
+          oembedPlayer.init(container, html);
         });
       }
     }
@@ -1558,15 +1573,39 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       attrs[ob.name] = ob.value;
     });
 
+    var edmRights = el.data('edm-rights');
+
+    if(edmRights && edmRights.model){
+
+      $.each(Object.keys(edmRights.model), function(){
+        attrs[this] = edmRights.model[this];
+        console.log(this + ' = ' + edmRights.model[this]);
+      });
+    }
+
     require(['mustache'], function(Mustache){
 
       Mustache.tags = ['[[', ']]'];
-      var template  = $('#template-download-ops-js');
-      var html      = Mustache.render(template.text(), attrs);
+
+      var templateH = $('#template-modal-header-js');
+      var htmlH     = Mustache.render(templateH.text(), attrs);
+
+      var templateD = $('#template-modal-download-js');
+      var htmlD     = Mustache.render(templateD.text(), attrs);
+
+      var templateR = $('#template-modal-rights-js');
+      var htmlR     = Mustache.render(templateR.text(), attrs);
 
       $('.modal-download').remove();
-      $('.channel-object-media-actions').append(html);
+      $('.modal-rights').remove();
+      $('.modal-header').remove();
 
+      $('.channel-object-media-actions').before(htmlH);
+      templateD.after(htmlD);
+      templateR.after(htmlR);
+
+      $('#page-url-input').val(window.location.href);
+      $('.channel-object-media-actions').removeClass('js-hidden');
     });
   };
 

@@ -87,6 +87,18 @@ define(['jquery', 'smartmenus'], function($){
     }
   };
 
+  var requireSynchronously = function(array, cb){
+    var s = array.shift();
+    if(s){
+      require([s], function(){
+        requireSynchronously(array, cb);
+      });
+    }
+    else if(cb){
+      cb();
+    }
+  };
+
   var doForAllPages = function(){
     initCollectionsFilter();
 
@@ -98,11 +110,20 @@ define(['jquery', 'smartmenus'], function($){
 
     initFeedback();
 
-    if((typeof window.requirementsApplication).toLowerCase() == 'string'){
-      console.log('load extra: ' + window.requirementsApplication);
-      require([window.requirementsApplication], function(){
-        console.log('loaded application.js');
-      });
+    if((typeof window.requirementsApplication).toLowerCase() != 'undefined'){
+      if((typeof window.requirementsApplication).toLowerCase() == 'string'){
+        console.log('load extra: ' + window.requirementsApplication);
+        require([window.requirementsApplication], function(){
+          console.log('loaded application.js');
+          $(document).trigger('external_js_loaded');
+        });
+      }
+      if((typeof window.requirementsApplication).toLowerCase() == 'object'){
+        console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
+        requireSynchronously(window.requirementsApplication, function(){
+          $(document).trigger('external_js_loaded');
+        });
+      }
     }
 
   };
@@ -253,8 +274,19 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
-      console.log('load js for migration/index here');
-      doForAllPages();
+      require(['purl'], function(){
+
+        var purl = $.url(window.location.href);
+
+        if(purl.param('c')){
+          require(['eu_form_save'], function(FormSave){
+            FormSave.clearStoredFormData(purl.param('c'));
+          });
+        }
+        else{
+          doForAllPages();
+        }
+      });
       break;
 
     case 'migration/create':

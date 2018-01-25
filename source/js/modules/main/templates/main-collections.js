@@ -35,6 +35,7 @@ require.config({
     eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
     eu_carousel:                   '../../eu/channels/eu-carousel',
     eu_carousel_appender:          '../../eu/channels/eu-carousel-appender',
+    eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
     fashion_redirect:              '../../eu/util/fashion-redirect',

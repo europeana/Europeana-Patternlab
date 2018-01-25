@@ -1,6 +1,7 @@
 $collections-promo-item-min-width: 275px;
 $green-grey-bg:                    #f4f4f4;
 $grey-preload-text:                $gray-lightest;
+$card-img-height-def:              15rem;
 
 .no-js{
   .js-remove{
@@ -24,8 +25,6 @@ $grey-preload-text:                $gray-lightest;
 
   .content-text{
     background-color: $green-grey-bg;
-    height:           100%;
-    max-height:       25%;
   }
 
   .content-text-upper{
@@ -34,52 +33,33 @@ $grey-preload-text:                $gray-lightest;
   }
 
   .content-outer{
-
     position:   relative;
-
-    &::before{
-      content:     ' ';
-      display:     block;
-      padding-top: 133%;
-    }
-
-    .content-outer{
-      &::before{
-        padding-top: 100%;
-      }
-    }
   }
 
   .content-inner{
-    bottom:     0;
-    left:       0;
-    position:   absolute;
-    right:      0;
-    top:        0;
     .content-inner{
       text-align: center;
     }
   }
 
-  &:not(.gallery){
-    .content-inner,
+  &.gallery{
+    position: relative;
     .content-outer{
-      overflow:   hidden;
+      position: static;
     }
   }
-
 
   &.exhibition{
 
     .content-outer .content-outer::before,
-    .ve-foyer-card .ve-foyer-card-content::before{
-      padding-top: 100%;
+    .ve-foyer-card{
+      float: none;
+      .ve-foyer-card-content::before{
+        padding-top: 100%;
+      }
     }
 
     .content-text{
-      height:     100%;
-      max-height: 25%;
-
       .content-text-inner .promo-title{
         padding-top: 0;
       }
@@ -93,6 +73,23 @@ $grey-preload-text:                $gray-lightest;
     box-shadow:       1px 2px 2px -1px rgba(0, 0, 0, 0.25);
 
     transform: translateX(-2px);
+
+    .content-outer{
+
+      &::before{
+        content:     ' ';
+        display:     block;
+        padding-top: 133%;
+      }
+
+      .content-inner{
+        bottom:     0;
+        left:       0;
+        position: absolute;
+        right:      0;
+        top:        0;
+      }
+    }
 
     .content-inner .content-inner{
       margin-left: $space;
@@ -131,20 +128,14 @@ $grey-preload-text:                $gray-lightest;
         background-repeat:   no-repeat;
         background-size:     cover;
         display:             block;
-        height:              100%;
+        height:              $card-img-height-def;
       }
     }
   }
 
   &.img-centric{
-
     .content-outer .content-outer::before{
       padding-top: 150%;
-    }
-
-    .content-text{
-      height:     100%;
-      max-height: 63%;
     }
   }
 
@@ -154,19 +145,30 @@ $grey-preload-text:                $gray-lightest;
       padding-top: 50%;
     }
 
-    .content-text{
-      height:     100%;
-      max-height: 63%;
-    }
   }
 
   &.collections-promo-item-preload{
 
-    width: 100%;
+    height: $card-img-height-def;
+    width:  100%;
+
+    > .content-outer .content-inner,
+    > .content-inner,
+    > .content-outer{
+      height: 100%;
+    }
+
+    > .content-outer .content-outer{
+      padding: 1.5em;
+    }
+
+    .content-inner .content-outer,
+    .content-inner .content-text{
+      height: 50%;
+    }
 
     .content-inner .content-inner{
       background-color: $grey-preload-text;
-      margin:           1.5em;
     }
 
     .content-inner .content-text-inner{
@@ -174,7 +176,7 @@ $grey-preload-text:                $gray-lightest;
     }
 
     .content-inner .content-text{
-      margin:           0 1.5em 1.5em 1.5em;
+      padding: 1.5em;
     }
 
     .dummy-text{
@@ -286,7 +288,7 @@ $grey-preload-text:                $gray-lightest;
   .date-and-type{
     font-size:      $font-size-slightly-smaller;
     font-weight:    bold;
-    padding-bottom: 0.938rem;
+    padding-bottom: 0.8em;
     padding-top:    1em;
     position:       relative;
 
@@ -470,31 +472,27 @@ $grey-preload-text:                $gray-lightest;
 
   .image-set{
 
-    margin-bottom: 3em;
-
-    &::before{
-      content:     ' ';
-      display:     block;
-      padding-top: 100%;
-    }
+    height:        calc($card-img-height-def + 6rem);
+    margin-bottom: 1.6em;
 
     .image-set-inner{
-      bottom:   0;
-      left:     0;
-      position: absolute;
-      right:    0;
-      top:      0;
+      height:   $card-img-height-def;
+      position: static;
     }
 
     .image-set-info{
-      padding:  1em;
-      position: absolute;
-      top:      100%;
+
+      display: block;
+      padding: 1em;
 
       a{
         font-size:   1.1426em;
         font-weight: normal;
       }
+    }
+
+    .info{
+      bottom: 6.75em;
     }
 
     .image-set-title{
@@ -509,20 +507,16 @@ $grey-preload-text:                $gray-lightest;
     }
 
     .svg-icon-info{
-      bottom: -32%;
-      right:  0.2em;
+      bottom: 0.7em;
+      right:  1.1em;
     }
   }
 
   .gallery-image-count{
-    bottom:    0.25em;
+    bottom:    0.8em;
     font-size: 0.875em;
-    left:      1em;
+    left:      1.1em;
     position:  absolute;
-  }
-
-  .image-set{
-    position: relative;
   }
 
   .channel-object-next-prev,

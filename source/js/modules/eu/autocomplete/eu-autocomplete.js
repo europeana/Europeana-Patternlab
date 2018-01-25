@@ -56,6 +56,19 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         if(key == 13){
           e.preventDefault();
           e.stopPropagation();
+
+          if(typeof self.ops.fnOnEnter != 'undefined'){
+            self.ops.fnOnEnter(self.$list.find('li').length == 0);
+          }
+        }
+
+        if(key == 9){
+          if(self.$list.find('li').length > 0){
+            //e.stopPropagation();
+            //e.preventDefault();
+            self.setSelected(self.$list.find('.selected'));
+            return;
+          }
         }
       });
 
@@ -67,6 +80,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
 
         var key = window.event ? e.keyCode : e.which;
+
+        if(typeof key == 'undefined'){
+          return;
+        }
+
         if(key == 40){
           // down
           self.fwd(e.ctrlKey || e.shiftKey);
@@ -76,25 +94,30 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.back(e.ctrlKey || e.shiftKey);
           self.scrollUpNeeded();
         }
+        else if(key == 38){
+          e.ctrlKey;
+        }
         else if(e.keyCode == 13){
           // carriage return
           e.stopPropagation();
           e.preventDefault();
 
-          // self.select();
           self.setSelected(self.$list.find('.selected'));
         }
         else if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91].indexOf(e.keyCode) > -1){
           // tab, shift, ctrl, alt, caps-lock, pageUp, pageDown, end, home, printScreen, windows
         }
         else if(e.keyCode >= 112 && e.keyCode <= 123){
-            // function key
+          // function key
         }
         else if([37, 39].indexOf(e.keyCode) > -1){
+
           // left, right
-          self.$list.empty();
-          self.$input.focus();
-          self.scrollUpNeeded(self.$input);
+          if(!self.ops.disableArrowsLR){
+            self.$list.empty();
+            self.$input.focus();
+            self.scrollUpNeeded(self.$input);
+          }
         }
         else if(key==27){
           // esc
@@ -145,8 +168,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/autocomplete/' + theme) + '" type="text/css"/>');
     };
 
-    this.log = function(msg){
-      console.log('Autocomplete: ' + msg);
+    this.log = function(/*msg*/){
+      //console.log('Autocomplete: ' + msg);
     };
 
     this.isElementInViewport = function(el){
@@ -234,7 +257,9 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.select = function(){
 
       var sel = self.$list.find('.selected');
+
       if(sel.length){
+
         self.updateInput(sel);
 
         if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
@@ -250,6 +275,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       self.$list.find('li').removeClass('selected');
       $el.addClass('selected');
       self.select();
+
+      if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
+        self.hide();
+      }
+
       if(self.ops.form){
         self.ops.form.submit();
       }
@@ -416,6 +446,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     self.bindMouse = function(){
+
       $(document).on('click', function(e){
 
         var isRightMB;
@@ -433,6 +464,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
         var tgt   = $(e.target);
         var tgtLi = tgt.closest('.eu-autocomplete li');
+
         if(tgtLi.length > 0){
           if(typeof self.ops.fnOnItemClick != 'undefined'){
             var block = self.ops.fnOnItemClick(tgtLi);
@@ -443,6 +475,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.setSelected(tgtLi);
         }
         else if(self.$list.find('li').length > 0 && tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
+
+          if(tgt.parent().length == 0){
+            self.hide();
+            return;
+          }
+
           self.hide();
           self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
           self.scrollUpNeeded(self.$input);

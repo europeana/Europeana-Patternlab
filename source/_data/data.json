@@ -864,6 +864,15 @@
               "year":{
                 "from": "From",
                 "to": "To"
+              },
+              "reusability":{
+                "open-brief":       "Yes",
+                "permission-brief": "No",
+                "restricted-brief": "Yes",
+
+                "open-info":        "with attribution",
+                "permission-info": "learn why",
+                "restricted-info": "limitations apply"
               }
             },
             "feedback":{
