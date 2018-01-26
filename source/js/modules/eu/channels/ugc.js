@@ -137,7 +137,7 @@ define(['jquery', 'util_resize'], function($){
 
       $(this).addClass('copies-inititlised');
       $(this).closest('.input').addClass('copies-other-field');
-      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
+      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
     });
 
     $(':input').each(function(){
