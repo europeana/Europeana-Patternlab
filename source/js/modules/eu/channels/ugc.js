@@ -67,6 +67,8 @@ define(['jquery', 'util_resize'], function($){
         formSave.trackHidden();
       }
       initAutoCompletes();
+      initCopyFields();
+      initHiddenFields();
     });
 
     $(document).on('fields_removed.nested_form_fields', function(e, param){
@@ -83,64 +85,82 @@ define(['jquery', 'util_resize'], function($){
     reindex();
   }
 
-  function initHiddenFieldActivators(){
 
-    $('[data-requires]').each(function(){
+  function evaluateHiddenFields(f){
+
+    var fs = $('[data-requires="' + f.attr('id') + '"]');
+
+    if(f.val() && f.val().length > 0){
+      fs.closest('.requires-other-field').addClass('enabled');
+    }
+    else{
+      fs.closest('.requires-other-field').removeClass('enabled');
+    }
+  }
+
+  function initHiddenFields(){
+
+    $('[data-requires]:not(.js-initialised)').each(function(){
       $(this).closest('.input').addClass('requires-other-field');
     });
 
-    var activateFields = function(f){
-
-      var fs = $('[data-requires="' + f.attr('id') + '"]');
-
-      if(f.val() && f.val().length > 0){
-        fs.closest('.requires-other-field').addClass('enabled');
-      }
-      else{
-        fs.closest('.requires-other-field').removeClass('enabled');
-      }
-    };
-
     $(':input').each(function(){
-      activateFields($(this));
+      evaluateHiddenFields($(this));
     });
 
+  }
+  function bindHiddenFields(){
+
     $(document).on('change', ':input', function(){
-      activateFields($(this));
+      evaluateHiddenFields($(this));
     });
   }
 
 
-  function initCopyField(){
+  function evaluateCopyFields(f){
 
-    var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
-    var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
-    var copyFrom   = $('#' + copyFromId);
-    var copyTo     = $('#' + copyToId);
+    var fc = $('[data-copies="' + f.attr('id') + '"]');
 
-    copyTo.before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
+    if(f.val().length > 0){
+      fc.prev('.btn-copy').addClass('enabled');
+    }
+    else{
+      fc.prev('.btn-copy').removeClass('enabled');
+    }
+  }
 
-    $('.btn-copy-name').on('click', function(){
+  function initCopyFields(){
+
+    var copyFields = $('[data-copies]:not(.copies-inititlised)');
+
+    copyFields.each(function(){
+
+      $(this).addClass('copies-inititlised');
+      $(this).closest('.input').addClass('copies-other-field');
+      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
+    });
+
+    $(':input').each(function(){
+      evaluateCopyFields($(this));
+    });
+  }
+
+  function bindCopyFields(){
+
+    $(document).on('keyup', ':input', function(){
+      console.log('keyup');
+      evaluateCopyFields($(this));
+    });
+
+    $(document).on('click', '.btn-copy', function(){
+      var copyTo   = $(this).next('[data-copies]');
+      var copyFrom = $('#' + copyTo.data('copies'));
       copyTo.val(copyFrom.val());
       copyTo.blur();
       copyTo.trigger('change');
     });
-
-    copyFrom.on('keyup', function(){
-
-      if($(this).val().length > 0){
-        $('.btn-copy-name').addClass('enabled');
-      }
-      else{
-        $('.btn-copy-name').removeClass('enabled');
-      }
-    });
-
-    if(copyFrom.val().length > 0){
-      $('.btn-copy-name').addClass('enabled');
-    }
-
   }
+
 
   function getAutocompleteConfig($el){
 
@@ -229,9 +249,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
 
-
   function validateForm(){
-
     /*
     var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
     var valid    = invalids.length == 0;
@@ -338,16 +356,19 @@ define(['jquery', 'util_resize'], function($){
       $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
     }
 
-    $(document).on('eu-form-save-initialised', initHiddenFieldActivators);
+    $(document).on('eu-form-save-initialised', function(){
+      initHiddenFields();
+      initCopyFields();
+    });
 
     initFormSave();
     initAutoCompletes();
     initDateFields();
     initFileFields();
     bindDynamicFieldset();
-    initCopyField();
 
-    //initClientSideValidation();
+    bindCopyFields();
+    bindHiddenFields();
   }
 
   return {
