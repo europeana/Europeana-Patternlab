@@ -158,6 +158,7 @@ define(['jquery', 'util_resize'], function($){
       copyTo.val(copyFrom.val());
       copyTo.blur();
       copyTo.trigger('change');
+      evaluateCopyFields(copyTo);
     });
   }
 
@@ -356,9 +357,11 @@ define(['jquery', 'util_resize'], function($){
       $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
     }
 
-    $(document).on('eu-form-save-initialised', function(){
-      initHiddenFields();
-      initCopyFields();
+    $(document).on('external_js_loaded', function(){
+      $(document).on('eu-form-save-initialised', function(){
+        initHiddenFields();
+        initCopyFields();
+      });
     });
 
     initFormSave();

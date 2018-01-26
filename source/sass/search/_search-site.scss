@@ -1356,24 +1356,28 @@ html.redirecting{
   }
 
   .prose .btn-copy{
-    background:     $eu-blue;
-    border-radius:  0.5em;
-    color:          $white;
+    border-bottom:  1px dotted $black;
+    color:          $black;
     font-size:      $font-size-sm;
-    font-weight:    bold;
     opacity:        0;
-    padding:        0.5em;
+    padding-top:    0.5em;
     pointer-events: none;
     position:       absolute;
-    right:          -1em;
+    right:          1em;
     top:            3.1em;
-    transform:      translateX(100%);
     transition:     opacity 0.3s ease;
 
     &.enabled{
       opacity:        1;
       pointer-events: auto;
     }
+
+    &:hover,
+    &:focus{
+      border-bottom: 1px dotted $eu-blue;
+      color:         $eu-blue;
+    }
+
   }
 
   .copies-other-field{
