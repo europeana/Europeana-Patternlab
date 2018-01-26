@@ -1355,11 +1355,7 @@ html.redirecting{
     display: block;
   }
 
-  .ore_aggregation_edm_aggregatedCHO_dc_contributor_skos_prefLabel{
-    position: relative;
-  }
-
-  .prose .btn-copy-name{
+  .prose .btn-copy{
     background:     $eu-blue;
     border-radius:  0.5em;
     color:          $white;
@@ -1378,6 +1374,10 @@ html.redirecting{
       opacity:        1;
       pointer-events: auto;
     }
+  }
+
+  .copies-other-field{
+    position: relative;
   }
 
   .requires-other-field{
