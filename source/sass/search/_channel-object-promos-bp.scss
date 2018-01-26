@@ -106,16 +106,16 @@ $green-grey-bg:                    #f4f4f4;
     transform:         translate(-0.6em, 1.4em) scale(0.8);
   }
   .icon-music{
-    -webkit-transform: translate(-0.5em, 1.4em) scale(0.7);
-    transform:         translate(-0.5em, 1.4em) scale(0.7);
+    -webkit-transform: translate(-0.5em, 0) scale(0.7);
+    transform:         translate(-0.5em, 0) scale(0.7);
   }
   .icon-text{
-    -webkit-transform: translate(-0.8em, 1em) scale(0.65);
-    transform:         translate(-0.8em, 1em) scale(0.65);
+    -webkit-transform: translate(-0.8em, 0.1em) scale(0.65);
+    transform:         translate(-0.8em, 0.1em) scale(0.65);
   }
   .icon-video{
-    -webkit-transform: translate(-0.5em, 1.45em) scale(0.7);
-    transform:         translate(-0.5em, 1.45em) scale(0.7);
+    -webkit-transform: translate(-0.5em, 0) scale(0.7);
+    transform:         translate(-0.5em, 0) scale(0.7);
   }
 }
 
@@ -185,18 +185,18 @@ $green-grey-bg:                    #f4f4f4;
   }
 
   .icon-music{
-    -webkit-transform: translate(-0.75em, 1.6em);
-    transform:         translate(-0.75em, 1.6em);
+    -webkit-transform: translate(-0.75em, 0);
+    transform:         translate(-0.75em, 0);
   }
 
   .icon-text{
-    -webkit-transform: translate(-0.9em, 1.5em);
-    transform:         translate(-0.9em, 1.5em);
+    -webkit-transform: translate(-0.9em, 0);
+    transform:         translate(-0.9em, 0);
   }
 
   .icon-video{
-    -webkit-transform: translate(-0.7em, 1.65em) scale(0.9);
-    transform:         translate(-0.7em, 1.65em) scale(0.9);
+    -webkit-transform: translate(-0.7em, 0) scale(0.9);
+    transform:         translate(-0.7em, 0) scale(0.9);
   }
 
 }
