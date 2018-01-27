@@ -1256,6 +1256,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         $('.channel-object-actions .slide-rail').empty().append(markup);
 
         promotions = $('.collections-promos');
+        $(window).trigger('promotionsAppended');
 
         require(['util_slide'], function(EuSlide){
           initPromos(EuSlide);
@@ -1294,7 +1295,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var item = arr[i];
       res.push({
         'url': item['object_url'].split('?')[0] + sParams,
-        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'audio' : item.is_text ? 'text' : 'unknown'),
+        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'music' : item.is_text ? 'text' : 'unknown'),
         'img': item.img,
         'title': item.title,
         'excerpt': (item.text ? item.text.medium : ''),
@@ -1747,7 +1748,23 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     if(typeof(Storage) !== 'undefined' && sessionStorage){
 
-      require(['purl'], function(){
+      require(['eu_data_continuity', 'purl'], function(DataContinuity){
+
+        var continuityData = DataContinuity.receiveIncoming();
+        var cameFromSearch = false;
+
+        if(continuityData['data']){
+
+          var cfsData = continuityData['data'];
+          var cfsDC   = continuityData['dc'];
+
+          cameFromSearch = cfsData['came-from-search'];
+
+          $(window).on('promotionsAppended', function(){
+            DataContinuity.prepOutgoing($('.channel-object-next-prev a'), cfsDC, cfsData);
+          });
+        }
+
         var params = $.url(location.href).param();
 
         if(typeof params['q'] != 'string'){
@@ -1802,34 +1819,41 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 
-        if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
+        if(cameFromSearch){
 
-          /*log('current here - no calculation needed '
-            + ' curr: ' + s.eu_portal_last_results_current
-            + ' lrt: '  + s.eu_portal_last_results_total
-            + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
-          );*/
+          if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
 
-          if(parseInt(s.eu_portal_last_results_current) < 0){
-            log('correction needed A (set to ' + (per_page - 1) + ')');
-            s.eu_portal_last_results_current = per_page - 1;
+            /*log('current here - no calculation needed '
+              + ' curr: ' + s.eu_portal_last_results_current
+              + ' lrt: '  + s.eu_portal_last_results_total
+              + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
+            );*/
+
+            if(parseInt(s.eu_portal_last_results_current) < 0){
+              log('correction needed A (set to ' + (per_page - 1) + ')');
+              s.eu_portal_last_results_current = per_page - 1;
+            }
+
+            if(parseInt(s.eu_portal_last_results_current) >= per_page){
+              log('correction needed B (set to 0)');
+              s.eu_portal_last_results_current = 0;
+            }
+            getNextPrevItems(makePromoRequest, searchUrl, params);
           }
+          else{
+            s.removeItem('eu_portal_last_results_current');
+            s.removeItem('eu_portal_last_results_total');
+            s.removeItem('eu_portal_last_results_items');
+            s.removeItem('eu_portal_last_results_offset');
 
-          if(parseInt(s.eu_portal_last_results_current) >= per_page){
-            log('correction needed B (set to 0)');
-            s.eu_portal_last_results_current = 0;
+            getNavDataBasic(searchUrl, params, function(){
+              getNextPrevItems(makePromoRequest, searchUrl, params);
+            });
           }
-          getNextPrevItems(makePromoRequest, searchUrl, params);
         }
         else{
-          s.removeItem('eu_portal_last_results_current');
-          s.removeItem('eu_portal_last_results_total');
-          s.removeItem('eu_portal_last_results_items');
-          s.removeItem('eu_portal_last_results_offset');
-
-          getNavDataBasic(searchUrl, params, function(){
-            getNextPrevItems(makePromoRequest, searchUrl, params);
-          });
+          console.log('not from a search');
+          makePromoRequest();
         }
       });
     }

@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
+define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($, scrollEvents, DataContinuity){
 
   var $url            = $.url();
   var masonry         = null;
@@ -202,7 +202,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
           return url.split('?')[0] + '?' + $.param(params);
         }
-      }
+      };
+
       var fnItemStorage = function($el){
 
         return {
@@ -223,8 +224,19 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         var resInfo     = $('.result-info').text();
 
         items.each(function(i, ob){
-          lastResults.push(fnItemStorage($(ob)));
+
+          var $item = $(ob);
+          lastResults.push(fnItemStorage($item));
+
+          $item.find('a').each(function(){
+            $(this).attr('href', $(this).attr('href') + '&page=' + (page ? page : 1));
+          });
+
         });
+
+        var continuityId = new Date().getTime();
+
+        DataContinuity.prepOutgoing($('.result-items .search-list-item a'), continuityId, { 'came-from-search'  : true });
 
         items.on('click', function(){
           var current = $(this).index('.result-items .search-list-item');
@@ -232,7 +244,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
         });
 
         sessionStorage.eu_portal_last_results_items  = JSON.stringify(lastResults);
-
         sessionStorage.eu_portal_last_results_total  = (resInfo.match(/[\d,\,]+(?=\D*$)/) + '').replace(/[\,,\.]/g, '');
         sessionStorage.eu_portal_last_results_offset = parseInt(resInfo.match(/\d+/)) - 1;
       }
