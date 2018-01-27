@@ -546,16 +546,16 @@ $card-img-height-def:              15rem;
     background-image:  url("data:image/svg+xml,%3Csvg id='icon-multi-page' viewBox='0 0 23 32' fill='#{url-encode-color($gray-med)}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.3 24.9c-.7 0-1.3-.6-1.3-1.3v-13c0-.7.6-1.3 1.3-1.3h8.2c.5 0 .9.4.9.9v13.4c0 .7-.6 1.3-1.3 1.3H3.3zM14 20.8V10.3c0-1.4-1.2-2.6-2.6-2.6H5.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H14zm4-3.9V6.4c0-1.4-1.2-2.6-2.6-2.6H9.8v-1c0-.7.6-1.3 1.3-1.3h8c.7 0 1.3.6 1.3 1.3v12.8c0 .7-.6 1.3-1.3 1.3H18z'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
     height:            2em;
-    -webkit-transform: translate(-0.8em, 0em);
-    transform:         translate(-0.8em, 0em);
+    -webkit-transform: translate(-0.8em, 0);
+    transform:         translate(-0.8em, 0);
     width:             2em;
   }
 
   .icon-image{
     background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' %3E%3Cpath d='M20.455 4.09q.556 0 .96.405t.404.96V19.09q0 .557-.41.96t-.96.405H1.362q-.554 0-.96-.404T0 19.09V5.456q0-.556.404-.96t.96-.404h19.09zM4.773 6.82q-.86 0-1.452.593t-.59 1.45.597 1.453 1.453.593 1.45-.598.593-1.452-.593-1.45-1.452-.59zM19.09 17.73l-5.453-8.183-5 6.364-3.182-2.27-2.727 4.09H19.09z'%3E%3C/path%3E%3C/svg%3E");
     height:            1.7em;
-    -webkit-transform: translate(-1.1em, 1.4em) scale(0.9);
-    transform:         translate(-1.1em, 1.4em) scale(0.9);
+    -webkit-transform: translate(-1.1em, 0) scale(0.9);
+    transform:         translate(-1.1em, 0) scale(0.9);
     width:             1.8em;
   }
 
@@ -575,6 +575,7 @@ $card-img-height-def:              15rem;
     width:             1.7rem;
   }
 
+  .icon-tv,
   .icon-video{
     background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' %3E%3Cpath d='M20.455 1.364q.556 0 .96.404t.404.96v15q0 .556-.407.96t-.96.404h-6.818v1.313l3.813 1.92q.277.075.277.403 0 .202-.126.328t-.328.126H4.547q-.354 0-.455-.354-.05-.354.253-.505l3.838-1.92V19.09H1.365q-.556 0-.96-.402T0 17.728v-15q0-.557.405-.96t.96-.405h19.09zm-1.364 15V4.09H2.73v12.274h16.36z'%3E%3C/path%3E%3C/svg%3E");
     height:            1.9em;
