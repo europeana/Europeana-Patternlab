@@ -1,79 +1,83 @@
 define(['jquery', 'purl'], function($){
 
-  var keyDB     = 'eu_dc_data';
+  var pageDC  = $.url(window.location.href).param('dc');
+  var cbFired = false;
 
-  var getDB = function(){
-    return localStorage.getItem(keyDB) ? JSON.parse(localStorage.getItem(keyDB)) : {};
-  };
+  // Allow windows opened in other tabs to inherit the session
 
-  var deleteItem = function(dc){
-    var db   = getDB();
-    var data = db[dc];
-    db[dc]   = undefined;
+  var prep = function(cb, dcId){
 
-    localStorage.setItem(keyDB, JSON.stringify(db));
-    return data;
-  };
+    if(!dcId){
+      dcId = pageDC;
+    }
+    if(!dcId){
+      if(cb){
+        cbFired = true;
+        cb(false);
+      }
+      return;
+    }
+    else{
+      pageDC = dcId;
+    }
 
-  var addItem = function(key, dc){
-    var db  = getDB();
-    db[key] = dc;
+    $(window).on('storage', function(e){
 
-    localStorage.setItem(keyDB, JSON.stringify(db));
-  };
+      e = e.originalEvent;
 
-  var prepOutgoing = function($tgts, key, data){
+      if(e.key == 'eu_dc_rollcall_reply'){
 
-    var onUnload = function(){
+        if(e.newValue){
+          var val = e.newValue.split('?')[0];
+          sessionStorage.setItem(dcId, val);
+        }
 
-      addItem(key, data);
-      //console.log('written [' + key + '] - ' + (typeof data) + '\n\t' + JSON.stringify(data));
+        if(cb && !cbFired){
+          cbFired = true;
+          cb(true);
+        }
+      }
+      else if(e.key == 'eu_dc_rollcall'){
 
-    };
-
-    $(window).on('beforeunload', onUnload);
-
-    $tgts.each(function(){
-      $(this).on('click', onUnload);
-      $(this).on('focus', onUnload);
+        if(e.newValue.split('?')[0] == dcId){
+          var sVal = sessionStorage.getItem(dcId) + '?' + new Date().getTime();
+          localStorage.setItem('eu_dc_rollcall_reply', sVal);
+        }
+      }
     });
 
-    $tgts.each(function(){
-
-      var $this  = $(this);
-      var href   = $this.attr('href');
-      var params = $.url(href).param();
-
-      params['dc'] = key;
-
-      href = href.split('?')[0] + '?' + $.param(params);
-
-      $this.attr('href', href);
-    });
-
-  };
-
-  var receiveIncoming = function(){
-    var url  = $.url(window.location.href);
-    var dc   = url.param('dc');
-
-    console.log(' - dc param is ' + dc + ', will load from ' + dc);
-
-    var data = deleteItem(dc);
-
-    console.log(' - loaded data =  ' + data + ', typeof ' + data + ' from (deleted key) ' + dc );
-
-
-    return {'data': data, 'dc': dc};
-  };
-
-  var clearOld = function(){
-    // TODO
+    if(dcId){
+      if(sessionStorage.getItem(dcId)){
+        if(cb && !cbFired){
+          cbFired = true;
+          cb(true);
+        }
+      }
+      else{
+        localStorage.setItem('eu_dc_rollcall', dcId + '?' + new Date().getTime());
+        setTimeout(function(){
+          if(cb && !cbFired){
+            cbFired = true;
+            cb(false);
+          }
+        }, 100);
+      }
+    }
+    return dcId;
   };
 
   return {
-    prepOutgoing: prepOutgoing,
-    receiveIncoming: receiveIncoming
-  };
+    prep: prep,
+    parameteriseLinks: function(sel){
+      $(sel).each(function(){
+        var $this  = $(this);
+        var href   = $this.attr('href');
+        var params = $.url(href).param();
 
+        params['dc'] = pageDC;
+        href = href.split('?')[0] + '?' + $.param(params);
+        $this.attr('href', href);
+      });
+    }
+  };
 });

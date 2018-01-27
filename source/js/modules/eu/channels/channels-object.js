@@ -909,6 +909,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     };
 
     var done = function(){
+
       if(returned == expected){
 
         if(Object.keys(elements).length > 0){
@@ -1750,21 +1751,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       require(['eu_data_continuity', 'purl'], function(DataContinuity){
 
-        var continuityData = DataContinuity.receiveIncoming();
-        var cameFromSearch = false;
-
-        if(continuityData['data']){
-
-          var cfsData = continuityData['data'];
-          var cfsDC   = continuityData['dc'];
-
-          cameFromSearch = cfsData['came-from-search'];
-
-          $(window).on('promotionsAppended', function(){
-            DataContinuity.prepOutgoing($('.channel-object-next-prev a'), cfsDC, cfsData);
-          });
-        }
-
         var params = $.url(location.href).param();
 
         if(typeof params['q'] != 'string'){
@@ -1819,42 +1805,49 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 
-        if(cameFromSearch){
+        DataContinuity.prep(function(cameFromSearch){
+          if(cameFromSearch){
 
-          if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
+            $(window).on('promotionsAppended', function(){
+              DataContinuity.parameteriseLinks('.channel-object-next-prev a');
+            });
 
-            /*log('current here - no calculation needed '
-              + ' curr: ' + s.eu_portal_last_results_current
-              + ' lrt: '  + s.eu_portal_last_results_total
-              + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
-            );*/
+            if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
 
-            if(parseInt(s.eu_portal_last_results_current) < 0){
-              log('correction needed A (set to ' + (per_page - 1) + ')');
-              s.eu_portal_last_results_current = per_page - 1;
+              /*log('current here - no calculation needed '
+                + ' curr: ' + s.eu_portal_last_results_current
+                + ' lrt: '  + s.eu_portal_last_results_total
+                + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
+              );*/
+
+              if(parseInt(s.eu_portal_last_results_current) < 0){
+                log('correction needed A (set to ' + (per_page - 1) + ')');
+                s.eu_portal_last_results_current = per_page - 1;
+              }
+
+              if(parseInt(s.eu_portal_last_results_current) >= per_page){
+                log('correction needed B (set to 0)');
+                s.eu_portal_last_results_current = 0;
+              }
+              getNextPrevItems(makePromoRequest, searchUrl, params);
             }
+            else{
+              s.removeItem('eu_portal_last_results_current');
+              s.removeItem('eu_portal_last_results_total');
+              s.removeItem('eu_portal_last_results_items');
+              s.removeItem('eu_portal_last_results_offset');
 
-            if(parseInt(s.eu_portal_last_results_current) >= per_page){
-              log('correction needed B (set to 0)');
-              s.eu_portal_last_results_current = 0;
+              getNavDataBasic(searchUrl, params, function(){
+                getNextPrevItems(makePromoRequest, searchUrl, params);
+              });
             }
-            getNextPrevItems(makePromoRequest, searchUrl, params);
           }
           else{
-            s.removeItem('eu_portal_last_results_current');
-            s.removeItem('eu_portal_last_results_total');
-            s.removeItem('eu_portal_last_results_items');
-            s.removeItem('eu_portal_last_results_offset');
-
-            getNavDataBasic(searchUrl, params, function(){
-              getNextPrevItems(makePromoRequest, searchUrl, params);
-            });
+            // we did not come from a search
+            makePromoRequest();
           }
-        }
-        else{
-          console.log('not from a search');
-          makePromoRequest();
-        }
+        });
+
       });
     }
 

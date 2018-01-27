@@ -234,9 +234,18 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
         });
 
-        var continuityId = new Date().getTime();
 
-        DataContinuity.prepOutgoing($('.result-items .search-list-item a'), continuityId, { 'came-from-search'  : true });
+
+        var continuityId = sessionStorage.getItem('continuityId');
+
+        if(!continuityId){
+          continuityId = new Date().getTime();
+          sessionStorage.setItem('continuityId', continuityId);
+          sessionStorage.setItem(continuityId, true);
+        }
+
+        DataContinuity.prep(false, continuityId);
+        DataContinuity.parameteriseLinks('.result-items .search-list-item a');
 
         items.on('click', function(){
           var current = $(this).index('.result-items .search-list-item');
