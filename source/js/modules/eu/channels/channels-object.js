@@ -1753,6 +1753,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
         var params = $.url(location.href).param();
 
+        delete params['dc'];
+
         if(typeof params['q'] != 'string'){
           log('no q param: ' + typeof params['q']);
           makePromoRequest();
@@ -1778,19 +1780,15 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           return false;
         };
 
-        var s         = sessionStorage;
-        var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var per_page  = params['per_page'] ? parseInt(params['per_page']) : 12;
+        var s               = sessionStorage;
+        var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
+        var per_page        = params['per_page'] ? parseInt(params['per_page']) : 12;
+        var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
 
         channelCheck(searchUrl);
 
-        if($('.breadcrumbs .back-url').length == 0){
-          var crumb = $('.breadcrumbs li.js-return');
-          var link  = crumb.find('a');
-          link.attr('href', searchUrl);
-          crumb.css('display', 'inline');
-        }
-        else{
+        if(backLinkPresent){
+
           var backUrl = $('.breadcrumbs .back-url a').attr('href');
           searchUrl   = backUrl;
           channelCheck(searchUrl);
@@ -1799,14 +1797,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
         delete params['l'];
 
-        searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
-
         if(history.state && typeof history.state.currentIndex == 'number'){
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 
         DataContinuity.prep(function(cameFromSearch){
           if(cameFromSearch){
+
+            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
+
+            if(!backLinkPresent){
+              $('.breadcrumbs .js-return a').attr('href', searchUrl).parent('.js-return').css('display', 'inline');
+            }
 
             $(window).on('promotionsAppended', function(){
               DataContinuity.parameteriseLinks('.channel-object-next-prev a');
@@ -1829,7 +1831,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
                 log('correction needed B (set to 0)');
                 s.eu_portal_last_results_current = 0;
               }
-              getNextPrevItems(makePromoRequest, searchUrl, params);
+              getNextPrevItems(makePromoRequest, searchUrlNav, params);
             }
             else{
               s.removeItem('eu_portal_last_results_current');
@@ -1837,8 +1839,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
               s.removeItem('eu_portal_last_results_items');
               s.removeItem('eu_portal_last_results_offset');
 
-              getNavDataBasic(searchUrl, params, function(){
-                getNextPrevItems(makePromoRequest, searchUrl, params);
+              getNavDataBasic(searchUrlNav, params, function(){
+                getNextPrevItems(makePromoRequest, searchUrlNav, params);
               });
             }
           }
