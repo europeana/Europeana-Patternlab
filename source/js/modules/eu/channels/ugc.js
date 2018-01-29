@@ -364,7 +364,10 @@ define(['jquery', 'util_resize'], function($){
       });
     });
 
-    initFormSave();
+    if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
+      initFormSave();
+    }
+
     initAutoCompletes();
     initDateFields();
     initFileFields();
