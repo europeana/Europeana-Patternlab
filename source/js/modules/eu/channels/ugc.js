@@ -367,6 +367,10 @@ define(['jquery', 'util_resize'], function($){
     if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
       initFormSave();
     }
+    else{
+      initHiddenFields();
+      initCopyFields();
+    }
 
     initAutoCompletes();
     initDateFields();
