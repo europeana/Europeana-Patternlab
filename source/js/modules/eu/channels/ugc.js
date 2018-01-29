@@ -56,8 +56,8 @@ define(['jquery', 'util_resize'], function($){
   function bindDynamicFieldset(){
 
     var reindex = function(){
-      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object_fieldset').each(function(i){
-        $(this).find('legend').attr('index', i + 2);
+      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object').each(function(i){
+        $(this).attr('index', i + 2);
       });
     };
 
@@ -379,6 +379,8 @@ define(['jquery', 'util_resize'], function($){
 
     bindCopyFields();
     bindHiddenFields();
+
+    // initClientSideValidation();
   }
 
   return {
