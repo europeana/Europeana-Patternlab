@@ -41,7 +41,7 @@
         "attributes": [
           {
             "xname": "method",
-            "xvalue": "POST"
+            "value": "POST"
           }
         ],
         "actions": [
