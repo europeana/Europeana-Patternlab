@@ -40,7 +40,7 @@
       "form": {
         "attributes": [
           {
-            "xname": "method",
+            "name": "method",
             "value": "POST"
           }
         ],
