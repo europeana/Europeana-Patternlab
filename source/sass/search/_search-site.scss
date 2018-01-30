@@ -1651,3 +1651,37 @@ html.redirecting{
 .feedback{
   display: none;
 }
+
+
+.data-table{
+
+  th{
+    text-transform: capitalize;
+  }
+
+  td,
+  th{
+    &:first-of-type{
+      text-align: center;
+    }
+  }
+
+  .linked-row{
+    td{
+      padding: 0;
+      > a{
+        display: block;
+        padding: 0.5em;
+      }
+    }
+
+    &:hover{
+      background-color: $eu-blue;
+      color:            $white;
+      a{
+        color: $white;
+      }
+    }
+  }
+}
+

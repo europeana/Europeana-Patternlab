@@ -1,10 +1,10 @@
 .header-wrapper {
   position: fixed;
-  z-index: 10;
   width: 100%;
+  z-index: 10;
 }
 
-.header {
+.header:not(th) {
   background: rgba($white, 0.85);
   min-height: $globalnavheight;
   padding: 0;
@@ -12,12 +12,11 @@
   width: 100%;
   z-index: 1;
 
-  @include box-shadow(rgba($gray-med, 0.2) 0 0 3px);
-
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  @include box-shadow(rgba($gray-med, 0.2) 0 0 3px);
 }
 
 .header > .cf{
@@ -32,21 +31,21 @@
 .after-header-with-search{
 
   margin-top: $globalnavheight-with-search-small;
-  
+
   &.e7a1418-nav-wrapper{
     margin-bottom: -$globalnavheight-with-search-small;
   }
-  
+
   &.search-open{
     margin-top: $globalnavheight-with-search-large;
-    
+
     &.e7a1418-nav-wrapper{
       margin-bottom: -$globalnavheight-with-search-large;
     }
 
     @media only screen and (min-width: $bp-med) {
       margin-top: $globalnavheight-with-search-small;
-      
+
       &.e7a1418-nav-wrapper{
         margin-bottom: -$globalnavheight-with-search-small;
       }
@@ -56,7 +55,7 @@
 
   @media only screen and (min-width: $bp-small-2) {
     margin-top: $globalnavheight-with-search-large;
-    
+
     &.e7a1418-nav-wrapper{
       margin-bottom: -$globalnavheight-with-search-large;
     }
@@ -71,18 +70,18 @@
 }
 
 .logo {
-  display: block;
-  float: left;
-  width: 50%;
-  max-width: 168px;
-  height: 58px;
-  margin: 0.4rem;
-  margin-left: 2%;
-
+  background-image: url('../../images/europeana-logo-default.png');
   background-position: 0 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('../../images/europeana-logo-default.png');
+
+  display: block;
+  float: left;
+  height: 58px;
+  margin: 0.4rem;
+  margin-left: 2%;
+  max-width: 168px;
+  width: 50%;
 
   .svg &{
     background-image: url('../../images/europeana-logo-default.svg');

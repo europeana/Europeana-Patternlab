@@ -48,6 +48,25 @@
       </div>
     {{/navigation.secondary}}
 
+    {{#content.aggregations}}
+
+      {{#form}}
+        <form {{#attributes}}{{#name}}{{#value}}{{name}}={{.}} {{/value}}{{/name}}{{/attributes}}>
+      {{/form}}
+
+        {{#table}}
+          {{> organisms/data/data-table }}
+        {{/table}}
+
+      {{#form}}
+        {{#actions}}
+          <input type="submit" onClick="this.form.action='{{action}}'" value="{{label}}" class="btn inline-form-button submit">
+        {{/actions}}
+        </form>
+      {{/form}}
+
+    {{/content.aggregations}}
+
   </div>
 </section>
 

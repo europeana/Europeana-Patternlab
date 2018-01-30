@@ -1,0 +1,20 @@
+<table class="data-table">
+  <thead>
+    <tr>
+      <th><input type="checkbox" autocomplete="off"/></th>
+      {{#head_data}}
+        <th>{{.}}</th>
+      {{/head_data}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#row_data}}
+      <tr{{#uri}} class="linked-row"{{/uri}}>
+        {{#id}}<td><input type="checkbox" autocomplete="off" name="{{.}}"/></td>{{/id}}
+        {{#cells}}
+          <td>{{#uri}}<a href="{{.}}">{{/uri}}{{.}}{{#uri}}</a>{{/uri}}</td>
+        {{/cells}}
+      </tr>
+    {{/row_data}}
+  </tbody>
+</table>

@@ -35,6 +35,130 @@
       "url": "javascript:alert('follow link')",
       "text": "Tell your story..."
     },
+
+    "aggregations":{
+      "form": {
+        "attributes": [
+          {
+            "xname": "method",
+            "xvalue": "POST"
+          }
+        ],
+        "actions": [
+          {
+            "label": "Delete",
+            "action": "a/b"
+          },
+          {
+            "label": "Unapprove Selected",
+            "action": "c/d"
+          },
+          {
+            "label": "Approve Selected",
+            "action": "e/f"
+          }
+        ]
+      },
+      "table":{
+        "head_data": [
+          "name",
+          "ticket number",
+          "submission date",
+          "status",
+          "contains media"
+        ],
+        "row_data": [
+          {
+            "id": "1",
+            "uri": "javascript:alert('1');",
+            "cells": [
+              "Sven Jonsson",
+              "340",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "2",
+            "uri": "javascript:alert('2');",
+            "cells": [
+              "Carlos Marcelino",
+              "347",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "3",
+            "uri": "javascript:alert('3');",
+            "cells": [
+              "Panogiotis Kyrou",
+              "345",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "4",
+            "uri": "javascript:alert('4');",
+            "cells": [
+              "John Smith",
+              "341",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "5",
+            "uri": "javascript:alert('5');",
+            "cells": [
+              "Julian Wilde",
+              "320",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "6",
+            "uri": "javascript:alert('6');",
+            "cells": [
+              "Jens Jensson",
+              "348",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "7",
+            "uri": "javascript:alert('7');",
+            "cells": [
+              "Anna Patat",
+              "343",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "8",
+            "uri": "javascript:alert('8');",
+            "cells": [
+              "Nils Sjoberg",
+              "328",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          }
+        ]
+      }
+    },
     "call_to_action": "We invite you to contribute stories relating to European migration in your family history."
   }
 }

@@ -274,10 +274,21 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
+
       require(['purl'], function(){
 
-        var purl = $.url(window.location.href);
+        require(['table_sort'], function(){
 
+          var tbl = $('table');
+
+          tbl.tablesorter({headers:{0:{sorter:false}}});
+
+          tbl.find('th').first().find('[type="checkbox"]').on('click', function(){
+            tbl.find('tr td:first-of-type [type="checkbox"]').prop('checked', $(this).is(':checked'));
+          });
+        });
+
+        var purl = $.url(window.location.href);
         if(purl.param('c')){
           require(['eu_form_save'], function(FormSave){
             FormSave.clearStoredFormData(purl.param('c'));
@@ -308,7 +319,6 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'ugc/index':
       console.log('load js for ugc/index here');
-
       doForAllPages();
       break;
 

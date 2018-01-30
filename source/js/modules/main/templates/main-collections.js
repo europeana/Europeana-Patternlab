@@ -140,6 +140,8 @@ require.config({
     eu_tooltip:                    '../../eu/tooltip/eu-tooltip',
     eu_clicktip:                   '../../eu/tooltip/eu-clicktip',
 
+    table_sort:                    '../../lib/tablesorter/jquery.tablesorter',
+
     touch_move:                    '../../lib/jquery/jquery.event.move',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
