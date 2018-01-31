@@ -1305,14 +1305,37 @@ html.redirecting{
     }
   }
 
-  .btn:hover{
-    background-color: $blue-dark;
-    color: $white;
+  .btn{
+    display: inline-block;
+    &:hover{
+      background-color: $blue-dark;
+      color: $white;
+    }
+    &.disabled{
+      pointer-events: none;
+    }
   }
 
-  .btn.disabled,
-  .btn.disabled:hover{
-    background-color: $blue-grey;
+  .error{
+    color:      $eu-red;
+    font-size:  $font-size-slightly-smaller;
+
+    &::before{
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($eu-red)}' viewBox='0 0 23 32'%3E%3Cpath d='M23.003 21.226q.62 1.212-.081 2.343-.727 1.158-2.074 1.158H2.424q-1.347 0-2.074-1.158-.673-1.104-.108-2.343L9.454 2.802q.7-1.347 2.182-1.347 1.508 0 2.155 1.347zM10.182 7.758V16h2.909V7.758h-2.909zm1.454 14.545q.808 0 1.374-.566t.566-1.374-.566-1.374-1.374-.566-1.374.566-.566 1.374.566 1.374 1.374.566z'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+
+      content:   ' ';
+      display:   inline-block;
+      height:    1.4em;
+      transform: translateY(0.4em);
+      width:     1.3em;
+    }
+  }
+
+  .flash-notice{
+    display: block;
+    padding: 0 0 1.6rem 0;
   }
 
   .hint{
@@ -1332,23 +1355,6 @@ html.redirecting{
 
   .story-select{
     margin: 0 0 1.6em 0;
-  }
-
-  .error{
-    color:      $eu-red;
-    font-size:  $font-size-slightly-smaller;
-
-    &::before{
-
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($eu-red)}' viewBox='0 0 23 32'%3E%3Cpath d='M23.003 21.226q.62 1.212-.081 2.343-.727 1.158-2.074 1.158H2.424q-1.347 0-2.074-1.158-.673-1.104-.108-2.343L9.454 2.802q.7-1.347 2.182-1.347 1.508 0 2.155 1.347zM10.182 7.758V16h2.909V7.758h-2.909zm1.454 14.545q.808 0 1.374-.566t.566-1.374-.566-1.374-1.374-.566-1.374.566-.566 1.374.566 1.374 1.374.566z'%3E%3C/path%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-
-      content:   ' ';
-      display:   inline-block;
-      height:    1.4em;
-      transform: translateY(0.4em);
-      width:     1.3em;
-    }
   }
 
   a[data-association-path]{
@@ -1405,6 +1411,13 @@ html.redirecting{
   .submit{
     display: block;
     margin-top: $space;
+  }
+
+  .submits{
+    text-align: right;
+    .submit{
+      display: inline-block;
+    }
   }
 
   p{

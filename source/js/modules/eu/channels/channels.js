@@ -279,12 +279,42 @@ define(['jquery', 'smartmenus'], function($){
 
         require(['table_sort'], function(){
 
-          var tbl = $('table');
+          var tbl    = $('.data-table');
+          var tblCbH = $('.data-table th').first().find('[type="checkbox"]');
+          var sTblCb = '.data-table tr td:first-of-type [type="checkbox"]';
 
           tbl.tablesorter({headers:{0:{sorter:false}}});
 
-          tbl.find('th').first().find('[type="checkbox"]').on('click', function(){
-            tbl.find('tr td:first-of-type [type="checkbox"]').prop('checked', $(this).is(':checked'));
+          $('.submits .submit').addClass('disabled');
+
+          var submitEnable = function(setCbAll){
+
+            var checkedCount = $(sTblCb + ':checked').length;
+
+            if(checkedCount > 0){
+              $('.submits .submit').removeClass('disabled');
+            }
+            else{
+              $('.submits .submit').addClass('disabled');
+            }
+
+            if(setCbAll){
+              if($(sTblCb + ':checked').length == $(sTblCb).length){
+                tblCbH.prop('checked', true);
+              }
+              else{
+                tblCbH.prop('checked', false);
+              }
+            }
+          };
+
+          $(sTblCb).on('click', function(){
+            submitEnable(true);
+          });
+
+          tblCbH.on('click', function(){
+            $(sTblCb).prop('checked', $(this).is(':checked'));
+            submitEnable();
           });
         });
 

@@ -16,7 +16,8 @@
 
 <section class="static-header">
   <div class="lc">
-    <h1 class="title">{{i18n.site.collections.migrations.stories}}</h1>
+    <h1 class="title">{{ content.title }}</h1>
+    <p>{{ content.description }}</p>
   </div>
 </section>
 
@@ -25,11 +26,19 @@
 
     {{#content}}
 
-    {{#flash_notice}}
-      <strong class="flash-notice">{{.}}</strong>
-    {{/flash_notice}}
+      {{#flash_notice}}
+        <strong class="flash-notice">{{.}}</strong>
+      {{/flash_notice}}
+
+      {{#call_to_action}}
+        <p>{{.}}</p>
+      {{/call_to_action}}
+
+      {{#begin_link}}<p><a class="btn btn-light pill" href="{{url}}">{{text}}</a></p>{{/begin_link}}
 
     {{/content}}
+
+    {{{ content.text_full_width }}}
 
     {{#navigation.secondary}}
       <div class="sidebar js-getstickywidth">
@@ -39,32 +48,6 @@
       </div>
     {{/navigation.secondary}}
 
-    {{#content.aggregations}}
-      <select class="story-select" onchange="window.location.href=this.value">
-        {{#collection_day}}
-          <option value="{{url}}">{{label}}</option>
-        {{/collection_day}}
-      </select>
-
-      {{#form}}
-        <form {{#attributes}}{{#name}}{{#value}}{{name}}={{.}} {{/value}}{{/name}}{{/attributes}}>
-      {{/form}}
-
-        {{#table}}
-          {{> organisms/data/data-table }}
-        {{/table}}
-
-      {{#form}}
-        <div class="submits">
-          {{#actions}}
-            <input type="submit" onClick="this.form.action='{{action}}'" value="{{label}}" class="btn inline-form-button submit">
-          {{/actions}}
-        </div>
-        </form>
-      {{/form}}
-
-    {{/content.aggregations}}
-
   </div>
 </section>
 
@@ -72,6 +55,5 @@
 <!-- End Main -->
 
 {{> organisms/sections/banner }}
-
 {{> organisms/global/footer_v2 }}
 {{> molecules/forms/feedback }}
