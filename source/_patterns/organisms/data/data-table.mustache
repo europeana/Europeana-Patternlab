@@ -9,10 +9,10 @@
   </thead>
   <tbody>
     {{#row_data}}
-      <tr{{#uri}} class="linked-row"{{/uri}}>
+      <tr{{#url}} class="linked-row"{{/url}}>
         {{#id}}<td><input type="checkbox" autocomplete="off" name="{{.}}"/></td>{{/id}}
         {{#cells}}
-          <td>{{#uri}}<a href="{{.}}">{{/uri}}{{.}}{{#uri}}</a>{{/uri}}</td>
+          <td>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</td>
         {{/cells}}
       </tr>
     {{/row_data}}

@@ -362,15 +362,15 @@ define(['jquery', 'util_resize'], function($){
         initHiddenFields();
         initCopyFields();
       });
-    });
 
-    if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
-      initFormSave();
-    }
-    else{
-      initHiddenFields();
-      initCopyFields();
-    }
+      if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
+        initFormSave();
+      }
+      else{
+        initHiddenFields();
+        initCopyFields();
+      }
+    });
 
     initAutoCompletes();
     initDateFields();

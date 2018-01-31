@@ -677,6 +677,9 @@
               "e7a1418": {
                 "contribute": "Contribute your story",
                 "my-account": "My Account"
+              },
+              "migrations":{
+                "stories": "Stories"
               }
             },
             "entities": {

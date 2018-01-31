@@ -59,6 +59,23 @@
           }
         ]
       },
+      "collection_day":[
+        {
+          "label": "Please select"
+        },
+        {
+          "label": "label 1",
+          "url": "?collectionDay=1"
+        },
+        {
+          "label": "label 2",
+          "url": "?collectionDay=2"
+        },
+        {
+          "label": "label 3",
+          "url": "?collectionDay=3"
+        }
+      ],
       "table":{
         "head_data": [
           "name",
@@ -70,7 +87,7 @@
         "row_data": [
           {
             "id": "1",
-            "uri": "javascript:alert('1');",
+            "url": "javascript:alert('1');",
             "cells": [
               "Sven Jonsson",
               "340",
@@ -81,7 +98,7 @@
           },
           {
             "id": "2",
-            "uri": "javascript:alert('2');",
+            "url": "javascript:alert('2');",
             "cells": [
               "Carlos Marcelino",
               "347",
@@ -92,7 +109,7 @@
           },
           {
             "id": "3",
-            "uri": "javascript:alert('3');",
+            "url": "javascript:alert('3');",
             "cells": [
               "Panogiotis Kyrou",
               "345",
@@ -103,7 +120,7 @@
           },
           {
             "id": "4",
-            "uri": "javascript:alert('4');",
+            "url": "javascript:alert('4');",
             "cells": [
               "John Smith",
               "341",
@@ -114,7 +131,7 @@
           },
           {
             "id": "5",
-            "uri": "javascript:alert('5');",
+            "url": "javascript:alert('5');",
             "cells": [
               "Julian Wilde",
               "320",
@@ -125,7 +142,7 @@
           },
           {
             "id": "6",
-            "uri": "javascript:alert('6');",
+            "url": "javascript:alert('6');",
             "cells": [
               "Jens Jensson",
               "348",
@@ -136,7 +153,7 @@
           },
           {
             "id": "7",
-            "uri": "javascript:alert('7');",
+            "url": "javascript:alert('7');",
             "cells": [
               "Anna Patat",
               "343",
@@ -147,7 +164,7 @@
           },
           {
             "id": "8",
-            "uri": "javascript:alert('8');",
+            "url": "javascript:alert('8');",
             "cells": [
               "Nils Sjoberg",
               "328",
