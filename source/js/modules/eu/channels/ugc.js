@@ -271,30 +271,62 @@ define(['jquery', 'util_resize'], function($){
 
   function initFileFields(){
 
+    var reFileStem = /([^/]*)$/;
+
     $(document).on('change', '[type="file"][accept]', function(){
 
       removeValidationError($(this));
 
-      var val     = $(this).val();
-      var allowed = $(this).attr('accept').split(',');
+      if(!(window.FileReader && window.Blob)) {
+        return;
+      }
+
+      var input        = $(this);
+      var val          = input.val();
+      var allowed      = input.attr('accept').split(',');
+      var files        = input[0].files;
 
       if(val && val.length > 0){
 
         var ext       = val.slice(val.lastIndexOf('.'));
         var isAllowed = false;
 
-        if(ext && ext.length > 0){
-          $.each(allowed, function(){
+        $.each(allowed, function(){
+
+          var isMime    = this.indexOf('/') > -1;
+          var allowRule = this.trim().toUpperCase();
+
+          if(isMime){
+
+            var mimeType = files[0].type.toUpperCase();
+
+            if(mimeType == allowRule){
+              console.log('check 1 pass' );
+              isAllowed = true;
+              return false;
+            }
+            else if(allowRule.indexOf('*') > -1){
+
+              if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
+                isAllowed = true;
+                return false;
+              }
+            }
+          }
+          else if(ext && ext.length > 0){
             if(ext.toUpperCase() == this.trim().toUpperCase()){
               isAllowed = true;
+              return false;
             }
-          });
-        }
+          }
+        });
+
         if(!isAllowed){
           var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
           addValidationError($(this), msg);
         }
       }
+
     });
   }
 
