@@ -75,6 +75,7 @@
         }
       ],
       "table":{
+        "has_row_selectors": true,
         "head_data": [
           "name",
           "ticket number",
@@ -95,7 +96,7 @@
             ]
           },
           {
-            "id": "2",
+            "Xid": "2",
             "url": "javascript:alert('2');",
             "cells": [
               "Carlos Marcelino",
@@ -150,7 +151,7 @@
             ]
           },
           {
-            "id": "7",
+            "xid": "7",
             "url": "javascript:alert('7');",
             "cells": [
               "Anna Patat",

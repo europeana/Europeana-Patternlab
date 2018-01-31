@@ -279,43 +279,52 @@ define(['jquery', 'smartmenus'], function($){
 
         require(['table_sort'], function(){
 
-          var tbl    = $('.data-table');
-          var tblCbH = $('.data-table th').first().find('[type="checkbox"]');
-          var sTblCb = '.data-table tr td:first-of-type [type="checkbox"]';
+          var tbl      = $('.data-table');
+          var hasIdCol = tbl.hasClass('js-has-row-selectors');
 
-          tbl.tablesorter({headers:{0:{sorter:false}}});
+          if(hasIdCol){
+            tbl.tablesorter({debug: true, headers:{0:{sorter:false}}});
 
-          $('.submits .submit').addClass('disabled');
+            var tblCbH   = $('.data-table th').first().find('[type="checkbox"]');
+            var sTblCb   = '.data-table tr td:first-of-type [type="checkbox"]';
 
-          var submitEnable = function(setCbAll){
+            $('.submits .submit').addClass('disabled');
 
-            var checkedCount = $(sTblCb + ':checked').length;
+            var submitEnable = function(setCbAll){
 
-            if(checkedCount > 0){
-              $('.submits .submit').removeClass('disabled');
-            }
-            else{
-              $('.submits .submit').addClass('disabled');
-            }
+              var checkedCount = $(sTblCb + ':checked').length;
 
-            if(setCbAll){
-              if($(sTblCb + ':checked').length == $(sTblCb).length){
-                tblCbH.prop('checked', true);
+              if(checkedCount > 0){
+                $('.submits .submit').removeClass('disabled');
               }
               else{
-                tblCbH.prop('checked', false);
+                $('.submits .submit').addClass('disabled');
               }
-            }
-          };
 
-          $(sTblCb).on('click', function(){
-            submitEnable(true);
-          });
+              if(setCbAll){
+                if($(sTblCb + ':checked').length == $(sTblCb).length){
+                  tblCbH.prop('checked', true);
+                }
+                else{
+                  tblCbH.prop('checked', false);
+                }
+              }
+            };
 
-          tblCbH.on('click', function(){
-            $(sTblCb).prop('checked', $(this).is(':checked'));
-            submitEnable();
-          });
+            $(sTblCb).on('click', function(){
+              submitEnable(true);
+            });
+
+            tblCbH.on('click', function(){
+              $(sTblCb).prop('checked', $(this).is(':checked'));
+              submitEnable();
+            });
+
+          }
+          else{
+            tbl.tablesorter();
+          }
+
         });
 
         var purl = $.url(window.location.href);

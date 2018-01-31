@@ -1,7 +1,9 @@
-<table class="data-table">
+<table class="data-table{{#has_row_selectors}} js-has-row-selectors{{/has_row_selectors}}">
   <thead>
     <tr>
+      {{#has_row_selectors}}
       <th><input type="checkbox" autocomplete="off"/></th>
+      {{/has_row_selectors}}
       {{#head_data}}
         <th>{{.}}</th>
       {{/head_data}}
@@ -10,7 +12,9 @@
   <tbody>
     {{#row_data}}
       <tr{{#url}} class="linked-row"{{/url}}>
-        {{#id}}<td><input type="checkbox" autocomplete="off" name="{{.}}"/></td>{{/id}}
+        {{#has_row_selectors}}
+          <td>{{#id}}<input type="checkbox" autocomplete="off" name="{{.}}"/>{{/id}}</td>
+        {{/has_row_selectors}}
         {{#cells}}
           <td>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</td>
         {{/cells}}

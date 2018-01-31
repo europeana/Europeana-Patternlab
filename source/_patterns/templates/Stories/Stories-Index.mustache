@@ -40,11 +40,13 @@
     {{/navigation.secondary}}
 
     {{#content.stories}}
-      <select class="story-select" onchange="window.location.href=this.value">
-        {{#events}}
-          <option value="{{url}}">{{label}}</option>
-        {{/events}}
-      </select>
+      {{#has_events}}
+        <select class="story-select" onchange="window.location.href=this.value">
+          {{#events}}
+            <option value="{{url}}">{{label}}</option>
+          {{/events}}
+        </select>
+      {{/has_events}}
 
       {{#form}}
         <form {{#attributes}}{{#name}}{{#value}}{{name}}={{.}} {{/value}}{{/name}}{{/attributes}}>
