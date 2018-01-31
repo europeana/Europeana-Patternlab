@@ -39,11 +39,11 @@
       </div>
     {{/navigation.secondary}}
 
-    {{#content.aggregations}}
+    {{#content.stories}}
       <select class="story-select" onchange="window.location.href=this.value">
-        {{#collection_day}}
+        {{#events}}
           <option value="{{url}}">{{label}}</option>
-        {{/collection_day}}
+        {{/events}}
       </select>
 
       {{#form}}
@@ -63,7 +63,7 @@
         </form>
       {{/form}}
 
-    {{/content.aggregations}}
+    {{/content.stories}}
 
   </div>
 </section>

@@ -34,7 +34,7 @@
       "text": "Tell your story..."
     },
 
-    "aggregations":{
+    "stories":{
       "form": {
         "attributes": [
           {
@@ -57,7 +57,7 @@
           }
         ]
       },
-      "collection_day":[
+      "events":[
         {
           "label": "Please select"
         },
