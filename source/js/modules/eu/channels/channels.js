@@ -283,7 +283,8 @@ define(['jquery', 'smartmenus'], function($){
           var hasIdCol = tbl.hasClass('js-has-row-selectors');
 
           if(hasIdCol){
-            tbl.tablesorter({debug: true, headers:{0:{sorter:false}}});
+            tbl.tablesorter({headers:{0:{sorter:false}}});
+            tbl.find('th:not(:first)').addClass('is-sortable');
 
             var tblCbH   = $('.data-table th').first().find('[type="checkbox"]');
             var sTblCb   = '.data-table tr td:first-of-type [type="checkbox"]';
@@ -322,6 +323,7 @@ define(['jquery', 'smartmenus'], function($){
 
           }
           else{
+            tbl.find('th').addClass('is-sortable');
             tbl.tablesorter();
           }
 

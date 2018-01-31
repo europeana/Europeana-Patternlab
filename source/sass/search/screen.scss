@@ -112,11 +112,13 @@ $susy: (
 
 @import './results-list';
 @import './blogs-and-events';
+@import './ugc';
 @import './object';
 @import './channels-object';
 @import './galleries';
 @import './image-set';
 @import './entity';
+@import '../scss/objects/blocks/data-table';
 
 
 @import '../virtual-exhibitions/foyer';
