@@ -13,7 +13,7 @@
     {{#row_data}}
       <tr{{#url}} class="linked-row"{{/url}}>
         {{#has_row_selectors}}
-          <td>{{#id}}<input type="checkbox" autocomplete="off" name="{{.}}"/>{{/id}}</td>
+          <td>{{#id}}<input type="checkbox" autocomplete="off" name="{{.}}"{{#is_selected}} checked="checked"{{/is_selected}}/>{{/id}}</td>
         {{/has_row_selectors}}
         {{#cells}}
           <td>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</td>
