@@ -41,9 +41,9 @@
 
     {{#content.stories}}
       {{#has_events}}
-        <select class="story-select" onchange="window.location.href=this.value">
+        <select class="story-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
           {{#events}}
-            <option value="{{url}}">{{label}}</option>
+            <option value="{{url}}"{{#is_selected}} selected{{/is_selected}}>{{label}}</option>
           {{/events}}
         </select>
       {{/has_events}}

@@ -57,12 +57,15 @@
           }
         ]
       },
+      "has_events":true,
       "events":[
         {
-          "label": "Please select"
+          "label": "Please select",
+          "url": false
         },
         {
           "label": "label 1",
+          "is_selected": true,
           "url": "?collectionDay=1"
         },
         {
