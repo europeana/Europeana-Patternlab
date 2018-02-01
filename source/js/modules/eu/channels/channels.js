@@ -321,6 +321,7 @@ define(['jquery', 'smartmenus'], function($){
               submitEnable();
             });
 
+            submitEnable(true);
           }
           else{
             tbl.find('th').addClass('is-sortable');

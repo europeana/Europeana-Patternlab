@@ -6,6 +6,9 @@
   }
 
   th.is-sortable{
+
+    cursor: pointer;
+
     &::after,
     &::before{
       border-width: 0.45em;
