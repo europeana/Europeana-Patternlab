@@ -274,22 +274,6 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
-
-/*
-      require(['ugc_index'], function(){
-        var purl = $.url(window.location.href);
-        if(purl.param('c')){
-          require(['eu_form_save'], function(FormSave){
-            FormSave.clearStoredFormData(purl.param('c'));
-          });
-        }
-        else{
-          doForAllPages();
-        }
-      });
-*/
-
-
       require(['ugc_index'], function(page){
         page.initPage();
         doForAllPages();
@@ -327,6 +311,14 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'ugc/index':
       doForAllPages();
+      break;
+
+    case 'stories/index':
+      require(['ugc_index'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+
       break;
 
     case 'ugc/new':
