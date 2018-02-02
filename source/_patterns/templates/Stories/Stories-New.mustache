@@ -14,26 +14,19 @@
   </div>
 </section>
 
-<section class="static-header">
-  <div class="lc">
+<section class="site-hero ugc-migrations" style="background-image:url('{{content.hero.url}}');">
+  <div class="hero-text">
     <h1 class="title">{{ content.title }}</h1>
-    <p>{{ content.description }}</p>
+    <br/>
+    <h3>{{ content.subtitle }}</h3>
   </div>
 </section>
 
-<section class="ugc-content section">
+<section class="ugc-content new-story">
   <div class="lc">
-    <div class="prose">
-      {{#xxx_content}}
-        {{#form}}
-          {{> molecules/forms/generic-form }}
-        {{/form}}
-      {{/xxx_content}}
-
-      {{#content}}
-        {{{form}}}
-      {{/content}}
-    </div>
+    {{#content}}
+      {{{form}}}
+    {{/content}}
   </div>
 </section>
 
@@ -41,6 +34,5 @@
 <!-- End Main -->
 
 {{> organisms/sections/banner }}
-
 {{> organisms/global/footer_v2 }}
 {{> molecules/forms/feedback }}

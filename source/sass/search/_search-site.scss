@@ -1253,6 +1253,28 @@ html.redirecting{
   }
 }
 
+.sidebar{
+  @media all and (min-width: $bp-med) {
+    @include span(last 6 of 24);
+  }
+}
+
+.lc > .prose{
+  @media all and (min-width: $bp-med) {
+    @include span(18 of 24);
+    max-width: 40em;
+  }
+  padding-bottom: $space-triple;
+
+  p{
+    padding-left: 0;
+  }
+
+  p:first-child{
+    font-size: 1.5625em;
+  }
+}
+
 
 // STATIC PAGES
 

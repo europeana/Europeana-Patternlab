@@ -335,6 +335,12 @@ define(['jquery', 'util_resize'], function($){
     var $form = $('#' + formId);
     var key   = $form.attr('recaptcha-site-key');
 
+    $('.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
+
+    $('.required-text').each(function(){
+      $(this).prependTo($(this).closest('label'));
+    });
+
     var onSubmit = function(){
 
       if(validateForm()){
@@ -390,6 +396,9 @@ define(['jquery', 'util_resize'], function($){
     }
 
     $(document).on('external_js_loaded', function(){
+
+      $('.ugc-content').addClass('external-js-loaded');
+
       $(document).on('eu-form-save-initialised', function(){
         initHiddenFields();
         initCopyFields();
@@ -401,6 +410,11 @@ define(['jquery', 'util_resize'], function($){
       else{
         initHiddenFields();
         initCopyFields();
+      }
+
+      if(window.I18n){
+        var rfHint = $('.required-fields-hint');
+        rfHint.html(window.I18n.translate(rfHint.data('i18n-key')));
       }
     });
 

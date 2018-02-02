@@ -140,12 +140,12 @@ require.config({
     eu_tooltip:                    '../../eu/tooltip/eu-tooltip',
     eu_clicktip:                   '../../eu/tooltip/eu-clicktip',
 
-    table_sort:                    '../../lib/tablesorter/jquery.tablesorter',
-
     touch_move:                    '../../lib/jquery/jquery.event.move',
+    table_sort:                    '../../lib/tablesorter/jquery.tablesorter',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
     ugc:                           '../../eu/channels/ugc',
+    ugc_index:                     '../../eu/channels/ugc-index',
 
     ve_state_card:                 '../../eu/ve-state-card',
     videojs:                       '//vjs.zencdn.net/4.12/video',
