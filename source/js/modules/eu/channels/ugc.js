@@ -1,7 +1,4 @@
-
 define(['jquery', 'util_resize'], function($){
-
-  window.enableValidation = true;
 
   var formId   = 'new_ore_aggregation';
   var formSave = null;
@@ -278,13 +275,19 @@ define(['jquery', 'util_resize'], function($){
 
 
   function validateForm(){
-    var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
-    var valid    = invalids.length == 0;
 
-    invalids.addClass('invalid');
-    invalids.each(function(){addValidationError($(this));});
+    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+      var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
+      var valid    = invalids.length == 0;
 
-    return valid;
+      invalids.addClass('invalid');
+      invalids.each(function(){addValidationError($(this));});
+
+      return valid;
+    }
+    else{
+      return true;
+    }
   }
 
   function initDateFields(){
