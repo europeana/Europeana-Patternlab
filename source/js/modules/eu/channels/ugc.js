@@ -335,7 +335,7 @@ define(['jquery', 'util_resize'], function($){
     var $form = $('#' + formId);
     var key   = $form.attr('recaptcha-site-key');
 
-    $('.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
+    $('label.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
 
     $('.required-text').each(function(){
       $(this).prependTo($(this).closest('label'));
@@ -422,7 +422,9 @@ define(['jquery', 'util_resize'], function($){
     bindCopyFields();
     bindHiddenFields();
 
-    // initClientSideValidation();
+    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+      initClientSideValidation();
+    }
   }
 
   return {

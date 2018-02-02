@@ -315,7 +315,20 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
     .hint{
       display:      inline-block;
+    }
 
+    .label-and-input + .error{
+      left:     1.3em;
+      position: relative;
+      &::before{
+        background-position-x: 100%;
+        transform:             translate(-0.3em, 0.4em);
+      }
+    }
+
+    .hint,
+    .label-and-input + .error
+    {
       &::before{
         content: ' ';
         display: inline-block;
