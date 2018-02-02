@@ -222,7 +222,7 @@ define(['jquery', 'util_resize'], function($){
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
-      if(['/migration/edit', '/migration/update'].indexOf(window.pageName) > -1){
+      if(['migration/edit', 'migration/update'].indexOf(window.pageName) > -1){
 
         var $hidden  = $('#' + $el.data('for'));
         var derefUrl = $el.data('deref-url');
