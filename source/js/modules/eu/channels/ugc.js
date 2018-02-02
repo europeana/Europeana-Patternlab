@@ -412,10 +412,6 @@ define(['jquery', 'util_resize'], function($){
         initCopyFields();
       }
 
-      if(window.I18n){
-        var rfHint = $('.required-fields-hint');
-        rfHint.html(window.I18n.translate(rfHint.data('i18n-key')));
-      }
     });
 
     initAutoCompletes();
