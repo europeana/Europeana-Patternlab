@@ -48,6 +48,10 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     padding:       $ugc-padding 0 $ugc-padding-half 0;
   }
 
+  legend{
+    text-align: left;
+  }
+
   fieldset{
     margin:     0 auto;
     text-align: right;
