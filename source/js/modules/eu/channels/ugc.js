@@ -221,7 +221,29 @@ define(['jquery', 'util_resize'], function($){
     $el.addClass('autocomplete-inititlised');
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
-      Autocomplete.init(getAutocompleteConfig($el));
+
+      if(['/migration/edit', '/migration/update'].indexOf(window.pageName) > -1){
+
+        var $hidden  = $('#' + $el.data('for'));
+        var derefUrl = $el.data('deref-url');
+
+        if($el.val().length == 0 && $hidden.val().length > 0 && derefUrl){
+
+          derefUrl += '?uri=' + $hidden.val();
+
+          $.getJSON(derefUrl).done(function(data){
+            $el.val(data.text);
+            Autocomplete.init(getAutocompleteConfig($el));
+          });
+        }
+        else{
+          Autocomplete.init(getAutocompleteConfig($el));
+        }
+      }
+      else{
+        Autocomplete.init(getAutocompleteConfig($el));
+      }
+
     });
   }
 
