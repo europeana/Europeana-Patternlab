@@ -43,7 +43,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function initClientSideValidation(){
-    $(document).on('blur', 'input,textarea,select', function(){
+    $(document).on('blur', 'input:not([type="file"][accept]),textarea,select', function(){
       var $el = $(this);
       $el.addClass('had-focus');
       if($el.is(':valid')){
@@ -302,6 +302,10 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('change', '[type="file"][accept]', function(){
 
+      if(typeof window.enableValidation == 'undefined' || !window.enableValidation){
+        console.log('all front-end validation disabled');
+        return;
+      }
       removeValidationError($(this));
 
       if(!(window.FileReader && window.Blob)) {
@@ -348,7 +352,10 @@ define(['jquery', 'util_resize'], function($){
           }
         });
 
-        if(!isAllowed){
+        if(isAllowed){
+          removeValidationError($(this));
+        }
+        else{
           var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
           addValidationError($(this), msg);
         }
