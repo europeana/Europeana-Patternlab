@@ -1253,144 +1253,27 @@ html.redirecting{
   }
 }
 
-
-// UGC / Stories
-
-.ugc-content{
-
-  abbr{
-    border-bottom: 0;
+.sidebar{
+  @media all and (min-width: $bp-med) {
+    @include span(last 6 of 24);
   }
-
-  legend{
-    font-size:   $font-size-large;
-    font-weight: bold;
-  }
-
-  fieldset{
-
-    margin-bottom: $space;
-
-    &.sequenced_object_fieldset{
-      legend::after{
-        content: attr(index);
-      }
-    }
-
-    fieldset{
-      border:     1px solid $eu-blue;
-      margin-top: $space;
-      padding:    0 $space $space-and-half $space;
-
-      legend{
-        font-size: $font-size-med;
-        margin:    0;
-        padding:   0 $space-half;
-      }
-    }
-  }
-
-  label{
-    color:       $eu-blue;
-    font-weight: bold;
-    margin-top:  $space;
-  }
-
-  .hint{
-    font-size:  $font-size-slightly-smaller;
-    font-style: italic;
-  }
-
-  .error{
-    color:      $eu-red;
-    font-size:  $font-size-slightly-smaller;
-  }
-
-  .hint ~ .error{
-    margin-left: $space;
-  }
-
-  .invalid,
-  .had-focus:invalid{
-    border: 1px solid $eu-red;
-  }
-
-  .submit{
-    display: block;
-    margin-top: $space;
-  }
-
-  p{
-    padding: 0 $space;
-  }
-
-  .lc > .prose{
-    @media all and (min-width: $bp-med) {
-      @include span(18 of 24);
-      max-width: 40em;
-    }
-    padding-bottom: $space-triple;
-
-    p{
-      padding-left: 0;
-    }
-
-    p:first-child{
-      font-size: 1.5625em;
-    }
-
-    ul.eu-autocomplete{
-      list-style: none;
-      margin:     0;
-    }
-  }
-
-  .sidebar{
-    @media all and (min-width: $bp-med) {
-      @include span(last 6 of 24);
-    }
-  }
-
-  .eu-autocomplete{
-    display: block;
-  }
-
-  .ore_aggregation_edm_aggregatedCHO_dc_contributor_skos_prefLabel{
-    position: relative;
-  }
-
-  .prose .btn-copy-name{
-    background:     $eu-blue;
-    border-radius:  0.5em;
-    color:          $white;
-    font-size:      $font-size-sm;
-    font-weight:    bold;
-    opacity:        0;
-    padding:        0.5em;
-    pointer-events: none;
-    position:       absolute;
-    right:          -1em;
-    top:            3.1em;
-    transform:      translateX(100%);
-    transition:     opacity 0.3s ease;
-
-    &.enabled{
-      opacity:        1;
-      pointer-events: auto;
-    }
-  }
-
-  .requires-other-field{
-
-    display: none;
-
-    &.enabled{
-      display: block;
-    }
-  }
-
 }
 
+.lc > .prose{
+  @media all and (min-width: $bp-med) {
+    @include span(18 of 24);
+    max-width: 40em;
+  }
+  padding-bottom: $space-triple;
+
+  p{
+    padding-left: 0;
+  }
+
+  p:first-child{
+    font-size: 1.5625em;
+  }
+}
 
 
 // STATIC PAGES
@@ -1574,3 +1457,6 @@ html.redirecting{
 .feedback{
   display: none;
 }
+
+
+

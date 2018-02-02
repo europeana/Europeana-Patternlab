@@ -1,0 +1,41 @@
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "page_locale": "en",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "migration/index"
+    }
+  ],
+  "content":{
+    "description": "A brief description here...",
+    "title": "Tell your story",
+
+    "flash_notice": "Flash notice",
+    "begin_link": {
+      "url": "javascript:alert('follow link')",
+      "text": "Tell your story..."
+    },
+
+    "call_to_action": "We invite you to contribute stories relating to European migration in your family history."
+  }
+}

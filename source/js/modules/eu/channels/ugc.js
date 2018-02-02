@@ -56,8 +56,8 @@ define(['jquery', 'util_resize'], function($){
   function bindDynamicFieldset(){
 
     var reindex = function(){
-      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object_fieldset').each(function(i){
-        $(this).find('legend').attr('index', i + 2);
+      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object').each(function(i){
+        $(this).attr('index', i + 2);
       });
     };
 
@@ -67,6 +67,8 @@ define(['jquery', 'util_resize'], function($){
         formSave.trackHidden();
       }
       initAutoCompletes();
+      initCopyFields();
+      initHiddenFields();
     });
 
     $(document).on('fields_removed.nested_form_fields', function(e, param){
@@ -83,64 +85,83 @@ define(['jquery', 'util_resize'], function($){
     reindex();
   }
 
-  function initHiddenFieldActivators(){
 
-    $('[data-requires]').each(function(){
+  function evaluateHiddenFields(f){
+
+    var fs = $('[data-requires="' + f.attr('id') + '"]');
+
+    if(f.val() && f.val().length > 0){
+      fs.closest('.requires-other-field').addClass('enabled');
+    }
+    else{
+      fs.closest('.requires-other-field').removeClass('enabled');
+    }
+  }
+
+  function initHiddenFields(){
+
+    $('[data-requires]:not(.js-initialised)').each(function(){
       $(this).closest('.input').addClass('requires-other-field');
     });
 
-    var activateFields = function(f){
-
-      var fs = $('[data-requires="' + f.attr('id') + '"]');
-
-      if(f.val() && f.val().length > 0){
-        fs.closest('.requires-other-field').addClass('enabled');
-      }
-      else{
-        fs.closest('.requires-other-field').removeClass('enabled');
-      }
-    };
-
     $(':input').each(function(){
-      activateFields($(this));
+      evaluateHiddenFields($(this));
     });
 
+  }
+  function bindHiddenFields(){
+
     $(document).on('change', ':input', function(){
-      activateFields($(this));
+      evaluateHiddenFields($(this));
     });
   }
 
 
-  function initCopyField(){
+  function evaluateCopyFields(f){
 
-    var copyFromId = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_foaf_name';
-    var copyToId   = 'ore_aggregation_edm_aggregatedCHO_attributes_dc_contributor_attributes_skos_prefLabel';
-    var copyFrom   = $('#' + copyFromId);
-    var copyTo     = $('#' + copyToId);
+    var fc = $('[data-copies="' + f.attr('id') + '"]');
 
-    copyTo.before('<a class="btn-copy-name">' + (window.I18n ? window.I18n.translate('site.ugc.actions.copy-name') : 'Use Name') + '</a>');
+    if(f.val().length > 0){
+      fc.prev('.btn-copy').addClass('enabled');
+    }
+    else{
+      fc.prev('.btn-copy').removeClass('enabled');
+    }
+  }
 
-    $('.btn-copy-name').on('click', function(){
+  function initCopyFields(){
+
+    var copyFields = $('[data-copies]:not(.copies-inititlised)');
+
+    copyFields.each(function(){
+
+      $(this).addClass('copies-inititlised');
+      $(this).closest('.input').addClass('copies-other-field');
+      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
+    });
+
+    $(':input').each(function(){
+      evaluateCopyFields($(this));
+    });
+  }
+
+  function bindCopyFields(){
+
+    $(document).on('keyup', ':input', function(){
+      console.log('keyup');
+      evaluateCopyFields($(this));
+    });
+
+    $(document).on('click', '.btn-copy', function(){
+      var copyTo   = $(this).next('[data-copies]');
+      var copyFrom = $('#' + copyTo.data('copies'));
       copyTo.val(copyFrom.val());
       copyTo.blur();
       copyTo.trigger('change');
+      evaluateCopyFields(copyTo);
     });
-
-    copyFrom.on('keyup', function(){
-
-      if($(this).val().length > 0){
-        $('.btn-copy-name').addClass('enabled');
-      }
-      else{
-        $('.btn-copy-name').removeClass('enabled');
-      }
-    });
-
-    if(copyFrom.val().length > 0){
-      $('.btn-copy-name').addClass('enabled');
-    }
-
   }
+
 
   function getAutocompleteConfig($el){
 
@@ -229,9 +250,7 @@ define(['jquery', 'util_resize'], function($){
   }
 
 
-
   function validateForm(){
-
     /*
     var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
     var valid    = invalids.length == 0;
@@ -252,30 +271,62 @@ define(['jquery', 'util_resize'], function($){
 
   function initFileFields(){
 
+    var reFileStem = /([^/]*)$/;
+
     $(document).on('change', '[type="file"][accept]', function(){
 
       removeValidationError($(this));
 
-      var val     = $(this).val();
-      var allowed = $(this).attr('accept').split(',');
+      if(!(window.FileReader && window.Blob)) {
+        return;
+      }
+
+      var input        = $(this);
+      var val          = input.val();
+      var allowed      = input.attr('accept').split(',');
+      var files        = input[0].files;
 
       if(val && val.length > 0){
 
         var ext       = val.slice(val.lastIndexOf('.'));
         var isAllowed = false;
 
-        if(ext && ext.length > 0){
-          $.each(allowed, function(){
+        $.each(allowed, function(){
+
+          var isMime    = this.indexOf('/') > -1;
+          var allowRule = this.trim().toUpperCase();
+
+          if(isMime){
+
+            var mimeType = files[0].type.toUpperCase();
+
+            if(mimeType == allowRule){
+              console.log('check 1 pass' );
+              isAllowed = true;
+              return false;
+            }
+            else if(allowRule.indexOf('*') > -1){
+
+              if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
+                isAllowed = true;
+                return false;
+              }
+            }
+          }
+          else if(ext && ext.length > 0){
             if(ext.toUpperCase() == this.trim().toUpperCase()){
               isAllowed = true;
+              return false;
             }
-          });
-        }
+          }
+        });
+
         if(!isAllowed){
           var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
           addValidationError($(this), msg);
         }
       }
+
     });
   }
 
@@ -283,6 +334,12 @@ define(['jquery', 'util_resize'], function($){
 
     var $form = $('#' + formId);
     var key   = $form.attr('recaptcha-site-key');
+
+    $('label.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
+
+    $('.required-text').each(function(){
+      $(this).prependTo($(this).closest('label'));
+    });
 
     var onSubmit = function(){
 
@@ -338,16 +395,36 @@ define(['jquery', 'util_resize'], function($){
       $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
     }
 
-    $(document).on('eu-form-save-initialised', initHiddenFieldActivators);
+    $(document).on('external_js_loaded', function(){
 
-    initFormSave();
+      $('.ugc-content').addClass('external-js-loaded');
+
+      $(document).on('eu-form-save-initialised', function(){
+        initHiddenFields();
+        initCopyFields();
+      });
+
+      if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
+        initFormSave();
+      }
+      else{
+        initHiddenFields();
+        initCopyFields();
+      }
+
+    });
+
     initAutoCompletes();
     initDateFields();
     initFileFields();
     bindDynamicFieldset();
-    initCopyField();
 
-    //initClientSideValidation();
+    bindCopyFields();
+    bindHiddenFields();
+
+    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+      initClientSideValidation();
+    }
   }
 
   return {

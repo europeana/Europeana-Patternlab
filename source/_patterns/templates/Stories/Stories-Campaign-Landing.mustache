@@ -14,19 +14,40 @@
   </div>
 </section>
 
-<section class="site-hero ugc-migrations" style="background-image:url('{{content.hero.url}}');">
-  <div class="hero-text">
+<section class="static-header">
+  <div class="lc">
     <h1 class="title">{{ content.title }}</h1>
-    <br/>
-    <h3>{{{ content.subtitle }}}</h3>
+    <p>{{ content.description }}</p>
   </div>
 </section>
 
-<section class="ugc-content new-story">
+<section class="static-page section">
   <div class="lc">
+
     {{#content}}
-      {{{form}}}
+
+      {{#flash_notice}}
+        <strong class="flash-notice">{{.}}</strong>
+      {{/flash_notice}}
+
+      {{#call_to_action}}
+        <p>{{.}}</p>
+      {{/call_to_action}}
+
+      {{#begin_link}}<p><a class="btn btn-light pill" href="{{url}}">{{text}}</a></p>{{/begin_link}}
+
     {{/content}}
+
+    {{{ content.text_full_width }}}
+
+    {{#navigation.secondary}}
+      <div class="sidebar js-getstickywidth">
+         <div class="js-sticky">
+        {{> molecules/navigation/nav-secondary }}
+        </div>
+      </div>
+    {{/navigation.secondary}}
+
   </div>
 </section>
 

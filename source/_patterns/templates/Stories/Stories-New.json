@@ -77,7 +77,6 @@
             }
           },
           {
-            "items":      "language_items",
             "label":      "What is the language of the text in this item?",
             "name":       "dc_language",
             "id":         "dc_language",

@@ -1,0 +1,72 @@
+.data-table{
+
+  th{
+    position:       relative;
+    text-transform: capitalize;
+  }
+
+  th.is-sortable{
+
+    cursor: pointer;
+
+    &::after,
+    &::before{
+      border-width: 0.45em;
+      content:      ' ';
+      position:     absolute;
+      right:        0.5em;
+      top:          0.9em;
+    }
+    &::after{
+      border-color: $gray65 transparent transparent;
+      border-style: solid dashed dashed;
+      transform:    translateY(0.55em);
+    }
+
+    &::before{
+      border-color: transparent transparent $gray65;
+      border-style: solid dashed dashed;
+      transform:    translateY(-0.55em);
+    }
+
+    &.headerSortDown::before{
+      border-color: transparent transparent $gray-light;
+      border-style: solid dashed dashed;
+    }
+
+    &.headerSortUp::after{
+      border-color: $gray-light transparent transparent;
+      border-style: solid dashed dashed;
+    }
+
+  }
+
+  .linked-row{
+    td{
+      padding:        0;
+      vertical-align: middle;
+      > a{
+        display: block;
+        padding: 0.5em;
+      }
+    }
+
+    &:hover{
+      background-color: $eu-blue;
+      color:            $white;
+      a{
+        color: $white;
+      }
+    }
+  }
+
+  &.js-has-row-selectors{
+    td,
+    th{
+      &:first-of-type{
+        text-align: center;
+      }
+    }
+  }
+
+}

@@ -7,7 +7,8 @@
 }
 
 .search-hero.has-bgimage,
-.site-hero.galleries{
+.site-hero.galleries,
+.ugc-migrations{
   background-position: center center;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -705,7 +706,6 @@
       }
 
       .search-list-item{
-      	
         display: none;
 
         &:first-child{

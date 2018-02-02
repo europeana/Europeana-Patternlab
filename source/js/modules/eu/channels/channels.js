@@ -274,10 +274,10 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/index':
-      require(['purl'], function(){
 
+/*
+      require(['ugc_index'], function(){
         var purl = $.url(window.location.href);
-
         if(purl.param('c')){
           require(['eu_form_save'], function(FormSave){
             FormSave.clearStoredFormData(purl.param('c'));
@@ -287,11 +287,17 @@ define(['jquery', 'smartmenus'], function($){
           doForAllPages();
         }
       });
+*/
+
+
+      require(['ugc_index'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+
       break;
 
     case 'migration/create':
-      console.log('load js for migration/new here');
-
       require(['ugc'], function(page){
         page.initPage();
         doForAllPages();
@@ -299,7 +305,20 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/new':
-      console.log('load js for migration/new here');
+        require(['ugc'], function(page){
+          page.initPage();
+          doForAllPages();
+        });
+        break;
+
+    case 'migration/edit':
+      require(['ugc'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+      break;
+
+    case 'migration/update':
       require(['ugc'], function(page){
         page.initPage();
         doForAllPages();
@@ -307,13 +326,10 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'ugc/index':
-      console.log('load js for ugc/index here');
-
       doForAllPages();
       break;
 
     case 'ugc/new':
-      console.log('load js for ugc/new here');
 
       require(['ugc'], function(){
         doForAllPages();

@@ -14,6 +14,7 @@ define(['jquery'], function($){
     self.formKey      = formKeyPrefix + self.id;
     self.model        = null;
     self.origFNames   = {};
+    self.softSave     = true;
 
     $form.find(':input').each(function(){
       self.origFNames[$(this).attr('name')] = true;
@@ -23,13 +24,18 @@ define(['jquery'], function($){
   FormSave.prototype.debug = function(){
 
     var s = JSON.stringify(this.model, null, 4);
-    console.log('debug ' + this.id + ':\n\t' + s);
+    console.log('debug ' + self.formKey + ':\n\t' + s);
   };
 
   FormSave.prototype.save = function(){
 
-    var s = JSON.stringify(this.model);
-    localStorage.setItem(this.formKey, s);
+    var self = this;
+    var s    = JSON.stringify(this.model);
+
+    if(!(self.softSave && localStorage.getItem(self.formKey) == null)){
+      localStorage.setItem(this.formKey, s);
+      self.softSave = true;
+    }
   };
 
   FormSave.prototype.init = function(reinit){
@@ -140,7 +146,7 @@ define(['jquery'], function($){
     }
   };
 
-  FormSave.prototype.tidyAndBind = function(saveCurrentState){
+  FormSave.prototype.tidyAndBind = function(copyFormState){
 
     var self = this;
 
@@ -182,14 +188,14 @@ define(['jquery'], function($){
         }
       });
 
-      self.bind(saveCurrentState);
+      self.bind(copyFormState);
 
       $(document).trigger('eu-form-save-initialised');
 
     }, 0);
   };
 
-  FormSave.prototype.bind = function(saveCurrentState){
+  FormSave.prototype.bind = function(copyFormState){
 
     var self = this;
 
@@ -218,6 +224,7 @@ define(['jquery'], function($){
               'fVal': fVal,
               'add': link
             };
+            self.softSave = false;
           }
           else{
             console.error('No link found for ' + fName);
@@ -225,13 +232,14 @@ define(['jquery'], function($){
         }
         else if(fName != 'authenticity_token'){
           self.model[fName] = fVal;
+          self.softSave     = false;
         }
       }
     });
 
     self.trackHidden(this.$form);
 
-    if(saveCurrentState){
+    if(copyFormState){
       $('[data-local-storage-id="' + this.id + '"] :input').trigger('change');
       $('[data-local-storage-id="' + this.id + '"] :input').trigger('keyup');
     }
@@ -241,6 +249,8 @@ define(['jquery'], function($){
 
     var self         = this;
     var deletionMade = false;
+
+    self.softSave    = false;
 
     $fieldset.find(':input').each(function(){
 
@@ -278,12 +288,11 @@ define(['jquery'], function($){
     });
   };
 
-
   return {
     clearStoredFormData: function(formId){
       var key = formKeyPrefix + formId;
       if(!localStorage.getItem(key)){
-        console.log('eu-form-save: nothing to clear!');
+        console.log('eu-form-save: nothing to clear: key = ' + key);
       }
       else{
         console.log('eu-form-save: clear ' + key);

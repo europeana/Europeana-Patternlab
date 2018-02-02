@@ -15,8 +15,8 @@ else{
     q: [['create', window.googleAnalyticsKey, 'auto', {'allowLinker': true}], ['require', 'linker'], ['linker:autoLink', [window.googleAnalyticsLinkedDomains.join(',')]] ],
     l: Date.now()
   };
-  console.log('googleAnalyticsLinkedDomains: ' + JSON.stringify(window.googleAnalyticsLinkedDomains, null, 4));
-  console.log('ga cmd: ' + JSON.stringify(window.__ga__, null, 4));
+  //console.log('googleAnalyticsLinkedDomains: ' + JSON.stringify(window.googleAnalyticsLinkedDomains, null, 4));
+  //console.log('ga cmd: ' + JSON.stringify(window.__ga__, null, 4));
 }
 
 require.config({
@@ -35,6 +35,8 @@ require.config({
     eu_autocomplete_processor_def: '../../eu/autocomplete/eu-autocomplete-processor-default',
     eu_carousel:                   '../../eu/channels/eu-carousel',
     eu_carousel_appender:          '../../eu/channels/eu-carousel-appender',
+    eu_data_continuity:            '../../eu/util/eu-data-continuity',
+
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
@@ -139,9 +141,11 @@ require.config({
     eu_clicktip:                   '../../eu/tooltip/eu-clicktip',
 
     touch_move:                    '../../lib/jquery/jquery.event.move',
+    table_sort:                    '../../lib/tablesorter/jquery.tablesorter',
     touch_swipe:                   '../../lib/jquery/jquery.event.swipe',
 
     ugc:                           '../../eu/channels/ugc',
+    ugc_index:                     '../../eu/channels/ugc-index',
 
     ve_state_card:                 '../../eu/ve-state-card',
     videojs:                       '//vjs.zencdn.net/4.12/video',

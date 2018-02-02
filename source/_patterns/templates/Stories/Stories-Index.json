@@ -27,14 +27,159 @@
     }
   ],
   "content":{
-    "description": "A brief description here...",
-    "title": "Tell your story",
 
     "flash_notice": "Flash notice",
     "begin_link": {
       "url": "javascript:alert('follow link')",
       "text": "Tell your story..."
     },
-    "call_to_action": "We invite you to contribute stories relating to European migration in your family history."
+
+    "stories":{
+      "form": {
+        "attributes": [
+          {
+            "name": "method",
+            "value": "POST"
+          }
+        ],
+        "actions": [
+          {
+            "label": "Delete",
+            "action": "a/b"
+          },
+          {
+            "label": "Unapprove Selected",
+            "action": "c/d"
+          },
+          {
+            "label": "Approve Selected",
+            "action": "e/f"
+          }
+        ]
+      },
+      "has_events":true,
+      "events":[
+        {
+          "label": "Please select",
+          "url": false
+        },
+        {
+          "label": "label 1",
+          "is_selected": true,
+          "url": "?collectionDay=1"
+        },
+        {
+          "label": "label 2",
+          "url": "?collectionDay=2"
+        },
+        {
+          "label": "label 3",
+          "url": "?collectionDay=3"
+        }
+      ],
+      "table":{
+        "has_row_selectors": true,
+        "head_data": [
+          "name",
+          "ticket number",
+          "submission date",
+          "status",
+          "contains media"
+        ],
+        "row_data": [
+          {
+            "id": "1",
+            "is_selected": true,
+            "url": "javascript:alert('1');",
+            "cells": [
+              "Sven Jonsson",
+              "340",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "Xid": "2",
+            "url": "javascript:alert('2');",
+            "cells": [
+              "Carlos Marcelino",
+              "347",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "3",
+            "is_selected": true,
+            "url": "javascript:alert('3');",
+            "cells": [
+              "Panogiotis Kyrou",
+              "345",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "4",
+            "url": "javascript:alert('4');",
+            "cells": [
+              "John Smith",
+              "341",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "5",
+            "is_selected": true,
+            "url": "javascript:alert('5');",
+            "cells": [
+              "Julian Wilde",
+              "320",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "6",
+            "url": "javascript:alert('6');",
+            "cells": [
+              "Jens Jensson",
+              "348",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "xid": "7",
+            "url": "javascript:alert('7');",
+            "cells": [
+              "Anna Patat",
+              "343",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          },
+          {
+            "id": "8",
+            "url": "javascript:alert('8');",
+            "cells": [
+              "Nils Sjoberg",
+              "328",
+              "10-01-17",
+              "Unapproved",
+              "x"
+            ]
+          }
+        ]
+      }
+    }
   }
 }

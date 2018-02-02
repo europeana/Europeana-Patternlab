@@ -909,6 +909,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     };
 
     var done = function(){
+
       if(returned == expected){
 
         if(Object.keys(elements).length > 0){
@@ -1256,6 +1257,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         $('.channel-object-actions .slide-rail').empty().append(markup);
 
         promotions = $('.collections-promos');
+        $(window).trigger('promotionsAppended');
 
         require(['util_slide'], function(EuSlide){
           initPromos(EuSlide);
@@ -1294,7 +1296,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var item = arr[i];
       res.push({
         'url': item['object_url'].split('?')[0] + sParams,
-        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'audio' : item.is_text ? 'text' : 'unknown'),
+        'icon': (item.is_image ? 'image' : item.is_iiif ? 'iiif' : item.is_video ? 'video' : item.is_audio ? 'music' : item.is_text ? 'text' : 'unknown'),
         'img': item.img,
         'title': item.title,
         'excerpt': (item.text ? item.text.medium : ''),
@@ -1747,8 +1749,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     if(typeof(Storage) !== 'undefined' && sessionStorage){
 
-      require(['purl'], function(){
+      require(['eu_data_continuity', 'purl'], function(DataContinuity){
+
         var params = $.url(location.href).param();
+
+        delete params['dc'];
 
         if(typeof params['q'] != 'string'){
           log('no q param: ' + typeof params['q']);
@@ -1775,19 +1780,15 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           return false;
         };
 
-        var s         = sessionStorage;
-        var searchUrl = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
-        var per_page  = params['per_page'] ? parseInt(params['per_page']) : 12;
+        var s               = sessionStorage;
+        var searchUrl       = location.protocol + '//' + location.hostname + (location.port.length > 0 ? ':' + location.port : '') + '/portal/' + (channelCheck(location.href) ? 'collections/' + params['collection'] : 'search.html') + '?' + $.param(params);
+        var per_page        = params['per_page'] ? parseInt(params['per_page']) : 12;
+        var backLinkPresent = $('.breadcrumbs .back-url').length > 0;
 
         channelCheck(searchUrl);
 
-        if($('.breadcrumbs .back-url').length == 0){
-          var crumb = $('.breadcrumbs li.js-return');
-          var link  = crumb.find('a');
-          link.attr('href', searchUrl);
-          crumb.css('display', 'inline');
-        }
-        else{
+        if(backLinkPresent){
+
           var backUrl = $('.breadcrumbs .back-url a').attr('href');
           searchUrl   = backUrl;
           channelCheck(searchUrl);
@@ -1796,41 +1797,59 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
         delete params['l'];
 
-        searchUrl = searchUrl.split('?')[0].replace('.html', '') + '.json?';
-
         if(history.state && typeof history.state.currentIndex == 'number'){
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 
-        if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
+        DataContinuity.prep(function(cameFromSearch){
+          if(cameFromSearch){
 
-          /*log('current here - no calculation needed '
-            + ' curr: ' + s.eu_portal_last_results_current
-            + ' lrt: '  + s.eu_portal_last_results_total
-            + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
-          );*/
+            var searchUrlNav = searchUrl.split('?')[0].replace('.html', '') + '.json?';
 
-          if(parseInt(s.eu_portal_last_results_current) < 0){
-            log('correction needed A (set to ' + (per_page - 1) + ')');
-            s.eu_portal_last_results_current = per_page - 1;
+            if(!backLinkPresent){
+              $('.breadcrumbs .js-return a').attr('href', searchUrl).parent('.js-return').css('display', 'inline');
+            }
+
+            $(window).on('promotionsAppended', function(){
+              DataContinuity.parameteriseLinks('.channel-object-next-prev a');
+            });
+
+            if(s.eu_portal_last_results_current && s.eu_portal_last_results_total && s.eu_portal_last_results_offset && s.eu_portal_last_results_items && !isNaN(s.eu_portal_last_results_offset)){
+
+              /*log('current here - no calculation needed '
+                + ' curr: ' + s.eu_portal_last_results_current
+                + ' lrt: '  + s.eu_portal_last_results_total
+                + ' offs: ' + s.eu_portal_last_results_offset + '  ' + (typeof s.eu_portal_last_results_offset) + ' isNan = ' + isNaN(s.eu_portal_last_results_offset)
+              );*/
+
+              if(parseInt(s.eu_portal_last_results_current) < 0){
+                log('correction needed A (set to ' + (per_page - 1) + ')');
+                s.eu_portal_last_results_current = per_page - 1;
+              }
+
+              if(parseInt(s.eu_portal_last_results_current) >= per_page){
+                log('correction needed B (set to 0)');
+                s.eu_portal_last_results_current = 0;
+              }
+              getNextPrevItems(makePromoRequest, searchUrlNav, params);
+            }
+            else{
+              s.removeItem('eu_portal_last_results_current');
+              s.removeItem('eu_portal_last_results_total');
+              s.removeItem('eu_portal_last_results_items');
+              s.removeItem('eu_portal_last_results_offset');
+
+              getNavDataBasic(searchUrlNav, params, function(){
+                getNextPrevItems(makePromoRequest, searchUrlNav, params);
+              });
+            }
           }
-
-          if(parseInt(s.eu_portal_last_results_current) >= per_page){
-            log('correction needed B (set to 0)');
-            s.eu_portal_last_results_current = 0;
+          else{
+            // we did not come from a search
+            makePromoRequest();
           }
-          getNextPrevItems(makePromoRequest, searchUrl, params);
-        }
-        else{
-          s.removeItem('eu_portal_last_results_current');
-          s.removeItem('eu_portal_last_results_total');
-          s.removeItem('eu_portal_last_results_items');
-          s.removeItem('eu_portal_last_results_offset');
+        });
 
-          getNavDataBasic(searchUrl, params, function(){
-            getNextPrevItems(makePromoRequest, searchUrl, params);
-          });
-        }
       });
     }
 
