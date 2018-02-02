@@ -1,5 +1,7 @@
 $ugc-padding:             2rem;
 $ugc-padding-half:        calc(#{$ugc-padding} / 2);
+$ugc-thumb-dimension-w:   10rem;
+$ugc-thumb-dimension-h:   8rem;
 
 $desktop-breakpoint:      952px;
 $desktop-form-max-width:  872px;
@@ -134,7 +136,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     font-style: italic;
   }
 
-  .input{
+  .input:not(.hidden){
     margin: $space 0;
 
     .relative{
@@ -171,7 +173,34 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     &:hover{
       color: $eu-blue;
     }
+  }
 
+  .media-preview{
+    text-align: center;
+    img{
+      background-color: $gray-lighter;
+      color:            $offwhite;
+      display:          inline-block;
+      font-size:        $font-size-slightly-smaller;
+      font-weight:      bold;
+      max-height:       $ugc-thumb-dimension-h;
+      min-height:       $ugc-thumb-dimension-h;
+      min-width:        $ugc-thumb-dimension-w;
+      padding:          1em;
+    }
+    label{
+      max-width: none;
+    }
+    .checkbox{
+      font-weight: normal;
+      [type="checkbox"]{
+        width: auto;
+      }
+    }
+    .input{
+      margin:     0.5rem 0;
+      text-align: center;
+    }
   }
 
   [data-association-path="ore_aggregation_edm_aggregatedCHO_dc_subject_agents"]{
@@ -341,6 +370,22 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       justify-content: space-between;
     }
 
+    .media-preview{
+      float:      right;
+      max-width:  $desktop-input-max-width;
+
+      img{
+        text-align: center;
+      }
+      label{
+        padding-right: 0;
+      }
+      .input{
+        margin:     0;
+        text-align: right;
+      }
+    }
+
     .remove_nested_fields_link{
       padding-top: 0;
       position:    relative;
@@ -350,7 +395,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
 
   @media all and (min-width: $bp-med) {
-    .input{
+    .input:not(.hidden){
       margin: $ugc-padding 0;
     }
   }

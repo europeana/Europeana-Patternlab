@@ -1,6 +1,8 @@
 
 define(['jquery', 'util_resize'], function($){
 
+  window.enableValidation = true;
+
   var formId   = 'new_ore_aggregation';
   var formSave = null;
 
@@ -23,6 +25,7 @@ define(['jquery', 'util_resize'], function($){
     removeValidationError($el);
 
     if(msg){
+      $el = $el.closest('.label-and-input');
       if($el.next('.hint').length > 0){
         $el = $el.next('.hint');
       }
@@ -33,6 +36,8 @@ define(['jquery', 'util_resize'], function($){
   function removeValidationError($el){
 
     $el.removeClass('invalid');
+
+    $el = $el.closest('.label-and-input');
 
     if($el.next('.hint').length > 0){
       $el = $el.next('.hint');
@@ -221,7 +226,29 @@ define(['jquery', 'util_resize'], function($){
     $el.addClass('autocomplete-inititlised');
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
-      Autocomplete.init(getAutocompleteConfig($el));
+
+      if(['migration/edit', 'migration/update'].indexOf(window.pageName) > -1){
+
+        var $hidden  = $('#' + $el.data('for'));
+        var derefUrl = $el.data('deref-url');
+
+        if($el.val().length == 0 && $hidden.val().length > 0 && derefUrl){
+
+          derefUrl += '?uri=' + $hidden.val();
+
+          $.getJSON(derefUrl).done(function(data){
+            $el.val(data.text);
+            Autocomplete.init(getAutocompleteConfig($el));
+          });
+        }
+        else{
+          Autocomplete.init(getAutocompleteConfig($el));
+        }
+      }
+      else{
+        Autocomplete.init(getAutocompleteConfig($el));
+      }
+
     });
   }
 
@@ -251,7 +278,6 @@ define(['jquery', 'util_resize'], function($){
 
 
   function validateForm(){
-    /*
     var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
     var valid    = invalids.length == 0;
 
@@ -259,8 +285,6 @@ define(['jquery', 'util_resize'], function($){
     invalids.each(function(){addValidationError($(this));});
 
     return valid;
-    */
-    return true;
   }
 
   function initDateFields(){
