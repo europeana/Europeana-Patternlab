@@ -276,7 +276,7 @@ define(['jquery', 'util_resize'], function($){
 
   function validateForm(){
 
-    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
       var valid    = invalids.length == 0;
 
@@ -302,7 +302,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('change', '[type="file"][accept]', function(){
 
-      if(typeof window.enableValidation == 'undefined' || !window.enableValidation){
+      if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
         console.log('all front-end validation disabled');
         return;
       }
@@ -456,7 +456,7 @@ define(['jquery', 'util_resize'], function($){
     bindCopyFields();
     bindHiddenFields();
 
-    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
   }
