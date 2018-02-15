@@ -23,7 +23,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     font-weight:    bold;
     hyphens:        none;
     padding:        0;
-    padding-bottom: 0;
+    padding-bottom: 0.5em;
     width:          100%;
 
     &.file::before{
@@ -95,12 +95,15 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
   input:not([name="commit"]):not([type="submit"]),
   textarea{
+
+    border-width: 2px;
+
     &:hover{
-      border: 1px solid $black;
+      border: 2px solid $black;
     }
     &:active,
     &:focus{
-      border: 1px solid $eu-blue;
+      border: 2px solid $eu-blue;
     }
   }
 
@@ -139,6 +142,11 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
   .hint{
     font-size:  $font-size-slightly-smaller;
     font-style: italic;
+  }
+
+  .error,
+  .hint{
+    display:       block;
   }
 
   .input:not(.hidden){
@@ -254,13 +262,9 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
   }
 
-  .hint ~ .error{
-    margin-left: $space;
-  }
-
   .invalid,
   .had-focus:invalid{
-    border: 1px solid $eu-red;
+    border: 2px solid $eu-red;
   }
 
   .submits{
@@ -343,31 +347,16 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
 
     label{
-      max-width:     $desktop-label-width;
-      padding-right: $space;
+      max-width:      $desktop-label-width;
+      padding-bottom: 0;
+      padding-right:  $space;
     }
 
+    .error,
     .hint{
-      display:      inline-block;
-    }
-
-    .label-and-input + .error{
-      left:     1.3em;
-      position: relative;
-      &::before{
-        background-position-x: 100%;
-        transform:             translate(-0.3em, 0.4em);
-      }
-    }
-
-    .hint,
-    .label-and-input + .error
-    {
-      &::before{
-        content: ' ';
-        display: inline-block;
-        width:   $desktop-label-width;
-      }
+      left:      $desktop-label-width;
+      max-width: $desktop-input-max-width;
+      position:  relative;
     }
 
     .label-and-input{
@@ -376,8 +365,8 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
 
     .media-preview{
+
       float:      right;
-      max-width:  $desktop-input-max-width;
 
       img{
         text-align: center;
