@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function($){
 
-  var formId   = 'new_story';
+  var formSel = '.eu-migration';
   var formSave = null;
 
   function addValidationError($el, msg){
@@ -368,7 +368,7 @@ define(['jquery', 'util_resize'], function($){
 
   function initPage(){
 
-    var $form = $('#' + formId);
+    var $form = $(formSel);
     var key   = $form.attr('recaptcha-site-key');
 
     $('label.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
