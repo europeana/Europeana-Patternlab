@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function($){
 
-  var formSel = '.eu-migration';
+  var formSel = '.eu-ugc-form';
   var formSave = null;
 
   function addValidationError($el, msg){
