@@ -17,7 +17,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     border-bottom: 0;
   }
 
-  label{
+  .label-and-input:not(.positioned-right) label{
     color:          $gray-med;
     display:        block;
     font-weight:    bold;
@@ -165,6 +165,21 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     padding:          0 $ugc-padding;
     position:         relative;
     width:            calc(#{$ugc-padding} + 100% + #{$ugc-padding});
+  }
+
+
+  .label-and-input.positioned-right{
+
+    display:        flex;
+    flex-direction: column-reverse;
+
+    input[type="checkbox"]{
+
+      margin-left:  0;
+      margin-right: auto;
+      width:        auto;
+    }
+
   }
 
   .remove_nested_fields_link{
@@ -346,26 +361,6 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       }
     }
 
-    label{
-      max-width:      $desktop-label-width;
-      padding-bottom: 0;
-      padding-right:  $space;
-
-      &.positioned-right{
-
-        font-weight:  normal;
-        margin-left:  $desktop-label-width;
-        margin-right: auto;
-        white-space:  nowrap;
-        width:        auto;
-
-        input[type="checkbox"]{
-          width: auto;
-        }
-      }
-
-    }
-
     .error,
     .hint{
       left:      $desktop-label-width;
@@ -376,6 +371,32 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     .label-and-input{
       display:         flex;
       justify-content: space-between;
+
+      &:not(.positioned-right){
+        label{
+          max-width:      $desktop-label-width;
+          padding-bottom: 0;
+          padding-right:  $space;
+        }
+      }
+
+      &.positioned-right{
+
+        flex-direction:  row;
+        justify-content: start;
+        margin-left:     $desktop-label-width;
+
+        label{
+          font-weight:  normal;
+          width:        auto;
+        }
+
+        input[type="checkbox"]{
+          align-self:   start;
+          margin-right: 0.5em;
+          margin-top:   0.35em;
+        }
+      }
     }
 
     .media-preview{

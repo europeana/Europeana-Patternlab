@@ -14,6 +14,9 @@ define(['jquery', 'util_resize'], function($){
       else if($el.attr('type') == 'email'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
       }
+      else if($el.attr('type') == 'checkbox'){
+        msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.confirmation-required') : defMsg;
+      }
       else if($el.attr('required') == 'required'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
       }
@@ -88,12 +91,40 @@ define(['jquery', 'util_resize'], function($){
   }
 
 
+  // return 1, -1 or 0 (true, false, NA)
+  function evaluateHiddenFieldOverride(f){
+
+    var cf = f.data('requires-override');
+
+    if(cf){
+      var $cf = $('#' + cf);
+      if($cf.length > 0){
+        if($cf.attr('type').toUpperCase()=='CHECKBOX'){
+          return $cf.is(':checked') ? 1 : -1;
+        }
+        return $cf.val() ? 1 : -1;
+      }
+    }
+    return 0;
+  }
+
   function evaluateHiddenFields(f){
 
     var fs = $('[data-requires="' + f.attr('id') + '"]');
 
     if(f.val() && f.val().length > 0){
-      fs.closest('.requires-other-field').addClass('enabled');
+      fs.each(function(){
+        var $this = $(this);
+
+        var ovverride = evaluateHiddenFieldOverride($this);
+
+        if(ovverride == 1){
+          $this.closest('.requires-other-field').removeClass('enabled');
+        }
+        else{
+          $this.closest('.requires-other-field').addClass('enabled');
+        }
+      });
     }
     else{
       fs.closest('.requires-other-field').removeClass('enabled');
@@ -116,8 +147,21 @@ define(['jquery', 'util_resize'], function($){
     $(document).on('change', ':input', function(){
       evaluateHiddenFields($(this));
     });
-  }
 
+    $(document).on('click', ':input[type="checkbox"]', function(){
+      $('[data-requires-override="' + $(this).attr('id') + '"]').each(function(){
+        var required  = $(this).data('requires');
+        var $required = $('#' + required);
+
+        if(required.length > 0 && $required.length > 0){
+          evaluateHiddenFields($required);
+        }
+        else{
+          console.log('misconfigured require override');
+        }
+      });
+    });
+  }
 
   function evaluateCopyFields(f){
 
@@ -150,7 +194,6 @@ define(['jquery', 'util_resize'], function($){
   function bindCopyFields(){
 
     $(document).on('keyup', ':input', function(){
-      console.log('keyup');
       evaluateCopyFields($(this));
     });
 
@@ -284,7 +327,6 @@ define(['jquery', 'util_resize'], function($){
       invalids.addClass('invalid');
       invalids.each(function(){addValidationError($(this));});
 
-      alert('client side validation = ' + valid);
       return valid;
     }
     else{
@@ -334,7 +376,6 @@ define(['jquery', 'util_resize'], function($){
             var mimeType = files[0].type.toUpperCase();
 
             if(mimeType == allowRule){
-              console.log('check 1 pass' );
               isAllowed = true;
               return false;
             }
