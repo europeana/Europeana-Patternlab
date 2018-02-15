@@ -463,6 +463,7 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
+
   return {
     initPage : initPage
   };
