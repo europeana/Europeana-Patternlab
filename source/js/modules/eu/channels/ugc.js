@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function($){
 
-  var formId   = 'new_ore_aggregation';
+  var formId   = 'new_story';
   var formSave = null;
 
   function addValidationError($el, msg){
@@ -277,12 +277,14 @@ define(['jquery', 'util_resize'], function($){
   function validateForm(){
 
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
+
       var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
       var valid    = invalids.length == 0;
 
       invalids.addClass('invalid');
       invalids.each(function(){addValidationError($(this));});
 
+      alert('client side validation = ' + valid);
       return valid;
     }
     else{

@@ -21,6 +21,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     color:          $gray-med;
     display:        block;
     font-weight:    bold;
+    hyphens:        none;
     padding:        0;
     padding-bottom: 0;
     width:          100%;
