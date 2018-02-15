@@ -350,6 +350,20 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       max-width:      $desktop-label-width;
       padding-bottom: 0;
       padding-right:  $space;
+
+      &.positioned-right{
+
+        font-weight:  normal;
+        margin-left:  $desktop-label-width;
+        margin-right: auto;
+        white-space:  nowrap;
+        width:        auto;
+
+        input[type="checkbox"]{
+          width: auto;
+        }
+      }
+
     }
 
     .error,
@@ -413,4 +427,3 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
   }
 }
-
