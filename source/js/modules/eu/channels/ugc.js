@@ -322,10 +322,19 @@ define(['jquery', 'util_resize'], function($){
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
 
       var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
+      invalids     = $.map(invalids, function(i){
+        var $i = $(i);
+        if(!$i.is(':hidden')){
+          return $i;
+        }
+      });
       var valid    = invalids.length == 0;
 
-      invalids.addClass('invalid');
-      invalids.each(function(){addValidationError($(this));});
+      $.each(invalids, function(){
+        var $this = $(this);
+        $this.addClass('invalid');
+        addValidationError($this);
+      });
 
       return valid;
     }
