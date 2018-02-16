@@ -96,14 +96,12 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
   input:not([name="commit"]):not([type="submit"]),
   textarea{
 
-    border-width: 2px;
-
     &:hover{
-      border: 2px solid $black;
+      border: 1px solid $black;
     }
     &:active,
     &:focus{
-      border: 2px solid $eu-blue;
+      border: 1px solid $eu-blue;
     }
   }
 
@@ -279,7 +277,7 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
   .invalid,
   .had-focus:invalid{
-    border: 2px solid $eu-red;
+    border: 1px solid $eu-red;
   }
 
   .submits{

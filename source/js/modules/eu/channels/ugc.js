@@ -5,7 +5,12 @@ define(['jquery', 'util_resize'], function($){
 
   function addValidationError($el, msg){
 
-    var defMsg = 'Error';
+    var defMsg      = 'Error';
+    var msgOverride = $el.data('error-msg-key');
+
+    if(msgOverride){
+      msg = window.I18n.translate(msgOverride);
+    }
 
     if(!msg){
       if($el.attr('type') == 'date'){
@@ -45,17 +50,20 @@ define(['jquery', 'util_resize'], function($){
     $el.next('.error').remove();
   }
 
+  function onBlur($el){
+    $el.addClass('had-focus');
+    if($el.is(':valid')){
+      removeValidationError($el);
+    }
+    else{
+      var isFallback = $el.hasClass('date') && $el.attr('type') == 'text';
+      addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
+    }
+  }
+
   function initClientSideValidation(){
     $(document).on('blur', 'input:not([type="file"][accept]),textarea,select', function(){
-      var $el = $(this);
-      $el.addClass('had-focus');
-      if($el.is(':valid')){
-        removeValidationError($el);
-      }
-      else{
-        var isFallback = $el.hasClass('date') && $el.attr('type') == 'text';
-        addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
-      }
+      onBlur($(this));
     });
   }
 
@@ -141,8 +149,18 @@ define(['jquery', 'util_resize'], function($){
     $(':input').each(function(){
       evaluateHiddenFields($(this));
     });
-
   }
+
+  function makeFieldOptional($f, tf){
+    if(tf){
+      $f.removeAttr('required');
+    }
+    else{
+      $f.attr('required', 'required');
+    }
+    onBlur($f);
+  }
+
   function bindHiddenFields(){
 
     $(document).on('change', ':input', function(){
@@ -150,17 +168,28 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $(document).on('click', ':input[type="checkbox"]', function(){
-      $('[data-requires-override="' + $(this).attr('id') + '"]').each(function(){
-        var required  = $(this).data('requires');
+
+      var $this         = $(this);
+      var makesOptional = $this.data('makes-optional');
+
+      $('[data-requires-override="' + $this.attr('id') + '"]').each(function(i, ob){
+
+        var required  = $(ob).data('requires');
         var $required = $('#' + required);
 
-        if(required.length > 0 && $required.length > 0){
+        if(required && required.length > 0 && $required.length > 0){
           evaluateHiddenFields($required);
         }
         else{
           console.log('misconfigured require override');
         }
       });
+
+      if(makesOptional){
+        makeFieldOptional($('#' + makesOptional), $this.is(':checked'));
+      }
+      onBlur($this);
+
     });
   }
 
