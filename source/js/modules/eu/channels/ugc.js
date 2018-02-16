@@ -53,7 +53,8 @@ define(['jquery', 'util_resize'], function($){
         removeValidationError($el);
       }
       else{
-        addValidationError($el);
+        var isFallback = $el.hasClass('date') && $el.attr('type') == 'text';
+        addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
       }
     });
   }
