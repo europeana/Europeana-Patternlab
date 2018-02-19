@@ -56,7 +56,7 @@ define(['jquery', 'util_resize'], function($){
       removeValidationError($el);
     }
     else{
-      var isFallback = $el.hasClass('date') && $el.attr('type') == 'text';
+      var isFallback = $el.hasClass('date') && $el.attr('type') != 'date';
       addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
     }
   }
