@@ -16,7 +16,9 @@
 
 <section class="static-header">
   <div class="lc">
-    <h1 class="title">{{i18n.site.collections.migrations.stories}}</h1>
+    {{#content.title}}
+      <h1 class="title">{{.}}</h1>
+    {{/content.title}}
   </div>
 </section>
 
