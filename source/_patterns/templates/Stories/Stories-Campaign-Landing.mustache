@@ -1,27 +1,36 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent">
+<section class="after-header-with-search site-hero ugc-landing-hero" style="background-image:url('{{content.hero.url}}');">
 
-<section class="search-object">
-  <div class="object-nav cf">
-    <div class="object-nav-lists">
-      <ul class="breadcrumbs">
-        <li><a href="{{navigation.home_url}}"><span class="svg-icon-home"></span>{{i18n.site.navigation.breadcrumb.return_home}}</a></li>
-        <li><span class="lastitem"><strong>{{content.title}}</strong></span></li>
-      </ul>
-    </div>
+  <div class="hero-text">
+    {{#content.hero.title}}
+      <h1>{{.}}</h1>
+    {{/content.hero.title}}
+    {{#content.hero.subtitle}}
+    <br/>
+    <h3>{{{.}}}</h3>
+    {{/content.hero.subtitle}}
+    {{#content.begin_link}}<a class="btn btn-light" href="{{url}}">{{text_long}}</a>{{/content.begin_link}}
   </div>
+
+  {{#content.hero}}
+    {{>molecules/text/attribution}}
+  {{/content.hero}}
+
 </section>
 
-<section class="static-header">
-  <div class="lc">
-    <h1 class="title">{{ content.title }}</h1>
-    <p>{{ content.description }}</p>
-  </div>
-</section>
+<div class="lc">
+  {{#content.title}}
+    <h1 class="title">{{.}}</h1>
+  {{/content.title}}
 
-<section class="static-page section">
+  {{#content.description}}
+    <p class="ugc-landing-description">{{{.}}}</p>
+  {{/content.description}}
+</div>
+
+<section class="section">
   <div class="lc">
 
     {{#content}}
@@ -34,25 +43,44 @@
         <p>{{.}}</p>
       {{/call_to_action}}
 
-      {{#begin_link}}<p><a class="btn btn-light pill" href="{{url}}">{{text}}</a></p>{{/begin_link}}
-
     {{/content}}
 
-    {{{ content.text_full_width }}}
-
-    {{#navigation.secondary}}
-      <div class="sidebar js-getstickywidth">
-         <div class="js-sticky">
-        {{> molecules/navigation/nav-secondary }}
+    {{#content}}
+      {{#previews}}
+        <div class="ugc-preview{{#type}} {{.}}{{/type}}">
+          <div class="captioned-image">
+            {{#img_url}}
+              <div class="height-to-width js-disabled">
+                <div class="inner" style="background-image:url('{{.}}');">
+                <img src="{{.}}"/>
+                </div>
+              </div>
+            {{/img_url}}
+            {{#caption}}
+              {{#url}}<a href="{{.}}">{{/url}}
+                {{.}}
+              {{#url}}</a>{{/url}}
+            {{/caption}}
+          </div>
+          <div class="text">
+            <p>
+              {{text}}
+            </p>
+            {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}
+          </div>
         </div>
-      </div>
-    {{/navigation.secondary}}
+      {{/previews}}
 
+      {{#closing_remark}}
+        <div class="ugc-closing-remark">{{{.}}}</div>
+      {{/closing_remark}}
+
+      {{#begin_link}}<a class="btn btn-light main-call-to-contribute" href="{{url}}">{{text}}</a>{{/begin_link}}
+
+    {{/content}}
   </div>
 </section>
 
-</div>
-<!-- End Main -->
 
 {{> organisms/sections/banner }}
 {{> organisms/global/footer_v2 }}

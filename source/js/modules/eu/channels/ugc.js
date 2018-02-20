@@ -51,6 +51,11 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function onBlur($el){
+
+    if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
+      return;
+    }
+
     $el.addClass('had-focus');
     if($el.is(':valid')){
       removeValidationError($el);

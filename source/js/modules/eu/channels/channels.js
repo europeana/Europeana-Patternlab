@@ -275,7 +275,7 @@ define(['jquery', 'smartmenus'], function($){
 
     case 'migration/index':
       require(['ugc_index'], function(page){
-        page.initPage();
+        page.initPage(true);
         doForAllPages();
       });
 
@@ -289,11 +289,11 @@ define(['jquery', 'smartmenus'], function($){
       break;
 
     case 'migration/new':
-        require(['ugc'], function(page){
-          page.initPage();
-          doForAllPages();
-        });
-        break;
+      require(['ugc'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+      break;
 
     case 'migration/edit':
       require(['ugc'], function(page){

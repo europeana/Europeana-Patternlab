@@ -50,7 +50,6 @@
   .inner{
     bottom:   0;
     left:     0;
-    position: absolute;
     right:    0;
     top:      0;
 
@@ -61,9 +60,16 @@
       width:    100%;
     }
   }
+
+  &:not(.js-disabled){
+    .inner{
+      position: absolute;
+    }
+  }
+
 }
 
-.height-to-width::before{
+.height-to-width:not(.js-disabled)::before{
   content:     '';
   display:     block;
   padding-top: 100%;
@@ -160,8 +166,8 @@
 
 .js-carousel.startup ul::after{
   background-image:    url('../../images/icons/spinner.gif');
-  background-repeat:   no-repeat;
   background-position: center 0.5em;
+  background-repeat:   no-repeat;
 }
 
 .js-carousel ul::after {
