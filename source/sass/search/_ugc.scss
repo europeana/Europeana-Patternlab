@@ -125,10 +125,6 @@ $cb-margin-right:         0.5em;
     width:      calc(100% - 2em);
   }
 
-  .captioned-image{
-    padding: 0 2em;
-  }
-
   .text{
     align-self:     center;
     display:        flex;
@@ -146,7 +142,8 @@ $cb-margin-right:         0.5em;
 
     .captioned-image,
     .text{
-      width: 50%;
+      padding: 0 2em;
+      width:   50%;
     }
 
     .text a{
@@ -160,10 +157,6 @@ $cb-margin-right:         0.5em;
 
     &:nth-of-type(even){
       flex-direction: row-reverse;
-
- //     &.person::after{
-  //      left: 0;
-   //   }
     }
 
     &:nth-of-type(odd){
@@ -172,7 +165,6 @@ $cb-margin-right:         0.5em;
         right: 0;
       }
     }
-
   }
 
 }
@@ -303,6 +295,13 @@ $cb-margin-right:         0.5em;
       height:            1.4em;
       transform:         translateY(0.4em);
       width:             1.3em;
+    }
+
+    &.global{
+      display: block;
+      &.hidden{
+        display: none;
+      }
     }
   }
 
@@ -553,7 +552,7 @@ $cb-margin-right:         0.5em;
       }
     }
 
-    .error,
+    .error:not(.global),
     .hint{
       left:      $desktop-label-width;
       max-width: $desktop-input-max-width;

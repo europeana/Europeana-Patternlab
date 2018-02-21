@@ -40,6 +40,17 @@
     }
   }
 
+  &.blue{
+    background-color: $textcolour_highlight;
+    border-color: $textcolour_highlight;
+    color: $white;
+
+    &:hover{
+      background-color: $black;
+      border-color: $black;
+    }
+  }
+
   &.btn-left,
   &.btn-right {
     border: solid 1px $white;
@@ -64,7 +75,7 @@
   }
   &.btn-left::after{
     background-color: #ccc;
-    content: "";
+    content: '';
     display: block;
     height: 2.6rem;
     left: 101%;
@@ -83,7 +94,7 @@
     border-color: rgba(0, 0, 0, 0);
     border-top-width: 15px;
     border-width: 25px;
-    content: " ";
+    content: ' ';
     height: 0;
     margin-top: -15px;
     pointer-events: none;

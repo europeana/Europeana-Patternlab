@@ -48,6 +48,7 @@ define(['jquery', 'util_resize'], function($){
       $el = $el.next('.hint');
     }
     $el.next('.error').remove();
+    $('.error.global').addClass('hidden');
   }
 
   function onBlur($el){
@@ -339,18 +340,11 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function initFormSave(){
-
-    $(document).on('external_js_loaded', function(){
-
-      require(['eu_form_save'], function(FormSave){
-
-        var $form = $('form[data-local-storage-id]');
-        formSave  = FormSave.create($form, window.pageName == 'migration/create');
-
-      });
+    require(['eu_form_save'], function(FormSave){
+      var $form = $('form[data-local-storage-id]');
+      formSave  = FormSave.create($form, window.pageName == 'migration/create');
     });
   }
-
 
   function validateForm(){
 
@@ -495,6 +489,7 @@ define(['jquery', 'util_resize'], function($){
       }
       else{
         console.log('validation fails');
+        $('.error.global').removeClass('hidden');
         return false;
       }
     };
