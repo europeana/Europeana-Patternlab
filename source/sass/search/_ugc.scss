@@ -203,10 +203,6 @@ $cb-margin-right:         0.5em;
     }
   }
 
-  .required-text{
-    margin-right: 0.5em;
-  }
-
   legend,
   .legend{
     font-size:     $font-size-large;
@@ -521,6 +517,10 @@ $cb-margin-right:         0.5em;
 
   .copies-other-field{
     position: relative;
+  }
+
+  .required abbr{
+    margin-left: 0.3em;
   }
 
   .required-fields-hint{

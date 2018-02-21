@@ -450,12 +450,6 @@ define(['jquery', 'util_resize'], function($){
     var $form = $(formSel);
     var key   = $form.attr('recaptcha-site-key');
 
-    $('label.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
-
-    $('.required-text').each(function(){
-      $(this).prependTo($(this).closest('label'));
-    });
-
     var onSubmit = function(){
 
       if(validateForm()){
