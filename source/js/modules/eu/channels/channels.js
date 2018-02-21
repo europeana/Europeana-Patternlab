@@ -313,7 +313,19 @@ define(['jquery', 'smartmenus'], function($){
       doForAllPages();
       break;
 
+
     case 'stories/index':
+
+      // TODO delete this case
+
+      require(['ugc_index'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+
+      break;
+
+    case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
         doForAllPages();
