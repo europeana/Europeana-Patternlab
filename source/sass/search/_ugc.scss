@@ -394,6 +394,10 @@ $cb-margin-right:         0.5em;
     }
   }
 
+  label a{
+    border-bottom: 1px dotted;
+  }
+
   .media-preview{
     text-align: center;
     img{
