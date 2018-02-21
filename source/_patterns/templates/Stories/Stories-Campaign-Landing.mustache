@@ -47,7 +47,7 @@
 
     {{#content}}
       {{#previews}}
-        <div class="ugc-preview{{#type}} {{.}}{{/type}}">
+        <div class="ugc-preview{{#is_person}} person{{/is_person}}">
           <div class="captioned-image">
             {{#img_url}}
               <div class="height-to-width js-disabled">
@@ -66,7 +66,12 @@
             <p>
               {{text}}
             </p>
-            {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}
+            {{^is_person}}
+              {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}
+            {{/is_person}}
+            {{#is_person}}
+              <a class="btn btn-light" href="{{url}}">{{button_text}}</a>
+            {{/is_person}}
           </div>
         </div>
       {{/previews}}
