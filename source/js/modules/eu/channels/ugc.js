@@ -57,14 +57,22 @@ define(['jquery', 'util_resize'], function($){
       return;
     }
 
-    $el.addClass('had-focus');
-    if($el.is(':valid')){
-      removeValidationError($el);
-    }
-    else{
-      var isFallback = $el.hasClass('date') && $el.attr('type') != 'date';
-      addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
-    }
+    setTimeout(function(){
+
+      $el.addClass('had-focus');
+
+      var isSubmit = $(':focus').length > 0 && $(':focus').attr('type') && $(':focus').attr('type').toUpperCase() == 'SUBMIT';
+      if(isSubmit){
+        return;
+      }
+      if($el.is(':valid')){
+        removeValidationError($el);
+      }
+      else{
+        var isFallback = $el.hasClass('date') && $el.attr('type') != 'date';
+        addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
+      }
+    }, 1);
   }
 
   function initClientSideValidation(){
@@ -352,7 +360,8 @@ define(['jquery', 'util_resize'], function($){
           return $i;
         }
       });
-      var valid    = invalids.length == 0;
+
+      var valid = invalids.length == 0;
 
       $.each(invalids, function(){
         var $this = $(this);
@@ -477,7 +486,6 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        console.log('validation fails');
         $('.error.global').removeClass('hidden');
         return false;
       }
