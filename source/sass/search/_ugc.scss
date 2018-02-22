@@ -532,10 +532,8 @@ $cb-margin-right:         0.5em;
     }
   }
 
-  .requires-other-field{
-
+  [data-requires]{
     display: none;
-
     &.enabled{
       display: block;
     }

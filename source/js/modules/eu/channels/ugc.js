@@ -134,24 +134,19 @@ define(['jquery', 'util_resize'], function($){
         var ovverride = evaluateHiddenFieldOverride($this);
 
         if(ovverride == 1){
-          $this.closest('.requires-other-field').removeClass('enabled');
+          $this.removeClass('enabled');
         }
         else{
-          $this.closest('.requires-other-field').addClass('enabled');
+          $this.addClass('enabled');
         }
       });
     }
     else{
-      fs.closest('.requires-other-field').removeClass('enabled');
+      fs.removeClass('enabled');
     }
   }
 
   function initHiddenFields(){
-
-    $('[data-requires]:not(.js-initialised)').each(function(){
-      $(this).closest('.input').addClass('requires-other-field');
-    });
-
     $(':input').each(function(){
       evaluateHiddenFields($(this));
     });
