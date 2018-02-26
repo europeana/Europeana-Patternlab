@@ -143,14 +143,17 @@ define(['jquery', 'util_resize'], function($){
 
         if(ovverride == 1){
           $this.removeClass('enabled');
+          $this.find(':input').prop('disabled', true);
         }
         else{
           $this.addClass('enabled');
+          $this.find(':input').prop('disabled', false);
         }
       });
     }
     else{
       fs.removeClass('enabled');
+      fs.find(':input').prop('disabled', true);
     }
   }
 
