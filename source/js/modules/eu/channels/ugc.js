@@ -252,6 +252,12 @@ define(['jquery', 'util_resize'], function($){
 
   function getAutocompleteConfig($el){
 
+    $(document).on('change keydown paste input', '.autocomplete', function(){
+      var $this = $(this);
+      $('#' + $this.data('for')).val($this.val());
+
+    });
+
     return {
       fnOnSelect : function($el, $input){
         $input.change();
@@ -289,7 +295,7 @@ define(['jquery', 'util_resize'], function($){
         return data;
       },
       fnOnDeselect: function($input){
-        $('#' + $input.data('for')).val('');
+        $('#' + $input.data('for')).val($input.val());
       },
       itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
       minTermLength    : 2,
