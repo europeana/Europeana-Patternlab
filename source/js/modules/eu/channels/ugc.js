@@ -219,11 +219,11 @@ define(['jquery', 'util_resize'], function($){
 
   function initCopyFields(){
 
-    var copyFields = $('[data-copies]:not(.copies-inititlised)');
+    var copyFields = $('[data-copies]:not(.copies-initialised)');
 
     copyFields.each(function(){
 
-      $(this).addClass('copies-inititlised');
+      $(this).addClass('copies-initialised');
       $(this).closest('.input').addClass('copies-other-field');
       $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
     });
@@ -311,7 +311,7 @@ define(['jquery', 'util_resize'], function($){
   function initAutoComplete($el){
 
     $el.wrap('<div class="relative">');
-    $el.addClass('autocomplete-inititlised');
+    $el.addClass('autocomplete-initialised');
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
@@ -342,7 +342,7 @@ define(['jquery', 'util_resize'], function($){
 
   function initAutoCompletes(){
 
-    var autocompletes = $('[data-url]:not(.autocomplete-inititlised)');
+    var autocompletes = $('[data-url]:not(.autocomplete-initialised)');
 
     if(autocompletes.length > 0){
       autocompletes.each(function(){
