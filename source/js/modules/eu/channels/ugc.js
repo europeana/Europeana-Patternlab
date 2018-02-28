@@ -322,12 +322,17 @@ define(['jquery', 'util_resize'], function($){
 
         if($el.val().length == 0 && $hidden.val().length > 0 && derefUrl){
 
-          derefUrl += '?uri=' + $hidden.val();
+          var hVal = $hidden.val();
 
-          $.getJSON(derefUrl).done(function(data){
-            $el.val(data.text);
-            Autocomplete.init(getAutocompleteConfig($el));
-          });
+          if(hVal.match(new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi))){
+            $.getJSON('?uri=' + hVal).done(function(data){
+              $el.val(data.text);
+              Autocomplete.init(getAutocompleteConfig($el));
+            });
+          }
+          else{
+            $el.val(hVal);
+          }
         }
         else{
           Autocomplete.init(getAutocompleteConfig($el));
