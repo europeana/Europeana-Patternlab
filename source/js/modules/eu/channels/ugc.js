@@ -325,7 +325,7 @@ define(['jquery', 'util_resize'], function($){
           var hVal = $hidden.val();
 
           if(hVal.match(new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi))){
-            $.getJSON('?uri=' + hVal).done(function(data){
+            $.getJSON(derefUrl + '?uri=' + hVal).done(function(data){
               $el.val(data.text);
               Autocomplete.init(getAutocompleteConfig($el));
             });
