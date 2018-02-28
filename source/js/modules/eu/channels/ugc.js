@@ -252,10 +252,14 @@ define(['jquery', 'util_resize'], function($){
 
   function getAutocompleteConfig($el){
 
-    $(document).on('change keydown paste input', '.autocomplete', function(){
+    $(document).on('keyup paste', '.autocomplete', function(e){
+      if(e.type == 'keyup'){
+        if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91, 37, 39, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123].indexOf(e.keyCode) > -1){
+          return;
+        }
+      }
       var $this = $(this);
       $('#' + $this.data('for')).val($this.val());
-
     });
 
     return {
@@ -294,9 +298,6 @@ define(['jquery', 'util_resize'], function($){
 
         return data;
       },
-      fnOnDeselect: function($input){
-        $('#' + $input.data('for')).val($input.val());
-      },
       itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
       minTermLength    : 2,
       paramName        : $el.data('param'),
@@ -327,12 +328,12 @@ define(['jquery', 'util_resize'], function($){
           if(hVal.match(new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi))){
             $.getJSON(derefUrl + '?uri=' + hVal).done(function(data){
               $el.val(data.text);
-              Autocomplete.init(getAutocompleteConfig($el));
             });
           }
           else{
             $el.val(hVal);
           }
+          Autocomplete.init(getAutocompleteConfig($el));
         }
         else{
           Autocomplete.init(getAutocompleteConfig($el));
@@ -475,8 +476,6 @@ define(['jquery', 'util_resize'], function($){
         if(typeof window.grecaptcha != 'undefined'){
 
           var captchaResponse = window.grecaptcha.getResponse();
-
-          console.log('in submit: response = ' + captchaResponse + ' (' + (typeof captchaResponse) + ')');
 
           if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
             window.grecaptcha.execute();
