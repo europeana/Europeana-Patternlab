@@ -54,8 +54,10 @@
             {{/img_url}}
             {{#caption}}
               {{#url}}<a href="{{.}}">{{/url}}
+              {{^url}}<a href="{{begin_link.url}}">{{/url}}
                 {{.}}
               {{#url}}</a>{{/url}}
+              {{^url}}</a>{{/url}}
             {{/caption}}
           </div>
           <div class="text">
@@ -66,7 +68,8 @@
               {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}
             {{/is_person}}
             {{#is_person}}
-              <a class="btn btn-light" href="{{url}}">{{button_text}}</a>
+              {{#url}}<a class="btn btn-light" href="{{url}}">{{button_text}}</a>{{/url}}
+              {{^url}}{{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}{{/url}}
             {{/is_person}}
           </div>
         </div>
