@@ -210,11 +210,17 @@ define(['jquery', 'util_resize'], function($){
 
       var $this         = $(this);
       var makesRequired = $this.data('makes-required');
+      var clearsFields  = $this.data('clears-when-cleared');
 
       if(makesRequired){
         makesRequired = $('.' + makesRequired).find(':input');
         makeFieldOptional(makesRequired.first(), $this.val().length == 0);
       }
+      if(clearsFields && $this.val().length == 0){
+        clearsFields = $('.' + clearsFields).find(':input');
+        clearsFields.prop('checked', false);
+      }
+
     });
 
   }
