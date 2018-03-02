@@ -41,7 +41,7 @@
       </div>
     {{/navigation.secondary}}
 
-    {{#content.stories}}
+    {{#content.contributions}}
       {{#has_events}}
         <select class="story-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
           {{#events}}
@@ -67,7 +67,7 @@
         </form>
       {{/form}}
 
-    {{/content.stories}}
+    {{/content.contributions}}
 
   </div>
 </section>
