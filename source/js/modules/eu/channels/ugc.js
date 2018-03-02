@@ -203,6 +203,20 @@ define(['jquery', 'util_resize'], function($){
       onBlur($this);
 
     });
+
+    // provisional.  TODO: base on id (not class) / bind in separate function
+
+    $(document).on('change', ':input[type="file"]', function(){
+
+      var $this         = $(this);
+      var makesRequired = $this.data('makes-required');
+
+      if(makesRequired){
+        makesRequired = $('.' + makesRequired).find(':input');
+        makeFieldOptional(makesRequired.first(), $this.val().length == 0);
+      }
+    });
+
   }
 
   function evaluateCopyFields(f){
