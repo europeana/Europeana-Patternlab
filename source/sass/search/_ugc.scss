@@ -231,6 +231,8 @@ $cb-margin-right:         0.5em;
     }
   }
 
+  // TODO: remove ref to story
+  &.new-contribution form,
   &.new-story form{
     margin:    auto;
     max-width: 100%;
@@ -379,6 +381,8 @@ $cb-margin-right:         0.5em;
     padding-left: 0.4em;
   }
 
+  // TODO: remove ref to story
+  .contribution-select,
   .story-select{
     margin: 0 0 1.6em 0;
   }
@@ -541,6 +545,8 @@ $cb-margin-right:         0.5em;
 
   @media all and (min-width: $desktop-breakpoint){
 
+    // TODO: remove ref to story
+    &.new-contribution form,
     &.new-story form{
 
       width: $desktop-form-full-width;

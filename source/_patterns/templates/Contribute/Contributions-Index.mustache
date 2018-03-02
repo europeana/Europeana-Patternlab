@@ -43,7 +43,7 @@
 
     {{#content.contributions}}
       {{#has_events}}
-        <select class="story-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
+        <select class="contribution-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
           {{#events}}
             <option value="{{url}}"{{#is_selected}} selected{{/is_selected}}>{{label}}</option>
           {{/events}}
