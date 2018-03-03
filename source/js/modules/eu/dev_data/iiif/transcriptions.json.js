@@ -37017,14 +37017,29 @@ define([], function(){
         ]];
       };
 
-      var feature = {
-        "type": "Feature",
-        "geometry": {
-          "type": "Polygon",
-          "coordinates": getC(data.x, data.y, data.w, data.h)
+      var addFeature = function(d){
+        res.features.push(
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": getC(d.x, d.y, d.w, d.h)
+            },
+            "properties": {
+              "id": d.id
+            }
+          }
+        );
+      };
+
+      addFeature(data);
+      $.each(data.words, function(i, word){
+        if(!word.id){
+          word.id = data.id + '-word-' + i;
         }
-      }
-      res.features.push(feature);
+        addFeature(word);
+      });
+
     });
 
     return res;
