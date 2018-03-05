@@ -228,6 +228,9 @@ $cb-margin-right:         0.5em;
 
     .input{
       text-align: left;
+      ::placeholder{
+        color: rgba(77, 77, 77, 0.7);
+      }
     }
   }
 

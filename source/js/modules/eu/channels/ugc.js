@@ -6,7 +6,7 @@ define(['jquery', 'util_resize'], function($){
   function addValidationError($el, msg){
 
     var defMsg      = 'Error';
-    var msgOverride = $el.data('error-msg-key');
+    var msgOverride = $el.data('error-msg-key') || $el.closest('.input').data('error-msg-key');
 
     if(msgOverride){
       msg = window.I18n.translate(msgOverride);
@@ -206,21 +206,31 @@ define(['jquery', 'util_resize'], function($){
 
     // provisional.  TODO: base on id (not class) / bind in separate function
 
+    var makeRequired = function($el){
+      var makesRequired = $el.data('makes-required');
+      if(makesRequired){
+        makesRequired = $('.' + makesRequired).find(':input');
+        makeFieldOptional(makesRequired.first(), $el.val().length == 0);
+      }
+    };
+
     $(document).on('change', ':input[type="file"]', function(){
 
       var $this         = $(this);
-      var makesRequired = $this.data('makes-required');
       var clearsFields  = $this.data('clears-when-cleared');
 
-      if(makesRequired){
-        makesRequired = $('.' + makesRequired).find(':input');
-        makeFieldOptional(makesRequired.first(), $this.val().length == 0);
+      if($this.data('makes-required')){
+        makeRequired($this);
       }
+
       if(clearsFields && $this.val().length == 0){
         clearsFields = $('.' + clearsFields).find(':input');
         clearsFields.prop('checked', false);
       }
+    });
 
+    $('[makes-required]').each(function(){
+      makeRequired($(this));
     });
 
   }
