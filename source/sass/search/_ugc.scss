@@ -80,6 +80,9 @@ $cb-margin-right:         0.5em;
       img{
         display: inline;
       }
+      > .inner{
+        background-size: 0;
+      }
     }
     img{
       display: none;

@@ -79,7 +79,9 @@
         <div class="ugc-closing-remark">{{{.}}}</div>
       {{/closing_remark}}
 
-      {{#begin_link}}<a class="btn blue main-call-to-contribute" href="{{url}}">{{text}}</a>{{/begin_link}}
+      {{#disabled}}
+        {{#begin_link}}<a class="btn blue main-call-to-contribute" href="{{url}}">{{text}}</a>{{/begin_link}}
+      {{/disabled}}
 
     {{/content}}
   </div>
