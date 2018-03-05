@@ -65,11 +65,11 @@
               {{text}}
             </p>
             {{^is_person}}
-              {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}
+              {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/begin_link}}
             {{/is_person}}
             {{#is_person}}
-              {{#url}}<a class="btn btn-light" href="{{url}}">{{button_text}}</a>{{/url}}
-              {{^url}}{{#begin_link}}<a class="btn btn-light" href="{{url}}">{{text}}</a>{{/begin_link}}{{/url}}
+              {{#url}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/url}}
+              {{^url}}{{#begin_link}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/begin_link}}{{/url}}
             {{/is_person}}
           </div>
         </div>
