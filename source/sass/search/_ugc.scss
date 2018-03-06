@@ -11,6 +11,14 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
 $cb-margin-right:         0.5em;
 
+noscript div{
+  color:       $eu-red;
+  font-size:   1.6rem;
+  font-weight: bold;
+  margin:      1.6rem;
+  text-align:  center;
+}
+
 .ugc-landing-hero{
 
   background-blend-mode: multiply;
