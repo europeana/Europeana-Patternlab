@@ -65,7 +65,7 @@
               {{text}}
             </p>
             {{^is_person}}
-              {{#begin_link}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/begin_link}}
+              <a class="btn btn-light" href="{{^button_opens_form}}{{url}}{{/button_opens_form}}{{#button_opens_form}}{{#begin_link}}{{url}}{{/begin_link}}{{/button_opens_form}}">{{#begin_link}}{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}{{/begin_link}}</a>
             {{/is_person}}
             {{#is_person}}
               {{#url}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/url}}
