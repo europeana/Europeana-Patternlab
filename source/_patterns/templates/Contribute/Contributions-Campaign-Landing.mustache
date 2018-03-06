@@ -35,9 +35,11 @@
         <strong class="flash-notice">{{.}}</strong>
       {{/flash_notice}}
 
-      {{#call_to_action}}
-        <p>{{.}}</p>
-      {{/call_to_action}}
+      {{#disabled}}
+        {{#call_to_action}}
+          <p>{{.}}</p>
+        {{/call_to_action}}
+      {{/disabled}}
 
     {{/content}}
 
