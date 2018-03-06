@@ -191,6 +191,10 @@ noscript div{
 
   input[type="checkbox"]{
     transform: translateY(0.25em);
+
+    + label{
+      cursor: pointer;
+    }
   }
 
 

@@ -445,15 +445,17 @@ define(['jquery', 'util_resize'], function($){
 
       var input        = $(this);
       var val          = input.val();
-      var allowed      = input.attr('accept').split(',');
+      var allowedTypes = input.attr('accept').split(',');
       var files        = input[0].files;
+      var maxBytes     = input.data('max-bytes');
 
       if(val && val.length > 0){
 
-        var ext       = val.slice(val.lastIndexOf('.'));
-        var isAllowed = false;
+        var ext           = val.slice(val.lastIndexOf('.'));
+        var isAllowedSize = maxBytes ? parseInt(maxBytes) >= files[0].size : true;
+        var isAllowedType = false;
 
-        $.each(allowed, function(){
+        $.each(allowedTypes, function(){
 
           var isMime    = this.indexOf('/') > -1;
           var allowRule = this.trim().toUpperCase();
@@ -463,31 +465,35 @@ define(['jquery', 'util_resize'], function($){
             var mimeType = files[0].type.toUpperCase();
 
             if(mimeType == allowRule){
-              isAllowed = true;
+              isAllowedType = true;
               return false;
             }
             else if(allowRule.indexOf('*') > -1){
 
               if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
-                isAllowed = true;
+                isAllowedType = true;
                 return false;
               }
             }
           }
           else if(ext && ext.length > 0){
             if(ext.toUpperCase() == this.trim().toUpperCase()){
-              isAllowed = true;
+              isAllowedType = true;
               return false;
             }
           }
         });
 
-        if(isAllowed){
-          removeValidationError($(this));
+        if(!isAllowedType){
+          var msg1 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowedTypes.join(', ')}) : 'Invalid file type';
+          addValidationError($(this), msg1);
+        }
+        else if(!isAllowedSize){
+          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes/1000000}) : 'Invalid file size';
+          addValidationError($(this), msg2);
         }
         else{
-          var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
-          addValidationError($(this), msg);
+          removeValidationError($(this));
         }
       }
 
