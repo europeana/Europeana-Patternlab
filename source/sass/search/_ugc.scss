@@ -13,7 +13,6 @@ $cb-margin-right:         0.5em;
 
 noscript div{
   color:       $eu-red;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
   font-size:   1.6rem;
   font-weight: bold;
   margin:      1.6rem;
@@ -302,7 +301,16 @@ noscript div{
     width:    auto;
   }
 
-  input:not([name="commit"]):not([type="submit"]),
+  input[type="radio"]{
+    &:hover,
+    &:active,
+    &:focus{
+      border:  0;
+      outline: 0;
+    }
+  }
+
+  input:not([name="commit"]):not([type="submit"]):not([type="radio"]),
   textarea{
 
     &:hover{
@@ -413,6 +421,116 @@ noscript div{
     input[type="checkbox"],
     label{
       width:   auto;
+    }
+  }
+
+  .contribution_ore_aggregation_edm_isShownBy_edm_rights{
+
+    .licenses{
+      display:          flex;
+      justify-content:  space-between;
+    }
+
+    .radio{
+
+      display: flex;
+      margin:  $space-half;
+
+      &:first-of-type{
+        margin-left: 0;
+      }
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+
+      &:hover{
+        background: $offwhite;
+      }
+
+      label{
+        border:        1px solid $black;
+        border-radius: 0.5em;
+        padding:       1em;
+        position:      relative;
+      }
+
+      li,
+      .license-description{
+        display:     block;
+        font-weight: normal;
+        padding:     $pad-half 0;
+      }
+
+      li{
+        font-size: $font-size-slightly-smaller;
+
+        &::before{
+          content: '* ';
+        }
+      }
+
+      .checkmark{
+        background-color: $white;
+        border-radius:    12px;
+        height:           24px;
+        left:             50%;
+        position:         absolute;
+        top:              1em;
+        transform:        translateX(-50%);
+        width:            24px;
+
+        &::after {
+          background-color:  $eu-blue;
+          border:            solid $white;
+          border-width:      0 3px 3px 0;
+          content:           '';
+          display:           none;
+          height:            10px;
+          left:              8px;
+          position:          absolute;
+          top:               4.5px;
+          -ms-transform:     rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform:         rotate(45deg);
+          width:             5px;
+        }
+      }
+
+      &:hover{
+        background-color: $white;
+
+        input ~ .checkmark {
+          background-color: $gray-lighter;
+        }
+
+        label{
+          border-color: $eu-blue;
+        }
+      }
+
+      input:not(:checked) ~ .checkmark {
+        border: 1px solid $black;
+      }
+
+      input:checked ~ .checkmark {
+
+        background-color: $eu-blue;
+
+        &::after{
+          display: block;
+        }
+      }
+
+    }
+  }
+
+  .slide-rail{
+    left:     0;
+    position: relative;
+
+    &.js-swipe-transition{
+      transition: left 0.3s linear;
     }
   }
 
@@ -588,6 +706,25 @@ noscript div{
     }
   }
 
+  @media all and (max-width: $desktop-breakpoint){
+
+    .contribution_ore_aggregation_edm_isShownBy_edm_rights{
+
+      .js-swipeable{
+        position: relative;
+      }
+
+      .licenses{
+        margin-right: -53em;
+        width:         53em;
+      }
+
+      .radio{
+        width:  17em;
+      }
+    }
+  }
+
   @media all and (min-width: $desktop-breakpoint){
 
     // TODO: remove ref to story
@@ -627,6 +764,9 @@ noscript div{
           max-width:      $desktop-label-width;
           padding-bottom: 0;
           padding-right:  $space;
+        }
+        .licenses label{
+          padding-right: 0;
         }
       }
 
