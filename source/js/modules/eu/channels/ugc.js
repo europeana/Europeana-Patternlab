@@ -187,14 +187,19 @@ define(['jquery', 'util_resize'], function($){
 
       $('[data-requires-override="' + $this.attr('id') + '"]').each(function(i, ob){
 
-        var required  = $(ob).data('requires');
-        var $required = $('#' + required);
+        if($(ob).is(':visible')){
+          var required  = $(ob).data('requires');
+          var $required = $('#' + required);
 
-        if(required && required.length > 0 && $required.length > 0){
-          evaluateHiddenFields($required);
-        }
-        else{
-          console.log('misconfigured require override');
+          if(required && required.length > 0 && $required.length > 0){
+            evaluateHiddenFields($required);
+          }
+          else{
+            console.log('misconfigured require override: expected element with id:\n\t' + required
+            + '\n\t('
+            +   'referenced by element with id: ' + $(ob).attr('id') + ' and class ' + $(ob).attr('class')
+            + ')');
+          }
         }
       });
 
