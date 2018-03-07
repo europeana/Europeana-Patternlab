@@ -58,15 +58,41 @@ noscript div{
         color:        $black;
       }
     }
-
-    @media all and (min-width: $bp-med) {
-      width: 50%;
-    }
-    @media all and (min-width: $bp-large) {
-      width: 50%;
-    }
-
   }
+
+  @media all and (min-width: $bp-med) {
+    .hero-text{
+      width: 50%;
+    }
+  }
+  @media all and (min-width: $bp-large) {
+    .hero-text{
+      width: 50%;
+    }
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    &::after{
+      background: transparentize(darken($eu-blue, 8), .5);
+      bottom:     0;
+      content:    ' ';
+      position:   absolute;
+      top:        0;
+      width:      100%;
+    }
+  }
+
+  @supports (-ms-ime-align:auto) {
+    &::after{
+      background: transparentize(darken($eu-blue, 8), .5);
+      bottom:     0;
+      content:    ' ';
+      position:   absolute;
+      top:        0;
+      width:      100%;
+    }
+  }
+
 }
 
 .captioned-image{
