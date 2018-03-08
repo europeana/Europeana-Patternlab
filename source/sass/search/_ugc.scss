@@ -476,9 +476,11 @@ noscript div{
       }
     }
 
-    .radio{
+    .license-radio-option{
 
-      margin:  $space-half;
+      margin:    $space $space-half $space-half $space-half;
+      max-width: calc(33% - 0.5em);
+      position:  relative;
 
       &:first-of-type{
         margin-left: 0;
@@ -488,25 +490,23 @@ noscript div{
         margin-right: 0;
       }
 
-      &.selected,
-      &:active,
-      &:hover{
-        background-color: $white;
-
-        input ~ .checkmark {
-          background-color: $gray-lighter;
-        }
-
-        label{
+      input:checked,
+      input:active,
+      input:hover{
+        ~ label{
+          background-color: $white;
           border-color: $eu-blue;
+        }
+        ~ .checkmark {
+          background-color: $gray-lighter;
         }
       }
 
       label{
         border:        1px solid $black;
         border-radius: 0.5em;
-        padding:       1em;
-        position:      relative;
+        padding:       3em 1em 1em 1em;
+        transform:     translateY(-3em);
       }
 
       li,
@@ -533,9 +533,10 @@ noscript div{
         height:           24px;
         left:             50%;
         position:         absolute;
-        top:              1em;
+//        top:              1em;
         transform:        translateX(-50%);
         width:            24px;
+        z-index:          2;
 
         &::after {
           background-color:  $eu-blue;
@@ -680,7 +681,7 @@ noscript div{
   &.external-js-loaded{
     .add_nested_fields_link,
     .remove_nested_fields_link{
-      display: inline;
+      display: inline-block;
     }
   }
 
@@ -787,6 +788,9 @@ noscript div{
       textarea,
       .relative{
         display:    inline-block;
+        max-width:  $desktop-input-max-width;
+      }
+      .licenses{
         max-width:  $desktop-input-max-width;
       }
     }

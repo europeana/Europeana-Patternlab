@@ -423,38 +423,31 @@ define(['jquery', 'util_resize'], function($){
     require(['util_slide', 'util_resize'], function(EuSlide){
 
       var checkedRadio = $('.license-radio-option input:checked');
-
-      var radioClick = function(){
-        $('.license-radio-option').removeClass('selected');
-        $(this).addClass('selected');
-      };
-
-      $('.license-radio-option').on('click', radioClick);
       checkedRadio.click();
 
-      $('.license-radio-option').wrapAll('<div class="licenses">');
+      $('.label-and-input > .license-radio-option').wrapAll('<div class="licenses">');
 
       var $el = $('.licenses:not(.js-swipe-bound)');
 
       if($el.length > 0){
 
-        console.log('bind radio tick / add license classes');
+        // bind radio tick / add license classes
 
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
         $el.find('input').after('<span class="checkmark"></span>');
 
-        $el.find('input').each(function(i, ob){
-          var data      = licenseData[i];
-          var container = $('<span class="cc-info">').appendTo($(ob).parent());
+        $el.find('label').each(function(i, ob){
 
-          container = $('<span class="cc-info-row"></span>').appendTo(container);
+          var data      = licenseData[i];
+          var icons     = $('<span class="cc-info-row"></span>');
+          var container = $('<span class="cc-info">').appendTo($(ob));
 
           $(data.classes).each(function(){
-            container.append('<span class="license-icon ' + this + '">');
+            icons.append('<span class="license-icon ' + this + '">');
           });
-          container.append('<span class="cc-name">' + data.name + '</span>');
-
+          icons.append('<span class="cc-name">' + data.name + '</span>');
+          container.append(icons);
         });
 
       }
