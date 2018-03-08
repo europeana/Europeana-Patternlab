@@ -122,9 +122,13 @@ define(['jquery', 'util_resize'], function($){
 
     if(cf){
       var $cf = $('#' + cf);
+
       if($cf.length > 0){
         if($cf.attr('type').toUpperCase()=='CHECKBOX'){
           return $cf.is(':checked') ? 1 : -1;
+        }
+        else if($cf.attr('type').toUpperCase()=='RADIO'){
+          return $('[name="' + $cf.attr('name') + '"]:checked').val();
         }
         return $cf.val() ? 1 : -1;
       }
@@ -164,20 +168,34 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
-  function makeFieldOptional($f, tf){
+  function makeRequired($el, validateLater){
+    var makesRequired = $el.data('makes-required');
+    if(makesRequired){
+      makesRequired = $('.' + makesRequired).find(':input');
+      makeFieldOptional(makesRequired.first(), $el.val().length == 0, validateLater);
+    }
+  }
+
+  function makeFieldOptional($f, tf, validateLater){
     if(tf){
       $f.removeAttr('required');
     }
     else{
       $f.attr('required', 'required');
     }
-    onBlur($f);
+    if(!validateLater){
+      onBlur($f);
+    }
   }
 
   function bindHiddenFields(){
 
     $(document).on('change', ':input', function(){
       evaluateHiddenFields($(this));
+    });
+
+    $(document).on('click', ':input[type="radio"]', function(){
+      onBlur($(this));
     });
 
     $(document).on('click', ':input[type="checkbox"]', function(){
@@ -207,18 +225,7 @@ define(['jquery', 'util_resize'], function($){
         makeFieldOptional($('#' + makesOptional), $this.is(':checked'));
       }
       onBlur($this);
-
     });
-
-    // provisional.  TODO: base on id (not class) / bind in separate function
-
-    var makeRequired = function($el){
-      var makesRequired = $el.data('makes-required');
-      if(makesRequired){
-        makesRequired = $('.' + makesRequired).find(':input');
-        makeFieldOptional(makesRequired.first(), $el.val().length == 0);
-      }
-    };
 
     $(document).on('change', ':input[type="file"]', function(){
 
@@ -233,10 +240,6 @@ define(['jquery', 'util_resize'], function($){
         clearsFields = $('.' + clearsFields).find(':input');
         clearsFields.prop('checked', false);
       }
-    });
-
-    $('[makes-required]').each(function(){
-      makeRequired($(this));
     });
 
   }
@@ -402,14 +405,58 @@ define(['jquery', 'util_resize'], function($){
 
   function initSwipeableLicense(){
 
+    var licenseData = [
+      {
+        'name': window.I18n.translate('global.facet.rights.cc0'),
+        'classes': ['icon-license-zero']
+      },
+      {
+        'name': window.I18n.translate('global.facet.rights.cc-by-sa'),
+        'classes': ['icon-license-cc', 'icon-license-by', 'icon-license-sa']
+      },
+      {
+        'name': window.I18n.translate('global.facet.rights.rs-cne'),
+        'classes': ['icon-license-unknown']
+      }
+    ];
+
     require(['util_slide', 'util_resize'], function(EuSlide){
-      $('.contribution_ore_aggregation_edm_isShownBy_edm_rights .label-and-input > .radio').wrapAll('<div class="licenses">');
+
+      var checkedRadio = $('.license-radio-option input:checked');
+
+      var radioClick = function(){
+        $('.license-radio-option').removeClass('selected');
+        $(this).addClass('selected');
+      };
+
+      $('.license-radio-option').on('click', radioClick);
+      checkedRadio.click();
+
+      $('.license-radio-option').wrapAll('<div class="licenses">');
+
       var $el = $('.licenses:not(.js-swipe-bound)');
 
       if($el.length > 0){
+
+        console.log('bind radio tick / add license classes');
+
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
         $el.find('input').after('<span class="checkmark"></span>');
+
+        $el.find('input').each(function(i, ob){
+          var data      = licenseData[i];
+          var container = $('<span class="cc-info">').appendTo($(ob).parent());
+
+          container = $('<span class="cc-info-row"></span>').appendTo(container);
+
+          $(data.classes).each(function(){
+            container.append('<span class="license-icon ' + this + '">');
+          });
+          container.append('<span class="cc-name">' + data.name + '</span>');
+
+        });
+
       }
     });
   }
@@ -509,7 +556,7 @@ define(['jquery', 'util_resize'], function($){
           addValidationError($(this), msg1);
         }
         else if(!isAllowedSize){
-          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes/1000000}) : 'Invalid file size';
+          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes / (1024 * 1024) }) : 'Invalid file size';
           addValidationError($(this), msg2);
         }
         else{
@@ -594,12 +641,29 @@ define(['jquery', 'util_resize'], function($){
         initCopyFields();
       }
 
+      $('[data-makes-required]').each(function(){
+        var $this = $(this);
+        var type  = $this.attr('type');
+        var val   = false;
+
+        if(type.toUpperCase()=='CHECKBOX'){
+          val = $this.is(':checked');
+        }
+        else if(type.toUpperCase()=='RADIO'){
+          val = $('[name="' + $this.attr('name') + '"]:checked').val();
+        }
+        else{
+          val = $this.val();
+        }
+        makeRequired($(this), !val);
+      });
+
+      initSwipeableLicense();
     });
 
     initAutoCompletes();
     initDateFields();
     initFileFields();
-    initSwipeableLicense();
     bindDynamicFieldset();
 
     bindCopyFields();
