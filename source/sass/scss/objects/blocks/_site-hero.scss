@@ -1,35 +1,28 @@
 .site-hero,
 .hero-nopad {
 
-  height: 70%;
-  position: relative;
-
-  @media all and (max-width: $bp-med) {
-    overflow: hidden;
-  }
-
-  background-image: url("../../images/sample/pro-background.jpg");
+  background-color: $grey2;
+  background-image: url('../../images/sample/pro-background.jpg');
   background-position: 50% 50%;
   -webkit-background-size: cover;
   background-size: cover;
-
-  background-color: $grey2;
   color: $gray97;
+  height: 70%;
+  position: relative;
 
   .lc{
-    position: relative;
     height: 100%;
+    position: relative;
   }
 
   .hero-text{
-    position: absolute;
-    z-index: 5;
-    bottom: 2em;
     background-color: rgba(#000, 0.7);
-    border-radius: 4px;
-
-    padding: $space;
-    width: 100%;
+    border-radius:    4px;
+    bottom:           2em;
+    padding:          $space;
+    position:         absolute;
+    width:            100%;
+    z-index:          5;
 
     @media all and (min-width: $bp-small) {
       width: 60%;
@@ -39,42 +32,57 @@
       width: 35%;
     }
 
-    a{
-      color: $white;
+    a:not(.btn){
       border-bottom: 1px dotted $white;
+      color: $white;
 
-      &:hover, &:focus{
-        color: $accent;
+      &:focus,
+      &:hover{
         border-color: $accent;
+        color:        $accent;
       }
     }
   }
 
   .attribution{
 
+    bottom:   4px;
     position: absolute;
-    z-index: 9;
-    bottom: 4px;
-    right: 4px;
+    right:    4px;
+    z-index:  9;
 
     @media all and (min-width: $bp-small-2) {
       right: 0;
     }
   }
 
-  h2, h1{
-    font-family: $font-secondary;
-    font-weight: normal;
-      line-height: 1.1;
-      margin-bottom: $space-half;
-      font-size: 2em;
-      text-transform: uppercase;
+  h2,
+  h1{
+    font-family:    $font-secondary;
+    font-size:      2em;
+    font-weight:    normal;
+    line-height:    1.1;
+    margin-bottom:  $space-half;
+    text-transform: uppercase;
+  }
+
+
+  @media all and (max-width: $bp-med) {
+    overflow: hidden;
   }
 
 }
 
 .site-hero{
   margin-top: $globalnavheight;
+
+  &.after-header-with-search{
+    margin-top: $globalnavheight-with-search-small;
+    &.search-open{
+      margin-top: $globalnavheight-with-search-large;
+    }
+  }
+
   @media all and (min-width: $bp-small) {
     height: 50%;
   }

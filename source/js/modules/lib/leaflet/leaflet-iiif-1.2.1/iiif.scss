@@ -174,7 +174,8 @@
   overflow:   auto;
   width:      35%;
 
-  &.hidden{
+  &.hidden,
+  .hidden{
     display: none;
   }
 

@@ -1,7 +1,41 @@
-define(['jquery', 'table_sort', 'purl'], function($){
+define(['jquery'], function($){
 
-  var initPage = function(){
+  var initPage = function(landingPage){
 
+    if(landingPage){
+      require(['jqImagesLoaded'], function(){
+        initLandingPage();
+      });
+    }
+    else{
+      require(['table_sort', 'purl'], function(){
+        initListingPage();
+      });
+    }
+  };
+
+  var initLandingPage = function(){
+
+    $('.item-nav-show').on('click', function(e){
+      e.preventDefault();
+      var btn = $(e.target)[0].nodeName.toUpperCase() == 'BUTTON' ? $(e.target) : $(e.target).closest('button');
+      btn.hide();
+      btn.prev('.content').show();
+      btn.prev('.content').find('form .item-search-input').focus();
+      $('.after-header-with-search').addClass('search-open');
+    });
+
+    $('.ugc-preview img').imagesLoaded(function($images){
+      $images.each(function(i, img){
+        if(img.naturalHeight > img.naturalWidth){
+          $(img).css('border', '1px solid red');
+          $(img).closest('.height-to-width').removeClass('js-disabled');
+        }
+      });
+    });
+  };
+
+  var initListingPage = function(){
     var purl = $.url(window.location.href);
     if(purl.param('c')){
       require(['eu_form_save'], function(FormSave){

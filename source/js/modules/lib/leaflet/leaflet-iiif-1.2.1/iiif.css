@@ -163,15 +163,16 @@
   width: 35%;
 }
 /* line 177, iiif.scss */
-.transcriptions.hidden {
+.transcriptions.hidden,
+.transcriptions .hidden {
   display: none;
 }
-/* line 181, iiif.scss */
+/* line 182, iiif.scss */
 .transcriptions p {
   margin: 1em;
   padding: 1em;
 }
-/* line 185, iiif.scss */
+/* line 186, iiif.scss */
 .transcriptions p.highlight {
   background-color: #d2e9f7;
   border-color: #1da2f5;
@@ -179,17 +180,17 @@
   border-style: solid;
   border-width: 1px;
 }
-/* line 194, iiif.scss */
+/* line 195, iiif.scss */
 .transcriptions word.highlight {
   font-weight: bold;
 }
 
-/* line 199, iiif.scss */
+/* line 200, iiif.scss */
 #iiif-with-ctrls {
   width: 64%;
 }
 
-/* line 203, iiif.scss */
+/* line 204, iiif.scss */
 #iiif-with-ctrls,
 .transcriptions {
   float: left;

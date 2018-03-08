@@ -33,14 +33,14 @@ define(['jquery'], function($){
   var currentImg        = 0;
   var Leaflet           = null;
   var maxZoom           = 5;
-  var selectedRegion    = null;
   var totalImages;
   var transcriptionUrls = [];
-  var selSections       = [];
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var allCanvases       = [];
   var iiifConf          = {maxZoom: maxZoom, setMaxBounds: false};
+
+  var features          = {};
 
   function log(msg) {
     console.log(msg);
@@ -78,12 +78,12 @@ define(['jquery'], function($){
       }
       else{
         var data = allCanvases[index];
-        if(! iiifLayers[index + ''] ){
+        var layerName = index + '';
+        if(! iiifLayers[layerName] ){
 
           var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
-          iiifLayers[index + ''] = iiifLayer;
+          iiifLayers[layerName] = iiifLayer;
           noLoaded += 1;
-          loadFeatures();
         }
         index += 1;
       }
@@ -109,9 +109,6 @@ define(['jquery'], function($){
     $('#iiif-ctrl .last').attr('disabled', currentImg == totalImages-1);
     $('#iiif-ctrl .jump-to-img').attr('disabled', totalImages == 1);
 
-    if($('#iiif').hasClass('transcription')){
-      updateTranscriptCtrls();
-    }
   };
 
   var updateTranscriptCtrls = function(){
@@ -119,10 +116,8 @@ define(['jquery'], function($){
     var $transcriptions = $('.transcriptions');
 
     $transcriptions.find('.transcription').addClass('hidden');
-    $('.leaflet-overlay-pane g').remove();
 
     if($transcriptions.find(' > .' + currentImg).length == 0){
-
       require(['mustache'], function(Mustache){
         Mustache.tags = ['[[', ']]'];
 
@@ -136,31 +131,27 @@ define(['jquery'], function($){
     }
     else{
       $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
-      var prevSel = selSections[currentImg + ''];
-      if(prevSel){
-        transcriptionClick($('#' + prevSel), true);
-      }
     }
   };
 
-  var nav = function($el, index){
+  var nav = function($el, layerName){
 
     if($el.attr('disabled')){
       return;
     }
 
-    var layer = iiifLayers[index + ''];
+    var layer = iiifLayers[layerName + ''];
 
     if(!layer){
       $('#iiif').addClass('loading');
-      load(index);
-      layer = iiifLayers[index + ''];
+      load(layerName);
+      layer = iiifLayers[layerName + ''];
       $('#iiif').removeClass('loading');
     }
-
     switchLayer(layer);
-    currentImg = index;
+    currentImg = layerName;
     updateCtrls();
+    addFeatures(layerName + '');
   };
 
   var initUI = function(fullScreenAvailable, zoomSlider){
@@ -268,6 +259,7 @@ define(['jquery'], function($){
       $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
       updateCtrls();
+      addFeatures(currentImg + '');
     }
     else{
 
@@ -289,149 +281,125 @@ define(['jquery'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
+        addFeatures(currentImg + '');
       }).fail(function(jqxhr) {
         log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
         $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': $thumbnail, 'player': 'iiif'});
       });
     }
 
-    if($('#iiif').hasClass('transcription')){
-      require(['jqScrollto'], function(){
-        initTranscription();
-      });
-    }
   }
-
 
   function setTranscriptionUrls(urls){
     transcriptionUrls = urls;
   }
 
-  function loadFeatures() {
-    // disbaled for now
-    /*
-    var geoJsonUrl = transcriptionUrls[currentImg] + '&fmt=geoJSON';
-    $.getJSON(geoJsonUrl).done(function(itemJSON){
-      L.geoJson(itemJSON).addTo(iiif);
-    });
-    */
-  }
+  function highlightTranscript($t){
 
-  function addRectangle(pointList){
-
-    if(selectedRegion){
-      selectedRegion.remove();
+    if($t.length > 0){
+      $('.transcription:not(.hidden) .highlight').removeClass('highlight');
+      $t.addClass('highlight');
+      if($t[0].nodeName.toUpperCase() == 'WORD'){
+        $t.closest('p').addClass('highlight');
+      }
+      $('.transcriptions').scrollTo($t, 333, {'offset': -16});
     }
+  }
 
-    if(!pointList){
-      return;
-    }
+  function highlightFeature(f){
 
-    selectedRegion = new Leaflet.Rectangle(pointList, {
-      color:       '#1DA2F5',
-      weight:       1,
-      opacity:      0.5,
-      smoothFactor: 1
+    // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
+    var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
+    var isWord          = transcriptionEl[0].nodeName.toUpperCase() == 'WORD';
+    var wordStyle       = {
+      color:       '#1676aa',
+      fillOpacity: 0,
+      weight:      1
+    };
+
+    var paragraphStyle = {
+      color:       '#1676aa',
+      fillOpacity: 0.5,
+      weight:      1
+    };
+
+    iiifLayers[currentImg + '-f'].eachLayer(function(layer){
+      iiifLayers[currentImg + '-f'].resetStyle(layer);
     });
-    selectedRegion.addTo(iiif);
-    log('added rect at ' + JSON.stringify(pointList));
-    //selectedRegion.addTo(iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + '']);
-  }
 
-  function getParagraphPointList($p){
-
-    var x = parseInt($p.data('x'));
-    var y = parseInt($p.data('y'));
-    var w = parseInt($p.data('w'));
-    var h = parseInt($p.data('h'));
-    // var l = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
-
-    var divider = 32;
-
-    return [
-      [0 - (y / divider), x / divider],
-      [0 - (y / divider), (x + w) / divider],
-      [0 - (y + h) / divider, x / divider],
-      [0 - (y + h) / divider, (x + w) / divider]
-    ];
-  }
-
-  function transcriptionClick($p, scrollNotZoom){
-    selSections[currentImg + ''] = $p.attr('id');
-
-    $('.transcription:not(.hidden) p').removeClass('highlight');
-    $p.addClass('highlight');
-
-    var pointList = getParagraphPointList($p);
-    addRectangle(pointList);
-
-    if(scrollNotZoom){
-      $('.transcriptions').scrollTo($p, 300, {'offset': -16});
+    if(isWord){
+      var parentFeature = features[currentImg + ''][transcriptionEl.closest('p').attr('id')];
+      f.setStyle(wordStyle);
+      parentFeature.setStyle(paragraphStyle);
+      //iiif.fitBounds(parentFeature.getBounds());
     }
     else{
-      iiif.fitBounds(pointList);
+      f.setStyle(paragraphStyle);
+      //iiif.fitBounds(f.getBounds());
     }
-
   }
 
-  function initTranscription(){
-
-    $(document).on('click', '.transcriptions p', function(){
-      transcriptionClick($(this));
-    });
-
-    iiif.on('click', function(e) {
-
-      //var l       = iiifLayers['single'] ? iiifLayers['single'] : iiifLayers[currentImg + ''];
-      var divider = 32;
-      var point   = iiif.options.crs.latLngToPoint(e.latlng, 0);
-      var x       = point.x * divider;
-      var y       = point.y * divider;
-
-      // Check if the given coordinate belongs to a certain text fragment
-      var coordBelongsToRect = function(xClick, yClick, x, y, w, h) {
-        return xClick >= Number(x) &&
-        xClick <= Number(x) + Number(w) &&
-        yClick >= Number(y) &&
-        yClick <= Number(y) + Number(h);
-      };
-
-
-      $('.transcription:not(.hidden) p[id^="fragment-"]').each(function() {
-        var $p      = $(this);
-
-        var xCoord  = $p.data('x');
-        var yCoord  = $p.data('y');
-        var fWidth  = $p.data('w');
-        var fHeight = $p.data('h');
-
-        if(coordBelongsToRect(x, y, xCoord, yCoord, fWidth, fHeight)) {
-
-          var alreadyHighlighted = $p.hasClass('highlight');
-
-          if(alreadyHighlighted){
-            $('.transcription:not(.hidden) word').removeClass('highlight');
-          }
-          else{
-            $('.transcription:not(.hidden) p').removeClass('highlight');
-            $('.transcription:not(.hidden) word').removeClass('highlight');
-            $p.addClass('highlight');
-            selSections[currentImg + ''] = $p.attr('id');
-            $('.transcriptions').scrollTo($p, 300, {'offset': -16});
-            addRectangle(getParagraphPointList($p));
-          }
-
-          $p.find('word').each(function(i, word){
-            word = $(word);
-            if(coordBelongsToRect(x, y, word.data('x'), word.data('y'), word.data('w'), word.data('h'))){
-              word.addClass('highlight');
-              return false;
-            }
+  function addFeatures(layerName) {
+    if($('#iiif').hasClass('transcription')){
+      require(['jqScrollto'], function(){
+        if(iiifLayers[layerName + '-f']){
+          iiifLayers[layerName + '-f'].addTo(iiif);
+          bindTranscriptionClick();
+          updateTranscriptCtrls();
+        }
+        else{
+          loadFeatures(function(loadedLayer){
+            iiifLayers[layerName + '-f'] = loadedLayer;
+            loadedLayer.addTo(iiif);
+            bindTranscriptionClick();
+            updateTranscriptCtrls();
           });
-          return false;
         }
       });
+    }
+  }
+
+  function loadFeatures(cb) {
+
+    console.log('loadFeatures ' + currentImg);
+
+    var geoJsonUrl   = transcriptionUrls[currentImg] + '&fmt=geoJSON';
+    var featureClick = function(e){
+      highlightFeature(e.target);
+      highlightTranscript($('.transcription #' + e.target.feature.properties.id));
+    };
+
+    $.getJSON(geoJsonUrl).done(function(itemJSON){
+
+      features[currentImg + ''] = {};
+
+      cb(Leaflet.geoJson(itemJSON, {
+        style: function(){
+          return {
+            fillOpacity: 0.5,
+            color:       'rgba(0,0,0,0)',
+          };
+        },
+        onEachFeature: function(feature, layer){
+          features[currentImg + ''][feature.properties.id] = layer;
+          layer.on('click', featureClick);
+        }
+      }));
+
     });
+  }
+
+  function bindTranscriptionClick(){
+    if($('.transcriptions').hasClass('js-bound')){
+      return;
+    }
+    $(document).on('click', '.transcriptions *', function(e){
+      var $t = $(this);
+      e.stopPropagation();
+      highlightTranscript($t);
+      highlightFeature(features[currentImg + ''][$t.attr('id')]);
+    });
+    $('.transcriptions').addClass('js-bound');
   }
 
   return {

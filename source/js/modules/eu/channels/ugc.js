@@ -1,11 +1,16 @@
 define(['jquery', 'util_resize'], function($){
 
-  var formId   = 'new_ore_aggregation';
+  var formSel = '.eu-ugc-form';
   var formSave = null;
 
   function addValidationError($el, msg){
 
-    var defMsg = 'Error';
+    var defMsg      = 'Error';
+    var msgOverride = $el.data('error-msg-key') || $el.closest('.input').data('error-msg-key');
+
+    if(msgOverride){
+      msg = window.I18n.translate(msgOverride);
+    }
 
     if(!msg){
       if($el.attr('type') == 'date'){
@@ -13,6 +18,9 @@ define(['jquery', 'util_resize'], function($){
       }
       else if($el.attr('type') == 'email'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
+      }
+      else if($el.attr('type') == 'checkbox'){
+        msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.confirmation-required') : defMsg;
       }
       else if($el.attr('required') == 'required'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
@@ -40,25 +48,43 @@ define(['jquery', 'util_resize'], function($){
       $el = $el.next('.hint');
     }
     $el.next('.error').remove();
+    $('.error.global').addClass('hidden');
   }
 
-  function initClientSideValidation(){
-    $(document).on('blur', 'input:not([type="file"][accept]),textarea,select', function(){
-      var $el = $(this);
+  function onBlur($el){
+
+    if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
+      return;
+    }
+
+    setTimeout(function(){
+
       $el.addClass('had-focus');
+
+      var isSubmit = $(':focus').length > 0 && $(':focus').attr('type') && $(':focus').attr('type').toUpperCase() == 'SUBMIT';
+      if(isSubmit){
+        return;
+      }
       if($el.is(':valid')){
         removeValidationError($el);
       }
       else{
-        addValidationError($el);
+        var isFallback = $el.hasClass('date') && $el.attr('type') != 'date';
+        addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
       }
+    }, 1);
+  }
+
+  function initClientSideValidation(){
+    $(document).on('blur', 'input:not([type="file"][accept]),textarea,select', function(){
+      onBlur($(this));
     });
   }
 
   function bindDynamicFieldset(){
 
     var reindex = function(){
-      $('.nested_ore_aggregation_edm_hasViews:visible .sequenced_object').each(function(i){
+      $('.nested_fields:visible .sequenced_object').each(function(i){
         $(this).attr('index', i + 2);
       });
     };
@@ -71,6 +97,7 @@ define(['jquery', 'util_resize'], function($){
       initAutoCompletes();
       initCopyFields();
       initHiddenFields();
+      initSwipeableLicense();
     });
 
     $(document).on('fields_removed.nested_form_fields', function(e, param){
@@ -88,36 +115,131 @@ define(['jquery', 'util_resize'], function($){
   }
 
 
+  // return 1, -1 or 0 (true, false, NA)
+  function evaluateHiddenFieldOverride(f){
+
+    var cf = f.data('requires-override');
+
+    if(cf){
+      var $cf = $('#' + cf);
+      if($cf.length > 0){
+        if($cf.attr('type').toUpperCase()=='CHECKBOX'){
+          return $cf.is(':checked') ? 1 : -1;
+        }
+        return $cf.val() ? 1 : -1;
+      }
+    }
+    return 0;
+  }
+
   function evaluateHiddenFields(f){
 
     var fs = $('[data-requires="' + f.attr('id') + '"]');
 
     if(f.val() && f.val().length > 0){
-      fs.closest('.requires-other-field').addClass('enabled');
+      fs.each(function(){
+        var $this = $(this);
+
+        var ovverride = evaluateHiddenFieldOverride($this);
+
+        if(ovverride == 1){
+          $this.removeClass('enabled');
+          $this.find(':input').prop('disabled', true);
+        }
+        else{
+          $this.addClass('enabled');
+          $this.find(':input').prop('disabled', false);
+        }
+      });
     }
     else{
-      fs.closest('.requires-other-field').removeClass('enabled');
+      fs.removeClass('enabled');
+      fs.find(':input').prop('disabled', true);
     }
   }
 
   function initHiddenFields(){
-
-    $('[data-requires]:not(.js-initialised)').each(function(){
-      $(this).closest('.input').addClass('requires-other-field');
-    });
-
     $(':input').each(function(){
       evaluateHiddenFields($(this));
     });
-
   }
+
+  function makeFieldOptional($f, tf){
+    if(tf){
+      $f.removeAttr('required');
+    }
+    else{
+      $f.attr('required', 'required');
+    }
+    onBlur($f);
+  }
+
   function bindHiddenFields(){
 
     $(document).on('change', ':input', function(){
       evaluateHiddenFields($(this));
     });
-  }
 
+    $(document).on('click', ':input[type="checkbox"]', function(){
+
+      var $this         = $(this);
+      var makesOptional = $this.data('makes-optional');
+
+      $('[data-requires-override="' + $this.attr('id') + '"]').each(function(i, ob){
+
+        if($(ob).is(':visible')){
+          var required  = $(ob).data('requires');
+          var $required = $('#' + required);
+
+          if(required && required.length > 0 && $required.length > 0){
+            evaluateHiddenFields($required);
+          }
+          else{
+            console.log('misconfigured require override: expected element with id:\n\t' + required
+            + '\n\t('
+            +   'referenced by element with id: ' + $(ob).attr('id') + ' and class ' + $(ob).attr('class')
+            + ')');
+          }
+        }
+      });
+
+      if(makesOptional){
+        makeFieldOptional($('#' + makesOptional), $this.is(':checked'));
+      }
+      onBlur($this);
+
+    });
+
+    // provisional.  TODO: base on id (not class) / bind in separate function
+
+    var makeRequired = function($el){
+      var makesRequired = $el.data('makes-required');
+      if(makesRequired){
+        makesRequired = $('.' + makesRequired).find(':input');
+        makeFieldOptional(makesRequired.first(), $el.val().length == 0);
+      }
+    };
+
+    $(document).on('change', ':input[type="file"]', function(){
+
+      var $this         = $(this);
+      var clearsFields  = $this.data('clears-when-cleared');
+
+      if($this.data('makes-required')){
+        makeRequired($this);
+      }
+
+      if(clearsFields && $this.val().length == 0){
+        clearsFields = $('.' + clearsFields).find(':input');
+        clearsFields.prop('checked', false);
+      }
+    });
+
+    $('[makes-required]').each(function(){
+      makeRequired($(this));
+    });
+
+  }
 
   function evaluateCopyFields(f){
 
@@ -133,11 +255,11 @@ define(['jquery', 'util_resize'], function($){
 
   function initCopyFields(){
 
-    var copyFields = $('[data-copies]:not(.copies-inititlised)');
+    var copyFields = $('[data-copies]:not(.copies-initialised)');
 
     copyFields.each(function(){
 
-      $(this).addClass('copies-inititlised');
+      $(this).addClass('copies-initialised');
       $(this).closest('.input').addClass('copies-other-field');
       $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
     });
@@ -150,7 +272,6 @@ define(['jquery', 'util_resize'], function($){
   function bindCopyFields(){
 
     $(document).on('keyup', ':input', function(){
-      console.log('keyup');
       evaluateCopyFields($(this));
     });
 
@@ -166,6 +287,16 @@ define(['jquery', 'util_resize'], function($){
 
 
   function getAutocompleteConfig($el){
+
+    $(document).on('keyup paste', '.autocomplete', function(e){
+      if(e.type == 'keyup'){
+        if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91, 37, 39, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123].indexOf(e.keyCode) > -1){
+          return;
+        }
+      }
+      var $this = $(this);
+      $('#' + $this.data('for')).val($this.val());
+    });
 
     return {
       fnOnSelect : function($el, $input){
@@ -203,9 +334,6 @@ define(['jquery', 'util_resize'], function($){
 
         return data;
       },
-      fnOnDeselect: function($input){
-        $('#' + $input.data('for')).val('');
-      },
       itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
       minTermLength    : 2,
       paramName        : $el.data('param'),
@@ -220,7 +348,7 @@ define(['jquery', 'util_resize'], function($){
   function initAutoComplete($el){
 
     $el.wrap('<div class="relative">');
-    $el.addClass('autocomplete-inititlised');
+    $el.addClass('autocomplete-initialised');
 
     require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
 
@@ -231,12 +359,17 @@ define(['jquery', 'util_resize'], function($){
 
         if($el.val().length == 0 && $hidden.val().length > 0 && derefUrl){
 
-          derefUrl += '?uri=' + $hidden.val();
+          var hVal = $hidden.val();
 
-          $.getJSON(derefUrl).done(function(data){
-            $el.val(data.text);
-            Autocomplete.init(getAutocompleteConfig($el));
-          });
+          if(hVal.match(new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi))){
+            $.getJSON(derefUrl + '?uri=' + hVal).done(function(data){
+              $el.val(data.text);
+            });
+          }
+          else{
+            $el.val(hVal);
+          }
+          Autocomplete.init(getAutocompleteConfig($el));
         }
         else{
           Autocomplete.init(getAutocompleteConfig($el));
@@ -251,7 +384,7 @@ define(['jquery', 'util_resize'], function($){
 
   function initAutoCompletes(){
 
-    var autocompletes = $('[data-url]:not(.autocomplete-inititlised)');
+    var autocompletes = $('[data-url]:not(.autocomplete-initialised)');
 
     if(autocompletes.length > 0){
       autocompletes.each(function(){
@@ -261,27 +394,45 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function initFormSave(){
-
-    $(document).on('external_js_loaded', function(){
-
-      require(['eu_form_save'], function(FormSave){
-
-        var $form = $('form[data-local-storage-id]');
-        formSave  = FormSave.create($form, window.pageName == 'migration/create');
-
-      });
+    require(['eu_form_save'], function(FormSave){
+      var $form = $('form[data-local-storage-id]');
+      formSave  = FormSave.create($form, window.pageName == 'migration/create');
     });
   }
 
+  function initSwipeableLicense(){
+
+    require(['util_slide', 'util_resize'], function(EuSlide){
+      $('.contribution_ore_aggregation_edm_isShownBy_edm_rights .label-and-input > .radio').wrapAll('<div class="licenses">');
+      var $el = $('.licenses:not(.js-swipe-bound)');
+
+      if($el.length > 0){
+        $el.wrap('<div class="slide-rail">');
+        EuSlide.makeSwipeable($el);
+        $el.find('input').after('<span class="checkmark"></span>');
+      }
+    });
+  }
 
   function validateForm(){
 
-    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
-      var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
-      var valid    = invalids.length == 0;
+    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
 
-      invalids.addClass('invalid');
-      invalids.each(function(){addValidationError($(this));});
+      var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
+      invalids     = $.map(invalids, function(i){
+        var $i = $(i);
+        if(!$i.is(':hidden')){
+          return $i;
+        }
+      });
+
+      var valid = invalids.length == 0;
+
+      $.each(invalids, function(){
+        var $this = $(this);
+        $this.addClass('invalid');
+        addValidationError($this);
+      });
 
       return valid;
     }
@@ -302,7 +453,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('change', '[type="file"][accept]', function(){
 
-      if(typeof window.enableValidation == 'undefined' || !window.enableValidation){
+      if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
         console.log('all front-end validation disabled');
         return;
       }
@@ -314,15 +465,17 @@ define(['jquery', 'util_resize'], function($){
 
       var input        = $(this);
       var val          = input.val();
-      var allowed      = input.attr('accept').split(',');
+      var allowedTypes = input.attr('accept').split(',');
       var files        = input[0].files;
+      var maxBytes     = input.data('max-bytes');
 
       if(val && val.length > 0){
 
-        var ext       = val.slice(val.lastIndexOf('.'));
-        var isAllowed = false;
+        var ext           = val.slice(val.lastIndexOf('.'));
+        var isAllowedSize = maxBytes ? parseInt(maxBytes) >= files[0].size : true;
+        var isAllowedType = false;
 
-        $.each(allowed, function(){
+        $.each(allowedTypes, function(){
 
           var isMime    = this.indexOf('/') > -1;
           var allowRule = this.trim().toUpperCase();
@@ -332,32 +485,35 @@ define(['jquery', 'util_resize'], function($){
             var mimeType = files[0].type.toUpperCase();
 
             if(mimeType == allowRule){
-              console.log('check 1 pass' );
-              isAllowed = true;
+              isAllowedType = true;
               return false;
             }
             else if(allowRule.indexOf('*') > -1){
 
               if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
-                isAllowed = true;
+                isAllowedType = true;
                 return false;
               }
             }
           }
           else if(ext && ext.length > 0){
             if(ext.toUpperCase() == this.trim().toUpperCase()){
-              isAllowed = true;
+              isAllowedType = true;
               return false;
             }
           }
         });
 
-        if(isAllowed){
-          removeValidationError($(this));
+        if(!isAllowedType){
+          var msg1 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowedTypes.join(', ')}) : 'Invalid file type';
+          addValidationError($(this), msg1);
+        }
+        else if(!isAllowedSize){
+          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes/1000000}) : 'Invalid file size';
+          addValidationError($(this), msg2);
         }
         else{
-          var msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowed.join(', ')}) : 'Invalid file type';
-          addValidationError($(this), msg);
+          removeValidationError($(this));
         }
       }
 
@@ -366,14 +522,8 @@ define(['jquery', 'util_resize'], function($){
 
   function initPage(){
 
-    var $form = $('#' + formId);
+    var $form = $(formSel);
     var key   = $form.attr('recaptcha-site-key');
-
-    $('label.required').contents().filter(function(){return this.nodeType === 3;}).wrap('<span class="required-text">');
-
-    $('.required-text').each(function(){
-      $(this).prependTo($(this).closest('label'));
-    });
 
     var onSubmit = function(){
 
@@ -382,8 +532,6 @@ define(['jquery', 'util_resize'], function($){
         if(typeof window.grecaptcha != 'undefined'){
 
           var captchaResponse = window.grecaptcha.getResponse();
-
-          console.log('in submit: response = ' + captchaResponse + ' (' + (typeof captchaResponse) + ')');
 
           if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
             window.grecaptcha.execute();
@@ -407,7 +555,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        console.log('validation fails');
+        $('.error.global').removeClass('hidden');
         return false;
       }
     };
@@ -451,15 +599,17 @@ define(['jquery', 'util_resize'], function($){
     initAutoCompletes();
     initDateFields();
     initFileFields();
+    initSwipeableLicense();
     bindDynamicFieldset();
 
     bindCopyFields();
     bindHiddenFields();
 
-    if(typeof window.enableValidation != 'undefined' && window.enableValidation){
+    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
   }
+
 
   return {
     initPage : initPage

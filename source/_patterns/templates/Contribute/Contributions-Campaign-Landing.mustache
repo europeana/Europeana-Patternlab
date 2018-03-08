@@ -1,0 +1,94 @@
+{{> atoms/iconography/svgicons-search }}
+{{> organisms/global/header_v2}}
+
+<section class="after-header-with-search site-hero ugc-landing-hero" style="background-image:url('{{content.hero.url}}');">
+
+  <div class="hero-text">
+    {{#content.hero.title}}
+      <h1>{{.}}</h1>
+    {{/content.hero.title}}
+    {{#content.hero.subtitle}}
+    <br/>
+    <h3>{{{.}}}</h3>
+    {{/content.hero.subtitle}}
+    {{#content.begin_link}}<a class="btn btn-light" href="{{url}}">{{text_long}}</a>{{/content.begin_link}}
+  </div>
+
+  {{#content.hero}}
+    {{>molecules/text/attribution}}
+  {{/content.hero}}
+
+</section>
+
+<div class="lc">
+  {{#content.description}}
+    <p class="ugc-landing-description">{{{.}}}</p>
+  {{/content.description}}
+</div>
+
+<section class="section">
+  <div class="lc">
+
+    {{#content}}
+
+      {{#flash_notice}}
+        <strong class="flash-notice">{{.}}</strong>
+      {{/flash_notice}}
+
+      {{#disabled}}
+        {{#call_to_action}}
+          <p>{{.}}</p>
+        {{/call_to_action}}
+      {{/disabled}}
+
+    {{/content}}
+
+    {{#content}}
+      {{#previews}}
+        <div class="ugc-preview{{#is_person}} person{{/is_person}}">
+          <div class="captioned-image">
+            {{#img_url}}
+              <div class="height-to-width js-disabled">
+                <div class="inner" style="background-image:url('{{.}}');">
+                <img src="{{.}}"/>
+                </div>
+              </div>
+            {{/img_url}}
+            {{#caption}}
+              {{#url}}<a href="{{.}}">{{/url}}
+              {{^url}}<a href="{{begin_link.url}}">{{/url}}
+                {{.}}
+              {{#url}}</a>{{/url}}
+              {{^url}}</a>{{/url}}
+            {{/caption}}
+          </div>
+          <div class="text">
+            <p>
+              {{text}}
+            </p>
+            {{^is_person}}
+              <a class="btn btn-light" href="{{^button_opens_form}}{{url}}{{/button_opens_form}}{{#button_opens_form}}{{#begin_link}}{{url}}{{/begin_link}}{{/button_opens_form}}">{{#begin_link}}{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}{{/begin_link}}</a>
+            {{/is_person}}
+            {{#is_person}}
+              {{#url}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/url}}
+              {{^url}}{{#begin_link}}<a class="btn btn-light" href="{{url}}">{{#button_text}}{{.}}{{/button_text}}{{^button_text}}{{text}}{{/button_text}}</a>{{/begin_link}}{{/url}}
+            {{/is_person}}
+          </div>
+        </div>
+      {{/previews}}
+
+      {{#closing_remark}}
+        <div class="ugc-closing-remark">{{{.}}}</div>
+      {{/closing_remark}}
+
+      {{#disabled}}
+        {{#begin_link}}<a class="btn blue main-call-to-contribute" href="{{url}}">{{text}}</a>{{/begin_link}}
+      {{/disabled}}
+
+    {{/content}}
+  </div>
+</section>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

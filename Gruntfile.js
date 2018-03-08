@@ -6,6 +6,9 @@ module.exports = function(grunt) {
       // js_assets_disable:{
       //   src : [ "source/sass/js/**/*.scss", "!source/sass/js/**/_*.scss"]
       // }
+      index:{
+        src: ['public/index.html']
+      }
     },
     concat: {
       /**
@@ -339,6 +342,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [
+    'clean:index',
     'concat:blacklight',
     'copy:dev_css',
     'copy:global_dependencies'

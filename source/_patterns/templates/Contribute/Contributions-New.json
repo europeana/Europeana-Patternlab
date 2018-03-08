@@ -27,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'delays' : {'stories_autocomplete': 100}, 'mappings': [{'pattern': 'stories_autocomplete/', 'resolveTo': 'stories_autocomplete'}]}"
+      "value": "{ 'delays' : {'contributions_autocomplete': 100}, 'mappings': [{'pattern': 'contributions_autocomplete/', 'resolveTo': 'contributions_autocomplete'}]}"
     }
   ],
   "content": {
@@ -148,7 +148,7 @@
             "name": "ore_aggregation",
             "id": "ore_aggregation",
             "value": "139",
-            "data_url": "stories_autocomplete",
+            "data_url": "contributions_autocomplete",
             "data_param": "term",
             "name_text": "ore_aggregation_text",
             "value_text": "Edinburgh"

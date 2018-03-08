@@ -9,6 +9,204 @@ $desktop-form-full-width: calc(#{$ugc-padding} + #{$desktop-form-max-width} + #{
 $desktop-input-max-width: 607px;
 $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max-width});
 
+$cb-margin-right:         0.5em;
+
+noscript div{
+  color:       $eu-red;
+  font-size:   1.6rem;
+  font-weight: bold;
+  margin:      1.6rem;
+  text-align:  center;
+}
+
+.ugc-landing-hero{
+
+  background-blend-mode: multiply;
+  background-color:      rgba(22, 118, 170, 0.7);
+
+  &::after{
+    content:  '';
+  }
+
+  .hero-text{
+    background-color: transparent;
+    bottom:           auto;
+    left:             0;
+    margin:           auto;
+    right:            0;
+    top:              50%;
+    transform:        translateY(-50%);
+    width:            auto;
+
+    h1{
+      font-weight: bold;
+    }
+    h3{
+      font-weight: normal;
+    }
+    .btn{
+      border-color: $white;
+      border-width: 1px;
+      color:        $white;
+      left:         50%;
+      margin-top:   $space-half;
+      transform:    translateX(-50%);
+
+      &:hover{
+        border-color: $black;
+        color:        $black;
+      }
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    .hero-text{
+      width: 50%;
+    }
+  }
+  @media all and (min-width: $bp-large) {
+    .hero-text{
+      width: 50%;
+    }
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    &::after{
+      background: transparentize(darken($eu-blue, 8), .5);
+      bottom:     0;
+      content:    ' ';
+      position:   absolute;
+      top:        0;
+      width:      100%;
+    }
+  }
+
+  @supports (-ms-ime-align:auto) {
+    &::after{
+      background: transparentize(darken($eu-blue, 8), .5);
+      bottom:     0;
+      content:    ' ';
+      position:   absolute;
+      top:        0;
+      width:      100%;
+    }
+  }
+
+}
+
+.captioned-image{
+
+  display:        flex;
+  flex-direction: column;
+
+  a{
+    border-top:  1px solid $gray-lighter;
+    margin-top:  $space;
+    padding-top: $pad;
+    text-align:  center;
+  }
+
+  .height-to-width{
+    position: relative;
+    width:    100%;
+
+    &.js-disabled{
+      img{
+        display: inline;
+      }
+      > .inner{
+        background-size: 0;
+      }
+    }
+    img{
+      display: none;
+    }
+  }
+
+  .inner{
+    background-position: center;
+    background-size:     cover;
+    text-align:          center;
+  }
+}
+
+.ugc-closing-remark,
+.ugc-landing-description{
+
+  font-size: $font-size-slightly-larger;
+  margin:    auto;
+  padding:   2em;
+
+  @media all and (min-width: $bp-med) {
+    width:     70%;
+  }
+}
+
+.main-call-to-contribute{
+  left:      50%;
+  transform: translateX(-50%);
+}
+
+.ugc-preview{
+
+  display:        flex;
+  flex-direction: column;
+  padding:        2em;
+
+  &.person::after{
+    border-top: 3px solid $eu-blue;
+    content:    ' ';
+    left:       0;
+    position:   absolute;
+    transform:  translateY(-2em);
+    width:      calc(100% - 2em);
+  }
+
+  .text{
+    align-self:     center;
+    display:        flex;
+    flex-direction: column;
+
+    a{
+      align-self: center;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    flex-direction: row;
+    padding:        2em 0;
+
+    .captioned-image,
+    .text{
+      padding: 0 2em;
+      width:   50%;
+    }
+
+    .text a{
+      align-self: start;
+    }
+
+    &.person::after{
+      transform:  none;
+      width:      calc(50% - 2em);
+    }
+
+    &:nth-of-type(even){
+      flex-direction: row-reverse;
+    }
+
+    &:nth-of-type(odd){
+      &.person::after{
+        left:  auto;
+        right: 0;
+      }
+    }
+  }
+
+}
+
+
 .ugc-content{
 
   margin:  auto;
@@ -17,12 +215,22 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     border-bottom: 0;
   }
 
-  label{
+  input[type="checkbox"]{
+    transform: translateY(0.25em);
+
+    + label{
+      cursor: pointer;
+    }
+  }
+
+
+  .label-and-input:not(.positioned-right) label{
     color:          $gray-med;
     display:        block;
     font-weight:    bold;
+    hyphens:        none;
     padding:        0;
-    padding-bottom: 0;
+    padding-bottom: 0.5em;
     width:          100%;
 
     &.file::before{
@@ -33,10 +241,6 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       height:    1.5em;
       transform: translateY(0.4em) scale(0.8);
       width:     1.8em;
-    }
-
-    .required-text{
-      margin-right: 0.5em;
     }
   }
 
@@ -65,9 +269,14 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
 
     .input{
       text-align: left;
+      ::placeholder{
+        color: rgba(77, 77, 77, 0.7);
+      }
     }
   }
 
+  // TODO: remove ref to story
+  &.new-contribution form,
   &.new-story form{
     margin:    auto;
     max-width: 100%;
@@ -92,8 +301,18 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     width:    auto;
   }
 
-  input:not([name="commit"]):not([type="submit"]),
+  input[type="radio"]{
+    &:hover,
+    &:active,
+    &:focus{
+      border:  0;
+      outline: 0;
+    }
+  }
+
+  input:not([name="commit"]):not([type="submit"]):not([type="radio"]),
   textarea{
+
     &:hover{
       border: 1px solid $black;
     }
@@ -128,6 +347,13 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       transform:         translateY(0.4em);
       width:             1.3em;
     }
+
+    &.global{
+      display: block;
+      &.hidden{
+        display: none;
+      }
+    }
   }
 
   .flash-notice{
@@ -138,6 +364,11 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
   .hint{
     font-size:  $font-size-slightly-smaller;
     font-style: italic;
+  }
+
+  .error,
+  .hint{
+    display:       block;
   }
 
   .input:not(.hidden){
@@ -158,6 +389,151 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     width:            calc(#{$ugc-padding} + 100% + #{$ugc-padding});
   }
 
+
+  .label-and-input.positioned-right{
+
+    display:        flex;
+    flex-direction: column-reverse;
+
+    input[type="checkbox"]{
+
+      margin-left:  0;
+      margin-right: auto;
+      width:        auto;
+    }
+  }
+
+
+  .label-and-input.full-width{
+
+    justify-content: flex-start;
+
+    input[type="checkbox"]{
+      display:      inline-block;
+      margin-right: $cb-margin-right;
+    }
+
+    label{
+      display: inline;
+      font-weight: normal;
+    }
+
+    input[type="checkbox"],
+    label{
+      width:   auto;
+    }
+  }
+
+  .contribution_ore_aggregation_edm_isShownBy_edm_rights{
+
+    .licenses{
+      display:          flex;
+      justify-content:  space-between;
+    }
+
+    .radio{
+
+      display: flex;
+      margin:  $space-half;
+
+      &:first-of-type{
+        margin-left: 0;
+      }
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+
+      &:hover{
+        background: $offwhite;
+      }
+
+      label{
+        border:        1px solid $black;
+        border-radius: 0.5em;
+        padding:       1em;
+        position:      relative;
+      }
+
+      li,
+      .license-description{
+        display:     block;
+        font-weight: normal;
+        padding:     $pad-half 0;
+      }
+
+      li{
+        font-size: $font-size-slightly-smaller;
+
+        &::before{
+          content: '* ';
+        }
+      }
+
+      .checkmark{
+        background-color: $white;
+        border-radius:    12px;
+        height:           24px;
+        left:             50%;
+        position:         absolute;
+        top:              1em;
+        transform:        translateX(-50%);
+        width:            24px;
+
+        &::after {
+          background-color:  $eu-blue;
+          border:            solid $white;
+          border-width:      0 3px 3px 0;
+          content:           '';
+          display:           none;
+          height:            10px;
+          left:              8px;
+          position:          absolute;
+          top:               4.5px;
+          -ms-transform:     rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform:         rotate(45deg);
+          width:             5px;
+        }
+      }
+
+      &:hover{
+        background-color: $white;
+
+        input ~ .checkmark {
+          background-color: $gray-lighter;
+        }
+
+        label{
+          border-color: $eu-blue;
+        }
+      }
+
+      input:not(:checked) ~ .checkmark {
+        border: 1px solid $black;
+      }
+
+      input:checked ~ .checkmark {
+
+        background-color: $eu-blue;
+
+        &::after{
+          display: block;
+        }
+      }
+
+    }
+  }
+
+  .slide-rail{
+    left:     0;
+    position: relative;
+
+    &.js-swipe-transition{
+      transition: left 0.3s linear;
+    }
+  }
+
   .remove_nested_fields_link{
     display:     inline-block;
     padding-top: $space;
@@ -168,6 +544,8 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     padding-left: 0.4em;
   }
 
+  // TODO: remove ref to story
+  .contribution-select,
   .story-select{
     margin: 0 0 1.6em 0;
   }
@@ -177,6 +555,10 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     &:hover{
       color: $eu-blue;
     }
+  }
+
+  label a{
+    border-bottom: 1px dotted;
   }
 
   .media-preview{
@@ -253,10 +635,6 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
   }
 
-  .hint ~ .error{
-    margin-left: $space;
-  }
-
   .invalid,
   .had-focus:invalid{
     border: 1px solid $eu-red;
@@ -308,6 +686,10 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     position: relative;
   }
 
+  .required abbr{
+    margin-left: 0.3em;
+  }
+
   .required-fields-hint{
     display:     inline-block;
     padding-top: $ugc-padding;
@@ -317,17 +699,36 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
   }
 
-  .requires-other-field{
-
+  [data-requires]{
     display: none;
-
     &.enabled{
       display: block;
     }
   }
 
+  @media all and (max-width: $desktop-breakpoint){
+
+    .contribution_ore_aggregation_edm_isShownBy_edm_rights{
+
+      .js-swipeable{
+        position: relative;
+      }
+
+      .licenses{
+        margin-right: -53em;
+        width:         53em;
+      }
+
+      .radio{
+        width:  17em;
+      }
+    }
+  }
+
   @media all and (min-width: $desktop-breakpoint){
 
+    // TODO: remove ref to story
+    &.new-contribution form,
     &.new-story form{
 
       width: $desktop-form-full-width;
@@ -341,42 +742,65 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
       }
     }
 
-    label{
-      max-width:     $desktop-label-width;
-      padding-right: $space;
-    }
-
+    .error:not(.global),
     .hint{
-      display:      inline-block;
+      left:      $desktop-label-width;
+      max-width: $desktop-input-max-width;
+      position:  relative;
     }
 
-    .label-and-input + .error{
-      left:     1.3em;
-      position: relative;
-      &::before{
-        background-position-x: 100%;
-        transform:             translate(-0.3em, 0.4em);
-      }
+    .full-width + .error,
+    .full-width + .hint{
+      position:  static;
     }
 
-    .hint,
-    .label-and-input + .error
-    {
-      &::before{
-        content: ' ';
-        display: inline-block;
-        width:   $desktop-label-width;
-      }
-    }
 
     .label-and-input{
       display:         flex;
       justify-content: space-between;
+
+      &:not(.positioned-right):not(.full-width){
+        label{
+          max-width:      $desktop-label-width;
+          padding-bottom: 0;
+          padding-right:  $space;
+        }
+        .licenses label{
+          padding-right: 0;
+        }
+      }
+
+      &.positioned-right{
+
+        flex-direction:  row;
+        justify-content: start;
+        margin-left:     $desktop-label-width;
+
+        label{
+          font-weight:  normal;
+          width:        auto;
+        }
+
+        input[type="checkbox"]{
+          align-self:   start;
+          margin-right: $cb-margin-right;
+        }
+      }
+
+      .input.array{
+        margin: 0;
+        width: 100%;
+
+        li:first-of-type{
+          margin: 0;
+        }
+      }
+
     }
 
     .media-preview{
+
       float:      right;
-      max-width:  $desktop-input-max-width;
 
       img{
         text-align: center;
@@ -423,4 +847,3 @@ $desktop-label-width:     calc(#{$desktop-form-max-width} - #{$desktop-input-max
     }
   }
 }
-
