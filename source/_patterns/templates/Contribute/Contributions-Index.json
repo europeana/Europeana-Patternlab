@@ -99,22 +99,22 @@
             "url": "javascript:alert('1');",
             "cells": [
               {
-                "text": "Sven Jonsson"
+                "content": "Sven Jonsson"
               },
               {
-                "text": "340"
+                "content": "340"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -124,22 +124,22 @@
             "url": "javascript:alert('2');",
             "cells": [
               {
-                "text": "Carlos Marcelino"
+                "content": "Carlos Marcelino"
               },
               {
-                "text": "347"
+                "content": "347"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -150,22 +150,22 @@
             "url": "javascript:alert('3');",
             "cells": [
               {
-                "text": "Panogiotis Kyrou"
+                "content": "Panogiotis Kyrou"
               },
               {
-                "text": "345"
+                "content": "345"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -175,22 +175,22 @@
             "url": "javascript:alert('4');",
             "cells": [
               {
-                "text": "John Smith"
+                "content": "John Smith"
               },
               {
-                "text": "341"
+                "content": "341"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -201,22 +201,22 @@
             "url": "javascript:alert('5');",
             "cells": [
               {
-                "text": "Julian Wilde"
+                "content": "Julian Wilde"
               },
               {
-                "text": "320"
+                "content": "320"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -226,22 +226,22 @@
             "url": "javascript:alert('6');",
             "cells": [
               {
-                "text": "Jens Jensson"
+                "content": "Jens Jensson"
               },
               {
-                "text": "348"
+                "content": "348"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -251,22 +251,22 @@
             "url": "javascript:alert('7');",
             "cells": [
               {
-                "text": "Anna Patat"
+                "content": "Anna Patat"
               },
               {
-                "text": "343"
+                "content": "343"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -276,22 +276,22 @@
             "url": "javascript:alert('8');",
             "cells": [
               {
-                "text": "Nils Sjoberg"
+                "content": "Nils Sjoberg"
               },
               {
-                "text": "328"
+                "content": "328"
               },
               {
-                "text": "10-01-17"
+                "content": "10-01-17"
               },
               {
-                "text": "Unapproved"
+                "content": "Unapproved"
               },
               {
-                "text": "x"
+                "content": "x"
               },
               {
-                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "content": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]

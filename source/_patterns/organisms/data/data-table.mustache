@@ -16,7 +16,7 @@
           <td>{{#id}}<input type="checkbox" autocomplete="off" name="{{.}}"{{#is_selected}} checked="checked"{{/is_selected}}/>{{/id}}</td>
         {{/has_row_selectors}}
         {{#cells}}
-          <td>{{#row_link}}{{#url}}<a class="row-link" href="{{.}}">{{/url}}{{/row_link}}{{{text}}}{{#row_link}}{{#url}}</a>{{/url}}{{/row_link}}</td>
+          <td>{{#row_link}}{{#url}}<a class="row-link" href="{{.}}">{{/url}}{{/row_link}}{{{content}}}{{#row_link}}{{#url}}</a>{{/url}}{{/row_link}}</td>
         {{/cells}}
       </tr>
     {{/row_data}}
