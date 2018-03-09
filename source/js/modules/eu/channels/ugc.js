@@ -437,23 +437,28 @@ define(['jquery', 'util_resize'], function($){
         EuSlide.makeSwipeable($el);
         $el.find('input').after('<span class="checkmark"></span>');
 
-        $el.find('label').each(function(label){
+        var labels = $el.find('label.collection_radio_buttons');
 
-          var $label    = $(label);
-          var $input    = $('#' + $label.attr('for'));
+        $.each(labels, function(){
 
-          console.log('license will be ' + $input.data('license-url') );
+          var $label    = $(this);
+          var $input    = $label.siblings('[type="radio"]');
+          var license   = $input.data('license-url');
+          var data      = licenseData[license];
 
-          var data      = licenseData[$input.data('license-url')];
+          if(data && license){
+            var icons     = $('<span class="cc-info-row"></span>');
+            var container = $('<span class="cc-info">').appendTo($label);
 
-          var icons     = $('<span class="cc-info-row"></span>');
-          var container = $('<span class="cc-info">').appendTo($label);
-
-          $(data.classes).each(function(){
-            icons.append('<span class="license-icon ' + this + '">');
-          });
-          icons.append('<span class="cc-name">' + data.name + '</span>');
-          container.append(icons);
+            $(data.classes).each(function(){
+              icons.append('<span class="license-icon ' + this + '">');
+            });
+            icons.append('<span class="cc-name">' + data.name + '</span>');
+            container.append(icons);
+          }
+          else{
+            console.log('No license data found (' + license + ')');
+          }
         });
 
       }
