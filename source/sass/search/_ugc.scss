@@ -490,6 +490,11 @@ noscript div{
         margin-right: 0;
       }
 
+      input{
+        box-shadow: none;
+        margin:     0;
+      }
+
       input:checked,
       input:active,
       input:hover{
@@ -532,8 +537,9 @@ noscript div{
         border-radius:    12px;
         height:           24px;
         left:             50%;
+
+        pointer-events:   none;
         position:         absolute;
-//        top:              1em;
         transform:        translateX(-50%);
         width:            24px;
         z-index:          2;

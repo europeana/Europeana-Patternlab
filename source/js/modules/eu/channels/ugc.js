@@ -405,20 +405,20 @@ define(['jquery', 'util_resize'], function($){
 
   function initSwipeableLicense(){
 
-    var licenseData = [
-      {
+    var licenseData = {
+      'http://creativecommons.org/publicdomain/mark/1.0/': {
         'name': window.I18n.translate('global.facet.rights.cc0'),
         'classes': ['icon-license-zero']
       },
-      {
+      'http://creativecommons.org/licenses/by-sa/4.0/': {
         'name': window.I18n.translate('global.facet.rights.cc-by-sa'),
         'classes': ['icon-license-cc', 'icon-license-by', 'icon-license-sa']
       },
-      {
+      'http://rightsstatements.org/vocab/CNE/1.0/': {
         'name': window.I18n.translate('global.facet.rights.rs-cne'),
         'classes': ['icon-license-unknown']
       }
-    ];
+    };
 
     require(['util_slide', 'util_resize'], function(EuSlide){
 
@@ -437,11 +437,17 @@ define(['jquery', 'util_resize'], function($){
         EuSlide.makeSwipeable($el);
         $el.find('input').after('<span class="checkmark"></span>');
 
-        $el.find('label').each(function(i, ob){
+        $el.find('label').each(function(label){
 
-          var data      = licenseData[i];
+          var $label    = $(label);
+          var $input    = $('#' + $label.attr('for'));
+
+          console.log('license will be ' + $input.data('license-url') );
+
+          var data      = licenseData[$input.data('license-url')];
+
           var icons     = $('<span class="cc-info-row"></span>');
-          var container = $('<span class="cc-info">').appendTo($(ob));
+          var container = $('<span class="cc-info">').appendTo($label);
 
           $(data.classes).each(function(){
             icons.append('<span class="license-icon ' + this + '">');
