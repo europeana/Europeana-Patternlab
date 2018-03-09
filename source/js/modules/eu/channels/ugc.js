@@ -645,21 +645,27 @@ define(['jquery', 'util_resize'], function($){
         initCopyFields();
       }
 
-      $('[data-makes-required]').each(function(){
-        var $this = $(this);
-        var type  = $this.attr('type');
-        var val   = false;
-
+      var getVal = function($el){
+        var type  = $el.attr('type');
         if(type.toUpperCase()=='CHECKBOX'){
-          val = $this.is(':checked');
+          return $el.is(':checked');
         }
         else if(type.toUpperCase()=='RADIO'){
-          val = $('[name="' + $this.attr('name') + '"]:checked').val();
+          return $('[name="' + $el.attr('name') + '"]:checked').val();
         }
         else{
-          val = $this.val();
+          return $el.val();
         }
-        makeRequired($(this), !val);
+      };
+
+      $('[data-makes-required]').each(function(){
+        makeRequired($(this), getVal($(this)));
+      });
+
+      $('[data-makes-optional]').each(function(){
+        var $this = $(this);
+        var makesOptional = $('#' + $this.data('makes-optional'));
+        makeFieldOptional(makesOptional, getVal($this));
       });
 
       initSwipeableLicense();
