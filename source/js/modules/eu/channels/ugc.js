@@ -663,9 +663,11 @@ define(['jquery', 'util_resize'], function($){
       });
 
       $('[data-makes-optional]').each(function(){
-        var $this = $(this);
+        var $this         = $(this);
         var makesOptional = $('#' + $this.data('makes-optional'));
-        makeFieldOptional(makesOptional, getVal($this));
+        if($this.is(':checked') && getVal($this)){
+          makeFieldOptional(makesOptional, true);
+        }
       });
 
       initSwipeableLicense();
