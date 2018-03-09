@@ -600,10 +600,17 @@ noscript div{
     padding-left: 0.4em;
   }
 
-  // TODO: remove ref to story
-  .contribution-select,
-  .story-select{
+  .contribution-select{
     margin: 0 0 1.6em 0;
+  }
+
+  .create-new-link{
+    margin: $space 0;
+  }
+
+  .contribution-select,
+  .create-new-link{
+    display: table;
   }
 
   a{

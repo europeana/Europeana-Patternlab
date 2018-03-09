@@ -50,6 +50,12 @@
         </select>
       {{/has_events}}
 
+      {{#create}}
+        {{#url}}
+          <a class="create-new-link" href="{{.}}">{{text}}</a>
+        {{/url}}
+      {{/create}}
+
       {{#form}}
         <form {{#attributes}}{{#name}}{{#value}}{{name}}={{.}} {{/value}}{{/name}}{{/attributes}}>
       {{/form}}

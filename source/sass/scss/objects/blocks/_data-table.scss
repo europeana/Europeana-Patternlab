@@ -1,5 +1,9 @@
 .data-table{
 
+  a:not(.row-link){
+    text-decoration: underline;
+  }
+
   th{
     position:       relative;
     text-transform: capitalize;
@@ -45,7 +49,7 @@
     td{
       padding:        0;
       vertical-align: middle;
-      > a{
+      > .row-link{
         display: block;
         padding: 0.5em;
       }
