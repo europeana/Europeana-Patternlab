@@ -99,22 +99,22 @@
             "url": "javascript:alert('1');",
             "cells": [
               {
-                "cell_data": "Sven Jonsson"
+                "text": "Sven Jonsson"
               },
               {
-                "cell_data": "340"
+                "text": "340"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -124,22 +124,22 @@
             "url": "javascript:alert('2');",
             "cells": [
               {
-                "cell_data": "Carlos Marcelino"
+                "text": "Carlos Marcelino"
               },
               {
-                "cell_data": "347"
+                "text": "347"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -150,22 +150,22 @@
             "url": "javascript:alert('3');",
             "cells": [
               {
-                "cell_data": "Panogiotis Kyrou"
+                "text": "Panogiotis Kyrou"
               },
               {
-                "cell_data": "345"
+                "text": "345"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -175,22 +175,22 @@
             "url": "javascript:alert('4');",
             "cells": [
               {
-                "cell_data": "John Smith"
+                "text": "John Smith"
               },
               {
-                "cell_data": "341"
+                "text": "341"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -201,22 +201,22 @@
             "url": "javascript:alert('5');",
             "cells": [
               {
-                "cell_data": "Julian Wilde"
+                "text": "Julian Wilde"
               },
               {
-                "cell_data": "320"
+                "text": "320"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -226,22 +226,22 @@
             "url": "javascript:alert('6');",
             "cells": [
               {
-                "cell_data": "Jens Jensson"
+                "text": "Jens Jensson"
               },
               {
-                "cell_data": "348"
+                "text": "348"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -251,22 +251,22 @@
             "url": "javascript:alert('7');",
             "cells": [
               {
-                "cell_data": "Anna Patat"
+                "text": "Anna Patat"
               },
               {
-                "cell_data": "343"
+                "text": "343"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]
@@ -276,22 +276,22 @@
             "url": "javascript:alert('8');",
             "cells": [
               {
-                "cell_data": "Nils Sjoberg"
+                "text": "Nils Sjoberg"
               },
               {
-                "cell_data": "328"
+                "text": "328"
               },
               {
-                "cell_data": "10-01-17"
+                "text": "10-01-17"
               },
               {
-                "cell_data": "Unapproved"
+                "text": "Unapproved"
               },
               {
-                "cell_data": "x"
+                "text": "x"
               },
               {
-                "cell_data": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
+                "text": "other <a href=\"javascript:alert('this is not the row link')\">link</a>",
                 "row_link": false
               }
             ]

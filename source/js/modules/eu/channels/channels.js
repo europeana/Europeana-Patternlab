@@ -273,9 +273,17 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
+    case 'event/index':
+      require(['ugc_index'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+
+      break;
+
     case 'migration/index':
       require(['ugc_index'], function(page){
-        page.initPage(true);
+        page.initPage();
         doForAllPages();
       });
 
