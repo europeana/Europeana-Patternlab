@@ -303,6 +303,11 @@ noscript div{
   }
 
   input[type="radio"]{
+
+    -moz-appearance:    radio;
+    -webkit-appearance: radio;
+    appearance:         radio;
+
     &:hover,
     &:active,
     &:focus{
@@ -451,7 +456,7 @@ noscript div{
       }
 
       .cc-info{
-        align-items:    end;
+        align-items:    flex-end;
         flex-direction: row;
         font-weight:    normal;
         margin:         auto;
