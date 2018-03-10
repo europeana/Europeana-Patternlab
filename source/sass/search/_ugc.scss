@@ -212,7 +212,8 @@ noscript div{
   margin:  auto;
 
   abbr{
-    border-bottom: 0;
+    border-bottom:   0;
+    text-decoration: none;
   }
 
   input[type="checkbox"]{
@@ -363,7 +364,7 @@ noscript div{
 
   .hint{
     font-size:  $font-size-slightly-smaller;
-    font-style: italic;
+    font-style: normal;
   }
 
   .error,
@@ -881,8 +882,12 @@ noscript div{
       }
     }
 
+    .add_nested_fields_link{
+      padding-top: 0.58em;
+    }
+
     .remove_nested_fields_link{
-      padding-top: 0;
+      padding-top: 0.85em;
       position:    relative;
       transform:   translateY(0.75em);
     }
