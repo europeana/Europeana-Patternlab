@@ -181,7 +181,7 @@ define(['jquery', 'util_resize'], function($){
     else{
       return $el.val() && $el.val().length > 0;
     }
-  };
+  }
 
   function evalMakesRequired($el){
 
@@ -205,8 +205,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function makeFieldOptional($f, tf){
-
-    var id = $f.attr('id') || $f.attr('name');
 
     if(tf){
       $f.removeAttr('required');
@@ -483,7 +481,7 @@ define(['jquery', 'util_resize'], function($){
 
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
-        $el.find('input').after('<span class="checkmark"></span>');
+        $el.find('label').prepend('<span class="checkmark"></span>');
 
         var labels = $el.find('label.collection_radio_buttons');
 

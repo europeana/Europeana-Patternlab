@@ -432,6 +432,10 @@ noscript div{
 
   .license-radios{
 
+    a:hover .icon-license-unknown{
+      background-image: url("data:image/svg+xml,%3Csvg fill='#{url-encode-color($eu-blue)}' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M104.76 0v52.38a52.38 52.38 0 0 1-52.38 52.38H0V52.38A52.38 52.38 0 0 1 52.38 0h52.38zM9.57 52.36A42.81 42.81 0 1 0 52.38 9.55 42.82 42.82 0 0 0 9.57 52.36z' class='cls-1'%3E%3C/path%3E%3Cpath d='M69.6 39.74a10.64 10.64 0 0 1-.81 4.75c-.51 1-.89 1.74-1.1 2.21a11 11 0 0 1-1.44 2c-.81.89-1.32 1.48-1.57 1.74-1.27 1.27-2.46 2.46-3.6 3.56a11.53 11.53 0 0 0-2.25 2.71 7.1 7.1 0 0 0-.55 3.22v4.75H46.19v-5.94a11.17 11.17 0 0 1 .85-4.88 22.46 22.46 0 0 1 3.52-4.41l5.39-5.56a5.4 5.4 0 0 0 1.19-3.65 5.57 5.57 0 0 0-1.27-3.77 4 4 0 0 0-3.31-1.53 4.17 4.17 0 0 0-3.44 1.78 8.71 8.71 0 0 0-1.7 4.75H34.78c.59-5.3 2.5-9.46 5.81-12.47a17.49 17.49 0 0 1 12.3-4.54q7.44 0 12.09 4.07c3.1 2.72 4.62 6.46 4.62 11.21zM57.34 69.93a7 7 0 1 0 0 9.88 7 7 0 0 0 0-9.88z' class='cls-1'%3E%3C/path%3E%3C/svg%3E");
+    }
+
     .icon-license-unknown{
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M104.76 0v52.38a52.38 52.38 0 0 1-52.38 52.38H0V52.38A52.38 52.38 0 0 1 52.38 0h52.38zM9.57 52.36A42.81 42.81 0 1 0 52.38 9.55 42.82 42.82 0 0 0 9.57 52.36z' class='cls-1'%3E%3C/path%3E%3Cpath d='M69.6 39.74a10.64 10.64 0 0 1-.81 4.75c-.51 1-.89 1.74-1.1 2.21a11 11 0 0 1-1.44 2c-.81.89-1.32 1.48-1.57 1.74-1.27 1.27-2.46 2.46-3.6 3.56a11.53 11.53 0 0 0-2.25 2.71 7.1 7.1 0 0 0-.55 3.22v4.75H46.19v-5.94a11.17 11.17 0 0 1 .85-4.88 22.46 22.46 0 0 1 3.52-4.41l5.39-5.56a5.4 5.4 0 0 0 1.19-3.65 5.57 5.57 0 0 0-1.27-3.77 4 4 0 0 0-3.31-1.53 4.17 4.17 0 0 0-3.44 1.78 8.71 8.71 0 0 0-1.7 4.75H34.78c.59-5.3 2.5-9.46 5.81-12.47a17.49 17.49 0 0 1 12.3-4.54q7.44 0 12.09 4.07c3.1 2.72 4.62 6.46 4.62 11.21zM57.34 69.93a7 7 0 1 0 0 9.88 7 7 0 0 0 0-9.88z' class='cls-1'%3E%3C/path%3E%3C/svg%3E");
       display:          block;
@@ -478,7 +482,6 @@ noscript div{
         display:         flex;
         flex-direction:  row;
         justify-content: center;
-        margin-top:      1em;
       }
     }
 
@@ -505,22 +508,21 @@ noscript div{
         border-bottom: 0;
       }
 
-      input:checked,
-      input:active,
-      input:hover{
-        ~ label{
-          background-color: $white;
-          border-color: $eu-blue;
-        }
-        ~ .checkmark {
+      input:checked ~ label,
+      input:active  ~ label,
+      label:hover{
+        background-color: $white;
+        border-color: $eu-blue;
+
+        .checkmark {
           background-color: $gray-lighter;
         }
       }
 
       label{
-        border:        1px solid $black;
-        border-radius: 0.5em;
-        padding:       3em 1em 1em 1em;
+        border:        1px solid $gray-light;
+        border-radius: 0.25em;
+        padding:       2.4em 1em 1em 1em;
         transform:     translateY(-3em);
       }
 
@@ -545,14 +547,13 @@ noscript div{
       .checkmark{
         background-color: $white;
         border-radius:    12px;
+        cursor:           pointer;
         height:           24px;
         left:             50%;
-
-        pointer-events:   none;
         position:         absolute;
+        top:              1em;
         transform:        translateX(-50%);
         width:            24px;
-        z-index:          2;
 
         &::after {
           background-color:  $eu-blue;
@@ -575,11 +576,11 @@ noscript div{
         padding: $pad 0;
       }
 
-      input:not(:checked) ~ .checkmark {
+      input:not(:checked) ~ label .checkmark {
         border: 1px solid $black;
       }
 
-      input:checked ~ .checkmark {
+      input:checked ~ label .checkmark {
 
         background-color: $eu-blue;
 
