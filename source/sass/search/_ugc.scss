@@ -434,11 +434,15 @@ noscript div{
     }
 
     .icon-license-unknown{
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{url-encode-color($gray-light)}' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M104.76 0v52.38a52.38 52.38 0 0 1-52.38 52.38H0V52.38A52.38 52.38 0 0 1 52.38 0h52.38zM9.57 52.36A42.81 42.81 0 1 0 52.38 9.55 42.82 42.82 0 0 0 9.57 52.36z' class='cls-1'%3E%3C/path%3E%3Cpath d='M69.6 39.74a10.64 10.64 0 0 1-.81 4.75c-.51 1-.89 1.74-1.1 2.21a11 11 0 0 1-1.44 2c-.81.89-1.32 1.48-1.57 1.74-1.27 1.27-2.46 2.46-3.6 3.56a11.53 11.53 0 0 0-2.25 2.71 7.1 7.1 0 0 0-.55 3.22v4.75H46.19v-5.94a11.17 11.17 0 0 1 .85-4.88 22.46 22.46 0 0 1 3.52-4.41l5.39-5.56a5.4 5.4 0 0 0 1.19-3.65 5.57 5.57 0 0 0-1.27-3.77 4 4 0 0 0-3.31-1.53 4.17 4.17 0 0 0-3.44 1.78 8.71 8.71 0 0 0-1.7 4.75H34.78c.59-5.3 2.5-9.46 5.81-12.47a17.49 17.49 0 0 1 12.3-4.54q7.44 0 12.09 4.07c3.1 2.72 4.62 6.46 4.62 11.21zM57.34 69.93a7 7 0 1 0 0 9.88 7 7 0 0 0 0-9.88z' class='cls-1'%3E%3C/path%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg fill='#{url-encode-color($black)}' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M104.76 0v52.38a52.38 52.38 0 0 1-52.38 52.38H0V52.38A52.38 52.38 0 0 1 52.38 0h52.38zM9.57 52.36A42.81 42.81 0 1 0 52.38 9.55 42.82 42.82 0 0 0 9.57 52.36z' class='cls-1'%3E%3C/path%3E%3Cpath d='M69.6 39.74a10.64 10.64 0 0 1-.81 4.75c-.51 1-.89 1.74-1.1 2.21a11 11 0 0 1-1.44 2c-.81.89-1.32 1.48-1.57 1.74-1.27 1.27-2.46 2.46-3.6 3.56a11.53 11.53 0 0 0-2.25 2.71 7.1 7.1 0 0 0-.55 3.22v4.75H46.19v-5.94a11.17 11.17 0 0 1 .85-4.88 22.46 22.46 0 0 1 3.52-4.41l5.39-5.56a5.4 5.4 0 0 0 1.19-3.65 5.57 5.57 0 0 0-1.27-3.77 4 4 0 0 0-3.31-1.53 4.17 4.17 0 0 0-3.44 1.78 8.71 8.71 0 0 0-1.7 4.75H34.78c.59-5.3 2.5-9.46 5.81-12.47a17.49 17.49 0 0 1 12.3-4.54q7.44 0 12.09 4.07c3.1 2.72 4.62 6.46 4.62 11.21zM57.34 69.93a7 7 0 1 0 0 9.88 7 7 0 0 0 0-9.88z' class='cls-1'%3E%3C/path%3E%3C/svg%3E");
       display:          block;
       height:           1em;
       margin:           0.35em 0;
       width:            1.37em;
+    }
+
+    .license-section label{
+      padding-bottom: 1em;
     }
 
     .licenses{
@@ -453,7 +457,6 @@ noscript div{
 
       label{
         flex-direction: column;
-        font-size: $font-size-slightly-smaller;
       }
 
       .cc-info{
@@ -473,7 +476,7 @@ noscript div{
       }
 
       .cc-name{
-        flex-basis:  50px;
+        flex-basis:  55px;
         font-size:   $font-size-sm;
         line-height: 1em;
       }
@@ -799,9 +802,7 @@ noscript div{
 
   @media all and (min-width: $desktop-breakpoint){
 
-    // TODO: remove ref to story
-    &.new-contribution form,
-    &.new-story form{
+    &.new-contribution form{
 
       width: $desktop-form-full-width;
 
@@ -813,7 +814,7 @@ noscript div{
         max-width:  $desktop-input-max-width;
       }
       .licenses{
-        max-width:  $desktop-input-max-width;
+        max-width:  100%;
       }
     }
 
@@ -834,14 +835,22 @@ noscript div{
       display:         flex;
       justify-content: space-between;
 
-      &:not(.positioned-right):not(.full-width){
+      &:not(.positioned-right):not(.full-width):not(.license-section){
+
         label{
           max-width:      $desktop-label-width;
           padding-bottom: 0;
           padding-right:  $space;
         }
-        .licenses label{
-          padding-right: 1em;
+      }
+
+      &.license-section{
+
+        display: block;
+
+        label{
+          max-width:      none;
+          width:          100%;
         }
       }
 
