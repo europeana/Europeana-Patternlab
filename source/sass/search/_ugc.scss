@@ -640,7 +640,7 @@ noscript div{
     border-bottom: 1px dotted;
   }
 
-  .media-preview{
+  &.new-contribution form .media-preview{
     text-align: center;
     img{
       background-color: $gray-lighter;
@@ -654,13 +654,12 @@ noscript div{
       padding:          1em;
     }
     label{
-      max-width: none;
+      max-width:  none;
+      text-align: left;
     }
-    .checkbox{
-      font-weight: normal;
-      [type="checkbox"]{
-        width: auto;
-      }
+
+    input[type="checkbox"]{
+      width: auto;
     }
     .input{
       margin:     0.5rem 0;
