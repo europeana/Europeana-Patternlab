@@ -456,7 +456,7 @@ define(['jquery', 'util_resize'], function($){
 
     var licenseData = {
       'http://creativecommons.org/publicdomain/mark/1.0/': {
-        'name': window.I18n.translate('global.facet.rights.cc0'),
+        'name': window.I18n.translate('global.facet.rights.public'),
         'classes': ['icon-license-zero']
       },
       'http://creativecommons.org/licenses/by-sa/4.0/': {
