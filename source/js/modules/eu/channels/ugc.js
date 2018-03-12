@@ -471,7 +471,9 @@ define(['jquery', 'util_resize'], function($){
 
     require(['util_slide', 'util_resize'], function(EuSlide){
 
-      $('.label-and-input > .license-radio-option').wrapAll('<div class="licenses">');
+      $('.license-section').each(function(i, ob){
+        $(ob).find('.license-radio-option').wrapAll('<div class="licenses">');
+      });
 
       var $el = $('.licenses:not(.js-swipe-bound)');
 

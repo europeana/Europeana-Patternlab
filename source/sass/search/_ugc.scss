@@ -306,6 +306,7 @@ noscript div{
     -moz-appearance:    radio;
     -webkit-appearance: radio;
     appearance:         radio;
+    opacity:            0;
 
     &:hover,
     &:active,
