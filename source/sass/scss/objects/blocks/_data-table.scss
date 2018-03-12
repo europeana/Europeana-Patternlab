@@ -1,5 +1,9 @@
 .data-table{
 
+  a:not(.row-link){
+    text-decoration: underline;
+  }
+
   th{
     position:       relative;
     text-transform: capitalize;
@@ -43,11 +47,10 @@
 
   .linked-row{
     td{
-      padding:        0;
+      padding: 0.5em;
       vertical-align: middle;
-      > a{
+      > .row-link{
         display: block;
-        padding: 0.5em;
       }
     }
 

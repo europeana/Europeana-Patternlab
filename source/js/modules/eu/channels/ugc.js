@@ -1,6 +1,6 @@
 define(['jquery', 'util_resize'], function($){
 
-  var formSel = '.eu-ugc-form';
+  var formSel  = '.eu-ugc-form';
   var formSave = null;
 
   function addValidationError($el, msg){
@@ -116,31 +116,35 @@ define(['jquery', 'util_resize'], function($){
 
 
   // return 1, -1 or 0 (true, false, NA)
-  function evaluateHiddenFieldOverride(f){
+  function evalHiddenFieldOverride(f){
 
-    var cf = f.data('requires-override');
+    var ref = f.data('requires-override');
 
-    if(cf){
-      var $cf = $('#' + cf);
-      if($cf.length > 0){
-        if($cf.attr('type').toUpperCase()=='CHECKBOX'){
-          return $cf.is(':checked') ? 1 : -1;
+    if(ref){
+      var $ref = $('#' + ref);
+
+      if($ref.length > 0){
+        if($ref.attr('type').toUpperCase()=='CHECKBOX'){
+          return $ref.is(':checked') ? 1 : -1;
         }
-        return $cf.val() ? 1 : -1;
+        else if($ref.attr('type').toUpperCase()=='RADIO'){
+          return $('[name="' + $ref.attr('name') + '"]:checked').val();
+        }
+        return $ref.val() ? 1 : -1;
       }
     }
     return 0;
   }
 
-  function evaluateHiddenFields(f){
+  function evalHiddenFields(f){
 
     var fs = $('[data-requires="' + f.attr('id') + '"]');
 
-    if(f.val() && f.val().length > 0){
+    if(getFieldValTruthy(f)){
       fs.each(function(){
         var $this = $(this);
 
-        var ovverride = evaluateHiddenFieldOverride($this);
+        var ovverride = evalHiddenFieldOverride($this);
 
         if(ovverride == 1){
           $this.removeClass('enabled');
@@ -160,11 +164,48 @@ define(['jquery', 'util_resize'], function($){
 
   function initHiddenFields(){
     $(':input').each(function(){
-      evaluateHiddenFields($(this));
+      evalHiddenFields($(this));
     });
   }
 
+  function getFieldValTruthy($el){
+
+    var type  = $el.attr('type') || '';
+
+    if(type.toUpperCase()=='CHECKBOX'){
+      return $el.is(':checked');
+    }
+    else if(type.toUpperCase()=='RADIO'){
+      return $('[name="' + $el.attr('name') + '"]:checked').val();
+    }
+    else{
+      return $el.val() && $el.val().length > 0;
+    }
+  }
+
+  function evalMakesRequired($el){
+
+    var ref = $el.data('makes-required');
+    if(ref){
+      var refEls = $('.' + ref).find(':input');
+      var apply  = getFieldValTruthy($el);
+
+      refEls.each(function(){
+        makeFieldOptional($(this), !apply);
+      });
+    }
+  }
+
+  function evalMakesOptional($el){
+
+    var ref = $el.data('makes-optional');
+    if(ref){
+      makeFieldOptional($('#' + ref), getFieldValTruthy($el));
+    }
+  }
+
   function makeFieldOptional($f, tf){
+
     if(tf){
       $f.removeAttr('required');
     }
@@ -177,7 +218,11 @@ define(['jquery', 'util_resize'], function($){
   function bindHiddenFields(){
 
     $(document).on('change', ':input', function(){
-      evaluateHiddenFields($(this));
+      evalHiddenFields($(this));
+    });
+
+    $(document).on('click', ':input[type="radio"]', function(){
+      onBlur($(this));
     });
 
     $(document).on('click', ':input[type="checkbox"]', function(){
@@ -187,19 +232,11 @@ define(['jquery', 'util_resize'], function($){
 
       $('[data-requires-override="' + $this.attr('id') + '"]').each(function(i, ob){
 
-        if($(ob).is(':visible')){
-          var required  = $(ob).data('requires');
-          var $required = $('#' + required);
+        var ref       = $(ob).data('requires');
+        var $required = $('#' + ref);
 
-          if(required && required.length > 0 && $required.length > 0){
-            evaluateHiddenFields($required);
-          }
-          else{
-            console.log('misconfigured require override: expected element with id:\n\t' + required
-            + '\n\t('
-            +   'referenced by element with id: ' + $(ob).attr('id') + ' and class ' + $(ob).attr('class')
-            + ')');
-          }
+        if(ref && ref.length > 0 && $required.length > 0){
+          evalHiddenFields($required);
         }
       });
 
@@ -207,18 +244,7 @@ define(['jquery', 'util_resize'], function($){
         makeFieldOptional($('#' + makesOptional), $this.is(':checked'));
       }
       onBlur($this);
-
     });
-
-    // provisional.  TODO: base on id (not class) / bind in separate function
-
-    var makeRequired = function($el){
-      var makesRequired = $el.data('makes-required');
-      if(makesRequired){
-        makesRequired = $('.' + makesRequired).find(':input');
-        makeFieldOptional(makesRequired.first(), $el.val().length == 0);
-      }
-    };
 
     $(document).on('change', ':input[type="file"]', function(){
 
@@ -226,7 +252,7 @@ define(['jquery', 'util_resize'], function($){
       var clearsFields  = $this.data('clears-when-cleared');
 
       if($this.data('makes-required')){
-        makeRequired($this);
+        evalMakesRequired($this);
       }
 
       if(clearsFields && $this.val().length == 0){
@@ -235,13 +261,9 @@ define(['jquery', 'util_resize'], function($){
       }
     });
 
-    $('[makes-required]').each(function(){
-      makeRequired($(this));
-    });
-
   }
 
-  function evaluateCopyFields(f){
+  function evalCopyFields(f){
 
     var fc = $('[data-copies="' + f.attr('id') + '"]');
 
@@ -265,14 +287,14 @@ define(['jquery', 'util_resize'], function($){
     });
 
     $(':input').each(function(){
-      evaluateCopyFields($(this));
+      evalCopyFields($(this));
     });
   }
 
   function bindCopyFields(){
 
     $(document).on('keyup', ':input', function(){
-      evaluateCopyFields($(this));
+      evalCopyFields($(this));
     });
 
     $(document).on('click', '.btn-copy', function(){
@@ -281,7 +303,7 @@ define(['jquery', 'util_resize'], function($){
       copyTo.val(copyFrom.val());
       copyTo.blur();
       copyTo.trigger('change');
-      evaluateCopyFields(copyTo);
+      evalCopyFields(copyTo);
     });
   }
 
@@ -400,16 +422,94 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  $(window).on('debugDataAttribues', function(){
+
+    var bugs = 0;
+
+    $.each(['copies', 'requires', 'requires-override', 'makes-required'], function(i, attr){
+
+      $('[data-' + attr + ']').each(function(i, ob){
+
+        var el  = $(ob);
+        var ref = el.data(attr);
+
+        if(['copies', 'requires'].indexOf(attr) > -1){
+          if( $('#' + ref).length == 0 ){
+            console.log('misconfigured data-' + attr + ': ' + ref);
+            bugs += 1;
+          }
+        }
+        else{
+          if( $('.' + ref).find(':input').length == 0 ){
+            console.log('misconfigured data-' + attr + ': ' + ref);
+            bugs += 1;
+          }
+        }
+
+      });
+    });
+
+    console.log(bugs + ' misconfiguration' + (bugs != 1 ? 's' : '') + ' found!');
+  });
+
   function initSwipeableLicense(){
 
+    var licenseData = {
+      'http://creativecommons.org/publicdomain/mark/1.0/': {
+        'name': window.I18n.translate('global.facet.rights.public'),
+        'classes': ['icon-license-zero']
+      },
+      'http://creativecommons.org/licenses/by-sa/4.0/': {
+        'name': window.I18n.translate('global.facet.rights.cc-by-sa'),
+        'classes': ['icon-license-cc', 'icon-license-by', 'icon-license-sa']
+      },
+      'http://rightsstatements.org/vocab/CNE/1.0/': {
+        'name': window.I18n.translate('global.facet.rights.rs-cne'),
+        'classes': ['icon-license-unknown']
+      }
+    };
+
     require(['util_slide', 'util_resize'], function(EuSlide){
-      $('.contribution_ore_aggregation_edm_isShownBy_edm_rights .label-and-input > .radio').wrapAll('<div class="licenses">');
+
+      $('.license-section').each(function(i, ob){
+        $(ob).find('.license-radio-option').wrapAll('<div class="licenses">');
+      });
+
       var $el = $('.licenses:not(.js-swipe-bound)');
 
       if($el.length > 0){
+
+        // bind radio tick / add license classes
+
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
-        $el.find('input').after('<span class="checkmark"></span>');
+        $el.find('label').prepend('<span class="checkmark"></span>');
+
+        var labels = $el.find('label.collection_radio_buttons');
+
+        $.each(labels, function(){
+
+          var $label    = $(this);
+          var $input    = $label.siblings('[type="radio"]');
+          var license   = $input.data('license-url');
+          var data      = licenseData[license];
+
+          if(data && license){
+            var icons     = $('<span class="cc-info-row"></span>');
+            var container = $('<span class="cc-info">').appendTo($label);
+
+            $(data.classes).each(function(){
+              icons.append('<span class="license-icon ' + this + '">');
+            });
+            icons.append('<span class="cc-name">' + data.name + '</span>');
+            container.append(icons);
+            icons.wrap('<a href="' + license + '" target="_blank">');
+          }
+          else{
+            console.log('No license data found (' + license + ')');
+          }
+        });
+
       }
     });
   }
@@ -509,7 +609,7 @@ define(['jquery', 'util_resize'], function($){
           addValidationError($(this), msg1);
         }
         else if(!isAllowedSize){
-          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes/1000000}) : 'Invalid file size';
+          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes / (1024 * 1024) }) : 'Invalid file size';
           addValidationError($(this), msg2);
         }
         else{
@@ -594,12 +694,30 @@ define(['jquery', 'util_resize'], function($){
         initCopyFields();
       }
 
+      $('[data-makes-required]').each(function(){
+
+        var $this = $(this);
+
+        if(getFieldValTruthy($this)){
+          evalMakesRequired($this);
+        }
+      });
+
+      $('[data-makes-optional]').each(function(){
+
+        var $this         = $(this);
+
+        if(getFieldValTruthy($this)){
+          evalMakesOptional($this);
+        }
+      });
+
+      initSwipeableLicense();
     });
 
     initAutoCompletes();
     initDateFields();
     initFileFields();
-    initSwipeableLicense();
     bindDynamicFieldset();
 
     bindCopyFields();
@@ -609,7 +727,6 @@ define(['jquery', 'util_resize'], function($){
       initClientSideValidation();
     }
   }
-
 
   return {
     initPage : initPage

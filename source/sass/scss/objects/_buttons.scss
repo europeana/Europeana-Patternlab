@@ -30,24 +30,13 @@
   }
 
   &.alt{
-    background-color: $black;
-    border-color: $black;
-    color: $white;
+    background-color: $eu-blue;
+    border:           0;
+    color:            $white;
+    padding:          1em 2.5em;
 
     &:hover{
-      background-color: $textcolour_highlight;
-      border-color: $textcolour_highlight;
-    }
-  }
-
-  &.eu-blue{
-    background-color: $textcolour_highlight;
-    border-color: $textcolour_highlight;
-    color: $white;
-
-    &:hover{
-      background-color: $black;
-      border-color: $black;
+      background-color: $blue-dark;
     }
   }
 
