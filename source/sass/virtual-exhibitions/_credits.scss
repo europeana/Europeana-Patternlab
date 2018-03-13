@@ -1,5 +1,5 @@
-@import "../scss/generic/variables";
-@import "variables";
+@import '../scss/generic/variables';
+@import 'variables';
 
 .ve-field{
   margin-bottom: 2em;
@@ -15,18 +15,23 @@
 .ve-credit-wrapper{
   margin: auto;
   .btn{
-    background-color: $eu-blue;
-    border:           medium none;
-    color:            #fff;
-    text-transform:   uppercase;
+    .svg-icon-download{
 
-    .svg-icon-download.white{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($eu-blue)}' viewbox='0 0 23 32'%3E%3Cpath d='M21.333 24.727h-19.394q-0.216 0-0.35-0.135t-0.135-0.35v-2.909q0-0.215 0.135-0.35t0.35-0.135h19.394q0.215 0 0.35 0.135t0.135 0.35v2.909q0 0.215-0.135 0.35t-0.35 0.135zM21.683 9.077l-9.697 9.697q-0.189 0.135-0.35 0.135t-0.35-0.135l-9.697-9.697q-0.216-0.216-0.108-0.539 0.135-0.296 0.458-0.296h5.333v-6.303q0-0.216 0.135-0.35t0.35-0.135h7.758q0.216 0 0.35 0.135t0.135 0.35v6.303h5.333q0.323 0 0.458 0.296 0.108 0.323-0.108 0.539z'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+
       display:       inline-block;
       height:        1.5em;
       margin-bottom: -0.3em;
       margin-top:    -0.3em;
-      transform:     scale(0.65);
+      transform:     translate(-3px, 3px) scale(0.65);
       width:         1.5em;
+    }
+
+    &:hover{
+      .svg-icon-download{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($white)}' viewbox='0 0 23 32'%3E%3Cpath d='M21.333 24.727h-19.394q-0.216 0-0.35-0.135t-0.135-0.35v-2.909q0-0.215 0.135-0.35t0.35-0.135h19.394q0.215 0 0.35 0.135t0.135 0.35v2.909q0 0.215-0.135 0.35t-0.35 0.135zM21.683 9.077l-9.697 9.697q-0.189 0.135-0.35 0.135t-0.35-0.135l-9.697-9.697q-0.216-0.216-0.108-0.539 0.135-0.296 0.458-0.296h5.333v-6.303q0-0.216 0.135-0.35t0.35-0.135h7.758q0.216 0 0.35 0.135t0.135 0.35v6.303h5.333q0.323 0 0.458 0.296 0.108 0.323-0.108 0.539z'%3E%3C/path%3E%3C/svg%3E");
+      }
     }
   }
   .icon-license-rs{
@@ -76,7 +81,6 @@
 
   .ve-col-credit-left{
     padding:    1em 0;
-    text-align: left;
     text-align: center;
     width:      65%;
   }

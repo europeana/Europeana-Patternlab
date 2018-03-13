@@ -1,20 +1,27 @@
 .btn {
   @include font-size(1);
-  background: transparent;
-  border: solid 6px $black;
-  color: $black;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1;
-  padding: 0.8em 1.2em;
-  position: relative;
-  text-align: center;
+
+  background:     transparent;
+  border:         1px solid $eu-blue;
+  border-radius:  3px;
+  color:          $eu-blue;
+  display:        inline-block;
+  font-weight:    bold;
+  line-height:    1;
+  padding:        $pad $pad-double;
+  position:       relative;
+  text-align:     center;
   text-transform: uppercase;
 
-  &:hover,
-  &:focus {
-    border-color: $textcolour_highlight;
-    color: $textcolour_highlight;
+  &.disabled{
+    border-color: #a9a9a9;
+    color: #a9a9a9;
+  }
+
+  &:focus,
+  &:hover{
+    background-color: $eu-blue;
+    color:            $white;
   }
 
   &.disabled,
@@ -151,7 +158,15 @@
 }
 
 .pill{
-  border-radius: 300px;
+  background-color: $eu-blue;
+  border:           1px solid $white;
+  border-radius:    300px;
+  color:            $white;
+
+  &:hover{
+    background-color: $white;
+    color:            $eu-blue;
+  }
 }
 
 .btn-small {
