@@ -518,15 +518,24 @@ define(['jquery', 'util_resize'], function($){
 
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
 
-      var invalids = $('input:invalid').add('textarea:invalid').add('select:invalid');
-      invalids     = $.map(invalids, function(i){
+      var invalids          = $('input:invalid').add('textarea:invalid').add('select:invalid');
+      var invalidFileInputs = [];
+
+      $('input[type="file"][accept]').each(function(){
+        var fInput = $(this);
+        if(!validateFileInput(fInput)){
+          invalidFileInputs.push(fInput);
+        }
+      });
+
+      invalids = $.map(invalids, function(i){
         var $i = $(i);
         if(!$i.is(':hidden')){
           return $i;
         }
       });
 
-      var valid = invalids.length == 0;
+      var valid = invalids.length == 0 && invalidFileInputs.length == 0;
 
       $.each(invalids, function(){
         var $this = $(this);
@@ -548,76 +557,82 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function initFileFields(){
-
-    var reFileStem = /([^/]*)$/;
-
     $(document).on('change', '[type="file"][accept]', function(){
-
-      if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
-        console.log('all front-end validation disabled');
-        return;
-      }
-      removeValidationError($(this));
-
-      if(!(window.FileReader && window.Blob)) {
-        return;
-      }
-
-      var input        = $(this);
-      var val          = input.val();
-      var allowedTypes = input.attr('accept').split(',');
-      var files        = input[0].files;
-      var maxBytes     = input.data('max-bytes');
-
-      if(val && val.length > 0){
-
-        var ext           = val.slice(val.lastIndexOf('.'));
-        var isAllowedSize = maxBytes ? parseInt(maxBytes) >= files[0].size : true;
-        var isAllowedType = false;
-
-        $.each(allowedTypes, function(){
-
-          var isMime    = this.indexOf('/') > -1;
-          var allowRule = this.trim().toUpperCase();
-
-          if(isMime){
-
-            var mimeType = files[0].type.toUpperCase();
-
-            if(mimeType == allowRule){
-              isAllowedType = true;
-              return false;
-            }
-            else if(allowRule.indexOf('*') > -1){
-
-              if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
-                isAllowedType = true;
-                return false;
-              }
-            }
-          }
-          else if(ext && ext.length > 0){
-            if(ext.toUpperCase() == this.trim().toUpperCase()){
-              isAllowedType = true;
-              return false;
-            }
-          }
-        });
-
-        if(!isAllowedType){
-          var msg1 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowedTypes.join(', ')}) : 'Invalid file type';
-          addValidationError($(this), msg1);
-        }
-        else if(!isAllowedSize){
-          var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes / (1024 * 1024) }) : 'Invalid file size';
-          addValidationError($(this), msg2);
-        }
-        else{
-          removeValidationError($(this));
-        }
-      }
-
+      validateFileInput($(this));
     });
+  }
+
+  function validateFileInput(input){
+
+    if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
+      console.log('all front-end validation disabled');
+      return true;
+    }
+    removeValidationError(input);
+
+    if(!(window.FileReader && window.Blob)) {
+      return true;
+    }
+
+    var reFileStem   = /([^/]*)$/;
+    var val          = input.val();
+    var allowedTypes = input.attr('accept').split(',');
+    var files        = input[0].files;
+    var maxBytes     = input.data('max-bytes');
+
+    if(val && val.length > 0){
+
+      var ext           = val.slice(val.lastIndexOf('.'));
+      var isAllowedSize = maxBytes ? parseInt(maxBytes) >= files[0].size : true;
+      var isAllowedType = false;
+
+      $.each(allowedTypes, function(){
+
+        var isMime    = this.indexOf('/') > -1;
+        var allowRule = this.trim().toUpperCase();
+
+        if(isMime){
+
+          var mimeType = files[0].type.toUpperCase();
+
+          if(mimeType == allowRule){
+            isAllowedType = true;
+            return false;
+          }
+          else if(allowRule.indexOf('*') > -1){
+
+            if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
+              isAllowedType = true;
+              return false;
+            }
+          }
+        }
+        else if(ext && ext.length > 0){
+          if(ext.toUpperCase() == this.trim().toUpperCase()){
+            isAllowedType = true;
+            return false;
+          }
+        }
+      });
+
+      if(!isAllowedType){
+        var msg1 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-type', {allowed_types: allowedTypes.join(', ')}) : 'Invalid file type';
+        addValidationError(input, msg1);
+        return false;
+      }
+      else if(!isAllowedSize){
+        var msg2 = window.I18n ? window.I18n.translate('global.forms.validation-errors.file-size', {limit_mb: maxBytes / (1024 * 1024) }) : 'Invalid file size';
+        addValidationError(input, msg2);
+        return false;
+      }
+      else{
+        removeValidationError(input);
+        return true;
+      }
+    }
+    else{
+      return true;
+    }
   }
 
   function initPage(){
