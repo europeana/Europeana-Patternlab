@@ -53,8 +53,9 @@ noscript div{
       transform:    translateX(-50%);
 
       &:hover{
-        border-color: $black;
-        color:        $black;
+        background-color: transparent;
+        border-color:     $black;
+        color:            $black;
       }
     }
   }
