@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+
 $ugc-padding:             2rem;
 $ugc-padding-half:        calc(#{$ugc-padding} / 2);
 $ugc-thumb-dimension-w:   10rem;
@@ -39,7 +41,7 @@ noscript div{
     width:            auto;
 
     h1{
-      font-weight: bold;
+      font-weight: 600;
     }
     h3{
       font-weight: normal;
@@ -52,6 +54,7 @@ noscript div{
       margin-top:   $space-half;
       transform:    translateX(-50%);
 
+      &:active,
       &:hover{
         background-color: transparent;
         border-color:     $black;
@@ -207,6 +210,27 @@ noscript div{
 
 }
 
+
+.ugc-content,
+.ugc-landing-hero,
+.ugc-landing-hero ~ .lc,
+.ugc-landing-hero ~ .section,
+.ugc-landing-hero ~ .footer{
+
+  font-family: 'Open Sans', sans-serif;
+
+  .hero-text{
+
+    h1{
+      font-weight: 600;
+    }
+
+    h1,
+    h3{
+      font-family: 'Open Sans', sans-serif;
+    }
+  }
+}
 
 .ugc-content{
 
@@ -928,7 +952,7 @@ noscript div{
     position:         relative;
     width:            auto;
     h1{
-      font-weight:    bold;
+      font-weight:    600;
       text-transform: none;
     }
     h3{
