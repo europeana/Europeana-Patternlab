@@ -56,9 +56,9 @@ noscript div{
 
       &:active,
       &:hover{
-        background-color: transparent;
-        border-color:     $black;
-        color:            $black;
+        background-color: $white;
+        border-color:     $white;
+        color:            $eu-blue;
       }
     }
   }
