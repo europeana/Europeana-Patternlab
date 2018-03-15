@@ -475,7 +475,7 @@ define(['jquery', 'util_resize'], function($){
         $(ob).find('.license-radio-option').wrapAll('<div class="licenses">');
       });
 
-      var $el = $('.licenses:not(.js-swipe-bound)');
+      var $el = $('.license-section > .licenses');
 
       if($el.length > 0){
 
