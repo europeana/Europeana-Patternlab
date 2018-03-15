@@ -426,7 +426,7 @@ define(['jquery', 'util_resize'], function($){
 
     var bugs = 0;
 
-    $.each(['copies', 'requires', 'requires-override', 'makes-required'], function(i, attr){
+    $.each(['copies', 'clears-when-cleared', 'requires', 'requires-override', 'makes-required'], function(i, attr){
 
       $('[data-' + attr + ']').each(function(i, ob){
 
