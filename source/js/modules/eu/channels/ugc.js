@@ -422,7 +422,7 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
-  $(window).on('debugDataAttribues', function(){
+  $(window).on('debugDataAttributes', function(){
 
     var bugs = 0;
 
@@ -435,13 +435,13 @@ define(['jquery', 'util_resize'], function($){
 
         if(['copies', 'requires'].indexOf(attr) > -1){
           if( $('#' + ref).length == 0 ){
-            console.log('misconfigured data-' + attr + ': ' + ref);
+            console.log('misconfigured data-' + attr + ': ' + ref + ' (referred to by element ' + el[0].nodeName + ': ' + (el.attr('id') || el.attr('class'))  + ')');
             bugs += 1;
           }
         }
         else{
           if( $('.' + ref).find(':input').length == 0 ){
-            console.log('misconfigured data-' + attr + ': ' + ref);
+            console.log('misconfigured data-' + attr + ': ' + ref + ' (referred to by element ' + el[0].nodeName + ': ' + (el.attr('id') || el.attr('class'))  + ')');
             bugs += 1;
           }
         }
