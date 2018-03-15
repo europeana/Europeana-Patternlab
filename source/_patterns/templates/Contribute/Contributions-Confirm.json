@@ -1,0 +1,34 @@
+{
+  "bodyclass": "europeana_search",
+  "page_title": "Europeana Search",
+  "page_locale": "en",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "migration/index"
+    }
+  ],
+  "content":{
+    "flash_notice": "Flash notice",
+    "confirmation_text": "Are you totally sure?",
+    "title": "Confirm Deletion"
+  }
+}
