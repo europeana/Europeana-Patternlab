@@ -27,8 +27,9 @@
     }
   ],
   "content":{
-    "flash_notice": "Flash notice",
     "confirmation_text": "Are you totally sure?",
+    "flash_notice": "Flash notice",
+    "form": "<form class=\"eu-confirmation-form\"><input type=\"submit\" value=\"Delete!\"/></form>",
     "title": "Confirm Deletion"
   }
 }

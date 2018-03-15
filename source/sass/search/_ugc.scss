@@ -249,6 +249,10 @@ noscript div{
     }
   }
 
+  .eu-confirmation-form{
+    margin-bottom: 3rem;
+  }
+
   .label-and-input:not(.positioned-right) label{
     color:          $gray-med;
     display:        block;
@@ -300,9 +304,7 @@ noscript div{
     }
   }
 
-  // TODO: remove ref to story
-  &.new-contribution form,
-  &.new-story form{
+  &.new-contribution form{
     margin:    auto;
     max-width: 100%;
     overflow:  hidden;
