@@ -347,7 +347,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.channel-object-media-actions').removeClass('js-hidden');
     });
 
-    fixZoomableWidth();
   }
 
   function initMedia(index){
@@ -1643,6 +1642,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
             carousel.loadMore();
           }
 
+          fixZoomableWidth();
           setTimeout(function(){
             $('.channel-object-media-nav').removeClass('js-transparent');
           }, 2100);
@@ -1651,6 +1651,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else{
       $('.channel-object-media-nav').remove();
+      fixZoomableWidth();
     }
   };
 
