@@ -15,7 +15,7 @@ require.config({
 
 require(['jquery'], function(){
   require(['leaflet', 'leaflet_zoom_slider'], function() {
-    require(['media_viewer_iiif'], function(viewer) {
+    require(['media_viewer_iiif', 'purl'], function(viewer) {
 
       var init = function(){
 
@@ -37,6 +37,7 @@ require(['jquery'], function(){
           console.log('using default manifestoUrl: ' + manifestoUrl);
         }
         viewer.setTranscriptionUrls(['iiif_transcriptions?index=1', 'iiif_transcriptions?index=2']);
+        viewer.setPreloadDepth($.url(window.location.href).param()['preload-depth']);
         viewer.init(manifestoUrl, null, true, true);
       };
 
