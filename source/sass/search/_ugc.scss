@@ -426,6 +426,17 @@ noscript div{
     padding: 0 0 1.6rem 0;
   }
 
+  .ugc-confirm-header{
+
+    font-size:  1.6em;
+    text-align: center;
+
+    &:last-of-type{
+      font-size: 1.2em;
+    }
+
+  }
+
   .hint{
     font-size:  $font-size-slightly-smaller;
     font-style: normal;
