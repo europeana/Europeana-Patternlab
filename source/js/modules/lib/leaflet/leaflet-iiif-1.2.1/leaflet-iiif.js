@@ -80,7 +80,6 @@ L.TileLayer.Iiif = L.TileLayer.extend({
           }, this.options));
 
           $(window).trigger('iiif-preload', {'tileUrl': nextResult});
-          console.log('preload - ' + i);
         }
 
       }
