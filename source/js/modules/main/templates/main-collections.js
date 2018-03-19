@@ -49,6 +49,7 @@ require.config({
     hotjar:                        '../../lib/hotjar',
 
     leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
 

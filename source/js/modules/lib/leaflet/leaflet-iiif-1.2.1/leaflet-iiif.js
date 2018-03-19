@@ -52,41 +52,13 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     var xDiff = (maxx - minx);
     var yDiff = (maxy - miny);
 
-    var result = L.Util.template(this._baseUrl, L.extend({
+    return L.Util.template(this._baseUrl, L.extend({
       format: _this.options.tileFormat,
       quality: _this.quality,
       region: [minx, miny, xDiff, yDiff].join(','),
       rotation: 0,
       size: Math.ceil(xDiff / scale) + ','
     }, this.options));
-
-
-    if('Europeana Addition' && window.preloadDepth){ // TODO: move this to an extension of leaflet-iiif
-
-      for(var i=0; i<window.preloadDepth; i++){
-
-        zoom = zoom + 1;
-
-        if(zoom <= _this.maxZoom){
-
-          scale = Math.pow(2, _this.maxNativeZoom - zoom);
-
-          var nextResult = L.Util.template(this._baseUrl, L.extend({
-            format: _this.options.tileFormat,
-            quality: _this.quality,
-            region: [minx, miny, xDiff, yDiff].join(','),
-            rotation: 0,
-            size: Math.ceil(xDiff / scale) + ','
-          }, this.options));
-
-          $(window).trigger('iiif-preload', {'tileUrl': nextResult});
-        }
-
-      }
-    }
-
-    return result;
-
   },
   onAdd: function(map) {
     var _this = this;

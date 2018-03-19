@@ -38,7 +38,7 @@ define(['jquery'], function($){
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var allCanvases       = [];
-  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: true};
+  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 2};
 
   var features          = {};
 
@@ -80,7 +80,6 @@ define(['jquery'], function($){
         var data = allCanvases[index];
         var layerName = index + '';
         if(! iiifLayers[layerName] ){
-
           var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
           iiifLayers[layerName] = iiifLayer;
           noLoaded += 1;
@@ -187,15 +186,6 @@ define(['jquery'], function($){
       $('.leaflet-container').removeAttr('style');
     });
 
-    if(window.preloadDepth && window.preloadDepth > 0){ // TODO: extend leafley-iiif with this variable built in
-
-      $('body').append('<div class="tile-preload" style="width: 0px;">');
-
-      $(window).on('iiif-preload', function(evt, data){
-        $('.tile-preload').append('<img src="' + data.tileUrl + '">');
-      });
-    }
-
     $('#iiif-ctrl .first').off('click').on('click', function(e){
       e.preventDefault();
       nav($(this), 0);
@@ -298,13 +288,6 @@ define(['jquery'], function($){
       });
     }
 
-  }
-
-  function setPreloadDepth(depth){
-    if(depth && (parseInt(depth) + 0 == depth + '')){
-      window.preloadDepth = depth;
-      console.log('set preloadDepth to ' + window.preloadDepth);
-    }
   }
 
   function setTranscriptionUrls(urls){
@@ -445,7 +428,6 @@ define(['jquery'], function($){
       });
     },
     setTranscriptionUrls: setTranscriptionUrls,
-    setPreloadDepth: setPreloadDepth,
     hide: function(){
       iiif.remove();
       currentImg   = 0;

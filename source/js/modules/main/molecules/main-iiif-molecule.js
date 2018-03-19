@@ -4,6 +4,7 @@ require.config({
     jqScrollto:          '../../lib/jquery/jquery.scrollTo',
     jquery:              '../../lib/jquery/jquery',
     leaflet:             '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_edgebuffer:  '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_zoom_slider: '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
@@ -14,8 +15,8 @@ require.config({
 });
 
 require(['jquery'], function(){
-  require(['leaflet', 'leaflet_zoom_slider'], function() {
-    require(['media_viewer_iiif', 'purl'], function(viewer) {
+  require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer'], function() {
+    require(['media_viewer_iiif'], function(viewer) {
 
       var init = function(){
 
@@ -37,7 +38,6 @@ require(['jquery'], function(){
           console.log('using default manifestoUrl: ' + manifestoUrl);
         }
         viewer.setTranscriptionUrls(['iiif_transcriptions?index=1', 'iiif_transcriptions?index=2']);
-        viewer.setPreloadDepth($.url(window.location.href).param()['preload-depth']);
         viewer.init(manifestoUrl, null, true, true);
       };
 
