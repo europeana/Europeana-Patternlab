@@ -888,7 +888,7 @@ noscript div{
       }
     }
 
-    .error:not(.global),
+    :not(.license-section) + .error:not(.global),
     .hint{
       left:      $desktop-label-width;
       max-width: $desktop-input-max-width;
