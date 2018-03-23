@@ -1,7 +1,7 @@
 var tests = [];
 
 for (var file in window.__karma__.files){
-  if (/\-test\.js$/.test(file)){
+  if (/-test\.js$/.test(file)){
     tests.push(file);
   }
 }
@@ -33,7 +33,6 @@ requirejs.config({
       deps:['jquery']
     }
   },
-  //callback: mocha.run,
   callback: window.__karma__.start,
   deps: tests
 });
