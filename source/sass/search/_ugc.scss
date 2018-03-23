@@ -888,13 +888,14 @@ noscript div{
       }
     }
 
-    :not(.license-section) + .error:not(.global),
+    .error:not(.global),
     .hint{
       left:      $desktop-label-width;
       max-width: $desktop-input-max-width;
       position:  relative;
     }
 
+    .license-section + .error:not(.global),
     .full-width + .error,
     .full-width + .hint{
       position:  static;
