@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize'], function($){
+define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   var formSel  = '.eu-ugc-form';
   var formSave = null;
@@ -79,6 +79,12 @@ define(['jquery', 'util_resize'], function($){
     $(document).on('blur', 'input:not([type="file"][accept]),textarea,select', function(){
       onBlur($(this));
     });
+
+    // instant validation for radios and checkboxes
+    $(document).on('click', ':input[type="radio"],:input[type="checkbox"]', function(){
+      onBlur($(this));
+    });
+
   }
 
   function bindDynamicFieldset(){
@@ -96,7 +102,7 @@ define(['jquery', 'util_resize'], function($){
       }
       initAutoCompletes();
       initCopyFields();
-      initHiddenFields();
+      EuFormUtils.evalAllRequires();
       initSwipeableLicense();
     });
 
@@ -112,155 +118,6 @@ define(['jquery', 'util_resize'], function($){
     });
 
     reindex();
-  }
-
-
-  // return 1, -1 or 0 (true, false, NA)
-  function evalHiddenFieldOverride(f){
-
-    var ref = f.data('requires-override');
-
-    if(ref){
-      var $ref = $('#' + ref);
-
-      if($ref.length > 0){
-        if($ref.attr('type').toUpperCase()=='CHECKBOX'){
-          return $ref.is(':checked') ? 1 : -1;
-        }
-        else if($ref.attr('type').toUpperCase()=='RADIO'){
-          return $('[name="' + $ref.attr('name') + '"]:checked').val();
-        }
-        return $ref.val() ? 1 : -1;
-      }
-    }
-    return 0;
-  }
-
-  function evalHiddenFields(f){
-
-    var fs = $('[data-requires="' + f.attr('id') + '"]');
-
-    if(getFieldValTruthy(f)){
-      fs.each(function(){
-        var $this = $(this);
-
-        var ovverride = evalHiddenFieldOverride($this);
-
-        if(ovverride == 1){
-          $this.removeClass('enabled');
-          $this.find(':input').prop('disabled', true);
-        }
-        else{
-          $this.addClass('enabled');
-          $this.find(':input').prop('disabled', false);
-        }
-      });
-    }
-    else{
-      fs.removeClass('enabled');
-      fs.find(':input').prop('disabled', true);
-    }
-  }
-
-  function initHiddenFields(){
-    $(':input').each(function(){
-      evalHiddenFields($(this));
-    });
-  }
-
-  function getFieldValTruthy($el){
-
-    var type  = $el.attr('type') || '';
-
-    if(type.toUpperCase()=='CHECKBOX'){
-      return $el.is(':checked');
-    }
-    else if(type.toUpperCase()=='RADIO'){
-      return $('[name="' + $el.attr('name') + '"]:checked').val();
-    }
-    else{
-      return $el.val() && $el.val().length > 0;
-    }
-  }
-
-  function evalMakesRequired($el){
-
-    var ref = $el.data('makes-required');
-    if(ref){
-      var refEls = $('.' + ref).find(':input');
-      var apply  = getFieldValTruthy($el);
-
-      refEls.each(function(){
-        makeFieldOptional($(this), !apply);
-      });
-    }
-  }
-
-  function evalMakesOptional($el){
-
-    var ref = $el.data('makes-optional');
-    if(ref){
-      makeFieldOptional($('#' + ref), getFieldValTruthy($el));
-    }
-  }
-
-  function makeFieldOptional($f, tf){
-
-    if(tf){
-      $f.removeAttr('required');
-    }
-    else{
-      $f.attr('required', 'required');
-    }
-    onBlur($f);
-  }
-
-  function bindHiddenFields(){
-
-    $(document).on('change', ':input', function(){
-      evalHiddenFields($(this));
-    });
-
-    $(document).on('click', ':input[type="radio"]', function(){
-      onBlur($(this));
-    });
-
-    $(document).on('click', ':input[type="checkbox"]', function(){
-
-      var $this         = $(this);
-      var makesOptional = $this.data('makes-optional');
-
-      $('[data-requires-override="' + $this.attr('id') + '"]').each(function(i, ob){
-
-        var ref       = $(ob).data('requires');
-        var $required = $('#' + ref);
-
-        if(ref && ref.length > 0 && $required.length > 0){
-          evalHiddenFields($required);
-        }
-      });
-
-      if(makesOptional){
-        makeFieldOptional($('#' + makesOptional), $this.is(':checked'));
-      }
-      onBlur($this);
-    });
-
-    $(document).on('change', ':input[type="file"]', function(){
-
-      var $this         = $(this);
-      var clearsFields  = $this.data('clears-when-cleared');
-
-      if($this.data('makes-required')){
-        evalMakesRequired($this);
-      }
-
-      if(clearsFields && $this.val().length == 0){
-        clearsFields = $('.' + clearsFields).find(':input');
-        clearsFields.prop('checked', false);
-      }
-    });
-
   }
 
   function evalCopyFields(f){
@@ -509,7 +366,6 @@ define(['jquery', 'util_resize'], function($){
             console.log('No license data found (' + license + ')');
           }
         });
-
       }
     });
   }
@@ -697,7 +553,7 @@ define(['jquery', 'util_resize'], function($){
       $('.ugc-content').addClass('external-js-loaded');
 
       $(document).on('eu-form-save-initialised', function(){
-        initHiddenFields();
+        EuFormUtils.evalAllRequires();
         initCopyFields();
       });
 
@@ -705,28 +561,11 @@ define(['jquery', 'util_resize'], function($){
         initFormSave();
       }
       else{
-        initHiddenFields();
+        EuFormUtils.evalAllRequires();
         initCopyFields();
       }
 
-      $('[data-makes-required]').each(function(){
-
-        var $this = $(this);
-
-        if(getFieldValTruthy($this)){
-          evalMakesRequired($this);
-        }
-      });
-
-      $('[data-makes-optional]').each(function(){
-
-        var $this         = $(this);
-
-        if(getFieldValTruthy($this)){
-          evalMakesOptional($this);
-        }
-      });
-
+      EuFormUtils.initMakesRequired(onBlur);
       initSwipeableLicense();
     });
 
@@ -734,9 +573,9 @@ define(['jquery', 'util_resize'], function($){
     initDateFields();
     initFileFields();
     bindDynamicFieldset();
-
     bindCopyFields();
-    bindHiddenFields();
+
+    EuFormUtils.initRequires();
 
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       initClientSideValidation();
