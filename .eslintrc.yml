@@ -6,6 +6,7 @@ extends:
   'eslint:recommended'
 globals:
   define: false
+  module: false
   pageName: false
   require: false
   requirejs: false
