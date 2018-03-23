@@ -1,3 +1,5 @@
 **/*.json.js
 **/js/modules/lib/*
+**/js/modules/require.js
 **/js/unit-tests/lib/*
+ 
