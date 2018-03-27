@@ -1,12 +1,15 @@
 env:
   browser: true
   jquery: true
+  jasmine: true
 extends:
   'eslint:recommended'
 globals:
   define: false
+  module: false
   pageName: false
   require: false
+  requirejs: false
   ugcEnabledCollections: false
   window: false
 rules:

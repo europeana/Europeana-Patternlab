@@ -1,0 +1,41 @@
+<h2>Test Form Utils</h2>
+<form>
+  <style>
+    input:invalid{
+      background-color: red;
+    }
+    [data-requires]{
+      display: none;
+    }
+    [data-requires].enabled{
+      display: block;
+    }
+  </style>
+
+  <input id="make-me-optional"       required="true">
+  <input id="make-it-optional"       data-makes-optional="make-me-optional">
+  <input id="make-it-optional-cb"    data-makes-optional="make-me-optional" type="checkbox">
+  <input id="make-it-optional-radio" data-makes-optional="make-me-optional" type="radio" name="make-it-optional-radio" autocomplete="off" value="yes">
+
+  <br>
+  <br>
+
+  <div class="make-my-input-children-required">
+    <input>
+  </div>
+  <input id="make-it-required" data-makes-required="make-my-input-children-required">
+
+  <br>
+  <br>
+
+  <div id="make-me-visible" data-requires="make-it-visible" data-requires-override="make-it-visible-override">
+    Div content hidden.
+  </div>
+  <select id="make-it-visible">
+    <option>Select</option>
+    <option value="1">1</option>
+  </select>
+  <input id="make-it-visible-override" type="checkbox">
+
+
+</form>
