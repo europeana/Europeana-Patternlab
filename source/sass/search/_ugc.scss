@@ -895,6 +895,7 @@ noscript div{
       position:  relative;
     }
 
+    .license-section + .error:not(.global),
     .full-width + .error,
     .full-width + .hint{
       position:  static;
