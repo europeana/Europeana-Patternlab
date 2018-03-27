@@ -101,7 +101,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         formSave.trackHidden();
       }
       initAutoCompletes();
-      initCopyFields();
+      EuFormUtils.initCopyFields();
       EuFormUtils.evalAllRequires();
       initSwipeableLicense();
     });
@@ -119,51 +119,6 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
     reindex();
   }
-
-  function evalCopyFields(f){
-
-    var fc = $('[data-copies="' + f.attr('id') + '"]');
-
-    if(f.val().length > 0){
-      fc.prev('.btn-copy').addClass('enabled');
-    }
-    else{
-      fc.prev('.btn-copy').removeClass('enabled');
-    }
-  }
-
-  function initCopyFields(){
-
-    var copyFields = $('[data-copies]:not(.copies-initialised)');
-
-    copyFields.each(function(){
-
-      $(this).addClass('copies-initialised');
-      $(this).closest('.input').addClass('copies-other-field');
-      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
-    });
-
-    $(':input').each(function(){
-      evalCopyFields($(this));
-    });
-  }
-
-  function bindCopyFields(){
-
-    $(document).on('keyup', ':input', function(){
-      evalCopyFields($(this));
-    });
-
-    $(document).on('click', '.btn-copy', function(){
-      var copyTo   = $(this).next('[data-copies]');
-      var copyFrom = $('#' + copyTo.data('copies'));
-      copyTo.val(copyFrom.val());
-      copyTo.blur();
-      copyTo.trigger('change');
-      evalCopyFields(copyTo);
-    });
-  }
-
 
   function getAutocompleteConfig($el){
 
@@ -554,7 +509,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
       $(document).on('eu-form-save-initialised', function(){
         EuFormUtils.evalAllRequires();
-        initCopyFields();
+        EuFormUtils.initCopyFields();
       });
 
       if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
@@ -562,7 +517,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       }
       else{
         EuFormUtils.evalAllRequires();
-        initCopyFields();
+        EuFormUtils.initCopyFields();
       }
 
       EuFormUtils.initMakesRequired(onBlur);
@@ -573,7 +528,6 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     initDateFields();
     initFileFields();
     bindDynamicFieldset();
-    bindCopyFields();
 
     EuFormUtils.initRequires();
 

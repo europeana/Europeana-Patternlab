@@ -167,18 +167,18 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
 
         expect(referencedClass).toBeTruthy();
         expect(referencedEl).toExist();
-
         expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
 
         elMakesRequired.val('a');
-        EuFormUtils.evalMakesRequired(elMakesRequired);
+
+        var kEvent = document.createEvent('KeyboardEvent');
+        kEvent.initKeyEvent('keypress', true, true, null, false, false, false, false, 74, 74);
+        elMakesRequired[0].dispatchEvent(kEvent);
 
         expect(referencedEl.find('input:valid').length).toBe(0);
       });
 
-
     });
-
 
   });
 });

@@ -1,0 +1,112 @@
+<div style="width:50%; margin:auto;">
+
+  <style>
+    legend{
+      font-weight: bold;
+    }
+    input:invalid{
+      background-color: red;
+    }
+    [data-requires]{
+      display: none;
+    }
+    [data-requires].enabled{
+      display: block;
+    }
+    .copies-other-field{
+      position: relative;
+    }
+
+    .btn-copy{
+      border-bottom:  1px dotted #000;
+      color:          #000;
+      font-size:      0.75em;
+      opacity:        0;
+      padding-top:    0.75em;
+      pointer-events: none;
+      position:       absolute;
+      right:          1em;
+      transition:     opacity 0.3s ease;
+    }
+
+    .btn-copy.enabled{
+      opacity:        1;
+      pointer-events: auto;
+    }
+
+    .btn-copy:hover,
+    .btn-copy:focus{
+      border-bottom: 1px dotted #1676aa;;
+      color:         #1676aa;;
+    }
+
+    .relative{
+      position: relative;
+    }
+
+  }
+
+
+  </style>
+
+  <form>
+
+    <fieldset><legend>Requires</legend>
+
+      <label for="has-story">Do you have a story?</label>
+      <input name="has-story" id="has-story"/>
+      <br/>
+      <br/>
+      <div data-requires="has-story">
+        <label for="story">Tell your story</label>
+        <input name="story" id="story"/>
+      </div>
+    </fieldset>
+
+    <br/>
+    <br/>
+
+    <fieldset><legend>Copies</legend>
+      <label for="copy-source">Copy from here</label>
+      <input name="copy-source" id="copy-source"/>
+      <br/>
+      <br/>
+      <label for="copy-target">Copy to here</label>
+      <div class="relative">
+        <input name="copy-target" id="copy-target" data-copies="copy-source"/>
+      </div>
+    </fieldset>
+
+    <br/>
+    <br/>
+
+    <fieldset><legend>Makes Optional</legend>
+
+      <label for="name">Name</label>
+      <input name="name" id="name" required="required"/>
+      <br/>
+      <br/>
+      <label for="alternative-name">Alternative Name (makes name optional)</label>
+      <input name="alternative-name" data-makes-optional="name"/>
+    </fieldset>
+
+    <br/>
+    <br/>
+
+    <fieldset><legend>Makes Required</legend>
+
+      <label for="over-18">Are you over 18?</label>
+      <input name="over-18" id="over-18" type="checkbox" data-makes-required="dob-fields"/>
+      <br/>
+      <br/>
+      <div class="dob-fields">
+        <label for="dob">When was your birthday?</label>
+        <input name="dob" type="date"/>
+      </div>
+
+    </fieldset>
+
+  </form>
+
+</div>
+

@@ -1,5 +1,7 @@
 define(['jquery'], function($){
 
+  var copyFieldsBound = false;
+
   function evalAllRequires(){
 
     $(':input').each(function(){
@@ -132,8 +134,16 @@ define(['jquery'], function($){
       }
     });
 
+    $(document).on('change', ':input[type="file"],:input[type="checkbox"]', function(){
 
-    $(document).on('change', ':input[type="file"]', function(){
+      var $this = $(this);
+
+      if($this.data('makes-required')){
+        evalMakesRequired($this, fnValidate);
+      }
+    });
+
+    $(document).on('keypress', ':input', function(){
 
       var $this = $(this);
 
@@ -173,16 +183,65 @@ define(['jquery'], function($){
     }
   }
 
+  function bindCopyFields(){
+
+    $(document).on('keyup', ':input', function(){
+      evalCopyFields($(this));
+    });
+
+    $(document).on('click', '.btn-copy', function(){
+      var copyTo   = $(this).next('[data-copies]');
+      var copyFrom = $('#' + copyTo.data('copies'));
+      copyTo.val(copyFrom.val());
+      copyTo.blur();
+      copyTo.trigger('change');
+      evalCopyFields(copyTo);
+    });
+  }
+
+  function evalCopyFields(f){
+
+    var fc = $('[data-copies="' + f.attr('id') + '"]');
+
+    if(f.val().length > 0){
+      fc.prev('.btn-copy').addClass('enabled');
+    }
+    else{
+      fc.prev('.btn-copy').removeClass('enabled');
+    }
+  }
+
+  function initCopyFields(){
+
+    var copyFields = $('[data-copies]:not(.copies-initialised)');
+
+    copyFields.each(function(){
+
+      $(this).addClass('copies-initialised');
+      $(this).closest('.input').addClass('copies-other-field');
+      $(this).before('<a class="btn-copy">' + (window.I18n ? window.I18n.translate($(this).data('copies-label-key')) : 'Use Name') + '</a>');
+    });
+
+    $(':input').each(function(){
+      evalCopyFields($(this));
+    });
+
+    if(!copyFieldsBound){
+      copyFieldsBound = true;
+      bindCopyFields();
+    }
+  }
+
   return {
-    evalAllRequires:       evalAllRequires,
-    evalRequires:          evalRequires,
-    evalMakesOptional:     evalMakesOptional,
-    evalMakesRequired:     evalMakesRequired,
-    initMakesOptional:     initMakesOptional,
-    initMakesRequired:     initMakesRequired,
-    initRequires:          initRequires,
-    makeFieldOptional:     makeFieldOptional,
-    getFieldValTruthy:     getFieldValTruthy
+    evalAllRequires:   evalAllRequires,
+    evalRequires:      evalRequires,
+    evalMakesOptional: evalMakesOptional,
+    initCopyFields:    initCopyFields,
+    initMakesOptional: initMakesOptional,
+    initMakesRequired: initMakesRequired,
+    initRequires:      initRequires,
+    makeFieldOptional: makeFieldOptional,
+    getFieldValTruthy: getFieldValTruthy
   };
 
 });

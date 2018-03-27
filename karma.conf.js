@@ -1,18 +1,15 @@
-// Karma configuration
-// Generated on Mon Mar 19 2018 18:53:05 GMT+0100 (CET)
-
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: './source/',
+    // listenAddress: '0.0.0.0',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine', 'requirejs'],
 
     // list of files / patterns to load in the browser
-
     files: [
       'js/unit-tests-require/main.js',
       {
@@ -34,29 +31,47 @@ module.exports = function(config) {
       {pattern: 'js/unit-tests/**/*.js',  included: false},
     ],
 
+    // leave Jasmine Spec Runner output visible in browser
     client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false
     },
 
     // list of files / patterns to exclude
     exclude: [
-      // 'js/unit-tests/eu/autocomplete/eu-autocomplete-test.js'
+       'js/unit-tests/eu/autocomplete/eu-autocomplete-test.js'
     ],
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '**/js/modules/eu/**/*.js': ['coverage']
     },
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    // reporters: ['progress', 'coverage-istanbul'],
-    reporters: ['progress', 'kjhtml', 'coverage-istanbul'],
+    coverageReporter: {
+      dir: '../reports',
+      combineBrowserReports: true,
+      reports: [ 'html', 'lcovonly', 'text-summary' ],
+      reporters: [
+        {
+          type: 'lcovonly',
+          dir:  '../reports/coverage',
+          file: 'lcov.info'
+        },
+        {
+          type: 'html',
+          dir:  '../reports/html'
+        },
+        {
+          type: 'text-summary',
+          dir:  '../reports/text',
+          file: 'tests.info'
+        }
+      ],
+    },
 
+    reporters: ['progress', 'coverage', 'kjhtml'],
 
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ]
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
     },
 
     // web server port
@@ -81,12 +96,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    // singleRun: true,
     singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
   });
-
 };
