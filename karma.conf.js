@@ -38,7 +38,7 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
-       'js/unit-tests/eu/autocomplete/eu-autocomplete-test.js'
+      // 'js/unit-tests/eu/autocomplete/eu-autocomplete-test.js'
     ],
 
     preprocessors: {
