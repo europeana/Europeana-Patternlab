@@ -43,6 +43,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
     "phantomjs": "^2.1.7",
-    "requirejs": "^2.3.5"
+    "requirejs": "^2.3.5",
+    "sonar-scanner": "^3.0.3"
   }
 }
