@@ -52,24 +52,26 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
     it('responds to text entry by displaying items', function(done){
 
-      $(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
+      $(inputSelector).trigger('getSuggestions');
+      // $(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
 
       setTimeout(function() {
         expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
         done();
-      }, 2000);
+      }, 2500);
     });
 
     it('hides its items when the user clicks away', function(done){
 
-      $(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
+      $(inputSelector).trigger('getSuggestions');
+      //$(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
 
       setTimeout(function() {
         expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
         $('h2').click();
         expect($('.eu-autocomplete li').length).toBe(0);
         done();
-      }, 2000);
+      }, 2500);
     });
 
   });

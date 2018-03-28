@@ -170,10 +170,11 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
         expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
 
         elMakesRequired.val('a');
+        elMakesRequired.keypress();
 
-        var kEvent = document.createEvent('KeyboardEvent');
-        kEvent.initKeyEvent('keypress', true, true, null, false, false, false, false, 74, 74);
-        elMakesRequired[0].dispatchEvent(kEvent);
+        //var kEvent = document.createEvent('KeyboardEvent');
+        //kEvent.initKeyEvent('keypress', true, true, null, false, false, false, false, 74, 74);
+        //elMakesRequired[0].dispatchEvent(kEvent);
 
         expect(referencedEl.find('input:valid').length).toBe(0);
       });
