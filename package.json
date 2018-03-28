@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/europeana/Europeana-Patternlab.git"
   },
+  "scripts": {
+    "test": "karma start ./karma.conf.js"
+  },
   "contributors": [
     {
       "name": "Andy MacLean",
