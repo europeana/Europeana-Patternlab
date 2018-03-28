@@ -65,6 +65,9 @@ module.exports = function(config) {
           file: 'tests.info'
         }
       ],
+      subdir: function(browser) {
+        return browser.toLowerCase().split(/[ /-]/)[0];
+      }
     },
 
     reporters: ['progress', 'coverage', 'kjhtml'],
@@ -91,8 +94,9 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     //browsers: ['Chrome', 'Firefox'],
-    browsers: ['Firefox'],
-    //browsers: ['PhantomJS'],
+    browsers: ['PhantomJS'],
+    //browsers: ['Firefox'],
+    //browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
