@@ -1,8 +1,12 @@
+$site-notice-height-def:   84px;
+$site-notice-height-small: 105px;
+$site-notice-height-large: 42px;
+
 .site-notice{
   background-color: $eu-orange;
   color:            #fff;
   display:          flex;
-  height:           84px;
+  height:           $site-notice-height-def;
   justify-content:  center;
   padding:          0 1em;
   position:         fixed;
@@ -37,7 +41,7 @@
 
 .site-notice + .header-wrapper{
 
-  top: 84px;
+  top: $site-notice-height-def;
 
   &::before{
     -moz-box-shadow:    inset 0 -4px 9px -4px #443128;
@@ -53,26 +57,45 @@
   }
 }
 
+.site-notice ~ .pusher{
+  .after-header-with-search{
+    position: relative;
+    top:      $site-notice-height-def;
+  }
+}
+
 @media only screen and (max-width: $bp-small-3) {
 
   .site-notice{
-    height:  105px;
+    height:  $site-notice-height-small;
     padding: 0 0.5em;
   }
 
   .site-notice + .header-wrapper{
-    top: 105px;
+    top: $site-notice-height-small;
+  }
+
+  .site-notice ~ .pusher{
+    .after-header-with-search{
+      top:      $site-notice-height-small;
+    }
   }
 }
 
 @media only screen and (min-width: $bp-large) {
 
   .site-notice{
-    height: 42px;
+    height: $site-notice-height-large;
   }
 
   .site-notice + .header-wrapper{
-    top: 42px;
+    top: $site-notice-height-large;
+  }
+
+  .site-notice ~ .pusher{
+    .after-header-with-search{
+      top:      $site-notice-height-large;
+    }
   }
 }
 

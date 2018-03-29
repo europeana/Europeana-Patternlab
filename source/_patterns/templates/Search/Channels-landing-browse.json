@@ -115,7 +115,7 @@
   },
   "content": {
     "ugc_content":{
-      "include_1418_nav": true,
+      "include_1418_nav": false,
       "base_1418_url": "http://test.1418.eanadev.org"
     },
     "newsletter": {
