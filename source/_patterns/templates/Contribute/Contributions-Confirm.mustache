@@ -31,9 +31,9 @@
       <strong class="flash-notice">{{.}}</strong>
     {{/flash_notice}}
 
-    {{#warning}}
-      <h3>{{.}}</h3>
-    {{/warning}}
+    {{#confirmation_text}}
+      <h1 class="ugc-confirm-header">{{.}}</h1>
+    {{/confirmation_text}}
 
     {{/content}}
 
@@ -44,6 +44,7 @@
         </div>
       </div>
     {{/navigation.secondary}}
+
     {{#content}}
       {{#form}}
         <div class="lc">

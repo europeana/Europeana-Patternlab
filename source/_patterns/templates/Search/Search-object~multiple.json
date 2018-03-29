@@ -697,7 +697,7 @@
           "title": false,
           "items": [
             {"text": "Girl pouring milk into bowl", "url":false},
-            {"text": "A maidservant pours milk, entirely absorbed in her work. Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.", "url":false}
+            {"raw": true, "text": "A maidservant pours milk, entirely absorbed in her work.<br><br>Except for the stream of milk, everything else is still. Vermeer took this simple everyday activity and made it the subject of an impressive painting – the woman stands like a statue in the brightly lit room. Vermeer also had an eye for how light by means of hundreds of colourful dots plays over the surface of objects.", "url":false}
           ]
         }]
       },

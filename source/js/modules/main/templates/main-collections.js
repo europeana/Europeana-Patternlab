@@ -49,6 +49,7 @@ require.config({
     hotjar:                        '../../lib/hotjar',
 
     leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
 
@@ -92,15 +93,9 @@ require.config({
     midi_replayer:                 '../../lib/midijs/replayer',
     midi_vc_base64:                '../../lib/midijs/VersionControl.Base64',
     midi_base64:                   '../../lib/midijs/base64binary',
-
     mustache:                      '../../lib/mustache/mustache',
 
-    NOFlogger:                     '../../lib/904Labs/904-logger',
-    NOFremote:                     '../../lib/904Labs/noflogging-0.2.min',
-//    NOFremote:                     'http://analytics.904labs.com/static/jssdk/noflogging-0.2.min',
-
-//    optimizely:                    'https://cdn.optimizely.com/js/6030790560',
-
+    // optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
     pdfjs:                         '../../lib/pdfjs/pdf',
     pdf_ui:                        '../../lib/pdfjs/pdf-ui',
@@ -115,6 +110,7 @@ require.config({
     util_ellipsis:                 '../../eu/util/ellipsis',
     util_eu_ellipsis:              '../../eu/util/eu-ellipsis',
 
+    util_form:                     '../../eu/util/eu-form-utils',
     util_foldable:                 '../../eu/util/foldable-list',
     util_filterable:               '../../eu/util/foldable-list-filter',
     util_resize:                   '../../eu/util/resize',
@@ -255,18 +251,6 @@ require(['jquery'], function( $ ) {
           });
         });
       }
-
-      /*
-      require(['purl'], function() {
-          require(['NOFlogger'], function(NOFlogger) {
-              NOFlogger.init904();
-              require(['NOFremote'], function() {
-                 console.log('NOFlogger = ' + NOFlogger)
-              });
-
-          });
-      });
-      */
 
     });
   });

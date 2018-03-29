@@ -249,6 +249,47 @@ noscript div{
     }
   }
 
+  .button-row{
+    align-items:     flex-end;
+    display:         flex;
+    justify-content: center;
+
+    .enable-flex:last-of-type{
+      margin-left: 3em;
+    }
+
+    .enable-flex:first-of-type{
+      margin-left: 0;
+    }
+
+    input{
+      ::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .eu-confirmation-form{
+
+    margin-bottom:   3rem;
+
+    input[name="commit"]{
+
+      background:     transparent;
+      border:         1px solid $eu-blue;
+      color:          $eu-blue;
+      display:        inline-block;
+      padding:        1em 2.5em;
+
+      &:focus,
+      &:hover{
+        background-color: $eu-blue;
+        color:            $white;
+      }
+    }
+  }
+
   .label-and-input:not(.positioned-right) label{
     color:          $gray-med;
     display:        block;
@@ -300,9 +341,7 @@ noscript div{
     }
   }
 
-  // TODO: remove ref to story
-  &.new-contribution form,
-  &.new-story form{
+  &.new-contribution form{
     margin:    auto;
     max-width: 100%;
     overflow:  hidden;
@@ -313,11 +352,6 @@ noscript div{
       align-self: start;
       width:      100%;
     }
-    .btn[name="commit"]{
-      display:    block;
-      margin-top: $ugc-padding;
-    }
-
   }
 
   input[name="commit"]{
@@ -390,6 +424,17 @@ noscript div{
   .flash-notice{
     display: block;
     padding: 0 0 1.6rem 0;
+  }
+
+  .ugc-confirm-header{
+
+    font-size:  1.6em;
+    text-align: center;
+
+    &:last-of-type{
+      font-size: 1.2em;
+    }
+
   }
 
   .hint{
@@ -850,6 +895,7 @@ noscript div{
       position:  relative;
     }
 
+    .license-section + .error:not(.global),
     .full-width + .error,
     .full-width + .hint{
       position:  static;

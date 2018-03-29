@@ -27,8 +27,9 @@
     }
   ],
   "content":{
+    "confirmation_text": ["Deletion is irreversible!", "Are you sure you want to permanently remove the contribution?"],
     "flash_notice": "Flash notice",
-    "confirmation_text": "Are you totally sure?",
+    "form": "<form class=\"eu-confirmation-form\"><input type=\"submit\" value=\"Delete!\"/></form>",
     "title": "Confirm Deletion"
   }
 }

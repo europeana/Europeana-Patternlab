@@ -1,11 +1,9 @@
 {
     "patternlab": true,
-
     "version":{
         "is_alpha": false,
         "is_beta": false
     },
-
     "styleguide_root": "",
 
     "page_config": {
@@ -43,6 +41,7 @@
         "name": "Global Channel Name",
         "url": "global_channel_url"
     },
+    "site_notice": "Europeana Collections may experience outages due to ongoing maintenance by our provider, we appreciate your patience during these hours",
     "navigation":
     {
         "home_url": "www.europeana.eu",

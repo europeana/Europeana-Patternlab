@@ -2,6 +2,12 @@
 
 <a href="#maincontent" class="skip-main is-vishidden" data-label-skip-to-section="{{ i18n.global.actions.skip-to-section }}">{{ i18n.global.actions.skip-to-main }}</a>
 
+{{#site_notice}}
+  <div class="site-notice">
+    <span class="msg">{{.}}</span>
+  </div>
+{{/site_notice}}
+
 <div class="header-wrapper{{#include_nav_searchbar}} with-transparency{{/include_nav_searchbar}}">
 
   {{> molecules/blocks/block-cookie-disclaimer }}

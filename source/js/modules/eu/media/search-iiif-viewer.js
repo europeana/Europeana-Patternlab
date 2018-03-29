@@ -38,7 +38,7 @@ define(['jquery'], function($){
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var allCanvases       = [];
-  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: false};
+  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 2};
 
   var features          = {};
 
@@ -80,7 +80,6 @@ define(['jquery'], function($){
         var data = allCanvases[index];
         var layerName = index + '';
         if(! iiifLayers[layerName] ){
-
           var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
           iiifLayers[layerName] = iiifLayer;
           noLoaded += 1;
@@ -163,7 +162,8 @@ define(['jquery'], function($){
       crs: Leaflet.CRS.Simple,
       zoom: 0,
       maxZoom: maxZoom,
-      zoomsliderControl: true
+      zoomsliderControl: true,
+      maxBoundsViscosity: 0.75
     });
 
     if(fullScreenAvailable){
@@ -427,9 +427,7 @@ define(['jquery'], function($){
         });
       });
     },
-    setTranscriptionUrls: function(urls){
-      setTranscriptionUrls(urls);
-    },
+    setTranscriptionUrls: setTranscriptionUrls,
     hide: function(){
       iiif.remove();
       currentImg   = 0;

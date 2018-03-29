@@ -48,7 +48,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
       miny = (y * tileBaseSize),
       maxx = Math.min(minx + tileBaseSize, _this.x),
       maxy = Math.min(miny + tileBaseSize, _this.y);
-    
+
     var xDiff = (maxx - minx);
     var yDiff = (maxy - miny);
 
@@ -97,7 +97,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
   },
   onRemove: function(map) {
     var _this = this;
-    
+
     // Remove maxBounds set for this image
     if(_this.options.setMaxBounds) {
       map.setMaxBounds(null);
@@ -177,7 +177,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
         // Calculates maximum native zoom for the layer
         _this.maxNativeZoom = Math.max(ceilLog2(_this.x / _this.options.tileSize),
           ceilLog2(_this.y / _this.options.tileSize));
-        
+
         // Enable zooming further than native if maxZoom option supplied
         if (_this._customMaxZoom && _this.options.maxZoom > _this.maxNativeZoom) {
           _this.maxZoom = _this.options.maxZoom;
@@ -185,7 +185,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
         else {
           _this.maxZoom = _this.maxNativeZoom;
         }
-        
+
         for (var i = 0; i <= _this.maxZoom; i++) {
           scale = Math.pow(2, _this.maxNativeZoom - i);
           width_ = Math.ceil(_this.x / scale);
