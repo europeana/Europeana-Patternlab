@@ -13,7 +13,7 @@ Styleguide development is done on files within the /source/ directory of this pr
    1. from the root of the working directory run `php core/console --generate`
 
 ## Testing
-Testing ......
+Testing ...... 1,2,3
 
 ## Europeana Pattern Lab
 There are a few differences between the Pattern Lab install at https://github.com/pattern-lab/patternlab-php and the Europeana version of Pattern Lab.
