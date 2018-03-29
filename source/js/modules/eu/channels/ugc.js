@@ -521,6 +521,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       }
 
       EuFormUtils.initMakesRequired(onBlur);
+      EuFormUtils.initMakesOptional(onBlur);
       initSwipeableLicense();
     });
 
