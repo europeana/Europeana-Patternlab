@@ -16,6 +16,16 @@ Styleguide development is done on files within the /source/ directory of this pr
    1. initially the /public directory exists, but only with a README document
    1. from the root of the working directory run `php core/console --generate`
 
+## Testing
+The unit tests under source/js/unit-tests can be run with the commands:
+
+`npm install`
+`npm test`
+
+or alternatively:
+
+`npm install`
+`karma start`
 ## Europeana Pattern Lab
 There are a few differences between the Pattern Lab install at https://github.com/pattern-lab/patternlab-php and the Europeana version of Pattern Lab.
 
