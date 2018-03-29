@@ -1,3 +1,7 @@
+# Europeana Pattern Lab Styleguide
+
+[![Build Status](https://travis-ci.org/europeana/Europeana-Patternlab.svg?branch=develop)](https://travis-ci.org/europeana/Europeana-Patternlab)
+
 ## Background
 Europeana uses Pattern Lab in order to develop its styleguide and maintain its sites’ stylesheets, javascripts, images and markup templates.  Apache, Compass and Php are required to run it.
 
