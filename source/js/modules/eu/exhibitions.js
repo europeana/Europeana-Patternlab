@@ -476,7 +476,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               TweenMax.fromTo(
                 $firstSlide.find('.ve-intro-full-description'),
                 1,
-                { opacity:    0 },
+                {
+                  opacity:    0
+                },
                 {
                   opacity:    1,
                   delay:      0.25,
@@ -484,7 +486,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 }
               )
             )
-            .addTo(smCtrl)
+              .addTo(smCtrl)
           );
         }
         else if(!tabletOrPhone && isIntroE){
@@ -504,13 +506,13 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               reverse:        true,
               offset:         headerHeight
             })
-            .setPin($introE[0])
-            .addTo(smCtrl)
-            .on('progress', function(e){
-              var val = e.progress;
-              $introE.css('filter',         'grayScale(' + val + ')');
-              $introE.css('-webkit-filter', 'grayScale(' + val + ')');
-            })
+              .setPin($introE[0])
+              .addTo(smCtrl)
+              .on('progress', function(e){
+                var val = e.progress;
+                $introE.css('filter',         'grayScale(' + val + ')');
+                $introE.css('-webkit-filter', 'grayScale(' + val + ')');
+              })
           );
 
           // description
@@ -824,15 +826,15 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerHook:    'onEnter'
           }
         ).addTo(smCtrl)
-        .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
-        .on('enter', function(){
-          progNavActive = false;
-          $('.slide-nav-next:first').hide();
-        })
-        .on('leave', function(){
-          progNavActive = true;
-          $('.slide-nav-next:first').show();
-        });
+          .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
+          .on('enter', function(){
+            progNavActive = false;
+            $('.slide-nav-next:first').hide();
+          })
+          .on('leave', function(){
+            progNavActive = true;
+            $('.slide-nav-next:first').show();
+          });
 
         $('.ve-progress-nav a').on('click', function(e){
           e.preventDefault();
