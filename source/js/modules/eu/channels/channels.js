@@ -413,6 +413,9 @@ define(['jquery', 'smartmenus'], function($){
 
   return {
     getPromisedPageJS: function(){
+      if(window.siteNotice && $('.site-notice').length == 0){
+        $('.header-wrapper').before('<div class="site-notice"><span class="msg">' + window.siteNotice + '</span></div>');
+      }
       return promisedPageJS.promise();
     }
   };
