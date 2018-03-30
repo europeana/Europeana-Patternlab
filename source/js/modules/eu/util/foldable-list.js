@@ -4,13 +4,13 @@ define(['jquery'], function($){
     showClass :         'filter-force-show',
     showChildrenClass : 'filter-force-show-children',
     hideClass :         'filter-force-hide'
-  }
+  };
 
   $('.eu-foldable-title').on('click', function(){
-    $this = $(this);
+    var $this = $(this);
 
     // reset any filter
-    $li = $this.closest('li');
+    var $li = $this.closest('li');
     var openedByFilter = $li.hasClass(classes.showClass) || $li.hasClass(classes.showChildrenClass);
     $li.removeClass(classes.showClass);
     $li.removeClass(classes.showChildrenClass);
@@ -18,7 +18,7 @@ define(['jquery'], function($){
 
     // expand / collapse
     if(!openedByFilter){
-      $ul   = $this.next('ul');
+      var $ul   = $this.next('ul');
       $ul.toggleClass('is-hidden');
       $this.toggleClass('opened');
     }
@@ -26,5 +26,5 @@ define(['jquery'], function($){
 
   return {
     classes: classes
-  }
+  };
 });

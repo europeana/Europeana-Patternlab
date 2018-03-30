@@ -1,7 +1,7 @@
 define([], function(){
 
   function isElementInViewport(el){
-    if(typeof jQuery === "function" && el instanceof jQuery){
+    if(typeof jQuery === 'function' && el instanceof jQuery){
       el = el[0];
     }
     var rect = el.getBoundingClientRect();
@@ -13,14 +13,14 @@ define([], function(){
                                                                                * or
                                                                                * $(window).width()
                                                                                */
-      );
-    };
+    );
+  }
 
   function triggerIfInView(trigger){
 
     if(isElementInViewport(trigger[0])){
 
-      var pullTrigger = function($trigger, sendEvent){
+      var pullTrigger = function($trigger){
 
         var eEvent  = $trigger.data('fire-on-open');
         var eParams = $trigger.data('fire-on-open-params');
@@ -41,13 +41,13 @@ define([], function(){
           }
         }
         $(window).trigger(eEvent, eParams);
-      }
+      };
 
       if(trigger.hasClass('trigger-chain')){
         var target = $('#' + trigger.data('fire-on-open-params').trigger + '.scroll-trigger');
         if(target.length > 0){
           trigger.attr('data-enabled', false);
-          pullTrigger(target, false);
+          pullTrigger(target);
         }
         else{
           trigger.attr('data-enabled', false);
@@ -55,10 +55,10 @@ define([], function(){
         }
       }
       else{
-        pullTrigger(trigger, true);
+        pullTrigger(trigger);
       }
     }
-  };
+  }
 
   function fireAllVisible(){
     $('.scroll-trigger').each(function(){
@@ -66,7 +66,7 @@ define([], function(){
         triggerIfInView($(this));
       }
     });
-  };
+  }
 
   function listen(){
     $(window).on('scroll', function(){

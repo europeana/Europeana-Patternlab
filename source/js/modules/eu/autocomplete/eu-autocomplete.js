@@ -192,7 +192,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.$list.css('top', Math.min(listTop-inV, self.$anchor.outerHeight()));
         }
       }
-    },
+    };
 
     this.scrollUpNeeded = function(selItemIn){
 

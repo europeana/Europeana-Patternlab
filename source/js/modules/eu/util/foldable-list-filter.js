@@ -43,11 +43,11 @@ define(['jquery', 'util_foldable'], function($, foldable){
     this.$el.removeClass(classes.hideClass);
   }
 
-  function hideAll(){
-    $(confs).each(function(i, conf){
-      $(conf.elements).addClass(classes.hideClass);
-    });
-  }
+  //function hideAll(){
+  //  $(confs).each(function(i, conf){
+  //    $(conf.elements).addClass(classes.hideClass);
+  //  });
+  //}
 
   function getMatches(str){
 
@@ -130,7 +130,7 @@ define(['jquery', 'util_foldable'], function($, foldable){
       return function debounced(){
 
         var obj = this , args = arguments;
-        function delayed(){
+        var delayed = function(){
 
           if(!execAsap){
             func.apply(obj, args);

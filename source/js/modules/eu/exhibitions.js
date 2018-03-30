@@ -17,7 +17,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       introDuration = parseInt($url.param('introDuration'));
     }
     else{
-      alert('introDuration has to be an int - using default (' + introDuration + ')');
+      console.log('introDuration has to be an int - using default (' + introDuration + ')');
     }
   }
 
@@ -31,7 +31,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       scrollDuration = parseInt($url.param('scrollDuration'));
     }
     else{
-      alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
+      console.log('scrollDuration has to be an int - using default (' + scrollDuration + ')');
     }
   }
 
@@ -414,7 +414,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   1,
                   {
                     opacity: 0,
-                    ease:    Cubic.easeOut
+                    ease:    window.Cubic.easeOut
                   }
                 )
               )
@@ -432,7 +432,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   1,
                   {
                     opacity: 0,
-                    ease:    Cubic.easeOut
+                    ease:    window.Cubic.easeOut
                   }
                 )
               )
@@ -457,7 +457,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 {
                   delay:      0.25,
                   width:      sassVars.ve_image_column_width,
-                  ease:       Cubic.easeOut,
+                  ease:       window.Cubic.easeOut,
                   minHeight: '60vh'
                 }
               )
@@ -480,7 +480,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 {
                   opacity:    1,
                   delay:      0.25,
-                  ease:       Cubic.easeOut
+                  ease:       window.Cubic.easeOut
                 }
               )
             )
@@ -532,7 +532,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 },
                 {
                   top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
-                  ease:   Cubic.easeIn
+                  ease:   window.Cubic.easeIn
                 }
               )
             )
@@ -596,7 +596,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                       },
                       {
                         opacity: 1,
-                        ease:    Cubic.easeIn
+                        ease:    window.Cubic.easeIn
                       }
                     )
                   )
@@ -690,7 +690,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function handleEllipsis(){
-    var ellipsisObjects = [];
+    // var ellipsisObjects = [];
     var texts = $('.ve-foyer-card-state .text-box.description:not(.js-ellipsis)');
     var toFix = [];
 
@@ -701,10 +701,11 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     if(toFix.length>0){
       require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create($(toFix));
-        for(var i = 0; i < ellipsis.length; i++){
-          ellipsisObjects.push(ellipsis[i]);
-        }
+        EllipsisUtil.create($(toFix));
+        //var ellipsis = EllipsisUtil.create($(toFix));
+        //for(var i = 0; i < ellipsis.length; i++){
+        //  ellipsisObjects.push(ellipsis[i]);
+        //}
       });
     }
   }
@@ -823,7 +824,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerHook:    'onEnter'
           }
         ).addTo(smCtrl)
-        .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}))
+        .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
         .on('enter', function(){
           progNavActive = false;
           $('.slide-nav-next:first').hide();
