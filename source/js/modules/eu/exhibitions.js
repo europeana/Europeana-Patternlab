@@ -418,7 +418,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                     }
                   )
                 )
-                .addTo(smCtrl));
+              .addTo(smCtrl));
 
             sfxScenes.push(
               new ScrollMagic.Scene({
