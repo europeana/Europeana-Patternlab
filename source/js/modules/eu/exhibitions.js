@@ -429,10 +429,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 TweenMax.to(
                   $('.ve-base-intro-texts .ve-branding'),
                   1,
-                  {
-                    opacity: 0,
-                    ease:    window.Cubic.easeOut
-                  }
+                  { opacity: 0, ease: window.Cubic.easeOut }
                 )
               ).addTo(smCtrl)
             );
