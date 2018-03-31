@@ -593,9 +593,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                       {
                         opacity: 0
                       },
-                      {
-                        opacity: 1, ease: window.Cubic.easeIn
-                      }
+                      { opacity: 1, ease: window.Cubic.easeIn }
                     )
                   )
                   .addTo(smCtrl)
