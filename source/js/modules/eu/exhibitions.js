@@ -530,7 +530,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 fullDescription,
                 1,
                 {
-                  top:    introHeight,
+                  top:    introHeight
                 },
                 {
                   top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
