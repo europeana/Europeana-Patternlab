@@ -823,7 +823,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerElement: '#ve-end',
             triggerHook:    'onEnter'
           }
-        )
+          )
           .addTo(smCtrl)
           .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
           .on('enter', function(){
