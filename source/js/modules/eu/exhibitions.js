@@ -524,8 +524,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 reverse:        true
               }
             )
-            .addTo(smCtrl)
-            .setTween(
+            .addTo(smCtrl).setTween(
               TweenMax.fromTo(
                 fullDescription,
                 1,
