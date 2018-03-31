@@ -303,6 +303,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
   function setSrc(urlIn){
 
     var href = urlIn ? urlIn : window.location.href;
+    var newHref;
 
     if(href.indexOf('#') > -1){
 
@@ -325,7 +326,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         iframe.attr('src', url);
       }
       else{
-        var newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
+        newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
         if(window.location.href != newHref){
           window.location.href = newHref;
         }

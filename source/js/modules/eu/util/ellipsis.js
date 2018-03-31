@@ -91,7 +91,7 @@ define(['jquery', 'util_resize'], function($){
     };
 
     var init = function(){
-      if($inner.length==0){
+      if($inner.length === 0){
         var content = $cmp.html();
         $cmp.html('');
         $inner = $('<div class="ellipsis-inner"></div>').appendTo($cmp);

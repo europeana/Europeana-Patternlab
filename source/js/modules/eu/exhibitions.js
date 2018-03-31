@@ -526,11 +526,9 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             .setTween(
               TweenMax.fromTo(
                 fullDescription,
-                1,
-                {
+                1, {
                   top:    introHeight,
-                },
-                {
+                }, {
                   top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
                   ease:   window.Cubic.easeIn
                 }
