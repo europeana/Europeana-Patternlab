@@ -519,18 +519,18 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             new ScrollMagic.Scene(
               {
                 triggerElement: $introE,
-                triggerHook:    0,
-                duration:       introDuration / 1.1,
-                reverse:        true
+                triggerHook: 0,
+                duration: introDuration / 1.1,
+                reverse: true
               }
             ).addTo(smCtrl).setTween(
               TweenMax.fromTo(
                 fullDescription,
                 1, {
-                  top:    introHeight,
+                  top: introHeight,
                 }, {
-                  top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
-                  ease:   window.Cubic.easeIn
+                  top: (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
+                  ease: window.Cubic.easeIn
                 }
               )
             )
