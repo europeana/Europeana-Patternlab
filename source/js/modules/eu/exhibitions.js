@@ -585,18 +585,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                     reverse:        true,
                     duration:       diff
                   })
-                  .setPin(qte[0])
-                  .setTween(
-                    TweenMax.fromTo(
-                      qte[0],
-                      1,
-                      {
-                        opacity: 0
-                      },
-                      { opacity: 1, ease: window.Cubic.easeIn }
+                    .setPin(qte[0])
+                    .setTween(
+                      TweenMax.fromTo(
+                        qte[0],
+                        1,
+                        {
+                          opacity: 0
+                        },
+                        {
+                          opacity: 1,
+                          ease:    window.Cubic.easeIn
+                        }
+                      )
                     )
-                  )
-                  .addTo(smCtrl)
+                    .addTo(smCtrl)
                 );
               }
             }
