@@ -5,5 +5,5 @@ eslint:
 scss:
   config_file: .scss-lint.yml
 jshint:
-  enabled: false
+  enabled: true
 
