@@ -417,9 +417,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                     ease:    window.Cubic.easeOut
                   }
                 )
-              )
-              .addTo(smCtrl)
-            );
+              ).addTo(smCtrl));
+
             sfxScenes.push(
               new ScrollMagic.Scene({
                 triggerElement: $firstSlide,
