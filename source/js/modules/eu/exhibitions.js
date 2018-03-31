@@ -469,20 +469,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               triggerHook:    'onLeave',
               duration:       introDuration * 2
             })
-            .setTween(
-              TweenMax.fromTo(
-                $firstSlide.find('.ve-intro-full-description'),
-                1,
-                {
-                  opacity:    0
-                },
-                {
-                  opacity:    1,
-                  delay:      0.25,
-                  ease:       window.Cubic.easeOut
-                }
+              .setTween(
+                TweenMax.fromTo(
+                  $firstSlide.find('.ve-intro-full-description'),
+                  1,
+                  {
+                    opacity:    0
+                  },
+                  {
+                    opacity:    1,
+                    delay:      0.25,
+                    ease:       window.Cubic.easeOut
+                  }
+                )
               )
-            )
               .addTo(smCtrl)
           );
         }
