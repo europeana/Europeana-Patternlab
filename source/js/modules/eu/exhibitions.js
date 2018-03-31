@@ -426,16 +426,15 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 triggerHook:    'onLeave',
                 duration:       isIntroE ? introDuration * 1.2 : introDuration
               }).setTween(
-                  TweenMax.to(
-                    $('.ve-base-intro-texts .ve-branding'),
-                    1,
-                    {
-                      opacity: 0,
-                      ease:    window.Cubic.easeOut
-                    }
-                  )
+                TweenMax.to(
+                  $('.ve-base-intro-texts .ve-branding'),
+                  1,
+                  {
+                    opacity: 0,
+                    ease:    window.Cubic.easeOut
+                  }
                 )
-              .addTo(smCtrl)
+              ).addTo(smCtrl)
             );
           }
         }
