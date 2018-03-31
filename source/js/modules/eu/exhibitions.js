@@ -532,8 +532,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   ease:   window.Cubic.easeIn
                 }
               )
-            )
-          );
+            ));
         }
         else{
           console.log('first slide is not an intro!');
