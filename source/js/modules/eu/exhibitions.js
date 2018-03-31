@@ -408,17 +408,17 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 triggerHook:     'onLeave',
                 duration:        isIntroE ? introDuration * 1.2 : introDuration
               })
-              .setTween(
-                TweenMax.to(
-                  $firstSlide.find(textTweenTargets),
-                  1,
-                  {
-                    opacity: 0,
-                    ease:    window.Cubic.easeOut
-                  }
+                .setTween(
+                  TweenMax.to(
+                    $firstSlide.find(textTweenTargets),
+                    1,
+                    {
+                      opacity: 0,
+                      ease:    window.Cubic.easeOut
+                    }
+                  )
                 )
-              )
-                .addTo(smCtrl));
+                  .addTo(smCtrl));
 
             sfxScenes.push(
               new ScrollMagic.Scene({
