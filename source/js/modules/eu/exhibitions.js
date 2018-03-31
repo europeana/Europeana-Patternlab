@@ -416,8 +416,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                     opacity: 0,
                     ease:    window.Cubic.easeOut
                   }
-                )
-              ).addTo(smCtrl));
+                ))
+                  .addTo(smCtrl));
 
             sfxScenes.push(
               new ScrollMagic.Scene({
