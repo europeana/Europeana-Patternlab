@@ -446,20 +446,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               triggerHook:     'onLeave',
               duration:        introDuration
             })
-            .setPin($firstSlide[0])
-            .setTween(
-              TweenMax.to(
-                $firstSlide.find('.ve-intro'),
-                1.25,
-                {
-                  delay:      0.25,
-                  width:      sassVars.ve_image_column_width,
-                  ease:       window.Cubic.easeOut,
-                  minHeight: '60vh'
-                }
+              .setPin($firstSlide[0])
+              .setTween(
+                TweenMax.to(
+                  $firstSlide.find('.ve-intro'),
+                  1.25,
+                  {
+                    delay:      0.25,
+                    width:      sassVars.ve_image_column_width,
+                    ease:       window.Cubic.easeOut,
+                    minHeight: '60vh'
+                  }
+                )
               )
-            )
-            .addTo(smCtrl)
+              .addTo(smCtrl)
           );
 
           // fade in new text
