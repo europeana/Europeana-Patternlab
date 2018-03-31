@@ -59,7 +59,7 @@ define(['jquery'], function($){
 
         // trigger download if an error occurs
 
-        error_observer = new MutationObserver(function(mutations) {
+        error_observer = new MutationObserver(function() {
 
           var triggerDownload = function(){
             $('.object-media-pdf').append('<iframe src="' + pdfUrl + '"></iframe>');
