@@ -829,8 +829,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
           .on('leave', function(){
             progNavActive = true;
             $('.slide-nav-next:first').show();
-          }
-        );
+          });
 
         $('.ve-progress-nav a').on('click', function(e){
           e.preventDefault();
