@@ -567,7 +567,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                   duration: diff + 30,
                   reverse: true
                 })
-                .setPin(img[0]).addTo(smCtrl)
+                .setPin(img[0])
+                .addTo(smCtrl)
               );
             }
           }
@@ -598,7 +599,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                         ease:    window.Cubic.easeIn
                       }
                     )
-                  ).addTo(smCtrl)
+                  )
+                  .addTo(smCtrl)
                 );
               }
             }
@@ -821,7 +823,8 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerElement: '#ve-end',
             triggerHook:    'onEnter'
           }
-        ).addTo(smCtrl)
+        )
+        .addTo(smCtrl)
           .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
           .on('enter', function(){
             progNavActive = false;
