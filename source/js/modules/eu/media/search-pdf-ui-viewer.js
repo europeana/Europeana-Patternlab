@@ -37,7 +37,7 @@ define(['jquery'], function($){
         observeErrors();
 
         // reuse pdf
-        PDFView.open(pdfUrl);
+        window.PDFView.open(pdfUrl);
 
         // notify media controller
         $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
@@ -55,7 +55,7 @@ define(['jquery'], function($){
 
       require(['pdf_ui'], function(){
         //PDFView.initialize();
-        webViewerLoad();
+        window.webViewerLoad();
 
         // trigger download if an error occurs
 
