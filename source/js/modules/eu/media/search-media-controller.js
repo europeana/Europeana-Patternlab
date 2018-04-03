@@ -279,6 +279,9 @@ define(['jquery'], function($) {
       var media = videoViewer.getItemFromMarkup(data.target);
 
       if(media){
+        if(media.mime_type == 'video/quicktime' && $('video')[0].canPlayType(media.mime_type).length == 0){
+          media.mime_type = 'video/mp4';
+        }
         videoViewer.init(media);
       }
       else{
