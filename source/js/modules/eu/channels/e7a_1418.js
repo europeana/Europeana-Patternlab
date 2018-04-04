@@ -4,7 +4,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
   var e7aRoot          = '';
   var iframe           = $('iframe.e7a1418');
   var locale           = '';
-  // var lastMessagedUrl  = '';
   var lastScrollPos    = 0;
   var manuallySetHash  = '';
   var theme            = 'theme=minimal';
