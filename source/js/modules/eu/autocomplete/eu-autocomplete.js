@@ -38,6 +38,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
       $(window).europeanaResize(self.resize);
       self.resize();
+      return self;
     };
 
     this.resize = function(){
@@ -73,8 +74,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       });
 
       var fnKeyup = function(e){
-
-        if(!self.$list.is(':visible')){
+        if(self.$list.find('li').length == 0){
           self.log('exit (hidden)');
           return;
         }
@@ -491,7 +491,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
   return {
     init: function(ops){
-      new EuAutocomplete().init(ops);
+      var instance = new EuAutocomplete().init(ops);
+      if(typeof ops != 'undefined' && ops.getInstance){
+        return instance;
+      }
     }
   };
 

@@ -12,88 +12,91 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
       $('.eu-accordion-tabs').removeAttr('style');
     });
 
-    it('Only shows one tab at a time', function(done){
+    describe('As Tabs', function(){
 
-      EuAccordionTabs.init($('.eu-accordion-tabs'), {});
+      it('Only shows one tab at a time', function(done){
 
-      setTimeout(function(){
-        expect($('.tab-header').length).toBe(3);
-        expect($('.tab-header.active').length).toBe(1);
-        expect($('.tab-1-content')).toBeVisible();
-        expect($('.tab-2-content')).toBeHidden();
-        expect($('.tab-3-content')).toBeHidden();
-        done();
-      }, 500);
+        EuAccordionTabs.init($('.eu-accordion-tabs'), {});
 
-    });
+        setTimeout(function(){
+          expect($('.tab-header').length).toBe(3);
+          expect($('.tab-header.active').length).toBe(1);
+          expect($('.tab-1-content')).toBeVisible();
+          expect($('.tab-2-content')).toBeHidden();
+          expect($('.tab-3-content')).toBeHidden();
+          done();
+        }, 500);
 
-    it('Opens a closed tab when a header is clicked', function(done){
+      });
 
-      EuAccordionTabs.init($('.eu-accordion-tabs'), {});
+      it('Opens a closed tab when a header is clicked', function(done){
 
-      setTimeout(function(){
-        expect($('.tab-header').length).toBe(3);
-        expect($('.tab-header.active').length).toBe(1);
-        expect($('.tab-1-content')).toBeVisible();
-        expect($('.tab-2-content')).toBeHidden();
-        expect($('.tab-3-content')).toBeHidden();
+        EuAccordionTabs.init($('.eu-accordion-tabs'), {});
 
-        // open tab 2
+        setTimeout(function(){
+          expect($('.tab-header').length).toBe(3);
+          expect($('.tab-header.active').length).toBe(1);
+          expect($('.tab-1-content')).toBeVisible();
+          expect($('.tab-2-content')).toBeHidden();
+          expect($('.tab-3-content')).toBeHidden();
 
-        $('.tab-header.2').click();
-        expect($('.tab-1-content')).toBeHidden();
-        expect($('.tab-2-content')).toBeVisible();
-        expect($('.tab-3-content')).toBeHidden();
+          // open tab 2
 
-        // open tab 3
+          $('.tab-header.2').click();
+          expect($('.tab-1-content')).toBeHidden();
+          expect($('.tab-2-content')).toBeVisible();
+          expect($('.tab-3-content')).toBeHidden();
 
-        $('.tab-header.3').click();
-        expect($('.tab-1-content')).toBeHidden();
-        expect($('.tab-2-content')).toBeHidden();
-        expect($('.tab-3-content')).toBeVisible();
+          // open tab 3
 
-        done();
-      }, 500);
+          $('.tab-header.3').click();
+          expect($('.tab-1-content')).toBeHidden();
+          expect($('.tab-2-content')).toBeHidden();
+          expect($('.tab-3-content')).toBeVisible();
 
-    });
+          done();
+        }, 500);
 
-    it('Shows as tabs when the available width allows', function(done){
+      });
 
-      EuAccordionTabs.init($('.eu-accordion-tabs'), {});
+      it('Shows as tabs when the available width allows', function(done){
 
-      setTimeout(function(){
+        EuAccordionTabs.init($('.eu-accordion-tabs'), {});
 
-        var prevElementY;
+        setTimeout(function(){
 
-        for(var i=1; i<=3; i++){
+          var prevElementY;
 
-          var elementY = $('.tab-header.' + i)[0].getBoundingClientRect().top;
+          for(var i=1; i<=3; i++){
 
-          if(prevElementY){
-            expect(elementY).toEqual(prevElementY);
+            var elementY = $('.tab-header.' + i)[0].getBoundingClientRect().top;
+
+            if(prevElementY){
+              expect(elementY).toEqual(prevElementY);
+            }
+            prevElementY = elementY;
           }
-          prevElementY = elementY;
-        }
-
-        done();
-
-      }, 500);
-
+          done();
+        }, 500);
+      });
     });
 
-    it('Collapses to an accordion when the tab titles are too wide for the available width', function(done){
+    describe('As Accordion', function(){
 
-      $('.tab-header.1 .tab-title').html('Tab header 1 - make the title really long');
-      $('.tab-header.2 .tab-title').html('Tab header 2 - make the title really long');
-      $('.tab-header.3 .tab-title').html('Tab header 3 - make the title really long');
-      $('.tab-header.3 .tab-title').html('Tab header 3 - make the title really long');
+      beforeEach(function(){
 
-      $('.eu-accordion-tabs').css('width', 400);
-      $('.eu-accordion-tabs').removeAttr('width', 400);
+        $('.tab-header.1 .tab-title').html('Tab header 1 - make the title really long');
+        $('.tab-header.2 .tab-title').html('Tab header 2 - make the title really long');
+        $('.tab-header.3 .tab-title').html('Tab header 3 - make the title really long');
+        $('.tab-header.3 .tab-title').html('Tab header 3 - make the title really long');
 
-      EuAccordionTabs.init($('.eu-accordion-tabs'), {});
+        $('.eu-accordion-tabs').css('width', 400);
 
-      setTimeout(function(){
+        EuAccordionTabs.init($('.eu-accordion-tabs'), {});
+      });
+
+
+      it('Collapses to an accordion when the tab titles are too wide for the available width', function(done){
 
         var pageY = 0;
 
@@ -103,8 +106,11 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
           pageY = elementY;
         }
         done();
+      });
 
-      }, 500);
+      //  - click / visibility checks
+
     });
+
   });
 });
