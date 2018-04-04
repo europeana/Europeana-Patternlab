@@ -251,8 +251,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     }
     else if(fragment.match(/collection\/search/)){
       breadcrumbs = pageData[fragment]['breadcrumbs'];
-      // var params = $.url(lastMessagedUrl).param();
-      // alert('Search portal with parameters:\n\ncontributor_id:\t' + params.contributor_id + '\nqf:\t' + params.qf);
     }
     else if(fragment.match(/contacts\/\d\/edit/) || fragment.match(/users\/edit/)){
       breadcrumbs = pageData['account/edit']['breadcrumbs'];
@@ -360,8 +358,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     if(e.data.url){
 
       var fragment    = getUrlFragment(e.data.url);
-
-      // lastMessagedUrl = e.data.url;
 
       setNavButtons(e.data.user, fragment);
       setBreadcrumbs(fragment);
