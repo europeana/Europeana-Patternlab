@@ -9,8 +9,6 @@ define(['jquery'], function($){
     var resource_path_3 = require.toUrl('../../lib/pdfjs/pdf.worker.js');
 
     var error_server = 'Unexpected server response';
-    // var error_corrupt = 'Invalid or corrupted PDF file';
-    // var error_404 = 'Missing PDF file';
     var errors_trigger_download = [error_server];
 
     var error_observer;
@@ -89,9 +87,6 @@ define(['jquery'], function($){
       init : function(pdfUrl){
         init(pdfUrl);
       },
-      //open : function(pdfUrl){
-      //  open(pdfUrl);
-      //},
       hide : function(){
         hide();
       },

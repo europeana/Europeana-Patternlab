@@ -43,12 +43,6 @@ define(['jquery', 'util_foldable'], function($, foldable){
     this.$el.removeClass(classes.hideClass);
   }
 
-  //function hideAll(){
-  //  $(confs).each(function(i, conf){
-  //    $(conf.elements).addClass(classes.hideClass);
-  //  });
-  //}
-
   function getMatches(str){
 
     var toShow = [];
