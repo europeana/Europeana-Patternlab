@@ -643,8 +643,8 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
   }
 
   return {
-    initPage: function(euSearchForm){
-      initPage(euSearchForm);
+    initPage: function(){
+      initPage();
     }
   };
 });

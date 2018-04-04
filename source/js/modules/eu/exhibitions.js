@@ -17,7 +17,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       introDuration = parseInt($url.param('introDuration'));
     }
     else{
-      alert('introDuration has to be an int - using default (' + introDuration + ')');
+      console.log('introDuration has to be an int - using default (' + introDuration + ')');
     }
   }
 
@@ -31,7 +31,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
       scrollDuration = parseInt($url.param('scrollDuration'));
     }
     else{
-      alert('scrollDuration has to be an int - using default (' + scrollDuration + ')');
+      console.log('scrollDuration has to be an int - using default (' + scrollDuration + ')');
     }
   }
 
@@ -408,35 +408,32 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                 triggerHook:     'onLeave',
                 duration:        isIntroE ? introDuration * 1.2 : introDuration
               })
-              .setTween(
-                TweenMax.to(
-                  $firstSlide.find(textTweenTargets),
-                  1,
-                  {
-                    opacity: 0,
-                    ease:    Cubic.easeOut
-                  }
+                .setTween(
+                  TweenMax.to(
+                    $firstSlide.find(textTweenTargets),
+                    1,
+                    {
+                      opacity: 0,
+                      ease:    window.Cubic.easeOut
+                    }
+                  )
                 )
-              )
-              .addTo(smCtrl)
-            );
+                .addTo(smCtrl));
+
             sfxScenes.push(
               new ScrollMagic.Scene({
                 triggerElement: $firstSlide,
                 triggerHook:    'onLeave',
                 duration:       isIntroE ? introDuration * 1.2 : introDuration
               })
-              .setTween(
-                TweenMax.to(
-                  $('.ve-base-intro-texts .ve-branding'),
-                  1,
-                  {
-                    opacity: 0,
-                    ease:    Cubic.easeOut
-                  }
+                .setTween(
+                  TweenMax.to(
+                    $('.ve-base-intro-texts .ve-branding'),
+                    1,
+                    { opacity: 0, ease: window.Cubic.easeOut }
+                  )
                 )
-              )
-              .addTo(smCtrl)
+                .addTo(smCtrl)
             );
           }
         }
@@ -449,20 +446,20 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               triggerHook:     'onLeave',
               duration:        introDuration
             })
-            .setPin($firstSlide[0])
-            .setTween(
-              TweenMax.to(
-                $firstSlide.find('.ve-intro'),
-                1.25,
-                {
-                  delay:      0.25,
-                  width:      sassVars.ve_image_column_width,
-                  ease:       Cubic.easeOut,
-                  minHeight: '60vh'
-                }
+              .setPin($firstSlide[0])
+              .setTween(
+                TweenMax.to(
+                  $firstSlide.find('.ve-intro'),
+                  1.25,
+                  {
+                    delay:      0.25,
+                    width:      sassVars.ve_image_column_width,
+                    ease:       window.Cubic.easeOut,
+                    minHeight: '60vh'
+                  }
+                )
               )
-            )
-            .addTo(smCtrl)
+              .addTo(smCtrl)
           );
 
           // fade in new text
@@ -472,19 +469,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               triggerHook:    'onLeave',
               duration:       introDuration * 2
             })
-            .setTween(
-              TweenMax.fromTo(
-                $firstSlide.find('.ve-intro-full-description'),
-                1,
-                { opacity:    0 },
-                {
-                  opacity:    1,
-                  delay:      0.25,
-                  ease:       Cubic.easeOut
-                }
+              .setTween(
+                TweenMax.fromTo(
+                  $firstSlide.find('.ve-intro-full-description'),
+                  1,
+                  {
+                    opacity:    0
+                  },
+                  {
+                    opacity:    1,
+                    delay:      0.25,
+                    ease:       window.Cubic.easeOut
+                  }
+                )
               )
-            )
-            .addTo(smCtrl)
+              .addTo(smCtrl)
           );
         }
         else if(!tabletOrPhone && isIntroE){
@@ -504,39 +503,39 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
               reverse:        true,
               offset:         headerHeight
             })
-            .setPin($introE[0])
-            .addTo(smCtrl)
-            .on('progress', function(e){
-              var val = e.progress;
-              $introE.css('filter',         'grayScale(' + val + ')');
-              $introE.css('-webkit-filter', 'grayScale(' + val + ')');
-            })
+              .setPin($introE[0])
+              .addTo(smCtrl)
+              .on('progress', function(e){
+                var val = e.progress;
+                $introE.css('filter',         'grayScale(' + val + ')');
+                $introE.css('-webkit-filter', 'grayScale(' + val + ')');
+              })
           );
 
           // description
 
           sfxScenes.push(
-            new ScrollMagic.Scene({
-              triggerElement: $introE,
-              triggerHook:    0,
-              duration:       introDuration / 1.1,
-              reverse:        true
-            })
-            .addTo(smCtrl)
-            .setTween(
-              TweenMax.fromTo(
-                fullDescription,
-                1,
-                {
-                  top:    introHeight,
-                },
-                {
-                  top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
-                  ease:   Cubic.easeIn
-                }
-              )
+            new ScrollMagic.Scene(
+              {
+                triggerElement: $introE,
+                triggerHook:    0,
+                duration:       introDuration / 1.1,
+                reverse:        true
+              }
             )
-          );
+              .addTo(smCtrl).setTween(
+                TweenMax.fromTo(
+                  fullDescription,
+                  1,
+                  {
+                    top:    introHeight
+                  },
+                  {
+                    top:    (introDuration / 1.1) + (introHeight-fullDescription.height()) / 2,
+                    ease:   window.Cubic.easeIn
+                  }
+                )
+              ));
         }
         else{
           console.log('first slide is not an intro!');
@@ -586,21 +585,21 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
                     reverse:        true,
                     duration:       diff
                   })
-                  .setPin(qte[0])
-                  .setTween(
-                    TweenMax.fromTo(
-                      qte[0],
-                      1,
-                      {
-                        opacity: 0
-                      },
-                      {
-                        opacity: 1,
-                        ease:    Cubic.easeIn
-                      }
+                    .setPin(qte[0])
+                    .setTween(
+                      TweenMax.fromTo(
+                        qte[0],
+                        1,
+                        {
+                          opacity: 0
+                        },
+                        {
+                          opacity: 1,
+                          ease:    window.Cubic.easeIn
+                        }
+                      )
                     )
-                  )
-                  .addTo(smCtrl)
+                    .addTo(smCtrl)
                 );
               }
             }
@@ -690,7 +689,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
   }
 
   function handleEllipsis(){
-    var ellipsisObjects = [];
+    // var ellipsisObjects = [];
     var texts = $('.ve-foyer-card-state .text-box.description:not(.js-ellipsis)');
     var toFix = [];
 
@@ -701,10 +700,7 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
 
     if(toFix.length>0){
       require(['util_ellipsis'], function(EllipsisUtil){
-        var ellipsis = EllipsisUtil.create($(toFix));
-        for(var i = 0; i < ellipsis.length; i++){
-          ellipsisObjects.push(ellipsis[i]);
-        }
+        EllipsisUtil.create($(toFix));
       });
     }
   }
@@ -823,15 +819,15 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
             triggerHook:    'onEnter'
           }
         ).addTo(smCtrl)
-        .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: Cubic.easeOut}))
-        .on('enter', function(){
-          progNavActive = false;
-          $('.slide-nav-next:first').hide();
-        })
-        .on('leave', function(){
-          progNavActive = true;
-          $('.slide-nav-next:first').show();
-        });
+          .setTween(TweenMax.to('.ve-progress-nav', 1, {'right': '-1em', ease: window.Cubic.easeOut}))
+          .on('enter', function(){
+            progNavActive = false;
+            $('.slide-nav-next:first').hide();
+          })
+          .on('leave', function(){
+            progNavActive = true;
+            $('.slide-nav-next:first').show();
+          });
 
         $('.ve-progress-nav a').on('click', function(e){
           e.preventDefault();

@@ -46,22 +46,20 @@ define(['jquery', 'purl'], function($){
       }
     });
 
-    if(dcId){
-      if(sessionStorage.getItem(dcId)){
+    if(sessionStorage.getItem(dcId)){
+      if(cb && !cbFired){
+        cbFired = true;
+        cb(true);
+      }
+    }
+    else{
+      localStorage.setItem('eu_dc_rollcall', dcId + '?' + new Date().getTime());
+      setTimeout(function(){
         if(cb && !cbFired){
           cbFired = true;
-          cb(true);
+          cb(false);
         }
-      }
-      else{
-        localStorage.setItem('eu_dc_rollcall', dcId + '?' + new Date().getTime());
-        setTimeout(function(){
-          if(cb && !cbFired){
-            cbFired = true;
-            cb(false);
-          }
-        }, 100);
-      }
+      }, 100);
     }
     return dcId;
   };

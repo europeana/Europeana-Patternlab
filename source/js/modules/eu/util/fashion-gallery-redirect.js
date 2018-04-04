@@ -21,16 +21,16 @@ define(['jquery', 'purl'], function($) {
     '26': 'http://www.europeana.eu/portal/en/explore/galleries/colourblock',
     '27': 'http://www.europeana.eu/portal/en/explore/galleries/animalier',
     '29': 'http://www.europeana.eu/portal/en/explore/galleries/fashion-for-travel',
-	'30': 'http://www.europeana.eu/portal/en/explore/galleries/the-uniform',
-	'31': 'http://www.europeana.eu/portal/en/explore/galleries/masculin-feminin',
-	'32': 'http://www.europeana.eu/portal/en/explore/galleries/celebrity-fashion'
+    '30': 'http://www.europeana.eu/portal/en/explore/galleries/the-uniform',
+    '31': 'http://www.europeana.eu/portal/en/explore/galleries/masculin-feminin',
+    '32': 'http://www.europeana.eu/portal/en/explore/galleries/celebrity-fashion'
   };
 
   var cb = function(callback){
     if(callback){
       callback();
     }
-  }
+  };
 
   var redirectOrCallback = function(callback){
     var href      = window.location.href;
@@ -38,8 +38,7 @@ define(['jquery', 'purl'], function($) {
     var paramFrom = purl.param('from');
 
     if(paramFrom == 'europeanafashion.eu'){
-      var hash    = href.split('#')[1];
-      var urlRoot = href.split('?')[0];
+      var hash = href.split('#')[1];
 
       if(hash){
         hash = decodeURIComponent(hash);
@@ -64,5 +63,5 @@ define(['jquery', 'purl'], function($) {
     redirectOrCallback : function(callback){
       redirectOrCallback(callback);
     }
-  }
+  };
 });
