@@ -312,11 +312,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
 
     $('.media-share').on('click', function(){
-      alert('share');
+      console.log('share');
     });
 
     $('.media-link').on('click', function(){
-      alert('link');
+      console.log('link');
     });
 
     $('.action-ctrl.object-rights').on('click', function(){
@@ -523,7 +523,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           audioPlayer.init(media);
         }
         else{
-          alert('invalid');
+          console.log('invalid');
         }
         resetZoomable();
       });
@@ -589,8 +589,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   }
 
   function initActionBar(){
-    $('.media-annotate').on('click', function(){ alert('annotate'); });
-    //$('.action-ctrl-btn.share').on('click', function(){ alert('share'); });
+    $('.media-annotate').on('click', function(){ console.log('annotate'); });
+    //$('.action-ctrl-btn.share').on('click', function(){ console.log('share'); });
   }
 
   function initEntity(){
