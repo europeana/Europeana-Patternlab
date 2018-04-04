@@ -16,7 +16,7 @@ require.config({
 });
 
 require(['jquery'], function(){
-  require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer', 'leaflet_minimap'], function() {
+  require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer'], function() {
     require(['media_viewer_iiif'], function(viewer) {
 
       var init = function(){
