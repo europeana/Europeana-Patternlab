@@ -1,10 +1,6 @@
 define(['jquery'], function($){
-  
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/tooltip/eu-tooltip-style.css') + '" type="text/css"/>');
 
-  var log = function(msg){
-    console.log('eu-tooltip: ' + msg);
-  };
+  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/tooltip/eu-tooltip-style.css') + '" type="text/css"/>');
 
   var loadClosedTooltips = function(){
     return (typeof(Storage) == 'undefined') ? null : JSON.parse(localStorage.getItem('eu_portal_closed_tooltips'));
@@ -14,7 +10,7 @@ define(['jquery'], function($){
     if(typeof(Storage) != 'undefined') {
       var current = loadClosedTooltips();
       if(!current){
-        current = { "tooltips": {} };
+        current = { 'tooltips': {} };
       }
       current['tooltips'][tooltip] = true;
       localStorage.setItem('eu_portal_closed_tooltips', JSON.stringify(current));
@@ -27,7 +23,7 @@ define(['jquery'], function($){
     var closedTooltips = loadClosedTooltips();
     if(closedTooltips){
       for (var tooltip_id in closedTooltips['tooltips']) {
-        $("[data-tooltip-id='" + tooltip_id + "']").closest('.eu-tooltip-container').remove();
+        $('[data-tooltip-id="' + tooltip_id + '"]').closest('.eu-tooltip-container').remove();
       }
     }
 
@@ -41,7 +37,7 @@ define(['jquery'], function($){
     $('.eu-tooltip-container .eu-tooltip-anchor').on('click', function(){
       $(this).next('.eu-tooltip').show();
     });
-    
+
     setTimeout(function(){
       $('.eu-tooltip-container').addClass('showing');
     }, 100);
@@ -49,5 +45,5 @@ define(['jquery'], function($){
 
   return {
     configure: configure
-  }
+  };
 });

@@ -6,10 +6,10 @@ define(['jquery'], function($){
       var timeout;
 
       return function debounced(){
-        var obj  = this
+        var obj  = this;
         var args = arguments;
 
-        function delayed(){
+        var delayed = function(){
           if(!execAsap){
             func.apply(obj, args);
           }

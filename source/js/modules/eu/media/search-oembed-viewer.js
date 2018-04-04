@@ -1,10 +1,6 @@
 define([], function() {
   'use strict';
 
-  function log(msg) {
-    console.log('OembedViewer: ' + msg);
-  }
-
   function init(container, play_html){
 
     var oembed;
@@ -31,7 +27,7 @@ define([], function() {
           var src = child.attr('src');
 
           if(src && typeof src.toLowerCase() == 'string'){
-            dependencies.push(src)
+            dependencies.push(src);
           }
           else{
             scripts.push(child);
@@ -57,14 +53,17 @@ define([], function() {
       }
     };
 
-    loadDependencies(dependencies.reverse(), function(){
+    dependencies = dependencies.reverse();
+
+    loadDependencies(dependencies, function(){
 
       if(oembed.attr('src').indexOf('theeuropeanlibrary') > -1 && oembed.attr('src').indexOf('newspapers') > -1){
         container.css('width', '100%');
         isNewspaper = true;
       }
       else if(oembed.attr('width')){
-        var w = oembed.attr('width')
+        var w = oembed.attr('width');
+
         if(w && w === parseInt(w) + ''){
           container.css('width', w + 'px');
         }
@@ -109,12 +108,8 @@ define([], function() {
                   + '</div>');
 
           var fsEvent = function(){
-            if(document.fullscreenElement ||
-              document.webkitFullscreenElement ||
-              document.mozFullScreenElement ||
-              document.msFullscreenElement){
-            }
-            else{
+            var isFsEl = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+            if(!isFsEl){
               iframe.removeClass('fullscreen');
               var origHeight = iframe.find('iframe').data('orig-height');
               iframe.find('iframe').attr('height', origHeight );
@@ -124,7 +119,7 @@ define([], function() {
               $('.fullscreen-text').text(txtFullScreenEnter);
               $('.fullscreen-icon').attr('src', imgFullScreenEnter);
             }
-          }
+          };
 
           var exitFullscreen = function() {
             iframe.removeClass('fullscreen');
@@ -146,10 +141,9 @@ define([], function() {
             else if(document.webkitExitFullscreen) {
               document.webkitExitFullscreen();
             }
-          }
+          };
 
-          if(document.addEventListener)
-          {
+          if(document.addEventListener){
             document.addEventListener('webkitfullscreenchange', fsEvent);
             document.addEventListener('mozfullscreenchange',    fsEvent);
             document.addEventListener('fullscreenchange',       fsEvent);
@@ -194,7 +188,7 @@ define([], function() {
           });
         });
       }
-      $('.media-viewer').trigger("object-media-open", {hide_thumb: true});
+      $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
     });
   }
 

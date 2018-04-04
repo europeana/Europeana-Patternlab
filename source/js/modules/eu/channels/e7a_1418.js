@@ -4,7 +4,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
   var e7aRoot          = '';
   var iframe           = $('iframe.e7a1418');
   var locale           = '';
-  var lastMessagedUrl  = '';
   var lastScrollPos    = 0;
   var manuallySetHash  = '';
   var theme            = 'theme=minimal';
@@ -94,7 +93,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         '.contributor-url',
         '.contribution-url',
         '.contribution-attachments'
-       ]
+      ]
     },
     'contributions/attachments/flickr':{
       'breadcrumbs': [
@@ -252,8 +251,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     }
     else if(fragment.match(/collection\/search/)){
       breadcrumbs = pageData[fragment]['breadcrumbs'];
-      var params = $.url(lastMessagedUrl).param();
-      alert('Search portal with paramters:\n\ncontributor_id:\t' + params.contributor_id + '\nqf:\t' + params.qf);
     }
     else if(fragment.match(/contacts\/\d\/edit/) || fragment.match(/users\/edit/)){
       breadcrumbs = pageData['account/edit']['breadcrumbs'];
@@ -303,6 +300,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
   function setSrc(urlIn){
 
     var href = urlIn ? urlIn : window.location.href;
+    var newHref;
 
     if(href.indexOf('#') > -1){
 
@@ -312,7 +310,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         iframe.attr('src', newUrl);
         return;
       }
-
 
       var hash = href.split('#')[1];
 
@@ -326,7 +323,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
         iframe.attr('src', url);
       }
       else{
-        var newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
+        newHref = (href.split('#')[0] + defaultPageUrl).replace('##', '#');
         if(window.location.href != newHref){
           window.location.href = newHref;
         }
@@ -334,7 +331,7 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
       }
     }
     else{
-      var newHref = href.split('#')[0] + defaultPageUrl;
+      newHref = href.split('#')[0] + defaultPageUrl;
       if(window.location.href != newHref){
         window.location.href = newHref;
       }
@@ -361,8 +358,6 @@ define(['jquery', 'util_scroll', 'purl'], function($) {
     if(e.data.url){
 
       var fragment    = getUrlFragment(e.data.url);
-
-      lastMessagedUrl = e.data.url;
 
       setNavButtons(e.data.user, fragment);
       setBreadcrumbs(fragment);

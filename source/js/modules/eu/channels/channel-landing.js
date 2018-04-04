@@ -75,8 +75,8 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
       showCarousel(data);
     });
 
-    $(window).bind('loadPreview', function(e, data){
-      loadPreview(data);
+    $(window).bind('loadPreview', function(){
+      loadPreview();
     });
 
     // init masonry for non-ajax loaded images
