@@ -701,10 +701,6 @@ define(['jquery', 'util_resize', 'purl', 'jqScrollto'], function ($) {
     if(toFix.length>0){
       require(['util_ellipsis'], function(EllipsisUtil){
         EllipsisUtil.create($(toFix));
-        //var ellipsis = EllipsisUtil.create($(toFix));
-        //for(var i = 0; i < ellipsis.length; i++){
-        //  ellipsisObjects.push(ellipsis[i]);
-        //}
       });
     }
   }
