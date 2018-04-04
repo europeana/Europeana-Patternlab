@@ -83,6 +83,13 @@ define(['jquery'], function($){
           var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
           iiifLayers[layerName] = iiifLayer;
           noLoaded += 1;
+
+
+          var iiifLayer2 = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
+          var miniMap = new L.Control.MiniMap(iiifLayer2)
+          miniMap.addTo(iiif);
+
+
         }
         index += 1;
       }
@@ -277,6 +284,9 @@ define(['jquery'], function($){
         $('#iiif').removeClass('loading');
 
         iiifLayers['0'].addTo(iiif);
+// var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
+// var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
