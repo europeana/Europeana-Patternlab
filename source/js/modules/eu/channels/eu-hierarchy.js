@@ -11,7 +11,6 @@ define(['jquery', 'jqScrollto'], function($) {
     var defaultChunk       = rows * 2;
     var defaultChunkLoaded = rows;
     var toLoadOnInit       = defaultChunk;
-    // var nodeULOverrides    = []; // track nodes where default class needs overridden on open
     var lineHeight         = 1.4;
 
     self.treeCmp               = cmp;
@@ -158,7 +157,6 @@ define(['jquery', 'jqScrollto'], function($) {
           e.stopPropagation();
         };
 
-        //return '<span class="icon' + (type ? '  icon-' + type.toLowerCase() : '') + '">' + text + ' '  +  '</span>';
         var svg = '';
         if(type == 'TEXT'){
           svg = '<svg class="icon icon-newspaper"><use xlink:href="#icon-newspaper"/></svg>';
@@ -180,7 +178,6 @@ define(['jquery', 'jqScrollto'], function($) {
           }
         };
         if(newOb.data.hasChildren){
-          //newOb.data.childrenCount = ob.childrenCount;
           newOb.data.childrenCount = ob.self.childrenCount;
         }
       }
@@ -335,12 +332,6 @@ define(['jquery', 'jqScrollto'], function($) {
 
             var newId   = self.treeCmp.jstree('create_node', node, formatNodeData(data), 'first', false, true);
             var newNode = self.treeCmp.jstree('get_node', newId);
-
-            // log('add override here?');
-            //if(newNode.data.relBefore == false){
-            //  log('add override here '  + node.id);
-            //  nodeULOverrides.push(escapeId(node.id));
-            //}
 
             callback(newNode);
           });
@@ -1448,10 +1439,6 @@ define(['jquery', 'jqScrollto'], function($) {
 
             var pData = formatNodeData(item, ob);
 
-            //if(pData.data.index==1 && !pData.data.relBefore){
-            //  nodeULOverrides.push(escapeId(pData.data.id));
-            //}
-
             if(!data){
               data    = pData;
               rootRef = data;
@@ -1494,10 +1481,9 @@ define(['jquery', 'jqScrollto'], function($) {
           });
         }
 
-        //var tree = self.treeCmp.jstree({
         self.treeCmp.jstree({
           'core' : {
-            'data' : rootRef, //data,
+            'data' : rootRef,
             'check_callback' : true
           },
           'plugins' : [ 'themes', 'json_data', 'ui']
@@ -1506,14 +1492,7 @@ define(['jquery', 'jqScrollto'], function($) {
         fakeChildNodes(self.treeCmp.jstree('get_node', getRootEl().attr('id')));
 
         var addListTypeClasses = function(node){
-          // short circuit relBefore
-          //if(true || node.data.relBefore){
           node.li_attr['class'] = 'ol';
-          //}
-          //else{
-          //  node.li_attr['class'] = 'ul';
-          //  $('#' + node.id).addClass('ul');  // needed for last leaf nodes
-          //}
           for(var i=0; i<node.children.length; i++){
             addListTypeClasses(self.treeCmp.jstree('get_node', node.children[i]));
           }
