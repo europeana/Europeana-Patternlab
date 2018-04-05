@@ -1,9 +1,5 @@
 {{#iiif_transcription}}
-
-  <div class="transcriptions"></div>
-  <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
   <div id="iiif-with-ctrls">
-
 {{/iiif_transcription}}
 
 <div id="iiif" class="{{#iiif_transcription}}transcription{{/iiif_transcription}} {{#mini_map}}mini-map{{/mini_map}}">
@@ -35,4 +31,6 @@
 
 {{#iiif_transcription}}
   </div>
+  <div class="transcriptions"></div>
+  <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
 {{/iiif_transcription}}

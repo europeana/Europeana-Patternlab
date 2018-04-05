@@ -40,7 +40,6 @@ define(['jquery'], function($){
   var miniMapCtrls      = {}; // Mini map object storage
   var allCanvases       = [];
   var miniMaps          = $('#iiif').hasClass('mini-map');
-  var miniMapConf       = { toggleDisplay: true, position: 'topright', mapOptions: { setMaxBounds: true} };
   var iiifConf          = { maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 1 };
   var features          = {};
 
@@ -68,7 +67,25 @@ define(['jquery'], function($){
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
     var index = Math.max(centreIndex - parseInt(noToLoad/2), 0);
+    var miniMapConf;
     var done = false;
+
+    if(miniMaps){
+
+      // TODO: base on (full-width)
+
+      var fnMMWidth = function(){
+        var res = $(window).width() > 800 ? 316 : 206;
+        return res;
+      };
+
+      var fnMMHeight = function(){
+        var res = $(window).width() > 800 ? 465 : 304;
+        return res;
+      };
+
+      miniMapConf = { toggleDisplay: true, position: 'topright', mapOptions: { setMaxBounds: true }, setMaxBounds: true,  width: fnMMWidth, height: fnMMHeight };
+    }
 
     while(!done){
 
@@ -96,6 +113,14 @@ define(['jquery'], function($){
       }
     }
   };
+
+  /*
+  require(['util_resize'], function(){
+    $(window).europeanaResize(function(){
+      console.log('resize 1?');
+    });
+  });
+  */
 
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {

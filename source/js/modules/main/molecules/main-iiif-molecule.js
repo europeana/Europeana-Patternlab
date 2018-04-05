@@ -11,7 +11,8 @@ require.config({
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
-    purl:                '../../lib/purl/purl'
+    purl:                '../../lib/purl/purl',
+    util_resize:         '../../eu/util/resize'
   }
 });
 

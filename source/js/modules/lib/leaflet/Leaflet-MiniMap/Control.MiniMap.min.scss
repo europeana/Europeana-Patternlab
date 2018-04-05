@@ -1,7 +1,7 @@
 .leaflet-control-minimap{
-  background:    #f8f8f9;
+  background:    rgba(0, 0, 0, 0.6);
   border:        rgba(255,255,255,1) solid;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow:    0 1px 5px rgba(0,0,0,.65);
   transition:    all .6s;
 }
@@ -74,6 +74,7 @@
   transform:         rotate(270deg);
 }
 
+/*
 .leaflet-oldie .leaflet-control-minimap{
   border: 1px solid #999;
 }
@@ -85,3 +86,4 @@
 .leaflet-oldie .leaflet-control-minimap a.minimized{
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
+*/
