@@ -1,0 +1,101 @@
+/* line 1, Control.MiniMap.min.scss */
+.leaflet-control-minimap {
+  background: rgba(0, 0, 0, 0.6);
+  border: white solid;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  transition: all .6s;
+}
+
+/* line 9, Control.MiniMap.min.scss */
+.leaflet-control-minimap a {
+  background-color: white;
+  background-repeat: no-repeat;
+  transition: all .6s;
+  z-index: 99999;
+}
+
+/* line 16, Control.MiniMap.min.scss */
+.leaflet-control-minimap a.minimized-bottomright {
+  border-radius: 0;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 22, Control.MiniMap.min.scss */
+.leaflet-control-minimap a.minimized-topleft {
+  border-radius: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+/* line 28, Control.MiniMap.min.scss */
+.leaflet-control-minimap a.minimized-bottomleft {
+  border-radius: 0;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 34, Control.MiniMap.min.scss */
+.leaflet-control-minimap a.minimized-topright {
+  border-radius: 0;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 40, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display {
+  background-image: url(images/toggle.svg);
+  background-size: cover;
+  border-radius: 3px 0 0;
+  position: absolute;
+}
+
+/* line 47, Control.MiniMap.min.scss */
+.leaflet-oldie .leaflet-control-minimap-toggle-display {
+  background-image: url(images/toggle.png);
+}
+
+/* line 51, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display-bottomright {
+  bottom: 0;
+  right: 0;
+}
+
+/* line 56, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display-topleft {
+  left: 0;
+  top: 0;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 63, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display-bottomleft {
+  bottom: 0;
+  left: 0;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 70, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display-topright {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/*
+.leaflet-oldie .leaflet-control-minimap{
+  border: 1px solid #999;
+}
+
+.leaflet-oldie .leaflet-control-minimap a{
+  background-color: #fff;
+}
+
+.leaflet-oldie .leaflet-control-minimap a.minimized{
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+*/

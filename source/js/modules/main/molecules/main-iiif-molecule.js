@@ -5,12 +5,14 @@ require.config({
     jquery:              '../../lib/jquery/jquery',
     leaflet:             '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:  '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
+    leaflet_minimap:     '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
     leaflet_zoom_slider: '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
-    purl:                '../../lib/purl/purl'
+    purl:                '../../lib/purl/purl',
+    util_resize:         '../../eu/util/resize'
   }
 });
 

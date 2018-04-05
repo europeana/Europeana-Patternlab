@@ -16,5 +16,6 @@
       "value": "{'mappings': [{'pattern': 'http', 'resolveTo': 'self'}]}"
     }
   ],
-  "iiif_transcription": true
+  "iiif_transcription": true,
+  "mini_map": true
 }

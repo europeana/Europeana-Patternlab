@@ -37,9 +37,10 @@ define(['jquery'], function($){
   var transcriptionUrls = [];
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
+  var miniMapCtrls      = {}; // Mini map object storage
   var allCanvases       = [];
-  var iiifConf          = {maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 2};
-
+  var miniMaps          = $('#iiif').hasClass('mini-map');
+  var iiifConf          = { maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 1 };
   var features          = {};
 
   function log(msg) {
@@ -66,7 +67,25 @@ define(['jquery'], function($){
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
     var index = Math.max(centreIndex - parseInt(noToLoad/2), 0);
+    var miniMapConf;
     var done = false;
+
+    if(miniMaps){
+
+      // TODO: base on (full-width)
+
+      var fnMMWidth = function(){
+        var res = $(window).width() > 800 ? 316 : 206;
+        return res;
+      };
+
+      var fnMMHeight = function(){
+        var res = $(window).width() > 800 ? 465 : 304;
+        return res;
+      };
+
+      miniMapConf = { toggleDisplay: true, position: 'topright', mapOptions: { setMaxBounds: true }, setMaxBounds: true,  width: fnMMWidth, height: fnMMHeight };
+    }
 
     while(!done){
 
@@ -77,22 +96,39 @@ define(['jquery'], function($){
         done = true;
       }
       else{
-        var data = allCanvases[index];
+        var data      = allCanvases[index];
         var layerName = index + '';
-        if(! iiifLayers[layerName] ){
-          var iiifLayer = Leaflet.tileLayer.iiif(data.images[0].resource.service['@id'] + '/info.json', iiifConf);
+        var jsonUrl   = data.images[0].resource.service['@id'] + '/info.json';
+
+        if(!iiifLayers[layerName]){
+          var iiifLayer         = Leaflet.tileLayer.iiif(jsonUrl, iiifConf);
           iiifLayers[layerName] = iiifLayer;
-          noLoaded += 1;
+          noLoaded              = noLoaded + 1;
+
+          if(miniMaps){
+            miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), miniMapConf);
+          }
         }
         index += 1;
       }
     }
   };
 
+  /*
+  require(['util_resize'], function(){
+    $(window).europeanaResize(function(){
+      console.log('resize 1?');
+    });
+  });
+  */
+
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
-      if (iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] != destLayer) {
+      if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] != destLayer) {
         iiif.removeLayer(iiifLayers[base]);
+      }
+      if(miniMapCtrls[base]){
+        iiif.removeControl(miniMapCtrls[base]);
       }
     }
     iiif.addLayer(destLayer);
@@ -162,8 +198,7 @@ define(['jquery'], function($){
       crs: Leaflet.CRS.Simple,
       zoom: 0,
       maxZoom: maxZoom,
-      zoomsliderControl: true,
-      maxBoundsViscosity: 0.75
+      zoomsliderControl: true
     });
 
     if(fullScreenAvailable){
@@ -256,7 +291,7 @@ define(['jquery'], function($){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
-      $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
+      $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
       addFeatures(currentImg + '');
@@ -340,6 +375,11 @@ define(['jquery'], function($){
   }
 
   function addFeatures(layerName) {
+
+    if($('#iiif').hasClass('mini-map')){
+      miniMapCtrls[layerName].addTo(iiif);
+    }
+
     if($('#iiif').hasClass('transcription')){
       require(['jqScrollto'], function(){
         if(iiifLayers[layerName + '-f']){
@@ -421,6 +461,10 @@ define(['jquery'], function($){
         if(zoomSlider){
           requirements.push('leaflet_zoom_slider');
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+        }
+        if(miniMaps){
+          requirements.push('leaflet_minimap');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
         }
         require(requirements, function() {
           initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider);
