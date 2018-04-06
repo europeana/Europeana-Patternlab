@@ -1,4 +1,4 @@
-define(['util_resize', 'jasmine_jquery'], function(Ellipsis){
+define(['util_resize', 'jasmine_jquery'], function(){
   'use strict';
 
   describe('Eu Resize', function(){
