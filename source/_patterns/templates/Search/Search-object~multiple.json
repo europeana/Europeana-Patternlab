@@ -15,6 +15,10 @@
     {
       "name": "pageName",
       "value": "portal/show"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 
@@ -127,10 +131,10 @@
           {
             "is_iiif": true,
             "playable": true,
-            "play_url": "http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json",
+            "play_url": "iiif_manifest-data?manifest_transcriptions=true",
             "thumbnail": "/media/iiif.jpg",
             "technical_metadata": {
-              "mime_type": "video/wmv",
+              "mime_type": "image/iiif",
               "dc_creator": "Media Item (2) Creator",
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
@@ -171,7 +175,7 @@
             }
           },
           {
-            "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+            "thumbnail": "/images/sample/object_thumbnail4.jpg",
             "playable": true,
             "is_pdf": true,
             "play_url": "/media/PDF2.pdf",

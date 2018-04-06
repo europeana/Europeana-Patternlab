@@ -1,6 +1,7 @@
 config
 .DS_Store
 public
+reports
 source/css
 node_modules
 *-ck.js

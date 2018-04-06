@@ -39,8 +39,29 @@ require(['jquery'], function(){
         else{
           console.log('using default manifestoUrl: ' + manifestoUrl);
         }
-        viewer.setTranscriptionUrls(['iiif_transcriptions?index=1', 'iiif_transcriptions?index=2']);
-        viewer.init(manifestoUrl, null, true, true);
+
+        var useTranscriptions = manifestoUrl == 'iiif_manifest-data?manifest_transcriptions=true';
+
+        var config = {
+          transcriptions: useTranscriptions ? {
+            urls:[
+              'iiif_transcriptions?index=1',
+              'iiif_transcriptions?index=2'
+            ]
+          } : false,
+          zoomSlider: false,
+          fullScreenAvailable: true,
+          pageNav: true,
+          miniMap: {
+            toggleDisplay: true,
+            position:      'topright',
+            mapOptions:    { setMaxBounds: true },
+            width:         function(){ return 220; },
+            height:        function(){ return 280; },
+            toolbarHeight: '3.5em'
+          }
+        };
+        viewer.init(manifestoUrl, config);
       };
 
       if(typeof mock_ajax == 'undefined'){

@@ -30,18 +30,20 @@ define(['jquery'], function($){
 
 
   var iiif;
+  var config;
   var currentImg        = 0;
   var Leaflet           = null;
   var maxZoom           = 5;
   var totalImages;
-  var transcriptionUrls = [];
+
   var labelledData      = {}; // JSON (entire manifest): data.label: data
   var iiifLayers        = {}; // Map layers (loaded): label: layer
   var miniMapCtrls      = {}; // Mini map object storage
   var allCanvases       = [];
-  var miniMaps          = $('#iiif').hasClass('mini-map');
   var iiifConf          = { maxZoom: maxZoom, setMaxBounds: true, edgeBufferTiles: 1 };
+
   var features          = {};
+  var transcriptionIsOn = false;
 
   function log(msg) {
     console.log(msg);
@@ -66,25 +68,53 @@ define(['jquery'], function($){
     var noToLoad    = 5;
     var noLoaded    = 0;
     var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
-    var index = Math.max(centreIndex - parseInt(noToLoad/2), 0);
-    var miniMapConf;
-    var done = false;
+    var index       = Math.max(centreIndex - parseInt(noToLoad/2), 0);
+    var done        = false;
+    //var miniMapConf;
 
-    if(miniMaps){
+    if(config.miniMap){
 
-      // TODO: base on (full-width)
+      $(document).on('click', '.mini-map-ctrls .icon', function(e){
 
-      var fnMMWidth = function(){
-        var res = $(window).width() > 800 ? 316 : 206;
-        return res;
-      };
+        var tgt = $(e.target).parent();
+        var newZoom;
 
-      var fnMMHeight = function(){
-        var res = $(window).width() > 800 ? 465 : 304;
-        return res;
-      };
+        if(tgt.hasClass('fit-bounds')){
+          iiifLayers[currentImg]._fitBounds();
+        }
+        else if(tgt.hasClass('zoom-out')){
 
-      miniMapConf = { toggleDisplay: true, position: 'topright', mapOptions: { setMaxBounds: true }, setMaxBounds: true,  width: fnMMWidth, height: fnMMHeight };
+          newZoom = iiif.getZoom() - 1;
+
+          if(newZoom >= 0){
+
+            iiif.setZoom(newZoom);
+
+            if(newZoom == 0){
+              tgt.addClass('disabled');
+            }
+            if(newZoom == 0){
+              tgt.removeClass('disabled');
+            }
+          }
+        }
+        else if(tgt.hasClass('zoom-in')){
+
+          newZoom = iiif.getZoom() + 1;
+
+          if(newZoom <= maxZoom){
+
+            iiif.setZoom(newZoom);
+
+            if(newZoom == maxZoom){
+              tgt.addClass('disabled');
+            }
+            else{
+              tgt.removeClass('disabled');
+            }
+          }
+        }
+      });
     }
 
     while(!done){
@@ -105,22 +135,14 @@ define(['jquery'], function($){
           iiifLayers[layerName] = iiifLayer;
           noLoaded              = noLoaded + 1;
 
-          if(miniMaps){
-            miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), miniMapConf);
+          if(config.miniMap){
+            miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), config.miniMap);
           }
         }
         index += 1;
       }
     }
   };
-
-  /*
-  require(['util_resize'], function(){
-    $(window).europeanaResize(function(){
-      console.log('resize 1?');
-    });
-  });
-  */
 
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
@@ -158,7 +180,7 @@ define(['jquery'], function($){
 
         var template = $('#template-iiif-transcription').text();
 
-        $.getJSON(transcriptionUrls[currentImg]).done(function(data){
+        $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
           data['index'] = currentImg + '';
           $transcriptions.append(Mustache.render(template, data));
         });
@@ -186,26 +208,29 @@ define(['jquery'], function($){
     switchLayer(layer);
     currentImg = layerName;
     updateCtrls();
-    addFeatures(layerName + '');
+    addTranscriptions(layerName + '');
+    addMiniMap(layerName + '');
   };
 
-  var initUI = function(fullScreenAvailable, zoomSlider){
+  var initUI = function(){
 
     $('#iiif').addClass('loading');
+
+    console.log('iiif = ' + iiif);
 
     iiif = Leaflet.map('iiif', {
       center: [0, 0],
       crs: Leaflet.CRS.Simple,
       zoom: 0,
       maxZoom: maxZoom,
-      zoomsliderControl: true
+      zoomsliderControl: config.zoomSlider
     });
 
-    if(fullScreenAvailable){
+    if(config.fullScreenAvailable){
       window.L.control.fullscreen({
         maxZoom: maxZoom,
-        zoomsliderControl: zoomSlider,
-        fullscreenControl: fullScreenAvailable ? true : false,
+        zoomsliderControl: config.zoomSlider,
+        fullscreenControl: true,
         fullscreenControlOptions: {
           position: 'topright',
           forceSeparateButton: true
@@ -283,9 +308,9 @@ define(['jquery'], function($){
     $('#iiif-ctrl .total-images').html('/ ' + totalImages);
   };
 
-  function initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider) {
+  function initViewer(manifestUrl) {
 
-    initUI(fullScreenAvailable, zoomSlider);
+    initUI();
 
     if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
       setTotalImages(1);
@@ -294,7 +319,8 @@ define(['jquery'], function($){
       $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
-      addFeatures(currentImg + '');
+      addTranscriptions(currentImg + '', true);
+      addMiniMap(currentImg + '');
     }
     else{
 
@@ -316,17 +342,15 @@ define(['jquery'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-        addFeatures(currentImg + '');
+        addTranscriptions(currentImg + '', true);
+        addMiniMap(currentImg + '');
+
       }).fail(function(jqxhr) {
         log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': $thumbnail, 'player': 'iiif'});
+        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
       });
     }
 
-  }
-
-  function setTranscriptionUrls(urls){
-    transcriptionUrls = urls;
   }
 
   function highlightTranscript($t){
@@ -341,7 +365,17 @@ define(['jquery'], function($){
     }
   }
 
+  function resetFeatures(){
+    iiifLayers[currentImg + '-f'].eachLayer(function(layer){
+      iiifLayers[currentImg + '-f'].resetStyle(layer);
+    });
+  }
+
   function highlightFeature(f){
+
+    if(!f){
+      return;
+    }
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
     var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
@@ -358,9 +392,7 @@ define(['jquery'], function($){
       weight:      1
     };
 
-    iiifLayers[currentImg + '-f'].eachLayer(function(layer){
-      iiifLayers[currentImg + '-f'].resetStyle(layer);
-    });
+    resetFeatures();
 
     if(isWord){
       var parentFeature = features[currentImg + ''][transcriptionEl.closest('p').attr('id')];
@@ -374,18 +406,54 @@ define(['jquery'], function($){
     }
   }
 
-  function addFeatures(layerName) {
+  function addMiniMap(layerName) {
 
-    if($('#iiif').hasClass('mini-map')){
+    if(config.miniMap && miniMapCtrls[layerName]){
       miniMapCtrls[layerName].addTo(iiif);
     }
 
-    if($('#iiif').hasClass('transcription')){
+  }
+
+  function addTranscriptions(layerName, initialise) {
+
+    var classHideTranscript = 'transcriptions-hidden';
+
+    if(initialise){
+
+      $(document).on('remove-transcriptions', function(){
+        transcriptionIsOn = false;
+        $('#eu-iiif-container').addClass(classHideTranscript);
+        resetFeatures();
+        iiif.invalidateSize();
+      });
+
+      $(document).on('add-transcriptions', function(){
+        log('add-transcriptions');
+        transcriptionIsOn = true;
+        addTranscriptions(currentImg + '');
+        iiif.invalidateSize();
+      });
+
+      $(document).on('click', '.remove-transcriptions', function(){
+        $(document).trigger('remove-transcriptions');
+      });
+      $('#eu-iiif-container').removeClass(classHideTranscript);
+      transcriptionIsOn = true;
+    }
+
+    if(config.transcriptions){
+
+      if(!transcriptionIsOn){
+        return;
+      }
+
       require(['jqScrollto'], function(){
+
         if(iiifLayers[layerName + '-f']){
           iiifLayers[layerName + '-f'].addTo(iiif);
           bindTranscriptionClick();
           updateTranscriptCtrls();
+          $('#eu-iiif-container').removeClass(classHideTranscript);
         }
         else{
           loadFeatures(function(loadedLayer){
@@ -393,18 +461,22 @@ define(['jquery'], function($){
             loadedLayer.addTo(iiif);
             bindTranscriptionClick();
             updateTranscriptCtrls();
+            $('#eu-iiif-container').removeClass(classHideTranscript);
           });
         }
       });
     }
   }
 
+
   function loadFeatures(cb) {
 
-    console.log('loadFeatures ' + currentImg);
-
-    var geoJsonUrl   = transcriptionUrls[currentImg] + '&fmt=geoJSON';
+    var geoJsonUrl   = config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
     var featureClick = function(e){
+
+      if(!transcriptionIsOn){
+        return;
+      }
       highlightFeature(e.target);
       highlightTranscript($('.transcription #' + e.target.feature.properties.id));
     };
@@ -443,10 +515,19 @@ define(['jquery'], function($){
   }
 
   return {
-    init: function(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider) {
+    init: function(manifestUrl, conf) {
 
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
       $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
+
+      config = $.extend({
+        transcriptions: false,
+        zoomSlider: true,
+        pageNav: true,
+        miniMap: false,
+        thumbnail: false,
+        fullScreenAvailable: false
+      }, conf ? conf : {});
 
       require(['leaflet'], function(LeafletIn) {
 
@@ -454,31 +535,34 @@ define(['jquery'], function($){
 
         var requirements = ['leaflet_iiif'];
 
-        if(fullScreenAvailable){
+        if(config.fullScreenAvailable){
           requirements.push('leaflet_fullscreen');
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/fullscreen/leaflet.fullscreen.css') + '" type="text/css"/>');
         }
-        if(zoomSlider){
+        if(config.zoomSlider){
           requirements.push('leaflet_zoom_slider');
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
         }
-        if(miniMaps){
+        if(config.miniMap){
           requirements.push('leaflet_minimap');
           $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
         }
         require(requirements, function() {
-          initViewer(manifestUrl, $thumbnail, fullScreenAvailable, zoomSlider);
+          initViewer(manifestUrl);
         });
       });
     },
-    setTranscriptionUrls: setTranscriptionUrls,
     hide: function(){
+      iiif.off();
       iiif.remove();
       currentImg   = 0;
       totalImages  = 0;
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
+
+      miniMapCtrls = {};
+      features     = {};
     },
     remove: function(){
       if(iiif){
@@ -487,7 +571,7 @@ define(['jquery'], function($){
       }
     },
     centre: function(){
-      console.log('TODO: centre the image');
+      log('TODO: centre the image');
       //if(iiif){
       //  iiif.setView(L.latLng(0, 0), 1);
       //}

@@ -51,6 +51,7 @@ require.config({
     leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_minimap:               '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
     leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
 
     leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',

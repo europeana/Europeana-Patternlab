@@ -20,6 +20,7 @@
     ]
   },
   "fb_campaigns_on": false,
+  "iiif_transcription": true,
   "js_vars": [
     {
       "name": "pageName",
@@ -185,6 +186,34 @@
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
               "dc_source": "Source of the 2nd media item",
+              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"learn why\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
+            },
+            "rights":
+            {
+              "license_public": false,
+              "license_human": "No reuse",
+              "license_brief": "Yes",
+              "license_name": "CC0"
+            }
+          },
+          {
+            "is_iiif": true,
+            "downloadable": true,
+            "download":{
+              "url":  "/images/sample/iiif_t.jpg",
+              "text": "Original file"
+            },
+            "playable": true,
+            "attribution_html": "<span>some <b>html</b></span>",
+            "attribution_plain": "The Daily News",
+            "play_url": "iiif_manifest-data?manifest_transcriptions=true",
+            "thumbnail": "/images/sample/iiif_t.jpg",
+            "technical_metadata": {
+              "mime_type": "image/iiif",
+              "dc_creator": "Media Item Newspapers Creator",
+              "dc_description": "IIIF with transcriptions",
+              "dc_rights": "DC rights - the Daily News",
+              "dc_source": "DC source - the Daily News",
               "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"learn why\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
             },
             "rights":
