@@ -1,7 +1,8 @@
 @import '../../../../../sass/scss/generic/variables';
 
-$iiif-default-height:  36em;
-$transcriptions-width: 25.5em;
+$iiif-default-height:        36em;
+$iiif-transcriptions-height: 40em;
+$transcriptions-width:       25.5em;
 
 
 #iiif{
@@ -20,10 +21,12 @@ $transcriptions-width: 25.5em;
 
 #iiif,
 #iiif-ctrl{
+  background-color: #333;
   font-size: $font-size-slightly-smaller;
 }
 
 #iiif-ctrl{
+
   background: -ms-linear-gradient(
     top, rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.65) 100%
@@ -37,7 +40,9 @@ $transcriptions-width: 25.5em;
     rgba(255, 255, 255, 0) 0%,
     rgba(0, 0, 0, 0.7) 95%
   );
-  bottom: 4em;
+
+  bottom:        0;
+  margin-bottom: 1em;
   filter: progid:DXImageTransform.Microsoft.gradient(
     startColorstr='#00000000',
     endColorstr='#a6000000',
@@ -45,7 +50,7 @@ $transcriptions-width: 25.5em;
   );
   height: 4em;
   margin: auto;
-  margin-bottom: -3em;
+  margin-bottom: 1em;
   padding-top: 1em;
   position: relative;
   text-align: center;
@@ -172,10 +177,6 @@ $transcriptions-width: 25.5em;
   }
 }
 
-.transcriptions{
-  max-width: 100%;
-}
-
 .transcriptions-wrapper{
 
   overflow-x: hidden;
@@ -201,13 +202,13 @@ $transcriptions-width: 25.5em;
   background-color: #333;
   color:            #fff;
   font-size:        $font-size-slightly-smaller;
-
-  height:           40em;
-  max-height:       40em;
+  height:           $iiif-transcriptions-height;
 
   margin-left:      1em;
-  overflow:         auto;
+  max-height:       $iiif-transcriptions-height;
+  max-width:        100%;
 
+  overflow:         auto;
   text-align:       left;
 
   &.hidden,
@@ -248,7 +249,8 @@ $transcriptions-width: 25.5em;
 
 #eu-iiif-container{
 
-  display: flex;
+  display:  flex;
+  position: relative;
 
   > div:first-of-type{
     width: 100%;
