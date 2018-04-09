@@ -1,68 +1,86 @@
-/* line 1, Control.MiniMap.min.scss */
+/* line 3, Control.MiniMap.min.scss */
 .leaflet-control-minimap {
-  background: rgba(0, 0, 0, 0.6);
-  border: white solid;
+  border: rgba(0, 0, 0, 0.6) solid;
   border-radius: 4px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   transition: all .6s;
 }
+/* line 15, Control.MiniMap.min.scss */
+.leaflet-control-minimap .leaflet-control-minimap-inner {
+  background: rgba(0, 0, 0, 0.6);
+  transition: all .6s;
+}
+/* line 21, Control.MiniMap.min.scss */
+.leaflet-control-minimap .leaflet-control-minimap-inner .leaflet-container {
+  font: unset;
+}
 
-/* line 9, Control.MiniMap.min.scss */
-.leaflet-control-minimap a {
-  background-color: white;
+/* line 27, Control.MiniMap.min.scss */
+.leaflet-control-minimap .leaflet-control-minimap-toggle-display {
+  background-color: transparent;
+  background-color: #444;
   background-repeat: no-repeat;
   transition: all .6s;
   z-index: 99999;
 }
+/* line 34, Control.MiniMap.min.scss */
+.leaflet-control-minimap .leaflet-control-minimap-toggle-display.minimized-topright {
+  background-position-x: -2px;
+}
 
-/* line 16, Control.MiniMap.min.scss */
+/* line 39, Control.MiniMap.min.scss */
 .leaflet-control-minimap a.minimized-bottomright {
   border-radius: 0;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-/* line 22, Control.MiniMap.min.scss */
+/* line 45, Control.MiniMap.min.scss */
 .leaflet-control-minimap a.minimized-topleft {
   border-radius: 0;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
 }
 
-/* line 28, Control.MiniMap.min.scss */
+/* line 51, Control.MiniMap.min.scss */
 .leaflet-control-minimap a.minimized-bottomleft {
   border-radius: 0;
   -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 
-/* line 34, Control.MiniMap.min.scss */
+/* line 57, Control.MiniMap.min.scss */
 .leaflet-control-minimap a.minimized-topright {
   border-radius: 0;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
-/* line 40, Control.MiniMap.min.scss */
+/* line 63, Control.MiniMap.min.scss */
 .leaflet-control-minimap-toggle-display {
-  background-image: url(images/toggle.svg);
-  background-size: cover;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23fff' viewBox='0 0 16 16'%3E%3Cpath stroke-width='1.643' d='M13.18 13.146v-5.81l-5.81 5.81h5.81z'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-width='2.482' d='M12.762 12.727l-6.51-6.51'%3E%3C/path%3E%3C/svg%3E");
   border-radius: 3px 0 0;
   position: absolute;
 }
+/* line 68, Control.MiniMap.min.scss */
+.leaflet-control-minimap-toggle-display:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23d9d4ca' viewBox='0 0 16 16'%3E%3Cpath stroke-width='1.643' d='M13.18 13.146v-5.81l-5.81 5.81h5.81z'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-width='2.482' d='M12.762 12.727l-6.51-6.51'%3E%3C/path%3E%3C/svg%3E");
+}
 
-/* line 47, Control.MiniMap.min.scss */
+/* line 73, Control.MiniMap.min.scss */
 .leaflet-oldie .leaflet-control-minimap-toggle-display {
   background-image: url(images/toggle.png);
 }
 
-/* line 51, Control.MiniMap.min.scss */
+/* line 77, Control.MiniMap.min.scss */
 .leaflet-control-minimap-toggle-display-bottomright {
   bottom: 0;
   right: 0;
 }
 
-/* line 56, Control.MiniMap.min.scss */
+/* line 82, Control.MiniMap.min.scss */
 .leaflet-control-minimap-toggle-display-topleft {
   left: 0;
   top: 0;
@@ -70,7 +88,7 @@
   transform: rotate(180deg);
 }
 
-/* line 63, Control.MiniMap.min.scss */
+/* line 89, Control.MiniMap.min.scss */
 .leaflet-control-minimap-toggle-display-bottomleft {
   bottom: 0;
   left: 0;
@@ -78,24 +96,80 @@
   transform: rotate(90deg);
 }
 
-/* line 70, Control.MiniMap.min.scss */
+/* line 96, Control.MiniMap.min.scss */
 .leaflet-control-minimap-toggle-display-topright {
-  right: 0;
-  top: 0;
+  right: 3px;
+  top: -2px;
   -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 
-/*
-.leaflet-oldie .leaflet-control-minimap{
-  border: 1px solid #999;
+/* line 103, Control.MiniMap.min.scss */
+.mini-map-ctrls {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  padding: 0 2.25em;
+  width: 100%;
+  z-index: 400;
 }
-
-.leaflet-oldie .leaflet-control-minimap a{
-  background-color: #fff;
+/* line 114, Control.MiniMap.min.scss */
+.mini-map-ctrls .icon {
+  background-repeat: no-repeat;
+  display: block;
+  height: 1.75em;
+  position: relative;
+  width: 1.7em;
+  transform: scale(0.8);
 }
-
-.leaflet-oldie .leaflet-control-minimap a.minimized{
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+/* line 122, Control.MiniMap.min.scss */
+.mini-map-ctrls .icon a {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 }
-*/
+/* line 131, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-in {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath class='path1' d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 11.636v-2.909h-3.394v-3.394h-2.909v3.394h-3.394v2.909h3.394v3.394h2.909v-3.394h3.394z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 133, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-in:hover {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23d9d4ca' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath class='path1' d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 11.636v-2.909h-3.394v-3.394h-2.909v3.394h-3.394v2.909h3.394v3.394h2.909v-3.394h3.394z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 136, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-in.disabled {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23999' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath class='path1' d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 11.636v-2.909h-3.394v-3.394h-2.909v3.394h-3.394v2.909h3.394v3.394h2.909v-3.394h3.394z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 141, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-out {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 8.727h-9.697v2.909h9.697v-2.909z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 143, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-out:hover {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23d9d4ca' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 8.727h-9.697v2.909h9.697v-2.909z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 146, Control.MiniMap.min.scss */
+.mini-map-ctrls .zoom-out.disabled {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23999' viewbox='0 0 23 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.545 1.455q3.609 0 6.168 2.559t2.559 6.168-2.559 6.168-6.168 2.559q-2.559 0-4.66-1.347l-6.572 6.599q-0.566 0.566-1.374 0.566t-1.374-0.566-0.566-1.374 0.566-1.374l6.599-6.572q-1.347-2.101-1.347-4.66 0-3.609 2.559-6.168t6.168-2.559zM19.394 8.727h-9.697v2.909h9.697v-2.909z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 151, Control.MiniMap.min.scss */
+.mini-map-ctrls .fit-bounds {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.793 12.45q-0.126 0.278-0.429 0.278h-2.273v10q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-7.727h-5.455v7.727q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-10h-2.273q-0.303 0-0.429-0.278-0.076-0.278 0.101-0.505l10.455-10.455q0.328-0.328 0.657 0l10.455 10.455q0.177 0.227 0.101 0.505z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 153, Control.MiniMap.min.scss */
+.mini-map-ctrls .fit-bounds:hover {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23d9d4ca' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.793 12.45q-0.126 0.278-0.429 0.278h-2.273v10q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-7.727h-5.455v7.727q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-10h-2.273q-0.303 0-0.429-0.278-0.076-0.278 0.101-0.505l10.455-10.455q0.328-0.328 0.657 0l10.455 10.455q0.177 0.227 0.101 0.505z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 156, Control.MiniMap.min.scss */
+.mini-map-ctrls .fit-bounds.disabled {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23999' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.793 12.45q-0.126 0.278-0.429 0.278h-2.273v10q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-7.727h-5.455v7.727q0 0.202-0.126 0.328t-0.328 0.126h-4.545q-0.202 0-0.328-0.126t-0.126-0.328v-10h-2.273q-0.303 0-0.429-0.278-0.076-0.278 0.101-0.505l10.455-10.455q0.328-0.328 0.657 0l10.455 10.455q0.177 0.227 0.101 0.505z'%3E%3C/path%3E%3C/svg%3E");
+}
+/* line 161, Control.MiniMap.min.scss */
+.mini-map-ctrls.hidden {
+  display: none;
+}

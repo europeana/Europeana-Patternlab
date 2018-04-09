@@ -7,8 +7,6 @@ define(['jquery'], function($) {
   var listItemSelector   = listSelector + ' a';
   var singleItemSelector = singleSelector + ' a';
 
-  var isMultiple         = $(listItemSelector).length > 1;
-
   var mediaViewerImage   = null;
   var pdfViewer          = null;
   var videoViewer        = null;
@@ -18,23 +16,22 @@ define(['jquery'], function($) {
   var oembedPlayer       = null;
 
   function log(msg){
-      console.log('search-media-controller: ' + msg);
+    console.log('search-media-controller: ' + msg);
   }
 
   var fsAvailable = function(){
-    db = document.body;
+    var db = document.body;
     return db.requestFullScreen
     || db.webkitRequestFullscreen
     || db.webkitRequestFullscreen
     || db.mozRequestFullScreen
     || db.mozRequestFullScreen
     || db.msRequestFullscreen
-    || db.msRequestFullscreen
-  }
+    || db.msRequestFullscreen;
+  };
 
   function hideAllViewers() {
 
-    log('hideAllViewers()');
     $('.media-viewer .object-media-iiif').addClass('is-hidden');
     $('.media-viewer .object-media-image').addClass('is-hidden');
     $('.media-viewer .object-media-text').addClass('is-hidden');
@@ -43,27 +40,27 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-oembed').empty();
 
     if(audioPlayer){
-        audioPlayer.hide();
+      audioPlayer.hide();
     }
     if(iiifViewer){
-        iiifViewer.hide();
-        iiifViewer = null;
+      iiifViewer.hide();
+      iiifViewer = null;
     }
     if(pdfViewer){
-        pdfViewer.hide();
+      pdfViewer.hide();
     }
     if(videoViewer){
-        videoViewer.hide();
+      videoViewer.hide();
     }
     if(midiPlayer){
-        midiPlayer.hide();
+      midiPlayer.hide();
     }
 
     /*
     $([audioPlayer, iiifViewer, pdfViewer, videoViewer, midiPlayer]).each(function(){
-        if(this){
-            this.hide();
-        }
+      if(this){
+        this.hide();
+      }
     })
     */
   }
@@ -73,29 +70,29 @@ define(['jquery'], function($) {
   }
 
   function removePlayability(data){
-      log('remove playability...');
-      data.$thumb.removeClass('playable');
-      data.$thumb.find('.media-clickable-indicator').remove();
+    log('remove playability...');
+    data.$thumb.removeClass('playable');
+    data.$thumb.find('.media-clickable-indicator').remove();
 
-      $(listItemSelector).removeClass('loading');
-      $(singleItemSelector).removeClass('loading');
+    $(listItemSelector).removeClass('loading');
+    $(singleItemSelector).removeClass('loading');
 
-      $('.media-viewer .object-media-' + data.player).addClass('is-hidden');
+    $('.media-viewer .object-media-' + data.player).addClass('is-hidden');
   }
 
   function mediaClosed(evt, data){
-      $('.media-viewer').removeClass('active');
-      $('.media-viewer .multi-item-poster').removeClass('is-hidden');
-      if(data.type=='image'){
-        // update poster & tech metadata
-        $(window).trigger('updateTechData',
-          {
-            target: $(listSelector).length > 0 ? listSelector + ' [data-uri="' + data.current + '"]' : $('.single-item-thumb a')[0]
-          }
-        );
-        $('.multi-item-poster img').attr('src', data.current);
-      }
-  };
+    $('.media-viewer').removeClass('active');
+    $('.media-viewer .multi-item-poster').removeClass('is-hidden');
+    if(data.type=='image'){
+      // update poster & tech metadata
+      $(window).trigger('updateTechData',
+        {
+          target: $(listSelector).length > 0 ? listSelector + ' [data-uri="' + data.current + '"]' : $('.single-item-thumb a')[0]
+        }
+      );
+      $('.multi-item-poster img').attr('src', data.current);
+    }
+  }
 
   function mediaOpened(evt, data){
     if(data.hide_thumb){
@@ -111,7 +108,7 @@ define(['jquery'], function($) {
 
     // trigger resize of arrows
     if(data.type != 'image'){
-        $('.media-viewer').trigger({"type": "refresh-nav-carousel"});
+      $('.media-viewer').trigger({'type': 'refresh-nav-carousel'});
     }
   }
 
@@ -122,17 +119,17 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-audio').removeClass('is-hidden');
 
     require(['media_viewer_videojs'], function(player) {
-        audioPlayer = player;
+      audioPlayer = player;
 
-        var media = audioPlayer.getItemFromMarkup(data.target);
+      var media = audioPlayer.getItemFromMarkup(data.target);
 
-        if(media){
-            audioPlayer.init(media);
-        }
-        else{
-            $('.media-viewer').trigger({"type": "remove-playability", "$thumb": data.target, "player": "audio"});
-            log('missing audio item - removed');
-        }
+      if(media){
+        audioPlayer.init(media);
+      }
+      else{
+        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': data.target, 'player': 'audio'});
+        log('missing audio item - removed');
+      }
     });
   }
 
@@ -144,29 +141,23 @@ define(['jquery'], function($) {
     $('.media-viewer .object-media-iiif').removeClass('is-hidden');
 
     require(['media_viewer_iiif'], function(viewer) {
+
       iiifViewer = viewer;
-      iiifViewer.init(data.url, data.target, fsAvailable(), true);
+
+      var config = {
+        pageNav: true,
+        thumbnail: data.target,
+        fullScreenAvailable: fsAvailable(),
+        zoomSlider: true
+      };
+      iiifViewer.init(data.url, config);
     });
   }
 
   function initMediaImage(evt, data) {
 
-/*
-    if(mediaViewerImage){
-
-        hideAllViewers();
-
-        $('.media-viewer .object-media-image').removeClass('is-hidden');
-
-        mediaViewerImage.setUrl(data.url);
-        data.type = 'image';
-        mediaOpened(evt, data);
-        return;
-    }
-*/
     // collect all image data:
     var imgData = [];
-    var checkData = [];
     var clickedImg = data.target.attr('data-uri');
 
     $(listItemSelector + '[data-type=image]')
@@ -198,7 +189,7 @@ define(['jquery'], function($) {
       hideAllViewers();
       $('.media-viewer .object-media-image').removeClass('is-hidden');
       if(!mediaViewerImage.init(imgData, clickedImg)){
-        removePlayability({"$thumb": $(data.target)});
+        removePlayability({ '$thumb': $(data.target) });
       }
     });
   }
@@ -285,7 +276,7 @@ define(['jquery'], function($) {
         videoViewer.init(media);
       }
       else{
-        $('.media-viewer').trigger({"type": "remove-playability", "$thumb": data.target, "player": "video"});
+        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': data.target, 'player': 'video'});
         log('missing video item - removed');
       }
     });
@@ -305,9 +296,7 @@ define(['jquery'], function($) {
 
       var data_type = $(this).attr('data-type');
 
-      console.log('media controller will trigger event' + "object-media-" + data_type);
-
-      $('.media-viewer').trigger("object-media-" + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), html:$(this).data('html'), target:$(this)});
+      $('.media-viewer').trigger('object-media-' + data_type, {url:$(this).attr('data-uri'), thumbnail:$(this).data('thumbnail'), html:$(this).data('html'), target:$(this)});
       evt.preventDefault();
     }
     else{

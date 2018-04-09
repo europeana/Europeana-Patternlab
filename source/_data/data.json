@@ -41,7 +41,7 @@
         "name": "Global Channel Name",
         "url": "global_channel_url"
     },
-    "site_notice": "Europeana Collections may experience outages due to ongoing maintenance by our provider, we appreciate your patience during these hours",
+    "XXXsite_notice": "Europeana Collections may experience outages due to ongoing maintenance by our provider, we appreciate your patience during these hours",
     "navigation":
     {
         "home_url": "www.europeana.eu",

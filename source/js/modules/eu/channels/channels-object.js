@@ -392,6 +392,12 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       if(videoPlayer){
         videoPlayer.hide();
       }
+
+      if(viewerIIIF){
+        viewerIIIF.hide();
+        viewerIIIF = null;
+      }
+
     };
 
     if(!playable){
@@ -482,19 +488,59 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         || db.msRequestFullscreen;
       };
 
-      if(viewerIIIF){
-        viewerIIIF.remove();
-        viewerIIIF.init(uri, thumbnail, fsAvailable(), true);
+      // TODO: tmp code...
+
+      var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
+      var useMiniMap        = useTranscriptions;
+      var useZoomSlider     = !useTranscriptions;
+      var sizeTestEl        = $('.object-details');
+      var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
+
+      var fnMMWidth = function(){
+
+        if($(window).width() < 800){
+          return 0;
+        }
+        var classRequirement1 = sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
+        var classRequirement2 = sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
+        return (classRequirement1 || classRequirement2) ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'];
+      };
+
+      var fnMMHeight = function(){
+        if($(window).width() < 800){
+          return 0;
+        }
+        var classRequirement1 = sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
+        var classRequirement2 = sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
+        return (classRequirement1 || classRequirement2) ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'];
+      };
+
+      var conf = {
+        transcriptions: useTranscriptions ? {
+          urls:[
+            'iiif_transcriptions?index=1',
+            'iiif_transcriptions?index=2'
+          ]
+        } : false,
+        miniMap: useMiniMap ? {
+          toggleDisplay: true,
+          position:      'topright',
+          mapOptions:    { setMaxBounds: true },
+          width:         fnMMWidth,
+          height:        fnMMHeight,
+          toolbarHeight: '3.5em'
+        } : false,
+        pageNav: true,
+        thumbnail: thumbnail,
+        fullScreenAvailable: fsAvailable(),
+        zoomSlider: useZoomSlider
+      };
+
+      require(['media_viewer_iiif'], function(viewer) {
+        viewerIIIF = viewer;
+        viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-      }
-      else{
-        require(['media_viewer_iiif'], function(viewer) {
-          viewerIIIF = viewer;
-          viewerIIIF.remove();
-          viewer.init(uri, thumbnail, fsAvailable(), true);
-          $('.object-media-iiif').removeClass('is-hidden');
-        });
-      }
+      });
     }
     else if(type == 'audio'){
 
