@@ -1,27 +1,26 @@
-{{#iiif_transcription}}
-  <div id="eu-iiif-container" class="transcriptions-hidden">
-    <div>
-{{/iiif_transcription}}
+<div id="eu-iiif-container" class="transcriptions-hidden">
+  <div>
 
-<div id="iiif" class="{{#iiif_transcription}}transcription{{/iiif_transcription}}">
-</div>
-<div id="iiif-ctrl">
-  <div class="iiif-ctrl-group">
-    <a href="#" class="first">&lt;&lt;</a>
-    <a href="#" class="prev">&lt;</a>
-    <input class="jump-to-img" value="1"/>
-    <span class="total-images"></span>
-    <a href="#" class="next">&gt;</a>
-    <a href="#" class="last">&gt;&gt;</a>
-    <span class="title"></span>
-  </div>
-</div>
-
-{{#iiif_transcription}}
+    <div id="iiif">
     </div>
+
+    <div id="iiif-ctrl">
+      <div class="iiif-ctrl-group">
+        <a href="#" class="first">&lt;&lt;</a>
+        <a href="#" class="prev">&lt;</a>
+        <input class="jump-to-img" value="1"/>
+        <span class="total-images"></span>
+        <a href="#" class="next">&gt;</a>
+        <a href="#" class="last">&gt;&gt;</a>
+        <span class="title"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="transcriptions-wrapper">
     <div class="transcriptions">
       <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
       <a class="remove-transcriptions"></a>
     </div>
   </div>
-{{/iiif_transcription}}
+</div>

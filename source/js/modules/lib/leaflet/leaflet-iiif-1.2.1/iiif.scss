@@ -1,8 +1,12 @@
 @import '../../../../../sass/scss/generic/variables';
 
+$iiif-default-height:  36em;
+$transcriptions-width: 25.5em;
+
+
 #iiif{
-  height: 36em;
-  margin: 0 auto;
+  height:   $iiif-default-height;
+  margin:   0 auto;
   position: relative;
 
   .leaflet-control-zoom{
@@ -169,15 +173,42 @@
 }
 
 .transcriptions{
+  max-width: 100%;
+}
+
+.transcriptions-wrapper{
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  position:   relative;
+  width:      $transcriptions-width;
+
+  &::after{
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 95%);
+    bottom:        0;
+    content:       ' ';
+    font-size:     $font-size-slightly-smaller;
+    height:        4em;
+    left:          1em;
+    margin-bottom: 1em;
+    position:      absolute;
+    right:         0.8em;
+  }
+}
+
+.transcriptions{
 
   background-color: #333;
   color:            #fff;
   font-size:        $font-size-slightly-smaller;
+
+  height:           40em;
+  max-height:       40em;
+
   margin-left:      1em;
-  max-height:       36em;
   overflow:         auto;
+
   text-align:       left;
-  width:            25.5em;
 
   &.hidden,
   .hidden{
@@ -185,9 +216,9 @@
   }
 
   p{
-    margin:        0;
-    padding:       1em;
-    line-height:   $font-size-slightly-larger;
+    margin:      0;
+    padding:     1em;
+    line-height: $font-size-slightly-larger;
 
     &.highlight{
       background-color: rgba(53,163,213,0.65);
@@ -200,6 +231,7 @@
     height:           2em;
     position:         fixed;
     right:            0.5em;
+    top:              0.3em;
     transform:        scale(0.5);
     width:            2em;
 

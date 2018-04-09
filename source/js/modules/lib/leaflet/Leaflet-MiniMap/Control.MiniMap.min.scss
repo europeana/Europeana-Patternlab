@@ -61,10 +61,13 @@ $bgColor: rgba(0, 0, 0, 0.6);
 }
 
 .leaflet-control-minimap-toggle-display{
-  background-image: url(images/toggle.svg);
-  background-size:  cover;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23fff' viewBox='0 0 16 16'%3E%3Cpath stroke-width='1.643' d='M13.18 13.146v-5.81l-5.81 5.81h5.81z'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-width='2.482' d='M12.762 12.727l-6.51-6.51'%3E%3C/path%3E%3C/svg%3E");
   border-radius:    3px 0 0;
   position:         absolute;
+
+  &:hover{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23d9d4ca' viewBox='0 0 16 16'%3E%3Cpath stroke-width='1.643' d='M13.18 13.146v-5.81l-5.81 5.81h5.81z'%3E%3C/path%3E%3Cpath fill='none' stroke-linecap='round' stroke-width='2.482' d='M12.762 12.727l-6.51-6.51'%3E%3C/path%3E%3C/svg%3E");
+  }
 }
 
 .leaflet-oldie .leaflet-control-minimap-toggle-display{

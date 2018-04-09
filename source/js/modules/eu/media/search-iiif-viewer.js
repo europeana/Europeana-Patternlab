@@ -437,8 +437,16 @@ define(['jquery'], function($){
       $(document).on('click', '.remove-transcriptions', function(){
         $(document).trigger('remove-transcriptions');
       });
-      $('#eu-iiif-container').removeClass(classHideTranscript);
-      transcriptionIsOn = true;
+
+
+      if(config.transcriptions){
+        $('#eu-iiif-container').removeClass(classHideTranscript);
+        transcriptionIsOn = true;
+      }
+      else{
+        $('#eu-iiif-container').addClass(classHideTranscript);
+        transcriptionIsOn = false;
+      }
     }
 
     if(config.transcriptions){

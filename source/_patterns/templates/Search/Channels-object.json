@@ -20,7 +20,6 @@
     ]
   },
   "fb_campaigns_on": false,
-  "iiif_transcription": true,
   "js_vars": [
     {
       "name": "pageName",
