@@ -41,6 +41,23 @@ require(['jquery'], function(){
         }
 
         var useTranscriptions = manifestoUrl == 'iiif_manifest-data?manifest_transcriptions=true';
+        var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
+
+        var fnMMWidth = function(){
+
+          if($(window).width() < 1000){
+            return sizesMiniMap['s']['w'];
+          }
+          return sizesMiniMap['l']['w'];
+        };
+
+        var fnMMHeight = function(){
+
+          if($(window).width() < 1000){
+            return sizesMiniMap['s']['h'];
+          }
+          return sizesMiniMap['l']['h'];
+        };
 
         var config = {
           transcriptions: useTranscriptions ? {
@@ -56,9 +73,9 @@ require(['jquery'], function(){
             toggleDisplay: true,
             position:      'topright',
             mapOptions:    { setMaxBounds: true },
-            width:         function(){ return 220; },
-            height:        function(){ return 280; },
-            toolbarHeight: '3.5em'
+            width:         fnMMWidth,
+            height:        fnMMHeight,
+            toolbarHeight: '4em'
           }
         };
         viewer.init(manifestoUrl, config);
