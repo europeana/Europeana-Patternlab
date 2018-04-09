@@ -45,20 +45,15 @@ require(['jquery'], function(){
 
         var fnMMWidth = function(){
 
-          if($(window).width() < 800){
-            return 0;
-          }
-          if($(window).width() < 1100){
+          if($(window).width() < 1000){
             return sizesMiniMap['s']['w'];
           }
           return sizesMiniMap['l']['w'];
         };
 
         var fnMMHeight = function(){
-          if($(window).width() < 800){
-            return sizesMiniMap['s']['h'];
-          }
-          if($(window).width() < 1100){
+
+          if($(window).width() < 1000){
             return sizesMiniMap['s']['h'];
           }
           return sizesMiniMap['l']['h'];

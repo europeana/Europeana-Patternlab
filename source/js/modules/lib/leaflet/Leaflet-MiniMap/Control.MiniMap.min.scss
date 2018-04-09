@@ -2,15 +2,12 @@ $bgColor: rgba(0, 0, 0, 0.6);
 
 .leaflet-control-minimap{
 
-  border:        $bgColor solid;
-  border-radius: 4px;
-  //box-shadow:    0 1px 5px rgba(0,0,0,.65);
-
-  display:        flex;
+  border:         $bgColor solid;
+  border-radius:  4px;
+  display:        none;
   flex-direction: column;
-
-  overflow:      hidden;
-  transition:    all .6s;
+  overflow:       hidden;
+  transition:     all .6s;
 
   .leaflet-control-minimap-inner{
 
@@ -22,6 +19,11 @@ $bgColor: rgba(0, 0, 0, 0.6);
       font: unset;
     }
   }
+
+  @media all and (min-width: 50em) {
+    display: flex;
+  }
+
 }
 
 .leaflet-control-minimap .leaflet-control-minimap-toggle-display{
