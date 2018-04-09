@@ -1,4 +1,4 @@
-define(['jquery'], function($){
+define(['jquery', 'util_resize'], function($){
   'use strict';
 
   /*
@@ -224,6 +224,12 @@ define(['jquery'], function($){
       zoom: 0,
       maxZoom: maxZoom,
       zoomsliderControl: config.zoomSlider
+    });
+
+    $(window).europeanaResize(function(){
+      setTimeout(function(){
+        iiif.invalidateSize();
+      }, 667);
     });
 
     if(config.fullScreenAvailable){

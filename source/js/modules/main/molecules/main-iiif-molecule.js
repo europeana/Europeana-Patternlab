@@ -75,7 +75,7 @@ require(['jquery'], function(){
             mapOptions:    { setMaxBounds: true },
             width:         fnMMWidth,
             height:        fnMMHeight,
-            toolbarHeight: '3.5em'
+            toolbarHeight: '4em'
           }
         };
         viewer.init(manifestoUrl, config);
