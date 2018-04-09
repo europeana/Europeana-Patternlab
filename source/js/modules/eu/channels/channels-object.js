@@ -528,7 +528,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           mapOptions:    { setMaxBounds: true },
           width:         fnMMWidth,
           height:        fnMMHeight,
-          toolbarHeight: '3.5em'
+          toolbarHeight: '3.75em'
         } : false,
         pageNav: true,
         thumbnail: thumbnail,
