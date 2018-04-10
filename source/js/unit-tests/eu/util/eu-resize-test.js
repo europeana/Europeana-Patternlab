@@ -25,7 +25,7 @@ define(['util_resize', 'jasmine_jquery'], function(){
         expect(resizeCallsMade).toEqual(callsToIssue);
         expect(debouncedCallsMade).toEqual(1);
         done();
-      }, 100);
+      }, 150);
     });
   });
 });

@@ -181,5 +181,42 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
 
     });
 
+    describe('Attribute: data-copies', function(){
+
+      it('Writes a copy link to the element', function(done){
+
+        var $tgt = $('#data-copies-to');
+
+        expect($tgt.prev('.btn-copy').length).toBe(0);
+
+        EuFormUtils.initCopyFields();
+
+        setTimeout(function(){
+          expect($tgt.prev('.btn-copy').length).toBe(1);
+          done();
+        }, 500);
+      });
+
+      it('Copies from the source to the target', function(done){
+        EuFormUtils.initCopyFields();
+
+        var $src       = $('#data-copies-from');
+        var $tgt       = $('#data-copies-to');
+        var testString = 'test string';
+
+        $src.val(testString);
+
+        expect($tgt.val()).toEqual('');
+
+        setTimeout(function(){
+          $tgt.prev('.btn-copy').click();
+          setTimeout(function(){
+            expect($tgt.val()).toEqual(testString);
+            done();
+          }, 200);
+        }, 200);
+      });
+    });
+
   });
 });
