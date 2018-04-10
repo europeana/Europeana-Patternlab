@@ -30,31 +30,30 @@ define(['util_resize', 'jasmine_jquery'], function(ru){
     });
 
     it('Provides a factory method to throttle any events', function(done){
-        var callsToIssue    = 5;
-        var callsMadeEvt    = 0;
-        var callsMadeFn     = 0;
+      var callsToIssue    = 5;
+      var callsMadeEvt    = 0;
+      var callsMadeFn     = 0;
 
-        ru.addDebouncedFunction('throttle-this', 'fnThrottle', 200);
+      ru.addDebouncedFunction('throttle-this', 'fnThrottle', 200);
 
-        $(window).on('throttle-this', function(){
-          callsMadeEvt += 1;
-        });
+      $(window).on('throttle-this', function(){
+        callsMadeEvt += 1;
+      });
 
-        $(window).fnThrottle(function(){
-          callsMadeFn += 1;
-        });
+      $(window).fnThrottle(function(){
+        callsMadeFn += 1;
+      });
 
-        for(var i=0; i<callsToIssue; i++){
-          $(window).trigger('throttle-this');
-        }
+      for(var i=0; i<callsToIssue; i++){
+        $(window).trigger('throttle-this');
+      }
 
-        setTimeout(function(){
-          expect(callsMadeEvt).toEqual(callsToIssue);
-          expect(callsMadeFn).toEqual(1);
-          done();
-        }, 250);
+      setTimeout(function(){
+        expect(callsMadeEvt).toEqual(callsToIssue);
+        expect(callsMadeFn).toEqual(1);
+        done();
+      }, 250);
     });
-
 
   });
 });
