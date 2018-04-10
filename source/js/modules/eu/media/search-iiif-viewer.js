@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize'], function($){
+define(['jquery', 'util_resize'], function($, resizeUtils){
   'use strict';
 
   /*
@@ -216,8 +216,6 @@ define(['jquery', 'util_resize'], function($){
 
     $('#iiif').addClass('loading');
 
-    console.log('iiif = ' + iiif);
-
     iiif = Leaflet.map('iiif', {
       center: [0, 0],
       crs: Leaflet.CRS.Simple,
@@ -226,10 +224,16 @@ define(['jquery', 'util_resize'], function($){
       zoomsliderControl: config.zoomSlider
     });
 
+    resizeUtils.addDebouncedFunction('refresh-leaflet-map', 'refreshMap', 375);
+
+    $(window).refreshMap(function(){
+      iiif.invalidateSize();
+    });
+
     $(window).europeanaResize(function(){
       setTimeout(function(){
         iiif.invalidateSize();
-      }, 667);
+      }, 301);
     });
 
     if(config.fullScreenAvailable){
