@@ -528,7 +528,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           mapOptions:    { setMaxBounds: true },
           width:         fnMMWidth,
           height:        fnMMHeight,
-          toolbarHeight: '3.75em'
+          toolbarHeight: '4em'
         } : false,
         pageNav: true,
         thumbnail: thumbnail,
@@ -741,11 +741,16 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
+
     setTimeout(function(){
       zoomable.on(transitionEvent, function(e){
         if(e.originalEvent.propertyName == 'width'){
-          updateCtrls();
-          fixZoomableWidth();
+          if($(e.target).attr('class') == 'zoomable'){
+            updateCtrls();
+            fixZoomableWidth();
+            $(window).trigger('refresh-leaflet-mini-map');
+            $(window).trigger('refresh-leaflet-map');
+          }
         }
       });
     }, 1);

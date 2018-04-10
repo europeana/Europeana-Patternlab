@@ -74,10 +74,11 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       });
 
       var fnKeyup = function(e){
-        if(self.$list.find('li').length == 0){
-          self.log('exit (hidden)');
-          return;
-        }
+
+        //if(!self.$list.is(':visible')){
+        //  self.log('exit (hidden)');
+        //  return;
+        //}
 
         var key = window.event ? e.keyCode : e.which;
 

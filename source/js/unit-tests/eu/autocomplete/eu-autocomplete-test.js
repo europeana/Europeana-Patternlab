@@ -55,7 +55,6 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
     it('responds to text entry by displaying items', function(done){
 
       $(inputSelector).trigger('getSuggestions');
-      // $(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
 
       setTimeout(function() {
         expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
@@ -93,7 +92,7 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
         setTimeout(function() {
           expect($('.eu-autocomplete li').length).toBe(0);
           done();
-        }, 2000);
+        }, 2200);
       }, 2500);
     });
 
