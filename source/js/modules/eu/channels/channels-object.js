@@ -497,7 +497,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
 
       var fnMMWidth = function(){
-
         if($(window).width() < 800){
           return 0;
         }
@@ -523,16 +522,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           ]
         } : false,
         miniMap: useMiniMap ? {
-          toggleDisplay: true,
+          toggleDisplay: false,
           position:      'topright',
           mapOptions:    { setMaxBounds: true },
           width:         fnMMWidth,
           height:        fnMMHeight,
-          toolbarHeight: '4em'
+          toolbarHeight: '3.25em'
         } : false,
         pageNav: true,
         thumbnail: thumbnail,
         fullScreenAvailable: fsAvailable(),
+        zoom: 4,
+        zoomLevelOffset: -1,
         zoomSlider: useZoomSlider
       };
 
@@ -748,8 +749,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           if($(e.target).attr('class') == 'zoomable'){
             updateCtrls();
             fixZoomableWidth();
-            $(window).trigger('refresh-leaflet-mini-map');
             $(window).trigger('refresh-leaflet-map');
+            $(window).trigger('refresh-leaflet-mini-map');
           }
         }
       });

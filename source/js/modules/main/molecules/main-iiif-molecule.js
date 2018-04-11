@@ -70,14 +70,16 @@ require(['jquery'], function(){
           fullScreenAvailable: true,
           pageNav: true,
           miniMap: {
-            toggleDisplay: true,
-            position:      'topright',
-            mapOptions:    { setMaxBounds: true },
-            width:         fnMMWidth,
-            height:        fnMMHeight,
-            toolbarHeight: '4em'
+            position:        'topright',
+            mapOptions:      { setMaxBounds: true },
+            width:           fnMMWidth,
+            height:          fnMMHeight,
+            toggleDisplay:   false,
+            toolbarHeight:   '3.25em',
+            zoomLevelOffset: -2
           }
         };
+
         viewer.init(manifestoUrl, config);
       };
 
