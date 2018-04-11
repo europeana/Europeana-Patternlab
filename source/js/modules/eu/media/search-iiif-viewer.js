@@ -1,4 +1,4 @@
-define(['jquery', 'util_resize'], function($, resizeUtils){
+define(['jquery', 'util_resize'], function($){
   'use strict';
 
   /*
@@ -56,24 +56,13 @@ define(['jquery', 'util_resize'], function($, resizeUtils){
    * */
   var load = function(centreIndexIn, singleImageInfo){
 
-    if(singleImageInfo){
+    var iiifConfInstance = $.extend({}, iiifConf, {fitBounds: config.miniMap ? false : true, setMaxBounds: false});
+    iiifConf = iiifConfInstance;
+    window.iiifFitBounds = iiifConf.fitBounds;
 
-      var layer = Leaflet.tileLayer.iiif(singleImageInfo, iiifConf);
-
-      iiifLayers['single'] = layer;
-      layer.addTo(iiif);
-      return;
-    }
-
-    var noToLoad    = 5;
-    var noLoaded    = 0;
-    var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
-    var index       = Math.max(centreIndex - parseInt(noToLoad/2), 0);
-    var done        = false;
-    //var miniMapConf;
+    $.extend(iiifConf, {fitBounds: config.miniMap ? false : true, setMaxBounds: false});
 
     if(config.miniMap){
-
       $(document).on('click', '.mini-map-ctrls .icon', function(e){
 
         var tgt = $(e.target).parent();
@@ -117,31 +106,54 @@ define(['jquery', 'util_resize'], function($, resizeUtils){
       });
     }
 
-    while(!done){
 
-      if(noLoaded == noToLoad){
-        done = true;
+    if(singleImageInfo){
+
+      var layer = Leaflet.tileLayer.iiif(singleImageInfo, iiifConf);
+
+      iiifLayers['single'] = layer;
+      layer.addTo(iiif);
+
+      if(config.miniMap){
+        miniMapCtrls['single'] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(singleImageInfo), config.miniMap);
       }
-      else if(index >= allCanvases.length){
-        done = true;
-      }
-      else{
-        var data      = allCanvases[index];
-        var layerName = index + '';
-        var jsonUrl   = data.images[0].resource.service['@id'] + '/info.json';
 
-        if(!iiifLayers[layerName]){
-          var iiifLayer         = Leaflet.tileLayer.iiif(jsonUrl, iiifConf);
-          iiifLayers[layerName] = iiifLayer;
-          noLoaded              = noLoaded + 1;
+    }
+    else{
 
-          if(config.miniMap){
-            miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), config.miniMap);
-          }
+      var noToLoad    = 5;
+      var noLoaded    = 0;
+      var centreIndex = centreIndexIn ? centreIndexIn : currentImg;
+      var index       = Math.max(centreIndex - parseInt(noToLoad/2), 0);
+      var done        = false;
+
+      while(!done){
+
+        if(noLoaded == noToLoad){
+          done = true;
         }
-        index += 1;
+        else if(index >= allCanvases.length){
+          done = true;
+        }
+        else{
+          var data      = allCanvases[index];
+          var layerName = index + '';
+          var jsonUrl   = data.images[0].resource.service['@id'] + '/info.json';
+
+          if(!iiifLayers[layerName]){
+            var iiifLayer         = Leaflet.tileLayer.iiif(jsonUrl, iiifConf);
+            iiifLayers[layerName] = iiifLayer;
+            noLoaded              = noLoaded + 1;
+
+            if(config.miniMap){
+              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), config.miniMap);
+            }
+          }
+          index += 1;
+        }
       }
     }
+
   };
 
   var switchLayer = function(destLayer) {
@@ -219,20 +231,20 @@ define(['jquery', 'util_resize'], function($, resizeUtils){
     iiif = Leaflet.map('iiif', {
       center: [0, 0],
       crs: Leaflet.CRS.Simple,
-      zoom: 0,
+      zoom: config.zoom ? config.zoom : 0,
       maxZoom: maxZoom,
-      zoomsliderControl: config.zoomSlider
+      zoomsliderControl: config.zoomSlider,
+      zoomSnap: 0.5
     });
 
-    resizeUtils.addDebouncedFunction('refresh-leaflet-map', 'refreshMap', 375);
-
-    $(window).refreshMap(function(){
+    $(window).on('refresh-leaflet-map', function(){
       iiif.invalidateSize();
     });
 
     $(window).europeanaResize(function(){
       setTimeout(function(){
         iiif.invalidateSize();
+        console.log('timeout done 301');
       }, 301);
     });
 
@@ -322,7 +334,10 @@ define(['jquery', 'util_resize'], function($, resizeUtils){
 
     initUI();
 
-    if(manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length ){
+    var isSingle = (manifestUrl.indexOf('info.json') == manifestUrl.length - ('info.json').length)
+    || (manifestUrl.indexOf('iiifv2.json') == manifestUrl.length - ('iiifv2.json').length);
+
+    if(isSingle){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
@@ -417,11 +432,12 @@ define(['jquery', 'util_resize'], function($, resizeUtils){
   }
 
   function addMiniMap(layerName) {
-
     if(config.miniMap && miniMapCtrls[layerName]){
       miniMapCtrls[layerName].addTo(iiif);
+      setTimeout(function(){
+        miniMapCtrls[layerName].fillViewport();
+      }, 850);
     }
-
   }
 
   function addTranscriptions(layerName, initialise) {

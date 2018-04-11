@@ -17,6 +17,11 @@ L.TileLayer.Iiif = L.TileLayer.extend({
   initialize: function(url, options) {
     options = typeof options !== 'undefined' ? options : {};
 
+    // Europeana: TODO - move this to an override
+    if (typeof window.iiifFitBounds !== 'undefined') {
+      this.options.fitBounds = window.iiifFitBounds;
+    }
+
     if (options.maxZoom) {
       this._customMaxZoom = true;
     }
@@ -109,7 +114,6 @@ L.TileLayer.Iiif = L.TileLayer.extend({
   },
   _fitBounds: function() {
     var _this = this;
-
     // Find best zoom level and center map
     var initialZoom = _this._getInitialZoom(_this._map.getSize());
     var imageSize = _this._imageSizes[initialZoom];
