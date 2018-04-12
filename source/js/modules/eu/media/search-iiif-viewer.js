@@ -63,7 +63,7 @@ define(['jquery', 'util_resize'], function($){
         var newZoom;
 
         if(tgt.hasClass('fit-bounds')){
-          iiifLayers[currentImg]._fitBounds();
+          iiifLayers[currentImg]._fitBounds(true);
         }
         else if(tgt.hasClass('zoom-out')){
 
