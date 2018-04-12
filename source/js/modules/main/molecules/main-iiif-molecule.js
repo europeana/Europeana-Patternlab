@@ -9,6 +9,7 @@ require.config({
     leaflet_zoom_slider: '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    leaflet_iiif_eu:     '../../eu/leaflet/eu-leaflet-iiif',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
     purl:                '../../lib/purl/purl',
@@ -76,7 +77,7 @@ require(['jquery'], function(){
             height:          fnMMHeight,
             toggleDisplay:   false,
             toolbarHeight:   '3.25em',
-            zoomLevelOffset: -2
+            zoomLevelOffset: -1
           }
         };
 

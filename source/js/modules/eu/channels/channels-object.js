@@ -522,6 +522,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           ]
         } : false,
         miniMap: useMiniMap ? {
+          fillViewport:  true,
           toggleDisplay: false,
           position:      'topright',
           mapOptions:    { setMaxBounds: true },
