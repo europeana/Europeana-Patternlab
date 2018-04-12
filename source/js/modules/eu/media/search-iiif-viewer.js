@@ -56,12 +56,6 @@ define(['jquery', 'util_resize'], function($){
    * */
   var load = function(centreIndexIn, singleImageInfo){
 
-    var iiifConfInstance = $.extend({}, iiifConf, {fitBounds: config.miniMap ? false : true, setMaxBounds: false});
-    iiifConf = iiifConfInstance;
-    window.iiifFitBounds = iiifConf.fitBounds;
-
-    $.extend(iiifConf, {fitBounds: config.miniMap ? false : true, setMaxBounds: false});
-
     if(config.miniMap){
       $(document).on('click', '.mini-map-ctrls .icon', function(e){
 
@@ -109,13 +103,13 @@ define(['jquery', 'util_resize'], function($){
 
     if(singleImageInfo){
 
-      var layer = Leaflet.tileLayer.iiif(singleImageInfo, iiifConf);
+      var layer = Leaflet.tileLayer.iiif.eu(singleImageInfo, iiifConf);
 
       iiifLayers['single'] = layer;
       layer.addTo(iiif);
 
       if(config.miniMap){
-        miniMapCtrls['single'] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(singleImageInfo), config.miniMap);
+        miniMapCtrls['single'] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(singleImageInfo), config.miniMap);
       }
 
     }
@@ -141,12 +135,12 @@ define(['jquery', 'util_resize'], function($){
           var jsonUrl   = data.images[0].resource.service['@id'] + '/info.json';
 
           if(!iiifLayers[layerName]){
-            var iiifLayer         = Leaflet.tileLayer.iiif(jsonUrl, iiifConf);
+            var iiifLayer         = Leaflet.tileLayer.iiif.eu(jsonUrl, iiifConf);
             iiifLayers[layerName] = iiifLayer;
             noLoaded              = noLoaded + 1;
 
             if(config.miniMap){
-              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif(jsonUrl), config.miniMap);
+              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
             }
           }
           index += 1;
@@ -433,10 +427,29 @@ define(['jquery', 'util_resize'], function($){
 
   function addMiniMap(layerName) {
     if(config.miniMap && miniMapCtrls[layerName]){
-      miniMapCtrls[layerName].addTo(iiif);
-      setTimeout(function(){
-        miniMapCtrls[layerName].fillViewport();
-      }, 850);
+
+      if(config.miniMap.fillViewport){
+        window.blockIiifFitBounds = true;
+      }
+
+      var ctrl = miniMapCtrls[layerName];
+
+      iiif.whenReady(function(){
+        ctrl.addTo(iiif);
+
+        if(config.miniMap.fillViewport){
+          setTimeout(function(){
+            ctrl._miniMap.whenReady(function(){
+
+              setTimeout(function(){
+                ctrl.fillViewport();
+                window.blockIiifFitBounds = false;
+              }, 250);
+            });
+          }, 400);
+        }
+
+      });
     }
   }
 
@@ -567,7 +580,7 @@ define(['jquery', 'util_resize'], function($){
 
         Leaflet = LeafletIn;
 
-        var requirements = ['leaflet_iiif'];
+        var requirements = ['leaflet_iiif', 'leaflet_iiif_eu'];
 
         if(config.fullScreenAvailable){
           requirements.push('leaflet_fullscreen');

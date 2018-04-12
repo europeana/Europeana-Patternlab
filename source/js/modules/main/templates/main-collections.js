@@ -55,6 +55,7 @@ require.config({
     leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
 
     leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jquery:                        '../../lib/jquery/jquery',
