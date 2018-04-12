@@ -129,7 +129,7 @@
   height: 1.75em;
   position: relative;
   width: 1.7em;
-  transform: scale(0.8);
+  transform: scale(0.75);
 }
 /* line 123, Control.MiniMap.min.scss */
 .mini-map-ctrls .icon a {
@@ -177,6 +177,14 @@
   background-image: url("data:image/svg+xml,%3Csvg fill='%23999' xmlns='http://www.w3.org/2000/svg' viewBox='0,0,19,14'%3E%3Cpath d='M5.96 12.37h7.32l-.008-.005h3.583V2.254H2.385v10.111h3.583l-.008.006zm9.491 1.477H1.993c-.606 0-1.09-.484-1.09-1.09V1.863c0-.606.484-1.09 1.09-1.09h15.254c.605 0 1.09.484 1.09 1.09v10.896c0 .605-.485 1.09-1.09 1.09h-1.796zM6.734 3.112h5.836v8.368H6.734V3.112z'%3E%3C/path%3E%3C/svg%3E");
 }
 /* line 164, Control.MiniMap.min.scss */
+.mini-map-ctrls.large {
+  padding: 0 77px;
+}
+/* line 166, Control.MiniMap.min.scss */
+.mini-map-ctrls.large .icon {
+  transform: scale(0.9);
+}
+/* line 171, Control.MiniMap.min.scss */
 .mini-map-ctrls.hidden {
   display: none;
 }

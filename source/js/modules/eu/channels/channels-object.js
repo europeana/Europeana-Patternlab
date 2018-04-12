@@ -491,27 +491,34 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       // TODO: tmp code...
 
       var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
+
+      var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;
       var sizeTestEl        = $('.object-details');
-      var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
+      var sizesMiniMap      = { l: { w: 316,   h: 465 }, s: {w: 206, h: 304} };
+      var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
-      var fnMMWidth = function(){
-        if($(window).width() < 800){
-          return 0;
-        }
-        var classRequirement1 = sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
-        var classRequirement2 = sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
-        return (classRequirement1 || classRequirement2) ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'];
+      var classReq1 = function(){
+        return sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
       };
 
-      var fnMMHeight = function(){
-        if($(window).width() < 800){
-          return 0;
-        }
-        var classRequirement1 = sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
-        var classRequirement2 = sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
-        return (classRequirement1 || classRequirement2) ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'];
+      var classReq2 = function(){
+        return sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
+      };
+
+      var fnMiniMapData = function(){
+
+        var tooSmall = $(window).width() < 800;
+        var cr1 = classReq1();
+        var cr2 = classReq2();
+        var cr  = cr1 || cr2;
+        return {
+          h: tooSmall ? 0 : cr ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'],
+          w: tooSmall ? 0 : cr ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'],
+          t: cr ? sizesMiniMapTools['l'] : sizesMiniMapTools['s'],
+          ctrlsClass: cr ? 'large' : ''
+        };
       };
 
       var conf = {
@@ -526,9 +533,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           toggleDisplay: false,
           position:      'topright',
           mapOptions:    { setMaxBounds: true },
-          width:         fnMMWidth,
-          height:        fnMMHeight,
-          toolbarHeight: '3.25em'
+          fnMiniMapData: fnMiniMapData
         } : false,
         pageNav: true,
         thumbnail: thumbnail,

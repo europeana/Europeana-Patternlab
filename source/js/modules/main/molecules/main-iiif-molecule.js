@@ -41,23 +41,22 @@ require(['jquery'], function(){
           console.log('using default manifestoUrl: ' + manifestoUrl);
         }
 
+        var borderH           = 6.2;
         var useTranscriptions = manifestoUrl == 'iiif_manifest-data?manifest_transcriptions=true';
         var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
+        var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
-        var fnMMWidth = function(){
-
-          if($(window).width() < 1000){
-            return sizesMiniMap['s']['w'];
-          }
-          return sizesMiniMap['l']['w'];
-        };
-
-        var fnMMHeight = function(){
-
-          if($(window).width() < 1000){
-            return sizesMiniMap['s']['h'];
-          }
-          return sizesMiniMap['l']['h'];
+        var fnMiniMapData = function(){
+          var tooSmall = $(window).width() < 800;
+          var large    = $(window).width() > 1200;
+          var res = {
+            h: tooSmall ? 0 : large ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'],
+            w: tooSmall ? 0 : large ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'],
+            t: large    ? sizesMiniMapTools['l'] : sizesMiniMapTools['s'],
+            ctrlsClass: large ? 'large' : ''
+          };
+          console.log(JSON.stringify(res, null, 4));
+          return res;
         };
 
         var config = {
@@ -73,10 +72,8 @@ require(['jquery'], function(){
           miniMap: {
             position:        'topright',
             mapOptions:      { setMaxBounds: true },
-            width:           fnMMWidth,
-            height:          fnMMHeight,
+            fnMiniMapData:   fnMiniMapData,
             toggleDisplay:   false,
-            toolbarHeight:   '3.25em',
             zoomLevelOffset: -1
           }
         };
