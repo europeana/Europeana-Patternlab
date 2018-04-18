@@ -4,6 +4,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var suggestions     = null;
   var promotions      = null;
   var viewerIIIF      = null;
+  var viewerPDF       = null;
   var videoPlayer     = null;
   var audioPlayer     = null;
   var oembedPlayer    = null;
@@ -398,6 +399,18 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         viewerIIIF = null;
       }
 
+      if(viewerPDF){
+        viewerPDF.hide();
+      }
+    };
+
+    var setZoomedLock = function(){
+      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
+        setZoom('zoom-one', true);
+      }
+      else{
+        setZoom();
+      }
     };
 
     if(!playable){
@@ -467,13 +480,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.zoomable').append($('.object-media-iiif'));
       $('.media-options').show();
 
-      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
-        setZoom('zoom-one', true);
-      }
-      else{
-        setZoom();
-      }
-
+      setZoomedLock();
       updateCtrls();
       resetZoomable();
 
@@ -624,6 +631,29 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           oembedPlayer.init(container, html);
         });
       }
+    }
+    else if(type == 'pdf'){
+
+      removeOldMedia();
+      setZoomedLock();
+      updateCtrls();
+      resetZoomable();
+
+      require(['pdfjs'], function(){
+        require(['pdf_lang'], function(){
+          require(['media_viewer_pdf'], function(viewer){
+            $('.zoomable').append($('.object-media-pdf'));
+            $('.object-media-pdf').removeClass('is-hidden');
+            if(!viewerPDF){
+              viewerPDF = viewer;
+            }
+            else{
+              viewerPDF.show();
+            }
+            viewerPDF.init(uri);
+          });
+        });
+      });
     }
     else{
       log('type not implemented: ' + type);
@@ -919,7 +949,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       // sanity check
       for(i = 0; i < Math.min(latitude.length, longitude.length); i++){
-        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)){
+        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+,\s?-?\d+\.\d+\s*$/)){
           longitudes.push(longitude[i]);
           latitudes.push(latitude[i]);
         }
