@@ -1,38 +1,26 @@
-{{#iiif_transcription}}
+<div id="eu-iiif-container" class="transcriptions-hidden">
+  <div>
 
-  <div class="transcriptions"></div>
-  <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
-  <div id="iiif-with-ctrls">
+    <div id="iiif">
+    </div>
 
-{{/iiif_transcription}}
+    <div id="iiif-ctrl">
+      <div class="iiif-ctrl-group">
+        <a href="#" class="first">&lt;&lt;</a>
+        <a href="#" class="prev">&lt;</a>
+        <input class="jump-to-img" value="1"/>
+        <span class="total-images"></span>
+        <a href="#" class="next">&gt;</a>
+        <a href="#" class="last">&gt;&gt;</a>
+        <span class="title"></span>
+      </div>
+    </div>
+  </div>
 
-<div id="iiif" {{#iiif_transcription}}class="transcription"{{/iiif_transcription}}>
-</div>
-<div id="iiif-ctrl">
-  <div class="iiif-ctrl-group">
-    {{!
-    <!--
-      <a href="#" class="first">◂◂</a>
-      <a href="#" class="prev">◂</a>
-      <input class="jump-to-img" value="1"/>
-      <span class="total-images"></span>
-      <a href="#" class="next">▸</a>
-      <a href="#" class="last">▸▸</a>
-      <span class="title"></span>
-     -->
-    }}
-
-    <a href="#" class="first">&lt;&lt;</a>
-    <a href="#" class="prev">&lt;</a>
-    <input class="jump-to-img" value="1"/>
-    <span class="total-images"></span>
-    <a href="#" class="next">&gt;</a>
-    <a href="#" class="last">&gt;&gt;</a>
-    <span class="title"></span>
-
+  <div class="transcriptions-wrapper">
+    <div class="transcriptions">
+      <script id="template-iiif-transcription" type="text/x-mustache">{{> molecules/components/iiif/iiif-transcription-js.mustache}}</script>
+      <a class="remove-transcriptions"></a>
+    </div>
   </div>
 </div>
-
-{{#iiif_transcription}}
-  </div>
-{{/iiif_transcription}}

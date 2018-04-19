@@ -18,6 +18,7 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
   */
 
+  var instance;
   var inputSelector                      = '#input-el';
   jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
   jasmine.getJSONFixtures().fixturesPath = 'base/js/unit-test-ajax-data';
@@ -29,10 +30,11 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
       window.loadFixtures('fx-eu-autocomplete.html');
       window.loadJSONFixtures('autocomplete.json');
 
-      EuAutocomplete.init({
+      instance = EuAutocomplete.init({
         selInput         : inputSelector,
         url              : '/base/js/unit-test-ajax-data/autocomplete.json',
-        itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
+        itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>',
+        getInstance      : true
       });
 
     });
@@ -53,7 +55,6 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
     it('responds to text entry by displaying items', function(done){
 
       $(inputSelector).trigger('getSuggestions');
-      // $(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
 
       setTimeout(function() {
         expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
@@ -73,6 +74,55 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
         done();
       }, 2500);
     });
+
+    it('hides its items on the escape key', function(done){
+
+      var keyCode = 27;
+
+      $(inputSelector).trigger('getSuggestions');
+
+      setTimeout(function() {
+        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
+
+        var e = $.Event('keyup');
+        e.keyCode = keyCode;
+        e.which   = keyCode;
+        $(inputSelector).trigger(e);
+
+        setTimeout(function() {
+          expect($('.eu-autocomplete li').length).toBe(0);
+          done();
+        }, 2200);
+      }, 2500);
+    });
+
+    it('it selects on the tab key', function(done){
+
+      var keyCode = 9;
+
+      expect($(inputSelector).val().length).toBe(0);
+      $(inputSelector).trigger('getSuggestions');
+
+      setTimeout(function() {
+        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
+
+        instance.setSelected($('.eu-autocomplete li').first());
+
+        var e = $.Event('keydown');
+        e.keyCode = keyCode;
+        e.which   = keyCode;
+        $(inputSelector).trigger(e);
+
+        setTimeout(function() {
+          expect($(inputSelector).val().length).toBeGreaterThan(0);
+          done();
+        }, 1500);
+      }, 2000);
+
+    });
+
+    //it('it executes a callback', function(){
+    //});
 
   });
 });

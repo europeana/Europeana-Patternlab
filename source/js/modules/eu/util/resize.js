@@ -1,37 +1,38 @@
 define(['jquery'], function($){
 
-  (function($, sr){
-    var debounce = function(func, threshold, execAsap){
+  var debounce = function(func, threshold){
 
-      var timeout;
+    var timeout;
 
-      return function debounced(){
-        var obj  = this
-        var args = arguments;
+    return function debounced(){
+      var obj  = this;
 
-        function delayed(){
-          if(!execAsap){
-            func.apply(obj, args);
-          }
-          timeout = null;
-        };
-
-        if(timeout){
-          clearTimeout(timeout);
-        }
-        else if(execAsap){
-          func.apply(obj, args);
-        }
-
-        timeout = setTimeout(delayed, threshold || 100);
+      var delayed = function(){
+        func.apply(obj);
+        timeout = null;
       };
-    };
 
-    // smartresize
+      if(timeout){
+        clearTimeout(timeout);
+      }
+      timeout = setTimeout(delayed, threshold || 100);
+    };
+  };
+
+  (function($, sr){
     jQuery.fn[sr] = function(fn){
       return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);
     };
-    // jQuery.fn['europeanaScroll'] = function(fn){ return fn ?
-    // this.bind('scroll', debounce(fn)) : this.trigger(sr); };
   })($, 'europeanaResize');
+
+  return {
+    debounce: debounce,
+    addDebouncedFunction: function(evt, sr, threshold){
+      (function($, sr){
+        $.fn[sr] = function(fn){
+          return this.bind(evt, debounce(fn, threshold));
+        };
+      })($, sr);
+    }
+  };
 });

@@ -83,7 +83,8 @@
         "img_url": "/images/search/ugc-preview-3.jpg",
         "is_person": true,
         "text": "For an international day at my school in Senegal when I was about 6, my mother dressed my brother like the Ghanian flag - she was from Ghana - and me like the Dutch flag - my father is Dutch",
-        "XXXurl": "javascript:alert('follow link to preview')"
+        "XXXurl": "javascript:alert('follow link to preview')",
+        "caption_url": "javascript:alert('caption url override')"
       }
     ]
   }

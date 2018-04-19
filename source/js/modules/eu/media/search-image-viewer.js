@@ -1,71 +1,63 @@
 define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Default ) {
   'use strict';
 
-  function log(msg){
-      console.log('search-image-viewer: ' + msg);
-  }
+  var css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css');
+  var css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css');
 
-  var
-    css_path_1 = require.toUrl('../../lib/photoswipe/photoswipe.css'),
-    css_path_2 = require.toUrl('../../lib/photoswipe/default-skin/default-skin.css'),
-
-    items = [],
-    options = { index: 0 },
-    gallery = null,
-    $poster = $('.photoswipe-wrapper > img'),
-    viewer  = $('.photoswipe-wrapper  > .pswp')[0];
-
+  var items = [];
+  var options = { index: 0 };
+  var gallery = null;
+  var $poster = $('.photoswipe-wrapper > img');
+  var viewer  = $('.photoswipe-wrapper  > .pswp')[0];
 
   $('head').append('<link rel="stylesheet" href="' + css_path_1 + '" type="text/css"/>');
   $('head').append('<link rel="stylesheet" href="' + css_path_2 + '" type="text/css"/>');
 
 
-  function initialiseGallery(delay) {
-    if ( items.length < 1 ) {
+  function initialiseGallery(delay){
+    if (items.length < 1){
       console.warn( 'initialiseGallery() - no images to add to the gallery' );
       return;
     }
-    $('.media-viewer').trigger("object-media-open", {hide_thumb:false, type:'image'});
+    $('.media-viewer').trigger('object-media-open', {hide_thumb: false, type: 'image'});
 
     gallery = new PhotoSwipe( viewer, PhotoSwipeUI_Default, items, options );
     gallery.listen('close', function() {
-        $('.media-viewer').trigger("object-media-close", {hide_thumb:false, type:'image', current: gallery.currItem.src  });
+      $('.media-viewer').trigger('object-media-close', {hide_thumb: false, type: 'image', current: gallery.currItem.src });
     });
     gallery.listen('afterChange', function() {
-        if(this.getCurrentIndex() + 1 == this.options.getNumItemsFn()){
-            $('.media-viewer').trigger("object-media-last-image-reached", {doAfterLoad: function(newItems){
-                var added = 0;
-                for(var i=0; i<newItems.length; i++){
-                    var newItem = {
-                        src: newItems[i].play_url,
-                        w:   newItems[i].technical_metadata.width,
-                        h:   newItems[i].technical_metadata.height
-                    };
-                    if(checkItem( newItem )){
-                        gallery.items.push(newItem);
-                        added += 1;
-                    }
-                }
-                if(added>0){
-                    gallery.invalidateCurrItems();
-                    gallery.updateSize(true);
-                    gallery.ui.update();
-                }
-            }});
-        }
+      if(this.getCurrentIndex() + 1 == this.options.getNumItemsFn()){
+        $('.media-viewer').trigger('object-media-last-image-reached', {doAfterLoad: function(newItems){
+          var added = 0;
+          for(var i=0; i<newItems.length; i++){
+            var newItem = {
+              src: newItems[i].play_url,
+              w:   newItems[i].technical_metadata.width,
+              h:   newItems[i].technical_metadata.height
+            };
+            if(checkItem( newItem )){
+              gallery.items.push(newItem);
+              added += 1;
+            }
+          }
+          if(added>0){
+            gallery.invalidateCurrItems();
+            gallery.updateSize(true);
+            gallery.ui.update();
+          }
+        }});
+      }
     });
 
-
     if(delay){
-        /**  this delay is to mitigate a load issue - see here:
-          *     http://stackoverflow.com/questions/14946200/use-photoswipe-on-dynamically-created-ul
-          */
-        setTimeout(function(){
-            gallery.init();
-        }, delay);
+      //  this delay is to mitigate a load issue - see here:
+      //     http://stackoverflow.com/questions/14946200/use-photoswipe-on-dynamically-created-ul
+      setTimeout(function(){
+        gallery.init();
+      }, delay);
     }
     else{
-        gallery.init();
+      gallery.init();
     }
   }
 
@@ -74,15 +66,15 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
    * @returns {bool}
    */
   function checkItem( item ) {
-    if ( !item.w ) {
+    if (!item.w){
       console.warn( 'no data-w given' );
       return false;
     }
-    if ( !item.h ) {
+    if(!item.h){
       console.warn( 'no data-h given' );
       return false;
     }
-    if ( !item.src ) {
+    if(!item.src){
       console.warn( 'no data-src given' );
       return false;
     }
@@ -107,8 +99,8 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
     };
 
     var valid = checkItem( item );
-    if ( ! valid ) {
-        item = null;
+    if(!valid){
+      item = null;
     }
     return item;
   }
@@ -121,13 +113,13 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
    */
   function init( itemsIn, active ) {
 
-    if ( gallery ) {
-        // TODO: handle this on close - see here:
-        //         http://photoswipe.com/documentation/api.html
-        // (or find how to add to existing gallery)
-        gallery.close();
+    if(gallery){
+      // TODO: handle this on close - see here:
+      //         http://photoswipe.com/documentation/api.html
+      // (or find how to add to existing gallery)
+      gallery.close();
     }
-    if ( itemsIn ) {
+    if(itemsIn){
       var valid_items = [];
 
       for ( var i = 0; i < itemsIn.length; i += 1 ){
@@ -138,40 +130,39 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       items = valid_items;
 
       if(items.length == 0){
-          return false;
+        return false;
       }
 
       if(active){
-          var index = getItemIndex(active);
-          if(index > -1){
-              options.index = index;
-          }
+        var index = getItemIndex(active);
+        if(index > -1){
+          options.index = index;
+        }
       }
     }
 
     initialiseGallery(100);
-
     return true;
   }
 
   function getItemIndex(url){
-      var result = -1;
-      for(var i=0; i<items.length; i++){
-          if(items[i].src == url){
-              result = i;
-              break;
-          }
+    var result = -1;
+    for(var i=0; i<items.length; i++){
+      if(items[i].src == url){
+        result = i;
+        break;
       }
-      return result;
+    }
+    return result;
   }
 
   function setUrl( url ) {
-      var index = getItemIndex(url);
-      if(index > -1){
-          $poster.attr('src', url); // this is pointless, because the poster is hidden when the gallery is closed.
-          options.index = index;
-          initialiseGallery();
-      }
+    var index = getItemIndex(url);
+    if(index > -1){
+      $poster.attr('src', url); // this is pointless, because the poster is hidden when the gallery is closed.
+      options.index = index;
+      initialiseGallery();
+    }
   }
 
   return {
@@ -182,7 +173,7 @@ define(['photoswipe', 'photoswipe_ui'], function(PhotoSwipe, PhotoSwipeUI_Defaul
       setUrl( url );
     },
     getItemFromMarkup: function($el){
-        return getItemFromMarkup($el);
+      return getItemFromMarkup($el);
     }
-  }
+  };
 });

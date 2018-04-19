@@ -15,6 +15,5 @@
       "name": "mock_ajax",
       "value": "{'mappings': [{'pattern': 'http', 'resolveTo': 'self'}]}"
     }
-  ],
-  "iiif_transcription": true
+  ]
 }

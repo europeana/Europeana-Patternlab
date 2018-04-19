@@ -25,6 +25,7 @@ requirejs.config({
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
     purl:                '../../lib/purl/purl',
+    util_ellipsis:       '../../eu/util/eu-ellipsis',
     util_form:           '../../eu/util/eu-form-utils',
     util_resize:         '../../eu/util/resize'
   },

@@ -38,6 +38,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
       $(window).europeanaResize(self.resize);
       self.resize();
+      return self;
     };
 
     this.resize = function(){
@@ -74,10 +75,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
       var fnKeyup = function(e){
 
-        if(!self.$list.is(':visible')){
-          self.log('exit (hidden)');
-          return;
-        }
+        //if(!self.$list.is(':visible')){
+        //  self.log('exit (hidden)');
+        //  return;
+        //}
 
         var key = window.event ? e.keyCode : e.which;
 
@@ -192,7 +193,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.$list.css('top', Math.min(listTop-inV, self.$anchor.outerHeight()));
         }
       }
-    },
+    };
 
     this.scrollUpNeeded = function(selItemIn){
 
@@ -491,7 +492,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
   return {
     init: function(ops){
-      new EuAutocomplete().init(ops);
+      var instance = new EuAutocomplete().init(ops);
+      if(typeof ops != 'undefined' && ops.getInstance){
+        return instance;
+      }
     }
   };
 

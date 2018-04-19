@@ -506,34 +506,6 @@ $modal-header-height:       2.1em;
         min-width: 400px;
         position:  relative;
         z-index:   2;
-
-        #iiif,
-        #iiif-ctrl{
-          background-color: #333;
-        }
-
-        #iiif{
-          height: 34em;
-
-          // &.leaflet-container .leaflet-control-attribution{
-
-          //   background-color: #333;
-          //   bottom:           -4em;
-          //   position:         absolute;
-          //   right:            1em;
-          //   width:            5em;
-          //   a{
-          //     color: $white;
-          //   }
-          // }
-
-        }
-
-        #iiif-ctrl{
-          bottom:        0;
-          margin-bottom: 1em;
-        }
-
       }
 
       .object-media-video{
@@ -544,6 +516,7 @@ $modal-header-height:       2.1em;
         position: relative;
       }
 
+      .object-media-pdf,
       .object-media-video,
       .object-media-audio{
         background-color: #333;

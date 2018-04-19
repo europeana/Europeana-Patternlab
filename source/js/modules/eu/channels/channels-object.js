@@ -4,10 +4,9 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   var suggestions     = null;
   var promotions      = null;
   var viewerIIIF      = null;
+  var viewerPDF       = null;
   var videoPlayer     = null;
   var audioPlayer     = null;
-  var oembedPlayer    = null;
-
   var nextItem        = null;
   var prevItem        = null;
 
@@ -312,11 +311,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     });
 
     $('.media-share').on('click', function(){
-      alert('share');
+      console.log('share');
     });
 
     $('.media-link').on('click', function(){
-      alert('link');
+      console.log('link');
     });
 
     $('.action-ctrl.object-rights').on('click', function(){
@@ -381,6 +380,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     var removeOldMedia = function(){
 
+      $('.zoomable .object-media-oembed').remove();
       $('.zoomable > img').remove();
       $('.zoomable').children().addClass('is-hidden');
       $('.object-media-viewer').append($('.zoomable').children());
@@ -391,6 +391,24 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       if(videoPlayer){
         videoPlayer.hide();
+      }
+
+      if(viewerIIIF){
+        viewerIIIF.hide();
+        viewerIIIF = null;
+      }
+
+      if(viewerPDF){
+        viewerPDF.hide();
+      }
+    };
+
+    var setZoomedLock = function(){
+      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
+        setZoom('zoom-one', true);
+      }
+      else{
+        setZoom();
       }
     };
 
@@ -461,13 +479,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.zoomable').append($('.object-media-iiif'));
       $('.media-options').show();
 
-      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
-        setZoom('zoom-one', true);
-      }
-      else{
-        setZoom();
-      }
-
+      setZoomedLock();
       updateCtrls();
       resetZoomable();
 
@@ -482,19 +494,66 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         || db.msRequestFullscreen;
       };
 
-      if(viewerIIIF){
-        viewerIIIF.remove();
-        viewerIIIF.init(uri, thumbnail, fsAvailable(), true);
+      // TODO: tmp code...
+
+      var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
+
+      var borderH           = 6.2;
+      var useMiniMap        = useTranscriptions;
+      var useZoomSlider     = !useTranscriptions;
+      var sizeTestEl        = $('.object-details');
+      var sizesMiniMap      = { l: { w: 316,   h: 465 }, s: {w: 206, h: 304} };
+      var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
+
+      var classReq1 = function(){
+        return sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
+      };
+
+      var classReq2 = function(){
+        return sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
+      };
+
+      var fnMiniMapData = function(){
+
+        var tooSmall = $(window).width() < 800;
+        var cr1 = classReq1();
+        var cr2 = classReq2();
+        var cr  = cr1 || cr2;
+        return {
+          h: tooSmall ? 0 : cr ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'],
+          w: tooSmall ? 0 : cr ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'],
+          t: cr ? sizesMiniMapTools['l'] : sizesMiniMapTools['s'],
+          ctrlsClass: cr ? 'large' : ''
+        };
+      };
+
+      var conf = {
+        transcriptions: useTranscriptions ? {
+          urls:[
+            'iiif_transcriptions?index=1',
+            'iiif_transcriptions?index=2'
+          ]
+        } : false,
+        miniMap: useMiniMap ? {
+          fillViewport:  true,
+          toggleDisplay: false,
+          position:      'topright',
+          mapOptions:    { setMaxBounds: true },
+          fnMiniMapData: fnMiniMapData
+        } : false,
+        pageNav: true,
+        thumbnail: thumbnail,
+        fullScreenAvailable: fsAvailable(),
+        zoom: 4,
+        zoomLevelOffset: -1,
+        zoomSlider: useZoomSlider
+      };
+
+      require(['media_viewer_iiif'], function(viewer) {
+        viewerIIIF = viewer;
+        viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');
-      }
-      else{
-        require(['media_viewer_iiif'], function(viewer) {
-          viewerIIIF = viewer;
-          viewerIIIF.remove();
-          viewer.init(uri, thumbnail, fsAvailable(), true);
-          $('.object-media-iiif').removeClass('is-hidden');
-        });
-      }
+      });
     }
     else if(type == 'audio'){
 
@@ -523,7 +582,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           audioPlayer.init(media);
         }
         else{
-          alert('invalid');
+          console.log('invalid');
         }
         resetZoomable();
       });
@@ -557,20 +616,42 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     }
     else if(type == 'oembed'){
 
-      var container = $('.object-media-viewer .object-media-oembed');
-      var html      = unescape(item.play_html);
+      removeOldMedia();
+      $('.zoomable').append($('.object-media-oembed')[0].outerHTML);
 
-      if(oembedPlayer){
-        container.removeClass('is-hidden');
-        oembedPlayer.init(container, html);
-      }
-      else{
-        require(['media_player_oembed'], function(viewer){
-          oembedPlayer = viewer;
-          container.removeClass('is-hidden');
-          oembedPlayer.init(container, html);
+      var container = $('.zoomable .object-media-oembed').removeClass('is-hidden');
+      var html      = unescape(item.data('html'));
+
+      setZoomedLock();
+      updateCtrls();
+      resetZoomable();
+
+      require(['media_player_oembed'], function(viewer){
+        viewer.init(container, html);
+      });
+    }
+    else if(type == 'pdf'){
+
+      removeOldMedia();
+      setZoomedLock();
+      updateCtrls();
+      resetZoomable();
+
+      require(['pdfjs'], function(){
+        require(['pdf_lang'], function(){
+          require(['media_viewer_pdf'], function(viewer){
+            $('.zoomable').append($('.object-media-pdf'));
+            $('.object-media-pdf').removeClass('is-hidden');
+            if(!viewerPDF){
+              viewerPDF = viewer;
+            }
+            else{
+              viewerPDF.show();
+            }
+            viewerPDF.init(uri);
+          });
         });
-      }
+      });
     }
     else{
       log('type not implemented: ' + type);
@@ -589,8 +670,8 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   }
 
   function initActionBar(){
-    $('.media-annotate').on('click', function(){ alert('annotate'); });
-    //$('.action-ctrl-btn.share').on('click', function(){ alert('share'); });
+    $('.media-annotate').on('click', function(){ console.log('annotate'); });
+    //$('.action-ctrl-btn.share').on('click', function(){ console.log('share'); });
   }
 
   function initEntity(){
@@ -695,11 +776,16 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
+
     setTimeout(function(){
       zoomable.on(transitionEvent, function(e){
         if(e.originalEvent.propertyName == 'width'){
-          updateCtrls();
-          fixZoomableWidth();
+          if($(e.target).attr('class') == 'zoomable'){
+            updateCtrls();
+            fixZoomableWidth();
+            $(window).trigger('refresh-leaflet-map');
+            $(window).trigger('refresh-leaflet-mini-map');
+          }
         }
       });
     }, 1);
@@ -861,7 +947,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       // sanity check
       for(i = 0; i < Math.min(latitude.length, longitude.length); i++){
-        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+\,\s?-?\d+\.\d+\s*$/)){
+        if(latitude[i] && longitude[i] && [latitude[i] + '', longitude[i] + ''].join(',').match(/^\s*-?\d+\.\d+,\s?-?\d+\.\d+\s*$/)){
           longitudes.push(longitude[i]);
           latitudes.push(latitude[i]);
         }
