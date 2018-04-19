@@ -355,6 +355,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var playable    = item.hasClass('playable');
     var thumbnail   = item.data('thumbnail');
     var uri         = item.data('uri');
+    var mimeType    = item.data('mime-type');
 
     $('.object-media-nav .js-carousel-item .mlt-img-div').removeClass('active');
     $('.object-media-nav .js-carousel-item .is-current').removeClass('is-current');
@@ -564,12 +565,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       $('.object-media-audio').removeClass('is-hidden');
 
       require(['media_viewer_videojs'], function(player) {
+
         audioPlayer = player;
 
         var media = {
           url:       uri,
           data_type: type,
-          mime_type: $('.object-media-nav .js-carousel-item a:eq(' + index + ')').data('mime-type'),
+          mime_type: mimeType,
           thumbnail: thumbnail,
           height:    '400px'
         };
@@ -582,7 +584,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           audioPlayer.init(media);
         }
         else{
-          console.log('invalid');
+          console.log('invalid audio:\n\t' + JSON.stringify(media, null));
         }
         resetZoomable();
       });
@@ -603,7 +605,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         var media = {
           url:       uri,
           data_type: type,
-          mime_type: item.data('mime-type'),
+          mime_type: mimeType,
           thumbnail: thumbnail,
           height:    '400px'
         };
