@@ -160,29 +160,27 @@ define(['jquery'], function($) {
     var imgData = [];
     var clickedImg = data.target.attr('data-uri');
 
-    $(listItemSelector + '[data-type=image]')
-      .add(singleItemSelector + '[data-type=image]').each(function(){
+    $(listItemSelector + '[data-type=image]').add(singleItemSelector + '[data-type=image]').each(function(){
 
-        var $el    = $(this);
-        var uri    = $el.attr('data-uri');
-        var height = $el.attr('data-height');
-        var width  = $el.attr('data-width');
+      var $el    = $(this);
+      var uri    = $el.attr('data-uri');
+      var height = $el.attr('data-height');
+      var width  = $el.attr('data-width');
 
-        if(uri && width && height && width.length > 0 && height.length > 0){
+      if(uri && width && height && width.length > 0 && height.length > 0){
 
-          log('add img: ' + uri + ', w ' + width + ', h ' + height);
+        log('add img: ' + uri + ', w ' + width + ', h ' + height);
 
-          imgData.push({
-            src: uri,
-            h: parseInt(height),
-            w: parseInt(width)
-          });
-        }
-        else{
-          log('incomplete image data');
-        }
+        imgData.push({
+          src: uri,
+          h: parseInt(height),
+          w: parseInt(width)
+        });
       }
-    );
+      else{
+        log('incomplete image data');
+      }
+    });
 
     require(['media_viewer_image'], function(mediaViewerImageIn){
       mediaViewerImage = mediaViewerImageIn;
@@ -270,9 +268,6 @@ define(['jquery'], function($) {
       var media = videoViewer.getItemFromMarkup(data.target);
 
       if(media){
-        if(media.mime_type == 'video/quicktime' && $('video')[0].canPlayType(media.mime_type).length == 0){
-          media.mime_type = 'video/mp4';
-        }
         videoViewer.init(media);
       }
       else{
