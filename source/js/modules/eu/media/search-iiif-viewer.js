@@ -179,17 +179,22 @@ define(['jquery', 'util_resize'], function($){
     var $transcriptions = $('.transcriptions');
 
     $transcriptions.find('.transcription').addClass('hidden');
-
     if($transcriptions.find(' > .' + currentImg).length == 0){
+
       require(['mustache'], function(Mustache){
         Mustache.tags = ['[[', ']]'];
 
         var template = $('#template-iiif-transcription').text();
 
-        $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
-          data['index'] = currentImg + '';
-          $transcriptions.append(Mustache.render(template, data));
-        });
+        if(config.transcriptions.urls == 'EUROPEANA'){
+          console.log('append transcription happens elsewhere....???');
+        }
+        else{
+          $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
+            data['index'] = currentImg + '';
+            $transcriptions.append(Mustache.render(template, data));
+          });
+        }
       });
     }
     else{
@@ -335,6 +340,7 @@ define(['jquery', 'util_resize'], function($){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
+      $('#iiif').data('manifest-url', manifestUrl);
       $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
@@ -355,6 +361,7 @@ define(['jquery', 'util_resize'], function($){
         load();
 
         $('#iiif').removeClass('loading');
+        $('#iiif').data('manifest-url', manifestUrl);
 
         iiifLayers['0'].addTo(iiif);
 
@@ -385,6 +392,10 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function resetFeatures(){
+    if(config.transcriptions.urls == 'EUROPEANA'){
+      return;
+    }
+
     iiifLayers[currentImg + '-f'].eachLayer(function(layer){
       iiifLayers[currentImg + '-f'].resetStyle(layer);
     });
@@ -398,7 +409,7 @@ define(['jquery', 'util_resize'], function($){
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
     var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
-    var isWord          = transcriptionEl[0].nodeName.toUpperCase() == 'WORD';
+    var isWord          = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
     var wordStyle       = {
       color:       '#1676aa',
       fillOpacity: 0,
@@ -515,10 +526,82 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
+  function convertToGeoJSON(cb){
+
+    var manifestUrl   = $('#iiif').data('manifest-url');
+    var geoJsonServer = 'http://test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer    = 'http://iiif.europeana.eu/presentation/';
+    var fullTextUrl   = manifestUrl.replace(iiifServer, geoJsonServer).replace('/manifest.json', currentImg + '.iiifv2.json');
+
+    var res = {
+      'type': 'FeatureCollection',
+      'features': []
+    };
+
+    var fmtCoord = function(x, y, w, h){
+
+      var divider = 8;
+
+      x = parseInt(x);
+      y = parseInt(y);
+      w = parseInt(w);
+      h = parseInt(h);
+
+      return [[
+        [ x      / divider, 0 - (y      / divider)],
+        [(x + w) / divider, 0 - (y      / divider)],
+        [(x + w) / divider, 0 - (y + h) / divider],
+        [ x      / divider, 0 - (y + h) / divider],
+        [ x      / divider, 0 - (y      / divider)]
+      ]];
+    };
+
+    var addFeature = function(c, id){
+      res.features.push(
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': fmtCoord(c[0], c[1], c[2], c[3])
+          },
+          'properties': {
+            'id': id
+          }
+        }
+      );
+    };
+
+    var processParagraphData = function(p, cb){
+
+      $.each(p, function(i, paragraph){
+
+        addFeature(paragraph['on'].split('#')[1].split('=')[1].split(','), 'p' + i);
+
+        console.log('got paragraph: ' + JSON.stringify(paragraph));
+
+        // get text
+        var textUrlH = paragraph['resource'].split('#');
+        var textHash = textUrlH[1];
+        var textUrl  = textUrlH[0];
+        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', geoJsonServer) + '.json';
+        console.log('get text data ' + textUrl + ' > ' + textHash + '\n\tand on callback append to the transcription panel');
+      });
+      cb(res, true);
+    };
+
+    $.getJSON(fullTextUrl).done(function(data){
+
+      console.log('Got full text ' + fullTextUrl + '\n\t' + JSON.stringify(data));
+
+      var p = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Paragraph';
+      });
+      processParagraphData(p, cb);
+    });
+  }
 
   function loadFeatures(cb) {
 
-    var geoJsonUrl   = config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
     var featureClick = function(e){
 
       if(!transcriptionIsOn){
@@ -528,24 +611,40 @@ define(['jquery', 'util_resize'], function($){
       highlightTranscript($('.transcription #' + e.target.feature.properties.id));
     };
 
-    $.getJSON(geoJsonUrl).done(function(itemJSON){
-
+    var geoJsonUrl = config.transcriptions.urls == 'EUROPEANA' ? 'EUROPEANA' : config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
+    var geoJsonCb  = function(itemJSON, displayNow){
       features[currentImg + ''] = {};
 
       cb(Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
             fillOpacity: 0.5,
-            color:       'rgba(0,0,0,0)',
+            color:       'rgba(0,0,0,0)'
           };
         },
         onEachFeature: function(feature, layer){
           features[currentImg + ''][feature.properties.id] = layer;
           layer.on('click', featureClick);
+
+          if(displayNow){
+            layer.setStyle({
+              color:       '#1676aa',
+              fillOpacity: 0.5,
+              weight:      1
+            });
+          }
+
         }
       }));
+    };
 
-    });
+    if(geoJsonUrl == 'EUROPEANA'){
+      convertToGeoJSON(geoJsonCb);
+    }
+    else{
+      // styleguide only
+      $.getJSON(geoJsonUrl).done(geoJsonCb);
+    }
   }
 
   function bindTranscriptionClick(){
@@ -564,8 +663,8 @@ define(['jquery', 'util_resize'], function($){
   return {
     init: function(manifestUrl, conf) {
 
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')   + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css') + '" type="text/css"/>');
 
       config = $.extend({
         transcriptions: false,

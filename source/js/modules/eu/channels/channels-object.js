@@ -499,6 +499,10 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
 
+      if(uri.indexOf('http://iiif.europeana.eu/presentation/') > -1){
+        useTranscriptions = true;
+      }
+
       var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;
@@ -530,7 +534,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
       var conf = {
         transcriptions: useTranscriptions ? {
-          urls:[
+          urls: uri.indexOf('http://iiif.europeana.eu/presentation/') > -1 ? 'EUROPEANA' : [
             'iiif_transcriptions?index=1',
             'iiif_transcriptions?index=2'
           ]

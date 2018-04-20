@@ -298,6 +298,27 @@ define([], function(){
       }
     },
     {
+      "is_iiif": true,
+      "downloadable": false,
+      "playable": true,
+      "play_url": "http://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118435009/manifest.json",
+      "thumbnail": "/images/sample/iiif_t.jpg",
+      "technical_metadata": {
+        "mime_type": "image/iiif",
+        "dc_creator": "Hugo",
+        "dc_description": "API v2 data",
+        "dc_rights": "CCX (dc)",
+        "dc_source": "Hugo MyGuinness",
+        "edm_rights": "CCX (edm)"
+      },
+      "rights":
+      {
+        "license_public": true,
+        "license_human": "You can use this iiif image any way you like",
+        "license_brief": "Yes"
+      }
+    },
+    {
       "is_oembed": true,
       "playable": true,
       "thumbnail": "/media/thumb_oembed.png",
