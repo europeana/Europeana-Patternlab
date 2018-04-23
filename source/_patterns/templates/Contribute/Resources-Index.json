@@ -34,7 +34,7 @@
       "text": "Tell your story..."
     },
 
-    "contributions":{
+    "resources":{
       "create": {
         "text": "Create New",
         "url": "javascript:alert('create link')"
