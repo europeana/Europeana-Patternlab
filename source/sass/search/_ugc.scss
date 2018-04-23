@@ -541,6 +541,7 @@ noscript div{
         }
       }
 
+      // TODO: delete .license-icon after EC-2808 deployed
       .license-icon{
         background-repeat: no-repeat;
         font-size:         1.6em;
@@ -601,13 +602,17 @@ noscript div{
         transform:     translateY(-3em);
       }
 
+      // TODO: delete li EC-2808 deployed
       li,
+      .item,
       .license-description{
         display:     block;
         font-weight: normal;
       }
 
-      li{
+      // TODO: delete li after EC-2808 deployed
+      li,
+      .item{
         font-size:   $font-size-slightly-smaller;
         margin-left: 1em;
 
@@ -618,6 +623,7 @@ noscript div{
           position:   absolute;
         }
       }
+      .this-means::after{ content: ':';}
 
       .checkmark{
         background-color: $white;
