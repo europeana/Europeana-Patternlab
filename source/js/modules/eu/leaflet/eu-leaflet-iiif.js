@@ -2,8 +2,6 @@ require(['leaflet_iiif'], function(){
 
   var L = window.L;
 
-  var _this;
-
   L.TileLayer.Iiif.Eu = L.TileLayer.Iiif.extend({
     _fitBounds: function(force) {
       if(!force && typeof window.blockIiifFitBounds !== 'undefined'){
@@ -12,12 +10,13 @@ require(['leaflet_iiif'], function(){
       L.TileLayer.Iiif.prototype._fitBounds.call(this);
     },
     onAdd: function(map){
-      _this = this;
-      $.when(_this._infoDeferred).done(function() {
-        _this.divideFactor = _this.x / _this._imageSizes[0].x;
-        alert('divideFactor = ' + _this.divideFactor);
+      var _this = this;
+      $.when(this._infoDeferred).done(function() {
+        map.ratioTranscription = _this.x / _this._imageSizes[0].x;
+        console.error('set map.ratioTranscription = ' + map.ratioTranscription);
+        $(map).trigger('europeana-ready');
       });
-      L.TileLayer.Iiif.prototype.onAdd.call(this, map);
+      L.TileLayer.Iiif.prototype.onAdd.call(_this, map);
     }
   });
 

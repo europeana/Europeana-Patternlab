@@ -181,6 +181,8 @@ define(['jquery', 'util_resize'], function($){
     $transcriptions.find('.transcription').addClass('hidden');
     if($transcriptions.find(' > .' + currentImg).length == 0){
 
+      console.log('we have no transcriptions for this (' + currentImg + ')... are they still loading?');
+      /*
       require(['mustache'], function(Mustache){
         Mustache.tags = ['[[', ']]'];
 
@@ -196,6 +198,7 @@ define(['jquery', 'util_resize'], function($){
           });
         }
       });
+      */
     }
     else{
       $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
@@ -219,7 +222,10 @@ define(['jquery', 'util_resize'], function($){
     switchLayer(layer);
     currentImg = layerName;
     updateCtrls();
+
+    console.log('nav calls addTranscriptions');
     addTranscriptions(layerName + '');
+
     addMiniMap(layerName + '');
   };
 
@@ -368,7 +374,10 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-        addTranscriptions(currentImg + '', true);
+
+        // console.log('load !single calls addTranscriptions');
+        // addTranscriptions(currentImg + '', true);
+
         addMiniMap(currentImg + '');
 
       }).fail(function(jqxhr) {
@@ -392,10 +401,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function resetFeatures(){
-    if(config.transcriptions.urls == 'EUROPEANA'){
-      return;
-    }
-
     iiifLayers[currentImg + '-f'].eachLayer(function(layer){
       iiifLayers[currentImg + '-f'].resetStyle(layer);
     });
@@ -404,11 +409,13 @@ define(['jquery', 'util_resize'], function($){
   function highlightFeature(f){
 
     if(!f){
+      console.log('no feature to highlight');
       return;
     }
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
     var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
+
     var isWord          = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
     var wordStyle       = {
       color:       '#1676aa',
@@ -425,8 +432,11 @@ define(['jquery', 'util_resize'], function($){
     resetFeatures();
 
     if(isWord){
-      var parentFeature = features[currentImg + ''][transcriptionEl.closest('p').attr('id')];
+      var parentId      = transcriptionEl.closest('p').attr('id');
+      var parentFeature = features[currentImg + ''][parentId];
+
       f.setStyle(wordStyle);
+
       parentFeature.setStyle(paragraphStyle);
       //iiif.fitBounds(parentFeature.getBounds());
     }
@@ -445,10 +455,13 @@ define(['jquery', 'util_resize'], function($){
 
       var ctrl = miniMapCtrls[layerName];
 
-      iiif.whenReady(function(){
+      $(iiif).on('europeana-ready', function(){
+
+        addTranscriptions(currentImg + '', true);
+
         ctrl.addTo(iiif);
 
-        if(config.miniMap.fillViewport){
+        if(config.miniMap.fillViewport && currentImg == '0'){
           setTimeout(function(){
             ctrl._miniMap.whenReady(function(){
 
@@ -458,6 +471,9 @@ define(['jquery', 'util_resize'], function($){
               }, 250);
             });
           }, 400);
+        }
+        else{
+          window.blockIiifFitBounds = false;
         }
 
       });
@@ -478,10 +494,12 @@ define(['jquery', 'util_resize'], function($){
       });
 
       $(document).on('add-transcriptions', function(){
+        /*
         log('add-transcriptions');
         transcriptionIsOn = true;
         addTranscriptions(currentImg + '');
         iiif.invalidateSize();
+        */
       });
 
       $(document).on('click', '.remove-transcriptions', function(){
@@ -515,11 +533,17 @@ define(['jquery', 'util_resize'], function($){
         }
         else{
           loadFeatures(function(loadedLayer){
+
+            console.log('start loadFeatures cb');
+
             iiifLayers[layerName + '-f'] = loadedLayer;
             loadedLayer.addTo(iiif);
             bindTranscriptionClick();
             updateTranscriptCtrls();
             $('#eu-iiif-container').removeClass(classHideTranscript);
+
+            console.log('end loadFeatures cb');
+
           });
         }
       });
@@ -528,10 +552,10 @@ define(['jquery', 'util_resize'], function($){
 
   function convertToGeoJSON(cb){
 
-    var manifestUrl   = $('#iiif').data('manifest-url');
-    var geoJsonServer = 'http://test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
-    var iiifServer    = 'http://iiif.europeana.eu/presentation/';
-    var fullTextUrl   = manifestUrl.replace(iiifServer, geoJsonServer).replace('/manifest.json', currentImg + '.iiifv2.json');
+    var manifestUrl    = $('#iiif').data('manifest-url');
+    var fullTextServer = 'http://test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer     = 'http://iiif.europeana.eu/presentation/';
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', '/' + (currentImg + 1) + '.iiifv2.json');
 
     var res = {
       'type': 'FeatureCollection',
@@ -540,7 +564,9 @@ define(['jquery', 'util_resize'], function($){
 
     var fmtCoord = function(x, y, w, h){
 
-      var divider = 8;
+      var divider = iiif.ratioTranscription;
+
+      console.error('divider = ' + divider);
 
       x = parseInt(x);
       y = parseInt(y);
@@ -571,32 +597,90 @@ define(['jquery', 'util_resize'], function($){
       );
     };
 
-    var processParagraphData = function(p, cb){
+    var preProcessFeatureData = function(p){
 
       $.each(p, function(i, paragraph){
 
-        addFeature(paragraph['on'].split('#')[1].split('=')[1].split(','), 'p' + i);
+        var id = paragraph['@id'].split('/').pop();
+        addFeature(paragraph['on'].split('#')[1].split('=')[1].split(','), id);
 
-        console.log('got paragraph: ' + JSON.stringify(paragraph));
+        var hash  = paragraph['resource'].split('#')[1];
+        var chars = hash.split('=')[1].split(',');
 
-        // get text
-        var textUrlH = paragraph['resource'].split('#');
-        var textHash = textUrlH[1];
-        var textUrl  = textUrlH[0];
-        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', geoJsonServer) + '.json';
-        console.log('get text data ' + textUrl + ' > ' + textHash + '\n\tand on callback append to the transcription panel');
+        paragraph.id    = id;
+        paragraph.range = [parseInt(chars[0]), parseInt(chars[1])];
       });
-      cb(res, true);
     };
 
-    $.getJSON(fullTextUrl).done(function(data){
+    var processParagraphData = function(p, w, fullText){
 
-      console.log('Got full text ' + fullTextUrl + '\n\t' + JSON.stringify(data));
+      $.each(p, function(i, paragraph){
+
+        var id = paragraph.id;
+
+        var containedWords = $.grep(w, function(word){
+          return word.range[0] >= paragraph.range[0] && word.range[1] <= paragraph.range[1];
+        });
+
+        var text = '';
+        $.each(containedWords, function(i, ob){
+          text += '<word id="' + ob.id + '">' + fullText.slice(ob.range[0], ob.range[1]) + '</word> ';
+        });
+
+        $('.transcriptions').append('<div class="transcription ' + currentImg + '"><p id="' + id + '">' + text + '</p></div>');
+
+      });
+    };
+
+    console.log('load annotations from:\n\t\t' + annotationsUrl);
+
+    $.getJSON(annotationsUrl).done(function(data){
+
+      console.log('loaded from annotationsUrl: ' + annotationsUrl);
 
       var p = $.grep(data.resources, function(r){
         return r['dc:type'] === 'Paragraph';
       });
-      processParagraphData(p, cb);
+
+      var w = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Word';
+      });
+
+      var page = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Page';
+      });
+
+      if(page.length === 1){
+
+        var textUrl = page[0]['resource'];
+        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', fullTextServer) + '.json';
+
+        console.log('load text from:\n\t\t' + textUrl);
+
+        $.getJSON(textUrl).done(function(fullText){
+
+          console.log('loaded text from:\n\t\t' + textUrl);
+
+          preProcessFeatureData(p);
+
+          console.log('preprocessed 1');
+
+          preProcessFeatureData(w);
+
+          console.log('preprocessed 2');
+
+          processParagraphData(p, w, fullText.value);
+
+          console.log('processed paras');
+
+          if(cb){
+            console.log('call cb....');
+            cb(res);
+            console.log('...called cb');
+          }
+        });
+      }
+
     });
   }
 
@@ -607,7 +691,9 @@ define(['jquery', 'util_resize'], function($){
       if(!transcriptionIsOn){
         return;
       }
+      // console.log('highlightFeature');
       highlightFeature(e.target);
+      // console.log('highlightTranscript: e.target.feature = ' + e.target.feature);
       highlightTranscript($('.transcription #' + e.target.feature.properties.id));
     };
 
@@ -615,7 +701,8 @@ define(['jquery', 'util_resize'], function($){
     var geoJsonCb  = function(itemJSON, displayNow){
       features[currentImg + ''] = {};
 
-      cb(Leaflet.geoJson(itemJSON, {
+      console.log('enter geoJsonCb');
+      var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
             fillOpacity: 0.5,
@@ -633,12 +720,16 @@ define(['jquery', 'util_resize'], function($){
               weight:      1
             });
           }
-
         }
-      }));
+      });
+
+      console.log('made geoJsonObject');
+      cb(geoJsonObject);
+      console.log('exit geoJsonCb');
     };
 
     if(geoJsonUrl == 'EUROPEANA'){
+      console.log('convert to geoJSON....');
       convertToGeoJSON(geoJsonCb);
     }
     else{
