@@ -1,0 +1,30 @@
+<section class="ugc-content">
+  <div class="lc">
+    <form id="new-contribution">
+      <fieldset>
+        <div class="nested_fields">
+          <div class="media-items">
+            <fieldset>
+              <div class="input">
+                <div class="input radio_buttons optional license-radios">
+                  <div class="label-and-input license-section">
+                    <div class="slide-rail">
+                      <div class="licenses">
+                        {{#license_inputs}}
+
+                          {{> molecules/ugc/license}}
+
+                        {{/license_inputs}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+.ugc-content .license-radios .license-radio-option label
