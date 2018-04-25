@@ -12,7 +12,19 @@
                       <div class="licenses">
                         {{#license_inputs}}
 
-                          {{> molecules/ugc/license}}
+                          <span class="radio license-radio-option">
+                            <input class="radio_buttons optional"
+                              {{#license_url}}data-license-url="{{.}}"{{/license_url}}
+                              {{#value}}value="{{.}}"{{/value}}
+                              {{#name}}name="{{.}}"{{/name}}
+                              {{#id}}id="{{.}}"{{/id}}
+                              type="radio">
+                            <label class="collection_radio_buttons" {{#id}}for="{{.}}"{{/id}}>
+
+                              {{> molecules/ugc/license}}
+
+                            </label>
+                          </span>
 
                         {{/license_inputs}}
                       </div>

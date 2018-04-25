@@ -1,11 +1,3 @@
-<span class="radio license-radio-option">
-  <input class="radio_buttons optional"
-    {{#license_url}}data-license-url="{{.}}"{{/license_url}}
-    {{#value}}value="{{.}}"{{/value}}
-    {{#name}}name="{{.}}"{{/name}}
-    {{#id}}id="{{.}}"{{/id}}
-    type="radio">
-  <label class="collection_radio_buttons" {{#id}}for="{{.}}"{{/id}}>
     <span class="checkmark"></span>
 
     {{#license_explanation.intro}}
@@ -47,6 +39,3 @@
         </a>
       {{/license_url}}
     </span>
-
-  </label>
-</span>
