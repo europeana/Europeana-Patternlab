@@ -174,37 +174,6 @@ define(['jquery', 'util_resize'], function($){
 
   };
 
-  var updateTranscriptCtrls = function(){
-
-    var $transcriptions = $('.transcriptions');
-
-    $transcriptions.find('.transcription').addClass('hidden');
-    if($transcriptions.find(' > .' + currentImg).length == 0){
-
-      console.log('we have no transcriptions for this (' + currentImg + ')... are they still loading?');
-      /*
-      require(['mustache'], function(Mustache){
-        Mustache.tags = ['[[', ']]'];
-
-        var template = $('#template-iiif-transcription').text();
-
-        if(config.transcriptions.urls == 'EUROPEANA'){
-          console.log('append transcription happens elsewhere....???');
-        }
-        else{
-          $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
-            data['index'] = currentImg + '';
-            $transcriptions.append(Mustache.render(template, data));
-          });
-        }
-      });
-      */
-    }
-    else{
-      $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
-    }
-  };
-
   var nav = function($el, layerName){
 
     if($el.attr('disabled')){
@@ -219,14 +188,9 @@ define(['jquery', 'util_resize'], function($){
       layer = iiifLayers[layerName + ''];
       $('#iiif').removeClass('loading');
     }
-    switchLayer(layer);
     currentImg = layerName;
+    switchLayer(layer);
     updateCtrls();
-
-    console.log('nav calls addTranscriptions');
-    addTranscriptions(layerName + '');
-
-    addMiniMap(layerName + '');
   };
 
   var initUI = function(){
@@ -240,6 +204,26 @@ define(['jquery', 'util_resize'], function($){
       maxZoom: maxZoom,
       zoomsliderControl: config.zoomSlider,
       zoomSnap: 0.5
+    });
+
+    // init transcriptions
+    if(config.transcriptions){
+      addTranscriptions(true);
+    }
+
+    $(iiif).on('europeana-ready', function(){
+
+      var current = currentImg + '';
+
+      // add the mini map
+      if(config.miniMap && miniMapCtrls[current]){
+        addMiniMap(current);
+      }
+
+      // update the $transcriptions
+      if(config.transcriptions){
+        addTranscriptions();
+      }
     });
 
     $(window).on('refresh-leaflet-map', function(){
@@ -350,8 +334,6 @@ define(['jquery', 'util_resize'], function($){
       $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
-      addTranscriptions(currentImg + '', true);
-      addMiniMap(currentImg + '');
     }
     else{
 
@@ -374,11 +356,6 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-
-        // console.log('load !single calls addTranscriptions');
-        // addTranscriptions(currentImg + '', true);
-
-        addMiniMap(currentImg + '');
 
       }).fail(function(jqxhr) {
         log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
@@ -454,37 +431,40 @@ define(['jquery', 'util_resize'], function($){
       }
 
       var ctrl = miniMapCtrls[layerName];
+      ctrl.addTo(iiif);
 
-      $(iiif).on('europeana-ready', function(){
-
-        addTranscriptions(currentImg + '', true);
-
-        ctrl.addTo(iiif);
-
-        if(config.miniMap.fillViewport && currentImg == '0'){
-          setTimeout(function(){
-            ctrl._miniMap.whenReady(function(){
-
-              setTimeout(function(){
-                ctrl.fillViewport();
-                window.blockIiifFitBounds = false;
-              }, 250);
-            });
-          }, 400);
-        }
-        else{
-          window.blockIiifFitBounds = false;
-        }
-
-      });
+      if(config.miniMap.fillViewport && currentImg == '0'){
+        setTimeout(function(){
+          ctrl._miniMap.whenReady(function(){
+            setTimeout(function(){
+              ctrl.fillViewport();
+              window.blockIiifFitBounds = false;
+            }, 250);
+          });
+        }, 400);
+      }
+      else{
+        window.blockIiifFitBounds = false;
+      }
     }
   }
 
-  function addTranscriptions(layerName, initialise) {
+  function addTranscriptions(initialise) {
 
     var classHideTranscript = 'transcriptions-hidden';
 
     if(initialise){
+
+      if($('.transcriptions').hasClass('js-bound')){
+        return;
+      }
+
+      $(document).on('click', '.transcriptions *', function(e){
+        var $t = $(this);
+        e.stopPropagation();
+        highlightTranscript($t);
+        highlightFeature(features[currentImg + ''][$t.attr('id')]);
+      });
 
       $(document).on('remove-transcriptions', function(){
         transcriptionIsOn = false;
@@ -494,18 +474,16 @@ define(['jquery', 'util_resize'], function($){
       });
 
       $(document).on('add-transcriptions', function(){
-        /*
         log('add-transcriptions');
         transcriptionIsOn = true;
-        addTranscriptions(currentImg + '');
+        console.log('addTranscriptions evt...');
+        addTranscriptions();
         iiif.invalidateSize();
-        */
       });
 
       $(document).on('click', '.remove-transcriptions', function(){
         $(document).trigger('remove-transcriptions');
       });
-
 
       if(config.transcriptions){
         $('#eu-iiif-container').removeClass(classHideTranscript);
@@ -515,35 +493,35 @@ define(['jquery', 'util_resize'], function($){
         $('#eu-iiif-container').addClass(classHideTranscript);
         transcriptionIsOn = false;
       }
+      $('.transcriptions').addClass('js-bound');
     }
-
-    if(config.transcriptions){
-
+    else{
       if(!transcriptionIsOn){
         return;
       }
 
+      var updateTranscriptCtrls = function(){
+        var $transcriptions = $('.transcriptions');
+        $transcriptions.find('.transcription').addClass('hidden');
+        $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
+      };
+
       require(['jqScrollto'], function(){
 
-        if(iiifLayers[layerName + '-f']){
-          iiifLayers[layerName + '-f'].addTo(iiif);
-          bindTranscriptionClick();
+        var layerName = currentImg + '-f';
+
+        if(iiifLayers[layerName]){
+          iiifLayers[layerName].addTo(iiif);
           updateTranscriptCtrls();
           $('#eu-iiif-container').removeClass(classHideTranscript);
         }
         else{
           loadFeatures(function(loadedLayer){
 
-            console.log('start loadFeatures cb');
-
-            iiifLayers[layerName + '-f'] = loadedLayer;
+            iiifLayers[layerName] = loadedLayer;
             loadedLayer.addTo(iiif);
-            bindTranscriptionClick();
             updateTranscriptCtrls();
             $('#eu-iiif-container').removeClass(classHideTranscript);
-
-            console.log('end loadFeatures cb');
-
           });
         }
       });
@@ -564,7 +542,7 @@ define(['jquery', 'util_resize'], function($){
 
     var fmtCoord = function(x, y, w, h){
 
-      var divider = iiif.ratioTranscription;
+      var divider = iiif.minMaxRatio;
 
       console.error('divider = ' + divider);
 
@@ -662,14 +640,8 @@ define(['jquery', 'util_resize'], function($){
           console.log('loaded text from:\n\t\t' + textUrl);
 
           preProcessFeatureData(p);
-
-          console.log('preprocessed 1');
-
           preProcessFeatureData(w);
-
-          console.log('preprocessed 2');
-
-          processParagraphData(p, w, fullText.value);
+          processParagraphData(p, w, fullText.value ? fullText.value : fullText['rdf:value']);
 
           console.log('processed paras');
 
@@ -736,19 +708,6 @@ define(['jquery', 'util_resize'], function($){
       // styleguide only
       $.getJSON(geoJsonUrl).done(geoJsonCb);
     }
-  }
-
-  function bindTranscriptionClick(){
-    if($('.transcriptions').hasClass('js-bound')){
-      return;
-    }
-    $(document).on('click', '.transcriptions *', function(e){
-      var $t = $(this);
-      e.stopPropagation();
-      highlightTranscript($t);
-      highlightFeature(features[currentImg + ''][$t.attr('id')]);
-    });
-    $('.transcriptions').addClass('js-bound');
   }
 
   return {
