@@ -10,6 +10,7 @@ require.config({
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     leaflet_iiif_eu:     '../../eu/leaflet/eu-leaflet-iiif',
+    media_options:       '../../eu/media/media-options',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
     purl:                '../../lib/purl/purl',
@@ -19,7 +20,7 @@ require.config({
 
 require(['jquery'], function(){
   require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer'], function() {
-    require(['media_viewer_iiif'], function(viewer) {
+    require(['media_viewer_iiif', 'media_options'], function(viewer, EuMediaOptions) {
 
       var init = function(){
 
@@ -42,7 +43,6 @@ require(['jquery'], function(){
         }
 
         var borderH           = 6.2;
-        var useTranscriptions = manifestoUrl == 'iiif_manifest-data?manifest_transcriptions=true';
         var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
         var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
@@ -60,12 +60,7 @@ require(['jquery'], function(){
         };
 
         var config = {
-          transcriptions: useTranscriptions ? {
-            urls:[
-              'iiif_transcriptions?index=1',
-              'iiif_transcriptions?index=2'
-            ]
-          } : false,
+          transcriptions: true,
           zoomSlider: false,
           fullScreenAvailable: true,
           pageNav: true,
@@ -77,6 +72,20 @@ require(['jquery'], function(){
             zoomLevelOffset: -1
           }
         };
+
+        $('#eu-iiif-container').after(''
+          + '<div class="media-options" style="display:none;">'
+          +   '<h3><a class="transcriptons-show">Show transcriptions</a></h3>'
+          +   '<h3><a class="transcriptons-hide">Hide transcriptions</a></h3>'
+          + '</div>'
+        );
+        EuMediaOptions.init($('.media-options'));
+        EuMediaOptions.addHandler('IIIF', function(ops){
+          console.log(JSON.stringify(ops));
+          if(ops['transcriptions-available']){
+            $('.media-options').show();
+          }
+        });
 
         viewer.init(manifestoUrl, config);
       };

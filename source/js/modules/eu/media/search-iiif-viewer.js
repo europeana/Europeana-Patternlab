@@ -44,6 +44,8 @@ define(['jquery', 'util_resize'], function($){
 
   var features          = {};
   var transcriptionIsOn = false;
+  var classHideFullText = 'transcriptions-hidden';
+  var pnlTranscriptions = $('#eu-iiif-container .transcriptions');
 
   function log(msg) {
     console.log(msg);
@@ -180,13 +182,14 @@ define(['jquery', 'util_resize'], function($){
       return;
     }
 
+    setVisibleTranscripts();
+
     var layer = iiifLayers[layerName + ''];
 
     if(!layer){
       $('#iiif').addClass('loading');
       load(layerName);
       layer = iiifLayers[layerName + ''];
-      $('#iiif').removeClass('loading');
     }
     currentImg = layerName;
     switchLayer(layer);
@@ -206,12 +209,9 @@ define(['jquery', 'util_resize'], function($){
       zoomSnap: 0.5
     });
 
-    // init transcriptions
-    if(config.transcriptions){
-      addTranscriptions(true);
-    }
-
     $(iiif).on('europeana-ready', function(){
+
+      $('#iiif').removeClass('loading');
 
       var current = currentImg + '';
 
@@ -222,7 +222,15 @@ define(['jquery', 'util_resize'], function($){
 
       // update the $transcriptions
       if(config.transcriptions){
-        addTranscriptions();
+        if(transcriptionIsOn){
+          addTranscriptions();
+        }
+        else{
+          addTranscriptions(true);
+        }
+      }
+      else{
+        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
       }
     });
 
@@ -233,7 +241,6 @@ define(['jquery', 'util_resize'], function($){
     $(window).europeanaResize(function(){
       setTimeout(function(){
         iiif.invalidateSize();
-        console.log('timeout done 301');
       }, 301);
     });
 
@@ -370,10 +377,14 @@ define(['jquery', 'util_resize'], function($){
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
+
       if($t[0].nodeName.toUpperCase() == 'WORD'){
         $t.closest('p').addClass('highlight');
       }
-      $('.transcriptions').scrollTo($t, 333, {'offset': -16});
+
+      require(['jqScrollto'], function(){
+        pnlTranscriptions.scrollTo($t, 333, {'offset': -16});
+      });
     }
   }
 
@@ -383,18 +394,33 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  function setVisibleTranscripts(show){
+
+    pnlTranscriptions.find('.transcription').addClass('hidden');
+
+    if(typeof show != 'undefined'){
+
+      var highlighted = pnlTranscriptions.find('.transcription.' + currentImg).removeClass('hidden').find('p.highlight');
+
+      if(highlighted.length){
+        require(['jqScrollto'], function(){
+          pnlTranscriptions.scrollTo(highlighted, 333, {'offset': -16});
+        });
+      }
+    }
+  }
+
   function highlightFeature(f){
 
     if(!f){
-      console.log('no feature to highlight');
       return;
     }
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
-    var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
+    var transcriptionEl = pnlTranscriptions.find('#' + f.feature.properties.id);
 
-    var isWord          = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
-    var wordStyle       = {
+    var isWord    = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
+    var wordStyle = {
       color:       '#1676aa',
       fillOpacity: 0,
       weight:      1
@@ -434,14 +460,20 @@ define(['jquery', 'util_resize'], function($){
       ctrl.addTo(iiif);
 
       if(config.miniMap.fillViewport && currentImg == '0'){
-        setTimeout(function(){
-          ctrl._miniMap.whenReady(function(){
+        ctrl._miniMap.whenReady(function(){
+          if($('.leaflet-control-minimap').is(':visible')){
             setTimeout(function(){
               ctrl.fillViewport();
               window.blockIiifFitBounds = false;
             }, 250);
-          });
-        }, 400);
+          }
+          else{
+            window.blockIiifFitBounds = false;
+            setTimeout(function(){
+              iiifLayers[currentImg]._fitBounds(true);
+            }, 250);
+          }
+        });
       }
       else{
         window.blockIiifFitBounds = false;
@@ -449,15 +481,10 @@ define(['jquery', 'util_resize'], function($){
     }
   }
 
-  function addTranscriptions(initialise) {
+  function addTranscriptions(probe) {
 
-    var classHideTranscript = 'transcriptions-hidden';
-
-    if(initialise){
-
-      if($('.transcriptions').hasClass('js-bound')){
-        return;
-      }
+    if(!pnlTranscriptions.hasClass('js-bound')){
+      require(['jqScrollto']);
 
       $(document).on('click', '.transcriptions *', function(e){
         var $t = $(this);
@@ -466,74 +493,51 @@ define(['jquery', 'util_resize'], function($){
         highlightFeature(features[currentImg + ''][$t.attr('id')]);
       });
 
-      $(document).on('remove-transcriptions', function(){
+      $('#iiif').on('hide-transcriptions', function(){
         transcriptionIsOn = false;
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        resetFeatures();
+        $('#eu-iiif-container').addClass(classHideFullText);
         iiif.invalidateSize();
       });
 
-      $(document).on('add-transcriptions', function(){
-        log('add-transcriptions');
+      $('#iiif').on('show-transcriptions', function(){
         transcriptionIsOn = true;
-        console.log('addTranscriptions evt...');
         addTranscriptions();
-        iiif.invalidateSize();
       });
 
       $(document).on('click', '.remove-transcriptions', function(){
-        $(document).trigger('remove-transcriptions');
+        $('#iiif').trigger('hide-transcriptions');
+        $('.media-options').trigger('IIIF', {'transcriptions-available': true});
       });
 
-      if(config.transcriptions){
-        $('#eu-iiif-container').removeClass(classHideTranscript);
-        transcriptionIsOn = true;
-      }
-      else{
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        transcriptionIsOn = false;
-      }
-      $('.transcriptions').addClass('js-bound');
+      pnlTranscriptions.addClass('js-bound');
+    }
+
+    var layerName = currentImg + '-f';
+    var afterAdd  = function(key){
+      setVisibleTranscripts(key);
+      $('#eu-iiif-container').removeClass(classHideFullText);
+      iiif.invalidateSize();
+    };
+
+    if(iiifLayers[layerName]){
+      iiifLayers[layerName].addTo(iiif);
+      afterAdd(currentImg);
     }
     else{
-      if(!transcriptionIsOn){
-        return;
-      }
-
-      var updateTranscriptCtrls = function(){
-        var $transcriptions = $('.transcriptions');
-        $transcriptions.find('.transcription').addClass('hidden');
-        $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
-      };
-
-      require(['jqScrollto'], function(){
-
-        var layerName = currentImg + '-f';
-
-        if(iiifLayers[layerName]){
-          iiifLayers[layerName].addTo(iiif);
-          updateTranscriptCtrls();
-          $('#eu-iiif-container').removeClass(classHideTranscript);
-        }
-        else{
-          loadFeatures(function(loadedLayer){
-
-            iiifLayers[layerName] = loadedLayer;
-            loadedLayer.addTo(iiif);
-            updateTranscriptCtrls();
-            $('#eu-iiif-container').removeClass(classHideTranscript);
-          });
-        }
+      loadFeatures(probe, function(loadedLayer, pageRef){
+        iiifLayers[pageRef + '-f'] = loadedLayer;
+        loadedLayer.addTo(iiif);
+        afterAdd(pageRef);
       });
     }
   }
 
-  function convertToGeoJSON(cb){
+  function convertToGeoJSON(probe, pageRef, cb){
 
     var manifestUrl    = $('#iiif').data('manifest-url');
     var fullTextServer = 'http://test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
     var iiifServer     = 'http://iiif.europeana.eu/presentation/';
-    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', '/' + (currentImg + 1) + '.iiifv2.json');
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', '/' + (pageRef + 1) + '.iiifv2.json');
 
     var res = {
       'type': 'FeatureCollection',
@@ -543,8 +547,6 @@ define(['jquery', 'util_resize'], function($){
     var fmtCoord = function(x, y, w, h){
 
       var divider = iiif.minMaxRatio;
-
-      console.error('divider = ' + divider);
 
       x = parseInt(x);
       y = parseInt(y);
@@ -601,20 +603,21 @@ define(['jquery', 'util_resize'], function($){
         });
 
         var text = '';
+
         $.each(containedWords, function(i, ob){
           text += '<word id="' + ob.id + '">' + fullText.slice(ob.range[0], ob.range[1]) + '</word> ';
         });
 
-        $('.transcriptions').append('<div class="transcription ' + currentImg + '"><p id="' + id + '">' + text + '</p></div>');
-
+        pnlTranscriptions.append('<div class="transcription ' + pageRef + '"><p id="' + id + '">' + text + '</p></div>');
       });
     };
 
-    console.log('load annotations from:\n\t\t' + annotationsUrl);
-
     $.getJSON(annotationsUrl).done(function(data){
 
-      console.log('loaded from annotationsUrl: ' + annotationsUrl);
+      if(probe){
+        $('.media-options').trigger('IIIF', {'transcriptions-available': true});
+        return;
+      }
 
       var p = $.grep(data.resources, function(r){
         return r['dc:type'] === 'Paragraph';
@@ -633,47 +636,29 @@ define(['jquery', 'util_resize'], function($){
         var textUrl = page[0]['resource'];
         textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', fullTextServer) + '.json';
 
-        console.log('load text from:\n\t\t' + textUrl);
-
         $.getJSON(textUrl).done(function(fullText){
-
-          console.log('loaded text from:\n\t\t' + textUrl);
 
           preProcessFeatureData(p);
           preProcessFeatureData(w);
           processParagraphData(p, w, fullText.value ? fullText.value : fullText['rdf:value']);
 
-          console.log('processed paras');
-
-          if(cb){
-            console.log('call cb....');
-            cb(res);
-            console.log('...called cb');
-          }
+          cb(res, pageRef);
         });
       }
 
     });
   }
 
-  function loadFeatures(cb) {
+  function loadFeatures(probe, cb) {
 
     var featureClick = function(e){
-
-      if(!transcriptionIsOn){
-        return;
-      }
-      // console.log('highlightFeature');
       highlightFeature(e.target);
-      // console.log('highlightTranscript: e.target.feature = ' + e.target.feature);
       highlightTranscript($('.transcription #' + e.target.feature.properties.id));
     };
 
-    var geoJsonUrl = config.transcriptions.urls == 'EUROPEANA' ? 'EUROPEANA' : config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
-    var geoJsonCb  = function(itemJSON, displayNow){
-      features[currentImg + ''] = {};
+    var geoJsonCb  = function(itemJSON, pageRef){
+      features[pageRef + ''] = {};
 
-      console.log('enter geoJsonCb');
       var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
@@ -682,32 +667,15 @@ define(['jquery', 'util_resize'], function($){
           };
         },
         onEachFeature: function(feature, layer){
-          features[currentImg + ''][feature.properties.id] = layer;
+          features[pageRef + ''][feature.properties.id] = layer;
           layer.on('click', featureClick);
-
-          if(displayNow){
-            layer.setStyle({
-              color:       '#1676aa',
-              fillOpacity: 0.5,
-              weight:      1
-            });
-          }
         }
       });
 
-      console.log('made geoJsonObject');
-      cb(geoJsonObject);
-      console.log('exit geoJsonCb');
+      cb(geoJsonObject, pageRef);
     };
 
-    if(geoJsonUrl == 'EUROPEANA'){
-      console.log('convert to geoJSON....');
-      convertToGeoJSON(geoJsonCb);
-    }
-    else{
-      // styleguide only
-      $.getJSON(geoJsonUrl).done(geoJsonCb);
-    }
+    convertToGeoJSON(probe, currentImg, geoJsonCb);
   }
 
   return {
@@ -749,16 +717,25 @@ define(['jquery', 'util_resize'], function($){
       });
     },
     hide: function(){
+      $('#eu-iiif-container').addClass(classHideFullText);
       iiif.off();
       iiif.remove();
+
+      pnlTranscriptions.remove('.transcription');
+      transcriptionIsOn = false;
+
       currentImg   = 0;
       totalImages  = 0;
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
-
-      miniMapCtrls = {};
       features     = {};
+
+      $.each(Object.keys(miniMapCtrls), function(){
+        miniMapCtrls[this].remove();
+      });
+      miniMapCtrls = {};
+
     },
     remove: function(){
       if(iiif){
