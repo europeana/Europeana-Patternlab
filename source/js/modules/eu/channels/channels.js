@@ -276,6 +276,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'event/index':
       require(['ugc_index'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
 
@@ -284,6 +285,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/index':
       require(['ugc_index'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
 
@@ -292,6 +294,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/create':
       require(['ugc'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
       break;
@@ -299,6 +302,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/new':
       require(['ugc'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
       break;
@@ -306,6 +310,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/edit':
       require(['ugc'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
       break;
@@ -313,12 +318,14 @@ define(['jquery', 'smartmenus'], function($){
     case 'migration/update':
       require(['ugc'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
       break;
 
     case 'ugc/index':
       doForAllPages();
+      promisedPageJS.resolve();
       break;
 
 
@@ -328,6 +335,7 @@ define(['jquery', 'smartmenus'], function($){
 
       require(['ugc_index'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
 
@@ -336,6 +344,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
+        promisedPageJS.resolve();
         doForAllPages();
       });
 
@@ -344,6 +353,7 @@ define(['jquery', 'smartmenus'], function($){
     case 'ugc/new':
 
       require(['ugc'], function(){
+        promisedPageJS.resolve();
         doForAllPages();
       });
       break;
