@@ -36,7 +36,7 @@ define(['jquery', 'media_options', 'jasmine_jquery'], function($, EuMediaOptions
 
     it('allows custom handlers to be defined', function(){
       var customHandlerCalled = false;
-      EuMediaOptions.addHandler('IIIF', function(ops){
+      EuMediaOptions.addHandler('IIIF', function(){
         customHandlerCalled = true;
       });
       testEl.trigger('IIIF');
