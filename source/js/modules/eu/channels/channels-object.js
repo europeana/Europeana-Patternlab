@@ -502,7 +502,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         || db.msRequestFullscreen;
       };
 
-      var useTranscriptions = uri.indexOf('/9200396/') > -1;
+      var useTranscriptions = uri.indexOf('://iiif.europeana.eu/presentation/') > -1;
       var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;
