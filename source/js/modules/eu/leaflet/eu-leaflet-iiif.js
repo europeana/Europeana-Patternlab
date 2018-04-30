@@ -8,6 +8,14 @@ require(['leaflet_iiif'], function(){
         return;
       }
       L.TileLayer.Iiif.prototype._fitBounds.call(this);
+    },
+    onAdd: function(map){
+      var _this = this;
+      $.when(this._infoDeferred).done(function() {
+        map.minMaxRatio = _this.x / _this._imageSizes[0].x;
+        $(map).trigger('europeana-ready');
+      });
+      L.TileLayer.Iiif.prototype.onAdd.call(_this, map);
     }
   });
 

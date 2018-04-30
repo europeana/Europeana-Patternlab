@@ -44,6 +44,8 @@ define(['jquery', 'util_resize'], function($){
 
   var features          = {};
   var transcriptionIsOn = false;
+  var classHideFullText = 'transcriptions-hidden';
+  var pnlTranscriptions = $('#eu-iiif-container .transcriptions');
 
   function log(msg) {
     console.log(msg);
@@ -100,7 +102,6 @@ define(['jquery', 'util_resize'], function($){
       });
     }
 
-
     if(singleImageInfo){
 
       var layer = Leaflet.tileLayer.iiif.eu(singleImageInfo, iiifConf);
@@ -141,6 +142,16 @@ define(['jquery', 'util_resize'], function($){
 
             if(config.miniMap){
               miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
+
+              /*
+              var centre = iiif.getBounds().getCenter();
+              log('LatLng-equivalent: ' + JSON.stringify(centre));
+              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(
+                Leaflet.tileLayer.iiif.eu(jsonUrl),
+                $.extend({}, config.miniMap, {'centerFixed': centre } )
+              );
+              */
+
             }
           }
           index += 1;
@@ -174,34 +185,13 @@ define(['jquery', 'util_resize'], function($){
 
   };
 
-  var updateTranscriptCtrls = function(){
-
-    var $transcriptions = $('.transcriptions');
-
-    $transcriptions.find('.transcription').addClass('hidden');
-
-    if($transcriptions.find(' > .' + currentImg).length == 0){
-      require(['mustache'], function(Mustache){
-        Mustache.tags = ['[[', ']]'];
-
-        var template = $('#template-iiif-transcription').text();
-
-        $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
-          data['index'] = currentImg + '';
-          $transcriptions.append(Mustache.render(template, data));
-        });
-      });
-    }
-    else{
-      $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
-    }
-  };
-
   var nav = function($el, layerName){
 
     if($el.attr('disabled')){
       return;
     }
+
+    setVisibleTranscripts();
 
     var layer = iiifLayers[layerName + ''];
 
@@ -209,13 +199,10 @@ define(['jquery', 'util_resize'], function($){
       $('#iiif').addClass('loading');
       load(layerName);
       layer = iiifLayers[layerName + ''];
-      $('#iiif').removeClass('loading');
     }
-    switchLayer(layer);
     currentImg = layerName;
+    switchLayer(layer);
     updateCtrls();
-    addTranscriptions(layerName + '');
-    addMiniMap(layerName + '');
   };
 
   var initUI = function(){
@@ -231,6 +218,31 @@ define(['jquery', 'util_resize'], function($){
       zoomSnap: 0.5
     });
 
+    $(iiif).on('europeana-ready', function(){
+
+      $('#iiif').removeClass('loading');
+
+      var current = currentImg + '';
+
+      // add the mini map
+      if(config.miniMap && miniMapCtrls[current]){
+        addMiniMap(current);
+      }
+
+      // update the $transcriptions
+      if(config.transcriptions){
+        if(transcriptionIsOn){
+          addTranscriptions();
+        }
+        else{
+          addTranscriptions(true);
+        }
+      }
+      else{
+        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
+      }
+    });
+
     $(window).on('refresh-leaflet-map', function(){
       iiif.invalidateSize();
     });
@@ -238,7 +250,6 @@ define(['jquery', 'util_resize'], function($){
     $(window).europeanaResize(function(){
       setTimeout(function(){
         iiif.invalidateSize();
-        console.log('timeout done 301');
       }, 301);
     });
 
@@ -335,16 +346,22 @@ define(['jquery', 'util_resize'], function($){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
+      $('#iiif').data('manifest-url', manifestUrl);
       $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
-      addTranscriptions(currentImg + '', true);
-      addMiniMap(currentImg + '');
     }
     else{
 
+      var waitTime       = 5000;
+      var timeoutFailure = null;
+
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
+
+        if(timeoutFailure){
+          window.clearTimeout(timeoutFailure);
+        }
 
         $.each(data.sequences[0].canvases, function(_, val) {
           labelledData[val.label] = val;
@@ -355,18 +372,19 @@ define(['jquery', 'util_resize'], function($){
         load();
 
         $('#iiif').removeClass('loading');
+        $('#iiif').data('manifest-url', manifestUrl);
 
         iiifLayers['0'].addTo(iiif);
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-        addTranscriptions(currentImg + '', true);
-        addMiniMap(currentImg + '');
-
-      }).fail(function(jqxhr) {
-        log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+      }).fail(function(jqxhr, e) {
+        timeoutFailure = setTimeout(function(){
+          log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
+          // TODO: remove this (or replace with equivalent) when new item page launched
+          $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+        }, waitTime);
       });
     }
 
@@ -377,10 +395,14 @@ define(['jquery', 'util_resize'], function($){
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
+
       if($t[0].nodeName.toUpperCase() == 'WORD'){
         $t.closest('p').addClass('highlight');
       }
-      $('.transcriptions').scrollTo($t, 333, {'offset': -16});
+
+      require(['jqScrollto'], function(){
+        pnlTranscriptions.scrollTo($t, 333, {'offset': -16});
+      });
     }
   }
 
@@ -390,6 +412,22 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  function setVisibleTranscripts(show){
+
+    pnlTranscriptions.find('.transcription').addClass('hidden');
+
+    if(typeof show != 'undefined'){
+
+      var highlighted = pnlTranscriptions.find('.transcription.' + currentImg).removeClass('hidden').find('p.highlight');
+
+      if(highlighted.length){
+        require(['jqScrollto'], function(){
+          pnlTranscriptions.scrollTo(highlighted, 333, {'offset': -16});
+        });
+      }
+    }
+  }
+
   function highlightFeature(f){
 
     if(!f){
@@ -397,16 +435,17 @@ define(['jquery', 'util_resize'], function($){
     }
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
-    var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
-    var isWord          = transcriptionEl[0].nodeName.toUpperCase() == 'WORD';
-    var wordStyle       = {
+    var transcriptionEl = pnlTranscriptions.find('#' + f.feature.properties.id);
+
+    var isWord    = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
+    var wordStyle = {
       color:       '#1676aa',
       fillOpacity: 0,
       weight:      1
     };
 
     var paragraphStyle = {
-      color:       '#1676aa',
+      color:       '#35A3D5',
       fillOpacity: 0.5,
       weight:      1
     };
@@ -414,8 +453,11 @@ define(['jquery', 'util_resize'], function($){
     resetFeatures();
 
     if(isWord){
-      var parentFeature = features[currentImg + ''][transcriptionEl.closest('p').attr('id')];
+      var parentId      = transcriptionEl.closest('p').attr('id');
+      var parentFeature = features[currentImg + ''][parentId];
+
       f.setStyle(wordStyle);
+
       parentFeature.setStyle(paragraphStyle);
       //iiif.fitBounds(parentFeature.getBounds());
     }
@@ -433,139 +475,234 @@ define(['jquery', 'util_resize'], function($){
       }
 
       var ctrl = miniMapCtrls[layerName];
+      ctrl.addTo(iiif);
 
-      iiif.whenReady(function(){
-        ctrl.addTo(iiif);
-
-        if(config.miniMap.fillViewport){
-          setTimeout(function(){
-            ctrl._miniMap.whenReady(function(){
-
-              setTimeout(function(){
-                ctrl.fillViewport();
-                window.blockIiifFitBounds = false;
-              }, 250);
-            });
-          }, 400);
-        }
-
-      });
+      if(config.miniMap.fillViewport && currentImg == '0'){
+        ctrl._miniMap.whenReady(function(){
+          if($('.leaflet-control-minimap').is(':visible')){
+            setTimeout(function(){
+              ctrl.fillViewport();
+              window.blockIiifFitBounds = false;
+            }, 250);
+          }
+          else{
+            window.blockIiifFitBounds = false;
+            setTimeout(function(){
+              iiifLayers[currentImg]._fitBounds(true);
+            }, 250);
+          }
+        });
+      }
+      else{
+        window.blockIiifFitBounds = false;
+      }
     }
   }
 
-  function addTranscriptions(layerName, initialise) {
+  function addTranscriptions(probe) {
 
-    var classHideTranscript = 'transcriptions-hidden';
+    if(!pnlTranscriptions.hasClass('js-bound')){
+      require(['jqScrollto']);
 
-    if(initialise){
+      $(document).on('click', '.transcriptions *', function(e){
+        var $t = $(this);
+        e.stopPropagation();
+        highlightTranscript($t);
+        highlightFeature(features[currentImg + ''][$t.attr('id')]);
+      });
 
-      $(document).on('remove-transcriptions', function(){
+      $('#iiif').on('hide-transcriptions', function(){
         transcriptionIsOn = false;
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        resetFeatures();
+        $('#eu-iiif-container').addClass(classHideFullText);
         iiif.invalidateSize();
       });
 
-      $(document).on('add-transcriptions', function(){
-        log('add-transcriptions');
+      $('#iiif').on('show-transcriptions', function(){
         transcriptionIsOn = true;
-        addTranscriptions(currentImg + '');
-        iiif.invalidateSize();
+        addTranscriptions();
       });
 
       $(document).on('click', '.remove-transcriptions', function(){
-        $(document).trigger('remove-transcriptions');
+        $('#iiif').trigger('hide-transcriptions');
+        $('.media-options').trigger('IIIF', {'transcriptions-available': true});
       });
 
-
-      if(config.transcriptions){
-        $('#eu-iiif-container').removeClass(classHideTranscript);
-        transcriptionIsOn = true;
-      }
-      else{
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        transcriptionIsOn = false;
-      }
+      pnlTranscriptions.addClass('js-bound');
     }
 
-    if(config.transcriptions){
+    var layerName = currentImg + '-f';
+    var afterAdd  = function(key){
+      setVisibleTranscripts(key);
+      $('#eu-iiif-container').removeClass(classHideFullText);
+      iiif.invalidateSize();
+    };
 
-      if(!transcriptionIsOn){
-        return;
-      }
-
-      require(['jqScrollto'], function(){
-
-        if(iiifLayers[layerName + '-f']){
-          iiifLayers[layerName + '-f'].addTo(iiif);
-          bindTranscriptionClick();
-          updateTranscriptCtrls();
-          $('#eu-iiif-container').removeClass(classHideTranscript);
-        }
-        else{
-          loadFeatures(function(loadedLayer){
-            iiifLayers[layerName + '-f'] = loadedLayer;
-            loadedLayer.addTo(iiif);
-            bindTranscriptionClick();
-            updateTranscriptCtrls();
-            $('#eu-iiif-container').removeClass(classHideTranscript);
-          });
-        }
+    if(iiifLayers[layerName]){
+      iiifLayers[layerName].addTo(iiif);
+      afterAdd(currentImg);
+    }
+    else{
+      loadFeatures(probe, function(loadedLayer, pageRef){
+        iiifLayers[pageRef + '-f'] = loadedLayer;
+        loadedLayer.addTo(iiif);
+        afterAdd(pageRef);
       });
     }
   }
 
+  function convertToGeoJSON(probe, pageRef, cb){
 
-  function loadFeatures(cb) {
+    var manifestUrl    = $('#iiif').data('manifest-url');
+    var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer     = 'iiif.europeana.eu/presentation/';
+    var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('https:', 'http:');
 
-    var geoJsonUrl   = config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
-    var featureClick = function(e){
+    var res = {
+      'type': 'FeatureCollection',
+      'features': []
+    };
 
-      if(!transcriptionIsOn){
+    var fmtCoord = function(x, y, w, h){
+
+      var divider = iiif.minMaxRatio;
+
+      x = parseInt(x);
+      y = parseInt(y);
+      w = parseInt(w);
+      h = parseInt(h);
+
+      return [[
+        [ x      / divider, 0 - (y      / divider)],
+        [(x + w) / divider, 0 - (y      / divider)],
+        [(x + w) / divider, 0 - (y + h) / divider],
+        [ x      / divider, 0 - (y + h) / divider],
+        [ x      / divider, 0 - (y      / divider)]
+      ]];
+    };
+
+    var addFeature = function(c, id){
+      res.features.push(
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': fmtCoord(c[0], c[1], c[2], c[3])
+          },
+          'properties': {
+            'id': id
+          }
+        }
+      );
+    };
+
+    var preProcessFeatureData = function(p){
+
+      $.each(p, function(i, paragraph){
+
+        var id = paragraph['@id'].split('/').pop();
+        addFeature(paragraph['on'].split('#')[1].split('=')[1].split(','), id);
+
+        var hash  = paragraph['resource'].split('#')[1];
+        var chars = hash.split('=')[1].split(',');
+
+        paragraph.id    = id;
+        paragraph.range = [parseInt(chars[0]), parseInt(chars[1])];
+      });
+    };
+
+    var processParagraphData = function(p, w, fullText){
+
+      var markup = '';
+
+      $.each(p, function(i, paragraph){
+
+        var id = paragraph.id;
+
+        var containedWords = $.grep(w, function(word){
+          return word.range[0] >= paragraph.range[0] && word.range[1] <= paragraph.range[1];
+        });
+
+        var text = '';
+
+        $.each(containedWords, function(i, ob){
+          text += '<word id="' + ob.id + '">' + fullText.slice(ob.range[0], ob.range[1]) + '</word> ';
+        });
+
+        markup += '<div class="transcription ' + pageRef + '"><p id="' + id + '">' + text + '</p></div>';
+      });
+
+      pnlTranscriptions.append(markup);
+    };
+
+    $.getJSON(annotationsUrl).done(function(data){
+
+      if(probe){
+        $('.media-options').trigger('IIIF', {'transcriptions-available': true});
         return;
       }
+      var p = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Paragraph';
+      });
+
+      var w = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Word';
+      });
+
+      var page = $.grep(data.resources, function(r){
+        return r['dc:type'] === 'Page';
+      });
+
+      if(page.length === 1){
+
+        var textUrl = page[0]['resource'];
+        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', 'http://' + fullTextServer) + '.json';
+
+        $.getJSON(textUrl).done(function(fullText){
+          preProcessFeatureData(p);
+          preProcessFeatureData(w);
+          processParagraphData(p, w, fullText.value ? fullText.value : fullText['rdf:value']);
+          cb(res, pageRef);
+        });
+      }
+
+    });
+  }
+
+  function loadFeatures(probe, cb) {
+
+    var featureClick = function(e){
       highlightFeature(e.target);
       highlightTranscript($('.transcription #' + e.target.feature.properties.id));
     };
 
-    $.getJSON(geoJsonUrl).done(function(itemJSON){
+    var geoJsonCb  = function(itemJSON, pageRef){
+      features[pageRef + ''] = {};
 
-      features[currentImg + ''] = {};
-
-      cb(Leaflet.geoJson(itemJSON, {
+      var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
             fillOpacity: 0.5,
-            color:       'rgba(0,0,0,0)',
+            color:       'rgba(0,0,0,0)'
           };
         },
         onEachFeature: function(feature, layer){
-          features[currentImg + ''][feature.properties.id] = layer;
+          features[pageRef + ''][feature.properties.id] = layer;
           layer.on('click', featureClick);
         }
-      }));
+      });
 
-    });
-  }
+      cb(geoJsonObject, pageRef);
+    };
 
-  function bindTranscriptionClick(){
-    if($('.transcriptions').hasClass('js-bound')){
-      return;
-    }
-    $(document).on('click', '.transcriptions *', function(e){
-      var $t = $(this);
-      e.stopPropagation();
-      highlightTranscript($t);
-      highlightFeature(features[currentImg + ''][$t.attr('id')]);
-    });
-    $('.transcriptions').addClass('js-bound');
+    convertToGeoJSON(probe, currentImg, geoJsonCb);
   }
 
   return {
     init: function(manifestUrl, conf) {
 
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')   + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css') + '" type="text/css"/>');
 
       config = $.extend({
         transcriptions: false,
@@ -600,16 +737,25 @@ define(['jquery', 'util_resize'], function($){
       });
     },
     hide: function(){
+      $('#eu-iiif-container').addClass(classHideFullText);
       iiif.off();
       iiif.remove();
+
+      pnlTranscriptions.remove('.transcription');
+      transcriptionIsOn = false;
+
       currentImg   = 0;
       totalImages  = 0;
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
-
-      miniMapCtrls = {};
       features     = {};
+
+      $.each(Object.keys(miniMapCtrls), function(){
+        miniMapCtrls[this].remove();
+      });
+      miniMapCtrls = {};
+
     },
     remove: function(){
       if(iiif){

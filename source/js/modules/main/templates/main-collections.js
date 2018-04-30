@@ -39,6 +39,7 @@ require.config({
 
     eu_form_save:                  '../../eu/util/eu-form-save',
     eu_hierarchy:                  '../../eu/channels/eu-hierarchy',
+    eu_media_options:              '../../eu/media/media-options',
     eu_mock_ajax:                  '../../eu/util/eu-mock-ajax',
     fashion_redirect:              '../../eu/util/fashion-redirect',
     fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
@@ -159,7 +160,7 @@ require.config({
     blacklight:     ['jquery'],
     jqDropdown:     ['jquery'],
     menus:          ['jquery'],
-  //  optimizely:     ['jquery'],
+    // optimizely:     ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {

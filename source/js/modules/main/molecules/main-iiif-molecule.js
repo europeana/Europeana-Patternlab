@@ -10,6 +10,7 @@ require.config({
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     leaflet_iiif_eu:     '../../eu/leaflet/eu-leaflet-iiif',
+    media_options:       '../../eu/media/media-options',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
     mustache:            '../../lib/mustache/mustache',
     purl:                '../../lib/purl/purl',
@@ -19,30 +20,30 @@ require.config({
 
 require(['jquery'], function(){
   require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer'], function() {
-    require(['media_viewer_iiif'], function(viewer) {
+    require(['media_viewer_iiif', 'media_options'], function(viewer, EuMediaOptions) {
 
       var init = function(){
 
         // var manifestUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
         // var manifestUrl = 'http://iiif.bodleian.ox.ac.uk/iiif/manifest/9fb27615-ede3-4fa0-89e4-f0785acbba06.json';
         // var manifestUrl = 'http://gallicalabs.bnf.fr/ark:/12148/btv1b84238966/manifest.json';
-        // var manifestoUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
-        // var manifestoUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000119062998/representations/presentation_images/node-5/image/SBB/Berliner_B%C3%B6rsenzeitung/1927/07/21/F_073_335_0/F_SBB_00007_19270721_073_335_0_001/info.json';
-        // var manifestoUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000096309638/representations/presentation_images/node-2/image/SBB/Berliner_Tageblatt/1926/12/12/0/F_SBB_00001_19261212_055_586_0_010/info.json'
+        // var manifestUrl = 'http://iiif.biblissima.fr/manifests/ark:/12148/btv1b84539771/manifest.json';
+        // var manifestUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000119062998/representations/presentation_images/node-5/image/SBB/Berliner_B%C3%B6rsenzeitung/1927/07/21/F_073_335_0/F_SBB_00007_19270721_073_335_0_001/info.json';
+        // var manifestUrl = 'http://www.theeuropeanlibrary.org/tel4/ecloud?iiif=/data-providers/TheEuropeanLibrary/records/3000096309638/representations/presentation_images/node-2/image/SBB/Berliner_Tageblatt/1926/12/12/0/F_SBB_00001_19261212_055_586_0_010/info.json'
+        // var manifestUrl = 'iiif_manifest-data?manifest_transcriptions=true';
 
-        var manifestoUrl = 'iiif_manifest-data?manifest_transcriptions=true';
+        var manifestUrl = 'http://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118435009/manifest.json';
         var param = window.location.href.split('?manifestUrl=');
 
         if(param.length > 1){
-          manifestoUrl = param[1];
-          console.log('using custom manifestoUrl: ' + manifestoUrl);
+          manifestUrl = param[1];
+          console.log('using custom manifestUrl: ' + manifestUrl);
         }
         else{
-          console.log('using default manifestoUrl: ' + manifestoUrl);
+          console.log('using default manifestUrl: ' + manifestUrl);
         }
 
         var borderH           = 6.2;
-        var useTranscriptions = manifestoUrl == 'iiif_manifest-data?manifest_transcriptions=true';
         var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
         var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
@@ -60,12 +61,7 @@ require(['jquery'], function(){
         };
 
         var config = {
-          transcriptions: useTranscriptions ? {
-            urls:[
-              'iiif_transcriptions?index=1',
-              'iiif_transcriptions?index=2'
-            ]
-          } : false,
+          transcriptions: true,
           zoomSlider: false,
           fullScreenAvailable: true,
           pageNav: true,
@@ -78,7 +74,27 @@ require(['jquery'], function(){
           }
         };
 
-        viewer.init(manifestoUrl, config);
+        $('#eu-iiif-container').after(''
+          + '<div class="media-options" style="display:none; text-align:center; width:100%;">'
+          +   '<a class="transcriptons-show"><h3>Show transcriptions</h3></a>'
+          +   '<a class="transcriptons-hide"><h3>Hide transcriptions</h3></a>'
+          + '</div>'
+        );
+        EuMediaOptions.init($('.media-options'));
+        EuMediaOptions.addHandler('IIIF', function(ops){
+          console.log(JSON.stringify(ops));
+          if(ops['transcriptions-available']){
+            $('.media-options').show();
+            $('.media-options .transcriptons-show').show();
+            $('.media-options .transcriptons-hide').hide();
+          }
+          if(ops['transcriptions-active']){
+            $('.media-options .transcriptons-show').hide();
+            $('.media-options .transcriptons-hide').show();
+          }
+        });
+
+        viewer.init(manifestUrl, config);
       };
 
       if(typeof mock_ajax == 'undefined'){

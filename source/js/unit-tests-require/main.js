@@ -23,6 +23,7 @@ requirejs.config({
     leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
+    media_options:       '../../eu/media/media-options',    
     mustache:            '../../lib/mustache/mustache',
     purl:                '../../lib/purl/purl',
     util_ellipsis:       '../../eu/util/eu-ellipsis',

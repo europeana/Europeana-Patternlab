@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, Mustache) {
 
   var channelData     = null;
   var suggestions     = null;
@@ -310,6 +310,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       resetZoomable();
     });
 
+    EuMediaOptions.init($('.media-options'));
+    EuMediaOptions.addHandler('IIIF', function(ops){
+      if(ops['transcriptions-active']){
+        $('.media-zoom-in').click();
+      }
+    });
+
     $('.media-share').on('click', function(){
       console.log('share');
     });
@@ -495,10 +502,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         || db.msRequestFullscreen;
       };
 
-      // TODO: tmp code...
-
-      var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
-
+      var useTranscriptions = uri.indexOf('/9200396/') > -1;
       var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;
@@ -529,12 +533,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       };
 
       var conf = {
-        transcriptions: useTranscriptions ? {
-          urls:[
-            'iiif_transcriptions?index=1',
-            'iiif_transcriptions?index=2'
-          ]
-        } : false,
+        transcriptions:  useTranscriptions,
         miniMap: useMiniMap ? {
           fillViewport:  true,
           toggleDisplay: false,
