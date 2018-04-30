@@ -6,7 +6,9 @@ define(['jquery'], function(){
     if(!addedHandlers[event]){
       addedHandlers[event] = [];
     }
-    addedHandlers[event].push(fn);
+    if(fn){
+      addedHandlers[event].push(fn);
+    }
   }
 
   function execAddedHandler(event, ops){
@@ -32,23 +34,21 @@ define(['jquery'], function(){
     $el.on('IIIF', function(e, ops){
 
       // show / hide the relevant / irrelevant tool groups
+      ops = ops ? ops : {};
 
       if(ops['transcriptions-unavailable']){
-        console.log('transcriptions are unavailable...');
-        $el.find('.transcription-ctrls').addClass('off');
+        $el.find('.iiif-ctrls').addClass('off');
       }
       else{
-        $el.find('.transcription-ctrls').removeClass('off');
+        $el.find('.iiif-ctrls').removeClass('off');
 
         if(ops['transcriptions-available']){
-          console.log('transcriptions are available...');
-          $el.find('.transcription-ctrls .transcriptons-hide').hide();
-          $el.find('.transcription-ctrls .transcriptons-show').show();
+          $el.find('.iiif-ctrls .transcriptons-hide').hide();
+          $el.find('.iiif-ctrls .transcriptons-show').show();
         }
         else if(ops['transcriptions-active']){
-          console.log('transcriptions are active...');
-          $el.find('.transcription-ctrls .transcriptons-hide').show();
-          $el.find('.transcription-ctrls .transcriptons-show').hide();
+          $el.find('.iiif-ctrls .transcriptons-hide').show();
+          $el.find('.iiif-ctrls .transcriptons-show').hide();
         }
       }
       execAddedHandler('IIIF', ops);

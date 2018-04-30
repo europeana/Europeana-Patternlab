@@ -502,14 +502,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         || db.msRequestFullscreen;
       };
 
-      // TODO: tmp code...
-
-      var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
-
-      if(uri.indexOf('http://iiif.europeana.eu/presentation/') > -1){
-        useTranscriptions = true;
-      }
-
+      var useTranscriptions = uri.indexOf('/9200396/') > -1;
       var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;

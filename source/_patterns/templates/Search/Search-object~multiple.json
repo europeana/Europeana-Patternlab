@@ -18,7 +18,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'https', 'resolveTo': 'self'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
     }
   ],
 
@@ -131,7 +131,7 @@
           {
             "is_iiif": true,
             "playable": true,
-            "play_url": "iiif_manifest-data?manifest_transcriptions=true",
+            "play_url": "http://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118435009/manifest.json",
             "thumbnail": "/media/iiif.jpg",
             "technical_metadata": {
               "mime_type": "image/iiif",

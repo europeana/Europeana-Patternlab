@@ -102,7 +102,6 @@ define(['jquery', 'util_resize'], function($){
       });
     }
 
-
     if(singleImageInfo){
 
       var layer = Leaflet.tileLayer.iiif.eu(singleImageInfo, iiifConf);
@@ -143,6 +142,16 @@ define(['jquery', 'util_resize'], function($){
 
             if(config.miniMap){
               miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
+
+              /*
+              var centre = iiif.getBounds().getCenter();
+              log('LatLng-equivalent: ' + JSON.stringify(centre));
+              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(
+                Leaflet.tileLayer.iiif.eu(jsonUrl),
+                $.extend({}, config.miniMap, {'centerFixed': centre } )
+              );
+              */
+
             }
           }
           index += 1;
@@ -344,8 +353,15 @@ define(['jquery', 'util_resize'], function($){
     }
     else{
 
+      var waitTime       = 5000;
+      var timeoutFailure = null;
+
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
+
+        if(timeoutFailure){
+          window.clearTimeout(timeoutFailure);
+        }
 
         $.each(data.sequences[0].canvases, function(_, val) {
           labelledData[val.label] = val;
@@ -363,10 +379,12 @@ define(['jquery', 'util_resize'], function($){
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-
-      }).fail(function(jqxhr) {
-        log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+      }).fail(function(jqxhr, e) {
+        timeoutFailure = setTimeout(function(){
+          log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
+          // TODO: remove this (or replace with equivalent) when new item page launched
+          $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+        }, waitTime);
       });
     }
 
@@ -427,7 +445,7 @@ define(['jquery', 'util_resize'], function($){
     };
 
     var paragraphStyle = {
-      color:       '#1676aa',
+      color:       '#35A3D5',
       fillOpacity: 0.5,
       weight:      1
     };
@@ -535,9 +553,10 @@ define(['jquery', 'util_resize'], function($){
   function convertToGeoJSON(probe, pageRef, cb){
 
     var manifestUrl    = $('#iiif').data('manifest-url');
-    var fullTextServer = 'http://test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
-    var iiifServer     = 'http://iiif.europeana.eu/presentation/';
-    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', '/' + (pageRef + 1) + '.iiifv2.json');
+    var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer     = 'iiif.europeana.eu/presentation/';
+    var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('https:', 'http:');
 
     var res = {
       'type': 'FeatureCollection',
@@ -594,6 +613,8 @@ define(['jquery', 'util_resize'], function($){
 
     var processParagraphData = function(p, w, fullText){
 
+      var markup = '';
+
       $.each(p, function(i, paragraph){
 
         var id = paragraph.id;
@@ -608,8 +629,10 @@ define(['jquery', 'util_resize'], function($){
           text += '<word id="' + ob.id + '">' + fullText.slice(ob.range[0], ob.range[1]) + '</word> ';
         });
 
-        pnlTranscriptions.append('<div class="transcription ' + pageRef + '"><p id="' + id + '">' + text + '</p></div>');
+        markup += '<div class="transcription ' + pageRef + '"><p id="' + id + '">' + text + '</p></div>';
       });
+
+      pnlTranscriptions.append(markup);
     };
 
     $.getJSON(annotationsUrl).done(function(data){
@@ -618,7 +641,6 @@ define(['jquery', 'util_resize'], function($){
         $('.media-options').trigger('IIIF', {'transcriptions-available': true});
         return;
       }
-
       var p = $.grep(data.resources, function(r){
         return r['dc:type'] === 'Paragraph';
       });
@@ -634,14 +656,12 @@ define(['jquery', 'util_resize'], function($){
       if(page.length === 1){
 
         var textUrl = page[0]['resource'];
-        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', fullTextServer) + '.json';
+        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', 'http://' + fullTextServer) + '.json';
 
         $.getJSON(textUrl).done(function(fullText){
-
           preProcessFeatureData(p);
           preProcessFeatureData(w);
           processParagraphData(p, w, fullText.value ? fullText.value : fullText['rdf:value']);
-
           cb(res, pageRef);
         });
       }
