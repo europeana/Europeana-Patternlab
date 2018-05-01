@@ -436,18 +436,18 @@ define(['jquery', 'util_resize'], function($){
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
     var transcriptionEl = pnlTranscriptions.find('#' + f.feature.properties.id);
-
+    var colour    = '#35A3D5';
     var isWord    = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
     var wordStyle = {
-      color:       '#1676aa',
-      fillOpacity: 0,
-      weight:      1
+      color:       colour,
+      fillOpacity: 0.5,
+      weight:      2
     };
 
     var paragraphStyle = {
-      color:       '#35A3D5',
-      fillOpacity: 0.5,
-      weight:      1
+      color:       colour,
+      fillOpacity: 0,
+      weight:      2
     };
 
     resetFeatures();
