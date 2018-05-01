@@ -556,7 +556,7 @@ define(['jquery', 'util_resize'], function($){
     var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
     var iiifServer     = 'iiif.europeana.eu/presentation/';
     var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
-    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('https:', 'http:');
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
 
     var res = {
       'type': 'FeatureCollection',
@@ -656,7 +656,7 @@ define(['jquery', 'util_resize'], function($){
       if(page.length === 1){
 
         var textUrl = page[0]['resource'];
-        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', 'http://' + fullTextServer) + '.json';
+        textUrl = textUrl.replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
 
         $.getJSON(textUrl).done(function(fullText){
           preProcessFeatureData(p);
