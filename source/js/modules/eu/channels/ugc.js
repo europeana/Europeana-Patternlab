@@ -266,26 +266,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function initSwipeableLicense(){
 
-    var licenseData = {
-      'http://creativecommons.org/publicdomain/mark/1.0/': {
-        'name': window.I18n.translate('global.facet.rights.public'),
-        'classes': ['icon-license-zero']
-      },
-      'http://creativecommons.org/licenses/by-sa/4.0/': {
-        'name': window.I18n.translate('global.facet.rights.cc-by-sa'),
-        'classes': ['icon-license-cc', 'icon-license-by', 'icon-license-sa']
-      },
-      'http://rightsstatements.org/vocab/CNE/1.0/': {
-        'name': window.I18n.translate('global.facet.rights.rs-cne'),
-        'classes': ['icon-license-unknown']
-      }
-    };
-
     require(['util_slide', 'util_resize'], function(EuSlide){
-
-      $('.license-section').each(function(i, ob){
-        $(ob).find('.license-radio-option').wrapAll('<div class="licenses">');
-      });
 
       var $el = $('.license-section > .licenses');
 
@@ -295,32 +276,6 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
         $el.wrap('<div class="slide-rail">');
         EuSlide.makeSwipeable($el);
-        $el.find('label').prepend('<span class="checkmark"></span>');
-
-        var labels = $el.find('label.collection_radio_buttons');
-
-        $.each(labels, function(){
-
-          var $label    = $(this);
-          var $input    = $label.siblings('[type="radio"]');
-          var license   = $input.data('license-url');
-          var data      = licenseData[license];
-
-          if(data && license){
-            var icons     = $('<span class="cc-info-row"></span>');
-            var container = $('<span class="cc-info">').appendTo($label);
-
-            $(data.classes).each(function(){
-              icons.append('<span class="license-icon ' + this + '">');
-            });
-            icons.append('<span class="cc-name">' + data.name + '</span>');
-            container.append(icons);
-            icons.wrap('<a href="' + license + '" target="_blank">');
-          }
-          else{
-            console.log('No license data found (' + license + ')');
-          }
-        });
       }
     });
   }
