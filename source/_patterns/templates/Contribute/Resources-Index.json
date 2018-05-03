@@ -26,6 +26,10 @@
       "value": "migration/index"
     }
   ],
+  "log_out_button": {
+    "url": "javascript:alert('log out');",
+    "label": "Sign out"
+  },
   "content":{
 
     "flash_notice": "Flash notice",

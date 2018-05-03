@@ -15,6 +15,7 @@ Styleguide development is done on files within the /source/ directory of this pr
 1. Generate and/or update the /public/ directory and its site assets
    1. initially the /public directory exists, but only with a README document
    1. from the root of the working directory run `php core/console --generate`
+1. The web server should serve files from the `public` directory generated or updated in the previous step
 
 ## Testing
 The unit tests under source/js/unit-tests can be run with the commands:
@@ -82,9 +83,9 @@ For more details on Europeana's front-end development practice please see the [d
 * Pattern Lab configuration can be adjusted in the /core/config/config.ini.default file.
 * If, for any reason, you need to delete all assets from the public directory, you should also delete the /config/config.ini file. The `php core/console --generate` will then re-generate that file and the /public/ directory without error.
 * Various development test sites will rebuild automatically in response to commits to this repository
-* To update the "production" site go here - http://jenkins.eanadev.org/job/styleguide-engineyard-production - and log in if you haven't already and click "build now"
+* To update the "production" site go here - https://jenkins.eanadev.org/job/styleguide.s3.production/ - and log in if you haven't already and click "build now"
 * This site: http://styleguide.europeana.eu/ is built from the develop branch
-* The sites under this domain: https://europeana-styleguide-production.s3.amazonaws.com/ are built from versions on the master branch
+* The sites under this domain: https://style.europeana.eu/ are built from versions on the master branch
 * Make sure that the develop branch has been merged with the master branch before attempting to build the master branch
 
 ## About Pattern Lab

@@ -134,6 +134,7 @@ noscript div{
   }
 }
 
+.log-out-button-wrapper,
 .ugc-closing-remark,
 .ugc-landing-description{
 
@@ -143,6 +144,30 @@ noscript div{
 
   @media all and (min-width: $bp-med) {
     width:     70%;
+  }
+}
+
+.log-out-button-wrapper{
+
+  text-align: right;
+
+  .log-out-button{
+    color:     $gray-med;
+    display:   inline-block;
+    font-size: 1rem;
+    position:  relative;
+
+    &::before{
+      background-image:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($gray-med)}' viewBox='0 0 23 32' %3E%3Cpath d='M20.364 1.939v22.303q0 .215-.135.35t-.35.135H3.394q-.216 0-.35-.135t-.135-.35V15.03h4.364v3.636q0 .323.296.458.269.108.539-.108l5.899-5.926-5.899-5.926q-.242-.215-.539-.081-.296.081-.296.431v3.636H2.909V1.938q0-.216.135-.35t.35-.135h16.485q.215 0 .35.135t.135.35z'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      content:           ' ';
+      display:           block;
+      height:            1.5em;
+      left:              -1.6em;
+      position:          absolute;
+      top:               0.15em;
+      width:             2em;
+    }
   }
 }
 
