@@ -275,9 +275,9 @@
   color: #FFF000;
 }
 /* line 305, iiif.scss */
-.transcriptions word.highlight .match-word,
-.transcriptions word.highlight .match-phrase,
-.transcriptions word.highlight .match-characters {
+.transcriptions .highlight .match-word,
+.transcriptions .highlight .match-phrase,
+.transcriptions .highlight .match-characters {
   background-color: transparent;
 }
 

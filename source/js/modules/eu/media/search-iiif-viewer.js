@@ -510,6 +510,11 @@ define(['jquery', 'util_resize'], function($){
 
         $(document).on('click', '.transcriptions *', function(e){
           var $t = $(this);
+
+          if($t.hasClass('match-characters')){
+            $t = $t.parent();
+          }
+
           e.stopPropagation();
           highlightTranscript($t);
           highlightFeature(features[currentImg + ''][$t.attr('id')]);
