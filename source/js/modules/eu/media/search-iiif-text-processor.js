@@ -154,7 +154,6 @@ define(['jquery'], function($){
       if(openedCarryOver){
         openCarryOver = true;
         text          = elOpenPhrase;
-        console.log('renew openCarryOver true');
       }
 
       if(hasSearchMatches){
@@ -206,11 +205,13 @@ define(['jquery'], function($){
               (opensSingleAtStart && matchData.close.length == 0)
               ||
               (closesSingleAtEnd && matchData.open.length == 0)){
-              console.log('match entire word (' + word + ')');
+
+              // match entire word
               wordClass = defMatchWord;
             }
             else{
-              console.log('match only part of word (' + word + ')');
+              // match only part of word
+
               var word2          = '';
               var includesOpened = 0;
               var includesClosed = 0;

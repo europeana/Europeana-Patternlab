@@ -45,12 +45,12 @@ require(['jquery'], function(){
         }
 
         var borderH           = 6.2;
-        var sizesMiniMap      = {l:{w: 316, h: 465}, s:{w: 206, h: 304}};
+        var sizesMiniMap      = {l: {w: 316, h: 465}, s:{w: 206, h: 304}};
         var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
         var fnMiniMapData = function(){
           var tooSmall = $(window).width() < 800;
-          var large    = $(window).width() > 1200;
+          var large    = false;
           var res = {
             h: tooSmall ? 0 : large ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'],
             w: tooSmall ? 0 : large ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'],
