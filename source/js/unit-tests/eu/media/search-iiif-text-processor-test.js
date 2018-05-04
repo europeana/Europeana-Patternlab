@@ -20,7 +20,8 @@ define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Pr
       $.getJSON(basePathJson + '/' + jsonFile).done(function(jsonIn){
         json = jsonIn;
         done();
-      })
+      });
+      
       pnlTranscriptions = $('.transcriptions');
     });
 
@@ -196,8 +197,7 @@ define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Pr
         Processor.init(pnlTranscriptions, 0, searchTerm);
         Processor.processAnnotationData(fullText, json, '0');
 
-        var match1 = pnlTranscriptions.find('.' + classMatchChars);
-
+        expect(pnlTranscriptions.find('.' + classMatchChars).length).toEqual(4);
         expect(pnlTranscriptions.find('.' + classMatchPhrase).length).toEqual(0);
         expect(pnlTranscriptions.find('.' + classMatchWord).length).toEqual(0);
 
