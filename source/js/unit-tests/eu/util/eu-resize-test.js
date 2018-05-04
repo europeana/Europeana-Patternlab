@@ -17,16 +17,25 @@ define(['util_resize', 'jasmine_jquery'], function(ru){
         debouncedCallsMade += 1;
       });
 
-      setTimeout(function(){
-        for(var i=0; i<callsToIssue; i++){
-          $(window).resize();
+      var recursive = function(call){
+
+        $(window).resize();
+        call ++;
+
+        if(call < callsToIssue){
+          setTimeout(function(){
+            recursive(call);
+          }, 20);
         }
-        setTimeout(function(){
-          expect(resizeCallsMade).toEqual(callsToIssue);
-          expect(debouncedCallsMade).toEqual(1);
-          done();
-        }, 120);
-      }, 120);
+        else{
+          setTimeout(function(){
+            expect(resizeCallsMade).toEqual(callsToIssue);
+            expect(debouncedCallsMade).toEqual(1);
+            done();
+          }, 120);
+        }
+      };
+      recursive(0);
     });
 
     it('Provides a factory method to throttle any events', function(done){
