@@ -34,7 +34,7 @@ define(['util_resize', 'jasmine_jquery'], function(ru){
             done();
           }, 120);
         }
-      }
+      };
       recursive(0);
     });
 
