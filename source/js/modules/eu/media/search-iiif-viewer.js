@@ -390,7 +390,7 @@ define(['jquery', 'util_resize'], function($){
 
   }
 
-  function highlightTranscript($t){
+  function highlightTranscript($t, scroll){
 
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
@@ -400,9 +400,11 @@ define(['jquery', 'util_resize'], function($){
         $t.closest('p').addClass('highlight');
       }
 
-      require(['jqScrollto'], function(){
-        pnlTranscriptions.scrollTo($t, 333, {'offset': -16});
-      });
+      if(scroll){
+        require(['jqScrollto'], function(){
+          pnlTranscriptions.scrollTo($t, 333, {'offset': -16});
+        });
+      }
     }
   }
 
@@ -593,7 +595,7 @@ define(['jquery', 'util_resize'], function($){
 
     var featureClick = function(e){
       highlightFeature(e.target);
-      highlightTranscript($('.transcription #' + e.target.feature.properties.id));
+      highlightTranscript($('.transcription #' + e.target.feature.properties.id), true);
     };
 
     var geoJsonCb  = function(itemJSON, pageRef){
