@@ -301,6 +301,14 @@ $match-color: #FFF000;
     color:            $match-color;
   }
 
+  word.highlight{
+    .match-word,
+    .match-phrase,
+    .match-characters{
+      background-color: transparent;
+    }
+  }
+
 }
 
 #eu-iiif-container{

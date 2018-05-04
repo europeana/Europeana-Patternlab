@@ -274,21 +274,27 @@
   font-weight: bold;
   color: #FFF000;
 }
+/* line 305, iiif.scss */
+.transcriptions word.highlight .match-word,
+.transcriptions word.highlight .match-phrase,
+.transcriptions word.highlight .match-characters {
+  background-color: transparent;
+}
 
-/* line 306, iiif.scss */
+/* line 314, iiif.scss */
 #eu-iiif-container {
   display: flex;
   position: relative;
 }
-/* line 311, iiif.scss */
+/* line 319, iiif.scss */
 #eu-iiif-container > div:first-of-type {
   width: 100%;
 }
-/* line 315, iiif.scss */
+/* line 323, iiif.scss */
 #eu-iiif-container.transcriptions-hidden {
   flex-wrap: wrap;
 }
-/* line 319, iiif.scss */
+/* line 327, iiif.scss */
 #eu-iiif-container.transcriptions-hidden .transcriptions {
   display: none;
   flex-shrink: 1;
