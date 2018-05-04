@@ -542,6 +542,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           fnMiniMapData: fnMiniMapData
         } : false,
         pageNav: true,
+        searchTerm: $.url(decodeURI(window.location.href)).param()['q'],
         thumbnail: thumbnail,
         fullScreenAvailable: fsAvailable(),
         zoom: 4,

@@ -4,6 +4,8 @@ $iiif-default-height:        36em;
 $iiif-transcriptions-height: 35em;
 $transcriptions-width:       25.5em;
 
+$match-bg:    #4D4D4D;
+$match-color: #FFF000;
 
 #iiif{
   height:   $iiif-default-height;
@@ -271,6 +273,34 @@ $transcriptions-width:       25.5em;
     color:       #fff;
     font-weight: bold;
   }
+
+// close the gaps...
+/*
+  .match-partial + .match-phrase,
+  .match-partial + .match-partial,
+  .match-phrase  + .match-partial{
+    position: relative;
+    &::before{
+      background-color: $match-bg;
+      bottom:           0;
+      content:          ' ';
+      display:          inline-block;
+      position:         absolute;
+      right:            100%;
+      top:              0;
+      width:            0.275em;
+    }
+  }
+*/
+
+  .match-word,
+  .match-phrase,
+  .match-characters{
+    background-color: $match-bg;
+    font-weight:      bold;
+    color:            $match-color;
+  }
+
 }
 
 #eu-iiif-container{

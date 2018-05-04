@@ -1,20 +1,21 @@
 require.config({
   paths: {
-    eu_mock_ajax:        '../../eu/util/eu-mock-ajax',
-    jqScrollto:          '../../lib/jquery/jquery.scrollTo',
-    jquery:              '../../lib/jquery/jquery',
-    leaflet:             '../../lib/leaflet/leaflet-1.2.0/leaflet',
-    leaflet_edgebuffer:  '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
-    leaflet_minimap:     '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
-    leaflet_zoom_slider: '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
-    leaflet_fullscreen:  '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
-    leaflet_iiif:        '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
-    leaflet_iiif_eu:     '../../eu/leaflet/eu-leaflet-iiif',
-    media_options:       '../../eu/media/media-options',
-    media_viewer_iiif:   '../../eu/media/search-iiif-viewer',
-    mustache:            '../../lib/mustache/mustache',
-    purl:                '../../lib/purl/purl',
-    util_resize:         '../../eu/util/resize'
+    eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
+    jqScrollto:                '../../lib/jquery/jquery.scrollTo',
+    jquery:                    '../../lib/jquery/jquery',
+    leaflet:                   '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet_edgebuffer:        '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
+    leaflet_minimap:           '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
+    leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
+    leaflet_fullscreen:        '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_iiif:              '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    media_iiif_text_processor: '../../eu/media/search-iiif-text-processor',
+    leaflet_iiif_eu:           '../../eu/leaflet/eu-leaflet-iiif',
+    media_options:             '../../eu/media/media-options',
+    media_viewer_iiif:         '../../eu/media/search-iiif-viewer',
+    mustache:                  '../../lib/mustache/mustache',
+    purl:                      '../../lib/purl/purl',
+    util_resize:               '../../eu/util/resize'
   }
 });
 
@@ -64,6 +65,7 @@ require(['jquery'], function(){
           transcriptions: true,
           zoomSlider: false,
           fullScreenAvailable: true,
+          searchTerm: $.url(decodeURI(window.location.href)).param()['q'],
           pageNav: true,
           miniMap: {
             position:        'topright',

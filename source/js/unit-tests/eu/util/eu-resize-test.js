@@ -25,8 +25,8 @@ define(['util_resize', 'jasmine_jquery'], function(ru){
           expect(resizeCallsMade).toEqual(callsToIssue);
           expect(debouncedCallsMade).toEqual(1);
           done();
-        }, 100);
-      }, 100);
+        }, 120);
+      }, 120);
     });
 
     it('Provides a factory method to throttle any events', function(done){

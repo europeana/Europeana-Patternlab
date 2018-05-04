@@ -1,26 +1,26 @@
-/* line 8, iiif.scss */
+/* line 10, iiif.scss */
 #iiif {
   height: 36em;
   margin: 0 auto;
   position: relative;
 }
-/* line 13, iiif.scss */
+/* line 15, iiif.scss */
 #iiif .leaflet-control-zoom {
   display: none;
 }
-/* line 17, iiif.scss */
+/* line 19, iiif.scss */
 #iiif.loading {
   cursor: progress;
 }
 
-/* line 22, iiif.scss */
+/* line 24, iiif.scss */
 #iiif,
 #iiif-ctrl {
   background-color: #333;
   font-size: 0.875em;
 }
 
-/* line 28, iiif.scss */
+/* line 30, iiif.scss */
 #iiif-ctrl {
   background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.025)), to(rgba(0, 0, 0, 0.75)));
@@ -36,26 +36,26 @@
   text-align: center;
   z-index: 400;
 }
-/* line 59, iiif.scss */
+/* line 61, iiif.scss */
 #iiif-ctrl .iiif-ctrl-group {
   margin: auto;
   max-width: 40em;
 }
-/* line 64, iiif.scss */
+/* line 66, iiif.scss */
 #iiif-ctrl a {
   color: #fff;
   text-align: center;
 }
-/* line 69, iiif.scss */
+/* line 71, iiif.scss */
 #iiif-ctrl a:hover {
   text-decoration: underline;
 }
-/* line 73, iiif.scss */
+/* line 75, iiif.scss */
 #iiif-ctrl a,
 #iiif-ctrl a[disabled="disabled"]:hover {
   text-decoration: none;
 }
-/* line 78, iiif.scss */
+/* line 80, iiif.scss */
 #iiif-ctrl .first[disabled='disabled'],
 #iiif-ctrl .prev[disabled='disabled'],
 #iiif-ctrl .last[disabled='disabled'],
@@ -64,24 +64,24 @@
   opacity: 0.4;
   text-decoration: none;
 }
-/* line 87, iiif.scss */
+/* line 89, iiif.scss */
 #iiif-ctrl a,
 #iiif-ctrl .jump-to-img,
 #iiif-ctrl .total-images {
   max-width: 5%;
   width: 5%;
 }
-/* line 94, iiif.scss */
+/* line 96, iiif.scss */
 #iiif-ctrl .next,
 #iiif-ctrl .last {
   padding-right: 0.5em;
   text-align: right;
 }
-/* line 100, iiif.scss */
+/* line 102, iiif.scss */
 #iiif-ctrl .prev {
   padding-right: 0.5em;
 }
-/* line 104, iiif.scss */
+/* line 106, iiif.scss */
 #iiif-ctrl .first,
 #iiif-ctrl .prev,
 #iiif-ctrl .last,
@@ -93,35 +93,35 @@
   position: relative;
   top: 2px;
 }
-/* line 116, iiif.scss */
+/* line 118, iiif.scss */
 #iiif-ctrl .first:hover,
 #iiif-ctrl .prev:hover,
 #iiif-ctrl .last:hover,
 #iiif-ctrl .next:hover {
   opacity: 1;
 }
-/* line 123, iiif.scss */
+/* line 125, iiif.scss */
 #iiif-ctrl .first {
   background-image: url("icon-first.svg");
 }
-/* line 127, iiif.scss */
+/* line 129, iiif.scss */
 #iiif-ctrl .prev {
   background-image: url("icon-previous.svg");
 }
-/* line 131, iiif.scss */
+/* line 133, iiif.scss */
 #iiif-ctrl .next {
   background-image: url("icon-next.svg");
 }
-/* line 135, iiif.scss */
+/* line 137, iiif.scss */
 #iiif-ctrl .last {
   background-image: url("icon-last.svg");
 }
-/* line 139, iiif.scss */
+/* line 141, iiif.scss */
 #iiif-ctrl a[disabled='disabled'] {
   color: #aaa;
   cursor: not-allowed;
 }
-/* line 144, iiif.scss */
+/* line 146, iiif.scss */
 #iiif-ctrl .jump-to-img {
   background-color: rgba(0, 0, 0, 0.85);
   border: 0;
@@ -133,21 +133,21 @@
   padding: 1px;
   text-align: right;
 }
-/* line 156, iiif.scss */
+/* line 158, iiif.scss */
 #iiif-ctrl .jump-to-img:hover:enabled {
   background-color: #fff;
   color: #4d4d4d;
 }
-/* line 161, iiif.scss */
+/* line 163, iiif.scss */
 #iiif-ctrl .total-images {
   text-align: left;
 }
-/* line 165, iiif.scss */
+/* line 167, iiif.scss */
 #iiif-ctrl .total-images,
 #iiif-ctrl .title {
   color: #fff;
 }
-/* line 170, iiif.scss */
+/* line 172, iiif.scss */
 #iiif-ctrl .title {
   display: none;
   font-style: italic;
@@ -157,7 +157,7 @@
   width: 100%;
 }
 
-/* line 180, iiif.scss */
+/* line 182, iiif.scss */
 .transcriptions-wrapper {
   overflow-x: hidden;
   overflow-y: auto;
@@ -199,7 +199,7 @@
   */
 }
 
-/* line 223, iiif.scss */
+/* line 225, iiif.scss */
 .transcriptions {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
@@ -211,26 +211,43 @@
   overflow: auto;
   padding-top: 1.2em;
   text-align: left;
+  /*
+    .match-partial + .match-phrase,
+    .match-partial + .match-partial,
+    .match-phrase  + .match-partial{
+      position: relative;
+      &::before{
+        background-color: $match-bg;
+        bottom:           0;
+        content:          ' ';
+        display:          inline-block;
+        position:         absolute;
+        right:            100%;
+        top:              0;
+        width:            0.275em;
+      }
+    }
+  */
 }
-/* line 238, iiif.scss */
+/* line 240, iiif.scss */
 .transcriptions.hidden,
 .transcriptions .hidden {
   display: none;
 }
-/* line 243, iiif.scss */
+/* line 245, iiif.scss */
 .transcriptions p {
   margin: 0;
   padding: 1em;
   line-height: 1.375em;
   margin: 0 1px;
 }
-/* line 249, iiif.scss */
+/* line 251, iiif.scss */
 .transcriptions p.highlight {
   background-color: rgba(53, 163, 213, 0.65);
   border-radius: 4px;
   color: #fff;
 }
-/* line 256, iiif.scss */
+/* line 258, iiif.scss */
 .transcriptions .remove-transcriptions {
   background-image: url("data:image/svg+xml,%3Csvg fill='%23f1f1ee' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
   height: 2em;
@@ -240,30 +257,38 @@
   transform: scale(0.5);
   width: 2em;
 }
-/* line 265, iiif.scss */
+/* line 267, iiif.scss */
 .transcriptions .remove-transcriptions:hover {
   background-image: url("data:image/svg+xml,%3Csvg fill='%23ccc' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
 }
-/* line 270, iiif.scss */
+/* line 272, iiif.scss */
 .transcriptions word.highlight {
   color: #fff;
   font-weight: bold;
 }
+/* line 296, iiif.scss */
+.transcriptions .match-word,
+.transcriptions .match-phrase,
+.transcriptions .match-characters {
+  background-color: #4D4D4D;
+  font-weight: bold;
+  color: #FFF000;
+}
 
-/* line 276, iiif.scss */
+/* line 306, iiif.scss */
 #eu-iiif-container {
   display: flex;
   position: relative;
 }
-/* line 281, iiif.scss */
+/* line 311, iiif.scss */
 #eu-iiif-container > div:first-of-type {
   width: 100%;
 }
-/* line 285, iiif.scss */
+/* line 315, iiif.scss */
 #eu-iiif-container.transcriptions-hidden {
   flex-wrap: wrap;
 }
-/* line 289, iiif.scss */
+/* line 319, iiif.scss */
 #eu-iiif-container.transcriptions-hidden .transcriptions {
   display: none;
   flex-shrink: 1;

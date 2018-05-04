@@ -1,0 +1,88 @@
+{
+  "@context": "X",
+  "@id":      "X",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@id":      "1",
+      "dc:type":  "Page",
+      "fullText": {
+        "value": "Paragraph one has 5 words. Paragraph two also has words."
+      },
+      "resource": "http://url#char=0,56",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "p1",
+      "dc:type":  "Paragraph",
+      "resource": "http://url#char=0,26",
+      "on":       "on#xywh=0,0,50,50"
+    },
+    {
+      "@id":      "p2",
+      "dc:type":  "Paragraph",
+      "resource": "http://url#char=27,56",
+      "on":       "on#xywh=50,50,50,50"
+    },
+    {
+      "@id":      "w1",
+      "dc:type":  "Word",
+      "resource": "http://url#char=0,9",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w2",
+      "dc:type":  "Word",
+      "resource": "http://url#char=10,13",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w3",
+      "dc:type":  "Word",
+      "resource": "http://url#char=14,17",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w4",
+      "dc:type":  "Word",
+      "resource": "http://url#char=18,19",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w5",
+      "dc:type":  "Word",
+      "resource": "http://url#char=20,26",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w6",
+      "dc:type":  "Word",
+      "resource": "http://url#char=27,36",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w7",
+      "dc:type":  "Word",
+      "resource": "http://url#char=37,40",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w8",
+      "dc:type":  "Word",
+      "resource": "http://url#char=41,45",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w9",
+      "dc:type":  "Word",
+      "resource": "http://url#char=46,49",
+      "on":       "on#xywh=0,0,100,100"
+    },
+    {
+      "@id":      "w9",
+      "dc:type":  "Word",
+      "resource": "http://url#char=50,56",
+      "on":       "on#xywh=0,0,100,100"
+    }
+  ]
+}

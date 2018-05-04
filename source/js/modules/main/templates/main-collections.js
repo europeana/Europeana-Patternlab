@@ -74,6 +74,7 @@ require.config({
 
     media_controller:              '../../eu/media/search-media-controller',
     media_viewer_iiif:             '../../eu/media/search-iiif-viewer',
+    media_iiif_text_processor:     '../../eu/media/search-iiif-text-processor',
     media_viewer_pdf:              '../../eu/media/search-pdf-ui-viewer',
     media_viewer_image:            '../../eu/media/search-image-viewer',
     media_viewer_videojs:          '../../eu/media/search-videojs-viewer',
