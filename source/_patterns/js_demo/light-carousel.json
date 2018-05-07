@@ -1,0 +1,9 @@
+{
+  "page_title": "Test Light Carousel",
+  "js_files": [
+    {
+      "path": "/js/modules/require.js",
+      "data_main": "/js/modules/main/js_demo/main-test-light-carousel.js"
+    }
+  ]
+}
