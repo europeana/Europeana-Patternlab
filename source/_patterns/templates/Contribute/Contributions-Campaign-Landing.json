@@ -17,7 +17,7 @@
       "options": {}
     }
   },
-  "log_out_button": {
+  "log_out_link": {
     "url": "javascript:alert('log out');",
     "label": "Sign out"
   },
