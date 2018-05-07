@@ -30,7 +30,7 @@
       "value": "{ 'delays' : {'contributions_autocomplete': 100}, 'mappings': [{'pattern': 'contributions_autocomplete/', 'resolveTo': 'contributions_autocomplete'}]}"
     }
   ],
-  "log_out_button": {
+  "log_out_link": {
     "url": "javascript:alert('log out');",
     "label": "Sign out"
   },
