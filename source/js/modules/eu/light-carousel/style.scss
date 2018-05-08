@@ -1,0 +1,65 @@
+$nav-width:    50px;
+$nav-widths:   calc(2 * #{$nav-width});
+$spacing-gap:  1.5em;
+$lc-width:     calc(100% - #{$nav-widths});
+
+.light-carousel{
+  overflow:   hidden;
+  padding:    0 50px;
+  position:   relative;
+
+  .lc-item-container {
+    align-items:  center;
+    display:      flex;
+  }
+
+  .nav-left,
+  .nav-right{
+    background-color: #333;
+    border-radius:    25px;
+    color:            #fff;
+    display:          inline-block;
+    font-weight:      bold;
+    height:           50px;
+    line-height:      50px;
+    position:         absolute;
+    text-align:       center;
+    top:              50%;
+    transform:        translateY(-50%);
+    width:            $nav-width;
+  }
+
+  .nav-left{
+    left: 0;
+  }
+
+  .nav-right{
+    right: 0;
+  }
+
+  .lc-item{
+    
+    &:not(:first-of-type){
+      margin-left:  $spacing-gap;
+    }
+
+    &.loading{
+      background-image:    url('spinner.gif');
+      background-position: center;
+      background-repeat:   no-repeat;
+      min-height:          200px;
+      min-width:           200px;
+    }
+  }
+
+  .wrapper-hide-scroll{
+    margin-bottom: -3em;
+    overflow: hidden;
+  }
+
+  .lc-scrollable{
+    overflow:       hidden;
+    overflow-x:     scroll;
+    padding-bottom: 2.45em;
+  }
+}

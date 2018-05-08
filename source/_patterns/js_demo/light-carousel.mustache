@@ -5,40 +5,226 @@
     padding: 2em;
   }
 
-  .resizeable{
+  .example{
     background-color: #e1e1e1;
     margin:           auto;
-    padding:          1em 2em 1em 1em;
+    padding:          1em;
     position:         relative;
     width:            70%;
   }
 
-  .light-carousel{
-    border: 1px solid red;
+  .example-1 .lc-item,
+  .example-2 .lc-item{
+    background-color: #ffa500;
+  }
+
+  .example-1 .lc-item{
+    color:            #fff;
+    min-height:       8em;
+    min-width:        8em;
+    padding:          1em 1em;
+  }
+
+  .example-2.light-carousel .lc-item-container{
+    align-items: flex-start;
+  }
+
+  .example-2.light-carousel .mlt-img-div{
+    width: 200px; // sets height too
+  }
+  .example-2.light-carousel .link{
+    display:  block;
+    position: absolute;
+    width:    100%;
+    height:   100%;
+  }
+
+
+  .example-3 .lc-item{
+    background-color: #fff;
+    min-height:       100%;
+    min-width:        280px;
   }
 
 </style>
 
-<!--
-  <a class="toggle-mouse-wheel"></a>
--->
 <a class="add-item">Add item</a>
 <br/>
 <a class="remove-item">Remove item</a>
 <br/>
+<a class="set-item-size">Set item size</a>
+  <input id="item-size" value="80" auto-complete="false" style="width:3em; margin-left: 2em;"/>
 <br/>
-<div class="resizeable">
-  <div class="light-carousel">
+<a class="toggle-mouse-wheel"></a>
+<br/>
+<br/>
+
+<div class="example">
+  <div class="light-carousel example-1">
     <a class="nav-left" style="display:none;">&lt;&lt;</a>
     <div class="wrapper-hide-scroll">
-      <div class="carousel-scrollable">
-        <div class="item-container">
-          <div class="item">
-            <div class="item-text">test item 1</div>
-          </div>
-        </div>
+      <div class="lc-scrollable">
+        <div class="lc-item-container"><div class="lc-item"><div class="lc-item-text">test item 1</div></div></div>
       </div>
     </div>
     <a class="nav-right" style="display:none;">&gt;&gt;</a>
   </div>
 </div>
+
+<br/>
+<br/>
+<br/>
+
+<div class="example">
+  <div class="light-carousel example-2">
+    <a class="nav-left" style="display:none;">&lt;&lt;</a>
+    <div class="wrapper-hide-scroll">
+      <div class="lc-scrollable">
+        <div class="lc-item-container"></div>
+      </div>
+    </div>
+    <a class="nav-right" style="display:none;">&gt;&gt;</a>
+  </div>
+  <script type="script/mustache" id="example-2-template">
+    {{>molecules/components/media-nav-item-js}}
+  </script>
+</div>
+<br/>
+<br/>
+<br/>
+
+<div class="example happening-feed-container">
+  <div class="js-carousel">
+    <div class="light-carousel example-3 happening-content cf">
+      <a class="nav-left" style="display:none;">&lt;&lt;</a>
+      <div class="wrapper-hide-scroll">
+        <div class="lc-scrollable">
+          <div class="lc-item-container">
+
+            <div class="lc-item js-carousel-item">
+
+              <div class="js-carousel-item-img-wrap"><a href="?q=The+Lace+Maker"><img src="/images/search/carousel1.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=The+Lace+Maker">Test Tumblr Title</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      This carousel item for the aggregated feed has text and a date&lt;br&gt;&lt;br&gt;The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show.  This carousel item for the aggregated feed has text and a date&lt;br&gt;&lt;br&gt;The text contains markup (linebreaks) and should not exceed 5 rows in height.  If it does the ellipsis will show
+                    </span>
+                  </span>
+                  <span class="js-carousel-date">
+                    14/12/2016
+                  </span>
+                  <span class="js-carousel-type type-news">news</span>
+              </div>
+            </div>
+            <div class="lc-item  js-carousel-item">
+              <div class="js-carousel-item-img-wrap"><a href="?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links"><img src="/images/search/carousel2.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links">Title II</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      This carousel item for the aggregated feed also has text and a date
+                    </span>
+                  </span>
+                  <span class="js-carousel-date">
+                    15/12/2016
+                  </span>
+                  <span class="js-carousel-type type-events">events</span>
+              </div>
+            </div>
+            <div class="lc-item js-carousel-item">
+              <div class="js-carousel-item-img-wrap"><a href="?q=Delft"><img src="/images/search/carousel3.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=Delft">Test Tumblr Title</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      This carousel item for the aggregated feed has text but no date
+                    </span>
+                  </span>
+                  <span class="js-carousel-type type-tumblr">tumblr</span>
+              </div>
+            </div>
+            <div class="lc-item js-carousel-item">
+              <div class="js-carousel-item-img-wrap"><a href="?q=Girl+with+the+pearl+earring"><img src="/images/search/carousel1.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=Girl+with+the+pearl+earring">Test Tumblr Title</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </span>
+                  </span>
+                  <span class="js-carousel-date">
+                    17/12/2016
+                  </span>
+                  <span class="js-carousel-type type-news">news</span>
+              </div>
+            </div>
+            <div class="lc-item js-carousel-item">
+              <div class="js-carousel-item-img-wrap"><a href="?q=The+Lace+Maker"><img src="/images/search/carousel2.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=The+Lace+Maker">Test Tumblr Title</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </span>
+                  </span>
+                  <span class="js-carousel-type type-news">news</span>
+              </div>
+            </div>
+
+            <div class="lc-item js-carousel-item">
+              <div class="js-carousel-item-img-wrap"><a href="?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links"><img src="/images/search/carousel3.jpg"></a></div>
+
+              <div class="js-carousel-texts">
+                  <span class="js-carousel-title-wrap">
+                    <span class="js-carousel-title">
+                      <a href="?q=Zittende+jongeman+bij+ton+met+het+hoofd+naar+links">Test Tumblr Title</a>
+                    </span>
+                  </span>
+                  <span class="js-carousel-text-wrap">
+                    <span class="js-carousel-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </span>
+                  </span>
+                  <span class="js-carousel-type type-news">news</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <a class="nav-right" style="display:none;">&gt;&gt;</a>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

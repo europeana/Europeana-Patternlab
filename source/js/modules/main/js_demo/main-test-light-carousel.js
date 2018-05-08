@@ -1,113 +1,64 @@
 require.config({
   paths: {
-    jquery:      '../../lib/jquery/jquery',
-    util_resize: '../../eu/util/resize'
+    eu_light_carousel: '../../eu/light-carousel/eu-light-carousel',
+    eu_mock_ajax:      '../../eu/util/eu-mock-ajax',
+    jquery:            '../../lib/jquery/jquery',
+    mustache:          '../../lib/mustache/mustache',
+    purl:              '../../lib/purl/purl',
+    util_resize:       '../../eu/util/resize'
   }
 });
 
-require(['jquery', 'util_resize'], function($, Debouncer){
+require(['jquery', 'eu_light_carousel', 'eu_mock_ajax'], function($, EuLC){
 
   $(document).ready(function(){
-
-    // this isn't working....
-    $(document).on('unload', function(){
-      console.error('unload');
-      $('.item-container').parent()[0].scrollTop  = 0;
-      $('.item-container').parent()[0].scrollLeft = 0;
-    });
-
-    // mouse wheel experiment
-
-    var classMW    = 'mouse-wheel';
-    var lc         = $('.light-carousel');
-    var toggleCtrl = $('.toggle-mouse-wheel');
-
-    var updateCtrl = function(){
-      if(lc.hasClass(classMW)){
-        toggleCtrl.html('remove mouse wheel');
-      }
-      else{
-        toggleCtrl.html('add mouse wheel');
-      }
-    };
-
-    toggleCtrl.on('click', function(){
-      lc.toggleClass(classMW);
-      updateCtrl();
-    });
-
-    updateCtrl();
-
-    // scrolling
-
-    var scrollable = $('.carousel-scrollable');
-
-    Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
-
-    $(scrollable).carouselScrolled(function(){
-
-      if(this.scrollLeft == 0){
-        console.log('hide left button');
-        $('.nav-left').hide();
-      }
-      else{
-        console.log('show left button');
-        $('.nav-left').show();
-      }
-
-      if(this.scrollLeft + scrollable.width() ==  this.scrollWidth){
-        console.log('hide right button');
-        $('.nav-right').hide();
-      }
-      else{
-        console.log('show right button');
-        $('.nav-right').show();
-      }
-    });
-
-    scrollable.on('scroll', function(){$(this).trigger('carousel-scrolled');});
-
-    $(scrollable).trigger('carousel-scrolled');
 
     // item addition
 
     var addItem    = $('.add-item');
     var removeItem = $('.remove-item');
 
-    var fnAddItem = function(){
-      var newItem = $('.item-container .item:last').clone();
-      newItem.find('.item-text').text('test item ' + ($('.item-container .item').length + 1));
-      $('.item-container').append(newItem);
-      $(scrollable).trigger('carousel-scrolled');
+    var fnAddItem = function($cmp){
+      var newItem = $cmp.find('.lc-item:last').clone();
+      newItem.find('.lc-item-text').text('test item ' + ($cmp.find('.lc-item').length + 1));
+      $cmp.find('.lc-item-container').append(newItem);
+      $cmp.find('.lc-scrollable').trigger('carousel-scrolled');
     };
 
-    addItem.on('click', fnAddItem);
+    addItem.on('click', function(){
+      fnAddItem($('.example-1'));
+    });
 
     removeItem.on('click', function(){
-      $('.item-container .item:last').remove();
-      $(scrollable).trigger('carousel-scrolled');
-    });
-
-    // navigation
-
-    var increment = 200;
-
-    $('.nav-left').on('click', function(){
-      scrollable.scrollLeft( scrollable.scrollLeft() - increment );
-    });
-
-    $('.nav-right').on('click', function(){
-      scrollable.scrollLeft( scrollable.scrollLeft() + increment );
+      var lastItem   = $('.example-1 .lc-item-container .lc-item:last');
+      var scrollable = lastItem.closest('.light-carousel').find('.lc-scrollable');
+      lastItem.remove();
+      scrollable.trigger('carousel-scrolled');
     });
 
     // populate
-    for(var i=0; i<20; i++){
-      fnAddItem();
+
+    for(var i=0; i<11; i++){
+      fnAddItem($('.example-1'));
     }
 
-    // resize
-    $(window).europeanaResize(function(){$(scrollable).trigger('carousel-scrolled');});
+    // set-item-height
+    $('.set-item-size').on('click', function(){
+      var h = $('#item-size').val();
+      $('.example-1 .lc-item').css('min-height', h + 'px');
+      $('.example-1 .lc-item').css('min-width', h + 'px');
+      $('.example-1 .lc-item').css('max-height', h + 'px');
+      $('.example-1 .lc-item').css('max-width', h + 'px');
+    });
 
+    var dynamicExample = new EuLC.EuLightCarousel({
+      '$el': $('.example-2'),
+      'loadUrl': 'portal_object-media',
+      'load_per_page': 3,
+      'itemsAvailable': 12, // 30
+      'templateText': '<div class="lc-item">' + $('#example-2-template').text() + '</div>'
+    });
+
+    dynamicExample.init();
   });
-
 });
