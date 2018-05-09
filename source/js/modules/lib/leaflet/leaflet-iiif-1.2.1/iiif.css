@@ -68,8 +68,8 @@
 #iiif-ctrl a,
 #iiif-ctrl .jump-to-img,
 #iiif-ctrl .total-images {
-  max-width: 5%;
-  width: 5%;
+  max-width: 2em;
+  width: 2em;
 }
 /* line 96, iiif.scss */
 #iiif-ctrl .next,
@@ -252,7 +252,7 @@
   background-image: url("data:image/svg+xml,%3Csvg fill='%23f1f1ee' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
   height: 2em;
   position: fixed;
-  right: 1em;
+  right: 0.5em;
   top: 0.3em;
   transform: scale(0.5);
   width: 2em;
