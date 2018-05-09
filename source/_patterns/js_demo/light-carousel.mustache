@@ -5,16 +5,25 @@
     padding: 2em;
   }
 
+  h2,
+  h3,
   .example{
-    background-color: #e1e1e1;
     margin:           auto;
-    padding:          1em;
     position:         relative;
     width:            70%;
   }
 
-  .example-1 .lc-item,
-  .example-2 .lc-item{
+  h2,
+  h3{
+    margin-bottom:    1em;
+  }
+
+  .example{
+    background-color: #e1e1e1;
+    padding:          1em;
+  }
+
+  .example-1 .lc-item{
     background-color: #ffa500;
   }
 
@@ -25,14 +34,17 @@
     padding:          1em 1em;
   }
 
-  .example-2.light-carousel .lc-item-container{
+  .example-3.light-carousel .lc-item-container{
     align-items: flex-start;
   }
 
-  .example-2.light-carousel .mlt-img-div{
+  .example-2.light-carousel .mlt-img-div,
+  .example-4.light-carousel .mlt-img-div{
     width: 200px; // sets height too
   }
-  .example-2.light-carousel .link{
+
+  .example-2.light-carousel .link,
+  .example-4.light-carousel .link{
     display:  block;
     position: absolute;
     width:    100%;
@@ -47,17 +59,18 @@
   }
 
 </style>
+<div style="float:left;">
+  <a class="add-item">Add item</a>
+  <br/>
+  <a class="remove-item">Remove item</a>
+  <br/>
+  <a class="set-item-size">Set item size</a>
+    <input id="item-size" value="80" auto-complete="false" style="width:3em; margin-left: 2em;"/>
+  <br/>
+  <a class="toggle-mouse-wheel"></a>
+</div>
 
-<a class="add-item">Add item</a>
-<br/>
-<a class="remove-item">Remove item</a>
-<br/>
-<a class="set-item-size">Set item size</a>
-  <input id="item-size" value="80" auto-complete="false" style="width:3em; margin-left: 2em;"/>
-<br/>
-<a class="toggle-mouse-wheel"></a>
-<br/>
-<br/>
+<h2>Basic Example</h2>
 
 <div class="example">
   <div class="light-carousel example-1">
@@ -73,7 +86,7 @@
 
 <br/>
 <br/>
-<br/>
+<h2>Ajax Example</h2>
 
 <div class="example">
   <div class="light-carousel example-2">
@@ -89,9 +102,41 @@
     {{>molecules/components/media-nav-item-js}}
   </script>
 </div>
+
+<br/>
+<br/>
+<h2>Partially Pre-loaded Ajax Example</h2>
+<h3><a class="init-example-4">click to initialise</a></h3>
+
+<div class="example">
+  <div class="light-carousel example-4">
+    <a class="nav-left" style="display:none;">&lt;&lt;</a>
+    <div class="wrapper-hide-scroll">
+      <div class="lc-scrollable">
+        <div class="lc-item-container">
+          <div class="lc-item">
+            <div class="mlt-img-div height-to-width" style="background-image: url(/images/sample/object_thumbnail.jpg)" <div=""><a data-type="image" data-uri="/images/sample/object_full.jpg" data-thumbnail="/images/sample/object_thumbnail.jpg" data-download-uri="/images/sample/object_full.jpg" class="link is-current playable"></a></div>
+          </div>
+          <div class="lc-item">
+            <div class="mlt-img-div height-to-width" style="background-image: url(/media/iiif.jpg)" <div=""><a data-type="image" data-uri="/images/sample/object_full.jpg" data-thumbnail="/images/sample/object_thumbnail.jpg" data-download-uri="/images/sample/object_full.jpg" class="link is-current playable"></a></div>
+          </div>
+          <div class="lc-item">
+            <div class="mlt-img-div height-to-width" style="background-image: url(/media/falcon-thumb.png)" <div=""><a data-type="image" data-uri="/images/sample/object_full.jpg" data-thumbnail="/images/sample/object_thumbnail.jpg" data-download-uri="/images/sample/object_full.jpg" class="link is-current playable"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="nav-right" style="display:none;">&gt;&gt;</a>
+  </div>
+  <script type="script/mustache" id="example-4-template">
+    {{>molecules/components/media-nav-item-js}}
+  </script>
+</div>
+
 <br/>
 <br/>
 <br/>
+<h2>Fashion Landing Happening Feed Example</h2>
 
 <div class="example happening-feed-container">
   <div class="js-carousel">

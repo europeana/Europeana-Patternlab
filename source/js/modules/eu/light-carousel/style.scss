@@ -38,7 +38,7 @@ $lc-width:     calc(100% - #{$nav-widths});
   }
 
   .lc-item{
-    
+
     &:not(:first-of-type){
       margin-left:  $spacing-gap;
     }
@@ -47,10 +47,15 @@ $lc-width:     calc(100% - #{$nav-widths});
       background-image:    url('spinner.gif');
       background-position: center;
       background-repeat:   no-repeat;
-      min-height:          200px;
-      min-width:           200px;
+    }
+
+    &.loading,
+    &.waiting{
+      min-height: 200px;
+      min-width:  200px;
     }
   }
+
 
   .wrapper-hide-scroll{
     margin-bottom: -3em;

@@ -60,5 +60,18 @@ require(['jquery', 'eu_light_carousel', 'eu_mock_ajax'], function($, EuLC){
     });
 
     dynamicExample.init();
+
+    $('.init-example-4').on('click', function(){
+
+      var example = new EuLC.EuLightCarousel({
+        '$el': $('.example-4'),
+        'loadUrl': 'portal_object-media',
+        'load_per_page': 3,
+        'itemsAvailable': 12,
+        'templateText': '<div class="lc-item">' + $('#example-4-template').text() + '</div>'
+      });
+      example.init();
+    });
+
   });
 });

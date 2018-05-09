@@ -42,15 +42,18 @@
   background-image: url("spinner.gif");
   background-position: center;
   background-repeat: no-repeat;
+}
+/* line 52, style.scss */
+.light-carousel .lc-item.loading, .light-carousel .lc-item.waiting {
   min-height: 200px;
   min-width: 200px;
 }
-/* line 55, style.scss */
+/* line 60, style.scss */
 .light-carousel .wrapper-hide-scroll {
   margin-bottom: -3em;
   overflow: hidden;
 }
-/* line 60, style.scss */
+/* line 65, style.scss */
 .light-carousel .lc-scrollable {
   overflow: hidden;
   overflow-x: scroll;

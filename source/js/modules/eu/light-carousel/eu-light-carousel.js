@@ -13,14 +13,15 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     var that          = this;
     var itemContainer = this.ops.$el.find('.lc-item-container');
 
-    for(var i=0; i<this.ops.itemsAvailable; i++){
-      itemContainer.append('<div class="lc-item loading"></div>');
+    for(var i=itemContainer.children('.lc-item').length; i<this.ops.itemsAvailable; i++){
+      itemContainer.append('<div class="lc-item waiting"></div>');
     }
 
     this.ops.$el.on('scroll-complete', function(){
       that.load();
     });
 
+    // TODO: detect when css rendered
     setTimeout(function(){
       that.load();
     }, 1000);
@@ -32,31 +33,27 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     var minL            = rect.left;
     var maxR            = rect.right;
     var includedIndexes = [];
-    var hasLoading      = false;
+    var hasWaiting      = false;
 
     container.find('.lc-item').each(function(i){
 
       var $this = $(this);
 
-      if($this.hasClass('loading')){
+      if($this.hasClass('waiting')){
 
-        hasLoading = true;
+        hasWaiting = true;
         var r = this.getBoundingClientRect();
 
         if(r.right >= minL && r.left <= maxR){
-
-          $this.css('border', '1px solid red');
           includedIndexes.push(i);
         }
       }
     });
 
-    console.log('Load these: ' + JSON.stringify(includedIndexes));
-
-    if(!hasLoading){
+    if(!hasWaiting){
       this.loadedAll = true;
-      console.log('loadedAll = true');
       this.ops.$el.off('scroll-complete');
+      console.log('lc loaded all');
     }
 
     return includedIndexes;
@@ -81,19 +78,15 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     var batchSize      = (this.ops.load_per_page ? this.ops.load_per_page : 12);
 
     var startAt        = Math.min.apply(null, toLoad);
-
-    // console.log('start at ' + startAt + ' (init)');
-
     startAt            = Math.floor(startAt / batchSize);
 
-    // console.log('start at ' + startAt + ' (+1)');
-
     var paramString    = '?page=' + (startAt + 1) + '&per_page=' + batchSize;
-
-    // console.log('load ' + this.ops.loadUrl + paramString + '...');
-
     var loadOffset     = startAt * batchSize;
     var that           = this;
+
+    for(var i=loadOffset; i<loadOffset + batchSize; i++){
+      itemContainer.children().eq(i).addClass('loading').removeClass('waiting');
+    }
 
     $.getJSON(this.ops.loadUrl + paramString).done(function(data){
 
@@ -105,11 +98,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
           var html = Mustache.render(template, datum);
           itemContainer.children().eq(loadOffset + i).replaceWith(html);
         });
-
-        setTimeout(function(){
-          that.load();
-        }, 2000);
-
+        that.load();
       });
     });
   };
@@ -131,9 +120,9 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       $cmp.find('.nav-left').show();
     }
 
-    // console.log($cmp.attr('class') + ' ' + _this.scrollLeft + ' + ' + $this.width() + '==  ' +  _this.scrollWidth);
+    console.log($cmp.attr('class') + ' ' + _this.scrollLeft + ' + ' + $this.width() + ' == ' +  _this.scrollWidth + ' (' + (_this.scrollLeft + $this.width()) + ')');
 
-    if(_this.scrollLeft + $this.width() == _this.scrollWidth){
+    if(_this.scrollLeft + $this.width() + 1 >= _this.scrollWidth){
       $cmp.find('.nav-right').hide();
     }
     else{
@@ -146,13 +135,16 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     fnCarouselScrolled(this);
   });
 
+
+  // TODO: detect when css rendered
+
   setTimeout(function(){
+    $('.lc-scrollable').on('scroll', function(){$(this).trigger('carousel-scrolled');});
+
     $('.lc-scrollable').each(function(i, ob){
-      var $scrollable = $(ob);
-      $scrollable.on('scroll', function(){$scrollable.trigger('carousel-scrolled');});
       fnCarouselScrolled(ob);
     });
-  }, 500);
+  }, 1000);
 
   // navigation
 
@@ -168,14 +160,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
   // resize
   $(window).europeanaResize(function(){$('.scrollable').trigger('carousel-scrolled');});
-
-  // this isn't working....
-  /*
-  $(document).on('unload', function(){
-    $('.lc-item-container').parent()[0].scrollTop  = 0;
-    $('.lc-item-container').parent()[0].scrollLeft = 0;
-  });
-  */
 
   return {
     EuLightCarousel: EuLightCarousel

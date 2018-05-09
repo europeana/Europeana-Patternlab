@@ -9,7 +9,7 @@
   "js_vars": [
     {
       "name": "mock_ajax",
-      "value": true
+      "value": "{'delays': {'portal_object-media': 3000}}"
     }
   ]
 }
