@@ -3,6 +3,7 @@ require.config({
     eu_light_carousel: '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:      '../../eu/util/eu-mock-ajax',
     jquery:            '../../lib/jquery/jquery',
+    jqScrollto:        '../../lib/jquery/jquery.scrollTo',
     mustache:          '../../lib/mustache/mustache',
     purl:              '../../lib/purl/purl',
     util_resize:       '../../eu/util/resize'

@@ -2,8 +2,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
   $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/light-carousel/style.css') + '" type="text/css"/>');
 
-  var increment = 200;
-
   function EuLightCarousel(ops){
     this.ops = ops;
   }
@@ -146,15 +144,16 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   }, 1000);
 
   // navigation
+  require(['jqScrollto'], function(){
+    $('.nav-left').on('click', function(){
+      var $scrollable = $(this).closest('.light-carousel').find('.lc-scrollable');
+      $scrollable.scrollTo('-=200px', 300);
+    });
 
-  $('.nav-left').on('click', function(){
-    var $scrollable = $(this).closest('.light-carousel').find('.lc-scrollable');
-    $scrollable.scrollLeft($scrollable.scrollLeft() - increment);
-  });
-
-  $('.nav-right').on('click', function(){
-    var $scrollable  = $(this).closest('.light-carousel').find('.lc-scrollable');
-    $scrollable.scrollLeft($scrollable.scrollLeft() + increment);
+    $('.nav-right').on('click', function(){
+      var $scrollable  = $(this).closest('.light-carousel').find('.lc-scrollable');
+      $scrollable.scrollTo('+=200px', 300);
+    });
   });
 
   // resize
