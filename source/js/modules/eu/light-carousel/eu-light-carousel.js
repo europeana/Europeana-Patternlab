@@ -22,8 +22,9 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     });
 
     // TODO: detect when css rendered
+
     setTimeout(function(){
-      that.load();
+      fnCarouselScrolled(itemContainer.closest('.lc-scrollable')[0]);
     }, 1000);
 
   };
@@ -120,7 +121,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       $cmp.find('.nav-left').show();
     }
 
-    console.log($cmp.attr('class') + ' ' + _this.scrollLeft + ' + ' + $this.width() + ' == ' +  _this.scrollWidth + ' (' + (_this.scrollLeft + $this.width()) + ')');
+    // console.log($cmp.attr('class') + ' (scroll-left [' + (typeof _this.scrollLeft) + ']) ' + _this.scrollLeft + ' + ' + ($this.width()) + ' == ' +  _this.scrollWidth + ' (' + (_this.scrollLeft + $this.width()) + ')');
 
     if(_this.scrollLeft + $this.width() + 1 >= _this.scrollWidth){
       $cmp.find('.nav-right').hide();
@@ -135,12 +136,10 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     fnCarouselScrolled(this);
   });
 
+  $('.lc-scrollable').on('scroll', function(){$(this).trigger('carousel-scrolled');});
 
   // TODO: detect when css rendered
-
   setTimeout(function(){
-    $('.lc-scrollable').on('scroll', function(){$(this).trigger('carousel-scrolled');});
-
     $('.lc-scrollable').each(function(i, ob){
       fnCarouselScrolled(ob);
     });
@@ -159,7 +158,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   });
 
   // resize
-  $(window).europeanaResize(function(){$('.scrollable').trigger('carousel-scrolled');});
+  $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); });  });
 
   return {
     EuLightCarousel: EuLightCarousel

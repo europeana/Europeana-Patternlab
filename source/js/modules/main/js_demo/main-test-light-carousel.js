@@ -51,26 +51,24 @@ require(['jquery', 'eu_light_carousel', 'eu_mock_ajax'], function($, EuLC){
       $('.example-1 .lc-item').css('max-width', h + 'px');
     });
 
-    var dynamicExample = new EuLC.EuLightCarousel({
-      '$el': $('.example-2'),
-      'loadUrl': 'portal_object-media',
-      'load_per_page': 3,
-      'itemsAvailable': 12, // 30
-      'templateText': '<div class="lc-item">' + $('#example-2-template').text() + '</div>'
-    });
+    var getConf = function(el){
+      return {
+        '$el': el,
+        'loadUrl': 'portal_object-media',
+        'load_per_page': 3,
+        'itemsAvailable': 12, // 30
+        'templateText': '<div class="lc-item">' + $('#item-template').text() + '</div>'
+      };
+    };
+
+    var dynamicExample = new EuLC.EuLightCarousel(getConf($('.example-2')));
 
     dynamicExample.init();
 
     $('.init-example-4').on('click', function(){
-
-      var example = new EuLC.EuLightCarousel({
-        '$el': $('.example-4'),
-        'loadUrl': 'portal_object-media',
-        'load_per_page': 3,
-        'itemsAvailable': 12,
-        'templateText': '<div class="lc-item">' + $('#example-4-template').text() + '</div>'
-      });
+      var example = new EuLC.EuLightCarousel(getConf($('.example-4')));
       example.init();
+      $('.init-example-4').remove();
     });
 
   });
