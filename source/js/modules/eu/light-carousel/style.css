@@ -1,0 +1,61 @@
+/* line 6, style.scss */
+.light-carousel {
+  overflow: hidden;
+  padding: 0 50px;
+  position: relative;
+}
+/* line 11, style.scss */
+.light-carousel .lc-item-container {
+  align-items: center;
+  display: flex;
+}
+/* line 16, style.scss */
+.light-carousel .nav-left,
+.light-carousel .nav-right {
+  background-color: #333;
+  border-radius: 25px;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+}
+/* line 32, style.scss */
+.light-carousel .nav-left {
+  left: 0;
+}
+/* line 36, style.scss */
+.light-carousel .nav-right {
+  right: 0;
+}
+/* line 42, style.scss */
+.light-carousel .lc-item:not(:first-of-type) {
+  margin-left: 1.5em;
+}
+/* line 46, style.scss */
+.light-carousel .lc-item.loading {
+  background-image: url("spinner.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* line 52, style.scss */
+.light-carousel .lc-item.loading, .light-carousel .lc-item.waiting {
+  min-height: 200px;
+  min-width: 200px;
+}
+/* line 60, style.scss */
+.light-carousel .wrapper-hide-scroll {
+  margin-bottom: -3em;
+  overflow: hidden;
+}
+/* line 65, style.scss */
+.light-carousel .lc-scrollable {
+  overflow: hidden;
+  overflow-x: scroll;
+  padding-bottom: 2.45em;
+}

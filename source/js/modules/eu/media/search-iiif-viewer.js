@@ -44,6 +44,8 @@ define(['jquery', 'util_resize'], function($){
 
   var features          = {};
   var transcriptionIsOn = false;
+  var classHideFullText = 'transcriptions-hidden';
+  var pnlTranscriptions = $('#eu-iiif-container .transcriptions');
 
   function log(msg) {
     console.log(msg);
@@ -100,7 +102,6 @@ define(['jquery', 'util_resize'], function($){
       });
     }
 
-
     if(singleImageInfo){
 
       var layer = Leaflet.tileLayer.iiif.eu(singleImageInfo, iiifConf);
@@ -141,6 +142,16 @@ define(['jquery', 'util_resize'], function($){
 
             if(config.miniMap){
               miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
+
+              /*
+              var centre = iiif.getBounds().getCenter();
+              log('LatLng-equivalent: ' + JSON.stringify(centre));
+              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(
+                Leaflet.tileLayer.iiif.eu(jsonUrl),
+                $.extend({}, config.miniMap, {'centerFixed': centre } )
+              );
+              */
+
             }
           }
           index += 1;
@@ -174,34 +185,13 @@ define(['jquery', 'util_resize'], function($){
 
   };
 
-  var updateTranscriptCtrls = function(){
-
-    var $transcriptions = $('.transcriptions');
-
-    $transcriptions.find('.transcription').addClass('hidden');
-
-    if($transcriptions.find(' > .' + currentImg).length == 0){
-      require(['mustache'], function(Mustache){
-        Mustache.tags = ['[[', ']]'];
-
-        var template = $('#template-iiif-transcription').text();
-
-        $.getJSON(config.transcriptions.urls[currentImg]).done(function(data){
-          data['index'] = currentImg + '';
-          $transcriptions.append(Mustache.render(template, data));
-        });
-      });
-    }
-    else{
-      $transcriptions.find('.transcription.' + currentImg).removeClass('hidden');
-    }
-  };
-
   var nav = function($el, layerName){
 
     if($el.attr('disabled')){
       return;
     }
+
+    setVisibleTranscripts();
 
     var layer = iiifLayers[layerName + ''];
 
@@ -209,13 +199,10 @@ define(['jquery', 'util_resize'], function($){
       $('#iiif').addClass('loading');
       load(layerName);
       layer = iiifLayers[layerName + ''];
-      $('#iiif').removeClass('loading');
     }
-    switchLayer(layer);
     currentImg = layerName;
+    switchLayer(layer);
     updateCtrls();
-    addTranscriptions(layerName + '');
-    addMiniMap(layerName + '');
   };
 
   var initUI = function(){
@@ -231,6 +218,31 @@ define(['jquery', 'util_resize'], function($){
       zoomSnap: 0.5
     });
 
+    $(iiif).on('europeana-ready', function(){
+
+      $('#iiif').removeClass('loading');
+
+      var current = currentImg + '';
+
+      // add the mini map
+      if(config.miniMap && miniMapCtrls[current]){
+        addMiniMap(current);
+      }
+
+      // update the $transcriptions
+      if(config.transcriptions){
+        if(transcriptionIsOn){
+          addTranscriptions();
+        }
+        else{
+          addTranscriptions(true);
+        }
+      }
+      else{
+        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
+      }
+    });
+
     $(window).on('refresh-leaflet-map', function(){
       iiif.invalidateSize();
     });
@@ -238,7 +250,6 @@ define(['jquery', 'util_resize'], function($){
     $(window).europeanaResize(function(){
       setTimeout(function(){
         iiif.invalidateSize();
-        console.log('timeout done 301');
       }, 301);
     });
 
@@ -335,16 +346,22 @@ define(['jquery', 'util_resize'], function($){
       setTotalImages(1);
       load(1, manifestUrl);
       $('#iiif').removeClass('loading');
+      $('#iiif').data('manifest-url', manifestUrl);
       $('.media-viewer').trigger('object-media-open', {hide_thumb: true});
 
       updateCtrls();
-      addTranscriptions(currentImg + '', true);
-      addMiniMap(currentImg + '');
     }
     else{
 
+      var waitTime       = 5000;
+      var timeoutFailure = null;
+
       // Grab a IIIF manifest
       $.getJSON(manifestUrl).done(function(data){
+
+        if(timeoutFailure){
+          window.clearTimeout(timeoutFailure);
+        }
 
         $.each(data.sequences[0].canvases, function(_, val) {
           labelledData[val.label] = val;
@@ -355,32 +372,39 @@ define(['jquery', 'util_resize'], function($){
         load();
 
         $('#iiif').removeClass('loading');
+        $('#iiif').data('manifest-url', manifestUrl);
 
         iiifLayers['0'].addTo(iiif);
 
         $('.media-viewer').trigger('object-media-open', {hide_thumb:true});
 
         updateCtrls();
-        addTranscriptions(currentImg + '', true);
-        addMiniMap(currentImg + '');
-
-      }).fail(function(jqxhr) {
-        log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr, null, 4));
-        $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+      }).fail(function(jqxhr, e) {
+        timeoutFailure = setTimeout(function(){
+          log('error loading manifest (' + manifestUrl +  '): ' + JSON.stringify(jqxhr) + '  ' + JSON.stringify(e));
+          // TODO: remove this (or replace with equivalent) when new item page launched
+          $('.media-viewer').trigger({'type': 'remove-playability', '$thumb': config.thumbnail, 'player': 'iiif'});
+        }, waitTime);
       });
     }
 
   }
 
-  function highlightTranscript($t){
+  function highlightTranscript($t, scroll){
 
     if($t.length > 0){
       $('.transcription:not(.hidden) .highlight').removeClass('highlight');
       $t.addClass('highlight');
+
       if($t[0].nodeName.toUpperCase() == 'WORD'){
         $t.closest('p').addClass('highlight');
       }
-      $('.transcriptions').scrollTo($t, 333, {'offset': -16});
+
+      if(scroll){
+        require(['jqScrollto'], function(){
+          pnlTranscriptions.scrollTo($t, 333, {'offset': -16});
+        });
+      }
     }
   }
 
@@ -390,6 +414,22 @@ define(['jquery', 'util_resize'], function($){
     });
   }
 
+  function setVisibleTranscripts(show){
+
+    pnlTranscriptions.find('.transcription').addClass('hidden');
+
+    if(typeof show != 'undefined'){
+
+      var highlighted = pnlTranscriptions.find('.transcription.' + currentImg).removeClass('hidden').find('p.highlight');
+
+      if(highlighted.length){
+        require(['jqScrollto'], function(){
+          pnlTranscriptions.scrollTo(highlighted, 333, {'offset': -16});
+        });
+      }
+    }
+  }
+
   function highlightFeature(f){
 
     if(!f){
@@ -397,25 +437,29 @@ define(['jquery', 'util_resize'], function($){
     }
 
     // nested features unavailable to capture this. decided to use transcript to access parent instead of embedding references within model and markup
-    var transcriptionEl = $('.transcriptions #' + f.feature.properties.id);
-    var isWord          = transcriptionEl[0].nodeName.toUpperCase() == 'WORD';
-    var wordStyle       = {
-      color:       '#1676aa',
-      fillOpacity: 0,
-      weight:      1
+    var transcriptionEl = pnlTranscriptions.find('#' + f.feature.properties.id);
+    var colour    = '#35A3D5';
+    var isWord    = transcriptionEl[0] ? transcriptionEl[0].nodeName.toUpperCase() == 'WORD' : false;
+    var wordStyle = {
+      color:       colour,
+      fillOpacity: 0.5,
+      weight:      2
     };
 
     var paragraphStyle = {
-      color:       '#1676aa',
-      fillOpacity: 0.5,
-      weight:      1
+      color:       colour,
+      fillOpacity: 0,
+      weight:      2
     };
 
     resetFeatures();
 
     if(isWord){
-      var parentFeature = features[currentImg + ''][transcriptionEl.closest('p').attr('id')];
+      var parentId      = transcriptionEl.closest('p').attr('id');
+      var parentFeature = features[currentImg + ''][parentId];
+
       f.setStyle(wordStyle);
+
       parentFeature.setStyle(paragraphStyle);
       //iiif.fitBounds(parentFeature.getBounds());
     }
@@ -433,139 +477,152 @@ define(['jquery', 'util_resize'], function($){
       }
 
       var ctrl = miniMapCtrls[layerName];
+      ctrl.addTo(iiif);
 
-      iiif.whenReady(function(){
-        ctrl.addTo(iiif);
-
-        if(config.miniMap.fillViewport){
-          setTimeout(function(){
-            ctrl._miniMap.whenReady(function(){
-
-              setTimeout(function(){
-                ctrl.fillViewport();
-                window.blockIiifFitBounds = false;
-              }, 250);
-            });
-          }, 400);
-        }
-
-      });
-    }
-  }
-
-  function addTranscriptions(layerName, initialise) {
-
-    var classHideTranscript = 'transcriptions-hidden';
-
-    if(initialise){
-
-      $(document).on('remove-transcriptions', function(){
-        transcriptionIsOn = false;
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        resetFeatures();
-        iiif.invalidateSize();
-      });
-
-      $(document).on('add-transcriptions', function(){
-        log('add-transcriptions');
-        transcriptionIsOn = true;
-        addTranscriptions(currentImg + '');
-        iiif.invalidateSize();
-      });
-
-      $(document).on('click', '.remove-transcriptions', function(){
-        $(document).trigger('remove-transcriptions');
-      });
-
-
-      if(config.transcriptions){
-        $('#eu-iiif-container').removeClass(classHideTranscript);
-        transcriptionIsOn = true;
+      if(config.miniMap.fillViewport && currentImg == '0'){
+        ctrl._miniMap.whenReady(function(){
+          if($('.leaflet-control-minimap').is(':visible')){
+            setTimeout(function(){
+              ctrl.fillViewport();
+              window.blockIiifFitBounds = false;
+            }, 250);
+          }
+          else{
+            window.blockIiifFitBounds = false;
+            setTimeout(function(){
+              iiifLayers[currentImg]._fitBounds(true);
+            }, 250);
+          }
+        });
       }
       else{
-        $('#eu-iiif-container').addClass(classHideTranscript);
-        transcriptionIsOn = false;
+        window.blockIiifFitBounds = false;
       }
-    }
-
-    if(config.transcriptions){
-
-      if(!transcriptionIsOn){
-        return;
-      }
-
-      require(['jqScrollto'], function(){
-
-        if(iiifLayers[layerName + '-f']){
-          iiifLayers[layerName + '-f'].addTo(iiif);
-          bindTranscriptionClick();
-          updateTranscriptCtrls();
-          $('#eu-iiif-container').removeClass(classHideTranscript);
-        }
-        else{
-          loadFeatures(function(loadedLayer){
-            iiifLayers[layerName + '-f'] = loadedLayer;
-            loadedLayer.addTo(iiif);
-            bindTranscriptionClick();
-            updateTranscriptCtrls();
-            $('#eu-iiif-container').removeClass(classHideTranscript);
-          });
-        }
-      });
     }
   }
 
+  function addTranscriptions(probe) {
 
-  function loadFeatures(cb) {
+    require(['media_iiif_text_processor'], function(textProcessor){
 
-    var geoJsonUrl   = config.transcriptions.urls[currentImg] + '&fmt=geoJSON';
-    var featureClick = function(e){
+      textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
 
-      if(!transcriptionIsOn){
+      if(!pnlTranscriptions.hasClass('js-bound')){
+        require(['jqScrollto']);
+
+        $(document).on('click', '.transcriptions *', function(e){
+          var $t = $(this);
+
+          if($t.hasClass('match-characters')){
+            $t = $t.parent();
+          }
+
+          e.stopPropagation();
+          highlightTranscript($t);
+          highlightFeature(features[currentImg + ''][$t.attr('id')]);
+        });
+
+        $('#iiif').on('hide-transcriptions', function(){
+          transcriptionIsOn = false;
+          $('#eu-iiif-container').addClass(classHideFullText);
+          iiif.invalidateSize();
+        });
+
+        $('#iiif').on('show-transcriptions', function(){
+          transcriptionIsOn = true;
+          addTranscriptions();
+        });
+
+        $(document).on('click', '.remove-transcriptions', function(){
+          $('#iiif').trigger('hide-transcriptions');
+          $('.media-options').trigger('IIIF', {'transcriptions-available': true});
+        });
+
+        pnlTranscriptions.addClass('js-bound');
+      }
+
+      var layerName = currentImg + '-f';
+      var afterAdd  = function(key){
+        setVisibleTranscripts(key);
+        $('#eu-iiif-container').removeClass(classHideFullText);
+        iiif.invalidateSize();
+      };
+
+      if(iiifLayers[layerName]){
+        iiifLayers[layerName].addTo(iiif);
+        afterAdd(currentImg);
+      }
+      else{
+        loadFeatures(probe, textProcessor, function(loadedLayer, pageRef){
+          iiifLayers[pageRef + '-f'] = loadedLayer;
+          loadedLayer.addTo(iiif);
+          afterAdd(pageRef);
+        });
+      }
+    });
+  }
+
+  function getAnnotationData(probe, textProcessor, pageRef, cb){
+
+    var manifestUrl    = $('#iiif').data('manifest-url');
+    var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer     = 'iiif.europeana.eu/presentation/';
+    var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
+    var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
+
+    // @searchData (optional) = [searchMatches, searchTermLength]
+    $.getJSON(annotationsUrl).done(function(data){
+
+      if(probe){
+        $('.media-options').trigger('IIIF', {'transcriptions-available': true});
         return;
       }
+
+      var page = textProcessor.getTypedData(data, 'Page');
+
+      if(page.length === 1){
+
+        var fullTextUrl = page[0]['resource'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
+
+        $.getJSON(fullTextUrl).done(function(ft){
+          textProcessor.processAnnotationData(ft, data, pageRef, cb);
+        });
+      }
+    });
+  }
+
+  function loadFeatures(probe, textProcessor, cb){
+
+    var featureClick = function(e){
       highlightFeature(e.target);
-      highlightTranscript($('.transcription #' + e.target.feature.properties.id));
+      highlightTranscript($('.transcription #' + e.target.feature.properties.id), true);
     };
 
-    $.getJSON(geoJsonUrl).done(function(itemJSON){
+    var geoJsonCb  = function(itemJSON, pageRef){
+      features[pageRef + ''] = {};
 
-      features[currentImg + ''] = {};
-
-      cb(Leaflet.geoJson(itemJSON, {
+      var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
             fillOpacity: 0.5,
-            color:       'rgba(0,0,0,0)',
+            color:       'rgba(0,0,0,0)'
           };
         },
         onEachFeature: function(feature, layer){
-          features[currentImg + ''][feature.properties.id] = layer;
+          features[pageRef + ''][feature.properties.id] = layer;
           layer.on('click', featureClick);
         }
-      }));
-
-    });
-  }
-
-  function bindTranscriptionClick(){
-    if($('.transcriptions').hasClass('js-bound')){
-      return;
-    }
-    $(document).on('click', '.transcriptions *', function(e){
-      var $t = $(this);
-      e.stopPropagation();
-      highlightTranscript($t);
-      highlightFeature(features[currentImg + ''][$t.attr('id')]);
-    });
-    $('.transcriptions').addClass('js-bound');
+      });
+      cb(geoJsonObject, pageRef);
+    };
+    getAnnotationData(probe, textProcessor, currentImg, geoJsonCb);
   }
 
   return {
     init: function(manifestUrl, conf) {
 
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css') + '" type="text/css"/>');
-      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css')                     + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')   + '" type="text/css"/>');
+      $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-iiif-1.2.1/iiif.css') + '" type="text/css"/>');
 
       config = $.extend({
         transcriptions: false,
@@ -600,16 +657,25 @@ define(['jquery', 'util_resize'], function($){
       });
     },
     hide: function(){
+      $('#eu-iiif-container').addClass(classHideFullText);
       iiif.off();
       iiif.remove();
+
+      pnlTranscriptions.remove('.transcription');
+      transcriptionIsOn = false;
+
       currentImg   = 0;
       totalImages  = 0;
       labelledData = {};
       allCanvases  = [];
       iiifLayers   = {};
-
-      miniMapCtrls = {};
       features     = {};
+
+      $.each(Object.keys(miniMapCtrls), function(){
+        miniMapCtrls[this].remove();
+      });
+      miniMapCtrls = {};
+
     },
     remove: function(){
       if(iiif){

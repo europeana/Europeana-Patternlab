@@ -1,0 +1,60 @@
+{
+  "css_files": [
+    {
+      "path":  "/css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "license_inputs": [
+    {
+      "license_description": {
+        "intro": "The object I am sharing is over 140 years old",
+        "this_means": "This means",
+        "explanation": [
+          "This object is no longer protected by copyright.",
+          "Anyone can share and reuse your object."
+        ]
+      },
+      "license_url":         "http://creativecommons.org/publicdomain/mark/1.0/",
+      "license_name":        "Public Domain Marked",
+      "license_CC0":         true,
+      "value":               "1",
+      "name":                "radio_name",
+      "id":                  "radio_id_1"
+    },
+    {
+      "license_description": {
+        "intro": "I created this object, or I have permission from the person who created it to share it",
+        "this_means": "This means",
+        "explanation": [
+          "This object is shared under a licence that allows free reuse, by anyone, for any purpose.",
+          "Anyone using the object must provide clear attribution and share any modifications they make under the same terms."
+        ]
+      },
+      "license_url":         "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_name":        "CC BY-SA",
+      "=":                   "i18n('global.facet.rights.cc-by-sa')",
+
+      "license_CC_BY_SA":    true,
+      "value":               "2",
+      "name":                "radio_name",
+      "id":                  "radio_id_2"
+    },
+    {
+      "license_description": {
+        "intro": "I don’t know who created this object or I do not have explicit permission to share it",
+        "this_means": "This means",
+        "explanation": [
+          "The copyright in this object has not been evaluated.",
+          "Anyone using the object must undertake their own due diligence."
+        ]
+      },
+      "license_url":         "http://rightsstatements.org/page/CNE/1.0/?language=en",
+      "license_name":        "Copyright Not Evaluated",
+      "license_unknown":     true,
+      "value":               "3",
+      "name":                "radio_name",
+      "id":                  "radio_id_3"
+    }
+  ]
+}

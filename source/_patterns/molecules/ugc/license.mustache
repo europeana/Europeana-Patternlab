@@ -1,0 +1,41 @@
+    <span class="checkmark"></span>
+
+    {{#license_explanation.intro}}
+      <span class="license-description">{{.}}</span>
+    {{/license_explanation.intro}}
+
+    {{#license_description}}
+      {{#intro}}
+        <span class="license-description">{{.}}</span>
+      {{/intro}}
+      <span class="this-means">{{this_means}}</span>
+      {{#explanation}}
+        <span class="item">{{.}}</span>
+      {{/explanation}}
+    {{/license_description}}
+
+    <span class="cc-info">
+      {{#license_url}}
+        <a href="{{.}}" target="_blank">
+          <span class="cc-info-row">
+
+            {{#license_CC0}}
+              <span class="license-icon icon-license-zero"></span>
+            {{/license_CC0}}
+
+            {{#license_CC_BY_SA}}
+              <span class="license-icon icon-license-cc"></span><span class="license-icon icon-license-by"></span><span class="license-icon icon-license-sa"></span>
+            {{/license_CC_BY_SA}}
+
+            {{#license_unknown}}
+              <span class="license-icon icon-license-unknown"></span>
+            {{/license_unknown}}
+
+            {{! The above can be substituted for this import (uses svg markup) }}
+            {{!molecules/icons/licenses-icon-only}}
+
+            <span class="cc-name">{{license_name}}</span>
+          </span>
+        </a>
+      {{/license_url}}
+    </span>

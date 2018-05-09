@@ -23,6 +23,9 @@
 </section>
 
 <section class="ugc-content section">
+
+  {{> molecules/ugc/log-out-link }}
+
   <div class="lc">
 
     {{#content}}
@@ -41,7 +44,7 @@
       </div>
     {{/navigation.secondary}}
 
-    {{#content.contributions}}
+    {{#content.resources}}
       {{#has_events}}
         <select class="contribution-select" autocomplete="off" onchange="if(this.value){location.href=this.value}else{location.href=location.href.substr(0, location.href.indexOf('?'))}">
           {{#events}}
@@ -73,7 +76,7 @@
         </form>
       {{/form}}
 
-    {{/content.contributions}}
+    {{/content.resources}}
 
   </div>
 </section>

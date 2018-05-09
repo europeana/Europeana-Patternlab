@@ -26,6 +26,10 @@
       "value": "migration/index"
     }
   ],
+  "log_out_link": {
+    "url": "javascript:alert('log out');",
+    "label": "Sign out"
+  },
   "content":{
     "confirmation_text": ["Deletion is irreversible!", "Are you sure you want to permanently remove the contribution?"],
     "flash_notice": "Flash notice",

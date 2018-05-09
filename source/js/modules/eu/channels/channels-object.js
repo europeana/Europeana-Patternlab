@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, Mustache) {
+define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_foldable', 'blacklight'], function($, scrollEvents, EuMediaOptions, Mustache) {
 
   var channelData     = null;
   var suggestions     = null;
@@ -310,6 +310,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
       resetZoomable();
     });
 
+    EuMediaOptions.init($('.media-options'));
+    EuMediaOptions.addHandler('IIIF', function(ops){
+      if(ops['transcriptions-active']){
+        $('.media-zoom-in').click();
+      }
+    });
+
     $('.media-share').on('click', function(){
       console.log('share');
     });
@@ -495,31 +502,29 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         || db.msRequestFullscreen;
       };
 
-      // TODO: tmp code...
-
-      var useTranscriptions = uri == 'iiif_manifest-data?manifest_transcriptions=true';
-
+      var useTranscriptions = uri.indexOf('://iiif.europeana.eu/presentation/') > -1;
       var borderH           = 6.2;
       var useMiniMap        = useTranscriptions;
       var useZoomSlider     = !useTranscriptions;
-      var sizeTestEl        = $('.object-details');
+      // var sizeTestEl        = $('.object-details');
       var sizesMiniMap      = { l: { w: 316,   h: 465 }, s: {w: 206, h: 304} };
       var sizesMiniMapTools = { l: borderH + 42.06, s: borderH + 30.72 };
 
-      var classReq1 = function(){
-        return sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
-      };
+      //var classReq1 = function(){
+      //  return sizeTestEl.hasClass('has-right-column') && sizeTestEl.hasClass('zoom-two');
+      //};
 
-      var classReq2 = function(){
-        return sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
-      };
+      //var classReq2 = function(){
+      //  return sizeTestEl.hasClass('no-right-column') && sizeTestEl.hasClass('zoom-one');
+      //};
 
       var fnMiniMapData = function(){
 
         var tooSmall = $(window).width() < 800;
-        var cr1 = classReq1();
-        var cr2 = classReq2();
-        var cr  = cr1 || cr2;
+        //var cr1 = classReq1();
+        //var cr2 = classReq2();
+        //var cr  = cr1 || cr2;
+        var cr = false;
         return {
           h: tooSmall ? 0 : cr ? sizesMiniMap['l']['h'] : sizesMiniMap['s']['h'],
           w: tooSmall ? 0 : cr ? sizesMiniMap['l']['w'] : sizesMiniMap['s']['w'],
@@ -528,29 +533,26 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         };
       };
 
-      var conf = {
-        transcriptions: useTranscriptions ? {
-          urls:[
-            'iiif_transcriptions?index=1',
-            'iiif_transcriptions?index=2'
-          ]
-        } : false,
-        miniMap: useMiniMap ? {
-          fillViewport:  true,
-          toggleDisplay: false,
-          position:      'topright',
-          mapOptions:    { setMaxBounds: true },
-          fnMiniMapData: fnMiniMapData
-        } : false,
-        pageNav: true,
-        thumbnail: thumbnail,
-        fullScreenAvailable: fsAvailable(),
-        zoom: 4,
-        zoomLevelOffset: -1,
-        zoomSlider: useZoomSlider
-      };
+      require(['media_viewer_iiif', 'purl'], function(viewer) {
 
-      require(['media_viewer_iiif'], function(viewer) {
+        var conf = {
+          transcriptions:  useTranscriptions,
+          miniMap: useMiniMap ? {
+            fillViewport:  true,
+            toggleDisplay: false,
+            position:      'topright',
+            mapOptions:    { setMaxBounds: true },
+            fnMiniMapData: fnMiniMapData
+          } : false,
+          pageNav: true,
+          searchTerm: $.url(decodeURI(window.location.href)).param()['q'],
+          thumbnail: thumbnail,
+          fullScreenAvailable: fsAvailable(),
+          zoom: 4,
+          zoomLevelOffset: -1,
+          zoomSlider: useZoomSlider
+        };
+
         viewerIIIF = viewer;
         viewerIIIF.init(uri, conf);
         $('.object-media-iiif').removeClass('is-hidden');

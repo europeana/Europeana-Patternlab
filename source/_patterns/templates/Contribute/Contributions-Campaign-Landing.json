@@ -17,6 +17,10 @@
       "options": {}
     }
   },
+  "log_out_link": {
+    "url": "javascript:alert('log out');",
+    "label": "Sign out"
+  },
   "include_nav_searchbar": true,
   "page_config": {
     "newsletter": true

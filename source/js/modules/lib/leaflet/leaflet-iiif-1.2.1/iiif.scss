@@ -1,9 +1,11 @@
 @import '../../../../../sass/scss/generic/variables';
 
 $iiif-default-height:        36em;
-$iiif-transcriptions-height: 40em;
+$iiif-transcriptions-height: 35em;
 $transcriptions-width:       25.5em;
 
+$match-bg:    #4D4D4D;
+$match-color: #FFF000;
 
 #iiif{
   height:   $iiif-default-height;
@@ -87,8 +89,8 @@ $transcriptions-width:       25.5em;
   a,
   .jump-to-img,
   .total-images{
-    max-width: 5%;
-    width: 5%;
+    max-width: 2em;
+    width:     2em;
   }
 
   .next,
@@ -184,6 +186,7 @@ $transcriptions-width:       25.5em;
   position:   relative;
   width:      $transcriptions-width;
 
+/*
   &::after{
 
     background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 95%);
@@ -216,13 +219,14 @@ $transcriptions-width:       25.5em;
     position:      absolute;
     right:         0.8em;
   }
+*/
 }
 
 .transcriptions{
 
-  background-color: #333;
+  background-color: rgba(0,0,0,0.8);
+  border-radius:    4px;
   color:            #fff;
-  font-size:        $font-size-slightly-smaller;
   height:           $iiif-transcriptions-height;
 
   margin-left:      1em;
@@ -230,6 +234,7 @@ $transcriptions-width:       25.5em;
   max-width:        100%;
 
   overflow:         auto;
+  padding-top:      1.2em;
   text-align:       left;
 
   &.hidden,
@@ -238,12 +243,14 @@ $transcriptions-width:       25.5em;
   }
 
   p{
-    margin:      0;
-    padding:     1em;
-    line-height: $font-size-slightly-larger;
+    margin:        0;
+    padding:       1em;
+    line-height:   $font-size-slightly-larger;
+    margin:        0 1px;
 
     &.highlight{
-      background-color: rgba(53,163,213,0.65);
+      background-color: rgba(53, 163, 213, 0.65);
+      border-radius:    4px;
       color:            #fff;
     }
   }
@@ -266,6 +273,42 @@ $transcriptions-width:       25.5em;
     color:       #fff;
     font-weight: bold;
   }
+
+// close the gaps...
+/*
+  .match-partial + .match-phrase,
+  .match-partial + .match-partial,
+  .match-phrase  + .match-partial{
+    position: relative;
+    &::before{
+      background-color: $match-bg;
+      bottom:           0;
+      content:          ' ';
+      display:          inline-block;
+      position:         absolute;
+      right:            100%;
+      top:              0;
+      width:            0.275em;
+    }
+  }
+*/
+
+  .match-word,
+  .match-phrase,
+  .match-characters{
+    background-color: $match-bg;
+    font-weight:      bold;
+    color:            $match-color;
+  }
+
+  .highlight{
+    .match-word,
+    .match-phrase,
+    .match-characters{
+      background-color: transparent;
+    }
+  }
+
 }
 
 #eu-iiif-container{

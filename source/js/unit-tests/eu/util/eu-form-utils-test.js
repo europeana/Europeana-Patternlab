@@ -51,7 +51,6 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
         EuFormUtils.evalAllRequires();
 
         expect(elRequires[0]).not.toBeHidden();
-
         elRequiredOverride.click();
         expect(elRequires[0]).toBeHidden();
       });
@@ -152,21 +151,14 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
       });
 
       it('references an existing element with optional children', function(){
-
         EuFormUtils.initMakesRequired();
-
-        expect(referencedClass).toBeTruthy();
-        expect(referencedEl).toExist();
-
         expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
       });
 
-      it('makes the referenced element\'s children required', function(){
+      it('makes the referenced element\'s children required (text field)', function(){
 
         EuFormUtils.initMakesRequired();
 
-        expect(referencedClass).toBeTruthy();
-        expect(referencedEl).toExist();
         expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
 
         elMakesRequired.val('a');
@@ -179,6 +171,32 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
         expect(referencedEl.find('input:valid').length).toBe(0);
       });
 
+      it('makes the referenced element\'s children required (checkbox)', function(){
+
+        EuFormUtils.initMakesRequired();
+
+        expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
+
+        $('#make-it-required-cb').click();
+
+        expect(referencedEl.find('input:valid').length).toBe(0);
+      });
+
+      /*
+      it('makes the referenced element\'s children required (radio)', function(){
+
+        expect(referencedEl.find('input:valid').length).toBeGreaterThan(0);
+
+        var radioMakesRequired  = $('#make-it-required-radio');
+        radioMakesRequired.prop('checked', true);
+        EuFormUtils.initMakesRequired();
+
+        radioMakesRequired.change();
+        radioMakesRequired.click();
+
+        expect(referencedEl.find('input:valid').length).toBe(0);
+      });
+      */
     });
 
     describe('Attribute: data-copies', function(){

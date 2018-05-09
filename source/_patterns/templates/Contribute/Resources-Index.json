@@ -26,6 +26,10 @@
       "value": "migration/index"
     }
   ],
+  "log_out_link": {
+    "url": "javascript:alert('log out');",
+    "label": "Sign out"
+  },
   "content":{
 
     "flash_notice": "Flash notice",
@@ -34,7 +38,7 @@
       "text": "Tell your story..."
     },
 
-    "contributions":{
+    "resources":{
       "create": {
         "text": "Create New",
         "url": "javascript:alert('create link')"

@@ -127,7 +127,7 @@ define([], function(){
       }
     },
     {
-      "thumbnail": "http://europeanastatic.eu/api/image?size=BRIEF_DOC&type=PDF",
+      "thumbnail": "/images/sample/object_thumbnail4.jpg",
       "playable": true,
       "is_pdf": true,
       "play_url": "/media/PDF2.pdf",

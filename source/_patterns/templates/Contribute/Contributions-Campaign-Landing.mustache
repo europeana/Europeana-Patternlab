@@ -21,8 +21,11 @@
 </section>
 
 <div class="lc">
+  {{> molecules/ugc/log-out-link }}
   {{#content.description}}
-    <p class="ugc-landing-description">{{{.}}}</p>
+    <p class="ugc-landing-description">
+      {{{.}}}
+    </p>
   {{/content.description}}
 </div>
 

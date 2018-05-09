@@ -1,5 +1,7 @@
 .data-table{
 
+  table-layout: fixed;
+
   a:not(.row-link){
     text-decoration: underline;
   }
