@@ -5,5 +5,11 @@
       "path": "/js/modules/require.js",
       "data_main": "/js/modules/main/js_demo/main-test-light-carousel.js"
     }
+  ],
+  "js_vars": [
+    {
+      "name": "mock_ajax",
+      "value": "{'delays': {'portal_object-media': 3000}}"
+    }
   ]
 }
