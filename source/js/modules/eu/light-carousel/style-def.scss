@@ -1,0 +1,39 @@
+.light-carousel.def-style{
+
+  $nav-width:   50px;
+  $spacing-gap: 1.5em;
+
+  padding:      0 $nav-width;
+
+  .lc-item{
+    &:not(:first-of-type){
+      margin-left: $spacing-gap;
+    }
+    &.waiting{
+      border: 1px solid #ccc;
+    }
+  }
+
+  .lc-nav{
+    background-color: #333;
+    border-radius:    calc(#{$nav-width} / 2);
+    color:            #fff;
+    display:          inline-block;
+    font-weight:      bold;
+    height:           $nav-width;
+    line-height:      $nav-width;
+    position:         absolute;
+    text-align:       center;
+    top:              50%;
+    transform:        translateY(-50%);
+    width:            $nav-width;
+
+    &.nav-left{
+      left: 0;
+    }
+
+    &.nav-right{
+      right: 0;
+    }
+  }
+}

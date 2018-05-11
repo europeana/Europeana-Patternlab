@@ -1,6 +1,16 @@
 define(['jquery', 'util_resize'], function ($, Debouncer){
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/light-carousel/style.css') + '" type="text/css"/>');
+  var scrollIncrement = 200;
+
+  var appendStyle = function(url){
+    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"/>');
+  };
+
+  appendStyle(require.toUrl('../../eu/light-carousel/style.css'));
+
+  if($('.light-carousel.def-style').length > 0){
+    appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
+  }
 
   function EuLightCarousel(ops){
     this.ops = ops;
@@ -20,7 +30,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     });
 
     // TODO: detect when css rendered
-
     setTimeout(function(){
       fnCarouselScrolled(itemContainer.closest('.lc-scrollable')[0]);
     }, 1000);
@@ -110,16 +119,12 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     var $this = $(_this);
     var $cmp  = $this.closest('.light-carousel');
 
-    // console.log($cmp.attr('class') + ' carouselScrolled > this.scrollLeft ' + _this.scrollLeft);
-
     if(_this.scrollLeft == 0){
       $cmp.find('.nav-left').hide();
     }
     else{
       $cmp.find('.nav-left').show();
     }
-
-    // console.log($cmp.attr('class') + ' (scroll-left [' + (typeof _this.scrollLeft) + ']) ' + _this.scrollLeft + ' + ' + ($this.width()) + ' == ' +  _this.scrollWidth + ' (' + (_this.scrollLeft + $this.width()) + ')');
 
     if(_this.scrollLeft + $this.width() + 1 >= _this.scrollWidth){
       $cmp.find('.nav-right').hide();
@@ -130,36 +135,40 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     $this.trigger('scroll-complete');
   };
 
-  $('.lc-scrollable').carouselScrolled(function(){
-    fnCarouselScrolled(this);
-  });
+  var bindScrollables = function(){
 
-  $('.lc-scrollable').on('scroll', function(){$(this).trigger('carousel-scrolled');});
-
-  // TODO: detect when css rendered
-  setTimeout(function(){
-    $('.lc-scrollable').each(function(i, ob){
-      fnCarouselScrolled(ob);
+    $('.lc-scrollable').carouselScrolled(function(){
+      fnCarouselScrolled(this);
     });
-  }, 1000);
 
-  // navigation
+    $('.lc-scrollable').on('scroll',
+      function(){
+        $(this).trigger('carousel-scrolled');
+      }
+    ).addClass('js-bound');
+
+    // TODO: detect when css rendered
+    setTimeout(function(){
+      $('.lc-scrollable').each(function(i, ob){
+        fnCarouselScrolled(ob);
+      });
+    }, 1000);
+
+    $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+  };
+
+  bindScrollables();
+
   require(['jqScrollto'], function(){
-    $('.nav-left').on('click', function(){
-      var $scrollable = $(this).closest('.light-carousel').find('.lc-scrollable');
-      $scrollable.scrollTo('-=200px', 300);
-    });
-
-    $('.nav-right').on('click', function(){
-      var $scrollable  = $(this).closest('.light-carousel').find('.lc-scrollable');
-      $scrollable.scrollTo('+=200px', 300);
+    $(document).on('click', '.lc-nav', function(){
+      var $this       = $(this);
+      var $scrollable = $this.closest('.light-carousel').find('.lc-scrollable');
+      $scrollable.scrollTo(($this.hasClass('nav-right') ? '+' : '-') + '=200px', scrollIncrement);
     });
   });
-
-  // resize
-  $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); });  });
 
   return {
-    EuLightCarousel: EuLightCarousel
+    EuLightCarousel: EuLightCarousel,
+    bindScrollables: bindScrollables
   };
 });
