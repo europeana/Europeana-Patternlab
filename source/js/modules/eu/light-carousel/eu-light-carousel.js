@@ -149,9 +149,20 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
     // TODO: detect when css rendered
     setTimeout(function(){
+
+      var ro = typeof ResizeObserver == 'undefined' ? null : new ResizeObserver(function(entries){
+        $.each(entries, function(){
+          fnCarouselScrolled(this.target);
+        });
+      });
+
       $('.lc-scrollable').each(function(i, ob){
         fnCarouselScrolled(ob);
+        if(ro){
+          ro.observe(this);
+        }
       });
+
     }, 1000);
 
     $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });

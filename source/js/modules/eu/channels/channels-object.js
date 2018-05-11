@@ -198,7 +198,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   }
 
   function getZoomLevels(){
-    var current       = $('.object-media-nav a.is-current');
+    var current       = $('.cho-media-nav a.is-current');
     var colRight      = $('.zoom-two').length > 0 || ($('.collections-promos').length > -1 && isStacked($('.js-swipe-not-stacked'), '.collections-promo-item'));
     var colMiddle     = $('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .title-desc-media-nav');
     var colsAvailable = 1 + (colRight ? 1 : 0) + (colMiddle ? 1 : 0);
@@ -356,7 +356,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   }
 
   function initMedia(index){
-    var item        = $('.object-media-nav .js-carousel-item a:eq(' + index + ')');
+
+    var item        = $('.cho-media-nav .lc-item a:eq(' + index + ')');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
     var playable    = item.hasClass('playable');
@@ -364,8 +365,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     var uri         = item.data('uri');
     var mimeType    = item.data('mime-type');
 
-    $('.object-media-nav .js-carousel-item .mlt-img-div').removeClass('active');
-    $('.object-media-nav .js-carousel-item .is-current').removeClass('is-current');
+    $('.cho-media-nav .lc-item .mlt-img-div').removeClass('active');
+    $('.cho-media-nav .lc-item .is-current').removeClass('is-current');
 
     item.closest('.mlt-img-div').addClass('active');
     item.addClass('is-current');
@@ -1612,49 +1613,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       Mustache.tags = ['[[', ']]'];
       initUI(Mustache);
     });
-
   }
-
-  var initCarousel = function(el, ops){
-    var carousel = $.Deferred();
-
-    require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
-
-      var fnAfterLoad = function(data, totalAvailable){
-        if(el.hasClass('more-like-this')){
-          if(data.length == 0 && el.find('ul li').length == 0){
-            el.closest('.lc').remove();
-            return;
-          }
-          else if(totalAvailable > data.length){
-
-            var fmttd = String(totalAvailable).replace(/(.)(?=(\d{3})+$)/g,'$1,');
-
-            $('.show-more-mlt').find('.number').html(fmttd);
-            $('.show-more-mlt').removeAttr('style');
-          }
-        }
-      };
-
-      var appender = CarouselAppender.create({
-        'cmp':             el.find('ul'),
-        'loadUrl':         ops.loadUrl,
-        'template':        ops.template,
-        'total_available': ops.total_available,
-        'doAfter':         fnAfterLoad,
-        'doOnLoadError':   ops.doOnLoadError
-      });
-
-      carousel.resolve(Carousel.create(el, appender, ops));
-
-      if(!ops.total_available || (ops.total_available > 0 && el.find('ul li').length == 0)){
-        carousel.loadMore();
-      }
-    });
-
-    return carousel.promise();
-  };
-
 
   var updateTechData = function(el){
 
@@ -1702,42 +1661,34 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   var showMediaThumbs = function(data){
 
-    var noItems = $('.object-media-nav li').length;
+    var noItems = $('.channel-object-media-nav .lc-item').length;
 
     if(noItems > 1){
 
-      data['minSpacingPx'] = 0;
-      data['arrowClass'] = ' carousel-arrows  blue-black';
+      require(['eu_light_carousel'], function(EuLC){
 
-      var mediaThumbs = $('.media-thumbs');
+        new EuLC.EuLightCarousel({
+          '$el': $('.light-carousel.media-thumbs'),
+          'loadUrl': data.loadUrl,
+          'load_per_page': 8, // has to be in sync with number preloaded
+          'itemsAvailable': data.total_available,
+          'templateText': $('#template-media-item').text()
+        }).init();
 
-      initCarousel(mediaThumbs, data).done(
-        function(carousel){
+        $('.cho-media-nav').on('click', 'a', function(e){
+          e.preventDefault();
+          var el = $(this);
+          initMedia(el.closest('.lc-item').index());
+        });
 
-          $('.media-thumbs').on('click', 'a', function(e){
-            e.preventDefault();
-            var el = $(this);
-            initMedia(el.closest('.js-carousel-item').index());
-          });
+        fixZoomableWidth();
 
-          // TODO: this should be triggered on zoom completion and unbound once row is filled
-          var totalItemW = 0;
+        setTimeout(function(){
+          $('.channel-object-media-nav').removeClass('js-hidden');
+        }, 400);
 
-          $('.object-media-nav li').each(function(i, ob){
-            ob = $(ob);
-            totalItemW = totalItemW + (ob.outerWidth(true) - ob.outerWidth()) + ob.find('.mlt-img-div').width();
-          });
+      });
 
-          if((mediaThumbs.outerWidth(true) - totalItemW) > (totalItemW / noItems)){
-            carousel.loadMore();
-          }
-
-          fixZoomableWidth();
-          setTimeout(function(){
-            $('.channel-object-media-nav').removeClass('js-transparent');
-          }, 2100);
-        }
-      );
     }
     else{
       $('.channel-object-media-nav').remove();
