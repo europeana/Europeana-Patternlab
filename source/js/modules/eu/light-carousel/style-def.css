@@ -1,0 +1,35 @@
+/* line 1, style-def.scss */
+.light-carousel.def-style {
+  padding: 0 50px;
+}
+/* line 9, style-def.scss */
+.light-carousel.def-style .lc-item:not(:first-of-type) {
+  margin-left: 1.5em;
+}
+/* line 12, style-def.scss */
+.light-carousel.def-style .lc-item.waiting {
+  border: 1px solid #ccc;
+}
+/* line 17, style-def.scss */
+.light-carousel.def-style .lc-nav {
+  background-color: #333;
+  border-radius: calc(50px / 2);
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+}
+/* line 31, style-def.scss */
+.light-carousel.def-style .lc-nav.nav-left {
+  left: 0;
+}
+/* line 35, style-def.scss */
+.light-carousel.def-style .lc-nav.nav-right {
+  right: 0;
+}

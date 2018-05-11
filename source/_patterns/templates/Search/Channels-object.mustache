@@ -196,8 +196,31 @@
                       <h2 class="channel-object-title">{{i18n.site.object.title_unavailable}}</h2>
                     {{/display_title}}
 
-                    <div class="channel-object-media-nav js-transparent">
-                      {{> molecules/components/media-nav}}
+                    <div class="channel-object-media-nav js-hidden">
+                      <div class="media-thumb-section{{#single_item}} js-remove{{/single_item}}">
+                        <a id="scroll-trigger-media-items"
+                           class="scroll-trigger"
+                           data-enabled="true"
+                           data-fire-on-open="showMediaThumbs"
+                           data-fire-on-open-params='{ "loadUrl": "{{more_thumbs_url}}", "total_available": {{more_thumbs_total}}}'
+                        ></a>
+                        <script id="template-media-item" type="text/x-mustache"><div class="lc-item">{{> molecules/components/media-nav-item-js }}</div></script>
+                        <div class="light-carousel media-thumbs">
+                          <a class="lc-nav nav-left right svg-icon-previous  carousel-arrows  blue-black">&nbsp;</a>
+                          <div class="wrapper-hide-scroll">
+                            <div class="lc-scrollable">
+                              <div class="lc-item-container cho-media-nav">
+                              {{#items}}
+                                {{#thumbnail}}
+                                  <div class="lc-item">{{> molecules/components/media-nav-item}}</div>
+                                 {{/thumbnail}}
+                              {{/items}}
+                              </div>
+                            </div>
+                          </div>
+                          <a class="lc-nav nav-right right svg-icon-next  carousel-arrows  blue-black">&nbsp;</a>
+                        </div>
+                      </div>
                     </div>
 
                     {{#subtitle}}

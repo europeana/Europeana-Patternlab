@@ -1,7 +1,16 @@
-define(['util_resize', 'jasmine_jquery'], function(ru){
+define(['jasmine_jquery'], function(){
   'use strict';
 
+  var ru;
+
   describe('Eu Resize', function(){
+
+    beforeEach(function(done){
+      require(['util_resize'], function(loaded){
+        ru = loaded;
+        done();
+      });
+    });
 
     it('Debounces the window resize event', function(done){
 
@@ -19,13 +28,14 @@ define(['util_resize', 'jasmine_jquery'], function(ru){
 
       var recursive = function(call){
 
-        $(window).resize();
+        window.dispatchEvent(new Event('resize'));
+
         call ++;
 
         if(call < callsToIssue){
           setTimeout(function(){
             recursive(call);
-          }, 20);
+          }, 5);
         }
         else{
           setTimeout(function(){
