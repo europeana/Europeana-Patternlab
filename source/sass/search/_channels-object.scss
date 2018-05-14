@@ -34,7 +34,6 @@ $modal-header-height:       2.1em;
   float:               right;
   height:              50px;
   margin-left:         2em;
-  margin-right:        2px;
   width:               50px;
 }
 
@@ -870,7 +869,7 @@ $modal-header-height:       2.1em;
       > .object-origin{
         -webkit-align-self: center;
         align-self:         center;
-        margin:             0 0 0 $space;
+        margin:             0 2px 0 $space;
       }
 
     }
@@ -1159,7 +1158,7 @@ $modal-header-height:       2.1em;
           display:     block;
           font-size:   $font-size-sm;
           position:    absolute;
-          right:       1em;
+          right:       calc(1em + 2px);
           top:         7em;
           white-space: nowrap;
         }
@@ -1625,6 +1624,7 @@ $modal-header-height:       2.1em;
           margin-left:  0;
           margin-right: 0;
           order:        4;
+          transform:    translateX(1px);
           width:        100%;
 
           .media-thumb-section{

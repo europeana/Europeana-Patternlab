@@ -1,16 +1,14 @@
 define(['jquery', 'util_resize'], function ($, Debouncer){
 
   var scrollIncrement = 200;
+  var initialStateSet = false;
 
-  var appendStyle = function(url){
-    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"/>');
-  };
-
-  appendStyle(require.toUrl('../../eu/light-carousel/style.css'));
-
-  if($('.light-carousel.def-style').length > 0){
-    appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
-  }
+  $(document).on('eu-light-carousel-styled', function(){
+    setTimeout(function(){
+      setInitialState();
+      initialStateSet = true;
+    }, 50);
+  });
 
   function EuLightCarousel(ops){
     this.ops = ops;
@@ -25,15 +23,13 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       itemContainer.append('<div class="lc-item waiting"></div>');
     }
 
-    this.ops.$el.on('scroll-complete', function(){
+    this.ops.$el.on('load', function(){
       that.load();
     });
 
-    // TODO: detect when css rendered
-    setTimeout(function(){
+    if(initialStateSet){ // we're too late: trigger another event
       fnCarouselScrolled(itemContainer.closest('.lc-scrollable')[0]);
-    }, 1000);
-
+    }
   };
 
   EuLightCarousel.prototype.itemsInViewport = function(container){
@@ -60,7 +56,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
     if(!hasWaiting){
       this.loadedAll = true;
-      this.ops.$el.off('scroll-complete');
+      this.ops.$el.off('load');
       console.log('lc loaded all');
     }
 
@@ -115,7 +111,6 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
 
   var fnCarouselScrolled = function(_this){
-
     var $this = $(_this);
     var $cmp  = $this.closest('.light-carousel');
 
@@ -132,45 +127,56 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
     else{
       $cmp.find('.nav-right').show();
     }
-    $this.trigger('scroll-complete');
+    $cmp.trigger('load');
   };
 
-  var bindScrollables = function(){
+  var fxBindScrollables = function(){
 
     $('.lc-scrollable').carouselScrolled(function(){
       fnCarouselScrolled(this);
     });
 
-    $('.lc-scrollable').on('scroll',
+    $('.lc-scrollable:not(.js-bound)').on('scroll',
       function(){
         $(this).trigger('carousel-scrolled');
       }
     ).addClass('js-bound');
 
-    // TODO: detect when css rendered
-    setTimeout(function(){
+    // $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+  };
+  fxBindScrollables(); // made callable for testing
 
-      var ro = typeof ResizeObserver == 'undefined' ? null : new ResizeObserver(function(entries){
-        $.each(entries, function(){
-          fnCarouselScrolled(this.target);
-        });
+  var setInitialState = function(){
+    var ro = typeof ResizeObserver == 'undefined' ? null : new ResizeObserver(function(entries){
+      $.each(entries, function(){
+        $(this.target).trigger('carousel-scrolled');
       });
+    });
 
-      $('.lc-scrollable').each(function(i, ob){
-        fnCarouselScrolled(ob);
-        if(ro){
-          ro.observe(this);
-        }
-      });
+    $('.lc-scrollable').each(function(i, ob){
+      fnCarouselScrolled(ob);
+      if(ro){
+        ro.observe(this);
+      }
+    });
 
-    }, 1000);
-
-    $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+    if(!ro){
+      $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+    }
   };
 
-  bindScrollables();
+  var appendStyle = function(url, callInit){
+    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"' + (callInit ? ' id="removeThis" onload="$(document).trigger(\'eu-light-carousel-styled\')"' : '') + '/>');
+  };
+
+  if($('.light-carousel.def-style').length > 0){
+    appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
+  }
 
   require(['jqScrollto'], function(){
+
+    appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
+
     $(document).on('click', '.lc-nav', function(){
       var $this       = $(this);
       var $scrollable = $this.closest('.light-carousel').find('.lc-scrollable');
@@ -180,6 +186,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
   return {
     EuLightCarousel: EuLightCarousel,
-    bindScrollables: bindScrollables
+    fxBindScrollables: fxBindScrollables,
+    getInitialStateSet: function(){ return initialStateSet; }
   };
 });

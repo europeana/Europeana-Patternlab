@@ -187,9 +187,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function isStacked(cmp, childSelector){
     var tallest = 0;
+
     cmp.children(childSelector).each(function(i, element) {
       var $el = $(element);
-      var h   = $el.height();
+      var h   = $el.height() + 1;
+
       if(h > tallest){
         tallest = h;
       }
@@ -413,6 +415,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     };
 
     var setZoomedLock = function(){
+
       if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
         setZoom('zoom-one', true);
       }
@@ -1667,13 +1670,21 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       require(['eu_light_carousel'], function(EuLC){
 
+        var $el = $('.light-carousel.media-thumbs');
+
         new EuLC.EuLightCarousel({
-          '$el': $('.light-carousel.media-thumbs'),
+          '$el': $el,
           'loadUrl': data.loadUrl,
           'load_per_page': 8, // has to be in sync with number preloaded
           'itemsAvailable': data.total_available,
           'templateText': $('#template-media-item').text()
         }).init();
+
+        if(typeof ResizeObserver == 'undefined'){
+          setTimeout(function(){
+            $el.find('.lc-scrollable').trigger('carousel-scrolled');
+          }, 2500);
+        }
 
         $('.cho-media-nav').on('click', 'a', function(e){
           e.preventDefault();

@@ -27,5 +27,9 @@
 .light-carousel .lc-scrollable {
   overflow: hidden;
   overflow-x: scroll;
-  padding-bottom: 2.45em;
+  padding-bottom: 3em;
+}
+/* line 31, style.scss */
+.light-carousel .lc-scrollable::-webkit-scrollbar {
+  display: none;
 }

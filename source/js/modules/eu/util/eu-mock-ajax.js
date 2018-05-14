@@ -11,7 +11,7 @@ define(['jquery'], function($) {
 
     var resolvePathAndParams = function(url){
 
-      console.log('url = ' + url);
+      // console.log('url = ' + url);
 
       var path   = url.split('?')[0];
       var $url   = $.url(url);
@@ -92,7 +92,7 @@ define(['jquery'], function($) {
 
       if(path == 'self'){
 
-        console.log('Mock Ajax: cannot map:\n\t"' + url + '"\n\t (fetching directly)');
+        // console.log('Mock Ajax: cannot map:\n\t"' + url + '"\n\t (fetching directly)');
 
         return mockAjax({
           direct: true,
