@@ -1,0 +1,41 @@
+<h1>EU Light Carousel</h1>
+
+<style>
+  .example{
+    width: 400px;
+  }
+
+  .example .lc-item{
+    background-color: #ffa500;
+    color:            #fff;
+    min-height:       128px;
+    min-width:        128px;
+    height:           128px;
+    width:            128px;
+    padding:          16px 16px;
+  }
+</style>
+
+<div class="light-carousel def-style example example-1">
+  <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
+  <div class="wrapper-hide-scroll">
+    <div class="lc-scrollable">
+      <div class="lc-item-container"><div class="lc-item"><div class="lc-item-text">test item 1</div></div><div class="lc-item"><div class="lc-item-text">test item 2</div></div><div class="lc-item"><div class="lc-item-text">test item 3</div></div><div class="lc-item"><div class="lc-item-text">test item 4</div></div><div class="lc-item"><div class="lc-item-text">test item 5</div></div><div class="lc-item"><div class="lc-item-text">test item 6</div></div><div class="lc-item"><div class="lc-item-text">test item 7</div></div><div class="lc-item"><div class="lc-item-text">test item 8</div></div></div>
+    </div>
+  </div>
+  <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
+</div>
+
+<script type="text/x-mustache" id="item-template">
+  <div class="lc-item"><div class="lc-item-text">[[title]]</div></div>
+</script>
+
+<div class="light-carousel def-style example example-2">
+  <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
+  <div class="wrapper-hide-scroll">
+    <div class="lc-scrollable">
+      <div class="lc-item-container"></div>
+    </div>
+  </div>
+  <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
+</div>

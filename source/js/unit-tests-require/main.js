@@ -11,6 +11,7 @@ requirejs.config({
   paths: {
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
+    eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     jasmine_jquery:            '../../../unit-tests/lib/jasmine-jquery',
     jqScrollto:                '../../lib/jquery/jquery.scrollTo',

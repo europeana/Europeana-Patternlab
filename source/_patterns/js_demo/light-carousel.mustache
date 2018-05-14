@@ -38,19 +38,28 @@
     align-items: flex-start;
   }
 
-  .example-2.light-carousel .mlt-img-div,
-  .example-4.light-carousel .mlt-img-div{
+  .mlt-img-div{
     width: 200px; // sets height too
+  }
+
+  .lc-item.waiting{
+    border: 1px solid #ccc;
+  }
+
+  .lc-item.waiting,
+  .lc-item.loading{
+    min-height: 200px;
+    min-width:  200px;
   }
 
   .example-2.light-carousel .link,
   .example-4.light-carousel .link{
     display:  block;
     position: absolute;
-    width:    100%;
     height:   100%;
+    top:      0;
+    width:    100%;
   }
-
 
   .example-3 .lc-item{
     background-color: #fff;
@@ -59,7 +68,7 @@
   }
 </style>
 
-<script type="script/mustache" id="item-template">
+<script type="text/x-mustache" id="item-template">
   {{>molecules/components/media-nav-item-js}}
 </script>
 
@@ -67,6 +76,8 @@
   <a class="add-item">Add item</a>
   <br/>
   <a class="remove-item">Remove item</a>
+  <br/>
+  <a class="remove-style">Remove default style</a>
   <br/>
   <a class="set-item-size">Set item size</a>
     <input id="item-size" value="80" auto-complete="false" style="width:3em; margin-left: 2em;"/>
@@ -77,14 +88,14 @@
 <h2>Basic Example</h2>
 
 <div class="example">
-  <div class="light-carousel example-1">
-    <a class="nav-left" style="display:none;">&lt;&lt;</a>
+  <div class="light-carousel def-style example-1">
+    <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
     <div class="wrapper-hide-scroll">
       <div class="lc-scrollable">
         <div class="lc-item-container"><div class="lc-item"><div class="lc-item-text">test item 1</div></div></div>
       </div>
     </div>
-    <a class="nav-right" style="display:none;">&gt;&gt;</a>
+    <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
   </div>
 </div>
 
@@ -93,14 +104,14 @@
 <h2>Ajax Example</h2>
 
 <div class="example">
-  <div class="light-carousel example-2">
-    <a class="nav-left" style="display:none;">&lt;&lt;</a>
+  <div class="light-carousel def-style example-2">
+    <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
     <div class="wrapper-hide-scroll">
       <div class="lc-scrollable">
         <div class="lc-item-container"></div>
       </div>
     </div>
-    <a class="nav-right" style="display:none;">&gt;&gt;</a>
+    <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
   </div>
 </div>
 
@@ -110,8 +121,8 @@
 <h3><a class="init-example-4">click to initialise</a></h3>
 
 <div class="example">
-  <div class="light-carousel example-4">
-    <a class="nav-left" style="display:none;">&lt;&lt;</a>
+  <div class="light-carousel def-style example-4">
+    <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
     <div class="wrapper-hide-scroll">
       <div class="lc-scrollable">
         <div class="lc-item-container">
@@ -127,7 +138,7 @@
         </div>
       </div>
     </div>
-    <a class="nav-right" style="display:none;">&gt;&gt;</a>
+    <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
   </div>
 </div>
 
@@ -138,8 +149,8 @@
 
 <div class="example happening-feed-container">
   <div class="js-carousel">
-    <div class="light-carousel example-3 happening-content cf">
-      <a class="nav-left" style="display:none;">&lt;&lt;</a>
+    <div class="light-carousel example-3 happening-content cf def-style">
+      <a class="lc-nav nav-left" style="display:none;">&lt;&lt;</a>
       <div class="wrapper-hide-scroll">
         <div class="lc-scrollable">
           <div class="lc-item-container">
@@ -261,7 +272,7 @@
           </div>
         </div>
       </div>
-      <a class="nav-right" style="display:none;">&gt;&gt;</a>
+      <a class="lc-nav nav-right" style="display:none;">&gt;&gt;</a>
     </div>
   </div>
 </div>

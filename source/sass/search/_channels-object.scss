@@ -28,15 +28,14 @@ $modal-header-height:       2.1em;
 
 .viewmore-image {
   background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  display: block;
-  float: right;
-  height: 50px;
-  margin-left: 2em;
-  width: 50px;
+  background-size:     cover;
+  border-radius:       50%;
+  display:             block;
+  float:               right;
+  height:              50px;
+  margin-left:         2em;
+  width:               50px;
 }
-
 
 .channels-item {
 
@@ -567,10 +566,6 @@ $modal-header-height:       2.1em;
       transition:         opacity 0.3s linear;
       width:              calc(100% + (1.05634% + 1rem));
 
-      &.js-transparent{
-        opacity: 0;
-      }
-
       .media-thumb-section {
 
         margin-bottom: 1.5rem;
@@ -602,21 +597,44 @@ $modal-header-height:       2.1em;
         }
       }
 
-      .media-thumbs {
-        margin: 0 2.75rem;
-      }
+      $media-thumb-width: 56px;
+      $spacing-gap:       1.5em;
 
-      .js-carousel {
-        padding-left:  1em;
-        padding-right: 1em;
-      }
+      .media-thumbs{
 
-      .js-carousel-item {
-        width: 56px;
-      }
+        padding: 0 58px 0 60px;
 
-      .js-carousel-arrows.h {
-        line-height: unset;
+        .lc-item{
+
+          margin-left: $spacing-gap;
+
+          &.waiting{
+            border: 1px solid #ccc;
+          }
+          &.lc-item.loading,
+          &.lc-item.waiting {
+            min-height: $media-thumb-width;
+            min-width:  $media-thumb-width;
+          }
+        }
+
+        .lc-nav{
+          position:         absolute;
+          text-align:       center;
+          top:              49%;
+          transform:        translateY(-50%) scale(0.75);
+
+          &.nav-left{
+            background-position: 1em 1.15em;
+            left:                -12px;
+          }
+
+          &.nav-right{
+            background-position: 1.25em 1.15em;
+            right:               2px;
+          }
+        }
+
       }
 
       .mlt-img-div{
@@ -626,7 +644,7 @@ $modal-header-height:       2.1em;
         margin-top:         35%;
         -webkit-transition: all 0.1s ease-out;
         transition:         all 0.1s ease-out;
-        width:              100%;
+        width:              $media-thumb-width;
         z-index:            1;
 
         &:hover {
@@ -851,7 +869,7 @@ $modal-header-height:       2.1em;
       > .object-origin{
         -webkit-align-self: center;
         align-self:         center;
-        margin:             0 0 0 $space;
+        margin:             0 2px 0 $space;
       }
 
     }
@@ -1140,7 +1158,7 @@ $modal-header-height:       2.1em;
           display:     block;
           font-size:   $font-size-sm;
           position:    absolute;
-          right:       1em;
+          right:       calc(1em + 2px);
           top:         7em;
           white-space: nowrap;
         }
@@ -1606,6 +1624,7 @@ $modal-header-height:       2.1em;
           margin-left:  0;
           margin-right: 0;
           order:        4;
+          transform:    translateX(1px);
           width:        100%;
 
           .media-thumb-section{

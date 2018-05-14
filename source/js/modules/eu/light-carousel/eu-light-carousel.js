@@ -1,8 +1,14 @@
 define(['jquery', 'util_resize'], function ($, Debouncer){
 
-  $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/light-carousel/style.css') + '" type="text/css"/>');
+  var scrollIncrement = 200;
+  var initialStateSet = false;
 
-  var increment = 200;
+  $(document).on('eu-light-carousel-styled', function(){
+    setTimeout(function(){
+      setInitialState();
+      initialStateSet = true;
+    }, 50);
+  });
 
   function EuLightCarousel(ops){
     this.ops = ops;
@@ -17,16 +23,13 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       itemContainer.append('<div class="lc-item waiting"></div>');
     }
 
-    this.ops.$el.on('scroll-complete', function(){
+    this.ops.$el.on('load', function(){
       that.load();
     });
 
-    // TODO: detect when css rendered
-
-    setTimeout(function(){
+    if(initialStateSet){ // we're too late: trigger another event
       fnCarouselScrolled(itemContainer.closest('.lc-scrollable')[0]);
-    }, 1000);
-
+    }
   };
 
   EuLightCarousel.prototype.itemsInViewport = function(container){
@@ -53,7 +56,7 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
 
     if(!hasWaiting){
       this.loadedAll = true;
-      this.ops.$el.off('scroll-complete');
+      this.ops.$el.off('load');
       console.log('lc loaded all');
     }
 
@@ -108,11 +111,8 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
 
   var fnCarouselScrolled = function(_this){
-
     var $this = $(_this);
     var $cmp  = $this.closest('.light-carousel');
-
-    // console.log($cmp.attr('class') + ' carouselScrolled > this.scrollLeft ' + _this.scrollLeft);
 
     if(_this.scrollLeft == 0){
       $cmp.find('.nav-left').hide();
@@ -121,46 +121,72 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
       $cmp.find('.nav-left').show();
     }
 
-    // console.log($cmp.attr('class') + ' (scroll-left [' + (typeof _this.scrollLeft) + ']) ' + _this.scrollLeft + ' + ' + ($this.width()) + ' == ' +  _this.scrollWidth + ' (' + (_this.scrollLeft + $this.width()) + ')');
-
     if(_this.scrollLeft + $this.width() + 1 >= _this.scrollWidth){
       $cmp.find('.nav-right').hide();
     }
     else{
       $cmp.find('.nav-right').show();
     }
-    $this.trigger('scroll-complete');
+    $cmp.trigger('load');
   };
 
-  $('.lc-scrollable').carouselScrolled(function(){
-    fnCarouselScrolled(this);
-  });
+  var fxBindScrollables = function(){
 
-  $('.lc-scrollable').on('scroll', function(){$(this).trigger('carousel-scrolled');});
+    $('.lc-scrollable').carouselScrolled(function(){
+      fnCarouselScrolled(this);
+    });
 
-  // TODO: detect when css rendered
-  setTimeout(function(){
+    $('.lc-scrollable:not(.js-bound)').on('scroll',
+      function(){
+        $(this).trigger('carousel-scrolled');
+      }
+    ).addClass('js-bound');
+
+    // $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+  };
+  fxBindScrollables(); // made callable for testing
+
+  var setInitialState = function(){
+    var ro = typeof ResizeObserver == 'undefined' ? null : new ResizeObserver(function(entries){
+      $.each(entries, function(){
+        $(this.target).trigger('carousel-scrolled');
+      });
+    });
+
     $('.lc-scrollable').each(function(i, ob){
       fnCarouselScrolled(ob);
+      if(ro){
+        ro.observe(this);
+      }
     });
-  }, 1000);
 
-  // navigation
+    if(!ro){
+      $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); }); });
+    }
+  };
 
-  $('.nav-left').on('click', function(){
-    var $scrollable = $(this).closest('.light-carousel').find('.lc-scrollable');
-    $scrollable.scrollLeft($scrollable.scrollLeft() - increment);
+  var appendStyle = function(url, callInit){
+    $('head').append('<link rel="stylesheet" href="' + url + '" type="text/css"' + (callInit ? ' id="removeThis" onload="$(document).trigger(\'eu-light-carousel-styled\')"' : '') + '/>');
+  };
+
+  if($('.light-carousel.def-style').length > 0){
+    appendStyle(require.toUrl('../../eu/light-carousel/style-def.css'));
+  }
+
+  require(['jqScrollto'], function(){
+
+    appendStyle(require.toUrl('../../eu/light-carousel/style.css'), true);
+
+    $(document).on('click', '.lc-nav', function(){
+      var $this       = $(this);
+      var $scrollable = $this.closest('.light-carousel').find('.lc-scrollable');
+      $scrollable.scrollTo(($this.hasClass('nav-right') ? '+' : '-') + '=200px', scrollIncrement);
+    });
   });
-
-  $('.nav-right').on('click', function(){
-    var $scrollable  = $(this).closest('.light-carousel').find('.lc-scrollable');
-    $scrollable.scrollLeft($scrollable.scrollLeft() + increment);
-  });
-
-  // resize
-  $(window).europeanaResize(function(){ $('.lc-scrollable').each(function(){ fnCarouselScrolled(this); });  });
 
   return {
-    EuLightCarousel: EuLightCarousel
+    EuLightCarousel: EuLightCarousel,
+    fxBindScrollables: fxBindScrollables,
+    getInitialStateSet: function(){ return initialStateSet; }
   };
 });

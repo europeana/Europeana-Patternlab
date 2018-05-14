@@ -3,6 +3,7 @@ require.config({
     eu_light_carousel: '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:      '../../eu/util/eu-mock-ajax',
     jquery:            '../../lib/jquery/jquery',
+    jqScrollto:        '../../lib/jquery/jquery.scrollTo',
     mustache:          '../../lib/mustache/mustache',
     purl:              '../../lib/purl/purl',
     util_resize:       '../../eu/util/resize'
@@ -15,8 +16,9 @@ require(['jquery', 'eu_light_carousel', 'eu_mock_ajax'], function($, EuLC){
 
     // item addition
 
-    var addItem    = $('.add-item');
-    var removeItem = $('.remove-item');
+    var addItem     = $('.add-item');
+    var removeItem  = $('.remove-item');
+    var removeStyle = $('.remove-style');
 
     var fnAddItem = function($cmp){
       var newItem = $cmp.find('.lc-item:last').clone();
@@ -34,6 +36,10 @@ require(['jquery', 'eu_light_carousel', 'eu_mock_ajax'], function($, EuLC){
       var scrollable = lastItem.closest('.light-carousel').find('.lc-scrollable');
       lastItem.remove();
       scrollable.trigger('carousel-scrolled');
+    });
+
+    removeStyle.on('click', function(){
+      $('.def-style').removeClass('def-style');
     });
 
     // populate
