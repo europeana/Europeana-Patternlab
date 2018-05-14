@@ -1,7 +1,6 @@
 define(['jquery', 'jasmine_jquery'], function(){
 
   'use strict';
-
   var basePathJson = '/base/js/unit-test-ajax-data';
   jasmine.getJSONFixtures().fixturesPath = basePathJson;
 
@@ -13,17 +12,29 @@ define(['jquery', 'jasmine_jquery'], function(){
 
       window.loadFixtures('fx-eu-light-carousel.html');
 
-      $(document).on('eu-light-carousel-styled', function(){
-        setTimeout(function(){
-          done();
-        }, 500);
-      });
-
       require(['eu_light_carousel'], function(EuLightCarousel){
         EuLC = EuLightCarousel;
-        if(EuLC.getInitialStateSet()){
-          $(document).trigger('eu-light-carousel-styled');
-        }
+        setTimeout(function(){
+
+          var hasUnbound = false;
+
+          $('.lc-scrollable').each(function(){
+            if(!$(this).hasClass('js-bound')){
+              hasUnbound = true;
+            }
+          });
+
+          if(hasUnbound){
+            EuLC.fxBindScrollables();
+            setTimeout(function(){
+              done();
+            }, 1001);
+          }
+          else{
+            done();
+          }
+
+        }, 100);
       });
     });
 
@@ -42,7 +53,6 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect(navRight).not.toBeHidden();
           done();
         }, 200);
-
       });
 
       it('reacts to element resizing by re-evaluating scrollability', function(done){
@@ -99,7 +109,6 @@ define(['jquery', 'jasmine_jquery'], function(){
             done();
           }, 500);
         }, 100);
-
       });
 
       it('scrolls its content horizontally', function(done){
@@ -108,6 +117,11 @@ define(['jquery', 'jasmine_jquery'], function(){
         var $scrollable = $('.example-1 .lc-scrollable');
         var navRight    = $('.example-1 .nav-right');
         var left        = firstItem[0].getBoundingClientRect().left;
+
+        // in case the js initialised before this fixture was loaded...
+        if(!$scrollable.hasClass('js-bound')){
+          EuLC.fxBindScrollables();
+        }
 
         navRight.click();
 
@@ -124,12 +138,14 @@ define(['jquery', 'jasmine_jquery'], function(){
         var $scrollable = $('.example-1 .lc-scrollable');
 
         expect(navLeft).toBeHidden();
-        $scrollable.scrollTo(10);
 
+        // in case the js initialised before this fixture was loaded...
         if(!$scrollable.hasClass('js-bound')){
-          // jasmine work-around: we expect the markup to be present on dom ready
           EuLC.fxBindScrollables();
         }
+
+        $scrollable.scrollTo(10);
+
         setTimeout(function(){
           expect(navLeft).not.toBeHidden();
           done();
