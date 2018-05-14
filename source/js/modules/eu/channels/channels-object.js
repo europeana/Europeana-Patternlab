@@ -1368,9 +1368,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         resetZoomable();
       }
       else{
-        $('.channel-object-actions .slide-rail').empty();
-        $('.object-details').removeClass('has-right-column').addClass('no-right-column');
-        $(window).resize();
+        // $('.channel-object-actions .slide-rail').empty();
+        // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
+        // $(window).resize();
       }
     });
   }
