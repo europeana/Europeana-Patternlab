@@ -316,7 +316,7 @@ define([], function(){
     {
       "is_oembed": true,
       "playable": true,
-      "thumbnail": "/media/thumb_oembed.png",
+      "thumbnail": "/media/thumb_oembed_italian_film.png",
       "play_html": "<iframe src=\"https://player.vimeo.com/video/85149968\" width=\"614\" height=\"480\"frameborder=\"0\" title=\"La paura degli aeromobili nemici (Itala Film, 1915)\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
       "download": {
       },
@@ -367,7 +367,7 @@ define([], function(){
     {
       "is_audio": true,
       "playable": true,
-      "thumbnail": "/media/thumb-default-sound.jpg",
+      "thumbnail": "/media/thumb-piano-keys.png",
       "play_url": "/media/C_2336_2G_221-2.flac",
       "download": {
         "url": "/media/C_2336_2G_221-2.flac",
@@ -403,15 +403,12 @@ define([], function(){
       }
     },
     {
-      "is_video": true,
-      "thumbnail": "/media/thumb-default-video.jpg",
-      "play_url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-      "download": {
-        "url": "http://www.openbeelden.nl/files/60/60004.60000.WEEKNUMMER594-HRE000169FB.mpeg",
-        "text": "Original MPG file"
-      },
+      "is_oembed": true,
+      "playable": true,
+      "thumbnail": "/media/thumb-oembed-youtube.png",
+      "play_html": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/GVGtwg9Sh_E\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>",
       "technical_metadata": {
-        "mime_type": "video/mpeg"
+        "mime_type": "unknown"
       },
       "rights":
       {
@@ -478,7 +475,37 @@ define([], function(){
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_negative.jpg"
+    },
+    {
+      "playable": false,
+      "downloadable": false,
+      "is_image": true,
+      "thumbnail": "/images/sample/object_thumbnail_bw.jpg"
+    },
+    {
+      "playable": false,
+      "downloadable": false,
+      "is_image": true,
+      "thumbnail": "/images/sample/object_thumbnail_reversed.jpg"
+    },
+    {
+      "playable": false,
+      "downloadable": false,
+      "is_image": true,
+      "thumbnail": "/media/thumb-dsotm.png"
+    },
+    {
+      "playable": false,
+      "downloadable": false,
+      "is_image": true,
+      "thumbnail": "/images/sample/object_thumbnail_invert.jpg"
+    },
+    {
+      "playable": false,
+      "downloadable": false,
+      "is_image": true,
+      "thumbnail": "/images/sample/object_thumbnail_real.png"
     },
     {
       "playable": false,
@@ -490,49 +517,19 @@ define([], function(){
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_bw.jpg"
     },
     {
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_invert.jpg"
     },
     {
       "playable": false,
       "downloadable": false,
       "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
-    },
-    {
-      "playable": false,
-      "downloadable": false,
-      "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
-    },
-    {
-      "playable": false,
-      "downloadable": false,
-      "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
-    },
-    {
-      "playable": false,
-      "downloadable": false,
-      "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
-    },
-    {
-      "playable": false,
-      "downloadable": false,
-      "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
-    },
-    {
-      "playable": false,
-      "downloadable": false,
-      "is_image": true,
-      "thumbnail": "/images/sample/object_thumbnail.jpg"
+      "thumbnail": "/images/sample/object_thumbnail_negative.jpg"
     }
   ];
 
