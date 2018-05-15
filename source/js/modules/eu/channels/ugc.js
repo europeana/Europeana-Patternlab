@@ -106,6 +106,10 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       initSwipeableLicense();
     });
 
+    $(document).on('array_fields_added', function(){
+      initAutoCompletes();
+    });
+
     $(document).on('fields_removed.nested_form_fields', function(e, param){
 
       if(formSave){
@@ -490,6 +494,9 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
+
+    $('[data-array-field-template]').data('on-add', 'array_fields_added');
+    EuFormUtils.initArrayFields('array-field-template');
   }
 
   return {

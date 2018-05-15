@@ -806,6 +806,21 @@ noscript div{
     display: none;
   }
 
+  .add_array_fields_link,
+  .remove_array_fields_link{
+    display: inline-block;
+  }
+
+  .array-fields-below-min-items{
+    .remove_array_fields_link{
+      display: none;
+    }
+  }
+
+  .array-element.input{
+    text-align: right;
+  }
+
   &.external-js-loaded{
     .add_nested_fields_link,
     .remove_nested_fields_link{
@@ -1003,6 +1018,7 @@ noscript div{
       padding-top: 0.58em;
     }
 
+    .remove_array_fields_link,
     .remove_nested_fields_link{
       padding-top: 0.85em;
       position:    relative;

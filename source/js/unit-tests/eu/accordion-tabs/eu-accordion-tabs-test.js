@@ -1,7 +1,7 @@
 define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTabs){
 
   'use strict';
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+  // jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 
   describe('Eu Accordion Tabs', function(){
 

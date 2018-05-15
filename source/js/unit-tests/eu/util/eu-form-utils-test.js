@@ -236,5 +236,210 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
       });
     });
 
+    describe('Attribute: data-template', function(){
+
+      var $el;
+      var waitTime = 20;
+
+      beforeEach(function(done){
+        $el = $('#test-data-template')
+        setTimeout(function(){
+          done();
+        }, waitTime);
+      });
+
+      afterEach(function(done){
+        setTimeout(function(){
+          done();
+        }, waitTime);
+      });
+
+      it('writes a link to add a new item', function(done){
+
+        expect($('.add_array_fields_link').length).toBe(0);
+
+        EuFormUtils.initArrayFields('template');
+
+        setTimeout(function(){
+          expect($('.add_array_fields_link').length).toEqual(1);
+          done();
+        }, waitTime);
+      });
+
+      it('writes links to remove existing items', function(done){
+
+        expect($('.remove_array_fields_link').length).toBe(0);
+
+        EuFormUtils.initArrayFields('template');
+        setTimeout(function(){
+          expect($('.remove_array_fields_link').length).toEqual(3);
+          done();
+        }, waitTime);
+      });
+
+      it('adds an item when the "add" link is clicked', function(done){
+
+        EuFormUtils.initArrayFields('template');
+
+        expect($el.find('li').length).toEqual(3);
+
+        setTimeout(function(){
+          expect($('.add_array_fields_link').length).toEqual(1);
+
+          $('.add_array_fields_link').click();
+
+          setTimeout(function(){
+            expect($el.find('li').length).toEqual(4);
+            done();
+          }, waitTime);
+        }, waitTime);
+      });
+
+      it('removes an item when the "remove" link is clicked', function(done){
+
+        EuFormUtils.initArrayFields('template');
+
+        expect($el.find('li').length).toEqual(3);
+
+        setTimeout(function(){
+          $('.remove_array_fields_link:first').click();
+          setTimeout(function(){
+            expect($el.find('li').length).toEqual(2);
+            done();
+          }, waitTime);
+        }, waitTime);
+      });
+
+      it('interpolates the added item', function(done){
+
+        EuFormUtils.initArrayFields('template');
+
+        expect($el.find('li').eq(0).text()).toEqual('This is original item A');
+        expect($el.find('li').eq(1).text()).toEqual('This is original item B');
+        expect($el.find('li').eq(2).text()).toEqual('This is original item C');
+
+        setTimeout(function(){
+
+          // remove middle item...
+          $('.remove_array_fields_link').eq(1).click();
+
+          setTimeout(function(){
+            expect($el.find('li').length).toEqual(2);
+
+            $('.add_array_fields_link').click();
+
+            setTimeout(function(){
+              expect($el.find('li').length).toEqual(3);
+
+              var textWithoutRemoveLinkText = $el.find('li').eq(1).contents().filter(function(){
+                return this.nodeType == 3;
+              })[0].nodeValue;
+
+              expect(textWithoutRemoveLinkText).toEqual('This is an added item');
+              done();
+            }, waitTime);
+          }, waitTime);
+        }, waitTime);
+      });
+
+      it('can prevent users from removing items below a specified threshold', function(done){
+
+        $('[data-template]').attr('data-minimum-items', 2);
+
+        EuFormUtils.initArrayFields('template');
+
+        expect($el.find('li').length).toEqual(3);
+
+        setTimeout(function(){
+          var selRemoveLinks = '.remove_array_fields_link:visible';
+          expect($(selRemoveLinks).length).toEqual(3);
+
+          $('.remove_array_fields_link:first').click();
+          setTimeout(function(){
+            expect($(selRemoveLinks).length).toEqual(0);
+            done();
+          }, waitTime);
+        }, waitTime);
+
+      });
+
+      it('can trigger events when items are added', function(done){
+
+        var fnCalled = false;
+
+        $(document).on('my_add_event', function(){
+          fnCalled = true;
+          $(document).off('my_add_event');
+        });
+        $el.data('on-add', 'my_add_event');
+        EuFormUtils.initArrayFields('template');
+
+        setTimeout(function(){
+
+          $('.add_array_fields_link').click();
+
+          setTimeout(function(){
+            expect(fnCalled).toBe(true);
+            done();
+          }, waitTime);
+        }, waitTime);
+      });
+
+      it('can trigger events when items are removed', function(done){
+
+        var fnCalled = false;
+
+        $(document).on('my_remove_event', function(){
+          fnCalled = true;
+          $(document).off('my_remove_event');
+        });
+        $el.data('on-remove', 'my_remove_event');
+        EuFormUtils.initArrayFields('template');
+
+        setTimeout(function(){
+
+          $('.remove_array_fields_link').click();
+
+          setTimeout(function(){
+            expect(fnCalled).toBe(true);
+            done();
+          }, waitTime);
+        }, waitTime);
+      });
+
+      it('can use the assigned index in the template', function(done){
+
+        var newTemplate = '<li class="added-li">This is added item [[index]]</li>';
+
+        newTemplate = newTemplate.replace(/</g, '&lt;');
+        newTemplate = newTemplate.replace(/>/g, '&gt;');
+        newTemplate = newTemplate.replace(/"/g, '&quot;');
+
+        console.log('newTemplate ' + newTemplate);
+
+        $el.data('template', newTemplate);
+        EuFormUtils.initArrayFields('template');
+
+        setTimeout(function(){
+
+          $('.add_array_fields_link').click();
+
+          setTimeout(function(){
+            expect($el.find('li').length).toEqual(4);
+
+            var textWithoutRemoveLinkText = $el.find('li').eq(3).contents().filter(function(){
+              return this.nodeType == 3;
+            })[0].nodeValue;
+
+            expect(textWithoutRemoveLinkText).toEqual('This is added item 3');
+            done();
+          }, waitTime);
+        }, waitTime);
+      });
+
+
+
+    });
+
   });
 });

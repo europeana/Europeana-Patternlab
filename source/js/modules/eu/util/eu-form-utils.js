@@ -1,6 +1,7 @@
 define(['jquery'], function($){
 
-  var copyFieldsBound = false;
+  var copyFieldsBound    = false;
+  var templateCtrlsBound = false;
 
   function evalAllRequires(){
 
@@ -211,6 +212,106 @@ define(['jquery'], function($){
     }
   }
 
+  function initArrayFields(arrayTemplateField){
+
+    var templates = $('[data-' + arrayTemplateField + ']');
+
+    if(templates.length > 0){
+
+      var classBelowMinItems = 'array-fields-below-min-items';
+
+      var decodeHtml = function(input){
+        return $('<textarea/>').html(input).text();
+      };
+
+      var getInsertIndex = function($list){
+
+        var result = -1;
+        var $items = $list.find('li');
+
+        $items.each(function(i, item){
+          if($(item).data('index') != i){
+            result = i;
+            return false;
+          }
+        });
+        return result > -1 ? result : $items.length;
+      };
+
+      var evalAtMinimum = function($list){
+        var valMin = $list.data('minimum-items');
+        if(!valMin || $list.find('li').length > parseInt(valMin)){
+          $list.removeClass(classBelowMinItems);
+        }
+        else{
+          $list.addClass(classBelowMinItems);
+        }
+      };
+
+      require(['mustache'], function(Mustache){
+
+        Mustache.tags = ['[[', ']]'];
+
+        templates.each(function(){
+
+          var $this           = $(this);
+          var textLinkAdd     = decodeHtml($this.data('add-link-text'));
+          var textLinkRemove  = decodeHtml($this.data('remove-link-text'));
+          this.removeLinkHtml = '<a class="remove_array_fields_link">' + textLinkRemove + '</a>';
+
+          $.each($this.find('li'), function(i){
+            $(this).append($this[0].removeLinkHtml);
+            $(this).data('index', i);
+          });
+          $this.after('<a class="add_array_fields_link">' + textLinkAdd + '</a>');
+          evalAtMinimum($this);
+        });
+
+        if(templateCtrlsBound){
+          return;
+        }
+
+        $(document).on('click', '.add_array_fields_link', function(){
+
+          var $tmp    = $(this).prev('[data-' + arrayTemplateField + ']');
+          var data    = $tmp.data(arrayTemplateField);
+          var decoded = decodeHtml(data);
+          var index   = getInsertIndex($tmp);
+          var $html   = $(Mustache.render(decoded, {'index': index}));
+
+          $html.append($tmp[0].removeLinkHtml);
+
+          $html.data('index', index);
+
+          if(index >= $tmp.find('li').length){
+            $tmp.append($html);
+          }
+          else{
+            $tmp.find('li').eq(index).before($html);
+          }
+          var doOnAdd = $tmp.data('on-add');
+          if(doOnAdd){
+            $(document).trigger(doOnAdd);
+          }
+          evalAtMinimum($tmp);
+        });
+
+        $(document).on('click', '.remove_array_fields_link', function(){
+          var $this = $(this);
+          var $list = $this.closest('ul');
+          $this.closest('li').remove();
+          evalAtMinimum($list);
+
+          var doOnRemove = $list.data('on-remove');
+          if(doOnRemove){
+            $(document).trigger(doOnRemove);
+          }
+        });
+        templateCtrlsBound = true;
+      });
+    }
+  }
+
   function initCopyFields(){
 
     var copyFields = $('[data-copies]:not(.copies-initialised)');
@@ -236,6 +337,7 @@ define(['jquery'], function($){
     evalAllRequires:   evalAllRequires,
     evalRequires:      evalRequires,
     evalMakesOptional: evalMakesOptional,
+    initArrayFields:   initArrayFields,
     initCopyFields:    initCopyFields,
     initMakesOptional: initMakesOptional,
     initMakesRequired: initMakesRequired,
@@ -245,4 +347,3 @@ define(['jquery'], function($){
   };
 
 });
-
