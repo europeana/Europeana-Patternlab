@@ -242,7 +242,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
       var waitTime = 20;
 
       beforeEach(function(done){
-        $el = $('#test-data-template')
+        $el = $('#test-data-template');
         setTimeout(function(){
           done();
         }, waitTime);
