@@ -482,6 +482,23 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       EuFormUtils.initMakesRequired(onBlur);
       EuFormUtils.initMakesOptional(onBlur);
       initSwipeableLicense();
+
+      $('[data-array-field-template]').data('on-add', 'array_fields_added');
+      $('.contribution_ore_aggregation_edm_aggregatedCHO_dc_subject [data-array-field-template]').attr(
+        {
+          'data-minimum-items':   1,
+          'data-remove-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.topic.remove'),
+          'data-add-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.topic.add')
+        }
+      );
+      $('.contribution_ore_aggregation_edm_aggregatedCHO_dcterms_spatial [data-array-field-template]').attr(
+        {
+          'data-minimum-items': 2,
+          'data-remove-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.location.remove'),
+          'data-add-link-text': window.I18n.translate('contribute.campaigns.migration.form.buttons.location.add')
+        }
+      );
+      EuFormUtils.initArrayFields('array-field-template');
     });
 
     initAutoCompletes();
@@ -494,9 +511,6 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
-
-    $('[data-array-field-template]').data('on-add', 'array_fields_added');
-    EuFormUtils.initArrayFields('array-field-template');
   }
 
   return {

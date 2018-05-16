@@ -806,7 +806,13 @@ noscript div{
     display: none;
   }
 
-  .add_array_fields_link,
+  .add_array_fields_link{
+    display:         flex;
+    flex-basis:      100%;
+    justify-content: flex-end;
+    margin:          0 0 1em 0;
+  }
+
   .remove_array_fields_link{
     display: inline-block;
   }
@@ -988,6 +994,7 @@ noscript div{
       }
 
       .input.array{
+        flex: 1 0 0;
         margin: 0;
         width: 100%;
 
@@ -995,7 +1002,15 @@ noscript div{
           margin: 0;
         }
       }
+    }
 
+    .templated-fieldset{
+      .label-and-input{
+        flex-wrap: wrap;
+      }
+      label{
+        flex-basis: $desktop-label-width;
+      }
     }
 
     .media-preview{
