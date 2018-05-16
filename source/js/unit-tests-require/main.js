@@ -11,6 +11,9 @@ requirejs.config({
   paths: {
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
+
+    eu_data_continuity:        '../../eu/util/eu-data-continuity',
+
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     jasmine_jquery:            '../../../unit-tests/lib/jasmine-jquery',
@@ -32,6 +35,9 @@ requirejs.config({
   },
   shim: {
     jasmine_jquery:{
+      deps:['jquery']
+    },
+    purl:{
       deps:['jquery']
     }
   },
