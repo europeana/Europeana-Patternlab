@@ -21,7 +21,7 @@ require.config({
 
 require(['jquery'], function(){
   require(['leaflet', 'leaflet_zoom_slider', 'leaflet_edgebuffer'], function() {
-    require(['media_viewer_iiif', 'media_options'], function(viewer, EuMediaOptions) {
+    require(['media_viewer_iiif', 'media_options', 'purl'], function(viewer, EuMediaOptions) {
 
       var init = function(){
 
