@@ -641,7 +641,7 @@
       }
     },
     "named_entities": {
-      "fold_title": "Named Entities",
+      "XXXfold_title": "Named Entities",
       "inline": true,
       "data": [
         {

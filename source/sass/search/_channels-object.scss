@@ -1,4 +1,5 @@
 @import 'channel-object-promos-base';
+@import 'channels-object-metadata';
 
 $bp-modal-collapse:         $bp-small-3;
 $carousel-arrow-bg:         rgba(255, 255, 255, 0.8);
@@ -43,26 +44,6 @@ $modal-header-height:       2.1em;
 
   .with-transparency .object-nav{
     background: rgba(237, 237, 237, 0.85);
-  }
-
-  .channel-object-extended-information,
-  .channel-object-information{
-    .data-group{
-      color: $gray-med;
-      a{
-        border-bottom: 1px dashed $black;
-        color:         $black;
-
-        &:hover{
-          border-bottom: 1px dashed $eu-blue;
-          color:         $eu-blue;
-        }
-      }
-    }
-  }
-
-  .eu-foldable-title a{
-    color: $black;
   }
 
   .media-options {
@@ -1436,133 +1417,6 @@ $modal-header-height:       2.1em;
       font-size:      $font-size-sm;
       font-weight:    bold;
       padding-bottom: $pad;
-    }
-  }
-
-  .channel-object-information,
-  .channel-object-extended-information{
-
-    margin-top: $space;
-    position:   relative;
-
-    .ctrl,
-    .ctrl .icon{
-      display:  block;
-      height:   1.5em;
-      width:    1.5em;
-    }
-
-    .ctrl{
-      border:   1px solid #ccc;
-      cursor:   pointer;
-      position: absolute;
-      right:    1em;
-      top:      1.6em;
-
-      &.close{
-        padding: 5px;
-
-        .icon{
-          -webkit-transform: scale(0.45) translate(-0.85em, -0.85em);
-          transform:         scale(0.45) translate(-0.85em, -0.85em);
-        }
-      }
-
-      &.open{
-        .icon{
-          background-position: 0.18em 0.14em;
-          -webkit-transform:   scale(0.7) translate(-0.05em, -0.05em);
-          transform:           scale(0.7) translate(-0.05em, -0.05em);
-        }
-      }
-
-      &:hover{
-        box-shadow: $box-shadow-panel;
-      }
-
-      .icon{
-        display:  block;
-      }
-
-    }
-
-    .data-section {
-      margin:   0 $space;
-      position: relative;
-
-      .data-header{
-        color:     $gray-light;
-        font-size: 1rem;
-      }
-
-      .subsection-label{
-        color:         $black;
-        margin-bottom: 0;
-        padding-left:  0;
-        padding-right: 0;
-      }
-
-      &:first-of-type{
-        border-top: 0;
-      }
-    }
-
-    .closed{
-      .close{
-        display: none;
-      }
-      .open{
-        display: block;
-      }
-    }
-
-    :not(.closed){
-      .close{
-        display: block;
-      }
-      .open{
-        display: none;
-      }
-    }
-
-    .channel-object-title{
-      .close,
-      .open{
-        font-size: 1rem;
-        top: 0;
-
-        &::before{
-          bottom:      0;
-          content:     attr(data-before);
-          font-size:   $font-size-slightly-smaller;
-          font-weight: lighter;
-          line-height: 1.5rem;
-          position:    absolute;
-          right:       2rem;
-          text-align:  right;
-          width:       300px;
-        }
-      }
-    }
-
-    .map{
-      margin-top: $space-half;
-    }
-
-  }
-
-  .channel-object-extended-information{
-
-    .closed{
-      .subsection-content{
-        display: none;
-      }
-    }
-
-    .subsection-content{
-      padding-right: 3.4em;
-      position:      relative;
-      top:           -0.140625rem;
     }
   }
 
