@@ -543,12 +543,6 @@ $modal-header-height:       2.1em;
     // carousel
 
     .channel-object-media-nav {
-      margin-left:        calc((1.05634% + 0.5rem) * -1);
-      margin-right:       calc((1.05634% + 0.5rem) * -1);
-      position:           relative;
-      -webkit-transition: opacity 0.3s linear;
-      transition:         opacity 0.3s linear;
-      width:              calc(100% + (1.05634% + 1rem));
 
       .media-thumb-section {
 
@@ -586,7 +580,7 @@ $modal-header-height:       2.1em;
 
       .media-thumbs{
 
-        padding: 0 58px 0 60px;
+        padding: 0 60px 0 60px;
 
         .lc-item{
 
@@ -610,7 +604,7 @@ $modal-header-height:       2.1em;
 
           &.nav-left{
             background-position: 1em 1.15em;
-            left:                -12px;
+            left:                -13px;
           }
 
           &.nav-right{
@@ -1487,11 +1481,14 @@ $modal-header-height:       2.1em;
           margin-left:  0;
           margin-right: 0;
           order:        4;
-          transform:    translateX(1px);
+          transform:    translateX(2px);
           width:        100%;
 
           .media-thumb-section{
             margin: 1em 0;
+          }
+          .media-thumbs{
+            padding:  0 58px 0 60px;
           }
         }
 
