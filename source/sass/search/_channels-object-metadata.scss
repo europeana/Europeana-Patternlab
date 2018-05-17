@@ -59,32 +59,29 @@
 
     }
 
-    .channel-object-title{
-      .close,
-      .open{
-        font-size: 1rem;
-        top: 0;
-
-        &::before{
-          bottom:      0;
-          content:     attr(data-before);
-          font-size:   $font-size-slightly-smaller;
-          font-weight: lighter;
-          line-height: 1.5rem;
-          position:    absolute;
-          right:       2rem;
-          text-align:  right;
-          width:       300px;
-        }
-      }
-    }
-
     .map{
       margin-top: $space-half;
     }
   }
 
   .channel-object-extended-information{
+
+    h2.channel-object-title{
+      .ctrl{
+        top: 0.1em;
+      }
+    }
+
+    .ctrl{
+      font-size: 1rem;
+    }
+
+    .ctrl,
+    .ctrl .icon{
+      display:  block;
+      height:   1.5em;
+      width:    1.5em;
+    }
 
     .closed{
       .subsection-content{
@@ -109,13 +106,6 @@
       }
     }
 
-    .ctrl,
-    .ctrl .icon{
-      display:  block;
-      height:   1.5em;
-      width:    1.5em;
-    }
-
     .ctrl{
       border:   1px solid #ccc;
       cursor:   pointer;
@@ -127,8 +117,8 @@
         padding: 5px;
 
         .icon{
-          -webkit-transform: scale(0.45) translate(-0.85em, -0.85em);
-          transform:         scale(0.45) translate(-0.85em, -0.85em);
+          -webkit-transform: scale(0.45) translate(-0.85em, -0.95em);
+          transform:         scale(0.45) translate(-0.85em, -0.95em);
         }
       }
 
@@ -147,7 +137,38 @@
         display:  block;
       }
     }
-    @media all and (min-width: $bp-med) {
+
+    .subsection-content{
+      padding-right: 3.4em;
+      position:      relative;
+    }
+
+    .data-section {
+      .subsection-label{
+        color: $gray-med;
+      }
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    .channel-object-extended-information{
+
+      h2.channel-object-title{
+        .ctrl{
+          &::before{
+            bottom:      0;
+            content: attr(data-before);
+            font-size:   $font-size-slightly-smaller;
+            font-weight: lighter;
+            line-height: 1rem;
+            position:    absolute;
+            right:       2rem;
+            text-align:  right;
+            width:       300px;
+          }
+        }
+      }
 
       .ctrl,
       .ctrl .icon{
@@ -158,18 +179,6 @@
 
       .ctrl.open .icon{
         background-position: 0.12em 0.1em;
-      }
-
-    }
-
-    .subsection-content{
-      padding-right: 3.4em;
-      position:      relative;
-    }
-
-    .data-section {
-      .subsection-label{
-        color: $gray-med;
       }
     }
 
