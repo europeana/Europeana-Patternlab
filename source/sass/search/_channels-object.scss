@@ -47,13 +47,16 @@ $modal-header-height:       2.1em;
 
   .channel-object-extended-information,
   .channel-object-information{
-    ul:not(.social-share) li > a{
-      border-bottom: 1px dashed $black;
-      color:         $black;
+    .data-group{
+      color: $gray-med;
+      a{
+        border-bottom: 1px dashed $black;
+        color:         $black;
 
-      &:hover{
-        border-bottom: 1px dashed $eu-blue;
-        color:         $eu-blue;
+        &:hover{
+          border-bottom: 1px dashed $eu-blue;
+          color:         $eu-blue;
+        }
       }
     }
   }
@@ -1487,7 +1490,13 @@ $modal-header-height:       2.1em;
       margin:   0 $space;
       position: relative;
 
+      .data-header{
+        color:     $gray-light;
+        font-size: 1rem;
+      }
+
       .subsection-label{
+        color:         $black;
         margin-bottom: 0;
         padding-left:  0;
         padding-right: 0;
