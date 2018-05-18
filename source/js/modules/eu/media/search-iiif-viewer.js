@@ -502,7 +502,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addTranscriptions(probe) {
-
     require(['media_iiif_text_processor'], function(textProcessor){
 
       textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
@@ -543,9 +542,11 @@ define(['jquery', 'util_resize'], function($){
 
       var layerName = currentImg + '-f';
       var afterAdd  = function(key){
-        setVisibleTranscripts(key);
-        $('#eu-iiif-container').removeClass(classHideFullText);
-        iiif.invalidateSize();
+        if(transcriptionIsOn){
+          setVisibleTranscripts(key);
+          $('#eu-iiif-container').removeClass(classHideFullText);
+          iiif.invalidateSize();
+        }
       };
 
       if(iiifLayers[layerName]){
