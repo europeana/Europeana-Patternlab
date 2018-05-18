@@ -394,7 +394,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function initMedia(index){
 
-    var item        = $('.cho-media-nav .lc-item a:eq(' + index + ')');
+    var item        = $('.cho-media-nav .lc-item:eq(' + index + ') a');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
     var playable    = item.hasClass('playable');
