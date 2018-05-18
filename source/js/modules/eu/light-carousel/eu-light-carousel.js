@@ -110,18 +110,18 @@ define(['jquery', 'util_resize'], function ($, Debouncer){
   // scrolling
   Debouncer.addDebouncedFunction('carousel-scrolled', 'carouselScrolled', 80);
 
-  var fnCarouselScrolled = function(_this){
-    var $this = $(_this);
+  var fnCarouselScrolled = function(scrollable){
+    var $this = $(scrollable);
     var $cmp  = $this.closest('.light-carousel');
 
-    if(_this.scrollLeft == 0){
+    if(scrollable.scrollLeft == 0){
       $cmp.find('.nav-left').hide();
     }
     else{
       $cmp.find('.nav-left').show();
     }
 
-    if(_this.scrollLeft + $this.width() + 1 >= _this.scrollWidth){
+    if(scrollable.scrollLeft + $this.width() + 1 >= scrollable.scrollWidth){
       $cmp.find('.nav-right').hide();
     }
     else{
