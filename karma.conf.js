@@ -28,7 +28,8 @@ module.exports = function(config) {
       {pattern: 'js/modules/eu/**/*.js',  included: false},
       {pattern: 'js/modules/eu/**/*.css', included: false},
       {pattern: 'js/modules/lib/**/*.js', included: false},
-      {pattern: 'js/unit-tests/**/*.js',  included: false},
+      {pattern: 'js/modules/require.js',  included: false},
+      {pattern: 'js/unit-tests/**/*.js',  included: false}
     ],
 
     // leave Jasmine Spec Runner output visible in browser
