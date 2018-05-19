@@ -2,6 +2,7 @@ define(['jquery', 'purl'], function($){
 
   var pageDC  = $.url(window.location.href).param('dc');
   var cbFired = false;
+  var timerId;
 
   // Allow windows opened in other tabs to inherit the session
 
@@ -26,7 +27,6 @@ define(['jquery', 'purl'], function($){
       e = e.originalEvent;
 
       if(e.key == 'eu_dc_rollcall_reply'){
-
         if(e.newValue){
           var val = e.newValue.split('?')[0];
           sessionStorage.setItem(dcId, val);
@@ -38,7 +38,6 @@ define(['jquery', 'purl'], function($){
         }
       }
       else if(e.key == 'eu_dc_rollcall'){
-
         if(e.newValue.split('?')[0] == dcId){
           var sVal = sessionStorage.getItem(dcId) + '?' + new Date().getTime();
           localStorage.setItem('eu_dc_rollcall_reply', sVal);
@@ -54,7 +53,8 @@ define(['jquery', 'purl'], function($){
     }
     else{
       localStorage.setItem('eu_dc_rollcall', dcId + '?' + new Date().getTime());
-      setTimeout(function(){
+
+      timerId = setTimeout(function(){
         if(cb && !cbFired){
           cbFired = true;
           cb(false);
@@ -76,6 +76,18 @@ define(['jquery', 'purl'], function($){
         href = href.split('?')[0] + '?' + $.param(params);
         $this.attr('href', href);
       });
+    },
+    reset: function(){
+      if(timerId){
+        clearTimeout(timerId);
+      }
+      $(window).off('storage');
+
+      sessionStorage.clear();
+      localStorage.clear();
+      pageDC  = $.url(window.location.href).param('dc');
+
+      cbFired = false;
     }
   };
 });

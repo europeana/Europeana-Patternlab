@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="/base/js/modules/require.js"></script>
+    <script>
+    
+    window.id = 'fixture-window';
+
+    requirejs.config({
+      paths: {
+        jq:      '/base/js/modules/lib/jquery/jquery',
+        purl:    '/base/js/modules/lib/purl/purl',
+        dc:      '/base/js/modules/eu/util/eu-data-continuity'
+      }
+    });
+
+    require(['jq'], function($){
+      require(['purl'], function(){
+        require(['dc'], function(dc){
+
+          var href   = location.href;
+          var params = {'dc': 'defaultTestId', 'fn': 'listen'};
+
+          if(href.indexOf('?') > 0){
+            href.split('?')[1].split('&').forEach(function(p){
+              var p2 = p.split('=');
+               params[p2[0]] = p2[1];
+            });
+          };
+
+          if(params['fn'] === 'listen'){
+            dc.prep(false, params['dc']);
+            console.log('prepped ' + window.id);
+          }
+          else if(params['fn'] === 'cb'){
+            dc.prep(function(continuous){
+              window.opener.receiveChildWindowData(continuous);
+            }, params['dc']);
+          }
+
+        })
+      })
+    });
+    </script>
+  </body>
+  <a class="dc-link" href="http://www.europeana.eu">Test Link Rewrite</a>
+</html>
