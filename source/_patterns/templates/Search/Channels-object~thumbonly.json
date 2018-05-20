@@ -59,10 +59,32 @@
             "image": true
           }
         ],
-        "empty_item": true,
-        "single_item": false,
+        "empty_item": false,
+        "single_item": true,
         "empty_item_more_link": "Item preview not available, to access the full image and more information about the item <a href=\"javascript:alert('link to provider');\">go to source</a>.  This link will take you to <a href=\"javascript:alert('link to provider');\">Institute of blah blah blah</a>",
-        "items": false
+        "items": [
+          {
+            "thumbnail": "/images/sample/object_thumbnail_real.png",
+            "playable": false,
+            "is_current": true,
+            "is_image": true,
+            "is_pdf": true,
+            "downloadable": true,
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "language":"English",
+              "format": "png",
+              "file_size": "23.2",
+              "file_unit": "MB"
+            }
+          }
+        ]
       },
       "title": false,
       "type": "image",
