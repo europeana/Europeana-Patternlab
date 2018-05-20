@@ -446,10 +446,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       }
     };
 
-    if(playable){
-      $('.object-media-viewer').removeClass('thumbnail-mode');
-    }
-    else{
+    var showDefault = function(){
       removeOldMedia();
 
       $('<img src="' + thumbnail + '">').appendTo('.zoomable');
@@ -458,6 +455,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       setZoom();
       log('not playable');
       resetZoomable();
+    };
+
+    if(playable){
+      $('.object-media-viewer').removeClass('thumbnail-mode');
+    }
+    else{
+      showDefault();
       return;
     }
 
@@ -500,6 +504,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
               else{
                 if(attempt > 5){
                   log('give up on image: ' + uri);
+                  showDefault();
                 }
                 else{
                   log('retry for image...');
