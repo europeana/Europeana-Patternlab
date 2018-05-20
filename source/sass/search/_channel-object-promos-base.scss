@@ -1,7 +1,4 @@
-$collections-promo-item-min-width: 275px;
-$green-grey-bg:                    #f4f4f4;
-$grey-preload-text:                $gray-lightest;
-$card-img-height-def:              15rem;
+@import 'channel-object-variables';
 
 .no-js{
   .js-remove{
