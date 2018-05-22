@@ -2,8 +2,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
 
   'use strict';
   // jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
-  var basePath                       = 'base/js/unit-test-fixtures/';
-  jasmine.getFixtures().fixturesPath = basePath;
+  var basePath = 'base/js/unit-test-fixtures/';
 
   describe('Eu Accordion Tabs', function(){
 
@@ -13,6 +12,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
     var $el;
 
     beforeEach(function() {
+      jasmine.getFixtures().fixturesPath = basePath;
       window.loadFixtures('fx-eu-accordiontabs.html');
       $el        = $('.eu-accordion-tabs');
       $container = $('.test-container');

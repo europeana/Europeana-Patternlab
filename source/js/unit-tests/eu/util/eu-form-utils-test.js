@@ -2,12 +2,10 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
 
   'use strict';
 
-  jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
-  jasmine.getJSONFixtures().fixturesPath = 'base/js/unit-test-ajax-data';
-
   describe('Eu Form Utils', function(){
 
     beforeEach(function() {
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/util';
       window.loadFixtures('fx-eu-form-utils.html');
     });
 
@@ -410,8 +408,6 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
         newTemplate = newTemplate.replace(/>/g, '&gt;');
         newTemplate = newTemplate.replace(/"/g, '&quot;');
 
-        console.log('newTemplate ' + newTemplate);
-
         $el.data('template', newTemplate);
         EuFormUtils.initArrayFields('template');
 
@@ -431,9 +427,6 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
           }, waitTime);
         }, waitTime);
       });
-
-
-
     });
 
   });

@@ -1,11 +1,11 @@
 define(['jasmine_jquery', 'util_foldable'], function(x, uf){
   'use strict';
-  var basePath                       = 'base/js/unit-test-fixtures/';
-  jasmine.getFixtures().fixturesPath = basePath;
+  var basePath = 'base/js/unit-test-fixtures/';
 
   describe('Eu Foldable', function(){
 
     beforeEach(function(done){
+      jasmine.getFixtures().fixturesPath = basePath;
       window.loadFixtures('util/fx-foldable.html');
       done();
     });

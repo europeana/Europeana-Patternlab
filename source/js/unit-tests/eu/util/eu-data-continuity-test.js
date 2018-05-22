@@ -2,12 +2,10 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
   'use strict';
 
   window.id          = 'main-test-window';
-  var basePath       = 'base/js/unit-test-fixtures';
+  var basePath       = 'base/js/unit-test-fixtures/util';
   var fixtureUrl     = '/' + basePath + '/fx-eu-data-continuity.html';
   var fixtureUrlLink = 'fx-eu-data-continuity-link.html';
   var testSessionId;
-
-  jasmine.getFixtures().fixturesPath = basePath;
 
   describe('Eu Data Continuity', function(){
 
@@ -15,6 +13,8 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
     var waitTime      = 1000;
 
     beforeEach(function(done){
+
+      jasmine.getFixtures().fixturesPath = basePath;
 
       DataContinuity.reset();
       localStorage.clear();

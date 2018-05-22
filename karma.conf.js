@@ -30,6 +30,12 @@ module.exports = function(config) {
         watched:  true,
         served:   true,
       },
+      {
+        pattern: 'js/unit-test-ajax-data/**/*.json',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
       {pattern: 'js/unit-tests/lib/*.js', included: false},
       {pattern: 'js/modules/eu/**/*.js',  included: false},
       {pattern: 'js/modules/eu/**/*.css', included: false},

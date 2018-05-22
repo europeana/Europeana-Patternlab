@@ -29,6 +29,7 @@ requirejs.config({
     purl:                      '../../lib/purl/purl',
     util_ellipsis:             '../../eu/util/eu-ellipsis',
     util_foldable:             '../../eu/util/foldable-list',
+    util_filterable:           '../../eu/util/foldable-list-filter',
     util_form:                 '../../eu/util/eu-form-utils',
     util_resize:               '../../eu/util/resize'
   },

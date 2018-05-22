@@ -3,14 +3,15 @@ define(['jquery', 'jasmine_jquery'], function(){
   'use strict';
   var basePath     = 'base/js/unit-test-fixtures/';
   var basePathJson = '/base/js/unit-test-ajax-data';
-  jasmine.getJSONFixtures().fixturesPath = basePathJson;
-  jasmine.getFixtures().fixturesPath = basePath;
 
   describe('Eu Light Carousel', function(){
 
     var EuLC;
 
     beforeEach(function(done){
+
+      jasmine.getJSONFixtures().fixturesPath = basePathJson;
+      jasmine.getFixtures().fixturesPath = basePath;
 
       window.loadFixtures('fx-eu-light-carousel.html');
 

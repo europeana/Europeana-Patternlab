@@ -20,12 +20,13 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
   var instance;
   var inputSelector                      = '#input-el';
-  jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
-  jasmine.getJSONFixtures().fixturesPath = 'base/js/unit-test-ajax-data';
 
   describe('Eu Autocomplete', function(){
 
     beforeEach(function() {
+
+      jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
+      jasmine.getJSONFixtures().fixturesPath = 'base/js/unit-test-ajax-data';
 
       window.loadFixtures('fx-eu-autocomplete.html');
       window.loadJSONFixtures('autocomplete.json');
