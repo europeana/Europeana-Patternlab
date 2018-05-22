@@ -256,9 +256,16 @@
         }
 
         .zoomable{
-          -webkit-transition: width 0.3s ease-out;
-          transition:         width 0.3s ease-out;
-          width:              100%;
+          &:not(.busy){
+            -webkit-transition: width 0.3s ease-out;
+            transition:         width 0.3s ease-out;
+            width:              100%;
+          }
+        }
+
+        .zoomable > img{
+          display: block;
+          margin:  auto;
         }
       }
 
