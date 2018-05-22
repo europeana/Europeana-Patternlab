@@ -505,6 +505,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         var initW = Math.min(minWidthMedia, $('.zoomable > img').width());
 
         removeOldMedia();
+        updateCtrls();
 
         $('.zoomable').addClass('busy').css('width', initW);
         $('<img style="background-image:url(' + thumbnail + '); display:block; margin:auto; width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
