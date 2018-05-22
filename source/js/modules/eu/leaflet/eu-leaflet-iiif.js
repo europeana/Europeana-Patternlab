@@ -1,4 +1,4 @@
-require(['leaflet_iiif'], function(){
+define(['leaflet_iiif'], function(){
 
   var L = window.L;
 
@@ -23,4 +23,5 @@ require(['leaflet_iiif'], function(){
     return new L.TileLayer.Iiif.Eu(url, options);
   };
 
+  return L.tileLayer.iiif.eu;
 });
