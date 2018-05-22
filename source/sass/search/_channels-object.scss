@@ -1007,6 +1007,10 @@
 
   @media all and (min-width: $bp-med) {
 
+    .media-poster{
+      min-width: $min-width-media;
+    }
+
     .object-details::after{
       content: '["#{$min-width-media}", "#{$bp-med}"]';
       width:   1px;
@@ -1116,6 +1120,12 @@
 
       .single-item-thumb-sizer{
         visibility: hidden;
+      }
+    }
+
+    .object-details:not(.zoom-one):not(.zoom-two){
+      .zoomable{
+        margin: auto;
       }
     }
 

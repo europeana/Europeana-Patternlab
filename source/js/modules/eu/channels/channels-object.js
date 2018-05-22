@@ -9,6 +9,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   var audioPlayer     = null;
   var nextItem        = null;
   var prevItem        = null;
+  var minWidthMedia   = 400;
 
   var transitionEvent = (function (){
     var t;
@@ -227,7 +228,20 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function resetZoomable(){
     setTimeout(function(){
-      $('.zoomable').css('width', '100%');
+      var zoomable = $('.zoomable');
+      var limit    = false;
+
+      if(zoomable.hasClass('busy')){
+        return;
+      }
+      if(zoomable.hasClass('image-mode')){
+        if(getColsAvailable() === 2){
+          if(zoomable.closest('.zoom-one, .zoom-two').length === 0){
+            limit = true;
+          }
+        }
+      }
+      zoomable.css('width', limit ? minWidthMedia + 'px' : '100%');
     }, 1);
   }
 
@@ -245,27 +259,44 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     return cmp.height() > tallest;
   }
 
+  function getColsAvailable(){
+    return parseInt(getComputedStyle($('.object-details')[0], ':after')['width']);
+  }
+
   function getZoomLevels(){
 
-    var colsAvailable    = parseInt(getComputedStyle($('.object-details')[0], ':after')['width']);
-    var zoomLevelsNeeded = colsAvailable;
-    var current          = $('.cho-media-nav a.is-current');
+    var colsAvailable   = getColsAvailable();
+    var current         = $('.cho-media-nav a.is-current');
+    var availableLevels = colsAvailable === 1 ? ['zoom-two'] : ['zoom-one', 'zoom-two'];
 
     if(current.data('type') === 'image'){
 
-      var naturalWidth  = current.data('natural-width');
-      var sizes         = getComputedStyle($('.object-details')[0], ':after')['content'];
-      sizes             = JSON.parse(JSON.parse(sizes));
-      zoomLevelsNeeded  = 0;
+      var zoomLevelsNeeded = colsAvailable;
+      var naturalWidth     = current.data('natural-width');
+      var sizes            = getComputedStyle($('.object-details')[0], ':after')['content'];
+      sizes                = JSON.parse(JSON.parse(sizes));
+      zoomLevelsNeeded     = 0;
 
-      $.each(sizes, function(i, size){
-        var pxSize = size.indexOf('px') > -1 ? parseInt(size) : parseInt(size) * 16;
-        if(naturalWidth > pxSize){
+      if(colsAvailable === 1){
+        if(naturalWidth > $('.object-media-viewer').width()){
           zoomLevelsNeeded ++;
         }
-      });
+      }
+      else{
+        $.each(sizes, function(i, size){
+          var pxSize = size.indexOf('px') > -1 ? parseInt(size) : parseInt(size) * 16;
+
+          if(naturalWidth > pxSize){
+            console.log('naturalWidth (' + naturalWidth + ') > pxSize (' + pxSize  +')');
+            zoomLevelsNeeded ++;
+          }
+        });
+      }
+      return availableLevels.slice(0, Math.min(colsAvailable, zoomLevelsNeeded));
     }
-    return ['zoom-one', 'zoom-two'].slice(0, Math.min(colsAvailable, zoomLevelsNeeded));
+    else{
+      return availableLevels.slice(0, colsAvailable);
+    }
   }
 
   function bindMediaUI(){
@@ -300,7 +331,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       }
       else{
         $zoomEl.addClass('js-busy');
-
         var zoomLevels = getZoomLevels();
         if($zoomEl.hasClass('zoom-one') && zoomLevels.length > 1){
           $zoomEl.addClass('zoom-two');
@@ -465,23 +495,41 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       return;
     }
 
+    if(type !== 'image'){
+      $('.zoomable').removeClass('image-mode');
+    }
     if(type === 'image'){
+
+      var showImage = function(){
+
+        var initW = Math.min(minWidthMedia, $('.zoomable > img').width());
+
+        removeOldMedia();
+
+        $('.zoomable').addClass('busy').css('width', initW);
+        $('<img style="background-image:url(' + thumbnail + '); display:block; margin:auto; width:' + initW + 'px;">').appendTo('.zoomable').attr('src', uri);
+
+        setTimeout(function(){
+          $('.zoomable > img').removeAttr('style');
+          $('.zoomable').removeClass('busy');
+          resetZoomable();
+        }, 333);
+      };
+
+      $('.zoomable').addClass('image-mode');
 
       setZoom();
 
       $('.object-details').removeClass('locked');
 
-      if(!isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
-        $('.zoomable').css('width', '400px');
-      }
+      // if(!isStacked(omv, '.media-poster, .channel-object-media-nav')){
+      //  $('.zoomable').css('width', '400px');
+      // }
 
       $('.media-options').show();
 
       if(item.data('natural-width')){
-        removeOldMedia();
-        $('<img>').appendTo('.zoomable').attr('src', uri);
-        log('img natural-width found');
-        updateCtrls();
+        showImage();
       }
       else{
         require(['jqImagesLoaded'], function(){
@@ -494,12 +542,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
               if(nWidth > 0){
                 item.data('natural-width', nWidth);
                 $('#img-measure').remove();
-
-                removeOldMedia();
-
-                $('<img>').appendTo('.zoomable').attr('src', uri);
-                updateCtrls();
-                resetZoomable();
+                showImage();
               }
               else{
                 if(attempt > 5){
@@ -803,13 +846,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     var zoomable = $('.zoomable');
 
+    if(zoomable.hasClass('busy')){
+      return;
+    }
+
     zoomable.off(transitionEvent);
     zoomable.css('width', zoomable.width() + 'px');
 
     setTimeout(function(){
       zoomable.on(transitionEvent, function(e){
         if(e.originalEvent.propertyName === 'width'){
-          if($(e.target).attr('class') === 'zoomable'){
+          if($(e.target).hasClass('zoomable')){
             updateCtrls();
             fixZoomableWidth();
             $(window).trigger('refresh-leaflet-map');
