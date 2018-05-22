@@ -2,6 +2,8 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
 
   'use strict';
   // jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+  var basePath                       = 'base/js/unit-test-fixtures/';
+  jasmine.getFixtures().fixturesPath = basePath;
 
   describe('Eu Accordion Tabs', function(){
 
@@ -264,11 +266,8 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
               expect(callingTabIndexes[2]).toBe(1);
               done();
             }, 100);
-
           }, 100);
         }, 100);
-
-
       });
 
     });
@@ -283,28 +282,32 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
         window.loadJSONFixtures(jsonFile);
       });
 
-      it('can load data', function(done){
+      it('allows the pre-processing of loaded data', function(done){
 
-        var callbackCalled   = false;
-        var preProcessCalled = false;
-
-        var callback = function(){
-          callbackCalled = true;
-        };
-
-        var preProcess = function(){
-          preProcessCalled = true;
-        };
+        var fnPreProcess = spyOn({ loadTabsPreProcess: function(){} }, 'loadTabsPreProcess');
 
         $el.find('.tab-header').data('content-url', basePathJson + '/' + jsonFile);
-        EuAccordionTabs.loadTabs($el, preProcess, callback);
+        EuAccordionTabs.loadTabs($el, fnPreProcess);
 
         setTimeout(function(){
-          expect(callbackCalled).toBe(true);
-          expect(preProcessCalled).toBe(true);
+          expect(fnPreProcess).toHaveBeenCalled();
           done();
         }, 10);
       });
+
+      it('executes a callback after loading data', function(done){
+
+        var callback = spyOn({ loadTabsCB: function(){} }, 'loadTabsCB');
+
+        $el.find('.tab-header').data('content-url', basePathJson + '/' + jsonFile);
+        EuAccordionTabs.loadTabs($el, null, callback);
+
+        setTimeout(function(){
+          expect(callback).toHaveBeenCalled();
+          done();
+        }, 10);
+      });
+
     });
 
   });

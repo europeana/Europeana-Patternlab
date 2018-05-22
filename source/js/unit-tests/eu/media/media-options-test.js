@@ -35,12 +35,10 @@ define(['jquery', 'media_options', 'jasmine_jquery'], function($, EuMediaOptions
 
 
     it('allows custom handlers to be defined', function(){
-      var customHandlerCalled = false;
-      EuMediaOptions.addHandler('IIIF', function(){
-        customHandlerCalled = true;
-      });
+      var fn = spyOn({'customHandler': function(){}}, 'customHandler');
+      EuMediaOptions.addHandler('IIIF', fn);
       testEl.trigger('IIIF');
-      expect(customHandlerCalled).toBe(true);
+      expect(fn).toHaveBeenCalled();
     });
 
     // it('(vets zoom resize)', function(){});

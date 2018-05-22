@@ -20,6 +20,7 @@ The control icons are from a custom font. Each icon corresponds to a character
 (e.g. "\e001"). Font icons allow for easy scaling and coloring of icons.
 */
 
+/*
 @font-face {
   font-family: 'VideoJS';
   src: url('/fonts/videojs/vjs.eot');
@@ -27,6 +28,7 @@ The control icons are from a custom font. Each icon corresponds to a character
   font-weight: normal;
   font-style: normal;
 }
+*/
 
 /* Base UI Component Classes
 --------------------------------------------------------------------------------
@@ -55,7 +57,8 @@ The control icons are from a custom font. Each icon corresponds to a character
   top: 0;
 }
 .vjs-default-skin .vjs-slider-handle:before {
-  content: "\e009";
+  //content: "\e009";
+  content: " ";
   //font-family: VideoJS;
   //font-size: 1em;
   //line-height: 1;
@@ -233,8 +236,10 @@ fonts to show/hide properly.
   width: 5em;
   cursor: pointer;
 }
+
 .vjs-default-skin .vjs-play-control:before {
-  content: "\e001";
+  // content: "\e001";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-play.svg);
   color: transparent;
@@ -242,8 +247,11 @@ fonts to show/hide properly.
   margin: 0.7em 0 0 1em;
 
 }
+
+
 .vjs-default-skin.vjs-playing .vjs-play-control:before {
-  content: "\e002";
+  //  content: "\e002";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-pause.svg);
   color: transparent;
@@ -251,6 +259,7 @@ fonts to show/hide properly.
   margin: 0.7em 0 0 1em;
 
 }
+
 /* Playback toggle
 --------------------------------------------------------------------------------
 */
@@ -277,27 +286,35 @@ fonts to show/hide properly.
   cursor: pointer;
   float: right;
 }
+
 .vjs-default-skin .vjs-mute-control:before,
 .vjs-default-skin .vjs-volume-menu-button:before {
-  content: "\e006";
+  //  content: "\e006";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-vol-max.svg);
   color: transparent;
   background-repeat: no-repeat;
   margin: 0.7em 0 0 1em;
 }
+
+
 .vjs-default-skin .vjs-mute-control.vjs-vol-0:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
-  content: "\e003";
+  // content: "\e003";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-vol-off.svg);
   color: transparent;
   background-repeat: no-repeat;
   margin: 0.7em 0 0 1em;
 }
+
+
 .vjs-default-skin .vjs-mute-control.vjs-vol-1:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-1:before {
-  content: "\e004";
+  //  content: "\e004";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-vol-min.svg);
   color: transparent;
@@ -306,13 +323,15 @@ fonts to show/hide properly.
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-2:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2:before {
-  content: "\e005";
+  //  content: "\e005";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-vol-med.svg);
   color: transparent;
   background-repeat: no-repeat;
   margin: 0.7em 0 0 1em;
 }
+
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
   float: right;
@@ -519,17 +538,21 @@ fonts to show/hide properly.
   cursor: pointer;
   float: right;
 }
+
 .vjs-default-skin .vjs-fullscreen-control:before {
-  content: "\e000";
+  // content: "\e000";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-fullscreen.svg);
   color: transparent;
   background-repeat: no-repeat;
   margin: 0.6em 0 0 0.5em;
 }
+
 /* Switch to the exit icon when the player is in fullscreen */
+
 .vjs-default-skin.vjs-fullscreen .vjs-fullscreen-control:before {
-  content: "\e00b";
+  content: " ";
   background-size: 16px 16px;
   background-image: url(icon-compress.svg);
   color: transparent;
@@ -613,7 +636,8 @@ easily in the skin designer. http://designer.videojs.com/
   transition: all 0s;
 }
 .vjs-default-skin .vjs-big-play-button:before {
-  content: "\e001";
+  //content: "\e001";
+  content: " ";
   font-family: VideoJS;
   /* In order to center the play icon vertically we need to set the line height
      to the same as the button height */
@@ -715,7 +739,8 @@ easily in the skin designer. http://designer.videojs.com/
   animation: none;
 }
 .vjs-default-skin .vjs-loading-spinner:before {
-  content: "\e01e";
+  //content: "\e01e";
+  content: " ";
   background-size: 18px 18px;
   background-image: url(icon-spinner.svg);
   color: transparent;
@@ -855,16 +880,24 @@ easily in the skin designer. http://designer.videojs.com/
 }
 /* Subtitles Button */
 .vjs-default-skin .vjs-subtitles-button:before {
-  content: "\e00c";
+  // content: "\e00c";
+  content: ' ';
 }
+
 /* Captions Button */
+
 .vjs-default-skin .vjs-captions-button:before {
-  content: "\e008";
+  // content: "\e008";
+  content: ' ';
 }
+
 /* Chapters Button */
+
 .vjs-default-skin .vjs-chapters-button:before {
-  content: "\e00c";
+  // content: "\e00c";
+  content: ' ';
 }
+
 .vjs-default-skin .vjs-chapters-button.vjs-menu-button .vjs-menu .vjs-menu-content {
   width: 24em;
   left: -12em;
@@ -1127,4 +1160,3 @@ https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
       margin-right:2em;
     }
 }
-

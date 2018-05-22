@@ -11,9 +11,7 @@ requirejs.config({
   paths: {
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
-
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
-
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     jasmine_jquery:            '../../../unit-tests/lib/jasmine-jquery',
@@ -30,6 +28,7 @@ requirejs.config({
     mustache:                  '../../lib/mustache/mustache',
     purl:                      '../../lib/purl/purl',
     util_ellipsis:             '../../eu/util/eu-ellipsis',
+    util_foldable:             '../../eu/util/foldable-list',
     util_form:                 '../../eu/util/eu-form-utils',
     util_resize:               '../../eu/util/resize'
   },
@@ -38,6 +37,9 @@ requirejs.config({
       deps:['jquery']
     },
     purl:{
+      deps:['jquery']
+    },
+    jqScrollto:{
       deps:['jquery']
     }
   },

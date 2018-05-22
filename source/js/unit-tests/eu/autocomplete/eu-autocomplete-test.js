@@ -121,8 +121,21 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
     });
 
-    //it('it executes a callback', function(){
-    //});
+    // callback: ops.fnOnEnter
+    // callback: ops.fnOnHide
+    // callback: ops.fnOnSelect
+
+    // ops.textMatch
+    // ops.form  >> self.ops.form.submit
+
+    // fnKeyup key 40 (down)
+    // fnKeyup key 38 (up)
+    // fnKeyup key 13 (carriage return)
+
+    // fnKeyup 37 / 39 left-right (left)
+    // fnKeyup 37 / 39 left-right (right)
+
+    // fnKeyup 27 (esc)
 
   });
 });

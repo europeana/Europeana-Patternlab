@@ -6,7 +6,7 @@ define(['jquery'], function($){
     hideClass :         'filter-force-hide'
   };
 
-  $('.eu-foldable-title').on('click', function(){
+  $(document).on('click', '.eu-foldable-title', function(){
     var $this = $(this);
 
     // reset any filter

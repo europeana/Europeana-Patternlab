@@ -125,15 +125,10 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
 
       it('invokes a callback whenever evaluated', function(){
 
-        var callback = { method: function(){ console.log('callback'); } };
-        spyOn(callback, 'method');
-
-        EuFormUtils.initMakesOptional(callback.method);
-
-        expect(callback.method).not.toHaveBeenCalled();
+        var callback = spyOn({ makesOptionalCallback: function(){}}, 'makesOptionalCallback');
+        EuFormUtils.initMakesOptional(callback);
         elMakesOptionalCB.click();
-        expect(callback.method).toHaveBeenCalled();
-
+        expect(callback).toHaveBeenCalled();
       });
 
     });
