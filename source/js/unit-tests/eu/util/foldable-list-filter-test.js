@@ -43,10 +43,6 @@ define(['jasmine_jquery', 'util_filterable', 'jquery'], function(x, Filter, $){
       setTimeout(function(){
         expect(thirdItem.next('.eu-foldable-data').find('li:visible').length).toEqual(5);
 
-        elInput.val('A');
-        elInput.keydown();
-        elInput.keyup();
-
         elInput.val('Aj');
         elInput.keydown();
         elInput.keyup();
@@ -58,7 +54,7 @@ define(['jasmine_jquery', 'util_filterable', 'jquery'], function(x, Filter, $){
       }, waitTime);
     });
 
-    it('shows hidden items if they match', function(done){
+    it('shows matching items even if hidden', function(done){
 
       expect($('.eu-foldable-data li:visible').length).toEqual(0);
 
@@ -67,8 +63,26 @@ define(['jasmine_jquery', 'util_filterable', 'jquery'], function(x, Filter, $){
       elInput.keyup();
 
       setTimeout(function(){
-        console.log($('.eu-foldable-data li:visible').length);
         expect($('.eu-foldable-data li:visible').length).toEqual(8);
+        done();
+      }, waitTime);
+    });
+
+    it('is case insensitive', function(done){
+
+      elInput.val('bavaria');
+      elInput.keydown();
+      elInput.keyup();
+
+      setTimeout(function(){
+
+        var text = $('.eu-foldable-data li a:visible').contents().filter(function() {
+          return this.nodeType == Node.TEXT_NODE;
+        }).text();
+
+        expect(text.indexOf('bavaria')).toEqual(-1);
+        expect(text.indexOf('Bavaria')).toBeGreaterThan(-1);
+
         done();
       }, waitTime);
     });

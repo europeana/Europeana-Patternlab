@@ -18,8 +18,8 @@ define(['jquery'], function($){
 
     // expand / collapse
     if(!openedByFilter){
-      var $ul   = $this.next('ul');
-      $ul.toggleClass('is-hidden');
+      var $ul = $this.next('ul');
+      $ul.toggleClass('eu-foldable-hidden');
       $this.toggleClass('opened');
     }
   });

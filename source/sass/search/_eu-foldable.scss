@@ -2,6 +2,11 @@
   display: inline;
 }
 
+.eu-foldable-hidden{
+  display:    none;
+  visibility: none;
+}
+
 .eu-filter{
   border-color:  $gray80;
   border-radius: 2em;
@@ -16,11 +21,11 @@
 }
 
 .filter-force-hide{
-  display: none !important;
+  display: none;
 }
 
 .filter-force-show{
-  display: block !important;
+  display: block;
   &.filter-force-show-children{
     .eu-foldable-title{
       >a{
@@ -32,7 +37,7 @@
         }
       }
     }
-    .eu-foldable-data.is-hidden{
+    .eu-foldable-data.eu-foldable-hidden{
       display:    block   !important;
       visibility: visible !important;
     }
@@ -71,7 +76,7 @@
       border-color: transparent transparent transparent #a4cde1; // override when opened
       border-style: dashed dashed dashed solid;                  // override when opened
       border-width: 5px;                                         // tweak size of the arrow
-      bottom:       0.45em;                                          // override when opened
+      bottom:       0.45em;                                      // override when opened
       content:      ' ';
       height:       0;
       margin-left:  5px;
