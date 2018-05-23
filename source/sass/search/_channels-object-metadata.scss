@@ -72,62 +72,61 @@
       }
     }
 
-    .ctrl{
-      font-size: 1rem;
-    }
-
-    .ctrl,
-    .ctrl .icon{
-      display:  block;
-      height:   1.5em;
-      width:    1.5em;
-    }
-
     .closed{
       .subsection-content{
         display: none;
       }
     }
+
     .closed{
       .close{
         display: none;
       }
       .open{
-        display: block;
+        display: flex;
       }
     }
 
     :not(.closed){
       .close{
-        display: block;
+        display: flex;
       }
       .open{
         display: none;
       }
     }
 
+    .ctrl .icon{
+      align-self: center;
+      display:    block;
+      height:     1.2em;
+      width:      1.2em;
+    }
+
     .ctrl{
-      border:   1px solid #ccc;
-      cursor:   pointer;
-      position: absolute;
-      right:    0;
-      top:      1.6em;
+      border:          1px solid #ccc;
+      cursor:          pointer;
+      display:         flex;
+      font-size:       1rem;
+      height:          1.5em;
+      justify-content: center;
+      position:        absolute;
+      right:           0;
+      top:             1.6em;
+      width:           1.5em;
 
       &.close{
-        padding: 5px;
-
         .icon{
-          -webkit-transform: scale(0.45) translate(-0.85em, -0.95em);
-          transform:         scale(0.45) translate(-0.85em, -0.95em);
+          -webkit-transform: scale(0.5);
+          transform:         scale(0.5) translateY(-0.2em);
         }
       }
 
       &.open{
         .icon{
-          background-position: 0.12em 0.1em;
-
-          -webkit-transform:   scale(0.7) translate(-0.05em, -0.05em);
-          transform:           scale(0.7) translate(-0.05em, -0.05em);
+          background-position: 0.135em 0.1em;
+          -webkit-transform:   scale(0.7);
+          transform:           scale(0.7);
         }
       }
 
@@ -172,13 +171,8 @@
 
       .ctrl,
       .ctrl .icon{
-        display:  block;
         height:   1.15em;
         width:    1.15em;
-      }
-
-      .ctrl.open .icon{
-        background-position: 0.12em 0.1em;
       }
     }
 
