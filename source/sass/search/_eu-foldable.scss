@@ -1,3 +1,5 @@
+$foldable-arrow-color: #a4cde1;
+
 .eu-foldable .multi-val{
   display: inline;
 }
@@ -31,15 +33,15 @@
       >a{
         &::after{
           // arrows opened
-          border-color: #a4cde1 transparent transparent !important;
-          border-style: solid dashed dashed             !important;
-          bottom: 2px                                   !important;
+          border-color: $foldable-arrow-color transparent transparent;
+          border-style: solid dashed dashed;
+          bottom: 2px;
         }
       }
     }
     .eu-foldable-data.eu-foldable-hidden{
-      display:    block   !important;
-      visibility: visible !important;
+      display:    block;
+      visibility: visible;
     }
   }
 }
@@ -73,7 +75,7 @@
 
     &::after{
       // arrows closed
-      border-color: transparent transparent transparent #a4cde1; // override when opened
+      border-color: transparent transparent transparent $foldable-arrow-color; // override when opened
       border-style: dashed dashed dashed solid;                  // override when opened
       border-width: 5px;                                         // tweak size of the arrow
       bottom:       0.45em;                                      // override when opened
@@ -89,7 +91,7 @@
   &.opened > a{
     &::after{
       // arrows opened
-      border-color: #a4cde1 transparent transparent;
+      border-color: $foldable-arrow-color transparent transparent;
       border-style: solid dashed dashed;
       bottom:       2px;
     }
