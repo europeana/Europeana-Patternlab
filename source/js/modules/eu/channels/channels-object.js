@@ -1414,6 +1414,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     requestPromos(function(markup){
 
+      $('.collections-promo-item-preload').remove();
+
       if(markup && markup.length > 0){
 
         $('.channel-object-actions .slide-rail').empty().append(markup);
