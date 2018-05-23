@@ -1,10 +1,7 @@
 define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Processor){
   'use strict';
 
-  var basePathJson = '/base/js/unit-test-ajax-data';
-
-  jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
-  jasmine.getJSONFixtures().fixturesPath = basePathJson;
+  var basePathJson = '/base/js/unit-test-ajax-data/media';
 
   describe('IIIF Text Processor', function(){
 
@@ -14,6 +11,9 @@ define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Pr
 
     beforeEach(function(done){
 
+      jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures/media';
+      jasmine.getJSONFixtures().fixturesPath = basePathJson;
+
       window.loadFixtures('fx-iiif-texts.html');
       window.loadJSONFixtures(jsonFile);
 
@@ -21,7 +21,7 @@ define(['jquery', 'media_iiif_text_processor', 'jasmine_jquery'], function($, Pr
         json = jsonIn;
         done();
       });
-      
+
       pnlTranscriptions = $('.transcriptions');
     });
 

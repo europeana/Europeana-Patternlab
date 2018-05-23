@@ -1,0 +1,118 @@
+$foldable-arrow-color: #a4cde1;
+
+.eu-foldable .multi-val{
+  display: inline;
+}
+
+.eu-foldable-hidden{
+  display:    none;
+  visibility: none;
+}
+
+.eu-filter{
+  border-color:  $gray80;
+  border-radius: 2em;
+  margin-bottom: 1.5em;
+  outline:       0 none;
+  padding:       0.25em 0.25em 0.25em 0.75em;
+  width:         18em;
+
+  &:focus{
+    border-color: $linkblue;
+  }
+}
+
+.filter-force-hide{
+  display: none;
+}
+
+.filter-force-show{
+  display: block;
+  &.filter-force-show-children{
+    .eu-foldable-title{
+      >a{
+        &::after{
+          // arrows opened
+          border-color: $foldable-arrow-color transparent transparent;
+          border-style: solid dashed dashed;
+          bottom: 2px;
+        }
+      }
+    }
+    .eu-foldable-data.eu-foldable-hidden{
+      display:    block;
+      visibility: visible;
+    }
+  }
+}
+
+.eu-foldable-url:not(.inline),
+.eu-foldable-title:not(.inline),
+.eu-foldable-data:not(.inline){
+  display: table-cell;
+}
+
+.eu-foldable-data{
+  padding-left: $space;
+  li{
+    padding-bottom: 1em;
+  }
+}
+
+.eu-foldable-url,
+.eu-foldable-title{
+  margin-bottom: 0;
+  padding-bottom: 1em;
+}
+
+.eu-foldable-title{
+  >a {
+    display:       block;
+    padding-right: 1em;
+    position:      relative;
+    white-space:   normal;
+    word-wrap:     normal;
+
+    &::after{
+      // arrows closed
+      border-color: transparent transparent transparent $foldable-arrow-color; // override when opened
+      border-style: dashed dashed dashed solid;                  // override when opened
+      border-width: 5px;                                         // tweak size of the arrow
+      bottom:       0.45em;                                      // override when opened
+      content:      ' ';
+      height:       0;
+      margin-left:  5px;
+      overflow:     hidden;
+      position:     absolute;
+      top:          auto;
+      width:        0;
+    }
+  }
+  &.opened > a{
+    &::after{
+      // arrows opened
+      border-color: $foldable-arrow-color transparent transparent;
+      border-style: solid dashed dashed;
+      bottom:       2px;
+    }
+  }
+  &.eu-foldable-top-level{
+    > a{
+      margin-top: 0;
+    }
+  }
+}
+
+.eu-foldable-title.inline{
+  >a {
+    white-space: normal;
+    &::after{
+      bottom: 0.25em;
+      margin-top: 0;
+    }
+  }
+}
+
+.eu-foldable-subtitle{
+  margin: 1em 0 0;
+}

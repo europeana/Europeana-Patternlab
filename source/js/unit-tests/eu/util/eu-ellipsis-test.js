@@ -1,8 +1,6 @@
 define(['util_ellipsis', 'jasmine_jquery'], function(Ellipsis){
   'use strict';
 
-  jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures';
-
   describe('Eu Ellipsis', function(){
 
     var testStringShort  = 'Short';
@@ -11,6 +9,7 @@ define(['util_ellipsis', 'jasmine_jquery'], function(Ellipsis){
     var testEl;
 
     beforeEach(function(){
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/util';
       window.loadFixtures('fx-eu-ellipsis.html');
       testEl = $('.test.test-1');
     });

@@ -19,7 +19,19 @@ module.exports = function(config) {
         served:   true,
       },
       {
+        pattern: 'js/unit-test-fixtures/**/*.html',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
+      {
         pattern: 'js/unit-test-ajax-data/*.json',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
+      {
+        pattern: 'js/unit-test-ajax-data/**/*.json',
         included: false,
         watched:  true,
         served:   true,

@@ -1,14 +1,17 @@
 define(['jquery', 'jasmine_jquery'], function(){
 
   'use strict';
+  var basePath     = 'base/js/unit-test-fixtures/';
   var basePathJson = '/base/js/unit-test-ajax-data';
-  jasmine.getJSONFixtures().fixturesPath = basePathJson;
 
   describe('Eu Light Carousel', function(){
 
     var EuLC;
 
     beforeEach(function(done){
+
+      jasmine.getJSONFixtures().fixturesPath = basePathJson;
+      jasmine.getFixtures().fixturesPath = basePath;
 
       window.loadFixtures('fx-eu-light-carousel.html');
 
@@ -57,9 +60,8 @@ define(['jquery', 'jasmine_jquery'], function(){
 
       it('reacts to element resizing by re-evaluating scrollability', function(done){
 
-        var callMade        = false;
         var navRight        = $('.example-1 .nav-right');
-        var _ResizeObserver = window.ResizeObserver;
+        var _ResizeObserver = window.ResizeObserver; // store native behaviour here
         var execObserved    = [];
         var $scrollable     = $('.example-1 .lc-scrollable');
 
@@ -75,13 +77,13 @@ define(['jquery', 'jasmine_jquery'], function(){
           }
 
           this.entries.push({'target': el});
-          callMade = true;
 
           var that = this;
           execObserved.push(function(){
             that.fn($(that.entries));
           });
         };
+        var spyObserve = spyOn(window.ResizeObserver.prototype, 'observe').and.callThrough();
 
         if(!$scrollable.hasClass('js-bound')){
           // jasmine work-around: we expect the markup to be present on dom ready
@@ -94,7 +96,8 @@ define(['jquery', 'jasmine_jquery'], function(){
         $(document).trigger('eu-light-carousel-styled');
 
         setTimeout(function(){
-          expect(callMade).toBe(true);
+
+          expect(spyObserve).toHaveBeenCalled();
           expect(navRight).not.toBeHidden();
 
           navRight.hide();
