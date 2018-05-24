@@ -9,15 +9,23 @@
     font-size: 1rem;
   }
 
+  .channel-object-information{
+    .data-group{
+      color: $gray-light;
+    }
+  }
+
+  .channel-object-extended-information{
+    .data-group{
+      color: $gray-med;
+    }
+  }
+
   .channel-object-extended-information,
   .channel-object-information{
 
     margin-top: $space;
     position:   relative;
-
-    .data-group{
-      color: $gray-med;
-    }
 
     .data-group,
     .eu-foldable-data{
