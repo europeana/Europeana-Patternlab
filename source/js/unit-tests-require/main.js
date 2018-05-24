@@ -19,9 +19,11 @@ requirejs.config({
     jquery:                    '../../lib/jquery/jquery',
     leaflet:                   '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:        '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
-    leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     leaflet_fullscreen:        '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
+    leaflet_minimap:           '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
     leaflet_iiif:              '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
+    leaflet_iiif_eu:           '../../eu/leaflet/eu-leaflet-iiif',
+    leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     media_iiif_text_processor: '../../eu/media/search-iiif-text-processor',
     media_viewer_iiif:         '../../eu/media/search-iiif-viewer',
     media_options:             '../../eu/media/media-options',
@@ -31,6 +33,7 @@ requirejs.config({
     util_foldable:             '../../eu/util/foldable-list',
     util_filterable:           '../../eu/util/foldable-list-filter',
     util_form:                 '../../eu/util/eu-form-utils',
+    util_promo_loader:         '../../eu/util/eu-promo-loader',
     util_resize:               '../../eu/util/resize'
   },
   shim: {
