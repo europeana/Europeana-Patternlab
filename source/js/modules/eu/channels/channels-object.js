@@ -1042,143 +1042,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     }
   }
 
-  function requestPromos(callback){
-
-    var href          = location.href;
-    var baseUrl       = href.replace('.html', '').split('?')[0];
-    var expected      = 6;
-    var returned      = 0;
-
-    var entityUrl     = baseUrl + '/entity.json';
-    var exhibitionUrl = baseUrl + '/exhibition.json';
-    var galleryUrl    = baseUrl + '/galleries.json';
-    var genericUrl    = baseUrl + '/promoted.json';
-    var newsUrl       = baseUrl + '/news.json';
-
-    var elements      = {};
-
-    var processCallback = function(Mustache, data, templateId, id){
-
-      var template = $('#' + templateId).text();
-      var html     = Mustache.render(template, data);
-
-      if(elements[id]){
-        elements[id].push(html);
-      }
-      else{
-        elements[id] = [html];
-      }
-    };
-
-    var done = function(){
-
-      if(returned === expected){
-
-        if(Object.keys(elements).length > 0){
-
-          var markup    = $('<div class="collections-promos js-swipe-not-stacked"></div>');
-          var sequence  = ['next', 'exhibition', 'gallery', 'news', 'entity', 'generic', 'previous'];
-
-          if(!elements['next']){
-            sequence.shift();
-            sequence.unshift(sequence.pop());
-          }
-
-          $(sequence).each(function(){
-
-            var key = this;
-            if(elements[key]){
-              $.each(elements[key], function(){
-                markup.append(this);
-              });
-            }
-          });
-        }
-        callback(markup);
-      }
-    };
-
-    require(['mustache'], function(Mustache){
-
-      Mustache.tags = ['[[', ']]'];
-
-      $.getJSON(entityUrl).done(function(data){
-        returned ++;
-        processCallback(Mustache, data, 'template-promo-entity', 'entity');
-        done();
-      }).error(function(){
-        log('no result for entities');
-        returned ++;
-        done();
-      });
-
-      $.getJSON(exhibitionUrl).done(function(data){
-        returned ++;
-        processCallback(Mustache, data.exhibition_promo, 'template-promo-exhibition', 'exhibition');
-        done();
-      }).error(function(){
-        log('no result for exhibitions');
-        returned ++;
-        done();
-      });
-
-      $.getJSON(galleryUrl).done(function(data){
-        returned ++;
-        if(data){
-          $.each(data, function(i, ob){
-            processCallback(Mustache, ob, 'template-promo-gallery', 'gallery');
-          });
-        }
-        done();
-      }).error(function(){
-        log('no result for galleries');
-        returned ++;
-        done();
-      });
-
-      if(nextItem || prevItem){
-        returned ++;
-        if(nextItem){
-          nextItem.is_next = true;
-          processCallback(Mustache, nextItem, 'template-promo-next-prev', 'next');
-        }
-        if(prevItem){
-          prevItem.is_prev = true;
-          processCallback(Mustache, prevItem, 'template-promo-next-prev', 'previous');
-        }
-        done();
-      }
-      else{
-        returned ++;
-        done();
-      }
-
-      $.getJSON(newsUrl).done(function(data){
-        returned ++;
-        $.each(data, function(i, ob){
-          processCallback(Mustache, ob, 'template-promo-news', 'news');
-        });
-        done();
-      }).error(function(){
-        log('no result for news');
-        returned ++;
-        done();
-      });
-
-      $.getJSON(genericUrl).done(function(data){
-        returned ++;
-        $.each(data, function(i, ob){
-          processCallback(Mustache, ob, 'template-promo-generic', 'generic');
-        });
-        done();
-      }).error(function(){
-        log('no result for generic');
-        returned ++;
-        done();
-      });
-    });
-  }
-
   function updateSlideNav(EuSlide, cmp, fwd, back){
 
     var nav = EuSlide.getNavOptions(cmp);
@@ -1412,37 +1275,87 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function makePromoRequest(){
 
-    requestPromos(function(markup){
+    require(['util_promo_loader'], function(PromoLoader){
 
-      $('.collections-promo-item-preload').remove();
+      var baseUrl = window.location.href.replace('.html', '').split('?')[0];
 
-      if(markup && markup.length > 0){
+      if(nextItem){
+        nextItem.is_next = true;
+      }
+      if(prevItem){
+        prevItem.is_prev = true;
+      }
 
-        $('.channel-object-actions .slide-rail').empty().append(markup);
-
-        promotions = $('.collections-promos');
-        $(window).trigger('promotionsAppended');
-
-        require(['util_slide'], function(EuSlide){
-          initPromos(EuSlide);
-          $(window).trigger('carouselResize');
-        });
-
-        var foyerCards = $('.ve-foyer-card');
-        if(foyerCards.length > 0){
-          require(['ve_state_card'], function(Card){
-            foyerCards.each(function(){
-              new Card($(this), {slideshow: false});
-            });
-          });
+      var promoLoaderConf = [
+        {
+          'id': 'next',
+          'preloaded': nextItem,
+          'templateId': 'template-promo-next-prev'
+        },
+        {
+          'id': 'exhibition',
+          'url': baseUrl + '/exhibition.json',
+          'templateId': 'template-promo-exhibition'
+        },
+        {
+          'id': 'gallery',
+          'url': baseUrl + '/galleries.json',
+          'templateId': 'template-promo-gallery'
+        },
+        {
+          'id': 'news',
+          'url': baseUrl + '/news.json',
+          'templateId': 'template-promo-news'
+        },
+        {
+          'id': 'entity',
+          'url': baseUrl + '/entity.json',
+          'templateId': 'template-promo-entity'
+        },
+        {
+          'id': 'generic',
+          'url': baseUrl + '/promoted.json',
+          'templateId': 'template-promo-generic'
+        },
+        {
+          'id': 'previous',
+          'preloaded': prevItem,
+          'templateId': 'template-promo-next-prev'
         }
-        resetZoomable();
-      }
-      else{
-        // $('.channel-object-actions .slide-rail').empty();
-        // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
-        // $(window).resize();
-      }
+      ];
+
+      PromoLoader.load(promoLoaderConf, function(markup){
+
+        $('.collections-promo-item-preload').remove();
+
+        if(markup && markup.length > 0){
+
+          $('.channel-object-actions .slide-rail').empty().append(markup);
+
+          promotions = $('.collections-promos');
+          $(window).trigger('promotionsAppended');
+
+          require(['util_slide'], function(EuSlide){
+            initPromos(EuSlide);
+            $(window).trigger('carouselResize');
+          });
+
+          var foyerCards = $('.ve-foyer-card');
+          if(foyerCards.length > 0){
+            require(['ve_state_card'], function(Card){
+              foyerCards.each(function(){
+                new Card($(this), {slideshow: false});
+              });
+            });
+          }
+          resetZoomable();
+        }
+        else{
+          // $('.channel-object-actions .slide-rail').empty();
+          // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
+          // $(window).resize();
+        }
+      });
     });
   }
 
