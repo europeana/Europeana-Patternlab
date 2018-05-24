@@ -19,16 +19,37 @@ module.exports = function(config) {
         served:   true,
       },
       {
+        pattern: 'js/unit-test-fixtures/**/*.html',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
+      {
         pattern: 'js/unit-test-ajax-data/*.json',
         included: false,
         watched:  true,
         served:   true,
       },
-      {pattern: 'js/unit-tests/lib/*.js', included: false},
-      {pattern: 'js/modules/eu/**/*.js',  included: false},
-      {pattern: 'js/modules/eu/**/*.css', included: false},
-      {pattern: 'js/modules/lib/**/*.js', included: false},
-      {pattern: 'js/unit-tests/**/*.js',  included: false},
+      {
+        pattern: 'js/unit-test-ajax-data/**/*.json',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
+      {
+        pattern: 'js/unit-test-ajax-data/**/*.jpg',
+        included: false,
+        watched:  true,
+        served:   true,
+      },
+
+      {pattern: 'js/unit-tests/lib/*.js',  included: false},
+      {pattern: 'js/modules/eu/**/*.js',   included: false},
+      {pattern: 'js/modules/eu/**/*.css',  included: false},
+      {pattern: 'js/modules/lib/**/*.js',  included: false},
+      {pattern: 'js/modules/lib/**/*.css', included: false},
+      {pattern: 'js/modules/require.js',  included: false},
+      {pattern: 'js/unit-tests/**/*.js',  included: false}
     ],
 
     // leave Jasmine Spec Runner output visible in browser

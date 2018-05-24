@@ -1,4 +1,5 @@
 @import 'mlt';
+@import 'eu-foldable';
 
 .search-object{
   margin-bottom: 0;
@@ -1031,122 +1032,10 @@
   }
 }
 
-.eu-foldable .multi-val{
-  display: inline;
-}
-
 .named-entity-section{
   display:      table-row;
   table-layout: fixed;
   width:        100%;
-}
-
-.eu-filter{
-  border-color:  $gray80;
-  border-radius: 2em;
-  margin-bottom: 1.5em;
-  outline:       0 none;
-  padding:       0.25em 0.25em 0.25em 0.75em;
-  width:         18em;
-
-  &:focus{
-    border-color: $linkblue;
-  }
-}
-
-.filter-force-hide{
-  display: none !important;
-}
-
-.filter-force-show{
-  display: block !important;
-  &.filter-force-show-children{
-    .eu-foldable-title{
-      >a{
-        &::after{
-          // arrows opened
-          border-color: #a4cde1 transparent transparent !important;
-          border-style: solid dashed dashed             !important;
-          bottom: 2px                                   !important;
-        }
-      }
-    }
-    .eu-foldable-data.is-hidden{
-      display:    block   !important;
-      visibility: visible !important;
-    }
-  }
-}
-
-.eu-foldable-url:not(.inline),
-.eu-foldable-title:not(.inline),
-.eu-foldable-data:not(.inline){
-  display: table-cell;
-}
-
-.eu-foldable-data{
-  padding-left: $space;
-  li{
-    padding-bottom: 1em;
-  }
-}
-
-.eu-foldable-url,
-.eu-foldable-title{
-  margin-bottom: 0;
-  padding-bottom: 1em;
-}
-
-.eu-foldable-title{
-  >a {
-    display:       block;
-    padding-right: 1em;
-    position:      relative;
-    white-space:   normal;
-    word-wrap:     normal;
-
-    &::after{
-      // arrows closed
-      border-color: transparent transparent transparent #a4cde1; // override when opened
-      border-style: dashed dashed dashed solid;                  // override when opened
-      border-width: 5px;                                         // tweak size of the arrow
-      bottom:       0.45em;                                          // override when opened
-      content:      ' ';
-      height:       0;
-      margin-left:  5px;
-      overflow:     hidden;
-      position:     absolute;
-      top:          auto;
-      width:        0;
-    }
-  }
-  &.opened>a{
-    &::after{
-      // arrows opened
-      border-color: #a4cde1 transparent transparent;
-      border-style: solid dashed dashed;
-      bottom:       2px;
-    }
-  }
-  &.eu-foldable-top-level{
-    >a{
-      margin-top: 0;
-    }
-  }
-}
-
-.eu-foldable-title.inline{
-  >a {
-    white-space: normal;
-    &::after{
-      bottom: 0.25em;
-      margin-top: 0;
-    }
-  }
-}
-
-.eu-foldable-subtitle{
-  margin: 1em 0 0;
 }
 
 @media all and (min-width: $bp-med) {

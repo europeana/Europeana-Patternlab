@@ -225,8 +225,13 @@ define(['jquery', 'util_resize'], function($){
       var current = currentImg + '';
 
       // add the mini map
-      if(config.miniMap && miniMapCtrls[current]){
-        addMiniMap(current);
+      if(config.miniMap){
+        if(miniMapCtrls[current]){
+          addMiniMap(current);
+        }
+        else if(miniMapCtrls['single']){
+          addMiniMap('single');
+        }
       }
 
       // update the $transcriptions
@@ -489,9 +494,11 @@ define(['jquery', 'util_resize'], function($){
           }
           else{
             window.blockIiifFitBounds = false;
-            setTimeout(function(){
-              iiifLayers[currentImg]._fitBounds(true);
-            }, 250);
+            if(iiifLayers[currentImg]){
+              setTimeout(function(){
+                iiifLayers[currentImg]._fitBounds(true);
+              }, 250);
+            }
           }
         });
       }
@@ -502,7 +509,6 @@ define(['jquery', 'util_resize'], function($){
   }
 
   function addTranscriptions(probe) {
-
     require(['media_iiif_text_processor'], function(textProcessor){
 
       textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
@@ -543,9 +549,11 @@ define(['jquery', 'util_resize'], function($){
 
       var layerName = currentImg + '-f';
       var afterAdd  = function(key){
-        setVisibleTranscripts(key);
-        $('#eu-iiif-container').removeClass(classHideFullText);
-        iiif.invalidateSize();
+        if(transcriptionIsOn){
+          setVisibleTranscripts(key);
+          $('#eu-iiif-container').removeClass(classHideFullText);
+          iiif.invalidateSize();
+        }
       };
 
       if(iiifLayers[layerName]){
@@ -658,8 +666,11 @@ define(['jquery', 'util_resize'], function($){
     },
     hide: function(){
       $('#eu-iiif-container').addClass(classHideFullText);
-      iiif.off();
-      iiif.remove();
+
+      if(iiif){
+        iiif.off();
+        iiif.remove();
+      }
 
       pnlTranscriptions.remove('.transcription');
       transcriptionIsOn = false;

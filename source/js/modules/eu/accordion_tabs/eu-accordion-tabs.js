@@ -83,7 +83,7 @@ define(['jquery', 'util_resize'], function($){
           data = preProcess(data, tab, index);
         }
         if(callback){
-          callback(data, tab, index, totalCompleted == totalExpected);
+          callback(data, tab, index, totalCompleted === totalExpected);
         }
       })
       .fail(function(msg){
@@ -139,6 +139,7 @@ define(['jquery', 'util_resize'], function($){
       if($(this).hasClass('disabled')){
         return;
       }
+
       if($cmp.hasClass(tabsClass)){
         $cmp.find('.tab-content').add($cmp.find('.tab-header')).removeClass('active');
         $(this).addClass('active');
@@ -146,13 +147,17 @@ define(['jquery', 'util_resize'], function($){
       }
       else{
         $(this).toggleClass('active');
+
         var active = $(this).hasClass('active');
+
         $cmp.find('.tab-content').add($cmp.find('.tab-header')).removeClass('active');
+
         if(active){
           $(this).addClass('active');
           $(this).next('.tab-content').addClass('active');
         }
       }
+
       if(fnOpenTab){
         $.each($cmp.find('.tab-content'), function(i, ob){
           if($(ob).hasClass('active')){

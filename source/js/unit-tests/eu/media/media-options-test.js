@@ -1,13 +1,12 @@
 define(['jquery', 'media_options', 'jasmine_jquery'], function($, EuMediaOptions){
   'use strict';
 
-  jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures';
-
   describe('Media Options', function(){
 
     var testEl;
 
     beforeEach(function(){
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/media';
       window.loadFixtures('fx-media-options.html');
       testEl = $('.media-options');
       EuMediaOptions.init(testEl);
@@ -33,14 +32,11 @@ define(['jquery', 'media_options', 'jasmine_jquery'], function($, EuMediaOptions
       expect(testTool.is(':visible')).toBe(false);
     });
 
-
     it('allows custom handlers to be defined', function(){
-      var customHandlerCalled = false;
-      EuMediaOptions.addHandler('IIIF', function(){
-        customHandlerCalled = true;
-      });
+      var fn = spyOn({'customHandler': function(){}}, 'customHandler');
+      EuMediaOptions.addHandler('IIIF', fn);
       testEl.trigger('IIIF');
-      expect(customHandlerCalled).toBe(true);
+      expect(fn).toHaveBeenCalled();
     });
 
     // it('(vets zoom resize)', function(){});

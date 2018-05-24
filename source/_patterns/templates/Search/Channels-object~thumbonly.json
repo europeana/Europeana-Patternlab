@@ -1,0 +1,107 @@
+{
+  "bodyclass": "channels-item",
+  "page_title": "Europeana Search",
+  "page_locale": "en",
+  "version": {
+    "is_alpha": true
+  },
+  "css_files": [
+    {
+      "path": "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "head_links": {
+    "items": [
+      {
+        "hreflang": "x-default",
+        "href": "http://page-url"
+      }
+    ]
+  },
+  "fb_campaigns_on": true,
+  "fb_campaigns": [
+    "test",
+    "these",
+    "campaigns"
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/show-new"
+    },
+    {
+      "name": "mock_ajax",
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'http', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100}}"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "form_search": {
+    "action": "javascript:alert('submit form');",
+    "autocomplete": {
+      "url": "portal_autocomplete",
+      "min_chars": "0"
+    }
+  },
+  "include_nav_title": true,
+  "channel_object": true,
+  "content": {
+    "ugc_content": false,
+    "object": {
+      "media": {
+        "required_players": [
+          {
+            "image": true
+          }
+        ],
+        "empty_item": false,
+        "single_item": true,
+        "empty_item_more_link": "Item preview not available, to access the full image and more information about the item <a href=\"javascript:alert('link to provider');\">go to source</a>.  This link will take you to <a href=\"javascript:alert('link to provider');\">Institute of blah blah blah</a>",
+        "items": [
+          {
+            "thumbnail": "/images/sample/object_thumbnail_real.png",
+            "playable": false,
+            "is_current": true,
+            "is_image": true,
+            "is_pdf": true,
+            "downloadable": true,
+            "rights":
+            {
+              "license_public": true,
+              "license_human": "You can use this pdf in any way you like",
+              "license_brief": "Yes"
+            },
+            "technical_metadata":
+            {
+              "language":"English",
+              "format": "png",
+              "file_size": "23.2",
+              "file_unit": "MB"
+            }
+          }
+        ]
+      },
+      "title": false,
+      "type": "image",
+      "is_image": true,
+      "subtitle": false,
+      "creation_date": "1660",
+      "creator": "Johannes Vermeer",
+      "origin": {
+        "institution_name": "Rijksmuseum",
+        "institution_country": "Netherlands",
+        "url": "javascript:alert('go to institution')",
+        "institution_logo": "/images/sample/beeld-en-geluid.png"
+      },
+      "view_more": false
+    }
+  },
+  "page_config": {
+    "newsletter": true
+  }
+}

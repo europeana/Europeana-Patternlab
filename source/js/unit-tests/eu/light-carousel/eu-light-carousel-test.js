@@ -1,9 +1,8 @@
 define(['jquery', 'jasmine_jquery'], function(){
 
   'use strict';
-
+  var basePath     = 'base/js/unit-test-fixtures/';
   var basePathJson = '/base/js/unit-test-ajax-data';
-  jasmine.getJSONFixtures().fixturesPath = basePathJson;
 
   describe('Eu Light Carousel', function(){
 
@@ -11,19 +10,34 @@ define(['jquery', 'jasmine_jquery'], function(){
 
     beforeEach(function(done){
 
-      window.loadFixtures('fx-eu-light-carousel.html');
+      jasmine.getJSONFixtures().fixturesPath = basePathJson;
+      jasmine.getFixtures().fixturesPath = basePath;
 
-      $(document).on('eu-light-carousel-styled', function(){
-        setTimeout(function(){
-          done();
-        }, 500);
-      });
+      window.loadFixtures('fx-eu-light-carousel.html');
 
       require(['eu_light_carousel'], function(EuLightCarousel){
         EuLC = EuLightCarousel;
-        if(EuLC.getInitialStateSet()){
-          $(document).trigger('eu-light-carousel-styled');
-        }
+        setTimeout(function(){
+
+          var hasUnbound = false;
+
+          $('.lc-scrollable').each(function(){
+            if(!$(this).hasClass('js-bound')){
+              hasUnbound = true;
+            }
+          });
+
+          if(hasUnbound){
+            EuLC.fxBindScrollables();
+            setTimeout(function(){
+              done();
+            }, 1001);
+          }
+          else{
+            done();
+          }
+
+        }, 100);
       });
     });
 
@@ -42,14 +56,12 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect(navRight).not.toBeHidden();
           done();
         }, 200);
-
       });
 
       it('reacts to element resizing by re-evaluating scrollability', function(done){
 
-        var callMade        = false;
         var navRight        = $('.example-1 .nav-right');
-        var _ResizeObserver = window.ResizeObserver;
+        var _ResizeObserver = window.ResizeObserver; // store native behaviour here
         var execObserved    = [];
         var $scrollable     = $('.example-1 .lc-scrollable');
 
@@ -65,13 +77,13 @@ define(['jquery', 'jasmine_jquery'], function(){
           }
 
           this.entries.push({'target': el});
-          callMade = true;
 
           var that = this;
           execObserved.push(function(){
             that.fn($(that.entries));
           });
         };
+        var spyObserve = spyOn(window.ResizeObserver.prototype, 'observe').and.callThrough();
 
         if(!$scrollable.hasClass('js-bound')){
           // jasmine work-around: we expect the markup to be present on dom ready
@@ -84,7 +96,8 @@ define(['jquery', 'jasmine_jquery'], function(){
         $(document).trigger('eu-light-carousel-styled');
 
         setTimeout(function(){
-          expect(callMade).toBe(true);
+
+          expect(spyObserve).toHaveBeenCalled();
           expect(navRight).not.toBeHidden();
 
           navRight.hide();
@@ -99,7 +112,6 @@ define(['jquery', 'jasmine_jquery'], function(){
             done();
           }, 500);
         }, 100);
-
       });
 
       it('scrolls its content horizontally', function(done){
@@ -108,6 +120,11 @@ define(['jquery', 'jasmine_jquery'], function(){
         var $scrollable = $('.example-1 .lc-scrollable');
         var navRight    = $('.example-1 .nav-right');
         var left        = firstItem[0].getBoundingClientRect().left;
+
+        // in case the js initialised before this fixture was loaded...
+        if(!$scrollable.hasClass('js-bound')){
+          EuLC.fxBindScrollables();
+        }
 
         navRight.click();
 
@@ -124,12 +141,14 @@ define(['jquery', 'jasmine_jquery'], function(){
         var $scrollable = $('.example-1 .lc-scrollable');
 
         expect(navLeft).toBeHidden();
-        $scrollable.scrollTo(10);
 
+        // in case the js initialised before this fixture was loaded...
         if(!$scrollable.hasClass('js-bound')){
-          // jasmine work-around: we expect the markup to be present on dom ready
           EuLC.fxBindScrollables();
         }
+
+        $scrollable.scrollTo(10);
+
         setTimeout(function(){
           expect(navLeft).not.toBeHidden();
           done();

@@ -14,19 +14,19 @@ define([], function() {
       wrapped.children().each(function(){
 
         var nodeName = this.nodeName.toUpperCase();
-        if(nodeName == 'DIV'){
+        if(nodeName === 'DIV'){
           oembed   = $(this);
           oembedId = oembed.attr('id');
         }
-        if(nodeName == 'IFRAME'){
+        if(nodeName === 'IFRAME'){
           oembed   = $(this);
           oembedId = oembed.attr('id');
         }
-        else if(nodeName == 'SCRIPT'){
+        else if(nodeName === 'SCRIPT'){
           var child = $(this);
           var src = child.attr('src');
 
-          if(src && typeof src.toLowerCase() == 'string'){
+          if(src && typeof src.toLowerCase() === 'string'){
             dependencies.push(src);
           }
           else{
@@ -114,7 +114,6 @@ define([], function() {
               var origHeight = iframe.find('iframe').data('orig-height');
               iframe.find('iframe').attr('height', origHeight );
               iframe.find('iframe').css ('height', origHeight );
-              //iframe               .css ('height', origHeight );
 
               $('.fullscreen-text').text(txtFullScreenEnter);
               $('.fullscreen-icon').attr('src', imgFullScreenEnter);

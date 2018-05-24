@@ -9,6 +9,7 @@
   list-style: none;
   margin: 0;
   position: absolute;
+  text-align: left;
   width: 100%;
   z-index: 1;
 }
@@ -18,27 +19,27 @@
     display: block;
   }
 }
-/* line 19, style.scss */
+/* line 20, style.scss */
 .eu-autocomplete ul {
   list-style: none;
   margin: 0;
 }
-/* line 24, style.scss */
+/* line 25, style.scss */
 .eu-autocomplete li {
   border-bottom: 1px solid #eee;
   cursor: pointer;
   padding: 0.6rem 0.4rem;
   position: relative;
 }
-/* line 30, style.scss */
+/* line 31, style.scss */
 .eu-autocomplete li.selected, .eu-autocomplete li:hover {
   background-color: #e3e3e3;
 }
-/* line 35, style.scss */
+/* line 36, style.scss */
 .eu-autocomplete li b {
   color: #1676aa;
 }
-/* line 40, style.scss */
+/* line 41, style.scss */
 .eu-autocomplete .match {
   white-space: nowrap;
 }
