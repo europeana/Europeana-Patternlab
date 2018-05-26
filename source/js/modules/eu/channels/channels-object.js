@@ -1330,6 +1330,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
         if(markup && markup.length > 0){
 
+          markup.addClass('collections-promos js-swipe-not-stacked');
+
           $('.channel-object-actions .slide-rail').empty().append(markup);
 
           promotions = $('.collections-promos');

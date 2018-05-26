@@ -5,10 +5,12 @@ define(['jquery'], function($){
     var expected   = conf.length;
     var returned   = 0;
     var elements   = {};
-    var markup     = $('<div class="collections-promos js-swipe-not-stacked"></div>');
+    var markup     = $('<div></div>');
 
     var processCallback = function(Mustache, data, templateId, id){
+
       var template = $('#' + templateId).text();
+
       $(data).each(function(i, ob){
         var html = Mustache.render(template, ob);
         if(elements[id]){
@@ -67,13 +69,9 @@ define(['jquery'], function($){
           checkDone();
         }
         else if(confItem.url){
-
           $.getJSON(confItem.url).done(function(data){
-            returned ++;
             processCallback(Mustache, data, confItem.templateId, confItem.id, confItem.multi);
-            checkDone();
-          }).error(function(){
-            console.log('no result for ' + confItem.id);
+          }).always(function(){
             returned ++;
             checkDone();
           });
