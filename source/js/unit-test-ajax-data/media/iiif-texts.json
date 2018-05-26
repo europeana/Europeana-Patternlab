@@ -79,7 +79,7 @@
       "on":       "on#xywh=0,0,100,100"
     },
     {
-      "@id":      "w9",
+      "@id":      "w10",
       "dc:type":  "Word",
       "resource": "http://url#char=50,56",
       "on":       "on#xywh=0,0,100,100"
