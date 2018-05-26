@@ -1,4 +1,4 @@
-define(['jasmine_jquery', 'util_promo_loader'], function(x, PromoLoader){
+define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
 
   'use strict';
 
@@ -121,19 +121,43 @@ define(['jasmine_jquery', 'util_promo_loader'], function(x, PromoLoader){
       });
     });
 
-
-    // 4
-
     it('can order items conditionally on the availability of other items', function(done){
 
       conf.shift();
-
-      //conf.unshift(conf.pop());
 
       PromoLoader.load(conf, function(markup){
         expect(markup.find('h2:first').text()).toEqual('previous');
         done();
       });
+    });
+
+    describe('Error Handling', function(){
+
+      it('ignores invalid config items', function(done){
+
+        conf              = conf.slice(1, 2);
+        conf[0].url       = false;
+        conf[0].preloaded = false;
+
+        PromoLoader.load(conf, function(markup){
+          expect(markup.find('h2').length).toEqual(0);
+          done();
+        });
+      });
+
+      it('can handle dead urls', function(done){
+
+        var errorUrl = '/error/404';
+        conf         = [conf[1]];
+        conf[0].url  = errorUrl;
+
+        PromoLoader.load(conf, function(markup){
+          console.log('markup = ' + markup.contents());
+          expect(markup.is(':empty')).toBe(true);
+          done();
+        });
+      });
+
     });
 
   });
