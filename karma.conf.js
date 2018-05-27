@@ -11,35 +11,47 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/unit-tests-require/main.js',
+      'js/unit-tests/require/main.js',
       {
-        pattern: 'js/unit-test-fixtures/*.html',
+        pattern: 'js/unit-tests/fixtures/*.html',
         included: false,
         watched:  true,
         served:   true,
       },
       {
-        pattern: 'js/unit-test-fixtures/**/*.html',
+        pattern: 'js/unit-tests/fixtures/**/*.html',
         included: false,
         watched:  true,
         served:   true,
       },
       {
-        pattern: 'js/unit-test-ajax-data/*.json',
+        pattern: 'js/unit-tests/fixture-data/*.json',
         included: false,
         watched:  true,
         served:   true,
       },
       {
-        pattern: 'js/unit-test-ajax-data/**/*.json',
+        pattern: 'js/unit-tests/fixture-data/**/*.json',
         included: false,
         watched:  true,
         served:   true,
       },
       {
-        pattern: 'js/unit-test-ajax-data/**/*.jpg',
+        pattern: 'js/**/*.gif',
         included: false,
-        watched:  true,
+        watched:  false,
+        served:   true,
+      },
+      {
+        pattern: 'js/**/*.jpg',
+        included: false,
+        watched:  false,
+        served:   true,
+      },
+      {
+        pattern: 'js/**/*.svg',
+        included: false,
+        watched:  false,
         served:   true,
       },
 

@@ -9,7 +9,7 @@ define(['util_ellipsis', 'jasmine_jquery'], function(Ellipsis){
     var testEl;
 
     beforeEach(function(){
-      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/util';
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-tests/fixtures/util';
       window.loadFixtures('fx-eu-ellipsis.html');
       testEl = $('.test.test-1');
     });

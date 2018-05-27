@@ -4,8 +4,8 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 
-  var basePath     = 'base/js/unit-test-fixtures/util';
-  var basePathJSON = '/base/js/unit-test-ajax-data/util/';
+  var basePath     = 'base/js/unit-tests/fixtures/util';
+  var basePathJSON = '/base/js/unit-tests/fixture-data/util/';
   var conf;
 
   describe('Eu Promo Loader', function(){

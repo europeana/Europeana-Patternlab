@@ -21,7 +21,7 @@
               "resource": {
                 "@id": "0,0,512,512/512,/0/native.jpg",
                 "service": {
-                  "@id": "/base/js/unit-test-ajax-data/media/iiif-image-data",
+                  "@id": "/base/js/unit-tests/fixture-data/media/iiif-image-data",
                   "@context": "http://iiif.io/api/image/2/context.json",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 },
@@ -46,7 +46,7 @@
               "resource": {
                 "@id": "0,0,512,512/512,/0/native.jpg",
                 "service": {
-                  "@id": "/base/js/unit-test-ajax-data/media/iiif-image-data",
+                  "@id": "/base/js/unit-tests/fixture-data/media/iiif-image-data",
                   "@context": "http://iiif.io/api/image/2/context.json",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 },

@@ -1,8 +1,8 @@
 define(['jquery', 'jasmine_jquery'], function(){
 
   'use strict';
-  var basePath     = 'base/js/unit-test-fixtures/';
-  var basePathJson = '/base/js/unit-test-ajax-data';
+  var basePath     = 'base/js/unit-tests/fixtures/';
+  var basePathJson = '/base/js/unit-tests/fixture-data';
 
   describe('Eu Light Carousel', function(){
 

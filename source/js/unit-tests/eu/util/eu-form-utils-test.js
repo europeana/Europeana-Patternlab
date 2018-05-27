@@ -5,7 +5,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
   describe('Eu Form Utils', function(){
 
     beforeEach(function() {
-      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/util';
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-tests/fixtures/util';
       window.loadFixtures('fx-eu-form-utils.html');
     });
 

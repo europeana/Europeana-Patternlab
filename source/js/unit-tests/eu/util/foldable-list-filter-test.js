@@ -1,6 +1,6 @@
 define(['jasmine_jquery', 'util_filterable', 'jquery'], function(x, Filter, $){
   'use strict';
-  var basePath = 'base/js/unit-test-fixtures/util';
+  var basePath = 'base/js/unit-tests/fixtures/util';
 
   describe('Eu Foldable List Filter', function(){
 

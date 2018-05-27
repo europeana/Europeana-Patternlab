@@ -409,8 +409,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         self.lastSearchTerm = term;
         self.lastSearchResult = data;
         doOnDone(data);
-      })
-      .error(function(e, f){
+      }).error(function(e, f){
         self.log('Error: ' + e.status + '  ' + f);
         self.hide();
       });
@@ -492,10 +491,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
   return {
     init: function(ops){
-      var instance = new EuAutocomplete().init(ops);
-      if(typeof ops != 'undefined' && ops.getInstance){
-        return instance;
-      }
+      new EuAutocomplete().init(ops);
     }
   };
 
