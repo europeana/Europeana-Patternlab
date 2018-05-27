@@ -2,141 +2,281 @@ define(['eu_autocomplete', 'jquery', 'jasmine_jquery'], function(EuAutocomplete,
 
   'use strict';
 
-  /*
+  var conf;
 
-   Avoid calling this:
-     jasmine.clock().install()
+  var keyCode = {
+    a:      65,
+    down:   40,
+    esc:    27,
+    up:     38,
+    left:   37,
+    return: 13,
+    right:  39
+  };
 
-   as it prevents setTimeOut from ever returning - killing debounced methods.
+  var selInput        = '#input-el';
+  var selItems        = '.eu-autocomplete li';
+  var waitSuggestions = 550;
+  var waitClear       = 50;
 
-   It can, however, be put to use:
-    - enabling it and adding a setTimeout to the "it"
-    - together with a higher jasmine timeout setting:
-    -- jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+  var fireKeyEvent = function(keyCode, isKeyDown){
 
-   will freeze execution - allowing markup inspection
+    var e = $.Event(isKeyDown ? 'keydown' : 'keyup');
 
-  */
+    e.keyCode = keyCode;
+    e.which   = keyCode;
 
-  var instance;
-  var inputSelector                      = '#input-el';
+    $(selInput).trigger(e);
+  };
+
+  var openWithConfiguration = function(config, cb){
+    EuAutocomplete.init(config);
+    $(selInput).trigger('getSuggestions');
+    setTimeout(function() {
+      cb();
+    }, waitSuggestions);
+  };
 
   describe('Eu Autocomplete', function(){
 
     beforeEach(function() {
-
       jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures';
       jasmine.getJSONFixtures().fixturesPath = 'base/js/unit-test-ajax-data';
 
       window.loadFixtures('fx-eu-autocomplete.html');
       window.loadJSONFixtures('autocomplete.json');
 
-      instance = EuAutocomplete.init({
-        selInput         : inputSelector,
+      conf = {
+        selInput         : selInput,
         url              : '/base/js/unit-test-ajax-data/autocomplete.json',
-        itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>',
-        getInstance      : true
+        itemTemplateText : '<li data-term="[[text]]"><span>[[text]]</span></li>'
+      };
+    });
+
+    describe('Basic', function(){
+
+      beforeEach(function() {
+        EuAutocomplete.init(conf);
       });
 
-    });
+      it('responds to text entry by displaying items', function(done){
 
-    afterEach(function() {
-      $(inputSelector).remove();
-    });
-
-    it('expects an input element to be present', function(){
-      expect($('#input-el')).toExist();
-      expect($('#input-el').length).toEqual(1);
-    });
-
-    it('creates an unordered list', function(){
-      expect($('.eu-autocomplete')).toExist();
-    });
-
-    it('responds to text entry by displaying items', function(done){
-
-      $(inputSelector).trigger('getSuggestions');
-
-      setTimeout(function() {
-        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
-        done();
-      }, 2500);
-    });
-
-    it('hides its items when the user clicks away', function(done){
-
-      $(inputSelector).trigger('getSuggestions');
-      //$(inputSelector)[0].dispatchEvent(new KeyboardEvent('keyup', {'key':'a'}));
-
-      setTimeout(function() {
-        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
-        $('h2').click();
-        expect($('.eu-autocomplete li').length).toBe(0);
-        done();
-      }, 2500);
-    });
-
-    it('hides its items on the escape key', function(done){
-
-      var keyCode = 27;
-
-      $(inputSelector).trigger('getSuggestions');
-
-      setTimeout(function() {
-        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
-
-        var e = $.Event('keyup');
-        e.keyCode = keyCode;
-        e.which   = keyCode;
-        $(inputSelector).trigger(e);
+        fireKeyEvent(keyCode.a);
 
         setTimeout(function() {
-          expect($('.eu-autocomplete li').length).toBe(0);
+          expect($(selItems).length).toBeGreaterThan(0);
           done();
-        }, 2200);
-      }, 2500);
-    });
+        }, waitSuggestions);
+      });
 
-    it('it selects on the tab key', function(done){
+      it('hides its items when the user clicks away', function(done){
 
-      var keyCode = 9;
-
-      expect($(inputSelector).val().length).toBe(0);
-      $(inputSelector).trigger('getSuggestions');
-
-      setTimeout(function() {
-        expect($('.eu-autocomplete li').length).toBeGreaterThan(0);
-
-        instance.setSelected($('.eu-autocomplete li').first());
-
-        var e = $.Event('keydown');
-        e.keyCode = keyCode;
-        e.which   = keyCode;
-        $(inputSelector).trigger(e);
+        $(selInput).trigger('getSuggestions');
 
         setTimeout(function() {
-          expect($(inputSelector).val().length).toBeGreaterThan(0);
+          expect($(selItems).length).toBeGreaterThan(0);
+          $('h2').click();
+          expect($(selItems).length).toBe(0);
           done();
-        }, 1500);
-      }, 2000);
-
+        }, waitSuggestions);
+      });
     });
 
-    // callback: ops.fnOnEnter
-    // callback: ops.fnOnHide
-    // callback: ops.fnOnSelect
+    describe('Callbacks', function(){
+
+      it('can be bound to the select function', function(done){
+
+        conf.fnOnSelect = function(){};
+        var cbSpy = spyOn(conf, 'fnOnSelect');
+
+        openWithConfiguration(conf, function(){
+
+          expect(cbSpy).not.toHaveBeenCalled();
+
+          $(selItems + ':eq(0)').click();
+
+          expect(cbSpy).toHaveBeenCalled();
+          done();
+        });
+      });
+
+      it('can be bound to the deselect function', function(done){
+
+        conf.fnOnDeselect = function(){};
+
+        openWithConfiguration(conf, function(){
+
+          var cbSpy = spyOn(conf, 'fnOnDeselect');
+
+          fireKeyEvent(keyCode.a);
+
+          setTimeout(function() {
+            $('h2').click();
+            expect(cbSpy).toHaveBeenCalled();
+            done();
+          }, waitClear);
+        });
+      });
+
+      it('can be bound to the hide function', function(done){
+
+        conf.fnOnHide = function(){};
+
+        openWithConfiguration(conf, function(){
+
+          var cbSpy = spyOn(conf, 'fnOnHide');
+
+          $('h2').click();
+
+          expect(cbSpy).toHaveBeenCalled();
+          done();
+        });
+      });
+
+      it('can be bound to the enter key', function(done){
+
+        conf.fnOnEnter = function(){};
+
+        var cbSpy = spyOn(conf, 'fnOnEnter');
+
+        openWithConfiguration(conf, function(){
+
+          fireKeyEvent(keyCode.down);
+
+          setTimeout(function() {
+
+            expect(cbSpy).not.toHaveBeenCalled();
+
+            fireKeyEvent(keyCode.return, true);
+
+            setTimeout(function() {
+              expect(cbSpy).toHaveBeenCalled();
+              done();
+            }, waitClear);
+          }, waitClear);
+        });
+      });
+    });
+
+    describe('Non Text Keys', function(){
+
+      it('escape key: hides the items', function(done){
+
+        openWithConfiguration(conf, function(){
+
+          expect($(selItems).length).toBeGreaterThan(0);
+
+          fireKeyEvent(keyCode.esc);
+
+          setTimeout(function() {
+            expect($(selItems).length).toBe(0);
+            done();
+          }, waitClear);
+        });
+      });
+
+      it('return key: can be configured to hide the items', function(done){
+
+        conf.hideOnSelect = true;
+
+        openWithConfiguration(conf, function(){
+
+          expect($(selItems).length).toBeGreaterThan(0);
+
+          fireKeyEvent(keyCode.return);
+
+          setTimeout(function() {
+            expect($(selItems).length).toBe(0);
+            done();
+          }, waitClear);
+        });
+      });
+
+      it('left key: hides the items', function(done){
+
+        openWithConfiguration(conf, function(){
+
+          expect($(selItems).length).toBeGreaterThan(0);
+
+          fireKeyEvent(keyCode.left);
+
+          setTimeout(function() {
+            expect($(selItems).length).toBe(0);
+            done();
+          }, waitClear);
+        });
+
+      });
+
+      it('right key: hides the items', function(done){
+
+        openWithConfiguration(conf, function(){
+
+          expect($(selItems).length).toBeGreaterThan(0);
+
+          fireKeyEvent(keyCode.right);
+
+          setTimeout(function() {
+            expect($(selItems).length).toBe(0);
+            done();
+          }, waitClear);
+        }, waitSuggestions);
+      });
+
+      it('down key: opens the items', function(done){
+
+        EuAutocomplete.init(conf);
+
+        expect($(selItems).length).toBe(0);
+
+        fireKeyEvent(keyCode.down);
+
+        setTimeout(function() {
+          expect($(selItems).length).toBeGreaterThan(0);
+          done();
+        }, waitSuggestions);
+
+      });
+
+      it('up and down keys: traverse the items', function(done){
+
+        openWithConfiguration(conf, function(){
+
+          expect($(selItems).length).toBeGreaterThan(0);
+          expect($(selItems + '.selected').length).toBe(0);
+          expect($(selItems + ':eq(0)')).not.toHaveClass('selected');
+
+          fireKeyEvent(keyCode.down);
+
+          setTimeout(function() {
+            expect($(selItems + '.selected').length).toBe(1);
+            expect($(selItems + ':eq(0)')).toHaveClass('selected');
+
+            fireKeyEvent(keyCode.down);
+
+            setTimeout(function() {
+
+              expect($(selItems + '.selected').length).toBe(1);
+              expect($(selItems + ':eq(0)')).not.toHaveClass('selected');
+              expect($(selItems + ':eq(1)')).toHaveClass('selected');
+
+              fireKeyEvent(keyCode.up);
+
+              setTimeout(function() {
+
+                expect($(selItems + ':eq(0)')).toHaveClass('selected');
+
+                done();
+              }, waitSuggestions);
+            }, waitSuggestions);
+          }, waitSuggestions);
+        });
+      });
+    });
 
     // ops.textMatch
+
     // ops.form  >> self.ops.form.submit
-
-    // fnKeyup key 40 (down)
-    // fnKeyup key 38 (up)
-    // fnKeyup key 13 (carriage return)
-
-    // fnKeyup 37 / 39 left-right (left)
-    // fnKeyup 37 / 39 left-right (right)
-
-    // fnKeyup 27 (esc)
 
   });
 });

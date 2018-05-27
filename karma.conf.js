@@ -37,9 +37,21 @@ module.exports = function(config) {
         served:   true,
       },
       {
-        pattern: 'js/unit-test-ajax-data/**/*.jpg',
+        pattern: 'js/**/*.gif',
         included: false,
-        watched:  true,
+        watched:  false,
+        served:   true,
+      },
+      {
+        pattern: 'js/**/*.jpg',
+        included: false,
+        watched:  false,
+        served:   true,
+      },
+      {
+        pattern: 'js/**/*.svg',
+        included: false,
+        watched:  false,
         served:   true,
       },
 

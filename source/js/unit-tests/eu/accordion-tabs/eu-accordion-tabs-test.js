@@ -12,7 +12,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
     var $el;
 
     beforeEach(function() {
-      jasmine.getFixtures().fixturesPath = basePath;
+      jasmine.getFixtures().fixturesPath     = basePath;
       window.loadFixtures('fx-eu-accordiontabs.html');
       $el        = $('.eu-accordion-tabs');
       $container = $('.test-container');
@@ -269,16 +269,15 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
           }, 100);
         }, 100);
       });
-
     });
 
     describe('Dynamic Data', function(){
 
       var jsonFile     = 'autocomplete.json';
       var basePathJson = '/base/js/unit-test-ajax-data';
-      jasmine.getJSONFixtures().fixturesPath = basePathJson;
 
       beforeEach(function() {
+        jasmine.getJSONFixtures().fixturesPath = basePathJson;
         window.loadJSONFixtures(jsonFile);
       });
 
