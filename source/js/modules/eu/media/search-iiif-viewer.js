@@ -493,7 +493,7 @@ define(['jquery', 'util_resize'], function($){
       var ctrl = miniMapCtrls[layerName];
       ctrl.addTo(iiif);
 
-      if(config.miniMap.fillViewport && currentImg === '0'){
+      if(config.miniMap.fillViewport && currentImg === 0){
         ctrl._miniMap.whenReady(function(){
           if($('.leaflet-control-minimap').is(':visible')){
             setTimeout(function(){
