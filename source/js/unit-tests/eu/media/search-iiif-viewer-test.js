@@ -1,7 +1,7 @@
 define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
   'use strict';
 
-  var basePathJson = '/base/js/unit-test-ajax-data/media/';
+  var basePathJson = '/base/js/unit-tests/fixture-data/media/';
   var manifestFile = 'iiif-image-data/manifest.json';
   var infoFile     = 'iiif-image-data/info.json';
 
@@ -11,7 +11,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
     beforeEach(function(){
 
-      jasmine.getFixtures().fixturesPath     = 'base/js/unit-test-fixtures/media';
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-tests/fixtures/media';
 
       window.loadFixtures('fx-eu-leaflet-iiif.html');
       IIIF_viewer.hide();

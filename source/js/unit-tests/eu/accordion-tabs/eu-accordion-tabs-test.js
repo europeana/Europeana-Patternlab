@@ -2,7 +2,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
 
   'use strict';
   // jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
-  var basePath = 'base/js/unit-test-fixtures/';
+  var basePath = 'base/js/unit-tests/fixtures/';
 
   describe('Eu Accordion Tabs', function(){
 
@@ -274,7 +274,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
     describe('Dynamic Data', function(){
 
       var jsonFile     = 'autocomplete.json';
-      var basePathJson = '/base/js/unit-test-ajax-data';
+      var basePathJson = '/base/js/unit-tests/fixture-data';
 
       beforeEach(function() {
         jasmine.getJSONFixtures().fixturesPath = basePathJson;
