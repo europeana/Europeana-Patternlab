@@ -15,7 +15,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       window.loadFixtures('fx-eu-leaflet-iiif.html');
       IIIF_viewer.hide();
-      $('.media-options').off('IIIF');
+      $('.media-options').off('iiif');
     });
 
     it('can open manifests', function(done){
@@ -229,7 +229,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
           eventCallbackParam = arguments[1];
         });
 
-        $('.media-options').on('IIIF', eventCallback.euReady);
+        $('.media-options').on('iiif', eventCallback.euReady);
 
         IIIF_viewer.init(basePathJson + infoFile, {transcriptions: true});
 

@@ -25,14 +25,14 @@ $fillWhite:       str-replace('%23#{$white}', '#', '');
   justify-content:         space-evenly;
   left:                    0;
   margin:                  0;
-//  opacity:                 0;
+  opacity:                 0;
   padding:                 1.6rem 0.4rem 1.6rem 0.4rem;
   position:                fixed;
   top:                     50%;
   transform:               translateY(-50%);
   -webkit-transition:      opacity 1s ease-out;
   transition:              opacity 1s ease-out;
-//  visibility:              hidden;
+  visibility:              hidden;
   width:                   auto;
   z-index:                 2;
 
@@ -105,8 +105,8 @@ $fillWhite:       str-replace('%23#{$white}', '#', '');
 
     .svg-icon-link-out{
       position:          relative;
-      -webkit-transform: translateX(0.15em) scale(1.3);
-      transform:         translateX(0.15em) scale(1.3);
+      -webkit-transform: translate(0.15em, 0.15em) scale(1.3);
+      transform:         translate(0.15em, 0.15em) scale(1.3);
     }
   }
 

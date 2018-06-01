@@ -1,6 +1,7 @@
 define(['jquery'], function(){
 
-  var cssPath = require.toUrl('../../eu/media/media-options/media-options.css');
+  var cssPath      = require.toUrl('../../eu/media/media-options/media-options.css');
+  var zoomOutLimit = false;
   var defOps;
 
   $('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>').appendTo('head');
@@ -48,15 +49,10 @@ define(['jquery'], function(){
 
     if(type === 'iiif'){
       if(ops['transcriptions-unavailable']){
-
-        console.log('switch them off: ' + ops['transcriptions-unavailable']);
-
         $el.find('.iiif-ctrls').addClass('off');
       }
       else{
         $el.find('.iiif-ctrls').removeClass('off');
-
-        console.log('switch them somewhere...' + ops['transcriptions-available'] + ' or ' + ops['transcriptions-active']);
 
         if(ops['transcriptions-available']){
           $el.find('.iiif-ctrls .transcriptions-hide').hide();
@@ -88,6 +84,14 @@ define(['jquery'], function(){
       $el.addClass('media-options-hidden');
     });
 
+    $el.on('iiif video oembed pdf', function(){
+      zoomOutLimit = true;
+    });
+
+    $el.on('audio hide image', function(){
+      zoomOutLimit = false;
+    });
+
     $el.on('iiif image video', function(e, ops){
       if(e.type === 'iiif'){
         ops = ops ? ops : {'transcriptions-unavailable': true};
@@ -100,6 +104,8 @@ define(['jquery'], function(){
   return {
     init: init,
     addHandler: addHandler,
-    getMinZoom: function(){}
+    zoomOutLimited: function(){
+      return zoomOutLimit;
+    }
   };
 });

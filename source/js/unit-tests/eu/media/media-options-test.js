@@ -93,6 +93,25 @@ define(['media_options', 'jasmine_jquery'], function(EuMediaOptions){
         expect(fn).toHaveBeenCalled();
       });
 
+      it('stores zoomablity information about the currently set option', function(){
+
+        var limited;
+
+        testEl.trigger('iiif');
+
+        limited = EuMediaOptions.zoomOutLimited();
+        expect(limited).toBe(true);
+
+        testEl.trigger('image');
+
+        limited = EuMediaOptions.zoomOutLimited();
+        expect(limited).toBe(false);
+
+        testEl.trigger('video');
+
+        limited = EuMediaOptions.zoomOutLimited();
+        expect(limited).toBe(true);
+      });
     });
 
     describe('Advanced Config', function(){

@@ -302,11 +302,18 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   function bindMediaUI(){
 
     $(window).europeanaResize(function(){
+
       if($('.object-details').hasClass('locked')){
+
         var zoomLevels = getZoomLevels();
+
         if(zoomLevels.indexOf('zoom-one') === -1){
           $('.object-details').removeClass('zoom-one');
         }
+        else if(EuMediaOptions.zoomOutLimited()){
+          $('.object-details').addClass('zoom-one');
+        }
+
         if(zoomLevels.indexOf('zoom-two') === -1){
           $('.object-details').removeClass('zoom-two');
         }
@@ -822,7 +829,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     }
     else if($zoomEl.hasClass('zoom-one')){
       if(zoomLevels.length === 2){
-        zoomOut.removeClass('disabled');
+
+        if(EuMediaOptions.zoomOutLimited()){
+          zoomOut.addClass('disabled');
+        }
+        else{
+          zoomOut.removeClass('disabled');
+        }
       }
       else if(zoomLevels.length === 1){
 
