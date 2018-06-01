@@ -364,8 +364,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       resetZoomable();
     });
 
-    EuMediaOptions.init($('.media-options'));
-    EuMediaOptions.addHandler('IIIF', function(ops){
+    EuMediaOptions.init($('.media-options'), {'external-link': $('.object-origin').data('object-origin-url'), 'share-link': 'javascript:alert("share link here")'});
+
+    EuMediaOptions.addHandler('iiif', function(ops){
       if(ops['transcriptions-active']){
         setZoom('zoom-one zoom-two', true);
         resetZoomable();
@@ -428,6 +429,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     updateTechData(item);
 
+    $('.media-options').trigger(type, $.extend(type == 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
+
     var reminderImg = $('.title-bar .img-remind');
     if(reminderImg.length === 0){
       reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
@@ -483,8 +486,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       $('.object-media-viewer').addClass('thumbnail-mode');
 
       setZoom();
+
       log('not playable');
+
       resetZoomable();
+      $('.media-options').trigger('hide');
     };
 
     if(playable){
@@ -527,8 +533,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       //  $('.zoomable').css('width', '400px');
       // }
 
-      $('.media-options').show();
-
       if(item.data('natural-width')){
         showImage();
       }
@@ -566,7 +570,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       removeOldMedia();
 
       $('.zoomable').append($('.object-media-iiif'));
-      $('.media-options').show();
 
       setZoomedLock();
       updateCtrls();
@@ -630,7 +633,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     else if(type === 'audio'){
 
       removeOldMedia();
-      $('.media-options').show();
       setZoom();
       $('.zoomable').append($('.object-media-audio'));
       $('.object-media-audio').removeClass('is-hidden');
@@ -663,7 +665,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     else if(type === 'video'){
 
       removeOldMedia();
-      $('.media-options').show();
       setZoomedLock();
       resetZoomable();
 

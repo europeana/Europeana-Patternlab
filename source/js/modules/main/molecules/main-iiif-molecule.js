@@ -78,21 +78,21 @@ require(['jquery'], function(){
 
         $('#eu-iiif-container').after(''
           + '<div class="media-options" style="display:none; text-align:center; width:100%;">'
-          +   '<a class="transcriptons-show"><h3>Show transcriptions</h3></a>'
-          +   '<a class="transcriptons-hide"><h3>Hide transcriptions</h3></a>'
+          +   '<a class="transcriptions-show"><h3>Show transcriptions</h3></a>'
+          +   '<a class="transcriptions-hide"><h3>Hide transcriptions</h3></a>'
           + '</div>'
         );
         EuMediaOptions.init($('.media-options'));
-        EuMediaOptions.addHandler('IIIF', function(ops){
+        EuMediaOptions.addHandler('iiif', function(ops){
           console.log(JSON.stringify(ops));
           if(ops['transcriptions-available']){
             $('.media-options').show();
-            $('.media-options .transcriptons-show').show();
-            $('.media-options .transcriptons-hide').hide();
+            $('.media-options .transcriptions-show').show();
+            $('.media-options .transcriptions-hide').hide();
           }
           if(ops['transcriptions-active']){
-            $('.media-options .transcriptons-show').hide();
-            $('.media-options .transcriptons-hide').show();
+            $('.media-options .transcriptions-show').hide();
+            $('.media-options .transcriptions-hide').show();
           }
         });
 

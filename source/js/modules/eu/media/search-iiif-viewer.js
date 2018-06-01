@@ -250,7 +250,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
+        $('.media-options').trigger('iiif', {'transcriptions-unavailable': true});
       }
     });
 
@@ -551,7 +551,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('click', '.remove-transcriptions', function(){
       $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('IIIF', {'transcriptions-available': true});
+      $('.media-options').trigger('iiif', {'transcriptions-available': true});
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -606,7 +606,7 @@ define(['jquery', 'util_resize'], function($){
         var page = textProcessor.getTypedData(data, 'Page');
 
         if(probe){
-          $('.media-options').trigger('IIIF', {'transcriptions-available': page.length === 1});
+          $('.media-options').trigger('iiif', {'transcriptions-available': page.length === 1});
           return;
         }
 

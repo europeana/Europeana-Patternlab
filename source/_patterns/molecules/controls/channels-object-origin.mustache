@@ -1,5 +1,5 @@
 {{#origin}}
-  <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+  <div class="object-origin" {{#url}}data-object-origin-url="{{.}}"{{/url}} xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
     {{#institution_logo}}
       <a href="{{url}}" target="_blank" class="institution-logo" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
     {{/institution_logo}}
