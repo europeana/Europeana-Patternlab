@@ -26,7 +26,7 @@ requirejs.config({
     leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     media_iiif_text_processor: '../../eu/media/search-iiif-text-processor',
     media_viewer_iiif:         '../../eu/media/search-iiif-viewer',
-    media_options:             '../../eu/media/media-options',
+    media_options:             '../../eu/media/media-options/media-options',
     mustache:                  '../../lib/mustache/mustache',
     purl:                      '../../lib/purl/purl',
     util_ellipsis:             '../../eu/util/eu-ellipsis',
