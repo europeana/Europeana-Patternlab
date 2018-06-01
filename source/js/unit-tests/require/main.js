@@ -14,7 +14,7 @@ requirejs.config({
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
-    jasmine_jquery:            '../../../unit-tests/lib/jasmine-jquery',
+    jasmine_jquery:            '../../../unit-tests/require/jasmine-jquery',
     jqScrollto:                '../../lib/jquery/jquery.scrollTo',
     jquery:                    '../../lib/jquery/jquery',
     leaflet:                   '../../lib/leaflet/leaflet-1.2.0/leaflet',

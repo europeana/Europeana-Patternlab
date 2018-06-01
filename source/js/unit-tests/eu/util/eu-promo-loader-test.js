@@ -1,11 +1,11 @@
-define(['jasmine_jquery', 'util_promo_loader'], function(x, PromoLoader){
+define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
 
   'use strict';
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 
-  var basePath     = 'base/js/unit-test-fixtures/util';
-  var basePathJSON = '/base/js/unit-test-ajax-data/util/';
+  var basePath     = 'base/js/unit-tests/fixtures/util';
+  var basePathJSON = '/base/js/unit-tests/fixture-data/util/';
   var conf;
 
   describe('Eu Promo Loader', function(){
@@ -121,19 +121,43 @@ define(['jasmine_jquery', 'util_promo_loader'], function(x, PromoLoader){
       });
     });
 
-
-    // 4
-
     it('can order items conditionally on the availability of other items', function(done){
 
       conf.shift();
-
-      //conf.unshift(conf.pop());
 
       PromoLoader.load(conf, function(markup){
         expect(markup.find('h2:first').text()).toEqual('previous');
         done();
       });
+    });
+
+    describe('Error Handling', function(){
+
+      it('ignores invalid config items', function(done){
+
+        conf              = conf.slice(1, 2);
+        conf[0].url       = false;
+        conf[0].preloaded = false;
+
+        PromoLoader.load(conf, function(markup){
+          expect(markup.find('h2').length).toEqual(0);
+          done();
+        });
+      });
+
+      it('can handle dead urls', function(done){
+
+        var errorUrl = '/error/404';
+        conf         = [conf[1]];
+        conf[0].url  = errorUrl;
+
+        PromoLoader.load(conf, function(markup){
+          console.log('markup = ' + markup.contents());
+          expect(markup.is(':empty')).toBe(true);
+          done();
+        });
+      });
+
     });
 
   });

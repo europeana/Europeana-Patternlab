@@ -2,7 +2,7 @@ define(['eu_data_continuity', 'jasmine_jquery'], function(DataContinuity){
   'use strict';
 
   window.id          = 'main-test-window';
-  var basePath       = 'base/js/unit-test-fixtures/util';
+  var basePath       = 'base/js/unit-tests/fixtures/util';
   var fixtureUrl     = '/' + basePath + '/fx-eu-data-continuity.html';
   var fixtureUrlLink = 'fx-eu-data-continuity-link.html';
   var testSessionId;

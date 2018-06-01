@@ -6,7 +6,7 @@ define(['jquery', 'media_options', 'jasmine_jquery'], function($, EuMediaOptions
     var testEl;
 
     beforeEach(function(){
-      jasmine.getFixtures().fixturesPath = 'base/js/unit-test-fixtures/media';
+      jasmine.getFixtures().fixturesPath = 'base/js/unit-tests/fixtures/media';
       window.loadFixtures('fx-media-options.html');
       testEl = $('.media-options');
       EuMediaOptions.init(testEl);
