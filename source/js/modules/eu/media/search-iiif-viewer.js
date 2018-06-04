@@ -563,12 +563,29 @@ define(['jquery', 'util_resize'], function($){
       bindTranscriptionActions();
     }
 
+    var miniMap;
+
+    if(config.miniMap){
+      miniMap = miniMapCtrls[currentImg] ? miniMapCtrls[currentImg] : miniMapCtrls['single'];
+      if(miniMap){
+        miniMap.blockInteractions = true;
+      }
+    }
+
     var layerName = currentImg + '-f';
     var afterAdd  = function(key){
       if(transcriptionIsOn){
         setVisibleTranscripts(key);
         $('#eu-iiif-container').removeClass(classHideFullText);
         iiif.invalidateSize();
+      }
+
+      if(config.miniMap){
+        if(miniMap){
+          setTimeout(function(){
+            miniMap.blockInteractions = false;
+          }, 2000);
+        }
       }
     };
 
