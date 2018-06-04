@@ -569,7 +569,6 @@ define(['jquery', 'util_resize'], function($){
       miniMap = miniMapCtrls[currentImg] ? miniMapCtrls[currentImg] : miniMapCtrls['single'];
       if(miniMap){
         miniMap.blockInteractions = true;
-        console.error('blocked interactions');
       }
     }
 
@@ -585,7 +584,6 @@ define(['jquery', 'util_resize'], function($){
         if(miniMap){
           setTimeout(function(){
             miniMap.blockInteractions = false;
-            console.error('un-blocked interactions? ' + miniMap.blockInteractions );
           }, 2000);
         }
       }
