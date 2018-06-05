@@ -1,17 +1,40 @@
 .gridlayout-wrapper {
   display: grid;
   grid-column-gap: 1.75rem;
-  grid-row-gap: 4rem;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   margin: 10rem auto 8rem auto;
   max-width: 83.81rem;
 }
 
-.gridlayout {
+.gridlayout-wrapper-full {
+  display: grid;
+  grid-column-gap: 1.75rem;
+  grid-template-columns: unquote("[full-start] minmax(1rem, 1fr)
+    [main-start] minmax(0, 83.81rem) [main-end]
+    minmax(1rem, 1fr) [full-end]");
+  grid-template-rows: auto;
+  margin: 10rem auto 8rem auto;
+}
+
+.gridlayout p {
+  margin-bottom: 2rem;
+}
+
+.width-full {
   background-color: #444;
-  color: #fff;
-  padding: 1rem;
+  grid-column: full;
+  margin-bottom: 4rem;
+}
+
+.width-main {
+  display: grid;
+  grid-column: main;
+  grid-column-gap: 1.75rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  margin-bottom: 4rem;
+  width: 100%;
 }
 
 .width-12 {
@@ -64,4 +87,20 @@
 
 .height-2 {
   grid-row: span 2;
+}
+
+.card {
+  background-color: #F9F7F7;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+  font-size: 0.875rem;
+
+  .inner {
+    padding: 1rem;
+  
+    .secondary {
+      font-size: 0.75rem;
+      margin-bottom: 0;
+    }
+  }
 }

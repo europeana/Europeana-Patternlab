@@ -1,31 +1,56 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent">
-  
-  <div class="gridlayout-wrapper">    
-    <div class="gridlayout width-6">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel sodales turpis. Donec sit amet lacus accumsan, 
-      convallis nibh nec, suscipit felis. Pellentesque lobortis tortor ut scelerisque rhoncus</p>
+<div role="main" id="maincontent"> 
+
+  <div class="gridlayout-wrapper-full">    
+    <!-- example of a full width row -->
+    <div class="gridlayout width-full">full</div>
+
+    <!-- example of a full width row in main area -->
+    <div class="gridlayout width-main">   
+      <div class="gridlayout width-12">main</div>
     </div>
-    <div class="gridlayout width-6"></div>
 
-    <div class="gridlayout width-4"></div>
-    <div class="gridlayout width-4"></div>
-    <div class="gridlayout width-4"></div>
+    <!-- example of a row in main area, containing several columns-->
+    <div class="gridlayout width-main">
+      <div class="gridlayout width-6">
+        <h4>Featured Section Title</h4>
+        <p>Section context and description that should not be wider than 6 columns and ideally fit into two lines</p>
+      </div>
+      <div class="gridlayout width-6"></div>   
 
-    <div class="gridlayout width-3"></div>
-    <div class="gridlayout width-3"></div>
-    <div class="gridlayout width-3"></div>
-    <div class="gridlayout width-3 height-2"></div>
+      <div class="gridlayout width-4">
+        <div class="card">
+          image
+          <div class="inner">
+            <p>Title constrained to two lines using Open Sans font small $eu-black</p>
+            <p class="secondary">Secondary content font tiny $eu-black</p>
+          </div>
+        </div>
+      </div>
+      <div class="gridlayout width-4">card</div>
+      <div class="gridlayout width-4">card</div> 
+    </div>
 
-    <div class="gridlayout width-3"></div>
-    <div class="gridlayout width-3"></div>
-    <div class="gridlayout width-3"></div>
-    
-    <div class="gridlayout width-12"></div>
+    <!-- example of a full width row -->
+    <div class="gridlayout width-full">full</div>
 
+    <!-- example of a row in main area, containing several columns-->
+    <div class="gridlayout width-main">
+       <div class="gridlayout width-6">
+        <h4>Content Section 1</h4>
+        <p>Section context and description<br/>
+        Mix with browse points</p>
+      </div>
+      <div class="gridlayout width-6"></div>   
+      <div class="gridlayout width-3">card</div>
+      <div class="gridlayout width-3">card</div>
+      <div class="gridlayout width-3">card</div>
+      <div class="gridlayout width-3">card</div>
+    </div>
   </div>
+
 </div>
 <!-- End Main -->
 
