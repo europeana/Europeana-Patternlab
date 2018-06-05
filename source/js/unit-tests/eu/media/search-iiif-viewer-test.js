@@ -7,7 +7,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
   describe('IIIF Viewer', function(){
 
-    var loadWaitTime = 1000;
+    var loadWaitTime = 1500;
 
     beforeEach(function(){
 
