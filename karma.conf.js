@@ -55,12 +55,13 @@ module.exports = function(config) {
         served:   true,
       },
 
-      {pattern: 'js/unit-tests/lib/*.js',  included: false},
-      {pattern: 'js/modules/eu/**/*.js',   included: false},
-      {pattern: 'js/modules/eu/**/*.css',  included: false},
-      {pattern: 'js/modules/lib/**/*.js',  included: false},
-      {pattern: 'js/modules/lib/**/*.css', included: false},
-      {pattern: 'js/modules/require.js',   included: false},
+      {pattern: 'js/unit-tests/lib/*.js',     included: false},
+      {pattern: 'js/modules/eu/**/*.js',      included: false},
+      {pattern: 'js/modules/eu/**/*.css',     included: false},
+      {pattern: 'js/modules/lib/**/*.js',     included: false},
+      {pattern: 'js/modules/lib/**/*.css',    included: false},
+      {pattern: 'js/modules/require.js',      included: false},
+      {pattern: 'js/unit-tests/require/*.js', included: false},
       {pattern: 'js/unit-tests/**/*.js',   included: false}
     ],
 

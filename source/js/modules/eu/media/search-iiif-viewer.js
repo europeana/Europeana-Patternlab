@@ -250,7 +250,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
+        $('.media-options').trigger('iiif', {'transcriptions-unavailable': true});
       }
     });
 
@@ -551,7 +551,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('click', '.remove-transcriptions', function(){
       $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('IIIF', {'transcriptions-available': true});
+      $('.media-options').trigger('iiif', {'transcriptions-available': true});
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -563,12 +563,29 @@ define(['jquery', 'util_resize'], function($){
       bindTranscriptionActions();
     }
 
+    var miniMap;
+
+    if(config.miniMap){
+      miniMap = miniMapCtrls[currentImg] ? miniMapCtrls[currentImg] : miniMapCtrls['single'];
+      if(miniMap){
+        miniMap.blockInteractions = true;
+      }
+    }
+
     var layerName = currentImg + '-f';
     var afterAdd  = function(key){
       if(transcriptionIsOn){
         setVisibleTranscripts(key);
         $('#eu-iiif-container').removeClass(classHideFullText);
         iiif.invalidateSize();
+      }
+
+      if(config.miniMap){
+        if(miniMap){
+          setTimeout(function(){
+            miniMap.blockInteractions = false;
+          }, 2000);
+        }
       }
     };
 
@@ -595,6 +612,7 @@ define(['jquery', 'util_resize'], function($){
     var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
     //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
     var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
+    annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
 
     // @searchData (optional) = [searchMatches, searchTermLength]
     $.getJSON(annotationsUrl).done(function(data){
@@ -606,7 +624,7 @@ define(['jquery', 'util_resize'], function($){
         var page = textProcessor.getTypedData(data, 'Page');
 
         if(probe){
-          $('.media-options').trigger('IIIF', {'transcriptions-available': page.length === 1});
+          $('.media-options').trigger('iiif', {'transcriptions-available': page.length === 1});
           return;
         }
 
