@@ -612,6 +612,7 @@ define(['jquery', 'util_resize'], function($){
     var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
     //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
     var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
+    annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
 
     // @searchData (optional) = [searchMatches, searchTermLength]
     $.getJSON(annotationsUrl).done(function(data){
