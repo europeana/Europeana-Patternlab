@@ -122,7 +122,13 @@
       }
 
       .object-media-audio{
+
         position: relative;
+
+        .vjs-poster{
+          background-size: contain;
+          margin:          1em 1em 4.5em 1em;
+        }
       }
 
       .object-media-pdf,
@@ -206,7 +212,7 @@
         .lc-nav{
           position:         absolute;
           text-align:       center;
-          top:              49%;
+          top:              46%;
           transform:        translateY(-50%) scale(0.75);
 
           &.nav-left{

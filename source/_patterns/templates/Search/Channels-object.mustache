@@ -157,9 +157,11 @@
                       {{/text}}
 
                       {{#audio}}
-                        <div class="object-media-audio is-hidden">
-                         {{> molecules/components/videojs/videojs }}
-                        </div>
+                        <script id="template-audio" type="text/x-mustache">
+                          <div class="object-media-audio">
+                            <audio id="media-audio" class="audio-js vjs-default-skin" width="100%" preload="none" controls></audio>
+                          </div>
+                        </script>
                       {{/audio}}
 
                       {{#pdf}}
