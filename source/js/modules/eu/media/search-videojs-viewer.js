@@ -50,7 +50,7 @@ define(['jquery'], function($){
 
     // since we're always loading videojs first the only way to get the tech order into the player is to do so here
 
-    $viewer.attr('data-setup', '{ "techOrder": ["aurora"] }');
+    // $viewer.attr('data-setup', '{ "techOrder": ["aurora"] }');
 
     require(['aurora'], function() {
       require(['flac'], function() {
@@ -143,18 +143,6 @@ define(['jquery'], function($){
 
       determineMediaViewer(media_item.mime_type, function(playerOptions){
 
-            // it would be nice to set the tech order via the player options here:
-            // but I can't verify it works.
-            //
-            // TechOrder only works for aurora which is configured differently
-            // to avoid the load order it imposes (see above) and has I don't think
-            // techOrder has ever worked for silverlight
-            //
-            // This technique may well be fine so leaving it here to try again once
-            // the underlying problem with silverlight has been solved.
-            //
-            // The height option here applies only to audio - videos will override this
-
         log('init player');
         player = videojs( $viewer[0], {
           height: media_item.height ? media_item.height : media_item.thumbnail ? 340 : 150
@@ -214,9 +202,16 @@ define(['jquery'], function($){
     },
     hide: function() {
       if(player){
+        player.pause();
+        $(player.el).attr('src', '');
         player.dispose();
         $(player.el).remove();
         player = null;
+      }
+    },
+    pause: function(){
+      if(player){
+        player.pause();
       }
     },
     getItemFromMarkup: function($el){

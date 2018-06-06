@@ -423,6 +423,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     var item        = $('.cho-media-nav .lc-item:eq(' + index + ') a');
     var type        = item.data('type');
     var downloadUri = item.data('download-uri');
+    var omv         = $('.object-media-viewer');
     var playable    = item.hasClass('playable');
     var thumbnail   = item.data('thumbnail');
     var uri         = item.data('uri');
@@ -457,7 +458,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       $('.zoomable .object-media-oembed').remove();
       $('.zoomable > img').remove();
       $('.zoomable').children().addClass('is-hidden');
-      $('.object-media-viewer').append($('.zoomable').children());
+      $('.zoomable').children().not('.object-media-audio').detach().appendTo(omv);
 
       if(audioPlayer){
         audioPlayer.hide();
@@ -478,7 +479,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     };
 
     var setZoomedLock = function(){
-      if($('.zoom-one').length > 0 || !isStacked($('.object-media-viewer'), '.media-poster, .channel-object-media-nav')){
+      if($('.zoom-one').length > 0 || !isStacked(omv, '.media-poster, .channel-object-media-nav')){
         setZoom('zoom-one', true);
       }
       else{
@@ -490,7 +491,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       removeOldMedia();
 
       $('<img src="' + thumbnail + '">').appendTo('.zoomable');
-      $('.object-media-viewer').addClass('thumbnail-mode');
+      omv.addClass('thumbnail-mode');
 
       setZoom();
 
@@ -501,7 +502,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     };
 
     if(playable){
-      $('.object-media-viewer').removeClass('thumbnail-mode');
+      if(type !== 'audio'){
+        omv.removeClass('thumbnail-mode');
+      }
     }
     else{
       showDefault();
@@ -639,29 +642,31 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     }
     else if(type === 'audio'){
 
+      omv.addClass('thumbnail-mode');
+
       removeOldMedia();
       setZoom();
-      $('.zoomable').append($('.object-media-audio'));
-      $('.object-media-audio').removeClass('is-hidden');
 
-      require(['media_viewer_videojs'], function(player) {
+      require(['media_viewer_videojs', 'mustache'], function(player, Mustache) {
 
         audioPlayer = player;
+
+        var template  = $('#template-audio');
+        var html      = Mustache.render(template.text(), {});
+
+        $('.object-media-audio').remove();
+        $('.zoomable').append(html);
 
         var media = {
           url:       uri,
           data_type: type,
           mime_type: mimeType,
           thumbnail: thumbnail,
-          height:    '400px'
+          height:    minWidthMedia + 'px'
         };
 
-        if(media.mime_type == 'audio/x-flac'){
-          media.mime_type = 'audio/flac';
-        }
-
         if(media.url && media.mime_type){
-          audioPlayer.init(media);
+          player.init(media);
         }
         else{
           console.log('invalid audio:\n\t' + JSON.stringify(media, null));
