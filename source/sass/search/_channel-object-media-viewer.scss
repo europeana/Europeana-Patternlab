@@ -129,6 +129,15 @@
           background-size: contain;
           margin:          1em 1em 4.5em 1em;
         }
+
+        .vjs-default-skin.vjs-paused .vjs-big-play-button{
+          display: none;
+        }
+
+        .vjs-default-skin.vjs-paused .vjs-control-bar{
+          display: block;
+        }
+
       }
 
       .object-media-pdf,

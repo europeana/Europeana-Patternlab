@@ -662,7 +662,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           data_type: type,
           mime_type: mimeType,
           thumbnail: thumbnail,
-          height:    minWidthMedia + 'px'
+          height:    ((typeof thumbnail === 'undefined' || !thumbnail) ? '70' : minWidthMedia) + 'px'
         };
 
         if(media.url && media.mime_type){
@@ -691,7 +691,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           data_type: type,
           mime_type: mimeType,
           thumbnail: thumbnail,
-          height:    '400px'
+          height:    minWidthMedia + 'px'
         };
 
         if(media.url && media.mime_type){
