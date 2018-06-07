@@ -1,17 +1,24 @@
 @import '../scss/generic/variables';
+
+$spacing-base: 1rem;
+$spacing-half: $spacing-base * 0.5;
+$spacing-1-75x: $spacing-base * 1.75;
+$spacing-2x: $spacing-base * 2;
+$spacing-4x: $spacing-base * 4;
+
 $card-gray: #f9f7f7;
 
 .gridlayout-wrapper-full {
   display: grid;
-  grid-column-gap: 1.75rem;
-  grid-row-gap: 4rem;
+  grid-column-gap: $spacing-1-75x;
+  grid-row-gap: $spacing-4x;
   grid-template-columns: unquote('[full-start] minmax(1rem, 1fr) [main-start] minmax(0, 87.50rem) [main-end] minmax(1rem, 1fr) [full-end]');
   grid-template-rows: auto;
-  margin: 10rem auto 8rem auto;
+  margin: 0 auto 8rem auto;
 }
 
 .gridlayout p {
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-2x;
 }
 
 .width-full {
@@ -23,14 +30,14 @@ $card-gray: #f9f7f7;
 .width-main {
   display: grid;
   grid-column: main;
-  grid-column-gap: 1.75rem;
+  grid-column-gap: $spacing-1-75x;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   width: 100%;
 }
 
 .with-row-gap {
-  grid-row-gap: 4rem;
+  grid-row-gap: $spacing-4x;
 }
 
 .width-12 {
@@ -81,33 +88,42 @@ $card-gray: #f9f7f7;
   grid-column: span 1;
 }
 
+@media all and (max-width: $bp-med) {
+  .width-6,
+  .width-4,
+  .width-3 {
+    grid-column: span 12;
+  }
+}
+
 .height-2 {
   grid-row: span 2;
 }
 
-.card {
+.gridlayout-card {
   background-color: $card-gray;
-  border-radius: 0.25rem;
+  border-radius: $base-border-radius;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-  font-size: 0.875rem;
+  font-size: $font-size-slightly-smaller;
+  height: 100%;
 
   .card-img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: $base-border-radius $base-border-radius 0 0;
     display: block;
     height: 15rem;
   }
 
   .inner {
-    padding: 1rem;
+    padding: $spacing-base;
   }
 
   .inner-firstline {
     align-items: center;
     display: flex;
-    margin-bottom: 1.75rem;
+    margin-bottom: $spacing-1-75x;
 
     p {
       margin: 0;
@@ -115,11 +131,11 @@ $card-gray: #f9f7f7;
 
     .card-type {
       background-color: $eu-jade;
-      border-radius: 0.25rem;
-      color: #fff;
-      font-size: 0.875rem;
+      border-radius: $base-border-radius;
+      color: $white;
+      font-size: $font-size-slightly-smaller;
       font-weight: normal;
-      margin-left: 1rem;
+      margin-left: $spacing-base;
       padding: 0.1rem 0.5rem;
       text-transform: uppercase;
       white-space: nowrap;
@@ -128,7 +144,30 @@ $card-gray: #f9f7f7;
   }
 
   .inner-firstline + p {
-    font-size: 0.75rem;
+    font-size: $font-size-sm;
     margin-bottom: 0;
+  }
+
+  &.gridlayout-card-big {
+    font-size: 1rem;
+
+    .card-img {
+      height: 20rem;
+    }
+
+    .inner {
+      padding: $spacing-1-75x;
+    }
+
+    .inner-firstline {
+      margin-bottom: $spacing-2x;
+
+      .card-type {
+        font-size: $font-size-slightly-smaller;
+        margin-left: $spacing-1-75x;
+      }
+
+    }
+
   }
 }
