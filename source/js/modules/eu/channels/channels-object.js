@@ -488,22 +488,30 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     };
 
     var showDefault = function(){
-      removeOldMedia();
 
-      $('<img src="' + thumbnail + '">').appendTo('.zoomable');
-      omv.addClass('thumbnail-mode');
+      require(['jqImagesLoaded'], function(){
 
-      setZoom();
+        removeOldMedia();
 
-      log('not playable');
+        $('<img src="' + thumbnail + '">').appendTo('.zoomable').imagesLoaded(function(){
+          if($(this)[0].naturalHeight > minWidthMedia){
+            omv.addClass('thumbnail-tall');
+          }
+        });
+        omv.addClass('thumbnail-mode');
 
-      resetZoomable();
-      $('.media-options').trigger('hide');
+        setZoom();
+
+        log('not playable');
+
+        resetZoomable();
+        $('.media-options').trigger('hide');
+      });
     };
 
     if(playable){
       if(type !== 'audio'){
-        omv.removeClass('thumbnail-mode');
+        omv.removeClass('thumbnail-mode thumbnail-tall');
       }
     }
     else{
