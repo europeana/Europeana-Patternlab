@@ -79,6 +79,9 @@
             align-self:    center;
           }
         }
+        &.thumbnail-tall .zoomable{
+          max-height:     none;
+        }
       }
 
       .title-desc-media-nav{
