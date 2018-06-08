@@ -13,8 +13,11 @@ globals:
   ugcEnabledCollections: false
   window: false
 rules:
+  eqeqeq:
+    - 2
   no-console:
     - 0
+  no-trailing-spaces: 1
   indent:
     - error
     - 2

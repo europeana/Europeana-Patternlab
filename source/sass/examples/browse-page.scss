@@ -1,4 +1,6 @@
-@import '../scss/generic/variables';
+@import "../scss/generic/variables";
+
+$gridlayout-card-shadow: rgba(0, 0, 0, 0.25);
 
 $spacing-base: 1rem;
 $spacing-half: $spacing-base * 0.5;
@@ -12,7 +14,7 @@ $card-gray: #f9f7f7;
   display: grid;
   grid-column-gap: $spacing-1-75x;
   grid-row-gap: $spacing-4x;
-  grid-template-columns: unquote('[full-start] minmax(1rem, 1fr) [main-start] minmax(0, 87.50rem) [main-end] minmax(1rem, 1fr) [full-end]');
+  grid-template-columns: unquote("[full-start] minmax(1rem, 1fr) [main-start] minmax(0, 87.50rem) [main-end] minmax(1rem, 1fr) [full-end]");
   grid-template-rows: auto;
   margin: 0 auto 8rem auto;
 }
@@ -103,7 +105,7 @@ $card-gray: #f9f7f7;
 .gridlayout-card {
   background-color: $card-gray;
   border-radius: $base-border-radius;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
   font-size: $font-size-slightly-smaller;
   height: 100%;
 
