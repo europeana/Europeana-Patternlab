@@ -725,6 +725,7 @@ define(['jquery', 'util_resize'], function($){
       features     = {};
 
       $.each(Object.keys(miniMapCtrls), function(){
+        miniMapCtrls[this].blockInteractions = true;
         miniMapCtrls[this].remove();
       });
       miniMapCtrls = {};
