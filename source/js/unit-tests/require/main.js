@@ -45,6 +45,9 @@ requirejs.config({
     },
     jqScrollto:{
       deps:['jquery']
+    },
+    leaflet_iiif_eu:{
+      deps:['leaflet_iiif']
     }
   },
   callback: window.__karma__.start,

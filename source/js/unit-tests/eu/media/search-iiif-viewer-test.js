@@ -430,6 +430,8 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('contains a zoom-in control', function(done){
 
+        conf.zoom = 3;
+
         console.log('call iiif init...');
 
         IIIF_viewer.init(basePathJson + infoFile, conf);
