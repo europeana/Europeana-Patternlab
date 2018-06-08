@@ -94,6 +94,26 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
           tgt.trigger(e);
         };
 
+        var processKeyActions = function(keyActions, cb, index){
+
+          index = index ? index : 0;
+          var action = keyActions[index];
+
+          fireKeyDown(action.key);
+
+          setTimeout(function(){
+            var currentImage = parseInt(inputPage.val());
+            expect(currentImage).toEqual(action.expectation);
+
+            if(index + 1 < keyActions.length){
+              processKeyActions(keyActions, cb, index + 1);
+            }
+            else{
+              cb();
+            }
+          }, 50);
+        };
+
         var conf      = {};
         var inputPage = $('#iiif-ctrl .jump-to-img');
 
@@ -101,61 +121,72 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         setTimeout(function(){
 
-          var currentImage = inputPage.val();
-
-          currentImage = parseInt(currentImage);
-
+          var currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
+          var keyActions = [
+            {
+              'key': 39,
+              'expectation': 2
+            },
+            {
+              'key': 37,
+              'expectation': 1
+            },
+            {
+              'key': 40,
+              'expectation': 2
+            },
+            {
+              'key': 38,
+              'expectation': 1
+            }
+          ];
+
+          processKeyActions(keyActions, function(){
+
+            // page jump
+
+            expect(ctrlNext).not.toHaveAttr('disabled');
+            expect(ctrlPrev).toHaveAttr('disabled');
+
+            inputPage.val(2);
+
+            fireKeyDown(13, inputPage);
+
+            expect(ctrlNext).toHaveAttr('disabled');
+            expect(ctrlPrev).not.toHaveAttr('disabled');
+
+            // page jump ignoring nonsense
+
+            inputPage.val('A');
+
+            fireKeyDown(13, inputPage);
+
+            expect(parseInt(inputPage.val())).toBe(2);
+
+            done();
+          });
+/*
           fireKeyDown(39); // next
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(2);
 
           fireKeyDown(37);
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
           fireKeyDown(40);
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(2);
 
           fireKeyDown(38);
-
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
-
-          // page jump
-
-          expect(ctrlNext).not.toHaveAttr('disabled');
-          expect(ctrlPrev).toHaveAttr('disabled');
-
-          inputPage.val(2);
-
-          fireKeyDown(13, inputPage);
-
-          expect(ctrlNext).toHaveAttr('disabled');
-          expect(ctrlPrev).not.toHaveAttr('disabled');
-
-          // page jump ignoring nonsense
-
-          inputPage.val('A');
-
-          fireKeyDown(13, inputPage);
-
-          expect(parseInt(inputPage.val())).toBe(2);
-
-          done();
+          */
 
         }, loadWaitTime);
       });
