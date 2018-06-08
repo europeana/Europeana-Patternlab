@@ -291,7 +291,7 @@ define(['eu_accordion_tabs', 'jquery', 'jasmine_jquery'], function(EuAccordionTa
         setTimeout(function(){
           expect(fnPreProcess).toHaveBeenCalled();
           done();
-        }, 10);
+        }, 50);
       });
 
       it('executes a callback after loading data', function(done){

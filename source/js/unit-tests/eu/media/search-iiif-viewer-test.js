@@ -21,7 +21,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
     it('can open manifests', function(done){
       var conf = {};
 
+      console.log('call iiif init...');
+
       IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+      console.log('iiif initialised');
 
       setTimeout(function(){
         var imageCount = $('#iiif-ctrl .total-images').text().replace('/ ', '');
@@ -50,7 +54,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
         var conf      = {};
         var inputPage = $('#iiif-ctrl .jump-to-img');
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+        console.log('initialised iiif');
 
         var currentImage;
 
@@ -94,69 +102,83 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
           tgt.trigger(e);
         };
 
+        var processKeyActions = function(keyActions, cb, index){
+
+          index = index ? index : 0;
+          var action = keyActions[index];
+
+          fireKeyDown(action.key);
+
+          setTimeout(function(){
+            var currentImage = parseInt(inputPage.val());
+            expect(currentImage).toEqual(action.expectation);
+
+            if(index + 1 < keyActions.length){
+              processKeyActions(keyActions, cb, index + 1);
+            }
+            else{
+              cb();
+            }
+          }, 50);
+        };
+
         var conf      = {};
         var inputPage = $('#iiif-ctrl .jump-to-img');
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
-          var currentImage = inputPage.val();
-
-          currentImage = parseInt(currentImage);
-
+          var currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
-          fireKeyDown(39); // next
+          var keyActions = [
+            {
+              'key': 39,
+              'expectation': 2
+            },
+            {
+              'key': 37,
+              'expectation': 1
+            },
+            {
+              'key': 40,
+              'expectation': 2
+            },
+            {
+              'key': 38,
+              'expectation': 1
+            }
+          ];
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
+          processKeyActions(keyActions, function(){
 
-          expect(currentImage).toBe(2);
+            // page jump
 
-          fireKeyDown(37);
+            expect(ctrlNext).not.toHaveAttr('disabled');
+            expect(ctrlPrev).toHaveAttr('disabled');
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
+            inputPage.val(2);
 
-          expect(currentImage).toBe(1);
+            fireKeyDown(13, inputPage);
 
-          fireKeyDown(40);
+            expect(ctrlNext).toHaveAttr('disabled');
+            expect(ctrlPrev).not.toHaveAttr('disabled');
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
+            // page jump ignoring nonsense
 
-          expect(currentImage).toBe(2);
+            inputPage.val('A');
 
-          fireKeyDown(38);
+            fireKeyDown(13, inputPage);
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
+            expect(parseInt(inputPage.val())).toBe(2);
 
-          expect(currentImage).toBe(1);
-
-          // page jump
-
-          expect(ctrlNext).not.toHaveAttr('disabled');
-          expect(ctrlPrev).toHaveAttr('disabled');
-
-          inputPage.val(2);
-
-          fireKeyDown(13, inputPage);
-
-          expect(ctrlNext).toHaveAttr('disabled');
-          expect(ctrlPrev).not.toHaveAttr('disabled');
-
-          // page jump ignoring nonsense
-
-          inputPage.val('A');
-
-          fireKeyDown(13, inputPage);
-
-          expect(parseInt(inputPage.val())).toBe(2);
-
-          done();
-
+            done();
+          });
         }, loadWaitTime);
       });
     });
@@ -222,7 +244,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         $('.media-options').on('iiif', eventCallback.euReady);
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           expect(eventCallback.euReady).toHaveBeenCalled();
@@ -234,7 +260,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('displays transcriptions', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -250,7 +280,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('allows transcriptions to be closed', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, {transcriptions: true});
+
+        console.log('iiif init');
 
         setTimeout(function(){
 
@@ -277,7 +311,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('allows transcriptions to be highlighted', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -350,7 +388,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('can show a mini map', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           var hasMinimap = $('.leaflet-control-minimap').length > 0;
@@ -363,7 +405,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         conf.zoom = 5;
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -384,7 +430,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('contains a zoom-in control', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -402,7 +452,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('contains a zoom-out control', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           var zoomOut = $('.mini-map-ctrls .zoom-out');
