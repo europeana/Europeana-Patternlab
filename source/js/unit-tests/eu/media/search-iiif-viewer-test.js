@@ -167,27 +167,6 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
             done();
           });
-/*
-          fireKeyDown(39); // next
-
-          currentImage = parseInt(inputPage.val());
-          expect(currentImage).toBe(2);
-
-          fireKeyDown(37);
-
-          currentImage = parseInt(inputPage.val());
-          expect(currentImage).toBe(1);
-
-          fireKeyDown(40);
-
-          currentImage = parseInt(inputPage.val());
-          expect(currentImage).toBe(2);
-
-          fireKeyDown(38);
-          currentImage = parseInt(inputPage.val());
-          expect(currentImage).toBe(1);
-          */
-
         }, loadWaitTime);
       });
     });
