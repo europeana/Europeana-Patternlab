@@ -21,7 +21,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
     it('can open manifests', function(done){
       var conf = {};
 
+      console.log('call iiif init...');
+
       IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+      console.log('iiif initialised');
 
       setTimeout(function(){
         var imageCount = $('#iiif-ctrl .total-images').text().replace('/ ', '');
@@ -50,7 +54,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
         var conf      = {};
         var inputPage = $('#iiif-ctrl .jump-to-img');
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+        console.log('initialised iiif');
 
         var currentImage;
 
@@ -117,7 +125,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
         var conf      = {};
         var inputPage = $('#iiif-ctrl .jump-to-img');
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -232,7 +244,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         $('.media-options').on('iiif', eventCallback.euReady);
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           expect(eventCallback.euReady).toHaveBeenCalled();
@@ -244,7 +260,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('displays transcriptions', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -260,7 +280,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('allows transcriptions to be closed', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, {transcriptions: true});
+
+        console.log('iiif init');
 
         setTimeout(function(){
 
@@ -287,7 +311,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('allows transcriptions to be highlighted', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + manifestFile, {transcriptions: true});
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -360,7 +388,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('can show a mini map', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           var hasMinimap = $('.leaflet-control-minimap').length > 0;
@@ -373,7 +405,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         conf.zoom = 5;
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -394,7 +430,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('contains a zoom-in control', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
 
@@ -412,7 +452,11 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       it('contains a zoom-out control', function(done){
 
+        console.log('call iiif init...');
+
         IIIF_viewer.init(basePathJson + infoFile, conf);
+
+        console.log('iiif initialised');
 
         setTimeout(function(){
           var zoomOut = $('.mini-map-ctrls .zoom-out');
