@@ -227,22 +227,22 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   }
 
   function resetZoomable(){
-    setTimeout(function(){
-      var zoomable = $('.zoomable');
-      var limit    = false;
+    //setTimeout(function(){
+    var zoomable = $('.zoomable');
+    var limit    = false;
 
-      if(zoomable.hasClass('busy')){
-        return;
-      }
-      if(zoomable.hasClass('image-mode')){
-        if(getColsAvailable() === 2){
-          if(zoomable.closest('.zoom-one, .zoom-two').length === 0){
-            limit = true;
-          }
+    if(zoomable.hasClass('busy')){
+      return;
+    }
+    if(zoomable.hasClass('image-mode')){
+      if(getColsAvailable() === 2){
+        if(zoomable.closest('.zoom-one, .zoom-two').length === 0){
+          limit = true;
         }
       }
-      zoomable.css('width', limit ? minWidthMedia + 'px' : '100%');
-    }, 1);
+    }
+    zoomable.css('width', limit ? minWidthMedia + 'px' : '100%');
+    //}, 1);
   }
 
   function isStacked(cmp, childSelector){
