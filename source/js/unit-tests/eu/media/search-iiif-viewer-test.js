@@ -52,40 +52,31 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
         IIIF_viewer.init(basePathJson + manifestFile, conf);
 
+        var currentImage;
+
         setTimeout(function(){
 
-          var currentImage = inputPage.val();
-
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
           ctrlNext.click();
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(2);
 
           ctrlPrev.click();
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
           ctrlLast.click();
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(2);
 
           ctrlFirst.click();
 
-          currentImage = inputPage.val();
-          currentImage = parseInt(currentImage);
-
+          currentImage = parseInt(inputPage.val());
           expect(currentImage).toBe(1);
 
           done();
@@ -327,7 +318,7 @@ define(['jasmine_jquery', 'media_viewer_iiif'], function(x, IIIF_viewer){
 
       var conf;
       var maxClicks = 5;
-      var waitZoom  = 275;
+      var waitZoom  = 500;
 
       var repeatClick = function(el, fn, recurse){
         recurse = recurse ? recurse : 0;
