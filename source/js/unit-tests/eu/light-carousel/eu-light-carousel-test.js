@@ -60,7 +60,7 @@ define(['jquery', 'jasmine_jquery'], function(){
             expect(navRight).not.toBeHidden();
           }
           done();
-        }, 200);
+        }, 700);
       });
 
       it('reacts to element resizing by re-evaluating scrollability', function(done){
@@ -208,7 +208,7 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect($('.example-2 .lc-item').length).toBe(itemsAvailable);
           expect($('.example-2 .lc-item:last').text()).toEqual('dynamic item 5');
           done();
-        }, 200);
+        }, 400);
 
       });
 
