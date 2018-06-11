@@ -146,16 +146,6 @@ define(['jquery', 'util_resize'], function($){
 
             if(config.miniMap){
               miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
-
-              /*
-              var centre = iiif.getBounds().getCenter();
-              log('LatLng-equivalent: ' + JSON.stringify(centre));
-              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(
-                Leaflet.tileLayer.iiif.eu(jsonUrl),
-                $.extend({}, config.miniMap, {'centerFixed': centre } )
-              );
-              */
-
             }
           }
           index += 1;
@@ -374,7 +364,13 @@ define(['jquery', 'util_resize'], function($){
           window.clearTimeout(timeoutFailure);
         }
 
-        $.each(data.sequences[0].canvases, function(_, val) {
+        // filter here on presence of service
+
+        var imageContainingCanvases = $.grep(data.sequences[0].canvases, function(canvas){
+          return canvas.images && canvas.images[0] && canvas.images[0].resource && canvas.images[0].resource.service;
+        });
+
+        $.each(imageContainingCanvases, function(_, val) {
           labelledData[val.label] = val;
           allCanvases.push(val);
         });
