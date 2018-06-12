@@ -1,0 +1,91 @@
+.gridlayout-wrapper-full {
+  display: grid;
+  grid-column-gap: $spacing-1-75x;
+  grid-row-gap: $spacing-4x;
+  grid-template-columns: unquote('[full-start] minmax(1rem, 1fr) [main-start] minmax(0, 87.50rem) [main-end] minmax(1rem, 1fr) [full-end]');
+  grid-template-rows: auto;
+  margin: 0 auto 8rem;
+}
+
+.gridlayout p {
+  margin-bottom: $spacing-2x;
+}
+
+.width-full {
+  background-color: $linkblue;
+  grid-column: full;
+  height: 20rem;
+}
+
+.width-main {
+  display: grid;
+  grid-column: main;
+  grid-column-gap: $spacing-1-75x;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  width: 100%;
+}
+
+.with-row-gap {
+  grid-row-gap: $spacing-4x;
+}
+
+.width-12 {
+  grid-column: span 12;
+}
+
+.width-11 {
+  grid-column: span 11;
+}
+
+.width-10 {
+  grid-column: span 10;
+}
+
+.width-9 {
+  grid-column: span 9;
+}
+
+.width-8 {
+  grid-column: span 8;
+}
+
+.width-7 {
+  grid-column: span 7;
+}
+
+.width-6 {
+  grid-column: span 6;
+}
+
+.width-5 {
+  grid-column: span 5;
+}
+
+.width-4 {
+  grid-column: span 4;
+}
+
+.width-3 {
+  grid-column: span 3;
+}
+
+.width-2 {
+  grid-column: span 2;
+}
+
+.width-1 {
+  grid-column: span 1;
+}
+
+@media all and (max-width: $bp-med) {
+  .width-6,
+  .width-4,
+  .width-3 {
+    grid-column: span 12;
+  }
+}
+
+.height-2 {
+  grid-row: span 2;
+}

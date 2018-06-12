@@ -14,7 +14,7 @@
       "media": "all"
     },
     {
-      "path":  "../../css/examples/browse-page.css",
+      "path":  "../../css/css-grid/screen.css",
       "media": "all"
     }
   ],

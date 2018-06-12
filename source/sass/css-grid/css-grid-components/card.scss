@@ -1,0 +1,68 @@
+.gridlayout-card {
+  background-color: $card-gray;
+  border-radius: $base-border-radius;
+  box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
+  font-size: $font-size-slightly-smaller;
+  height: 100%;
+
+  .card-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    display: block;
+    height: 15rem;
+  }
+
+  .inner {
+    padding: $spacing-base;
+  }
+
+  .inner-firstline {
+    align-items: center;
+    display: flex;
+    margin-bottom: $spacing-1-75x;
+
+    p {
+      margin: 0;
+    }
+
+    + p {
+      font-size: $font-size-sm;
+      margin-bottom: 0;
+    }
+
+    .card-type {
+      background-color: $eu-jade;
+      border-radius: $base-border-radius;
+      color: $white;
+      font-size: $font-size-slightly-smaller;
+      font-weight: normal;
+      margin-left: $spacing-base;
+      padding: .1rem .5rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  &.gridlayout-card-big {
+    font-size: $font-size-norm;
+
+    .card-img {
+      height: 20rem;
+    }
+
+    .inner {
+      padding: $spacing-1-75x;
+    }
+
+    .inner-firstline {
+      margin-bottom: $spacing-2x;
+    }
+
+    .card-type {
+      font-size: $font-size-slightly-smaller;
+      margin-left: $spacing-1-75x;
+    }
+  }
+}
