@@ -997,7 +997,7 @@
 
   // split bp-xl
   .object-details::after{
-    content:    '["#{$min-width-media}"]';
+    content:    "#{$min-width-media}";
     display:    block;
     overflow:   hidden;
     position:   absolute;
@@ -1012,7 +1012,7 @@
     }
 
     .object-details::after{
-      content: '[\"#{$min-width-media}\", \"#{$bp-med}\"]';
+      content: "#{$min-width-media},#{$bp-med}";
       width:   1px;
     }
 
@@ -1030,7 +1030,7 @@
   @media all and (min-width: $bp-xl) {
 
     .object-details::after{
-      content: '["#{$min-width-media}", "#{$bp-med}", "#{$bp-xl}"]';
+      content: "#{$min-width-media},#{$bp-med},#{$bp-xl}";
       width: 2px;
     }
 
