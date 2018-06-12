@@ -274,7 +274,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       var zoomLevelsNeeded = colsAvailable;
       var naturalWidth     = current.data('natural-width');
       var sizes            = getComputedStyle($('.object-details')[0], ':after')['content'];
-      sizes                = JSON.parse(JSON.parse(sizes));
+      sizes                = sizes.replace(/\"/g, '').split(',');
       zoomLevelsNeeded     = 0;
 
       if(colsAvailable === 1){
