@@ -1012,7 +1012,7 @@
     }
 
     .object-details::after{
-      content: "['#{$min-width-media}', '#{$bp-med}']";
+      content: '[\"#{$min-width-media}\", \"#{$bp-med}\"]';
       width:   1px;
     }
 
