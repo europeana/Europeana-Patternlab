@@ -1,3 +1,6 @@
+@import '../scss/generic/variables';
+@import 'css-grid-variables';
+
 .gridlayout-wrapper-full {
   display: grid;
   grid-column-gap: $spacing-1-75x;
