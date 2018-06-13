@@ -133,7 +133,7 @@ rules:
     - 2
     - style: double
   shorthand-values:
-    - 0
+    - 1
     - allowed-shorthands:
         - 1
         - 2
