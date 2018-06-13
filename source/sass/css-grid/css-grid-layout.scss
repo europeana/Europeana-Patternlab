@@ -15,22 +15,21 @@
 }
 
 .width-full {
-  background-color: $linkblue;
   grid-column: full;
-  height: 20rem;
 }
 
 .width-main {
   display: grid;
   grid-column: main;
   grid-column-gap: $spacing-1-75x;
+  grid-row-gap: $spacing-4x;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   width: 100%;
 }
 
-.with-row-gap {
-  grid-row-gap: $spacing-4x;
+.no-row-gap {
+  margin-bottom: -4rem;
 }
 
 .width-12 {

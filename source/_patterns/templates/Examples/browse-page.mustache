@@ -1,23 +1,38 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent">
+<div role="main" id="maincontent" class="after-header">
 
   {{#content}}
 
     <div class="gridlayout-wrapper-full">
       <!-- example of a full width row -->
-      <div class="gridlayout width-full">full, a jumbotron, header, carousel, or... can be here</div>
+      <div class="gridlayout width-full">        
+        {{#set_3}}
+          <div class="gridlayout width-main">
+            {{#items}}
+              <div class="gridlayout-card width-4">
+                <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+                <div class="inner">
+                  {{#texts}}
+                    <p>{{.}}</p>
+                  {{/texts}}
+                </div>
+              </div>
+            {{/items}}        
+          </div>
+        {{/set_3}} 
+      </div>
     
       <!-- example of a row in main area, containing several columns-->
       {{#set_1}}
-        <div class="gridlayout width-main">
+        <div class="gridlayout width-main no-row-gap">
           <div class="gridlayout width-6">
             <h4>{{intro.title}}</h4>
             <p>{{intro.description}}</p>
           </div>
         </div>
-        <div class="gridlayout width-main with-row-gap">
+        <div class="gridlayout width-main">
           {{#items}}
             <div class="gridlayout-card width-3">
               <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
@@ -35,13 +50,13 @@
       {{/set_1}}
       
       {{#set_2}}
-        <div class="gridlayout width-main">
+        <div class="gridlayout width-main no-row-gap">
           <div class="gridlayout width-6">
             <h4>{{intro.title}}</h4>
             <p>{{intro.description}}</p>
           </div>
         </div>
-        <div class="gridlayout width-main with-row-gap">
+        <div class="gridlayout width-main">
           {{#items}}
             <div class="gridlayout-card width-3">
               <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
