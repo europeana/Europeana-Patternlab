@@ -1,94 +1,120 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent"> 
+<div role="main" id="maincontent">
 
-  <div class="gridlayout-wrapper-full">    
-    <!-- example of a full width row -->
-    <div class="gridlayout width-full">full, a jumbotron, header, carousel, or... can be here</div>
+  {{#content}}
 
-    <!-- example of a row in main area, containing several columns-->
-    <div class="gridlayout width-main">
-       <div class="gridlayout width-6">
+    <div class="gridlayout-wrapper-full">
+      <!-- example of a full width row -->
+      <div class="gridlayout width-full">full, a jumbotron, header, carousel, or... can be here</div>
+
+      <!-- example of a row in main area, containing several columns-->
+
+      <div class="gridlayout width-6">
         <h4>Content Section 1</h4>
-        <p>Section context and description<br/>
-        Mix with browse points</p>
+        <p>Section context and description
+          <br/>
+           Mix with browse points
+        </p>
       </div>
-      <div class="gridlayout width-6"></div>           
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+      {{#set_1}}
+        <div class="gridlayout width-main">
+          {{#items}}
+            <div class="gridlayout-card width-3">
+              <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+              <div class="inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+              </div>
+            </div>
+          {{/items}}
+        </div>
+      {{/set_1}}
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <div class="gridlayout width-main">
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+        </div>
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+        </div>
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+        </div>
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
         </div>
       </div>
 
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+      <!-- example of a row in main area, containing several columns-->
+      <div class="gridlayout width-main">
+         <div class="gridlayout width-6">
+          <h4>Content Section 2</h4>
+          <p>Section context and description<br/>
+          Mix with browse points</p>
         </div>
-      </div>
+        <div class="gridlayout width-6"></div>
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+        </div>
 
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
         </div>
-      </div>
-      
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
         </div>
-      </div>
+
+        <div class="gridlayout-card width-3">
+          <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
+          <div class="inner">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+        </div>
     </div>
-
-    <!-- example of a row in main area, containing several columns-->
-    <div class="gridlayout width-main">
-       <div class="gridlayout width-6">
-        <h4>Content Section 2</h4>
-        <p>Section context and description<br/>
-        Mix with browse points</p>
-      </div>
-      <div class="gridlayout width-6"></div>   
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        </div>
-      </div>
-
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        </div>
-      </div>
-
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        </div>
-      </div>
-      
-      <div class="gridlayout-card width-3">
-        <a class="card-img" style="background-image:url('/images/sample/object_thumbnail3.jpg');"></a>
-        <div class="inner">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-        </div>
-      </div>
-  </div>
-
+  {{/content}}
 </div>
 <!-- End Main -->
 
