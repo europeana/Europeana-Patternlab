@@ -112,31 +112,17 @@
     }
 
     .ctrl{
-      border:          1px solid #ccc;
-      cursor:          pointer;
-      display:         flex;
-      font-size:       1rem;
-      height:          1.5em;
-      justify-content: center;
-      position:        absolute;
-      right:           0;
-      top:             1.6em;
-      width:           1.5em;
-
-      &.close{
-        .icon{
-          -webkit-transform: scale(0.5);
-          transform:         scale(0.5) translateY(-0.2em);
-        }
-      }
-
-      &.open{
-        .icon{
-          background-position: 0.135em 0.1em;
-          -webkit-transform:   scale(0.7);
-          transform:           scale(0.7);
-        }
-      }
+      -webkit-transform: scale(1.25);
+      cursor:            pointer;
+      display:           flex;
+      font-size:         1rem;
+      height:            1.5em;
+      justify-content:   center;
+      position:          absolute;
+      right:             0;
+      top:               1.6em;
+      transform:         scale(1.25) translateY(-0.2em);
+      width:             1.5em;
 
       // removed hover (box-shadow: $box-shadow-panel)
 
@@ -177,12 +163,10 @@
         }
       }
 
-      .ctrl,
-      .ctrl .icon{
-        height:   1.15em;
-        width:    1.15em;
+      .ctrl{
+        -webkit-transform: scale(0.8);
+        transform:         scale(0.8);
       }
     }
-
   }
 }

@@ -745,6 +745,7 @@
                     "view-more-at": "View more at",
                     "view-more": "View more at"
                 },
+                "helpbar-tip": "<strong>Tip:</strong> hover over image for more options",
                 "hierarchy": {
                   "title": "Hierarchy",
                   "view-items-above": "view items above",
