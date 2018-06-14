@@ -6,24 +6,7 @@
   {{#content}}
 
     <div class="gridlayout-wrapper-full">
-      <!-- example of a full width row 
-      <div class="gridlayout width-full">        
-        {{#set_3}}
-          <div class="gridlayout width-main">
-            {{#items}}
-              <div class="gridlayout-card width-4">
-                <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
-                <div class="inner">
-                  {{#texts}}
-                    <p>{{.}}</p>
-                  {{/texts}}
-                </div>
-              </div>
-            {{/items}}        
-          </div>
-        {{/set_3}} 
-      </div>-->
-    
+
       <!-- example of a row in main area, containing several columns-->
       {{#set_1}}
         <div class="gridlayout width-main no-row-gap">
@@ -32,6 +15,27 @@
             <p>{{intro.description}}</p>
           </div>
         </div>
+        <div class="gridlayout width-fluid">
+          {{#items}}
+            <div class="gridlayout-card">
+              <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+              <div class="inner">
+                {{#texts}}
+                  <p>{{.}}</p>
+                {{/texts}}
+              </div>
+            </div>
+          {{/items}}
+        </div>
+        <div class="gridlayout width-main">
+          <div class="gridlayout width-12 align-right">
+            <a href="{{more.url}}">{{more.text}}</a>
+          </div>
+        </div>
+      {{/set_1}}
+
+      <!-- example of a row in main area, containing several columns-->
+      {{#set_1}}
         <div class="gridlayout width-main">
           {{#items}}
             <div class="gridlayout-card width-3">
@@ -48,7 +52,8 @@
           </div>
         </div>
       {{/set_1}}
-      
+
+
       {{#set_2}}
         <div class="gridlayout width-main no-row-gap">
           <div class="gridlayout width-6">
@@ -71,7 +76,7 @@
             <a href="{{more.url}}">{{more.text}}</a>
           </div>
         </div>
-      {{/set_2}}   
+      {{/set_2}}
     </div>
   {{/content}}
   </div>
