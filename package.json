@@ -47,6 +47,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
     "requirejs": "^2.3.5",
+    "sass-lint": "^1.12.1",
     "sonar-scanner": "^3.0.3"
   },
   "dependencies": {
