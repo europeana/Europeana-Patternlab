@@ -111,14 +111,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   function initExtendedInformation(addHandler){
 
     var ei       = $('.channel-object-extended-information');
-    var sClose   = '<span class="ctrl close"><span class="icon svg-icon-minus"></span></span>';
-    var sOpen    = '<span class="ctrl  open"><span class="icon svg-icon-plus" ></span></span>';
+    var sClose   = '<span class="ctrl close"><span class="icon svg-icon-minus-bordered"></span></span>';
+    var sOpen    = '<span class="ctrl  open"><span class="icon svg-icon-plus-bordered" ></span></span>';
     var keyLS    = 'eu_portal_object_data_expanded';
     var topTitle = ei.find('.channel-object-title');
 
     var readUserPrefs = function(){
 
-      if(typeof(Storage) == 'undefined'){
+      if(typeof(Storage) === 'undefined'){
         return;
       }
 
@@ -146,7 +146,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     var writeUserPrefs = function(){
 
-      if(typeof(Storage) == 'undefined'){
+      if(typeof(Storage) === 'undefined'){
         return;
       }
 
@@ -437,7 +437,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     updateTechData(item);
 
-    $('.media-options').trigger(type, $.extend(type == 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
+    $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
     if(reminderImg.length === 0){
@@ -779,7 +779,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       if(url.indexOf('/agent/') >-1){
 
-        var locale = typeof window.i18nLocale == 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale == 'string' ? window.i18nDefaultLocale : 'en';
+        var locale = typeof window.i18nLocale === 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale === 'string' ? window.i18nDefaultLocale : 'en';
 
         var matches = url.match(/agent\/base\/(.*)/);
         if(matches.length === 2){
@@ -936,7 +936,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     var buildHierarchy = function(initialData){
 
-      if(initialData && (initialData.error != null || ! initialData.success )){
+      if(initialData && (initialData.error !== null || ! initialData.success )){
         error(initialData.error);
         return;
       }
@@ -1121,7 +1121,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
     EuSlide.makeSwipeable(promotions, {'not-on-stacked': true, 'transition-on-simulate': true});
 
-    if(typeof(Storage) != 'undefined') {
+    if(typeof(Storage) !== 'undefined') {
 
       var s = sessionStorage;
 
@@ -1443,7 +1443,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       for(var i=0; i<data.length; i++){
 
-        if(!currItem && data[i].url.split('?')[0] == currUrl){
+        if(!currItem && data[i].url.split('?')[0] === currUrl){
           currItem = i;
           s.eu_portal_last_results_current = currItem;
           fixOffset();
@@ -1467,10 +1467,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     var offset      = parseInt(s.eu_portal_last_results_offset);
     var offsetIndex = ((page * per_page) - per_page) - offset;
 
-    var nextNeeded  = ((offsetIndex + current + 1) == count) && (offsetIndex + current + 1) < total;
+    var nextNeeded  = ((offsetIndex + current + 1) === count) && (offsetIndex + current + 1) < total;
     var prevNeeded  = (offsetIndex + current) === 0 && from > 1;
 
-    if(!(history.state && typeof history.state.currentIndex == 'number')){
+    if(!(history.state && typeof history.state.currentIndex === 'number')){
       log('write state ' + current);
       history.replaceState({
         'currentIndex': current
@@ -1649,7 +1649,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           'templateText': $('#template-media-item').text()
         }).init();
 
-        if(typeof ResizeObserver == 'undefined'){
+        if(typeof ResizeObserver === 'undefined'){
           setTimeout(function(){
             $el.find('.lc-scrollable').trigger('carousel-scrolled');
           }, 2500);
@@ -1677,7 +1677,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   };
 
   var channelCheck = function(){
-    if(typeof(Storage) == 'undefined') {
+    if(typeof(Storage) === 'undefined') {
       log('no storage');
     }
     else {
@@ -1687,7 +1687,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       var name  = sessionStorage.eu_portal_channel_name;
       var url   = sessionStorage.eu_portal_channel_url;
 
-      if(typeof url != 'undefined' && url != 'undefined' ){
+      if(typeof url !== 'undefined' && url !== 'undefined' ){
         var crumb = $('.breadcrumbs li.js-channel');
         var link  = crumb.find('a');
         link.text(label);
@@ -1697,7 +1697,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       // menu styling
 
-      if(name && name != 'undefined'){
+      if(name && name !== 'undefined'){
         $('#main-menu ul a').each(function(i, ob){
           var $ob  = $(ob);
           var href = $ob.attr('href');
@@ -1714,7 +1714,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         dimension: 'dimension1'
       };
 
-      if(typeof ugcEnabledCollections != 'undefined' && ugcEnabledCollections.indexOf(name) > -1){
+      if(typeof ugcEnabledCollections !== 'undefined' && ugcEnabledCollections.indexOf(name) > -1){
         require(['e7a_1418'], function(e7a1418){
           e7a1418.initPageInvisible();
         });
@@ -1733,11 +1733,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     searchForm.bindShowInlineSearch();
 
-    if(channelData == null){
+    if(channelData === null){
       channelCheck();
     }
     // set preferred search
-    var preferredResultCount = (typeof(Storage) == 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
+    var preferredResultCount = (typeof(Storage) === 'undefined') ? null : localStorage.getItem('eu_portal_results_count');
     if(preferredResultCount){
       $('.search-multiterm').append('<input type="hidden" name="per_page" value="' + preferredResultCount + '" />');
     }
@@ -1777,7 +1777,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
         delete params['dc'];
 
-        if(typeof params['q'] != 'string'){
+        if(typeof params['q'] !== 'string'){
           log('no q param: ' + typeof params['q']);
           makePromoRequest();
           return;
@@ -1819,7 +1819,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
         delete params['l'];
 
-        if(history.state && typeof history.state.currentIndex == 'number'){
+        if(history.state && typeof history.state.currentIndex === 'number'){
           s.eu_portal_last_results_current = history.state.currentIndex;
         }
 

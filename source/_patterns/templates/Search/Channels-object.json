@@ -59,7 +59,6 @@
   "content":
   {
     "helpbar": {
-      "tip":      "<strong>Tip:</strong> hover over image for more options",
       "tutorial": {
         "text": "tutorial",
         "url":  "javascript:alert('tutorial link')"
