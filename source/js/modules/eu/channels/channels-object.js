@@ -55,6 +55,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       });
     }
 
+    if(attrs['data-mime-type']){
+      var split = attrs['data-mime-type'].split('/');
+      attrs['data-mime-type-brief'] = split.length > 0 ? split[1] : split[0];
+    }
+
     require(['mustache'], function(Mustache){
 
       Mustache.tags = ['[[', ']]'];

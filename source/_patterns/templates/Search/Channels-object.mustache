@@ -332,26 +332,28 @@
                   </div>
 
                   <div class="action-modal-section padded">
-                    <span class="file">[[data-mime-type]]</span>
+                    <span class="file">[[data-mime-type-brief]]</span>
                     <ul>
-                      <li><span class="action-modal-subheading">format</span> [[data-format]]</li>
-                      <li><span class="action-modal-subheading">file size</span> [[data-file-size]] [[data-file-unit]]</li>
+                      <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
+                      <li><span class="file-info-field"><span class="file-info-field-label">file size</span> [[data-file-size]] [[data-file-unit]]</span></li>
                     </ul>
                   </div>
 
                   <div class="action-modal-section padded">
                     <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
-                    <input value="[[data-attribution-plain]]">
+                    <input class="attribution-field" value="[[data-attribution-plain]]">
                   </div>
 
-                  <div class="action-modal-section centred padded">
-                    <span class="action-modal-subheading">other formats</span>
-                    [[formats]]
-                    <ul>
-                      <li><a href="[[url]]">[[text]]</a></li>
-                    </ul>
-                    [[formats]]
-                  </div>
+                  [[#has_other_formats]]
+                    <div class="action-modal-section centred padded">
+                      <span class="action-modal-subheading">other formats</span>
+                      <ul>
+                        [[#formats]]
+                          <li><a href="[[url]]">[[text]]</a></li>
+                        [[/formats]]
+                      </ul>
+                    </div>
+                  [[/has_other_formats]]
 
                   <a class="media-modal-close">
                     <span class="label"></span>
