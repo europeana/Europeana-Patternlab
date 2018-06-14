@@ -119,7 +119,7 @@
               "height": "2548",
 
               "language":"English",
-              "format": "jpg",
+              "format": "image/jpg",
               "file_size": "23.2",
               "file_unit": "MB",
               "codec": "MPEG-2",
@@ -239,7 +239,7 @@
               "dc_source": "Source of the 3rd media item",
               "edm_rights": "{\"model\":{\"license_human\":\"Limited Re-use\",\"license_info\":\"limitations apply\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}",
               "language":"English",
-              "format": "png",
+              "format": "image/png",
               "file_size": "7.3",
               "file_unit": "MB"
             }
@@ -264,7 +264,7 @@
             "technical_metadata":
             {
               "language":"English",
-              "format": "png",
+              "format": "image/png",
               "file_size": "23.2",
               "file_unit": "MB"
             }
@@ -293,7 +293,7 @@
 
               "width": "532",
               "height": "768",
-              "format": "jpg",
+              "format": "image/jpg",
               "file_size": "84.25",
               "file_unit": "KB",
               "mime_type": "image/jpg",

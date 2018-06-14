@@ -31,7 +31,7 @@ define([], function(){
         "height": "2548",
 
         "language":"English",
-        "format": "jpg",
+        "format": "image/jpg",
         "file_size": "23.2",
         "file_unit": "MB",
         "codec": "MPEG-2",
