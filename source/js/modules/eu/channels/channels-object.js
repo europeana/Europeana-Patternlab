@@ -113,6 +113,25 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
   }
 
+  function actionCtrlClick(modal){
+    if(modal){
+      $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
+      $(modal).removeClass('js-hidden');
+      $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+    }
+  }
+
+  function scrollPageToElement(elSelector, duration, extraOffset){
+
+    var hwh          = $('.header-wrapper').height();
+    var tbh          = $('.title-bar').height();
+    var scrollOffset = extraOffset - (hwh - tbh);
+
+    require(['jqScrollto'], function(){
+      $(document).scrollTo(elSelector, duration, {'offset' : scrollOffset });
+    });
+  }
+
   function initExtendedInformation(addHandler){
 
     var ei       = $('.channel-object-extended-information');
@@ -376,7 +395,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       resetZoomable();
     });
 
-    EuMediaOptions.init($('.media-options'), {'external-link': $('.object-origin').data('object-origin-url'), 'share-link': 'javascript:alert("share link here")'});
+    EuMediaOptions.init($('.media-options'), {'external-link': $('.object-origin').data('object-origin-url'), 'share-link': true});
 
     EuMediaOptions.addHandler('iiif', function(ops){
       if(ops['transcriptions-active']){
@@ -403,16 +422,9 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
 
     $(document).on('click', '.action-ctrl-btn', function(e){
-
       var tgt   = $(e.target).closest('.action-ctrl-btn');
       var modal = tgt.data('modal-selector');
-
-      if(modal){
-        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
-        $(modal).removeClass('js-hidden');
-        $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
-      }
-
+      actionCtrlClick(modal);
     });
 
     $(document).on('click', '.media-modal-close', function(e){
@@ -450,10 +462,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     }
     reminderImg.attr('src', thumbnail);
 
-    require(['jqScrollto'], function(){
-      reminderImg.off('click').on('click', function(){
-        $(document).scrollTo('.media-poster', 333, {'offset' : 0 - $('.header-wrapper').height()});
-      });
+    reminderImg.off('click').on('click', function(){
+      scrollPageToElement('.media-poster', 333, -16);
     });
 
     $('.title-bar .text-left').text($('.channel-object-title:eq(0)').text());
@@ -770,7 +780,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function initActionBar(){
     $('.media-annotate').on('click', function(){ console.log('annotate'); });
-    //$('.action-ctrl-btn.share').on('click', function(){ console.log('share'); });
+
+    $(document).on('click', '.media-options .media-download, .media-options .media-share', function(e){
+
+      var tgt   = $(e.target).closest('.media-option');
+      var modal = tgt.data('modal-selector');
+
+      actionCtrlClick(modal);
+      scrollPageToElement('.channel-object-action-bar', 0, - 36);
+    });
   }
 
   function initEntity(){

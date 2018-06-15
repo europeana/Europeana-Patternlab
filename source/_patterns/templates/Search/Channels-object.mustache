@@ -94,12 +94,12 @@
                             </a>
                           </span>
                           <span class="media-option-group share-link-ctrl">
-                            <a class="media-option media-share" title="Share">
+                            <span class="media-option media-share" data-modal-selector=".modal-share" title="Share">
                               <span class="share svg-icon-share"></span>
-                            </a>
+                            </span>
                           </span>
                           <span class="media-option-group download-link-ctrl">
-                            <a class="media-option media-download" download="Europeana-Media" title="Download">
+                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" title="Download">
                               <span class="download svg-icon-download white"></span>
                             </a>
                           </span>
@@ -242,7 +242,6 @@
                   </div>
                 </div>
 
-
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
                   {{^thumbnail}}<br/><br/>{{/thumbnail}}
@@ -292,7 +291,6 @@
                     <span class="label">
                       <h4>{{i18n.global.facet.header.reusability}}</h4>
                       <label>[[license_brief]][[^license_brief]]{{#rights}}{{license_brief}}{{/rights}}[[/license_brief]]</label>
-
 
                       [[^license_restricted]]
                         {{#rights}}
