@@ -4,7 +4,8 @@ if(typeof googleAnalyticsKey == 'undefined'){
   window.googleAnalyticsKey = '';
 }
 
-lea  window.__ga__ = {
+if(typeof window.googleAnalyticsLinkedDomains == 'undefined'){
+  window.__ga__ = {
     q: [['create', window.googleAnalyticsKey, 'auto']],
     l: Date.now()
   };
