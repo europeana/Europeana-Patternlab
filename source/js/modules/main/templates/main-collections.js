@@ -49,6 +49,11 @@ require.config({
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
+
+    // Issues found with attempted update to leaflet-1.3.1
+    // - gaps between tiles a certain zoom levels
+    // - tiles not rendering following after paginating
+    
     leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
