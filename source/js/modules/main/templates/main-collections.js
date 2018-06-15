@@ -4,8 +4,7 @@ if(typeof googleAnalyticsKey == 'undefined'){
   window.googleAnalyticsKey = '';
 }
 
-if(typeof window.googleAnalyticsLinkedDomains == 'undefined'){
-  window.__ga__ = {
+lea  window.__ga__ = {
     q: [['create', window.googleAnalyticsKey, 'auto']],
     l: Date.now()
   };
@@ -49,7 +48,7 @@ require.config({
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
-    leaflet:                       '../../lib/leaflet/leaflet-1.3.1/leaflet',
+    leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
