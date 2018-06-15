@@ -1,10 +1,10 @@
 window.GoogleAnalyticsObject = '__ga__';
 
-if(typeof googleAnalyticsKey == 'undefined'){
+if(typeof googleAnalyticsKey === 'undefined'){
   window.googleAnalyticsKey = '';
 }
 
-if(typeof window.googleAnalyticsLinkedDomains == 'undefined'){
+if(typeof window.googleAnalyticsLinkedDomains === 'undefined'){
   window.__ga__ = {
     q: [['create', window.googleAnalyticsKey, 'auto']],
     l: Date.now()
@@ -49,6 +49,11 @@ require.config({
     ga:                            '//www.google-analytics.com/analytics',
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
+
+    // Issues found with attempted update to leaflet-1.3.1
+    // - gaps between tiles a certain zoom levels
+    // - tiles not rendering following after paginating
+
     leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
@@ -175,7 +180,7 @@ require.config({
 require(['jquery'], function( $ ) {
   // require(['optimizely']);
 
-  if(typeof mock_ajax != 'undefined'){
+  if(typeof mock_ajax !== 'undefined'){
     require(['eu_mock_ajax']);
   }
 
@@ -188,16 +193,16 @@ require(['jquery'], function( $ ) {
       require(['ga'],
         function(ga) {
           channels.getPromisedPageJS().done(function(page){
-            if(page && typeof page.getAnalyticsData != 'undefined'){
+            if(page && typeof page.getAnalyticsData !== 'undefined'){
               var analyticsData = page.getAnalyticsData();
               for(var i=0; i<analyticsData.length; i++){
-                if(analyticsData[i].name != 'undefined'){
+                if(analyticsData[i].name !== 'undefined'){
                   ga('set', analyticsData[i].dimension, analyticsData[i].name);
                 }
               }
             }
 
-            if(typeof googleOptimizeContainerID != 'undefined' && window.googleOptimizeContainerID){
+            if(typeof googleOptimizeContainerID !== 'undefined' && window.googleOptimizeContainerID){
               (function(a,s,y,n,c,h,i){s.className+=' '+y;h.start=1*new Date;
                 h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'');};
                 (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null;},c);h.timeout=c;
@@ -223,22 +228,22 @@ require(['jquery'], function( $ ) {
         require(['pinterest'], function(){
 
           channels.getPromisedPageJS().done(function(page){
-            if(page && typeof page.getPinterestData != 'undefined'){
+            if(page && typeof page.getPinterestData !== 'undefined'){
               var data = page.getPinterestData();
               if(data){
                 var pinOneButton = $('.pinit');
                 pinOneButton.on('click', function() {
-                  if($('.tmp-pinterest').size()==0){
+                  if($('.tmp-pinterest').size()===0){
                     $('body').append('<div id="tmp-pinterest-container" style="width:0px; overflow:hidden;">');
                     $('.object-media-nav .mlt-img-div').each(function(i, ob){
                       var url = $(ob).css('background-image').replace('url(','').replace(')','');
-                      if(url != 'none'){
+                      if(url !== 'none'){
                         $('#tmp-pinterest-container').append('<img src=' + url + ' class="tmp-pinterest" style="position: absolute; top: 2000px;"/>');
                       }
                     });
                   }
                   var url = $('meta[property="og:url"]').attr('content');
-                  if($('.tmp-pinterest').size()==0){
+                  if($('.tmp-pinterest').size()===0){
                     window.PinUtils.pinOne({
                       media: data.media ? data.media : 'http://styleguide.europeana.eu/images/europeana-logo-collections.svg',
                       description: data.desc ? data.desc : 'Europeana Record',
