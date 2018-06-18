@@ -41,8 +41,6 @@
 /*------------------------------------*\
     $GRIDS
 \*------------------------------------*/
-@import "scss/grid/csswizardry-grids";
-@import "scss/objects/media_grid";
 
 @import "scss/grid/susy";
 //module layout using susy grid
@@ -144,4 +142,3 @@ $susy: (
 // Charts and stats
 @import "scss/objects/charts/display-number";
 @import "scss/objects/charts/stats-bar";
-

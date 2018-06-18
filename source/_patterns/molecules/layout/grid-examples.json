@@ -101,8 +101,8 @@
         }
       ],
       "intro":{
-        "title": "Content Section 1",
-        "description": "Section context and description Mix with browse points"
+        "title": "Fluid grid",
+        "description": "Example using auto-fit for cells"
       },
       "more":{
         "text": "Load more",
@@ -145,8 +145,8 @@
         }
       ],
       "intro":{
-        "title": "Content Section 2",
-        "description": "Section context and description Mix with browse points"
+        "title": "Fixed grid",
+        "description": "Example using fracitonal units"
       },
       "more":{
         "text": "Load more",
