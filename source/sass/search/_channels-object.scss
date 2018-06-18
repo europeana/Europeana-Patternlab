@@ -697,6 +697,11 @@
       .channel-object-media-actions{
         -webkit-justify-content: space-evenly;
         justify-content:         space-evenly;
+
+        @supports (-ms-ime-align: auto){
+          // fallback for MS Edge
+          justify-content: space-around;
+        }
       }
 
       .modal-header [data-provided-by]::before{
@@ -852,7 +857,7 @@
       padding: $pad;
 
       .label{
-        display:           inline-block;
+        display:           block;
         position:          relative;
         -webkit-transform: translateY(-50%);
         transform:         translateY(-50%);
@@ -973,6 +978,11 @@
         flex-grow:       1;
         flex-wrap:       wrap;
         justify-content: space-evenly;
+
+        @supports (-ms-ime-align: auto){
+          // fallback for MS Edge
+          justify-content: space-around;
+        }
       }
 
       .page-url-label{
