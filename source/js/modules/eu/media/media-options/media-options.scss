@@ -23,6 +23,12 @@ $fillWhite:       str-replace('%23#{$white}', '#', '');
 
   -webkit-justify-content: space-evenly;
   justify-content:         space-evenly;
+
+  @supports (-ms-ime-align: auto){
+    // fallback for MS Edge
+    justify-content: space-around;
+  }
+
   left:                    0;
   margin:                  0;
   opacity:                 0;
