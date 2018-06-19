@@ -18,7 +18,6 @@
       {{/ugc_content}}
     {{/disabled}}
 
-
     {{#object.media}}
       {{^items}}
         <section>
@@ -94,20 +93,20 @@
                             </a>
                           </span>
                           <span class="media-option-group share-link-ctrl">
-                            <span class="media-option media-share" data-modal-selector=".modal-share" title="Share">
+                            <span class="media-option media-share" data-modal-selector=".modal-share" title="{{i18n.global.actions.share}}">
                               <span class="share svg-icon-share"></span>
                             </span>
                           </span>
                           <span class="media-option-group download-link-ctrl">
-                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" title="Download">
+                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" title="{{i18n.global.actions.download}}">
                               <span class="download svg-icon-download white"></span>
                             </a>
                           </span>
                           <span class="media-option-group zoom-ctrls">
-                            <span class="media-option media-zoom-in" title="Zoom in">
+                            <span class="media-option media-zoom-in" title="Enlarge viewer">
                               <span class="zoom-in svg-icon-card-expand"></span>
                             </span>
-                            <span class="media-option media-zoom-out" title="Zoom out">
+                            <span class="media-option media-zoom-out" title="Reduce viewer">
                               <span class="zoom-out svg-icon-card-collapse"></span>
                             </span>
                           </span>
@@ -147,12 +146,6 @@
                           {{> molecules/components/oembed/oembed }}
                         </div>
                       {{/oembed}}
-
-                      {{#text}}
-                        <div class="object-media-text is-hidden">
-                          Text viewer here
-                        </div>
-                      {{/text}}
 
                       {{#audio}}
                         <script id="template-audio" type="text/x-mustache">
@@ -277,7 +270,7 @@
 
             <script id="template-modal-header-js" type="text/x-mustache">
               <div class="modal-header none">
-                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a>
+                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.actions.share}}</span></a>
                 <a class="action-ctrl-btn[[^data-download-uri]] disabled[[/data-download-uri]]" data-modal-selector=".modal-download" download="Europeana-Media" href="[[data-download-uri]]"><span>{{i18n.site.object.actions.download}}</span></a>
                 <a class="action-ctrl-btn" data-modal-selector=".modal-rights"><span>{{i18n.global.facet.header.reusability}} [[license_brief]]</span></a>
                 {{> molecules/controls/channels-object-origin }}
@@ -324,7 +317,7 @@
                 <div class="modal-content">
                   <div class="modal-action centred">
                     <span class="label">
-                        Downloading
+                        {{i18n.site.object.actions.downloading}}
                         <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
                       </span>
                   </div>
@@ -333,7 +326,7 @@
                     <span class="file">[[data-mime-type-brief]]</span>
                     <ul>
                       <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
-                      <li><span class="file-info-field"><span class="file-info-field-label">file size</span> [[data-file-size]] [[data-file-unit]]</span></li>
+                      <li><span class="file-info-field"><span class="file-info-field-label">{{i18n.site.object.meta-label.file-size}}</span> [[data-file-size]] [[data-file-unit]]</span></li>
                     </ul>
                   </div>
 
@@ -365,7 +358,7 @@
               <div class="modal-content">
                 <div class="modal-action centred">
                   <span class="label">
-                    {{i18n.global.share}}
+                    {{i18n.global.actions.share}}
                   </span>
                 </div>
 
@@ -376,7 +369,7 @@
                   {{/social_share }}
 
                   <div class="page-url-fields">
-                    <label class="page-url-label" for="page-url-input">Copy</label>
+                    <label class="page-url-label" for="page-url-input">{{i18n.global.actions.copy}}</label>
                     <input class="page-url-input" id="page-url-input"/>
                   </div>
 
