@@ -210,8 +210,7 @@ define(['jquery', 'util_resize'], function($){
       crs: Leaflet.CRS.Simple,
       zoom: config.zoom ? config.zoom : 0,
       maxZoom: maxZoom,
-      zoomsliderControl: config.zoomSlider,
-      zoomSnap: 0.5
+      zoomsliderControl: config.zoomSlider
     });
 
     $(iiif).on('europeana-ready', function(){
