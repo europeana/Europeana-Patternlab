@@ -150,11 +150,10 @@
       h2.channel-object-title{
         .ctrl{
           &::before{
-            bottom:      0;
-            content: attr(data-before);
+            content:     attr(data-before);
             font-size:   $font-size-slightly-smaller;
             font-weight: lighter;
-            line-height: 1rem;
+            line-height: 1.4;
             position:    absolute;
             right:       2rem;
             text-align:  right;

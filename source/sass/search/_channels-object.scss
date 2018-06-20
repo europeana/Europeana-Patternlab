@@ -391,6 +391,7 @@
       background-color:        $action-bar-bg;
       display:                 -webkit-flex;
       display:                 flex;
+      flex-wrap:               wrap;
 
       -webkit-justify-content: space-around;
       justify-content:         space-around;
@@ -402,41 +403,43 @@
         display:  none;
       }
 
-      @media all and (min-width: $bp-med) {
-
-        .institution-logo::before{
-          content:     attr(data-provided-by);
-          font-size:   $font-size-sm;
-          position:    absolute;
-          right:       115%;
-          top:         50%;
-          transform:   translateY(-50%);
-          white-space: nowrap;
-
-          &:hover{
-            color:  $eu-blue;
-            filter: unset;
-          }
-        }
-      }
-
-      @media all and (min-width: $bp-xl) {
-        -webkit-justify-content: flex-start;
-        justify-content:         flex-start;
-      }
-
       > .object-origin{
         -webkit-align-self: center;
         align-self:         center;
         margin:             0 2px 0 $space;
+
+        @media all and (max-width: $bp-xl) {
+          border-top:  1px solid $gray-lighter;
+          margin-top:  1em;
+          padding-top: 1em;
+          text-align:  right;
+          width:       100%;
+        }
+
+      }
+
+      > .action-ctrl a{
+        @media all and (min-width: $bp-small-3) {
+          width: 8.2em;
+        }
+      }
+
+      @media all and (min-width: $bp-xl) {
+        flex-wrap:               nowrap;
+        -webkit-justify-content: flex-start;
+        justify-content:         flex-start;
       }
 
     }
 
+
     .action-ctrl{
-      -webkit-align-self: center;
-      align-self:         center;
-      margin:             0 $space-half;
+      margin: 0 $space-half;
+
+      @media all and (max-width: $bp-xl) {
+        -webkit-align-self: center;
+        align-self:         center;
+      }
     }
 
     .action-ctrl-btn{
@@ -496,6 +499,22 @@
       }
     }
 
+    .object-origin .institution-logo{
+
+      background-color: $white;
+      background-size:  cover;
+      border-radius:    25px;
+      display:          inline-block;
+
+      -webkit-filter:   grayscale(100%);
+      filter:           grayscale(100%);
+
+      &:hover{
+        -webkit-filter: unset;
+        filter:         unset;
+      }
+    }
+
     .modal-header{
       .action-ctrl-btn{
         color:      $eu-blue;
@@ -514,32 +533,49 @@
       }
     }
 
-    .object-origin{
+    .channel-object-media-actions{
 
-      .header-only{
-        display: none;
-      }
+      > .object-origin{
 
-      .icon{
-        margin-right: 0;
-      }
+        .icon{
+          margin-right: 0;
+        }
 
-      .institution-logo{
-        background-color: $white;
-        background-size:  cover;
-        border-radius:    25px;
-        -webkit-filter:   grayscale(100%);
-        filter:           grayscale(100%);
-        float:            right;
-        height:           50px;
-        position:         relative;
-        width:            50px;
-      }
+        .institution-logo{
+          border-radius:    25px;
+          height:           50px;
+          position:         relative;
+          width:            50px;
 
-      @media all and (min-width: $bp-xl) {
-        -webkit-flex-grow: 1;
-        flex-grow:         1;
+          &::before{
+            content:     attr(data-provided-by);
+            font-size:   $font-size-sm;
+            position:    absolute;
+            right:       115%;
+            top:         50%;
+            transform:   translateY(-50%);
+            white-space: nowrap;
+
+            &:hover{
+              color:  $eu-blue;
+              filter: unset;
+            }
+          }
+
+        }
+
+        @media all and (min-width: $bp-xl) {
+
+          -webkit-flex-grow: 1;
+          flex-grow:         1;
+          text-align:        right;
+        }
+
       }
+    }
+
+    .object-origin .header-only{
+      display: none;
     }
 
 
@@ -600,15 +636,19 @@
 
         flex-grow:  1;
         font-size:  14px;
+
+        max-width:  100%;
+        overflow:   hidden;
+
         text-align: right;
 
+        &.with-logo{
+          margin-right: 2.3em;
+          max-width:    calc(100% - 2.3em);
+        }
+
         [data-provided-by]{
-
           white-space: nowrap;
-
-          &.with-logo{
-            margin-right: 2.3em;
-          }
         }
 
         .institution-logo{
@@ -629,7 +669,9 @@
         }
 
         .header-only{
-          display:     block;
+          display:       block;
+          overflow:      hidden;
+          text-overflow: ellipsis;
         }
 
         .overview-only{
@@ -642,7 +684,11 @@
     .object-rights{
       cursor:     pointer;
       order:      -1;
-      text-align: center;
+
+      h4{
+        margin-bottom: 0;
+        white-space:   nowrap;
+      }
     }
 
     .svg-icon-linkout{
@@ -655,22 +701,19 @@
       width:             2em;
     }
 
-    .channel-object-media-actions > .action-ctrl a{
-      width: 8.2em;
-    }
+    .channel-object-media-actions > .object-origin {
 
-    .channel-object-media-actions > .object-origin{
+      .object-origin-detail {
 
-      .object-origin-detail{
+        display: block;
 
-        display: none;
-
-        &:first-child{
-
+        /*
+        &:first-child {
           display:    block;
 
           .view-more-at{
-            display: none;
+            display:   none;
+            font-size: 12px;
           }
 
           @media all and (min-width: $bp-modal-collapse) {
@@ -678,6 +721,7 @@
             text-align: center;
             .view-more-at{
               display: block;
+              color: orange;
             }
           }
 
@@ -685,10 +729,11 @@
 
             .view-more-at{
               display: inline;
+              color: green;
             }
           }
-
         }
+        */
       }
     }
 
@@ -743,18 +788,14 @@
       .channel-object-media-actions > .object-origin{
 
         .object-origin-detail{
-          display:     block;
           font-size:   $font-size-sm;
-          position:    absolute;
           right:       calc(1em + 2px);
           top:         7em;
-          white-space: nowrap;
         }
       }
 
       .object-rights{
         order:      0;
-        text-align: left;
       }
 
       .object-license{
@@ -839,7 +880,9 @@
 
       &.centred{
 
-        max-width: 12em;
+        @media all and (min-width: $bp-small-3) {
+          max-width: 12em;
+        }
 
         .label{
           @media all and (min-width: $bp-modal-collapse) {
@@ -999,6 +1042,12 @@
         display:                 flex;
       }
 
+      @media all and (max-width: $bp-small-3) {
+        .page-url-fields{
+          width: 100%;
+        }
+      }
+
       height:                  100%;
       -webkit-justify-content: space-between;
       justify-content:         space-between;
@@ -1027,11 +1076,14 @@
     }
 
     .file-info-field{
-      color:     $gray-light;
-      font-size: 12px;
+      color:       $gray-light;
+      font-size:   12px;
+      white-space: nowrap;
     }
+
     .file-info-field-label{
-      font-weight: bold;
+      font-weight:    bold;
+      text-transform: lowercase;
     }
     .attribution-field{
       box-shadow: none;
