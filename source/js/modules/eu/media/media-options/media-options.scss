@@ -1,5 +1,5 @@
 @import '../../../../../sass/scss/generic/variables';
-@import '../../../../../sass/search/channel-object-variables';
+@import '../../../../../sass/search/channels-object-variables';
 
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);

@@ -1,4 +1,4 @@
-@import "channel-object-variables";
+@import "channels-object-variables";
 
 .no-js{
   .js-remove{
@@ -591,6 +591,6 @@
 
 .object-details:not(.zoom-two) {
   .collections-promos{
-    @import "channel-object-promos-bp";
+    @import "channels-object-promos-bp";
   }
 }
