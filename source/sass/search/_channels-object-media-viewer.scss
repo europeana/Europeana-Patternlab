@@ -1,4 +1,4 @@
-@import 'channel-object-variables';
+@import "channels-object-variables";
 
 .channels-item {
 
@@ -23,7 +23,7 @@
 
         &::after{
           background-color: $gray-lighter;
-          content:          ' ';
+          content:          " ";
           display:          block;
           height:           1px;
           position:         relative;
@@ -173,27 +173,27 @@
 
         margin-bottom: 1.5rem;
 
-//        &::after{
-//          background:     $white;
-//          box-shadow:     0 2px 4px 0 rgba(0, 0, 0, 0.5);
-//          content:        ' ';
-//          height:         4.7em;
-//          left:           3%;
-//          pointer-events: none;
-//          position:       absolute;
-//          top:            0.6em;
-//          width:          94%;
+        //&::after{
+        //  background:     $white;
+        //  box-shadow:     0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        //  content:        ' ';
+        //  height:         4.7em;
+        //  left:           3%;
+        //  pointer-events: none;
+        //  position:       absolute;
+        //  top:            0.6em;
+        //  width:          94%;
 
-//          @media all and (min-width: $bp-med) {
-//            left:  0;
-//            width: 100%;
-//          }
+        //  @media all and (min-width: $bp-med) {
+        //    left:  0;
+        //    width: 100%;
+        //  }
 
-//          @media all and (min-width: $bp-xl) {
-//            left:  2%;
-//            width: 96%;
-//          }
-//        }
+        //  @media all and (min-width: $bp-xl) {
+        //    left:  2%;
+        //    width: 96%;
+        //  }
+        //}
 
         &.js-remove{
           display: none;
