@@ -319,7 +319,12 @@
 
     .object-origin-detail {
 
-      display: block;
+      display:   block;
+      font-size: 14px;
+
+      .view-more-at{
+        font-size: 12px;
+      }
 
       //&:first-child {
       //  display:    block;
@@ -396,7 +401,6 @@
     .channel-object-media-actions > .object-origin{
 
       .object-origin-detail{
-        font-size:   $font-size-sm;
         right:       calc(1em + 2px);
         top:         7em;
       }
