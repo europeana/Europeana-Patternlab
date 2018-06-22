@@ -3,12 +3,7 @@
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
 
-    <div class="helpbar">
-      <p class="helpbar-tip">{{{i18n.site.object.helpbar-tip}}}</p>
-      {{#tutorial}}
-        <a class="helpbar-video" href="{{url}}">{{text}}</a>
-      {{/tutorial}}
-    </div>
+    {{> molecules/components/search/help-bar}}
 
     {{#disabled}}
       {{#ugc_content}}

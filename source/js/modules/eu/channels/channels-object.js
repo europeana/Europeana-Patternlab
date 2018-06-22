@@ -86,30 +86,15 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
   }
 
-  function initTitleBar(){
+  function initTitleBar(cb){
 
-    var headerHeight = $('.header-wrapper').height();
-
-    var isElementInViewport = function(el){
-      var rect            = el.getBoundingClientRect();
-      var topOnScreen     = rect.top >= headerHeight && rect.top <= (window.innerHeight || document.documentElement.clientHeight);
-      var bottomOnScreen  = rect.bottom >= headerHeight && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
-      var elSpansViewport = rect.top <= headerHeight && rect.bottom >= (window.innerHeight || document.documentElement.clientHeight);
-
-      return topOnScreen || bottomOnScreen || elSpansViewport;
-    };
-
-    require(['util_scroll'], function(){
-      $(window).europeanaScroll(function(){
-
-        if(!isElementInViewport($('.object-media-viewer').get(0))){
-          $('.title-bar').addClass('show');
-        }
-        else{
-          $('.title-bar').removeClass('show');
-        }
-
+    require(['eu_title_bar'], function(EuTitlebar){
+      EuTitlebar.init({
+        $container:        $('.header-wrapper'),
+        $detectionElement: $('.object-media-viewer'),
+        markup:            '<div class="title-bar"><span class="content"><span class="text-left"></span></span></div>'
       });
+      cb();
     });
   }
 
@@ -457,6 +442,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     $('.media-options').trigger(type, $.extend(type === 'iiif' ? {'transcriptions-unavailable': true} : {}, {'download-link': downloadUri}));
 
     var reminderImg = $('.title-bar .img-remind');
+
     if(reminderImg.length === 0){
       reminderImg = $('<img class="img-remind">').appendTo($('.title-bar .content'));
     }
@@ -1784,9 +1770,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     loadAnnotations();
 
     if(!$('.channel-media-wrap').hasClass('empty')){
-      initTitleBar();
       bindMediaUI();
-      initMedia(0);
+      initTitleBar(function(){
+        initMedia(0);
+      });
     }
 
     initActionBar();

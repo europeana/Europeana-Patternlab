@@ -1,0 +1,408 @@
+{
+  "bodyclass": "channels-browse",
+  "page_title": "Europeana Grid Layout",
+  "page_locale": "en",
+  "version":{
+      "is_alpha": true
+  },
+  "page_config": {
+    "newsletter": true
+  },
+  "css_files": [
+    {
+      "path":  "../../css/search/screen.css",
+      "media": "all"
+    }
+  ],
+  "js_files": [
+    {
+      "path": "../../js/modules/require.js",
+      "data_main": "../../js/modules/main/templates/main-collections"
+    }
+  ],
+  "js_vars": [
+    {
+      "name": "pageName",
+      "value": "portal/browse-page"
+    }
+  ],
+
+  "description": false,
+
+  "content":{
+    "anchor_title": true,
+    "browse_lists": [
+      {
+        "head":{
+          "title": "A"
+        },
+        "foot":{
+          "link":{
+            "text": "see more titles beginning with A",
+            "url":  "javascript:alert('load more');"
+          }
+        },
+        "items":[
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 1')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1870 - 1920"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1872 - 1922"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 3')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1880 - 1930"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail4.jpg",
+            "url":     "javascript:alert('open item 4')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1888 - 1918"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail5.jpg",
+            "url":     "javascript:alert('open item 5')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1890 - 1910"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 6')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1900 - 1920"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1895 - 1915"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 8')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1898 - 1918"
+            ]
+          }
+        ]
+      },
+      {
+        "head":{
+          "title": "B"
+        },
+        "foot":{
+          "link":{
+            "text": "see more titles beginning with B",
+            "url":  "javascript:alert('load more B');"
+          }
+        },
+        "items":[
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 1')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1898 - 1918"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1893 - 1913"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1874 - 1944"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail4.jpg",
+            "url":     "javascript:alert('open item 8')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1877 - 1945"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail5.jpg",
+            "url":     "javascript:alert('open item 1')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1867 - 1934"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1865 - 1939"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1887 - 1924"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 8')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1877 - 1955"
+            ]
+          }
+        ]
+      },
+      {
+        "head":{
+          "title": "C"
+        },
+        "foot":{
+          "link":{
+            "text": "see more titles beginning with C",
+            "url":  "javascript:alert('load more C');"
+          }
+        },
+        "items":[
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 1')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1872 - 1920"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1871 - 1921"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1876 - 1925"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail4.jpg",
+            "url":     "javascript:alert('open item 1')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1873 - 1912"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail5.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1842 - 1901"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1844 - 1911"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail2.jpg",
+            "url":     "javascript:alert('open item 2')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1846 - 1931"
+            ]
+          },
+          {
+            "img_url": "/images/sample/object_thumbnail3.jpg",
+            "url":     "javascript:alert('open item 7')",
+            "has_text": true,
+            "texts": [
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "1852 - 1931"
+            ]
+          }
+        ]
+      },
+      {
+        "head":{
+          "title": "D"
+        }
+      },
+      {
+        "head":{
+          "title": "E"
+        }
+      },
+      {
+        "head":{
+          "title": "F"
+        }
+      },
+      {
+        "head":{
+          "title": "G"
+        }
+      },
+      {
+        "head":{
+          "title": "H"
+        }
+      },
+      {
+        "head":{
+          "title": "I"
+        }
+      },
+      {
+        "head":{
+          "title": "J"
+        }
+      },
+      {
+        "head":{
+          "title": "K"
+        }
+      },
+      {
+        "head":{
+          "title": "L"
+        }
+      },
+      {
+        "head":{
+          "title": "M"
+        }
+      },
+      {
+        "head":{
+          "title": "N"
+        }
+      },
+      {
+        "head":{
+          "title": "O"
+        }
+      },
+      {
+        "head":{
+          "title": "P"
+        }
+      },
+      {
+        "head":{
+          "title": "Q"
+        }
+      },
+      {
+        "head":{
+          "title": "R"
+        }
+      },
+      {
+        "head":{
+          "title": "S"
+        }
+      },
+      {
+        "head":{
+          "title": "T"
+        }
+      },
+      {
+        "head":{
+          "title": "U"
+        }
+      },
+      {
+        "head":{
+          "title": "V"
+        }
+      },
+      {
+        "head":{
+          "title": "W"
+        }
+      },
+      {
+        "head":{
+          "title": "X"
+        }
+      },
+      {
+        "head":{
+          "title": "Y"
+        }
+      },
+      {
+        "head":{
+          "title": "Z"
+        }
+      }
+    ]
+  }
+
+}
