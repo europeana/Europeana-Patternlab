@@ -1,0 +1,35 @@
+// this colour is unused lsewhere - the similar #ededed is used on the new item page
+$page-bg-colour: #ececec;
+
+.channels-browse {
+
+  background: $page-bg-colour;
+
+  .anchor-list{
+    background:      $eu-very-light-gray;
+    border-radius:   4px;
+    box-shadow:      0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    color:           $black;
+    display:         flex;
+    justify-content: space-between;
+    margin:          34px 0;
+    padding:         20px 27px 21px;
+  }
+
+  .browse-list-title{
+    font-size:   20px;
+    font-weight: bold;
+  }
+
+  .title-bar{
+    -webkit-transition: height 0.3s ease-out;
+    transition: height 0.3s ease-out;
+
+    &.show{
+      height: 75px;
+    }
+    .anchor-list{
+      margin: 0;
+    }
+  }
+}

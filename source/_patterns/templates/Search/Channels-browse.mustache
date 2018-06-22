@@ -1,15 +1,27 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent" class="after-header">
+<div role="main" id="maincontent">
+  {{> molecules/components/search/help-bar}}
 
   {{#content}}
 
     <div class="gridlayout-wrapper-full">
 
-      <!-- example of a row in main area, containing several columns-->
+      {{#anchor_title}}
+        <div class="gridlayout width-main no-row-gap">
+          <div class="gridlayout width-12">
+            <div class="anchor-list">
+              {{#browse_lists}}
+                {{#head.title}}<a href="#{{.}}">{{.}}</a>{{/head.title}}
+              {{/browse_lists}}
+            </div>
+          </div>
+        </div>
+      {{/anchor_title}}
 
-      {{#examples}}
+      {{#browse_lists}}
+
         {{#head}}
           {{> molecules/browse/browseable-list-head}}
         {{/head}}
@@ -21,13 +33,13 @@
             {{> molecules/browse/browseable-list-foot-link}}
           {{/link}}
         {{/foot}}
-      {{/examples}}
+
+      {{/browse_lists}}
 
     </div>
   {{/content}}
 </div>
 
 {{> organisms/sections/banner }}
-
 {{> organisms/global/footer_v2 }}
 {{> molecules/forms/feedback }}
