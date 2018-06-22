@@ -1,0 +1,12 @@
+---
+version: '3'
+services:
+  nginx:
+    image: europeana-patternlab
+    build:
+      context: .
+    ports:
+    - 8080:80
+    volumes:
+    - "../public:/usr/share/nginx/html:ro"
+    - "..:/data"
