@@ -1680,7 +1680,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     }
     else{
-      $('.channel-object-media-nav').remove();
+      $('.channel-object-media-nav').css({
+        'height': 0,
+        'width':  0
+      });
       fixZoomableWidth();
     }
   };
