@@ -10,7 +10,7 @@
 
   -webkit-align-self: start;
   align-self:         start;
-  background-color:   $green-grey-bg;
+  background-color:   $eu-very-light-gray;
   box-shadow:         $box-shadow-panel;
   font-size:          $font-size-slightly-smaller;
 
@@ -371,7 +371,7 @@
   width:            calc(100% - (1.6rem + 2px));
 
   .collections-promo-overlay-inner{
-    background-color: #f1f0ee;
+    background-color: $eu-very-light-gray;
     box-shadow: -2px 0 4px -2px rgba(0, 0, 0, 0.25);
     left:       4px;
     padding:    0.938rem 1.125rem 0.25em 1.125rem;
