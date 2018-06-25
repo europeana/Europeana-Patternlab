@@ -157,7 +157,7 @@ define(['jquery', 'util_resize'], function($){
 
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
-      if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] != destLayer) {
+      if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         iiif.removeLayer(iiifLayers[base]);
       }
       if(miniMapCtrls[base]){
@@ -320,11 +320,14 @@ define(['jquery', 'util_resize'], function($){
       var key = window.event ? e.keyCode : e.which;
       if(key === 13){
         var val = parseInt($(this).val());
-        if(!isNaN(val) && val > 0 && val < totalImages+1){
-          nav($(this), val-1);
+        if(!isNaN(val) && val > 0 && val < totalImages + 1){
+          var newPageNum = val - 1;
+          if(currentImg !== newPageNum){
+            nav($(this), newPageNum);
+          }
         }
         else{
-          $(this).val(currentImg+1);
+          $(this).val(currentImg + 1);
         }
       }
     });
@@ -427,7 +430,7 @@ define(['jquery', 'util_resize'], function($){
 
     pnlTranscriptions.find('.transcription').addClass('hidden');
 
-    if(typeof show != 'undefined'){
+    if(typeof show !== 'undefined'){
 
       var highlighted = pnlTranscriptions.find('.transcription.' + currentImg).removeClass('hidden').find('p.highlight');
 
@@ -643,9 +646,8 @@ define(['jquery', 'util_resize'], function($){
       highlightTranscript($('.transcription #' + e.target.feature.properties.id), true);
     };
 
-    var geoJsonCb  = function(itemJSON, pageRef){
+    var geoJsonCb = function(itemJSON, pageRef){
       features[pageRef + ''] = {};
-
       var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
