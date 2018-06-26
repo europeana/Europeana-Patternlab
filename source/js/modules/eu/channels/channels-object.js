@@ -296,7 +296,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           var pxSize = size.indexOf('px') > -1 ? parseInt(size) : parseInt(size) * 16;
 
           if(naturalWidth > pxSize){
-            console.log('naturalWidth (' + naturalWidth + ') > pxSize (' + pxSize  +')');
             zoomLevelsNeeded ++;
           }
         });
@@ -1313,54 +1312,42 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     require(['util_promo_loader'], function(PromoLoader){
 
-      var baseUrl = window.location.href.replace('.html', '').split('?')[0];
+      var promoTemplates = {
+        'exhibition': 'template-promo-exhibition',
+        'gallery': 'template-promo-gallery',
+        'news': 'template-promo-news',
+        'entity': 'template-promo-entity',
+        'generic': 'template-promo-generic'
+      };
+
+      var promoConf = [];
+
+      if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
+        $.each(window.enabledPromos, function(i, promo){
+          var conf = { id: promo.id, templateId: promoTemplates[promo.id], url: promo.url };
+          promoConf.push(conf);
+        });
+      }
 
       if(nextItem){
         nextItem.is_next = true;
-      }
-      if(prevItem){
-        prevItem.is_prev = true;
-      }
-
-      var promoLoaderConf = [
-        {
+        promoConf.unshift({
           'id': 'next',
           'preloaded': nextItem,
           'templateId': 'template-promo-next-prev'
-        },
-        {
-          'id': 'exhibition',
-          'url': baseUrl + '/exhibition.json',
-          'templateId': 'template-promo-exhibition'
-        },
-        {
-          'id': 'gallery',
-          'url': baseUrl + '/galleries.json',
-          'templateId': 'template-promo-gallery'
-        },
-        {
-          'id': 'news',
-          'url': baseUrl + '/news.json',
-          'templateId': 'template-promo-news'
-        },
-        {
-          'id': 'entity',
-          'url': baseUrl + '/entity.json',
-          'templateId': 'template-promo-entity'
-        },
-        {
-          'id': 'generic',
-          'url': baseUrl + '/promoted.json',
-          'templateId': 'template-promo-generic'
-        },
-        {
+        });
+      }
+
+      if(prevItem){
+        prevItem.is_prev = true;
+        promoConf.push({
           'id': 'previous',
           'preloaded': prevItem,
           'templateId': 'template-promo-next-prev'
-        }
-      ];
+        });
+      }
 
-      PromoLoader.load(promoLoaderConf, function(markup){
+      PromoLoader.load(promoConf, function(markup){
 
         $('.collections-promo-item-preload').remove();
 
