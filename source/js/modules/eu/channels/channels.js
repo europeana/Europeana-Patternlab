@@ -358,7 +358,7 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
-    case 'portal/browse-page':
+    case 'portal/browse':
       require(['channels_browse'], function(page){
         page.initPage();
         doForAllPages();
