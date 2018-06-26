@@ -48,7 +48,6 @@
       "min_chars": "0"
     }
   },
-  "include_nav_title": true,
   "channel_object": true,
   "content": {
     "ugc_content": false,

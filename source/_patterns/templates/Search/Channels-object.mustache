@@ -2,16 +2,9 @@
 {{> organisms/global/header_v2}}
 <div role="main" class="search-object after-header-with-search">
   {{#content}}
-    {{#helpbar}}
-    <div class="helpbar">
-      {{#tip}}
-        <p class="helpbar-tip">{{{.}}}</p>
-      {{/tip}}
-      {{#tutorial}}
-        <a class="helpbar-video" href="{{url}}">{{text}}</a>
-      {{/tutorial}}
-    </div>
-    {{/helpbar}}
+
+    {{> molecules/components/search/help-bar}}
+
     {{#disabled}}
       {{#ugc_content}}
         {{#include_1418_nav}}
@@ -19,7 +12,6 @@
         {{/include_1418_nav}}
       {{/ugc_content}}
     {{/disabled}}
-
 
     {{#object.media}}
       {{^items}}
@@ -79,68 +71,48 @@
                   {{^empty_item}}
                     {{#items}}
                       {{#is_current}}
-                        <div class="media-poster{{#playable}} contains-playable{{/playable}}">
-                          <div {{#playable}}class="playable"{{/playable}}{{^playable}}class="unplayable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
-                            <div class="zoomable">
-                              {{#thumbnail}}
-                                <img src="{{.}}"/>
-                              {{/thumbnail}}
-                            </div>
-                            <div class="media-options">
-                              <div class="media-option-group-wrap iiif-ctrls off">
-                                <span class="media-option-group">
-                                  <a class="media-option transcriptons-show">
-                                    <span class="svg-icon-transcription-on"></span>
-                                    <!-- <span class="media-option-label"></span> -->
-                                  </a>
-                                  <a class="media-option transcriptons-hide">
-                                    <span class="svg-icon-transcription-off"></span>
-                                    <!-- <span class="media-option-label"></span> -->
-                                  </a>
-                                </span>
-                              </div>
-                              <div class="media-option-group-wrap">
-                                <span class="media-option-group">
-                                  <span class="media-option  media-share">
-                                    <span class="share svg-icon-share"></span>
-                                    <span class="media-option-label">Share</span>
-                                  </span>
-                                  <a class="media-option media-download" download="Europeana-Media">
-                                    <span class="download svg-icon-download white"></span>
-                                    <span class="media-option-label">Download</span>
-                                  </a>
-                                  <span class="media-option media-annotate">
-                                    <span class="info svg-icon-info"></span>
-                                    <span class="media-option-label">Info</span>
-                                  </span>
-                                </span>
-                              </div>
-
-                              <div class="media-option-group-wrap">
-                                <span class="media-option-group">
-                                  <span class="media-option media-zoom-in">
-                                    <span class="zoom-in svg-icon-zoom-in"></span>
-                                    <span class="media-option-label">Zoom in</span>
-                                  </span>
-                                  <span class="media-option media-zoom-out">
-                                    <span class="zoom-out svg-icon-zoom-out"></span>
-                                    <span class="media-option-label">Zoom out</span>
-                                  </span>
-                                </span>
-                              </div>
-
-                              <div class="media-option-group-wrap">
-                                <span class="media-option-group">
-                                  <span class="media-option  media-link">
-                                    <span class="link svg-icon-link-out"></span>
-                                    <span class="media-option-label">Link</span>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
+                    <div class="media-poster{{#playable}} contains-playable{{/playable}}">
+                      <div {{#playable}}class="playable"{{/playable}}{{^playable}}class="unplayable"{{/playable}} {{#play_url}}data-uri="{{.}}"{{/play_url}}>
+                        <div class="zoomable">
+                          {{#thumbnail}}
+                            <img src="{{.}}"/>
+                          {{/thumbnail}}
                         </div>
+                        <div class="media-options">
+                          <span class="media-option-group iiif-ctrls off">
+                            <a class="media-option transcriptions-show">
+                              <span class="svg-icon-transcription-on"></span>
+                            </a>
+                            <a class="media-option transcriptions-hide">
+                              <span class="svg-icon-transcription-off"></span>
+                            </a>
+                          </span>
+                          <span class="media-option-group share-link-ctrl">
+                            <span class="media-option media-share" data-modal-selector=".modal-share" title="{{i18n.global.actions.share}}">
+                              <span class="share svg-icon-share"></span>
+                            </span>
+                          </span>
+                          <span class="media-option-group download-link-ctrl">
+                            <a class="media-option media-download" data-modal-selector=".modal-download" download="Europeana-Media" title="{{i18n.global.actions.download}}">
+                              <span class="download svg-icon-download white"></span>
+                            </a>
+                          </span>
+                          <span class="media-option-group zoom-ctrls">
+                            <span class="media-option media-zoom-in" title="Enlarge viewer">
+                              <span class="zoom-in svg-icon-card-expand"></span>
+                            </span>
+                            <span class="media-option media-zoom-out" title="Reduce viewer">
+                              <span class="zoom-out svg-icon-card-collapse"></span>
+                            </span>
+                          </span>
+                          <span class="media-option-group external-link-ctrl">
+                            <span class="media-option media-link" title="Link">
+                              <a class="link svg-icon-link-out"></a>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                       {{/is_current}}
                     {{/items}}
 
@@ -170,16 +142,12 @@
                         </div>
                       {{/oembed}}
 
-                      {{#text}}
-                        <div class="object-media-text is-hidden">
-                          Text viewer here
-                        </div>
-                      {{/text}}
-
                       {{#audio}}
-                        <div class="object-media-audio is-hidden">
-                         {{> molecules/components/videojs/videojs }}
-                        </div>
+                        <script id="template-audio" type="text/x-mustache">
+                          <div class="object-media-audio">
+                            <audio id="media-audio" class="audio-js vjs-default-skin" width="100%" preload="none" controls></audio>
+                          </div>
+                        </script>
                       {{/audio}}
 
                       {{#pdf}}
@@ -262,7 +230,6 @@
                   </div>
                 </div>
 
-
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
                   {{^thumbnail}}<br/><br/>{{/thumbnail}}
@@ -298,7 +265,7 @@
 
             <script id="template-modal-header-js" type="text/x-mustache">
               <div class="modal-header none">
-                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.share}}</span></a>
+                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.actions.share}}</span></a>
                 <a class="action-ctrl-btn[[^data-download-uri]] disabled[[/data-download-uri]]" data-modal-selector=".modal-download" download="Europeana-Media" href="[[data-download-uri]]"><span>{{i18n.site.object.actions.download}}</span></a>
                 <a class="action-ctrl-btn" data-modal-selector=".modal-rights"><span>{{i18n.global.facet.header.reusability}} [[license_brief]]</span></a>
                 {{> molecules/controls/channels-object-origin }}
@@ -312,7 +279,6 @@
                     <span class="label">
                       <h4>{{i18n.global.facet.header.reusability}}</h4>
                       <label>[[license_brief]][[^license_brief]]{{#rights}}{{license_brief}}{{/rights}}[[/license_brief]]</label>
-
 
                       [[^license_restricted]]
                         {{#rights}}
@@ -346,32 +312,34 @@
                 <div class="modal-content">
                   <div class="modal-action centred">
                     <span class="label">
-                        Downloading
+                        {{i18n.global.actions.downloading}}
                         <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
                       </span>
                   </div>
 
                   <div class="action-modal-section padded">
-                    <span class="file">[[data-mime-type]]</span>
+                    <span class="file">[[data-mime-type-brief]]</span>
                     <ul>
-                      <li><span class="action-modal-subheading">format</span> [[data-format]]</li>
-                      <li><span class="action-modal-subheading">file size</span> [[data-file-size]] [[data-file-unit]]</li>
+                      <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
+                      <li><span class="file-info-field"><span class="file-info-field-label">{{i18n.site.object.meta-label.file-size}}</span> [[data-file-size]] [[data-file-unit]]</span></li>
                     </ul>
                   </div>
 
                   <div class="action-modal-section padded">
                     <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
-                    <input value="[[data-attribution-plain]]">
+                    <input class="attribution-field" value="[[data-attribution-plain]]">
                   </div>
 
-                  <div class="action-modal-section centred padded">
-                    <span class="action-modal-subheading">other formats</span>
-                    [[formats]]
-                    <ul>
-                      <li><a href="[[url]]">[[text]]</a></li>
-                    </ul>
-                    [[formats]]
-                  </div>
+                  [[#has_other_formats]]
+                    <div class="action-modal-section centred padded">
+                      <span class="action-modal-subheading">other formats</span>
+                      <ul>
+                        [[#formats]]
+                          <li><a href="[[url]]">[[text]]</a></li>
+                        [[/formats]]
+                      </ul>
+                    </div>
+                  [[/has_other_formats]]
 
                   <a class="media-modal-close">
                     <span class="label"></span>
@@ -385,7 +353,7 @@
               <div class="modal-content">
                 <div class="modal-action centred">
                   <span class="label">
-                    {{i18n.global.share}}
+                    {{i18n.global.actions.share}}
                   </span>
                 </div>
 
@@ -396,7 +364,7 @@
                   {{/social_share }}
 
                   <div class="page-url-fields">
-                    <label class="page-url-label" for="page-url-input">Copy</label>
+                    <label class="page-url-label" for="page-url-input">{{i18n.global.actions.copy}}</label>
                     <input class="page-url-input" id="page-url-input"/>
                   </div>
 

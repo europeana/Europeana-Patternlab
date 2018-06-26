@@ -731,6 +731,7 @@
                 "actions": {
                     "annotate": "Annotate",
                     "collapse-extended": "collapse extended information",
+                    "copy": "Copy",
                     "download": "Download",
                     "download-started": "The download has started",
                     "download-retry": "Retry",
@@ -745,6 +746,7 @@
                     "view-more-at": "View more at",
                     "view-more": "View more at"
                 },
+                "helpbar-tip": "<strong>Tip:</strong> hover over image for more options",
                 "hierarchy": {
                   "title": "Hierarchy",
                   "view-items-above": "view items above",
@@ -832,8 +834,11 @@
             "actions": {
               "collapse": "Collapse",
               "delete":"delete",
+              "download":"Download",
+              "downloading":"Downloading",
               "edit": "edit",
               "expand": "Expand",
+              "expand-viewer": "Expand viewer",
               "filter-by": "Filter by",
               "filter-all": "All",
               "fullscreen-enter": "full screen",
@@ -842,6 +847,7 @@
               "new":"new",
               "previous":"previous",
               "register":"Register",
+              "reduce-viewer":"Reduce viewer",
               "remove":"Remove",
               "share": "Share",
               "sign-in": "Sign in",

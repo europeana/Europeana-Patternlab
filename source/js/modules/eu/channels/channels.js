@@ -41,7 +41,7 @@ define(['jquery', 'smartmenus'], function($){
 
     $('.js-hack-smartmenu a').click(function(){
       var href = $(this).attr('href');
-      if(href != '#'){
+      if(href !== '#'){
         window.location = $(this).attr('href');
       }
     });
@@ -58,7 +58,7 @@ define(['jquery', 'smartmenus'], function($){
         var val    = $(this).val();
         var filterName = $(this).data('filter-name');
         if(!filterName){
-          filterName = $(this).attr('id') == 'list_sortby' ? 'order' : 'theme';
+          filterName = $(this).attr('id') === 'list_sortby' ? 'order' : 'theme';
         }
         var $url   = $.url();
         var params = $url.param();
@@ -73,7 +73,7 @@ define(['jquery', 'smartmenus'], function($){
         }
 
         var newParams = $.param(params);
-        var newUrl    = location.href.split('?')[0] + (newParams.length == 0 ? '' : '?' + $.param(params));
+        var newUrl    = location.href.split('?')[0] + (newParams.length === 0 ? '' : '?' + $.param(params));
         location.href = newUrl;
       });
     });
@@ -110,15 +110,15 @@ define(['jquery', 'smartmenus'], function($){
 
     initFeedback();
 
-    if((typeof window.requirementsApplication).toLowerCase() != 'undefined'){
-      if((typeof window.requirementsApplication).toLowerCase() == 'string'){
+    if((typeof window.requirementsApplication).toLowerCase() !== 'undefined'){
+      if((typeof window.requirementsApplication).toLowerCase() === 'string'){
         console.log('load extra: ' + window.requirementsApplication);
         require([window.requirementsApplication], function(){
           console.log('loaded application.js');
           $(document).trigger('external_js_loaded');
         });
       }
-      if((typeof window.requirementsApplication).toLowerCase() == 'object'){
+      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
         console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
         requireSynchronously(window.requirementsApplication, function(){
           $(document).trigger('external_js_loaded');
@@ -128,7 +128,7 @@ define(['jquery', 'smartmenus'], function($){
 
   };
 
-  if(typeof pageName == 'undefined' || !pageName){
+  if(typeof pageName === 'undefined' || !pageName){
     console.warn('pageName not specified - cannot bootstrap app');
     return;
   }
@@ -241,7 +241,7 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
     case 'collections/show':
-      if((location.href.indexOf('?q=') == -1) && (location.href.indexOf('&q=') == -1)){
+      if((location.href.indexOf('?q=') === -1) && (location.href.indexOf('&q=') === -1)){
         require(['fashion_redirect'], function(fr){
           fr.redirectOrCallback(function(){
             require(['search_landing', 'search_form'], function(page, euSearchForm){
@@ -358,6 +358,13 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
+    case 'portal/browse-page':
+      require(['channels_browse'], function(page){
+        page.initPage();
+        doForAllPages();
+      });
+      break;
+
     case 'portal/show':
       require(['search_object', 'search_form'], function(page, euSearchForm){
         page.initPage(euSearchForm);
@@ -381,7 +388,7 @@ define(['jquery', 'smartmenus'], function($){
         });
       };
 
-      if(typeof collectionName != 'undefined' && collectionName == 'fashion'){
+      if(typeof window.collectionName !== 'undefined' && window.collectionName === 'fashion'){
         require(['fashion_redirect'], function(fr){
           fr.redirectOrCallback(function(){
             loadPageJS();
@@ -423,7 +430,7 @@ define(['jquery', 'smartmenus'], function($){
 
   return {
     getPromisedPageJS: function(){
-      if(typeof window.siteNotice != 'undefined' && window.siteNotice != 'false' && $('.site-notice').length == 0){
+      if(typeof window.siteNotice !== 'undefined' && window.siteNotice !== 'false' && $('.site-notice').length === 0){
         $('.header-wrapper').before('<div class="site-notice"><span class="msg">' + window.siteNotice + '</span></div>');
       }
       return promisedPageJS.promise();

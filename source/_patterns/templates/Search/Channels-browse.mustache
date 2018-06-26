@@ -1,0 +1,45 @@
+{{> atoms/iconography/svgicons-search }}
+{{> organisms/global/header_v2}}
+
+<div role="main" id="maincontent">
+  {{> molecules/components/search/help-bar}}
+
+  {{#content}}
+
+    <div class="gridlayout-wrapper-full">
+
+      {{#anchor_title}}
+        <div class="gridlayout width-main no-row-gap">
+          <div class="gridlayout width-12">
+            <div class="anchor-list">
+              {{#browse_lists}}
+                {{#head.title}}<a href="#{{.}}">{{.}}</a>{{/head.title}}
+              {{/browse_lists}}
+            </div>
+          </div>
+        </div>
+      {{/anchor_title}}
+
+      {{#browse_lists}}
+
+        {{#head}}
+          {{> molecules/browse/browseable-list-head}}
+        {{/head}}
+
+        {{> molecules/browse/browseable-list}}
+
+        {{#foot}}
+          {{#link}}
+            {{> molecules/browse/browseable-list-foot-link}}
+          {{/link}}
+        {{/foot}}
+
+      {{/browse_lists}}
+
+    </div>
+  {{/content}}
+</div>
+
+{{> organisms/sections/banner }}
+{{> organisms/global/footer_v2 }}
+{{> molecules/forms/feedback }}

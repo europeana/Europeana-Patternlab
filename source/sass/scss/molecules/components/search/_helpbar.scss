@@ -1,0 +1,45 @@
+@import "../../../generic/variables";
+
+.helpbar {
+  background:              $white;
+  display:                 -webkit-flex;
+  display:                 flex;
+  -webkit-flex-grow:       1;
+  flex-grow:               1;
+  font-size:               $font-size-sm;
+  -webkit-justify-content: space-between;
+  justify-content:         space-between;
+  padding:                 $pad-half $pad;
+
+  >a,
+  >p{
+    color:         $gray-med;
+    margin-bottom: 0;
+  }
+
+  .helpbar-video{
+
+    font-weight:    bold;
+    margin-right:   $space;
+    position:       relative;
+    text-transform: capitalize;
+
+    &::after{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color(#777)}' %3E%3Cpath d='M23.273 6.303V19.88q0 .322-.296.457-.054.027-.19.027-.16 0-.35-.135l-4.982-5.01v3.69q0 .59-.43 1.02T16 20.36H1.455q-.593 0-1.024-.43T0 18.91V7.272Q0 6.68.43 6.25t1.025-.432H16q.593 0 1.024.43t.43 1.025v3.69l4.984-5.01q.215-.215.54-.108.295.135.295.458z' class='path1'%3E%3C/path%3E%3C/svg%3E");
+      content:          " ";
+      display:          inline-block;
+      height:           1.7em;
+      position:         absolute;
+      right:            -2.7em;
+      top:              -0.3em;
+      width:            $space;
+    }
+  }
+}
+
+@media all and (min-width: $bp-med) {
+  .helpbar{
+    padding-left:  2.5rem;
+    padding-right:  2.5rem;
+  }
+}

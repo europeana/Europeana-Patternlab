@@ -14,6 +14,7 @@ requirejs.config({
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
+    eu_title_bar:              '../../eu/title-bar/eu-title-bar',
     jasmine_jquery:            '../../../unit-tests/require/jasmine-jquery',
     jqScrollto:                '../../lib/jquery/jquery.scrollTo',
     jquery:                    '../../lib/jquery/jquery',
@@ -26,7 +27,7 @@ requirejs.config({
     leaflet_zoom_slider:       '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
     media_iiif_text_processor: '../../eu/media/search-iiif-text-processor',
     media_viewer_iiif:         '../../eu/media/search-iiif-viewer',
-    media_options:             '../../eu/media/media-options',
+    media_options:             '../../eu/media/media-options/media-options',
     mustache:                  '../../lib/mustache/mustache',
     purl:                      '../../lib/purl/purl',
     util_ellipsis:             '../../eu/util/eu-ellipsis',
@@ -34,7 +35,8 @@ requirejs.config({
     util_filterable:           '../../eu/util/foldable-list-filter',
     util_form:                 '../../eu/util/eu-form-utils',
     util_promo_loader:         '../../eu/util/eu-promo-loader',
-    util_resize:               '../../eu/util/resize'
+    util_resize:               '../../eu/util/resize',
+    util_scroll:               '../../eu/util/scroll'
   },
   shim: {
     jasmine_jquery:{
@@ -45,6 +47,9 @@ requirejs.config({
     },
     jqScrollto:{
       deps:['jquery']
+    },
+    leaflet_iiif_eu:{
+      deps:['leaflet_iiif']
     }
   },
   callback: window.__karma__.start,

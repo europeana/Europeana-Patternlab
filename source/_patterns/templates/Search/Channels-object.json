@@ -54,12 +54,10 @@
   },
 
   "include_nav_searchbar": true,
-  "include_nav_title": true,
   "channel_object": true,
   "content":
   {
     "helpbar": {
-      "tip":      "<strong>Tip:</strong> hover over image for more options",
       "tutorial": {
         "text": "tutorial",
         "url":  "javascript:alert('tutorial link')"
@@ -120,7 +118,7 @@
               "height": "2548",
 
               "language":"English",
-              "format": "jpg",
+              "format": "image/jpg",
               "file_size": "23.2",
               "file_unit": "MB",
               "codec": "MPEG-2",
@@ -240,7 +238,7 @@
               "dc_source": "Source of the 3rd media item",
               "edm_rights": "{\"model\":{\"license_human\":\"Limited Re-use\",\"license_info\":\"limitations apply\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}",
               "language":"English",
-              "format": "png",
+              "format": "image/png",
               "file_size": "7.3",
               "file_unit": "MB"
             }
@@ -265,7 +263,7 @@
             "technical_metadata":
             {
               "language":"English",
-              "format": "png",
+              "format": "image/png",
               "file_size": "23.2",
               "file_unit": "MB"
             }
@@ -294,7 +292,7 @@
 
               "width": "532",
               "height": "768",
-              "format": "jpg",
+              "format": "image/jpg",
               "file_size": "84.25",
               "file_unit": "KB",
               "mime_type": "image/jpg",
@@ -389,7 +387,7 @@
       "creator": "Johannes Vermeer",
       "origin":
       {
-        "institution_name": "Rijksmuseum",
+        "institution_name": "The Rijksmuseum in the city of Amsterdam, which is an exact copy of the central station in the city of Amsterdam, or maybe the train station was a copy of the museum - I'm not sure which of the two was built first - but the architect got two for the price of one.",
         "institution_country": "Netherlands",
         "url": "javascript:alert('go to institution')",
         "institution_logo": "/images/sample/beeld-en-geluid.png"

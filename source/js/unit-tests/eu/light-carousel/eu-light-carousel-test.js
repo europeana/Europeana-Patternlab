@@ -43,7 +43,7 @@ define(['jquery', 'jasmine_jquery'], function(){
 
     describe('Basic Functionality', function(){
 
-      it('reacts to window resizes by re-evaluating scrollability', function(done){
+      it('reacts to window resizes by re-evaluating scrollability in browsers that don\'t implement ResizeObserver', function(done){
 
         var navRight  = $('.example-1 .nav-right');
 
@@ -53,9 +53,14 @@ define(['jquery', 'jasmine_jquery'], function(){
         window.dispatchEvent(new Event('resize'));
 
         setTimeout(function(){
-          expect(navRight).not.toBeHidden();
+          if(window.ResizeObserver){
+            expect(navRight).toBeHidden();
+          }
+          else{
+            expect(navRight).not.toBeHidden();
+          }
           done();
-        }, 200);
+        }, 700);
       });
 
       it('reacts to element resizing by re-evaluating scrollability', function(done){
@@ -203,7 +208,7 @@ define(['jquery', 'jasmine_jquery'], function(){
           expect($('.example-2 .lc-item').length).toBe(itemsAvailable);
           expect($('.example-2 .lc-item:last').text()).toEqual('dynamic item 5');
           done();
-        }, 200);
+        }, 400);
 
       });
 

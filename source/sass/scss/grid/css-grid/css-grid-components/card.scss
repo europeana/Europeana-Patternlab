@@ -1,0 +1,40 @@
+@import "../../../generic/variables";
+@import "../css-grid-variables";
+
+.gridlayout-card {
+  background-color: $grid-card-gray;
+  border-radius:    $base-border-radius;
+  box-shadow:       0 1px 3px 0 $gridlayout-card-shadow;
+  font-size:        $font-size-slightly-smaller;
+  height:           100%;
+
+  .card-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    display: block;
+    height: 15rem;
+  }
+
+  .inner {
+    padding: $spacing-base;
+  }
+
+  p{
+    font-size: $font-size-sm;
+    margin-bottom: 0;
+  }
+
+  p:first-child {
+    font-size:     $font-size-norm;
+    line-height:   1.6em;
+    margin-bottom: $spacing-1-75x;
+    max-height:    3.2em;
+  }
+}
+
+.browse-list-anchor{
+  display:   block;
+  transform: translateY(-10em);
+}

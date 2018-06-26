@@ -1,3 +1,5 @@
+@import "variables";
+
 $carousel-arrow-bg:         rgba(255, 255, 255, 0.8);
 $carousel-arrow-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 
@@ -11,3 +13,4 @@ $min-width-media:                  400px;
 
 $collections-promo-item-min-width: 275px;
 $green-grey-bg:                    #f4f4f4;
+$action-bar-bg:                    $eu-very-light-gray;

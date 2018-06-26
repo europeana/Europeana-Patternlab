@@ -1,0 +1,17 @@
+@import '../../../../sass/scss/generic/variables';
+
+.title-bar {
+  height:     0;
+  overflow:   hidden;
+
+  &.show {
+    height: 4.5em;
+  }
+}
+
+@media all and (min-width: $bp-med) {
+  .title-bar {
+    padding-left:  2.5rem;
+    padding-right:  2.5rem;
+  }
+}

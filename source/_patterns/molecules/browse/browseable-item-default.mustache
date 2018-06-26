@@ -1,0 +1,10 @@
+<div class="gridlayout-card{{#grid_width}} width-{{.}}{{/grid_width}}">
+  <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+  {{#has_text}}
+    <div class="inner">
+      {{#texts}}
+        <p>{{.}}</p>
+      {{/texts}}
+    </div>
+  {{/has_text}}
+</div>

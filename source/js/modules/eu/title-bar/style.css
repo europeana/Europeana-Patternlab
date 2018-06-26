@@ -1,0 +1,17 @@
+/* line 3, style.scss */
+.title-bar {
+  height: 0;
+  overflow: hidden;
+}
+/* line 7, style.scss */
+.title-bar.show {
+  height: 4.5em;
+}
+
+@media all and (min-width: 50em) {
+  /* line 13, style.scss */
+  .title-bar {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

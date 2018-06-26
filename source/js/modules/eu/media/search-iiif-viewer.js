@@ -146,16 +146,6 @@ define(['jquery', 'util_resize'], function($){
 
             if(config.miniMap){
               miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(Leaflet.tileLayer.iiif.eu(jsonUrl), config.miniMap);
-
-              /*
-              var centre = iiif.getBounds().getCenter();
-              log('LatLng-equivalent: ' + JSON.stringify(centre));
-              miniMapCtrls[layerName] = new Leaflet.Control.MiniMap(
-                Leaflet.tileLayer.iiif.eu(jsonUrl),
-                $.extend({}, config.miniMap, {'centerFixed': centre } )
-              );
-              */
-
             }
           }
           index += 1;
@@ -249,7 +239,7 @@ define(['jquery', 'util_resize'], function($){
         }
       }
       else{
-        $('.media-options').trigger('IIIF', {'transcriptions-unavailable': true});
+        $('.media-options').trigger('iiif', {'transcriptions-unavailable': true});
       }
     });
 
@@ -373,7 +363,13 @@ define(['jquery', 'util_resize'], function($){
           window.clearTimeout(timeoutFailure);
         }
 
-        $.each(data.sequences[0].canvases, function(_, val) {
+        // filter here on presence of service
+
+        var imageContainingCanvases = $.grep(data.sequences[0].canvases, function(canvas){
+          return canvas.images && canvas.images[0] && canvas.images[0].resource && canvas.images[0].resource.service;
+        });
+
+        $.each(imageContainingCanvases, function(_, val) {
           labelledData[val.label] = val;
           allCanvases.push(val);
         });
@@ -550,7 +546,7 @@ define(['jquery', 'util_resize'], function($){
 
     $(document).on('click', '.remove-transcriptions', function(){
       $('#iiif').trigger('hide-transcriptions');
-      $('.media-options').trigger('IIIF', {'transcriptions-available': true});
+      $('.media-options').trigger('iiif', {'transcriptions-available': true});
     });
 
     pnlTranscriptions.addClass('js-bound');
@@ -562,12 +558,29 @@ define(['jquery', 'util_resize'], function($){
       bindTranscriptionActions();
     }
 
+    var miniMap;
+
+    if(config.miniMap){
+      miniMap = miniMapCtrls[currentImg] ? miniMapCtrls[currentImg] : miniMapCtrls['single'];
+      if(miniMap){
+        miniMap.blockInteractions = true;
+      }
+    }
+
     var layerName = currentImg + '-f';
     var afterAdd  = function(key){
       if(transcriptionIsOn){
         setVisibleTranscripts(key);
         $('#eu-iiif-container').removeClass(classHideFullText);
         iiif.invalidateSize();
+      }
+
+      if(config.miniMap){
+        if(miniMap){
+          setTimeout(function(){
+            miniMap.blockInteractions = false;
+          }, 2000);
+        }
       }
     };
 
@@ -594,6 +607,7 @@ define(['jquery', 'util_resize'], function($){
     var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
     //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
     var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
+    annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
 
     // @searchData (optional) = [searchMatches, searchTermLength]
     $.getJSON(annotationsUrl).done(function(data){
@@ -605,7 +619,7 @@ define(['jquery', 'util_resize'], function($){
         var page = textProcessor.getTypedData(data, 'Page');
 
         if(probe){
-          $('.media-options').trigger('IIIF', {'transcriptions-available': page.length === 1});
+          $('.media-options').trigger('iiif', {'transcriptions-available': page.length === 1});
           return;
         }
 
@@ -706,6 +720,7 @@ define(['jquery', 'util_resize'], function($){
       features     = {};
 
       $.each(Object.keys(miniMapCtrls), function(){
+        miniMapCtrls[this].blockInteractions = true;
         miniMapCtrls[this].remove();
       });
       miniMapCtrls = {};

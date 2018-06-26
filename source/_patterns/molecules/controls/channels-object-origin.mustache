@@ -1,5 +1,5 @@
 {{#origin}}
-  <div class="object-origin" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
+  <div class="object-origin{{#institution_logo}} with-logo{{/institution_logo}}" {{#url}}data-object-origin-url="{{.}}"{{/url}} xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#">
     {{#institution_logo}}
       <a href="{{url}}" target="_blank" class="institution-logo" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" style="background-image:url('{{.}}');"></a>
     {{/institution_logo}}
@@ -7,7 +7,7 @@
     {{#institution_name}}
       <span class="object-origin-detail">
         {{#url}}<span class="view-more-at">{{i18n.site.object.actions.view-more-at}}</span>{{/url}}
-        {{#url}}<a class="link-black-blue header-only{{#institution_logo}} with-logo{{/institution_logo}}" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
+        {{#url}}<a class="link-black-blue header-only" data-provided-by="{{i18n.site.object.meta-label.provided-by}}" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
         {{#url}}<a class="link-black-blue overview-only" href="{{.}}">{{institution_name}}<span class="svg-icon-external"></span></a>{{/url}}
         {{^url}}{{institution_name}}{{/url}}
         <span resource="http://www.europeana.eu/rights/pd-usage-guide/" rel="cc:useGuidelines"></span>

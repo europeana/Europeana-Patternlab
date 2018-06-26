@@ -1,0 +1,101 @@
+@import "../../generic/variables";
+@import "css-grid-variables";
+
+
+.gridlayout-wrapper-full {
+  display: grid;
+  grid-column-gap: $spacing-1-75x;
+  grid-row-gap: $spacing-4x;
+  grid-template-columns: unquote("[full-start] minmax(1rem, 1fr) [main-start] minmax(0, #{$grid-max-width}) [main-end] minmax(1rem, 1fr) [full-end]");
+  grid-template-rows: auto;
+  margin: 0 auto 8rem;
+}
+
+.gridlayout p {
+  margin-bottom: $spacing-2x;
+}
+
+.width-full {
+  grid-column: full;
+}
+
+.width-main,
+.width-fluid {
+  display: grid;
+  grid-column: main;
+  grid-column-gap: $spacing-1-75x;
+  grid-row-gap: $spacing-4x;
+  grid-template-rows: auto;
+  width: 100%;
+}
+
+.width-main{
+  grid-template-columns: repeat(12, 1fr);
+}
+.width-fluid {
+  grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
+}
+
+.no-row-gap {
+  margin-bottom: -$spacing-4x;
+}
+
+.width-12 {
+  grid-column: span 12;
+}
+
+.width-11 {
+  grid-column: span 11;
+}
+
+.width-10 {
+  grid-column: span 10;
+}
+
+.width-9 {
+  grid-column: span 9;
+}
+
+.width-8 {
+  grid-column: span 8;
+}
+
+.width-7 {
+  grid-column: span 7;
+}
+
+.width-6 {
+  grid-column: span 6;
+}
+
+.width-5 {
+  grid-column: span 5;
+}
+
+.width-4 {
+  grid-column: span 4;
+}
+
+.width-3 {
+  grid-column: span 3;
+}
+
+.width-2 {
+  grid-column: span 2;
+}
+
+.width-1 {
+  grid-column: span 1;
+}
+
+@media all and (max-width: $bp-med) {
+  .width-6,
+  .width-4,
+  .width-3 {
+    grid-column: span 12;
+  }
+}
+
+.height-2 {
+  grid-row: span 2;
+}
