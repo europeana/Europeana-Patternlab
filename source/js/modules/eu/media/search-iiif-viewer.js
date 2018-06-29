@@ -604,10 +604,11 @@ define(['jquery', 'util_resize'], function($){
 
   function getAnnotationData(probe, pageRef, cb){
 
-    var manifestUrl    = $('#iiif').data('manifest-url');
-    var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
-    var iiifServer     = 'iiif.europeana.eu/presentation/';
-    var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
+    var annotationsVersion = 2;
+    var manifestUrl        = $('#iiif').data('manifest-url');
+    var fullTextServer     = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer         = 'iiif.europeana.eu/presentation/';
+    var suffix             = '/' + (pageRef + 1) + '.iiifv' + annotationsVersion + '.json';
     //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
     var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
     annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
@@ -619,14 +620,15 @@ define(['jquery', 'util_resize'], function($){
 
         textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
 
-        var page = textProcessor.getTypedData(data, 'Page');
+        var page      = textProcessor.getTypedData(data, 'Page');
+        var available = page.length === 1;
 
         if(probe){
-          $('.media-options').trigger('iiif', {'transcriptions-available': page.length === 1});
+          $('.media-options').trigger('iiif', available ? {'transcriptions-available': true} : {'transcriptions-unavailable': true});
           return;
         }
 
-        if(page.length === 1){
+        if(available){
 
           var fullTextUrl = page[0]['resource'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
 
