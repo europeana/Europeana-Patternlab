@@ -65,7 +65,6 @@ require.config({
     leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
-    jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jquery:                        '../../lib/jquery/jquery',
     jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
@@ -167,16 +166,13 @@ require.config({
   },
   shim: {
     blacklight:     ['jquery'],
-    jqDropdown:     ['jquery'],
     menus:          ['jquery'],
-    // optimizely:     ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
     ga: {
       exports: '__ga__'
     }
-  },
-  waitSeconds: 20
+  }
 });
 
 require(['jquery'], function( $ ) {
