@@ -1,4 +1,4 @@
-define(['jquery', 'jqDropdown', 'menus', 'util_scrollEvents'], function ($) {
+define(['jquery', 'menus', 'util_scrollEvents'], function ($) {
 
   var svg = document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1');
   document.documentElement.className += svg ? ' svg' : ' no-svg';
