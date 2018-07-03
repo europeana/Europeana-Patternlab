@@ -1,0 +1,79 @@
+<h1>EU Facet</h1>
+
+<style>
+
+.filter-closed > ul,
+.filter-closed > .filter-moreless{
+  display: none;
+}
+
+.filter-list li,
+.filter-item,
+.filter-hierarchical > .filter-list > li{
+  display: block;
+}
+
+.is-hidden,
+.is-jshidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+</style>
+
+<div class="fx-facet-container">
+
+  <div class="filter checkboxes">
+
+    <div class="filter-name" data-filter-name="TYPE">Type
+      <ul class="filter-mobile-summary">
+        <li>Another Label</li>
+        <li>Label here</li>
+      </ul>
+    </div>
+
+    <ul class="filter-list filter-wrap">
+      <li>
+        <a href="http://europeana.eu&amp;view=grid" class="filter-item " aria-checked="false"><div class="filter-text">Filter Label</div>
+          <div class="filter-num">(15K)</div>
+        </a>
+      </li>
+      <li>
+        <a href="http://europeana.eu&amp;view=grid" class="filter-item  is-checked " aria-checked="true"><div class="filter-text">Another Label</div>
+          <div class="filter-num">(300)</div>
+        </a>
+      </li>
+      <li>
+        <a href="http://europeana.eu&amp;view=grid" class="filter-item " aria-checked="false"><div class="filter-text">Another Label, this one long enough to line wrap</div>
+          <div class="filter-num">(600)</div>
+        </a>
+      </li>
+
+      <li class="filter-extrafields js-showhide-panel is-jshidden">
+        <ul>
+          <li>
+            <a href="http://europeana.eu&amp;view=grid" class="filter-item ">Extra Label
+              <span class="filter-num">(15K)</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://europeana.eu&amp;view=grid" class="filter-item ">Another Label
+              <span class="filter-num">(300)</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://europeana.eu&amp;view=grid" class="filter-item  is-checked ">Another Label, this one long enough to line wrap
+              <span class="filter-num">(600)</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://europeana.eu&amp;view=grid" class="filter-item ">Label here
+              <span class="filter-num">(123)</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <a class="js-showhide filter-moreless" href="#&amp;view=grid" data-text-swap="Less Type" aria-expanded="false">More<span class="is-vishidden"> Type</span></a>
+  </div>
+</div>

@@ -52,13 +52,6 @@ module.exports = function(grunt) {
         dest:   'public/css',
         expand: true
       },
-      global_dependencies: {
-        src:    '**',
-        cwd:    'source/js/patternlab/global',
-        dest:   'source/js/modules/global',
-        flatten: true,
-        expand:  true
-      },
       production_js_assets: {
         cwd: 'source/js/modules',
         expand:  true,
@@ -344,7 +337,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean:index',
     'concat:blacklight',
-    'copy:dev_css',
-    'copy:global_dependencies'
+    'copy:dev_css'
   ]);
 }

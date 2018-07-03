@@ -12,6 +12,8 @@ requirejs.config({
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
+    eu_global:                 '../../eu/global/global',
+    menus:                     '../../eu/global/menus',
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     eu_title_bar:              '../../eu/title-bar/eu-title-bar',
@@ -36,7 +38,8 @@ requirejs.config({
     util_form:                 '../../eu/util/eu-form-utils',
     util_promo_loader:         '../../eu/util/eu-promo-loader',
     util_resize:               '../../eu/util/resize',
-    util_scroll:               '../../eu/util/scroll'
+    util_scroll:               '../../eu/util/scroll',
+    util_scrollEvents:         '../../eu/util/scrollEvents'
   },
   shim: {
     jasmine_jquery:{
@@ -50,6 +53,9 @@ requirejs.config({
     },
     leaflet_iiif_eu:{
       deps:['leaflet_iiif']
+    },
+    eu_global:{
+      deps:['jquery']
     }
   },
   callback: window.__karma__.start,
