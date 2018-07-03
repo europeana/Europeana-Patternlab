@@ -73,18 +73,15 @@
       "base_1418_url": "http://test.1418.eanadev.org"
     },
     "creators_info": {
+      "europeana_entities": true,
       "creators": [
         {
-          "europeana_entities": {
-            "title": "Johannes Vermeer",
-            "url": "portal_entity-deref.json"
-          }
+          "title": "Johannes Vermeer",
+          "url": "portal_entity-deref.json"
         },
         {
-          "europeana_entities": {
-            "title": "Michael Jackson",
-            "url": "portal_entity-deref?id=2"
-          }
+          "title": "Michael Jackson",
+          "url": "portal_entity-deref?id=2"
         }
       ]
     },
