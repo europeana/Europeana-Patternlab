@@ -27,7 +27,7 @@
 
   .filterby label,
   .sortby label {
-     font-size: $font-size-slightly-smaller;
+    font-size: $font-size-slightly-smaller;
   }
 
   .blog-items {
@@ -137,8 +137,8 @@
   }
 
   .svg-icon-bookmark-white {
-    transform: translateY(0.7em) scale(0.7);
     margin-right: 0.5em;
+    transform: translateY(0.7em) scale(0.7);
   }
 
   .svg-icon-bookmark-before::before {
@@ -193,9 +193,8 @@
     }
 
     &.blog-post {
-
-      transform: translateY(-9em);
       margin-bottom: -7em;
+      transform: translateY(-9em);
 
       &:not(.larger-map) {
         @media all and (max-width: $bp-small-3) {
@@ -205,8 +204,8 @@
 
       &.larger-map {
         @media all and (min-width: $bp-xl) {
-          transform: translateY(-20em);
           margin-bottom: -18em;
+          transform: translateY(-20em);
         }
       }
 
@@ -334,7 +333,7 @@
           a {
             border-bottom: 1px dotted $white;
             color: $white;
-            
+
             &:hover {
               border-bottom: solid 1px #eee;
             }
@@ -447,7 +446,6 @@
         }
       }
     }
-   
   }
 }
 
@@ -509,8 +507,8 @@
   }
 
   .blog-item-tags {
-    white-space: normal;
     position:  relative;
+    white-space: normal;
   }
 }
 
@@ -566,8 +564,8 @@ li:not(:first-of-type) {
 .blog-list-item {
   .item-info {
     .summary {
-      padding-bottom: $space / 2;
       border-bottom:  1px solid $gray87;
+      padding-bottom: $space / 2;
     }
 
     .date,
@@ -593,10 +591,10 @@ li:not(:first-of-type) {
   }
 
   h2 {
-    font-size: $font-size-med;
-    margin-bottom: $space-half;
     font-family: $font-secondary;
+    font-size: $font-size-med;
     line-height: 1.4;
+    margin-bottom: $space-half;
 
     a:hover,
     a:focus {
