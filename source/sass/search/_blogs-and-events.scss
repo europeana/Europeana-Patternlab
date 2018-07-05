@@ -151,8 +151,8 @@
   }
 
   .svg-icon-bookmark-white-before::before {
-    left: -1.5em;
     display: inline-block;
+    left: -1.5em;
   }
 
   .svg-icon-bookmark-white-before::before,
@@ -256,8 +256,8 @@
         }
         &:not(.blog-item-tags-wide) {
           ul{
-            list-style-type: circle;
             list-style-position: outside;
+            list-style-type: circle;
             margin-left: 1em;
           }
         }
@@ -317,8 +317,8 @@
           color: $white;
           left: 50%;
           max-height: 100%;
-          position: absolute;
           padding: 1em 2em;
+          position: absolute;
           top: 50%;
           transform: translate(-50%, -50%);
           width: 100%;
@@ -346,12 +346,12 @@
           }
 
           .title {
-            overflow: hidden;
             font-weight: bold;
             font-size: 1em;
-            line-height: 1.3em;
             height: 3.9em;
-
+            line-height: 1.3em;
+            overflow: hidden;
+            
             @media all and (min-width: $bp-small-3) {
               font-size: 1.2em;
               line-height: 1.5em;
@@ -426,7 +426,6 @@
           @media all and (max-width: $bp-med) {
             padding: 1em 4em;
           }
-
         }
 
 
@@ -434,17 +433,16 @@
           background-color: rgba(0, 0, 0, 0.5);
           bottom: 0;
           color: $white;
-          content:    ' ';
-
-          a {
-            border-bottom: 1px dotted #fff;
-            color:         #fff;
-          }
-
+          content: " ";
           left: 0;
           position: absolute;
           right: 0;
           top: 0;
+
+          a {
+            border-bottom: 1px dotted $white;
+            color: $white;
+          }          
         }
       }
     }
@@ -503,10 +501,10 @@
 
   .date-icon {
     height: 1.9em;
-    transform: scale(0.6);
     margin-right: 0;
     position: relative;
     top: 0.6em;
+    transform: scale(0.6);
   }
 
   .blog-item-tags {
@@ -628,9 +626,9 @@ li:not(:first-of-type) {
 
     @media all and (min-width: $bp-small-3) {
       box-sizing: border-box;
+      margin-bottom: $space-half;
       margin-left: 0;
       margin-right: 0;
-      margin-bottom: $space-half;
       margin-top: $space-half;
       padding-right: 1.75em;
     }
@@ -644,13 +642,13 @@ li:not(:first-of-type) {
     }
 
     &:before {
-      content: '...';
+      content: "...";
       height: 1.15em;
     }
 
     &:after {
       background: $white;
-      content: ' ';
+      content: " ";
       height: 1.2em;
     }
   }
