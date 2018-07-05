@@ -135,7 +135,6 @@ require.config({
     search_entity:                 '../../eu/channels/search-entity',
     search_form:                   '../../eu/channels/search-form',
     search_blog:                   '../../eu/channels/search-blog',
-    search_events:                 '../../eu/channels/search-events',
     search_galleries:              '../../eu/channels/search-galleries',
     search_home:                   '../../eu/channels/search-home',
     search_object:                 '../../eu/channels/search-object',
