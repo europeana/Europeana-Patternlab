@@ -778,54 +778,27 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function initEntity(){
 
-    var entityLinks = $('.named-entity-section .eu-foldable-data a');
-    var agentData   = {};
+    $('.channel-object-viewmore [data-deref]').each(function(){
+      var dRef = $(this);
+      var url  = dRef.data('deref');
 
-    $.each(entityLinks, function(i, ob){
+      var href = 'portal/explore/people/' + url.split('/').pop();
+      dRef.attr('href', href);
 
-      var url = $(ob).attr('href');
+      $.getJSON(url).done(function(data){
 
-      if(url.indexOf('/agent/') >-1){
+        var depiction = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
 
-        var locale = typeof window.i18nLocale === 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale === 'string' ? window.i18nDefaultLocale : 'en';
-
-        var matches = url.match(/agent\/base\/(.*)/);
-        if(matches.length === 2){
-
-          url = location.href.split('portal/' + locale + '/')[0] + 'portal/' + locale + '/explore/people/' + matches[1] + '.json';
-
-          var req = new XMLHttpRequest();
-
-          req.onreadystatechange = function() {
-
-            if(req.readyState === 4){
-
-              log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
-
-              $.getJSON(req.responseURL).done(function(data){
-                data               = data.api_response;
-
-                var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
-                var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
-                agentData.text     = label;
-                agentData.img_url  = depiction;
-                agentData.url      = url;
-
-                require(['mustache'], function(Mustache){
-                  Mustache.tags = ['[[', ']]'];
-                  var template  = $('#template-concept-js');
-                  var html      = Mustache.render(template.text(), agentData);
-                  template.after(html);
-                });
-              });
-            }
-          };
-          req.open('GET', url, true);
-          req.send();
+        if(depiction){
+          dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
         }
-        return false;
-      }
+        else{
+          dRef.find('.viewmore-image').remove();
+        }
 
+      }).error(function(){
+        console.log('error');
+      });
     });
   }
 
