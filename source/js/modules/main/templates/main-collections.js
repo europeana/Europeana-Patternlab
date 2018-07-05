@@ -56,7 +56,7 @@ require.config({
     // - gaps between tiles a certain zoom levels
     // - tiles not rendering following after paginating
 
-    leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet:                       '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
