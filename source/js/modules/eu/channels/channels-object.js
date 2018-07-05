@@ -788,7 +788,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
         url = window.location.protocol + '//' + urlSplit[1];
       }
 
-      //      var href = 'portal/explore/people/' + url.split('/').pop();
       dRef.attr('href', url);
 
       $.getJSON(url).done(function(data){
@@ -875,7 +874,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
             updateCtrls();
             fixZoomableWidth();
             $(window).trigger('refresh-leaflet-map');
-            $(window).trigger('refresh-leaflet-mini-map');
           }
         }
       });

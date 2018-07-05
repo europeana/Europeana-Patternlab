@@ -698,7 +698,7 @@ define(['jquery', 'util_resize'], function($){
         }
         if(config.miniMap){
           requirements.push('leaflet_minimap');
-          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
         }
         require(requirements, function() {
           initViewer(manifestUrl);
