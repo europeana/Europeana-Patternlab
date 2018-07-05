@@ -269,7 +269,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   }
 
   function getColsAvailable(){
-    return parseInt(getComputedStyle($('.object-details')[0], ':after')['width']);
+    return Math.round(parseFloat(getComputedStyle($('.object-details')[0], ':after')['width']));
   }
 
   function getZoomLevels(){
