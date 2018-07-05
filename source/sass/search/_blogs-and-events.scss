@@ -169,6 +169,7 @@
     >span {
       border-bottom: 1px dotted #1676aa;
       padding-bottom: 0.2em;
+
       &:hover {
         border-bottom: solid 1px #1676aa;
       }
@@ -332,9 +333,9 @@
 
           a {
             color: $white;
-            border-bottom: 1px dotted #fff;
+            border-bottom: 1px dotted $white;
 
-          &:hover {
+            &:hover {
               border-bottom: solid 1px #eee;
             }
           }
@@ -346,8 +347,8 @@
           }
 
           .title {
-            font-weight: bold;
             font-size: 1em;
+            font-weight: bold;
             height: 3.9em;
             line-height: 1.3em;
             overflow: hidden;
@@ -442,7 +443,7 @@
           a {
             border-bottom: 1px dotted $white;
             color: $white;
-          }          
+          }
         }
       }
     }
@@ -597,7 +598,7 @@ li:not(:first-of-type) {
     font-family: $font-secondary;
     line-height: 1.4;
 
-    a:hover, 
+    a:hover,
     a:focus {
       border-bottom: 1px dotted $textcolour_link_hover;
     }
