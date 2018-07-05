@@ -782,8 +782,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       var dRef = $(this);
       var url  = dRef.data('deref');
 
-      var href = 'portal/explore/people/' + url.split('/').pop();
-      dRef.attr('href', href);
+      var urlSplit = url.split('//');
+
+      if(urlSplit.length > 1){
+        url = window.location.protocol + '//' + urlSplit[1];
+      }
+
+      //      var href = 'portal/explore/people/' + url.split('/').pop();
+      dRef.attr('href', url);
 
       $.getJSON(url).done(function(data){
 
