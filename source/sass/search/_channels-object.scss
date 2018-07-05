@@ -4,30 +4,40 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
+.channel-object-viewmore ~ .channel-object-viewmore {
+  margin-top: 1em;
+}
+
 .channel-object-viewmore {
   text-align: right;
 
+
   h3 {
     color:         $gray30;
-    display:       block;
+    display:       inline-block;
     font-weight:   normal;
     line-height:   50px;
     margin-bottom: 0;
     width:         auto;
+
+    &:hover{
+      color: $eu-blue;
+    }
   }
 
   a {
-    color: $linkblue;
-    display: block;
+    color:     $linkblue;
+    display:   inline-block;
     font-size: $font-size-sm;
   }
 }
 
 .viewmore-image {
+  background-color:    $eu-very-light-gray;
   background-position: center;
   background-size:     cover;
   border-radius:       50%;
-  display:             block;
+  display:             inline-block;
   float:               right;
   height:              50px;
   margin-left:         2em;

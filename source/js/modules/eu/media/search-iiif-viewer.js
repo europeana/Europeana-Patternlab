@@ -630,7 +630,7 @@ define(['jquery', 'util_resize'], function($){
 
         if(available){
 
-          var fullTextUrl = page[0]['resource'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
+          var fullTextUrl = page[0]['resource']['@id'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
 
           $.getJSON(fullTextUrl).done(function(ft){
             textProcessor.processAnnotationData(ft, data, pageRef, cb);
