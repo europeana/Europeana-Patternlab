@@ -208,20 +208,6 @@ define(['jquery', 'smartmenus'], function($){
         doForAllPages();
       });
       break;
-    case 'events/index':
-      require(['search_events'], function(page){
-        page.initPage();
-        promisedPageJS.resolve(page);
-        doForAllPages();
-      });
-      break;
-    case 'events/show':
-      require(['search_events'], function(page){
-        page.initPage();
-        promisedPageJS.resolve(page);
-        doForAllPages();
-      });
-      break;
     case 'galleries/index':
       require(['fashion_gallery_redirect'], function(fgr){
         fgr.redirectOrCallback(function(){
