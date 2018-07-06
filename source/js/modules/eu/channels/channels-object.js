@@ -782,11 +782,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       var dRef = $(this);
       var url  = dRef.data('deref');
 
+      /*
       var urlSplit = url.split('//');
 
       if(urlSplit.length > 1){
         url = window.location.protocol + '//' + urlSplit[1];
       }
+      */
 
       dRef.attr('href', url);
 
