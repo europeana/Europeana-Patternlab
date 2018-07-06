@@ -64,8 +64,7 @@ define(['jquery'], function($){
 
     var match;
 
-    while((match = regexSearch.exec(fullText)) != null){
-      console.log(match + ' ' + match.index);
+    while((match = regexSearch.exec(fullText)) !== null){
       searchMatches.push(match.index);
     }
     return searchMatches;
@@ -77,10 +76,16 @@ define(['jquery'], function($){
 
       // build feature data
       var id = fData['@id'].split('/').pop();
-      addFeatureData(geoJSON, fData['on'].split('#')[1].split('=')[1].split(','), id);
+
+      // "on" is now an array...
+      var onValue = fData['on'];
+
+      $.each(onValue, function(i, ob){
+        addFeatureData(geoJSON, ob.split('#')[1].split('=')[1].split(','), id);
+      });
 
       // write data
-      var hash  = fData['resource'].split('#')[1];
+      var hash  = fData['resource']['@id'].split('#')[1];
       var chars = hash.split('=')[1].split(',');
 
       fData.id    = id;
@@ -123,7 +128,7 @@ define(['jquery'], function($){
 
     preProcessFeatureData(p, geoJSON);
     preProcessFeatureData(w, geoJSON, searchMatches);
-    processParagraphData(p, w, fullText, pageRef, searchMatches != null);
+    processParagraphData(p, w, fullText, pageRef, searchMatches !== null);
 
     if(cb){
       cb(geoJSON, pageRef);
@@ -183,11 +188,11 @@ define(['jquery'], function($){
             var matchData          = cWord.matchData;
             var elClose            = '</span>';
 
-            var opensSingleAtStart = matchData.open.length  == 1 && matchData.open[0]  == 0;
-            var closesSingleAtEnd  = matchData.close.length == 1 && matchData.close[0] == word.length;
-            var closesComplexAtEnd = matchData.close.slice(-1).pop() == word.length;
+            var opensSingleAtStart = matchData.open.length  === 1 && matchData.open[0]  === 0;
+            var closesSingleAtEnd  = matchData.close.length === 1 && matchData.close[0] === word.length;
+            var closesComplexAtEnd = matchData.close.slice(-1).pop() === word.length;
 
-            if(opensSingleAtStart && matchData.close.length == 0){
+            if(opensSingleAtStart && matchData.close.length === 0){
               prefix          = elOpenPhrase;
               openedCarryOver = true;
             }
@@ -202,9 +207,9 @@ define(['jquery'], function($){
 
             if((opensSingleAtStart && closesSingleAtEnd)
               ||
-              (opensSingleAtStart && matchData.close.length == 0)
+              (opensSingleAtStart && matchData.close.length === 0)
               ||
-              (closesSingleAtEnd && matchData.open.length == 0)){
+              (closesSingleAtEnd && matchData.open.length === 0)){
 
               // match entire word
               wordClass = defMatchWord;
@@ -227,11 +232,11 @@ define(['jquery'], function($){
                   }
                 }
 
-                if(matchData.close.indexOf(j) > -1 || closesComplexAtEnd && j == word.length-1){
+                if(matchData.close.indexOf(j) > -1 || closesComplexAtEnd && j === word.length-1){
 
                   includesClosed ++;
 
-                  if(closesComplexAtEnd && j == word.length-1){
+                  if(closesComplexAtEnd && j === word.length-1){
                     suffix += elClose;
                   }
                   else{

@@ -27,7 +27,12 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'galleries.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-generic'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'search.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'https', 'resolveTo': 'self'}, {'pattern': 'http', 'resolveTo': 'self'}, {'pattern': 'test-solr-mongo', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100, 'portal_object-promos-exhibition': 1500, 'portal_object-media': 1500}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'entity-deref', 'resolveTo': 'portal_entity-deref'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'galleries.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-generic'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'search.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'https', 'resolveTo': 'self'}, {'pattern': 'http', 'resolveTo': 'self'}, {'pattern': 'test-solr-mongo', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100, 'portal_object-promos-exhibition': 1500, 'portal_object-media': 1500}}"
+    },
+    {
+      "name": "enabledPromos",
+      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json' }, {'id': 'generic', 'url': '/promoted.json' }]",
+      "unquoted": true
     }
   ],
   "js_files":
@@ -63,10 +68,22 @@
         "url":  "javascript:alert('tutorial link')"
       }
     },
-
     "XXXXugc_content":{
       "include_1418_nav": true,
       "base_1418_url": "http://test.1418.eanadev.org"
+    },
+    "creators_info": {
+      "europeana_entities": true,
+      "creators": [
+        {
+          "title": "Johannes Vermeer",
+          "url": "portal_entity-deref.json"
+        },
+        {
+          "title": "Michael Jackson",
+          "url": "portal_entity-deref?id=2"
+        }
+      ]
     },
     "object":
     {

@@ -211,21 +211,16 @@
                       {{/description}}
                     </div>
 
-                    {{#view_more}}
-                    <div class="channel-object-viewmore">
-                      <a href="{{url}}" class="viewmore-image" style="background-image: url('{{img_url}}');"></a>
-                      <h3>{{text}}</h3>
-                    </div>
-                    {{/view_more}}
-                    {{^view_more}}
-                      <script id="template-concept-js" type="text/x-mustache">
+                    {{#creators_info}}
+                      {{#creators}}
                         <div class="channel-object-viewmore">
-                          <a href="[[url]]" class="viewmore-image" style="background-image: url('[[img_url]]');"></a>
-                          <h3>[[text]]</h3>
-                          <a href="[[url]]">{{i18n.object.actions.view-more}}</a>
+                          {{^europeana_entities}}{{title}}{{/europeana_entities}}
+                          {{#europeana_entities}}
+                            <a data-deref="{{url}}"><h3>{{title}}</h3><span class="viewmore-image"></span></a>
+                          {{/europeana_entities}}
                         </div>
-                      </script>
-                    {{/view_more}}
+                      {{/creators}}
+                    {{/creators_info}}
 
                   </div>
                 </div>

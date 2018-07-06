@@ -2,7 +2,15 @@ define(['jquery'], function($){
 
   function load(conf, callback){
 
-    var expected   = conf.length;
+    var expected   = conf ? conf.length : 0;
+
+    if(expected === 0){
+      if(callback){
+        callback();
+        return;
+      }
+    }
+
     var returned   = 0;
     var elements   = {};
     var markup     = $('<div></div>');

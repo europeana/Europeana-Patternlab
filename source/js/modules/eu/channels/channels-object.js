@@ -269,7 +269,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   }
 
   function getColsAvailable(){
-    return parseInt(getComputedStyle($('.object-details')[0], ':after')['width']);
+    return Math.round(parseFloat(getComputedStyle($('.object-details')[0], ':after')['width']));
   }
 
   function getZoomLevels(){
@@ -296,7 +296,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
           var pxSize = size.indexOf('px') > -1 ? parseInt(size) : parseInt(size) * 16;
 
           if(naturalWidth > pxSize){
-            console.log('naturalWidth (' + naturalWidth + ') > pxSize (' + pxSize  +')');
             zoomLevelsNeeded ++;
           }
         });
@@ -779,54 +778,32 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
   function initEntity(){
 
-    var entityLinks = $('.named-entity-section .eu-foldable-data a');
-    var agentData   = {};
+    $('.channel-object-viewmore [data-deref]').each(function(){
+      var dRef = $(this);
+      var url  = dRef.data('deref');
 
-    $.each(entityLinks, function(i, ob){
+      var urlSplit = url.split('//');
 
-      var url = $(ob).attr('href');
-
-      if(url.indexOf('/agent/') >-1){
-
-        var locale = typeof window.i18nLocale === 'string' ? window.i18nLocale : typeof window.i18nDefaultLocale === 'string' ? window.i18nDefaultLocale : 'en';
-
-        var matches = url.match(/agent\/base\/(.*)/);
-        if(matches.length === 2){
-
-          url = location.href.split('portal/' + locale + '/')[0] + 'portal/' + locale + '/explore/people/' + matches[1] + '.json';
-
-          var req = new XMLHttpRequest();
-
-          req.onreadystatechange = function() {
-
-            if(req.readyState === 4){
-
-              log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
-
-              $.getJSON(req.responseURL).done(function(data){
-                data               = data.api_response;
-
-                var label          = data.altLabel ? data.altLabel[locale] ? data.altLabel[locale] ? data.altLabel[locale][0] : '' : '' : '';
-                var depiction      = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
-                agentData.text     = label;
-                agentData.img_url  = depiction;
-                agentData.url      = url;
-
-                require(['mustache'], function(Mustache){
-                  Mustache.tags = ['[[', ']]'];
-                  var template  = $('#template-concept-js');
-                  var html      = Mustache.render(template.text(), agentData);
-                  template.after(html);
-                });
-              });
-            }
-          };
-          req.open('GET', url, true);
-          req.send();
-        }
-        return false;
+      if(urlSplit.length > 1){
+        url = window.location.protocol + '//' + urlSplit[1];
       }
 
+      dRef.attr('href', url);
+
+      $.getJSON(url).done(function(data){
+
+        var depiction = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+
+        if(depiction){
+          dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+        }
+        else{
+          dRef.find('.viewmore-image').remove();
+        }
+
+      }).error(function(){
+        console.log('error');
+      });
     });
   }
 
@@ -897,7 +874,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
             updateCtrls();
             fixZoomableWidth();
             $(window).trigger('refresh-leaflet-map');
-            $(window).trigger('refresh-leaflet-mini-map');
           }
         }
       });
@@ -1313,54 +1289,42 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     require(['util_promo_loader'], function(PromoLoader){
 
-      var baseUrl = window.location.href.replace('.html', '').split('?')[0];
+      var promoTemplates = {
+        'exhibition': 'template-promo-exhibition',
+        'gallery': 'template-promo-gallery',
+        'news': 'template-promo-news',
+        'entity': 'template-promo-entity',
+        'generic': 'template-promo-generic'
+      };
+
+      var promoConf = [];
+
+      if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
+        $.each(window.enabledPromos, function(i, promo){
+          var conf = { id: promo.id, templateId: promoTemplates[promo.id], url: promo.url };
+          promoConf.push(conf);
+        });
+      }
 
       if(nextItem){
         nextItem.is_next = true;
-      }
-      if(prevItem){
-        prevItem.is_prev = true;
-      }
-
-      var promoLoaderConf = [
-        {
+        promoConf.unshift({
           'id': 'next',
           'preloaded': nextItem,
           'templateId': 'template-promo-next-prev'
-        },
-        {
-          'id': 'exhibition',
-          'url': baseUrl + '/exhibition.json',
-          'templateId': 'template-promo-exhibition'
-        },
-        {
-          'id': 'gallery',
-          'url': baseUrl + '/galleries.json',
-          'templateId': 'template-promo-gallery'
-        },
-        {
-          'id': 'news',
-          'url': baseUrl + '/news.json',
-          'templateId': 'template-promo-news'
-        },
-        {
-          'id': 'entity',
-          'url': baseUrl + '/entity.json',
-          'templateId': 'template-promo-entity'
-        },
-        {
-          'id': 'generic',
-          'url': baseUrl + '/promoted.json',
-          'templateId': 'template-promo-generic'
-        },
-        {
+        });
+      }
+
+      if(prevItem){
+        prevItem.is_prev = true;
+        promoConf.push({
           'id': 'previous',
           'preloaded': prevItem,
           'templateId': 'template-promo-next-prev'
-        }
-      ];
+        });
+      }
 
-      PromoLoader.load(promoLoaderConf, function(markup){
+      PromoLoader.load(promoConf, function(markup){
 
         $('.collections-promo-item-preload').remove();
 

@@ -157,7 +157,7 @@ define(['jquery', 'util_resize'], function($){
 
   var switchLayer = function(destLayer) {
     for(var base in iiifLayers) {
-      if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] != destLayer) {
+      if(iiif.hasLayer(iiifLayers[base]) && iiifLayers[base] !== destLayer) {
         iiif.removeLayer(iiifLayers[base]);
       }
       if(miniMapCtrls[base]){
@@ -320,11 +320,14 @@ define(['jquery', 'util_resize'], function($){
       var key = window.event ? e.keyCode : e.which;
       if(key === 13){
         var val = parseInt($(this).val());
-        if(!isNaN(val) && val > 0 && val < totalImages+1){
-          nav($(this), val-1);
+        if(!isNaN(val) && val > 0 && val < totalImages + 1){
+          var newPageNum = val - 1;
+          if(currentImg !== newPageNum){
+            nav($(this), newPageNum);
+          }
         }
         else{
-          $(this).val(currentImg+1);
+          $(this).val(currentImg + 1);
         }
       }
     });
@@ -427,7 +430,7 @@ define(['jquery', 'util_resize'], function($){
 
     pnlTranscriptions.find('.transcription').addClass('hidden');
 
-    if(typeof show != 'undefined'){
+    if(typeof show !== 'undefined'){
 
       var highlighted = pnlTranscriptions.find('.transcription.' + currentImg).removeClass('hidden').find('p.highlight');
 
@@ -601,10 +604,11 @@ define(['jquery', 'util_resize'], function($){
 
   function getAnnotationData(probe, pageRef, cb){
 
-    var manifestUrl    = $('#iiif').data('manifest-url');
-    var fullTextServer = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
-    var iiifServer     = 'iiif.europeana.eu/presentation/';
-    var suffix         = '/' + (pageRef + 1) + '.iiifv2.json';
+    var annotationsVersion = 2;
+    var manifestUrl        = $('#iiif').data('manifest-url');
+    var fullTextServer     = 'test-solr-mongo.eanadev.org/newspapers/fulltext/iiif/';
+    var iiifServer         = 'iiif.europeana.eu/presentation/';
+    var suffix             = '/' + (pageRef + 1) + '.iiifv' + annotationsVersion + '.json';
     //var annotationsUrl = manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', 'https:');
     var annotationsUrl = 'https:' + manifestUrl.replace(iiifServer, fullTextServer).replace('/manifest.json', suffix).replace('/manifest', suffix).replace('http:', '');
     annotationsUrl = annotationsUrl.replace('https:https:', 'https:');
@@ -616,16 +620,17 @@ define(['jquery', 'util_resize'], function($){
 
         textProcessor.init(pnlTranscriptions, iiif.minMaxRatio, config.searchTerm);
 
-        var page = textProcessor.getTypedData(data, 'Page');
+        var page      = textProcessor.getTypedData(data, 'Page');
+        var available = page.length === 1;
 
         if(probe){
-          $('.media-options').trigger('iiif', {'transcriptions-available': page.length === 1});
+          $('.media-options').trigger('iiif', available ? {'transcriptions-available': true} : {'transcriptions-unavailable': true});
           return;
         }
 
-        if(page.length === 1){
+        if(available){
 
-          var fullTextUrl = page[0]['resource'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
+          var fullTextUrl = page[0]['resource']['@id'].replace('http://data.europeana.eu/fulltext/', 'https://' + fullTextServer) + '.json';
 
           $.getJSON(fullTextUrl).done(function(ft){
             textProcessor.processAnnotationData(ft, data, pageRef, cb);
@@ -643,9 +648,8 @@ define(['jquery', 'util_resize'], function($){
       highlightTranscript($('.transcription #' + e.target.feature.properties.id), true);
     };
 
-    var geoJsonCb  = function(itemJSON, pageRef){
+    var geoJsonCb = function(itemJSON, pageRef){
       features[pageRef + ''] = {};
-
       var geoJsonObject = Leaflet.geoJson(itemJSON, {
         style: function(){
           return {
@@ -694,7 +698,7 @@ define(['jquery', 'util_resize'], function($){
         }
         if(config.miniMap){
           requirements.push('leaflet_minimap');
-          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
+          $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min.css') + '" type="text/css"/>');
         }
         require(requirements, function() {
           initViewer(manifestUrl);

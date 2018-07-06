@@ -15,7 +15,7 @@ require(['util_eu_ellipsis'], function(Ellipsis){
     $(this).css('max-height',  '3.2em');
     // end move to css
 
-    Ellipsis.create($(this));
+    Ellipsis.create($(this), {textSelectors:['a']});
   });
 
 });
