@@ -56,7 +56,7 @@ require.config({
     // - gaps between tiles a certain zoom levels
     // - tiles not rendering following after paginating
 
-    leaflet:                       '../../lib/leaflet/leaflet-1.2.0/leaflet',
+    leaflet:                       '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
@@ -65,7 +65,7 @@ require.config({
     leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
-    jquery:                        '../../lib/jquery/jquery',
+    jquery:                        '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
     jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
@@ -103,7 +103,7 @@ require.config({
     midi_replayer:                 '../../lib/midijs/replayer',
     midi_vc_base64:                '../../lib/midijs/VersionControl.Base64',
     midi_base64:                   '../../lib/midijs/base64binary',
-    mustache:                      '../../lib/mustache/mustache',
+    mustache:                      '//cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min',
 
     // optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
