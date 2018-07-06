@@ -5,7 +5,7 @@ require.config({
     exhibitions:            '../../eu/exhibitions',
     feedback:               '../../eu/feedback/eu-feedback',
     ga:                     '//www.google-analytics.com/analytics',
-    global:                 '../../eu/global',
+    global:                 '../../eu/global/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
     hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
@@ -16,7 +16,7 @@ require.config({
     jquery:                 '../../lib/jquery/jquery',
     jqDropdown:             '../../lib/jquery/jquery.dropdown',
     jqScrollto:             '../../lib/jquery/jquery.scrollTo',
-    menus:                  '../../global/menus',
+    menus:                  '../../eu/global/menus',
     photoswipe:             '../../lib/photoswipe/photoswipe',
     photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',
     pinterest:              '../../lib/pinterest/pinit_main',

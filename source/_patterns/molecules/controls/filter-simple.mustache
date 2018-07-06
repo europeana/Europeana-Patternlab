@@ -54,52 +54,52 @@ Configuration options and content model:
 }}
 <div class="filter{{#select_one}} radiobuttons{{/select_one}}{{^select_one}} checkboxes{{/select_one}}{{^filter_open}}{{^has_subfilters}} filter-closed{{/has_subfilters}}{{/filter_open}}">
 
-    {{# title }}
+  {{# title }}
     <div class="filter-name" data-filter-name="{{name}}">{{ . }}{{#icon_link}} <a href="{{link_url}}"><svg class="icon {{icon}}"><use xlink:href="#{{icon}}"></use></svg></a>{{/icon_link}}
       {{^has_subfilters}}
         {{> molecules/controls/filter-mobile-summary}}
       {{/has_subfilters}}
     </div>
-    {{/ title }}
+  {{/ title }}
 
-    <ul class="filter-list filter-wrap">
+  <ul class="filter-list filter-wrap">
     {{#items}}
-        {{#is_separator}}
-          <li class="filter-item-separator">
-          </li>
-        {{/is_separator}}
-        {{^is_separator}}
-
-        <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}><div class="filter-text">{{text}}</div>
-            {{#num_results}}
-            <div class="filter-num">({{num_results}})</div>
-            {{/num_results}}
-            </a>
+      {{#is_separator}}
+        <li class="filter-item-separator">
         </li>
-        {{/is_separator}}
+      {{/is_separator}}
+      {{^is_separator}}
+        <li>
+          <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}" {{#is_checked}} aria-checked="true" {{/is_checked}} {{^is_checked}} aria-checked="false" {{/is_checked}}><div class="filter-text">{{text}}</div>
+            {{#num_results}}
+              <div class="filter-num">({{num_results}})</div>
+            {{/num_results}}
+          </a>
+        </li>
+      {{/is_separator}}
     {{/items}}
 
     {{#extra_items}}
-        <div class="filter-extrafields js-showhide-panel is-jshidden">
-    {{#items}}
-        {{#text}}
-        <li>
-            <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
-            {{#num_results}}
-            <span class="filter-num">({{num_results}})</span>
-            {{/num_results}}
-            </a>
-        </li>
-       {{/text}}
-    {{/items}}
-    </div>
+      <li class="filter-extrafields js-showhide-panel is-jshidden">
+        <ul>
+          {{#items}}
+            {{#text}}
+              <li>
+                <a href="{{url}}" class="filter-item {{#is_checked}} is-checked {{/is_checked}}{{#is_disabled}} is-disabled {{/is_disabled}}">{{text}}
+                  {{#num_results}}
+                    <span class="filter-num">({{num_results}})</span>
+                  {{/num_results}}
+                </a>
+              </li>
+            {{/text}}
+          {{/items}}
+        </ul>
+      </li>
     {{/extra_items}}
+  </ul>
 
-    </ul>
-
-    {{#extra_items}}
-        <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.site.results.list.less}}{{#title}} {{.}}{{/title}}" aria-expanded="false">{{i18n.site.results.list.more}}<span class="is-vishidden"> {{#title}}{{.}}{{/title}}</span></a>
-    {{/extra_items}}
+  {{#extra_items}}
+    <a class="js-showhide filter-moreless" href="#" data-text-swap="{{i18n.site.results.list.less}}{{#title}} {{.}}{{/title}}" aria-expanded="false">{{i18n.site.results.list.more}}<span class="is-vishidden"> {{#title}}{{.}}{{/title}}</span></a>
+  {{/extra_items}}
 
 </div>

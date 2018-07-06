@@ -49,7 +49,7 @@ require.config({
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
     ga:                            '//www.google-analytics.com/analytics',
-    global:                        '../../eu/global',
+    global:                        '../../eu/global/global',
     hotjar:                        '../../lib/hotjar',
 
     // Issues found with attempted update to leaflet-1.3.1
@@ -87,7 +87,7 @@ require.config({
     media_player_midi:             '../../eu/media/search-midi-player',
     media_player_oembed:           '../../eu/media/search-oembed-viewer',
 
-    menus:                         '../../global/menus',
+    menus:                         '../../eu/global/menus',
 
     midi_dom_load_xmlhttp:         '../../lib/midijs/DOMLoader.XMLHttp',
     midi_dom_load_script:          '../../lib/midijs/DOMLoader.script',

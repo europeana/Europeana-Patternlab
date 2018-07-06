@@ -130,7 +130,7 @@ Configuration options and content model:
     {{/extra_items}}
 
     {{#hidden_item_data}}
-        <a class="js-showhide-nested filter-moreless" href="#" data-text-swap="{{label_hide_specific}}" data-text-original="{{label_show_specific}}">{{#has_subselection}}{{label_hide_specific}}{{/has_subselection}}{{^has_subselection}}{{label_show_specific}}{{/has_subselection}}</a>
+        <a class="js-showhide-nested filter-moreless" href="#" aria-expanded="{{has_subselection}}" data-text-swap="{{label_hide_specific}}" data-text-original="{{label_show_specific}}">{{#has_subselection}}{{label_hide_specific}}{{/has_subselection}}{{^has_subselection}}{{label_show_specific}}{{/has_subselection}}</a>
     {{/hidden_item_data}}
 
 </div>
