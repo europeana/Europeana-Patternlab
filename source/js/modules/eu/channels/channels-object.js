@@ -790,20 +790,29 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
       dRef.attr('href', url);
 
-      $.getJSON(url).done(function(data){
+      var req = new XMLHttpRequest();
 
-        var depiction = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+      req.onreadystatechange = function() {
 
-        if(depiction){
-          dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+        if(req.readyState === 4){
+
+          log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
+
+          $.getJSON(req.responseURL).done(function(data){
+
+            var depiction = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
+
+            if(depiction){
+              dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+            }
+            else{
+              dRef.find('.viewmore-image').remove();
+            }
+          });
         }
-        else{
-          dRef.find('.viewmore-image').remove();
-        }
-
-      }).error(function(){
-        console.log('error');
-      });
+      };
+      req.open('GET', url, true);
+      req.send();
     });
   }
 
