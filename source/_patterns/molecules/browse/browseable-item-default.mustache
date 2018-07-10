@@ -2,8 +2,8 @@
   <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
   {{#has_text}}
     <div class="inner">
-      {{#texts.0}}<p>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/texts.0}}
-      {{#texts.1}}<p>{{.}}</p>{{/texts.1}}
+      {{#link_text}}<p>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}
+      {{#texts}}<p>{{.}}</p>{{/texts}}
     </div>
   {{/has_text}}
 </div>
