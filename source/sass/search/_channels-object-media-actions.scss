@@ -568,7 +568,7 @@
       flex-wrap:       wrap;
       justify-content: space-evenly;
 
-      @supports (-ms-ime-align: auto){        
+      @supports (-ms-ime-align: auto){
         justify-content: space-around; // fallback for MS Edge
       }
     }
