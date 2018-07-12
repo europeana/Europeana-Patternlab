@@ -1,11 +1,8 @@
 // Base styling for links
-//
 // :hover             - Subtle hover highlight.
-//
 // Styleguide 1.0.0
 
 a {
-
   color: $textcolour_link;
   text-decoration: none;
 
@@ -19,8 +16,8 @@ a {
 
     &:hover{
       $darker: darken($icon_primary, 15%);
-      color: $darker;
       border-bottom: 1px dotted $darker;
+      color: $darker;
     }
   }
 }
@@ -29,24 +26,22 @@ a {
   color: $icon_primary;
 }
 
-
 // Skip to main link (uses is-vishidden)
-
 .skip-main:focus,
 .skip-main:active,
 .skip-content:focus,
 .skip-content:active{
-    color: #fff;
-    background-color: $black;
-    left: auto;
-    width: auto;
-    height: auto;
-    overflow:auto;
-    margin: 0 auto;
-    padding: $pad-half;
-    border:4px solid yellow;
-    text-align:center;
-    z-index:999;
-    display: block;
-    clip: auto;
+  background-color: $black;
+  border: 4px solid #ff0;
+  clip: auto;
+  color: #fff;
+  display: block;
+  height: auto;
+  left: auto;
+  margin: 0 auto;
+  overflow: auto;
+  padding: $pad-half;
+  text-align: center;
+  width: auto;
+  z-index: 999;
 }
