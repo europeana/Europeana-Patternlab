@@ -34,7 +34,11 @@
     "browse_lists": [
       {
         "head":{
-          "title": "A"
+          "title": "A",
+          "diacritics": [
+            "Á",
+            "Â"
+          ]
         },
         "foot":{
           "link":{
@@ -119,7 +123,7 @@
       },
       {
         "head":{
-          "title": "B"
+          "title": "B"         
         },
         "foot":{
           "link":{

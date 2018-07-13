@@ -1,9 +1,11 @@
 <div class="gridlayout-card{{#grid_width}} width-{{.}}{{/grid_width}}">
-  <a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
-  {{#has_text}}
-    <div class="inner">
-      {{#link_text}}<p>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}
-      {{#texts}}<p>{{.}}</p>{{/texts}}
-    </div>
-  {{/has_text}}
+  	{{#url}}<a href="{{.}}">{{/url}}
+	  <div class="card-img" style="background-image:url('{{img_url}}');"></div>
+	  {{#has_text}}
+	    <div class="inner">
+	      {{#link_text}}<p><span>{{.}}</span></p>{{/link_text}}
+	      {{#texts}}<p>{{.}}</p>{{/texts}}
+	    </div>
+	  {{/has_text}}
+	{{#url}}</a>{{/url}}
 </div>
