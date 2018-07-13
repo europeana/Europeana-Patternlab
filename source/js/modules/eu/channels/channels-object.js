@@ -783,8 +783,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   /* - and add images from json
   */
   function initEntity() {
-
-    var nonEu = '';      
+    var nonEu = '';
     $('.channel-object-creators .channel-object-viewmore').each(function() {      
       if ($(this).find('[data-deref]').length === 0) {
         nonEu += $(this).text().trim() + ', ';
@@ -806,7 +805,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
       var dRef = $(this);
       var url  = dRef.data('deref');
       var req = new XMLHttpRequest();
-      
+
       req.onreadystatechange = function() {
         if(req.readyState === 4){
           log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
