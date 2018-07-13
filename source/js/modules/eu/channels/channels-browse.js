@@ -17,7 +17,7 @@ define(['jquery'], function($){
   function initEllipsis(){
     require(['util_eu_ellipsis'], function(Ellipsis){
       $('.gridlayout-card .inner p:first-of-type').each(function(){
-        Ellipsis.create($(this), {textSelectors:['span']});
+        Ellipsis.create($(this), {textSelectors:['a']});
       });
     });
   }
