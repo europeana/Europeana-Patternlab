@@ -784,7 +784,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
   */
   function initEntity() {
     var nonEu = '';
-    $('.channel-object-creators .channel-object-viewmore').each(function() {      
+    $('.channel-object-creators .channel-object-viewmore').each(function() {
       if ($(this).find('[data-deref]').length === 0) {
         nonEu += $(this).text().trim() + ', ';
         $(this).remove();
@@ -794,7 +794,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
 
     $('.channel-object-creators').show();
     getEntityDepiction();
-
   }
 
   /** getEntityDepiction
