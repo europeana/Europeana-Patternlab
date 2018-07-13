@@ -76,12 +76,34 @@
       "europeana_entities": true,
       "creators": [
         {
-          "title": "Johannes Vermeer",
-          "url": "portal_entity-deref.json"
+          "title": "Agency of Internal Police and Supervision of the State of Dikes",
+          "europeana_entity": false
         },
         {
-          "title": "Michael Jackson",
-          "url": "portal_entity-deref?id=2"
+          "title": "Johannes Vermeer",
+          "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+          "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+          "europeana_entity": true
+        },
+        {
+          "title": "Johannes Vermeer",
+          "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+          "json_url": "//portal/en/explore/people/157024-alphons-diepenbrock.json",
+          "europeana_entity": true
+        },
+        {
+          "title": "Agency of Internal Police and Supervision of the State of Dikes",
+          "europeana_entity": false
+        },
+        {
+          "title": "Vincent van Gogh",
+          "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+          "json_url": "//portal/en/explore/people/157024-alphons-diepenbrock.json",
+          "europeana_entity": true
+        },
+        {
+          "title": "Road and Waters Behering of the Sea Defenses",
+          "europeana_entity": false
         }
       ]
     },

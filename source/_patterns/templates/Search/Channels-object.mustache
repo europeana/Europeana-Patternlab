@@ -212,14 +212,16 @@
                     </div>
 
                     {{#creators_info}}
-                      {{#creators}}
-                        <div class="channel-object-viewmore">
-                          {{^europeana_entities}}{{title}}{{/europeana_entities}}
-                          {{#europeana_entities}}
-                            <a data-deref="{{url}}"><h3>{{title}}</h3><span class="viewmore-image"></span></a>
-                          {{/europeana_entities}}
-                        </div>
-                      {{/creators}}
+                      <div class="channel-object-creators">
+                        {{#creators}}
+                          <div class="channel-object-viewmore">
+                            {{^europeana_entity}}{{title}}{{/europeana_entity}}
+                            {{#europeana_entity}}
+                              <a href="{{url}}" data-deref="{{json_url}}"><h3>{{title}}</h3><span class="viewmore-image"></span></a>
+                            {{/europeana_entity}}
+                          </div>
+                        {{/creators}}
+                      </div>
                     {{/creators_info}}
 
                   </div>
