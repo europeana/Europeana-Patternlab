@@ -72,16 +72,49 @@
       "include_1418_nav": true,
       "base_1418_url": "http://test.1418.eanadev.org"
     },
-    "creators_info": {
-      "europeana_entities": true,
-      "creators": [
+    "creators": {
+      "title": "Creators",
+      "sections": [
         {
-          "title": "Johannes Vermeer",
-          "url": "portal_entity-deref.json"
-        },
-        {
-          "title": "Michael Jackson",
-          "url": "portal_entity-deref?id=2"
+          "title": "Creator",
+          "items": [
+            {
+              "text": "Agency of Internal Police and Supervision of the State of Dikes",
+              "url": false,
+              "json_url": false,
+              "europeana_entity": false
+            },
+            {
+              "text": "Johannes Vermeer",
+              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "europeana_entity": true
+            },
+            {
+              "text": "Johannes Vermeer",
+              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "europeana_entity": true
+            },
+            {
+              "text": "Agency of Internal Police and Supervision of the State of Dikes",
+              "url": false,
+              "json_url": false,
+              "europeana_entity": false
+            },
+            {
+              "text": "Vincent van Gogh",
+              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
+              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "europeana_entity": true
+            },
+            {
+              "text": "Road and Waters Behering of the Sea Defenses",
+              "url": false,
+              "json_url": false,
+              "europeana_entity": false
+            }
+          ]
         }
       ]
     },
