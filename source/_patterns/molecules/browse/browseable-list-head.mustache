@@ -1,9 +1,14 @@
-{{#title}}
+{{#pref_label}}
   <div class="gridlayout width-main no-row-gap">
     <div class="gridlayout width-6">
-      {{#anchor_title}}<a class="browse-list-anchor" name="{{title}}"></a>{{/anchor_title}}
-      <h4 class="browse-list-title">{{.}}</h4>
+      {{#anchor_title}}<a class="browse-list-anchor" name="{{pref_label}}"></a>{{/anchor_title}}
+      <h4 class="browse-list-title">
+      	<span>{{.}}</span>
+        {{#alt_labels}}
+          <span>{{.}}</span>
+        {{/alt_labels}}
+     	</h4>
       {{#description}}<p>{{.}}</p>{{/description}}
     </div>
   </div>
-{{/title}}
+{{/pref_label}}

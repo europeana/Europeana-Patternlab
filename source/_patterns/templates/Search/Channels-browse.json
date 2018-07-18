@@ -34,7 +34,11 @@
     "browse_lists": [
       {
         "head":{
-          "title": "A"
+          "pref_label": "A",
+          "alt_labels": [
+            "Á",
+            "Â"
+          ]
         },
         "foot":{
           "link":{
@@ -119,7 +123,7 @@
       },
       {
         "head":{
-          "title": "B"
+          "pref_label": "B"         
         },
         "foot":{
           "link":{
@@ -204,7 +208,7 @@
       },
       {
         "head":{
-          "title": "C"
+          "pref_label": "C"
         },
         "foot":{
           "link":{
@@ -289,117 +293,117 @@
       },
       {
         "head":{
-          "title": "D"
+          "pref_label": "D"
         }
       },
       {
         "head":{
-          "title": "E"
+          "pref_label": "E"
         }
       },
       {
         "head":{
-          "title": "F"
+          "pref_label": "F"
         }
       },
       {
         "head":{
-          "title": "G"
+          "pref_label": "G"
         }
       },
       {
         "head":{
-          "title": "H"
+          "pref_label": "H"
         }
       },
       {
         "head":{
-          "title": "I"
+          "pref_label": "I"
         }
       },
       {
         "head":{
-          "title": "J"
+          "pref_label": "J"
         }
       },
       {
         "head":{
-          "title": "K"
+          "pref_label": "K"
         }
       },
       {
         "head":{
-          "title": "L"
+          "pref_label": "L"
         }
       },
       {
         "head":{
-          "title": "M"
+          "pref_label": "M"
         }
       },
       {
         "head":{
-          "title": "N"
+          "pref_label": "N"
         }
       },
       {
         "head":{
-          "title": "O"
+          "pref_label": "O"
         }
       },
       {
         "head":{
-          "title": "P"
+          "pref_label": "P"
         }
       },
       {
         "head":{
-          "title": "Q"
+          "pref_label": "Q"
         }
       },
       {
         "head":{
-          "title": "R"
+          "pref_label": "R"
         }
       },
       {
         "head":{
-          "title": "S"
+          "pref_label": "S"
         }
       },
       {
         "head":{
-          "title": "T"
+          "pref_label": "T"
         }
       },
       {
         "head":{
-          "title": "U"
+          "pref_label": "U"
         }
       },
       {
         "head":{
-          "title": "V"
+          "pref_label": "V"
         }
       },
       {
         "head":{
-          "title": "W"
+          "pref_label": "W"
         }
       },
       {
         "head":{
-          "title": "X"
+          "pref_label": "X"
         }
       },
       {
         "head":{
-          "title": "Y"
+          "pref_label": "Y"
         }
       },
       {
         "head":{
-          "title": "Z"
+          "pref_label": "Z"
         }
       }
     ]
