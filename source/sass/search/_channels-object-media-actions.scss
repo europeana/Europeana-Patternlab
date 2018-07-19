@@ -1,6 +1,6 @@
-.channel-object-action-bar{
+.channel-object-action-bar {
 
-  .channel-object-media-actions{
+  .channel-object-media-actions {
     background-color:        $action-bar-bg;
     display:                 -webkit-flex;
     display:                 flex;
@@ -9,14 +9,14 @@
     -webkit-justify-content: space-around;
     justify-content:         space-around;
 
-    padding:                 $space $space-half;
+    padding:                 $spacing-base;
     position:                relative;
 
-    &.js-hidden{
+    &.js-hidden {
       display:  none;
     }
 
-    > .object-origin{
+    > .object-origin {
       -webkit-align-self: center;
       align-self:         center;
       margin:             0 2px 0 $space;
@@ -30,9 +30,9 @@
       }
     }
 
-    > .action-ctrl a{
+    > .action-ctrl a {
       @media all and (min-width: $bp-small-3) {
-        min-width: 8.2em;
+        width: 8.2em;
       }
     }
 
@@ -43,30 +43,29 @@
     }
   }
 
-  .action-ctrl{
-    margin: 0 $space-half;
-
+  .action-ctrl {
+    margin-right: $spacing-base;
     @media all and (max-width: $bp-xl) {
       -webkit-align-self: center;
       align-self:         center;
     }
   }
 
-  .action-ctrl-btn{
+  .action-ctrl-btn {
     cursor:     pointer;
     text-align: center;
 
-    &.disabled{
+    &.disabled {
       cursor: default;
       pointer-events: none;
     }
 
-    .action-label{
+    .action-label {
       display:     none;
       white-space: nowrap;
     }
 
-    .action-icon{
+    .action-icon {
       background-repeat: no-repeat;
       display:           block;
       height:            1.5em;
@@ -108,7 +107,7 @@
     }
   }
 
-  .object-origin .institution-logo{
+  .object-origin .institution-logo {
     background-color: $white;
     background-size:  cover;
     border-radius:    25px;
@@ -117,22 +116,23 @@
     -webkit-filter:   grayscale(100%);
     filter:           grayscale(100%);
 
-    &:hover{
+    &:hover {
       -webkit-filter: unset;
       filter:         unset;
     }
   }
 
-  .modal-header{
-    .action-ctrl-btn{
+  .modal-header {
+    .action-ctrl-btn {
       color:      $eu-blue;
-      font-size:  $font-size-slightly-smaller;
+      font-size:  14px;
       text-align: left;
 
-      &:hover{
+      &:hover {
         color: $black;
       }
-      &[data-modal-selector=".modal-rights"]{
+
+      &[data-modal-selector=".modal-rights"] {
         color: $black;
         &:hover{
           color: $eu-blue;
@@ -141,19 +141,19 @@
     }
   }
 
-  .channel-object-media-actions{
-    > .object-origin{
-      .icon{
+  .channel-object-media-actions {
+    > .object-origin {
+      .icon {
         margin-right: 0;
       }
 
-      .institution-logo{
+      .institution-logo {
         border-radius:    25px;
         height:           50px;
         position:         relative;
         width:            50px;
 
-        &::before{
+        &::before {
           content:     attr(data-provided-by);
           font-size:   $font-size-sm;
           position:    absolute;
@@ -162,7 +162,7 @@
           transform:   translateY(-50%);
           white-space: nowrap;
 
-          &:hover{
+          &:hover {
             color:  $eu-blue;
             filter: unset;
           }
@@ -177,11 +177,11 @@
     }
   }
 
-  .object-origin .header-only{
+  .object-origin .header-only {
     display: none;
   }
 
-  .modal-header{
+  .modal-header {
     align-items:      center;
     background-color: #e1e1e1;
     display:          flex;
@@ -190,105 +190,103 @@
     justify-content:  space-between;
     padding:          $pad-quarter $pad;
 
-    &.download{
-      [data-modal-selector=".modal-download"]{
+    &.download {
+      [data-modal-selector=".modal-download"] {
         display: none;
       }
 
-      [data-modal-selector=".modal-share"]{
+      [data-modal-selector=".modal-share"] {
         margin-right: $space;
       }
     }
 
-    &.share{
-      [data-modal-selector=".modal-share"]{
+    &.share {
+      [data-modal-selector=".modal-share"] {
         display: none;
       }
 
-      [data-modal-selector=".modal-download"]{
-        margin-right: $space;
-      }
-
-    }
-
-    &.rights{
-      [data-modal-selector=".modal-rights"]{
-        display: none;
-      }
-
-      [data-modal-selector=".modal-share"]{
+      [data-modal-selector=".modal-download"] {
         margin-right: $space;
       }
     }
 
-    &.none{
+    &.rights {
+      [data-modal-selector=".modal-rights"] {
+        display: none;
+      }
+
+      [data-modal-selector=".modal-share"] {
+        margin-right: $space;
+      }
+    }
+
+    &.none {
       display: none;
     }
 
-    .action-ctrl-btn{
+    .action-ctrl-btn {
       white-space:  nowrap;
 
-      &.disabled{
+      &.disabled {
         color: #a9a9a9;
       }
-
     }
 
-    .object-origin{
+    .object-origin {
       flex-grow:  1;
-      font-size:  $font-size-slightly-smaller;
+      font-size:  14px;
       max-width:  100%;
       overflow:   hidden;
       text-align: right;
 
-      &.with-logo{
+      &.with-logo {
         margin-right: 2.3em;
         max-width:    calc(100% - 2.3em);
       }
 
-      [data-provided-by]{
+      [data-provided-by] {
         white-space: nowrap;
       }
 
-      .institution-logo{
+      .institution-logo {
         border-radius: 12px;
         height:        24px;
         position:      absolute;
         right:         1em;
         width:         24px;
 
-        &::before{
+        &::before {
           content: "";
         }
       }
 
-      .view-more-at{
+      .view-more-at {
         display: none;
       }
 
-      .header-only{
+      .header-only {
         display:       block;
         overflow:      hidden;
         text-overflow: ellipsis;
       }
 
-      .overview-only{
+      .overview-only {
         display: none;
       }
     }
   }
 
-  .object-rights{
+  .object-rights {
     cursor:     pointer;
     order:      -1;
 
-    h4{
+    h4 {
       margin-bottom: 0;
       white-space:   nowrap;
     }
   }
 
-  .svg-icon-linkout{
+  .svg-icon-linkout {
     display:           inline-block;
     height:            2em;
     margin-bottom:     -0.55em;
@@ -301,10 +299,10 @@
   .channel-object-media-actions > .object-origin {
     .object-origin-detail {
       display:   block;
-      font-size: $font-size-slightly-smaller;
+      font-size: 14px;
 
       .view-more-at{
-        font-size: $font-size-sm;
+        font-size: 12px;
       }
     }
   }
@@ -319,16 +317,16 @@
       }
     }
 
-    .modal-header [data-provided-by]::before{
+    .modal-header [data-provided-by]::before {
       content:      attr(data-provided-by);
-      font-size:    $font-size-sm;
+      font-size:    12px;
       font-weight:  normal;
       margin-right: 0.4em;
     }
   }
 
   @media all and (min-width: $bp-xl) {
-    .channel-object-media-actions .action-ctrl-btn{
+    .channel-object-media-actions .action-ctrl-btn {
       background-color: transparent;
       border:           1px solid $eu-blue;
       border-radius:    3px;
@@ -336,111 +334,113 @@
       font-weight:      bold;
       padding:          $pad $pad;
 
-      &.disabled{
+      &.disabled {
         border-color: #a9a9a9;
         color: #a9a9a9;
       }
-      &:hover{
+
+      &:hover {
         background-color: $eu-blue;
         color:            $white;
       }
 
-      .action-icon{
+      .action-icon {
         display: none;
       }
-      .action-label{
+
+      .action-label {
         display: block;
       }
     }
 
-    .channel-object-media-actions > .object-origin{
+    .channel-object-media-actions > .object-origin {
       .object-origin-detail{
         right:       calc(1em + 2px);
         top:         7em;
       }
     }
 
-    .object-rights{
+    .object-rights {
       order:      0;
     }
 
-    .object-license{
+    .object-license {
       font-size: 1.3em;
-      .license{
+      .license {
         height:      1.3em;
         margin-left: 0.5em;
       }
     }
-
   }
 
-  .action-modal{
+  .action-modal {
     background-color: $action-bar-bg;
   }
 
-  .action-modal-section{
+  .action-modal-section {
     -webkit-align-self: center;
-    align-self:         center;
-    padding:            0.8em;
+    align-self: center;
+    padding: $spacing-base;
 
-    &.centred{
+    &.centred {
       text-align: center;
 
-      .action-modal-subheading{
+      .action-modal-subheading {
         width: 100%;
-        &::after{
+        &::after {
           content: "";
         }
       }
     }
 
-    &:not(.padded){
+    &:not(.padded) {
       @media all and (min-width: $bp-modal-collapse) {
         padding: 0;
       }
     }
   }
 
-  .action-modal-subheading{
+  .action-modal-subheading {
     display:        inline-block;
     font-size:      $font-size-slightly-smaller;
     font-weight:    bold;
     text-transform: capitalize;
 
-    &::after{
+    &::after {
       content: ": ";
     }
   }
 
-  .modal-action{
+  .modal-action {
     background-color: $eu-blue;
     color:            $white;
-    font-size:        $font-size-slightly-smaller;
+    font-size:        14px;
     padding:          $pad;
 
-    .label{
+    .label {
       font-weight:    bold;
       text-transform: uppercase;
       top:            1em;
 
-      .label-small{
+      .label-small {
         display:        block;
-        font-size:      0.5625rem;
+        font-size:      9px;
         font-weight:    normal;
         text-transform: none;
       }
-      a{
+
+      a {
         color:           $white;
         text-decoration: underline;
       }
     }
 
-    &.centred{
+    &.centred {
       @media all and (min-width: $bp-small-3) {
         max-width: 12em;
       }
 
-      .label{
+      .label {
         @media all and (min-width: $bp-modal-collapse) {
           display:   block;
           position:  relative;
@@ -451,10 +451,10 @@
     }
   }
 
-  .media-modal-close{
+  .media-modal-close {
     padding: $pad;
 
-    .label{
+    .label {
       display:           block;
       position:          relative;
       -webkit-transform: translateY(-50%);
@@ -462,62 +462,62 @@
     }
   }
 
-  .media-modal-close{
+  .media-modal-close {
     background-color: transparent;
     position:         absolute;
     right:            0;
     top:              0.5em;
 
-    .label{
+    .label {
       background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' id='icon-delete' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
       height: 1.6em;
       width:  1.5em;
     }
 
-    &.rights .label{
+    &.rights .label {
       background-image: url("data:image/svg+xml,%3Csvg fill='#{url-encode-color($gray65)}' id='icon-delete' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
     }
 
-    @media all and (min-width: $bp-modal-collapse){
+    @media all and (min-width: $bp-modal-collapse) {
       background-color: $gray65;
       position:         relative;
       right:            auto;
       top:              50%;
-      .label{
+
+      .label {
         top: 50%;
         -webkit-transform: translateY(-50%);
         transform:         translateY(-50%);
       }
 
-      &.rights .label{
+      &.rights .label {
         background-image: url("data:image/svg+xml,%3Csvg fill='%23fff' id='icon-delete' viewbox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath class='path1' d='M24.424 21.424q0.152 0.212 0.152 0.394t-0.152 0.394l-3.848 3.848q-0.212 0.152-0.394 0.152t-0.394-0.152l-6.697-6.697-6.697 6.697q-0.212 0.152-0.394 0.152t-0.394-0.152l-3.848-3.848q-0.152-0.212-0.152-0.394t0.152-0.394l6.697-6.697-6.697-6.697q-0.152-0.212-0.152-0.394t0.152-0.394l3.848-3.848q0.212-0.152 0.394-0.152t0.394 0.152l6.697 6.697 6.697-6.697q0.212-0.152 0.394-0.152t0.394 0.152l3.848 3.848q0.152 0.212 0.152 0.394t-0.152 0.394l-6.697 6.697z'%3E%3C/path%3E%3C/svg%3E");
       }
-
     }
   }
 
-  .modal-download{
-    .modal-action ~ .action-modal-section ~ .action-modal-section{
+  .modal-download {
+    .modal-action ~ .action-modal-section ~ .action-modal-section {
       flex-grow: 1;
     }
   }
 
-  .modal-rights{
-    .modal-action{
-      background-color: $white;
+  .modal-rights {
+    .modal-action {
+      background-color: $eu-very-light-gray;
       color:            $black;
       position:         relative;
       text-align:       center;
 
-      h4{
+      h4 {
         color:         $gray-light;
         margin-bottom: 0.4em;
       }
-      a:hover > h4{
+      a:hover > h4 {
         color:         $eu-blue;
       }
 
-      label{
+      label {
         color:          $gray-med;
         font-size:      3em;
         font-weight:    normal;
@@ -526,26 +526,27 @@
       }
     }
 
-    .action-modal-section{
+    .action-modal-section {
       align-self: center;
       flex-grow:  1;
       padding:    1rem;
       text-align: center;
     }
 
-    .license-link-full{
+    .license-link-full {
       font-size: 1.5em;
 
-      .license-icon-fallback{
+      .license-icon-fallback {
         display: none;
       }
-      .license-icon-fallback:first-child{
+
+      .license-icon-fallback:first-child {
         display: inline-block;
       }
     }
 
-    @media all and (min-width: $bp-modal-collapse){
-      .modal-action::after{
+    @media all and (min-width: $bp-modal-collapse) {
+      .modal-action::after {
         border-right: 1px solid $gray-light;
         content:      " ";
         display:      block;
@@ -555,14 +556,14 @@
         top:          10%;
       }
 
-      .action-modal-section{
+      .action-modal-section {
         text-align:     left;
       }
     }
   }
 
-  .modal-share{
-    .action-modal-section{
+  .modal-share {
+    .action-modal-section {
       display:         flex;
       flex-grow:       1;
       flex-wrap:       wrap;
@@ -573,12 +574,16 @@
       }
     }
 
-    .page-url-label{
+    .page-url-fields {
+      flex-grow: 2;
+    }
+
+    .page-url-label {
       font-weight: bold;
     }
   }
 
-  .modal-content{
+  .modal-content {
     @media all and (min-width: $bp-modal-collapse) {
       display:                 -webkit-flex;
       display:                 flex;
@@ -595,15 +600,16 @@
     justify-content:         space-between;
     position:                relative;
 
-    .social-share{
+    .social-share {
       -webkit-align-self: center;
-      align-self:         center;
-      margin:             0;
-      text-align:         center;
+      align-self: center;
+      margin: 0;
+      margin-right: $spacing-base;
+      text-align: center;
     }
   }
 
-  .file{
+  .file {
     background-image:      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{url-encode-color($eu-blue)}' viewBox='0 0 745 1024'%3E%3Cpath d='M651.636 294.788v449.94q0 18.962-13.79 32.753t-32.755 13.793H139.638q-18.963 0-32.754-13.79t-13.79-32.755V93.09q0-18.962 13.79-32.753t32.754-13.79h263.758q5.172 0 11.205 4.31l232.726 232.726q4.31 6.034 4.31 11.205z' class='path1'%3E%3C/path%3E%3C/svg%3E");
     background-position-y: 0.24em;
     background-repeat:     no-repeat;
@@ -615,26 +621,24 @@
     padding-left:          2.3em;
     text-transform:        uppercase;
     white-space:           nowrap;
-
-    .file-type {
-      font-size:           1.25rem;
-    }
   }
 
-  .file-info-field{
+  .file-info-field {
     color:       $gray-light;
-    font-size:   $font-size-sm;
+    font-size:   12px;
     white-space: nowrap;
   }
 
-  .file-info-field-label{
+  .file-info-field-label {
     font-weight:    bold;
     text-transform: lowercase;
   }
-  .attribution-field{
+
+  .attribution-field {
     box-shadow: none;
   }
-  .attribution-heading{
+
+  .attribution-heading {
     display:        inline-block;
     font-size:      $font-size-sm;
     font-weight:    bold;
