@@ -1,39 +1,38 @@
 .channels-item {
-
-  .eu-foldable-title{
+  .eu-foldable-title {
     font-weight: bold;
   }
+
   .eu-foldable-subtitle,
-  .eu-foldable-title a{
+  .eu-foldable-title a {
     color:     $gray-light;
     font-size: 1rem;
   }
 
-  .channel-object-information{
-    .data-group{
+  .channel-object-information {
+    .data-group {
       color: $gray-light;
     }
   }
 
-  .channel-object-extended-information{
+  .channel-object-extended-information {
     .data-group{
       color: $gray-med;
     }
   }
 
   .channel-object-extended-information,
-  .channel-object-information{
-
+  .channel-object-information {
     margin-top: $space;
     position:   relative;
 
     .data-group,
-    .eu-foldable-data{
-      a{
+    .eu-foldable-data {
+      a {
         border-bottom: 1px dashed $black;
         color:         $black;
 
-        &:hover{
+        &:hover {
           border-bottom: 1px dashed $eu-blue;
           color:         $eu-blue;
         }
@@ -44,94 +43,88 @@
       margin:   0 $space;
       position: relative;
 
-      .data-header{
+      .data-header {
         color:     $gray-light;
         font-size: 1rem;
       }
 
-      .subsection-label{
+      .subsection-label {
         color:         $black;
         margin-bottom: 0;
         padding-left:  0;
         padding-right: 0;
       }
 
-      &:first-of-type{
+      &:first-of-type {
         border-top: 0;
       }
 
       .subsection-label,
-      .data-header{
+      .data-header {
         line-height: 1.6;
       }
-
     }
 
-    .map{
+    .map {
       margin-top: $space-half;
     }
   }
 
-  .channel-object-extended-information{
-
-    h2.channel-object-title{
-      .ctrl{
+  .channel-object-extended-information {
+    h2.channel-object-title {
+      .ctrl {
         top: 0.1em;
       }
     }
 
-    .closed{
-      .subsection-content{
+    .closed {
+      .subsection-content {
         display: none;
       }
     }
 
-    .closed{
-      .close{
-        display: none;
+    .closed {
+      .close {
+        display: block;
       }
-      .open{
-        display: flex;
-      }
-    }
-
-    :not(.closed){
-      .close{
-        display: flex;
-      }
-      .open{
-        display: none;
+      .open {
+        display: block;
       }
     }
 
-    .ctrl .icon{
-      align-self: center;
+    :not(.closed) {
+      .close {
+        display: block;
+      }
+      .open {
+        display: none;
+      }
+    }
+
+    .ctrl .icon {
+      -webkit-transform: scale(1.22222222222);
       display:    block;
-      height:     1.2em;
-      width:      1.2em;
+      height:     1.125rem;
+      transform:  scale(1.22222222222);
+      width:      1.125rem;
     }
 
-    .ctrl{
-      -webkit-transform: scale(1.25);
+    .ctrl {
       cursor:            pointer;
-      display:           flex;
+      display:           block;
       font-size:         1rem;
       height:            1.5em;
-      justify-content:   center;
       position:          absolute;
       right:             0;
-      top:               1.6em;
-      transform:         scale(1.25) translateY(-0.2em);
+      top:               2em;
       width:             1.5em;
 
-      // removed hover (box-shadow: $box-shadow-panel)
-
-      .icon{
+      .icon {
         display:  block;
       }
     }
 
-    .subsection-content{
+    .subsection-content {
       padding-right: 3.4em;
       position:      relative;
     }
@@ -145,10 +138,9 @@
 
   @media all and (min-width: $bp-med) {
 
-    .channel-object-extended-information{
-
-      h2.channel-object-title{
-        .ctrl{
+    .channel-object-extended-information {
+      h2.channel-object-title {
+        .ctrl {
           &::before{
             content:     attr(data-before);
             font-size:   $font-size-slightly-smaller;
@@ -162,9 +154,13 @@
         }
       }
 
-      .ctrl{
-        -webkit-transform: scale(1);
-        transform:         scale(1);
+      .ctrl {
+        top: 1.6rem;
+
+        .icon {
+          -webkit-transform: scale(1);
+          transform:         scale(1);
+        }
       }
     }
   }
