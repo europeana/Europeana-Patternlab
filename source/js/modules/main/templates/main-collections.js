@@ -66,6 +66,7 @@ require.config({
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
     jquery:                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
+    jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
@@ -165,6 +166,7 @@ require.config({
   },
   shim: {
     blacklight:     ['jquery'],
+    jqDropdown:     ['jquery'],
     menus:          ['jquery'],
     placeholder:    ['jquery'],
     smartmenus:     ['jquery'],
