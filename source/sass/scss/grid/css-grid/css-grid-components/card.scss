@@ -7,6 +7,11 @@
   box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
   font-size: $font-size-slightly-smaller;
   height: 100%;
+  transition: box-shadow 0.25s;
+
+  &:hover {
+    box-shadow: 0 4px 12px 0 $gridlayout-card-shadow-hover;
+  }
 
   a {
     color: $black;

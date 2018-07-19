@@ -1,6 +1,7 @@
 @import "../../../search/variables";
 
 $gridlayout-card-shadow: rgba(0, 0, 0, 0.25);
+$gridlayout-card-shadow-hover: rgba(0, 0, 0, 0.4);
 
 $spacing-base: 1rem;
 $spacing-half: $spacing-base * 0.5;
@@ -14,4 +15,4 @@ $grid-card-gray: $eu-very-light-gray;
 $grid-title-gray: #4d4d4d;
 
 // Fluid grid only
-$card-min-width: 18.875rem;
+$card-min-width: 16.875rem;
