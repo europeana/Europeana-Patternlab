@@ -48,7 +48,7 @@ require.config({
     fashion_gallery_redirect:      '../../eu/util/fashion-gallery-redirect',
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
-    ga:                            '//www.google-analytics.com/analytics',
+    ga:                            'https://www.google-analytics.com/analytics',
     global:                        '../../eu/global',
     hotjar:                        '../../lib/hotjar',
 
@@ -56,7 +56,7 @@ require.config({
     // - gaps between tiles a certain zoom levels
     // - tiles not rendering following after paginating
 
-    leaflet:                       '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet',
+    leaflet:                       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet',
     leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
@@ -65,7 +65,7 @@ require.config({
     leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif-1.2.1/leaflet-iiif',
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
-    jquery:                        '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
+    jquery:                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
     jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
     jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
     jsTree:                        '../../lib/jstree/jstree',
@@ -103,7 +103,7 @@ require.config({
     midi_replayer:                 '../../lib/midijs/replayer',
     midi_vc_base64:                '../../lib/midijs/VersionControl.Base64',
     midi_base64:                   '../../lib/midijs/base64binary',
-    mustache:                      '//cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min',
+    mustache:                      'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min',
 
     // optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
@@ -154,8 +154,8 @@ require.config({
     ugc_index:                     '../../eu/channels/ugc-index',
 
     ve_state_card:                 '../../eu/ve-state-card',
-    videojs:                       '//vjs.zencdn.net/4.12/video',
-    //videojs:                       '//vjs.zencdn.net/5.2.4/video',
+    videojs:                       'https://vjs.zencdn.net/4.12/video',
+    //videojs:                       'https://vjs.zencdn.net/5.2.4/video',
     // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
