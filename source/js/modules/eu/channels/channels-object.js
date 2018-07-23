@@ -776,34 +776,51 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'mustache', 'util_fol
     });
   }
 
-  function initEntity(){
+  /** initEntity
+  /* init entities, which means:
+  /* - sorting the list
+  /* - display list
+  /* - and add images from json
+  */
+  function initEntity() {
+    var nonEu = '';
+    $('.channel-object-creators .channel-object-viewmore').each(function() {
+      if ($(this).find('[data-deref]').length === 0) {
+        nonEu += $(this).text().trim() + ', ';
+        $(this).remove();
+      }
+    });
+    $('<div>' + nonEu.slice(0, -2) + '</div>').appendTo($('.channel-object-creators'));
 
-    $('.channel-object-viewmore [data-deref]').each(function(){
+    $('.channel-object-creators').show();
+    getEntityDepiction();
+  }
+
+  /** getEntityDepiction
+  /* get depicition for entities that have one
+  */
+  function getEntityDepiction () {
+    $('.channel-object-viewmore [data-deref]').each(function() {
       var dRef = $(this);
       var url  = dRef.data('deref');
+      var req = new XMLHttpRequest();
 
-      var urlSplit = url.split('//');
-
-      if(urlSplit.length > 1){
-        url = window.location.protocol + '//' + urlSplit[1];
-      }
-
-      dRef.attr('href', url);
-
-      $.getJSON(url).done(function(data){
-
-        var depiction = data.depiction ? data.depiction.id ? data.depiction.id : false : false;
-
-        if(depiction){
-          dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+      req.onreadystatechange = function() {
+        if(req.readyState === 4){
+          log('redirect from\n\t' + url + '\nto:\n\t' + req.responseURL);
+          $.getJSON(req.responseURL).done(function(data) {
+            var depiction = data.api_response.depiction ? data.api_response.depiction.id ? data.api_response.depiction.id : false : false;
+            if(depiction){
+              dRef.find('.viewmore-image').css('background-image', 'url("' + depiction + '")');
+            }
+            else{
+              dRef.find('.viewmore-image').remove();
+            }
+          });
         }
-        else{
-          dRef.find('.viewmore-image').remove();
-        }
-
-      }).error(function(){
-        console.log('error');
-      });
+      };
+      req.open('GET', url, true);
+      req.send();
     });
   }
 

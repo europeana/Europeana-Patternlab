@@ -211,16 +211,20 @@
                       {{/description}}
                     </div>
 
-                    {{#creators_info}}
-                      {{#creators}}
-                        <div class="channel-object-viewmore">
-                          {{^europeana_entities}}{{title}}{{/europeana_entities}}
-                          {{#europeana_entities}}
-                            <a data-deref="{{url}}"><h3>{{title}}</h3><span class="viewmore-image"></span></a>
-                          {{/europeana_entities}}
-                        </div>
-                      {{/creators}}
-                    {{/creators_info}}
+                    {{#creators}}
+                      <div class="channel-object-creators">
+                        {{#sections}}
+                          {{#items}}
+                            <div class="channel-object-viewmore">
+                              {{^europeana_entity}}{{text}}{{/europeana_entity}}
+                              {{#europeana_entity}}
+                                <a href="{{url}}" data-deref="{{json_url}}"><h3>{{text}}</h3><span class="viewmore-image"></span></a>
+                              {{/europeana_entity}}
+                            </div>
+                          {{/items}}
+                        {{/sections}}
+                      </div>
+                    {{/creators}}
 
                   </div>
                 </div>
@@ -313,7 +317,7 @@
                   </div>
 
                   <div class="action-modal-section padded">
-                    <span class="file">[[data-mime-type-brief]]</span>
+                    <span class="file"><span class="file-type">[[data-mime-type-brief]]</span></span>
                     <ul>
                       <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
                       <li><span class="file-info-field"><span class="file-info-field-label">{{i18n.site.object.meta-label.file-size}}</span> [[data-file-size]] [[data-file-unit]]</span></li>
