@@ -1,7 +1,7 @@
 {{> atoms/iconography/svgicons-search }}
 {{> organisms/global/header_v2}}
 
-<div role="main" id="maincontent">
+<div role="main" id="maincontent" {{#include_nav_searchbar}}class="after-header-with-search"{{/include_nav_searchbar}}>
   {{> molecules/components/search/help-bar}}
 
   {{#content}}

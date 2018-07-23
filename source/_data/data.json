@@ -698,6 +698,10 @@
                 "count-and-terms-with-range": "1 - X of 321 events"
               }
             },
+            "helpbar-tip": {
+              "browse-page": "<strong>Tip:</strong> hover over image for more options",
+              "item-page": "We want your feedback on our new item page, use our feedback button to leave your comments."
+            },
             "more": "More...",
             "navigation": {
               "search": {
@@ -741,7 +745,6 @@
                     "view-more-at": "View more at",
                     "view-more": "View more at"
                 },
-                "helpbar-tip": "<strong>Tip:</strong> hover over image for more options",
                 "hierarchy": {
                   "title": "Hierarchy",
                   "view-items-above": "view items above",
