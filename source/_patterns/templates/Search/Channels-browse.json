@@ -3,7 +3,7 @@
   "page_title": "Europeana Grid Layout",
   "page_locale": "en",
   "version":{
-      "is_alpha": true
+    "is_alpha": true
   },
   "page_config": {
     "newsletter": true
@@ -29,8 +29,26 @@
 
   "description": false,
 
+  "include_nav_searchbar": true,
+
+  "navigation":{
+    "breadcrumbs": [
+      {
+        "label": "Newspapers",
+        "url": "javascript:alert('return to collection');"
+      },
+      {
+        "label": "A-Z",
+        "url": false
+      }
+    ],
+    "home_url": false,
+    "next_prev": false
+  },
+
   "content":{
     "anchor_title": true,
+    "helpbar_tip": "This is the helpbar for the A-Z page",
     "browse_lists": [
       {
         "head":{
@@ -123,7 +141,7 @@
       },
       {
         "head":{
-          "pref_label": "B"         
+          "pref_label": "B"
         },
         "foot":{
           "link":{
