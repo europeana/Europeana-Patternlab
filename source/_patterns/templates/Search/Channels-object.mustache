@@ -192,6 +192,7 @@
                           <a class="lc-nav nav-right right svg-icon-next  carousel-arrows  blue-black">&nbsp;</a>
                         </div>
                       </div>
+
                     </div>
 
                     {{#subtitle}}
@@ -211,30 +212,28 @@
                       {{/description}}
                     </div>
 
-                    {{#creators}}
-                      {{#sections}}
-                        {{#items}}
-                          {{#europeana_entity}}
-                            <div class="channel-object-viewmore">
-                              <a href="{{url}}" data-deref="{{json_url}}"><h3>{{text}}</h3><span class="viewmore-image"></span></a>
-                            </div>
-                          {{/europeana_entity}}
-                        {{/items}}
-
-                        <div class="non-eu-entities">
-                          {{#items}}
-                            {{^europeana_entity}}
-                              <span class="non-eu-entity">{{text}}</span>
-                            {{/europeana_entity}}
-                          {{/items}}
-                        </div>
-
-                      {{/sections}}
-                    {{/creators}}
-
                   </div>
                 </div>
 
+                {{#creators}}
+                  <div class="non-eu-entities">
+                    {{#sections}}
+                      {{#items}}
+                        {{#europeana_entity}}
+                          <div class="channel-object-viewmore">
+                            <a href="{{url}}" data-deref="{{json_url}}"><h3>{{text}}</h3><span class="viewmore-image"></span></a>
+                          </div>
+                        {{/europeana_entity}}
+                      {{/items}}
+                      {{#items}}
+                        {{^europeana_entity}}
+                          <span class="non-eu-entity">{{text}}</span>
+                        {{/europeana_entity}}
+                      {{/items}}
+                    {{/sections}}
+                  </div>
+                {{/creators}}
+                
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
                   {{^thumbnail}}<br/><br/>{{/thumbnail}}

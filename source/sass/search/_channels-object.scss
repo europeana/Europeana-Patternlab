@@ -7,7 +7,7 @@
 .non-eu-entities{
   text-align: right;
 
-  .non-eu-entity:not(last-of-type)::after{
+  .non-eu-entity:not(:last-of-type)::after{
     content: ", ";
   }
 }
