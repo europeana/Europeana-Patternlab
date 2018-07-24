@@ -27,7 +27,7 @@
     },
     {
       "name": "mock_ajax",
-      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'entity-deref', 'resolveTo': 'portal_entity-deref'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'galleries.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-generic'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'search.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'https', 'resolveTo': 'self'}, {'pattern': 'http', 'resolveTo': 'self'}, {'pattern': 'test-solr-mongo', 'resolveTo': 'self'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100, 'portal_object-promos-exhibition': 1500, 'portal_object-media': 1500}}"
+      "value": "{ 'omissions' : ['portal_hierarchy'], 'mappings': [{'pattern': 'hierarchy/', 'resolveTo': 'portal_hierarchy'}, {'pattern': 'annotations.json', 'resolveTo': 'portal_annotations'}, {'pattern': 'entity.json', 'resolveTo': 'portal_object-promos-entity'}, {'pattern': 'entity-deref', 'resolveTo': 'portal_entity-deref'}, {'pattern': 'exhibition.json', 'resolveTo': 'portal_object-promos-exhibition'}, {'pattern': 'galleries.json', 'resolveTo': 'portal_object-promos-gallery'}, {'pattern': 'promoted.json', 'resolveTo': 'portal_object-promos-generic'}, {'pattern': 'news.json', 'resolveTo': 'portal_object-promos-news'}, {'pattern': 'search.json', 'resolveTo': 'portal_object-promos-next-prev'}, {'pattern': 'https', 'resolveTo': 'self'}, {'pattern': 'http', 'resolveTo': 'self'}, {'pattern': 'test-solr-mongo', 'resolveTo': 'self'}, {'pattern': 'depiction', 'resolveTo': 'portal_entity-depiction'}], 'delays': {'portal_suggestions':'random', 'portal_autocomplete': 100, 'portal_object-promos-exhibition': 1500, 'portal_object-media': 1500}}"
     },
     {
       "name": "enabledPromos",
@@ -86,14 +86,14 @@
             },
             {
               "text": "Johannes Vermeer",
-              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
-              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "url": "javascript:alert('vermeer');",
+              "json_url": "depiction?index=0",
               "europeana_entity": true
             },
             {
-              "text": "Johannes Vermeer",
-              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
-              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "text": "Raphael",
+              "url": "javascript:alert('Raphael');",
+              "json_url": "depiction?index=1",
               "europeana_entity": true
             },
             {
@@ -104,8 +104,8 @@
             },
             {
               "text": "Vincent van Gogh",
-              "url": "/portal/en/explore/people/157024-alphons-diepenbrock.html",
-              "json_url": "/portal/en/explore/people/157024-alphons-diepenbrock.json",
+              "url": "javascript:alert('Vincent van G')",
+              "json_url": "depiction?index=2",
               "europeana_entity": true
             },
             {
