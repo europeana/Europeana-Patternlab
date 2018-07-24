@@ -221,13 +221,13 @@
                           {{/europeana_entity}}
                         {{/items}}
 
-                        {{#items}}
-                          {{^europeana_entity}}
-                            <div class="channel-object-viewmore">
-                              {{text}}
-                            </div>
-                          {{/europeana_entity}}
-                        {{/items}}
+                        <div class="non-eu-entities">
+                          {{#items}}
+                            {{^europeana_entity}}
+                              <span class="non-eu-entity">{{text}}</span>
+                            {{/europeana_entity}}
+                          {{/items}}
+                        </div>
 
                       {{/sections}}
                     {{/creators}}

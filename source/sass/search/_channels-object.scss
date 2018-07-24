@@ -4,6 +4,14 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
+.non-eu-entities{
+  text-align: right;
+
+  .non-eu-entity:not(last-of-type)::after{
+    content: ", ";
+  }
+}
+
 .channel-object-viewmore {
   margin-bottom: 1rem;
   text-align: right;
