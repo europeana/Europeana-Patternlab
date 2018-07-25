@@ -4,13 +4,20 @@ define(['jquery'], function($){
 
   function initTitleBar(){
     require(['eu_title_bar'], function(EuTitleBar){
+
       var anchorList = $('.anchor-list');
       var conf = {
         $container:        $('.header-wrapper'),
         $detectionElement: anchorList,
         markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
       };
-      EuTitleBar.init(conf);
+
+      var titleBar = EuTitleBar.init(conf);
+
+      $(document, '.cc_btn cc_btn_accept_all').on('click', function(){
+        titleBar.test();
+      });
+
     });
   }
 
