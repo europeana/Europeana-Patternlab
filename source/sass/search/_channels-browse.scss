@@ -1,5 +1,6 @@
 // this colour is unused elsewhere - the similar #ededed is used on the new item page
-$page-bg-colour: #ececec;
+$height-drop-down: 50px;
+$page-bg-colour:   #ececec;
 
 .channels-browse {
 
@@ -41,12 +42,34 @@ $page-bg-colour: #ececec;
     -webkit-transition: height 0.3s ease-out;
     transition: height 0.3s ease-out;
 
+    width: 100%;
+
     &.show {
       height: 75px;
     }
 
     .anchor-list {
       margin: 0;
+    }
+  }
+
+  .header-wrapper > .title-bar {
+    padding: 0;
+    opacity: 0;
+
+    &.show {
+      height:  $height-drop-down;
+      opacity: 1;
+    }
+
+    .anchor-list{
+      align-items:      center;
+      background-color: #fff;
+      height:           100%;
+
+      a{
+        line-height: $height-drop-down;
+      }
     }
   }
 }

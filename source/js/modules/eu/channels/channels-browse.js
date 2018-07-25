@@ -6,8 +6,8 @@ define(['jquery'], function($){
     require(['eu_title_bar'], function(EuTitleBar){
       var anchorList = $('.anchor-list');
       var conf = {
-        $container:        $('.header'),
-        $detectionElement: $('.anchor-list'),
+        $container:        $('.header-wrapper'),
+        $detectionElement: anchorList,
         markup:            '<div class="title-bar">' + anchorList[0].outerHTML + '</div>'
       };
       EuTitleBar.init(conf);
