@@ -38,11 +38,27 @@
     }
   }
 
-  &.gallery{
+  &.gallery {
     position: relative;
-    .content-outer{
+    .content-outer {
       position: static;
     }
+
+    .image-set {
+      .img-link img {
+        border-top-right-radius: $base-border-radius;
+      }
+
+      .img-link:first-of-type img {
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: 0;
+      }
+
+      .img-link:last-of-type img {
+        border-radius: 0;
+      }
+    }
+
   }
 
   &.exhibition{
@@ -116,7 +132,8 @@
     }
 
     .bg-img,
-    .content-text {
+    .content-text,
+    .collections-promo-overlay-inner {
       box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
       transition: box-shadow 0.25s;
     }
@@ -124,8 +141,7 @@
     .collections-promo-overlay {
       background-color: transparent;
       left: 0;
-      transition: box-shadow 0.25s;
-
+      
       .collections-promo-overlay-inner {
         border-top-left-radius: $base-border-radius;
         border-top-right-radius: $base-border-radius;
