@@ -64,9 +64,8 @@
   }
 
   &.entity-promo {
-
     background-color: transparent;
-    box-shadow:       1px 2px 2px -1px rgba(0, 0, 0, 0.25);
+    box-shadow: none;
     transform:        translateX(-2px);
 
     .content-outer {
@@ -100,7 +99,7 @@
 
     .content-text {
       background-color: $grid-card-gray;
-      box-shadow:       -2px 0 4px -2px rgba(0, 0, 0, 0.25);
+      border-radius: $base-border-radius;
       height:           100%;
       left:             3px;
       max-height:       18%;
@@ -110,29 +109,39 @@
 
     .text-footer {
       bottom:   0;
+      border-bottom-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
       position: absolute;
       width:    100%;
     }
 
-    .collections-promo-overlay {
-      background: none;
+    .bg-img,
+    .content-text {
+      box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
+      transition: box-shadow 0.25s;
     }
 
-    .bg-img,
-    .content-text,
     .collections-promo-overlay {
+      background-color: transparent;
+      left: 0;
       transition: box-shadow 0.25s;
+
+      .collections-promo-overlay-inner {
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: $base-border-radius;
+        left: 0;
+        box-shadow: -5px 0 3px -5px $gridlayout-card-shadow;
+      }
     }
 
     &:hover {
       .bg-img,
-      .content-text,
-      .collections-promo-overlay {
+      .content-text {
         box-shadow: 0 4px 12px 0 $gridlayout-card-shadow-hover;
       }
 
       .collections-promo-overlay-inner {
-        box-shadow: -5px 0 5px -5px $gridlayout-card-shadow-hover;
+        box-shadow: -8px 0 12px -8px $gridlayout-card-shadow-hover;
       }
 
     }
@@ -386,7 +395,7 @@
 
 .collections-promo-overlay{
 
-  background-color: red;
+  background-color: #f1f0ee;
   bottom:           3.8em;
   font-size:        0.875em;
   left:             -4px;
