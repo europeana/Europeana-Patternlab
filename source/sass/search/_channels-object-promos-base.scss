@@ -124,9 +124,9 @@
     }
 
     .text-footer {
-      bottom:   0;
       border-bottom-left-radius: $base-border-radius;
       border-bottom-right-radius: $base-border-radius;
+      bottom:   0;
       position: absolute;
       width:    100%;
     }
@@ -141,12 +141,12 @@
     .collections-promo-overlay {
       background-color: transparent;
       left: 0;
-      
+
       .collections-promo-overlay-inner {
         border-top-left-radius: $base-border-radius;
         border-top-right-radius: $base-border-radius;
-        left: 0;
         box-shadow: -5px 0 3px -5px $gridlayout-card-shadow;
+        left: 0;
       }
     }
 
