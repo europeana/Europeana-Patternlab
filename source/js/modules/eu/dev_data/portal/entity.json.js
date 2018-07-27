@@ -188,9 +188,7 @@ define([], function(){
 
   return {
     getData: function(params){
-      console.log('incoming params ' + JSON.stringify(params, null, 4) );
       var res          = data[params.type];
-
       res.total.value  = res.search_results.length;
 
       if(params.per_page != null){

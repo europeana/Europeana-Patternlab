@@ -1,6 +1,6 @@
 define(['jquery'], function($){
 
-  function load(conf, callback){
+  function load(conf, templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
 
@@ -17,7 +17,7 @@ define(['jquery'], function($){
 
     var processCallback = function(Mustache, data, templateId, id){
 
-      var template = $('#' + templateId).text();
+      var template = $(templateMarkup).find('#' + templateId).html();
 
       $(data).each(function(i, ob){
         var html = Mustache.render(template, ob);

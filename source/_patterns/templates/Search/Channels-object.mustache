@@ -124,37 +124,6 @@
                         </div>
                       {{/iiif}}
 
-                      {{#video}}
-                        <div class="object-media-video is-hidden">
-                          {{> molecules/components/videojs/videojs }}
-                        </div>
-                      {{/video}}
-
-                      {{#midi}}
-                        <div class="object-media-midi is-hidden">
-                          {{> molecules/components/midi/midi }}
-                        </div>
-                      {{/midi}}
-
-                      {{#oembed}}
-                        <div class="object-media-oembed is-hidden" data-fullscreen-enter="{{i18n.global.actions.fullscreen-enter}}" data-fullscreen-exit="{{i18n.global.actions.fullscreen-exit}}">
-                          {{> molecules/components/oembed/oembed }}
-                        </div>
-                      {{/oembed}}
-
-                      {{#audio}}
-                        <script id="template-audio" type="text/x-mustache">
-                          <div class="object-media-audio">
-                            <audio id="media-audio" class="audio-js vjs-default-skin" width="100%" preload="none" controls></audio>
-                          </div>
-                        </script>
-                      {{/audio}}
-
-                      {{#pdf}}
-                        <div class="object-media-pdf is-hidden">
-                          {{> molecules/components/pdfjs/pdfjs-ui-thumbs-right }}
-                        </div>
-                      {{/pdf}}
                     {{/required_players}}
                   {{/empty_item}}
 
@@ -175,7 +144,6 @@
                            data-fire-on-open="showMediaThumbs"
                            data-fire-on-open-params='{ "loadUrl": "{{more_thumbs_url}}", "total_available": {{more_thumbs_total}}}'
                         ></a>
-                        <script id="template-media-item" type="text/x-mustache"><div class="lc-item">{{> molecules/components/media-nav-item-js }}</div></script>
                         <div class="light-carousel media-thumbs">
                           <a class="lc-nav nav-left right svg-icon-previous  carousel-arrows  blue-black">&nbsp;</a>
                           <div class="wrapper-hide-scroll">
@@ -233,7 +201,7 @@
                     {{/sections}}
                   </div>
                 {{/creators}}
-                
+
                 {{#empty_item}}
                   {{#thumbnail}}<img src={{.}}>{{/thumbnail}}
                   {{^thumbnail}}<br/><br/>{{/thumbnail}}
@@ -266,91 +234,6 @@
               {{/rights}}
               {{> molecules/controls/channels-object-origin }}
             </div>
-
-            <script id="template-modal-header-js" type="text/x-mustache">
-              <div class="modal-header none">
-                <a class="action-ctrl-btn" data-modal-selector=".modal-share"><span>{{i18n.global.actions.share}}</span></a>
-                <a class="action-ctrl-btn[[^data-download-uri]] disabled[[/data-download-uri]]" data-modal-selector=".modal-download" download="Europeana-Media" href="[[data-download-uri]]"><span>{{i18n.site.object.actions.download}}</span></a>
-                <a class="action-ctrl-btn" data-modal-selector=".modal-rights"><span>{{i18n.global.facet.header.reusability}} [[license_brief]]</span></a>
-                {{> molecules/controls/channels-object-origin }}
-              </div>
-            </script>
-
-            <script id="template-modal-rights-js" type="text/x-mustache">
-              <div class="action-modal modal-rights js-hidden">
-                <div class="modal-content">
-                  <div class="modal-action">
-                    <span class="label">
-                      <h4>{{i18n.global.facet.header.reusability}}</h4>
-                      <label>[[license_brief]][[^license_brief]]{{#rights}}{{license_brief}}{{/rights}}[[/license_brief]]</label>
-
-                      [[^license_restricted]]
-                        {{#rights}}
-                          {{#license_restricted}}
-                            <a class="link-black-blue" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" target="_blank"><h4>[[license_info]][[^license_info]]{{license_info}}[[/license_info]]<span class="svg-icon-external"></span></h4></a>
-                          {{/license_restricted}}
-                          {{^license_restricted}}
-                            <h4>[[license_info]][[^license_info]]{{license_info}}[[/license_info]]</h4>
-                          {{/license_restricted}}
-                        {{/rights}}
-                      [[/license_restricted]]
-                      [[#license_restricted]]
-                        <a class="link-black-blue" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" target="_blank"><h4>[[license_info]][[^license_info]]{{#rights}}{{license_info}}{{/rights}}[[/license_info]]<span class="svg-icon-external"></span></h4></a>
-                      [[/license_restricted]]
-
-                    </span>
-                  </div>
-                  <div class="action-modal-section">
-                    <a target="blank" href="[[license_url]][[^license_url]]{{#rights}}{{license_url}}{{/rights}}[[/license_url]]" class="link-black-blue license-link-full"> {{> molecules/icons/licenses-icon-only-js }}[[license_name]][[^license_name]]{{#rights}}{{license_name}}{{/rights}}[[/license_name]]<span class="svg-icon-external"></span></a>
-                  </div>
-                  <a class="media-modal-close rights">
-                    <span class="label"></span>
-                  </a>
-                </div>
-              </div>
-            </script>
-
-            <script id="template-modal-download-js" type="text/x-mustache">
-
-              <div class="action-modal modal-download js-hidden">
-                <div class="modal-content">
-                  <div class="modal-action centred">
-                    <span class="label">
-                        {{i18n.global.actions.downloading}}
-                        <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
-                      </span>
-                  </div>
-
-                  <div class="action-modal-section padded">
-                    <span class="file"><span class="file-type">[[data-mime-type-brief]]</span></span>
-                    <ul>
-                      <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
-                      <li><span class="file-info-field"><span class="file-info-field-label">{{i18n.site.object.meta-label.file-size}}</span> [[data-file-size]] [[data-file-unit]]</span></li>
-                    </ul>
-                  </div>
-
-                  <div class="action-modal-section padded">
-                    <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
-                    <input class="attribution-field" value="[[data-attribution-plain]]">
-                  </div>
-
-                  [[#has_other_formats]]
-                    <div class="action-modal-section centred padded">
-                      <span class="action-modal-subheading">other formats</span>
-                      <ul>
-                        [[#formats]]
-                          <li><a href="[[url]]">[[text]]</a></li>
-                        [[/formats]]
-                      </ul>
-                    </div>
-                  [[/has_other_formats]]
-
-                  <a class="media-modal-close">
-                    <span class="label"></span>
-                  </a>
-                </div>
-              </div>
-            </script>
 
             <div class="action-modal modal-share js-hidden">
 
@@ -409,7 +292,9 @@
             {{/places }}
 
             {{#annotations_later}}
-              <script id="js-template-object-data-section" type="text/x-mustache">{{> organisms/sections/object-data-section-js }}</script>
+              <script id="annotations">
+                window.annotationsLater = true;
+              </script>
             {{/annotations_later}}
 
             {{#annotations}}
@@ -522,18 +407,6 @@
 
       {{! end of object info column }}
 
-      {{> organisms/cards/js-template-promo-entity}}
-
-      {{> organisms/cards/js-template-promo-exhibition}}
-
-      {{> organisms/cards/js-template-promo-gallery}}
-
-      {{> organisms/cards/js-template-promo-generic}}
-
-      {{> organisms/cards/js-template-promo-next-prev}}
-
-      {{> organisms/cards/js-template-promo-news}}
-
       <div class="channel-object-actions">
         <div class="slide-rail">
           {{> organisms/cards/template-promo-preload }}
@@ -552,23 +425,6 @@
           <div class="suggestions-section">
             <div class="display-grid">
               <div class="slide-rail" style="position: relative;">
-                <script id="template-preview-tab-content" type="text/x-mustache">
-                  <article class="suggestion-item">
-                    <div class="item-preview">
-                      <div class="item-image">
-                        <div class="inner">
-                          <a target="[[target]]" href="[[url]]" tabindex="-1">
-                            <div class="mlt-img-div height-to-width" [[#img.src]]style="background-image:url('[[.]]');"[[/img.src]]></div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-info">
-                      {{! no whitespace here - eu-ellipsis js to be applied }}
-                      <h2><a class="link-black-blue" [[#url]]href="[[.]]"[[/url]] [[#target]]target="[[.]]"[[/target]]>[[#title]]<span class="link-text">[[.]]</span>[[#external]]<span title="[[title]]" class="svg-icon-external"></span>[[/external]][[/title]]</a></h2>
-                    </div>
-                  </article>
-                </script>
                 <div class="eu-accordion-tabs suggestions cf">
                   {{#tab_items}}
                     {{> organisms/components/eu-accordion-tabs-portal-suggestions}}

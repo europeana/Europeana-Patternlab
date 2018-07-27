@@ -6,8 +6,11 @@ module.exports = function(grunt) {
       // js_assets_disable:{
       //   src : [ "source/sass/js/**/*.scss", "!source/sass/js/**/_*.scss"]
       // }
-      index:{
+      index: {
         src: ['public/index.html']
+      },
+      js_templates: {
+        src: ['source/js/js-mustache/*', 'source/js/js-mustache/**/*']
       }
     },
     concat: {
@@ -51,6 +54,17 @@ module.exports = function(grunt) {
         src:    ['**/*.css'],
         dest:   'public/css',
         expand: true
+      },
+      js_templates: {
+        cwd:    'public/patterns/',
+        src:    ['js_template*/*.markup-only.html', 'js_template*/**/*.markup-only.html'],
+        dest:   'source/js/js-mustache/',
+        expand: true,
+        rename: function(dest, src) {
+          // this exploits an undocumented feature - see here:
+          //   - http://fettblog.eu/blog/2014/05/27/undocumented-features-rename/
+          return dest + src.replace('.markup-only', '').replace(/js_template-/g, '');
+        }
       },
       global_dependencies: {
         src:    '**',
@@ -116,13 +130,14 @@ module.exports = function(grunt) {
       // Fire the patternlab markup build process
       patternlab_markup: {
         files: ['source/_patterns/**/*.mustache', 'source/_patterns/**/*.json', 'source/_data/*.json'],
-        tasks: ['shell:patternlab_markup']
+        tasks: ['shell:patternlab_markup', 'copy:js_templates', 'shell:patternlab_markup']
       },
       // Fire the patternlab build process
       patternlab_full: {
         files: ['source/js/**/*.js', 'source/images/**/*.{jpg,jpeg,png,gif,svg}'],
-        tasks: ['shell:patternlab_full']
+        tasks: ['shell:patternlab_markup', 'copy:js_templates', 'shell:patternlab_full']
       },
+
       //reload the browser
       livereload: {
         options: {
@@ -266,6 +281,7 @@ module.exports = function(grunt) {
     grunt.task.run('uglify:production');
 
     console.warn('copy js assets to analogous directory...');
+    grunt.task.run('copy:js_templates');
     grunt.task.run('copy:production_js_assets');
 
     console.warn('minify css...');
@@ -343,8 +359,15 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean:index',
+    'clean:js_templates',
     'concat:blacklight',
     'copy:dev_css',
+
+    'shell:patternlab_markup',
+    'copy:js_templates',
+    'shell:patternlab_markup',
+
     'copy:global_dependencies'
+
   ]);
 }

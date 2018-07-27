@@ -29,7 +29,6 @@ define([], function(){
 
   return {
     getData: function(params){
-      console.log('incoming params ' + JSON.stringify(params, null, 4) + ' >> INDEX = ' + params.index);
       return data[params.index ? params.index : 0];
     }
   };
