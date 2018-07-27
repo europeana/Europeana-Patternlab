@@ -2,14 +2,10 @@ define(['jquery', 'util_resize'], function ($){
 
   var form = $('.search-multiterm');
 
-  function log(msg){
-    console.log('SearchForm: ' + msg);
-  }
-
   function bindShowInlineSearch(){
     $('.item-nav-show').on('click', function(e){
       e.preventDefault();
-      var btn = $(e.target)[0].nodeName.toUpperCase() == 'BUTTON' ? $(e.target) : $(e.target).closest('button');
+      var btn = $(e.target)[0].nodeName.toUpperCase() === 'BUTTON' ? $(e.target) : $(e.target).closest('button');
       btn.hide();
       btn.prev('.content').show();
       btn.prev('.content').find('form .item-search-input').focus();
@@ -20,7 +16,7 @@ define(['jquery', 'util_resize'], function ($){
   function sizeInput(){
     var input = form.find('.js-search-input');
 
-    if(input.length == 0){
+    if(input.length === 0){
       return;
     }
 
@@ -54,7 +50,7 @@ define(['jquery', 'util_resize'], function ($){
     });
 
     form.on('submit', function() {
-      if(input.attr('name')=='qf[]' && input.val().length==0){
+      if(input.attr('name') === 'qf[]' && input.val().length === 0){
         return false;
       }
     });
@@ -67,75 +63,81 @@ define(['jquery', 'util_resize'], function ($){
     var processor = confData.extended_info ? 'eu_autocomplete_processor' : 'eu_autocomplete_processor_def';
 
     require([processor], function(AutocompleteProcessor){
-      require(['eu_autocomplete', 'util_resize'], function(Autocomplete){
+      require(['eu_autocomplete', 'mustache', 'util_resize'], function(Autocomplete, Mustache){
 
-        var languages        = (typeof i18nLocale == 'string' && typeof i18nDefaultLocale == 'string') ? [i18nLocale, i18nDefaultLocale, ''] : typeof i18nLocale == 'string' ? [i18nLocale] :['en', ''];
-        var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1 && $('.item-search-input').length > 0;
-        var selInput         = narrowMode ? '.item-search-input' : '.search-input';
-        var inputName        = $(selInput).attr('name');
-        var itemTemplateText = $('#js-template-autocomplete').text();
+        Mustache.tags = ['[[', ']]'];
+        var url = require.toUrl('mustache_template_root') + '/autocomplete-entity-item/autocomplete-entity-item.html';
 
-        var setQeParam       = function(val){
-          // $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
-          if(val){
-            $(selInput).addClass('mode-entity');
+        $.get(url, function(itemTemplateText){
+
+          var languages        = (typeof window.i18nLocale === 'string' && typeof window.i18nDefaultLocale === 'string') ? [window.i18nLocale, window.i18nDefaultLocale, ''] : typeof window.i18nLocale === 'string' ? [window.i18nLocale] :['en', ''];
+          var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1 && $('.item-search-input').length > 0;
+          var selInput         = narrowMode ? '.item-search-input' : '.search-input';
+          var inputName        = $(selInput).attr('name');
+
+          var setQeParam       = function(val){
+            // $(selInput).attr('name', val ? 'qe[' + val + ']' : form.find('.search-tag').length > 0 ? 'qf[]' : 'q');
+            if(val){
+              $(selInput).addClass('mode-entity');
+            }
+            else{
+              $(selInput).removeClass('mode-entity');
+            }
+          };
+
+          if(narrowMode){
+            $('.object-nav').addClass('with-autocomplete');
           }
-          else{
-            $(selInput).removeClass('mode-entity');
-          }
-        };
 
-        if(narrowMode){
-          $('.object-nav').addClass('with-autocomplete');
-        }
+          Autocomplete.init({
+            evtResize: 'europeanaResize',
+            extended_info: confData.extended_info,
+            fnGetTopOffset: function(el){
+              if(el[0] === $(selInput)[0]){
+                return $('.header-wrapper').height() + 16;
+              }
+              return $('.header-wrapper').height();
+            },
+            fnOnDeselect: function(){
+              setQeParam();
+            },
+            fnOnHide: function(){
+              $('.attribution-content').show();
+              $('.attribution-toggle').hide();
+              $('.search-input').attr('name', inputName);
+              setQeParam();
+            },
+            fnOnItemClick: function(el){
+              if(el.length === 1){
+                setQeParam(el.data('id'));
+              }
+            },
+            fnOnShow: function(){
+              $('.attribution-content').hide();
+              $('.attribution-toggle').show();
+            },
+            fnOnUpdate: function(){
+              var sel = $('.eu-autocomplete li.selected');
+              if(sel.length === 1){
+                setQeParam(sel.data('id'));
+              }
+            },
+            fnPreProcess      : AutocompleteProcessor.process,
+            form              : form,
+            itemTemplateText  : itemTemplateText,
+            languages         : languages,
+            minTermLength     : confData.min_chars ? confData.min_chars : 3,
+            textMatch         : confData.extended_info === true ? false: true,
+            paramName         : 'text',
+            paramAdditional   : '&language=' + languages.join(',').replace(/,$/, ''),
+            scrollPolicyFixed : narrowMode,
+            selAnchor         : narrowMode ? null : '.search-multiterm',
+            selInput          : selInput,
+            selWidthEl        : narrowMode ? null : '.js-hitarea',
+            theme             : 'style-entities',
+            url               : confData.url ? confData.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
+          });
 
-        Autocomplete.init({
-          evtResize: 'europeanaResize',
-          extended_info: confData.extended_info,
-          fnGetTopOffset: function(el){
-            if(el[0]==$(selInput)[0]){
-              return $('.header-wrapper').height() + 16;
-            }
-            return $('.header-wrapper').height();
-          },
-          fnOnDeselect: function(){
-            setQeParam();
-          },
-          fnOnHide: function(){
-            $('.attribution-content').show();
-            $('.attribution-toggle').hide();
-            $('.search-input').attr('name', inputName);
-            setQeParam();
-          },
-          fnOnItemClick: function(el){
-            if(el.length == 1){
-              setQeParam(el.data('id'));
-            }
-          },
-          fnOnShow: function(){
-            $('.attribution-content').hide();
-            $('.attribution-toggle').show();
-          },
-          fnOnUpdate: function(){
-            var sel = $('.eu-autocomplete li.selected');
-            if(sel.length == 1){
-              setQeParam(sel.data('id'));
-            }
-          },
-          fnPreProcess      : AutocompleteProcessor.process,
-          form              : form,
-          itemTemplateText  : itemTemplateText,
-          languages         : languages,
-          minTermLength     : confData.min_chars ? confData.min_chars : 3,
-          textMatch         : confData.extended_info == true ? false: true,
-          paramName         : 'text',
-          paramAdditional   : '&language=' + languages.join(',').replace(/,$/, ''),
-          scrollPolicyFixed : narrowMode,
-          selAnchor         : narrowMode ? null : '.search-multiterm',
-          selInput          : selInput,
-          selWidthEl        : narrowMode ? null : '.js-hitarea',
-          theme             : 'style-entities',
-          url               : confData.url ? confData.url.replace(/^https?:/, location.protocol) : 'entities/suggest.json'
         });
       });
     });

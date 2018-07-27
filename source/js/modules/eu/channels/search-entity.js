@@ -24,7 +24,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     var entitySimilar   = $('.entity-related');
     var portraitClass   = 'portrait-1';
 
-    if(entitySimilar.length != 1){
+    if(entitySimilar.length !== 1){
       return;
     }
 
@@ -73,7 +73,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
       ops.alwaysAfterLoad = addEllipsis;
       var carousel = Carousel.create(entitySimilar, appender, ops);
 
-      if(!ops.total_available || (ops.total_available > 0 && $('.entity-related ul li').length == 0)){
+      if(!ops.total_available || (ops.total_available > 0 && $('.entity-related ul li').length === 0)){
         carousel.loadMore();
       }
     });
@@ -213,7 +213,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
 
               var hasPreloaded = $tabContent.find('.result-items').length > 0;
               var allPreloaded = false;
-              template         = $('#js-template-entity-tab-content');
 
               if(hasPreloaded){
                 var items = $tabContent.find('.results .item-image');
@@ -222,7 +221,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 });
                 allPreloaded = items.length >= $tabContent.find('.display-grid').data('total');
 
-                if(typeof totals[tabIndex] == 'undefined' && typeof $tabContent.find('.display-grid').data('total') == 'number'){
+                if(typeof totals[tabIndex] === 'undefined' && typeof $tabContent.find('.display-grid').data('total') === 'number'){
                   totals[tabIndex] = $tabContent.find('.display-grid').data('total');
                 }
               }
@@ -273,7 +272,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
                 else{
                   header.addClass('loading');
                   loadMoreItems($tabContent, header.data('content-url'), tabIndex, function(res){
-                    if(typeof res.total == 'undefined'){
+                    if(typeof res.total === 'undefined'){
                       console.warn('Expected @total');
                     }
                     else{
@@ -293,7 +292,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
               require(['util_resize'], function(){
                 $(window).europeanaResize(function(){
                   var w = $(document).width();
-                  if(w != pageW){
+                  if(w !== pageW){
                     pageW = w;
                     thumblessLayout();
                     setTimeout(function(){
@@ -345,7 +344,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
         $.getJSON(url).done(function(data){
           var rendered = [];
           $.each(data.search_results, function(i, ob){
-            rendered.push('<li style="visibility:hidden;">' + Mustache.render(template.text(), ob) + '</li>');
+            rendered.push('<li style="visibility:hidden;">' + Mustache.render(template, ob) + '</li>');
           });
 
           if(url.indexOf('&page=1')>-1){
@@ -420,7 +419,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
     require(['jqImagesLoaded'], function(){
       $('.js-test-thumb').imagesLoaded(function($images, $proper, $broken){
 
-        if($broken.length == 1){
+        if($broken.length === 1){
 
           $('.entity-main-thumb').remove();
           $('.summary-column').css('position', 'relative').find('.header-bio').removeClass('js-hidden');
@@ -429,7 +428,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
           thumblessLayout();
         }
         else{
-          if($('.js-test-thumb').attr('src') != trueSrc){
+          if($('.js-test-thumb').attr('src') !== trueSrc){
             $('.entity-main-thumb').css('background-image', 'url("' + trueSrc + '")');
           }
           $('.entity-main-thumb-titled a.external').removeClass('js-hidden');
@@ -439,15 +438,22 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function initPage(form){
-    $(window).bind('showCarousel', function(e, ops){
-      showCarouselIfAvailable(ops);
+
+    var url = require.toUrl('mustache_template_root') + '/search-search-listitem-js/search-search-listitem-js.html';
+
+    $.get(url, function(templateIn){
+
+      template = templateIn;
+      $(window).bind('showCarousel', function(e, ops){
+        showCarouselIfAvailable(ops);
+      });
+      form.bindShowInlineSearch();
+      initAccordionTabs();
+
+      getImgRedirectSrc(checkThumbnail);
+
+      scrollEvents.fireAllVisible();
     });
-    form.bindShowInlineSearch();
-    initAccordionTabs();
-
-    getImgRedirectSrc(checkThumbnail);
-
-    scrollEvents.fireAllVisible();
   }
 
   return {

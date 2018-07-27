@@ -77,7 +77,7 @@ define(['jquery', 'jasmine_jquery'], function(){
 
         window.ResizeObserver.prototype.observe = function(el){
 
-          if($(el).closest('.example-1').length == 0){
+          if($(el).closest('.example-1').length === 0){
             return;
           }
 
@@ -173,7 +173,7 @@ define(['jquery', 'jasmine_jquery'], function(){
           'loadUrl': basePathJson + '/' + jsonFile,
           'load_per_page': 5,
           'itemsAvailable': itemsAvailable,
-          'templateText': $('#item-template').text()
+          'templateText': '<div class="lc-item"><div class="lc-item-text">[[title]]</div></div>'
         };
       };
 
