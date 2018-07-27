@@ -920,14 +920,17 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
     if(window.annotationsLater){
       $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-
-        data.extended_information = true;
-        data.id                   = 'annotations';
-
-        loadMustacheAndRender('sections-object-data-section/sections-object-data-section.html', data, function(html){
-          $('#annotations').after(html);
+        if(data){
+          data.extended_information = true;
+          data.id                   = 'annotations';
+          loadMustacheAndRender('sections-object-data-section/sections-object-data-section.html', data, function(html){
+            $('#annotations').after(html);
+            initExtendedInformation(true);
+          });
+        }
+        else{
           initExtendedInformation(true);
-        });
+        }
       }).error(function(){
         initExtendedInformation(true);
       });

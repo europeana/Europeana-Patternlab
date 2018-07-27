@@ -16,7 +16,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var test = $('<img style="object-fit: cover"/>');
     var cs = window.getComputedStyle(test[0]);
 
-    if(typeof cs.objectFit == 'undefined' ||
+    if(typeof cs.objectFit === 'undefined' ||
        (!(cs.objectFit || cs['object-fit'] || Object.keys(cs).indexOf('objectFit') > -1 ))){
 
       $('.search-list-item').each(function(i, ob){
@@ -56,18 +56,18 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
   window.onpopstate = function(e){
     if(e.state){
-      if(e.state.view == 'grid'){
+      if(e.state.view === 'grid'){
         showGrid(true);
       }
-      else if(e.state.view == 'list'){
+      else if(e.state.view === 'list'){
         showList(true);
       }
-      if(typeof e.state.results != 'undefined'){
+      if(typeof e.state.results !== 'undefined'){
         loadResults(e.state.results);
       }
     }
     else{
-      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1){
+      if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1){
         return;
       }
     }
@@ -107,28 +107,28 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
   };
 
   var loadFederatedSetting = function(){
-    return (typeof(Storage) == 'undefined') ? false : sessionStorage.getItem('eu_portal_federated') == 'true';
+    return (typeof(Storage) === 'undefined') ? false : sessionStorage.getItem('eu_portal_federated') === 'true';
   };
 
   var saveFederatedSetting = function(setting){
-    if(typeof(Storage) != 'undefined') {
+    if(typeof(Storage) !== 'undefined') {
       log('save eu_portal_federated (' + setting + ')');
       sessionStorage.setItem('eu_portal_federated', setting);
     }
   };
 
   var loadView = function(){
-    return (typeof(Storage) == 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
+    return (typeof(Storage) === 'undefined') ? 'list' : localStorage.getItem('eu_portal_results_view');
   };
 
   var saveView = function(view){
-    if(typeof(Storage) != 'undefined') {
+    if(typeof(Storage) !== 'undefined') {
       localStorage.setItem('eu_portal_results_view', view);
     }
   };
 
   var saveResultCount = function(resultCount){
-    if(typeof(Storage) != 'undefined') {
+    if(typeof(Storage) !== 'undefined') {
       localStorage.setItem('eu_portal_results_count', resultCount);
     }
   };
@@ -137,9 +137,9 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var updateUrl = function($anchor){
       var $linkurl  = $.url($anchor.attr('href'));
       var currParam = $linkurl.param('view');
-      if(currParam != param){
-        if(typeof currParam == 'undefined'){
-          if(param == 'grid'){
+      if(currParam !== param){
+        if(typeof currParam === 'undefined'){
+          if(param === 'grid'){
             $anchor.attr('href', $anchor.attr('href') + '&view=' + param);
           }
         }
@@ -165,7 +165,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
       var updateUrl = function($anchor){
         var url = $anchor.attr('href');
-        if(url && url.indexOf('design=new') == -1){
+        if(url && url.indexOf('design=new') === -1){
           $anchor.attr('href', url + '&design=new');
         }
       };
@@ -176,7 +176,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
       var fnGetText = function($el){
         return $el.contents().filter(function(){
-          return this.nodeType == 3;
+          return this.nodeType === 3;
         })[0].nodeValue;
       };
 
@@ -335,12 +335,12 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
     var urlView = $url.param('view');
     if(urlView){
-      urlView == 'grid' ? showGrid(true) : showList(true);
+      urlView === 'grid' ? showGrid(true) : showList(true);
     }
     else{
       var savedView = loadView();
       if(savedView){
-        if(savedView == 'grid'){
+        if(savedView === 'grid'){
           simulateUrlChange('view', 'grid', true);
           showGrid();
         }
@@ -351,7 +351,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
         }
       }
       else if(defView){
-        if(defView == 'grid'){
+        if(defView === 'grid'){
           simulateUrlChange('view', 'grid', true);
           showGrid(true);
         }
@@ -384,7 +384,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
 
       $('.refine a:not(.js-showhide-nested)').on('click', function(e){
         var facetRoot = $(e.target).closest('.filter').find('>.filter-name');
-        if(facetRoot.length == 0){
+        if(facetRoot.length === 0){
           facetRoot = $(e.target).closest('.filter').parent().closest('.filter');
           facetRoot = facetRoot.find('> .filter-name');
         }
@@ -506,9 +506,7 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
     var fedSearch     = null;
     var btnExpand     = $('.fed-res-expand');
 
-    var initUI = function(Mustache){
-      var template        = $('#template-federated-search-tab-content').text();
-
+    var initUI = function(Mustache, template){
       require(['eu_accordion_tabs', 'util_eu_ellipsis'], function(euAccordionTabs, Ellipsis){
 
         accordionTabs       = euAccordionTabs;
@@ -556,18 +554,18 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
                 }
               }
 
-              if(i==0){
+              if(i === 0){
                 itemData.first_item = true;
                 itemData.federated_provider_name = tab.find('.tab-title').text();
               }
-              if(i==data.search_results.length-1){
+              if(i === data.search_results.length-1){
                 $(window).trigger('eu-accordion-tabs-layout');
               }
 
               tab.next('.tab-content').append(Mustache.render(template, itemData));
             });
 
-            if(!data.search_results || data.search_results.length == 0){
+            if(!data.search_results || data.search_results.length === 0){
               tab.addClass('disabled');
             }
             return data;
@@ -614,7 +612,12 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       if(!btnExpand.hasClass('loaded')){
         require(['mustache'], function(Mustache){
           Mustache.tags = ['[[', ']]'];
-          initUI(Mustache);
+
+          var templateUrl = require.toUrl('mustache_template_root') + '/search-search-listitem-federated-js/search-search-listitem-federated-js.html';
+
+          $.get(templateUrl, function(template){
+            initUI(Mustache, template);
+          });
           btnExpand.addClass('loading loaded');
         });
       }

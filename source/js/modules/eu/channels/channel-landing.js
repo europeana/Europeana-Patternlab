@@ -4,7 +4,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
 
     // normalise "what's happening" images
 
-    var happeningFeed = $('.happening-feed').length == 1;
+    var happeningFeed = $('.happening-feed').length === 1;
     var fnProcessImages = false;
 
     if(happeningFeed){
@@ -32,15 +32,15 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
       };
 
       var purl = $.url(window.location.href);
-      var carouselDisplay = purl.param('carousel-display');
+      var carouselDisplay = purl.param('carousel-display') + '';
 
-      if(carouselDisplay == '1'){
+      if(carouselDisplay === '1'){
         portraitClass = 'portrait-1';
       }
-      else if(carouselDisplay == '2'){
+      else if(carouselDisplay === '2'){
         portraitClass = 'portrait-2';
       }
-      else if(carouselDisplay == '3'){
+      else if(carouselDisplay === '3'){
         portraitClass = 'portrait-3';
       }
 
@@ -48,7 +48,7 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
     }
 
     var el = $('.tumblr-feed');
-    el = el.length == 1 ? el : $('.happening-feed');
+    el = el.length === 1 ? el : $('.happening-feed');
 
     require(['eu_carousel', 'eu_carousel_appender'], function(Carousel, CarouselAppender){
 
@@ -152,15 +152,18 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents){
       contentType : 'application/json; charset=utf-8',
       success : function(data){
 
-        require(['mustache'], function(Mustache){
+        var url = require.toUrl('mustache_template_root') + '/search-search-listitem-js/search-search-listitem-js.html';
 
-          Mustache.tags = ['[[', ']]'];
-          var template  = $('#molecules-components-search-search-listitem-js').text();
+        $.get(url, function(template){
 
-          initPreviewMasonry();
+          require(['mustache'], function(Mustache){
 
-          $.each(data.search_results, function(i, datum){
-            $('.sneak-peek-list').append('<li>' + Mustache.render(template, datum) + '</li>');
+            Mustache.tags = ['[[', ']]'];
+            initPreviewMasonry();
+
+            $.each(data.search_results, function(i, datum){
+              $('.sneak-peek-list').append('<li>' + Mustache.render(template, datum) + '</li>');
+            });
           });
         });
       }

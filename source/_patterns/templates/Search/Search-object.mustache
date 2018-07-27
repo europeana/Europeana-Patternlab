@@ -191,21 +191,15 @@
                           <li {{^technical_metadata.dc_source}}class="is-disabled"{{/technical_metadata.dc_source}}><span class="label tech-meta-source">{{i18n.site.object.meta-label.source}}</span>  <span class="val">{{#technical_metadata}}{{dc_description}}{{/technical_metadata}}</span></li>
 
                           <li {{^technical_metadata.dc_rights}}class="is-disabled"{{/technical_metadata.dc_rights}}><span class="label tech-meta-dc-rights">{{i18n.site.object.meta-label.rights}}</span>  <span class="val">{{#technical_metadata}}{{dc_rights}}{{/technical_metadata}}</span></li>
-                          <li {{^technical_metadata.edm_rights}}class="is-disabled"{{/technical_metadata.edm_rights}}><span class="label tech-meta-edm-rights" data-mustache="#molecules-icons-licenses-js">{{i18n.site.object.meta-label.rights}}</span>  <span class="val val-rights">{{#technical_metadata}}{{edm_rights}}{{/technical_metadata}}</span></li>
+                          <li {{^technical_metadata.edm_rights}}class="is-disabled"{{/technical_metadata.edm_rights}}><span class="label tech-meta-edm-rights">{{i18n.site.object.meta-label.rights}}</span>  <span class="val val-rights">{{#technical_metadata}}{{edm_rights}}{{/technical_metadata}}</span></li>
 
                         </ul>
                       </div>
                     </div>
                   </div>
-
-                  <script type="text/x-mustache" id="molecules-icons-licenses-js">{{> molecules/icons/licenses-js }}</script>
-
                 {{/is_current}}
               {{/items}}
             </div>
-
-
-
           </div>
         </section>
       {{/empty_item}}
@@ -262,7 +256,9 @@
             {{/places }}
 
             {{#annotations_later}}
-              <script id="js-template-object-data-section" type="text/x-mustache">{{> organisms/sections/object-data-section-js }}</script>
+              <script id="annotations">
+                window.annotationsLater = true;
+              </script>
             {{/annotations_later}}
 
             {{#annotations}}
