@@ -279,7 +279,7 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
     var setFileInfoData = function(href, meta, fmt){
       $('.file-info .file-title').attr('href', href);
       $('.file-info .file-meta li').remove();
-      $('.file-detail .file-type').html(fmt === null ? '' : fmt.indexOf('/')>-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
+      $('.file-detail .file-type').html(!fmt ? '' : fmt.indexOf('/') >-1 ? fmt.split('/')[1] : (fmt && fmt.length ? fmt : '?'));
       $.each(meta, function(i, ob){
         $('.file-info .file-meta').append('<li>' + ob + '</li>');
       });
@@ -315,12 +315,11 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
         }
       }
       if(allFound){
-        if(data[0].toDataAttr !== null){
+        if(data[0].toDataAttr){
           writeEl.data(data[0].toDataAttr, allConcat);
         }
         else{
           writeEl.next('.val').empty();
-
           var useTemplate = writeEl.hasClass('tech-meta-edm-rights');
           writeEl.next('.val').empty();
 
