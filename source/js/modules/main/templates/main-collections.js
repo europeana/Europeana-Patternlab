@@ -89,6 +89,7 @@ require.config({
     media_player_oembed:           '../../eu/media/search-oembed-viewer',
 
     menus:                         '../../global/menus',
+    mustache_template_root:        '../../../js-mustache',
 
     midi_dom_load_xmlhttp:         '../../lib/midijs/DOMLoader.XMLHttp',
     midi_dom_load_script:          '../../lib/midijs/DOMLoader.script',
