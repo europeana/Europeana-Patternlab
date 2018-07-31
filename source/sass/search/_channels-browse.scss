@@ -2,6 +2,10 @@
 $height-drop-down: 50px;
 $page-bg-colour:   #ececec;
 
+#cookie-disclaimer {
+  display: none !important;
+}
+
 .channels-browse {
 
   background: $page-bg-colour;
@@ -12,9 +16,57 @@ $page-bg-colour:   #ececec;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
     color: $black;
     display: flex;
+    font-size: 1.875rem;
+    font-weight: 300;
     justify-content: space-between;
+    line-height: 2.5625rem;
     margin: $spacing-2x 0;
-    padding: $spacing-1-75x;
+    padding: $spacing-base $spacing-1-75x;
+
+    a {
+      color: $black;
+    }
+
+    > ul > li {
+      position: relative;
+
+      &.sublist::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid $gray-light;
+        content: '';
+        height: 0; 
+        position: absolute;
+        right: -0.6rem;
+        top: $spacing-base;
+        width: 0; 
+      }
+
+      ul {
+        background: $white;
+        border: 0.5px solid $offwhite;
+        border-radius: $base-border-radius / 2;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+        display: none;
+        left: -0.3rem;
+        opacity: 0;
+        padding: $spacing-half / 2;
+        position: absolute;
+        top: -0.3rem;
+        transition: all 0.2s;
+      }
+
+      &.sublist ul {
+        padding-right: $spacing-base;
+      }
+
+      &:hover {
+        ul {  
+          display: block; 
+          opacity: 1;
+        }
+      }      
+    }
   }
 
   .browse-list-title {
@@ -68,7 +120,7 @@ $page-bg-colour:   #ececec;
       border-radius:    0;
       height:           100%;
 
-      a{
+      a {
         line-height: $height-drop-down;
       }
     }

@@ -13,7 +13,18 @@
           <div class="gridlayout width-12">
             <div class="anchor-list">
               {{#browse_lists}}
-                {{#head.pref_label}}<a href="#{{.}}">{{.}}</a>{{/head.pref_label}}
+                <ul>
+                  {{#head.pref_label}}
+                    <li {{#head.alt_labels}}class="sublist"{{/head.alt_labels}}><a href="#{{.}}">
+                      {{.}}
+                      <ul>
+                         <li>{{head.pref_label}}</li>
+                        {{#head.alt_labels}}
+                          <li>{{.}}</li>
+                        {{/head.alt_labels}}
+                      </ul>
+                  </a></li>{{/head.pref_label}}
+                </ul>
               {{/browse_lists}}
             </div>
           </div>
