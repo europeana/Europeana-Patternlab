@@ -232,7 +232,7 @@
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
               "dc_source": "Source of the 2nd media item",
-              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"learn why\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
+              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"with attribution\",\"license_human\":\"Free open re-use\",\"license_name\":\"CC BY-NC\", \"license_CC_BY_NC\": true }}"
             },
             "rights":
             {

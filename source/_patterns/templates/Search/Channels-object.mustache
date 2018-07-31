@@ -229,10 +229,41 @@
               {{#rights}}
                 <div class="action-ctrl object-rights">
                   <h4>{{ i18n.global.facet.header.reusability }}</h4>
-                  <div class="object-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
+                  <div class="object-license inheritable-license child-link-black-blue">{{license_brief}} {{> molecules/icons/licenses-icon-only }}</div>
                 </div>
               {{/rights}}
               {{> molecules/controls/channels-object-origin }}
+            </div>
+
+            <div class="action-modal modal-rights inheritable-rights js-hidden">
+              <div class="modal-content">
+                <div class="modal-action">
+                  <span class="label">
+                    <h4>{{i18n.global.facet.header.reusability}}</h4>
+                    <label>{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</label>
+
+                    {{^license_restricted}}
+                      {{#rights}}
+                        {{#license_restricted}}
+                          <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
+                        {{/license_restricted}}
+                        {{^license_restricted}}
+                          <h4>{{license_info}}{{^license_info}}{{license_info}}{{/license_info}}</h4>
+                        {{/license_restricted}}
+                      {{/rights}}
+                    {{/license_restricted}}
+                    {{#license_restricted}}
+                      <a class="link-black-blue" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" target="_blank"><h4>{{license_info}}{{^license_info}}{{#rights}}{{license_info}}{{/rights}}{{/license_info}}<span class="svg-icon-external"></span></h4></a>
+                    {{/license_restricted}}
+                  </span>
+                </div>
+                <div class="action-modal-section">
+                  <a target="blank" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" class="link-black-blue license-link-full"> {{> molecules/icons/licenses-icon-only }}{{license_name}}{{^license_name}}{{#rights}}{{license_name}}{{/rights}}{{/license_name}}<span class="svg-icon-external"></span></a>
+                </div>
+                <a class="media-modal-close rights">
+                  <span class="label"></span>
+                </a>
+              </div>
             </div>
 
             <div class="action-modal modal-share js-hidden">
