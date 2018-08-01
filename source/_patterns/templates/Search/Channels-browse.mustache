@@ -12,8 +12,8 @@
         <div class="gridlayout width-main no-row-gap">
           <div class="gridlayout width-12">
             <div class="anchor-list">
-              {{#browse_lists}}
-                <ul>
+              <ul>
+                {{#browse_lists}}
                   {{#head.pref_label}}
                     <li {{#head.alt_labels}}class="sublist"{{/head.alt_labels}}><a href="#{{.}}">
                       {{.}}
@@ -23,9 +23,9 @@
                           <li>{{.}}</li>
                         {{/head.alt_labels}}
                       </ul>
-                  </a></li>{{/head.pref_label}}
-                </ul>
-              {{/browse_lists}}
+                  </a></li>{{/head.pref_label}}               
+                {{/browse_lists}}
+            </ul>
             </div>
           </div>
         </div>
