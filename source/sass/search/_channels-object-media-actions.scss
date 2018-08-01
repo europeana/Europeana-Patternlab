@@ -185,18 +185,19 @@
     align-items:      center;
     background-color: $paper;
     display:          flex;
-    flex-wrap:        wrap-reverse;
     font-weight:      bold;
     justify-content:  space-between;
     padding:          $pad-quarter $pad;
 
+    [data-modal-selector=".modal-download"],
+    [data-modal-selector=".modal-rights"],
+    [data-modal-selector=".modal-share"] {
+      margin-right: $space;
+    }
+
     &.download {
       [data-modal-selector=".modal-download"] {
         display: none;
-      }
-
-      [data-modal-selector=".modal-share"] {
-        margin-right: $space;
       }
     }
 
@@ -204,19 +205,11 @@
       [data-modal-selector=".modal-share"] {
         display: none;
       }
-
-      [data-modal-selector=".modal-download"] {
-        margin-right: $space;
-      }
     }
 
     &.rights {
       [data-modal-selector=".modal-rights"] {
         display: none;
-      }
-
-      [data-modal-selector=".modal-share"] {
-        margin-right: $space;
       }
     }
 
@@ -235,14 +228,8 @@
     .object-origin {
       flex-grow:  1;
       font-size:  14px;
-      max-width:  100%;
       overflow:   hidden;
       text-align: right;
-
-      &.with-logo {
-        margin-right: 2.3em;
-        max-width:    calc(100% - 2.3em);
-      }
 
       [data-provided-by] {
         white-space: nowrap;
@@ -266,6 +253,7 @@
 
       .header-only {
         display:       block;
+        margin-right:  2.3em;
         overflow:      hidden;
         text-overflow: ellipsis;
       }
@@ -365,7 +353,8 @@
     }
 
     .object-license {
-      font-size: 1.3em;
+      font-size:   1.3em;
+      white-space: nowrap;
       .license {
         height:      1.3em;
         margin-left: 0.5em;
@@ -416,6 +405,10 @@
     color:            $white;
     font-size:        14px;
     padding:          $pad;
+
+    .label-large{
+      font-size:      38px;
+    }
 
     .label {
       font-weight:    bold;
@@ -517,7 +510,7 @@
         color:         $eu-blue;
       }
 
-      label {
+      .label {
         color:          $gray-med;
         font-size:      3em;
         font-weight:    normal;

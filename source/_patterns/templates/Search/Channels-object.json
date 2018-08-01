@@ -278,7 +278,8 @@
             {
               "license_public": true,
               "license_human": "You can use this pdf in any way you like",
-              "license_brief": "Yes"
+              "license_brief": "Res.",
+              "license_restricted": true
             },
             "technical_metadata":
             {
@@ -329,12 +330,6 @@
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like",
-              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -420,10 +415,9 @@
           }
         ]
       },
-
       "rights":
       {
-        "license_CC0": true,
+        "license_CC_BY_SA": true,
         "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like",

@@ -71,7 +71,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
         stateRestore = [];
 
         $.each(stateRemember, function(i, ob){
-          if(!$(ob).hasClass('js-hidden')){
+          if($(ob + ':visible').length > 0){
             stateRestore.push(ob);
           }
         });
@@ -85,10 +85,8 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
           $('.channel-object-media-actions').before(htmlH);
           $('.channel-object-media-actions').after(htmlD);
 
-          // $('.modal-rights').remove();
           $('.modal-rights:not(.inheritable-rights)').remove();
           $('.modal-rights.inheritable-license').addClass('js-hidden');
-
 
           var loadingDone = function(){
 
@@ -97,7 +95,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
             if(stateRestore){
               $.each(stateRestore, function(i, ob){
-                console.log('restore ' + ob + '  > ' + $(ob).length + '  ' + $(ob).attr('class') );
                 $(ob).removeClass('js-hidden');
               });
             }
@@ -115,6 +112,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
                 $('.object-license').after(htmlRights).addClass('js-hidden');
               });
               loadingDone();
+              $('.modal-rights.inheritable-rights').addClass('js-hidden');
             });
           }
           else{
@@ -122,10 +120,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
             $('.modal-rights.inheritable-license').removeClass('js-hidden');
             loadingDone();
           }
-
-
-
-
         });
       });
     });
@@ -145,9 +139,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
   function actionCtrlClick(modal){
     if(modal){
-      $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
-      $(modal).removeClass('js-hidden');
-      $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      if(modal === '.modal-rights'){
+        $('.action-ctrl.object-rights').click();
+      }
+      else{
+        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
+        $(modal).removeClass('js-hidden');
+        $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      }
     }
   }
 

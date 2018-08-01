@@ -240,7 +240,7 @@
                 <div class="modal-action">
                   <span class="label">
                     <h4>{{i18n.global.facet.header.reusability}}</h4>
-                    <label>{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</label>
+                    <span class="label-large">{{license_brief}}{{^license_brief}}{{#rights}}{{license_brief}}{{/rights}}{{/license_brief}}</span>
 
                     {{^license_restricted}}
                       {{#rights}}
@@ -258,7 +258,7 @@
                   </span>
                 </div>
                 <div class="action-modal-section">
-                  <a target="blank" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" class="link-black-blue license-link-full"> {{> molecules/icons/licenses-icon-only }}{{license_name}}{{^license_name}}{{#rights}}{{license_name}}{{/rights}}{{/license_name}}<span class="svg-icon-external"></span></a>
+                  <a target="blank" href="{{license_url}}{{^license_url}}{{#rights}}{{license_url}}{{/rights}}{{/license_url}}" class="link-black-blue license-link-full"> {{#rights}}{{> molecules/icons/licenses-icon-only }}{{/rights}}{{license_name}}{{^license_name}}{{#rights}}{{license_name}}{{/rights}}{{/license_name}}<span class="svg-icon-external"></span></a>
                 </div>
                 <a class="media-modal-close rights">
                   <span class="label"></span>
