@@ -5,8 +5,10 @@
   background-color: $grid-card-gray;
   border-radius: $base-border-radius;
   box-shadow: 0 1px 3px 0 $gridlayout-card-shadow;
-  font-size: $font-size-slightly-smaller;
+  color: $black;
+  font-size: $card-font-size;
   height: 100%;
+  line-height: $card-line-height;
   transition: box-shadow 0.25s;
 
   &:hover {
@@ -30,21 +32,71 @@
     height: 15rem;
   }
 
-  .inner {
+  .inner,
+  .inner-footer {
     padding: $spacing-base;
+    position: relative;
+  }
+
+  .inner {
+    display: flex;
+  }
+
+  .inner-footer {
+    padding-top: 0;
+  }
+
+  .inner+.inner-footer {
+    margin-top: -$spacing-base;
+  }
+
+  h3 {
+    font-size: $card-font-size-heading;
+    font-weight: normal;
+    line-height: $card-line-height-heading;
+    margin-bottom: $spacing-base;
+    max-height: $card-line-height-heading * 2;
+  }
+
+  h4 {
+    color: $medium-gray;
+    font-size: $card-font-size;
+    line-height: $card-line-height;
+    margin-bottom: $spacing-base;
+    text-transform: uppercase;
   }
 
   p {
-    font-size: $font-size-sm;
-    margin-bottom: 0;
+    font-size: $card-font-size;
+    margin-bottom: $spacing-base;
+    max-height: $card-line-height * 3;
   }
 
-  p:first-child {
-    font-size: $font-size-norm;
-    line-height: 1.6em;
-    margin-bottom: $spacing-1-75x;
-    max-height: 3.2em;
+  p:last-of-type {
+    color: $medium-gray;
+    margin-bottom: $spacing-2x;
   }
+
+  .promo-tags li {
+    display: inline-block;
+  }
+
+  .svg-icon {
+    align-self: center;
+    height: 2rem;
+    margin-left: $spacing-base;
+    width: 2rem;
+  }
+
+  .svg-icon-info {
+    bottom: $spacing-base;
+    display: block;
+    height: 1rem;
+    position: absolute;
+    right: $spacing-base;
+    width: 1rem;
+  }
+
 }
 
 .browse-list-anchor {

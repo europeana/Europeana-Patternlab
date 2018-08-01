@@ -23,9 +23,14 @@ define(['jquery'], function($){
 
   function initEllipsis(){
     require(['util_eu_ellipsis'], function(Ellipsis){
-      $('.gridlayout-card .inner p:first-of-type').each(function(){
+      $('.gridlayout-card .inner-text h3').each(function(){
         Ellipsis.create($(this), {textSelectors:['a']});
       });
+
+      $('.gridlayout-card .inner-text p').each(function(){
+        Ellipsis.create($(this), {textSelectors:['span']});
+      });
+
     });
   }
 

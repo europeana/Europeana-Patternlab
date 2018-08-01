@@ -2,8 +2,24 @@
   	<a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
 	  {{#has_text}}
 	    <div class="inner">
-	      {{#link_text}}<p>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}
-	      {{#texts}}<p>{{.}}</p>{{/texts}}
+        <div class="inner-text">
+          <h4>category</h4>
+          {{#link_text}}<h3>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</h3>{{/link_text}}
+          <p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies laoreet eros sed iaculis. Suspendisse pulvinar in risus non semper. Sed non velit inar in risus non semper. Sed non velit</span></p>
+  	      {{#texts}}<p><span>{{.}}</span></p>{{/texts}}
+        </div>
+        <span style="min-width: 3rem;">icon</span>
 	    </div>
+      <div class="inner-footer">
+        <ul class="promo-tags">
+          <li>
+            <a class="promo-tag-link" href="javascript:alert('open tag 1')">#News</a>
+          </li>
+          <li>
+            <a class="promo-tag-link" href="javascript:alert('open tag 1')">#painting</a>
+          </li>
+       </ul>       
+       <span class="svg-icon-info"></span>
+      </div>      
 	  {{/has_text}}
 </div>
