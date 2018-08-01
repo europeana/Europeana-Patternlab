@@ -4,6 +4,11 @@
     [[#title]]
 
       <div class="content-text-upper">
+
+        [[#type]]
+          <span class="type">[[.]]</span>
+        [[/type]]
+
         <div class="promo-title-wrap">
           <div class="promo-title[[#icon]] with-icon[[/icon]][[#tags]] has-tags-after[[/tags]][[#relation]] has-relation-after[[/relation]]">
             [[#url]]<a href="[[.]]">[[/url]][[.]][[#url]]</a>[[/url]]
@@ -12,16 +17,6 @@
               <span class="icon icon-[[.]]"></span>
           [[/icon]]
         </div>
-
-        [[#tags]]
-          <ul class="promo-tags">
-            [[#items]]
-              <li>
-                [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
-              </li>
-            [[/items]]
-          </ul>
-        [[/tags]]
 
       </div>
     [[/title]]
@@ -32,7 +27,28 @@
       [[/short]]
     [[/excerpt]]
 
+    <div class="date-and-type">
+      <div class="date[[#type]] with-type[[/type]]">
+        [[#date]]
+          [[.]]
+          [[#attribution]]|[[/attribution]]
+        [[/date]]
+        [[#attribution]][[.]][[/attribution]]
+      </div>        
+    </div>
+
     <div class="text-footer">
+
+     [[#tags]]
+        <ul class="promo-tags">
+          [[#items]]
+            <li>
+              [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
+            </li>
+          [[/items]]
+        </ul>
+      [[/tags]]
+        
       [[#overlay]]
         <div class="collections-promo-overlay">
           <div class="collections-promo-overlay-inner">
@@ -66,18 +82,7 @@
         </div>
       [[/overlay]]
 
-      <div class="date-and-type">
-        <div class="date[[#type]] with-type[[/type]]">
-          [[#date]]
-            [[.]]
-            [[#attribution]]|[[/attribution]]
-          [[/date]]
-          [[#attribution]][[.]][[/attribution]]
-        </div>
-        [[#type]]
-          <span class="type type-[[.]]">[[.]]</span>
-        [[/type]]
-      </div>
+      
       [[#relation]]
         <div class="relation">[[.]]</div>
       [[/relation]]
