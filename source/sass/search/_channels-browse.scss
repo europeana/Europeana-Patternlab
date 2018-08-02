@@ -19,6 +19,7 @@ $page-bg-colour:   #ececec;
     font-weight: 300;    
     line-height: 2.5625rem;
     margin: $spacing-2x 0;
+    overflow: hidden;
     
     > ul {
       display: flex;
@@ -74,8 +75,8 @@ $page-bg-colour:   #ececec;
 
   @media all and (max-width: $bp-large) {
     .grid-anchor-list {
-      display: inline;
-      grid-column: full;
+      border: 1px solid red;
+      grid-column: main-start full-end;
     }
   }
 
@@ -112,7 +113,6 @@ $page-bg-colour:   #ececec;
 
     .anchor-list {
       font-size: 1.375rem;
-      line-height: 1.5rem;
       margin: 0;
 
       ul {
@@ -122,6 +122,10 @@ $page-bg-colour:   #ececec;
 
       > ul > li ul {
         top: 0;
+
+        li:not(:first-child) {
+          line-height: 2.25rem;
+        }
       }
 
       .sublist::after {
