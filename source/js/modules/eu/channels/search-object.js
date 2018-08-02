@@ -1,4 +1,4 @@
-define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, Mustache) {
+define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 'blacklight', 'media_controller'], function($, scrollEvents, EuMustacheLoader) {
 
   var channelData = null;
 
@@ -9,16 +9,13 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
   function loadAnnotations(){
 
     if(window.annotationsLater){
-      require(['mustache'], function(){
-        Mustache.tags = ['[[', ']]'];
-        $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
-          if(data){
-            var templateUrl = require.toUrl('mustache_template_root') + '/sections-object-data-section/sections-object-data-section.html';
-            $.get(templateUrl, function(template){
-              $('#annotations').after(Mustache.render(template, data));
-            });
-          }
-        });
+      $.getJSON(location.href.split('.html')[0].split('?')[0] + '/annotations.json', null).done(function(data){
+        if(data){
+          var templateUrl = 'sections-object-data-section/sections-object-data-section';
+          EuMustacheLoader.loadMustache(templateUrl, function(template, Mustache){
+            $('#annotations').after(Mustache.render(template, data));
+          });
+        }
       });
     }
   }
@@ -253,14 +250,14 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
 
   var updateTechData = function(e){
 
-    var url = require.toUrl('mustache_template_root') + '/licenses-js/licenses-js.html';
+    var url = 'licenses-js/licenses-js';
 
-    $.get(url, function(template){
-      updateTechDataWithTemplate(e, template);
+    EuMustacheLoader.loadMustache(url, function(template, Mustache){
+      updateTechDataWithTemplate(e, template, Mustache);
     });
   };
 
-  var updateTechDataWithTemplate = function(e, rightsTemplate){
+  var updateTechDataWithTemplate = function(e, rightsTemplate, Mustache){
     var tgt          = $(e.target);
     var fileInfoData = {'href': '', 'meta': [], 'fmt': ''};
 
@@ -326,7 +323,6 @@ define(['jquery', 'util_scrollEvents', 'mustache', 'util_foldable', 'blacklight'
           if(useTemplate){
             var model    = allConcat;
 
-            Mustache.tags = ['[[', ']]'];
             var rendered = Mustache.render(rightsTemplate, model);
             writeEl.next('.val').html(rendered);
           }

@@ -63,7 +63,7 @@ module.exports = function(grunt) {
         rename: function(dest, src) {
           // this exploits an undocumented feature - see here:
           //   - http://fettblog.eu/blog/2014/05/27/undocumented-features-rename/
-          return dest + src.replace('.markup-only', '').replace(/js_template-/g, '');
+          return dest + src.replace('.markup-only', '').replace(/js_template-/g, '').replace(/.html$/, '.mustache');
         }
       },
       global_dependencies: {

@@ -325,7 +325,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
               expect($el.find('li').length).toEqual(3);
 
               var textWithoutRemoveLinkText = $el.find('li').eq(1).contents().filter(function(){
-                return this.nodeType == 3;
+                return this.nodeType === 3;
               })[0].nodeValue;
 
               expect(textWithoutRemoveLinkText).toEqual('This is an added item');
@@ -402,7 +402,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
 
       it('can use the assigned index in the template', function(done){
 
-        var newTemplate = '<li class="added-li">This is added item [[index]]</li>';
+        var newTemplate = '<li class="added-li">This is added item {{index}}</li>';
 
         newTemplate = newTemplate.replace(/</g, '&lt;');
         newTemplate = newTemplate.replace(/>/g, '&gt;');
@@ -419,7 +419,7 @@ define(['util_form', 'jasmine_jquery', 'jquery'], function(EuFormUtils){
             expect($el.find('li').length).toEqual(4);
 
             var textWithoutRemoveLinkText = $el.find('li').eq(3).contents().filter(function(){
-              return this.nodeType == 3;
+              return this.nodeType === 3;
             })[0].nodeValue;
 
             expect(textWithoutRemoveLinkText).toEqual('This is added item 3');

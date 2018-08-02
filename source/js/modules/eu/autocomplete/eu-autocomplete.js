@@ -2,8 +2,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
   function EuAutocomplete(){
 
-    Mustache.tags = ['[[', ']]'];
-
     var self              = this;
     self.lastSearchTerm   = null;
     self.lastSearchResult = null;
@@ -49,21 +47,21 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
       self.$input.on('keydown', function(e){
         var key = window.event ? e.keyCode : e.which;
-        if(key == 40 || key == 38){
+        if(key === 40 || key === 38){
           e.preventDefault(); // down / up (stop scroll up jump before scrolling down)
           return false;
         }
 
-        if(key == 13){
+        if(key === 13){
           e.preventDefault();
           e.stopPropagation();
 
-          if(typeof self.ops.fnOnEnter != 'undefined'){
-            self.ops.fnOnEnter(self.$list.find('li').length == 0);
+          if(typeof self.ops.fnOnEnter !== 'undefined'){
+            self.ops.fnOnEnter(self.$list.find('li').length === 0);
           }
         }
 
-        if(key == 9){
+        if(key === 9){
           if(self.$list.find('li').length > 0){
             //e.stopPropagation();
             //e.preventDefault();
@@ -82,23 +80,23 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
         var key = window.event ? e.keyCode : e.which;
 
-        if(typeof key == 'undefined'){
+        if(typeof key === 'undefined'){
           return;
         }
 
-        if(key == 40){
+        if(key === 40){
           // down
           self.fwd(e.ctrlKey || e.shiftKey);
         }
-        else if(key == 38){
+        else if(key === 38){
           // up
           self.back(e.ctrlKey || e.shiftKey);
           self.scrollUpNeeded();
         }
-        else if(key == 38){
+        else if(key === 38){
           e.ctrlKey;
         }
-        else if(e.keyCode == 13){
+        else if(e.keyCode === 13){
           // carriage return
           e.stopPropagation();
           e.preventDefault();
@@ -120,12 +118,12 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
             self.scrollUpNeeded(self.$input);
           }
         }
-        else if(key==27){
+        else if(key === 27){
           // esc
           self.$list.empty();
-          self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+          self.$input.val(self.typedTerm === null ? '' : self.typedTerm);
 
-          if(typeof self.ops.fnOnDeselect != 'undefined'){
+          if(typeof self.ops.fnOnDeselect !== 'undefined'){
             self.ops.fnOnDeselect(self.$input);
           }
         }
@@ -134,7 +132,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.typedTerm = self.$input.val();
           self.$input.trigger('getSuggestions');
 
-          if(typeof self.ops.fnOnDeselect != 'undefined'){
+          if(typeof self.ops.fnOnDeselect !== 'undefined'){
             self.ops.fnOnDeselect(self.$input);
           }
         }
@@ -181,7 +179,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     this.scrollUpFixed = function(selItem){
 
-      if(selItem[0] == $(this.selInput)[0]){
+      if(selItem[0] === $(this.selInput)[0]){
         return;
       }
 
@@ -203,7 +201,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         return;
       }
 
-      var offset  = typeof self.ops.fnGetTopOffset == 'undefined' ? 0 : self.ops.fnGetTopOffset(selItem);
+      var offset  = typeof self.ops.fnGetTopOffset === 'undefined' ? 0 : self.ops.fnGetTopOffset(selItem);
       var itemTop = selItem.length > 0 ? $(selItem)[0].getBoundingClientRect().top : $(self.$input)[0].getBoundingClientRect().top;
 
       if(selItem.length > 0){
@@ -228,7 +226,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     this.updateInput = function($el){
       if($el){
 
-        if(self.ops.textMatch == true){
+        if(self.ops.textMatch === true){
           var val = $el.text().trim();
           if(val.indexOf('(') > 0){
             val = val.substr(0, val.indexOf('('));
@@ -263,10 +261,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
         self.updateInput(sel);
 
-        if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
+        if(typeof self.ops.hideOnSelect !== 'undefined' && self.ops.hideOnSelect){
           self.hide();
         }
-        if(typeof self.ops.fnOnSelect != 'undefined'){
+        if(typeof self.ops.fnOnSelect !== 'undefined'){
           self.ops.fnOnSelect(sel, self.$input);
         }
       }
@@ -277,7 +275,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       $el.addClass('selected');
       self.select();
 
-      if(typeof self.ops.hideOnSelect != 'undefined' && self.ops.hideOnSelect){
+      if(typeof self.ops.hideOnSelect !== 'undefined' && self.ops.hideOnSelect){
         self.hide();
       }
 
@@ -287,7 +285,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.back = function(first){
-      if(self.$list.find('li').length == 0){
+      if(self.$list.find('li').length === 0){
         return;
       }
       if(first){
@@ -309,8 +307,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           }
           else{
             self.$list.find('.selected').removeClass('selected');
-            self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
-            if(typeof self.ops.fnOnDeselect != 'undefined'){
+            self.$input.val(self.typedTerm === null ? '' : self.typedTerm);
+            if(typeof self.ops.fnOnDeselect !== 'undefined'){
               self.ops.fnOnDeselect(self.$input);
             }
           }
@@ -319,7 +317,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
     };
 
     this.fwd = function(last){
-      if(self.$list.find('li').length == 0){
+      if(self.$list.find('li').length === 0){
         self.$input.trigger('getSuggestions');
         return;
       }
@@ -331,7 +329,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       }
       else{
         var $sel = self.$list.find('.selected');
-        if($sel.length == 0){
+        if($sel.length === 0){
           var $f = self.$list.find('li:first');
           $f.addClass('selected');
           self.updateInput($f);
@@ -345,8 +343,8 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           }
           else{
             self.$list.find('.selected').removeClass('selected');
-            self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
-            if(typeof self.ops.fnOnDeselect != 'undefined'){
+            self.$input.val(self.typedTerm === null ? '' : self.typedTerm);
+            if(typeof self.ops.fnOnDeselect !== 'undefined'){
               self.ops.fnOnDeselect(self.$input);
             }
             self.scrollUpNeeded(self.$input);
@@ -370,7 +368,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       }
 
       $.each(data, function(i, item){
-        if(self.ops.extended_info == true){
+        if(self.ops.extended_info === true){
           item.extended_info = true;
         }
         self.$list.append(Mustache.render(self.ops.itemTemplateText, item));
@@ -387,7 +385,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       }
 
       var paramName = self.ops.paramName || 'term';
-      var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') == -1 ? '?' + paramName + '=' + term : term);
+      var url  = self.ops.url + (self.ops.url.indexOf('?' + paramName + '=') === -1 ? '?' + paramName + '=' + term : term);
       url = self.ops.paramAdditional ? url + self.ops.paramAdditional : url;
       url = url.replace(/^https?:/, location.protocol);
 
@@ -400,7 +398,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         }
       };
 
-      if(term == self.lastSearchTerm){
+      if(term === self.lastSearchTerm){
         doOnDone(self.lastSearchResult);
         return;
       }
@@ -441,7 +439,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
 
     self.bindUnload = function(){
       $(window).on('unload', function(){
-        self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+        self.$input.val(self.typedTerm === null ? '' : self.typedTerm);
       });
     };
 
@@ -453,10 +451,10 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         e = e || window.event;
 
         if('which' in e){
-          isRightMB = e.which == 3;  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+          isRightMB = e.which === 3;  // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
         }
         else if('button' in e){
-          isRightMB = e.button == 2; // IE, Opera
+          isRightMB = e.button === 2; // IE, Opera
         }
         if(isRightMB){
           return;
@@ -466,7 +464,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         var tgtLi = tgt.closest('.eu-autocomplete li');
 
         if(tgtLi.length > 0){
-          if(typeof self.ops.fnOnItemClick != 'undefined'){
+          if(typeof self.ops.fnOnItemClick !== 'undefined'){
             var block = self.ops.fnOnItemClick(tgtLi);
             if(block){
               return;
@@ -474,15 +472,15 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           }
           self.setSelected(tgtLi);
         }
-        else if(self.$list.find('li').length > 0 && tgt[0] != self.$input[0] && !tgt.hasClass('eu-autocomplete')){
+        else if(self.$list.find('li').length > 0 && tgt[0] !== self.$input[0] && !tgt.hasClass('eu-autocomplete')){
 
-          if(tgt.parent().length == 0){
+          if(tgt.parent().length === 0){
             self.hide();
             return;
           }
 
           self.hide();
-          self.$input.val(self.typedTerm == null ? '' : self.typedTerm);
+          self.$input.val(self.typedTerm === null ? '' : self.typedTerm);
           self.scrollUpNeeded(self.$input);
         }
       });

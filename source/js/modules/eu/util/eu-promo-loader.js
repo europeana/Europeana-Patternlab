@@ -1,6 +1,6 @@
 define(['jquery'], function($){
 
-  function load(conf, templateMarkup, callback){
+  function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
 
@@ -17,7 +17,7 @@ define(['jquery'], function($){
 
     var processCallback = function(Mustache, data, templateId, id){
 
-      var template = $(templateMarkup).find('#' + templateId).html();
+      var template = $templateMarkup.find('#' + templateId).html();
 
       $(data).each(function(i, ob){
         var html = Mustache.render(template, ob);
@@ -28,7 +28,6 @@ define(['jquery'], function($){
         else{
           elements[id] = [html];
         }
-
       });
     };
 
@@ -68,8 +67,6 @@ define(['jquery'], function($){
     };
 
     require(['mustache'], function(Mustache){
-
-      Mustache.tags = ['[[', ']]'];
 
       $.each(conf, function(i, confItem){
 

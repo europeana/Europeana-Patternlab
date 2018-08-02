@@ -63,12 +63,11 @@ define(['jquery', 'util_resize'], function ($){
     var processor = confData.extended_info ? 'eu_autocomplete_processor' : 'eu_autocomplete_processor_def';
 
     require([processor], function(AutocompleteProcessor){
-      require(['eu_autocomplete', 'mustache', 'util_resize'], function(Autocomplete, Mustache){
+      require(['eu_autocomplete', 'util_mustache_loader', 'util_resize'], function(Autocomplete, EuMustacheLoader){
 
-        Mustache.tags = ['[[', ']]'];
-        var url = require.toUrl('mustache_template_root') + '/autocomplete-entity-item/autocomplete-entity-item.html';
+        var url = '/autocomplete-entity-item/autocomplete-entity-item';
 
-        $.get(url, function(itemTemplateText){
+        EuMustacheLoader.loadMustache(url, function(itemTemplateText){
 
           var languages        = (typeof window.i18nLocale === 'string' && typeof window.i18nDefaultLocale === 'string') ? [window.i18nLocale, window.i18nDefaultLocale, ''] : typeof window.i18nLocale === 'string' ? [window.i18nLocale] :['en', ''];
           var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1 && $('.item-search-input').length > 0;

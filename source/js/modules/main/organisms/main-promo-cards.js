@@ -45,7 +45,7 @@ require(['jquery'], function($) {
     };
 
 
-    if(typeof window.template_id != 'undefined'){
+    if(typeof window.template_id !== 'undefined'){
       template = $('#' + window.template_id);
     }
     else{
@@ -53,7 +53,7 @@ require(['jquery'], function($) {
       return;
     }
 
-    if(template.length == 1 && window.mock_ajax){
+    if(template.length === 1 && window.mock_ajax){
 
       require(['eu_mock_ajax'], function(){
 
@@ -61,15 +61,13 @@ require(['jquery'], function($) {
 
           console.log(JSON.stringify(data, null, 4));
 
-          Mustache.tags = ['[[', ']]'];
-
-          if(window.template_id == 'template-promo-next-prev'){
+          if(window.template_id === 'template-promo-next-prev'){
             template.after(Mustache.render(template.text(), data['search_results'][0]));
           }
-          else if(window.template_id == 'template-promo-exhibition'){
+          else if(window.template_id === 'template-promo-exhibition'){
             template.after(Mustache.render(template.text(), data['exhibition_promo']));
           }
-          else if(window.template_id == 'template-promo-generic' || window.template_id == 'template-promo-gallery' || window.template_id == 'template-promo-news'){
+          else if(window.template_id === 'template-promo-generic' || window.template_id === 'template-promo-gallery' || window.template_id === 'template-promo-news'){
             template.after(Mustache.render(template.text(), data[0]));
           }
           else{
@@ -88,4 +86,3 @@ require(['jquery'], function($) {
 
   });
 });
-
