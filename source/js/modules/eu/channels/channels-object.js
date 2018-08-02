@@ -51,7 +51,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
       $.each(Object.keys(edmRights.model), function(){
         attrs[this] = edmRights.model[this];
-        console.log(this + ' = ' + edmRights.model[this]);
       });
     }
 
@@ -64,22 +63,76 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
       Mustache.tags = ['[[', ']]'];
 
-      loadMustacheAndRender('modal-header/modal-header.html', attrs, function(htmlH){
-        loadMustacheAndRender('modal-download/modal-download.html', attrs, function(htmlD){
-          loadMustacheAndRender('modal-rights/modal-rights.html', attrs, function(htmlR){
-            $('.modal-download').remove();
-            $('.modal-rights').remove();
-            $('.modal-header').remove();
+      var loadModals = function(){
 
-            $('.channel-object-media-actions').before(htmlH);
-            $('.channel-object-media-actions').after(htmlD);
-            $('.channel-object-media-actions').after(htmlR);
+        var stateRemember = ['.modal-header', '.channel-object-media-actions', '.modal-rights', '.modal-download', '.modal-share'];
+        var stateRestore  = null;
 
-            $('.modal-header').append($('.object-origin').clone());
-            $('#page-url-input').val(window.location.href);
+        if($('.action-modal:visible').length > 0){
+
+          stateRestore = [];
+
+          $.each(stateRemember, function(i, ob){
+            if($(ob + ':visible').length > 0){
+              stateRestore.push(ob);
+            }
           });
+        }
+
+        loadMustacheAndRender('modal-download/modal-download.html', attrs, function(htmlD){
+
+          $('.modal-download').remove();
+
+          $('.channel-object-media-actions').after(htmlD);
+
+          $('.modal-rights:not(.inheritable-rights)').remove();
+          $('.modal-rights.inheritable-license').addClass('js-hidden');
+
+          var loadingDone = function(){
+
+            $('#page-url-input').val(window.location.href);
+
+            if(stateRestore){
+              $.each(stateRestore, function(i, ob){
+                $(ob).removeClass('js-hidden');
+              });
+            }
+          };
+
+          $('.object-license:not(.inheritable-license)').remove();
+
+          if(edmRights && edmRights.model){
+
+            loadMustacheAndRender('modal-rights/modal-rights.html', attrs, function(htmlR){
+
+              $('.channel-object-media-actions').after(htmlR);
+
+              loadMustacheAndRender('modal-rights-inheritable/modal-rights-inheritable.html', edmRights.model, function(htmlRights){
+                $('.object-license').after(htmlRights).addClass('js-hidden');
+              });
+              loadingDone();
+              $('.modal-rights.inheritable-rights').addClass('js-hidden');
+            });
+          }
+          else{
+            $('.object-license.inheritable-license').removeClass('js-hidden');
+            $('.modal-rights.inheritable-license').removeClass('js-hidden');
+            loadingDone();
+          }
         });
-      });
+      };
+
+      if($('.modal-header').length === 0){
+        loadMustacheAndRender('modal-header/modal-header.html', attrs, function(htmlH){
+          $('.channel-object-media-actions').before(htmlH);
+          $('.modal-header').append($('.object-origin').clone());
+          loadModals();
+        });
+      }
+      else{
+        loadModals();
+      }
+
     });
   }
 
@@ -97,9 +150,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
   function actionCtrlClick(modal){
     if(modal){
-      $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
-      $(modal).removeClass('js-hidden');
-      $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      if(modal === '.modal-rights'){
+        $('.action-ctrl.object-rights').click();
+      }
+      else{
+        $('.action-modal, .channel-object-media-actions').addClass('js-hidden');
+        $(modal).removeClass('js-hidden');
+        $('.modal-header').attr('class', 'modal-header ' + modal.replace('.modal-', ''));
+      }
     }
   }
 
@@ -398,7 +456,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
       $('.action-modal').addClass('js-hidden');
       $('.channel-object-media-actions').addClass('js-hidden');
 
-      $('.modal-rights').removeClass('js-hidden');
+      var nonDefaultRights = $('.modal-rights:not(.inheritable-rights)');
+      if(nonDefaultRights.length > 0){
+        nonDefaultRights.removeClass('js-hidden');
+      }
+      else{
+        $('.modal-rights').removeClass('js-hidden');
+      }
+
       $('.modal-header').attr('class', 'modal-header rights');
     });
 
@@ -410,7 +475,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
     $(document).on('click', '.media-modal-close', function(e){
       $(e.target).closest('.action-modal').addClass('js-hidden');
-      $('.modal-header').attr('class', 'modal-header none');
+      $('.modal-header').addClass('js-hidden');
       $('.channel-object-media-actions').removeClass('js-hidden');
     });
   }
@@ -798,7 +863,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
       $('.media-download').removeAttr('href');
       $('.media-download').addClass('disabled');
     }
-
   }
 
   function initActionBar(){
@@ -1397,12 +1461,12 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
             resetZoomable();
           }
           else{
+            console.log('no promo markup returned');
             // $('.channel-object-actions .slide-rail').empty();
             // $('.object-details').removeClass('has-right-column').addClass('no-right-column');
             // $(window).resize();
           }
         });
-
 
       });
 

@@ -232,7 +232,7 @@
               "dc_description": "Description of the 2nd media item",
               "dc_rights": "DC rights of the 2nd media item",
               "dc_source": "Source of the 2nd media item",
-              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"learn why\",\"license_human\":\"Permission needed\",\"license_name\":\"CC BY-NC-SA\",\"license_url\":\"http://creativecommons.org/licenses/by-nc-sa/3.0/\",\"license_CC_BY_NC_SA\":true,\"expiry\":false}}"
+              "edm_rights": "{\"model\":{\"license_brief\":\"No\",\"license_info\":\"with attribution\",\"license_human\":\"Free open re-use\",\"license_name\":\"CC BY-NC\", \"license_CC_BY_NC\": true }}"
             },
             "rights":
             {
@@ -278,7 +278,8 @@
             {
               "license_public": true,
               "license_human": "You can use this pdf in any way you like",
-              "license_brief": "Yes"
+              "license_brief": "Res.",
+              "license_restricted": true
             },
             "technical_metadata":
             {
@@ -329,12 +330,6 @@
             "download":{
               "url": "/images/sample/object_2_full.jpg",
               "text": "Original file"
-            },
-            "rights":
-            {
-              "license_public": true,
-              "license_human": "You can use this image in any way you like",
-              "license_brief": "Yes"
             },
             "technical_metadata":
             {
@@ -420,10 +415,9 @@
           }
         ]
       },
-
       "rights":
       {
-        "license_CC0": true,
+        "license_CC_BY_SA": true,
         "license_url": "http://creativecommons.org/publicdomain/mark/1.0/",
         "license_name": "CC0",
         "license_human": "You can use this image in any way you like",

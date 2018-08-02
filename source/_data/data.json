@@ -773,7 +773,7 @@
                     "dimensions": "Dimensions",
                     "runtime": "Run time",
                     "rights": "Rights",
-                    "rights_human": "Can I use this?",
+                    "rights_human": "Can I use it?",
                     "rights-statement": "Rights statement",
                     "title": "Title",
                     "provided-by": "Provided by",
@@ -868,7 +868,7 @@
             "facet": {
               "filter": "filter",
               "header": {
-                "reusability": "Can I use this?"
+                "reusability": "Can I use it?"
               },
               "year":{
                 "from": "From",
