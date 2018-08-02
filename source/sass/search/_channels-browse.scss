@@ -84,17 +84,14 @@ $page-bg-colour:   #ececec;
           overflow-x: scroll;
           overflow-y: hidden;
           white-space: nowrap;
+          margin-right: $spacing-base;
 
-          > ul {
-            margin-right: $spacing-base;
-          
-            > li {
-              padding: 0 $spacing-half;
-              position: relative;
+          > ul > li {
+            padding: 0 $spacing-half;
+            position: relative;
 
-              ul {
-                left: auto;
-              }
+            ul {
+              left: auto;
             }
           }
         }        
@@ -160,6 +157,22 @@ $page-bg-colour:   #ececec;
     &.show .anchor-list {
       box-shadow: none;
     }
+
+    @media all and (max-width: $bp-large) {
+      .anchor-list {
+        .anchor-list-wrapper {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          white-space: nowrap;
+          margin-right: $spacing-base;
+
+          > ul > li {
+            padding: 0 $spacing-half
+          }
+        }
+      }
+    }
+
   }
 
   .header-wrapper > .title-bar {
