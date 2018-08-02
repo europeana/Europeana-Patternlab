@@ -63,26 +63,26 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
       Mustache.tags = ['[[', ']]'];
 
-      var stateRemember = ['.modal-header', '.channel-object-media-actions', '.modal-rights', '.modal-download', '.modal-share'];
-      var stateRestore  = null;
+      var loadModals = function(){
 
-      if($('.action-modal:visible').length > 0){
+        var stateRemember = ['.modal-header', '.channel-object-media-actions', '.modal-rights', '.modal-download', '.modal-share'];
+        var stateRestore  = null;
 
-        stateRestore = [];
+        if($('.action-modal:visible').length > 0){
 
-        $.each(stateRemember, function(i, ob){
-          if($(ob + ':visible').length > 0){
-            stateRestore.push(ob);
-          }
-        });
-      }
+          stateRestore = [];
 
-      loadMustacheAndRender('modal-header/modal-header.html', attrs, function(htmlH){
+          $.each(stateRemember, function(i, ob){
+            if($(ob + ':visible').length > 0){
+              stateRestore.push(ob);
+            }
+          });
+        }
+
         loadMustacheAndRender('modal-download/modal-download.html', attrs, function(htmlD){
 
           $('.modal-download').remove();
-          $('.modal-header').remove();
-          $('.channel-object-media-actions').before(htmlH);
+
           $('.channel-object-media-actions').after(htmlD);
 
           $('.modal-rights:not(.inheritable-rights)').remove();
@@ -90,7 +90,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
 
           var loadingDone = function(){
 
-            $('.modal-header').append($('.object-origin').clone());
             $('#page-url-input').val(window.location.href);
 
             if(stateRestore){
@@ -121,7 +120,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_foldable', 'bla
             loadingDone();
           }
         });
-      });
+      };
+
+      if($('.modal-header').length === 0){
+        loadMustacheAndRender('modal-header/modal-header.html', attrs, function(htmlH){
+          $('.channel-object-media-actions').before(htmlH);
+          $('.modal-header').append($('.object-origin').clone());
+          loadModals();
+        });
+      }
+      else{
+        loadModals();
+      }
+
     });
   }
 
