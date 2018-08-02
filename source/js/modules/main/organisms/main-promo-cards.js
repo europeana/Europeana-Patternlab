@@ -24,7 +24,7 @@ require(['jquery'], function($) {
         });
 
         $('.image-set-title').each(function(i, ob){
-          Ellipsis.create($(ob));
+          Ellipsis.create($(ob), {textSelectors:['span']});
         });
 
         $('.promo-tags').each(function(i, ob){

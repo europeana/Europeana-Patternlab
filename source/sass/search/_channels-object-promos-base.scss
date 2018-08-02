@@ -54,7 +54,8 @@
     .image-set {
       .img-link {
         border-bottom: 2px solid $white;
-        width: 45%;
+        height: 60%;
+        width: 40%;
         img {
           border-top-right-radius: $base-border-radius;
         }
@@ -63,7 +64,8 @@
       .img-link:first-of-type {
         border-bottom: 0;
         border-right: 4px solid $white;
-        width: 55%;
+        heigh: 100%;
+        width: 60%;
         img {
           border-top-left-radius: $base-border-radius;
           border-top-right-radius: 0;
@@ -73,6 +75,7 @@
       .img-link:last-of-type {
         border-bottom: 0;
         border-top: 2px solid $white;
+        height: 40%;
         img {
           border-radius: 0;
         }
@@ -277,11 +280,16 @@
     }
   }
 
-  .text-main{
-    font-size:    $font-size-slightly-smaller;
-    line-height:  1.4rem;
-    max-height:   4.2rem;
-    overflow:     hidden;
+  .text-main {
+    color: $black;
+    font-size: $card-font-size;
+    margin-bottom: $spacing-base;
+    max-height: $card-line-height * 3;
+    overflow: hidden;
+
+    &:empty {
+      display: none;
+    }
 
     &.no-relation{
       max-height: 5.6rem;
@@ -328,6 +336,7 @@
   .promo-title,
   .image-set .image-set-title,
   .collections-promo-overlay .title {
+    color: $black;
     display: block;
     font-size: $card-font-size-heading;
     font-weight: normal;
@@ -336,14 +345,25 @@
     max-height: $card-line-height-heading * 2;
     max-width: 100%;
     padding: 0;
+    text-align: left;
+    white-space: normal;
 
     a {
+      color: $black;
       font-size: inherit;
+
+      &:hover {
+        color: $eu-blue;
+      }
+    }
+
+    &:hover {
+      color: $eu-blue;
     }
 
     &.with-icon{
       padding-right: 0;
-      width:         82.5%;
+      width: 82.5%;
     }
   }
 

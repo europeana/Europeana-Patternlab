@@ -1,5 +1,17 @@
 @import "channels-object-variables";
 
+@media all and (max-width: $bp-med) {
+  .collections-promo-item {
+    height: auto;
+  }
+
+  .collections-promo-item:not(.entity-promo) .text-footer {
+    align-self: flex-end;
+    width: 100%;
+  }  
+}
+
+
 @media all and (min-width: $bp-med) {
 
   flex-direction: column;
