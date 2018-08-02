@@ -12,20 +12,22 @@
         <div class="gridlayout width-main no-row-gap grid-anchor-list">
           <div class="gridlayout width-12">
             <div class="anchor-list">
-              <ul>
-                {{#browse_lists}}
-                  {{#head.pref_label}}
-                    <li {{#head.alt_labels}}class="sublist"{{/head.alt_labels}}><a href="#{{.}}">
-                      {{.}}
-                      <ul>
-                         <li>{{head.pref_label}}</li>
-                        {{#head.alt_labels}}
-                          <li>{{.}}</li>
-                        {{/head.alt_labels}}
-                      </ul>
-                  </a></li>{{/head.pref_label}}               
-                {{/browse_lists}}
-            </ul>
+              <div class="anchor-list-wrapper">
+                <ul>
+                  {{#browse_lists}}
+                    {{#head.pref_label}}
+                      <li {{#head.alt_labels}}class="sublist"{{/head.alt_labels}}><a href="#{{.}}">
+                        {{.}}
+                        <ul>
+                           <li>{{head.pref_label}}</li>
+                          {{#head.alt_labels}}
+                            <li>{{.}}</li>
+                          {{/head.alt_labels}}
+                        </ul>
+                    </a></li>{{/head.pref_label}}               
+                  {{/browse_lists}}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
