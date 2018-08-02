@@ -13,16 +13,16 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     }
 
     if(!msg){
-      if($el.attr('type') == 'date'){
+      if($el.attr('type') === 'date'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.date-past') : defMsg;
       }
-      else if($el.attr('type') == 'email'){
+      else if($el.attr('type') === 'email'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.email') : defMsg;
       }
-      else if($el.attr('type') == 'checkbox'){
+      else if($el.attr('type') === 'checkbox'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.confirmation-required') : defMsg;
       }
-      else if($el.attr('required') == 'required'){
+      else if($el.attr('required') === 'required'){
         msg = window.I18n ? window.I18n.translate('global.forms.validation-errors.blank') : defMsg;
       }
     }
@@ -53,7 +53,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function onBlur($el){
 
-    if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
+    if(typeof window.enableFormValidation === 'undefined' || !window.enableFormValidation){
       return;
     }
 
@@ -61,7 +61,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
       $el.addClass('had-focus');
 
-      var isSubmit = $(':focus').length > 0 && $(':focus').attr('type') && $(':focus').attr('type').toUpperCase() == 'SUBMIT';
+      var isSubmit = $(':focus').length > 0 && $(':focus').attr('type') && $(':focus').attr('type').toUpperCase() === 'SUBMIT';
       if(isSubmit){
         return;
       }
@@ -69,7 +69,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         removeValidationError($el);
       }
       else{
-        var isFallback = $el.hasClass('date') && $el.attr('type') != 'date';
+        var isFallback = $el.hasClass('date') && $el.attr('type') !== 'date';
         addValidationError($el, isFallback ? window.I18n.translate('global.forms.validation-errors.date-format') : null);
       }
     }, 1);
@@ -127,7 +127,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   function getAutocompleteConfig($el){
 
     $(document).on('keyup paste', '.autocomplete', function(e){
-      if(e.type == 'keyup'){
+      if(e.type === 'keyup'){
         if([9, 16, 17, 18, 20, 34, 34, 35, 36, 42, 91, 37, 39, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123].indexOf(e.keyCode) > -1){
           return;
         }
@@ -156,7 +156,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
           var match      = val.match(re);
           var matchIndex = val.indexOf(match);
 
-          if(val.toLowerCase() == term.toLowerCase()){
+          if(val.toLowerCase() === term.toLowerCase()){
             $('#' + ops.selInput.data('for')).val(data[i].value);
           }
 
@@ -172,7 +172,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
         return data;
       },
-      itemTemplateText : '<li data-term="[[text]]" data-value="[[value]]" data-hidden-id="' + name + '"><span>[[textPreMatch]]<span class="match"><b>[[textMatch]]</b></span>[[textPostMatch]]</span></li>',
+      itemTemplateText : '<li data-term="{{text}}" data-value="{{value}}" data-hidden-id="' + name + '"><span>{{textPreMatch}}<span class="match"><b>{{textMatch}}</b></span>{{textPostMatch}}</span></li>',
       minTermLength    : 2,
       paramName        : $el.data('param'),
       selInput         : $el,
@@ -195,7 +195,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         var $hidden  = $('#' + $el.data('for'));
         var derefUrl = $el.data('deref-url');
 
-        if($el.val().length == 0 && $hidden.val().length > 0 && derefUrl){
+        if($el.val().length === 0 && $hidden.val().length > 0 && derefUrl){
 
           var hVal = $hidden.val();
 
@@ -234,7 +234,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   function initFormSave(){
     require(['eu_form_save'], function(FormSave){
       var $form = $('form[data-local-storage-id]');
-      formSave  = FormSave.create($form, window.pageName == 'migration/create');
+      formSave  = FormSave.create($form, window.pageName === 'migration/create');
     });
   }
 
@@ -250,13 +250,13 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         var ref = el.data(attr);
 
         if(['copies', 'requires'].indexOf(attr) > -1){
-          if( $('#' + ref).length == 0 ){
+          if( $('#' + ref).length === 0 ){
             console.log('misconfigured data-' + attr + ': ' + ref + ' (referred to by element ' + el[0].nodeName + ': ' + (el.attr('id') || el.attr('class'))  + ')');
             bugs += 1;
           }
         }
         else{
-          if( $('.' + ref).find(':input').length == 0 ){
+          if( $('.' + ref).find(':input').length === 0 ){
             console.log('misconfigured data-' + attr + ': ' + ref + ' (referred to by element ' + el[0].nodeName + ': ' + (el.attr('id') || el.attr('class'))  + ')');
             bugs += 1;
           }
@@ -265,7 +265,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       });
     });
 
-    console.log(bugs + ' misconfiguration' + (bugs != 1 ? 's' : '') + ' found!');
+    console.log(bugs + ' misconfiguration' + (bugs !== 1 ? 's' : '') + ' found!');
   });
 
   function initSwipeableLicense(){
@@ -286,7 +286,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function validateForm(){
 
-    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
+    if(typeof window.enableFormValidation !== 'undefined' && window.enableFormValidation){
 
       var invalids          = $('input:invalid').add('textarea:invalid').add('select:invalid');
       var invalidFileInputs = [];
@@ -305,7 +305,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         }
       });
 
-      var valid = invalids.length == 0 && invalidFileInputs.length == 0;
+      var valid = invalids.length === 0 && invalidFileInputs.length === 0;
 
       $.each(invalids, function(){
         var $this = $(this);
@@ -334,7 +334,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
   function validateFileInput(input){
 
-    if(typeof window.enableFormValidation == 'undefined' || !window.enableFormValidation){
+    if(typeof window.enableFormValidation === 'undefined' || !window.enableFormValidation){
       console.log('all front-end validation disabled');
       return true;
     }
@@ -365,20 +365,20 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
           var mimeType = files[0].type.toUpperCase();
 
-          if(mimeType == allowRule){
+          if(mimeType === allowRule){
             isAllowedType = true;
             return false;
           }
           else if(allowRule.indexOf('*') > -1){
 
-            if(allowRule.replace(reFileStem, '') == mimeType.replace(reFileStem, '')){
+            if(allowRule.replace(reFileStem, '') === mimeType.replace(reFileStem, '')){
               isAllowedType = true;
               return false;
             }
           }
         }
         else if(ext && ext.length > 0){
-          if(ext.toUpperCase() == this.trim().toUpperCase()){
+          if(ext.toUpperCase() === this.trim().toUpperCase()){
             isAllowedType = true;
             return false;
           }
@@ -414,11 +414,11 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
       if(validateForm()){
 
-        if(typeof window.grecaptcha != 'undefined'){
+        if(typeof window.grecaptcha !== 'undefined'){
 
           var captchaResponse = window.grecaptcha.getResponse();
 
-          if(!captchaResponse || captchaResponse == '' || captchaResponse == 'false'){
+          if(!captchaResponse || captchaResponse === '' || captchaResponse === 'false'){
             window.grecaptcha.execute();
             return false;
           }
@@ -457,7 +457,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
       window.grecaptcha.reset();
     };
 
-    if(key && location.href.indexOf('no-verify') == -1){
+    if(key && location.href.indexOf('no-verify') === -1){
       $form.append('<div id="g-recaptcha"></div>');
       $('body').append('<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>');
     }
@@ -471,7 +471,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
         EuFormUtils.initCopyFields();
       });
 
-      if(typeof window.enableFormSave != 'undefined' && window.enableFormSave){
+      if(typeof window.enableFormSave !== 'undefined' && window.enableFormSave){
         initFormSave();
       }
       else{
@@ -508,7 +508,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
 
     EuFormUtils.initRequires();
 
-    if(typeof window.enableFormValidation != 'undefined' && window.enableFormValidation){
+    if(typeof window.enableFormValidation !== 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
   }

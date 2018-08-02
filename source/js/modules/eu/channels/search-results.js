@@ -610,15 +610,14 @@ define(['jquery', 'util_scrollEvents', 'eu_data_continuity', 'purl'], function($
       btnExpand.toggleClass('expanded');
 
       if(!btnExpand.hasClass('loaded')){
-        require(['mustache'], function(Mustache){
-          Mustache.tags = ['[[', ']]'];
+        require(['util_mustache_loader'], function(EuMustacheLoader){
 
-          var templateUrl = require.toUrl('mustache_template_root') + '/search-search-listitem-federated-js/search-search-listitem-federated-js.html';
+          var templateUrl = 'search-search-listitem-federated-js/search-search-listitem-federated-js';
 
-          $.get(templateUrl, function(template){
+          EuMustacheLoader.loadMustache(templateUrl, function(template, Mustache){
             initUI(Mustache, template);
+            btnExpand.addClass('loading loaded');
           });
-          btnExpand.addClass('loading loaded');
         });
       }
 

@@ -19,7 +19,7 @@ define([], function(){
     "label": "Channel",
     "link": "javascript:alert('Open gallery 1');",
     "title": "Vermeer didn't make enough paintings to fill a gallery (so this won't take you long)",
-    "info": "Gallery of Vermeer"
+    "info": "Gallery of <b>Vermeer</b>"
   };
 
   return {

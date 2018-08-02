@@ -52,8 +52,7 @@ define(['util_promo_loader', 'jasmine_jquery'], function(PromoLoader){
           'firstIfMissing': 'next'
         }
       ];
-      templateMarkup = $('#template-markup')[0].outerHTML;
-      console.log(templateMarkup + '\n\t(templateMarkup) ' + typeof(templateMarkup));
+      templateMarkup = $($('#template-markup')[0].outerHTML);
     });
 
     it('builds html from ajax-loaded card data', function(done){

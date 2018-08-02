@@ -338,7 +338,6 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   function loadMasonryItems(url, callback){
 
     require(['mustache'], function(Mustache){
-      Mustache.tags = ['[[', ']]'];
 
       if(url && url.length > 0 && template.length > 0){
         $.getJSON(url).done(function(data){
@@ -438,20 +437,17 @@ define(['jquery', 'util_scrollEvents', 'purl'], function($, scrollEvents) {
   }
 
   function initPage(form){
-
-    var url = require.toUrl('mustache_template_root') + '/search-search-listitem-js/search-search-listitem-js.html';
-
-    $.get(url, function(templateIn){
-
-      template = templateIn;
-      $(window).bind('showCarousel', function(e, ops){
-        showCarouselIfAvailable(ops);
+    require(['util_mustache_loader'], function(EuMustacheLoader){
+      var url = 'search-search-listitem-js/search-search-listitem-js';
+      EuMustacheLoader.loadMustache(url, function(templateIn){
+        template = templateIn;
+        $(window).bind('showCarousel', function(e, ops){
+          showCarouselIfAvailable(ops);
+        });
       });
       form.bindShowInlineSearch();
       initAccordionTabs();
-
       getImgRedirectSrc(checkThumbnail);
-
       scrollEvents.fireAllVisible();
     });
   }
