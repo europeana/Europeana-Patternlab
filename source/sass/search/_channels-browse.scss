@@ -29,7 +29,9 @@ $page-bg-colour:   #ececec;
 
       > ul > li {
         position: relative;
-
+        text-align: center;
+        width: 2rem;
+    
         &.sublist::after {
           border-left: 4px solid transparent;
           border-right: 4px solid transparent;
@@ -48,12 +50,13 @@ $page-bg-colour:   #ececec;
           border-radius: $base-border-radius;
           box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
           display: block;
-          left: -0.3rem;
+          left: 0.2rem;
           opacity: 0;
           padding: $spacing-half / 2;
           position: absolute;
           top: -0.3rem;
           transition: all 0.2s;
+          width: 100%;
         }
 
         &.sublist ul {
@@ -61,10 +64,16 @@ $page-bg-colour:   #ececec;
         }
 
         &:hover {
+          &.sublist::after {
+            display: none;
+          }
+
           ul {  
             display: block; 
+            left: 0;
             opacity: 1;
           }
+
         }      
       }
     }
@@ -139,19 +148,22 @@ $page-bg-colour:   #ececec;
         padding-top: 0;
       }
 
-      > ul > li ul {
-        top: 0;
+      > ul > li {
 
-        li:not(:first-child) {
-          line-height: 2.25rem;
+        .sublist::after {
+          right: -0.3rem;
+          top: 1.2rem;
+        }
+
+        ul {
+          left: 0.3rem;
+          top: 0;
+
+          li:not(:first-child) {
+            line-height: 2.25rem;
+          }
         }
       }
-
-      .sublist::after {
-        right: -0.7rem;
-        top: 1.2rem;
-      }
-
     }
 
     &.show .anchor-list {
