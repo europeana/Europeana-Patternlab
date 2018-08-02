@@ -50,7 +50,7 @@ $page-bg-colour:   #ececec;
         border: 0.5px solid $offwhite;
         border-radius: $base-border-radius;
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
-        display: none;
+        display: block;
         left: -0.3rem;
         opacity: 0;
         padding: $spacing-half / 2;
@@ -103,7 +103,6 @@ $page-bg-colour:   #ececec;
   .title-bar {
     -webkit-transition: height 0.3s ease-out;
     transition: height 0.3s ease-out;
-
     width: 100%;
 
     &.show {
@@ -112,12 +111,24 @@ $page-bg-colour:   #ececec;
     }
 
     .anchor-list {
+      font-size: 1.375rem;
+      line-height: 1.5rem;
       margin: 0;
 
       ul {
         padding-bottom: 0;
         padding-top: 0;
       }
+
+      > ul > li ul {
+        top: 0;
+      }
+
+      .sublist::after {
+        right: -0.7rem;
+        top: 1.2rem;
+      }
+
     }
 
     &.show .anchor-list {
