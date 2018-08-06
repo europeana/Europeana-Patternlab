@@ -49,7 +49,7 @@ require.config({
     feedback:                      '../../eu/feedback/eu-feedback',
     flac:                          '../../lib/audiocogs/flac',
     ga:                            'https://www.google-analytics.com/analytics',
-    global:                        '../../global/global',
+    global:                        '../../eu/global/global',
     hotjar:                        '../../lib/hotjar',
 
     // Issues found with attempted update to leaflet-1.3.1

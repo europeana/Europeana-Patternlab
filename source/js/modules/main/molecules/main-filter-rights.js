@@ -3,7 +3,7 @@ require.config({
     jquery:            '../../lib/jquery',
     global:            '../../eu/global/global',
     jqDropdown:        '../../lib/jquery/jquery.dropdown',
-    menus:             '../../global/global/menus',
+    menus:             '../../eu/global/menus',
     util_scrollEvents: '../../eu/util/scrollEvents'
   },
 
