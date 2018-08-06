@@ -33,6 +33,15 @@
       "name": "enabledPromos",
       "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json' }, {'id': 'generic', 'url': '/promoted.json' }]",
       "unquoted": true
+    },
+    {
+      "name": "i18nDefaultLocale",
+      "value": "en"
+    },
+    {
+      "name": "requirementsApplication",
+      "value": "['/js/modules/lib/I18n/I18n-base.js', '/js/modules/lib/I18n/I18n.js']",
+      "unquoted": true
     }
   ],
   "js_files":
