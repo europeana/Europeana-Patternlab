@@ -5,7 +5,7 @@ require.config({
     exhibitions:            '../../eu/exhibitions',
     feedback:               '../../eu/feedback/eu-feedback',
     ga:                     '//www.google-analytics.com/analytics',
-    global:                 '../../eu/global',
+    global:                 '../../eu/global/global',
     gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
 
     hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
