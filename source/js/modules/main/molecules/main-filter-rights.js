@@ -1,9 +1,9 @@
 require.config({
   paths: {
     jquery:            '../../lib/jquery',
-    global:            '../../eu/global',
+    global:            '../../eu/global/global',
     jqDropdown:        '../../lib/jquery/jquery.dropdown',
-    menus:             '../../global/menus',
+    menus:             '../../global/global/menus',
     util_scrollEvents: '../../eu/util/scrollEvents'
   },
 
@@ -21,7 +21,7 @@ require(['jquery', 'global'], function( $ ) {
       e.preventDefault();
       var $tgt = $(e.target);
 
-      if($tgt[0].nodeName == 'DIV'){
+      if($tgt[0].nodeName.toUpperCase() !== 'A'){
         $tgt = $tgt.closest('a');
       }
       $tgt.toggleClass('is-checked');

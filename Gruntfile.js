@@ -66,13 +66,6 @@ module.exports = function(grunt) {
           return dest + src.replace('.markup-only', '').replace(/js_template-/g, '').replace(/.html$/, '.mustache');
         }
       },
-      global_dependencies: {
-        src:    '**',
-        cwd:    'source/js/patternlab/global',
-        dest:   'source/js/modules/global',
-        flatten: true,
-        expand:  true
-      },
       production_js_assets: {
         cwd: 'source/js/modules',
         expand:  true,
@@ -365,9 +358,6 @@ module.exports = function(grunt) {
 
     'shell:patternlab_markup',
     'copy:js_templates',
-    'shell:patternlab_markup',
-
-    'copy:global_dependencies'
-
+    'shell:patternlab_markup'
   ]);
 }
