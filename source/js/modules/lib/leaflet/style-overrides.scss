@@ -1,0 +1,39 @@
+$zoom-ctrl-size: 18px;
+
+.leaflet-container {
+
+  background: rgba(0, 0, 0, 0.15);
+
+  .leaflet-bar{
+    box-shadow:    none;
+    border-radius: 0;
+
+    a,
+    a:hover{
+      background-color: #fff;
+      border-bottom:    1px solid #ccc;
+      color:            #095F90;
+      display:          block;
+      font-size:        $zoom-ctrl-size;
+      height:           $zoom-ctrl-size;
+      line-height:      $zoom-ctrl-size;
+      opacity:          0.75;
+      text-align:       center;
+      text-decoration:  none;
+      width:            $zoom-ctrl-size;
+    }
+
+    a:hover{
+      opacity: 1;
+    }
+  }
+
+  .leaflet-bar,
+  .leaflet-touch .leaflet-bar {
+    border: 0;
+  }
+
+  .leaflet-tile-container img{
+    box-shadow: -0 0 1px rgba(0, 0, 0, 0.01);
+  }
+}

@@ -101,13 +101,9 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
           zoom : 8
         });
 
-        var imagePath = require.toUrl('').split('/');
-
+        var imagePath = require.toUrl('leaflet').split('/');
         imagePath.pop();
-        imagePath.pop();
-        imagePath.pop();
-
-        L.Icon.Default.imagePath = imagePath.join('/') + '/lib/leaflet/leaflet-1.2.0/images/';
+        L.Icon.Default.imagePath = imagePath.join('/') + '/images/';
 
         map.addLayer(new L.TileLayer(osmUrl, {
           minZoom : 4,
@@ -127,8 +123,17 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
         placeName = placeName ? placeName.toUpperCase() + ' ' : '';
 
         $('#' + mapInfoId).html(placeName + (coordLabels.length ? ' ' + coordLabels.join(', ') : ''));
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/leaflet-1.2.0/leaflet.css')           + '" type="text/css"/>');
-        $('head').append('<link rel="stylesheet" href="' + require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css') + '" type="text/css"/>');
+
+        $.each(
+          [
+            require.toUrl('leaflet') + '.css',
+            require.toUrl('leaflet_style_override_folder') + '/style-overrides.css',
+            require.toUrl('../../lib/leaflet/zoomslider/L.Control.Zoomslider.css')
+          ], function(i, cssPath){
+            $('head').append('<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>');
+          }
+        );
+
       });
     };
 
