@@ -309,36 +309,9 @@ define(['jquery', 'smartmenus'], function($){
       });
       break;
 
-    case 'ugc/index':
-      doForAllPages();
-      promisedPageJS.resolve();
-      break;
-
-
-    case 'stories/index':
-
-      // TODO delete this case
-
-      require(['ugc_index'], function(page){
-        page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
     case 'contributions/index':
       require(['ugc_index'], function(page){
         page.initPage();
-        promisedPageJS.resolve();
-        doForAllPages();
-      });
-
-      break;
-
-    case 'ugc/new':
-
-      require(['ugc'], function(){
         promisedPageJS.resolve();
         doForAllPages();
       });
@@ -358,13 +331,26 @@ define(['jquery', 'smartmenus'], function($){
         doForAllPages();
       });
       break;
+
     case 'portal/show-new':
-      require(['channels_object', 'search_form'], function(page, euSearchForm){
-        page.initPage(euSearchForm);
-        promisedPageJS.resolve(page);
-        doForAllPages();
-      });
+      var loadFromStyleguide = function(){
+        require(['channels_object', 'search_form'], function(page, euSearchForm){
+          page.initPage(euSearchForm);
+          promisedPageJS.resolve(page);
+          doForAllPages();
+        });
+      };
+
+      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
+        require(window.requirementsApplication, function(){
+          loadFromStyleguide();
+        });
+      }
+      else{
+        loadFromStyleguide();
+      }
       break;
+
     case 'portal/index':
       var loadPageJS = function(){
         require(['search_results', 'search_form'], function(page, euSearchForm){

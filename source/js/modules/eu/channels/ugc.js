@@ -405,6 +405,22 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     }
   }
 
+  function initTranslations(){
+    if((typeof window.requirementsApplication).toLowerCase() !== 'undefined'){
+      if((typeof window.requirementsApplication).toLowerCase() === 'string'){
+        require([window.requirementsApplication], function(){
+          console.log('loaded application.js');
+          $(document).trigger('external_js_loaded');
+        });
+      }
+      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
+        require(window.requirementsApplication, function(){
+          $(document).trigger('external_js_loaded');
+        });
+      }
+    }
+  }
+
   function initPage(){
 
     var $form = $(formSel);
@@ -511,6 +527,7 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
     if(typeof window.enableFormValidation !== 'undefined' && window.enableFormValidation){
       initClientSideValidation();
     }
+    initTranslations();
   }
 
   return {

@@ -27,6 +27,11 @@ define(['jquery'], function($){
   }
 
   function loadMustacheAndRender(url, model, cb){
+
+    if(window.i18nDefaultLocale && window.I18n){
+      model.i18n = window.I18n.translations[window.i18nDefaultLocale];
+    }
+
     loadMustache(url, function(template, Mustache){
       var rendered = Mustache.render(template, model ? model : {});
       cb(rendered, Mustache);
