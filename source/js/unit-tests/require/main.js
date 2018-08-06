@@ -12,7 +12,7 @@ requirejs.config({
     eu_accordion_tabs:         '../../eu/accordion_tabs/eu-accordion-tabs',
     eu_autocomplete:           '../../eu/autocomplete/eu-autocomplete',
     eu_data_continuity:        '../../eu/util/eu-data-continuity',
-    eu_global:                 '../global',
+    eu_global:                 '../eu/global/global',
     eu_light_carousel:         '../../eu/light-carousel/eu-light-carousel',
     eu_mock_ajax:              '../../eu/util/eu-mock-ajax',
     eu_title_bar:              '../../eu/title-bar/eu-title-bar',
