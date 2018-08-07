@@ -10,12 +10,12 @@ $page-bg-colour:   #ececec;
     background: $eu-very-light-gray;
     border-radius: $base-border-radius;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
-    color: $black;    
+    color: $black;
     font-size: 1.875rem;
-    font-weight: 300;    
+    font-weight: 300;
     line-height: 2.5625rem;
     margin: $spacing-2x 0;
-    
+
     .anchor-list-wrapper {
       > ul {
         display: flex;
@@ -30,24 +30,24 @@ $page-bg-colour:   #ececec;
       > ul > li {
         position: relative;
         text-align: center;
-        
+
         &.sublist::after {
           border-left: 4px solid transparent;
           border-right: 4px solid transparent;
           border-top: 4px solid $gray-light;
-          content: '';
-          height: 0; 
+          content: "";
+          height: 0;
           position: absolute;
           right: -0.5rem;
           top: 1.2rem;
-          width: 0; 
+          width: 0;
         }
 
         ul {
           background: $white;
           border: 0.5px solid $offwhite;
           border-radius: $base-border-radius;
-          box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
           display: none;
           left: 0;
           opacity: 0;
@@ -62,12 +62,11 @@ $page-bg-colour:   #ececec;
             display: none;
           }
 
-          ul {  
-            display: block; 
+          ul {
+            display: block;
             opacity: 1;
           }
-
-        }      
+        }
       }
     }
   }
@@ -83,10 +82,10 @@ $page-bg-colour:   #ececec;
         position: relative;
 
         .anchor-list-wrapper {
+          margin-right: $spacing-base;
           overflow-x: scroll;
           overflow-y: hidden;
           white-space: nowrap;
-          margin-right: $spacing-base;
 
           > ul > li {
             padding: 0 $spacing-half;
@@ -110,7 +109,7 @@ $page-bg-colour:   #ececec;
             }
 
           }
-        }        
+        }
       }
     }
   }
@@ -182,10 +181,10 @@ $page-bg-colour:   #ececec;
         position: relative;
 
         .anchor-list-wrapper {
+          margin-right: $spacing-base;
           overflow-x: scroll;
           overflow-y: hidden;
           white-space: nowrap;
-          margin-right: $spacing-base;
 
           > ul > li {
             padding: 0 $spacing-half;
@@ -205,7 +204,7 @@ $page-bg-colour:   #ececec;
                 left: auto;
                 top: -0.3rem;
               }
-            }            
+            }
           }
         }
       }
