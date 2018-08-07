@@ -23,7 +23,7 @@ define(['jquery'], function($){
     });
   }
 
-  function initScrollToAnchor() { 
+  function initScrollToAnchor() {
     $('.anchor-list a').each(function() {
       $(this).on('click', function(e) {
         e.preventDefault();
