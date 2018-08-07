@@ -31,11 +31,13 @@ define(['jquery'], function($){
           if ($(this).parent('.sublist').hasClass('sublist-open')) {
             scrollToAnchor($(this));
             $(this).parent('.sublist').removeClass('sublist-open');
-          } else {
+          }
+          else{
             $('.anchor-list li').removeClass('sublist-open');
             $(this).parent('.sublist').addClass('sublist-open');
           }
-        } else {
+        }
+        else{
           scrollToAnchor($(this));
         }
       });
