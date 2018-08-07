@@ -35,3 +35,40 @@
 .leaflet-container .leaflet-tile-container img {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
 }
+/* line 40, style-overrides.scss */
+.leaflet-container .leaflet-control-zoomslider a,
+.leaflet-container .leaflet-control-zoomslider a:hover {
+  background: transparent;
+  border-bottom: 0;
+  display: block;
+  height: 30px;
+  margin-bottom: -8px;
+  padding-top: 6px;
+  text-align: center;
+  width: 30px;
+}
+/* line 52, style-overrides.scss */
+.leaflet-container .leaflet-control-zoomslider a.leaflet-control-zoomslider-disabled {
+  cursor: default;
+  color: #bbb;
+}
+/* line 60, style-overrides.scss */
+.leaflet-container .leaflet-bar a:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+/* line 65, style-overrides.scss */
+.leaflet-container .leaflet-control-zoomslider-body {
+  background-color: #1A8AC7;
+  border: none;
+  border-width: 0px 9px 0px 9px;
+  width: 2px;
+}
+/* line 72, style-overrides.scss */
+.leaflet-container .leaflet-control-zoomslider-knob {
+  border: none;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background-color: #1A8AC7;
+}
