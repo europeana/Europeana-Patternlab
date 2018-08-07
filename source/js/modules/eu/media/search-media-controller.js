@@ -83,7 +83,7 @@ define(['jquery'], function($) {
   function mediaClosed(evt, data){
     $('.media-viewer').removeClass('active');
     $('.media-viewer .multi-item-poster').removeClass('is-hidden');
-    if(data.type=='image'){
+    if(data.type === 'image'){
       // update poster & tech metadata
       $(window).trigger('updateTechData',
         {
@@ -107,7 +107,7 @@ define(['jquery'], function($) {
     $('.media-viewer').addClass('active');
 
     // trigger resize of arrows
-    if(data.type != 'image'){
+    if(data.type !== 'image'){
       $('.media-viewer').trigger({'type': 'refresh-nav-carousel'});
     }
   }
@@ -306,7 +306,7 @@ define(['jquery'], function($) {
 
     $(listItemSelector).each(function(i, ob){
       var item = $(ob);
-      if(item.data('uri')==uri){
+      if(item.data('uri') === uri){
         item.click();
         return false;
       }
@@ -327,5 +327,28 @@ define(['jquery'], function($) {
 
   $(listSelector).on('click', 'a', handleListItemSelectorClick);
   $(singleItemSelector).on('click', handleListItemSelectorClick);
+
+  var audioMarkup = $('.object-media-audio').html();
+
+  if(audioMarkup.length > 0){
+    require(['util_mustache_loader'], function(EuMustacheLoader){
+      EuMustacheLoader.loadMustache('media-audio/media-audio', function(html){
+        $('.object-media-audio').after(html).remove();
+        $('.object-media-audio').addClass('is-hidden');
+      });
+    });
+  }
+
+  var videoMarkup = $('.object-media-video').html();
+
+  if(videoMarkup.length > 0){
+    require(['util_mustache_loader'], function(EuMustacheLoader){
+      EuMustacheLoader.loadMustache('media-video/media-video', function(html){
+        $('.object-media-video').after(html).remove();
+        $('.object-media-video').addClass('is-hidden');
+      });
+    });
+  }
+
 
 });
