@@ -50,15 +50,14 @@ $page-bg-colour:   #ececec;
           box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
           display: none;
           left: 0;
-          opacity: 0.5;
+          opacity: 0;
           padding: $spacing-half / 2;
           position: absolute;
           top: -0.3rem;
           transition: all 0.2s;
-          width: 100%;
         }
 
-        &.sublist:hover {
+        &.sublist.sublist-open {
           &::after {
             display: none;
           }
@@ -93,7 +92,7 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
             position: relative;
 
-            &.sublist:hover {
+            &.sublist.sublist-open {
               position: static;
 
               ul {
@@ -162,7 +161,7 @@ $page-bg-colour:   #ececec;
           top: 1.4rem;
         }
 
-        &.sublist:hover {
+        &.sublist.sublist-open {
           ul {
             top: -0.25rem;
           }
@@ -180,6 +179,8 @@ $page-bg-colour:   #ececec;
 
     @media all and (max-width: $bp-large) {
       .anchor-list {
+        position: relative;
+
         .anchor-list-wrapper {
           overflow-x: scroll;
           overflow-y: hidden;
@@ -192,11 +193,23 @@ $page-bg-colour:   #ececec;
             &.sublist::after {
               right: -0.1rem;
             }
+
+            &.sublist ul {
+              width: auto;
+            }
+
+            &.sublist.sublist-open {
+              position: static;
+
+              ul {
+                left: auto;
+                top: -0.3rem;
+              }
+            }            
           }
         }
       }
     }
-
   }
 
   .header-wrapper > .title-bar {
