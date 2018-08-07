@@ -11,10 +11,107 @@ $page-bg-colour:   #ececec;
     border-radius: $base-border-radius;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
     color: $black;
-    display: flex;
-    justify-content: space-between;
+    font-size: 1.875rem;
+    font-weight: 300;
+    line-height: 2.5625rem;
     margin: $spacing-2x 0;
-    padding: $spacing-1-75x;
+
+    .anchor-list-wrapper {
+      > ul {
+        display: flex;
+        justify-content: space-between;
+        padding: $spacing-base;
+      }
+
+      a {
+        color: $black;
+      }
+
+      > ul > li {
+        position: relative;
+        text-align: center;
+
+        &.sublist::after {
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top: 4px solid $gray-light;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: -0.5rem;
+          top: 1.2rem;
+          width: 0;
+        }
+
+        ul {
+          background: $white;
+          border: 0.5px solid $offwhite;
+          border-radius: $base-border-radius;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+          display: none;
+          left: 0;
+          opacity: 0;
+          padding: $spacing-half / 2;
+          position: absolute;
+          top: -0.3rem;
+          transition: all 0.2s;
+        }
+
+        &.sublist.sublist-open {
+          &::after {
+            display: none;
+          }
+
+          ul {
+            display: block;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: $bp-large) {
+    .grid-anchor-list {
+      grid-column-end: full;
+      grid-column-start: main-start;
+
+      .anchor-list {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        position: relative;
+
+        .anchor-list-wrapper {
+          margin-right: $spacing-base;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          white-space: nowrap;
+
+          > ul > li {
+            padding: 0 $spacing-half;
+            position: relative;
+
+            &.sublist.sublist-open {
+              position: static;
+
+              ul {
+                left: auto;
+                top: 0.75rem;
+              }
+            }
+
+            &.sublist::after {
+              right: -0.2rem;
+            }
+
+            ul {
+              width: auto;
+            }
+
+          }
+        }
+      }
+    }
   }
 
   .browse-list-title {
@@ -39,17 +136,78 @@ $page-bg-colour:   #ececec;
   }
 
   .title-bar {
-    -webkit-transition: height 0.3s ease-out;
     transition: height 0.3s ease-out;
-
     width: 100%;
 
     &.show {
       height: 75px;
+      overflow: visible;
     }
 
     .anchor-list {
+      font-size: 1.375rem;
       margin: 0;
+
+      ul {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+
+      .anchor-list-wrapper > ul > li {
+
+        &.sublist::after {
+          right: -0.5rem;
+          top: 1.4rem;
+        }
+
+        &.sublist.sublist-open {
+          ul {
+            top: -0.25rem;
+          }
+        }
+
+        ul li:not(:first-child) {
+          line-height: 2.25rem;
+        }
+      }
+    }
+
+    &.show .anchor-list {
+      box-shadow: none;
+    }
+
+    @media all and (max-width: $bp-large) {
+      .anchor-list {
+        position: relative;
+
+        .anchor-list-wrapper {
+          margin-right: $spacing-base;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          white-space: nowrap;
+
+          > ul > li {
+            padding: 0 $spacing-half;
+
+            &.sublist::after {
+              right: -0.1rem;
+            }
+
+            &.sublist ul {
+              width: auto;
+            }
+
+            &.sublist.sublist-open {
+              position: static;
+
+              ul {
+                left: auto;
+                top: -0.3rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -62,13 +220,13 @@ $page-bg-colour:   #ececec;
       opacity: 1;
     }
 
-    .anchor-list{
-      align-items:      center;
-      background-color: #fff;
-      border-radius:    0;
-      height:           100%;
+    .anchor-list {
+      align-items: center;
+      background-color: $white;
+      border-radius: 0;
+      height: 100%;
 
-      a{
+      a {
         line-height: $height-drop-down;
       }
     }

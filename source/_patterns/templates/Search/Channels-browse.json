@@ -226,7 +226,12 @@
       },
       {
         "head":{
-          "pref_label": "C"
+          "pref_label": "C",
+          "alt_labels": [
+            "Č",
+            "Ç",
+            "Ć"
+          ]
         },
         "foot":{
           "link":{

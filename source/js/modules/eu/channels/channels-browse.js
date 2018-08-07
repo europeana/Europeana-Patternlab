@@ -18,7 +18,36 @@ define(['jquery'], function($){
         titleBar.test();
       });
 
+      initScrollToAnchor();
+
     });
+  }
+
+  function initScrollToAnchor() {
+    $('.anchor-list a').each(function() {
+      $(this).on('click', function(e) {
+        e.preventDefault();
+        if ($(this).parent('.sublist').length > 0) {
+          if ($(this).parent('.sublist').hasClass('sublist-open')) {
+            scrollToAnchor($(this));
+            $(this).parent('.sublist').removeClass('sublist-open');
+          }
+          else{
+            $('.anchor-list li').removeClass('sublist-open');
+            $(this).parent('.sublist').addClass('sublist-open');
+          }
+        }
+        else{
+          scrollToAnchor($(this));
+        }
+      });
+    });
+  }
+
+  function scrollToAnchor(el) {
+    $('html, body').animate({
+      scrollTop: $(el.attr('href')).offset().top
+    }, 1000);
   }
 
   function initEllipsis(){
