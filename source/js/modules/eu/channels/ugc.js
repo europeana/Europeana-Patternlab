@@ -406,18 +406,13 @@ define(['jquery', 'util_form', 'util_resize'], function($, EuFormUtils){
   }
 
   function initTranslations(){
-    if((typeof window.requirementsApplication).toLowerCase() !== 'undefined'){
-      if((typeof window.requirementsApplication).toLowerCase() === 'string'){
-        require([window.requirementsApplication], function(){
-          console.log('loaded application.js');
+
+    if((typeof window.requirementsApplication).toLowerCase() === 'object'){
+      require([window.requirementsApplication[0]], function(){
+        require([window.requirementsApplication[1]], function(){
           $(document).trigger('external_js_loaded');
         });
-      }
-      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
-        require(window.requirementsApplication, function(){
-          $(document).trigger('external_js_loaded');
-        });
-      }
+      });
     }
   }
 
