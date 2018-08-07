@@ -109,23 +109,6 @@ define(['jquery', 'smartmenus'], function($){
     }
 
     initFeedback();
-
-    if((typeof window.requirementsApplication).toLowerCase() !== 'undefined'){
-      if((typeof window.requirementsApplication).toLowerCase() === 'string'){
-        console.log('load extra: ' + window.requirementsApplication);
-        require([window.requirementsApplication], function(){
-          console.log('loaded application.js');
-          $(document).trigger('external_js_loaded');
-        });
-      }
-      if((typeof window.requirementsApplication).toLowerCase() === 'object'){
-        console.log('load extra:\n' + JSON.stringify(window.requirementsApplication, null, 4));
-        requireSynchronously(window.requirementsApplication, function(){
-          $(document).trigger('external_js_loaded');
-        });
-      }
-    }
-
   };
 
   if(typeof pageName === 'undefined' || !pageName){
@@ -342,8 +325,10 @@ define(['jquery', 'smartmenus'], function($){
       };
 
       if((typeof window.requirementsApplication).toLowerCase() === 'object'){
-        require(window.requirementsApplication, function(){
-          loadFromStyleguide();
+        require([window.requirementsApplication[0]], function(){
+          require([window.requirementsApplication[1]], function(){
+            loadFromStyleguide();
+          });
         });
       }
       else{
