@@ -30,8 +30,7 @@ $page-bg-colour:   #ececec;
       > ul > li {
         position: relative;
         text-align: center;
-        width: 2rem;
-    
+        
         &.sublist::after {
           border-left: 4px solid transparent;
           border-right: 4px solid transparent;
@@ -39,8 +38,8 @@ $page-bg-colour:   #ececec;
           content: '';
           height: 0; 
           position: absolute;
-          right: -0.6rem;
-          top: $spacing-base;
+          right: -0.5rem;
+          top: 1.2rem;
           width: 0; 
         }
 
@@ -49,9 +48,9 @@ $page-bg-colour:   #ececec;
           border: 0.5px solid $offwhite;
           border-radius: $base-border-radius;
           box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
-          display: block;
-          left: 0.2rem;
-          opacity: 0;
+          display: none;
+          left: 0;
+          opacity: 0.5;
           padding: $spacing-half / 2;
           position: absolute;
           top: -0.3rem;
@@ -59,18 +58,13 @@ $page-bg-colour:   #ececec;
           width: 100%;
         }
 
-        &.sublist ul {
-          padding-right: $spacing-base;
-        }
-
-        &:hover {
-          &.sublist::after {
+        &.sublist:hover {
+          &::after {
             display: none;
           }
 
           ul {  
             display: block; 
-            left: 0;
             opacity: 1;
           }
 
@@ -99,9 +93,23 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
             position: relative;
 
-            ul {
-              left: auto;
+            &.sublist:hover {
+              position: static;
+
+              ul {
+                left: auto;
+                top: 0.75rem;
+              }
             }
+
+            &.sublist::after {
+              right: -0.2rem;
+            }
+
+            ul {
+              width: auto;
+            }
+
           }
         }        
       }
@@ -130,7 +138,6 @@ $page-bg-colour:   #ececec;
   }
 
   .title-bar {
-    -webkit-transition: height 0.3s ease-out;
     transition: height 0.3s ease-out;
     width: 100%;
 
@@ -148,20 +155,21 @@ $page-bg-colour:   #ececec;
         padding-top: 0;
       }
 
-      > ul > li {
+      .anchor-list-wrapper > ul > li {
 
-        .sublist::after {
-          right: -0.3rem;
-          top: 1.2rem;
+        &.sublist::after {
+          right: -0.5rem;
+          top: 1.4rem;
         }
 
-        ul {
-          left: 0.3rem;
-          top: 0;
-
-          li:not(:first-child) {
-            line-height: 2.25rem;
+        &.sublist:hover {
+          ul {
+            top: -0.25rem;
           }
+        }
+
+        ul li:not(:first-child) {
+          line-height: 2.25rem;
         }
       }
     }
@@ -179,7 +187,11 @@ $page-bg-colour:   #ececec;
           margin-right: $spacing-base;
 
           > ul > li {
-            padding: 0 $spacing-half
+            padding: 0 $spacing-half;
+
+            &.sublist::after {
+              right: -0.1rem;
+            }
           }
         }
       }
@@ -196,11 +208,11 @@ $page-bg-colour:   #ececec;
       opacity: 1;
     }
 
-    .anchor-list{
-      align-items:      center;
-      background-color: #fff;
-      border-radius:    0;
-      height:           100%;
+    .anchor-list {
+      align-items: center;
+      background-color: $white;
+      border-radius: 0;
+      height: 100%;
 
       a {
         line-height: $height-drop-down;
