@@ -328,7 +328,7 @@ define(['jquery'], function($) {
   $(listSelector).on('click', 'a', handleListItemSelectorClick);
   $(singleItemSelector).on('click', handleListItemSelectorClick);
 
-  var audioMarkup = $('.object-media-audio').html();
+  var audioMarkup = $('.object-media-audio');
 
   if(audioMarkup.length > 0){
     require(['util_mustache_loader'], function(EuMustacheLoader){
@@ -339,7 +339,7 @@ define(['jquery'], function($) {
     });
   }
 
-  var videoMarkup = $('.object-media-video').html();
+  var videoMarkup = $('.object-media-video');
 
   if(videoMarkup.length > 0){
     require(['util_mustache_loader'], function(EuMustacheLoader){
