@@ -33,6 +33,7 @@ requirejs.config({
     menus:                     '../../eu/global/menus',
     mustache:                  '../../lib/mustache/mustache',
     purl:                      '../../lib/purl/purl',
+    util_cho_map:              '../../eu/util/cho-map',
     util_ellipsis:             '../../eu/util/eu-ellipsis',
     util_foldable:             '../../eu/util/foldable-list',
     util_filterable:           '../../eu/util/foldable-list-filter',
