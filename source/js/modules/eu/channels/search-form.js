@@ -65,9 +65,7 @@ define(['jquery', 'util_resize'], function ($){
     require([processor], function(AutocompleteProcessor){
       require(['eu_autocomplete', 'util_mustache_loader', 'util_resize'], function(Autocomplete, EuMustacheLoader){
 
-        var url = '/autocomplete-entity-item/autocomplete-entity-item';
-
-        EuMustacheLoader.loadMustache(url, function(itemTemplateText){
+        EuMustacheLoader.loadMustache('autocomplete-entity-item/autocomplete-entity-item', function(itemTemplateText){
 
           var languages        = (typeof window.i18nLocale === 'string' && typeof window.i18nDefaultLocale === 'string') ? [window.i18nLocale, window.i18nDefaultLocale, ''] : typeof window.i18nLocale === 'string' ? [window.i18nLocale] :['en', ''];
           var narrowMode       = ['collections/show', 'portal/show', 'entities/show'].indexOf(pageName) > -1 && $('.item-search-input').length > 0;
