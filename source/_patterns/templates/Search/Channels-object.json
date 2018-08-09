@@ -94,6 +94,12 @@
               "europeana_entity": false
             },
             {
+              "text": "Testing long names: Agency of Internal Police and Supervision of the State of Dikes",
+              "url": "javascript:alert('Raphael');",
+              "json_url": "depiction?index=1",
+              "europeana_entity": true
+            },
+            {
               "text": "Johannes Vermeer",
               "url": "javascript:alert('vermeer');",
               "json_url": "depiction?index=0",
@@ -105,6 +111,12 @@
               "json_url": "depiction?index=1",
               "europeana_entity": true
             },
+            {
+              "text": "Michael",
+              "url": "javascript:alert('Raphael');",
+              "json_url": "depiction?index=1",
+              "europeana_entity": true
+            },           
             {
               "text": "Agency of Internal Police and Supervision of the State of Dikes",
               "url": false,
