@@ -656,9 +656,8 @@
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "4.21",
-          "latitude": "52.0",
-
+          "longitude":"'10.75128; 15.0; 10.0'",
+          "latitude":"'60.37888; 62.0; 62.0'",
           "labels":
           {
             "map": "Map",
@@ -681,27 +680,27 @@
         "pinterest": true,
         "googleplus": true,
         "tumblr": true
-      },
-      "suggestions": {
-        "tab_items": [
-          {
-            "tab_title": "From Johannes Vermeer",
-            "url":       "portal_suggestions?from=vermeer"
-          },
-          {
-            "tab_title": "From Rijksmuseum",
-            "url":       "portal_suggestions?from=rijks"
-          },
-          {
-            "tab_title": "From the blog",
-            "url":       "portal_suggestions?from=blog"
-          },
-          {
-            "tab_title": "From elsewhere",
-            "url":       "portal_suggestions?from=elsewhere"
-          }
-        ]
       }
+    },
+    "suggestions": {
+      "tab_items": [
+        {
+          "tab_title": "From Johannes Vermeer",
+          "url":       "portal_suggestions?from=vermeer"
+        },
+        {
+          "tab_title": "From Rijksmuseum",
+          "url":       "portal_suggestions?from=rijks"
+        },
+        {
+          "tab_title": "From the blog",
+          "url":       "portal_suggestions?from=blog"
+        },
+        {
+          "tab_title": "From elsewhere",
+          "url":       "portal_suggestions?from=elsewhere"
+        }
+      ]
     },
     "named_entities": {
       "XXXfold_title": "Named Entities",
