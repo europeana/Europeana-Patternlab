@@ -644,9 +644,8 @@
         "geo":
         {
           "long_and_lat": true,
-          "longitude": "4.21",
-          "latitude": "52.0",
-
+          "longitude":"'10.75128; 15.0; 10.0'",
+          "latitude":"'60.37888; 62.0; 62.0'",
           "labels":
           {
             "map": "Map",
