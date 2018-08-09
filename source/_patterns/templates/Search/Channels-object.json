@@ -668,27 +668,27 @@
         "pinterest": true,
         "googleplus": true,
         "tumblr": true
-      },
-      "suggestions": {
-        "tab_items": [
-          {
-            "tab_title": "From Johannes Vermeer",
-            "url":       "portal_suggestions?from=vermeer"
-          },
-          {
-            "tab_title": "From Rijksmuseum",
-            "url":       "portal_suggestions?from=rijks"
-          },
-          {
-            "tab_title": "From the blog",
-            "url":       "portal_suggestions?from=blog"
-          },
-          {
-            "tab_title": "From elsewhere",
-            "url":       "portal_suggestions?from=elsewhere"
-          }
-        ]
       }
+    },
+    "suggestions": {
+      "tab_items": [
+        {
+          "tab_title": "From Johannes Vermeer",
+          "url":       "portal_suggestions?from=vermeer"
+        },
+        {
+          "tab_title": "From Rijksmuseum",
+          "url":       "portal_suggestions?from=rijks"
+        },
+        {
+          "tab_title": "From the blog",
+          "url":       "portal_suggestions?from=blog"
+        },
+        {
+          "tab_title": "From elsewhere",
+          "url":       "portal_suggestions?from=elsewhere"
+        }
+      ]
     },
     "named_entities": {
       "XXXfold_title": "Named Entities",

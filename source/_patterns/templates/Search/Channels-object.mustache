@@ -448,9 +448,9 @@
 
       {{! end object actions }}
 
-      {{#object.suggestions}}
+      {{#suggestions}}
         <div class="channel-object-similar">
-          <h2 class="channel-object-title">[More Suggestions]</h2>
+          <h2 class="channel-object-title">{{i18n.site.object.similar-suggestions}}</h2>
           <div class="suggestions-section">
             <div class="display-grid">
               <div class="slide-rail" style="position: relative;">
@@ -468,7 +468,7 @@
             </div>
           </div>
         </div>
-      {{/object.suggestions}}
+      {{/suggestions}}
     </section>
   {{/content}}
 </div>
