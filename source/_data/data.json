@@ -727,6 +727,7 @@
             },
             "news": "News",
             "object": {
+                "similar-suggestions": "Suggested content",
                 "actions": {
                     "annotate": "Annotate",
                     "collapse-extended": "collapse extended information",
