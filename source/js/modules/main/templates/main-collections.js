@@ -120,6 +120,7 @@ require.config({
     //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
     pinterest:                     '../../lib/pinterest/pinit_main',
 
+    util_cho_map:                  '../../eu/util/cho-map',
     util_ellipsis:                 '../../eu/util/ellipsis',
     util_eu_ellipsis:              '../../eu/util/eu-ellipsis',
 
