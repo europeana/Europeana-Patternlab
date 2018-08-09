@@ -386,9 +386,7 @@
                          id="scroll-trigger-map"
                          data-enabled="true"
                          data-fire-on-open="showMap"
-                         data-fire-on-open-params='{
-                           "longitude":{{geo.longitude}}, "latitude": {{geo.latitude}}, "labels": { "n":"{{geo.labels.points.n}}", "s":"{{geo.labels.points.s}}", "e":"{{geo.labels.points.e}}", "w":"{{geo.labels.points.w}}" }
-                         }'
+                         data-fire-on-open-params="{'longitude': {{geo.longitude}}, 'latitude': {{geo.latitude}}, 'labels': { 'longitude': 'Longitude', 'latitude': 'latitude', 'n':'{{geo.labels.points.n}}', 's': '{{geo.labels.points.s}}', 'e': '{{geo.labels.points.e}}', 'w': '{{geo.labels.points.w}}' }}"
                         ></a>
                       <span id="js-map-place-name" class="is-hidden">{{geo.placeName}}</span>
                       <a id="map" style="bottom:4.8em; position: relative;"></a>

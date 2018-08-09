@@ -99,6 +99,21 @@ define(['jquery', 'leaflet'], function($, L){
 
   function loadMap(data){
 
+    if(!data){
+      return false;
+    }
+
+    if(typeof data === 'string'){
+      data = data.replace(/\'/g, '"');
+      try{
+        data = JSON.parse(data);
+      }
+      catch(e){
+        console.log('unparseable geo data:\n\t' + data);
+        return false;
+      }
+    }
+
     if(!data.longitude || !data.latitude){
       return false;
     }
