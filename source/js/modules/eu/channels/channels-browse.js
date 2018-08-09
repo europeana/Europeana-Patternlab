@@ -38,6 +38,7 @@ define(['jquery'], function($){
           }
         }
         else{
+          $('.anchor-list li').removeClass('sublist-open');
           scrollToAnchor($(this));
         }
       });
