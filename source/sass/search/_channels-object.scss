@@ -5,17 +5,17 @@
 @import "channels-object-variables";
 
 .non-eu-entities {
-  color: $gray-med; 
+  color: $gray-med;
   line-height: 1.375;
   text-align: right;
-  
+
   @media all and (min-width: $bp-xl) {
     margin-left: calc(400px + 2rem);
     width: calc(100% - (400px + 2rem));
   }
 
   h5 {
-    color: $gray-light; 
+    color: $gray-light;
     font-size: $font-size-sm;
     font-weight: normal;
     margin-bottom: $spacing-base;
@@ -184,8 +184,8 @@
   }
 
   .channel-media-wrap  {
-    position: relative;
     border-radius: $base-border-radius;
+    position: relative;
   }
 
   .channel-object-information,
