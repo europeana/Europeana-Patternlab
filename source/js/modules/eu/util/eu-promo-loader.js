@@ -1,5 +1,31 @@
 define(['jquery'], function($){
 
+  var mappingFunctions = {
+    fnBlogToGeneric : function(dataIn){
+      if(!dataIn.data || !dataIn.data.length){
+        return;
+      }
+      data = dataIn.data[0];
+
+      var data = {
+        'url': data.links.self.replace('/json', ''),
+        'img': {
+          'src': data.attributes.image ? data.attributes.image.thumbnail : false
+        },
+        'title': data.attributes.teaser_attribution_title,
+        'type': data.attributes.posttype.toLowerCase(),
+        'date': data.attributes.datepublish.split('T')[0],
+        'label': 'Blog',
+        'attribution': data.attributes.image_attribution_holder,
+        'excerpt': {
+          'short': data.attributes.body
+        },
+        'tags': false
+      };
+      return data;
+    }
+  };
+
   function load(conf, $templateMarkup, callback){
 
     var expected   = conf ? conf.length : 0;
@@ -15,7 +41,14 @@ define(['jquery'], function($){
     var elements   = {};
     var markup     = $('<div></div>');
 
-    var processCallback = function(Mustache, data, templateId, id){
+    var processCallback = function(Mustache, data, confItem){
+
+      var templateId = confItem.templateId;
+      var id         = confItem.id;
+
+      if(confItem.mapping){
+        data = confItem.mapping(data);
+      }
 
       var template = $templateMarkup.find('#' + templateId).html();
 
@@ -53,7 +86,7 @@ define(['jquery'], function($){
 
           var sequence = $.map(conf, function(c){
             return c.id;
-          });
+          }).filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 
           $(sequence).each(function(){
             var key = this;
@@ -71,13 +104,13 @@ define(['jquery'], function($){
       $.each(conf, function(i, confItem){
 
         if(confItem.preloaded){
-          processCallback(Mustache, confItem.preloaded, confItem.templateId, confItem.id, confItem.multi);
+          processCallback(Mustache, confItem.preloaded, confItem);
           returned ++;
           checkDone();
         }
         else if(confItem.url){
           $.getJSON(confItem.url).done(function(data){
-            processCallback(Mustache, data, confItem.templateId, confItem.id, confItem.multi);
+            processCallback(Mustache, data, confItem);
             returned ++;
             checkDone();
           }).error(function(){
@@ -94,6 +127,9 @@ define(['jquery'], function($){
   }
 
   return {
-    load: load
+    load: load,
+    getMappingFunctions: function(){
+      return mappingFunctions;
+    }
   };
 });

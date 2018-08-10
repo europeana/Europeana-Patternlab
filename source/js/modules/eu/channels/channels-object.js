@@ -1298,6 +1298,14 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         });
       }
 
+      var recordId = $('.search-object').attr('recordId');
+
+      if(recordId){
+        var promoUrl = 'https://pro.europeana.eu/json/posts?page%5Bsize%5D=6&sort=-datepublish&contains[image_attribution_link]=' + recordId;
+        var conf     = { id: 'blog', templateId: promoTemplates.generic, url: promoUrl, mapping: PromoLoader.getMappingFunctions()['fnBlogToGeneric'] };
+        promoConf.push(conf);
+      }
+
       if(nextItem){
         nextItem.is_next = true;
         promoConf.unshift({
