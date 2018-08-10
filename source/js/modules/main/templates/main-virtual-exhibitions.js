@@ -16,7 +16,8 @@ require.config({
     jquery:                 '../../lib/jquery/jquery',
     jqDropdown:             '../../lib/jquery/jquery.dropdown',
     jqScrollto:             '../../lib/jquery/jquery.scrollTo',
-    menus:                  '../../global/menus',
+    menus:                  '../../eu/global/menus',
+
     photoswipe:             '../../lib/photoswipe/photoswipe',
     photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',
     pinterest:              '../../lib/pinterest/pinit_main',
