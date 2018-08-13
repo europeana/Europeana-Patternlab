@@ -1295,17 +1295,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          var conf = { id: promo.id, templateId: promoTemplates[promo.id], url: promo.url };
+          var mapping = promo.id === 'blog' ? PromoLoader.getMappingFunctions()['fnBlogToGeneric'] : null;
+          var tempId  = promo.id === 'blog' ? 'generic' : promo.id;
+          var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
         });
-      }
-
-      var recordId = $('.search-object').data('record-id');
-
-      if(recordId){
-        var promoUrl = 'https://pro.europeana.eu/json/posts?page%5Bsize%5D=6&sort=-datepublish&contains[image_attribution_link]=' + recordId;
-        var conf     = { id: 'blog', templateId: promoTemplates.generic, url: promoUrl, mapping: PromoLoader.getMappingFunctions()['fnBlogToGeneric'] };
-        promoConf.push(conf);
       }
 
       if(nextItem){
