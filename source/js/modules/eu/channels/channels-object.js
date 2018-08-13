@@ -195,6 +195,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         var sectionId = ob.data('section-id');
         if(prefs.indexOf(sectionId) > -1){
           $(ob).addClass('closed');
+          $(ob).find('.subsection-content').slideToggle(0);
         }
         else{
           $(ob).removeClass('closed');
@@ -263,6 +264,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         else{
           el.addClass('closed');
         }
+        el.find('.subsection-content').slideToggle(300);
         writeUserPrefs();
         checkAllClosed();
       });
