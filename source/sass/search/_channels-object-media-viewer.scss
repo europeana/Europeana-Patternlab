@@ -7,7 +7,7 @@
   }
 
   .channel-media-wrap{
-    color: $gray-light;
+    color: $gray-light; 
     padding: $spacing-base;
 
     .channel-object-title {
@@ -51,6 +51,10 @@
 
     .channel-object-description {
       margin-bottom: $spacing-base;
+
+      p:last-child {
+        margin-bottom: $spacing-base;
+      }
     }
 
     .object-media-viewer {
