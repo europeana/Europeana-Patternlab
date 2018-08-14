@@ -1,0 +1,38 @@
+<div class="action-modal modal-download js-hidden">
+  <div class="modal-content">
+    <div class="modal-action centred">
+      <span class="label">
+          [[i18n.global.actions.downloading]]
+          <span class="label-small">You can click <a download="Europeana-Media" href="[[data-download-uri]]">here</a> to try again</span>
+        </span>
+    </div>
+
+    <div class="action-modal-section padded">
+      <span class="file"><span class="file-type">[[data-mime-type-brief]]</span></span>
+      <ul>
+        <li><span class="file-info-field"><span class="file-info-field-label">format</span> [[data-format]]</span></li>
+        <li><span class="file-info-field"><span class="file-info-field-label">[[i18n.site.object.meta-label.file-size]]</span> [[data-file-size]] [[data-file-unit]]</span></li>
+      </ul>
+    </div>
+
+    <div class="action-modal-section padded">
+      <span class="attribution-heading">Show your appreciation. Copy to attribute.</span>
+      <input class="attribution-field" value="[[data-attribution-plain]]">
+    </div>
+
+    [[#has_other_formats]]
+      <div class="action-modal-section centred padded">
+        <span class="action-modal-subheading">other formats</span>
+        <ul>
+          [[#formats]]
+            <li><a href="[[url]]">[[text]]</a></li>
+          [[/formats]]
+        </ul>
+      </div>
+    [[/has_other_formats]]
+
+    <a class="media-modal-close">
+      <span class="label"></span>
+    </a>
+  </div>
+</div>

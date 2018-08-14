@@ -1,0 +1,165 @@
+<div id="template-promo-exhibition">
+  [[#exhibition_promo]]
+    <div class="collections-promo-item exhibition">
+      <div class="content-outer">
+        <div class="content-inner">
+          <div class="content-outer">
+            <div class="content-inner">
+              <figure class="ve-foyer-card dark">
+              
+                [[#state_1_label]]<span class="ve-label">[[.]]</span>[[/state_1_label]]
+              
+                <div class="ve-foyer-card-content">
+              
+                  <div class="inner">
+              
+                    <span class="ve-card-nav ve-card-nav-left">
+                      <span class="svg-icon-previous blue-black"></span>
+                      <span class="is-vishidden">[[i18n.global.actions.previous]]</span>
+                    </span>
+                    <span class="ve-card-nav ve-card-nav-right">
+                      <span class="svg-icon-next blue-black"></span>
+                      <span class="is-vishidden">[[i18n.global.actions.next]]</span>
+                    </span>
+              
+                    <div class="ve-state-buttons">
+                      <span class="ve-state-0 ve-state-button-on"></span>
+                      <span class="ve-state-1 ve-state-button-off"></span>
+                      <span class="ve-state-2 ve-state-button-off"></span>
+                    </div>
+              
+                    <div class="ve-foyer-card-state">
+                      <img src="[[state_1_image.thumbnail.url]]"/>
+                      [[#state_1_title]]
+                        <div class="text-box title">
+                        [[#url]]
+                          <a href="[[url]]">[[state_1_title]]</a>
+                        [[/url]]
+                        [[^url]]
+                          [[state_1_title]]
+                        [[/url]]
+                        </div>
+                      [[/state_1_title]]
+                    </div>
+              
+                    <div class="ve-foyer-card-state hide-right[[#state_2_body]] shaded[[/state_2_body]]">
+                      <img src="[[state_2_image.thumbnail.url]]"/>
+                      [[#state_2_body]]
+                        <div class="text-box description">
+                        [[#url]]
+                          <a href="[[url]]">[[[state_2_body]]]</a>
+                        [[/url]]
+                        [[^url]]
+                          [[state_2_body]]
+                        [[/url]]
+                        </div>
+                      [[/state_2_body]]
+                    </div>
+              
+                    <div class="ve-foyer-card-state hide-right">
+                      <img src="[[state_3_image.thumbnail.url]]"/>
+                        <div class="text-box credits">
+                        [[#url]]
+                          <a href="[[url]]"><img src="[[state_3_logo.thumbnail.url]]"/></a>
+                        [[/url]]
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              
+              </figure>
+            </div>
+          </div>
+          <div class="content-text">
+            <div class="content-text-inner[[^date]][[^attribution]][[^type]] no-date-and-type[[/type]][[/attribution]][[/date]][[#tags]] has-tags[[/tags]][[#title]] has-title[[/title]][[#excerpt]][[#short]] has-text[[/short]][[/excerpt]]">
+          
+              [[#title]]
+          
+          
+                <div class="content-text-upper">
+                  <div class="promo-title-wrap">
+                    <div class="promo-title[[#icon]] with-icon[[/icon]][[#tags]] has-tags-after[[/tags]][[#relation]] has-relation-after[[/relation]]">
+                      [[#url]]<a href="[[.]]">[[/url]][[.]][[#url]]</a>[[/url]]
+                    </div>
+                    [[#icon]]
+                        <span class="icon icon-[[.]]"></span>
+                    [[/icon]]
+                  </div>
+          
+                  [[#tags]]
+                    <ul class="promo-tags">
+                      [[#items]]
+                        <li>
+                          [[#url]]<a class="promo-tag-link" href="[[.]]">[[/url]]#[[text]][[#url]]</a>[[/url]]
+                        </li>
+                      [[/items]]
+                    </ul>
+                  [[/tags]]
+          
+                </div>
+              [[/title]]
+          
+              [[#excerpt]]
+                [[#short]]
+                  <div class="text-main[[^relation]] no-relation[[/relation]]">[[[ . ]]]</div>
+                [[/short]]
+              [[/excerpt]]
+          
+              <div class="text-footer">
+                [[#overlay]]
+                  <div class="collections-promo-overlay">
+                    <div class="collections-promo-overlay-inner">
+                      [[#img]]
+                        <div class="channel-object-viewmore">
+                          <span class="viewmore-image" style="background-image: url('[[.]]');"></span>
+                        </div>
+                      [[/img]]
+                      [[#title]]
+                         <span class="title">
+                           [[.]]
+                         </span>
+                      [[/title]]
+                      [[#description]]
+                        [[.]]
+                      [[/description]]
+                      <span class="links">
+                        [[#link_related]]
+                          [[#url]]
+                            <a href="[[.]]">[[text]]</a>
+                          [[/url]]
+                        [[/link_related]]
+                        [[#link_more]]
+                          [[#url]]
+                            <a href="[[.]]">[[text]]</a>
+                          [[/url]]
+                        [[/link_more]]
+                      </span><!--
+                      comment to eliminate last text node
+                 --></div>
+                  </div>
+                [[/overlay]]
+          
+                <div class="date-and-type">
+                  <div class="date[[#type]] with-type[[/type]]">
+                    [[#date]]
+                      [[.]]
+                      [[#attribution]]|[[/attribution]]
+                    [[/date]]
+                    [[#attribution]][[.]][[/attribution]]
+                  </div>
+                  [[#type]]
+                    <span class="type type-[[.]]">[[.]]</span>
+                  [[/type]]
+                </div>
+                [[#relation]]
+                  <div class="relation">[[.]]</div>
+                [[/relation]]
+              </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  [[/exhibition_promo]]
+</div>

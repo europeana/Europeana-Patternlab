@@ -40,10 +40,10 @@
 
     h3 {
       line-height: 1.375;
-      max-width: 70%;
     }
-
+    
     .viewmore-image {
+      flex-shrink: 0;
       margin: 0 $spacing-2x 0 $spacing-base;
     }
   }
