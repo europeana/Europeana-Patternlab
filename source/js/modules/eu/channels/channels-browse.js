@@ -32,9 +32,13 @@ define(['jquery'], function($){
             scrollToAnchor($(this));
             $(this).parent('.sublist').removeClass('sublist-open');
           }
-          else{
+          else {
             $('.anchor-list li').removeClass('sublist-open');
             $(this).parent('.sublist').addClass('sublist-open');
+            $(this).parent('.sublist').off('focusout');
+            $(this).parent('.sublist').on('focusout', function (event) {
+              $(this).removeClass('sublist-open');
+            });
           }
         }
         else{
