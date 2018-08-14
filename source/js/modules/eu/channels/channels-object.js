@@ -1309,8 +1309,13 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
       if((typeof window.enabledPromos).toUpperCase() === 'OBJECT'){
         $.each(window.enabledPromos, function(i, promo){
-          var mapping = promo.id === 'blog' ? PromoLoader.getMappingFunctions()['fnBlogToGeneric'] : null;
-          var tempId  = promo.id === 'blog' ? 'generic' : promo.id;
+          var mapping = null;
+          var tempId  = promo.id;
+
+          if(promo.id === 'blog'){
+            tempId  = 'generic';
+            mapping = PromoLoader.getMappingFunctions()['fnBlogToGeneric'];
+          }
           var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
         });
