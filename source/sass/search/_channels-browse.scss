@@ -25,6 +25,10 @@ $page-bg-colour:   #ececec;
 
       a {
         color: $black;
+
+        &:focus {
+          outline: 0;
+        }
       }
 
       .sublist a::after {

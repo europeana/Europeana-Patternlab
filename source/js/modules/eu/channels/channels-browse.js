@@ -35,9 +35,10 @@ define(['jquery'], function($){
           else {
             $('.anchor-list li').removeClass('sublist-open');
             $(this).parent('.sublist').addClass('sublist-open');
-            $(this).parent('.sublist').off('focusout');
-            $(this).parent('.sublist').on('focusout', function (event) {
-              $(this).removeClass('sublist-open');
+            $(this).focus();
+            $(this).off('focusout');
+            $(this).on('focusout', function () {
+              $(this).parent('.sublist').removeClass('sublist-open');
             });
           }
         }
