@@ -155,6 +155,18 @@
     color: $black;
   }
 
+  // hotspot style-overrides
+
+  .hotspot-expand{
+    margin-right: 0;
+
+    .label-collapse,
+    .label-expand{
+      -webkit-transform: translateX(-110%);
+      transform: translateX(-110%);
+    }
+  }
+
   .subtitle {
     color: $gray-light;
   }

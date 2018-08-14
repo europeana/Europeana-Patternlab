@@ -71,11 +71,6 @@
   }
 
   .channel-object-extended-information {
-    h2.channel-object-title {
-      .ctrl {
-        top: 0.1em;
-      }
-    }
 
     .closed {
       .close {
@@ -133,21 +128,6 @@
   @media all and (min-width: $bp-med) {
 
     .channel-object-extended-information {
-      h2.channel-object-title {
-        .ctrl {
-          &::before{
-            content:     attr(data-before);
-            font-size:   $font-size-slightly-smaller;
-            font-weight: lighter;
-            line-height: 1.4;
-            position:    absolute;
-            right:       2rem;
-            text-align:  right;
-            width:       300px;
-          }
-        }
-      }
-
       .ctrl {
         top: 1.6rem;
 
