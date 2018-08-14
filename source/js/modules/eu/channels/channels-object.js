@@ -172,7 +172,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var sClose   = '<span class="ctrl close"><span class="icon svg-icon-minus-bordered"></span></span>';
     var sOpen    = '<span class="ctrl  open"><span class="icon svg-icon-plus-bordered" ></span></span>';
     var keyLS    = 'eu_portal_object_data_expanded';
-    var topTitle = ei.find('.channel-object-title');
 
     var readUserPrefs = function(){
 
@@ -228,19 +227,11 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           ac = false;
         }
       });
-      if(ac){
-        topTitle.addClass('closed');
-      }
-      else{
-        topTitle.removeClass('closed');
-      }
+
+      require(['eu_hotspot'], function(HotSpot){
+        HotSpot.setExpandState(!ac, true);
+      });
     };
-
-
-    if(!topTitle.hasClass('ctrl')){
-      $(sClose).appendTo(topTitle).attr('data-before', topTitle.data('label-collapse'));
-      $(sOpen).appendTo(topTitle).attr('data-before', topTitle.data('label-expand'));
-    }
 
     ei.find('.data-section').each(function(i, ob){
       var $ob = $(ob);
@@ -256,7 +247,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         var el  = btn.closest('.data-section');
 
         if(el.length === 0){
-          el = ei.find('.data-section').add(topTitle);
+          return;
         }
         if(btn.hasClass('open')){
           el.removeClass('closed');
@@ -269,6 +260,29 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         checkAllClosed();
       });
     }
+
+    $(window).on('hotspot', function(e, data){
+
+      data = data || e.data;
+
+      if(data.active){
+        $('.channel-object-extended-information .ctrl.open:visible').click();
+      }
+      else{
+        $('.channel-object-extended-information .ctrl.close:visible').click();
+      }
+    });
+
+    require(['eu_hotspot'], function(HotSpot){
+
+      if(window.I18n){
+        $('.hotspot .label-collapse').text(window.I18n.translate('site.object.actions.collapse-extended'));
+        $('.hotspot .label-expand')  .text(window.I18n.translate('site.object.actions.expand-extended'));
+        $('.hotspot .text.collapsed').text(window.I18n.translate('site.object.meta-label.extended-information'));
+        $('.hotspot .text.expanded') .text(window.I18n.translate('site.object.meta-label.extended-information'));
+      }
+      HotSpot.initHotspot();
+    });
 
     readUserPrefs();
     checkAllClosed();

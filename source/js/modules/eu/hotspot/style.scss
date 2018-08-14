@@ -1,0 +1,195 @@
+@import '../../../../sass/scss/generic/variables';
+@import '../../../../sass/search/channels-object-variables';
+
+.hotspot-expand{
+  border:            1px solid $medium-gray;
+  color:             $medium-gray;
+  display:           block;
+  float:             right;
+  font-size:         1.6rem;
+  height:            2rem;
+  position:          absolute;
+  right:             2em;
+  text-align:        center;
+  top:               50%;
+  -webkit-transform: translate(100%, -50%);
+  transform:         translate(100%, -50%);
+  width:             2rem;
+
+  &.loading{
+    cursor: progress;
+  }
+
+  .icon-label-collapse,
+  .icon-label-expand{
+    display:        block;
+    font-weight:    bold;
+    height:         2rem;
+    line-height:    2rem;
+    pointer-events: none;
+    position:       absolute;
+    width:          2rem;
+  }
+
+  .icon-label-collapse{
+    left:  0.133em;
+    top:   0.1em;
+  }
+
+  .icon-label-expand{
+    left:  0.13em;
+    top:   0.08em;
+  }
+
+  .label-collapse,
+  .label-expand{
+    display:     none;
+    font-size:   $font-size-slightly-smaller;
+    font-weight: normal;
+  }
+
+  &.expanded .icon-label-expand{
+    display: none;
+  }
+
+  &:not(.expanded) .icon-label-collapse{
+    display: none;
+  }
+
+  @media all and (min-width: $bp-med) {
+
+    font-size:         1.2em;
+    height:            1.2em;
+    margin-right:      1em;
+    position:          relative;
+    right:             auto;
+    top:               auto;
+    -webkit-transform: translate(0, -0.18em);
+    transform:         translate(0, -0.18em);
+    width:             1.2em;
+
+    .label-collapse,
+    .label-expand{
+      display:           block;
+      font-size:         0.75em;
+      position:          absolute;
+      top:               0.22em;
+      -webkit-transform: translateX(-120%);
+      transform:         translateX(-120%);
+      white-space:       nowrap;
+    }
+
+    .icon-label-collapse,
+    .icon-label-expand{
+      height:       1.2em;
+      line-height:  1.2em;
+      width:        1.2em;
+    }
+
+    .icon-label-collapse{
+      left:              -0.039em;
+      top:               -0.05em;
+      -webkit-transform: scale(0.6);
+      transform:         scale(0.6);
+    }
+
+    .icon-label-expand{
+      left: 0.11em;
+      top:  0.06em;
+    }
+
+    &.expanded .label-expand{
+      display: none;
+    }
+    &:not(.expanded) .label-collapse{
+      display: none;
+    }
+  }
+
+  @media all and (min-width: $bp-large) {
+    margin-right: 2em;
+  }
+}
+
+.hotspot{
+
+  line-height:      2rem;
+  margin:           3em 3.5em 2em 0;
+  padding:          $pad $pad * 4 $pad $pad;
+  position:         relative;
+  width:            100%;
+
+  &.loading{
+    .label-collapse,
+    .label-expand,
+    .text.collapsed,
+    .text.expanded{
+      opacity: 0;
+    }
+  }
+
+  &.collapsed{
+    background-color: $eu-blue;
+    color:            #fff;
+    cursor:           pointer;
+
+    .hotspot-expand{
+      border-color: #fff;
+      color:        #fff;
+      &.expanded{
+        .svg-icon-minus-white{
+          display: block;
+        }
+      }
+      &:not(.expanded){
+        .svg-icon-plus-white{
+          display: block;
+        }
+      }
+    }
+
+    >.text.collapsed{
+      display: block;
+    }
+    >.text.expanded{
+      display: none;
+    }
+
+    .svg-icon-minus,
+    .svg-icon-plus{
+      display: none;
+    }
+
+    &:hover{
+      background-color: $gray-dark;
+    }
+  }
+
+  >.text.collapsed{
+    display: none;
+  }
+  >.text.expanded{
+    display: block;
+  }
+  >.text.expanded,
+  >.text.collapsed{
+    @media all and (min-width: $bp-med) {
+      padding-right: 8em;
+    }
+    @media all and (min-width: $bp-large) {
+      padding-right: 9em;
+    }
+  }
+
+  @media all and (min-width: $bp-med) {
+    line-height:   1.2;
+    margin:        3em -1em 2em 0;
+    padding:       $pad;
+  }
+
+  .svg-icon-minus-white,
+  .svg-icon-plus-white{
+    display: none;
+  }
+
+}

@@ -66,6 +66,11 @@
     {
       "name": "mock_ajax",
       "value": "{ 'delays' : {'portal_federated':'random', 'portal_autocomplete': 100}}"
+    },
+    {
+      "name": "requirementsApplication",
+      "value": "['/js/modules/lib/I18n/I18n-base.js', '/js/modules/lib/I18n/I18n.js']",
+      "unquoted": true
     }
   ],
   "img": false,
