@@ -648,68 +648,38 @@
               "items": [
                 {
                   "text": "Sverige",
-                  "url": null,
-                  "ga_data": null,
                   "extra_info": {
                     "latitude": 60.37888,
                     "longitude": 10.75128
-                  },
-                  "raw": false,
-                  "json_url": "/portal/en/explore/places/176046.json",
-                  "entity": true,
-                  "europeana_entity": true
+                  }
                 },
                 {
                   "text": "Kingdom of Sweden",
-                  "url": null,
-                  "ga_data": null,
                   "extra_info": {
                     "latitude": 62,
                     "longitude": 15
-                  },
-                  "raw": false,
-                  "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
-                  "entity": true,
-                  "europeana_entity": true
+                  }
                 },
                 {
                   "text": "Sweden",
-                  "url": null,
-                  "ga_data": null,
                   "extra_info": {
                     "latitude": 62,
                     "longitude": 15
-                  },
-                  "raw": false,
-                  "json_url": "/portal/en/explore/places/113-kingdom-of-sweden.json",
-                  "entity": true,
-                  "europeana_entity": true
+                  }                  
                 },
                 {
                   "text": "Kingdom of Norway",
-                  "url": null,
-                  "ga_data": null,
                   "extra_info": {
                     "latitude": 62,
                     "longitude": 10
-                  },
-                  "raw": false,
-                  "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
-                  "entity": true,
-                  "europeana_entity": true
+                  }
                 },
                 {
-                  "text": "Norway",
-                  "url": null,
-                  "ga_data": null,
+                  "text": "Norway",                  
                   "extra_info": {
                     "latitude": 62,
                     "longitude": 10
-                  },
-                  "raw": false,
-                  "json_url": "/portal/en/explore/places/107-kingdom-of-norway.json",
-                  "entity": true,
-                  "europeana_entity": true
+                  }
                 }
               ],
               "is_desc": false
