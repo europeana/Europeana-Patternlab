@@ -50,7 +50,7 @@ define(['jquery', 'leaflet'], function($, L){
     }
 
     $('#' + mapInfoId).html(coordLabels);
-    
+
     $.each(
       [
         require.toUrl('leaflet') + '.css',
