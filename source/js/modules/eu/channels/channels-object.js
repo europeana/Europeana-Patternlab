@@ -172,6 +172,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
     var sClose   = '<span class="ctrl close"><span class="icon svg-icon-minus-bordered"></span></span>';
     var sOpen    = '<span class="ctrl  open"><span class="icon svg-icon-plus-bordered" ></span></span>';
     var keyLS    = 'eu_portal_object_data_expanded';
+    var topTitle = ei.find('.channel-object-title');
 
     var readUserPrefs = function(){
 
@@ -193,8 +194,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
         ob = $(ob);
         var sectionId = ob.data('section-id');
         if(prefs.indexOf(sectionId) > -1){
-          $(ob).addClass('closed');
-          $(ob).find('.subsection-content').slideToggle(0);
+          $(ob).addClass('closed no-animation');
         }
         else{
           $(ob).removeClass('closed');
@@ -227,62 +227,47 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           ac = false;
         }
       });
-
-      require(['eu_hotspot'], function(HotSpot){
-        HotSpot.setExpandState(!ac, true);
-      });
+      if(ac){
+        topTitle.addClass('closed');
+      }
+      else{
+        topTitle.removeClass('closed');
+      }
     };
+
+    if(!topTitle.hasClass('ctrl')){
+      $(sClose).appendTo(topTitle).attr('data-before', topTitle.data('label-collapse'));
+      $(sOpen).appendTo(topTitle).attr('data-before', topTitle.data('label-expand'));
+    }
 
     ei.find('.data-section').each(function(i, ob){
       var $ob = $(ob);
       if($ob.find('.ctrl').length === 0){
-        $ob.append(sClose);
-        $ob.append(sOpen);
+        $ob.find('.subsection-label').append(sClose);
+        $ob.find('.subsection-label').append(sOpen);
       }
     });
 
     if(addHandler){
-      $(document).on('click', '.ctrl', function(){
+      $(document).on('click', '.subsection-label, .channel-object-title', function(){
         var btn = $(this);
         var el  = btn.closest('.data-section');
+        ei.find('.no-animation').removeClass('no-animation');
 
         if(el.length === 0){
-          return;
+          el = ei.find('.data-section').add(topTitle);
         }
-        if(btn.hasClass('open')){
+
+        if(btn.find('.ctrl:visible').hasClass('open')){
           el.removeClass('closed');
         }
         else{
           el.addClass('closed');
         }
-        el.find('.subsection-content').slideToggle(300);
         writeUserPrefs();
         checkAllClosed();
       });
     }
-
-    $(window).on('hotspot', function(e, data){
-
-      data = data || e.data;
-
-      if(data.active){
-        $('.channel-object-extended-information .ctrl.open:visible').click();
-      }
-      else{
-        $('.channel-object-extended-information .ctrl.close:visible').click();
-      }
-    });
-
-    require(['eu_hotspot'], function(HotSpot){
-
-      if(window.I18n){
-        $('.hotspot .label-collapse').text(window.I18n.translate('site.object.actions.collapse-extended'));
-        $('.hotspot .label-expand')  .text(window.I18n.translate('site.object.actions.expand-extended'));
-        $('.hotspot .text.collapsed').text(window.I18n.translate('site.object.meta-label.extended-information'));
-        $('.hotspot .text.expanded') .text(window.I18n.translate('site.object.meta-label.extended-information'));
-      }
-      HotSpot.initHotspot();
-    });
 
     readUserPrefs();
     checkAllClosed();
