@@ -57,29 +57,29 @@ require.config({
     // - gaps between tiles a certain zoom levels
     // - tiles not rendering following after paginating
 
-    leaflet:                       'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet',
+    leaflet:                       'https://cdn.jsdelivr.net/npm/leaflet@1.3.0/dist/leaflet-src.min',
     leaflet_style_override_folder: '../../lib/leaflet',
-    leaflet_edgebuffer:            '../../lib/leaflet/EdgeBuffer/leaflet.edgebuffer',
+    leaflet_edgebuffer:            'https://cdn.jsdelivr.net/npm/leaflet-edgebuffer@1.0.6/src/leaflet.edgebuffer.min',
     leaflet_fullscreen:            '../../lib/leaflet/fullscreen/Leaflet.fullscreen',
     leaflet_minimap:               '../../eu/leaflet/Leaflet-MiniMap/Control.MiniMap.min',
-    leaflet_zoom_slider:           '../../lib/leaflet/zoomslider/L.Control.Zoomslider',
+    leaflet_zoom_slider:           'https://cdn.jsdelivr.net/npm/leaflet.zoomslider@0.7.1/src/L.Control.Zoomslider.min',
 
-    leaflet_iiif:                  '../../lib/leaflet/leaflet-iiif/leaflet-iiif-1.2.1',
+    leaflet_iiif:                  'https://cdn.jsdelivr.net/npm/leaflet-iiif@1.2.1/leaflet-iiif.min',
     leaflet_iiif_eu:               '../../eu/leaflet/eu-leaflet-iiif',
 
-    jquery:                        'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
+    jquery:                        'https://cdn.jsdelivr.net/npm/jquery@2.1.4/dist/jquery.min',
     jqDropdown:                    '../../lib/jquery/jquery.dropdown',
     jqImagesLoaded:                '../../lib/jquery/jquery.imagesloaded.min',
-    jqScrollto:                    '../../lib/jquery/jquery.scrollTo',
+    jqScrollto:                    'https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.1/jquery.scrollTo.min',
     jsTree:                        '../../lib/jstree/jstree',
 
     lightgallery:                  '../../lib/lightgallery/js/lightgallery.min',
     lightgallery_fs:               '../../lib/lightgallery/js/lg-fullscreen.min',
-    lightgallery_hash:             '../../lib/lightgallery/js/lg-hash.min',
-    lightgallery_share:            '../../lib/lightgallery/js/lg-share.min',
-    lightgallery_zoom:             '../../lib/lightgallery/js/lg-zoom.min',
+    lightgallery_hash:             'https://cdn.jsdelivr.net/npm/lg-hash@1.0.0/dist/lg-hash.min',
+    lightgallery_share:            'https://cdn.jsdelivr.net/npm/lg-share@1.0.0/dist/lg-share.min',
+    lightgallery_zoom:             'https://cdn.jsdelivr.net/npm/lg-zoom@1.0.1/dist/lg-zoom.min',
 
-    masonry:                       '../../lib/desandro/masonry.pkgd',
+    masonry:                       'https://cdn.jsdelivr.net/npm/masonry-layout@4.1.0/masonry.min',
 
     media_controller:              '../../eu/media/search-media-controller',
     media_viewer_iiif:             '../../eu/media/search-iiif-viewer',
@@ -107,7 +107,7 @@ require.config({
     midi_replayer:                 '../../lib/midijs/replayer',
     midi_vc_base64:                '../../lib/midijs/VersionControl.Base64',
     midi_base64:                   '../../lib/midijs/base64binary',
-    mustache:                      'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min',
+    mustache:                      'https://cdn.jsdelivr.net/npm/mustache@2.3.0/mustache.min',
 
     // optimizely:                    'https://cdn.optimizely.com/js/6030790560',
 
@@ -115,11 +115,10 @@ require.config({
     pdf_ui:                        '../../lib/pdfjs/pdf-ui',
     pdf_lang:                      '../../lib/pdfjs/l10n',
     purl:                          '../../lib/purl/purl',
-    photoswipe:                    '../../lib/photoswipe/photoswipe',
+    photoswipe:                    'https://cdn.jsdelivr.net/npm/photoswipe@4.0.8/dist/photoswipe.min',
     photoswipe_ui:                 '../../lib/photoswipe/photoswipe-ui-default',
 
-    //pinterest:                     'http://assets.pinterest.com/js/pinit_main',
-    pinterest:                     '../../lib/pinterest/pinit_main',
+    pinterest:                     'https://assets.pinterest.com/js/pinit_main',
 
     util_cho_map:                  '../../eu/util/cho-map',
     util_ellipsis:                 '../../eu/util/ellipsis',
@@ -160,9 +159,7 @@ require.config({
     ugc_index:                     '../../eu/channels/ugc-index',
 
     ve_state_card:                 '../../eu/ve-state-card',
-    videojs:                       'https://vjs.zencdn.net/4.12/video',
-    //videojs:                       'https://vjs.zencdn.net/5.2.4/video',
-    // videojs:                       '../../lib/videojs/video',
+    videojs:                       'https://cdn.jsdelivr.net/npm/video.js@4.12.15/dist/video-js/video.min',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
 
