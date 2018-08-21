@@ -584,29 +584,6 @@
           }
         ]
       },
-
-      "places": {
-        "id": "location",
-        "title": "Place",
-        "sections": [
-          {
-            "title": "Place/Time",
-            "items": [
-              {"text": "third quarter 17th century"}
-            ]
-          },
-          {
-            "title": "Location",
-            "items": [
-              {"text": "Western Europe"}, {"text": "Netherlands"}
-            ]
-          },
-          {
-            "title": "Location",
-            "items": [{"text": "Near Delft"}]
-          }
-        ]
-      },
       "refs_rels": {
         "id": "refs_rels",
         "title": "References and Relationships",

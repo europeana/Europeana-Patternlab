@@ -42,7 +42,7 @@ define(['jquery', 'leaflet'], function($, L){
       coordLabels += $(markers[i]).data('label') + ' ';
       coordLabels += $(markers[i]).data('latitude') + '&deg; ' + ($(markers[i]).data('latitude') > 0 ? labels.n : labels.s) + ', ';
       coordLabels += $(markers[i]).data('longitude') + '&deg; ' + ($(markers[i]).data('longitude') > 0 ? labels.e : labels.w);
-      coordLabels += '</br>';
+      coordLabels += '<br/>';
     }
 
     if(pairs.length > 0){
