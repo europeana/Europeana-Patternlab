@@ -640,7 +640,7 @@
                 {
                   "text": "Sweden",
                   "extra_info": {
-                    "latitude": 62,
+                    "latitude": 62.4,
                     "longitude": 15
                   }                  
                 },
@@ -648,7 +648,7 @@
                   "text": "Kingdom of Norway",
                   "extra_info": {
                     "latitude": 62,
-                    "longitude": 10
+                    "longitude": 10.3
                   }
                 },
                 {
