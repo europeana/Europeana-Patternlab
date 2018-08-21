@@ -109,14 +109,12 @@ require.config({
     midi_base64:                   '../../lib/midijs/base64binary',
     mustache:                      'https://cdn.jsdelivr.net/npm/mustache@2.3.0/mustache.min',
 
-    // optimizely:                    'https://cdn.optimizely.com/js/6030790560',
-
     pdfjs:                         '../../lib/pdfjs/pdf',
     pdf_ui:                        '../../lib/pdfjs/pdf-ui',
     pdf_lang:                      '../../lib/pdfjs/l10n',
     purl:                          '../../lib/purl/purl',
     photoswipe:                    'https://cdn.jsdelivr.net/npm/photoswipe@4.0.8/dist/photoswipe.min',
-    photoswipe_ui:                 '../../lib/photoswipe/photoswipe-ui-default',
+    photoswipe_ui:                 'https://cdn.jsdelivr.net/npm/photoswipe@4.0.8/dist/photoswipe-ui-default.min',
 
     pinterest:                     'https://assets.pinterest.com/js/pinit_main',
 

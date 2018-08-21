@@ -4,31 +4,31 @@ require.config({
   paths: {
     exhibitions:            '../../eu/exhibitions',
     feedback:               '../../eu/feedback/eu-feedback',
-    ga:                     '//www.google-analytics.com/analytics',
+    ga:                     'https://www.google-analytics.com/analytics',
     global:                 '../../eu/global/global',
-    gsap:                   'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap',
+    gsap:                   'https://cdn.jsdelivr.net/npm/scrollmagic@2.0.5/scrollmagic/minified/plugins/animation.gsap.min',
 
-    hotjar:                 '//static.hotjar.com/c/hotjar-54631.js?sv=5',
+    hotjar:                 'https://static.hotjar.com/c/hotjar-54631.js?sv=5',
 
     imageCompare:           '../../lib/image-compare/image-compare',
     imagesloaded:           '../../lib/jquery/jquery.imagesloaded.min',
 
-    jquery:                 '../../lib/jquery/jquery',
+    jquery:                 'https://cdn.jsdelivr.net/npm/jquery@2.1.4/dist/jquery.min',
     jqDropdown:             '../../lib/jquery/jquery.dropdown',
-    jqScrollto:             '../../lib/jquery/jquery.scrollTo',
+    jqScrollto:             'https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.1/jquery.scrollTo.min',
     menus:                  '../../eu/global/menus',
 
-    photoswipe:             '../../lib/photoswipe/photoswipe',
-    photoswipe_ui:          '../../lib/photoswipe/photoswipe-ui-default',
-    pinterest:              '../../lib/pinterest/pinit_main',
+    photoswipe:             'https://cdn.jsdelivr.net/npm/photoswipe@4.0.8/dist/photoswipe.min',
+    photoswipe_ui:          'https://cdn.jsdelivr.net/npm/photoswipe@4.0.8/dist/photoswipe-ui-default.min',
+    pinterest:              'https://assets.pinterest.com/js/pinit_main',
 
     purl:                   '../../lib/purl/purl',
     smartmenus:             '../../lib/smartmenus/jquery.smartmenus',
     smartmenus_keyboard:    '../../lib/smartmenus/keyboard/jquery.smartmenus.keyboard',
 
-    ScrollMagic:            '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min',
-    TweenMax:               '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min',
-    TimelineMax:            '//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min',
+    ScrollMagic:            'https://cdn.jsdelivr.net/npm/scrollmagic@2.0.5/scrollmagic/uncompressed/ScrollMagic.min',
+    TweenMax:               'https://cdn.jsdelivr.net/npm/gsap@2.0.1/src/minified/TweenMax.min',
+    TimelineMax:            'https://cdn.jsdelivr.net/npm/gsap@2.0.1/src/minified/TimelineMax.min',
 
     util_ellipsis:          '../../eu/util/ellipsis',
     util_resize:            '../../eu/util/resize',
