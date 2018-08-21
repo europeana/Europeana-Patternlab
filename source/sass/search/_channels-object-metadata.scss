@@ -50,6 +50,7 @@
 
       .subsection-label {
         color:         $black;
+        cursor: pointer;
         margin-bottom: 0;
         padding-left:  0;
         padding-right: 0;
@@ -72,16 +73,31 @@
 
   .channel-object-extended-information {
 
-    .closed {
+    h2.channel-object-title {
+      .ctrl {
+        top: 0.1em;
+      }
+    }
+
+    .channel-object-title.closed,
+    .data-section.closed {
       .close {
         display: none;
       }
       .open {
         display: block;
       }
+
+      .subsection-content {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        transition-property: opacity, max-height;
+      }
     }
 
-    :not(.closed) {
+    .channel-object-title:not(.closed),
+    .data-section:not(.closed) {
       .close {
         display: block;
       }
@@ -113,14 +129,34 @@
       }
     }
 
-    .subsection-content {
-      padding-right: 3.4em;
-      position:      relative;
+    .data-section {
+      overflow: hidden;
+      .subsection-label {
+        color: $gray-med;
+      }
     }
 
-    .data-section {
-      .subsection-label{
-        color: $gray-med;
+    .subsection-content {
+      max-height: 100rem;
+      opacity: 1;
+      padding-right: 3.4em;
+      position: relative;
+      transition-delay: 0s, 0.5s;
+      transition-duration: 0.5s, 0.5s;
+      transition-property: max-height, opacity;
+      transition-timing-function: ease;
+
+      > ul {
+        display: inline-block;
+        margin-top: 1.6rem;
+      }
+    }
+
+    .no-animation,
+    .closed.no-animation {
+      .subsection-label,
+      .subsection-content {
+        transition: none;
       }
     }
   }
@@ -128,6 +164,21 @@
   @media all and (min-width: $bp-med) {
 
     .channel-object-extended-information {
+      h2.channel-object-title {
+        .ctrl {
+          &::before{
+            content:     attr(data-before);
+            font-size:   $font-size-slightly-smaller;
+            font-weight: lighter;
+            line-height: 1.4;
+            position:    absolute;
+            right:       2rem;
+            text-align:  right;
+            width:       300px;
+          }
+        }
+      }
+
       .ctrl {
         top: 1.6rem;
 

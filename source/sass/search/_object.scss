@@ -1035,7 +1035,6 @@
 
 @media all and (min-width: $bp-med) {
   .subsection-label{
-    @include span(4);
     .object-overview &{
       @include span(4 of 18);
     }
