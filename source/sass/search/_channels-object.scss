@@ -4,11 +4,52 @@
 @import "channels-object-metadata";
 @import "channels-object-variables";
 
-.non-eu-entities{
+.non-eu-entities {
+  color: $gray-med;
+  line-height: 1.375;
   text-align: right;
+
+  @media all and (min-width: $bp-xl) {
+    margin-left: calc(400px + 2rem);
+    width: calc(100% - (400px + 2rem));
+  }
+
+  h5 {
+    color: $gray-light;
+    font-size: $font-size-sm;
+    font-weight: normal;
+    margin-bottom: $spacing-base;
+  }
 
   .non-eu-entity:not(:last-of-type)::after{
     content: ", ";
+  }
+
+  .entity-wrapper {
+    margin-right: -$spacing-2x;
+  }
+
+  .channel-object-viewmore {
+    display: inline-block;
+
+    a {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    h3 {
+      line-height: 1.375;
+    }
+
+    .viewmore-image {
+      flex-shrink: 0;
+      margin: 0 $spacing-2x 0 $spacing-base;
+    }
+  }
+
+  .non-eu-entity-wrapper {
+    display: inline-block;
   }
 }
 
@@ -143,6 +184,7 @@
   }
 
   .channel-media-wrap  {
+    border-radius: $base-border-radius;
     position: relative;
   }
 

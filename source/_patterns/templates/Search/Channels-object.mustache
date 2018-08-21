@@ -185,7 +185,9 @@
 
                 {{#creators}}
                   <div class="non-eu-entities">
+                    <h5>Created by</h5>
                     {{#sections}}
+                      <div class="entity-wrapper">
                       {{#items}}
                         {{#europeana_entity}}
                           <div class="channel-object-viewmore">
@@ -193,11 +195,14 @@
                           </div>
                         {{/europeana_entity}}
                       {{/items}}
+                      </div>
+                      <div>
                       {{#items}}
                         {{^europeana_entity}}
                           <span class="non-eu-entity">{{text}}</span>
                         {{/europeana_entity}}
                       {{/items}}
+                      </div>
                     {{/sections}}
                   </div>
                 {{/creators}}

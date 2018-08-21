@@ -889,9 +889,6 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             if(depiction){
               imageEl.css('background-image', 'url("' + depiction + '")');
             }
-            else{
-              imageEl.remove();
-            }
           });
         }
       };
