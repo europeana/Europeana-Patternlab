@@ -312,7 +312,7 @@
           </div>
 
           <div class="channel-object-extended-information">
-            
+
             <h2 class="channel-object-title" data-label-expand="[{{i18n.site.object.actions.expand-extended}}]" data-label-collapse="[{{i18n.site.object.actions.collapse-extended}}]">
               {{i18n.site.object.meta-label.extended-information}}
             </h2>
@@ -395,9 +395,15 @@
                           <div class="map">
                             <div class="markers">
                             {{#items}}
-                              <a data-latitude="{{extra_info.latitude}}" data-longitude="{{extra_info.longitude}}" data-label="{{text}}"></a>
+                              {{#extra_info}}
+                                {{#latitude}}
+                                  {{#longitude}}
+                                    <a data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-label="{{text}}"></a>
+                                  {{/longitude}}
+                                {{/latitude}}
+                              {{/extra_info}}
                             {{/items}}
-                            </div>                           
+                            </div>
                           </div>
                           <a class="scroll-trigger trigger-chain"
                               data-enabled="true"
