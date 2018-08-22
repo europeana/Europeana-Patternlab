@@ -8,9 +8,6 @@ module.exports = function(grunt) {
       // }
       index: {
         src: ['public/index.html']
-      },
-      js_templates: {
-        src: ['source/js/js-mustache/*', 'source/js/js-mustache/**/*']
       }
     },
     concat: {
@@ -352,10 +349,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean:index',
-    'clean:js_templates',
     'concat:blacklight',
     'copy:dev_css',
-
     'shell:patternlab_markup',
     'copy:js_templates'
   ]);
