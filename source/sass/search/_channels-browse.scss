@@ -25,23 +25,27 @@ $page-bg-colour:   #ececec;
 
       a {
         color: $black;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      .sublist a::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid $gray-light;
+        content: "";
+        height: 0;
+        position: absolute;
+        right: -0.7rem;
+        top: 1.2rem;
+        width: 0;
       }
 
       > ul > li {
         position: relative;
         text-align: center;
-
-        &.sublist::after {
-          border-left: 4px solid transparent;
-          border-right: 4px solid transparent;
-          border-top: 4px solid $gray-light;
-          content: "";
-          height: 0;
-          position: absolute;
-          right: -0.5rem;
-          top: 1.2rem;
-          width: 0;
-        }
 
         ul {
           background: $white;
@@ -54,20 +58,20 @@ $page-bg-colour:   #ececec;
           opacity: 0;
           overflow-y: auto;
           padding: 0.3rem;
+          padding-right: 0.7rem;
           position: absolute;
           top: -0.3rem;
           transition: all 0.2s;
         }
 
-        &.sublist.sublist-open {
-          &::after {
+        &.sublist:hover {
+          a::after {
             display: none;
           }
 
           ul {
             display: block;
             opacity: 1;
-            padding-right: 0.8rem;
           }
         }
       }
@@ -94,24 +98,15 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
             position: relative;
 
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                margin-left: -0.3rem;
-                top: 0.75rem;
+                display: none;
               }
             }
 
-            &.sublist::after {
-              right: -0.2rem;
+            &.sublist a::after {
+              display: none;
             }
-
-            ul {
-              width: auto;
-            }
-
           }
         }
       }
@@ -159,15 +154,14 @@ $page-bg-colour:   #ececec;
 
       .anchor-list-wrapper > ul > li {
 
-        &.sublist::after {
-          right: -0.5rem;
+        &.sublist a::after {
+          right: -0.7rem;
           top: 1.4rem;
         }
 
-        &.sublist.sublist-open {
+        &.sublist {
           ul {
-            left: -0.3rem;
-            top: -0.33rem;
+            padding-right: 1rem;
           }
         }
 
@@ -194,21 +188,13 @@ $page-bg-colour:   #ececec;
           > ul > li {
             padding: 0 $spacing-half;
 
-            &.sublist::after {
-              right: -0.1rem;
+            &.sublist a::after {
+              display: none;
             }
 
-            &.sublist ul {
-              width: auto;
-            }
-
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                margin-left: -0.35rem;
-                top: -0.3rem;
+                display: none;
               }
             }
           }
