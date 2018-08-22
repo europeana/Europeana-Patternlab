@@ -27,8 +27,8 @@ Styleguide development is done on files within the /source/ directory of this pr
 1. Generate and/or update the /public/ directory and its site assets
    1. initially the /public directory exists, but only with a README document
    1. from the root of the working directory run `php core/console --generate`
+   1. from the root of the working directory run `npm install`
    1. from the root of the working directory run `grunt copy:js_templates`
-   1. from the root of the working directory run `php core/console --generate` (again)
 1. The web server should serve files from the `public` directory generated or updated in the previous step
 
 ## Testing
