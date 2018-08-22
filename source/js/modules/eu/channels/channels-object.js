@@ -1040,7 +1040,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
 
   function showMap(mapData){
     require(['util_cho_map'], function(MapUtil){
-      MapUtil.loadMap(mapData);
+      MapUtil.loadMap(mapData, $('.markers a'));
     });
   }
 
