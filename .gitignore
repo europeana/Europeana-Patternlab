@@ -14,8 +14,6 @@ node_modules
 .idea/
 *.codekit
 
-source/js/js-mustache
-
 # Ignore bower files
 source/js/dist/README.md
 source/js/dist/bower.json
