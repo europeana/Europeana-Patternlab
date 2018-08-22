@@ -64,7 +64,7 @@ $page-bg-colour:   #ececec;
           transition: all 0.2s;
         }
 
-        &.sublist.sublist-open {
+        &.sublist:hover {
           a::after {
             display: none;
           }
@@ -98,24 +98,15 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
             position: relative;
 
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                margin-left: -0.3rem;
-                top: 0.65rem;
+                display: none;
               }
             }
 
             &.sublist a::after {
-              right: -0.1rem;
+              display: none;
             }
-
-            ul {
-              width: auto;
-            }
-
           }
         }
       }
@@ -198,20 +189,12 @@ $page-bg-colour:   #ececec;
             padding: 0 $spacing-half;
 
             &.sublist a::after {
-              right: -0.1rem;
+              display: none;
             }
 
-            &.sublist ul {
-              width: auto;
-            }
-
-            &.sublist.sublist-open {
-              position: static;
-
+            &.sublist:hover {
               ul {
-                left: auto;
-                margin-left: -0.35rem;
-                top: -0.3rem;
+                display: none;
               }
             }
           }
