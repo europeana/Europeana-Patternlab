@@ -2,14 +2,19 @@
 
 .channels-item {
 
-  .channel-media-wrap{
+  .subtitle {
+    margin-bottom: $spacing-base;
+  }
 
-    padding: $pad;
+  .channel-media-wrap{
+    color: $gray-light;
+    padding: $spacing-base;
 
     .channel-object-title {
-      font-size: $font-size-norm * 2;
+      font-size: $font-size-xlarge;
+      font-weight: normal;
       line-height: 1.34375em;
-      margin-bottom: $space;
+      margin-bottom: $spacing-2x;
     }
 
     .channel-object-description .missing{
@@ -45,11 +50,10 @@
   .channel-media-wrap:not(.empty) {
 
     .channel-object-description {
-      // border-bottom: 2px solid rgba(0, 0, 0, 0.12);
-      margin-bottom: $space;
+      margin-bottom: $spacing-base;
 
       p:last-child {
-        margin-bottom: $space;
+        margin-bottom: $spacing-base;
       }
     }
 
@@ -168,33 +172,8 @@
     // carousel
 
     .channel-object-media-nav {
-
       .media-thumb-section {
-
         margin-bottom: 1.5rem;
-
-        //&::after{
-        //  background:     $white;
-        //  box-shadow:     0 2px 4px 0 rgba(0, 0, 0, 0.5);
-        //  content:        ' ';
-        //  height:         4.7em;
-        //  left:           3%;
-        //  pointer-events: none;
-        //  position:       absolute;
-        //  top:            0.6em;
-        //  width:          94%;
-
-        //  @media all and (min-width: $bp-med) {
-        //    left:  0;
-        //    width: 100%;
-        //  }
-
-        //  @media all and (min-width: $bp-xl) {
-        //    left:  2%;
-        //    width: 96%;
-        //  }
-        //}
-
         &.js-remove{
           display: none;
         }

@@ -81,7 +81,7 @@ define(['jquery', 'util_scrollEvents', 'util_mustache_loader', 'util_foldable', 
 
   function showMap(mapData){
     require(['util_cho_map'], function(MapUtil){
-      MapUtil.loadMap(mapData);
+      MapUtil.loadMap(mapData, $('.markers a'));
     });
   }
 
