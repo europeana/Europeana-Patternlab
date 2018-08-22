@@ -307,7 +307,7 @@
                         {{/sections}}
                       </ul>
 
-                      {{#geo.long_and_lat}} 
+                      {{#geo.long_and_lat}}
                         {{#sections}}
                          <a class="scroll-trigger"
                            id="scroll-trigger-map"
@@ -317,10 +317,16 @@
                           <a id="map" style="bottom:4.8em; position: relative;"></a>
                           <div class="map">
                             <div class="markers">
-                            {{#items}}
-                              <a data-latitude="{{extra_info.latitude}}" data-longitude="{{extra_info.longitude}}" data-label="{{text}}"></a>
-                            {{/items}}
-                            </div>                           
+                              {{#items}}
+                                {{#extra_info}}
+                                  {{#latitude}}
+                                    {{#longitude}}
+                                      <a data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-label="{{text}}"></a>
+                                    {{/longitude}}
+                                  {{/latitude}}
+                                {{/extra_info}}
+                              {{/items}}
+                            </div>
                           </div>
                           <a class="scroll-trigger trigger-chain"
                             data-enabled="true"
@@ -328,7 +334,7 @@
                             data-fire-on-open-params='{"trigger": "scroll-trigger-map"}'></a>
                         {{/sections}}
                       {{/geo.long_and_lat}}
-                    {{/places}}                    
+                    {{/places}}
                   </div>
                 </div>
               {{/present}}
