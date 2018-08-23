@@ -36,17 +36,17 @@
       animation-name:            placeHolderShimmer;
       animation-timing-function: linear;
       background:                #fff;
-      background:                linear-gradient(to right, #fafafa 8%, #EDEDED 38%, #fafafa 54%);
+      background:                linear-gradient(to right, #fafafa 8%, #ededed 38%, #fafafa 54%);
       background-size:           1000px 640px;
       position:                  relative;
     }
 
     @keyframes placeHolderShimmer{
       0%{
-        background-position: -468px 0
+        background-position: -468px 0;
       }
       100%{
-        background-position: 468px 0
+        background-position: 468px 0;
       }
     }
   }
