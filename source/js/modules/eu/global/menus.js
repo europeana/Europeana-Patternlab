@@ -24,7 +24,7 @@ var Site = window.Site || {};
   Site.init_menu = function(){
 
     //Navigation toggle
-    $('.nav-toggle-menu').on("click", function(e) {
+    $('.nav-toggle-menu').on('click', function(e) {
       if( body.hasClass( 'is-open-menu-right' ) ){
         Site.resetMenu();
       }else{
@@ -53,10 +53,10 @@ var Site = window.Site || {};
     $('.nav-toggle-sites').on('click', function(e) {
 
       if( body.hasClass( 'is-open-menu-top' ) ){
-          Site.resetMenu();
+        Site.resetMenu();
       }else{
-          body.addClass('is-open-menu-top');
-          document.addEventListener( 'click', bodyClickFn );
+        body.addClass('is-open-menu-top');
+        document.addEventListener( 'click', bodyClickFn );
       }
       e.preventDefault();
     });
