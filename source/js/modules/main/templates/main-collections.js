@@ -165,8 +165,8 @@ require.config({
     // videojs:                       '../../lib/videojs/video',
     videojs_aurora:                '../../lib/videojs-aurora/videojs-aurora',
     videojs_silverlight:           '../../lib/videojs-silverlight/videojs-silverlight',
-
     videojs_wavesurfer:            '../../lib/videojs-wavesurfer/videojs-wavesurfer',
+    viewport_contains:             '../../eu/util/viewport-contains',
     wavesurfer:                    '../../lib/videojs-wavesurfer/wavesurfer'
   },
   shim: {

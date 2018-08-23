@@ -1,24 +1,8 @@
-define([], function(){
-
-  function isElementInViewport(el){
-    if(typeof jQuery === 'function' && el instanceof jQuery){
-      el = el[0];
-    }
-    var rect = el.getBoundingClientRect();
-    return (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*
-                                                                                                                                * or
-                                                                                                                                * $(window).height()
-                                                                                                                                */
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*
-                                                                               * or
-                                                                               * $(window).width()
-                                                                               */
-    );
-  }
+define(['viewport_contains'], function(ViewportContains){
 
   function triggerIfInView(trigger){
 
-    if(isElementInViewport(trigger[0])){
+    if(ViewportContains.isElementInViewport(trigger[0])){
 
       var pullTrigger = function($trigger){
 
@@ -30,10 +14,10 @@ define([], function(){
 
         // extra params from the "before"
         var dynamicParamsStr = window.getComputedStyle($trigger[0], ':before').getPropertyValue('content');
-        if(dynamicParamsStr && dynamicParamsStr.length > 0 && dynamicParamsStr != 'none'){
+        if(dynamicParamsStr && dynamicParamsStr.length > 0 && dynamicParamsStr !== 'none'){
 
           var dynamicParams = JSON.parse(dynamicParamsStr);
-          if(typeof dynamicParams == 'string'){
+          if(typeof dynamicParams === 'string'){
             dynamicParams = JSON.parse(dynamicParams);
           }
           for(var item in dynamicParams) {

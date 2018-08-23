@@ -1,4 +1,4 @@
-define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
+define(['jquery', 'mustache', 'viewport_contains', 'util_resize'], function($, Mustache, ViewportContains){
 
   function EuAutocomplete(){
 
@@ -171,12 +171,6 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
       //console.log('Autocomplete: ' + msg);
     };
 
-    this.isElementInViewport = function(el){
-      el = el[0];
-      var rect = el.getBoundingClientRect();
-      return (rect.top >= 0 && rect.left >= 0 && rect.bottom) - (window.innerHeight || document.documentElement.clientHeight);
-    };
-
     this.scrollUpFixed = function(selItem){
 
       if(selItem[0] === $(this.selInput)[0]){
@@ -187,7 +181,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
         var listTop = parseInt(self.$list.css('top'));
 
         if(listTop < self.$anchor.outerHeight()){
-          var inV = self.isElementInViewport(selItem);
+          var inV = ViewportContains.isElementInViewport(selItem);
           self.$list.css('top', Math.min(listTop-inV, self.$anchor.outerHeight()));
         }
       }
@@ -237,7 +231,7 @@ define(['jquery', 'mustache', 'util_resize'], function($, Mustache){
           self.$input.val($el.data('term'));
         }
 
-        var inV = self.isElementInViewport($el);
+        var inV = ViewportContains.isElementInViewport($el);
         if(inV > 0){
           if(self.ops.scrollPolicyFixed){
             var top = parseInt(self.$list.css('top'));
