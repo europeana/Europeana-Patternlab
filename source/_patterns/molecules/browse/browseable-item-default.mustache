@@ -1,5 +1,5 @@
 <div class="gridlayout-card{{#grid_width}} width-{{.}}{{/grid_width}}">
-  	<a class="card-img" href="{{url}}" style="background-image:url('{{img_url}}');"></a>
+  	<a class="card-img loading" href="{{url}}" data-image="{{img_url}}"></a>
 	  {{#has_text}}
 	    <div class="inner">
 	      {{#link_text}}<p>{{#url}}<a href="{{.}}">{{/url}}{{.}}{{#url}}</a>{{/url}}</p>{{/link_text}}

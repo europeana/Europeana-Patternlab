@@ -1,4 +1,4 @@
-define(['jquery'], function($){
+define(['jquery', 'util_eu_ellipsis', 'viewport_contains'], function($, Ellipsis, ViewportContains){
 
   'use strict';
 
@@ -19,8 +19,30 @@ define(['jquery'], function($){
       });
 
       initScrollToAnchor();
-
     });
+  }
+
+  function initLazyLoad(){
+    var loadImagesInView = function(){
+      $('.card-img.loading').each(function(i, ob){
+        if(ViewportContains.isElementInViewport(ob, true)){
+          var cardImg = $(ob);
+          cardImg.removeClass('loading');
+          cardImg.css('background-image', 'url("' + cardImg.data('image') + '")');
+
+          cardImg.next('.inner').find('p:first-of-type').each(function(){
+            Ellipsis.create($(this), {textSelectors:['a']});
+          });
+        }
+      });
+    };
+
+    require(['util_scroll'], function(){
+      $(window).europeanaScroll(function(){
+        loadImagesInView();
+      });
+    });
+    loadImagesInView();
   }
 
   function initScrollToAnchor() {
@@ -38,17 +60,9 @@ define(['jquery'], function($){
     }, 1000);
   }
 
-  function initEllipsis(){
-    require(['util_eu_ellipsis'], function(Ellipsis){
-      $('.gridlayout-card .inner p:first-of-type').each(function(){
-        Ellipsis.create($(this), {textSelectors:['a']});
-      });
-    });
-  }
-
   function initPage(){
-    initEllipsis();
     initTitleBar();
+    initLazyLoad();
   }
 
   return {

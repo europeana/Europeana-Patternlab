@@ -41,7 +41,8 @@ requirejs.config({
     util_promo_loader:         '../../eu/util/eu-promo-loader',
     util_resize:               '../../eu/util/resize',
     util_scroll:               '../../eu/util/scroll',
-    util_scrollEvents:         '../../eu/util/scrollEvents'
+    util_scrollEvents:         '../../eu/util/scrollEvents',
+    viewport_contains:         '../../eu/util/viewport-contains'
   },
   shim: {
     jasmine_jquery:{
