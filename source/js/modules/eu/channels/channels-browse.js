@@ -1,4 +1,4 @@
-define(['jquery', 'util_eu_ellipsis', 'viewport_contains'], function($, Ellipsis, ViewportContains){
+define(['jquery', 'util_eu_ellipsis', 'viewport_contains', 'jqImagesLoaded'], function($, Ellipsis, ViewportContains){
 
   'use strict';
 
@@ -23,18 +23,75 @@ define(['jquery', 'util_eu_ellipsis', 'viewport_contains'], function($, Ellipsis
   }
 
   function initLazyLoad(){
-    var loadImagesInView = function(){
-      $('.card-img.loading').each(function(i, ob){
-        if(ViewportContains.isElementInViewport(ob, true)){
-          var cardImg = $(ob);
-          cardImg.removeClass('loading');
-          cardImg.css('background-image', 'url("' + cardImg.data('image') + '")');
 
-          cardImg.next('.inner').find('p:first-of-type').each(function(){
-            Ellipsis.create($(this), {textSelectors:['a']});
-          });
+    var loadBatch = function($batch, cb){
+
+      var returned = 0;
+
+      $batch.each(function(i, card){
+
+        var cardImg  = $(card);
+        var imgSrc   = cardImg.data('image');
+
+        if(!cardImg.hasClass('preloading')){
+          cardImg.addClass('loading');
+        }
+
+        var preloader = $('<img style="width:0px; height:0px;">').appendTo(cardImg);
+
+        $(preloader).imagesLoaded(function(){
+          cardImg.css('background-image', 'url("' + imgSrc + '")');
+          cardImg.removeClass('loading preloading');
+          cardImg.addClass('loaded');
+          preloader.remove();
+
+          returned ++;
+
+          if(returned === $batch.length && cb){
+            cb();
+          }
+        });
+        preloader.attr('src', imgSrc);
+
+        cardImg.next('.inner').find('.ellipsis').each(function(){
+          var txt = $(this);
+          txt.removeClass('ellipsis');
+          Ellipsis.create(txt, {textSelectors:['a']});
+        });
+
+      });
+    };
+
+    var loadImagesInView = function(){
+
+      var selCard = '.card-img:not(.loaded, .loading)';
+      var batch   = $(selCard).map(function(){
+        if(ViewportContains.isElementInViewport(this, true)){
+          return this;
         }
       });
+
+      var batchList = batch.first().closest('.browseabe-list');
+      var nextBatch = batchList.nextAll('.browseabe-list').first().find(selCard);
+      var loadNext;
+
+      if(nextBatch.length > 0){
+        loadNext = nextBatch;
+      }
+      else{
+        loadNext = batchList.prevAll('.browseabe-list').first().find(selCard);
+      }
+
+      if(loadNext.length > 0){
+        loadNext.addClass('preloading');
+      }
+
+      loadBatch(batch, function(){
+        if(loadNext.length > 0){
+          loadBatch(loadNext);
+        }
+      });
+
     };
 
     require(['util_scroll'], function(){
