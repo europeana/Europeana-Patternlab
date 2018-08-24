@@ -1,5 +1,6 @@
 <div class="tab-header"{{#url}} data-content-url="{{.}}"{{/url}}>
   {{#tab_title}}<span class="tab-title">{{.}}</span>{{/tab_title}}
-  <span class="tab-subtitle">{{#total}}{{.}}{{/total}}{{^total}}&nbsp;{{/total}}</span>
+  <span class="tab-subtitle"><span class="results-count">{{#total}}{{.}}{{/total}}</span><span class="results-label plural js-hidden"> {{i18n.site.object.similar-results}}</span><span class="results-label single js-hidden"> {{i18n.site.object.similar-result}}</span>{{^total}}&nbsp;{{/total}}
+  </span>
 </div>
 <div class="tab-content"><div class="slide-rail" style="position: relative;"><div class="slide-content"></div></div></div>

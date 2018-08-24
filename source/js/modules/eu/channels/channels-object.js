@@ -1543,7 +1543,19 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           function(data, tab){
 
             tab = $(tab);
-            tab.find('.tab-subtitle').html(data.total);
+
+            tab.find('.tab-subtitle .results-count').html('');
+            tab.find('.tab-subtitle .results-label').addClass('js-hidden');
+
+            if(data.total){
+              tab.find('.tab-subtitle .results-count').html(data.total);
+              if(parseInt(data.total) === 1){
+                tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
+              }
+              else{
+                tab.find('.tab-subtitle .results-label.plural').removeClass('js-hidden');
+              }
+            }
 
             var slideContent = tab.next('.tab-content').find('.slide-content');
 
