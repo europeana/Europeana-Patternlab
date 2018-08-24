@@ -3,7 +3,7 @@ define([], function(){
   var suggestions = {
     'tab_items': [
       {
-        'total': '273 Results',
+        'total': 273,
         'documents': [
           {
             'title': 'The Lighthouse, Glasgow (The Herald Building) - Exterior',
@@ -53,7 +53,7 @@ define([], function(){
         ]
       },
       {
-        'total': '612 Results',
+        'total': 612,
         'documents': [
           {
             'title': 'Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie',
@@ -84,7 +84,7 @@ define([], function(){
         ]
       },
       {
-        'total': '189 Results',
+        'total': 1,
         'documents': [
           {
             'title': 'The Doorway with some steps.',
@@ -93,29 +93,11 @@ define([], function(){
               'src': '/images/search/search-result-thumb-1.jpg'
             },
             'url': 'javascript:alert(\'follow external url...\');'
-          },
-          {
-            'title': 'Self portrait',
-            'external': true,
-            'url': 'javascript:alert(\'follow external url...\');'
-          },
-          {
-            'title': 'Belshazzars Feast',
-            'external': true,
-            'img': {
-              'src': 'http://placeimg.com/400/300/nature'
-            },
-            'url': 'javascript:alert(\'follow external url...\');'
-          },
-          {
-            'title': 'The Stoning of Saint Stephen',
-            'external': true,
-            'url': 'javascript:alert(\'follow external url...\');'
           }
         ]
       },
       {
-        'total': '5 Results',
+        'total': 5,
         'documents': [
           {
             'title': 'The Anatomy Lesson of Dr. Nicolaes Tulp',
