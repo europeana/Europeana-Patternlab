@@ -1300,6 +1300,10 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
           }
           var conf    = { id: promo.id, templateId: promoTemplates[tempId], url: promo.url, mapping: mapping };
           promoConf.push(conf);
+
+          if(promo.relation && window.I18n){
+            conf.relation = window.I18n.translate('site.object.promotions.card-labels.' + promo.relation);
+          }
         });
       }
 

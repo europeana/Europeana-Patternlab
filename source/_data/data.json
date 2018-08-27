@@ -730,6 +730,13 @@
                 "similar-result": "Result",
                 "similar-results": "Results",
                 "similar-suggestions": "Suggested content",
+                "promotions":{
+                  "card-labels":{
+                    "dcType": "The type of this object",
+                    "dcCreator": "Creator of this object",
+                    "dcContributor": "Contributor to this object"
+                  }
+                },
                 "actions": {
                     "annotate": "Annotate",
                     "collapse-extended": "collapse extended information",

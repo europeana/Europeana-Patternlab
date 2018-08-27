@@ -31,7 +31,7 @@
     },
     {
       "name": "enabledPromos",
-      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json' }, {'id': 'generic', 'url': '/promoted.json' }]",
+      "value": "[ {'id': 'exhibition', 'url': '/exhibition.json' }, { 'id': 'gallery', 'url': '/galleries.json' }, {'id': 'news', 'url': '/news.json' }, { 'id': 'entity', 'url': '/entity.json', 'relation': 'dcCreator' }, {'id': 'generic', 'url': '/promoted.json' }]",
       "unquoted": true
     },
     {
@@ -116,7 +116,7 @@
               "url": "javascript:alert('Raphael');",
               "json_url": "depiction?index=1",
               "europeana_entity": true
-            },           
+            },
             {
               "text": "Agency of Internal Police and Supervision of the State of Dikes",
               "url": false,
@@ -654,7 +654,7 @@
                   "extra_info": {
                     "latitude": 62.4,
                     "longitude": 15
-                  }                  
+                  }
                 },
                 {
                   "text": "Kingdom of Norway",
@@ -664,7 +664,7 @@
                   }
                 },
                 {
-                  "text": "Norway",                  
+                  "text": "Norway",
                   "extra_info": {
                     "latitude": 62,
                     "longitude": 10
