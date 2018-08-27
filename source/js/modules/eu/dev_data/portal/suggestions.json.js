@@ -53,7 +53,7 @@ define([], function(){
         ]
       },
       {
-        'total': 612,
+        'total': 6124588,
         'documents': [
           {
             'title': 'Glasgow School of Art - Interior, lighting (rose motif) | Mackintosh, Charles Rennie',

@@ -1548,7 +1548,7 @@ define(['jquery', 'util_scrollEvents', 'eu_media_options', 'util_mustache_loader
             tab.find('.tab-subtitle .results-label').addClass('js-hidden');
 
             if(data.total){
-              tab.find('.tab-subtitle .results-count').html(data.total);
+              tab.find('.tab-subtitle .results-count').html(Number(data.total).toLocaleString());
               if(parseInt(data.total) === 1){
                 tab.find('.tab-subtitle .results-label.single').removeClass('js-hidden');
               }
